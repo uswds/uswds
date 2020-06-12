@@ -4,11 +4,14 @@ const { prefix: PREFIX } = require("../config");
 
 const DROPZONE = `.${PREFIX}-dropzone`;
 const INPUT = `.${PREFIX}-dropzone__input`;
+const TARGET = `.${PREFIX}-dropzone__target`;
 const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
 const INSTRUCTIONS = `.${PREFIX}-dropzone__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-dropzone__preview`;
+const PREVIEW_HEADING_CLASS = `${PREFIX}-dropzone__preview-heading`;
 const DRAG_CLASS = `${PREFIX}-dropzone--drag`;
 const LOADING_CLASS = 'is-loading';
+const HIDDEN_CLASS = 'display-none';
 const GENERIC_PREVIEW_CLASS = `${PREFIX}-dropzone__preview__image--generic`;
 const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
@@ -33,16 +36,17 @@ const makeSafeForID = name => {
  * Returns the root and message element
  * for an character count input
  *
- * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
+ * @param {HTMLinputElement|HTMLTextAreaElement} dropzoneEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
 const getDropzoneElements = dropzoneEl => {
   const inputEl = dropzoneEl.querySelector(INPUT);
   const dropzoneInstructions = dropzoneEl.querySelector(INSTRUCTIONS);
+  const dropzoneTarget = dropzoneEl.querySelector(TARGET);
   if (!dropzoneEl) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
-  return { inputEl, dropzoneInstructions };
+  return { inputEl, dropzoneInstructions, dropzoneTarget };
 };
 
 
@@ -62,12 +66,20 @@ const setupAttributes = dropzoneEl => {
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 
-const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions) => {
+const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget) => {
   const fileNames = e.target.files;
   const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const filePreviewsHeading = document.createElement('div');
+  const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
+
+  if (currentPreviewHeading) {
+    currentPreviewHeading.remove();
+  }
 
   // Get rid of existing previews if they exist
   if (filePreviews !== null) {
+    // Set original instructions
+    dropzoneInstructions.classList.remove(HIDDEN_CLASS);
     Array.prototype.forEach.call(filePreviews, function removePreviews(node) {
       node.parentNode.removeChild(node);
     });
@@ -96,6 +108,20 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions) => {
      if (fileNames[i]) {
         reader.readAsDataURL(fileNames[i]);
      }
+
+     if (i === 0) {
+       dropzoneTarget.insertBefore(filePreviewsHeading, dropzoneInstructions);
+       filePreviewsHeading.innerHTML = `Selected file <span class="usa-dropzone__choose">Replace?</span>`;
+     }
+     else if (i >= 1) {
+       dropzoneTarget.insertBefore(filePreviewsHeading, dropzoneInstructions);
+       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-dropzone__choose">Replace?</span>`;
+     }
+
+     if (filePreviewsHeading) {
+       dropzoneInstructions.classList.add(HIDDEN_CLASS);
+       filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
+     }
    }
 }
 
@@ -105,8 +131,7 @@ const dropzone = behavior(
   {
     init(root) {
       select(DROPZONE, root).forEach(dropzoneEl => {
-        const { inputEl, dropzoneInstructions } = getDropzoneElements(dropzoneEl);
-
+        const { inputEl, dropzoneInstructions, dropzoneTarget } = getDropzoneElements(dropzoneEl);
         setupAttributes(dropzoneEl);
 
         dropzoneEl.addEventListener("dragover", function handleDragOver() {
@@ -122,7 +147,7 @@ const dropzone = behavior(
         }, false);
 
         inputEl.onchange = e => {
-          handleChange(e, inputEl, dropzoneEl, dropzoneInstructions)
+          handleChange(e, inputEl, dropzoneEl, dropzoneInstructions,dropzoneTarget)
         }
 
       });
