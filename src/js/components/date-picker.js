@@ -112,15 +112,21 @@ const DATE_PICKER_FOCUSABLE = [
   CALENDAR_NEXT_YEAR,
   CALENDAR_NEXT_MONTH,
   CALENDAR_DATE_FOCUSED
-].join(", ");
+]
+  .map(query => query + ":not([disabled])")
+  .join(", ");
 
-const MONTH_PICKER_FOCUSABLE = CALENDAR_MONTH_FOCUSED;
+const MONTH_PICKER_FOCUSABLE = [CALENDAR_MONTH_FOCUSED]
+  .map(query => query + ":not([disabled])")
+  .join(", ");
 
 const YEAR_PICKER_FOCUSABLE = [
   CALENDAR_PREVIOUS_YEAR_CHUNK,
   CALENDAR_NEXT_YEAR_CHUNK,
   CALENDAR_YEAR_FOCUSED
-].join(", ");
+]
+  .map(query => query + ":not([disabled])")
+  .join(", ");
 
 // #region Date Manipulation Functions
 
@@ -1241,9 +1247,23 @@ const displayYearSelection = (el, yearToDisplay) => {
  */
 const displayPreviousYearChunk = el => {
   if (el.disabled) return;
-  const { firstYearChunkEl } = getDatePickerContext(el);
-  const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  const newCalendar = displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
+
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    el
+  );
+  const yearEl = calendarEl.querySelector(CALENDAR_YEAR_FOCUSED);
+  const selectedYear = parseInt(yearEl.textContent, 10);
+
+  let adjustedYear = selectedYear - YEAR_CHUNK;
+  adjustedYear = Math.max(0, adjustedYear);
+
+  const date = setYear(calendarDate, adjustedYear);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  const newCalendar = displayYearSelection(
+    calendarEl,
+    cappedDate.getFullYear()
+  );
+
   newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR_CHUNK).focus();
 };
 
@@ -1254,9 +1274,23 @@ const displayPreviousYearChunk = el => {
  */
 const displayNextYearChunk = el => {
   if (el.disabled) return;
-  const { firstYearChunkEl } = getDatePickerContext(el);
-  const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  const newCalendar = displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
+
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    el
+  );
+  const yearEl = calendarEl.querySelector(CALENDAR_YEAR_FOCUSED);
+  const selectedYear = parseInt(yearEl.textContent, 10);
+
+  let adjustedYear = selectedYear + YEAR_CHUNK;
+  adjustedYear = Math.max(0, adjustedYear);
+
+  const date = setYear(calendarDate, adjustedYear);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  const newCalendar = displayYearSelection(
+    calendarEl,
+    cappedDate.getFullYear()
+  );
+
   newCalendar.querySelector(CALENDAR_NEXT_YEAR_CHUNK).focus();
 };
 
@@ -1416,7 +1450,10 @@ const adjustMonthSelectionScreen = adjustMonthFn => {
     const date = setMonth(calendarDate, adjustedMonth);
     const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
     if (!isSameMonth(currentDate, cappedDate)) {
-      const newCalendar = displayMonthSelection(calendarEl, adjustedMonth);
+      const newCalendar = displayMonthSelection(
+        calendarEl,
+        cappedDate.getMonth()
+      );
       newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
     }
     event.preventDefault();
@@ -1523,7 +1560,10 @@ const adjustYearSelectionScreen = adjustYearFn => {
     const date = setYear(calendarDate, adjustedYear);
     const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
     if (!isSameYear(currentDate, cappedDate)) {
-      const newCalendar = displayYearSelection(calendarEl, adjustedYear);
+      const newCalendar = displayYearSelection(
+        calendarEl,
+        cappedDate.getFullYear()
+      );
       newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
     }
     event.preventDefault();
