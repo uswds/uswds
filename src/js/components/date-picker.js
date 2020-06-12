@@ -61,6 +61,10 @@ const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
 
+const CALENDAR_DATE_PICKER = `.${CALENDAR_DATE_PICKER_CLASS}`;
+const CALENDAR_MONTH_PICKER = `.${CALENDAR_MONTH_PICKER_CLASS}`;
+const CALENDAR_YEAR_PICKER = `.${CALENDAR_YEAR_PICKER_CLASS}`;
+
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
 const MONTH_LABELS = [
@@ -1200,7 +1204,7 @@ const displayNextYearChunk = el => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleUp = event => {
+const handleUpFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1217,7 +1221,7 @@ const handleUp = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleDown = event => {
+const handleDownFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1234,7 +1238,7 @@ const handleDown = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleLeft = event => {
+const handleLeftFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1251,7 +1255,7 @@ const handleLeft = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleRight = event => {
+const handleRightFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1268,7 +1272,7 @@ const handleRight = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleHome = event => {
+const handleHomeFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1285,7 +1289,7 @@ const handleHome = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleEnd = event => {
+const handleEndFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1302,7 +1306,7 @@ const handleEnd = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handlePageDown = event => {
+const handlePageDownFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1319,7 +1323,7 @@ const handlePageDown = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handlePageUp = event => {
+const handlePageUpFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1336,7 +1340,7 @@ const handlePageUp = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleShiftPageDown = event => {
+const handleShiftPageDownFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1353,7 +1357,7 @@ const handleShiftPageDown = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleShiftPageUp = event => {
+const handleShiftPageUpFromDate = event => {
   const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
     event.target
   );
@@ -1370,7 +1374,7 @@ const handleShiftPageUp = event => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleEscape = event => {
+const handleEscapeFromCalendar = event => {
   const { datePickerEl, inputEl } = getDatePickerContext(event.target);
 
   hideCalendar(datePickerEl);
@@ -1483,7 +1487,7 @@ const datePicker = behavior(
       }
     },
     keyup: {
-      [CALENDAR_DATE_FOCUSED](event) {
+      [DATE_PICKER_CALENDAR](event) {
         const keydown = this.dataset.keydownKeyCode;
         if (`${event.keyCode}` !== keydown) {
           event.preventDefault();
@@ -1491,31 +1495,42 @@ const datePicker = behavior(
       }
     },
     keydown: {
-      [CALENDAR_DATE_FOCUSED](event) {
-        this.dataset.keydownKeyCode = event.keyCode;
-      },
-      [DATE_PICKER_CALENDAR]: keymap({
-        Up: handleUp,
-        ArrowUp: handleUp,
-        Down: handleDown,
-        ArrowDown: handleDown,
-        Left: handleLeft,
-        ArrowLeft: handleLeft,
-        Right: handleRight,
-        ArrowRight: handleRight,
-        Home: handleHome,
-        End: handleEnd,
-        PageDown: handlePageDown,
-        PageUp: handlePageUp,
-        "Shift+PageDown": handleShiftPageDown,
-        "Shift+PageUp": handleShiftPageUp,
-        Escape: handleEscape
-      }),
       [DATE_PICKER_INPUT](event) {
         if (event.keyCode === ENTER_KEYCODE) {
           validateDateInput(this);
         }
-      }
+      },
+      [DATE_PICKER_CALENDAR](event) {
+        this.dataset.keydownKeyCode = event.keyCode;
+
+        const keyMap = keymap({
+          Escape: handleEscapeFromCalendar
+        });
+
+        keyMap(event);
+      },
+      [CALENDAR_DATE_PICKER]: keymap({
+        Up: handleUpFromDate,
+        ArrowUp: handleUpFromDate,
+        Down: handleDownFromDate,
+        ArrowDown: handleDownFromDate,
+        Left: handleLeftFromDate,
+        ArrowLeft: handleLeftFromDate,
+        Right: handleRightFromDate,
+        ArrowRight: handleRightFromDate,
+        Home: handleHomeFromDate,
+        End: handleEndFromDate,
+        PageDown: handlePageDownFromDate,
+        PageUp: handlePageUpFromDate,
+        "Shift+PageDown": handleShiftPageDownFromDate,
+        "Shift+PageUp": handleShiftPageUpFromDate
+      }),
+      [CALENDAR_MONTH_PICKER]: keymap({
+        Escape: handleEscapeFromCalendar
+      }),
+      [CALENDAR_YEAR_PICKER]: keymap({
+        Escape: handleEscapeFromCalendar
+      })
     },
     focusout: {
       [DATE_PICKER_INPUT]() {
