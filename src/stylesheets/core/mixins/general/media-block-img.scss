@@ -1,6 +1,5 @@
 @use "../../functions" as *;
 
 @mixin media-block-img($margin-right: units(1)) {
-  float: left;
   margin-right: $margin-right;
 }
