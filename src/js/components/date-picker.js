@@ -1401,36 +1401,28 @@ const adjustMonthSelectionScreen = adjustMonthFn => {
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleUpFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth - 3
-);
+const handleUpFromMonth = adjustMonthSelectionScreen(month => month - 3);
 
 /**
  * Navigate forward three months and display the month selection screen.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleDownFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth + 3
-);
+const handleDownFromMonth = adjustMonthSelectionScreen(month => month + 3);
 
 /**
  * Navigate back one month and display the month selection screen.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleLeftFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth - 1
-);
+const handleLeftFromMonth = adjustMonthSelectionScreen(month => month - 1);
 
 /**
  * Navigate forward one month and display the month selection screen.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleRightFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth + 1
-);
+const handleRightFromMonth = adjustMonthSelectionScreen(month => month + 1);
 
 /**
  * Navigate to the start of the row of months and display the month selection screen.
@@ -1438,7 +1430,7 @@ const handleRightFromMonth = adjustMonthSelectionScreen(
  * @param {KeyboardEvent} event the keydown event
  */
 const handleHomeFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth - (selectedMonth % 3)
+  month => month - (month % 3)
 );
 
 /**
@@ -1447,7 +1439,7 @@ const handleHomeFromMonth = adjustMonthSelectionScreen(
  * @param {KeyboardEvent} event the keydown event
  */
 const handleEndFromMonth = adjustMonthSelectionScreen(
-  selectedMonth => selectedMonth + 2 - (selectedMonth % 3)
+  month => month + 2 - (month % 3)
 );
 
 /**
@@ -1483,6 +1475,95 @@ const handleMousemoveFromMonth = monthEl => {
 // #endregion Calendar Month Event Handling
 
 // #region Calendar Year Event Handling
+
+/**
+ * Adjust the year and display the year selection screen if needed.
+ *
+ * @param {function} adjustYearFn function that returns the adjusted year
+ */
+const adjustYearSelectionScreen = adjustYearFn => {
+  return event => {
+    const yearEl = event.target;
+    const selectedYear = parseInt(yearEl.dataset.value, 10);
+    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+      yearEl
+    );
+    const currentDate = setYear(calendarDate, selectedYear);
+
+    let adjustedYear = adjustYearFn(selectedYear);
+    adjustedYear = Math.max(0, adjustedYear);
+
+    const date = setYear(calendarDate, adjustedYear);
+    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+    if (!isSameYear(currentDate, cappedDate)) {
+      const newCalendar = displayYearSelection(calendarEl, adjustedYear);
+      newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
+    }
+    event.preventDefault();
+  };
+};
+
+/**
+ * Navigate back three years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleUpFromYear = adjustYearSelectionScreen(year => year - 3);
+
+/**
+ * Navigate forward three years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleDownFromYear = adjustYearSelectionScreen(year => year + 3);
+
+/**
+ * Navigate back one year and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleLeftFromYear = adjustYearSelectionScreen(year => year - 1);
+
+/**
+ * Navigate forward one year and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleRightFromYear = adjustYearSelectionScreen(year => year + 1);
+
+/**
+ * Navigate to the start of the row of years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleHomeFromYear = adjustYearSelectionScreen(year => year - (year % 3));
+
+/**
+ * Navigate to the end of the row of years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleEndFromYear = adjustYearSelectionScreen(
+  year => year + 2 - (year % 3)
+);
+
+/**
+ * Navigate to back 12 years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageUpFromYear = adjustYearSelectionScreen(
+  year => year - YEAR_CHUNK
+);
+
+/**
+ * Navigate forward 12 years and display the year selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageDownFromYear = adjustYearSelectionScreen(
+  year => year + YEAR_CHUNK
+);
 
 /**
  * update the focus on a year when the mouse moves.
@@ -1641,7 +1722,18 @@ const datePicker = behavior(
         PageUp: handlePageUpFromMonth
       }),
       [CALENDAR_YEAR_PICKER]: keymap({
-        Escape: handleEscapeFromCalendar
+        Up: handleUpFromYear,
+        ArrowUp: handleUpFromYear,
+        Down: handleDownFromYear,
+        ArrowDown: handleDownFromYear,
+        Left: handleLeftFromYear,
+        ArrowLeft: handleLeftFromYear,
+        Right: handleRightFromYear,
+        ArrowRight: handleRightFromYear,
+        Home: handleHomeFromYear,
+        End: handleEndFromYear,
+        PageDown: handlePageDownFromYear,
+        PageUp: handlePageUpFromYear
       })
     },
     focusout: {
