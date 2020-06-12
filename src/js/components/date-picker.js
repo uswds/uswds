@@ -1254,184 +1254,96 @@ const handleEscapeFromCalendar = event => {
 // #region Calendar Date Event Handling
 
 /**
+ * Adjust the date and display the calendar if needed.
+ *
+ * @param {function} adjustDateFn function that returns the adjusted date
+ */
+const adjustCalendar = adjustDateFn => {
+  return event => {
+    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+      event.target
+    );
+
+    const date = adjustDateFn(calendarDate);
+
+    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+    if (!isSameDay(calendarDate, cappedDate)) {
+      const newCalendar = renderCalendar(calendarEl, cappedDate);
+      newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+    }
+    event.preventDefault();
+  };
+};
+
+/**
  * Navigate back one week and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleUpFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = subWeeks(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleUpFromDate = adjustCalendar(date => subWeeks(date, 1));
 
 /**
  * Navigate forward one week and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleDownFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = addWeeks(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleDownFromDate = adjustCalendar(date => addWeeks(date, 1));
 
 /**
  * Navigate back one day and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleLeftFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = subDays(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleLeftFromDate = adjustCalendar(date => subDays(date, 1));
 
 /**
  * Navigate forward one day and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleRightFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = addDays(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleRightFromDate = adjustCalendar(date => addDays(date, 1));
 
 /**
  * Navigate to the start of the week and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleHomeFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = startOfWeek(calendarDate);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleHomeFromDate = adjustCalendar(date => startOfWeek(date));
 
 /**
  * Navigate to the end of the week and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleEndFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = endOfWeek(calendarDate);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleEndFromDate = adjustCalendar(date => endOfWeek(date));
 
 /**
  * Navigate forward one month and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handlePageDownFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = addMonths(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handlePageDownFromDate = adjustCalendar(date => addMonths(date, 1));
 
 /**
  * Navigate back one month and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handlePageUpFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = subMonths(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handlePageUpFromDate = adjustCalendar(date => subMonths(date, 1));
 
 /**
  * Navigate forward one year and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleShiftPageDownFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = addYears(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleShiftPageDownFromDate = adjustCalendar(date => addYears(date, 1));
 
 /**
  * Navigate back one year and display the calendar.
  *
  * @param {KeyboardEvent} event the keydown event
  */
-const handleShiftPageUpFromDate = event => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target
-  );
-  const date = subYears(calendarDate, 1);
-  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  }
-  event.preventDefault();
-};
+const handleShiftPageUpFromDate = adjustCalendar(date => subYears(date, 1));
 
 /**
  * display the calendar for the mousemove date.
@@ -1457,6 +1369,11 @@ const handleMousemoveFromDate = dateEl => {
 
 // #region Calendar Month Event Handling
 
+/**
+ * Adjust the month and display the month selection screen if needed.
+ *
+ * @param {function} adjustMonthFn function that returns the adjusted month
+ */
 const adjustMonthSelectionScreen = adjustMonthFn => {
   return event => {
     const monthEl = event.target;
