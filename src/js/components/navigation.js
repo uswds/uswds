@@ -1,7 +1,7 @@
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const toggle = require("../utils/toggle");
-const FocusTrap = require("../utils/focus-trap");
+const { FocusTrap } = require("../utils/focus-trap");
 const accordion = require("./accordion");
 
 const { CLICK } = require("../events");
