@@ -1,0 +1,26 @@
+<div class="usa-card__container">
+  <header class="usa-card__header">
+    <h2 class="usa-card__heading">{{ card.title }}</h2>
+  </header>
+  {%- if card.media -%}
+  <div class="usa-card__media{% if card.media_classes %} {{ card.media_classes }}{% endif %}">
+    <div class="usa-card__img{% if card.image_classes %} {{ card.image_classes }}{% endif %}">
+      <img
+        src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=610&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+        alt="A placeholder image">
+    </div>
+  </div>
+  {%- endif -%}
+  <div class="usa-card__body">
+    {%- block card_body -%}
+    {%- if card.content -%}
+    <p>{{ card.content }}</p>
+    {%- endif -%}
+    {%- endblock -%}
+  </div>
+  <div class="usa-card__footer">
+    {%- block card_footer %}
+    <button class="usa-button">Visit Florida Keys</button>
+    {% endblock -%}
+  </div>
+</div>

@@ -421,7 +421,9 @@ const comboBox = behavior(
     keydown: {
       [COMBO_BOX]: keymap({
         ArrowUp: handleUp,
+        Up: handleUp,
         ArrowDown: handleDown,
+        Down: handleDown,
         Escape: handleEscape,
         Enter: handleEnter
       })
