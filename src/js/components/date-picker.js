@@ -1065,7 +1065,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
   } = getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
-  const focusedMonth = monthToDisplay || selectedMonth;
+  const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
 
   const months = MONTH_LABELS.map((month, index) => {
     const monthToCheck = setMonth(calendarDate, index);
@@ -1126,7 +1126,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   } = getDatePickerContext(el);
 
   const selectedYear = calendarDate.getFullYear();
-  const focusedYear = yearToDisplay || selectedYear;
+  const focusedYear = yearToDisplay == null ? selectedYear : yearToDisplay;
 
   let yearToChunk = focusedYear;
   yearToChunk -= yearToChunk % YEAR_CHUNK;
@@ -1227,7 +1227,25 @@ const displayNextYearChunk = el => {
   displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
 };
 
-// #region Keyboard Event Handling
+// #region Calendar Event Handling
+
+/**
+ * Hide the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleEscapeFromCalendar = event => {
+  const { datePickerEl, inputEl } = getDatePickerContext(event.target);
+
+  hideCalendar(datePickerEl);
+  inputEl.focus();
+
+  event.preventDefault();
+};
+
+// #endregion Calendar Event Handling
+
+// #region Calendar Date Event Handling
 
 /**
  * Navigate back one week and display the calendar.
@@ -1410,20 +1428,66 @@ const handleShiftPageUpFromDate = event => {
 };
 
 /**
- * Hide the calendar.
+ * display the calendar for the mousemove date.
  *
- * @param {KeyboardEvent} event the keydown event
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} dateEl A date element within the date picker component
  */
-const handleEscapeFromCalendar = event => {
-  const { datePickerEl, inputEl } = getDatePickerContext(event.target);
+const handleMousemoveFromDate = dateEl => {
+  if (dateEl.disabled) return;
 
-  hideCalendar(datePickerEl);
-  inputEl.focus();
+  const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
+  const currentCalendarDate = calendarEl.dataset.value;
+  const hoverDate = dateEl.dataset.value;
 
-  event.preventDefault();
+  if (hoverDate === currentCalendarDate) return;
+
+  const dateToDisplay = parseDateString(hoverDate);
+  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
 };
 
-// #endregion Keyboard Event Handling
+// #endregion Calendar Date Event Handling
+
+// #region Calendar Month Event Handling
+
+/**
+ * update the focus on a month when the mouse moves.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} monthEl A month element within the date picker component
+ */
+const handleMousemoveFromMonth = monthEl => {
+  if (monthEl.disabled) return;
+  if (monthEl.classList.contains(CALENDAR_MONTH_FOCUSED_CLASS)) return;
+
+  const focusMonth = parseInt(monthEl.dataset.value, 10);
+
+  const newCalendar = displayMonthSelection(monthEl, focusMonth);
+  newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
+};
+
+// #endregion Calendar Month Event Handling
+
+// #region Calendar Year Event Handling
+
+/**
+ * update the focus on a year when the mouse moves.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} dateEl A date element within the date picker component
+ */
+const handleMousemoveFromYear = yearEl => {
+  if (yearEl.disabled) return;
+  if (yearEl.classList.contains(CALENDAR_YEAR_FOCUSED_CLASS)) return;
+
+  const focusYear = parseInt(yearEl.dataset.value, 10);
+
+  const newCalendar = displayYearSelection(yearEl, focusYear);
+  newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
+};
+
+// #endregion Calendar Year Event Handling
 
 /**
  * Toggle the calendar.
@@ -1466,26 +1530,6 @@ const updateCalendarIfVisible = el => {
     const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
     renderCalendar(calendarEl, dateToDisplay);
   }
-};
-
-/**
- * display the calendar for the mousemove date.
- *
- * @param {MouseEvent} event The mousemove event
- * @param {HTMLButtonElement} dateEl A date element within the date picker component
- */
-const handleMousemove = dateEl => {
-  if (dateEl.disabled) return;
-
-  const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
-  const currentCalendarDate = calendarEl.dataset.value;
-  const hoverDate = dateEl.dataset.value;
-
-  if (hoverDate === currentCalendarDate) return;
-
-  const dateToDisplay = parseDateString(hoverDate);
-  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
 };
 
 const datePicker = behavior(
@@ -1598,7 +1642,13 @@ const datePicker = behavior(
     },
     mousemove: {
       [CALENDAR_DATE_CURRENT_MONTH]() {
-        handleMousemove(this);
+        handleMousemoveFromDate(this);
+      },
+      [CALENDAR_MONTH]() {
+        handleMousemoveFromMonth(this);
+      },
+      [CALENDAR_YEAR]() {
+        handleMousemoveFromYear(this);
       }
     }
   },
