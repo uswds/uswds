@@ -186,6 +186,10 @@ describe("combo box component", () => {
       "-1",
       "the select should be hidden from keyboard navigation"
     );
+    assert.ok(
+      select.classList.contains("usa-combo-box__select"),
+      "add the class for the select element"
+    );
     assert.equal(
       select.value,
       "value-JavaScript",
