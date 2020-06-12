@@ -7,8 +7,8 @@ const activeElement = require("./active-element");
 const DEFAULT_FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const tabHandler = (context, focusable = DEFAULT_FOCUSABLE) => {
-  const focusableElements = select(focusable, context);
+const tabHandler = context => {
+  const focusableElements = select(DEFAULT_FOCUSABLE, context);
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
 
@@ -36,7 +36,7 @@ const tabHandler = (context, focusable = DEFAULT_FOCUSABLE) => {
   };
 };
 
-const FocusTrap = (context, additionalKeyBindings = {}) => {
+module.exports = (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
   const bindings = additionalKeyBindings;
   const { Esc, Escape } = bindings;
@@ -78,5 +78,3 @@ const FocusTrap = (context, additionalKeyBindings = {}) => {
 
   return focusTrap;
 };
-
-module.exports = { FocusTrap, tabHandler };
