@@ -38,6 +38,10 @@ const tabHandler = context => {
 
 module.exports = (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
+  const bindings = additionalKeyBindings;
+  const { Esc, Escape } = bindings;
+
+  if (Escape && !Esc) bindings.Esc = Escape;
 
   //  TODO: In the future, loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys. Then people implementing
