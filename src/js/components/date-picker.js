@@ -677,7 +677,7 @@ const enhanceDatePicker = el => {
       `<span class="usa-date-picker__button-wrapper" tabindex="-1">
         <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>
       </span>`,
-      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
+      `<div class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
@@ -877,7 +877,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   newCalendar.dataset.value = currentFormattedDate;
   newCalendar.style.top = `${datePickerEl.offsetHeight}px`;
   newCalendar.hidden = false;
-  newCalendar.innerHTML = `<div class="${CALENDAR_DATE_PICKER_CLASS}">
+  newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="${CALENDAR_ROW_CLASS}">
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
@@ -1128,7 +1128,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
       >${month}</button>`;
   });
 
-  const monthsHtml = `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${listToGridHtml(
+  const monthsHtml = `<div tabindex="-1" class="${CALENDAR_MONTH_PICKER_CLASS}">${listToGridHtml(
     months,
     3
   )}</div>`;
@@ -1214,7 +1214,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   const yearsHtml = listToGridHtml(years, 3);
 
   const newCalendar = calendarEl.cloneNode();
-  newCalendar.innerHTML = `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
+  newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_YEAR_PICKER_CLASS}">
       <button 
         type="button" 
         class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
@@ -1264,7 +1264,11 @@ const displayPreviousYearChunk = el => {
     cappedDate.getFullYear()
   );
 
-  newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR_CHUNK).focus();
+  let nextToFocus = newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR_CHUNK);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_YEAR_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 /**
@@ -1291,7 +1295,11 @@ const displayNextYearChunk = el => {
     cappedDate.getFullYear()
   );
 
-  newCalendar.querySelector(CALENDAR_NEXT_YEAR_CHUNK).focus();
+  let nextToFocus = newCalendar.querySelector(CALENDAR_NEXT_YEAR_CHUNK);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_YEAR_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 // #region Calendar Event Handling
@@ -1697,29 +1705,44 @@ const tabHandler = focusable => {
   const getFocusableContext = el => {
     const { calendarEl } = getDatePickerContext(el);
     const focusableElements = select(focusable, calendarEl);
-    const firstTabStop = focusableElements[0];
-    const lastTabStop = focusableElements[focusableElements.length - 1];
+
+    const firstTabIndex = 0;
+    const lastTabIndex = focusableElements.length - 1;
+    const firstTabStop = focusableElements[firstTabIndex];
+    const lastTabStop = focusableElements[lastTabIndex];
+    const focusIndex = focusableElements.indexOf(activeElement());
+
+    const isLastTab = focusIndex === lastTabIndex;
+    const isFirstTab = focusIndex === firstTabIndex;
+    const isNotFound = focusIndex === -1;
 
     return {
       focusableElements,
+      isNotFound,
       firstTabStop,
-      lastTabStop
+      isFirstTab,
+      lastTabStop,
+      isLastTab
     };
   };
 
   return {
     tabAhead(event) {
-      const { firstTabStop, lastTabStop } = getFocusableContext(event.target);
+      const { firstTabStop, isLastTab, isNotFound } = getFocusableContext(
+        event.target
+      );
 
-      if (activeElement() === lastTabStop) {
+      if (isLastTab || isNotFound) {
         event.preventDefault();
         firstTabStop.focus();
       }
     },
     tabBack(event) {
-      const { firstTabStop, lastTabStop } = getFocusableContext(event.target);
+      const { isFirstTab, isNotFound, lastTabStop } = getFocusableContext(
+        event.target
+      );
 
-      if (activeElement() === firstTabStop) {
+      if (isFirstTab || isNotFound) {
         event.preventDefault();
         lastTabStop.focus();
       }
