@@ -963,7 +963,12 @@ const displayPreviousYear = _buttonEl => {
   let date = subYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR).focus();
+
+  let nextToFocus = newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 /**
@@ -979,7 +984,12 @@ const displayPreviousMonth = _buttonEl => {
   let date = subMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_PREVIOUS_MONTH).focus();
+
+  let nextToFocus = newCalendar.querySelector(CALENDAR_PREVIOUS_MONTH);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 /**
@@ -995,7 +1005,12 @@ const displayNextMonth = _buttonEl => {
   let date = addMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_NEXT_MONTH).focus();
+
+  let nextToFocus = newCalendar.querySelector(CALENDAR_NEXT_MONTH);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 /**
@@ -1011,7 +1026,12 @@ const displayNextYear = _buttonEl => {
   let date = addYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_NEXT_YEAR).focus();
+
+  let nextToFocus = newCalendar.querySelector(CALENDAR_NEXT_YEAR);
+  if (nextToFocus.disabled) {
+    nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
+  }
+  nextToFocus.focus();
 };
 
 /**
@@ -1424,6 +1444,9 @@ const handleMousemoveFromDate = dateEl => {
   if (dateEl.disabled) return;
 
   const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
+
+  if (calendarEl.dataset.disableMouseover) return;
+
   const currentCalendarDate = calendarEl.dataset.value;
   const hoverDate = dateEl.dataset.value;
 
