@@ -96,16 +96,15 @@ button.usa-combo-box__clear-input {
   display: block;
   padding: units(1);
 
-  &--selected {
+  &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+
+    &:focus {
+      outline-offset: -4px;
+    }
   }
 
-  &:focus {
-    outline-offset: -4px;
-  }
-
-  &--focused,
-  &:focus {
+  &--selected {
     background-color: color("primary");
     border-color: color("primary");
     color: color("white");
