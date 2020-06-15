@@ -169,6 +169,22 @@
 
   &--within-range {
     background-color: color("blue-10v");
+
+    &:not([disabled]) {
+      background-color: color("blue-10v");
+
+      &:hover {
+        background-color: color("blue-10v");
+      }
+
+      &:focus {
+        background-color: color("blue-10v");
+      }
+
+      &:active {
+        background-color: color("blue-10v");
+      }
+    }
   }
 }
 
@@ -196,11 +212,11 @@
   @extend %usa-date-picker__button;
   padding: 10px 0;
 
-  &--selected {
+  &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
   }
 
-  &--focused {
+  &--selected {
     background-color: color("primary-vivid");
     color: color("gray-2");
 
@@ -258,11 +274,11 @@
   @extend %usa-date-picker__button;
   padding: 10px 0;
 
-  &--selected {
+  &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
   }
 
-  &--focused {
+  &--selected {
     background-color: color("primary-vivid");
     color: color("gray-2");
 
