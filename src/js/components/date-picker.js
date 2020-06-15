@@ -775,8 +775,9 @@ const renderCalendar = (el, _dateToDisplay) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
-  const rangeStartDate = rangeDate && min(dateToDisplay, rangeDate);
-  const rangeEndDate = rangeDate && max(dateToDisplay, rangeDate);
+  const rangeConclusionDate = inputDate || dateToDisplay;
+  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
+  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
 
   const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
   const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
