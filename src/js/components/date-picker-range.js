@@ -1,7 +1,10 @@
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
-const { isDateInputInvalid } = require("./date-picker");
+const {
+  isDateInputInvalid,
+  updateCalendarIfVisible
+} = require("./date-picker");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
@@ -30,7 +33,6 @@ const emitEvent = (el, eventName) => {
   event.initEvent(eventName, true, true);
   el.dispatchEvent(event);
 };
-
 
 /**
  * handle update from range start date picker
@@ -61,8 +63,7 @@ const handleRangeStartUpdate = inputEl => {
     rangeEndEl.dataset.defaultDate = "";
   }
 
-  const endInputEl = datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_END_INPUT);
-  emitEvent(endInputEl, "rerender");
+  updateCalendarIfVisible(rangeEndEl);
 };
 
 /**
@@ -94,8 +95,7 @@ const handleRangeEndUpdate = inputEl => {
     rangeStartEl.dataset.defaultDate = "";
   }
 
-  const startInputEl = datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_START_INPUT);
-  emitEvent(startInputEl, "rerender");
+  updateCalendarIfVisible(rangeStartEl);
 };
 
 /**
