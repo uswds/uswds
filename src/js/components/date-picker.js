@@ -1946,7 +1946,10 @@ const datePicker = behavior(
         enhanceDatePicker(datePickerEl);
       });
     },
-    isDateInputInvalid
+    getDatePickerContext,
+    isDateInputInvalid,
+    renderCalendar,
+    updateCalendarIfVisible
   }
 );
 
