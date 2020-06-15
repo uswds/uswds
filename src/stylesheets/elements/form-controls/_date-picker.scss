@@ -122,7 +122,7 @@
   @extend %usa-date-picker__button;
   padding: 10px 0px;
 
-  &--selected {
+  &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
   }
 
@@ -131,7 +131,7 @@
     color: color("gray-warm-60");
   }
 
-  &--focused,
+  &--selected,
   &--range-date-start,
   &--range-date-end {
     background-color: color("primary-vivid");
