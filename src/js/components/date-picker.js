@@ -71,6 +71,8 @@ const CALENDAR_YEAR_PICKER = `.${CALENDAR_YEAR_PICKER_CLASS}`;
 const CALENDAR_MONTH_FOCUSED = `.${CALENDAR_MONTH_FOCUSED_CLASS}`;
 const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
 
+const NOT_DISABLED_SELECTOR = ":not([disabled])";
+
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
 const MONTH_LABELS = [
@@ -113,11 +115,11 @@ const DATE_PICKER_FOCUSABLE = [
   CALENDAR_NEXT_MONTH,
   CALENDAR_DATE_FOCUSED
 ]
-  .map(query => query + ":not([disabled])")
+  .map(query => query + NOT_DISABLED_SELECTOR)
   .join(", ");
 
 const MONTH_PICKER_FOCUSABLE = [CALENDAR_MONTH_FOCUSED]
-  .map(query => query + ":not([disabled])")
+  .map(query => query + NOT_DISABLED_SELECTOR)
   .join(", ");
 
 const YEAR_PICKER_FOCUSABLE = [
@@ -125,7 +127,7 @@ const YEAR_PICKER_FOCUSABLE = [
   CALENDAR_NEXT_YEAR_CHUNK,
   CALENDAR_YEAR_FOCUSED
 ]
-  .map(query => query + ":not([disabled])")
+  .map(query => query + NOT_DISABLED_SELECTOR)
   .join(", ");
 
 // #region Date Manipulation Functions
@@ -600,7 +602,7 @@ const changeElementValue = (el, value = "") => {
  * @property {Date} calendarDate
  * @property {Date} minDate
  * @property {Date} maxDate
- * @property {Date} inputDate
+ * @property {Date} selectedDate
  * @property {Date} rangeDate
  * @property {Date} defaultDate
  */
@@ -624,7 +626,7 @@ const getDatePickerContext = el => {
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
-  const inputDate = parseDateString(inputEl.value, true);
+  const selectedDate = parseDateString(inputEl.value, true);
   const calendarDate = parseDateString(calendarEl.dataset.value);
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
@@ -638,7 +640,7 @@ const getDatePickerContext = el => {
   return {
     calendarDate,
     minDate,
-    inputDate,
+    selectedDate,
     maxDate,
     firstYearChunkEl,
     datePickerEl,
@@ -753,7 +755,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     datePickerEl,
     calendarEl,
     statusEl,
-    inputDate,
+    selectedDate,
     maxDate,
     minDate,
     rangeDate
@@ -775,7 +777,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
-  const rangeConclusionDate = inputDate || dateToDisplay;
+  const rangeConclusionDate = selectedDate || dateToDisplay;
   const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
   const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
 
@@ -809,7 +811,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_NEXT_MONTH_CLASS);
     }
 
-    if (isSameDay(dateToRender, inputDate)) {
+    if (isSameDay(dateToRender, selectedDate)) {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
@@ -1691,7 +1693,7 @@ const toggleCalendar = el => {
   if (el.disabled) return;
   const {
     calendarEl,
-    inputDate,
+    selectedDate,
     minDate,
     maxDate,
     defaultDate
@@ -1699,7 +1701,7 @@ const toggleCalendar = el => {
 
   if (calendarEl.hidden) {
     const dateToDisplay = keepDateBetweenMinAndMax(
-      inputDate || defaultDate || today(),
+      selectedDate || defaultDate || today(),
       minDate,
       maxDate
     );
@@ -1716,11 +1718,17 @@ const toggleCalendar = el => {
  * @param {HTMLElement} el an element within the date picker
  */
 const updateCalendarIfVisible = el => {
-  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
+  const { calendarEl, selectedDate, minDate, maxDate } = getDatePickerContext(
+    el
+  );
   const calendarShown = !calendarEl.hidden;
 
-  if (calendarShown && inputDate) {
-    const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
+  if (calendarShown && selectedDate) {
+    const dateToDisplay = keepDateBetweenMinAndMax(
+      selectedDate,
+      minDate,
+      maxDate
+    );
     renderCalendar(calendarEl, dateToDisplay);
   }
 };
