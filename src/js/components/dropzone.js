@@ -12,7 +12,12 @@ const PREVIEW_HEADING_CLASS = `${PREFIX}-dropzone__preview-heading`;
 const DRAG_CLASS = `${PREFIX}-dropzone--drag`;
 const LOADING_CLASS = 'is-loading';
 const HIDDEN_CLASS = 'display-none';
-const GENERIC_PREVIEW_CLASS = `${PREFIX}-dropzone__preview__image--generic`;
+const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-dropzone__preview__image`;
+const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
+const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
+const WORD_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--word`;
+const VIDEO_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--video`;
+const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
 
@@ -72,6 +77,8 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarg
   const filePreviewsHeading = document.createElement('div');
   const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
+  console.log(inputEl.value)
+
   if (currentPreviewHeading) {
     currentPreviewHeading.remove();
   }
@@ -99,8 +106,21 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarg
      reader.onloadend = function createGenericFilePreview() {
        const imageId = makeSafeForID(fileName);
        const previewImage = document.getElementById(imageId);
-
-       previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
+       if (fileName.includes(".pdf")) {
+         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`)
+       }
+       else if ((fileName.includes('.doc')) || (fileName.includes('.pages'))) {
+         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`)
+       }
+       else if ((fileName.includes('.xls')) || (fileName.includes('.numbers'))) {
+        previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`)
+       }
+       else if ((fileName.includes('.mov')) || (fileName.includes('.mp4'))) {
+        previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`)
+       }
+       else {
+         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
+       }
        previewImage.classList.remove(LOADING_CLASS);
        previewImage.src = reader.result;
      }

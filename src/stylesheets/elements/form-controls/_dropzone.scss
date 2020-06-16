@@ -129,9 +129,32 @@
   background-size: units(4);
 }
 
-.usa-dropzone__preview__image--generic {
-  @include add-background-svg("file");
+.usa-dropzone__preview__image--generic,
+.usa-dropzone__preview__image--pdf,
+.usa-dropzone__preview__image--word,
+.usa-dropzone__preview__image--excel,
+.usa-dropzone__preview__image--video {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: units(3);
+}
+
+.usa-dropzone__preview__image--pdf {
+  @include add-background-svg("file-pdf");
+}
+
+.usa-dropzone__preview__image--generic {
+  @include add-background-svg("file");
+}
+
+.usa-dropzone__preview__image--word {
+  @include add-background-svg("file-word");
+}
+
+.usa-dropzone__preview__image--excel {
+  @include add-background-svg("file-excel");
+}
+
+.usa-dropzone__preview__image--video {
+  @include add-background-svg("file-video");
 }
