@@ -865,9 +865,9 @@ describe("date picker component", () => {
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
   });
 
-  it("should validate input on a validate event being emitted", () => {
+  it("should validate input on the static validate function being emitted", () => {
     input.value = "ab/cd/efg";
-    EVENTS.validate(input);
+    DatePicker.validateDateInput(input);
 
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
   });
