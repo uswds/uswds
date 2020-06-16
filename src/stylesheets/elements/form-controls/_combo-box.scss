@@ -88,6 +88,10 @@ button.usa-combo-box__clear-input {
   position: absolute;
   width: 100%;
   z-index: z-index(100);
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .usa-combo-box__list-option {
