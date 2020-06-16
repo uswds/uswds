@@ -1670,7 +1670,7 @@ const handlePageDownFromYear = adjustYearSelectionScreen(
  * update the focus on a year when the mouse moves.
  *
  * @param {MouseEvent} event The mousemove event
- * @param {HTMLButtonElement} dateEl A date element within the date picker component
+ * @param {HTMLButtonElement} dateEl A year element within the date picker component
  */
 const handleMousemoveFromYear = yearEl => {
   if (yearEl.disabled) return;
@@ -1918,11 +1918,6 @@ const datePicker = behavior(
         }
       }
     },
-    validate: {
-      [DATE_PICKER]() {
-        validateDateInput(this);
-      }
-    },
     input: {
       [DATE_PICKER_INPUT]() {
         updateCalendarIfVisible(this);
@@ -1948,6 +1943,7 @@ const datePicker = behavior(
     },
     getDatePickerContext,
     isDateInputInvalid,
+    validateDateInput,
     renderCalendar,
     updateCalendarIfVisible
   }
