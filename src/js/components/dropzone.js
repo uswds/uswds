@@ -77,8 +77,6 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarg
   const filePreviewsHeading = document.createElement('div');
   const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
-  console.log(inputEl.value)
-
   if (currentPreviewHeading) {
     currentPreviewHeading.remove();
   }
