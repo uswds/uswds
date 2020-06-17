@@ -384,8 +384,7 @@ $assignments-theme-color: (
   "primary-dark": $theme-color-primary-dark,
   "primary-darker": $theme-color-primary-darker,
   "primary-darkest": $theme-color-primary-darkest,
-  "secondary-lightest":
-    $theme-color-secondary-lightest,
+  "secondary-lightest": $theme-color-secondary-lightest,
   "secondary-lighter": $theme-color-secondary-lighter,
   "secondary-light": $theme-color-secondary-light,
   "secondary": $theme-color-secondary,
@@ -393,28 +392,20 @@ $assignments-theme-color: (
   "secondary-dark": $theme-color-secondary-dark,
   "secondary-darker": $theme-color-secondary-darker,
   "secondary-darkest": $theme-color-secondary-darkest,
-  "accent-warm-darkest":
-    $theme-color-accent-warm-darkest,
-  "accent-warm-darker":
-    $theme-color-accent-warm-darker,
+  "accent-warm-darkest": $theme-color-accent-warm-darkest,
+  "accent-warm-darker": $theme-color-accent-warm-darker,
   "accent-warm-dark": $theme-color-accent-warm-dark,
   "accent-warm": $theme-color-accent-warm,
   "accent-warm-light": $theme-color-accent-warm-light,
-  "accent-warm-lighter":
-    $theme-color-accent-warm-lighter,
-  "accent-warm-lightest":
-    $theme-color-accent-warm-lightest,
-  "accent-cool-darkest":
-    $theme-color-accent-cool-darkest,
-  "accent-cool-darker":
-    $theme-color-accent-cool-darker,
+  "accent-warm-lighter": $theme-color-accent-warm-lighter,
+  "accent-warm-lightest": $theme-color-accent-warm-lightest,
+  "accent-cool-darkest": $theme-color-accent-cool-darkest,
+  "accent-cool-darker": $theme-color-accent-cool-darker,
   "accent-cool-dark": $theme-color-accent-cool-dark,
   "accent-cool": $theme-color-accent-cool,
   "accent-cool-light": $theme-color-accent-cool-light,
-  "accent-cool-lighter":
-    $theme-color-accent-cool-lighter,
-  "accent-cool-lightest":
-    $theme-color-accent-cool-lightest,
+  "accent-cool-lighter": $theme-color-accent-cool-lighter,
+  "accent-cool-lightest": $theme-color-accent-cool-lightest,
   "error-lighter": $theme-color-error-lighter,
   "error-light": $theme-color-error-light,
   "error": $theme-color-error,
@@ -437,7 +428,7 @@ $assignments-theme-color: (
   "info-darker": $theme-color-info-darker,
   "disabled-light": $theme-color-disabled-light,
   "disabled": $theme-color-disabled,
-  "disabled-dark": $theme-color-disabled-dark,
+  "disabled-dark": $theme-color-disabled-dark
 );
 
 $tokens-color-theme: (
@@ -606,6 +597,6 @@ $project-aspect-ratios: (
   "2x1": 50%
 );
 
-@if $theme-test-colors {
+@if $test-system-color-tokens {
   $color-test: test-colors($system-color-shortcodes);
 }
