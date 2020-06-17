@@ -2,19 +2,19 @@ const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 
-const DROPZONE = `.${PREFIX}-dropzone`;
-const INPUT = `.${PREFIX}-dropzone__input`;
-const TARGET = `.${PREFIX}-dropzone__target`;
-const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
-const INSTRUCTIONS = `.${PREFIX}-dropzone__instructions`;
-const PREVIEW_CLASS = `${PREFIX}-dropzone__preview`;
-const PREVIEW_HEADING_CLASS = `${PREFIX}-dropzone__preview-heading`;
-const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-dropzone__accepted-files-message`;
-const DRAG_CLASS = `${PREFIX}-dropzone--drag`;
+const DROPZONE = `.${PREFIX}-file-input`;
+const INPUT = `.${PREFIX}-file-input__input`;
+const TARGET = `.${PREFIX}-file-input__target`;
+const INITIALIZED_CLASS = `${PREFIX}-file-input--is-initialized`;
+const INSTRUCTIONS = `.${PREFIX}-file-input__instructions`;
+const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
+const PREVIEW_HEADING_CLASS = `${PREFIX}-file-input__preview-heading`;
+const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
+const DRAG_CLASS = `${PREFIX}-file-input--drag`;
 const LOADING_CLASS = 'is-loading';
 const HIDDEN_CLASS = 'display-none';
 const INVALID_FILE_CLASS = 'has-invalid-file';
-const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-dropzone__preview__image`;
+const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-file-input__preview__image`;
 const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
 const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
 const WORD_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--word`;
@@ -43,33 +43,33 @@ const makeSafeForID = name => {
  * Returns the root and message element
  * for an character count input
  *
- * @param {HTMLinputElement|HTMLTextAreaElement} dropzoneEl The character count input element
+ * @param {HTMLinputElement|HTMLTextAreaElement} fileInputParent The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getDropzoneElements = dropzoneEl => {
-  const inputEl = dropzoneEl.querySelector(INPUT);
-  const dropzoneInstructions = dropzoneEl.querySelector(INSTRUCTIONS);
-  const dropzoneTarget = dropzoneEl.querySelector(TARGET);
-  if (!dropzoneEl) {
+const getDropzoneElements = fileInputParent => {
+  const inputEl = fileInputParent.querySelector(INPUT);
+  const instructions = fileInputParent.querySelector(INSTRUCTIONS);
+  const dropTarget = fileInputParent.querySelector(TARGET);
+  if (!fileInputParent) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
-  return { inputEl, dropzoneInstructions, dropzoneTarget };
+  return { inputEl, instructions, dropTarget };
 };
 
 
 /**
- * Setup the dropzone component
+ * Setup the file input component
  *
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const setupAttributes = dropzoneEl => {
-  dropzoneEl.classList.add(INITIALIZED_CLASS);
+const setupAttributes = fileInputParent => {
+  fileInputParent.classList.add(INITIALIZED_CLASS);
 };
 
 
-const removeOldPreviews = (dropzoneEl, dropzoneInstructions) => {
-  const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
-  const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
+const removeOldPreviews = (fileInputParent, instructions) => {
+  const filePreviews = fileInputParent.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const currentPreviewHeading = fileInputParent.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
   if (currentPreviewHeading) {
     currentPreviewHeading.remove();
@@ -77,8 +77,8 @@ const removeOldPreviews = (dropzoneEl, dropzoneInstructions) => {
   // Get rid of existing previews if they exist
   if (filePreviews !== null) {
     // Set original instructions
-    if (dropzoneInstructions) {
-      dropzoneInstructions.classList.remove(HIDDEN_CLASS);
+    if (instructions) {
+      instructions.classList.remove(HIDDEN_CLASS);
     }
     Array.prototype.forEach.call(filePreviews, function removeImages(node) {
       node.parentNode.removeChild(node);
@@ -86,14 +86,14 @@ const removeOldPreviews = (dropzoneEl, dropzoneInstructions) => {
   }
 }
 
-const preventInvalidFiles = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget) => {
+const preventInvalidFiles = (e, inputEl, fileInputParent, instructions, dropTarget) => {
   const acceptedFiles = inputEl.getAttribute('accept');
 
-  dropzoneEl.classList.remove(INVALID_FILE_CLASS);
-  
+  fileInputParent.classList.remove(INVALID_FILE_CLASS);
+
   if (acceptedFiles) {
     const errorMessage = document.createElement('div');
-    const currentErrorMessage = dropzoneEl.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
+    const currentErrorMessage = fileInputParent.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
 
     if (currentErrorMessage) {
       currentErrorMessage.remove();
@@ -107,12 +107,12 @@ const preventInvalidFiles = (e, inputEl, dropzoneEl, dropzoneInstructions, dropz
       }
     }
     if (!filesAllowed) {
-      removeOldPreviews(dropzoneEl, dropzoneInstructions);
+      removeOldPreviews(fileInputParent, instructions);
       inputEl.value = ''; // eslint-disable-line no-param-reassign
-      dropzoneTarget.insertBefore(errorMessage, inputEl);
+      dropTarget.insertBefore(errorMessage, inputEl);
       errorMessage.innerHTML = `Please attach only ${acceptedFiles} files`;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
-      dropzoneEl.classList.add(INVALID_FILE_CLASS);
+      fileInputParent.classList.add(INVALID_FILE_CLASS);
       e.preventDefault();
       e.stopPropagation();
     }
@@ -126,11 +126,11 @@ const preventInvalidFiles = (e, inputEl, dropzoneEl, dropzoneInstructions, dropz
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 
-const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget) => {
+const handleChange = (e, inputEl, fileInputParent, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement('div');
 
-  removeOldPreviews(dropzoneEl, dropzoneInstructions);
+  removeOldPreviews(fileInputParent, instructions);
 
   for (let i = 0; i < fileNames.length; i += 1) {
      const reader = new FileReader();
@@ -138,9 +138,9 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarg
 
      reader.onloadstart = function createFilePreview() {
        const imageId = makeSafeForID(fileName);
-       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-dropzone__preview__image  ${LOADING_CLASS}"/>`;
+       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-file-input__preview__image  ${LOADING_CLASS}"/>`;
 
-       dropzoneInstructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
+       instructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
      }
 
      reader.onloadend = function createGenericFilePreview() {
@@ -170,49 +170,49 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarg
      }
 
      if (i === 0) {
-       dropzoneTarget.insertBefore(filePreviewsHeading, dropzoneInstructions);
-       filePreviewsHeading.innerHTML = `Selected file <span class="usa-dropzone__choose">Replace?</span>`;
+       dropTarget.insertBefore(filePreviewsHeading, instructions);
+       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Replace?</span>`;
      }
      else if (i >= 1) {
-       dropzoneTarget.insertBefore(filePreviewsHeading, dropzoneInstructions);
-       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-dropzone__choose">Replace?</span>`;
+       dropTarget.insertBefore(filePreviewsHeading, instructions);
+       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-file-input__choose">Replace?</span>`;
      }
 
      if (filePreviewsHeading) {
-       dropzoneInstructions.classList.add(HIDDEN_CLASS);
+       instructions.classList.add(HIDDEN_CLASS);
        filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
      }
    }
 }
 
-const dropzone = behavior(
+const fileInpt = behavior(
   {
   },
   {
     init(root) {
-      select(DROPZONE, root).forEach(dropzoneEl => {
-        const { inputEl, dropzoneInstructions, dropzoneTarget } = getDropzoneElements(dropzoneEl);
-        setupAttributes(dropzoneEl);
+      select(DROPZONE, root).forEach(fileInputParent => {
+        const { inputEl, instructions, dropTarget } = getDropzoneElements(fileInputParent);
+        setupAttributes(fileInputParent);
 
-        dropzoneEl.addEventListener("dragover", function handleDragOver() {
+        fileInputParent.addEventListener("dragover", function handleDragOver() {
           this.classList.add(DRAG_CLASS);
         }, false);
 
-        dropzoneEl.addEventListener("dragleave", function handleDragLeave() {
+        fileInputParent.addEventListener("dragleave", function handleDragLeave() {
           this.classList.remove(DRAG_CLASS);
         }, false);
 
-        dropzoneEl.addEventListener("drop", function handleDrop(e) {
-          preventInvalidFiles(e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget);
+        fileInputParent.addEventListener("drop", function handleDrop(e) {
+          preventInvalidFiles(e, inputEl, fileInputParent, instructions, dropTarget);
           this.classList.remove(DRAG_CLASS);
         }, false);
 
         inputEl.onchange = e => {
-          handleChange(e, inputEl, dropzoneEl, dropzoneInstructions,dropzoneTarget)
+          handleChange(e, inputEl, fileInputParent, instructions, dropTarget)
         }
       });
     }
   }
 );
 
-module.exports = dropzone;
+module.exports = fileInpt;
