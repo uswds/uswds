@@ -483,6 +483,27 @@ $system-base-cap-height: 362px;
 
 /*
 ----------------------------------------
+Luminance ranges
+----------------------------------------
+*/
+
+$system-luminance-grade-ranges: (
+  0: (1, 1),
+  5: (0.850, 0.930),
+  10: (0.750,	0.820),
+  20: (0.500, 0.650),
+  30: (0.350,	0.450),
+  40: (0.250,	0.300),
+  50: (0.175,	0.183),
+  60: (0.100,	0.125),
+  70: (0.050,	0.070),
+  80: (0.020,	0.040),
+  90: (0.005,	0.015,),
+  100: (0, 0),
+);
+
+/*
+----------------------------------------
 Colors
 ----------------------------------------
 */
@@ -1568,7 +1589,7 @@ $system-color-shortcodes: (
   "violet-70v": $color-violet-70v,
   "violet-80v": $color-violet-80v,
   "violet-90v": $color-violet-90v,
-  "violet-warm-5 ": $color-violet-warm-5,
+  "violet-warm-5": $color-violet-warm-5,
   "violet-warm-10": $color-violet-warm-10,
   "violet-warm-20": $color-violet-warm-20,
   "violet-warm-30": $color-violet-warm-30,
