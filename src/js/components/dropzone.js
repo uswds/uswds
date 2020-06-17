@@ -9,9 +9,11 @@ const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
 const INSTRUCTIONS = `.${PREFIX}-dropzone__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-dropzone__preview`;
 const PREVIEW_HEADING_CLASS = `${PREFIX}-dropzone__preview-heading`;
+const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-dropzone__accepted-files-message`;
 const DRAG_CLASS = `${PREFIX}-dropzone--drag`;
 const LOADING_CLASS = 'is-loading';
 const HIDDEN_CLASS = 'display-none';
+const INVALID_FILE_CLASS = 'has-invalid-file';
 const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-dropzone__preview__image`;
 const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
 const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
@@ -65,6 +67,59 @@ const setupAttributes = dropzoneEl => {
 };
 
 
+const removeOldPreviews = (dropzoneEl, dropzoneInstructions) => {
+  const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
+
+  if (currentPreviewHeading) {
+    currentPreviewHeading.remove();
+  }
+  // Get rid of existing previews if they exist
+  if (filePreviews !== null) {
+    // Set original instructions
+    if (dropzoneInstructions) {
+      dropzoneInstructions.classList.remove(HIDDEN_CLASS);
+    }
+    Array.prototype.forEach.call(filePreviews, function removeImages(node) {
+      node.parentNode.removeChild(node);
+    });
+  }
+}
+
+const preventInvalidFiles = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget) => {
+  const acceptedFiles = inputEl.getAttribute('accept');
+
+  dropzoneEl.classList.remove(INVALID_FILE_CLASS);
+  
+  if (acceptedFiles) {
+    const errorMessage = document.createElement('div');
+    const currentErrorMessage = dropzoneEl.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
+
+    if (currentErrorMessage) {
+      currentErrorMessage.remove();
+    }
+
+    let filesAllowed = true;
+    for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
+      const file = e.dataTransfer.files[i];
+      if (filesAllowed) {
+        filesAllowed = file.name.includes(acceptedFiles)
+      }
+    }
+    if (!filesAllowed) {
+      removeOldPreviews(dropzoneEl, dropzoneInstructions);
+      inputEl.value = ''; // eslint-disable-line no-param-reassign
+      dropzoneTarget.insertBefore(errorMessage, inputEl);
+      errorMessage.innerHTML = `Please attach only ${acceptedFiles} files`;
+      errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
+      dropzoneEl.classList.add(INVALID_FILE_CLASS);
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
+}
+
+
 /**
  * Handle changes
  *
@@ -73,22 +128,9 @@ const setupAttributes = dropzoneEl => {
 
 const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget) => {
   const fileNames = e.target.files;
-  const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
   const filePreviewsHeading = document.createElement('div');
-  const currentPreviewHeading = dropzoneEl.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
-  if (currentPreviewHeading) {
-    currentPreviewHeading.remove();
-  }
-
-  // Get rid of existing previews if they exist
-  if (filePreviews !== null) {
-    // Set original instructions
-    dropzoneInstructions.classList.remove(HIDDEN_CLASS);
-    Array.prototype.forEach.call(filePreviews, function removePreviews(node) {
-      node.parentNode.removeChild(node);
-    });
-  }
+  removeOldPreviews(dropzoneEl, dropzoneInstructions);
 
   for (let i = 0; i < fileNames.length; i += 1) {
      const reader = new FileReader();
@@ -160,14 +202,14 @@ const dropzone = behavior(
           this.classList.remove(DRAG_CLASS);
         }, false);
 
-        dropzoneEl.addEventListener("drop", function handleDrop() {
+        dropzoneEl.addEventListener("drop", function handleDrop(e) {
+          preventInvalidFiles(e, inputEl, dropzoneEl, dropzoneInstructions, dropzoneTarget);
           this.classList.remove(DRAG_CLASS);
         }, false);
 
         inputEl.onchange = e => {
           handleChange(e, inputEl, dropzoneEl, dropzoneInstructions,dropzoneTarget)
         }
-
       });
     }
   }

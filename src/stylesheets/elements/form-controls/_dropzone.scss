@@ -17,6 +17,22 @@
   }
 }
 
+.has-invalid-file .usa-dropzone__target {
+  border-color: color('accent-warm');
+}
+
+.usa-dropzone__accepted-files-message {
+  font-weight: bold;
+  margin: units(-3) 0 units(3);
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.has-invalid-file .usa-dropzone__accepted-files-message {
+  color: color('secondary-dark');
+}
+
 .usa-dropzone__choose {
   @include typeset-link;
   font-weight: normal;
