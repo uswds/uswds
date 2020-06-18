@@ -2,12 +2,12 @@ const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
 const {
+  getDatePickerContext,
   isDateInputInvalid,
   updateCalendarIfVisible
 } = require("./date-picker");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
-const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
 const DATE_PICKER_RANGE_CLASS = `${PREFIX}-date-picker-range`;
 const DATE_PICKER_RANGE_RANGE_START_CLASS = `${DATE_PICKER_RANGE_CLASS}__range-start`;
 const DATE_PICKER_RANGE_RANGE_END_CLASS = `${DATE_PICKER_RANGE_CLASS}__range-end`;
@@ -16,41 +16,57 @@ const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const DATE_PICKER_RANGE = `.${DATE_PICKER_RANGE_CLASS}`;
 const DATE_PICKER_RANGE_RANGE_START = `.${DATE_PICKER_RANGE_RANGE_START_CLASS}`;
 const DATE_PICKER_RANGE_RANGE_END = `.${DATE_PICKER_RANGE_RANGE_END_CLASS}`;
-const DATE_PICKER_RANGE_RANGE_START_INPUT = `.${DATE_PICKER_RANGE_RANGE_START_CLASS} .${DATE_PICKER_INPUT_CLASS}`;
-const DATE_PICKER_RANGE_RANGE_END_INPUT = `.${DATE_PICKER_RANGE_RANGE_END_CLASS} .${DATE_PICKER_INPUT_CLASS}`;
 
 const DEFAULT_MIN_DATE = "01/01/0000";
 
 /**
- * emit event to element
- *
- * @param {HTMLElement} el The element to update
- * @param {string} eventName the name of the event
+ * The properties and elements within the date picker.
+ * @typedef {Object} DateRangePickerContext
+ * @property {HTMLElement} dateRangePickerEl
+ * @property {HTMLElement} rangeStartEl
+ * @property {HTMLElement} rangeEndEl
  */
-const emitEvent = (el, eventName) => {
-  if (!el) return;
-  const event = document.createEvent("Event");
-  event.initEvent(eventName, true, true);
-  el.dispatchEvent(event);
+
+/**
+ * Get an object of the properties and elements belonging directly to the given
+ * date picker component.
+ *
+ * @param {HTMLElement} el the element within the date picker
+ * @returns {DateRangePickerContext} elements
+ */
+const getDateRangePickerContext = el => {
+  const dateRangePickerEl = el.closest(DATE_PICKER_RANGE);
+
+  if (!dateRangePickerEl) {
+    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
+  }
+
+  const rangeStartEl = dateRangePickerEl.querySelector(
+    DATE_PICKER_RANGE_RANGE_START
+  );
+  const rangeEndEl = dateRangePickerEl.querySelector(
+    DATE_PICKER_RANGE_RANGE_END
+  );
+
+  return {
+    dateRangePickerEl,
+    rangeStartEl,
+    rangeEndEl
+  };
 };
 
 /**
  * handle update from range start date picker
  *
- * @param {HTMLInputElement} inputEl the input element within the range start date picker
+ * @param {HTMLElement} el an element within the date range picker
  */
-const handleRangeStartUpdate = inputEl => {
-  if (!inputEl) return;
-
-  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
-
-  if (!datePickerRangeEl) {
-    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
-  }
-
-  const rangeEndEl = datePickerRangeEl.querySelector(
-    DATE_PICKER_RANGE_RANGE_END
-  );
+const handleRangeStartUpdate = el => {
+  const {
+    dateRangePickerEl,
+    rangeStartEl,
+    rangeEndEl
+  } = getDateRangePickerContext(el);
+  const { inputEl } = getDatePickerContext(rangeStartEl);
   const updatedDate = inputEl.value;
 
   if (updatedDate && !isDateInputInvalid(inputEl)) {
@@ -58,7 +74,7 @@ const handleRangeStartUpdate = inputEl => {
     rangeEndEl.dataset.rangeDate = updatedDate;
     rangeEndEl.dataset.defaultDate = updatedDate;
   } else {
-    rangeEndEl.dataset.minDate = datePickerRangeEl.dataset.minDate || "";
+    rangeEndEl.dataset.minDate = dateRangePickerEl.dataset.minDate || "";
     rangeEndEl.dataset.rangeDate = "";
     rangeEndEl.dataset.defaultDate = "";
   }
@@ -69,20 +85,15 @@ const handleRangeStartUpdate = inputEl => {
 /**
  * handle update from range start date picker
  *
- * @param {HTMLInputElement} inputEl the input element within the range start date picker
+ * @param {HTMLElement} el an element within the date range picker
  */
-const handleRangeEndUpdate = inputEl => {
-  if (!inputEl) return;
-
-  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
-
-  if (!datePickerRangeEl) {
-    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
-  }
-
-  const rangeStartEl = datePickerRangeEl.querySelector(
-    DATE_PICKER_RANGE_RANGE_START
-  );
+const handleRangeEndUpdate = el => {
+  const {
+    dateRangePickerEl,
+    rangeStartEl,
+    rangeEndEl
+  } = getDateRangePickerContext(el);
+  const { inputEl } = getDatePickerContext(rangeEndEl);
   const updatedDate = inputEl.value;
 
   if (updatedDate && !isDateInputInvalid(inputEl)) {
@@ -90,7 +101,7 @@ const handleRangeEndUpdate = inputEl => {
     rangeStartEl.dataset.rangeDate = updatedDate;
     rangeStartEl.dataset.defaultDate = updatedDate;
   } else {
-    rangeStartEl.dataset.maxDate = datePickerRangeEl.dataset.maxDate || "";
+    rangeStartEl.dataset.maxDate = dateRangePickerEl.dataset.maxDate || "";
     rangeStartEl.dataset.rangeDate = "";
     rangeStartEl.dataset.defaultDate = "";
   }
@@ -137,21 +148,17 @@ const enhanceDatePickerRange = el => {
     rangeEnd.dataset.maxDate = maxDate;
   }
 
-  handleRangeStartUpdate(
-    datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_START_INPUT)
-  );
-  handleRangeEndUpdate(
-    datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_END_INPUT)
-  );
+  handleRangeStartUpdate(datePickerRangeEl);
+  handleRangeEndUpdate(datePickerRangeEl);
 };
 
 const datePickerRange = behavior(
   {
     "input change": {
-      [DATE_PICKER_RANGE_RANGE_START_INPUT]() {
+      [DATE_PICKER_RANGE_RANGE_START]() {
         handleRangeStartUpdate(this);
       },
-      [DATE_PICKER_RANGE_RANGE_END_INPUT]() {
+      [DATE_PICKER_RANGE_RANGE_END]() {
         handleRangeEndUpdate(this);
       }
     }
