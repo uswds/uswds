@@ -4,6 +4,7 @@ const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 const activeElement = require("../utils/active-element");
+const isIosDevice = require("../utils/is-ios-device");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_ACTIVE_CLASS = `${DATE_PICKER_CLASS}--active`;
@@ -1786,167 +1787,169 @@ const datePickerTabEventHandler = tabHandler(DATE_PICKER_FOCUSABLE);
 const monthPickerTabEventHandler = tabHandler(MONTH_PICKER_FOCUSABLE);
 const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
 
-const datePicker = behavior(
-  {
-    [CLICK]: {
-      [DATE_PICKER_BUTTON]() {
-        toggleCalendar(this);
-      },
-      [CALENDAR_DATE]() {
-        selectDate(this);
-      },
-      [CALENDAR_MONTH]() {
-        selectMonth(this);
-      },
-      [CALENDAR_YEAR]() {
-        selectYear(this);
-      },
-      [CALENDAR_PREVIOUS_MONTH]() {
-        displayPreviousMonth(this);
-      },
-      [CALENDAR_NEXT_MONTH]() {
-        displayNextMonth(this);
-      },
-      [CALENDAR_PREVIOUS_YEAR]() {
-        displayPreviousYear(this);
-      },
-      [CALENDAR_NEXT_YEAR]() {
-        displayNextYear(this);
-      },
-      [CALENDAR_PREVIOUS_YEAR_CHUNK]() {
-        displayPreviousYearChunk(this);
-      },
-      [CALENDAR_NEXT_YEAR_CHUNK]() {
-        displayNextYearChunk(this);
-      },
-      [CALENDAR_MONTH_SELECTION]() {
-        const newCalendar = displayMonthSelection(this);
-        newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
-      },
-      [CALENDAR_YEAR_SELECTION]() {
-        const newCalendar = displayYearSelection(this);
-        newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
-      }
+const datePickerEvents = {
+  [CLICK]: {
+    [DATE_PICKER_BUTTON]() {
+      toggleCalendar(this);
     },
-    keyup: {
-      [DATE_PICKER_CALENDAR](event) {
-        const keydown = this.dataset.keydownKeyCode;
-        if (`${event.keyCode}` !== keydown) {
-          event.preventDefault();
-        }
-      }
+    [CALENDAR_DATE]() {
+      selectDate(this);
     },
-    keydown: {
-      [DATE_PICKER_INPUT](event) {
-        if (event.keyCode === ENTER_KEYCODE) {
-          validateDateInput(this);
-        }
-      },
-      [DATE_PICKER_CALENDAR](event) {
-        this.dataset.keydownKeyCode = event.keyCode;
-
-        const keyMap = keymap({
-          Escape: handleEscapeFromCalendar
-        });
-
-        keyMap(event);
-      },
-      [CALENDAR_DATE_PICKER]: keymap({
-        Tab: datePickerTabEventHandler.tabAhead,
-        "Shift+Tab": datePickerTabEventHandler.tabBack
-      }),
-      [CALENDAR_DATE]: keymap({
-        Up: handleUpFromDate,
-        ArrowUp: handleUpFromDate,
-        Down: handleDownFromDate,
-        ArrowDown: handleDownFromDate,
-        Left: handleLeftFromDate,
-        ArrowLeft: handleLeftFromDate,
-        Right: handleRightFromDate,
-        ArrowRight: handleRightFromDate,
-        Home: handleHomeFromDate,
-        End: handleEndFromDate,
-        PageDown: handlePageDownFromDate,
-        PageUp: handlePageUpFromDate,
-        "Shift+PageDown": handleShiftPageDownFromDate,
-        "Shift+PageUp": handleShiftPageUpFromDate
-      }),
-      [CALENDAR_MONTH_PICKER]: keymap({
-        Tab: monthPickerTabEventHandler.tabAhead,
-        "Shift+Tab": monthPickerTabEventHandler.tabBack
-      }),
-      [CALENDAR_MONTH]: keymap({
-        Up: handleUpFromMonth,
-        ArrowUp: handleUpFromMonth,
-        Down: handleDownFromMonth,
-        ArrowDown: handleDownFromMonth,
-        Left: handleLeftFromMonth,
-        ArrowLeft: handleLeftFromMonth,
-        Right: handleRightFromMonth,
-        ArrowRight: handleRightFromMonth,
-        Home: handleHomeFromMonth,
-        End: handleEndFromMonth,
-        PageDown: handlePageDownFromMonth,
-        PageUp: handlePageUpFromMonth
-      }),
-      [CALENDAR_YEAR_PICKER]: keymap({
-        Tab: yearPickerTabEventHandler.tabAhead,
-        "Shift+Tab": yearPickerTabEventHandler.tabBack
-      }),
-      [CALENDAR_YEAR]: keymap({
-        Up: handleUpFromYear,
-        ArrowUp: handleUpFromYear,
-        Down: handleDownFromYear,
-        ArrowDown: handleDownFromYear,
-        Left: handleLeftFromYear,
-        ArrowLeft: handleLeftFromYear,
-        Right: handleRightFromYear,
-        ArrowRight: handleRightFromYear,
-        Home: handleHomeFromYear,
-        End: handleEndFromYear,
-        PageDown: handlePageDownFromYear,
-        PageUp: handlePageUpFromYear
-      })
+    [CALENDAR_MONTH]() {
+      selectMonth(this);
     },
-    focusout: {
-      [DATE_PICKER_INPUT]() {
-        validateDateInput(this);
-      },
-      [DATE_PICKER](event) {
-        if (!this.contains(event.relatedTarget)) {
-          hideCalendar(this);
-        }
-      }
+    [CALENDAR_YEAR]() {
+      selectYear(this);
     },
-    input: {
-      [DATE_PICKER_INPUT]() {
-        updateCalendarIfVisible(this);
-      }
+    [CALENDAR_PREVIOUS_MONTH]() {
+      displayPreviousMonth(this);
     },
-    mousemove: {
-      [CALENDAR_DATE_CURRENT_MONTH]() {
-        handleMousemoveFromDate(this);
-      },
-      [CALENDAR_MONTH]() {
-        handleMousemoveFromMonth(this);
-      },
-      [CALENDAR_YEAR]() {
-        handleMousemoveFromYear(this);
+    [CALENDAR_NEXT_MONTH]() {
+      displayNextMonth(this);
+    },
+    [CALENDAR_PREVIOUS_YEAR]() {
+      displayPreviousYear(this);
+    },
+    [CALENDAR_NEXT_YEAR]() {
+      displayNextYear(this);
+    },
+    [CALENDAR_PREVIOUS_YEAR_CHUNK]() {
+      displayPreviousYearChunk(this);
+    },
+    [CALENDAR_NEXT_YEAR_CHUNK]() {
+      displayNextYearChunk(this);
+    },
+    [CALENDAR_MONTH_SELECTION]() {
+      const newCalendar = displayMonthSelection(this);
+      newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
+    },
+    [CALENDAR_YEAR_SELECTION]() {
+      const newCalendar = displayYearSelection(this);
+      newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
+    }
+  },
+  keyup: {
+    [DATE_PICKER_CALENDAR](event) {
+      const keydown = this.dataset.keydownKeyCode;
+      if (`${event.keyCode}` !== keydown) {
+        event.preventDefault();
       }
     }
   },
-  {
-    init(root) {
-      select(DATE_PICKER, root).forEach(datePickerEl => {
-        enhanceDatePicker(datePickerEl);
-      });
+  keydown: {
+    [DATE_PICKER_INPUT](event) {
+      if (event.keyCode === ENTER_KEYCODE) {
+        validateDateInput(this);
+      }
     },
-    getDatePickerContext,
-    isDateInputInvalid,
-    validateDateInput,
-    renderCalendar,
-    updateCalendarIfVisible
+    [DATE_PICKER_CALENDAR](event) {
+      this.dataset.keydownKeyCode = event.keyCode;
+
+      const keyMap = keymap({
+        Escape: handleEscapeFromCalendar
+      });
+
+      keyMap(event);
+    },
+    [CALENDAR_DATE_PICKER]: keymap({
+      Tab: datePickerTabEventHandler.tabAhead,
+      "Shift+Tab": datePickerTabEventHandler.tabBack
+    }),
+    [CALENDAR_DATE]: keymap({
+      Up: handleUpFromDate,
+      ArrowUp: handleUpFromDate,
+      Down: handleDownFromDate,
+      ArrowDown: handleDownFromDate,
+      Left: handleLeftFromDate,
+      ArrowLeft: handleLeftFromDate,
+      Right: handleRightFromDate,
+      ArrowRight: handleRightFromDate,
+      Home: handleHomeFromDate,
+      End: handleEndFromDate,
+      PageDown: handlePageDownFromDate,
+      PageUp: handlePageUpFromDate,
+      "Shift+PageDown": handleShiftPageDownFromDate,
+      "Shift+PageUp": handleShiftPageUpFromDate
+    }),
+    [CALENDAR_MONTH_PICKER]: keymap({
+      Tab: monthPickerTabEventHandler.tabAhead,
+      "Shift+Tab": monthPickerTabEventHandler.tabBack
+    }),
+    [CALENDAR_MONTH]: keymap({
+      Up: handleUpFromMonth,
+      ArrowUp: handleUpFromMonth,
+      Down: handleDownFromMonth,
+      ArrowDown: handleDownFromMonth,
+      Left: handleLeftFromMonth,
+      ArrowLeft: handleLeftFromMonth,
+      Right: handleRightFromMonth,
+      ArrowRight: handleRightFromMonth,
+      Home: handleHomeFromMonth,
+      End: handleEndFromMonth,
+      PageDown: handlePageDownFromMonth,
+      PageUp: handlePageUpFromMonth
+    }),
+    [CALENDAR_YEAR_PICKER]: keymap({
+      Tab: yearPickerTabEventHandler.tabAhead,
+      "Shift+Tab": yearPickerTabEventHandler.tabBack
+    }),
+    [CALENDAR_YEAR]: keymap({
+      Up: handleUpFromYear,
+      ArrowUp: handleUpFromYear,
+      Down: handleDownFromYear,
+      ArrowDown: handleDownFromYear,
+      Left: handleLeftFromYear,
+      ArrowLeft: handleLeftFromYear,
+      Right: handleRightFromYear,
+      ArrowRight: handleRightFromYear,
+      Home: handleHomeFromYear,
+      End: handleEndFromYear,
+      PageDown: handlePageDownFromYear,
+      PageUp: handlePageUpFromYear
+    })
+  },
+  focusout: {
+    [DATE_PICKER_INPUT]() {
+      validateDateInput(this);
+    },
+    [DATE_PICKER](event) {
+      if (!this.contains(event.relatedTarget)) {
+        hideCalendar(this);
+      }
+    }
+  },
+  input: {
+    [DATE_PICKER_INPUT]() {
+      updateCalendarIfVisible(this);
+    }
   }
-);
+};
+
+if (!isIosDevice()) {
+  datePickerEvents.mousemove = {
+    [CALENDAR_DATE_CURRENT_MONTH]() {
+      handleMousemoveFromDate(this);
+    },
+    [CALENDAR_MONTH]() {
+      handleMousemoveFromMonth(this);
+    },
+    [CALENDAR_YEAR]() {
+      handleMousemoveFromYear(this);
+    }
+  };
+}
+
+const datePicker = behavior(datePickerEvents, {
+  init(root) {
+    select(DATE_PICKER, root).forEach(datePickerEl => {
+      enhanceDatePicker(datePickerEl);
+    });
+  },
+  getDatePickerContext,
+  isDateInputInvalid,
+  validateDateInput,
+  renderCalendar,
+  updateCalendarIfVisible
+});
 
 module.exports = datePicker;
