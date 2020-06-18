@@ -706,7 +706,7 @@ const enhanceDatePicker = el => {
       `<span class="usa-date-picker__button-wrapper" tabindex="-1">
         <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>
       </span>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
+      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” aria-label="Calendar" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
