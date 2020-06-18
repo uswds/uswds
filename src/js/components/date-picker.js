@@ -624,6 +624,7 @@ const getDatePickerContext = el => {
 
   const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
+  const toggleBtnEl = datePickerEl.querySelector(DATE_PICKER_BUTTON);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
@@ -641,6 +642,7 @@ const getDatePickerContext = el => {
   return {
     calendarDate,
     minDate,
+    toggleBtnEl,
     selectedDate,
     maxDate,
     firstYearChunkEl,
@@ -651,6 +653,30 @@ const getDatePickerContext = el => {
     defaultDate,
     statusEl
   };
+};
+
+/**
+ * Disable the date picker component
+ *
+ * @param {HTMLInputElement} el An element within the date picker component
+ */
+const disable = el => {
+  const { inputEl, toggleBtnEl } = getDatePickerContext(el);
+
+  toggleBtnEl.disabled = true;
+  inputEl.disabled = true;
+};
+
+/**
+ * Enable the date picker component
+ *
+ * @param {HTMLInputElement} el An element within the date picker component
+ */
+const enable = el => {
+  const { inputEl, toggleBtnEl } = getDatePickerContext(el);
+
+  toggleBtnEl.disabled = false;
+  inputEl.disabled = false;
 };
 
 /**
@@ -684,6 +710,10 @@ const enhanceDatePicker = el => {
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
+
+  if (inputEl.disabled) {
+    disable(datePickerEl);
+  }
 };
 
 /**
@@ -1946,6 +1976,8 @@ const datePicker = behavior(datePickerEvents, {
     });
   },
   getDatePickerContext,
+  disable,
+  enable,
   isDateInputInvalid,
   validateDateInput,
   renderCalendar,
