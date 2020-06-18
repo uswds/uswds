@@ -2,13 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
 const DatePicker = require("../../../src/js/components/date-picker");
-const DatePickerRange = require("../../../src/js/components/date-picker-range");
+const DateRangePicker = require("../../../src/js/components/date-range-picker");
 
 const INVALID_TEMPLATE_NO_INPUT = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-input.template.html")
 );
 
-describe("Date picker range without inputs", () => {
+describe("Date range picker without inputs", () => {
   const { body } = document;
 
   beforeEach(() => {
@@ -19,13 +19,13 @@ describe("Date picker range without inputs", () => {
   afterEach(() => {
     body.textContent = "";
     DatePicker.off(body);
-    DatePickerRange.off(body);
+    DateRangePicker.off(body);
   });
 
   it('should throw an error when a toggle button is clicked without a wrapping "usa-date-picker"', () => {
-    assert.throws(() => DatePickerRange.on(), {
+    assert.throws(() => DateRangePicker.on(), {
       message:
-        ".usa-date-picker-range is missing inner two '.usa-date-picker' elements"
+        ".usa-date-range-picker is missing inner two '.usa-date-picker' elements"
     });
   });
 });
