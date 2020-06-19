@@ -33,6 +33,7 @@ describe("date picker component with default date", () => {
     DatePicker.off(body);
   });
 
+
   it("should display the input date when an input date is present", () => {
     input.value = "06/20/2020";
 
