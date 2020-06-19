@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.6.0
+USWDS 2.7.1
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -37,6 +37,19 @@ $theme-button-font-family: "ui" !default;
 $theme-button-border-radius: "md" !default;
 $theme-button-small-width: 6 !default;
 $theme-button-stroke-width: 2px !default;
+
+// Card
+$theme-card-border-color: "base-lighter" !default;
+$theme-card-border-radius: "lg" !default;
+$theme-card-border-width: 2px !default;
+$theme-card-gap: 2 !default;
+$theme-card-flag-min-width: "tablet" !default;
+$theme-card-flag-image-width: "card-lg" !default;
+$theme-card-font-family: "body" !default;
+$theme-card-header-typeset: "heading", "lg", 2 !default;
+$theme-card-margin-bottom: 4 !default;
+$theme-card-padding-perimeter: 3 !default;
+$theme-card-padding-y: 2 !default;
 
 // Footer
 $theme-footer-font-family: "body" !default;

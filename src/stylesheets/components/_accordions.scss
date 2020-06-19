@@ -105,8 +105,6 @@ $accordion-border: units($theme-accordion-border-width) solid
   > *:last-child {
     margin-bottom: 0;
   }
-
-  @include accessibly-hidden;
 }
 
 .usa-accordion__button {

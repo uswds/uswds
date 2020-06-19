@@ -1,0 +1,44 @@
+@mixin set-text-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40
+  );
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $grade-bg: get-color-grade($bg-color);
+  $grade-preferred: get-color-grade($preferred-text-color);
+  $magic-num-preferred: abs($grade-bg - $grade-preferred);
+
+  //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
+
+  @if $magic-num-preferred >= $target-magic-number {
+    color: color($preferred-text-color);
+  } @else {
+    $grade-fallback: get-color-grade($fallback-text-color);
+    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    @if $magic-num-fallback < $target-magic-number {
+      @error "Neither '#{$preferred-text-color}' nor '#{$fallback-text-color}' have #{$wcag-target} contrast on a '#{$bg-color}' background.";
+    }
+    color: color($fallback-text-color);
+  }
+}
+
+@mixin set-text-and-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  @include set-text-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+  background-color: color($bg-color);
+}
