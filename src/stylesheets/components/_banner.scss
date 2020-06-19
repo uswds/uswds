@@ -21,6 +21,7 @@ $banner-close-icon: (
 
   .usa-accordion {
     @include typeset($theme-banner-font-family);
+    color: inherit;
   }
 }
 
