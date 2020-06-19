@@ -1,7 +1,18 @@
+$banner-link-icon: (
+  'default': nth($theme-banner-link-icon, 1),
+  'active': nth($theme-banner-link-icon, 2)
+);
+
+$banner-close-icon: (
+  'default': nth($theme-banner-close-icon, 1),
+  'active': nth($theme-banner-close-icon, 2)
+);
+
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;
-  background-color: color("base-lightest");
+  @include set-text-from-bg($theme-banner-background);
+  background-color: color($theme-banner-background);
 
   @include at-media("tablet") {
     font-size: font-size($theme-banner-font-family, "3xs");
@@ -94,8 +105,8 @@
 }
 
 .usa-banner__header-action {
-  @include add-icon("angle-arrow-down-primary", "after", 1, 1, 0.5, "hover");
-  color: color("primary");
+  @include add-icon(map-get($banner-link-icon, "default"), "after", 1, 1, 0.5, "hover");
+  @include set-text-from-bg($theme-banner-background, $theme-link-color, "base-lighter");
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
@@ -126,7 +137,6 @@
 
   @include at-media("tablet") {
     background-color: transparent;
-    color: color("ink");
     display: block;
     font-size: font-size($theme-banner-font-family, 1);
     font-weight: font-weight("normal");
@@ -149,9 +159,9 @@
 
 .usa-banner__button {
   @include button-unstyled;
+  @include set-text-from-bg($theme-banner-background, $theme-link-color, "base-lighter");
   @include u-pin("left");
   @include u-pin("y");
-  @include u-text("primary", underline, baseline);
   display: block;
   font-size: font-size($theme-banner-font-family, 1);
   height: auto;
@@ -166,14 +176,14 @@
   }
 
   @include at-media("tablet") {
-    @include add-icon("angle-arrow-down-primary", "after", 1, 1, 2px, "hover");
+    @include add-icon(map-get($banner-link-icon, "default"), "after", 1, 1, 2px, "hover");
     @include u-pin("none");
     display: inline;
     margin-left: units(1);
     position: relative;
 
     &:hover {
-      @include u-text("primary-darker");
+      @include set-text-from-bg($theme-banner-background, $theme-link-hover-color, "white");
       // Underline added to inner text instead.
       text-decoration: none;
     }
@@ -188,24 +198,24 @@
 
     @include at-media-max("tablet") {
       @include add-icon(
-        "close-blue-60v-alt",
+        map-get($banner-close-icon, "default"),
         "after",
-        $theme-icon-image-size,
+        $theme-banner-close-icon-size,
         $size-touch-target,
         0,
-        "no-hover"
+        map-get($banner-close-icon, "active")
       );
 
       &::after {
         @include u-pin("y");
         @include u-pin("right");
-        background-color: color("base-lighter");
+        background-color: color($theme-banner-close-background);
         height: auto;
       }
     }
 
     @include at-media("tablet") {
-      @include add-icon("angle-arrow-up-primary", "after", 1, 1, 2px, "hover");
+      @include add-icon(map-get($banner-link-icon, "active"), "after", 1, 1, 2px, "hover");
       height: auto;
       padding: units(0);
       position: relative;

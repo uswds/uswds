@@ -29,7 +29,13 @@ $theme-alert-icon-size: 4 !default;
 $theme-alert-padding-x: 2.5 !default;
 
 // Banner
+// $theme-banner-background: "base-darkest" !default;
+$theme-banner-background: "base-lightest" !default;
+$theme-banner-close-background: "base-lighter" !default;
+$theme-banner-close-icon: "close-blue-60v-alt", "no-hover" !default;
+$theme-banner-close-icon-size: 2 !default;
 $theme-banner-font-family: "ui" !default;
+$theme-banner-link-icon: "angle-arrow-down-primary", "angle-arrow-up-primary" !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Button
