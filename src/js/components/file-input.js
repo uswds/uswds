@@ -2,14 +2,17 @@ const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 
-const DROPZONE = `.${PREFIX}-file-input`;
-const INPUT = `.${PREFIX}-file-input__input`;
-const TARGET = `.${PREFIX}-file-input__target`;
-const INITIALIZED_CLASS = `${PREFIX}-file-input--is-initialized`;
-const INSTRUCTIONS = `.${PREFIX}-file-input__instructions`;
+const DROPZONE_CLASS = `${PREFIX}-file-input`;
+const DROPZONE = `.${DROPZONE_CLASS}`;
+const INPUT_CLASS = `${PREFIX}-file-input__input`;
+const TARGET_CLASS = `${PREFIX}-file-input__target`;
+const BOX_CLASS = `${PREFIX}-file-input__box`;
+const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
 const PREVIEW_HEADING_CLASS = `${PREFIX}-file-input__preview-heading`;
+const CHOOSE_CLASS = `${PREFIX}-file-input__choose`;
 const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
+const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
 const DRAG_CLASS = `${PREFIX}-file-input--drag`;
 const LOADING_CLASS = 'is-loading';
 const HIDDEN_CLASS = 'display-none';
@@ -46,33 +49,57 @@ const makeSafeForID = name => {
  * @param {HTMLinputElement|HTMLTextAreaElement} fileInputParent The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getDropzoneElements = fileInputParent => {
-  const inputEl = fileInputParent.querySelector(INPUT);
-  const instructions = fileInputParent.querySelector(INSTRUCTIONS);
-  const dropTarget = fileInputParent.querySelector(TARGET);
-  if (!fileInputParent) {
-    throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
+const buildFileInput = fileInputEl => {
+  const acceptsMultiple = fileInputEl.hasAttribute('multiple');
+  const fileInputParent = document.createElement('div');
+  const dropTarget = document.createElement('div');
+  const box = document.createElement('div');
+  const instructions = document.createElement('div');
+  const label = fileInputEl.previousElementSibling;
+
+  fileInputEl.classList.remove(DROPZONE_CLASS);
+  fileInputEl.classList.add(INPUT_CLASS);
+
+  fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
+  fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
+
+  dropTarget.appendChild(fileInputEl);
+  dropTarget.classList.add(TARGET_CLASS);
+
+  if (label) {
+    fileInputParent.appendChild(label);
   }
-  return { inputEl, instructions, dropTarget };
+
+  fileInputParent.appendChild(dropTarget);
+  fileInputParent.classList.add(DROPZONE_CLASS);
+
+  fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
+  fileInputEl.parentNode.insertBefore(box, fileInputEl);
+  box.classList.add(BOX_CLASS);
+  instructions.classList.add(INSTRUCTIONS_CLASS);
+  instructions.setAttribute('aria-hidden', 'true');
+
+  if (acceptsMultiple) {
+    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+  }
+  else {
+    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+  }
+
+  if ((/rv:11.0/i.test(navigator.userAgent)) || (/Edge\/\d./i.test(navigator.userAgent))) {
+    fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
+  }
+
+  return { instructions, dropTarget };
 };
 
 
-/**
- * Setup the file input component
- *
- * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
- */
-const setupAttributes = fileInputParent => {
-  fileInputParent.classList.add(INITIALIZED_CLASS);
-};
-
-
-const removeOldPreviews = (fileInputParent, instructions) => {
-  const filePreviews = fileInputParent.querySelectorAll(`.${PREVIEW_CLASS}`);
-  const currentPreviewHeading = fileInputParent.querySelector(`.${PREVIEW_HEADING_CLASS}`)
+const removeOldPreviews = (dropTarget, instructions) => {
+  const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const currentPreviewHeading = dropTarget.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
   if (currentPreviewHeading) {
-    currentPreviewHeading.remove();
+    currentPreviewHeading.outerHTML = "";
   }
   // Get rid of existing previews if they exist
   if (filePreviews !== null) {
@@ -86,33 +113,32 @@ const removeOldPreviews = (fileInputParent, instructions) => {
   }
 }
 
-const preventInvalidFiles = (e, inputEl, fileInputParent, instructions, dropTarget) => {
-  const acceptedFiles = inputEl.getAttribute('accept');
-
-  fileInputParent.classList.remove(INVALID_FILE_CLASS);
+const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
+  const acceptedFiles = fileInputEl.getAttribute('accept');
+  dropTarget.classList.remove(INVALID_FILE_CLASS);
 
   if (acceptedFiles) {
     const errorMessage = document.createElement('div');
-    const currentErrorMessage = fileInputParent.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
+    const currentErrorMessage = dropTarget.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
 
     if (currentErrorMessage) {
-      currentErrorMessage.remove();
+      currentErrorMessage.outerHTML = "";
     }
 
     let filesAllowed = true;
     for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
       const file = e.dataTransfer.files[i];
       if (filesAllowed) {
-        filesAllowed = file.name.includes(acceptedFiles)
+        filesAllowed = file.name.indexOf(acceptedFiles)
       }
     }
-    if (!filesAllowed) {
-      removeOldPreviews(fileInputParent, instructions);
-      inputEl.value = ''; // eslint-disable-line no-param-reassign
-      dropTarget.insertBefore(errorMessage, inputEl);
+    if (filesAllowed < 0) {
+      removeOldPreviews(dropTarget, instructions);
+      fileInputEl.value = ''; // eslint-disable-line no-param-reassign
+      dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.innerHTML = `Please attach only ${acceptedFiles} files`;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
-      fileInputParent.classList.add(INVALID_FILE_CLASS);
+      dropTarget.classList.add(INVALID_FILE_CLASS);
       e.preventDefault();
       e.stopPropagation();
     }
@@ -126,11 +152,11 @@ const preventInvalidFiles = (e, inputEl, fileInputParent, instructions, dropTarg
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 
-const handleChange = (e, inputEl, fileInputParent, instructions, dropTarget) => {
+const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement('div');
 
-  removeOldPreviews(fileInputParent, instructions);
+  removeOldPreviews(dropTarget, instructions);
 
   for (let i = 0; i < fileNames.length; i += 1) {
      const reader = new FileReader();
@@ -146,16 +172,16 @@ const handleChange = (e, inputEl, fileInputParent, instructions, dropTarget) => 
      reader.onloadend = function createGenericFilePreview() {
        const imageId = makeSafeForID(fileName);
        const previewImage = document.getElementById(imageId);
-       if (fileName.includes(".pdf")) {
+       if (fileName.indexOf(".pdf") > 0) {
          previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`)
        }
-       else if ((fileName.includes('.doc')) || (fileName.includes('.pages'))) {
+       else if ((fileName.indexOf('.doc') > 0) || (fileName.indexOf('.pages') > 0)) {
          previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`)
        }
-       else if ((fileName.includes('.xls')) || (fileName.includes('.numbers'))) {
+       else if ((fileName.indexOf('.xls') > 0) || (fileName.indexOf('.numbers') > 0)) {
         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`)
        }
-       else if ((fileName.includes('.mov')) || (fileName.includes('.mp4'))) {
+       else if ((fileName.indexOf('.mov') > 0) || (fileName.indexOf('.mp4') > 0)) {
         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`)
        }
        else {
@@ -190,25 +216,24 @@ const fileInpt = behavior(
   },
   {
     init(root) {
-      select(DROPZONE, root).forEach(fileInputParent => {
-        const { inputEl, instructions, dropTarget } = getDropzoneElements(fileInputParent);
-        setupAttributes(fileInputParent);
+      select(DROPZONE, root).forEach(fileInputEl => {
+        const { instructions, dropTarget } = buildFileInput(fileInputEl);
 
-        fileInputParent.addEventListener("dragover", function handleDragOver() {
+        dropTarget.addEventListener("dragover", function handleDragOver() {
           this.classList.add(DRAG_CLASS);
         }, false);
 
-        fileInputParent.addEventListener("dragleave", function handleDragLeave() {
+        dropTarget.addEventListener("dragleave", function handleDragLeave() {
           this.classList.remove(DRAG_CLASS);
         }, false);
 
-        fileInputParent.addEventListener("drop", function handleDrop(e) {
-          preventInvalidFiles(e, inputEl, fileInputParent, instructions, dropTarget);
+        dropTarget.addEventListener("drop", function handleDrop(e) {
+          preventInvalidFiles(e, fileInputEl, instructions, dropTarget);
           this.classList.remove(DRAG_CLASS);
         }, false);
 
-        inputEl.onchange = e => {
-          handleChange(e, inputEl, fileInputParent, instructions, dropTarget)
+        fileInputEl.onchange = e => { // eslint-disable-line no-param-reassign
+          handleChange(e, fileInputEl, instructions, dropTarget)
         }
       });
     }

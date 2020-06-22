@@ -1,4 +1,3 @@
-
 [type="file"] {
   border: none;
   margin-top: units(1);
@@ -6,12 +5,12 @@
   padding-top: .2rem; // keeps input vertially centered on error state
 }
 
-.usa-file-input--is-initialized {
+.usa-file-input {
   max-width: units($theme-input-max-width);
   width: 100%;
 }
 
-.usa-file-input--is-initialized .usa-file-input__target {
+.usa-file-input__target {
   border: 1px dashed color('base-light');
   display: block;
   font-size: size('body', '2xs');
@@ -25,7 +24,7 @@
   }
 }
 
-.has-invalid-file .usa-file-input__target {
+.usa-file-input__target.has-invalid-file  {
   border-color: color('accent-warm');
 }
 
@@ -47,15 +46,6 @@
 }
 
 .usa-file-input__instructions {
-  display: none;
-}
-
-.usa-file-input--is-initialized .usa-file-input__label-text {
-  position: absolute;
-  left: -999em;
-}
-
-.usa-file-input--is-initialized .usa-file-input__instructions {
   display: inline-block;
   padding: units(4) units(2);
   pointer-events: none;
@@ -67,7 +57,7 @@
   }
 }
 
-.usa-file-input--is-initialized .usa-file-input__box {
+.usa-file-input__box {
   background: white;
   height: 100%;
   left: 0;
@@ -78,7 +68,7 @@
   z-index: 2;
 }
 
-.usa-file-input--is-initialized .usa-file-input__input[type] {
+.usa-file-input .usa-file-input__input[type] {
   cursor: pointer;
   height: 100%;
   left: 0;
@@ -92,7 +82,7 @@
   z-index: 1;
 }
 
-.usa-file-input--is-initialized .usa-file-input__input[type]::-webkit-file-upload-button {
+.usa-file-input .usa-file-input__input[type]::-webkit-file-upload-button {
   display: none;
 }
 
@@ -123,6 +113,7 @@
 .usa-file-input__preview {
   align-items: center;
   background: color('primary-lighter');
+  word-wrap: anywhere;
   display: flex;
   font-size: size('body', '3xs');
   margin-top: units(1px);
