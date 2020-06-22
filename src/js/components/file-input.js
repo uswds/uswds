@@ -240,7 +240,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
    }
 }
 
-const fileInpt = behavior(
+const fileInput = behavior(
   {
   },
   {
@@ -269,4 +269,4 @@ const fileInpt = behavior(
   }
 );
 
-module.exports = fileInpt;
+module.exports = fileInput;
