@@ -1,11 +1,11 @@
 $banner-link-icon: (
-  'default': nth($theme-banner-link-icon, 1),
-  'active': nth($theme-banner-link-icon, 2)
+  "default": nth($theme-banner-link-icon, 1),
+  "active": nth($theme-banner-link-icon, 2)
 );
 
 $banner-close-icon: (
-  'default': nth($theme-banner-close-icon, 1),
-  'active': nth($theme-banner-close-icon, 2)
+  "default": nth($theme-banner-close-icon, 1),
+  "active": nth($theme-banner-close-icon, 2)
 );
 
 .usa-banner {
@@ -89,8 +89,19 @@ $banner-close-icon: (
 }
 
 .usa-banner__header-action {
-  @include add-icon(map-get($banner-link-icon, "default"), "after", 1, 1, 0.5, "hover");
-  @include set-text-from-bg($theme-banner-background, $theme-link-color, "base-lighter");
+  @include add-icon(
+    map-get($banner-link-icon, "default"),
+    "after",
+    1,
+    1,
+    0.5,
+    "hover"
+  );
+  @include set-text-from-bg(
+    $theme-banner-background,
+    $theme-link-color,
+    "base-lighter"
+  );
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
@@ -142,7 +153,11 @@ $banner-close-icon: (
 
 .usa-banner__button {
   @include button-unstyled;
-  @include set-text-from-bg($theme-banner-background, $theme-link-color, "base-lighter");
+  @include set-text-from-bg(
+    $theme-banner-background,
+    $theme-link-color,
+    "base-lighter"
+  );
   @include u-pin("left");
   @include u-pin("y");
   display: block;
@@ -159,14 +174,25 @@ $banner-close-icon: (
   }
 
   @include at-media("tablet") {
-    @include add-icon(map-get($banner-link-icon, "default"), "after", 1, 1, 2px, "hover");
+    @include add-icon(
+      map-get($banner-link-icon, "default"),
+      "after",
+      1,
+      1,
+      2px,
+      "hover"
+    );
     @include u-pin("none");
     display: inline;
     margin-left: units(1);
     position: relative;
 
     &:hover {
-      @include set-text-from-bg($theme-banner-background, $theme-link-hover-color, "white");
+      @include set-text-from-bg(
+        $theme-banner-background,
+        $theme-link-hover-color,
+        "white"
+      );
       // Underline added to inner text instead.
       text-decoration: none;
     }
@@ -198,7 +224,14 @@ $banner-close-icon: (
     }
 
     @include at-media("tablet") {
-      @include add-icon(map-get($banner-link-icon, "active"), "after", 1, 1, 2px, "hover");
+      @include add-icon(
+        map-get($banner-link-icon, "active"),
+        "after",
+        1,
+        1,
+        2px,
+        "hover"
+      );
       height: auto;
       padding: units(0);
       position: relative;
