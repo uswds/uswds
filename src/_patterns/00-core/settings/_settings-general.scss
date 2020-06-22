@@ -1,0 +1,101 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.7.0
+----------------------------------------
+GENERAL SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://designsystem.digital.gov/design-tokens
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Image path
+----------------------------------------
+Relative image file path
+----------------------------------------
+*/
+
+$theme-image-path: "../img" !default;
+
+/*
+----------------------------------------
+Show compile warnings
+----------------------------------------
+Show Sass warnings when functions and
+mixins use non-standard tokens.
+AND
+Show updates and notifications.
+----------------------------------------
+*/
+
+$theme-show-compile-warnings: true !default;
+$theme-show-notifications: true !default;
+
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$theme-namespace: (
+  "grid": (
+    namespace: "grid-",
+    output: true
+  ),
+  "utility": (
+    namespace: "u-",
+    output: false
+  )
+) !default;
+
+/*
+----------------------------------------
+Layout grid
+----------------------------------------
+Should the layout grid classes output
+with !important
+----------------------------------------
+*/
+
+$theme-layout-grid-use-important: false !default;
+
+/*
+----------------------------------------
+Border box sizing
+----------------------------------------
+When set to true, sets the box-sizing
+property of all site elements to
+`border-box`.
+----------------------------------------
+*/
+
+$theme-global-border-box-sizing: true !default;
+
+/*
+----------------------------------------
+Focus styles
+----------------------------------------
+*/
+
+$theme-focus-color: "blue-40v" !default;
+$theme-focus-offset: 0 !default;
+$theme-focus-style: solid !default;
+$theme-focus-width: 0.5 !default;
+
+/*
+----------------------------------------
+Icons
+----------------------------------------
+*/
+
+$theme-icon-image-size: 2 !default;

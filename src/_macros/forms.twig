@@ -1,0 +1,21 @@
+{% macro input(name, type, classes, label, placeholder, value, size, required) %}
+    {% set show_label = label|default(true) %}
+    <div class="field-container {{ classes }}">
+        {% if show_label %}
+            <label class="{{ classes }}">{{ label|default(name|title) }}{% if required %}<abbr title="Required">*</abbr>{% endif %}
+        {% endif %}
+        <input type="{{ type|default('text') }}" name="{{ name }}" placeholder="{{ placeholder|default(name|title) }}" value="{{ value|e }}" size="{{ size|default(20) }}"{% if required %} required{% endif %} />
+        {% if show_label %}</label>{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro textarea(label, placeholder, rows, classes) %}
+    {% set show_label = label|default(true) %}
+    <div class="field-container {{ classes }}">
+        {% if show_label %}
+            <label class="{{ classes }}">{{ label|default('Label') }}{% if required %}<abbr title="Required">*</abbr>{% endif %}
+        {% endif %}
+        <textarea placeholder="{{ placeholder|default('Placeholder') }}" rows="{{ rows|default(8) }}"{% if required %} required{% endif %}></textarea>
+        {% if show_label %}</label>{% endif %}
+    </div>
+{% endmacro %}

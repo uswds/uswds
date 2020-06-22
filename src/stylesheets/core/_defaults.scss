@@ -1,8 +1,0 @@
-// XXX This file has been deprecated in favor of _variables.scss, and is no
-// longer relevant. Instead, set any variables that you wish to override, then
-// @import '{path/to/uswds/}core/variables';
-
-// For backwards compatibility with consumers of _defaults.scss, we just
-// re-import _variables here. This should be a noop if it has already been
-// imported, since every variable is declared with `!default`.
-@import "./variables";

@@ -9,7 +9,7 @@
 // prerequistes needed for test collection to work. That's what
 // this file is for.
 
-const fractal = require("../fractal.config");
+const fractal = require("../fractal");
 
 exports.fractalLoad = fractal.components.load();
 

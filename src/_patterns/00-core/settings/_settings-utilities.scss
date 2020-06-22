@@ -1,0 +1,853 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.7.0
+----------------------------------------
+UTILITIES SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS utilities in the documentation:
+https://designsystem.digital.gov/utilities
+----------------------------------------
+*/
+
+$utilities-use-important: false !default;
+$output-all-utilities: true !default;
+
+/*
+----------------------------------------
+Utility breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-utility-breakpoints: (
+  "card": false,
+  // 160px
+    "card-lg": false,
+  // 240px
+    "mobile": false,
+  // 320px
+    "mobile-lg": true,
+  // 480px
+    "tablet": true,
+  // 640px
+    "tablet-lg": false,
+  // 800px
+    "desktop": true,
+  // 1024px
+    "desktop-lg": false,
+  // 1200px
+    "widescreen": false,
+  // 1400px
+) !default;
+
+/*
+----------------------------------------
+Global colors
+----------------------------------------
+The following palettes will be added to
+- background-color
+- border-color
+- color
+- text-decoration-color
+----------------------------------------
+*/
+
+$global-color-palettes: ("palette-color-default") !default;
+
+/*
+----------------------------------------
+Settings
+----------------------------------------
+*/
+
+$add-aspect-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$add-list-reset-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$align-items-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$background-color-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$border-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$border-color-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$border-radius-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$border-style-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$border-width-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$bottom-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$box-shadow-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$circle-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$clearfix-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$color-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$cursor-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$display-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$flex-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$flex-direction-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$flex-wrap-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$float-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$font-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$font-family-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$font-feature-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$font-style-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$font-weight-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$height-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$justify-content-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$left-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$letter-spacing-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$line-height-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$margin-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$max-height-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$max-width-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$measure-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$min-height-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$min-width-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$opacity-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$order-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$outline-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$outline-color-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$overflow-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$padding-settings: (
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$pin-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$position-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$right-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$square-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$text-align-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$text-decoration-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$text-decoration-color-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false
+) !default;
+
+$text-indent-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$text-transform-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$top-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$vertical-align-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$whitespace-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$width-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+$z-index-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false
+) !default;
+
+/*
+----------------------------------------
+Values
+----------------------------------------
+*/
+
+// .add-aspect
+
+$add-aspect-palettes: () !default;
+$add-aspect-manual-values: () !default;
+
+// .align-items
+
+$align-items-palettes: ("palette-align-items-default") !default;
+$align-items-manual-values: () !default;
+
+// .background-color
+
+$background-color-palettes: () !default;
+$background-color-manual-values: () !default;
+
+// .border
+
+$border-palettes: ("palette-border-default") !default;
+$border-manual-values: () !default;
+
+// .border-color
+
+$border-color-palettes: () !default;
+$border-color-manual-values: () !default;
+
+// .border-radius
+
+$border-radius-palettes: ("palette-border-radius-default") !default;
+$border-radius-manual-values: () !default;
+
+// .border-style
+
+$border-style-palettes: ("palette-border-style-default") !default;
+$border-style-manual-values: () !default;
+
+// .border-width
+
+$border-width-palettes: ("palette-border-width-default") !default;
+$border-width-manual-values: () !default;
+
+// .bottom
+
+$bottom-palettes: ("palette-bottom-default") !default;
+
+$bottom-manual-values: () !default;
+
+// .box-shadow
+
+$box-shadow-palettes: ("palette-box-shadow-default") !default;
+
+$box-shadow-manual-values: () !default;
+
+// .circle
+
+$circle-palettes: ("palette-circle-default") !default;
+$circle-manual-values: () !default;
+
+// .color
+
+$color-palettes: () !default;
+$color-manual-values: () !default;
+
+// .cursor
+
+$cursor-palettes: ("palette-cursor-default") !default;
+$cursor-manual-values: () !default;
+
+// .display
+
+$display-palettes: ("palette-display-default") !default;
+$display-manual-values: () !default;
+
+// .flex
+
+$flex-palettes: ("palette-flex-default") !default;
+$flex-manual-values: () !default;
+
+// .flex-direction
+
+$flex-direction-palettes: ("palette-flex-direction-default") !default;
+$flex-direction-manual-values: () !default;
+
+// .flex-wrap
+
+$flex-wrap-palettes: ("palette-flex-wrap-default") !default;
+$flex-wrap-manual-values: () !default;
+
+// .float
+
+$float-palettes: ("palette-float-default") !default;
+$float-manual-values: () !default;
+
+// .font
+
+$font-palettes: ("palette-font-default") !default;
+$font-manual-values: () !default;
+
+// .font-family
+
+$font-family-palettes: ("palette-font-family-default") !default;
+$font-family-manual-values: () !default;
+
+// .font-feature-settings
+
+$font-feature-palettes: ("palette-font-feature-settings-default") !default;
+$font-feature-manual-values: () !default;
+
+// .font-style
+
+$font-style-palettes: ("palette-font-style-default") !default;
+$font-style-manual-values: () !default;
+
+// .font-weight
+
+$font-weight-palettes: ("palette-font-weight-default") !default;
+$font-weight-manual-values: () !default;
+
+// .height
+
+$height-palettes: ("palette-height-default") !default;
+$height-manual-values: () !default;
+
+// .justify-content
+
+$justify-content-palettes: ("palette-justify-content-default") !default;
+$justify-content-manual-values: () !default;
+
+// .left
+
+$left-palettes: ("palette-left-default") !default;
+$left-manual-values: () !default;
+
+// .letter-spacing
+
+$letter-spacing-palettes: ("palette-letter-spacing-default") !default;
+$letter-spacing-manual-values: () !default;
+
+// .line-height
+
+$line-height-palettes: ("palette-line-height-default") !default;
+$line-height-manual-values: () !default;
+
+// .margin
+
+$margin-palettes: ("palette-margin-default") !default;
+$margin-manual-values: () !default;
+$margin-vertical-palettes: ("palette-margin-vertical-default") !default;
+$margin-vertical-manual-values: () !default;
+$margin-horizontal-palettes: ("palette-margin-horizontal-default") !default;
+$margin-horizontal-manual-values: () !default;
+
+// .max-height
+
+$max-height-palettes: ("palette-max-height-default") !default;
+$max-height-manual-values: () !default;
+
+// .max-width
+
+$max-width-palettes: ("palette-max-width-default") !default;
+$max-width-manual-values: () !default;
+
+// .measure
+
+$measure-palettes: ("palette-measure-default") !default;
+$measure-manual-values: () !default;
+
+// .min-height
+
+$min-height-palettes: ("palette-min-height-default") !default;
+$min-height-manual-values: () !default;
+
+// .min-width
+
+$min-width-palettes: ("palette-min-width-default") !default;
+$min-width-manual-values: () !default;
+
+// .opacity
+
+$opacity-palettes: ("palette-opacity-default") !default;
+$opacity-manual-values: () !default;
+
+// .order
+
+$order-palettes: ("palette-order-default") !default;
+$order-manual-values: () !default;
+
+// .outline
+
+$outline-palettes: ("palette-outline-default") !default;
+$outline-manual-values: () !default;
+
+// .outline-color
+
+$outline-color-palettes: ("palette-outline-color-default") !default;
+$outline-color-manual-values: () !default;
+
+// .overflow
+
+$overflow-palettes: ("palette-overflow-default") !default;
+$overflow-manual-values: () !default;
+
+// .padding
+
+$padding-palettes: ("palette-padding-default") !default;
+$padding-manual-values: () !default;
+
+// .position
+
+$position-palettes: ("palette-position-default") !default;
+$position-manual-values: () !default;
+
+// .right
+
+$right-palettes: ("palette-right-default") !default;
+$right-manual-values: () !default;
+
+// .square
+
+$square-palettes: ("palette-square-default") !default;
+$square-manual-values: () !default;
+
+// .text-align
+
+$text-align-palettes: ("palette-text-align-default") !default;
+$text-align-manual-values: () !default;
+
+// .text-decoration
+
+$text-decoration-palettes: ("palette-text-decoration-default") !default;
+$text-decoration-manual-values: () !default;
+
+// .text-decoration-color
+
+$text-decoration-color-palettes: () !default;
+$text-decoration-color-manual-values: () !default;
+
+// .text-indent
+
+$text-indent-palettes: ("palette-text-indent-default") !default;
+$text-indent-manual-values: () !default;
+
+// .text-transform
+
+$text-transform-palettes: ("palette-text-transform-default") !default;
+$text-transform-manual-values: () !default;
+
+// .top
+
+$top-palettes: ("palette-top-default") !default;
+$top-manual-values: () !default;
+
+// .vertical-align
+
+$vertical-align-palettes: ("palette-vertical-align-default") !default;
+$vertical-align-manual-values: () !default;
+
+// .white-space
+
+$whitespace-palettes: ("palette-white-space-default") !default;
+$whitespace-manual-values: () !default;
+
+// .width
+
+$width-palettes: ("palette-width-default") !default;
+$width-manual-values: () !default;
+
+// .z-index
+
+$z-index-palettes: ("palette-z-index-default") !default;
+$z-index-manual-values: () !default;
