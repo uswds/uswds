@@ -27,12 +27,10 @@ const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALA
 
 
 /**
- * Takes file name of file(s) selected and creates
- * safe ID name, stripping invalid characters
- *
- * @param {String} name - The file name selected
- * @returns {String} - ID with only valid characters
- */
+* Creates an ID name for each file that strips all invalid characters.
+* @param {string} name - name of the file added to file input
+* @returns {string} same characters as the name with invalide chars removed
+*/
 const makeSafeForID = name => {
   return name.replace(/[^a-z0-9]/g, function replaceName(s) {
     const c = s.charCodeAt(0);
@@ -43,12 +41,10 @@ const makeSafeForID = name => {
 }
 
 /**
- * Returns the root and message element
- * for an character count input
- *
- * @param {HTMLinputElement|HTMLTextAreaElement} fileInputParent The character count input element
- * @returns {CharacterCountElements} elements The root and message element.
- */
+* Builds full file input comonent
+* @param {HTMLElement} fileInputEl - original file input on page
+* @returns {HTMLElement|HTMLElement} - Instructions, target area div
+*/
 const buildFileInput = fileInputEl => {
   const acceptsMultiple = fileInputEl.hasAttribute('multiple');
   const fileInputParent = document.createElement('div');
@@ -57,28 +53,30 @@ const buildFileInput = fileInputEl => {
   const instructions = document.createElement('div');
   const label = fileInputEl.previousElementSibling;
 
+  // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
   fileInputEl.classList.add(INPUT_CLASS);
-
-  fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
-  fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
-
-  dropTarget.appendChild(fileInputEl);
+  fileInputParent.classList.add(DROPZONE_CLASS);
+  box.classList.add(BOX_CLASS);
+  instructions.classList.add(INSTRUCTIONS_CLASS);
+  instructions.setAttribute('aria-hidden', 'true');
   dropTarget.classList.add(TARGET_CLASS);
 
+  // Adds child elements to the DOM
+  fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
+  fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
+  dropTarget.appendChild(fileInputEl);
+  fileInputParent.appendChild(dropTarget);
+  fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
+  fileInputEl.parentNode.insertBefore(box, fileInputEl);
+
+  // If there's a label element directly above the file input, this moves it inside the new parent element.
+  // If there is no label, it is assumed it is elsewhere in the DOM
   if (label) {
     fileInputParent.appendChild(label);
   }
 
-  fileInputParent.appendChild(dropTarget);
-  fileInputParent.classList.add(DROPZONE_CLASS);
-
-  fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
-  fileInputEl.parentNode.insertBefore(box, fileInputEl);
-  box.classList.add(BOX_CLASS);
-  instructions.classList.add(INSTRUCTIONS_CLASS);
-  instructions.setAttribute('aria-hidden', 'true');
-
+  // Sets instruction test based on whether or not multipe files are accepted
   if (acceptsMultiple) {
     instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
@@ -86,6 +84,7 @@ const buildFileInput = fileInputEl => {
     instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
 
+  // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if ((/rv:11.0/i.test(navigator.userAgent)) || (/Edge\/\d./i.test(navigator.userAgent))) {
     fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
   }
@@ -93,17 +92,22 @@ const buildFileInput = fileInputEl => {
   return { instructions, dropTarget };
 };
 
-
+/**
+* Removes image previews, we want to start with a clean list every time files are added to the file input
+* @param {HTMLElement} dropTarget - target area div that encases the input
+* @param {HTMLElement} instructions - text to infrom users to drag or select files
+*/
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(`.${PREVIEW_HEADING_CLASS}`)
 
+  // Remove the heading above the previews
   if (currentPreviewHeading) {
     currentPreviewHeading.outerHTML = "";
   }
-  // Get rid of existing previews if they exist
+
+  // Get rid of existing previews if they exist, show instructions
   if (filePreviews !== null) {
-    // Set original instructions
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
@@ -113,26 +117,41 @@ const removeOldPreviews = (dropTarget, instructions) => {
   }
 }
 
+/**
+* When using an Accept attribute, invalid files will be hidden from
+* file browser, but they can still be dragged to the input. This
+* function prevents them from being dragged and removes error states
+* when correct files are added.
+* @param {event} e
+* @param {HTMLElement} fileInputEl - file input element
+* @param {HTMLElement} instructions - text to infrom users to drag or select files
+* @param {HTMLElement} dropTarget - target area div that encases the input
+*/
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   const acceptedFiles = fileInputEl.getAttribute('accept');
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
+  // Runs if only specific files are accepted
   if (acceptedFiles) {
     const errorMessage = document.createElement('div');
     const currentErrorMessage = dropTarget.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
 
+    // Remove existing error messages
     if (currentErrorMessage) {
       currentErrorMessage.outerHTML = "";
     }
 
-    let filesAllowed = true;
+    // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
+    let allFilesAllowed = true;
     for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
       const file = e.dataTransfer.files[i];
-      if (filesAllowed) {
-        filesAllowed = file.name.indexOf(acceptedFiles)
+      if (allFilesAllowed) {
+        allFilesAllowed = file.name.indexOf(acceptedFiles)
       }
     }
-    if (filesAllowed < 0) {
+
+    // If dragged files are not accepted, this removes them from the value of the input and creates and error state
+    if (allFilesAllowed < 0) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ''; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
@@ -147,29 +166,35 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 
 
 /**
- * Handle changes
- *
- * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
- */
-
+* When new files are applied to file input, this function generates previews
+* and removes old ones.
+* @param {event} e
+* @param {HTMLElement} fileInputEl - file input element
+* @param {HTMLElement} instructions - text to infrom users to drag or select files
+* @param {HTMLElement} dropTarget - target area div that encases the input
+*/
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement('div');
 
+  // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
 
+  // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
      const reader = new FileReader();
      const fileName = fileNames[i].name;
 
-     reader.onloadstart = function createFilePreview() {
+     // Starts with a loading image while preview is created
+     reader.onloadstart = function createLoadingImage() {
        const imageId = makeSafeForID(fileName);
        const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-file-input__preview__image  ${LOADING_CLASS}"/>`;
 
        instructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
      }
 
-     reader.onloadend = function createGenericFilePreview() {
+     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
+     reader.onloadend = function createFilePreview() {
        const imageId = makeSafeForID(fileName);
        const previewImage = document.getElementById(imageId);
        if (fileName.indexOf(".pdf") > 0) {
@@ -187,6 +212,8 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
        else {
          previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
        }
+
+       // Removes loader and displays preview
        previewImage.classList.remove(LOADING_CLASS);
        previewImage.src = reader.result;
      }
@@ -195,6 +222,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
         reader.readAsDataURL(fileNames[i]);
      }
 
+     // Adds heading above file previews, pluralizes if there are multiple
      if (i === 0) {
        dropTarget.insertBefore(filePreviewsHeading, instructions);
        filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Replace?</span>`;
@@ -204,6 +232,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
        filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-file-input__choose">Replace?</span>`;
      }
 
+     // Hides null state content and sets preview heading class
      if (filePreviewsHeading) {
        instructions.classList.add(HIDDEN_CLASS);
        filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
