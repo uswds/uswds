@@ -237,7 +237,7 @@ const setUpAttributes = tooltipTrigger => {
 };
 
 // Setup our function to run on various events
-const tooltips = behavior(
+const tooltip = behavior(
   {
   },
   {
@@ -267,4 +267,4 @@ const tooltips = behavior(
   }
 );
 
-module.exports = tooltips;
+module.exports = tooltip;
