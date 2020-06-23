@@ -62,6 +62,12 @@ const buildFileInput = fileInputEl => {
   instructions.setAttribute('aria-hidden', 'true');
   dropTarget.classList.add(TARGET_CLASS);
 
+  // If there's a label element directly above the file input, this moves it inside the new parent element.
+  // If there is no label, it is assumed it is elsewhere in the DOM
+  if (label) {
+    fileInputParent.appendChild(label);
+  }
+
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
@@ -69,12 +75,6 @@ const buildFileInput = fileInputEl => {
   fileInputParent.appendChild(dropTarget);
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
-
-  // If there's a label element directly above the file input, this moves it inside the new parent element.
-  // If there is no label, it is assumed it is elsewhere in the DOM
-  if (label) {
-    fileInputParent.appendChild(label);
-  }
 
   // Sets instruction test based on whether or not multipe files are accepted
   if (acceptsMultiple) {
