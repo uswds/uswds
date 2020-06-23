@@ -3,14 +3,16 @@ const fileInput = require("../../../src/js/components/file-input");
 const fs = require("fs");
 const path = require("path");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
+const TEMPLATE = fs.readFileSync(path.join(__dirname, "/file-input.template.html"));
 
-describe("file input", () => {
+describe("file input component builds successfully", () => {
  const { body } = document;
 
  let dropZone;
  let instructions;
  let parentEl;
+ let inputEl;
+ let dragText;
 
  beforeEach(() => {
    body.innerHTML = TEMPLATE;
@@ -18,6 +20,9 @@ describe("file input", () => {
    dropZone = body.querySelector(".usa-file-input__target");
    instructions = body.querySelector(".usa-file-input__instructions");
    parentEl = body.querySelector("div.usa-file-input");
+   inputEl = body.querySelector(".usa-file-input__input");
+   box = body.querySelector(".usa-file-input__box");
+   dragText = body.querySelector(".usa-file-input__drag-text")
    fileInput.on(body);
  });
 
@@ -26,8 +31,24 @@ describe("file input", () => {
    fileInput.off(body);
  });
 
- it('file input is created', () => {
+ it('instructions are created', () => {
    assert.equal(instructions.getAttribute("class"), "usa-file-input__instructions");
+ });
+
+ it('target ui is created', () => {
+   assert.equal(dropZone.getAttribute("class"), "usa-file-input__target");
+ });
+
+ it('input gets new class', () => {
+   assert.equal(inputEl.getAttribute("class"), "usa-file-input__input");
+ });
+
+ it('box is created', () => {
+   assert.equal(box.getAttribute("class"), "usa-file-input__box");
+ });
+
+ it('pluralizes "files" if there is a "multiple" attribute', () => {
+   assert.equal(dragText.innerHTML, "Drag files here or ")
  });
 
 })
