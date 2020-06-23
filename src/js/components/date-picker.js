@@ -8,7 +8,8 @@ const isIosDevice = require("../utils/is-ios-device");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_ACTIVE_CLASS = `${DATE_PICKER_CLASS}--active`;
-const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
+const DATE_PICKER_INTERNAL_INPUT_CLASS = `${DATE_PICKER_CLASS}__internal-input`;
+const DATE_PICKER_EXTERNAL_INPUT_CLASS = `${DATE_PICKER_CLASS}__external-input`;
 const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
 const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
 const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
@@ -50,7 +51,8 @@ const CALENDAR_DAY_OF_WEEK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__day-of-week`;
 
 const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
-const DATE_PICKER_INPUT = `.${DATE_PICKER_INPUT_CLASS}`;
+const DATE_PICKER_INTERNAL_INPUT = `.${DATE_PICKER_INTERNAL_INPUT_CLASS}`;
+const DATE_PICKER_EXTERNAL_INPUT = `.${DATE_PICKER_EXTERNAL_INPUT_CLASS}`;
 const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
@@ -71,8 +73,6 @@ const CALENDAR_MONTH_PICKER = `.${CALENDAR_MONTH_PICKER_CLASS}`;
 const CALENDAR_YEAR_PICKER = `.${CALENDAR_YEAR_PICKER_CLASS}`;
 const CALENDAR_MONTH_FOCUSED = `.${CALENDAR_MONTH_FOCUSED_CLASS}`;
 const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
-
-const NOT_DISABLED_SELECTOR = ":not([disabled])";
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
@@ -109,7 +109,12 @@ const DEFAULT_MIN_DATE = "01/01/0000";
 const DEFAULT_EXTERNAL_DATE_FORMAT = "MM/DD/YYYY";
 const INTERNAL_DATE_FORMAT = "YYYY-MM-DD";
 
-const DATE_PICKER_FOCUSABLE = [
+const NOT_DISABLED_SELECTOR = ":not([disabled])";
+
+const processFocusableSelectors = (...selectors) =>
+  selectors.map(query => query + NOT_DISABLED_SELECTOR).join(", ");
+
+const DATE_PICKER_FOCUSABLE = processFocusableSelectors(
   CALENDAR_PREVIOUS_YEAR,
   CALENDAR_PREVIOUS_MONTH,
   CALENDAR_YEAR_SELECTION,
@@ -117,21 +122,17 @@ const DATE_PICKER_FOCUSABLE = [
   CALENDAR_NEXT_YEAR,
   CALENDAR_NEXT_MONTH,
   CALENDAR_DATE_FOCUSED
-]
-  .map(query => query + NOT_DISABLED_SELECTOR)
-  .join(", ");
+);
 
-const MONTH_PICKER_FOCUSABLE = [CALENDAR_MONTH_FOCUSED]
-  .map(query => query + NOT_DISABLED_SELECTOR)
-  .join(", ");
+const MONTH_PICKER_FOCUSABLE = processFocusableSelectors(
+  CALENDAR_MONTH_FOCUSED
+);
 
-const YEAR_PICKER_FOCUSABLE = [
+const YEAR_PICKER_FOCUSABLE = processFocusableSelectors(
   CALENDAR_PREVIOUS_YEAR_CHUNK,
   CALENDAR_NEXT_YEAR_CHUNK,
   CALENDAR_YEAR_FOCUSED
-]
-  .map(query => query + NOT_DISABLED_SELECTOR)
-  .join(", ");
+);
 
 // #region Date Manipulation Functions
 
@@ -640,13 +641,18 @@ const getDatePickerContext = el => {
     throw new Error(`Element is missing outer ${DATE_PICKER}`);
   }
 
-  const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
+  const inputEl = datePickerEl.querySelector(DATE_PICKER_INTERNAL_INPUT);
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const toggleBtnEl = datePickerEl.querySelector(DATE_PICKER_BUTTON);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
-  const selectedDate = parseDateString(inputEl.value, true);
+  const selectedDate = parseDateString(
+    inputEl.value,
+    DEFAULT_EXTERNAL_DATE_FORMAT,
+    true
+  );
+
   const calendarDate = parseDateString(calendarEl.dataset.value);
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
@@ -704,13 +710,12 @@ const enable = el => {
  */
 const enhanceDatePicker = el => {
   const datePickerEl = el.closest(DATE_PICKER);
-  const inputEl = datePickerEl.querySelector(`input`);
+  const internalInput = datePickerEl.querySelector(`input`);
 
   if (!inputEl) {
     throw new Error(`${DATE_PICKER} is missing inner input`);
   }
 
-  inputEl.classList.add(DATE_PICKER_INPUT_CLASS);
   datePickerEl.classList.add("usa-date-picker--initialized");
 
   const minDate = parseDateString(datePickerEl.dataset.minDate);
@@ -718,7 +723,11 @@ const enhanceDatePicker = el => {
     datePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
   }
 
-  datePickerEl.insertAdjacentHTML(
+  const calendarWrapper = document.createElement("div");
+  const externalInput = internalInput.cloneNode();
+  externalInput.classList.add(DATE_PICKER_INTERNAL_INPUT_CLASS);
+  calendarWrapper.appendChild(externalInput);
+  calendarWrapper.insertAdjacentHTML(
     "beforeend",
     [
       `<span class="usa-date-picker__button-wrapper" tabindex="-1">
@@ -729,10 +738,20 @@ const enhanceDatePicker = el => {
     ].join("")
   );
 
+  datePickerEl.appendChild(calendarWrapper);
+  inputEl.classList.remove(DATE_PICKER_INTERNAL_INPUT_CLASS);
+  internalInput.setAttribute("aria-hidden", "true");
+  internalInput.setAttribute("tabindex", "-1");
+  internalInput.classList.add("usa-sr-only", SELECT_CLASS);
+
+  datePickerEl.classList.add("usa-date-picker--initialized");
+
   if (inputEl.disabled) {
     disable(datePickerEl);
   }
 };
+
+// #region Validation
 
 /**
  * Validate the value in the input as a valid date of format M/D/YYYY
@@ -791,6 +810,10 @@ const validateDateInput = el => {
     inputEl.setCustomValidity("");
   }
 };
+
+// #endregion Validation
+
+// #region Calendar - Date Selection View
 
 /**
  * render the calendar.
@@ -1117,39 +1140,57 @@ const selectDate = calendarDateEl => {
 };
 
 /**
- * Select a month in the date picker component.
+ * Toggle the calendar.
  *
- * @param {HTMLButtonElement} monthEl An month element within the date picker component
+ * @param {HTMLButtonElement} el An element within the date picker component
  */
-const selectMonth = monthEl => {
-  if (monthEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    monthEl
-  );
-  const selectedMonth = parseInt(monthEl.dataset.value, 10);
-  let date = setMonth(calendarDate, selectedMonth);
-  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+const toggleCalendar = el => {
+  if (el.disabled) return;
+  const {
+    calendarEl,
+    selectedDate,
+    minDate,
+    maxDate,
+    defaultDate
+  } = getDatePickerContext(el);
+
+  if (calendarEl.hidden) {
+    const dateToDisplay = keepDateBetweenMinAndMax(
+      selectedDate || defaultDate || today(),
+      minDate,
+      maxDate
+    );
+    const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  } else {
+    hideCalendar(el);
+  }
 };
 
 /**
- * Select a year in the date picker component.
+ * Update the calendar when visible.
  *
- * @param {HTMLButtonElement} yearEl A year element within the date picker component
+ * @param {HTMLElement} el an element within the date picker
  */
-const selectYear = yearEl => {
-  if (yearEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    yearEl
+const updateCalendarIfVisible = el => {
+  const { calendarEl, selectedDate, minDate, maxDate } = getDatePickerContext(
+    el
   );
-  const selectedYear = parseInt(yearEl.innerHTML, 10);
-  let date = setYear(calendarDate, selectedYear);
-  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  const newCalendar = renderCalendar(calendarEl, date);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  const calendarShown = !calendarEl.hidden;
+
+  if (calendarShown && selectedDate) {
+    const dateToDisplay = keepDateBetweenMinAndMax(
+      selectedDate,
+      minDate,
+      maxDate
+    );
+    renderCalendar(calendarEl, dateToDisplay);
+  }
 };
 
+// #endregion Calendar - Date Selection View
+
+// #region Calendar - Month Selection View
 /**
  * Display the month selection screen in the date picker.
  *
@@ -1213,6 +1254,27 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   return newCalendar;
 };
+
+/**
+ * Select a month in the date picker component.
+ *
+ * @param {HTMLButtonElement} monthEl An month element within the date picker component
+ */
+const selectMonth = monthEl => {
+  if (monthEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    monthEl
+  );
+  const selectedMonth = parseInt(monthEl.dataset.value, 10);
+  let date = setMonth(calendarDate, selectedMonth);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+};
+
+// #endregion Calendar - Month Selection View
+
+// #region Calendar - Year Selection View
 
 /**
  * Display the year selection screen in the date picker.
@@ -1373,6 +1435,25 @@ const displayNextYearChunk = el => {
   }
   nextToFocus.focus();
 };
+
+/**
+ * Select a year in the date picker component.
+ *
+ * @param {HTMLButtonElement} yearEl A year element within the date picker component
+ */
+const selectYear = yearEl => {
+  if (yearEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    yearEl
+  );
+  const selectedYear = parseInt(yearEl.innerHTML, 10);
+  let date = setYear(calendarDate, selectedYear);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+};
+
+// #endregion Calendar - Year Selection View
 
 // #region Calendar Event Handling
 
@@ -1733,54 +1814,7 @@ const handleMousemoveFromYear = yearEl => {
 
 // #endregion Calendar Year Event Handling
 
-/**
- * Toggle the calendar.
- *
- * @param {HTMLButtonElement} el An element within the date picker component
- */
-const toggleCalendar = el => {
-  if (el.disabled) return;
-  const {
-    calendarEl,
-    selectedDate,
-    minDate,
-    maxDate,
-    defaultDate
-  } = getDatePickerContext(el);
-
-  if (calendarEl.hidden) {
-    const dateToDisplay = keepDateBetweenMinAndMax(
-      selectedDate || defaultDate || today(),
-      minDate,
-      maxDate
-    );
-    const newCalendar = renderCalendar(calendarEl, dateToDisplay);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-  } else {
-    hideCalendar(el);
-  }
-};
-
-/**
- * Update the calendar when visible.
- *
- * @param {HTMLElement} el an element within the date picker
- */
-const updateCalendarIfVisible = el => {
-  const { calendarEl, selectedDate, minDate, maxDate } = getDatePickerContext(
-    el
-  );
-  const calendarShown = !calendarEl.hidden;
-
-  if (calendarShown && selectedDate) {
-    const dateToDisplay = keepDateBetweenMinAndMax(
-      selectedDate,
-      minDate,
-      maxDate
-    );
-    renderCalendar(calendarEl, dateToDisplay);
-  }
-};
+// #region Focus Handling Event Handling
 
 const tabHandler = focusable => {
   const getFocusableContext = el => {
@@ -1835,6 +1869,10 @@ const datePickerTabEventHandler = tabHandler(DATE_PICKER_FOCUSABLE);
 const monthPickerTabEventHandler = tabHandler(MONTH_PICKER_FOCUSABLE);
 const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
 
+// #endregion Focus Handling Event Handling
+
+// #region Date Picker Event Delegation Registration / Component
+
 const datePickerEvents = {
   [CLICK]: {
     [DATE_PICKER_BUTTON]() {
@@ -1885,7 +1923,7 @@ const datePickerEvents = {
     }
   },
   keydown: {
-    [DATE_PICKER_INPUT](event) {
+    [DATE_PICKER_INTERNAL_INPUT](event) {
       if (event.keyCode === ENTER_KEYCODE) {
         validateDateInput(this);
       }
@@ -1957,7 +1995,7 @@ const datePickerEvents = {
     })
   },
   focusout: {
-    [DATE_PICKER_INPUT]() {
+    [DATE_PICKER_INTERNAL_INPUT]() {
       validateDateInput(this);
     },
     [DATE_PICKER](event) {
@@ -1967,7 +2005,7 @@ const datePickerEvents = {
     }
   },
   input: {
-    [DATE_PICKER_INPUT]() {
+    [DATE_PICKER_INTERNAL_INPUT]() {
       updateCalendarIfVisible(this);
     }
   }
@@ -2001,5 +2039,7 @@ const datePicker = behavior(datePickerEvents, {
   renderCalendar,
   updateCalendarIfVisible
 });
+
+// #endregion Date Picker Event Delegation Registration / Component
 
 module.exports = datePicker;
