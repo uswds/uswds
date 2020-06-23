@@ -106,6 +106,8 @@ const ENTER_KEYCODE = 13;
 const YEAR_CHUNK = 12;
 
 const DEFAULT_MIN_DATE = "01/01/0000";
+const DEFAULT_EXTERNAL_DATE_FORMAT = "MM/DD/YYYY";
+const INTERNAL_DATE_FORMAT = "YYYY-MM-DD";
 
 const DATE_PICKER_FOCUSABLE = [
   CALENDAR_PREVIOUS_YEAR,
@@ -469,11 +471,16 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => {
 /**
  * Parse a date with format M-D-YY
  *
- * @param {string} dateString the element within the date picker
+ * @param {string} dateString the date string to parse
+ * @param {string} dateFormat the format of the date string
  * @param {boolean} adjustDate should the date be adjusted
  * @returns {Date} the parsed date
  */
-const parseDateString = (dateString, adjustDate = false) => {
+const parseDateString = (
+  dateString,
+  dateFormat = INTERNAL_DATE_FORMAT,
+  adjustDate = false
+) => {
   let date;
   let month;
   let day;
@@ -481,7 +488,13 @@ const parseDateString = (dateString, adjustDate = false) => {
   let parsed;
 
   if (dateString) {
-    const [monthStr, dayStr, yearStr] = dateString.split("/");
+    let monthStr, dayStr, yearStr;
+
+    if (dateFormat === DEFAULT_EXTERNAL_DATE_FORMAT) {
+      [monthStr, dayStr, yearStr] = dateString.split("/");
+    } else {
+      [yearStr, monthStr, dayStr] = dateString.split("-");
+    }
 
     if (yearStr) {
       parsed = parseInt(yearStr, 10);
@@ -534,9 +547,10 @@ const parseDateString = (dateString, adjustDate = false) => {
  * Format a date to format MM-DD-YYYY
  *
  * @param {Date} date the date to format
+ * @param {string} dateFormat the format of the date string
  * @returns {string} the formatted date string
  */
-const formatDate = date => {
+const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
   const padZeros = (value, length) => {
     return `0000${value}`.slice(-length);
   };
@@ -545,7 +559,11 @@ const formatDate = date => {
   const day = date.getDate();
   const year = date.getFullYear();
 
-  return [padZeros(month, 2), padZeros(day, 2), padZeros(year, 4)].join("/");
+  if (dateFormat === DEFAULT_EXTERNAL_DATE_FORMAT) {
+    return [padZeros(month, 2), padZeros(day, 2), padZeros(year, 4)].join("/");
+  }
+
+  return [padZeros(year, 4), padZeros(month, 2), padZeros(day, 2)].join("-");
 };
 
 // #endregion Date Manipulation Functions
