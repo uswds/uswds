@@ -21,10 +21,10 @@ describe("Date range picker button without wrapping element", () => {
     DatePicker.on();
     DateRangePicker.on();
     rangeStartInputEl = body.querySelector(
-      ".usa-date-range-picker__range-start .usa-date-picker__input"
+      ".usa-date-range-picker__range-start .usa-date-picker__external-input"
     );
     rangeEndInputEl = body.querySelector(
-      ".usa-date-range-picker__range-end .usa-date-picker__input"
+      ".usa-date-range-picker__range-end .usa-date-picker__external-input"
     );
     expectedError = "";
     window.onerror = message => {

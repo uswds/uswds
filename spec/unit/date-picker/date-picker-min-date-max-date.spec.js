@@ -27,7 +27,7 @@ describe("date picker component with min date and max date", () => {
     body.innerHTML = TEMPLATE;
     DatePicker.on();
     root = body.querySelector(".usa-date-picker");
-    input = root.querySelector(".usa-date-picker__input");
+    input = root.querySelector(".usa-date-picker__external-input");
     button = root.querySelector(".usa-date-picker__button");
     expectedError = "";
     window.onerror = message => {

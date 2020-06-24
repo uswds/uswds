@@ -1205,7 +1205,7 @@ const toggleCalendar = el => {
   if (el.disabled) return;
   const {
     calendarEl,
-    selectedDate,
+    inputDate,
     minDate,
     maxDate,
     defaultDate
@@ -1213,7 +1213,7 @@ const toggleCalendar = el => {
 
   if (calendarEl.hidden) {
     const dateToDisplay = keepDateBetweenMinAndMax(
-      selectedDate || defaultDate || today(),
+      inputDate || defaultDate || today(),
       minDate,
       maxDate
     );
@@ -1230,17 +1230,11 @@ const toggleCalendar = el => {
  * @param {HTMLElement} el an element within the date picker
  */
 const updateCalendarIfVisible = el => {
-  const { calendarEl, selectedDate, minDate, maxDate } = getDatePickerContext(
-    el
-  );
+  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
   const calendarShown = !calendarEl.hidden;
 
-  if (calendarShown && selectedDate) {
-    const dateToDisplay = keepDateBetweenMinAndMax(
-      selectedDate,
-      minDate,
-      maxDate
-    );
+  if (calendarShown && inputDate) {
+    const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
     renderCalendar(calendarEl, dateToDisplay);
   }
 };
@@ -2052,7 +2046,7 @@ const datePickerEvents = {
     })
   },
   focusout: {
-    [DATE_PICKER_INTERNAL_INPUT]() {
+    [DATE_PICKER_EXTERNAL_INPUT]() {
       validateDateInput(this);
     },
     [DATE_PICKER](event) {

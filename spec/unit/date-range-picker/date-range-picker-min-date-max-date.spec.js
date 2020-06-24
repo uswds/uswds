@@ -25,8 +25,12 @@ describe("date range picker component with min date and max date", () => {
     root = body.querySelector(".usa-date-range-picker");
     rangeStart = root.querySelector(".usa-date-range-picker__range-start");
     rangeEnd = root.querySelector(".usa-date-range-picker__range-end");
-    rangeStartInputEl = rangeStart.querySelector(".usa-date-picker__input");
-    rangeEndInputEl = rangeEnd.querySelector(".usa-date-picker__input");
+    rangeStartInputEl = rangeStart.querySelector(
+      ".usa-date-picker__external-input"
+    );
+    rangeEndInputEl = rangeEnd.querySelector(
+      ".usa-date-picker__external-input"
+    );
   });
 
   afterEach(() => {
@@ -39,24 +43,24 @@ describe("date range picker component with min date and max date", () => {
     assert.ok(rangeStart, "has a range start date picker element");
     assert.equal(
       rangeStart.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeStart.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
 
     assert.ok(rangeEnd, "has a range end date picker element");
     assert.equal(
       rangeEnd.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeEnd.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
   });
@@ -70,12 +74,12 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeEnd.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
@@ -89,22 +93,22 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated min date"
     );
     assert.equal(
       rangeEnd.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
     assert.equal(
       rangeEnd.dataset.rangeDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated range date"
     );
     assert.equal(
       rangeEnd.dataset.defaultDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated default date to display"
     );
   });
@@ -116,12 +120,12 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeEnd.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
@@ -135,12 +139,12 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeStart.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeStart.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
     assert.equal(rangeStart.dataset.rangeDate, "", "has no range date");
@@ -154,22 +158,22 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeStart.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeStart.dataset.maxDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated min date"
     );
     assert.equal(
       rangeStart.dataset.rangeDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated range date"
     );
     assert.equal(
       rangeStart.dataset.defaultDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated default date to display"
     );
   });
@@ -181,12 +185,12 @@ describe("date range picker component with min date and max date", () => {
 
     assert.equal(
       rangeStart.dataset.minDate,
-      "05/22/2020",
+      "2020-05-22",
       "has the default min date"
     );
     assert.equal(
       rangeStart.dataset.maxDate,
-      "06/20/2021",
+      "2021-06-20",
       "has the default max date"
     );
     assert.equal(rangeStart.dataset.rangeDate, "", "has no range date");

@@ -17,7 +17,7 @@ const DATE_RANGE_PICKER = `.${DATE_RANGE_PICKER_CLASS}`;
 const DATE_RANGE_PICKER_RANGE_START = `.${DATE_RANGE_PICKER_RANGE_START_CLASS}`;
 const DATE_RANGE_PICKER_RANGE_END = `.${DATE_RANGE_PICKER_RANGE_END_CLASS}`;
 
-const DEFAULT_MIN_DATE = "01/01/0000";
+const DEFAULT_MIN_DATE = "0000-01-01";
 
 /**
  * The properties and elements within the date range picker.
@@ -66,10 +66,10 @@ const handleRangeStartUpdate = el => {
     rangeStartEl,
     rangeEndEl
   } = getDateRangePickerContext(el);
-  const { inputEl } = getDatePickerContext(rangeStartEl);
-  const updatedDate = inputEl.value;
+  const { internalInputEl } = getDatePickerContext(rangeStartEl);
+  const updatedDate = internalInputEl.value;
 
-  if (updatedDate && !isDateInputInvalid(inputEl)) {
+  if (updatedDate && !isDateInputInvalid(internalInputEl)) {
     rangeEndEl.dataset.minDate = updatedDate;
     rangeEndEl.dataset.rangeDate = updatedDate;
     rangeEndEl.dataset.defaultDate = updatedDate;
@@ -93,10 +93,10 @@ const handleRangeEndUpdate = el => {
     rangeStartEl,
     rangeEndEl
   } = getDateRangePickerContext(el);
-  const { inputEl } = getDatePickerContext(rangeEndEl);
-  const updatedDate = inputEl.value;
+  const { internalInputEl } = getDatePickerContext(rangeEndEl);
+  const updatedDate = internalInputEl.value;
 
-  if (updatedDate && !isDateInputInvalid(inputEl)) {
+  if (updatedDate && !isDateInputInvalid(internalInputEl)) {
     rangeStartEl.dataset.maxDate = updatedDate;
     rangeStartEl.dataset.rangeDate = updatedDate;
     rangeStartEl.dataset.defaultDate = updatedDate;

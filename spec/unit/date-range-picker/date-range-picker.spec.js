@@ -25,8 +25,12 @@ describe("date range picker component", () => {
     root = body.querySelector(".usa-date-range-picker");
     rangeStart = root.querySelector(".usa-date-range-picker__range-start");
     rangeEnd = root.querySelector(".usa-date-range-picker__range-end");
-    rangeStartInputEl = rangeStart.querySelector(".usa-date-picker__input");
-    rangeEndInputEl = rangeEnd.querySelector(".usa-date-picker__input");
+    rangeStartInputEl = rangeStart.querySelector(
+      ".usa-date-picker__external-input"
+    );
+    rangeEndInputEl = rangeEnd.querySelector(
+      ".usa-date-picker__external-input"
+    );
   });
 
   afterEach(() => {
@@ -49,7 +53,7 @@ describe("date range picker component", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "01/01/0000",
+      "0000-01-01",
       "has the default min date"
     );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
@@ -63,17 +67,17 @@ describe("date range picker component", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated min date"
     );
     assert.equal(
       rangeEnd.dataset.rangeDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated range date"
     );
     assert.equal(
       rangeEnd.dataset.defaultDate,
-      "12/12/2020",
+      "2020-12-12",
       "has updated default date"
     );
   });
@@ -85,7 +89,7 @@ describe("date range picker component", () => {
 
     assert.equal(
       rangeEnd.dataset.minDate,
-      "01/01/0000",
+      "0000-01-01",
       "has the default min date"
     );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
@@ -109,17 +113,17 @@ describe("date range picker component", () => {
 
     assert.equal(
       rangeStart.dataset.maxDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated min date"
     );
     assert.equal(
       rangeStart.dataset.rangeDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated range date"
     );
     assert.equal(
       rangeStart.dataset.defaultDate,
-      "12/11/2020",
+      "2020-12-11",
       "has updated default date"
     );
   });
