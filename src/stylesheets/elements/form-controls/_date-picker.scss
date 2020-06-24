@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.usa-date-picker__wrapper {
+  display: none;
+}
+
 // Date Picker -- initialized
 
 %usa-date-picker__button {
@@ -54,6 +58,10 @@
 
 .usa-date-picker--initialized {
   display: flex;
+
+  .usa-date-picker__wrapper {
+    display: block;
+  }
 }
 
 // Date Picker - Calendar View

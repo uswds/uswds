@@ -31,13 +31,13 @@ describe("date picker component mouse move selection", () => {
   });
 
   it("should ignore mouse move events over disabled days", () => {
-    root.dataset.minDate = "06/01/2020";
-    root.dataset.maxDate = "06/24/2020";
+    root.dataset.minDate = "2020-06-01";
+    root.dataset.maxDate = "2020-06-24";
     input.value = "6/20/2020";
     EVENTS.click(button);
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "focuses correct date"
     );
 
@@ -49,19 +49,19 @@ describe("date picker component mouse move selection", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "does not focus disabled day"
     );
   });
 
   it("should update the focus when moving over a non-selected valid day", () => {
-    root.dataset.minDate = "06/01/2020";
-    root.dataset.maxDate = "06/24/2020";
+    root.dataset.minDate = "2020-06-01";
+    root.dataset.maxDate = "2020-06-24";
     input.value = "6/20/2020";
     EVENTS.click(button);
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "focuses correct date"
     );
 
@@ -73,20 +73,20 @@ describe("date picker component mouse move selection", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/19/2020",
+      "2020-06-19",
       "focuses correct date"
     );
   });
 
   it("should ignore mouse event on the same day", () => {
-    root.dataset.minDate = "06/01/2020";
-    root.dataset.maxDate = "06/24/2020";
+    root.dataset.minDate = "2020-06-01";
+    root.dataset.maxDate = "2020-06-24";
     input.value = "6/20/2020";
     EVENTS.click(button);
     getCalendarEl().dataset.wouldDisappearOnRerender = "true";
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "focuses correct date"
     );
 
@@ -103,7 +103,7 @@ describe("date picker component mouse move selection", () => {
     );
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "focuses correct date"
     );
   });

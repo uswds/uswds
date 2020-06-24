@@ -41,7 +41,7 @@ describe("date picker component with range date", () => {
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--range-date").dataset
         .value,
-      "05/22/2020",
+      "2020-05-22",
       "shows the correct date as the range date"
     );
   });

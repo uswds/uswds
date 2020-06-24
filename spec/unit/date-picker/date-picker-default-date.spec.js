@@ -33,7 +33,6 @@ describe("date picker component with default date", () => {
     DatePicker.off(body);
   });
 
-
   it("should display the input date when an input date is present", () => {
     input.value = "06/20/2020";
 
@@ -42,7 +41,7 @@ describe("date picker component with default date", () => {
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2020",
+      "2020-06-20",
       "focuses correct date"
     );
   });
@@ -55,7 +54,7 @@ describe("date picker component with default date", () => {
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -68,7 +67,7 @@ describe("date picker component with default date", () => {
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });

@@ -7,6 +7,8 @@ const activeElement = require("../utils/active-element");
 const isIosDevice = require("../utils/is-ios-device");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
+const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
+const DATE_PICKER_INITIALIZED_CLASS = `${DATE_PICKER_CLASS}--initialized`;
 const DATE_PICKER_ACTIVE_CLASS = `${DATE_PICKER_CLASS}--active`;
 const DATE_PICKER_INTERNAL_INPUT_CLASS = `${DATE_PICKER_CLASS}__internal-input`;
 const DATE_PICKER_EXTERNAL_INPUT_CLASS = `${DATE_PICKER_CLASS}__external-input`;
@@ -616,7 +618,8 @@ const changeElementValue = (el, value = "") => {
  * @typedef {Object} DatePickerContext
  * @property {HTMLDivElement} calendarEl
  * @property {HTMLElement} datePickerEl
- * @property {HTMLInputElement} inputEl
+ * @property {HTMLInputElement} internalInputEl
+ * @property {HTMLInputElement} externalInputEl
  * @property {HTMLDivElement} statusEl
  * @property {HTMLDivElement} firstYearChunkEl
  * @property {Date} calendarDate
@@ -641,17 +644,23 @@ const getDatePickerContext = el => {
     throw new Error(`Element is missing outer ${DATE_PICKER}`);
   }
 
-  const inputEl = datePickerEl.querySelector(DATE_PICKER_INTERNAL_INPUT);
+  const internalInputEl = datePickerEl.querySelector(
+    DATE_PICKER_INTERNAL_INPUT
+  );
+  const externalInputEl = datePickerEl.querySelector(
+    DATE_PICKER_EXTERNAL_INPUT
+  );
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const toggleBtnEl = datePickerEl.querySelector(DATE_PICKER_BUTTON);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
-  const selectedDate = parseDateString(
-    inputEl.value,
+  const inputDate = parseDateString(
+    externalInputEl.value,
     DEFAULT_EXTERNAL_DATE_FORMAT,
     true
   );
+  const selectedDate = parseDateString(internalInputEl.value);
 
   const calendarDate = parseDateString(calendarEl.dataset.value);
   const minDate = parseDateString(datePickerEl.dataset.minDate);
@@ -671,7 +680,9 @@ const getDatePickerContext = el => {
     maxDate,
     firstYearChunkEl,
     datePickerEl,
-    inputEl,
+    inputDate,
+    internalInputEl,
+    externalInputEl,
     calendarEl,
     rangeDate,
     defaultDate,
@@ -682,25 +693,25 @@ const getDatePickerContext = el => {
 /**
  * Disable the date picker component
  *
- * @param {HTMLInputElement} el An element within the date picker component
+ * @param {HTMLElement} el An element within the date picker component
  */
 const disable = el => {
-  const { inputEl, toggleBtnEl } = getDatePickerContext(el);
+  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = true;
-  inputEl.disabled = true;
+  externalInputEl.disabled = true;
 };
 
 /**
  * Enable the date picker component
  *
- * @param {HTMLInputElement} el An element within the date picker component
+ * @param {HTMLElement} el An element within the date picker component
  */
 const enable = el => {
-  const { inputEl, toggleBtnEl } = getDatePickerContext(el);
+  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = false;
-  inputEl.disabled = false;
+  externalInputEl.disabled = false;
 };
 
 /**
@@ -710,44 +721,60 @@ const enable = el => {
  */
 const enhanceDatePicker = el => {
   const datePickerEl = el.closest(DATE_PICKER);
-  const internalInput = datePickerEl.querySelector(`input`);
 
-  if (!inputEl) {
+  const internalInputEl = datePickerEl.querySelector(`input`);
+
+  if (!internalInputEl) {
     throw new Error(`${DATE_PICKER} is missing inner input`);
   }
 
-  datePickerEl.classList.add("usa-date-picker--initialized");
+  const minDate = parseDateString(
+    datePickerEl.dataset.minDate || internalInputEl.getAttribute("min")
+  );
+  datePickerEl.dataset.minDate = minDate
+    ? formatDate(minDate)
+    : DEFAULT_MIN_DATE;
 
-  const minDate = parseDateString(datePickerEl.dataset.minDate);
-  if (!minDate) {
-    datePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
+  const maxDate = parseDateString(
+    datePickerEl.dataset.maxDate || internalInputEl.getAttribute("max")
+  );
+  if (maxDate) {
+    datePickerEl.dataset.maxDate = formatDate(maxDate);
   }
 
   const calendarWrapper = document.createElement("div");
-  const externalInput = internalInput.cloneNode();
-  externalInput.classList.add(DATE_PICKER_INTERNAL_INPUT_CLASS);
-  calendarWrapper.appendChild(externalInput);
+  calendarWrapper.classList.add(DATE_PICKER_WRAPPER_CLASS);
+  calendarWrapper.tabIndex = "-1";
+
+  const externalInputEl = internalInputEl.cloneNode();
+  externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
+  externalInputEl.type = "text";
+  externalInputEl.name = "";
+
+  calendarWrapper.appendChild(externalInputEl);
   calendarWrapper.insertAdjacentHTML(
     "beforeend",
     [
-      `<span class="usa-date-picker__button-wrapper" tabindex="-1">
-        <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>
-      </span>`,
+      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>`,
       `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” aria-label="Calendar" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
 
+  internalInputEl.setAttribute("aria-hidden", "true");
+  internalInputEl.setAttribute("tabindex", "-1");
+  internalInputEl.classList.add(
+    "usa-sr-only",
+    DATE_PICKER_INTERNAL_INPUT_CLASS
+  );
+  internalInputEl.id = "";
+
   datePickerEl.appendChild(calendarWrapper);
-  inputEl.classList.remove(DATE_PICKER_INTERNAL_INPUT_CLASS);
-  internalInput.setAttribute("aria-hidden", "true");
-  internalInput.setAttribute("tabindex", "-1");
-  internalInput.classList.add("usa-sr-only", SELECT_CLASS);
+  datePickerEl.classList.add(DATE_PICKER_INITIALIZED_CLASS);
 
-  datePickerEl.classList.add("usa-date-picker--initialized");
-
-  if (inputEl.disabled) {
+  if (internalInputEl.disabled) {
     disable(datePickerEl);
+    internalInputEl.disabled = false;
   }
 };
 
@@ -759,9 +786,9 @@ const enhanceDatePicker = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const isDateInputInvalid = el => {
-  const { inputEl, minDate, maxDate } = getDatePickerContext(el);
+  const { externalInputEl, minDate, maxDate } = getDatePickerContext(el);
 
-  const dateString = inputEl.value;
+  const dateString = externalInputEl.value;
   let isInvalid = false;
 
   if (dateString) {
@@ -799,19 +826,37 @@ const isDateInputInvalid = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const validateDateInput = el => {
-  const { inputEl } = getDatePickerContext(el);
-  const isInvalid = isDateInputInvalid(inputEl);
+  const { externalInputEl } = getDatePickerContext(el);
+  const isInvalid = isDateInputInvalid(externalInputEl);
 
-  if (isInvalid && !inputEl.validationMessage) {
-    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+  if (isInvalid && !externalInputEl.validationMessage) {
+    externalInputEl.setCustomValidity(VALIDATION_MESSAGE);
   }
 
-  if (!isInvalid && inputEl.validationMessage === VALIDATION_MESSAGE) {
-    inputEl.setCustomValidity("");
+  if (!isInvalid && externalInputEl.validationMessage === VALIDATION_MESSAGE) {
+    externalInputEl.setCustomValidity("");
   }
 };
 
 // #endregion Validation
+
+/**
+ * Enable the date picker component
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const reconcileInputValues = el => {
+  const { internalInputEl, inputDate } = getDatePickerContext(el);
+  let newValue = "";
+
+  if (!isDateInputInvalid(el)) {
+    newValue = formatDate(inputDate);
+  }
+
+  if (internalInputEl.value !== newValue) {
+    changeElementValue(internalInputEl, newValue);
+  }
+};
 
 // #region Calendar - Date Selection View
 
@@ -1129,14 +1174,26 @@ const hideCalendar = el => {
  */
 const selectDate = calendarDateEl => {
   if (calendarDateEl.disabled) return;
-  const { datePickerEl, inputEl } = getDatePickerContext(calendarDateEl);
 
-  changeElementValue(inputEl, calendarDateEl.dataset.value);
+  const {
+    datePickerEl,
+    internalInputEl,
+    externalInputEl
+  } = getDatePickerContext(calendarDateEl);
+
+  changeElementValue(internalInputEl, calendarDateEl.dataset.value);
+  changeElementValue(
+    externalInputEl,
+    formatDate(
+      parseDateString(calendarDateEl.dataset.value),
+      DEFAULT_EXTERNAL_DATE_FORMAT
+    )
+  );
 
   hideCalendar(datePickerEl);
   validateDateInput(datePickerEl);
 
-  inputEl.focus();
+  externalInputEl.focus();
 };
 
 /**
@@ -1463,10 +1520,10 @@ const selectYear = yearEl => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleEscapeFromCalendar = event => {
-  const { datePickerEl, inputEl } = getDatePickerContext(event.target);
+  const { datePickerEl, externalInputEl } = getDatePickerContext(event.target);
 
   hideCalendar(datePickerEl);
-  inputEl.focus();
+  externalInputEl.focus();
 
   event.preventDefault();
 };
@@ -1923,7 +1980,7 @@ const datePickerEvents = {
     }
   },
   keydown: {
-    [DATE_PICKER_INTERNAL_INPUT](event) {
+    [DATE_PICKER_EXTERNAL_INPUT](event) {
       if (event.keyCode === ENTER_KEYCODE) {
         validateDateInput(this);
       }
@@ -2005,7 +2062,8 @@ const datePickerEvents = {
     }
   },
   input: {
-    [DATE_PICKER_INTERNAL_INPUT]() {
+    [DATE_PICKER_EXTERNAL_INPUT]() {
+      reconcileInputValues(this);
       updateCalendarIfVisible(this);
     }
   }

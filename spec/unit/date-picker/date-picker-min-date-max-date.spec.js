@@ -51,7 +51,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -77,7 +77,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/30/2020",
+      "2020-05-30",
       "focuses correct date"
     );
   });
@@ -103,7 +103,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/01/2021",
+      "2021-06-01",
       "focuses correct date"
     );
   });
@@ -117,7 +117,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -131,7 +131,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -151,7 +151,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/30/2020",
+      "2020-05-30",
       "focuses correct date"
     );
   });
@@ -165,7 +165,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -179,7 +179,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -193,7 +193,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -207,7 +207,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/17/2021",
+      "2021-06-17",
       "focuses correct date"
     );
   });
@@ -229,7 +229,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
     assert.ok(
@@ -274,7 +274,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
     assert.ok(
@@ -317,7 +317,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
     assert.ok(
@@ -341,7 +341,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
     assert.ok(
@@ -453,7 +453,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -467,7 +467,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -481,7 +481,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -495,7 +495,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -509,7 +509,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -523,7 +523,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -537,7 +537,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -551,7 +551,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -565,7 +565,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -579,7 +579,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -593,7 +593,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -607,7 +607,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -621,7 +621,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -635,13 +635,13 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
 
   it("should allow keyboard navigation to move to the end of the week to a date that is after the maximum date but cap at maximum date", () => {
-    root.dataset.maxDate = "06/21/2021";
+    root.dataset.maxDate = "2021-06-21";
     input.value = "06/20/2021";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -650,7 +650,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/21/2021",
+      "2021-06-21",
       "focuses correct date"
     );
   });
@@ -664,7 +664,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -678,7 +678,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -692,7 +692,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
@@ -730,8 +730,8 @@ describe("date picker component with min date and max date", () => {
   });
 
   it("should throw when minDate is larger than maxDate", () => {
-    root.dataset.minDate = "07/04/2020";
-    root.dataset.maxDate = "06/20/2020";
+    root.dataset.minDate = "2020-07-04";
+    root.dataset.maxDate = "2020-06-20";
     expectedError = "Minimum date cannot be after maximum date";
 
     EVENTS.click(button);
@@ -746,7 +746,7 @@ describe("date picker component with min date and max date", () => {
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/22/2020",
+      "2020-05-22",
       "focuses correct date"
     );
   });
@@ -758,32 +758,32 @@ describe("date picker component with min date and max date", () => {
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/20/2021",
+      "2021-06-20",
       "focuses correct date"
     );
   });
 
   it("should open the calendar on the max date when the input is empty and the current date is after the max date", () => {
-    root.dataset.minDate = "01/01/2020";
-    root.dataset.maxDate = "02/14/2020";
+    root.dataset.minDate = "2020-01-01";
+    root.dataset.maxDate = "2020-02-14";
     EVENTS.click(button);
 
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "02/14/2020",
+      "2020-02-14",
       "focuses correct date"
     );
   });
 
   it("should update the calendar to the max date when the input is changed and the input date is after the max date", () => {
-    root.dataset.minDate = "01/01/2020";
-    root.dataset.maxDate = "02/14/2020";
+    root.dataset.minDate = "2020-01-01";
+    root.dataset.maxDate = "2020-02-14";
     input.value = "01/20/2020";
     EVENTS.click(button);
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "01/20/2020",
+      "2020-01-20",
       "focuses correct date"
     );
 
@@ -792,7 +792,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "02/14/2020",
+      "2020-02-14",
       "focuses correct date"
     );
   });
