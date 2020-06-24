@@ -23,6 +23,7 @@ const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-mon
 const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
+const CALENDAR_DATE_TODAY_CLASS = `${CALENDAR_DATE_CLASS}--today`;
 const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
 const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
 const CALENDAR_DATE_WITHIN_RANGE_CLASS = `${CALENDAR_DATE_CLASS}--within-range`;
@@ -877,7 +878,8 @@ const renderCalendar = (el, _dateToDisplay) => {
     minDate,
     rangeDate
   } = getDatePickerContext(el);
-  let dateToDisplay = _dateToDisplay || today();
+  const todaysDate = today();
+  let dateToDisplay = _dateToDisplay || todaysDate;
 
   const calendarWasHidden = calendarEl.hidden;
 
@@ -930,6 +932,10 @@ const renderCalendar = (el, _dateToDisplay) => {
 
     if (isSameDay(dateToRender, selectedDate)) {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
+    }
+
+    if (isSameDay(dateToRender, todaysDate)) {
+      classes.push(CALENDAR_DATE_TODAY_CLASS);
     }
 
     if (rangeDate) {
