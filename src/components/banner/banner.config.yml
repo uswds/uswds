@@ -1,1 +1,41 @@
 label: U.S. Government banner
+
+context:
+  banner:
+    text: "An official website of the United States government"
+    action: "Here’s how you know"
+  domain:
+    tld: ".gov"
+    tld_secondary: ".mil"
+    heading: |
+      Official sites use $TLD
+    text: |
+      A website ending in <strong>$TLD</strong> indicates it is an official U.S. government organization.
+  https:
+    heading: |
+      Secure $TLD sites use HTTPS
+    text: |
+      A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> before the website name indicates information you get or provide is transmitted securely.
+
+variants:
+  - name: lang-es
+    context:
+      banner:
+        text: "Un sitio oficial del Gobierno de Estados Unidos"
+        action: "Así es como usted puede verificarlo"
+      domain:
+        tld: ".gov"
+        heading: |
+          Los sitios web oficiales usan $TLD
+        text: |
+          Un sitio web cuyo URL termina en <strong>$TLD</strong> indica que es un sitio oficial del Gobierno de Estados Unidos.
+      https:
+        heading: |
+          Los sitios web $TLD seguros usan HTTPS
+        text: |
+          Un <strong>candado</strong> ($LOCK_IMG) o <strong>https://</strong> antes del nombre del sitio web indica que la información que usted provee o recibe se transmite en forma segura.
+  - name: dot-mil
+    context:
+      domain:
+        tld: ".mil"
+        tld_secondary: ".gov"
