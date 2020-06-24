@@ -8,7 +8,7 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker.template.html")
 );
 
-describe("date picker component mouse move selection", () => {
+describe("date picker component month selection", () => {
   const { body } = document;
 
   let root;
@@ -27,6 +27,7 @@ describe("date picker component mouse move selection", () => {
     input = root.querySelector(".usa-date-picker__external-input");
     button = root.querySelector(".usa-date-picker__button");
   });
+
   beforeEach("Open month selection view", () => {
     input.value = "6/20/2020";
     EVENTS.click(button);
@@ -135,7 +136,7 @@ describe("date picker component mouse move selection", () => {
     );
   });
 
-  it("should update the focus when moving over a non-selected valid day", () => {
+  it("should update the focus when moving over a non-selected valid month", () => {
     EVENTS.mousemove(
       getCalendarEl().querySelector(
         '.usa-date-picker__calendar__month[data-label="October"]'
