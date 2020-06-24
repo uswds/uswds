@@ -2081,6 +2081,8 @@ const datePicker = behavior(datePickerEvents, {
   init(root) {
     select(DATE_PICKER, root).forEach(datePickerEl => {
       enhanceDatePicker(datePickerEl);
+      renderCalendar(datePickerEl);
+      hideCalendar(datePickerEl);
     });
   },
   getDatePickerContext,
