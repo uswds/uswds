@@ -1,11 +1,12 @@
 // Date Picker
 
-.usa-date-picker {
-  position: relative;
-}
-
 .usa-date-picker__wrapper {
   display: none;
+  position: relative;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 // Date Picker -- initialized
@@ -42,25 +43,20 @@
   }
 }
 
-.usa-date-picker__button-wrapper {
+.usa-date-picker__button {
+  @extend %usa-date-picker__button;
+  @include add-background-svg("calendar-alt-solid");
+  align-self: stretch;
+  background-color: transparent;
+  background-position: center;
+  background-size: units(3);
   margin-top: 0.5em;
   width: 3em;
 }
 
-.usa-date-picker__button {
-  @extend %usa-date-picker__button;
-  @include add-background-svg("calendar-alt-solid");
-  background-color: transparent;
-  background-position: center;
-  background-size: units(3);
-  height: 100%;
-}
-
 .usa-date-picker--initialized {
-  display: flex;
-
   .usa-date-picker__wrapper {
-    display: block;
+    display: flex;
   }
 }
 
