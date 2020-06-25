@@ -10,16 +10,15 @@ describe("file input component builds successfully", () => {
 
  let dropZone;
  let instructions;
- let parentEl;
  let inputEl;
  let dragText;
+ let box;
 
  beforeEach(() => {
    body.innerHTML = TEMPLATE;
    fileInput.on();
    dropZone = body.querySelector(".usa-file-input__target");
    instructions = body.querySelector(".usa-file-input__instructions");
-   parentEl = body.querySelector("div.usa-file-input");
    inputEl = body.querySelector(".usa-file-input__input");
    box = body.querySelector(".usa-file-input__box");
    dragText = body.querySelector(".usa-file-input__drag-text")

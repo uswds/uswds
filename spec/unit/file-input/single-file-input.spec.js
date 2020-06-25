@@ -8,7 +8,6 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/single-file-input.templa
 describe("file input: single file input", () => {
  const { body } = document;
 
- let dropZone;
  let dragText;
 
  beforeEach(() => {

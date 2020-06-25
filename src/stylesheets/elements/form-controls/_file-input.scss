@@ -2,7 +2,7 @@
   border: none;
   margin-top: units(1);
   padding-left: 0;
-  padding-top: .2rem; // keeps input vertially centered on error state
+  padding-top: 0.2rem; // keeps input vertially centered on error state
 }
 
 .usa-file-input {
@@ -12,21 +12,21 @@
 }
 
 .usa-file-input__target {
-  border: 1px dashed color('base-light');
+  border: 1px dashed color("base-light");
   display: block;
-  font-size: size('body', '2xs');
+  font-size: size("body", "2xs");
   margin-top: units(1);
   position: relative;
-  text-align:center;
+  text-align: center;
   width: 100%;
 
   &:hover {
-    border-color: color('base');
+    border-color: color("base");
   }
 }
 
-.usa-file-input__target.has-invalid-file  {
-  border-color: color('accent-warm');
+.usa-file-input__target.has-invalid-file {
+  border-color: color("accent-warm");
 }
 
 .usa-file-input__accepted-files-message {
@@ -38,7 +38,7 @@
 }
 
 .has-invalid-file .usa-file-input__accepted-files-message {
-  color: color('secondary-dark');
+  color: color("secondary-dark");
 }
 
 .usa-file-input__choose {
@@ -87,22 +87,21 @@
   display: none;
 }
 
-
 .usa-file-input--drag .usa-file-input__target {
-  border-color: color('primary');
+  border-color: color("primary");
 }
 
 .usa-file-input--drag .usa-file-input__box {
-  background-color: color('primary-lighter') !important;
+  background-color: color("primary-lighter") !important;
 }
 
 .usa-file-input--drag .usa-file-input__preview {
-  opacity: .1;
+  opacity: 0.1;
 }
 
 .usa-file-input__preview-heading {
   align-items: center;
-  background: color('primary-lighter');
+  background: color("primary-lighter");
   display: flex;
   font-weight: bold;
   justify-content: space-between;
@@ -114,10 +113,10 @@
 
 .usa-file-input__preview {
   align-items: center;
-  background: color('primary-lighter');
+  background: color("primary-lighter");
   word-wrap: anywhere;
   display: flex;
-  font-size: size('body', '3xs');
+  font-size: size("body", "3xs");
   margin-top: units(1px);
   padding: units(0.5) units(1);
   pointer-events: none;
@@ -178,6 +177,6 @@
 
 // Error states
 .usa-form-group--error .usa-file-input__target {
-  border-color: color('secondary-dark');
+  border-color: color("secondary-dark");
   border-width: 2px;
 }
