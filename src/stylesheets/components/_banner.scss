@@ -46,10 +46,15 @@
 }
 
 .usa-banner__lock-image {
-  height: 0.8em;
-  width: 0.8em;
+  $lock-h: 64; // unitless height of svg
+  $lock-w: 52; // unitless width of svg
+  $lock-aspect: $lock-w / $lock-h;
+  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
+
+  height: $icon-height;
+  width: $icon-height * $lock-aspect;
   path {
-    fill: color("ink");
+    fill: currentColor;
   }
 }
 
