@@ -8,11 +8,11 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 describe("tooltips", () => {
  const { body } = document;
  let tooltipBody;
+ let tooltipTrigger
 
  beforeEach(() => {
    body.innerHTML = TEMPLATE;
    tooltip.on();
-   tooltipWrapper = body.querySelector("span.usa-tooltip");
    tooltipBody = body.querySelector(".usa-tooltip__body");
    tooltipTrigger = body.querySelector(".usa-tooltip__trigger")
    tooltip.on(body);
