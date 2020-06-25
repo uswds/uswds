@@ -51,7 +51,6 @@ const buildFileInput = fileInputEl => {
   const dropTarget = document.createElement('div');
   const box = document.createElement('div');
   const instructions = document.createElement('div');
-  const label = fileInputEl.previousElementSibling;
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -61,12 +60,6 @@ const buildFileInput = fileInputEl => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute('aria-hidden', 'true');
   dropTarget.classList.add(TARGET_CLASS);
-
-  // If there's a label element directly above the file input, this moves it inside the new parent element.
-  // If there is no label, it is assumed it is elsewhere in the DOM
-  if (label) {
-    fileInputParent.appendChild(label);
-  }
 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);

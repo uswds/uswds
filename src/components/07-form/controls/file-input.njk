@@ -1,43 +1,9 @@
-<h6>Control - Base form</h6>
-<form class="usa-form margin-bottom-7" method="post" action="#">
-  <label class="usa-file-input__label" for="input-drop-test">
-    Select a file
-    <input multiple  accept=".pdf" id="input-drop-test" class="usa-file-input__input" type="file" name="" value="" accept=".pdf" />
-  </label>
-</form>
+<h6>Single file</h6>
+<label class="usa-label" for="input-single">Attach a file</label>
+<span class="usa-hint" id="input-single-hint">Must be a PDF</span>
+<input id="input-single" class="usa-file-input" type="file" name="" value="" accept=".pdf" aria-describedby="input-single-hint" />
 
-
-<h6 class="margin-top-7">New</h6>
-<form class="" action="index.html" method="post">
-  <label class="usa-label" for="input-drop-new">Upload last two paystubs</label>
-  <input id="input-new" class="usa-file-input" multiple="multiple" type="file" name="" />
-</form>
-
-<h6 class="margin-top-7">New</h6>
-<form class="" action="index.html" method="post">
-  <label class="usa-label" for="input-drop3">Upload last one paystub</label>
-  <input id="input-drop3" accept=".pdf" class="usa-file-input"  type="file" name="" />
-</form>
-</form>
-
-
-
-<!--
-<script type="text/javascript">
-
-if (/MSIE 10/i.test(navigator.userAgent)) {
-  // This is internet explorer 10
-  stopIeDefault()
-}
-
-if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
-  // This is internet explorer 9 or 11
-  console.log("this is IE")
-}
-
-if (/Edge\/\d./i.test(navigator.userAgent)){
-  // This is Microsoft Edge
-  console.log("this is Edge")
-}
-</script>
--->
+<h6 class="margin-top-7">Multiple files</h6>
+<label class="usa-label" for="input-multiple">Attach some files</label>
+<span class="usa-hint" id="input-multiple-hit">Any file type</span>
+<input id="input-multiple" class="usa-file-input" multiple type="file" name="" aria-decribedby="input-multiple-hit" />
