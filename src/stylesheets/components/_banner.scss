@@ -1,7 +1,51 @@
+@mixin set-link-from-bg(
+  $bg-color,
+  $preferred-link-color: $theme-link-color,
+  $fallback-link-color: $theme-link-reverse-color,
+  $wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40
+  );
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $grade-bg: get-color-grade($bg-color);
+  $grade-preferred: get-color-grade($theme-link-active-color);
+  $magic-num-preferred: abs($grade-bg - $grade-preferred);
+
+  @debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
+
+  @if $magic-num-preferred >= $target-magic-number {
+    @debug "Using preferred link color.";
+    color: color($theme-link-color);
+    &:hover {
+      color: color($theme-link-hover-color);
+    }
+    &:active {
+      color: color($theme-link-active-color);
+    }
+  } @else {
+    $grade-fallback: get-color-grade($theme-link-reverse-active-color);
+    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    @if $magic-num-fallback < $target-magic-number {
+      @error "Neither '#{$preferred-link-color}' nor '#{$fallback-link-color}' have #{$wcag-target} contrast on a '#{$bg-color}' background.";
+    }
+    @debug "Using reverse link color.";
+    color: color($theme-link-reverse-color);
+    &:hover {
+      color: color($theme-link-reverse-hover-color);
+    }
+    &:active {
+      color: color($theme-link-reverse-active-color);
+    }
+  }
+}
+
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;
-  background-color: color("base-lightest");
+  background-color: color($theme-banner-background-color);
 
   @include at-media("tablet") {
     font-size: font-size($theme-banner-font-family, "3xs");
@@ -11,6 +55,11 @@
   .usa-accordion {
     @include typeset($theme-banner-font-family);
   }
+}
+
+.usa-banner__header,
+.usa-banner__content {
+  @include set-text-from-bg($theme-banner-background-color);
 }
 
 .usa-banner__content {
@@ -83,23 +132,6 @@
   }
 }
 
-.usa-banner__header-close-text {
-  @include u-margin-y(0);
-  color: color("base-dark");
-  display: none;
-  font-size: font-size($theme-banner-font-family, 1);
-  line-height: line-height($theme-banner-font-family, 2);
-  padding-top: units(0.5);
-
-  .usa-banner__header--expanded & {
-    display: block;
-
-    @include at-media("tablet") {
-      display: none;
-    }
-  }
-}
-
 .usa-banner__header-text {
   @include u-margin-y(0);
   font-size: font-size($theme-banner-font-family, 1);
@@ -108,7 +140,8 @@
 
 .usa-banner__header-action {
   @include add-icon("angle-arrow-down-primary", "after", 1, 1, 0.5, "hover");
-  color: color("primary");
+  @include set-link-from-bg($theme-banner-background-color);
+
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
@@ -139,7 +172,6 @@
 
   @include at-media("tablet") {
     background-color: transparent;
-    color: color("ink");
     display: block;
     font-size: font-size($theme-banner-font-family, 1);
     font-weight: font-weight("normal");
@@ -165,6 +197,7 @@
   @include u-pin("left");
   @include u-pin("y");
   @include u-text("primary", underline, baseline);
+  @include set-link-from-bg($theme-banner-background-color);
   display: block;
   font-size: font-size($theme-banner-font-family, 1);
   height: auto;
@@ -181,12 +214,12 @@
   @include at-media("tablet") {
     @include add-icon("angle-arrow-down-primary", "after", 1, 1, 2px, "hover");
     @include u-pin("none");
+    @include set-link-from-bg($theme-banner-background-color);
     display: inline;
     margin-left: units(1);
     position: relative;
 
     &:hover {
-      @include u-text("primary-darker");
       // Underline added to inner text instead.
       text-decoration: none;
     }
