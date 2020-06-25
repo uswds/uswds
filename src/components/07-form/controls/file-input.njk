@@ -6,4 +6,12 @@
 <h6 class="margin-top-7">Multiple files</h6>
 <label class="usa-label" for="input-multiple">Attach some files</label>
 <span class="usa-hint" id="input-multiple-hit">Any file type</span>
-<input id="input-multiple" class="usa-file-input" multiple type="file" name="" aria-decribedby="input-multiple-hit" />
+<input id="input-multiple" class="usa-file-input usa-input--error" multiple type="file" name="" aria-decribedby="input-multiple-hit" />
+
+
+<h6 class="margin-top-7">Error</h6>
+<div class="usa-form-group usa-form-group--error">
+  <label class="usa-label usa-label--error" for="input-multiple2">Attach some files</label>
+  <span class="usa-error-message" id="file-input-error-message" role="alert">Helpful error message</span>
+  <input id="input-multiple-error" class="usa-file-input" multiple type="file" name="input-multiple-error" aria-describedby="file-input-error-message"/>
+</div>

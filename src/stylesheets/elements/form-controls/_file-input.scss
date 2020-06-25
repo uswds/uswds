@@ -86,6 +86,7 @@
   display: none;
 }
 
+
 .usa-file-input--drag .usa-file-input__target {
   border-color: color('primary');
 }
@@ -172,4 +173,10 @@
 
 .usa-file-input__preview__image--video {
   @include add-background-svg("file-video");
+}
+
+// Error states
+.usa-form-group--error .usa-file-input__target {
+  border-color: color('secondary-dark');
+  border-width: 2px;
 }
