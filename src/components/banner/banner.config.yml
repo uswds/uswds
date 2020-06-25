@@ -8,12 +8,12 @@ context:
     tld: ".gov"
     tld_secondary: ".mil"
     heading: |
-      Official sites use $TLD
+      Official websites use $TLD
     text: |
       A website ending in <strong>$TLD</strong> indicates it is an official U.S. government organization.
   https:
     heading: |
-      Secure $TLD sites use HTTPS
+      Secure $TLD websites use HTTPS
     text: |
       A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> before the website name indicates information you get or provide is transmitted securely.
 
