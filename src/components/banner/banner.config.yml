@@ -6,7 +6,6 @@ context:
     action: "Here’s how you know"
   domain:
     tld: ".gov"
-    tld_secondary: ".mil"
     heading: |
       Official websites use $TLD
     text: |
@@ -38,4 +37,3 @@ variants:
     context:
       domain:
         tld: ".mil"
-        tld_secondary: ".gov"
