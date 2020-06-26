@@ -13,25 +13,26 @@ $this-icon-height: 0.8ex;
   // 1. Chould these be a separate mixin?
   $image-name: unquote($icon); // 1
   background-color: color($color); // 1
-  content: "";
-  display: inline-block;
-  height: $height;
   mask: url("#{$image-name}") no-repeat center; // 1
   mask-size: ($height * $aspect) $height; // 1
-  width: $height * $aspect;
 }
 
 @mixin add-svg-icon(
   $icon-name,
   $direction,
-  $image-size,
-  $container-size,
+  $icon-height,
+  $container-height,
   $margin,
   $align,
   $hover
 ) {
   &::#{$direction} {
     @include add-mask-svg("#{$icon-name}");
+    content: "";
+    display: inline-block;
+    height: units($container-height);
+    width: units($container-height);
+
     vertical-align: $align;
     /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == "after" {
@@ -44,7 +45,7 @@ $this-icon-height: 0.8ex;
 
   @if $hover == "hover" {
     &:hover::#{$direction} {
-      @include add-background-svg("#{$icon-name}-hover");
+      background-color: color("green-30v");
     }
   }
 }
