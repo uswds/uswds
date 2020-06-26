@@ -850,7 +850,7 @@ const reconcileInputValues = el => {
   const { internalInputEl, inputDate } = getDatePickerContext(el);
   let newValue = "";
 
-  if (!isDateInputInvalid(el)) {
+  if (inputDate && !isDateInputInvalid(el)) {
     newValue = formatDate(inputDate);
   }
 
@@ -1066,12 +1066,25 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   datePickerEl.classList.add(DATE_PICKER_ACTIVE_CLASS);
 
-  if (calendarWasHidden) {
-    statusEl.textContent =
-      "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
-  } else {
-    statusEl.textContent = `${monthLabel} ${focusedYear}`;
+  const statuses = [];
+
+  if (isSameDay(selectedDate, focusedDate)) {
+    statuses.push("Selected date");
   }
+
+  if (calendarWasHidden) {
+    statuses.push(
+      "You can navigate by day using left and right arrows",
+      "Weeks by using up and down arrows",
+      "Months by using page up and page down keys",
+      "Years by using shift plus page up and shift plus page down",
+      "Home and end keys navigate to the beginning and end of a week"
+    );
+    statusEl.textContent = "";
+  } else {
+    statuses.push(`${monthLabel} ${focusedYear}`);
+  }
+  statusEl.textContent = statuses.join(". ");
 
   return newCalendar;
 };
@@ -1910,7 +1923,7 @@ const tabHandler = focusable => {
       }
     },
     tabBack(event) {
-      const { isFirstTab, isNotFound, lastTabStop } = getFocusableContext(
+      const { lastTabStop, isFirstTab, isNotFound } = getFocusableContext(
         event.target
       );
 
