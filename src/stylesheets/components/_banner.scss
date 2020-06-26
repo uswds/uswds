@@ -1,3 +1,54 @@
+$this-icon: "foo";
+$this-icon-aspect: (64, 39);
+$this-icon-color: "red-50v";
+$this-icon-height: 0.8ex;
+
+@mixin add-mask-svg(
+  $icon: $this-icon,
+  $dim: $this-icon-aspect,
+  $color: $this-icon-color,
+  $height: $this-icon-height
+) {
+  $aspect: nth($dim, 1) / nth($dim, 2);
+  // 1. Chould these be a separate mixin?
+  $image-name: unquote($icon); // 1
+  background-color: color($color); // 1
+  content: "";
+  display: inline-block;
+  height: $height;
+  mask: url("#{$image-name}") no-repeat center; // 1
+  mask-size: ($height * $aspect) $height; // 1
+  width: $height * $aspect;
+}
+
+@mixin add-svg-icon(
+  $icon-name,
+  $direction,
+  $image-size,
+  $container-size,
+  $margin,
+  $align,
+  $hover
+) {
+  &::#{$direction} {
+    @include add-mask-svg("#{$icon-name}");
+    vertical-align: $align;
+    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+    @if $direction == "after" {
+      margin-left: units($margin);
+    } @else {
+      margin-right: units($margin);
+    }
+    /* stylelint-enable */
+  }
+
+  @if $hover == "hover" {
+    &:hover::#{$direction} {
+      @include add-background-svg("#{$icon-name}-hover");
+    }
+  }
+}
+
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;
@@ -95,7 +146,15 @@
 }
 
 .usa-banner__header-action {
-  @include add-icon("angle-arrow-down-primary", "after", 1, 1, 0.5, "hover");
+  @include add-svg-icon(
+    "#{$theme-image-path}/angle-arrow-down-primary",
+    "after",
+    1,
+    1,
+    0.5,
+    middle,
+    "hover"
+  );
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color
@@ -174,7 +233,15 @@
   }
 
   @include at-media("tablet") {
-    @include add-icon("angle-arrow-down-primary", "after", 1, 1, 2px, "hover");
+    @include add-svg-icon(
+      "#{$theme-image-path}/angle-arrow-down-primary.svg",
+      "after",
+      0.5,
+      1,
+      2px,
+      middle,
+      "hover"
+    );
     @include u-pin("none");
     @include set-link-from-bg(
       $theme-banner-background-color,
@@ -216,7 +283,15 @@
     }
 
     @include at-media("tablet") {
-      @include add-icon("angle-arrow-up-primary", "after", 1, 1, 2px, "hover");
+      @include add-svg-icon(
+        "#{$theme-image-path}/angle-arrow-up-primary.svg",
+        "after",
+        1,
+        1,
+        2px,
+        middle,
+        "hover"
+      );
       height: auto;
       padding: units(0);
       position: relative;
