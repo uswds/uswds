@@ -1748,8 +1748,6 @@ system z-index
     $preferred-link-color: $theme-link-color;
   }
 
-  @debug $preferred-link-color;
-
   $target-magic-number: map-get($magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
   $our-color-tokens: ($preferred-link-color, $fallback-link-color);
@@ -1779,13 +1777,11 @@ system z-index
         @if nth($decomposed, 3) {
           $link-vivid: "v";
         }
-        @debug $link-family;
         $link-token: $color-token;
 
         // If link is darker than bg, use darker hover
         // Exlude black as it has no darker hover
         @if ($link-grade > $bg-grade) and ($link-grade != 100) {
-          @debug "i'm darker than #{$bg-color}";
           $hover-grade: $link-grade + $grade-step;
           $hover-vivid: if($hover-grade == 90, "", $link-vivid);
           $hover-token: if(
@@ -1798,7 +1794,6 @@ system z-index
         // If link is lighter than bg, use lighter hover
         // Exlude white equivalents as they have no lighter hover
         @else if ($link-grade != 0) and ($link-grade != 100) {
-          @debug "i'm lighter than #{$bg-color}";
           $hover-grade: $link-grade - $grade-step;
           $hover-token: if(
             $hover-grade == 0,
