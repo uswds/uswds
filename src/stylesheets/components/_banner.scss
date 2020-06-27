@@ -32,15 +32,13 @@ $this-icon-height: 0.8ex;
     display: inline-block;
     height: units($container-height);
     width: units($container-height);
-
     vertical-align: $align;
-    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+
     @if $direction == "after" {
       margin-left: units($margin);
     } @else {
       margin-right: units($margin);
     }
-    /* stylelint-enable */
   }
 
   @if $hover == "hover" {
