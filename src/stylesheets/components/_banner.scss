@@ -1,6 +1,11 @@
 $this-icon: "foo";
 $this-icon-aspect: (64, 39);
-$this-icon-color: "red-50v";
+$this-icon-colors: get-link-colors-from-bg(
+  $theme-banner-background-color,
+  $theme-banner-link-color
+);
+$this-icon-color: nth($this-icon-colors, 1);
+$this-icon-hover: nth($this-icon-colors, 2);
 $this-icon-height: 0.8ex;
 
 @mixin add-mask-svg(
@@ -43,7 +48,7 @@ $this-icon-height: 0.8ex;
 
   @if $hover == "hover" {
     &:hover::#{$direction} {
-      background-color: color("green-30v");
+      background-color: color($this-icon-hover);
     }
   }
 }
