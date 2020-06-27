@@ -1742,9 +1742,13 @@ system z-index
     "AA-large": 40
   );
   $grade-step: 10;
+  $found: false;
+
   @if $preferred-link-color == default {
     $preferred-link-color: $theme-link-color;
   }
+
+  @debug $preferred-link-color;
 
   $target-magic-number: map-get($magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
@@ -1754,49 +1758,54 @@ system z-index
   $hover-token: false;
 
   @each $color-token in $our-color-tokens {
-    // Decompose the link token and calculate grade
-    $decomposed: decompose($color-token);
-    $link-grade: if(nth($decomposed, 2) < 10, 0, nth($decomposed, 2));
-    $link-magic-number: abs($bg-grade - $link-grade);
+    @if not $found {
+      // Decompose the link token and calculate grade
+      $decomposed: decompose($color-token);
+      $link-grade: if(nth($decomposed, 2) < 10, 0, nth($decomposed, 2));
+      $link-magic-number: abs($bg-grade - $link-grade);
 
-    @if $link-grade == 0 {
-      @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
-    } @else if $link-grade == 100 {
-      @warn '"black" isn\'t a valid link color token, since it has no darker hover state.';
-    }
-
-    // Check that link meets contrast target
-    @else if $link-magic-number >= $target-magic-number {
-      // Calculate additional link properties
-      $link-family: nth($decomposed, 1);
-      $link-vivid: "";
-      @if nth($decomposed, 3) {
-        $link-vivid: "v";
+      @if $link-grade == 0 {
+        @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
+      } @else if $link-grade == 100 {
+        @warn '"black" isn\'t a valid link color token, since it has no darker hover state.';
       }
 
-      $link-token: $color-token;
+      // Check that link meets contrast target
+      @else if $link-magic-number >= $target-magic-number {
+        $found: true;
+        // Calculate additional link properties
+        $link-family: nth($decomposed, 1);
+        $link-vivid: "";
+        @if nth($decomposed, 3) {
+          $link-vivid: "v";
+        }
+        @debug $link-family;
+        $link-token: $color-token;
 
-      // If link is darker than bg, use darker hover
-      // Exlude black as it has no darker hover
-      @if ($link-grade > $bg-grade) and ($link-grade != 100) {
-        $hover-grade: $link-grade + $grade-step;
-        $hover-vivid: if($hover-grade == 90, "", $link-vivid);
-        $hover-token: if(
-          $hover-grade == 100,
-          "black",
-          #{$link-family}-#{$hover-grade}#{$hover-vivid}
-        );
-      }
+        // If link is darker than bg, use darker hover
+        // Exlude black as it has no darker hover
+        @if ($link-grade > $bg-grade) and ($link-grade != 100) {
+          @debug "i'm darker than #{$bg-color}";
+          $hover-grade: $link-grade + $grade-step;
+          $hover-vivid: if($hover-grade == 90, "", $link-vivid);
+          $hover-token: if(
+            $hover-grade == 100,
+            "black",
+            #{$link-family}-#{$hover-grade}#{$hover-vivid}
+          );
+        }
 
-      // If link is lighter than bg, use lighter hover
-      // Exlude white equivalents as they have no lighter hover
-      @else if ($link-grade != 0) and ($link-grade != 100) {
-        $hover-grade: $link-grade - $grade-step;
-        $hover-token: if(
-          $hover-grade == 0,
-          "white",
-          #{$link-family}-#{$hover-grade}#{$link-vivid}
-        );
+        // If link is lighter than bg, use lighter hover
+        // Exlude white equivalents as they have no lighter hover
+        @else if ($link-grade != 0) and ($link-grade != 100) {
+          @debug "i'm lighter than #{$bg-color}";
+          $hover-grade: $link-grade - $grade-step;
+          $hover-token: if(
+            $hover-grade == 0,
+            "white",
+            #{$link-family}-#{$hover-grade}#{$link-vivid}
+          );
+        }
       }
     }
   }
