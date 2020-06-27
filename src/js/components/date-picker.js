@@ -1998,19 +1998,6 @@ const datePickerEvents = {
         validateDateInput(this);
       }
     },
-    [DATE_PICKER_CALENDAR](event) {
-      this.dataset.keydownKeyCode = event.keyCode;
-
-      const keyMap = keymap({
-        Escape: handleEscapeFromCalendar
-      });
-
-      keyMap(event);
-    },
-    [CALENDAR_DATE_PICKER]: keymap({
-      Tab: datePickerTabEventHandler.tabAhead,
-      "Shift+Tab": datePickerTabEventHandler.tabBack
-    }),
     [CALENDAR_DATE]: keymap({
       Up: handleUpFromDate,
       ArrowUp: handleUpFromDate,
@@ -2027,9 +2014,9 @@ const datePickerEvents = {
       "Shift+PageDown": handleShiftPageDownFromDate,
       "Shift+PageUp": handleShiftPageUpFromDate
     }),
-    [CALENDAR_MONTH_PICKER]: keymap({
-      Tab: monthPickerTabEventHandler.tabAhead,
-      "Shift+Tab": monthPickerTabEventHandler.tabBack
+    [CALENDAR_DATE_PICKER]: keymap({
+      Tab: datePickerTabEventHandler.tabAhead,
+      "Shift+Tab": datePickerTabEventHandler.tabBack
     }),
     [CALENDAR_MONTH]: keymap({
       Up: handleUpFromMonth,
@@ -2045,9 +2032,9 @@ const datePickerEvents = {
       PageDown: handlePageDownFromMonth,
       PageUp: handlePageUpFromMonth
     }),
-    [CALENDAR_YEAR_PICKER]: keymap({
-      Tab: yearPickerTabEventHandler.tabAhead,
-      "Shift+Tab": yearPickerTabEventHandler.tabBack
+    [CALENDAR_MONTH_PICKER]: keymap({
+      Tab: monthPickerTabEventHandler.tabAhead,
+      "Shift+Tab": monthPickerTabEventHandler.tabBack
     }),
     [CALENDAR_YEAR]: keymap({
       Up: handleUpFromYear,
@@ -2062,7 +2049,20 @@ const datePickerEvents = {
       End: handleEndFromYear,
       PageDown: handlePageDownFromYear,
       PageUp: handlePageUpFromYear
-    })
+    }),
+    [CALENDAR_YEAR_PICKER]: keymap({
+      Tab: yearPickerTabEventHandler.tabAhead,
+      "Shift+Tab": yearPickerTabEventHandler.tabBack
+    }),
+    [DATE_PICKER_CALENDAR](event) {
+      this.dataset.keydownKeyCode = event.keyCode;
+
+      const keyMap = keymap({
+        Escape: handleEscapeFromCalendar
+      });
+
+      keyMap(event);
+    }
   },
   focusout: {
     [DATE_PICKER_EXTERNAL_INPUT]() {

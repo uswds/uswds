@@ -231,4 +231,31 @@ EVENTS.mousemove = el => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a keydown Tab event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownTab = (el = document.activeElement) => {
+  const evt = new KeyboardEvent("keydown", {
+    bubbles: true,
+    key: "Tab",
+    keyCode: 9
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a keydown Shift + Tab event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownShiftTab = (el = document.activeElement) => {
+  const evt = new KeyboardEvent("keydown", {
+    bubbles: true,
+    key: "Tab",
+    keyCode: 9,
+    shiftKey: true
+  });
+  el.dispatchEvent(evt);
+};
+
 module.exports = EVENTS;
