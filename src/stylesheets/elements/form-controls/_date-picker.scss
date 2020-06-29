@@ -262,7 +262,6 @@
 
 .usa-date-picker__calendar__year-picker {
   padding: 20px 5px;
-  display: flex;
 }
 
 .usa-date-picker__calendar__previous-year-chunk,
@@ -270,7 +269,6 @@
   @extend %usa-date-picker__button;
   background-position: center;
   background-size: auto units(4);
-  flex: 1;
   margin: auto;
   padding: 40px 0;
 }
@@ -281,10 +279,6 @@
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
   @include add-background-svg("angle-right-solid");
-}
-
-.usa-date-picker__calendar__year-grid {
-  flex: 3;
 }
 
 .usa-date-picker__calendar__year {
