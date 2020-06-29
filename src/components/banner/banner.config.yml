@@ -9,12 +9,12 @@ context:
     heading: |
       Official websites use $TLD
     text: |
-      A website ending in <strong>$TLD</strong> indicates it is an official U.S. government organization.
+      A website ending in <strong>$TLD</strong> belongs to an official U.S. government organization.
   https:
     heading: |
       Secure $TLD websites use HTTPS
     text: |
-      A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> before the website name indicates information you get or provide is transmitted securely.
+      A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
 
 variants:
   - name: lang-es
