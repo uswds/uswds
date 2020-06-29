@@ -62,3 +62,102 @@
     }
   }
 }
+
+// New icon mixins using SVG mask technique
+
+@mixin add-color-icon(
+  $image-name,
+  $dim,
+  $icon-height,
+  $container-height: null,
+  $container-width: null,
+  $color,
+  $color-hover: null,
+  $rotate: null,
+  $path: $theme-image-path
+) {
+  $aspect: nth($dim, 1) / nth($dim, 2);
+  background-color: color($color);
+  display: inline-block;
+  mask: url("#{$path}/#{$image-name}") no-repeat center;
+  mask-size: ($icon-height * $aspect) $icon-height;
+  @if $color-hover {
+    &:hover {
+      background-color: color($color-hover);
+    }
+  }
+  height: units($container-height);
+  width: units($container-width);
+  @if $rotate {
+    transform: rotate($rotate);
+  }
+}
+
+@mixin place-icon(
+  $direction: null,
+  $margin: null,
+  $vertical-align: null,
+  $image-name: null,
+  $dim: null,
+  $icon-height: null,
+  $container-height: null,
+  $container-width: null,
+  $color: null,
+  $color-hover: null,
+  $rotate: null,
+  $path: $theme-image-path
+) {
+  @if type-of($image-name) == "list" {
+    $items: $image-name;
+    $image-name: nth($items, 1);
+    @if length($items) > 1 {
+      $dim: nth($items, 2);
+      @if length($items) > 2 {
+        $icon-height: nth($items, 3);
+        @if length($items) > 3 {
+          $container-height: nth($items, 4);
+          @if length($items) > 4 {
+            $container-width: nth($items, 5);
+            @if length($items) > 5 {
+              $color: nth($items, 6);
+              @if length($items) > 6 {
+                $color-hover: nth($items, 7);
+                @if length($items) > 7 {
+                  $rotate: nth($items, 8);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &::#{$direction} {
+    @include add-color-icon(
+      $image-name,
+      $dim,
+      $icon-height,
+      $container-height,
+      $container-width,
+      $color,
+      $color-hover,
+      $rotate,
+      $path
+    );
+    content: "";
+    vertical-align: $vertical-align;
+
+    @if $direction == "after" {
+      margin-left: units($margin);
+    } @else {
+      margin-right: units($margin);
+    }
+  }
+
+  @if $color-hover {
+    &:hover::#{$direction} {
+      content: ""; // Added to address a weird display bug
+      background-color: color($color-hover);
+    }
+  }
+}
