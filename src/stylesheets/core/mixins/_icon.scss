@@ -77,17 +77,18 @@
   $path: $theme-image-path
 ) {
   $aspect: nth($dim, 1) / nth($dim, 2);
+  $icon-width: $icon-height * $aspect;
   background-color: color($color);
   display: inline-block;
   mask: url("#{$path}/#{$image-name}") no-repeat center;
-  mask-size: ($icon-height * $aspect) $icon-height;
+  mask-size: $icon-width $icon-height;
   @if $color-hover {
     &:hover {
       background-color: color($color-hover);
     }
   }
-  height: units($container-height);
-  width: units($container-width);
+  height: if($container-height, units($container-height), $icon-height);
+  width: if($container-width, units($container-width), $icon-width);
   @if $rotate {
     transform: rotate($rotate);
   }
