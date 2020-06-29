@@ -70,6 +70,20 @@
   z-index: z-index(100);
 }
 
+// Date Picker - Table
+
+.usa-date-picker__calendar__table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%;
+
+  td {
+    padding: 0;
+  }
+}
+
 // Date Picker - Grid
 
 .usa-date-picker__calendar__row {

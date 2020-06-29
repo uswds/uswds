@@ -46,6 +46,7 @@ const CALENDAR_MONTH_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-picker
 const CALENDAR_YEAR_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-picker`;
 const CALENDAR_DATE_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-grid`;
 const CALENDAR_YEAR_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-grid`;
+const CALENDAR_TABLE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__table`;
 const CALENDAR_ROW_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__row`;
 const CALENDAR_CELL_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__cell`;
 const CALENDAR_CELL_CENTER_ITEMS_CLASS = `${CALENDAR_CELL_CLASS}--center-items`;
@@ -587,10 +588,10 @@ const listToGridHtml = (htmlArray, rowSize) => {
   while (i < htmlArray.length) {
     row = [];
     while (i < htmlArray.length && row.length < rowSize) {
-      row.push(`<div class="${CALENDAR_CELL_CLASS}">${htmlArray[i]}</div>`);
+      row.push(`<td>${htmlArray[i]}</td>`);
       i += 1;
     }
-    grid.push(`<div class="${CALENDAR_ROW_CLASS}">${row.join("")}</div>`);
+    grid.push(`<tr>${row.join("")}</tr>`);
   }
 
   return grid.join("");
@@ -1048,18 +1049,22 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
       </div>
-      <div class="${CALENDAR_ROW_CLASS}">
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Sunday">S</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Monday">M</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Tuesday">T</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Wednesday">W</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Thursday">Th</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Friday">F</div>
-        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Saturday">S</div>
-      </div>
-      <div class="${CALENDAR_DATE_GRID_CLASS}">
-        ${datesHtml}
-      </div>
+      <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
+        <thead>
+          <tr>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Sunday">S</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Monday">M</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Tuesday">T</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Wednesday">W</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Thursday">Th</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Friday">F</th>
+            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Saturday">S</th>
+          </tr>
+        </thead>
+        <tbody class="${CALENDAR_DATE_GRID_CLASS}">
+          ${datesHtml}
+        </tbody>
+      </table>
     </div>`;
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
@@ -1311,10 +1316,13 @@ const displayMonthSelection = (el, monthToDisplay) => {
       >${month}</button>`;
   });
 
-  const monthsHtml = `<div tabindex="-1" class="${CALENDAR_MONTH_PICKER_CLASS}">${listToGridHtml(
-    months,
-    3
-  )}</div>`;
+  const monthsHtml = `<div tabindex="-1" class="${CALENDAR_MONTH_PICKER_CLASS}">
+    <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
+      <tbody>
+        ${listToGridHtml(months, 3)}
+      </tbody>
+    </table>
+  </div>`;
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.innerHTML = monthsHtml;
@@ -1419,21 +1427,35 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_YEAR_PICKER_CLASS}">
-      <button 
-        type="button" 
-        class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
-        aria-label="Navigate back ${YEAR_CHUNK} years"
-        ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
-      >&nbsp;</button>
-      <div role="grid" class="${CALENDAR_YEAR_GRID_CLASS}">
-        ${yearsHtml}
-      </div>
-      <button 
-        type="button" 
-        class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
-        aria-label="Navigate forward ${YEAR_CHUNK} years"
-        ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
-      >&nbsp;</button>
+    <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
+        <tbody>
+          <tr>
+            <td>
+              <button
+                type="button"
+                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
+                aria-label="Navigate back ${YEAR_CHUNK} years"
+                ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
+              >&nbsp;</button>
+            </td>
+            <td colspan="3">
+              <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
+                <tbody>
+                  ${yearsHtml}
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <button
+                type="button"
+                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
+                aria-label="Navigate forward ${YEAR_CHUNK} years"
+                ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
+              >&nbsp;</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
