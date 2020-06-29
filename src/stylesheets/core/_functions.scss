@@ -1698,7 +1698,7 @@ system z-index
   @return z-index($value);
 }
 
-@function get-color-from-bg(
+@function get-token-from-bg(
   $bg-color,
   $preferred-text-color: "white",
   $fallback-text-color: "ink",
@@ -1718,11 +1718,11 @@ system z-index
   //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
 
   @if $magic-num-preferred >= $target-magic-number {
-    $color: color($preferred-text-color);
+    $color: $preferred-text-color;
   } @else {
     $grade-fallback: get-color-grade($fallback-text-color);
     $magic-num-fallback: abs($grade-bg - $grade-fallback);
-    $color: color($fallback-text-color);
+    $color: $fallback-text-color;
   }
 
   @if not $color {
@@ -1730,6 +1730,21 @@ system z-index
   }
 
   @return $color;
+}
+
+@function get-color-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  $color: get-token-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+  @return color($color);
 }
 
 @function get-link-colors-from-bg(
