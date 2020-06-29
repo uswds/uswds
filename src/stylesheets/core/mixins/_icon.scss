@@ -64,6 +64,11 @@
 }
 
 // New icon mixins using SVG mask technique
+//
+// $image may be a specific SVG or a list in the form
+// ($base, $variant, $variant-alt, $bg)
+// the mixin will pick IE11-compatible svgs named
+// [base]-[variant].svg based on the specified background-color
 
 @mixin add-color-icon(
   $image,
