@@ -66,7 +66,7 @@
 // New icon mixins using SVG mask technique
 
 @mixin add-color-icon(
-  $image-name,
+  $image,
   $dim,
   $icon-height,
   $container-height: null,
@@ -78,19 +78,40 @@
 ) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $icon-height * $aspect;
-  background-color: color($color);
-  display: inline-block;
-  mask: url("#{$path}/#{$image-name}") no-repeat center;
-  mask-size: $icon-width $icon-height;
-  @if $color-hover {
-    &:hover {
-      background-color: color($color-hover);
-    }
+  $image-filename: $image;
+
+  @if type-of($image) == "list" and (length($image) == 4) {
+    $image-base: nth($image, 1);
+    $image-variant: get-token-from-bg(
+      nth($image, 4),
+      nth($image, 2),
+      nth($image, 3)
+    );
+    $image-filename: "#{$image-base}-#{$image-variant}.svg";
   }
+
+  $image-props: url("#{$path}/#{$image-filename}") no-repeat center / #{$icon-width}
+    #{$icon-height};
+
+  // Default background shorthand for browsers that don't support mask or supports.
+  background: $image-props;
+  display: inline-block;
   height: if($container-height, units($container-height), $icon-height);
   width: if($container-width, units($container-width), $icon-width);
   @if $rotate {
     transform: rotate($rotate);
+  }
+
+  // Mask supportered styles
+  @supports (mask: url("")) or (-webkit-mask: url("")) {
+    background: none;
+    background-color: color($color);
+    mask: $image-props;
+    @if $color-hover {
+      &:hover {
+        background-color: color($color-hover);
+      }
+    }
   }
 }
 
@@ -98,7 +119,7 @@
   $direction: null,
   $margin: null,
   $vertical-align: null,
-  $image-name: null,
+  $image: null,
   $dim: null,
   $icon-height: null,
   $container-height: null,
@@ -108,9 +129,9 @@
   $rotate: null,
   $path: $theme-image-path
 ) {
-  @if type-of($image-name) == "list" {
-    $items: $image-name;
-    $image-name: nth($items, 1);
+  @if type-of($image) == "list" {
+    $items: $image;
+    $image: nth($items, 1);
     @if length($items) > 1 {
       $dim: nth($items, 2);
       @if length($items) > 2 {
@@ -135,7 +156,7 @@
   }
   &::#{$direction} {
     @include add-color-icon(
-      $image-name,
+      $image,
       $dim,
       $icon-height,
       $container-height,
