@@ -7,11 +7,11 @@ context:
   domain:
     tld: ".gov"
     heading: |
-      Official websites use $TLD
+      The .gov means it’s official.
     text: |
-      A website ending in <strong>$TLD</strong> indicates it is an official U.S. government organization.
+      Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
   https:
     heading: |
-      Secure $TLD websites use HTTPS
+      The site is secure.
     text: |
-      A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> before the website name indicates information you get or provide is transmitted securely.
+      The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
