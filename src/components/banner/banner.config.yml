@@ -15,25 +15,3 @@ context:
       Secure $TLD websites use HTTPS
     text: |
       A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> before the website name indicates information you get or provide is transmitted securely.
-
-variants:
-  - name: lang-es
-    context:
-      banner:
-        text: "Un sitio oficial del Gobierno de Estados Unidos"
-        action: "Así es como usted puede verificarlo"
-      domain:
-        tld: ".gov"
-        heading: |
-          Los sitios web oficiales usan $TLD
-        text: |
-          Un sitio web cuyo URL termina en <strong>$TLD</strong> indica que es un sitio oficial del Gobierno de Estados Unidos.
-      https:
-        heading: |
-          Los sitios web $TLD seguros usan HTTPS
-        text: |
-          Un <strong>candado</strong> ($LOCK_IMG) o <strong>https://</strong> antes del nombre del sitio web indica que la información que usted provee o recibe se transmite en forma segura.
-  - name: dot-mil
-    context:
-      domain:
-        tld: ".mil"
