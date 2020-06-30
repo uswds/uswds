@@ -74,16 +74,41 @@
   $image,
   $dim,
   $icon-height,
-  $container-height: null,
-  $container-width: null,
   $color,
   $color-hover: null,
+  $container-height: null,
+  $container-width: null,
   $rotate: null,
-  $path: $theme-image-path
+  $path: null
 ) {
+  @if type-of($image) == "map" {
+    $props: $image;
+    $image: map-get($props, "img");
+    $dim: map-get($props, "dim");
+    $icon-height: map-get($props, "icon-height");
+    $color: map-get($props, "color");
+    $color-hover: if(
+      map-has-key($props, "color-hover"),
+      map-get($props, "color-hover"),
+      null
+    );
+    $container-height: if(
+      map-has-key($props, "container-height"),
+      map-get($props, "container-height"),
+      null
+    );
+    $container-width: if(
+      map-has-key($props, "container-width"),
+      map-get($props, "container-width"),
+      null
+    );
+    $rotate: if(map-has-key($props, "rotate"), map-get($props, "rotate"), null);
+    $path: if(map-has-key($props, "path"), map-get($props, "path"), null);
+  }
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $icon-height * $aspect;
   $image-filename: $image;
+  $path-base: if($path, $path, $theme-image-path);
 
   @if type-of($image) == "list" and (length($image) == 4) {
     $image-base: nth($image, 1);
@@ -95,7 +120,7 @@
     $image-filename: "#{$image-base}-#{$image-variant}.svg";
   }
 
-  $image-props: url("#{$path}/#{$image-filename}") no-repeat center / #{$icon-width}
+  $image-props: url("#{$path-base}/#{$image-filename}") no-repeat center / #{$icon-width}
     #{$icon-height};
 
   // Default background shorthand for browsers that don't support mask or supports.
@@ -127,47 +152,46 @@
   $image: null,
   $dim: null,
   $icon-height: null,
-  $container-height: null,
-  $container-width: null,
   $color: null,
   $color-hover: null,
+  $container-height: null,
+  $container-width: null,
   $rotate: null,
-  $path: $theme-image-path
+  $path: null
 ) {
-  @if type-of($image) == "list" {
-    $items: $image;
-    $image: nth($items, 1);
-    @if length($items) > 1 {
-      $dim: nth($items, 2);
-      @if length($items) > 2 {
-        $icon-height: nth($items, 3);
-        @if length($items) > 3 {
-          $container-height: nth($items, 4);
-          @if length($items) > 4 {
-            $container-width: nth($items, 5);
-            @if length($items) > 5 {
-              $color: nth($items, 6);
-              @if length($items) > 6 {
-                $color-hover: nth($items, 7);
-                @if length($items) > 7 {
-                  $rotate: nth($items, 8);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+  @if type-of($image) == "map" {
+    $props: $image;
+    $image: map-get($props, "img");
+    $dim: map-get($props, "dim");
+    $icon-height: map-get($props, "icon-height");
+    $color: map-get($props, "color");
+    $color-hover: if(
+      map-has-key($props, "color-hover"),
+      map-get($props, "color-hover"),
+      null
+    );
+    $container-height: if(
+      map-has-key($props, "container-height"),
+      map-get($props, "container-height"),
+      null
+    );
+    $container-width: if(
+      map-has-key($props, "container-width"),
+      map-get($props, "container-width"),
+      null
+    );
+    $rotate: if(map-has-key($props, "rotate"), map-get($props, "rotate"), null);
+    $path: if(map-has-key($props, "path"), map-get($props, "path"), null);
   }
   &::#{$direction} {
     @include add-color-icon(
       $image,
       $dim,
       $icon-height,
-      $container-height,
-      $container-width,
       $color,
       $color-hover,
+      $container-height,
+      $container-width,
       $rotate,
       $path
     );

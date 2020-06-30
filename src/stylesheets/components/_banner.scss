@@ -5,22 +5,36 @@ $banner-icon-colors: get-link-colors-from-bg(
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
-  ("angle-arrow-down", "gray-90", "white", $theme-banner-background-color),
-  (64, 39),
-  0.8ex,
-  null,
-  null,
-  $banner-icon-color,
-  $banner-icon-hover
+  "img": (
+    "angle-arrow-down",
+    "gray-90",
+    "white",
+    $theme-banner-background-color
+  ),
+  "dim": (
+    64,
+    39
+  ),
+  "icon-height": 0.8ex,
+  "color": $banner-icon-color,
+  "color-hover": $banner-icon-hover
 );
-$banner-icon-chevron-up: append($banner-icon-chevron, 180deg);
+$banner-icon-chevron-up: map-merge(
+  $banner-icon-chevron,
+  (
+    "rotate": 180deg
+  )
+);
 $banner-icon-close: (
-  "close-blue-60v-alt.svg",
-  (40, 40),
-  $theme-icon-image-size,
-  $size-touch-target,
-  $size-touch-target,
-  "blue-60v"
+  "img": "close-blue-60v-alt.svg",
+  "dim": (
+    40,
+    40
+  ),
+  "icon-height": $theme-icon-image-size,
+  "container-height": $size-touch-target,
+  "container-width": $size-touch-target,
+  "color": "blue-60v"
 );
 
 .usa-banner {
