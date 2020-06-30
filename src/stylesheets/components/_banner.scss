@@ -5,7 +5,7 @@ $banner-icon-colors: get-link-colors-from-bg(
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
-  ("angle-arrow-down", "primary", "white", $theme-banner-background-color),
+  ("angle-arrow-down", "gray-90", "white", $theme-banner-background-color),
   (64, 39),
   0.8ex,
   null,
