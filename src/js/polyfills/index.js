@@ -2,3 +2,5 @@
 require("classlist-polyfill");
 // polyfills HTMLElement.prototype.hidden
 require("./element-hidden");
+// polyfills CustomEvent
+require("./custom-event");
