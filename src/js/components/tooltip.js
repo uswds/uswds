@@ -107,6 +107,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
     e.style.marginBottom = "0";
     e.style.marginLeft = `${adjustToEdgeX + leftOffset}px`;
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
+    return false;
   }
 
   /**
@@ -116,7 +117,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   const positionLeft = e => {
     setPositionClass("left");
     e.style.marginBottom = "0";
-    e.style.marginLeft = `-${toolTipBodyWidth - leftOffset + (TRIANGLE_SIZE + SPACER)}px`;
+    if (leftOffset > toolTipBodyWidth){
+      e.style.marginLeft = `${leftOffset - toolTipBodyWidth - (TRIANGLE_SIZE + SPACER)}px`;
+    }
+    else {
+      e.style.marginLeft = `-${toolTipBodyWidth - leftOffset + (TRIANGLE_SIZE + SPACER)}px`;
+    }
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
