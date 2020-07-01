@@ -1,11 +1,11 @@
-$banner-icon-colors: get-link-colors-from-bg(
+$banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
   $theme-banner-link-color
 );
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
-  "img": "chevron",
+  "name": "chevron",
   "svg-height": 39,
   "svg-width": 64,
   "height": 0.8ex,
@@ -20,7 +20,7 @@ $banner-icon-chevron-up: map-merge(
   )
 );
 $banner-icon-close: (
-  "img": "close-alt",
+  "name": "close-alt",
   "svg-height": 40,
   "svg-width": 40,
   "height": $theme-icon-image-size,

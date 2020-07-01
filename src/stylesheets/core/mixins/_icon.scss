@@ -71,7 +71,7 @@
 // [base]-[variant].svg based on the specified background-color
 
 @mixin add-color-icon($icon-object, $background-color) {
-  $filename-base: map-get($icon-object, "img");
+  $filename-base: map-get($icon-object, "name");
   $svg-height: map-get($icon-object, "svg-height");
   $svg-width: map-get($icon-object, "svg-width");
   $aspect: $svg-width / $svg-height;
