@@ -4,7 +4,7 @@
   $fallback-link-color: $theme-link-reverse-color,
   $wcag-target: "AA"
 ) {
-  $link-tokens: get-link-colors-from-bg(
+  $link-tokens: get-link-tokens-from-bg(
     $bg-color,
     $preferred-link-color,
     $fallback-link-color,

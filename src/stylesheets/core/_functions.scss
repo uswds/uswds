@@ -1747,7 +1747,7 @@ system z-index
   @return color($color);
 }
 
-@function get-link-colors-from-bg(
+@function get-link-tokens-from-bg(
   $bg-color,
   $preferred-link-color: $theme-link-color,
   $fallback-link-color: $theme-link-reverse-color,
