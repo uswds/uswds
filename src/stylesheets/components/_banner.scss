@@ -5,18 +5,12 @@ $banner-icon-colors: get-link-colors-from-bg(
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
-  "img": (
-    "angle-arrow-down",
-    "gray-90",
-    "white",
-    $theme-banner-background-color
-  ),
-  "dim": (
-    64,
-    39
-  ),
-  "icon-height": 0.8ex,
+  "img": "chevron",
+  "svg-height": 39,
+  "svg-width": 64,
+  "height": 0.8ex,
   "color": $banner-icon-color,
+  "color-alt": "white",
   "color-hover": $banner-icon-hover
 );
 $banner-icon-chevron-up: map-merge(
@@ -26,15 +20,14 @@ $banner-icon-chevron-up: map-merge(
   )
 );
 $banner-icon-close: (
-  "img": "close-blue-60v-alt.svg",
-  "dim": (
-    40,
-    40
-  ),
-  "icon-height": $theme-icon-image-size,
+  "img": "close-alt",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $theme-icon-image-size,
+  "color": "blue-60v",
+  "color-alt": "white",
   "container-height": $size-touch-target,
-  "container-width": $size-touch-target,
-  "color": "blue-60v"
+  "container-width": $size-touch-target
 );
 
 .usa-banner {
@@ -134,7 +127,13 @@ $banner-icon-close: (
 }
 
 .usa-banner__header-action {
-  @include place-icon("after", 2px, middle, $banner-icon-chevron);
+  @include place-icon(
+    $banner-icon-chevron,
+    "after",
+    2px,
+    middle,
+    $theme-banner-background-color
+  );
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color
@@ -213,7 +212,13 @@ $banner-icon-close: (
   }
 
   @include at-media("tablet") {
-    @include place-icon("after", 2px, middle, $banner-icon-chevron);
+    @include place-icon(
+      $banner-icon-chevron,
+      "after",
+      2px,
+      middle,
+      $theme-banner-background-color
+    );
     @include set-link-from-bg(
       $theme-banner-background-color,
       $theme-banner-link-color
@@ -237,7 +242,13 @@ $banner-icon-close: (
     background-image: none;
 
     @include at-media-max("tablet") {
-      @include place-icon("after", 0, middle, $banner-icon-close);
+      @include place-icon(
+        $banner-icon-close,
+        "after",
+        0,
+        middle,
+        "base-lighter"
+      );
 
       &::before {
         @include u-pin("y");
@@ -255,7 +266,13 @@ $banner-icon-close: (
     }
 
     @include at-media("tablet") {
-      @include place-icon("after", 2px, middle, $banner-icon-chevron-up);
+      @include place-icon(
+        $banner-icon-chevron-up,
+        "after",
+        2px,
+        middle,
+        $theme-banner-background-color
+      );
       height: auto;
       padding: units(0);
       position: relative;

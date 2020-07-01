@@ -70,64 +70,59 @@
 // the mixin will pick IE11-compatible svgs named
 // [base]-[variant].svg based on the specified background-color
 
-@mixin add-color-icon(
-  $image,
-  $dim,
-  $icon-height,
-  $color,
-  $color-hover: null,
-  $container-height: null,
-  $container-width: null,
-  $rotate: null,
-  $path: null
-) {
-  @if type-of($image) == "map" {
-    $props: $image;
-    $image: map-get($props, "img");
-    $dim: map-get($props, "dim");
-    $icon-height: map-get($props, "icon-height");
-    $color: map-get($props, "color");
-    $color-hover: if(
-      map-has-key($props, "color-hover"),
-      map-get($props, "color-hover"),
-      null
-    );
-    $container-height: if(
-      map-has-key($props, "container-height"),
-      map-get($props, "container-height"),
-      null
-    );
-    $container-width: if(
-      map-has-key($props, "container-width"),
-      map-get($props, "container-width"),
-      null
-    );
-    $rotate: if(map-has-key($props, "rotate"), map-get($props, "rotate"), null);
-    $path: if(map-has-key($props, "path"), map-get($props, "path"), null);
-  }
-  $aspect: nth($dim, 1) / nth($dim, 2);
-  $icon-width: $icon-height * $aspect;
-  $image-filename: $image;
-  $path-base: if($path, $path, $theme-image-path);
+@mixin add-color-icon($icon-object, $background-color) {
+  $filename-base: map-get($icon-object, "img");
+  $svg-height: map-get($icon-object, "svg-height");
+  $svg-width: map-get($icon-object, "svg-width");
+  $aspect: $svg-width / $svg-height;
+  $height: if(
+    unitless(map-get($icon-object, "height")),
+    units(map-get($icon-object, "height")),
+    map-get($icon-object, "height")
+  );
+  $width: $height * $aspect;
+  $container-height: if(
+    map-has-key($icon-object, "container-height"),
+    units(map-get($icon-object, "container-height")),
+    null
+  );
+  $container-width: if(
+    map-has-key($icon-object, "container-width"),
+    units(map-get($icon-object, "container-width")),
+    null
+  );
+  $color: map-get($icon-object, "color");
+  $color-alt: map-get($icon-object, "color-alt");
+  $color-hover: if(
+    map-has-key($icon-object, "color-hover"),
+    map-get($icon-object, "color-hover"),
+    null
+  );
+  $rotate: if(
+    map-has-key($icon-object, "rotate"),
+    map-get($icon-object, "rotate"),
+    null
+  );
+  $path: if(
+    map-has-key($icon-object, "path"),
+    map-get($icon-object, "path"),
+    $theme-image-path
+  );
+  $ie11-variant: get-token-from-bg($background-color, $color-alt, "black");
+  $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
+  $filename: if(
+    $filename-ie11-variant,
+    "#{$filename-base}-#{$filename-ie11-variant}.svg",
+    "#{$filename-base}.svg"
+  );
 
-  @if type-of($image) == "list" and (length($image) == 4) {
-    $image-base: nth($image, 1);
-    $image-variant: get-token-from-bg(
-      nth($image, 4),
-      nth($image, 2),
-      nth($image, 3)
-    );
-    $image-filename: "#{$image-base}-#{$image-variant}.svg";
-  }
-
-  $image-props: url("#{$path-base}/#{$image-filename}") no-repeat center / #{$icon-width}
-    #{$icon-height};
+  $image-props: url("#{$path}/#{$filename}") no-repeat center / #{$width} #{$height};
 
   // Default background shorthand for browsers that don't support mask or supports.
   background: $image-props;
   display: inline-block;
-  height: if($container-height, units($container-height), $icon-height);
-  width: if($container-width, units($container-width), $icon-width);
+  height: if($container-height, $container-height, $height);
+  width: if($container-width, $container-width, $width);
   @if $rotate {
     transform: rotate($rotate);
   }
@@ -146,55 +141,19 @@
 }
 
 @mixin place-icon(
-  $direction: null,
-  $margin: null,
-  $vertical-align: null,
-  $image: null,
-  $dim: null,
-  $icon-height: null,
-  $color: null,
-  $color-hover: null,
-  $container-height: null,
-  $container-width: null,
-  $rotate: null,
-  $path: null
+  $icon-object,
+  $direction,
+  $margin,
+  $vertical-align,
+  $background-color
 ) {
-  @if type-of($image) == "map" {
-    $props: $image;
-    $image: map-get($props, "img");
-    $dim: map-get($props, "dim");
-    $icon-height: map-get($props, "icon-height");
-    $color: map-get($props, "color");
-    $color-hover: if(
-      map-has-key($props, "color-hover"),
-      map-get($props, "color-hover"),
-      null
-    );
-    $container-height: if(
-      map-has-key($props, "container-height"),
-      map-get($props, "container-height"),
-      null
-    );
-    $container-width: if(
-      map-has-key($props, "container-width"),
-      map-get($props, "container-width"),
-      null
-    );
-    $rotate: if(map-has-key($props, "rotate"), map-get($props, "rotate"), null);
-    $path: if(map-has-key($props, "path"), map-get($props, "path"), null);
-  }
+  $color-hover: if(
+    map-has-key($icon-object, "color-hover"),
+    map-get($icon-object, "color-hover"),
+    null
+  );
   &::#{$direction} {
-    @include add-color-icon(
-      $image,
-      $dim,
-      $icon-height,
-      $color,
-      $color-hover,
-      $container-height,
-      $container-width,
-      $rotate,
-      $path
-    );
+    @include add-color-icon($icon-object, $background-color);
     content: "";
     vertical-align: $vertical-align;
 
