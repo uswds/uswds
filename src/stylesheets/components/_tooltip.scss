@@ -96,8 +96,8 @@ $triangle-size: 5px;
 
 .usa-tooltip__body--left {
   top: auto;
-  left: auto;
-  right: 0;
+  left: 0;
+  right: auto;
   transform: translateX(0);
 
   &:after {

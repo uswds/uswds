@@ -43,16 +43,14 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   // Calculate sizing and adjustments for positioning
   const tooltipWidth = tooltipTrigger.offsetWidth;
   const tooltipHeight = tooltipTrigger.offsetHeight;
-  const offsetForRightMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-right"), 10);
-  const offsetForLeftMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-left"), 10);
   const offsetForTopMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-top"), 10);
   const offsetForBottomMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-bottom"), 10);
-  const offsetForRightPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-right"), 10);
-  const offsetForLeftPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-left"), 10);
   const offsetForTopPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-top"), 10);
   const offsetForBottomPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-bottom"), 10);
   const offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"), 10);
-  const adjustHorizontalCenter = (tooltipWidth / 2) + offsetForLeftPadding;
+  const leftOffset = tooltipTrigger.offsetLeft;
+  const toolTipBodyWidth = tooltipBody.offsetWidth;
+  const adjustHorizontalCenter = (tooltipWidth / 2) + leftOffset;
   const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
   const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
@@ -78,7 +76,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   */
   const positionTop = e => {
     setPositionClass("top");
-    e.style.marginLeft = `${adjustHorizontalCenter}px`
+    e.style.marginLeft = `${adjustHorizontalCenter}px`;
     if (!isElementInViewport(e)) {
       e.classList.add(ADJUST_WIDTH_CLASS);
     }
@@ -93,7 +91,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   */
   const positionBottom = e => {
     setPositionClass("bottom");
-    e.style.marginLeft = `${adjustHorizontalCenter}px`
+    e.style.marginLeft = `${adjustHorizontalCenter}px`;
     if (!isElementInViewport(e)) {
       e.classList.add(ADJUST_WIDTH_CLASS);
     }
@@ -107,7 +105,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   const positionRight = e => {
     setPositionClass("right");
     e.style.marginBottom = "0";
-    e.style.marginLeft = `${adjustToEdgeX + offsetForLeftMargin + offsetForLeftPadding}px`;
+    e.style.marginLeft = `${adjustToEdgeX + leftOffset}px`;
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
@@ -118,7 +116,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   const positionLeft = e => {
     setPositionClass("left");
     e.style.marginBottom = "0";
-    e.style.marginRight = `${adjustToEdgeX + offsetForRightMargin + offsetForRightPadding}px`;
+    e.style.marginLeft = `-${toolTipBodyWidth - leftOffset + (TRIANGLE_SIZE + SPACER)}px`;
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
