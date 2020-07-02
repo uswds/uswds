@@ -91,8 +91,16 @@
     units(map-get($icon-object, "container-width")),
     null
   );
-  $color: map-get($icon-object, "color");
-  $color-alt: map-get($icon-object, "color-alt");
+  $color: if(
+    map-has-key($icon-object, "color"),
+    map-get($icon-object, "color"),
+    "ink"
+  );
+  $color-variant: if(
+    map-has-key($icon-object, "color-variant"),
+    map-get($icon-object, "color-variant"),
+    "white"
+  );
   $color-hover: if(
     map-has-key($icon-object, "color-hover"),
     map-get($icon-object, "color-hover"),
@@ -108,7 +116,7 @@
     map-get($icon-object, "path"),
     $theme-image-path
   );
-  $ie11-variant: get-token-from-bg($contrast-bg, $color-alt, "black");
+  $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, "black");
   $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
   $filename: if(
     $filename-ie11-variant,
