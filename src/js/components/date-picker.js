@@ -755,7 +755,7 @@ const enhanceDatePicker = el => {
   calendarWrapper.insertAdjacentHTML(
     "beforeend",
     [
-      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>`,
+      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>`,
       `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
@@ -916,6 +916,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     let tabindex = "-1";
 
     const isDisabled = !isDateWithinMinAndMax(dateToRender, minDate, maxDate);
+    const isSelected = isSameDay(dateToRender, selectedDate);
 
     if (isSameMonth(dateToRender, prevMonth)) {
       classes.push(CALENDAR_DATE_PREVIOUS_MONTH_CLASS);
@@ -929,7 +930,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_NEXT_MONTH_CLASS);
     }
 
-    if (isSameDay(dateToRender, selectedDate)) {
+    if (isSelected) {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
@@ -978,6 +979,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       data-year="${year}" 
       data-value="${formattedDate}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
+      aria-selected="${isSelected ? "true" : "false"}"
       ${isDisabled ? `disabled="disabled"` : ""}
     >${day}</button>`;
   };
@@ -1294,13 +1296,14 @@ const displayMonthSelection = (el, monthToDisplay) => {
     let tabindex = "-1";
 
     const classes = [CALENDAR_MONTH_CLASS];
+    const isSelected = index === selectedMonth;
 
     if (index === focusedMonth) {
       tabindex = "0";
       classes.push(CALENDAR_MONTH_FOCUSED_CLASS);
     }
 
-    if (index === selectedMonth) {
+    if (isSelected) {
       classes.push(CALENDAR_MONTH_SELECTED_CLASS);
     }
 
@@ -1310,6 +1313,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
         class="${classes.join(" ")}" 
         data-value="${index}"
         data-label="${month}"
+        aria-selected="${isSelected ? "true" : "false"}"
         ${isDisabled ? `disabled="disabled"` : ""}
       >${month}</button>`;
   });
@@ -1399,13 +1403,14 @@ const displayYearSelection = (el, yearToDisplay) => {
     let tabindex = "-1";
 
     const classes = [CALENDAR_YEAR_CLASS];
+    const isSelected = yearIndex === selectedYear;
 
     if (yearIndex === focusedYear) {
       tabindex = "0";
       classes.push(CALENDAR_YEAR_FOCUSED_CLASS);
     }
 
-    if (yearIndex === selectedYear) {
+    if (isSelected) {
       classes.push(CALENDAR_YEAR_SELECTED_CLASS);
     }
 
@@ -1415,6 +1420,7 @@ const displayYearSelection = (el, yearToDisplay) => {
         tabindex="${tabindex}"
         class="${classes.join(" ")}" 
         data-value="${yearIndex}"
+        aria-selected="${isSelected ? "true" : "false"}"
         ${isDisabled ? `disabled="disabled"` : ""}
       >${yearIndex}</button>`
     );
