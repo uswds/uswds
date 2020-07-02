@@ -114,7 +114,13 @@ $icon-breadcrumb-back: (
     @include not-sr-only;
 
     &:not(:last-child) {
-      @include place-icon($icon-breadcrumb-separator, "after", 4px, middle, "white");
+      @include place-icon(
+        $icon-breadcrumb-separator,
+        "after",
+        2px,
+        middle,
+        "red-50v"
+        );
     }
 
     &:not(:last-child)::after {
