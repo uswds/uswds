@@ -714,70 +714,6 @@ const enable = el => {
   externalInputEl.disabled = false;
 };
 
-/**
- * Enhance an input with the date picker elements
- *
- * @param {HTMLElement} el The initial wrapping element of the date picker component
- */
-const enhanceDatePicker = el => {
-  const datePickerEl = el.closest(DATE_PICKER);
-
-  const internalInputEl = datePickerEl.querySelector(`input`);
-
-  if (!internalInputEl) {
-    throw new Error(`${DATE_PICKER} is missing inner input`);
-  }
-
-  const minDate = parseDateString(
-    datePickerEl.dataset.minDate || internalInputEl.getAttribute("min")
-  );
-  datePickerEl.dataset.minDate = minDate
-    ? formatDate(minDate)
-    : DEFAULT_MIN_DATE;
-
-  const maxDate = parseDateString(
-    datePickerEl.dataset.maxDate || internalInputEl.getAttribute("max")
-  );
-  if (maxDate) {
-    datePickerEl.dataset.maxDate = formatDate(maxDate);
-  }
-
-  const calendarWrapper = document.createElement("div");
-  calendarWrapper.classList.add(DATE_PICKER_WRAPPER_CLASS);
-  calendarWrapper.tabIndex = "-1";
-
-  const externalInputEl = internalInputEl.cloneNode();
-  externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
-  externalInputEl.type = "text";
-  externalInputEl.name = "";
-
-  calendarWrapper.appendChild(externalInputEl);
-  calendarWrapper.insertAdjacentHTML(
-    "beforeend",
-    [
-      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” hidden></div>`,
-      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
-    ].join("")
-  );
-
-  internalInputEl.setAttribute("aria-hidden", "true");
-  internalInputEl.setAttribute("tabindex", "-1");
-  internalInputEl.classList.add(
-    "usa-sr-only",
-    DATE_PICKER_INTERNAL_INPUT_CLASS
-  );
-  internalInputEl.id = "";
-
-  datePickerEl.appendChild(calendarWrapper);
-  datePickerEl.classList.add(DATE_PICKER_INITIALIZED_CLASS);
-
-  if (internalInputEl.disabled) {
-    disable(datePickerEl);
-    internalInputEl.disabled = false;
-  }
-};
-
 // #region Validation
 
 /**
@@ -855,6 +791,72 @@ const reconcileInputValues = el => {
 
   if (internalInputEl.value !== newValue) {
     changeElementValue(internalInputEl, newValue);
+  }
+};
+
+/**
+ * Enhance an input with the date picker elements
+ *
+ * @param {HTMLElement} el The initial wrapping element of the date picker component
+ */
+const enhanceDatePicker = el => {
+  const datePickerEl = el.closest(DATE_PICKER);
+
+  const internalInputEl = datePickerEl.querySelector(`input`);
+
+  if (!internalInputEl) {
+    throw new Error(`${DATE_PICKER} is missing inner input`);
+  }
+
+  const minDate = parseDateString(
+    datePickerEl.dataset.minDate || internalInputEl.getAttribute("min")
+  );
+  datePickerEl.dataset.minDate = minDate
+    ? formatDate(minDate)
+    : DEFAULT_MIN_DATE;
+
+  const maxDate = parseDateString(
+    datePickerEl.dataset.maxDate || internalInputEl.getAttribute("max")
+  );
+  if (maxDate) {
+    datePickerEl.dataset.maxDate = formatDate(maxDate);
+  }
+
+  const calendarWrapper = document.createElement("div");
+  calendarWrapper.classList.add(DATE_PICKER_WRAPPER_CLASS);
+  calendarWrapper.tabIndex = "-1";
+
+  const externalInputEl = internalInputEl.cloneNode();
+  externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
+  externalInputEl.type = "text";
+  externalInputEl.name = "";
+
+  calendarWrapper.appendChild(externalInputEl);
+  calendarWrapper.insertAdjacentHTML(
+    "beforeend",
+    [
+      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>`,
+      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” hidden></div>`,
+      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
+    ].join("")
+  );
+
+  internalInputEl.setAttribute("aria-hidden", "true");
+  internalInputEl.setAttribute("tabindex", "-1");
+  internalInputEl.classList.add(
+    "usa-sr-only",
+    DATE_PICKER_INTERNAL_INPUT_CLASS
+  );
+  internalInputEl.id = "";
+
+  datePickerEl.appendChild(calendarWrapper);
+  datePickerEl.classList.add(DATE_PICKER_INITIALIZED_CLASS);
+
+  reconcileInputValues(datePickerEl);
+
+  if (internalInputEl.disabled) {
+    disable(datePickerEl);
+    internalInputEl.disabled = false;
   }
 };
 
@@ -1673,8 +1675,6 @@ const handleMousemoveFromDate = dateEl => {
   if (dateEl.disabled) return;
 
   const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
-
-  if (calendarEl.dataset.disableMouseover) return;
 
   const currentCalendarDate = calendarEl.dataset.value;
   const hoverDate = dateEl.dataset.value;
