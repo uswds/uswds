@@ -140,6 +140,8 @@
   }
 }
 
+// Places an icon before or after an element as an inline-block,
+// using the `:before` or `:after` pseudoelements.
 @mixin place-icon(
   $icon-object,
   $direction,
