@@ -70,7 +70,7 @@
 // the mixin will pick IE11-compatible svgs named
 // [base]-[variant].svg based on the specified background-color
 
-@mixin add-color-icon($icon-object, $background-color) {
+@mixin add-color-icon($icon-object, $contrast-bg) {
   $filename-base: map-get($icon-object, "name");
   $svg-height: map-get($icon-object, "svg-height");
   $svg-width: map-get($icon-object, "svg-width");
@@ -108,7 +108,7 @@
     map-get($icon-object, "path"),
     $theme-image-path
   );
-  $ie11-variant: get-token-from-bg($background-color, $color-alt, "black");
+  $ie11-variant: get-token-from-bg($contrast-bg, $color-alt, "black");
   $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
   $filename: if(
     $filename-ie11-variant,
@@ -147,7 +147,7 @@
   $direction,
   $margin,
   $vertical-align,
-  $background-color
+  $contrast-bg
 ) {
   $color-hover: if(
     map-has-key($icon-object, "color-hover"),
@@ -155,7 +155,7 @@
     null
   );
   &::#{$direction} {
-    @include add-color-icon($icon-object, $background-color);
+    @include add-color-icon($icon-object, $contrast-bg);
     content: "";
     vertical-align: $vertical-align;
 
