@@ -5,6 +5,29 @@ $gap-inline-spacer: -.25em;
 // Should this be a setting?
 $breadcrumb-icon-height: 1.35ex;
 
+$theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg";
+$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg";
+
+$theme-breadcrumb-back-icon-aspect: 1, 1 !default;
+$theme-breadcrumb-separator-icon-aspect: 38, 64 !default;
+$theme-breadcrumb-icon-color: "gray-50" !default;
+
+$icon-breadcrumb-separator: (
+  "name": "angle-arrow-right",
+  "svg-height": 64,
+  "svg-width": 40,
+  "height": $breadcrumb-icon-height,
+  "color": "gray-50"
+);
+
+$icon-breadcrumb-back: (
+  "name": "arrow-left",
+  "svg-height": 64,
+  "svg-width": 64,
+  "height": $breadcrumb-icon-height,
+  "color": "gray-50"
+);
+
 @mixin breadcrumb-icon($icon: $theme-breadcrumb-separator-icon, $dim: $theme-breadcrumb-separator-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   // 1. Chould these be a separate mixin?
@@ -90,8 +113,12 @@ $breadcrumb-icon-height: 1.35ex;
   @include at-media($theme-breadcrumb-min-width) {
     @include not-sr-only;
 
+    &:not(:last-child) {
+      @include place-icon($icon-breadcrumb-separator, "after", 4px, middle, "white");
+    }
+
     &:not(:last-child)::after {
-      @include breadcrumb-icon;
+      // @include breadcrumb-icon;
       margin-left: calc(
         #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
       );
