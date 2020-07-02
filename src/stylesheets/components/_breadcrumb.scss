@@ -1,22 +1,19 @@
 // This helps balance spacing around inline-block elements
 $gap-inline-spacer: -0.25em;
 
-// Should this be a setting?
+$breadcrumb-back-icon-aspect: 1, 1 !default;
+$breadcrumb-icon-color: "gray-50";
 $breadcrumb-icon-height: 1.35ex;
-
-$theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg";
-$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg";
-
-$theme-breadcrumb-back-icon-aspect: 1, 1 !default;
-$theme-breadcrumb-separator-icon-aspect: 38, 64 !default;
-$theme-breadcrumb-icon-color: "gray-50" !default;
+$breadcrumb-icon-spacing: calc(
+  #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
+);
 
 $icon-breadcrumb-separator: (
   "name": "angle-arrow-right",
   "svg-height": 64,
   "svg-width": 40,
   "height": $breadcrumb-icon-height,
-  "color": "gray-50"
+  "color": $breadcrumb-icon-color
 );
 
 $icon-breadcrumb-back: (
@@ -24,31 +21,14 @@ $icon-breadcrumb-back: (
   "svg-height": 64,
   "svg-width": 64,
   "height": $breadcrumb-icon-height,
-  "color": "gray-50"
+  "color": $breadcrumb-icon-color
 );
 
-@mixin breadcrumb-icon(
-  $icon: $theme-breadcrumb-separator-icon,
-  $dim: $theme-breadcrumb-separator-icon-aspect
-) {
-  $aspect: nth($dim, 1) / nth($dim, 2);
-  // 1. Chould these be a separate mixin?
-  $image-name: unquote($icon); // 1
-  background-color: color($theme-breadcrumb-icon-color); // 1
-  content: "";
-  display: inline-block;
-  height: $breadcrumb-icon-height;
-  mask: url("#{$image-name}") no-repeat center; // 1
-  mask-size: ($breadcrumb-icon-height * $aspect) $breadcrumb-icon-height; // 1
-  width: $breadcrumb-icon-height * $aspect;
-}
-
-@mixin exdent-icon($dim: $theme-breadcrumb-back-icon-aspect) {
+@mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $breadcrumb-icon-height * $aspect;
-  $gap: calc(#{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer});
-  padding-left: calc(#{$icon-width} + #{$gap});
-  text-indent: calc((#{$icon-width} + #{$gap}) * -1);
+  padding-left: calc(#{$icon-width} + #{$breadcrumb-icon-spacing});
+  text-indent: calc((#{$icon-width} + #{$breadcrumb-icon-spacing}) * -1);
 }
 
 .usa-breadcrumb {
@@ -99,20 +79,22 @@ $icon-breadcrumb-back: (
         // follow button-unstyled for specificity
         @include add-link-styles($theme-breadcrumb-link-colors);
         @include exdent-icon;
+        @include place-icon(
+          $icon-breadcrumb-back,
+          "before",
+          0, // Replaced with $icon-spacing override
+          baseline,
+          "white"
+        );
 
         @include u-display("inline-block");
         @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
         @include u-padding-top($theme-breadcrumb-spacing-top);
       }
 
+      // Override icon spacing from place-icon()
       .usa-breadcrumb__link::before {
-        @include breadcrumb-icon(
-          $theme-breadcrumb-back-icon,
-          $theme-breadcrumb-back-icon-aspect
-        );
-        margin-right: calc(
-          #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
-        );
+        margin-right: $breadcrumb-icon-spacing;
       }
     }
   }
@@ -120,24 +102,21 @@ $icon-breadcrumb-back: (
   @include at-media($theme-breadcrumb-min-width) {
     @include not-sr-only;
 
+    // Breadcrumb separator ›
     &:not(:last-child) {
       @include place-icon(
         $icon-breadcrumb-separator,
         "after",
-        2px,
+        0, // Replaced with $icon-spacing override
         baseline,
-        "red-50v"
+        "white"
       );
     }
 
+    // Style overrides for separator
     &:not(:last-child)::after {
-      // @include breadcrumb-icon;
-      margin-left: calc(
-        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
-      );
-      margin-right: calc(
-        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
-      );
+      margin-left: $breadcrumb-icon-spacing;
+      margin-right: $breadcrumb-icon-spacing;
     }
   }
 }
