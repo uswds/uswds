@@ -13,4 +13,4 @@ variants:
     label: With utilities
     context:
       tooltip:
-        classes: border padding-2 bg-base-lightest border-base-light
+        classes: width-full tablet:width-auto
