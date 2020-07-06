@@ -41,8 +41,7 @@ web.theme(
     // display context data in YAML
     format: "yaml",
     // which panels to show
-    panels: ["html", "notes", "view", "context", "resources", "info"],
-    scripts: []
+    panels: ["html", "notes", "view", "context", "resources", "info"]
   })
 );
 
