@@ -1,3 +1,7 @@
+//
+// General Settings
+// =====================================
+
 // This helps balance spacing around inline-block elements
 $gap-inline-spacer: -0.25em;
 
@@ -21,9 +25,12 @@ $icon-breadcrumb-back: (
   "svg-height": 64,
   "svg-width": 64,
   "height": $breadcrumb-icon-height,
-  "color": $breadcrumb-icon-color
+  "color": $breadcrumb-icon-color,
+  "color-hover": nth($theme-breadcrumb-link-colors, 2), // indigo-cool-50v
+  "color-variant": nth($theme-breadcrumb-link-colors, 2)
 );
 
+// Defines spacing so back icon is optically placed
 @mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $breadcrumb-icon-height * $aspect;
@@ -70,13 +77,12 @@ $icon-breadcrumb-back: (
   @include at-media-max($theme-breadcrumb-min-width) {
     @include u-white-space("wrap");
 
-    // ⃪ Parent link.
+    // ⃪ Parent link - Only show parent of current link
     &:nth-last-child(2) {
       @include not-sr-only;
 
       .usa-breadcrumb__link {
         @include button-unstyled;
-        // follow button-unstyled for specificity
         @include add-link-styles($theme-breadcrumb-link-colors);
         @include exdent-icon;
         @include place-icon(
