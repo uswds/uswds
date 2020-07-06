@@ -29,7 +29,9 @@ $theme-alert-icon-size: 4;
 $theme-alert-padding-x: 2.5;
 
 // Banner
+$theme-banner-background-color: "base-lightest";
 $theme-banner-font-family: "ui";
+$theme-banner-link-color: default;
 $theme-banner-max-width: "desktop";
 
 // Button
@@ -83,3 +85,8 @@ $theme-search-min-width: 27ch;
 // Sidenav
 $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
+
+// Tooltips
+$theme-tooltip-bg-color: "ink";
+$theme-tooltip-font-color: "base-lightest";
+$theme-tooltip-font-size: "xs";

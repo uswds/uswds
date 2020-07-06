@@ -7,6 +7,7 @@ const navigation = require("./navigation");
 const password = require("./password");
 const search = require("./search");
 const skipnav = require("./skipnav");
+const tooltip = require("./tooltip");
 const validator = require("./validator");
 const datePicker = require("./date-picker");
 const dateRangePicker = require("./date-range-picker");
@@ -16,12 +17,13 @@ module.exports = {
   banner,
   characterCount,
   comboBox,
+  datePicker,
+  dateRangePicker,
   footer,
   navigation,
   password,
   search,
   skipnav,
-  validator,
-  datePicker,
-  dateRangePicker
+  tooltip,
+  validator
 };

@@ -1,0 +1,22 @@
+@mixin set-link-from-bg(
+  $bg-color,
+  $preferred-link-color: $theme-link-color,
+  $fallback-link-color: $theme-link-reverse-color,
+  $wcag-target: "AA"
+) {
+  $link-tokens: get-link-tokens-from-bg(
+    $bg-color,
+    $preferred-link-color,
+    $fallback-link-color,
+    $wcag-target
+  );
+
+  $link-token: nth($link-tokens, 1);
+  $hover-token: nth($link-tokens, 2);
+
+  color: color($link-token);
+  &:hover,
+  &:active {
+    color: color($hover-token);
+  }
+}
