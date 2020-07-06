@@ -848,6 +848,7 @@ const enhanceDatePicker = el => {
     DATE_PICKER_INTERNAL_INPUT_CLASS
   );
   internalInputEl.id = "";
+  internalInputEl.required = false;
 
   datePickerEl.appendChild(calendarWrapper);
   datePickerEl.classList.add(DATE_PICKER_INITIALIZED_CLASS);
