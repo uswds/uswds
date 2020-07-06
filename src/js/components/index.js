@@ -2,6 +2,7 @@ const accordion = require("./accordion");
 const banner = require("./banner");
 const characterCount = require("./character-count");
 const comboBox = require("./combo-box");
+const fileInput = require("./file-input");
 const footer = require("./footer");
 const navigation = require("./navigation");
 const password = require("./password");
@@ -15,6 +16,7 @@ module.exports = {
   banner,
   characterCount,
   comboBox,
+  fileInput,
   footer,
   navigation,
   password,
