@@ -218,11 +218,11 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
      // Adds heading above file previews, pluralizes if there are multiple
      if (i === 0) {
        dropTarget.insertBefore(filePreviewsHeading, instructions);
-       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Replace?</span>`;
+       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
      }
      else if (i >= 1) {
        dropTarget.insertBefore(filePreviewsHeading, instructions);
-       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-file-input__choose">Replace?</span>`;
+       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-file-input__choose">Change files</span>`;
      }
 
      // Hides null state content and sets preview heading class
