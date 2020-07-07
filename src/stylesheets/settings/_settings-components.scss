@@ -35,13 +35,15 @@ $theme-banner-link-color: default !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Breadcrumb
-$theme-breadcrumb-font-size: "sm" !default;
+$theme-breadcrumb-background-color: "ink" !default;
+$theme-breadcrumb-font-size: "xs" !default;
 $theme-breadcrumb-font-family: "body" !default;
-$theme-breadcrumb-gap: 1.5 !default;
-$theme-breadcrumb-link-colors: "blue-50v", "indigo-cool-50v", "indigo-cool-50v" !default;
+$theme-breadcrumb-link-color: default !default;
 $theme-breadcrumb-min-width: "mobile-lg" !default;
+$theme-breadcrumb-separator-color: "base" !default;
 $theme-breadcrumb-spacing-bottom: 2 !default;
 $theme-breadcrumb-spacing-top: 2 !default;
+$theme-breadcrumb-spacing-x: 1 !default;
 $theme-breadcrumb-wrapping: false !default;
 
 // Button
@@ -97,6 +99,6 @@ $theme-sidenav-current-border-width: 0.5 !default;
 $theme-sidenav-font-family: "ui" !default;
 
 // Tooltips
-$theme-tooltip-bg-color: "ink" !default;
+$theme-tooltip-background-color: "ink" !default;
 $theme-tooltip-font-color: "base-lightest" !default;
 $theme-tooltip-font-size: "xs" !default;
