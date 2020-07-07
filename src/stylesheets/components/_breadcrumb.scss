@@ -4,6 +4,7 @@
 
 // This helps balance spacing around inline-block elements
 $gap-inline-spacer: -0.25em;
+
 $breadcrumb-gap: 1.5;
 $breadcrumb-icon-height: 1.35ex;
 $breadcrumb-icon-spacing: calc(
@@ -26,6 +27,7 @@ $icon-breadcrumb-back: (
   "color": $theme-breadcrumb-separator-color
 );
 
+// Set default value for custom mixin exdent-icon()
 $breadcrumb-back-icon-aspect: (
   map-get($icon-breadcrumb-back, "svg-width"),
   map-get($icon-breadcrumb-back, "svg-height")
@@ -85,7 +87,7 @@ $breadcrumb-back-icon-aspect: (
   @include at-media-max($theme-breadcrumb-min-width) {
     @include u-white-space("wrap");
 
-    // ⃪ Parent link - Only show parent of current link
+    // If parent link only (mobile), only show parent of current link
     &:nth-last-child(2) {
       @include not-sr-only;
 
@@ -99,6 +101,8 @@ $breadcrumb-back-icon-aspect: (
           baseline,
           $theme-breadcrumb-background-color
         );
+
+        // Override link colors from button-unstyled()
         @include set-link-from-bg(
           $theme-breadcrumb-background-color,
           $theme-breadcrumb-link-color
@@ -109,7 +113,7 @@ $breadcrumb-back-icon-aspect: (
         @include u-padding-top($theme-breadcrumb-spacing-top);
       }
 
-      // Override icon spacing from place-icon()
+      // Override icon spacing from place-icon() with non-token value
       .usa-breadcrumb__link::before {
         margin-right: $breadcrumb-icon-spacing;
       }
@@ -130,7 +134,7 @@ $breadcrumb-back-icon-aspect: (
       );
     }
 
-    // Style overrides for separator
+    // Style overrides for separator using non-token values
     &:not(:last-child)::after {
       margin-left: $breadcrumb-icon-spacing;
       margin-right: $breadcrumb-icon-spacing;
