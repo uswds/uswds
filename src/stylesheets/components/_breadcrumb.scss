@@ -4,12 +4,10 @@
 
 // This helps balance spacing around inline-block elements
 $gap-inline-spacer: -0.25em;
-
-$breadcrumb-back-icon-aspect: 1, 1 !default;
-$breadcrumb-icon-color: "gray-50";
+$breadcrumb-gap: 1.5;
 $breadcrumb-icon-height: 1.35ex;
 $breadcrumb-icon-spacing: calc(
-  #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
+  #{units($breadcrumb-gap)} + #{$gap-inline-spacer}
 );
 
 $icon-breadcrumb-separator: (
@@ -17,7 +15,7 @@ $icon-breadcrumb-separator: (
   "svg-height": 64,
   "svg-width": 40,
   "height": $breadcrumb-icon-height,
-  "color": $breadcrumb-icon-color
+  "color": $theme-breadcrumb-separator-color
 );
 
 $icon-breadcrumb-back: (
@@ -25,9 +23,12 @@ $icon-breadcrumb-back: (
   "svg-height": 64,
   "svg-width": 64,
   "height": $breadcrumb-icon-height,
-  "color": $breadcrumb-icon-color,
-  "color-hover": nth($theme-breadcrumb-link-colors, 2),
-  // indigo-cool-50v "color-variant": nth($theme-breadcrumb-link-colors, 2)
+  "color": $theme-breadcrumb-separator-color
+);
+
+$breadcrumb-back-icon-aspect: (
+  map-get($icon-breadcrumb-back, "svg-width"),
+  map-get($icon-breadcrumb-back, "svg-height")
 );
 
 // Defines spacing so back icon is optically placed
@@ -44,12 +45,27 @@ $icon-breadcrumb-back: (
     $theme-breadcrumb-font-size,
     3
   );
+  @include set-text-and-bg($theme-breadcrumb-background-color);
+  @include u-padding-x($theme-breadcrumb-spacing-x);
+
   @include at-media($theme-breadcrumb-min-width) {
     @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
     @include u-padding-top($theme-breadcrumb-spacing-top);
+  }
 
-    @if $theme-breadcrumb-wrapping {
+  &.usa-breadcrumb--wrap {
+    @include at-media($theme-breadcrumb-min-width) {
       @include u-line-height($theme-breadcrumb-font-family, 4);
+    }
+  }
+
+  &:not(.usa-breadcrumb--wrap) {
+    .usa-breadcrumb__list {
+      @include at-media($theme-breadcrumb-min-width) {
+        @include u-white-space("no-wrap");
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
   }
 }
@@ -59,14 +75,6 @@ $icon-breadcrumb-back: (
   @include u-display("block");
   @include u-margin(-$theme-focus-width);
   @include u-padding($theme-focus-width);
-
-  @if not $theme-breadcrumb-wrapping {
-    @include at-media($theme-breadcrumb-min-width) {
-      @include u-white-space("no-wrap");
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-  }
 }
 
 .usa-breadcrumb__list-item {
@@ -83,15 +91,17 @@ $icon-breadcrumb-back: (
 
       .usa-breadcrumb__link {
         @include button-unstyled;
-        @include add-link-styles($theme-breadcrumb-link-colors);
         @include exdent-icon;
         @include place-icon(
           $icon-breadcrumb-back,
           "before",
           0,
-          // Replaced with $icon-spacing override
-            baseline,
-          "white"
+          baseline,
+          $theme-breadcrumb-background-color
+        );
+        @include set-link-from-bg(
+          $theme-breadcrumb-background-color,
+          $theme-breadcrumb-link-color
         );
 
         @include u-display("inline-block");
@@ -115,9 +125,8 @@ $icon-breadcrumb-back: (
         $icon-breadcrumb-separator,
         "after",
         0,
-        // Replaced with $icon-spacing override
-          baseline,
-        "white"
+        baseline,
+        $theme-breadcrumb-background-color
       );
     }
 
@@ -130,6 +139,9 @@ $icon-breadcrumb-back: (
 }
 
 .usa-breadcrumb__link {
-  @include add-link-styles($theme-breadcrumb-link-colors);
+  @include set-link-from-bg(
+    $theme-breadcrumb-background-color,
+    $theme-breadcrumb-link-color
+  );
   @include u-display("inline");
 }
