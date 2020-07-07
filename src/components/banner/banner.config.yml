@@ -7,12 +7,12 @@ context:
   domain:
     tld: ".gov"
     heading: |
-      Official websites use $TLD
+      The .gov means it’s official.
     text: |
       A <strong>$TLD</strong> website belongs to an official government organization in the United States.
   https:
     heading: |
-      Secure $TLD websites use HTTPS
+      The site is secure.
     text: |
       A <strong>lock</strong> ($LOCK_IMG) or <strong>https://</strong> means you've safely connected to the $TLD website. Share sensitive information only on official, secure websites.
 
