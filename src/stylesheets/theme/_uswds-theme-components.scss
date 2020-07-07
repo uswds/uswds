@@ -35,14 +35,15 @@ $theme-banner-link-color: default;
 $theme-banner-max-width: "desktop";
 
 // Breadcrumb
+$theme-breadcrumb-background-color: "white";
 $theme-breadcrumb-font-size: "sm";
 $theme-breadcrumb-font-family: "body";
-$theme-breadcrumb-gap: 1.5;
-$theme-breadcrumb-link-colors: "primary", "primary-dark", "primary-dark";
+$theme-breadcrumb-link-color: default;
 $theme-breadcrumb-min-width: "mobile-lg";
+$theme-breadcrumb-separator-color: "base";
 $theme-breadcrumb-spacing-bottom: 2;
 $theme-breadcrumb-spacing-top: 2;
-$theme-breadcrumb-wrapping: false;
+$theme-breadcrumb-spacing-x: 1;
 
 // Button
 $theme-button-font-family: "ui";
