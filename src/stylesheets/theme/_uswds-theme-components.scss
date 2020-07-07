@@ -35,19 +35,15 @@ $theme-banner-link-color: default;
 $theme-banner-max-width: "desktop";
 
 // Breadcrumb
-$theme-breadcrumb-back-icon-aspect: 1, 1;
-$theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg";
-$theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-background-color: "white";
 $theme-breadcrumb-font-size: "sm";
-$theme-breadcrumb-gap: 1.5;
-$theme-breadcrumb-icon-color: "base";
-$theme-breadcrumb-link-colors: "primary", "primary-dark", "primary-dark";
+$theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-link-color: default;
 $theme-breadcrumb-min-width: "mobile-lg";
-$theme-breadcrumb-separator-icon-aspect: 38, 64;
-$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg";
+$theme-breadcrumb-separator-color: "base";
 $theme-breadcrumb-spacing-bottom: 2;
 $theme-breadcrumb-spacing-top: 2;
-$theme-breadcrumb-wrapping: false;
+$theme-breadcrumb-spacing-x: 1;
 
 // Button
 $theme-button-font-family: "ui";
@@ -102,6 +98,6 @@ $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
 
 // Tooltips
-$theme-tooltip-bg-color: "ink";
+$theme-tooltip-background-color: "ink";
 $theme-tooltip-font-color: "base-lightest";
 $theme-tooltip-font-size: "xs";
