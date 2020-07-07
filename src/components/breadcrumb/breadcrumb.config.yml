@@ -1,4 +1,8 @@
 label: Breadcrumb
-status: wip
-order: 1
+status: ready
 preview: "@uswds-content"
+
+variants:
+  - name: wrap
+    context:
+      variantClass: usa-breadcrumb--wrap

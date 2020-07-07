@@ -10,7 +10,7 @@ $banner-icon-chevron: (
   "svg-width": 64,
   "height": 0.8ex,
   "color": $banner-icon-color,
-  "color-alt": "white",
+  "color-variant": "white",
   "color-hover": $banner-icon-hover
 );
 $banner-icon-chevron-up: map-merge(
@@ -25,7 +25,7 @@ $banner-icon-close: (
   "svg-width": 40,
   "height": $theme-icon-image-size,
   "color": "blue-60v",
-  "color-alt": "white",
+  "color-variant": "white",
   "container-height": $size-touch-target,
   "container-width": $size-touch-target
 );
