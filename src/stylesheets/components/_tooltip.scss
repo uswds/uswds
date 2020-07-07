@@ -18,7 +18,7 @@ $triangle-size: 5px;
 
 .usa-tooltip__body {
   transition: opacity 0.08s ease-in-out;
-  background-color: color($theme-tooltip-bg-color);
+  background-color: color($theme-tooltip-background-color);
   border-radius: radius($theme-button-border-radius);
   bottom: 0;
   color: color($theme-tooltip-font-color);
@@ -42,7 +42,7 @@ $triangle-size: 5px;
     pointer-events: none;
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
-    border-top: $triangle-size solid color($theme-tooltip-bg-color);
+    border-top: $triangle-size solid color($theme-tooltip-background-color);
     position: absolute;
     bottom: -$triangle-size;
     left: 50%;
@@ -70,7 +70,7 @@ $triangle-size: 5px;
   &:after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
-    border-bottom: $triangle-size solid color($theme-tooltip-bg-color);
+    border-bottom: $triangle-size solid color($theme-tooltip-background-color);
     border-top: 0;
     bottom: auto;
     top: -$triangle-size;
@@ -84,7 +84,7 @@ $triangle-size: 5px;
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
-    border-right: $triangle-size solid color($theme-tooltip-bg-color);
+    border-right: $triangle-size solid color($theme-tooltip-background-color);
     border-left: 0;
     right: auto;
     top: 50%;
@@ -103,7 +103,7 @@ $triangle-size: 5px;
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
-    border-left: $triangle-size solid color($theme-tooltip-bg-color);
+    border-left: $triangle-size solid color($theme-tooltip-background-color);
     border-right: 0;
     right: -$triangle-size;
     top: 50%;
