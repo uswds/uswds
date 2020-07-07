@@ -894,6 +894,382 @@ functions and mixins.
 
 /*
 ----------------------------------------
+pow()
+----------------------------------------
+Raises a unitless number to the power
+of another unitless number
+
+Includes helper functions
+----------------------------------------
+*/
+
+@function pow($number, $exponent) {
+  @if (round($exponent) != $exponent) {
+    @return exp($exponent * ln($number));
+  }
+
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function factorial($value) {
+  $result: 1;
+
+  @if $value == 0 {
+    @return $result;
+  }
+
+  @for $index from 1 through $value {
+    $result: $result * $index;
+  }
+
+  @return $result;
+}
+
+@function summation($iteratee, $input, $initial: 0, $limit: 100) {
+  $sum: 0;
+
+  @for $index from $initial to $limit {
+    $sum: $sum + call($iteratee, $input, $index);
+  }
+
+  @return $sum;
+}
+
+@function exp-maclaurin($x, $n) {
+  @return (pow($x, $n) / factorial($n));
+}
+
+@function exp($value) {
+  @return summation(get-function("exp-maclaurin"), $value, 0, 100);
+}
+
+@function ln-maclaurin($x, $n) {
+  @return (pow(-1, $n + 1) / $n) * (pow($x - 1, $n));
+}
+
+@function ln($value) {
+  $ten-exp: 1;
+  $ln-ten: 2.30258509;
+
+  @while ($value > pow(10, $ten-exp)) {
+    $ten-exp: $ten-exp + 1;
+  }
+
+  @return summation(
+      get-function("ln-maclaurin"),
+      $value / pow(10, $ten-exp),
+      1,
+      100
+    ) + $ten-exp * $ln-ten;
+}
+
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black
+/// @param {Color} $color - Color
+/// @return {Number}
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
+@function luminance($color) {
+  $colors: (
+    "red": red($color),
+    "green": green($color),
+    "blue": blue($color)
+  );
+
+  @each $name, $value in $colors {
+    $adjusted: 0;
+    $value: $value / 256;
+
+    @if $value < 0.03928 {
+      $value: $value / 12.92;
+    } @else {
+      $value: ($value + 0.055) / 1.055;
+      $value: pow($value, 2.4);
+    }
+
+    $colors: map-merge(
+      $colors,
+      (
+        $name: $value
+      )
+    );
+  }
+
+  $lum: (map-get($colors, "red") * 0.2126) +
+    (map-get($colors, "green") * 0.7152) + (map-get($colors, "blue") * 0.0722);
+  $lum: round($lum * 1000) / 1000;
+
+  @return $lum;
+}
+
+/// Casts a string into a number
+///
+/// @param {String | Number} $value - Value to be parsed
+///
+/// @return {Number}
+///
+@function to-number($value) {
+  @if type-of($value) == "number" {
+    @return $value;
+  } @else if type-of($value) != "string" {
+    $_: log("Value for `to-number` should be a number or a string.");
+  }
+
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == "-";
+  $numbers: (
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9
+  );
+
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+
+    @if not(index(map-keys($numbers), $character) or $character == ".") {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
+    }
+
+    @if $character == "." {
+      $digits: 1;
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    } @else {
+      $digits: $digits * 10;
+      $result: $result + map-get($numbers, $character) / $digits;
+    }
+  }
+
+  @return if($minus, -$result, $result);
+}
+
+/*
+----------------------------------------
+decompose()
+----------------------------------------
+Convert a color token into into a list
+of form [family], [grade], [variant]
+
+Vivid variants return "vivid" as the
+variant.
+
+If neither grade nor variant exists,
+returns 'null'
+----------------------------------------
+*/
+
+@function decompose($token) {
+  $separator: "-";
+  $family: false;
+  $grade: false;
+  $variant: false;
+  $exceptions: (
+    "black": 100,
+    "white": 0
+  );
+
+  $token: get-color-token-assignment($token);
+  $split: str-split($token, $separator);
+  $grade: nth($split, length($split));
+
+  @if str-index($grade, "v") {
+    $variant: "vivid";
+    $grade: str-slice($grade, 1, (str-index($grade, "v") - 1));
+  }
+
+  @if length($split) == 3 {
+    $family: nth($split, 1) + $separator + nth($split, 2);
+  } @else {
+    $family: nth($split, 1);
+  }
+
+  $grade: to-number($grade);
+
+  @if map-has-key($exceptions, $family) {
+    $grade: map-get($exceptions, $family);
+  }
+
+  @return $family, $grade, $variant;
+}
+
+/*
+----------------------------------------
+test-colors()
+----------------------------------------
+Check to see if all system colors
+fall between the proper relative
+luminance range for their grade.
+
+Has a couple quirks, as the luminance()
+function returns slightly different
+results than expected.
+----------------------------------------
+*/
+
+@function test-colors($map) {
+  $exceptions: "black", "white", "transparent", "black-transparent",
+    "white-transparent";
+
+  @each $token, $value in $map {
+    $family: nth(decompose($token), 1);
+    $grade: nth(decompose($token), 2);
+    @if not $value {
+      // empty block
+    } @else if not index($exceptions, $family) {
+      $computed: get-color-grade($value);
+      @debug "Checked #{$family}-#{$grade}";
+      @if $grade <= 5 {
+        // empty block
+      } @else if $computed != $grade {
+        @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map-get($system-luminance-grade-ranges, $grade)}";
+      }
+    }
+  }
+
+  @return 1;
+}
+
+/*
+----------------------------------------
+str-split()
+----------------------------------------
+Split a string at a given separator
+and convert into a lisrt of substrings
+----------------------------------------
+*/
+
+@function str-split($string, $separator) {
+  $split-arr: ();
+  $index: str-index($string, $separator);
+  @while $index != null {
+    $item: str-slice($string, 1, $index - 1);
+    $split-arr: append($split-arr, $item);
+    $string: str-slice($string, $index + 1);
+    $index: str-index($string, $separator);
+  }
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+/*
+----------------------------------------
+str-replace()
+----------------------------------------
+Replace any substring with another
+string
+----------------------------------------
+*/
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+/*
+----------------------------------------
+get-color-token-assignment()
+----------------------------------------
+Get the system token equivalent of any
+theme color token
+----------------------------------------
+*/
+
+@function get-color-token-assignment($color-token) {
+  $system-token: $color-token;
+  $grade: null;
+
+  @if map-has-key($assignments-theme-color, $color-token) {
+    $system-token: map-get($assignments-theme-color, $system-token);
+  } @else if not map-has-key($system-color-shortcodes, $color-token) {
+    @error "'#{$color-token}' is not a valid color token.";
+  }
+
+  @return $system-token;
+}
+
+/*
+----------------------------------------
+get-color-grade()
+----------------------------------------
+Derive the grade equivalent any color,
+even non-token colors
+----------------------------------------
+*/
+
+@function get-color-grade($color-token) {
+  $grade: null;
+  $lum: null;
+  $color: false;
+
+  @if type-of($color-token) == "color" {
+    $color: $color-token;
+  } @else if type-of(get-color-token-assignment($color-token)) == "color" {
+    $color: get-color-token-assignment($color-token);
+  }
+
+  @if $color {
+    $lum: luminance($color);
+
+    @each $grade, $range in $system-luminance-grade-ranges {
+      $min: nth($range, 1);
+      $max: nth($range, 2);
+      $next-max: false;
+      @if $grade < 100 {
+        @if $grade == 5 {
+          $next-max: nth(map-get($system-luminance-grade-ranges, 10), 2);
+        } @else {
+          $next-max: nth(
+            map-get($system-luminance-grade-ranges, ($grade + 10)),
+            2
+          );
+        }
+      }
+      @if ($lum >= $min) and ($lum <= $max) {
+        @return $grade;
+      }
+      @if $next-max and ($lum < $min) and ($lum > $next-max) {
+        @return $grade + 4.9;
+      }
+    }
+  }
+
+  $system-token: get-color-token-assignment($color-token);
+  $grade: nth(decompose($system-token), 2);
+  @return $grade;
+}
+
+/*
+----------------------------------------
 color()
 ----------------------------------------
 Derive a color from a color shortcode
@@ -1320,4 +1696,135 @@ system z-index
 
 @function z($value) {
   @return z-index($value);
+}
+
+@function get-token-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40
+  );
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $grade-bg: get-color-grade($bg-color);
+  $grade-preferred: get-color-grade($preferred-text-color);
+  $magic-num-preferred: abs($grade-bg - $grade-preferred);
+  $color: false;
+
+  //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
+
+  @if $magic-num-preferred >= $target-magic-number {
+    $color: $preferred-text-color;
+  } @else {
+    $grade-fallback: get-color-grade($fallback-text-color);
+    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    $color: $fallback-text-color;
+  }
+
+  @if not $color {
+    @error "Neither '#{$preferred-text-color}' nor '#{$fallback-text-color}' have #{$wcag-target} contrast on a '#{$bg-color}' background.";
+  }
+
+  @return $color;
+}
+
+@function get-color-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  $color: get-token-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+  @return color($color);
+}
+
+@function get-link-tokens-from-bg(
+  $bg-color,
+  $preferred-link-color: $theme-link-color,
+  $fallback-link-color: $theme-link-reverse-color,
+  $wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40
+  );
+  $grade-step: 10;
+  $found: false;
+
+  @if $preferred-link-color == default {
+    $preferred-link-color: $theme-link-color;
+  }
+
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $bg-grade: get-color-grade($bg-color);
+  $our-color-tokens: ($preferred-link-color, $fallback-link-color);
+
+  $link-token: false;
+  $hover-token: false;
+
+  @each $color-token in $our-color-tokens {
+    @if not $found {
+      // Decompose the link token and calculate grade
+      $decomposed: decompose($color-token);
+      $link-grade: if(nth($decomposed, 2) < 10, 0, nth($decomposed, 2));
+      $link-magic-number: abs($bg-grade - $link-grade);
+
+      @if $link-grade == 0 {
+        @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
+      } @else if $link-grade == 100 {
+        @warn '"black" isn\'t a valid link color token, since it has no darker hover state.';
+      }
+
+      // Check that link meets contrast target
+      @else if $link-magic-number >= $target-magic-number {
+        $found: true;
+        // Calculate additional link properties
+        $link-family: nth($decomposed, 1);
+        $link-vivid: "";
+        @if nth($decomposed, 3) {
+          $link-vivid: "v";
+        }
+        $link-token: $color-token;
+
+        // If link is darker than bg, use darker hover
+        // Exlude black as it has no darker hover
+        @if ($link-grade > $bg-grade) and ($link-grade != 100) {
+          $hover-grade: $link-grade + $grade-step;
+          $hover-vivid: if($hover-grade == 90, "", $link-vivid);
+          $hover-token: if(
+            $hover-grade == 100,
+            "black",
+            #{$link-family}-#{$hover-grade}#{$hover-vivid}
+          );
+        }
+
+        // If link is lighter than bg, use lighter hover
+        // Exlude white equivalents as they have no lighter hover
+        @else if ($link-grade != 0) and ($link-grade != 100) {
+          $hover-grade: $link-grade - $grade-step;
+          $hover-token: if(
+            $hover-grade == 0,
+            "white",
+            #{$link-family}-#{$hover-grade}#{$link-vivid}
+          );
+        }
+      }
+    }
+  }
+
+  @if not $hover-token {
+    @error 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" can be #{$wcag-target} contrast links and hovers on a "#{$bg-color}" background.';
+  }
+
+  @return $link-token, $hover-token;
 }

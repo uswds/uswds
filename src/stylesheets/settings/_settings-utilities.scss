@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.7.1
 ----------------------------------------
 UTILITIES SETTINGS
 ----------------------------------------
@@ -559,7 +559,7 @@ $whitespace-settings: (
 
 $width-settings: (
   output: true,
-  responsive: false,
+  responsive: true,
   active: false,
   focus: false,
   hover: false,

@@ -36,17 +36,11 @@ $system-spacing: (
   ),
   small: (
     "05": spacing-multiple(0.5),
-    // 4px
-      1: spacing-multiple(1),
-    // 8px
-      "105": spacing-multiple(1.5),
-    // 12px
-      2: spacing-multiple(2),
-    // 16px
-      "205": spacing-multiple(2.5),
-    // 20px
-      3: spacing-multiple(3),
-    // 24px
+    1: spacing-multiple(1),
+    "105": spacing-multiple(1.5),
+    2: spacing-multiple(2),
+    "205": spacing-multiple(2.5),
+    3: spacing-multiple(3)
   ),
   smaller-negative: (
     "#{$neg-prefix}-1px": -1px,
@@ -54,77 +48,46 @@ $system-spacing: (
   ),
   small-negative: (
     "#{$neg-prefix}-05": spacing-multiple(-0.5),
-    // -4px
-      "#{$neg-prefix}-1": spacing-multiple(-1),
-    // -8px
-      "#{$neg-prefix}-105": spacing-multiple(-1.5),
-    // -12px
-      "#{$neg-prefix}-2": spacing-multiple(-2),
-    // -16px
-      "#{$neg-prefix}-205": spacing-multiple(-2.5),
-    // -20px
-      "#{$neg-prefix}-3": spacing-multiple(-3),
-    // -24px
+    "#{$neg-prefix}-1": spacing-multiple(-1),
+    "#{$neg-prefix}-105": spacing-multiple(-1.5),
+    "#{$neg-prefix}-2": spacing-multiple(-2),
+    "#{$neg-prefix}-205": spacing-multiple(-2.5),
+    "#{$neg-prefix}-3": spacing-multiple(-3)
   ),
   medium: (
     4: spacing-multiple(4),
-    // 32px
-      5: spacing-multiple(5),
-    // 40px
-      6: spacing-multiple(6),
-    // 48px
-      7: spacing-multiple(7),
-    // 56px
-      8: spacing-multiple(8),
-    // 64px
-      9: spacing-multiple(9),
-    // 72px
-      10: spacing-multiple(10),
-    // 80px
-      15: spacing-multiple(15),
-    // 120px
+    5: spacing-multiple(5),
+    6: spacing-multiple(6),
+    7: spacing-multiple(7),
+    8: spacing-multiple(8),
+    9: spacing-multiple(9),
+    10: spacing-multiple(10),
+    15: spacing-multiple(15)
   ),
   medium-negative: (
     "#{$neg-prefix}-4": spacing-multiple(-4),
-    // -32px
-      "#{$neg-prefix}-5": spacing-multiple(-5),
-    // -40px
-      "#{$neg-prefix}-6": spacing-multiple(-6),
-    // -48px
-      "#{$neg-prefix}-7": spacing-multiple(-7),
-    // -56px
-      "#{$neg-prefix}-8": spacing-multiple(-8),
-    // -64px
-      "#{$neg-prefix}-9": spacing-multiple(-9),
-    // -72px
-      "#{$neg-prefix}-10": spacing-multiple(-10),
-    // -80px
-      "#{$neg-prefix}-15": spacing-multiple(-15),
-    // -120px
+    "#{$neg-prefix}-5": spacing-multiple(-5),
+    "#{$neg-prefix}-6": spacing-multiple(-6),
+    "#{$neg-prefix}-7": spacing-multiple(-7),
+    "#{$neg-prefix}-8": spacing-multiple(-8),
+    "#{$neg-prefix}-9": spacing-multiple(-9),
+    "#{$neg-prefix}-10": spacing-multiple(-10),
+    "#{$neg-prefix}-15": spacing-multiple(-15)
   ),
   large: (
     "card": spacing-multiple(20),
-    // 160px
-      "card-lg": spacing-multiple(30),
-    // 240px
-      "mobile": spacing-multiple(40),
-    // 320px
+    "card-lg": spacing-multiple(30),
+    "mobile": spacing-multiple(40)
   ),
   larger: (
     "mobile-lg": spacing-multiple(60),
-    // 480px
-      "tablet": spacing-multiple(80),
-    // 640px
-      "tablet-lg": spacing-multiple(110),
-    // 880px
+    "tablet": spacing-multiple(80),
+    "tablet-lg": spacing-multiple(110)
   ),
   largest: (
     "desktop": spacing-multiple(128),
-    // 1024px
-      "desktop-lg": spacing-multiple(150),
-    // 1200px
-      "widescreen": spacing-multiple(175),
-    // 1400px
+    "desktop-lg": spacing-multiple(150),
+    "widescreen": spacing-multiple(175)
   ),
   special: (
     0: 0,
@@ -480,6 +443,63 @@ fonts.
 */
 
 $system-base-cap-height: 362px;
+
+/*
+----------------------------------------
+Luminance ranges
+----------------------------------------
+*/
+
+$system-luminance-grade-ranges: (
+  0: (
+    1,
+    1
+  ),
+  5: (
+    0.85,
+    0.93
+  ),
+  10: (
+    0.75,
+    0.82
+  ),
+  20: (
+    0.5,
+    0.65
+  ),
+  30: (
+    0.35,
+    0.45
+  ),
+  40: (
+    0.25,
+    0.3
+  ),
+  50: (
+    0.175,
+    0.183
+  ),
+  60: (
+    0.1,
+    0.125
+  ),
+  70: (
+    0.05,
+    0.07
+  ),
+  80: (
+    0.02,
+    0.04
+  ),
+  90: (
+    0.005,
+    0.015
+  ),
+  100: (
+    0,
+    0
+  )
+);
 
 /*
 ----------------------------------------
@@ -1568,7 +1588,7 @@ $system-color-shortcodes: (
   "violet-70v": $color-violet-70v,
   "violet-80v": $color-violet-80v,
   "violet-90v": $color-violet-90v,
-  "violet-warm-5 ": $color-violet-warm-5,
+  "violet-warm-5": $color-violet-warm-5,
   "violet-warm-10": $color-violet-warm-10,
   "violet-warm-20": $color-violet-warm-20,
   "violet-warm-30": $color-violet-warm-30,

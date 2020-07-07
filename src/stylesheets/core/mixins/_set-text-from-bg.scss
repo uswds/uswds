@@ -1,0 +1,28 @@
+@mixin set-text-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  color: get-color-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+}
+
+@mixin set-text-and-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  @include set-text-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+  background-color: color($bg-color);
+}

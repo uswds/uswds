@@ -1,1 +1,17 @@
-label: U.S. Government banner
+label: Banner
+
+context:
+  banner:
+    text: "An official website of the United States government"
+    action: "Here’s how you know"
+  domain:
+    tld: ".gov"
+    heading: |
+      The .gov means it’s official.
+    text: |
+      Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
+  https:
+    heading: |
+      The site is secure.
+    text: |
+      The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
