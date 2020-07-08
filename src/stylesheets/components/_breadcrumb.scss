@@ -48,11 +48,11 @@ $breadcrumb-back-icon-aspect: (
     3
   );
   @include set-text-and-bg($theme-breadcrumb-background-color);
-  @include u-padding-x($theme-breadcrumb-spacing-x);
+  @include u-padding-x($theme-breadcrumb-padding-x);
 
   @include at-media($theme-breadcrumb-min-width) {
-    @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
-    @include u-padding-top($theme-breadcrumb-spacing-top);
+    @include u-padding-bottom($theme-breadcrumb-padding-bottom);
+    @include u-padding-top($theme-breadcrumb-padding-top);
   }
 
   &.usa-breadcrumb--wrap {
@@ -109,8 +109,8 @@ $breadcrumb-back-icon-aspect: (
         );
 
         @include u-display("inline-block");
-        @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
-        @include u-padding-top($theme-breadcrumb-spacing-top);
+        @include u-padding-bottom($theme-breadcrumb-padding-bottom);
+        @include u-padding-top($theme-breadcrumb-padding-top);
       }
 
       // Override icon spacing from place-icon() with non-token value

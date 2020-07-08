@@ -35,15 +35,15 @@ $theme-banner-link-color: default !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Breadcrumb
-$theme-breadcrumb-background-color: "white" !default;
+$theme-breadcrumb-background-color: "ink" !default;
 $theme-breadcrumb-font-size: "sm" !default;
 $theme-breadcrumb-font-family: "body" !default;
 $theme-breadcrumb-link-color: default !default;
 $theme-breadcrumb-min-width: "mobile-lg" !default;
+$theme-breadcrumb-padding-bottom: 2 !default;
+$theme-breadcrumb-padding-top: 2 !default;
+$theme-breadcrumb-padding-x: 2 !default;
 $theme-breadcrumb-separator-color: "base" !default;
-$theme-breadcrumb-spacing-bottom: 2 !default;
-$theme-breadcrumb-spacing-top: 2 !default;
-$theme-breadcrumb-spacing-x: 1 !default;
 
 // Button
 $theme-button-font-family: "ui" !default;
