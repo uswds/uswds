@@ -28,8 +28,10 @@
           <img class="usa-banner__icon usa-media-block__img" src="{{ uswds.path }}/img/icon-dot-gov.svg" role="img" alt="Dot gov">
           <div class="usa-media-block__body">
             <p>
-              <strong>{{ domain.heading | safe | replace(tld_text, domain.tld) }}</strong>
-              <br>
+              <strong>
+                {{ domain.heading | safe | replace(tld_text, domain.tld) -}}
+              </strong>
+              <br/>
               {{ domain.text | safe | replace(tld_text, domain.tld) }}
             </p>
           </div>
@@ -38,8 +40,10 @@
           <img class="usa-banner__icon usa-media-block__img" src="{{ uswds.path }}/img/icon-https.svg" role="img" alt="Https">
           <div class="usa-media-block__body">
             <p>
-              <strong>{{ https.heading | safe | replace(tld_text, domain.tld) }}</strong>
-              <br>
+              <strong>
+                {{ https.heading | safe | replace(tld_text, domain.tld) -}}
+              </strong>
+              <br/>
               {{ https.text | safe | replace(tld_text, domain.tld) | replace(lock_image, lock) }}
             </p>
           </div>
