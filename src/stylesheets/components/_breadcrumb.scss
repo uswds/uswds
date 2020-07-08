@@ -111,6 +111,13 @@ $breadcrumb-back-icon-aspect: (
         @include u-display("inline-block");
         @include u-padding-bottom($theme-breadcrumb-padding-bottom);
         @include u-padding-top($theme-breadcrumb-padding-top);
+
+        // Prevent underline that extends beyond text
+        @include u-text("no-underline");
+
+        span {
+          @include u-text("underline");
+        }
       }
 
       // Override icon spacing from place-icon() with non-token value
@@ -148,4 +155,11 @@ $breadcrumb-back-icon-aspect: (
     $theme-breadcrumb-link-color
   );
   @include u-display("inline");
+
+  // Prevent underline that extends beyond text
+  @include u-text("no-underline");
+
+  span {
+    @include u-text("underline");
+  }
 }
