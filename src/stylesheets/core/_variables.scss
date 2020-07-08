@@ -600,3 +600,10 @@ $project-aspect-ratios: (
 @if $test-system-color-tokens {
   $color-test: test-colors($system-color-shortcodes);
 }
+
+/*
+----------------------------------------
+Easing
+----------------------------------------
+*/
+$project-easing: 0.2s ease-in-out;
