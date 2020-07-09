@@ -29,10 +29,14 @@
   }
 
   a {
-    color: color("base-lighter");
+    color: color($theme-link-reverse-color);
 
     &:hover {
-      color: color("white");
+      color: color($theme-link-reverse-hover-color);
+    }
+
+    &:active {
+      color: color($theme-link-reverse-active-color);
     }
   }
 }
