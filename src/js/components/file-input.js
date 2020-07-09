@@ -93,10 +93,17 @@ const buildFileInput = fileInputEl => {
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(`.${PREVIEW_HEADING_CLASS}`)
+  const currentErrorMessage = dropTarget.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
 
   // Remove the heading above the previews
   if (currentPreviewHeading) {
     currentPreviewHeading.outerHTML = "";
+  }
+
+  // Remove existing error messages
+  if (currentErrorMessage) {
+    currentErrorMessage.outerHTML = "";
+    dropTarget.classList.remove(INVALID_FILE_CLASS);
   }
 
   // Get rid of existing previews if they exist, show instructions
@@ -127,12 +134,6 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   // Runs if only specific files are accepted
   if (acceptedFiles) {
     const errorMessage = document.createElement('div');
-    const currentErrorMessage = dropTarget.querySelector(`.${ACCEPTED_FILE_MESSAGE_CLASS}`);
-
-    // Remove existing error messages
-    if (currentErrorMessage) {
-      currentErrorMessage.outerHTML = "";
-    }
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
