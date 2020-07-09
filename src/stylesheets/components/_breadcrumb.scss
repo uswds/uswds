@@ -113,8 +113,11 @@ $breadcrumb-back-icon-aspect: (
         @include u-padding-top($theme-breadcrumb-padding-top);
 
         // Prevent underline that extends beyond text
-        @include u-text("no-underline");
-
+        &,
+        &:hover,
+        &:active {
+          @include u-text("no-underline");
+        }
         span {
           @include u-text("underline");
         }
