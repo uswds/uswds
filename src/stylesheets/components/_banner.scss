@@ -52,6 +52,7 @@ $banner-icon-close: (
 
 .usa-banner__content {
   @include add-responsive-site-margins;
+  @include u-margin-x("auto");
   @include u-maxw("desktop");
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
