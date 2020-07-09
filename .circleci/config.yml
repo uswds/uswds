@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  snyk: snyk/snyk@0.0.8
-
 references:
   container: &container
     docker:
@@ -31,8 +28,6 @@ jobs:
           paths:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
-      - snyk/scan:
-          organization: uswds
       - run:
           name: Run test
           command: npm run test:ci
