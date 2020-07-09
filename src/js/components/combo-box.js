@@ -30,6 +30,8 @@ const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
+const DEFAULT_FILTER = ".*$.*";
+
 const noop = () => {};
 
 /**
@@ -295,6 +297,7 @@ const highlightOption = (
  */
 const displayList = el => {
   const {
+    comboBoxEl,
     selectEl,
     inputEl,
     listEl,
@@ -306,15 +309,18 @@ const displayList = el => {
   const listOptionBaseId = `${listEl.id}--option-`;
 
   const inputValue = (inputEl.value || "").toLowerCase();
+  const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
+  const regex = new RegExp(
+    "^(?:" + filter.replace("$", inputValue) + ")$",
+    "i"
+  );
 
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
     if (
       optionEl.value &&
-      (isPristine ||
-        !inputValue ||
-        optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
+      (isPristine || !inputValue || regex.test(optionEl.text))
     ) {
       if (selectEl.value && optionEl.value === selectEl.value) {
         selectedItemId = `${listOptionBaseId}${options.length}`;
