@@ -1,3 +1,4 @@
+$banner-guidance-measure: 3;
 $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
   $theme-banner-link-color
@@ -51,9 +52,8 @@ $banner-icon-close: (
 }
 
 .usa-banner__content {
+  @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
-  @include u-margin-x("auto");
-  @include u-maxw("desktop");
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
@@ -76,6 +76,7 @@ $banner-icon-close: (
 .usa-banner__guidance {
   @include u-display("flex");
   @include u-flex("align-start");
+  @include u-measure($banner-guidance-measure);
   padding-top: units(2);
 
   @include at-media("tablet") {
