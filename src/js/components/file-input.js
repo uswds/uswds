@@ -141,6 +141,9 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       const file = e.dataTransfer.files[i];
       if (allFilesAllowed) {
         allFilesAllowed = file.name.indexOf(acceptedFiles)
+        if (allFilesAllowed < 0) {
+          break;
+        }
       }
     }
 
