@@ -139,6 +139,8 @@ const enable = el => {
  * @param {HTMLElement} comboBoxEl The initial element of the combo box component
  */
 const enhanceComboBox = comboBoxEl => {
+  if (comboBoxEl.dataset.enhanced) return;
+
   const selectEl = comboBoxEl.querySelector("select");
 
   if (!selectEl) {
@@ -231,6 +233,8 @@ const enhanceComboBox = comboBoxEl => {
     disable(comboBoxEl);
     selectEl.disabled = false;
   }
+
+  comboBoxEl.dataset.enhanced = "true";
 };
 
 /**
@@ -723,10 +727,12 @@ const comboBox = behavior(
       });
     },
     getComboBoxContext,
+    enhanceComboBox,
     disable,
     enable,
     displayList,
-    hideList
+    hideList,
+    COMBO_BOX_CLASS
   }
 );
 
