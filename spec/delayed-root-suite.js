@@ -6,7 +6,7 @@
 //
 // Put simply, Mocha provides an extra global function called 'run'
 // which we need to call manually once we're done loading any
-// prerequistes needed for test collection to work. That's what
+// prerequisites needed for test collection to work. That's what
 // this file is for.
 
 const fractal = require("../fractal.config");
