@@ -140,9 +140,11 @@ const enable = el => {
 /**
  * Enhance a select element into a combo box component.
  *
- * @param {HTMLElement} comboBoxEl The initial element of the combo box component
+ * @param {HTMLElement} _comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = comboBoxEl => {
+const enhanceComboBox = _comboBoxEl => {
+  const comboBoxEl = _comboBoxEl.closest(COMBO_BOX);
+
   if (comboBoxEl.dataset.enhanced) return;
 
   const selectEl = comboBoxEl.querySelector("select");
@@ -308,9 +310,11 @@ const displayList = el => {
     inputEl,
     listEl,
     statusEl,
-    isPristine
+    isPristine,
+    disableFiltering
   } = getComboBoxContext(el);
   let selectedItemId;
+  let firstFoundId;
 
   const listOptionBaseId = `${listEl.id}--option-`;
 
@@ -324,12 +328,21 @@ const displayList = el => {
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
+    const optionId = `${listOptionBaseId}${options.length}`;
+
     if (
       optionEl.value &&
-      (isPristine || !inputValue || regex.test(optionEl.text))
+      (disableFiltering ||
+        isPristine ||
+        !inputValue ||
+        regex.test(optionEl.text))
     ) {
       if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = `${listOptionBaseId}${options.length}`;
+        selectedItemId = optionId;
+      }
+
+      if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
+        firstFoundId = optionId;
       }
 
       options.push(optionEl);
@@ -379,9 +392,16 @@ const displayList = el => {
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : "No results.";
 
+  let itemToFocus;
+
   if (isPristine && selectedItemId) {
-    const selectedOptionEl = listEl.querySelector("#" + selectedItemId);
-    highlightOption(listEl, null, selectedOptionEl, {
+    itemToFocus = listEl.querySelector("#" + selectedItemId);
+  } else if (disableFiltering && firstFoundId) {
+    itemToFocus = listEl.querySelector("#" + firstFoundId);
+  }
+
+  if (itemToFocus) {
+    highlightOption(listEl, null, itemToFocus, {
       skipFocus: true
     });
   }
