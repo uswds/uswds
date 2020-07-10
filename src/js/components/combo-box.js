@@ -64,6 +64,8 @@ const changeElementValue = (el, value = "") => {
  * @property {HTMLLIElement} selectedOptionEl
  * @property {HTMLButtonElement} toggleListBtnEl
  * @property {HTMLButtonElement} clearInputBtnEl
+ * @property {boolean} isPristine
+ * @property {boolean} disableFiltering
  */
 
 /**
@@ -90,6 +92,7 @@ const getComboBoxContext = el => {
   const clearInputBtnEl = comboBoxEl.querySelector(CLEAR_INPUT_BUTTON);
 
   const isPristine = comboBoxEl.classList.contains(COMBO_BOX_PRISTINE_CLASS);
+  const disableFiltering = comboBoxEl.dataset.disableFiltering === "true";
 
   return {
     comboBoxEl,
@@ -101,7 +104,8 @@ const getComboBoxContext = el => {
     selectedOptionEl,
     toggleListBtnEl,
     clearInputBtnEl,
-    isPristine
+    isPristine,
+    disableFiltering
   };
 };
 
@@ -262,13 +266,11 @@ const highlightOption = (
 
   if (currentEl) {
     currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
-    currentEl.setAttribute("aria-selected", "false");
     currentEl.setAttribute("tabIndex", "-1");
   }
 
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
-    nextEl.setAttribute("aria-selected", "true");
     nextEl.setAttribute("tabIndex", "0");
     nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
 
@@ -340,10 +342,12 @@ const displayList = el => {
       const optionId = `${listOptionBaseId}${index}`;
       const classes = [LIST_OPTION_CLASS];
       let tabindex = "-1";
+      let ariaSelected = "false";
 
       if (optionId === selectedItemId) {
         classes.push(LIST_OPTION_SELECTED_CLASS);
         tabindex = "0";
+        ariaSelected = "true";
       }
 
       if (!selectedItemId && index === 0) {
@@ -354,6 +358,7 @@ const displayList = el => {
           aria-selected="false"
           aria-setsize="${options.length}"
           aria-posinset="${index + 1}"
+          aria-selected="${ariaSelected}"
           id="${optionId}"
           class="${classes.join(" ")}"
           tabindex="${tabindex}"
