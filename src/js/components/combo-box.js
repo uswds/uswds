@@ -299,6 +299,28 @@ const highlightOption = (
 };
 
 /**
+ * Generate a dynamic regular expression based off of a replaceable and possibly filtered value.
+ *
+ * @param {string} el An element within the combo box component
+ * @param {string} value The value to use in the regular expression
+ */
+const generateDynamicRegExp = (filter, value = "") => {
+  let find = filter;
+
+  const replacer = match => {
+    const matcher = new RegExp(match.substr(2).slice(0, -1), "gi");
+    const matches = value.match(matcher) || [];
+    return matches.join("");
+  };
+
+  find = find.replace(/\$\([^)]*\)/g, replacer);
+  find = find.replace("$", value);
+  find = "^(?:" + find + ")$";
+
+  return new RegExp(find, "i");
+};
+
+/**
  * Display the option list of a combo box component.
  *
  * @param {HTMLElement} el An element within the combo box component
@@ -320,10 +342,7 @@ const displayList = el => {
 
   const inputValue = (inputEl.value || "").toLowerCase();
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
-  const regex = new RegExp(
-    "^(?:" + filter.replace("$", inputValue) + ")$",
-    "i"
-  );
+  const regex = generateDynamicRegExp(filter, inputValue);
 
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
@@ -753,6 +772,7 @@ const comboBox = behavior(
     },
     getComboBoxContext,
     enhanceComboBox,
+    generateDynamicRegExp,
     disable,
     enable,
     displayList,
