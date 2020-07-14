@@ -349,7 +349,7 @@ const displayList = el => {
 
   const inputValue = (inputEl.value || "").toLowerCase();
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
-  const regex = generateDynamicRegExp(filter, inputValue);
+  const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
@@ -578,7 +578,7 @@ const handleEscape = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleDown = event => {
+const handleDownFromInput = event => {
   const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
     event.target
   );
@@ -588,12 +588,8 @@ const handleDown = event => {
   }
 
   let nextOptionEl =
-    listEl.querySelector(LIST_OPTION_SELECTED) ||
+    listEl.querySelector(LIST_OPTION_FOCUSED) ||
     listEl.querySelector(LIST_OPTION);
-
-  if (focusedOptionEl) {
-    nextOptionEl = focusedOptionEl.nextSibling;
-  }
 
   if (nextOptionEl) {
     highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
@@ -615,6 +611,22 @@ const handleEnterFromInput = event => {
 
   if (listShown) {
     hideList(comboBoxEl);
+  }
+
+  event.preventDefault();
+};
+
+/**
+ * Handle the down event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleDownFromListOption = event => {
+  const focusedOptionEl = event.target;
+  const nextOptionEl = focusedOptionEl.nextSibling;
+
+  if (nextOptionEl) {
+    highlightOption(focusedOptionEl, focusedOptionEl, nextOptionEl);
   }
 
   event.preventDefault();
@@ -743,16 +755,18 @@ const comboBox = behavior(
     },
     keydown: {
       [COMBO_BOX]: keymap({
-        ArrowDown: handleDown,
-        Down: handleDown,
         Escape: handleEscape
       }),
       [INPUT]: keymap({
-        Enter: handleEnterFromInput
+        Enter: handleEnterFromInput,
+        ArrowDown: handleDownFromInput,
+        Down: handleDownFromInput
       }),
       [LIST_OPTION]: keymap({
         ArrowUp: handleUpFromListOption,
         Up: handleUpFromListOption,
+        ArrowDown: handleDownFromListOption,
+        Down: handleDownFromListOption,
         Enter: handleEnterFromListOption,
         Tab: handleTabFromListOption,
         "Shift+Tab": noop
