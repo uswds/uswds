@@ -30,7 +30,7 @@ const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
-const DEFAULT_FILTER = ".*$.*";
+const DEFAULT_FILTER = ".*{{query}}.*";
 
 const noop = () => {};
 
@@ -302,57 +302,27 @@ const highlightOption = (
  * Generate a dynamic regular expression based off of a replaceable and possibly filtered value.
  *
  * @param {string} el An element within the combo box component
- * @param {string} value The value to use in the regular expression
+ * @param {string} query The value to use in the regular expression
+ * @param {object} extras An object of regular expressions to replace and filter the query
  */
-const generateDynamicRegExp = (filter, value = "") => {
-  let pieces = filter.split("");
+const generateDynamicRegExp = (filter, query = "", extras = {}) => {
+  let find = filter.replace(/{{(.*?)}}/g, function(m, $1) {
+    const key = $1.trim();
+    const queryFilter = extras[key];
+    if (key !== "query" && queryFilter) {
+      const matcher = new RegExp(queryFilter, "i");
+      const matches = query.match(matcher);
 
-  let parts = [];
-
-  while (pieces.length) {
-    let piece = pieces.shift();
-
-    if (piece === "$") {
-      if (pieces.length && pieces[0] === "(") {
-        piece = pieces.shift();
-
-        let part = [];
-        let depth = 1;
-
-        while (pieces.length && depth) {
-          piece = pieces.shift();
-
-          if (piece === "(") {
-            depth += 1;
-          }
-
-          if (piece === ")") {
-            depth -= 1;
-          }
-
-          if (depth) {
-            part.push(piece);
-          }
-        }
-
-        const matcher = new RegExp(part.join(""), "i");
-        const matches = value.match(matcher) || [];
-        console.log(matches);
-        if (matches) {
-          parts.push(matches[0]);
-        }
-      } else {
-        parts.push(value);
+      if (matches) {
+        return matches[0];
       }
-    } else {
-      parts.push(piece);
+
+      return "";
     }
-  }
+    return query;
+  });
 
-  let find = parts.join("");
   find = "^(?:" + find + ")$";
-
-  console.log(find);
 
   return new RegExp(find, "i");
 };

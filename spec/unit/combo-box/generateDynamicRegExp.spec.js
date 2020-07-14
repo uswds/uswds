@@ -11,25 +11,37 @@ describe("generateDynamicRegExp function", () => {
   });
 
   it("allows for string replacement", () => {
-    const regex = generateDynamicRegExp("something$", " else");
+    const regex = generateDynamicRegExp("something{{ query }}", " else");
     assert.ok(regex.test("something else"));
     assert.equal(regex.test("something"), false);
   });
 
   it("allows for string replacement with filter", () => {
-    const regex = generateDynamicRegExp("something$([LS]+)", " Else");
+    const regex = generateDynamicRegExp("something{{ filter }}", " Else", {
+      filter: "[LS]+"
+    });
     assert.ok(regex.test("somethingLS"));
     assert.equal(regex.test("something"), false);
     assert.equal(regex.test("something Else"), false);
   });
 
+  it("allows for escaped string", () => {
+    const regex = generateDynamicRegExp("something\\{\\{else\\}\\}", " else");
+    assert.ok(regex.test("something{{else}}"));
+    assert.equal(regex.test("something else"), false);
+  });
+
   describe("time picker regex", () => {
-    const filter = "0?$([1-9][0-9]?(:[0-9]{0,2})?).*$([ap])m?";
+    const filter = "0?{{ timeFilter }}.*{{ apFilter }}m?";
+    const dataset = {
+      apFilter: "[ap]",
+      timeFilter: "[1-9][0-2]?(:[0-9]{0,2})?"
+    };
     const test = (inputQuery, testValue) => {
-      const regex = generateDynamicRegExp(filter, inputQuery);
+      const regex = generateDynamicRegExp(filter, inputQuery, dataset);
       return regex.test(testValue);
     };
-    let i = 0;
+
     const ok = (inputQuery, testValue) =>
       assert.equal(
         test(inputQuery, testValue),
@@ -81,9 +93,9 @@ describe("generateDynamicRegExp function", () => {
     });
 
     it("should match a starts with selection without leading zero with p", () => {
-      ok("4p", "04:00pm");
-      notOk("4p", "05:00pm");
-      notOk("4p", "04:00am");
+      ok("4P", "04:00pm");
+      notOk("4P", "05:00pm");
+      notOk("4P", "04:00am");
     });
 
     it("should match a starts with selection with leading zero with p", () => {
