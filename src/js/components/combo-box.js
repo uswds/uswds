@@ -305,17 +305,54 @@ const highlightOption = (
  * @param {string} value The value to use in the regular expression
  */
 const generateDynamicRegExp = (filter, value = "") => {
-  let find = filter;
+  let pieces = filter.split("");
 
-  const replacer = match => {
-    const matcher = new RegExp(match.substr(2).slice(0, -1), "gi");
-    const matches = value.match(matcher) || [];
-    return matches.join("");
-  };
+  let parts = [];
 
-  find = find.replace(/\$\([^)]*\)/g, replacer);
-  find = find.replace("$", value);
+  while (pieces.length) {
+    let piece = pieces.shift();
+
+    if (piece === "$") {
+      if (pieces.length && pieces[0] === "(") {
+        piece = pieces.shift();
+
+        let part = [];
+        let depth = 1;
+
+        while (pieces.length && depth) {
+          piece = pieces.shift();
+
+          if (piece === "(") {
+            depth += 1;
+          }
+
+          if (piece === ")") {
+            depth -= 1;
+          }
+
+          if (depth) {
+            part.push(piece);
+          }
+        }
+
+        const matcher = new RegExp(part.join(""), "i");
+        const matches = value.match(matcher) || [];
+        console.log(matches);
+        if (matches) {
+          parts.push(matches[0]);
+        }
+      } else {
+        parts.push(value);
+      }
+    } else {
+      parts.push(piece);
+    }
+  }
+
+  let find = parts.join("");
   find = "^(?:" + find + ")$";
+
+  console.log(find);
 
   return new RegExp(find, "i");
 };
