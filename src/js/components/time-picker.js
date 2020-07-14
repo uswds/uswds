@@ -68,9 +68,10 @@ const transformTimePicker = el => {
   timePickerEl.classList.add(COMBO_BOX_CLASS);
 
   // combo box properties
-  timePickerEl.dataset.apFilter = "[ap]";
-  timePickerEl.dataset.timeFilter = "[1-9][0-2]?(:[0-9]{0,2})?";
-  timePickerEl.dataset.filter = "0?{{ timeFilter }}.*{{ apFilter }}m?";
+  timePickerEl.dataset.apQueryFilter = "[ap]";
+  timePickerEl.dataset.timeQueryFilter = "[1-9][0-2]?(:[0-9]{0,2})?";
+  timePickerEl.dataset.filter =
+    "0?{{ timeQueryFilter }}.*{{ apQueryFilter }}m?";
   timePickerEl.dataset.disableFiltering = "true";
 
   timePickerEl.appendChild(selectEl);
