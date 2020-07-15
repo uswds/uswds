@@ -795,18 +795,46 @@ const reconcileInputValues = el => {
 };
 
 /**
+ * Select the value of the date picker inputs.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ * @param {string} dateString The date string to update in YYYY-MM-DD format
+ */
+const setCalendarValue = (el, dateString) => {
+  const parsedDate = parseDateString(dateString);
+
+  if (parsedDate) {
+    const formattedDate = formatDate(parsedDate, DEFAULT_EXTERNAL_DATE_FORMAT);
+
+    const {
+      datePickerEl,
+      internalInputEl,
+      externalInputEl
+    } = getDatePickerContext(el);
+
+    changeElementValue(internalInputEl, dateString);
+    changeElementValue(externalInputEl, formattedDate);
+
+    validateDateInput(datePickerEl);
+  }
+};
+
+/**
  * Enhance an input with the date picker elements
  *
  * @param {HTMLElement} el The initial wrapping element of the date picker component
  */
 const enhanceDatePicker = el => {
   const datePickerEl = el.closest(DATE_PICKER);
+  const defaultValue = datePickerEl.dataset.defaultValue;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
 
   if (!internalInputEl) {
     throw new Error(`${DATE_PICKER} is missing inner input`);
   }
+
+  internalInputEl.value = "";
 
   const minDate = parseDateString(
     datePickerEl.dataset.minDate || internalInputEl.getAttribute("min")
@@ -853,7 +881,9 @@ const enhanceDatePicker = el => {
   datePickerEl.appendChild(calendarWrapper);
   datePickerEl.classList.add(DATE_PICKER_INITIALIZED_CLASS);
 
-  reconcileInputValues(datePickerEl);
+  if (defaultValue) {
+    setCalendarValue(datePickerEl, defaultValue);
+  }
 
   if (internalInputEl.disabled) {
     disable(datePickerEl);
@@ -1202,23 +1232,12 @@ const hideCalendar = el => {
 const selectDate = calendarDateEl => {
   if (calendarDateEl.disabled) return;
 
-  const {
-    datePickerEl,
-    internalInputEl,
-    externalInputEl
-  } = getDatePickerContext(calendarDateEl);
-
-  changeElementValue(internalInputEl, calendarDateEl.dataset.value);
-  changeElementValue(
-    externalInputEl,
-    formatDate(
-      parseDateString(calendarDateEl.dataset.value),
-      DEFAULT_EXTERNAL_DATE_FORMAT
-    )
+  const { datePickerEl, externalInputEl } = getDatePickerContext(
+    calendarDateEl
   );
 
+  setCalendarValue(calendarDateEl, calendarDateEl.dataset.value);
   hideCalendar(datePickerEl);
-  validateDateInput(datePickerEl);
 
   externalInputEl.focus();
 };
@@ -2133,6 +2152,7 @@ const datePicker = behavior(datePickerEvents, {
   disable,
   enable,
   isDateInputInvalid,
+  setCalendarValue,
   validateDateInput,
   renderCalendar,
   updateCalendarIfVisible
