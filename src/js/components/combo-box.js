@@ -306,6 +306,10 @@ const highlightOption = (
  * @param {object} extras An object of regular expressions to replace and filter the query
  */
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
+  const escapeRegExp = text => {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  };
+
   let find = filter.replace(/{{(.*?)}}/g, function(m, $1) {
     const key = $1.trim();
     const queryFilter = extras[key];
@@ -314,12 +318,12 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
       const matches = query.match(matcher);
 
       if (matches) {
-        return matches[0];
+        return escapeRegExp(matches[0]);
       }
 
       return "";
     }
-    return query;
+    return escapeRegExp(query);
   });
 
   find = "^(?:" + find + ")$";

@@ -31,6 +31,12 @@ describe("generateDynamicRegExp function", () => {
     assert.equal(regex.test("something else"), false);
   });
 
+  it("escapes regular expression inputs", () => {
+    const regex = generateDynamicRegExp("something {{query}}", ".* else");
+    assert.ok(regex.test("something .* else"));
+    assert.equal(regex.test("something ?? else"), false);
+  });
+
   describe("time picker regex", () => {
     const filter = "0?{{ timeFilter }}.*{{ apFilter }}m?";
     const dataset = {
