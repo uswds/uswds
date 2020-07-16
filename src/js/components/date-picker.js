@@ -2104,7 +2104,8 @@ const datePickerEvents = {
     }),
     [DATE_PICKER_CALENDAR](event) {
       this.dataset.keydownKeyCode = event.keyCode;
-
+    },
+    [DATE_PICKER](event) {
       const keyMap = keymap({
         Escape: handleEscapeFromCalendar
       });

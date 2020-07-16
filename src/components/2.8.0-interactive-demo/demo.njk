@@ -1,7 +1,7 @@
 <div class="default-container" style="background-color:#fcfcfc; height:100%">
 
 <br /><br /><br />
-<div class="grid-container">
+<div class="grid-container" style="outline:0">
   <div id="form-results" hidden>
     <h2>Form Results</h2>
     <div id="form-results-list"></div>
@@ -9,37 +9,37 @@
 
   <form class="usa-form preview" method="GET">
     <fieldset class="usa-fieldset">
-      <legend class="usa-legend">Date Pickers</legend>
+      <legend class="usa-legend">2.8.0 Date Pickers</legend>
 
       <div class="usa-form-group">
         <label class="usa-label" id="default-selection-label" for="default-selection">Default</label>
         <div class="usa-hint" id="default-selection-hint">mm/dd/yyyy</div>
         <div class="usa-date-picker">
-          <input class="usa-input" id="default-selection" name="default-selection" type="date" aria-describedby="default-selection-label default-selection-hint" required>
+          <input class="usa-input" id="default-selection" autocomplete="off" name="default-selection" type="date" aria-describedby="default-selection-label default-selection-hint" required>
         </div>
       </div>
 
       <div class="usa-form-group">
-        <label class="usa-label" id="restricted-date-label" for="restricted-date">Restricted Date</label>
+        <label class="usa-label" id="restricted-date-label" for="restricted-date">Restricted Dates</label>
         <div class="usa-hint" id="restricted-date-hint">mm/dd/yyyy</div>
-        <div class="usa-date-picker" data-min-date="2020-06-02" data-max-date="2020-08-30">
-          <input class="usa-input" id="restricted-date" name="restricted-date" type="date" aria-describedby="restricted-date-label restricted-date-hint">
+        <div class="usa-date-picker" data-min-date="2020-07-16" data-max-date="2020-09-16">
+          <input class="usa-input" id="restricted-date" autocomplete="off"  name="restricted-date" type="date" aria-describedby="restricted-date-label restricted-date-hint">
         </div>
       </div>
 
       <div class="usa-form-group">
-        <label class="usa-label" id="restricted-date-label" for="restricted-date">Show Range</label>
-        <div class="usa-hint" id="restricted-date-hint">mm/dd/yyyy</div>
-        <div class="usa-date-picker" data-range-date="2020-07-10">
-          <input class="usa-input" id="restricted-date" name="restricted-date" type="date" aria-describedby="restricted-date-label restricted-date-hint">
+        <label class="usa-label" id="cap-date-label" for="cap-date">Show Range</label>
+        <div class="usa-hint" id="cap-date-hint">mm/dd/yyyy</div>
+        <div class="usa-date-picker" data-min-date="2020-07-16" data-range-date="2020-07-10">
+          <input class="usa-input" id="cap-date" autocomplete="off"  name="cap-date" type="date" aria-describedby="cap-date-label cap-date-hint">
         </div>
       </div>
 
       <div class="usa-form-group">
-        <label class="usa-label" id="appointment-date-label" for="appointment-date">Custom Styles</label>
-        <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+        <label class="usa-label" id="custom-styles-label" for="custom-styles">Custom Styles</label>
+        <div class="usa-hint" id="custom-styles-hint">mm/dd/yyyy</div>
         <div class="usa-date-picker highlight-todays-date">
-          <input class="usa-input" id="appointment-date" name="appointment-date" type="date" aria-describedby="appointment-date-label appointment-date-hint">
+          <input class="usa-input" id="custom-styles" autocomplete="off"   name="custom-styles" type="date" aria-describedby="custom-styles-label custom-styles-hint">
         </div>
       </div>
 
@@ -47,8 +47,8 @@
         <div class="usa-form-group">
           <label class="usa-label" id="range-date-start-label" for="range-date-start">Range Date Start</label>
           <div class="usa-hint" id="range-date-start-hint">mm/dd/yyyy</div>
-          <div class="usa-date-picker highlight-todays-date">
-            <input class="usa-input" id="range-date-start" name="range-date-start" type="date" aria-describedby="range-date-start-label range-date-start-hint">
+          <div class="usa-date-picker">
+            <input class="usa-input" id="range-date-start" autocomplete="off"  name="range-date-start" type="date" aria-describedby="range-date-start-label range-date-start-hint">
           </div>
         </div>
 
@@ -56,7 +56,7 @@
           <label class="usa-label" id="range-date-end-label" for="range-date-end">Range Date End</label>
           <div class="usa-hint" id="range-date-end-hint">mm/dd/yyyy</div>
           <div class="usa-date-picker">
-            <input class="usa-input" id="range-date-end" name="range-date-end" type="date" aria-describedby="range-date-end-label range-date-end-hint">
+            <input class="usa-input" id="range-date-end" autocomplete="off"  name="range-date-end" type="date" aria-describedby="range-date-end-label range-date-end-hint">
           </div>
         </div>
       </div>
@@ -65,4 +65,9 @@
     </fieldset>
   </form>
 </div>
+
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br />
 </div>

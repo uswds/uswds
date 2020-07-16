@@ -8,6 +8,7 @@
     html, 
 body {
     height: 100%;
+    outline:0;
 }
 
 .preview {
@@ -29,6 +30,7 @@ box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px
  color:red;
 }
 
+.highlight-todays-date .usa-date-picker__calendar__date--today:focus,
 .highlight-todays-date .usa-date-picker__calendar__date--today {
   border-radius: 100%;
   background-color: #1a73e8;
@@ -38,7 +40,7 @@ box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px
 
     </style>
   </head>
-  <body tabindex="0">
+  <body tabindex="0"  style="outline:0">
     {% block body %}{{ yield | safe }}{% endblock %}
     <script type="text/javascript">
       (function () {
