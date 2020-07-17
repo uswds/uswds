@@ -32,7 +32,6 @@ const addListenerMulti = (element, eventNames, listener) => {
 * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
 */
 const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
-  let tooltipPosition = position;
 
   tooltipBody.setAttribute("aria-hidden", "false");
 
