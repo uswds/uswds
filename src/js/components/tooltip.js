@@ -63,8 +63,10 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   * @param {string} setPos - can be "top", "bottom", "right", "left"
   */
   const setPositionClass = setPos => {
-    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--${tooltipPosition}`);
-    tooltipPosition = setPos;
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--top`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--bottom`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--right`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--left`);
     tooltipBody.classList.add(`${TOOLTIP_BODY_CLASS}--${setPos}`);
   }
 
