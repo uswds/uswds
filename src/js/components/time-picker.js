@@ -11,6 +11,31 @@ const DEFAULT_STEP = 30;
 const MIN_STEP = 1;
 
 /**
+ * Parse a string of hh:mm into minutes
+ *
+ * @param {string} timeStr the time string to parse
+ * @returns {number} the number of minutes
+ */
+const parseTimeString = timeStr => {
+  let minutes;
+
+  if (timeStr) {
+    const [hours, mins] = timeStr.split(":").map(str => {
+      let value;
+      const parsed = parseInt(str, 10);
+      if (!Number.isNaN(parsed)) value = parsed;
+      return value;
+    });
+
+    if (hours != null && mins != null) {
+      minutes = hours * 60 + mins;
+    }
+  }
+
+  return minutes;
+};
+
+/**
  * Enhance an input with the date picker elements
  *
  * @param {HTMLElement} el The initial wrapping element of the date picker component
@@ -52,8 +77,14 @@ const transformTimePicker = el => {
     };
   };
 
-  const minTime = Math.max(MIN_TIME, timePickerEl.dataset.minTime || MIN_TIME);
-  const maxTime = Math.min(MAX_TIME, timePickerEl.dataset.maxTime || MAX_TIME);
+  const minTime = Math.max(
+    MIN_TIME,
+    parseTimeString(timePickerEl.dataset.minTime) || MIN_TIME
+  );
+  const maxTime = Math.min(
+    MAX_TIME,
+    parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME
+  );
   const step = Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP);
 
   for (let time = minTime; time <= maxTime; time += step) {

@@ -310,7 +310,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   };
 
-  let find = filter.replace(/{{(.*?)}}/g, function(m, $1) {
+  let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
     const queryFilter = extras[key];
     if (key !== "query" && queryFilter) {
