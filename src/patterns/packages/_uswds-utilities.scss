@@ -1,0 +1,9 @@
+// dependencies
+@forward "global";
+
+// src
+@forward "../utilities/utility-fonts";
+@use "../utilities/rules/package" as *;
+@use "../core/mixins/utility-builder" as *;
+
+@include render-utilities-in($utilities-package);

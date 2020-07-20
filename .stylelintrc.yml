@@ -1,0 +1,387 @@
+# Custom configuration for Stylelint.
+#
+
+# Preset all items to warning to prevent breaking themes.
+# Delete line to activate linter build-breaking errors.
+defaultSeverity: warning
+
+# Plugins integrated.
+plugins:
+  - stylelint-scss
+
+  # Rules are grouped in 3 categories and then by the context they apply to.
+  # - Possible errors
+  # - Limit language features
+  # - Stylistic issues
+rules:
+
+  ### Possible errors
+  ## Color.
+  # Disallow invalid hex colors.
+  # https://stylelint.io/user-guide/rules/color-no-invalid-hex/
+  color-no-invalid-hex: true
+
+  ## Font family.
+  # Disallow duplicate font family names.
+  # https://stylelint.io/user-guide/rules/font-family-no-duplicate-names/
+  font-family-no-duplicate-names: true
+
+  # Disallow duplicate font family names.
+  # https://stylelint.io/user-guide/rules/font-family-no-duplicate-names/
+  font-family-no-missing-generic-family-keyword: true
+
+  ## Function.
+  # Disallow an invalid expression within calc functions.
+  # https://stylelint.io/user-guide/rules/function-calc-no-invalid/
+  function-calc-no-invalid: true
+
+  # Include spaces around operators.
+  # https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator/
+  function-calc-no-unspaced-operator: true
+
+  # Prevent invalid linear-gradient syntax.
+  # https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction/
+  function-linear-gradient-no-nonstandard-direction: true
+
+  ## String.
+  # Require escaped new lines in strings.
+  # https://stylelint.io/user-guide/rules/string-no-newline/
+  string-no-newline: true
+
+  ## Property.
+  # Disallow unknown properties.
+  # https://stylelint.io/user-guide/rules/property-no-unknown/
+  property-no-unknown: true
+
+  ## Keyframe declaration.
+  # Disallow `!important` within keyframe declarations.
+  # https://stylelint.io/user-guide/rules/keyframe-declaration-no-important/
+  keyframe-declaration-no-important: true
+
+  ## Declaration block.
+  # Disallow duplicate properties within declaration blocks.
+  # https://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties/
+  declaration-block-no-duplicate-properties:
+    - true
+    - ignore:
+        - consecutive-duplicates-with-different-values
+
+  # Disallow shorthand properties that override related longhand properties.
+  # https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides/
+  declaration-block-no-shorthand-property-overrides: true
+
+  ## Block.
+  # Disallow empty blocks.
+  # https://stylelint.io/user-guide/rules/block-no-empty/
+  block-no-empty: true
+
+  ## Selector.
+  # Disallow unknown pseudo-class selectors.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
+  selector-pseudo-class-no-unknown: true
+
+  # Disallow unknown pseudo-element selectors.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown/
+  selector-pseudo-element-no-unknown: true
+
+  # Disallow unknown type selectors.
+  # https://stylelint.io/user-guide/rules/selector-type-no-unknown/
+  selector-type-no-unknown: true
+
+  ## Media feature
+  # Disallow unknown media feature names.
+  # https://stylelint.io/user-guide/rules/media-feature-name-no-unknown/
+  media-feature-name-no-unknown: true
+
+  ## At-rule
+  # Disallow unknown at-rules.
+  # https://stylelint.io/user-guide/rules/at-rule-no-unknown/
+  #at-rule-no-unknown:
+  #  - true
+  #  - ignoreAtRules:
+  #      - 'include'
+
+  ## Comment
+  # Disallow empty comments.
+  # https://stylelint.io/user-guide/rules/comment-no-empty/
+  comment-no-empty: true
+
+  ## General / Sheet
+  # Disallow duplicate @import rules within a stylesheet.
+  # https://stylelint.io/user-guide/rules/no-duplicate-at-import-rules/
+  no-duplicate-at-import-rules: true
+
+  # Disallow duplicate selectors.
+  # https://stylelint.io/user-guide/rules/no-duplicate-selectors/
+  no-duplicate-selectors: true
+
+  # Disallow empty sources.
+  # https://stylelint.io/user-guide/rules/no-empty-source/
+  # Rule canceled out due to lack of understanding.
+  no-empty-source: null
+  # Disallow extra semicolons.
+  # https://stylelint.io/user-guide/rules/no-extra-semicolons/
+  no-extra-semicolons: true
+
+  # Disallow double-slash comments in css (not scss)
+  # This issue only affects *.css files.
+  # https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments/
+  no-invalid-double-slash-comments: true
+
+  # -----------------------
+
+  ### Limit language features
+  ## Color
+  # Disallow named colors.
+  # https://stylelint.io/user-guide/rules/color-named/
+  color-named:
+    - never
+    - ignore:
+        - inside-function
+
+  ## Shorthand property
+  # Disallow redundant values in shorthand properties.
+  # https://github.com/stylelint/stylelint/blob/master/lib/rules/shorthand-property-no-redundant-values/README.md
+  shorthand-property-no-redundant-values: true
+
+  ## Value
+  # Disallow vendor prefixes for values.
+  # https://stylelint.io/user-guide/rules/value-no-vendor-prefix/
+  value-no-vendor-prefix: true
+
+  ## Property
+  # Disallow vendor prefixes for properties.
+  # https://stylelint.io/user-guide/rules/property-no-vendor-prefix/
+  property-no-vendor-prefix: true
+
+  ## Declaration
+  # Disallow !important within declarations.
+  # https://stylelint.io/user-guide/rules/declaration-no-important/
+  declaration-no-important: true
+
+  # Specify a blacklist of disallowed property and value pairs within declarations.
+  # https://stylelint.io/user-guide/rules/declaration-property-value-blacklist/
+  declaration-property-value-blacklist:
+    # Prefer the terser border: 0 over border: none.
+    //bborder\b/:
+      - none
+
+  ## Selector
+  # Limit the number of adjacent empty lines within selectors.
+  # https://stylelint.io/user-guide/rules/selector-max-empty-lines/
+  selector-max-empty-lines: 0
+
+  # Disallow qualifying a selector by type.
+  # https://stylelint.io/user-guide/rules/selector-no-qualifying-type/
+  selector-no-qualifying-type:
+
+  # -----------------------
+
+  ### Stylistic issues
+
+  # Specify indentation.
+  # https://stylelint.io/user-guide/rules/indentation/
+  indentation:
+    - 2
+    - ignore:
+        inside-parens
+
+  ## Color
+  # Specify lowercase or uppercase for hex colors.
+  # https://stylelint.io/user-guide/rules/color-hex-case/
+  color-hex-case: lower
+
+  ## Function
+
+  # Disallow whitespace before the commas of functions.
+  # https://stylelint.io/user-guide/rules/function-comma-space-before/
+  function-comma-space-before: never
+
+  # Specify lowercase for function names.
+  # https://stylelint.io/user-guide/rules/function-name-case/
+  function-name-case: lower
+
+  # Require quotes for urls.
+  # https://stylelint.io/user-guide/rules/function-url-quotes/
+  function-url-quotes: always
+
+  # Require whitespace after functions.
+  # https://stylelint.io/user-guide/rules/function-whitespace-after/
+  function-whitespace-after: always
+
+  ## Number
+  # Require a leading zero for fractional numbers less than 1.
+  # https://stylelint.io/user-guide/rules/number-leading-zero/
+  number-leading-zero: always
+
+  # Disallow trailing zeros in numbers
+  # https://stylelint.io/user-guide/rules/number-no-trailing-zeros/
+  number-no-trailing-zeros: true
+
+  ## Length
+  # Disallow units for zero lengths.
+  # https://stylelint.io/user-guide/rules/length-zero-no-unit/
+  length-zero-no-unit: true
+
+  ## Unit
+  # Specify lowercase or uppercase for units.
+  # https://stylelint.io/user-guide/rules/unit-case/
+  unit-case: lower
+
+  ## Value list
+  # Require a newline after the commas of value lists.
+  # https://stylelint.io/user-guide/rules/value-list-comma-newline-after/
+  value-list-comma-newline-after: always-multi-line
+
+  # Disallow whitespace before the commas in multi-line value lists.
+  # https://stylelint.io/user-guide/rules/value-list-comma-newline-before/
+  value-list-comma-newline-before: never-multi-line
+
+  # Require a single space after the commas of value lists.
+  # https://stylelint.io/user-guide/rules/value-list-comma-space-after/
+  value-list-comma-space-after: always-single-line
+
+  # Disallow whitespace before the commas of value lists.
+  # https://stylelint.io/user-guide/rules/value-list-comma-space-before/
+  value-list-comma-space-before: never
+
+  # Limit the number of adjacent empty lines within value lists.
+  # https://stylelint.io/user-guide/rules/value-list-max-empty-lines/
+  value-list-max-empty-lines: 0
+
+  ## Property
+  # Specify lowercase for properties.
+  # https://stylelint.io/user-guide/rules/property-case/
+  property-case: lower
+
+  ## Declaration
+  # Never allow whitespace after the bang of declarations.
+  # https://stylelint.io/user-guide/rules/declaration-bang-space-after/
+  declaration-bang-space-after: never
+
+  # Require a single spacebefore the bang of declarations.
+  # https://stylelint.io/user-guide/rules/declaration-bang-space-before/
+  declaration-bang-space-before: always
+
+  # Require a single space after the colon of declarations.
+  # https://stylelint.io/user-guide/rules/declaration-colon-space-after/
+  declaration-colon-space-after: always-single-line
+
+  # Never allow whitespace before the colon of declarations.
+  # https://stylelint.io/user-guide/rules/declaration-colon-space-before/
+  declaration-colon-space-before: never
+
+  # Never have empty lines before declarations in a block.
+  # https://stylelint.io/user-guide/rules/declaration-empty-line-before/
+  declaration-empty-line-before: never
+
+  ## Declaration Block
+  # Always have a new line after a ;.
+  # https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-after/
+  declaration-block-semicolon-newline-after: always
+
+  # Never include a new line before a ;.
+  # https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-before/
+  declaration-block-semicolon-newline-before: never-multi-line
+
+  # Never allow a space after the ; when on a single line.
+  # https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-after/
+  declaration-block-semicolon-space-after: never-single-line
+
+  # Never allow a space before the ;.
+  # https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-before/
+  declaration-block-semicolon-space-before: never
+
+  # Always include a trailing ; in a declaration block.
+  # https://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon/
+  declaration-block-trailing-semicolon: always
+
+  ## Block.
+  ### These are typically managed by Prettier.
+  # Do not include an empty line before the closing brace of a block.
+  # https://stylelint.io/user-guide/rules/block-closing-brace-empty-line-before/
+  block-closing-brace-empty-line-before: never
+
+  # Always incluse a new line after a block's closing brace.
+  # https://stylelint.io/user-guide/rules/block-closing-brace-newline-after/
+  block-closing-brace-newline-after: always
+
+  # Require a new line before the closing brace of a block.
+  # https://stylelint.io/user-guide/rules/block-closing-brace-newline-before/
+  block-closing-brace-newline-before: always
+
+  # To ensure consistency with single/multi line blocks, enforce a new line after the opening brace of a block.
+  # https://stylelint.io/user-guide/rules/block-opening-brace-newline-after/
+  block-opening-brace-newline-after: always
+
+  ## Selector
+  # Disallow whitespace on the inside of the brackets within attribute selectors.
+  # https://stylelint.io/user-guide/rules/selector-attribute-brackets-space-inside/
+  selector-attribute-brackets-space-inside: never
+
+  # Disallow whitespace after operators within attribute selectors.
+  # https://stylelint.io/user-guide/rules/selector-attribute-operator-space-after/
+  selector-attribute-operator-space-after: never
+
+  # Disallow whitespace before operators within attribute selectors.
+  # https://stylelint.io/user-guide/rules/selector-attribute-operator-space-before/
+  selector-attribute-operator-space-before: never
+
+  # Require quotes for attribute values.
+  # https://stylelint.io/user-guide/rules/selector-attribute-quotes/
+  selector-attribute-quotes: always
+
+  # Require a single space or disallow whitespace after the combinators of selectors.
+  # https://stylelint.io/user-guide/rules/selector-combinator-space-after/
+  selector-combinator-space-after: always
+
+  # Require a single space before the combinators of selectors.
+  # https://stylelint.io/user-guide/rules/selector-combinator-space-before/
+  selector-combinator-space-before: always
+
+  # Disallow non-space characters for descendant combinators of selectors.
+  # https://stylelint.io/user-guide/rules/selector-descendant-combinator-no-non-space/
+  selector-descendant-combinator-no-non-space: true
+
+  # Specify lowercase for pseudo-class selectors.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-class-case/
+  selector-pseudo-class-case: lower
+
+  # Disallow whitespace on the inside of the parentheses within pseudo-class selectors.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-class-parentheses-space-inside/
+  selector-pseudo-class-parentheses-space-inside: never
+
+  # Specify lowercase for pseudo-element selectors.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-element-case/
+  selector-pseudo-element-case: lower
+
+  # Specify double colon notation for applicable pseudo-elements.
+  # https://stylelint.io/user-guide/rules/selector-pseudo-element-colon-notation/
+  selector-pseudo-element-colon-notation: double
+
+  # Specify lowercase for type selectors.
+  # https://stylelint.io/user-guide/rules/selector-type-case/
+  selector-type-case: lower
+
+  ## Selector List
+  # Require a newline after the commas of selector lists.
+  # https://stylelint.io/user-guide/rules/selector-list-comma-newline-after/
+  selector-list-comma-newline-after: always
+
+  # Disallow whitespace before the commas of selector lists.
+  # https://stylelint.io/user-guide/rules/selector-list-comma-space-before/
+  selector-list-comma-space-before: never
+
+  ## Rule
+  # Require empty lines before rules.
+  # https://stylelint.io/user-guide/rules/rule-empty-line-before/
+  # Note that `rule-non-nested-empty-line-before` is Deprecated per https://github.com/18F/stylelint-rules/issues/26
+  rule-empty-line-before:
+    - always
+    - ignore:
+        - after-comment
+        - first-nested
+
+  # Prefer newline at the end of a file.
+  # https://stylelint.io/user-guide/rules/no-missing-end-of-source-newline/
+  no-missing-end-of-source-newline: true

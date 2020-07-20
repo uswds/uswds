@@ -21,18 +21,9 @@
     "tools-docs": false
   },
   "ishViewportRange": {
-    "s": [
-      240,
-      500
-    ],
-    "m": [
-      500,
-      800
-    ],
-    "l": [
-      800,
-      2600
-    ]
+    "s": [240, 500],
+    "m": [500, 800],
+    "l": [800, 2600]
   },
   "logLevel": "info",
   "outputFileSuffixes": {
@@ -43,11 +34,11 @@
   "paths": {
     "source": {
       "root": "./src/",
-      "patterns": "./src/_patterns/",
-      "data": "./src/_data/",
-      "meta": "./src/_meta/",
-      "annotations": "./src/_annotations/",
-      "styleguide": "dist/",
+      "patterns": "./src/patterns/",
+      "data": "./src/styleguide/data/",
+      "meta": "./src/styleguide/meta/",
+      "annotations": "./src/styleguide/annotations/",
+      "styleguide": "./dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
         "general-footer": "views/partials/general-footer.mustache",
@@ -56,33 +47,26 @@
         "viewall": "views/viewall.mustache"
       },
       "js": "./dist/js",
-      "images": "./dist/img",
+      "images": "./dist/images",
       "fonts": "./dist/fonts",
       "css": "./dist/css"
     },
     "public": {
-      "root": "pl/",
-      "patterns": "pl/patterns/",
-      "data": "pl/styleguide/data/",
-      "annotations": "pl/annotations/",
-      "styleguide": "pl/styleguide/",
-      "js": "pl/js",
-      "images": "pl/img",
-      "fonts": "pl/fonts",
-      "css": "pl/css"
+      "root": "./patternlab/",
+      "patterns": "./patternlab/patterns/",
+      "data": "./patternlab/styleguide/data/",
+      "annotations": "./patternlab/annotations/",
+      "styleguide": "./patternlab/styleguide/",
+      "js": "./patternlab/js",
+      "images": "./patternlab/images",
+      "fonts": "./patternlab/fonts",
+      "css": "./patternlab/css"
     }
   },
   "patternExtension": "twig",
-  "patternStateCascade": [
-    "inprogress",
-    "inreview",
-    "complete"
-  ],
-  "patternExportAll": false,
-  "patternExportDirectory": "./pl/pattern_exports",
+  "patternStateCascade": ["inprogress", "inreview", "complete"],
+  "patternExportDirectory": "./pattern_exports/",
   "patternExportPatternPartials": [],
-  "patternExportPreserveDirectoryStructure": true,
-  "patternExportRaw": false,
   "serverOptions": {
     "wait": 1000
   },
@@ -91,8 +75,7 @@
   "theme": {
     "color": "light",
     "density": "compact",
-    "layout": "horizontal",
-    "noViewAll": false
+    "layout": "horizontal"
   },
   "uikits": [
     {
@@ -107,59 +90,25 @@
     "twig": {
       "namespaces": [
         {
-          "id": "global",
+          "id": "uikit",
           "recursive": true,
           "paths": [
-            "src/_patterns/02-global"
-          ]
-        },
-        {
-          "id": "base",
-          "recursive": true,
-          "paths": [
-            "src/_patterns/03-base"
-          ]
-        },
-        {
-          "id": "layouts",
-          "recursive": true,
-          "paths": [
-            "src/_patterns/04-layouts"
+            "./node_modules/@pattern-lab/uikit-workshop/views-twig"
           ]
         },
         {
           "id": "components",
           "recursive": true,
           "paths": [
-            "src/_patterns/05-components"
+            "./src/patterns/components"
           ]
-        },
+        }
+      ],
+      "alterTwigEnv": [
         {
-          "id": "composites",
-          "recursive": true,
-          "paths": [
-            "src/_patterns/06-composites"
-          ]
-        },
-        {
-          "id": "templates",
-          "recursive": true,
-          "paths": [
-            "src/_patterns/07-templates"
-          ]
-        },
-        {
-          "id": "pages",
-          "recursive": true,
-          "paths": [
-            "src/_patterns/08-pages"
-          ]
-        },
-        {
-          "id": "macros",
-          "recursive": true,
-          "paths": [
-            "src/_macros"
+          "file": "./src/styleguide/drupal-twig/alter-twig.php",
+          "functions": [
+            "twig_extensions"
           ]
         }
       ]

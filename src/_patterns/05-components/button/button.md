@@ -1,4 +1,0 @@
----
-el: .button
-title: Button
----

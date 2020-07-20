@@ -1,0 +1,18 @@
+/*
+----------------------------------------
+rem-to-user-em()
+----------------------------------------
+Converts a value in rem to a value in
+[user-settings] em for use in media
+queries
+----------------------------------------
+*/
+
+@function rem-to-user-em($grid-in-rem) {
+  $rem-to-user-em: ($grid-in-rem / 1rem) * 1em;
+
+  @return $rem-to-user-em;
+}
+
+// @debug rem-to-user-em(2rem);
+// @return 2em

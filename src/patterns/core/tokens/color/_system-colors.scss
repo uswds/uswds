@@ -1,0 +1,60 @@
+@use "red-cool" as *;
+@use "red" as *;
+@use "red-warm" as *;
+@use "orange-warm" as *;
+@use "orange" as *;
+@use "gold" as *;
+@use "yellow" as *;
+@use "green-warm" as *;
+@use "green" as *;
+@use "green-cool" as *;
+@use "mint" as *;
+@use "mint-cool" as *;
+@use "cyan" as *;
+@use "blue-cool" as *;
+@use "blue" as *;
+@use "blue-warm" as *;
+@use "indigo-cool" as *;
+@use "indigo" as *;
+@use "indigo-warm" as *;
+@use "violet" as *;
+@use "violet-warm" as *;
+@use "magenta" as *;
+@use "gray-cool" as *;
+@use "gray" as *;
+@use "gray-warm" as *;
+@use "black-transparent" as *;
+@use "white-transparent" as *;
+@use "global" as *;
+
+@use "../../functions/general" as general;
+
+$system-colors: general.map-collect(
+  $system-color-red-cool,
+  $system-color-red,
+  $system-color-red-warm,
+  $system-color-orange-warm,
+  $system-color-orange,
+  $system-color-gold,
+  $system-color-yellow,
+  $system-color-green-warm,
+  $system-color-green,
+  $system-color-green-cool,
+  $system-color-mint,
+  $system-color-mint-cool,
+  $system-color-cyan,
+  $system-color-blue-cool,
+  $system-color-blue,
+  $system-color-blue-warm,
+  $system-color-indigo-cool,
+  $system-color-indigo,
+  $system-color-indigo-warm,
+  $system-color-violet,
+  $system-color-violet-warm,
+  $system-color-magenta,
+  $system-color-gray-cool,
+  $system-color-gray,
+  $system-color-gray-warm,
+  $system-color-black-transparent,
+  $system-color-white-transparent
+);

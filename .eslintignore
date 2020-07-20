@@ -1,1 +1,2 @@
-spec/screenshots/metadata.js
+generators/app/templates/_src/styleguide/annotations/annotations.js
+generators/app/templates/eslintrc.json

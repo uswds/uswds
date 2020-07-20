@@ -1,0 +1,17 @@
+@use "../../functions" as *;
+@use "sass:list";
+
+// Outputs color
+
+@mixin u-color($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  color: color($value) #{$important};
+}

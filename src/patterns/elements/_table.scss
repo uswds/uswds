@@ -1,0 +1,9 @@
+@use "../packages/required" as *;
+
+.usa-table {
+  @include usa-table;
+}
+
+.usa-table--borderless {
+  @include usa-table--borderless;
+}

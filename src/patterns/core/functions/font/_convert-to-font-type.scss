@@ -1,0 +1,23 @@
+/*
+----------------------------------------
+convert-to-font-type()
+----------------------------------------
+Converts a font-role token into a
+font-type token. Leaves font-type tokens
+unchanged.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../../variables/font-role-tokens" as *;
+
+@function convert-to-font-type($token) {
+  @if map.has-key($project-font-role-tokens, $token) {
+    @return map.get($project-font-role-tokens, $token);
+  }
+
+  @return $token;
+}
+
+// @debug convert-to-font-type("heading");
+// @return serif

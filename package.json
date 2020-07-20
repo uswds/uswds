@@ -1,96 +1,64 @@
 {
   "name": "uswds",
-  "version": "1.0.0",
+  "version": "2.8.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
-    "node": ">= 4"
+    "node": ">=10"
   },
-  "main": "dist/js/uswds.min.js",
-  "jsnext:main": "src/js/start.js",
-  "style": "dist/css/uswds.min.css",
-  "sass": "src/uswds.scss",
-  "mocha": {
-    "config": "spec/.mocharc.json"
-  },
-  "author": "18F",
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/uswds/uswds/issues"
+  "main": "gulpfile.js",
+  "bugs": "https://github.com/uswds/uswds/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uswds/uswds.git"
   },
   "homepage": "https://github.com/uswds/uswds#readme",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "browserslist": [
+    "explorer >= 11",
+    "last 3 versions",
+    ">1% and not dead"
+  ],
   "scripts": {
-    "build": "gulp build",
-    "build:docs": "gulp docs",
-    "build:css": "gulp sass",
-    "build:js": "gulp javascript",
-    "build:images": "gulp images",
-    "build:fonts": "gulp fonts",
-    "install": "patternlab install --config ./patternlab-config.json",
-    "serve": "patternlab serve --config ./patternlab-config.json",
-    "start": "npm run serve"
+    "build": "gulp",
+    "compile": "gulp compile",
+    "watch": "gulp watch",
+    "styleguide": "gulp styleguide",
+    "compress": "gulp compress",
+    "lint": "gulp lint",
+    "clean": "gulp clean",
+    "gulp": "gulp"
   },
-  "dependencies": {
-    "@pattern-lab/cli": "^5.10.1",
-    "@pattern-lab/core": "^5.10.1",
-    "@pattern-lab/engine-twig-php": "^5.10.1",
-    "@pattern-lab/uikit-workshop": "^5.10.2",
-    "@types/node": "^13.9.1",
-    "classlist-polyfill": "^1.0.3",
-    "del": "^5.1.0",
-    "domready": "^1.0.8",
-    "elem-dataset": "^1.1.1",
-    "lodash.debounce": "^4.0.7",
-    "object-assign": "^4.1.1",
-    "receptor": "^1.0.0",
-    "resolve-id-refs": "^0.1.0",
-    "typescript": "^2.4.1",
-    "yargs": "^15.3.1"
+  "babel": {
+    "sourceType": "unambiguous",
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.8.7",
-    "ansi-colors": "^4.1.1",
-    "autoprefixer": "^9.7.4",
-    "axe-core": "^3.5.2",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.0",
-    "chrome-launcher": "^0.13.2",
-    "chrome-remote-interface": "^0.28.1",
-    "cross-spawn": "^7.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "fancy-log": "^1.3.3",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@pattern-lab/core": "^5.11.1",
+    "@pattern-lab/engine-twig-php": "^5.11.1",
+    "@pattern-lab/uikit-workshop": "^5.11.1",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-cli": "^2.2.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-order": "^1.2.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-spawn-mocha": "^6.0.0",
-    "gulp-stylelint": "^13.0.0",
-    "gulp-uglify": "^3.0.0",
-    "jsdom": "^16.2.1",
-    "jsdom-global": "^3.0.2",
-    "mocha": "^7.1.2",
-    "node-notifier": "^6.0.0",
-    "normalize.css": "^8.0.1",
-    "nswatch": "^0.2.0",
-    "nyc": "^15.0.0",
-    "postcss-csso": "^4.0.0",
-    "postcss-discard-comments": "^4.0.2",
-    "prettier": "^1.19.1",
-    "resemblejs": "^3.2.4",
-    "sass": "^1.26.3",
-    "sinon": "^7.5.0",
-    "stylelint": "^13.2.1",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.15.0",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
-  }
+    "gulp-stylelint": "^11.0.0",
+    "prettier-eslint": "^9.0.1",
+    "stylelint": "^12.0.1",
+    "stylelint-scss": "^3.13.0"
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,24 @@
+/*
+----------------------------------------
+multi-cat()
+----------------------------------------
+Concatenate two lists
+----------------------------------------
+*/
+@use "sass:list";
+
+@function multi-cat($list1, $list2) {
+  $this-list: ();
+
+  @each $e in $list1 {
+    @each $ee in $list2 {
+      $this-block: $e + $ee;
+      $this-list: list.join($this-list, $this-block);
+    }
+  }
+
+  @return $this-list;
+}
+
+// @debug multi-cat((1, 2), (a, b));
+// 1a, 1b, 2a, 2b

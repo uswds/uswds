@@ -1,80 +1,153 @@
-// Bring in individual Gulp configurations
-require("./config/gulp/flags");
-require("./config/gulp/sass");
-require("./config/gulp/javascript");
-require("./config/gulp/images");
-require("./config/gulp/fonts");
-require("./config/gulp/build");
-require("./config/gulp/release");
-require("./config/gulp/test");
+'use strict';
 
-var gulp = require("gulp");
-var dutil = require("./config/gulp/doc-util");
+// Include gulp helpers.
+const { series, parallel, watch } = require('gulp');
 
-gulp.task("default", function(done) {
-  dutil.logIntroduction();
+// Include Pattern Lab and config.
+const config = require('./patternlab-config.json');
+const patternlab = require('@pattern-lab/core')(config);
 
-  dutil.logHelp(
-    "gulp",
-    "This task will output the currently supported automation tasks. (e.g. This help message.)"
-  );
+// Include Our tasks.
+//
+// Each task is broken apart to it's own node module.
+// Check out the ./gulp-tasks directory for more.
+const { compileSass, compileJS } = require('./gulp-tasks/compile');
+const { lintJS, lintSass } = require('./gulp-tasks/lint');
+const { compressAssets } = require('./gulp-tasks/compress');
+const { cleanCSS, cleanFonts, cleanImages, cleanJS } = require('./gulp-tasks/clean');
+const { concatCSS, concatJS } = require('./gulp-tasks/concat');
+const { moveFonts, movePatternCSS } = require('./gulp-tasks/move');
+const { prettier } = require('./gulp-tasks/format');
+const server = require('browser-sync').create();
 
-  dutil.logHelp(
-    "gulp no-cleanup [ task-name ]",
-    "Prefixing tasks with `no-cleanup ` will not remove the distribution directories."
-  );
+// Compile Our Sass and JS
+exports.compile = parallel(compileSass, compileJS, moveFonts, movePatternCSS);
 
-  dutil.logHelp(
-    "gulp no-test [ task-name ]",
-    "Prefixing tasks with `no-test` will disable testing and linting for all supported tasks."
-  );
+// Lint Sass and JavaScript
+exports.lint = parallel(lintSass, lintJS);
 
-  dutil.logCommand(
-    "gulp clean-dist",
-    "This task will remove the distribution directories."
-  );
+// Format JS files with Prettier and ESlint
+exports.format = prettier;
 
-  dutil.logHelp(
-    "gulp build",
-    "This task is an alias for running `gulp sass javascript images fonts` and is the recommended task to build all assets."
-  );
+// Compress Files
+exports.compress = compressAssets;
 
-  dutil.logCommand(
-    "gulp sass",
-    "This task will compile all the Sass files into distribution directories."
-  );
+// Concat all CSS and JS files into a master bundle.
+exports.concat = parallel(concatCSS, concatJS);
 
-  dutil.logCommand(
-    "gulp javascript",
-    "This task will compile all the JavaScript files into distribution directories."
-  );
+// Clean all directories.
+exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS);
 
-  dutil.logCommand(
-    "gulp images",
-    "This task will copy all the image files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp fonts",
-    "This task will copy all the font files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp release",
-    "This task will run `gulp build` and prepare a release directory."
-  );
-
-  dutil.logCommand(
-    "gulp test",
-    "This task will run `gulp test` and run this repository's unit tests."
-  );
-
+/**
+ * Start browsersync server.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function serve(done) {
+  // See https://browsersync.io/docs/options for more options.
+  server.init({
+    // We want to serve both the patternlab directory, so it gets
+    // loaded by default AND three directories up which is the
+    // Drupal core directory. This allows urls that reference
+    // Drupal core JS files to resolve correctly.
+    // i.e. /core/misc/drupal.js
+    server: ['./patternlab/', '../../../'],
+    notify: false,
+    open: false
+  });
   done();
-});
+}
 
-gulp.task("watch", function() {
-  gulp.watch("src/**/*.scss", gulp.series("sass")),
-  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
+/**
+ * Start Pattern Lab build watch process.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function watchPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: true
+    })
+    .then(() => {
+      done();
+    });
+}
 
-  return;
-});
+/**
+ * Build Pattern Lab.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function buildPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: false
+    })
+    .then(() => {
+      done();
+    });
+}
+
+/**
+ * Watch Sass and JS files.
+ * @returns {undefined}
+ */
+function watchFiles() {
+  // Watch all my sass files and compile sass if a file changes.
+  watch(
+    './src/patterns/**/**/*.scss',
+    series(parallel(lintSass, compileSass), concatCSS, (done) => {
+      server.reload('*.css');
+      done();
+    })
+  );
+
+  // Watch all my JS files and compile if a file changes.
+  watch(
+    './src/patterns/**/**/*.js',
+    series(
+      prettier,
+      parallel(lintJS, compileJS), concatJS, (done) => {
+        server.reload('*.js');
+        done();
+      }
+    )
+  );
+
+  // Watch all my images and SVG files and compile if a file changes.
+  watch(
+    './src/patterns/**/**/*{.png,.jpg,.svg}',
+    series(
+      parallel(compressAssets), (done) => {
+        server.reload('*{.png,.jpg,.svg,.html}');
+        done();
+      }
+    )
+  );
+
+  // Reload the browser after patternlab updates.
+  patternlab.events.on('patternlab-build-end', () => {
+    server.reload('*.html');
+  });
+}
+
+// Watch task that runs a browsersync server.
+exports.watch = series(
+  parallel(cleanCSS, cleanJS),
+  parallel(lintSass, compileSass, lintJS, compileJS, compressAssets, moveFonts, movePatternCSS),
+  parallel(concatCSS, concatJS),
+  series(watchPatternlab, serve, watchFiles)
+);
+
+// Build task for Pattern Lab.
+exports.styleguide = buildPatternlab;
+
+// Default Task
+exports.default = series(
+  parallel(cleanCSS, cleanJS),
+  parallel(lintSass, compileSass, lintJS, compileJS, compressAssets, moveFonts, movePatternCSS),
+  parallel(concatCSS, concatJS),
+  buildPatternlab
+);

@@ -1,27 +1,28 @@
-.DS_store
-.*.swp
+# Ignore the node modules folder (created by 'npm install').
+node_modules
 
-# ignore Node-specific files and directories
-node_modules/
-npm-debug.log*
-.gz
+# We absolutely don't want to have the .sass-cache in git.
+.sass-cache
 
-# code coverage
-coverage/
-.nyc_output
+# Ignore any errors thrown by npm.
+npm-debug.log
 
-# ignore the generated dist directory
-dist/
+# Ignore any map files. These don't need to be committed.
+*.map
 
-# ignore the Pattern Lab build directory
-pl/
+# Ignore any artifact files.
+# The patternlab build needs the subfolder to exist but we don't
+# want to commit anything in them beyond the .gitkeep file.
+dist/css/*
+!dist/css/.gitkeep
+dist/fonts/*
+!dist/fonts/.gitkeep
+dist/images/*
+!dist/images/.gitkeep
+dist/js/*
+!dist/js/.gitkeep
 
-# ignore saved screenshots
-spec/screenshots/*.png
-spec/screenshots/metadata.js
+# Ignore Patternlab files that change every time.
+patternlab
+dependencyGraph.json
 
-# ignore sass cache
-.sass-cache/
-
-# ignore sassdoc build
-sassdoc/

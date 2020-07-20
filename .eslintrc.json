@@ -1,0 +1,149 @@
+{
+  // http://eslint.org/docs/rules/
+  // By default, ESLint will look for configuration files in all parent
+  // folders up to the root directory. Prevent this by telling ESLint
+  // that this is the root of the project.
+  "root": true,
+
+  // Which environments your script is designed to run in.
+  // Each environment brings with it a certain set of predefined global variables.
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true
+  },
+
+  "globals": {
+    // Let ESLint know about defined global variables.
+    "Drupal": true,
+    "drupalSettings": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+
+  // Inherit settings from ESLint Recommended config.
+  // Rules above override any rules configured here.
+  "extends": "eslint:recommended",
+
+  // Let ESLint know that the Gulpfile and any Gulp
+  // tasks run in Node not the browser.
+  "overrides": [
+    {
+      "files": [
+        "gulpfile.js",
+        "gulp-tasks/**/*.js"
+      ],
+      "env": {
+        "node": true
+      }
+    }
+  ],
+
+  //  0 - turn the rule off
+  // 1 - turn the rule on as a warning (doesn't affect exit code)
+  // 2 - turn the rule on as an error (exit code is 1 when triggered)
+  "rules": {
+    // Two space indentation.
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+
+    // Prefer single quotes over double.
+    "quotes": ["error", "single"],
+
+    // Specify Unix line endings.
+    "linebreak-style": ["error", "unix"],
+
+    // Enforce using semicolons.
+    "semi": ["error", "always"],
+
+    // Enforce camelcase for variables.
+    "camelcase": "error",
+
+    // Prohibit use of == and != in favor of === and !==.
+    "eqeqeq": "error",
+
+    // If ESlint considers a file to be a Node module one 'use strict'
+    // is needed at the top of the file. If not 'use strict' needs to
+    // be added at the top of the function scope.
+    "strict": ["error", "safe"],
+
+    // Prohibit use of a variable before it is defined.
+    "no-undef": "error",
+
+    // Enforce line length to 80 characters.
+    "max-len": ["error", {
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreRegExpLiterals": true,
+      "ignoreTemplateLiterals": true
+    }],
+
+    // Require capitalized names for constructor functions.
+    "new-cap": "error",
+
+    // Warn when variables are defined but never used.
+    "no-unused-vars": "warn",
+
+    // Require one var declaration for each variable and
+    // declare each variable on a newline.
+    "one-var": ["error", "never"],
+
+    // Enforce stroustrup style for braces.
+    "brace-style": ["error", "stroustrup"],
+
+    // Validates JSDoc comments are syntactically correct
+    "valid-jsdoc": "error",
+
+      // Treat var as Block Scoped
+    "block-scoped-var": "warn",
+
+    // Require Following Curly Brace Conventions
+    "curly": "error",
+
+    // Disallow Use of Alert
+    "no-alert": "warn",
+
+    // Disallow eval()
+    "no-eval": "error",
+
+    // Disallow the type conversion with shorter notations
+    "no-implicit-coercion": "error",
+
+    // Disallow Functions in Loops
+    "no-loop-func": "error",
+
+    // Disallow Script URLs
+    "no-script-url": "error",
+
+    // Disallow Use of the Comma Operator
+    "no-sequences": "error",
+
+    // Disallow unnecessary concatenation of strings
+    "no-useless-concat": "error",
+
+    // Disallow Early Use
+    "no-use-before-define": "error",
+
+    // Require spacing in object literals.
+    // "object-curly-spacing": ["error", "always"],
+
+    // Require file to end with single newline
+    "eol-last": "error",
+
+    // Disallow trailing spaces at the end of lines
+    "no-trailing-spaces": "error",
+
+    // Disallow Dangling Underscores in Identifiers
+    "no-underscore-dangle": "error",
+
+    // Require JSDoc comment
+    "require-jsdoc": "error",
+
+    // Require Or Disallow Space Before Blocks
+    "space-before-blocks": "error",
+
+    // Disallow Yoda Conditions
+    "yoda": "error"
+  }
+}

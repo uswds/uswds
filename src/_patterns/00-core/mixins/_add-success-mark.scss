@@ -1,7 +1,0 @@
-@mixin add-success-mark {
-  &::before {
-    @include add-background-svg("correct9");
-    background-position: center;
-    background-size: units(2.5);
-  }
-}

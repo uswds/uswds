@@ -1,0 +1,21 @@
+{
+  "title" : "Pattern Lab",
+  "htmlClass": "pl",
+  "bodyClass": "body",
+  "modifier": "",
+  "extra_attributes": "",
+  "img": {
+    "landscape_4x3": {
+      "src": "https://via.placeholder.com/800x600?text=4:3",
+      "alt": "4:3 aspect ratio sample image"
+    },
+    "landscape_16x9": {
+      "src": "https://via.placeholder.com/800x450?text=16:9",
+      "alt": "16:9 aspect ratio sample image"
+    },
+    "square": {
+      "src": "https://via.placeholder.com/450x450?text=1:1",
+      "alt": "1:1 aspect ratio sample image"
+    }
+  }
+}

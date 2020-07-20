@@ -1,0 +1,82 @@
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+
+/**
+ * By default we want to add padding so the style guide is more
+ * readable. This can be overridden in each patterns data file.
+ */
+.pl {
+  padding: 35px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+#sg-patterns {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  max-width: 100%;
+  padding: 0 8px;
+}
+
+.pl-swatch {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 5px;
+  width: 180px;
+  height: 180px;
+  border-radius: 3px;
+  vertical-align: top;
+  border: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.pl-swatch__hex {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  font-size: small;
+}
+
+/* Increases size of pattern category and pattern name */
+.pl-c-category__title a {
+  font-size: 32px !important;
+}
+
+.pl-c-pattern__title a {
+  font-size: 24px !important;
+}
+
+.pl-icons__item {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 5px;
+  min-width: 100px;
+  border-radius: 3px;
+  vertical-align: top;
+  text-align: center;
+  border: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.pl-icons .icon {
+  vertical-align: middle;
+  margin: 20px auto;
+  fill: #222222;
+  height: 50px;
+  width: auto;
+  max-width: 100%;
+}
+
+.pl-icons__name {
+  margin: 0;
+  font-size: small;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.25);
+}

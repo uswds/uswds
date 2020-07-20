@@ -1,0 +1,43 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs overflow
+
+@mixin u-overflow($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  overflow: get-uswds-value("overflow", $value...) #{$important};
+}
+
+@mixin u-overflow-x($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  overflow-x: get-uswds-value("overflow", $value...) #{$important};
+}
+
+@mixin u-overflow-y($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  overflow-y: get-uswds-value("overflow", $value...) #{$important};
+}

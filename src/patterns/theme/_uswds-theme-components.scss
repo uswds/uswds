@@ -1,0 +1,85 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.7.0
+----------------------------------------
+COMPONENT SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://designsystem.digital.gov/design-tokens
+----------------------------------------
+*/
+
+// Accordion
+$theme-accordion-border-width: 0.5;
+$theme-accordion-border-color: "base-lightest";
+$theme-accordion-font-family: "body";
+
+// Alert
+$theme-alert-bar-width: 1;
+$theme-alert-font-family: "ui";
+$theme-alert-icon-size: 4;
+$theme-alert-padding-x: 2.5;
+
+// Banner
+$theme-banner-font-family: "ui";
+$theme-banner-max-width: "desktop";
+
+// Button
+$theme-button-font-family: "ui";
+$theme-button-border-radius: "md";
+$theme-button-small-width: 6;
+$theme-button-stroke-width: 2px;
+
+// Card
+$theme-card-border-color: "base-lighter";
+$theme-card-border-radius: "lg";
+$theme-card-border-width: 2px;
+$theme-card-gap: 2;
+$theme-card-flag-min-width: "tablet";
+$theme-card-flag-image-width: "card-lg";
+$theme-card-font-family: "body";
+$theme-card-header-typeset: "heading", "lg", 2;
+$theme-card-margin-bottom: 4;
+$theme-card-padding-perimeter: 3;
+$theme-card-padding-y: 2;
+
+// Footer
+$theme-footer-font-family: "body";
+
+// Form and input
+$theme-checkbox-border-radius: "sm";
+$theme-form-font-family: "ui";
+$theme-input-line-height: 3;
+$theme-input-max-width: "mobile-lg";
+$theme-input-select-border-width: 2px;
+$theme-input-select-size: 2.5;
+$theme-input-state-border-width: 0.5;
+
+// Header
+$theme-header-font-family: "ui";
+$theme-header-logo-text-width: 33%;
+$theme-header-max-width: "desktop";
+$theme-header-min-width: "desktop";
+
+// Hero
+$theme-hero-image: "#{$theme-image-path}/hero.png";
+
+// Navigation
+$theme-navigation-font-family: "ui";
+$theme-megamenu-columns: 3;
+
+// Search
+$theme-search-font-family: "ui";
+$theme-search-min-width: 27ch;
+
+// Sidenav
+$theme-sidenav-current-border-width: 0.5;
+$theme-sidenav-font-family: "ui";
