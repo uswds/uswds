@@ -83,9 +83,10 @@ describe("time picker component", () => {
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "04:00pm",
+      "4:00pm",
       "should focus the last item in the list"
     );
   });
