@@ -85,7 +85,9 @@ const transformTimePicker = el => {
     MAX_TIME,
     parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME
   );
-  const step = Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP);
+  const step = Math.floor(
+    Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP)
+  );
 
   for (let time = minTime; time <= maxTime; time += step) {
     const { minute, hour24, hour12, ampm } = getTimeContext(time);
