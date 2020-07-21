@@ -247,28 +247,18 @@ const enhanceComboBox = _comboBoxEl => {
  * Manage the focused element within the list options when
  * navigating via keyboard.
  *
- * @param {HTMLElement} el An element within the combo box component
- * @param {HTMLElement} currentEl An element within the combo box component
+ * @param {HTMLElement} el An anchor element within the combo box component
  * @param {HTMLElement} nextEl An element within the combo box component
  * @param {Object} options options
  * @param {boolean} options.skipFocus skip focus of highlighted item
  * @param {boolean} options.preventScroll should skip procedure to scroll to element
  */
-const highlightOption = (
-  el,
-  currentEl,
-  nextEl,
-  { skipFocus, preventScroll } = {}
-) => {
-  const { inputEl, listEl, selectedOptionEl } = getComboBoxContext(el);
+const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
+  const { inputEl, listEl, focusedOptionEl } = getComboBoxContext(el);
 
-  if (selectedOptionEl) {
-    selectedOptionEl.tabIndex = "-1";
-  }
-
-  if (currentEl) {
-    currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
-    currentEl.setAttribute("tabIndex", "-1");
+  if (focusedOptionEl) {
+    focusedOptionEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+    focusedOptionEl.setAttribute("tabIndex", "-1");
   }
 
   if (nextEl) {
@@ -388,12 +378,13 @@ const displayList = el => {
       let ariaSelected = "false";
 
       if (optionId === selectedItemId) {
-        classes.push(LIST_OPTION_SELECTED_CLASS);
+        classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
         tabindex = "0";
         ariaSelected = "true";
       }
 
       if (!selectedItemId && index === 0) {
+        classes.push(LIST_OPTION_FOCUSED_CLASS);
         tabindex = "0";
       }
 
@@ -431,7 +422,7 @@ const displayList = el => {
   }
 
   if (itemToFocus) {
-    highlightOption(listEl, null, itemToFocus, {
+    highlightOption(listEl, itemToFocus, {
       skipFocus: true
     });
   }
@@ -530,22 +521,9 @@ const resetSelection = el => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const completeSelection = el => {
-  const {
-    comboBoxEl,
-    selectEl,
-    inputEl,
-    statusEl,
-    focusedOptionEl
-  } = getComboBoxContext(el);
+  const { comboBoxEl, selectEl, inputEl, statusEl } = getComboBoxContext(el);
 
   statusEl.textContent = "";
-
-  if (focusedOptionEl) {
-    changeElementValue(selectEl, focusedOptionEl.dataset.value);
-    changeElementValue(inputEl, focusedOptionEl.textContent);
-    comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
-    return;
-  }
 
   const inputValue = (inputEl.value || "").toLowerCase();
 
@@ -583,9 +561,7 @@ const handleEscape = event => {
  * @param {KeyboardEvent} event An event within the combo box component
  */
 const handleDownFromInput = event => {
-  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
-    event.target
-  );
+  const { comboBoxEl, listEl } = getComboBoxContext(event.target);
 
   if (listEl.hidden) {
     displayList(comboBoxEl);
@@ -596,7 +572,7 @@ const handleDownFromInput = event => {
     listEl.querySelector(LIST_OPTION);
 
   if (nextOptionEl) {
-    highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
+    highlightOption(comboBoxEl, nextOptionEl);
   }
 
   event.preventDefault();
@@ -630,7 +606,7 @@ const handleDownFromListOption = event => {
   const nextOptionEl = focusedOptionEl.nextSibling;
 
   if (nextOptionEl) {
-    highlightOption(focusedOptionEl, focusedOptionEl, nextOptionEl);
+    highlightOption(focusedOptionEl, nextOptionEl);
   }
 
   event.preventDefault();
@@ -668,7 +644,7 @@ const handleUpFromListOption = event => {
   const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
   const listShown = !listEl.hidden;
 
-  highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
+  highlightOption(comboBoxEl, nextOptionEl);
 
   if (listShown) {
     event.preventDefault();
@@ -692,9 +668,7 @@ const handleMousemove = listOptionEl => {
 
   if (isCurrentlyFocused) return;
 
-  const { comboBoxEl, focusedOptionEl } = getComboBoxContext(listOptionEl);
-
-  highlightOption(comboBoxEl, focusedOptionEl, listOptionEl, {
+  highlightOption(listOptionEl, listOptionEl, {
     preventScroll: true
   });
 };
