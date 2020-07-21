@@ -9,7 +9,6 @@ describe("file input is disabled", () => {
  const { body } = document;
 
  let component;
- let inputEl;
 
  beforeEach(() => {
    body.innerHTML = TEMPLATE;
