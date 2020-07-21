@@ -180,3 +180,21 @@
   border-color: color("secondary-dark");
   border-width: 2px;
 }
+
+// Disabled state
+.usa-file-input--disabled {
+  pointer-events: none;
+
+  .usa-file-input__instructions {
+    opacity: .5;
+  }
+
+  .usa-file-input__box {
+    background-color: color($theme-color-disabled-light);
+  }
+
+  .usa-file-input__input[type] {
+    cursor: default;
+  }
+}
+

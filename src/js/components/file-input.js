@@ -10,6 +10,7 @@ const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
 const PREVIEW_HEADING_CLASS = `${PREFIX}-file-input__preview-heading`;
+const DISABLED_CLASS = `${PREFIX}-file-input--disabled`;
 const CHOOSE_CLASS = `${PREFIX}-file-input__choose`;
 const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
 const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
@@ -51,6 +52,7 @@ const buildFileInput = fileInputEl => {
   const dropTarget = document.createElement('div');
   const box = document.createElement('div');
   const instructions = document.createElement('div');
+  const disabled = fileInputEl.hasAttribute('disabled');
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -68,6 +70,11 @@ const buildFileInput = fileInputEl => {
   fileInputParent.appendChild(dropTarget);
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
+
+  // Disabled styling 
+  if (disabled) {
+    fileInputParent.classList.add(DISABLED_CLASS);
+  }
 
   // Sets instruction test based on whether or not multipe files are accepted
   if (acceptsMultiple) {
