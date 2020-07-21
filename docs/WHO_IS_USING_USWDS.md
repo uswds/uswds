@@ -44,6 +44,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Farm Credit Administration](https://www.fca.gov/)
 - [Farm Credit System Insurance Corporation](https://www.fcsic.gov/)
 - [Federal Data Strategy](https://strategy.data.gov/)
+- [Federal Deposit Insurance Corporation (FDIC)](https://fdic.gov/)
 - [Federal Election Commission](https://www.fec.gov/)
 - [Federal Election Commission Legal Documents](https://www.fec.gov/regulations/)
 - [Federal Financing Bank](https://www.ffb.gov/)
