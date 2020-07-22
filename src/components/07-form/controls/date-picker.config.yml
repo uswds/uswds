@@ -1,0 +1,7 @@
+label: Date Picker
+status: ready
+preview: "@uswds-framed"
+
+variants:
+  - name: default
+    label: Default

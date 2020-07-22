@@ -1,17 +1,19 @@
-const fs = require("fs");
-const path = require("path");
 const assert = require("assert");
 const DatePicker = require("../../../src/js/components/date-picker");
 const EVENTS = require("./events");
 const sinon = require("sinon");
-
-const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker.template.html")
-);
+const fractal = require("../../../fractal.config");
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
+let TEMPLATE;
+
 describe("date picker component", () => {
+  before("Load Template", async () => {
+    TEMPLATE = await fractal.components.render("@date-picker--default");
+    assert.ok(TEMPLATE);
+  });
+
   const { body } = document;
 
   let root;
