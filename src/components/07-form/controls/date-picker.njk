@@ -8,9 +8,15 @@
       {% if datePicker.rangeDate %} data-range-date="{{ datePicker.rangeDate }}"{% endif %}
       {% if datePicker.minDate %} data-min-date="{{ datePicker.minDate }}"{% endif %}
       {% if datePicker.maxDate %} data-max-date="{{ datePicker.maxDate }}"{% endif %}
-      {% if datePicker.disabled %} disabled{% endif %}
     >
-      <input class="usa-input" id="appointment-date" name="appointment-date" type="text" aria-describedby="appointment-date-label appointment-date-hint">
+      <input 
+        class="usa-input" 
+        id="appointment-date" 
+        name="appointment-date" 
+        type="text" 
+        aria-describedby="appointment-date-label appointment-date-hint"
+        {% if datePicker.disabled %} disabled{% endif %}
+      >
     </div>
   </div>
 </form>
