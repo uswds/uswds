@@ -4,6 +4,10 @@
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
   overflow: hidden;
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 }
 
 .usa-footer__return-to-top {
@@ -32,6 +36,10 @@
 
 .usa-footer__primary-section {
   background-color: color("base-lightest");
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 }
 
 .usa-footer__primary-container {
@@ -131,6 +139,10 @@
 .usa-footer__secondary-section {
   @include u-padding-y(2.5);
   background-color: color("base-lighter");
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 
   a {
     color: color("ink");
