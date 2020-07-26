@@ -13,7 +13,7 @@ module.exports = {
     return (
       src([
         './dist/css/*.css',
-        '!./dist/css/styles.css',
+        '!./dist/css/uswds.css',
         '!./dist/css/pattern-scaffolding.css'
       ])
         // Reorder the files so global is first.
@@ -30,7 +30,7 @@ module.exports = {
           'dist/css/global.css',
           'dist/css/*.css'
         ], { base: './' }))
-        .pipe(concat('styles.css'))
+        .pipe(concat('uswds.css'))
         .pipe(dest('./dist/css'))
     );
   },
@@ -40,7 +40,7 @@ module.exports = {
     return (
       src([
         './dist/js/*.js',
-        '!./dist/js/all.js'
+        '!./dist/js/uswds.js'
       ])
         // If you need to reorder any of the JS files here's an example:
         // .pipe(order([
@@ -48,7 +48,7 @@ module.exports = {
         //   'dist/js/button.js',
         //   'dist/js/*.js'
         // ], { base: './' }))
-        .pipe(concat('scripts.js'))
+        .pipe(concat('uswds.js'))
         .pipe(dest('./dist/js'))
     );
   }

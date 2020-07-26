@@ -1,4 +1,4 @@
-@use "../packages/required" as *;
+@use "../../packages/required" as *;
 
 .usa-banner {
   @include typeset($theme-banner-font-family);

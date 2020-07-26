@@ -31,6 +31,6 @@ module.exports = {
           return path;
         })
       )
-      .pipe(dest('./dist/images'));
+      .pipe(dest('./dist/img'));
   }
 };
