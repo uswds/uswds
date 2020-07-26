@@ -17,8 +17,8 @@ dist/css/*
 !dist/css/.gitkeep
 dist/fonts/*
 !dist/fonts/.gitkeep
-dist/images/*
-!dist/images/.gitkeep
+dist/img/*
+!dist/img/.gitkeep
 dist/js/*
 !dist/js/.gitkeep
 

@@ -1,0 +1,34 @@
+<section class="usa-banner" aria-label="Official government website">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img class="usa-banner__header-flag" src="/img/us_flag_small.png" alt="U.S. flag">
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto">
+          <p class="usa-banner__header-text">{{ banner.text }}</p>
+          <p class="usa-banner__header-action" aria-hidden="true">{{ banner.action }}</p>
+        </div>
+        <button class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
+          <span class="usa-banner__button-text">{{ banner.action }}</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/img/icon-dot-gov.svg" role="img" alt="Dot gov">
+          <div class="usa-media-block__body">
+            <p><strong>{{ domain.heading }}</strong><br/>{{ domain.text }}</p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/img/icon-https.svg" role="img" alt="Https">
+          <div class="usa-media-block__body">
+            <p><strong>{{ https.heading }}</strong><br/>{{ https.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

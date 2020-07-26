@@ -13,8 +13,7 @@ module.exports = {
   // Lint Sass based on .stylelintrc.yml config.
   lintSass: function () {
     return src([
-      './src/patterns/**/*.scss',
-      '!./src/patterns/00-config/_tokens.scss'
+      './src/patterns/**/*.scss'
     ])
       .pipe(
         gulpStylelint({
