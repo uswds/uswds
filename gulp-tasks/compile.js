@@ -4,11 +4,14 @@
 const { src, dest } = require('gulp');
 
 // Include Our Plugins
-const sass = require('gulp-dart-sass');
+const sass = require('gulp-sass');
 const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
+
+// Set sass compiler to use Dart Sass
+sass.compiler = require('sass');
 
 /**
  * Error handler function so we can see when errors happen.
