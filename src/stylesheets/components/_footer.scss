@@ -4,6 +4,10 @@
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
   overflow: hidden;
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 }
 
 .usa-footer__return-to-top {
@@ -16,10 +20,9 @@
 }
 
 .usa-footer__nav {
-  @include u-margin-x("auto");
+  @include grid-container($theme-footer-max-width);
   @include u-padding-x(0);
   border-bottom: 1px solid color("base-light");
-  max-width: units("desktop");
 
   @include at-media("mobile-lg") {
     @include add-responsive-site-margins;
@@ -33,11 +36,14 @@
 
 .usa-footer__primary-section {
   background-color: color("base-lightest");
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 }
 
 .usa-footer__primary-container {
-  @include u-margin-x("auto");
-  max-width: units("desktop");
+  @include grid-container($theme-footer-max-width);
 
   @include at-media("desktop") {
     @include u-padding-x(4);
@@ -132,6 +138,10 @@
 .usa-footer__secondary-section {
   @include u-padding-y(2.5);
   background-color: color("base-lighter");
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 
   a {
     color: color("ink");
