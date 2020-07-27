@@ -1,16 +1,18 @@
+{% set name = "file-input" %}
+
 <div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
-  <label class="usa-label{% if error %} usa-label--error{% endif %}" for="input-{{ id }}">{{ label }}</label>
+  <label class="usa-label{% if error %} usa-label--error{% endif %}" for="{{ name }}-{{ id }}">{{ label }}</label>
   {%- if hint %}
-  <span class="usa-hint" id="input-{{ id }}-hint">{{ hint }}</span>
+  <span class="usa-hint" id="{{ name }}-{{ id }}-hint">{{ hint }}</span>
   {%- endif -%}
   {%- if error %}
-  <span class="usa-error-message" id="file-input-{{ id }}-alert" role="alert">{{ errorMessage }}</span>
+  <span class="usa-error-message" id="{{ name }}-{{ id }}-alert" role="alert">{{ errorMessage }}</span>
   {%- endif %}
   <input id="input-{{ id }}"
     class="usa-file-input"
     type="file"
-    name="input-{{ id }}"
-    {% if hint %}aria-describedby="input-{{ id }}-hint"{% endif %}
+    name="{{ name }}-{{ id }}"
+    {% if hint %}aria-describedby="{{ name }}-{{ id }}-hint"{% endif %}
     {% if accept %}accept="{{ accept }}"{% endif %}
     {% if multiple %} multiple{% endif %}
     {% if disabled %} disabled{% endif %} />
