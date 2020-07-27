@@ -43,8 +43,7 @@
 }
 
 .usa-footer__primary-container {
-  @include u-margin-x("auto");
-  max-width: units($theme-footer-max-width);
+  @include grid-container($theme-footer-max-width);
 
   @include at-media("desktop") {
     @include u-padding-x(4);
