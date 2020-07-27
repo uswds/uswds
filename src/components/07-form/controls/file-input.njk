@@ -10,7 +10,7 @@
     class="usa-file-input"
     type="file"
     name="input-{{ id }}"
-    aria-describedby="input-{{ id }}-hint"
+    {% if hint %}aria-describedby="input-{{ id }}-hint"{% endif %}
     {% if accept %}accept="{{ accept }}"{% endif %}
     {% if multiple %} multiple{% endif %}
     {% if disabled %} disabled{% endif %} />
