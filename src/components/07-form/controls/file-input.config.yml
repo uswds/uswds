@@ -1,0 +1,37 @@
+label: File input
+status: ready
+
+variants:
+  - name: default
+    context:
+      id: single
+      label: Input a single file
+
+  - name: specific
+    context:
+      id: specific
+      label: Accept only specific filetypes
+      hint: Add only PDF or TXT files
+      accept:
+        - .pdf
+        - .txt
+
+  - name: multiple
+    context:
+      label: File input with multiple files
+      id: multiple
+      hint: Add one or more files
+      multiple: true
+
+  - name: error
+    context:
+      id: error
+      label: File input with error
+      error: true
+      errorMessage: A helpful error message
+
+  - name: disabled
+    context:
+      id: disabled
+      label: Disabled file input
+      disabled: true
