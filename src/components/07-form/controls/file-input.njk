@@ -8,7 +8,7 @@
   {%- if error %}
   <span class="usa-error-message" id="{{ name }}-{{ id }}-alert" role="alert">{{ errorMessage }}</span>
   {%- endif %}
-  <input id="input-{{ id }}"
+  <input id="{{ name }}-{{ id }}"
     class="usa-file-input"
     type="file"
     name="{{ name }}-{{ id }}"
