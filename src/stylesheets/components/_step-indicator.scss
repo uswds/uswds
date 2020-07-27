@@ -1,0 +1,56 @@
+.usa-step-indicator {
+  margin-bottom: units($theme-step-indicator-margin-bottom);
+}
+
+.usa-step-indicator__segments {
+  display: flex;
+}
+
+.usa-step-indicator__segment {
+  background-color: color($theme-step-indicator-step-color);
+  flex: 1;
+  height: units($theme-step-indicator-segment-height);
+  margin: units($theme-step-indicator-gap);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.usa-step-indicator__segment--complete {
+  background-color: color($theme-step-indicator-step-color-complete);
+}
+
+.usa-step-indicator__segment--current {
+  background-color: color($theme-step-indicator-step-color-current);
+}
+
+.usa-step-indicator__header {
+  align-items: baseline;
+  display: flex;
+}
+
+.usa-step-indicator__heading {
+  font-family: family($theme-step-indicator-font-family);
+  font-size: size($theme-step-indicator-font-family, $theme-step-indicator-font-size);
+  margin: units(2) 0 0;
+}
+
+.usa-step-indicator__current-step {
+  @include u-text('normal');
+  background-color: color($theme-step-indicator-step-color-current);
+  border-radius: radius($theme-button-border-radius);
+  color: color('white');
+  display: inline-block;
+  margin-right: units(2px);
+  padding:  units(2px) units(1);
+}
+
+.usa-step-indicator__total-steps {
+  @include u-text('normal');
+  margin-right: units(0.5); 
+}

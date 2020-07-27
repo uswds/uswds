@@ -97,6 +97,16 @@ $theme-search-min-width: 27ch;
 $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
 
+// Step indicator
+$theme-step-indicator-gap: 2px;
+$theme-step-indicator-margin-bottom: 4;
+$theme-step-indicator-segment-height: 1;
+$theme-step-indicator-step-color: 'primary-light';
+$theme-step-indicator-step-color-current: 'primary-dark';
+$theme-step-indicator-step-color-complete: 'primary-dark';
+$theme-step-indicator-font-family: 'ui';
+$theme-step-indicator-font-size: 'lg';
+
 // Tooltips
 $theme-tooltip-background-color: "ink";
 $theme-tooltip-font-color: "base-lightest";
