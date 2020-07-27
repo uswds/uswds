@@ -4,7 +4,7 @@
   <span class="usa-hint" id="input-{{ id }}-hint">{{ hint }}</span>
   {%- endif -%}
   {%- if error %}
-  <span class="usa-error-message" id="file-input-{{ id }}-alert" role="alert">Helpful error message</span>
+  <span class="usa-error-message" id="file-input-{{ id }}-alert" role="alert">{{ errorMessage }}</span>
   {%- endif %}
   <input id="input-{{ id }}"
     class="usa-file-input"

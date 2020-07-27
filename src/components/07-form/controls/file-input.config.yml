@@ -27,8 +27,9 @@ variants:
     context:
       id: error
       label: File input with error
+      hint: Add any valid file
       error: true
-      errorMessage: A helpful error message
+      errorMessage: Add a helpful error message
 
   - name: disabled
     context:
