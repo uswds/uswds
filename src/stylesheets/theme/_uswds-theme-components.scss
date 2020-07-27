@@ -99,13 +99,17 @@ $theme-sidenav-font-family: "ui";
 
 // Step indicator
 $theme-step-indicator-gap: 2px;
+$theme-step-indicator-label-font-size: "sm";
+$theme-step-indicator-label-font-size-small: "3xs";
 $theme-step-indicator-margin-bottom: 4;
+$theme-step-indicator-min-width: "mobile-lg";
 $theme-step-indicator-segment-height: 1;
-$theme-step-indicator-step-color: 'primary-light';
-$theme-step-indicator-step-color-current: 'primary-dark';
-$theme-step-indicator-step-color-complete: 'primary-dark';
-$theme-step-indicator-font-family: 'ui';
-$theme-step-indicator-font-size: 'lg';
+$theme-step-indicator-step-color: "primary-light";
+$theme-step-indicator-step-color-current: "primary-dark";
+$theme-step-indicator-step-color-complete: "primary-dark";
+$theme-step-indicator-font-family: "ui";
+$theme-step-indicator-font-size: "lg";
+$theme-step-indicator-font-size-small: "md";
 
 // Tooltips
 $theme-tooltip-background-color: "ink";
