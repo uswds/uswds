@@ -29,7 +29,7 @@ describe("combo box component with filter attribute", () => {
   });
 
   it("should display and filter the option list after a character is typed", () => {
-    input.value = "sc";
+    input.value = "st";
 
     EVENTS.input(input);
 

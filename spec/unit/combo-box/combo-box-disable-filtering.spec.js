@@ -46,7 +46,7 @@ describe("combo box component with disable filtering attribute", () => {
     );
     assert.equal(
       focusedOption.textContent,
-      "Groovy",
+      "Blood orange",
       "should be the first found item"
     );
   });
