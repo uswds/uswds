@@ -1,5 +1,6 @@
 label: File input
 status: ready
+collated: true
 
 variants:
   - name: default
@@ -10,29 +11,29 @@ variants:
   - name: specific
     context:
       id: specific
-      label: Accept only specific filetypes
-      hint: Add only PDF or TXT files
+      label: Input only specific file types
+      hint: Attach PDF or TXT files
       accept:
         - .pdf
         - .txt
 
   - name: multiple
     context:
-      label: File input with multiple files
+      label: Input multiple files
       id: multiple
-      hint: Add one or more files
+      hint: Attach one or more files
       multiple: true
 
   - name: error
     context:
       id: error
-      label: File input with error
-      hint: Add any valid file
+      label: Input with an error
+      hint: Attach any valid file
       error: true
-      errorMessage: Add a helpful error message
+      errorMessage: Display a helpful error message
 
   - name: disabled
     context:
       id: disabled
-      label: Disabled file input
+      label: Disabled input
       disabled: true
