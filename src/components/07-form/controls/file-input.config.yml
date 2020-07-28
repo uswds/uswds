@@ -6,34 +6,34 @@ variants:
   - name: default
     context:
       id: single
-      label: Input a single file
+      label: Input accepts a single file
 
   - name: specific
     context:
       id: specific
-      label: Input only specific file types
-      hint: Attach PDF or TXT files
+      label: Input accepts only specific file types
+      hint: Select PDF or TXT files
       accept:
         - .pdf
         - .txt
 
   - name: multiple
     context:
-      label: Input multiple files
+      label: Input accepts multiple files
       id: multiple
-      hint: Attach one or more files
+      hint: Select one or more files
       multiple: true
 
   - name: error
     context:
       id: error
-      label: Input with an error
-      hint: Attach any valid file
+      label: Input has an error
+      hint: Select any valid file
       error: true
       errorMessage: Display a helpful error message
 
   - name: disabled
     context:
       id: disabled
-      label: Disabled input
+      label: Input in a disabled state
       disabled: true
