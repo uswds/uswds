@@ -1,42 +1,15 @@
-<h6>Without labels</h6>
+<h6>{{ heading }}</h6>
 <div class="usa-step-indicator" aria-label="progress">
-  <ol class="usa-step-indicator__segments" >
-    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete"></li>
-    <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true"></li>
-    <li class="usa-step-indicator__segment"></li>
-    <li class="usa-step-indicator__segment"></li>
-    <li class="usa-step-indicator__segment"></li>
-    <li class="usa-step-indicator__segment"></li>
+  <ol class="usa-step-indicator__segments" {% if noLabels %}aria-hidden="true"{% endif %}>
+    {% for step in steps %}<li class="usa-step-indicator__segment{% if step.status == "complete" %} usa-step-indicator__segment--complete{% endif %}{% if step.status == "current" %} usa-step-indicator__segment--current{% endif %}" {% if step.status == "current" and showLabels %}aria-current="true"{% endif %}>{% if step.label %}
+    <span class="usa-step-indicator__segment-label">{{ step.label }} {% if step.status == "complete" %}<span class="usa-sr-only">completed</span>{% endif %}{% if step.status == "incomplete" %}<span class="usa-sr-only">not completed</span>{% endif %}</span>
+    {% endif %}</li>{% endfor %}
   </ol>
   <div class="usa-step-indicator__header">
     <h2 class="usa-step-indicator__heading">
-      <span class="usa-sr-only">Step</span>
-      <span class="usa-step-indicator__current-step">2</span> 
-      <span class="usa-step-indicator__total-steps">of 6</span> Household info
-    </h2>
-  </div>
-</div>
-
-
-<h6>Labels</h6>
-<div class="usa-step-indicator" aria-label="progress">
-  <ol class="usa-step-indicator__segments" >
-    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
-      <div class="usa-step-indicator__segment-label">Personal <span class="usa-sr-only">completed</span></div>  
-    </li>
-    <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
-      <div class="usa-step-indicator__segment-label">Household</div>
-    </li>
-    <li class="usa-step-indicator__segment">
-      <div class="usa-step-indicator__segment-label">Documents <span class="usa-sr-only">not completed</span></div>
-    </li>
-    <li class="usa-step-indicator__segment">
-      <div class="usa-step-indicator__segment-label">Review <span class="usa-sr-only">not completed</span></div>
-    </li>
-  </ol>
-  <div class="usa-step-indicator__header">
-    <h2 class="usa-step-indicator__heading">
-      Household info
+      {% if noLabels %}<span class="usa-sr-only">Step</span>
+      <span class="usa-step-indicator__current-step">{{ currentStep }}</span> 
+      <span class="usa-step-indicator__total-steps">of {{ steps.length }}</span>Household info{% else %}<span class="usa-sr-only">Step {{ currentStep }} of {{ steps.length }}:</span> Household info{% endif %}
     </h2>
   </div>
 </div>

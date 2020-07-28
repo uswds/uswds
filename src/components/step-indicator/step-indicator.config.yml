@@ -1,2 +1,45 @@
 label: Step indicator
 status: ready
+preview: "@uswds-content"
+
+variants:
+  - name: default
+    context:
+      heading: Without labels
+      noLabels: true
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+        - step:
+          status: current
+        - step:
+          status: incomplete
+        - step:
+          status: incomplete
+        - step:
+          status: incomplete 
+        - step:
+          status: incomplete
+
+  - name: With labels
+    context:
+      heading: With labels
+      showLabels: true
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal
+        - step:
+          status: current
+          label: Household
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Review
+
+
+
