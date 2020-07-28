@@ -2,7 +2,7 @@
   border: none;
   margin-top: units(1);
   padding-left: 0;
-  padding-top: 0.2rem; // keeps input vertially centered on error state
+  padding-top: 0.2rem; // keeps input vertically centered on error state
 }
 
 .usa-file-input {
@@ -186,7 +186,7 @@
   pointer-events: none;
 
   .usa-file-input__instructions {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   .usa-file-input__box {
@@ -197,4 +197,3 @@
     cursor: default;
   }
 }
-
