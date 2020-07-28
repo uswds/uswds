@@ -4,6 +4,8 @@
 
 .usa-step-indicator__segments {
   display: flex;
+  list-style: none;
+  padding: 0;
 }
 
 .usa-step-indicator__segment {

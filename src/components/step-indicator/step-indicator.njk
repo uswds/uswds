@@ -1,41 +1,42 @@
 <h6>Without labels</h6>
-<div class="usa-step-indicator">
-  <div class="usa-step-indicator__segments" role="progressbar" aria-valuenow="2" aria-valuemin="1" aria-valuetext="Step 2 of 6: Household info" aria-valuemax="6" tabindex="0">
-    <div class="usa-step-indicator__segment usa-step-indicator__segment--complete"></div>
-    <div class="usa-step-indicator__segment usa-step-indicator__segment--current"></div>
-    <div class="usa-step-indicator__segment"></div>
-    <div class="usa-step-indicator__segment"></div>
-    <div class="usa-step-indicator__segment"></div>
-    <div class="usa-step-indicator__segment"></div>
-  </div>
-  <div class="usa-step-indicator__header" aria-hidden="true">
-    <div class="usa-step-indicator__heading">
+<div class="usa-step-indicator" aria-label="progress">
+  <ol class="usa-step-indicator__segments" >
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete"></li>
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true"></li>
+    <li class="usa-step-indicator__segment"></li>
+    <li class="usa-step-indicator__segment"></li>
+    <li class="usa-step-indicator__segment"></li>
+    <li class="usa-step-indicator__segment"></li>
+  </ol>
+  <div class="usa-step-indicator__header">
+    <h2 class="usa-step-indicator__heading">
+      <span class="usa-sr-only">Step</span>
       <span class="usa-step-indicator__current-step">2</span> 
       <span class="usa-step-indicator__total-steps">of 6</span> Household info
-    </div>
+    </h2>
   </div>
 </div>
 
 
 <h6>Labels</h6>
-<div class="usa-step-indicator">
-  <div class="usa-step-indicator__segments" role="progressbar"aria-valuenow="2" aria-valuemin="0" aria-valuetext="Step 2 of 4: Household info" aria-valuemax="4" tabindex="0">
-    <div class="usa-step-indicator__segment usa-step-indicator__segment--complete">
-      <div class="usa-step-indicator__segment-label">Personal</div>  
-    </div>
-    <div class="usa-step-indicator__segment usa-step-indicator__segment--current">
+<div class="usa-step-indicator" aria-label="progress">
+  <ol class="usa-step-indicator__segments" >
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+      <div class="usa-step-indicator__segment-label">Personal <span class="usa-sr-only">completed</span></div>  
+    </li>
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
       <div class="usa-step-indicator__segment-label">Household</div>
-    </div>
-    <div class="usa-step-indicator__segment">
-      <div class="usa-step-indicator__segment-label">Documents</div>
-    </div>
-    <div class="usa-step-indicator__segment">
-      <div class="usa-step-indicator__segment-label">Review</div>
-    </div>
-  </div>
-  <div class="usa-step-indicator__header" aria-hidden="true">
-    <div class="usa-step-indicator__heading">
+    </li>
+    <li class="usa-step-indicator__segment">
+      <div class="usa-step-indicator__segment-label">Documents <span class="usa-sr-only">not completed</span></div>
+    </li>
+    <li class="usa-step-indicator__segment">
+      <div class="usa-step-indicator__segment-label">Review <span class="usa-sr-only">not completed</span></div>
+    </li>
+  </ol>
+  <div class="usa-step-indicator__header">
+    <h2 class="usa-step-indicator__heading">
       Household info
-    </div>
+    </h2>
   </div>
 </div>
