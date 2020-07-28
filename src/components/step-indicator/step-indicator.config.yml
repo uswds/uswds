@@ -5,7 +5,7 @@ preview: "@uswds-content"
 variants:
   - name: default
     context:
-      heading: Without labels
+      heading: Default
       noLabels: true
       currentStep: 2
       steps:
@@ -24,7 +24,7 @@ variants:
 
   - name: With labels
     context:
-      heading: With labels
+      heading: Labeled segments
       showLabels: true
       currentStep: 2
       steps:
