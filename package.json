@@ -111,7 +111,6 @@
     "mocha": "^7.2.0",
     "node-notifier": "^6.0.0",
     "normalize.css": "^8.0.1",
-    "nswatch": "^0.2.0",
     "nyc": "^15.1.0",
     "postcss-csso": "^4.0.0",
     "postcss-discard-comments": "^4.0.2",
