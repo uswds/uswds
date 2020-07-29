@@ -74,6 +74,7 @@ const buildFileInput = fileInputEl => {
   // Disabled styling 
   if (disabled) {
     fileInputParent.classList.add(DISABLED_CLASS);
+    fileInputParent.setAttribute('aria-disabled', 'true');
   }
 
   // Sets instruction test based on whether or not multipe files are accepted
