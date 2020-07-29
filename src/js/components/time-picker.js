@@ -10,6 +10,14 @@ const MIN_TIME = 0;
 const DEFAULT_STEP = 30;
 const MIN_STEP = 1;
 
+const FILTER_DATASET = {
+  filter:
+    "0?{{ hourQueryFilter }}:{{minuteQueryFilter}}.*{{ apQueryFilter }}m?",
+  apQueryFilter: "([ap])",
+  hourQueryFilter: "([1-9][0-2]?)",
+  minuteQueryFilter: "[\\d]+:([0-9]{0,2})"
+};
+
 /**
  * Parse a string of hh:mm into minutes
  *
@@ -101,10 +109,9 @@ const transformTimePicker = el => {
   timePickerEl.classList.add(COMBO_BOX_CLASS);
 
   // combo box properties
-  timePickerEl.dataset.apQueryFilter = "[ap]";
-  timePickerEl.dataset.timeQueryFilter = "[1-9][0-2]?(:[0-9]{0,2})?";
-  timePickerEl.dataset.filter =
-    "0?{{ timeQueryFilter }}.*{{ apQueryFilter }}m?";
+  Object.keys(FILTER_DATASET).forEach(key => {
+    timePickerEl.dataset[key] = FILTER_DATASET[key];
+  });
   timePickerEl.dataset.disableFiltering = "true";
 
   timePickerEl.appendChild(selectEl);
@@ -119,7 +126,8 @@ const timePicker = behavior(
         transformTimePicker(timePickerEl);
         enhanceComboBox(timePickerEl);
       });
-    }
+    },
+    FILTER_DATASET
   }
 );
 

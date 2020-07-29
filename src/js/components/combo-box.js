@@ -308,7 +308,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
       const matches = query.match(matcher);
 
       if (matches) {
-        return escapeRegExp(matches[0]);
+        return escapeRegExp(matches[1]);
       }
 
       return "";

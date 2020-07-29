@@ -2,13 +2,11 @@ const assert = require("assert");
 const {
   generateDynamicRegExp
 } = require("../../../src/js/components/combo-box");
+const { FILTER_DATASET } = require("../../../src/js/components/time-picker");
 
 describe("time picker regex", () => {
-  const filter = "0?{{ timeFilter }}.*{{ apFilter }}m?";
-  const dataset = {
-    apFilter: "[ap]",
-    timeFilter: "[1-9][0-2]?(:[0-9]{0,2})?"
-  };
+  const { filter, ...dataset } = FILTER_DATASET;
+
   const test = (inputQuery, testValue) => {
     const regex = generateDynamicRegExp(filter, inputQuery, dataset);
     return regex.test(testValue);
@@ -81,5 +79,17 @@ describe("time picker regex", () => {
     notOk("10pm", "01:00pm");
     notOk("10pm", "11:00pm");
     notOk("10pm", "10:00am");
+  });
+
+  it("should match first numerals as a complete match on hour", () => {
+    ok("1", "01:00am");
+    notOk("1", "10:00pm");
+    notOk("1", "11:00am");
+  });
+
+  it("should match first numerals as a complete match on hour with trailing p", () => {
+    ok("1p", "01:00pm");
+    notOk("1p", "10:00pm");
+    notOk("1p", "01:00am");
   });
 });

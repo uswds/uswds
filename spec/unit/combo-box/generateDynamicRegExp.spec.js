@@ -18,7 +18,7 @@ describe("generateDynamicRegExp function", () => {
 
   it("allows for string replacement with filter", () => {
     const regex = generateDynamicRegExp("something{{ filter }}", " Else", {
-      filter: "[LS]+"
+      filter: "([LS]+)"
     });
     assert.ok(regex.test("somethingLS"));
     assert.equal(regex.test("something"), false);

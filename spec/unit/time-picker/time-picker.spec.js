@@ -90,4 +90,19 @@ describe("time picker component", () => {
       "should focus the last item in the list"
     );
   });
+
+  it("should focus the first complete hour found in the list from the query when pressing down from the input", () => {
+    input.value = "1p";
+
+    EVENTS.input(input);
+    assert.ok(!list.hidden, "should display the option list");
+
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(
+      focusedOption.textContent,
+      "1:00pm",
+      "should focus the last item in the list"
+    );
+  });
 });
