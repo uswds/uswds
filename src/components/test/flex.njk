@@ -490,8 +490,7 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
   </h3>
   <h4>Original problem</h4>
   <p>
-    Overlaps on all browsers. Removing <code>min-width: 0;</code> will fix it
-    in modern browsers, but not IE11.
+    Nested grids with `grid-col` aren't collapsing correctly. Removing <code>min-width: 0;</code> will fix it in modern browsers, but not on IE11 small screens.
   </p>
   <div class="grid-row">
     <div class="grid-col">
@@ -504,6 +503,17 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
         <div class="grid-col border border-base-light padding-2">
           <p>.grid-col</p>
           <button class="usa-button usa-button--hover">Hover</button>
+          <div class="grid-row margin-top-4">
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+          </div>
         </div>
         <div class="grid-col border border-base-light padding-2">
           <p>.grid-col</p>
@@ -522,7 +532,7 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
   </div>
   <h4>grid-col-auto</h4>
   <p>
-    Works in all browsers.
+    Works in modern browsers, but not IE11.
   </p>
   <div class="grid-row">
     <div class="grid-col">
@@ -547,6 +557,17 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
         <div class="grid-col-auto border border-base-light padding-2">
           <p>.grid-col-auto</p>
           <button class="usa-button  usa-button--disabled">Disabled</button>
+          <div class="grid-row margin-top-4">
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -564,6 +585,17 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
         <div class="flex-1 padding-2 border border-base-light">
           <p>.flex-1</p>
           <button class="usa-button usa-button--hover">Hover</button>
+          <div class="grid-row margin-top-4">
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+          </div>
         </div>
         <div class="flex-1 padding-2 border border-base-light">
           <p>.flex-1</p>
@@ -581,7 +613,7 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
     </div>
   </div>
   <h4>Flex auto</h4>
-  <p>Works in all browsers.</p>
+  <p>1st level works in all browsers. Further nested grid fails in IE11.</p>
   <div class="grid-row">
     <div class="grid-col">
       <div class="padding-y-2">
@@ -597,6 +629,17 @@ class="grid-col-auto border border-primary-light bg-primary-lighter padding-4"
         <div class="flex-auto padding-2 border border-base-light">
           <p>.flex-auto</p>
           <button class="usa-button usa-button--active">Active</button>
+          <div class="grid-row margin-top-4">
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+            <div class="grid-col border border-base-light padding-1">
+              Double nested
+            </div>
+          </div>
         </div>
         <div class="flex-auto padding-2 border border-base-light">
           <p>.flex-auto</p>
