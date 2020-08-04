@@ -1760,6 +1760,7 @@ system z-index
   );
   $grade-step: 10;
   $found: false;
+  $decomposed: false;
 
   @if $preferred-link-color == default {
     $preferred-link-color: $theme-link-color;
@@ -1773,6 +1774,7 @@ system z-index
   $hover-token: false;
 
   @each $color-token in $our-color-tokens {
+    //@debug "color token: " + $color-token;
     // If the color token is a custom color, set a $custom flag
     $custom: if(
       type-of(map-get($assignments-theme-color, $color-token)) == "color",
@@ -1787,9 +1789,14 @@ system z-index
       $link-magic-number: abs($bg-grade - $link-grade);
       $token-darker: false;
       $token-lighter: false;
+      $link-family: false;
+      $link-vivid: false;
+      $hover-grade: false;
+      $hover-vivid: false;
 
       // If the link color is custom, output theme tokens, not system tokens
       @if $custom {
+        //@debug "uses custom color.";
         $custom-token: $color-token;
         $custom-token-lighter: false;
         $custom-token-darker: false;
@@ -1797,6 +1804,7 @@ system z-index
         $custom-grade: false;
         $custom-grade-lighter: false;
         $custom-grade-darker: false;
+        //@debug "custom split:" + $custom-split;
 
         // set family as the first string in the split
         $custom-family: nth($custom-split, 1);
@@ -1805,17 +1813,19 @@ system z-index
         @if $custom-family == "accent" {
           $custom-family: $custom-family + "-" + nth($custom-split, 2);
           $custom-grade: if(
-            index($custom-split, 3),
-            index($custom-split, 3),
+            length($custom-split) == 3,
+            nth($custom-split, 3),
             "default"
           );
         } @else {
           $custom-grade: if(
-            index($custom-split, 2),
-            index($custom-split, 2),
+            length($custom-split) == 2,
+            nth($custom-split, 2),
             "default"
           );
         }
+        //@debug "custom family: " + $custom-family;
+        //@debug "custom grade: " + $custom-grade;
 
         $custom-family-lighter: $custom-family;
         $custom-family-darker: $custom-family;
@@ -1830,6 +1840,7 @@ system z-index
             ($custom-grade-index - 1)
           );
         }
+        //@debug "lighter grade: " + $custom-grade-lighter;
         // If it's the darkest grade, use "black" for the lighter family
         @if $custom-grade-index == length($uswds-color-theme-grades) {
           $custom-family-darker: "black";
@@ -1839,6 +1850,7 @@ system z-index
             ($custom-grade-index + 1)
           );
         }
+        //@debug "darker grade: " + $custom-grade-darker;
 
         // If any calculated grade is "default", don't output the grade
         $custom-grade-darker: if(
@@ -1863,6 +1875,9 @@ system z-index
           $custom-family + "-" + $custom-grade-lighter,
           $custom-family-lighter
         );
+      } @else {
+        //@debug "not custom";
+        $decomposed: decompose($color-token);
       }
 
       @if $link-grade == 0 {
@@ -1879,6 +1894,7 @@ system z-index
         $link-token: $color-token;
         @if not $custom {
           $link-family: nth($decomposed, 1);
+          //@debug "link family: " + $link-family;
           $link-vivid: "";
           @if nth($decomposed, 3) {
             $link-vivid: "v";
@@ -1888,7 +1904,9 @@ system z-index
         // If link is darker than bg, use darker hover
         // Exclude black as it has no darker hover
         @if ($link-grade > $bg-grade) and ($link-grade != 100) {
+          //@debug "Link is darker than background";
           @if $token-darker {
+            //@debug "Getting darker token...";
             $hover-token: $token-darker;
           } @else {
             $hover-grade: $link-grade + $grade-step;
@@ -1904,7 +1922,9 @@ system z-index
         // If link is lighter than bg, use lighter hover
         // Exclude white equivalents as they have no lighter hover
         @else if ($link-grade != 0) and ($link-grade != 100) {
+          //@debug "Link is lighter than background";
           @if $token-lighter {
+            //@debug "Getting lighter token...";
             $hover-token: $token-lighter;
           } @else {
             $hover-grade: $link-grade - $grade-step;
@@ -1923,6 +1943,6 @@ system z-index
     @error 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" can be #{$wcag-target} contrast links and hovers on a "#{$bg-color}" background.';
   }
 
-  @debug "#{$link-token}, #{$hover-token}";
+  //@debug "#{$link-token}, #{$hover-token}";
   @return $link-token, $hover-token;
 }
