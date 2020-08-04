@@ -1809,6 +1809,11 @@ system z-index
         // set family as the first string in the split
         $custom-family: nth($custom-split, 1);
 
+        // ignore vivid in token calculations, treat as default
+        @if index($custom-split, "vivid") {
+          $custom-split: remove($custom-split, "vivid");
+        }
+
         // set family and grade for "accent" families, since their family includes the split character
         @if $custom-family == "accent" {
           $custom-family: $custom-family + "-" + nth($custom-split, 2);
@@ -1824,6 +1829,7 @@ system z-index
             "default"
           );
         }
+
         //@debug "custom family: " + $custom-family;
         //@debug "custom grade: " + $custom-grade;
 
