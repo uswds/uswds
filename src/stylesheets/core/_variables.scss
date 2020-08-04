@@ -263,6 +263,33 @@ $project-font-weights: (
 
 /*
 ----------------------------------------
+Theme color families and grades
+----------------------------------------
+*/
+
+$uswds-color-families: (
+  "primary",
+  "secondary",
+  "accent",
+  "base",
+  "warning",
+  "error",
+  "success",
+  "info"
+);
+
+$uswds-color-theme-grades: (
+  "lightest",
+  "lighter",
+  "light",
+  "default",
+  "dark",
+  "darker",
+  "darkest"
+);
+
+/*
+----------------------------------------
 Theme color map
 ----------------------------------------
 */
