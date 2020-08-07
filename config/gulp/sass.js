@@ -87,7 +87,10 @@ gulp.task(
   "sass",
   gulp.series("copy-vendor-sass", () => {
     dutil.logMessage(task, "Compiling Sass");
-    const pluginsProcess = [discardComments(), autoprefixer()];
+    const pluginsProcess = [
+      discardComments(),
+      autoprefixer()
+    ];
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
     return gulp
