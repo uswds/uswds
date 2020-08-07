@@ -1,0 +1,22 @@
+/*
+----------------------------------------
+str-split()
+----------------------------------------
+Split a string at a given separator
+and convert into a lisrt of substrings
+----------------------------------------
+*/
+
+@function str-split($string, $separator) {
+  $split-arr: ();
+  $index : str-index($string, $separator);
+  @while $index != null {
+    $item: str-slice($string, 1, $index - 1);
+    $split-arr: append($split-arr, $item);
+    $string: str-slice($string, $index + 1);
+    $index : str-index($string, $separator);
+  }
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}

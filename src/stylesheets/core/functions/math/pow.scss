@@ -1,0 +1,33 @@
+
+/*
+----------------------------------------
+pow()
+----------------------------------------
+Raises a unitless number to the power
+of another unitless number
+
+Includes helper functions
+----------------------------------------
+*/
+
+@use "exp" as *;
+
+@function pow($number, $exponent) {
+  @if (round($exponent) != $exponent) {
+    @return exp($exponent * ln($number));
+  }
+
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+     $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
