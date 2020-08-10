@@ -21,6 +21,7 @@
   @extend %block-input-styles;
   appearance: none;
   margin-bottom: 0;
+  max-width: none;
   padding-right: calc(2.5em + 3px);
 }
 
@@ -102,6 +103,8 @@ button.usa-combo-box__clear-input {
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
 
     &:focus {
       outline-offset: -4px;
