@@ -1,3 +1,7 @@
+@use "sass:math";
+
+@use "exp" as *;
+@use "ln" as *;
 
 /*
 ----------------------------------------
@@ -10,10 +14,8 @@ Includes helper functions
 ----------------------------------------
 */
 
-@use "exp" as *;
-
 @function pow($number, $exponent) {
-  @if (round($exponent) != $exponent) {
+  @if (math.round($exponent) != $exponent) {
     @return exp($exponent * ln($number));
   }
 

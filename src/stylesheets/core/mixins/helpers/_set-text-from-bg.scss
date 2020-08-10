@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "sass:math";
+
+@use "../../functions" as *;
+
 @mixin set-text-from-bg(
   $bg-color,
   $preferred-text-color: "white",
@@ -9,10 +14,10 @@
     "AAA": 70,
     "AA-large": 40
   );
-  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $target-magic-number: map.get($magic-numbers, $wcag-target);
   $grade-bg: get-color-grade($bg-color);
   $grade-preferred: get-color-grade($preferred-text-color);
-  $magic-num-preferred: abs($grade-bg - $grade-preferred);
+  $magic-num-preferred: math.abs($grade-bg - $grade-preferred);
 
   //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
 

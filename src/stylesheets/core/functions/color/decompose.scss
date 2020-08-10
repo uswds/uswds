@@ -1,6 +1,10 @@
-@use "sass:string";
 @use "sass:list";
 @use "sass:map";
+@use "sass:string";
+
+@use "../general/str-split" as *;
+@use "../general/to-number" as *;
+
 
 /*
 ----------------------------------------
@@ -25,7 +29,7 @@ returns 'null'
     "white": 0,
   );
 
-  $split: string.split($token, $separator);
+  $split: str-split($token, $separator);
   $grade: list.nth($split, list.length($split));
 
   @if string.index($grade, "v") {

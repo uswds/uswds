@@ -1,5 +1,8 @@
-@use "sass:map";
 @use "sass:color";
+@use "sass:map";
+@use "sass:math";
+
+@use "../math/pow" as *;
 
 /// Returns the luminance of `$color` as a float (between 0 and 1)
 /// 1 is pure white, 0 is pure black
@@ -28,7 +31,7 @@
   }
 
   $lum: (map.get($colors, 'red') * .2126) + (map.get($colors, 'green') * .7152) + (map.get($colors, 'blue') * .0722);
-  $lum: round($lum * 1000) / 1000;
+  $lum: math.round($lum * 1000) / 1000;
 
   @return $lum;
 }

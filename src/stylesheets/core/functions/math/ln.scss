@@ -1,5 +1,4 @@
 @use "sass:meta";
-@use "pow" as *;
 
 @function ln($value) {
   $ten-exp: 1;

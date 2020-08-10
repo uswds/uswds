@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:string";
+
 /*
 ----------------------------------------
 str-split()
@@ -9,14 +12,14 @@ and convert into a lisrt of substrings
 
 @function str-split($string, $separator) {
   $split-arr: ();
-  $index : str-index($string, $separator);
+  $index : string.index($string, $separator);
   @while $index != null {
-    $item: str-slice($string, 1, $index - 1);
-    $split-arr: append($split-arr, $item);
-    $string: str-slice($string, $index + 1);
-    $index : str-index($string, $separator);
+    $item: string.slice($string, 1, $index - 1);
+    $split-arr: list.append($split-arr, $item);
+    $string: string.slice($string, $index + 1);
+    $index : string.index($string, $separator);
   }
-  $split-arr: append($split-arr, $string);
+  $split-arr: list.append($split-arr, $string);
 
   @return $split-arr;
 }

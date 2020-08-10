@@ -1,8 +1,10 @@
+@use "sass:meta";
+
 @function summation($iteratee, $input, $initial: 0, $limit: 100) {
   $sum: 0;
 
   @for $index from $initial to $limit {
-    $sum: $sum + call($iteratee, $input, $index);
+    $sum: $sum + meta.call($iteratee, $input, $index);
   }
 
   @return $sum;
