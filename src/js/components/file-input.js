@@ -18,7 +18,7 @@ const DRAG_CLASS = `${PREFIX}-file-input--drag`;
 const LOADING_CLASS = 'is-loading';
 const HIDDEN_CLASS = 'display-none';
 const INVALID_FILE_CLASS = 'has-invalid-file';
-const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-file-input__preview__image`;
+const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-file-input__preview-image`;
 const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
 const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
 const WORD_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--word`;
@@ -71,7 +71,7 @@ const buildFileInput = fileInputEl => {
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
 
-  // Disabled styling 
+  // Disabled styling
   if (disabled) {
     fileInputParent.classList.add(DISABLED_CLASS);
     fileInputParent.setAttribute('aria-disabled', 'true');
@@ -193,7 +193,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
      // Starts with a loading image while preview is created
      reader.onloadstart = function createLoadingImage() {
        const imageId = makeSafeForID(fileName);
-       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-file-input__preview__image  ${LOADING_CLASS}"/>`;
+       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
 
        instructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
      }
