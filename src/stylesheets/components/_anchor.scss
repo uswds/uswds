@@ -1,3 +1,33 @@
-.usa-anchor {
+$theme-anchor-background-color: "base-darkest";
+$theme-anchor-min-width: "tablet";
+$theme-anchor-gap: 4;
+$theme-anchor-padding-bottom: 2;
+$theme-anchor-padding-top: 2;
 
+//
+// General Styles
+// =====================================
+.usa-anchor {
+  @include set-text-and-bg($theme-anchor-background-color);
+  @include u-padding-top($theme-anchor-padding-top);
+  @include u-padding-bottom($theme-anchor-padding-bottom);
+}
+
+.usa-anchor .usa-link {
+  @include set-link-from-bg($theme-anchor-background-color);
+  @include u-text-decoration("no-underline");
+}
+
+//
+// Required links
+// =====================================
+.usa-anchor__required-links-list {
+  @include unstyled-list();
+  @include u-margin-bottom(4);
+
+  @include at-media($theme-anchor-min-width) {
+    @include grid-row;
+    @include grid-gap($theme-anchor-gap);
+    @include u-flex("align-start");
+  }
 }
