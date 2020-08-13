@@ -1,9 +1,11 @@
 <div class="padding-2">
   <form class="usa-form">
+    <h6>Standard combo box in a usa-form</h6>
     {% render "@combo-box" %}
+    <h6>Overriding the combobox width</h6>
     {% render "@combo-box",
       { comboBox: {
-          utilities: "width-tablet",
+        utilities: "width-tablet maxw-none",
           label: "Select some more fruit",
           name: "moar-fruit",
           id: "moar-fruit"
@@ -11,4 +13,20 @@
       },
       merge=true %}
   </form>
+  <h6>Not in a usa-form element</h6>
+  {% render "@combo-box",
+    { comboBox: {
+        label: "Once again, select more fruit",
+        name: "even-moar-fruit"
+      }
+    },
+    merge=true %}
+  {% render "@combo-box",
+    { comboBox: {
+        utilities: "width-full maxw-none",
+        label: "Once again, select more fruit",
+        name: "even-moar-fruit"
+      }
+    },
+    merge=true %}
 </div>
