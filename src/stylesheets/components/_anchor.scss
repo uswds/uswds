@@ -9,8 +9,6 @@ $theme-anchor-padding-top: 2;
 // =====================================
 .usa-anchor {
   @include set-text-and-bg($theme-anchor-background-color);
-  @include u-padding-top($theme-anchor-padding-top);
-  @include u-padding-bottom($theme-anchor-padding-bottom);
 }
 
 .usa-anchor .usa-link {
@@ -19,6 +17,34 @@ $theme-anchor-padding-top: 2;
 }
 
 //
+// Primary Section
+// =====================================
+
+// Branding
+// =====================================
+.usa-anchor__branding {
+  display: flex;
+  align-items: flex-start;
+}
+
+.usa-anchor__branding-img {
+  @include media-block-img($margin-right: units(2));
+  max-width: units(5);
+}
+
+.usa-anchor__branding-body {
+  @include u-measure(5);
+}
+
+//
+// Secondary Section
+// =====================================
+.usa-anchor__secondary-section {
+  @include u-padding-top($theme-anchor-padding-top);
+  @include u-padding-bottom($theme-anchor-padding-bottom);
+  border-top: 1px solid rgba(white, 0.2);
+}
+
 // Required links
 // =====================================
 .usa-anchor__required-links-list {
