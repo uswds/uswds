@@ -1,0 +1,30 @@
+@mixin set-link-from-bg(
+  $bg-color,
+  $preferred-link-color: $theme-link-color,
+  $fallback-link-color: $theme-link-reverse-color,
+  $wcag-target: "AA"
+) {
+  $link-tokens: get-link-tokens-from-bg(
+    $bg-color,
+    $preferred-link-color,
+    $fallback-link-color,
+    $wcag-target
+  );
+
+  $link-token: nth($link-tokens, 1);
+  $hover-token: nth($link-tokens, 2);
+  $visited-token: if(
+    abs(get-color-grade($theme-link-visited-color) - get-color-grade($bg-color))
+      < 50,
+    $link-token,
+    $theme-link-visited-color
+  );
+  color: color($link-token);
+  &:visited {
+    color: color($visited-token);
+  }
+  &:hover,
+  &:active {
+    color: color($hover-token);
+  }
+}
