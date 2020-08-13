@@ -1,12 +1,12 @@
-<label class="usa-label" for="fruit">Select a fruit</label>
-<div class="usa-combo-box"
+<label class="usa-label" for="{{ comboBox.name }}">{{ comboBox.label }}</label>
+<div class="usa-combo-box{% if comboBox.utilities %} {{ comboBox.utilities }}{% endif %}"
   {% if comboBox.defaultValue %} data-default-value="{{ comboBox.defaultValue }}"{% endif %}
   {% if comboBox.placeholder %} data-placeholder="{{ comboBox.placeholder }}"{% endif %}
 >
   <select
     class="usa-select"
-    name="fruit"
-    id="fruit"
+    name="{{ comboBox.name }}"
+    id="{% if comboBox.id %}{{ comboBox.id }}{% else %}{{ comboBox.name }}{% endif %}"
     {% if comboBox.disabled %} disabled{% endif %}
     {% if comboBox.required %} required{% endif %}
   >
