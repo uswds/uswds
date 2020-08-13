@@ -1,6 +1,14 @@
 <div class="padding-2">
   <form class="usa-form">
     {% render "@combo-box" %}
-    {% render "@combo-box" %}
+    {% render "@combo-box",
+      { comboBox: {
+          utilities: "width-tablet",
+          label: "Select some more fruit",
+          name: "moar-fruit",
+          id: "moar-fruit"
+        }
+      },
+      merge=true %}
   </form>
 </div>
