@@ -5,6 +5,10 @@ preview: "@uswds-framed"
 variants:
   - name: default
     label: Default
+    context:
+      comboBox:
+        label: "Select a fruit"
+        name: "fruit"
 
   - name: default-value
     label: Default Value
