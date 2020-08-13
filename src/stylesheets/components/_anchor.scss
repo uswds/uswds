@@ -1,8 +1,26 @@
 $theme-anchor-background-color: "base-darkest";
 $theme-anchor-min-width: "tablet";
 $theme-anchor-gap: 4;
-$theme-anchor-padding-bottom: 2;
-$theme-anchor-padding-top: 2;
+$theme-site-domain: "my-domain";
+
+$anchor-icon-colors: get-link-tokens-from-bg(
+  $theme-anchor-background-color,
+  $theme-link-reverse-color
+);
+
+$anchor-icon-color: nth($anchor-icon-colors, 1);
+$anchor-icon-hover: nth($anchor-icon-colors, 2);
+
+// Need to create variants for IE11 so users can update background
+// and have the icon and link colors automatically update.
+$anchor-icon-external-link: (
+  "name": "external-link",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 0.65em,
+  "color": $anchor-icon-color,
+  "color-hover": $anchor-icon-hover
+);
 
 //
 // General Styles
@@ -13,47 +31,67 @@ $theme-anchor-padding-top: 2;
 
 .usa-anchor .usa-link {
   @include set-link-from-bg($theme-anchor-background-color);
-  @include u-text-decoration("no-underline");
 }
 
 //
 // Primary Section
 // =====================================
+.usa-anchor__primary-section {
+  padding-top: units(2.5);
+  padding-bottom: units(2.5);
+}
 
 // Branding
 // =====================================
 .usa-anchor__branding {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: units(2);
 }
 
 .usa-anchor__branding-img {
   @include media-block-img($margin-right: units(2));
-  max-width: units(5);
+  max-width: units(7);
 }
 
-.usa-anchor__branding-body {
-  @include u-measure(5);
-}
 
 //
 // Secondary Section
 // =====================================
 .usa-anchor__secondary-section {
-  @include u-padding-top($theme-anchor-padding-top);
-  @include u-padding-bottom($theme-anchor-padding-bottom);
-  border-top: 1px solid rgba(white, 0.2);
+  padding-top: units(1.5);
+  padding-bottom: units(1.5);
+  border-top: 1px solid color("gray-5");
 }
 
 // Required links
 // =====================================
 .usa-anchor__required-links-list {
-  @include unstyled-list();
-  @include u-margin-bottom(4);
+  @include unstyled-list;
+
+  a[href^='http:']:not([href*=#{$theme-site-domain}]),
+  a[href^='https:']:not([href*=#{$theme-site-domain}]) {
+    @include place-icon(
+      $anchor-icon-external-link,
+      "after",
+      0,
+      baseline,
+      $theme-anchor-background-color
+    );
+  }
 
   @include at-media($theme-anchor-min-width) {
     @include grid-row;
     @include grid-gap($theme-anchor-gap);
     @include u-flex("align-start");
+  }
+}
+
+// Override `unstyled-list` margin on mobile.
+.usa-anchor__required-links-list > li:not(:last-child) {
+  margin-bottom: units(1.5);
+
+  @include at-media($theme-anchor-min-width) {
+    margin-bottom: units(0);
   }
 }
