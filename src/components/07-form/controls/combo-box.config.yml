@@ -1,0 +1,31 @@
+label: Combo Box
+status: ready
+preview: "@uswds-framed"
+
+variants:
+  - name: default
+    label: Default
+
+  - name: default-value
+    label: Default Value
+    context:
+      comboBox:
+        defaultValue: "blackberry"
+
+  - name: disabled
+    label: Disabled
+    context:
+      comboBox:
+        disabled: true
+
+  - name: placeholder
+    label: Placeholder
+    context:
+      comboBox:
+        placeholder: "Select one..."
+
+  - name: required
+    label: Required
+    context:
+      comboBox:
+        required: true

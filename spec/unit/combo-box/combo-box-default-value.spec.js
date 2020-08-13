@@ -29,10 +29,14 @@ describe("combo box component with default value attribute", () => {
 
   it("enhances a select element into a combo box component", () => {
     assert.ok(input, "adds an input element");
-    assert.equal(input.value, "Go", "updates the default value of the input");
+    assert.equal(
+      input.value,
+      "Blackberry",
+      "updates the default value of the input"
+    );
     assert.equal(
       select.value,
-      "value-Go",
+      "blackberry",
       "updates the default value of the select"
     );
   });
