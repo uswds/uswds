@@ -76,7 +76,7 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
   align-items: flex-start;
 
   @include at-media($theme-anchor-min-width) {
-    flex: 3 1 26%;
+    flex: 1 1 0%;
   }
 }
 
