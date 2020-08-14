@@ -44,8 +44,23 @@ $anchor-icon-external-link: (
 // Branding
 // =====================================
 .usa-anchor__branding {
-  display: flex;
+  margin-bottom: units(2);
+
+  @include at-media($theme-anchor-min-width) {
+    @include grid-row;
+    @include grid-gap;
+  }
+}
+
+.usa-anchor__branding .usa-media-block {
   align-items: center;
+
+  @include at-media($theme-anchor-min-width) {
+    flex: 3 1 26%;
+  }
+}
+
+.usa-anchor__branding .usa-media-block:not(:only-child) {
   margin-bottom: units(2);
 }
 
