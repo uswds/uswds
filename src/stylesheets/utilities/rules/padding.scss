@@ -24,20 +24,20 @@ $u-padding: (
       noModifier: "",
       "y": (
         "-top",
-        "-bottom"
+        "-bottom",
       ),
       "x": (
         "-left",
-        "-right"
+        "-right",
       ),
       "top": "-top",
       "right": "-right",
       "bottom": "-bottom",
-      "left": "-left"
+      "left": "-left",
     ),
     values: map-collect(get-palettes($padding-palettes), $padding-manual-values),
     settings: $padding-settings,
     property: "padding",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

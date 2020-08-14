@@ -21,16 +21,16 @@ $u-border-width: (
       "width": "-width",
       "y-width": (
         "-top-width",
-        "-bottom-width"
+        "-bottom-width",
       ),
       "x-width": (
         "-left-width",
-        "-right-width"
+        "-right-width",
       ),
       "top-width": "-top-width",
       "right-width": "-right-width",
       "bottom-width": "-bottom-width",
-      "left-width": "-left-width"
+      "left-width": "-left-width",
     ),
     values:
       map-collect(
@@ -39,6 +39,6 @@ $u-border-width: (
       ),
     settings: $border-width-settings,
     property: "border",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

@@ -23,6 +23,6 @@ $u-z-index: (
     values: map-collect(get-palettes($z-index-palettes), $z-index-manual-values),
     settings: $z-index-settings,
     property: "z-index",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

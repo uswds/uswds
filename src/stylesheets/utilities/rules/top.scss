@@ -23,6 +23,6 @@ $u-top: (
     values: map-collect(get-palettes($top-palettes), $top-manual-values),
     settings: $top-settings,
     property: "top",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );
