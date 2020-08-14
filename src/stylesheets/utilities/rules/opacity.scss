@@ -16,13 +16,11 @@ example:
 
 $u-opacity: (
   opacity: (
-    base: (
-      "opacity"
-    ),
+    base: "opacity",
     modifiers: null,
     values: map-collect(get-palettes($opacity-palettes), $opacity-manual-values),
     settings: $opacity-settings,
     property: "opacity",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

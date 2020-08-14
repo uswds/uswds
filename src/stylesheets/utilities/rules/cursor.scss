@@ -21,6 +21,6 @@ $u-cursor: (
     values: map-collect(get-palettes($cursor-palettes), $cursor-manual-values),
     settings: $cursor-settings,
     property: "cursor",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

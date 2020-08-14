@@ -22,6 +22,6 @@ $u-min-height: (
       map-collect(get-palettes($min-height-palettes), $min-height-manual-values),
     settings: $min-height-settings,
     property: "min-height",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

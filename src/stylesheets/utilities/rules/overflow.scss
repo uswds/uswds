@@ -20,12 +20,12 @@ $u-overflow: (
     modifiers: (
       noModifier: "",
       "y": "-y",
-      "x": "-x"
+      "x": "-x",
     ),
     values:
       map-collect(get-palettes($overflow-palettes), $overflow-manual-values),
     settings: $overflow-settings,
     property: "overflow",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

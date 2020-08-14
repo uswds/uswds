@@ -27,6 +27,6 @@ $u-flex: (
     values: map-collect(get-palettes($flex-palettes), $flex-manual-values),
     settings: $flex-settings,
     property: "flex",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );
