@@ -55,6 +55,10 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
 .usa-anchor__primary-section {
   padding-top: units(2.5);
   padding-bottom: units(2.5);
+
+  @include at-media($theme-breadcrumb-min-width) {
+    padding-bottom: units(1.5);
+  }
 }
 
 // Branding
@@ -69,7 +73,7 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
 }
 
 .usa-anchor__branding .usa-media-block {
-  align-items: center;
+  align-items: flex-start;
 
   @include at-media($theme-anchor-min-width) {
     flex: 3 1 26%;
@@ -82,7 +86,12 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
 
 .usa-anchor__branding-img {
   @include media-block-img($margin-right: units(2));
+  align-self: center;
+}
+
+.usa-anchor__branding-img img {
   max-width: units(7);
+  min-height: units(4);
 }
 
 
@@ -100,17 +109,6 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
 .usa-anchor__required-links-list {
   @include unstyled-list;
 
-  a[href^='http:']:not([href*=#{$theme-site-domain}]),
-  a[href^='https:']:not([href*=#{$theme-site-domain}]) {
-    @include place-icon(
-      $anchor-icon-external-link,
-      "after",
-      0,
-      baseline,
-      $theme-anchor-background-color
-    );
-  }
-
   @include at-media($theme-anchor-min-width) {
     @include grid-row;
     @include grid-gap($theme-anchor-gap);
@@ -121,8 +119,4 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
 // Override `unstyled-list` margin on mobile.
 .usa-anchor__required-links-list > li:not(:last-child) {
   margin-bottom: units(1.5);
-
-  @include at-media($theme-anchor-min-width) {
-    margin-bottom: units(0);
-  }
 }
