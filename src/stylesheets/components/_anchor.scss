@@ -22,15 +22,31 @@ $anchor-icon-external-link: (
   "color-hover": $anchor-icon-hover
 );
 
+// Ugly selector, but we're looking for external links that aren't
+// wrapping identifier logos
+$external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-block__img)";
+
 //
 // General Styles
 // =====================================
 .usa-anchor {
   @include set-text-and-bg($theme-anchor-background-color);
-}
 
-.usa-anchor .usa-link {
-  @include set-link-from-bg($theme-anchor-background-color);
+  a {
+    @include set-link-from-bg($theme-anchor-background-color);
+  }
+
+  // Only external links
+  a[href^='http:']#{$external-link-qualifier},
+  a[href^='https:']#{$external-link-qualifier} {
+    @include place-icon(
+      $anchor-icon-external-link,
+      "after",
+      "2px",
+      baseline,
+      $theme-anchor-background-color
+    );
+  }
 }
 
 //
