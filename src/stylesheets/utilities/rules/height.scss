@@ -21,6 +21,6 @@ $u-height: (
     values: map-collect(get-palettes($height-palettes), $height-manual-values),
     settings: $height-settings,
     property: "height",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );
