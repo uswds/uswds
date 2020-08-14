@@ -25,7 +25,7 @@ $flex-utililies: (
     map-collect(
       map-deep-get($system-properties, justify-content, standard),
       map-deep-get($system-properties, justify-content, extended)
-    ),
+    )
 );
 
 @mixin u-flex($value...) {
