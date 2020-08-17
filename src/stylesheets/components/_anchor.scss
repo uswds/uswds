@@ -24,7 +24,7 @@ $anchor-icon-external-link: (
 
 // Ugly selector, but we're looking for external links that aren't
 // wrapping identifier logos
-$external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-block__img)";
+$external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__branding-img)";
 
 //
 // General Styles
@@ -72,26 +72,24 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-media-bl
   }
 }
 
-.usa-anchor__branding .usa-media-block {
-  align-items: flex-start;
-
-  @include at-media($theme-anchor-min-width) {
-    flex: 1 1 0%;
-  }
-}
-
-.usa-anchor__branding .usa-media-block:not(:only-child) {
+.usa-anchor__branding-img:not(:only-child) {
   margin-bottom: units(2);
+  @include u-text-decoration("no-underline");
 }
 
 .usa-anchor__branding-img {
   @include media-block-img($margin-right: units(2));
+  display: inline-flex;
   align-self: center;
 }
 
 .usa-anchor__branding-img img {
   max-width: units(7);
   min-height: units(4);
+}
+
+.usa-anchor__branding-description {
+  flex: 1 1 0%;
 }
 
 
