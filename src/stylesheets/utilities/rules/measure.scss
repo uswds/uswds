@@ -23,6 +23,6 @@ $u-measure: (
     values: map-collect(get-palettes($measure-palettes), $measure-manual-values),
     settings: $measure-settings,
     property: "max-width",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

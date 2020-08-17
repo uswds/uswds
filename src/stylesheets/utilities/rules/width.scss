@@ -21,6 +21,6 @@ $u-width: (
     values: map-collect(get-palettes($width-palettes), $width-manual-values),
     settings: $width-settings,
     property: "width",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

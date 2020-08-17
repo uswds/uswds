@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.1
+USWDS 2.8.1
 ----------------------------------------
 COLOR SETTINGS
 ----------------------------------------
@@ -133,3 +133,6 @@ $theme-link-color: "primary" !default;
 $theme-link-visited-color: "violet-70v" !default;
 $theme-link-hover-color: "primary-dark" !default;
 $theme-link-active-color: "primary-darker" !default;
+$theme-link-reverse-color: "base-lighter" !default;
+$theme-link-reverse-hover-color: "base-lightest" !default;
+$theme-link-reverse-active-color: "white" !default;
