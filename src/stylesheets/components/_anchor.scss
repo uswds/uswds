@@ -84,8 +84,9 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 }
 
 .usa-anchor__branding-img img {
-  max-width: units(7);
-  min-height: units(4);
+  width: units(7);
+  height: units(7);
+  object-fit: contain;
 }
 
 .usa-anchor__branding-description {
