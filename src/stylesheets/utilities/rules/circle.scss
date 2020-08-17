@@ -25,11 +25,11 @@ $u-circle: (
     settings: $circle-settings,
     property: (
       height,
-      width
+      width,
     ),
     extend: (
-      "border-radius": "50%"
+      "border-radius": "50%",
     ),
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

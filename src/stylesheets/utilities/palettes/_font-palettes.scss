@@ -20,14 +20,14 @@ $palettes-font-misc: (
     lang: get-font-stack("lang"),
     mono: get-font-stack("mono"),
     sans: get-font-stack("sans"),
-    serif: get-font-stack("serif")
+    serif: get-font-stack("serif"),
   ),
   "palette-font-family-roles": (
     ui: get-font-stack("ui"),
     heading: get-font-stack("heading"),
     body: get-font-stack("body"),
     code: get-font-stack("code"),
-    alt: get-font-stack("alt")
+    alt: get-font-stack("alt"),
   ),
   "palette-font-family-types": (
     cond: get-font-stack("cond"),
@@ -35,7 +35,7 @@ $palettes-font-misc: (
     lang: get-font-stack("lang"),
     mono: get-font-stack("mono"),
     sans: get-font-stack("sans"),
-    serif: get-font-stack("serif")
+    serif: get-font-stack("serif"),
   ),
   "palette-font-weight":
     map-collect(
@@ -49,7 +49,7 @@ $palettes-font-misc: (
         "600": 600,
         "700": 700,
         "800": 800,
-        "900": 900
+        "900": 900,
       )
     ),
   "palette-font-weight-theme": $project-font-weights,
@@ -62,8 +62,8 @@ $palettes-font-misc: (
     "600": 600,
     "700": 700,
     "800": 800,
-    "900": 900
-  )
+    "900": 900,
+  ),
 );
 
 $token-font-theme-cond-3xs: (
@@ -71,8 +71,8 @@ $token-font-theme-cond-3xs: (
     slug: "cond-3xs",
     isReadable: true,
     content: utility-font(cond, 3xs),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-2xs: (
@@ -80,8 +80,8 @@ $token-font-theme-cond-2xs: (
     slug: "cond-2xs",
     isReadable: true,
     content: utility-font(cond, 2xs),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-xs: (
@@ -89,8 +89,8 @@ $token-font-theme-cond-xs: (
     slug: "cond-xs",
     isReadable: true,
     content: utility-font(cond, xs),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-sm: (
@@ -98,8 +98,8 @@ $token-font-theme-cond-sm: (
     slug: "cond-sm",
     isReadable: true,
     content: utility-font(cond, sm),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-md: (
@@ -107,8 +107,8 @@ $token-font-theme-cond-md: (
     slug: "cond-md",
     isReadable: true,
     content: utility-font(cond, md),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-lg: (
@@ -116,8 +116,8 @@ $token-font-theme-cond-lg: (
     slug: "cond-lg",
     isReadable: true,
     content: utility-font(cond, lg),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-xl: (
@@ -125,8 +125,8 @@ $token-font-theme-cond-xl: (
     slug: "cond-xl",
     isReadable: true,
     content: utility-font(cond, xl),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-2xl: (
@@ -134,8 +134,8 @@ $token-font-theme-cond-2xl: (
     slug: "cond-2xl",
     isReadable: true,
     content: utility-font(cond, 2xl),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $token-font-theme-cond-3xl: (
@@ -143,8 +143,8 @@ $token-font-theme-cond-3xl: (
     slug: "cond-3xl",
     isReadable: true,
     content: utility-font(cond, 3xl),
-    dependency: $project-font-cond
-  )
+    dependency: $project-font-cond,
+  ),
 );
 
 $tokens-font-theme-cond: map-collect(
@@ -169,7 +169,7 @@ $palettes-font-theme-cond: (
   "palette-font-theme-cond-xl": $token-font-theme-cond-xl,
   "palette-font-theme-cond-2xl": $token-font-theme-cond-2xl,
   "palette-font-theme-cond-3xl": $token-font-theme-cond-3xl,
-  "palette-font-theme-cond": $tokens-font-theme-cond
+  "palette-font-theme-cond": $tokens-font-theme-cond,
 );
 
 $token-font-theme-icon-3xs: (
@@ -177,8 +177,8 @@ $token-font-theme-icon-3xs: (
     slug: "icon-3xs",
     isReadable: true,
     content: utility-font(icon, 3xs),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-2xs: (
@@ -186,8 +186,8 @@ $token-font-theme-icon-2xs: (
     slug: "icon-2xs",
     isReadable: true,
     content: utility-font(icon, 2xs),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-xs: (
@@ -195,8 +195,8 @@ $token-font-theme-icon-xs: (
     slug: "icon-xs",
     isReadable: true,
     content: utility-font(icon, xs),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-sm: (
@@ -204,8 +204,8 @@ $token-font-theme-icon-sm: (
     slug: "icon-sm",
     isReadable: true,
     content: utility-font(icon, sm),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-md: (
@@ -213,8 +213,8 @@ $token-font-theme-icon-md: (
     slug: "icon-md",
     isReadable: true,
     content: utility-font(icon, md),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-lg: (
@@ -222,8 +222,8 @@ $token-font-theme-icon-lg: (
     slug: "icon-lg",
     isReadable: true,
     content: utility-font(icon, lg),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-xl: (
@@ -231,8 +231,8 @@ $token-font-theme-icon-xl: (
     slug: "icon-xl",
     isReadable: true,
     content: utility-font(icon, xl),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-2xl: (
@@ -240,8 +240,8 @@ $token-font-theme-icon-2xl: (
     slug: "icon-2xl",
     isReadable: true,
     content: utility-font(icon, 2xl),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $token-font-theme-icon-3xl: (
@@ -249,8 +249,8 @@ $token-font-theme-icon-3xl: (
     slug: "icon-3xl",
     isReadable: true,
     content: utility-font(icon, 3xl),
-    dependency: $project-font-icon
-  )
+    dependency: $project-font-icon,
+  ),
 );
 
 $tokens-font-theme-icon: map-collect(
@@ -275,7 +275,7 @@ $palettes-font-theme-icon: (
   "palette-font-theme-icon-xl": $token-font-theme-icon-xl,
   "palette-font-theme-icon-2xl": $token-font-theme-icon-2xl,
   "palette-font-theme-icon-3xl": $token-font-theme-icon-3xl,
-  "palette-font-theme-icon": $tokens-font-theme-icon
+  "palette-font-theme-icon": $tokens-font-theme-icon,
 );
 
 $token-font-theme-lang-3xs: (
@@ -283,8 +283,8 @@ $token-font-theme-lang-3xs: (
     slug: "lang-3xs",
     isReadable: true,
     content: utility-font(lang, 3xs),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-2xs: (
@@ -292,8 +292,8 @@ $token-font-theme-lang-2xs: (
     slug: "lang-2xs",
     isReadable: true,
     content: utility-font(lang, 2xs),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-xs: (
@@ -301,8 +301,8 @@ $token-font-theme-lang-xs: (
     slug: "lang-xs",
     isReadable: true,
     content: utility-font(lang, xs),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-sm: (
@@ -310,8 +310,8 @@ $token-font-theme-lang-sm: (
     slug: "lang-sm",
     isReadable: true,
     content: utility-font(lang, sm),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-md: (
@@ -319,8 +319,8 @@ $token-font-theme-lang-md: (
     slug: "lang-md",
     isReadable: true,
     content: utility-font(lang, md),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-lg: (
@@ -328,8 +328,8 @@ $token-font-theme-lang-lg: (
     slug: "lang-lg",
     isReadable: true,
     content: utility-font(lang, lg),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-xl: (
@@ -337,8 +337,8 @@ $token-font-theme-lang-xl: (
     slug: "lang-xl",
     isReadable: true,
     content: utility-font(lang, xl),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-2xl: (
@@ -346,8 +346,8 @@ $token-font-theme-lang-2xl: (
     slug: "lang-2xl",
     isReadable: true,
     content: utility-font(lang, 2xl),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $token-font-theme-lang-3xl: (
@@ -355,8 +355,8 @@ $token-font-theme-lang-3xl: (
     slug: "lang-3xl",
     isReadable: true,
     content: utility-font(lang, 3xl),
-    dependency: $project-font-lang
-  )
+    dependency: $project-font-lang,
+  ),
 );
 
 $tokens-font-theme-lang: map-collect(
@@ -381,7 +381,7 @@ $palettes-font-theme-lang: (
   "palette-font-theme-lang-xl": $token-font-theme-lang-xl,
   "palette-font-theme-lang-2xl": $token-font-theme-lang-2xl,
   "palette-font-theme-lang-3xl": $token-font-theme-lang-3xl,
-  "palette-font-theme-lang": $tokens-font-theme-lang
+  "palette-font-theme-lang": $tokens-font-theme-lang,
 );
 
 $token-font-theme-mono-3xs: (
@@ -389,8 +389,8 @@ $token-font-theme-mono-3xs: (
     slug: "mono-3xs",
     isReadable: true,
     content: utility-font(mono, 3xs),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-2xs: (
@@ -398,8 +398,8 @@ $token-font-theme-mono-2xs: (
     slug: "mono-2xs",
     isReadable: true,
     content: utility-font(mono, 2xs),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-xs: (
@@ -407,8 +407,8 @@ $token-font-theme-mono-xs: (
     slug: "mono-xs",
     isReadable: true,
     content: utility-font(mono, xs),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-sm: (
@@ -416,8 +416,8 @@ $token-font-theme-mono-sm: (
     slug: "mono-sm",
     isReadable: true,
     content: utility-font(mono, sm),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-md: (
@@ -425,8 +425,8 @@ $token-font-theme-mono-md: (
     slug: "mono-md",
     isReadable: true,
     content: utility-font(mono, md),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-lg: (
@@ -434,8 +434,8 @@ $token-font-theme-mono-lg: (
     slug: "mono-lg",
     isReadable: true,
     content: utility-font(mono, lg),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-xl: (
@@ -443,8 +443,8 @@ $token-font-theme-mono-xl: (
     slug: "mono-xl",
     isReadable: true,
     content: utility-font(mono, xl),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-2xl: (
@@ -452,8 +452,8 @@ $token-font-theme-mono-2xl: (
     slug: "mono-2xl",
     isReadable: true,
     content: utility-font(mono, 2xl),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $token-font-theme-mono-3xl: (
@@ -461,8 +461,8 @@ $token-font-theme-mono-3xl: (
     slug: "mono-3xl",
     isReadable: true,
     content: utility-font(mono, 3xl),
-    dependency: $project-font-mono
-  )
+    dependency: $project-font-mono,
+  ),
 );
 
 $tokens-font-theme-mono: map-collect(
@@ -487,7 +487,7 @@ $palettes-font-theme-mono: (
   "palette-font-theme-mono-xl": $token-font-theme-mono-xl,
   "palette-font-theme-mono-2xl": $token-font-theme-mono-2xl,
   "palette-font-theme-mono-3xl": $token-font-theme-mono-3xl,
-  "palette-font-theme-mono": $tokens-font-theme-mono
+  "palette-font-theme-mono": $tokens-font-theme-mono,
 );
 
 $token-font-theme-sans-3xs: (
@@ -495,8 +495,8 @@ $token-font-theme-sans-3xs: (
     slug: "sans-3xs",
     isReadable: true,
     content: utility-font(sans, 3xs),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-2xs: (
@@ -504,8 +504,8 @@ $token-font-theme-sans-2xs: (
     slug: "sans-2xs",
     isReadable: true,
     content: utility-font(sans, 2xs),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-xs: (
@@ -513,8 +513,8 @@ $token-font-theme-sans-xs: (
     slug: "sans-xs",
     isReadable: true,
     content: utility-font(sans, xs),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-sm: (
@@ -522,8 +522,8 @@ $token-font-theme-sans-sm: (
     slug: "sans-sm",
     isReadable: true,
     content: utility-font(sans, sm),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-md: (
@@ -531,8 +531,8 @@ $token-font-theme-sans-md: (
     slug: "sans-md",
     isReadable: true,
     content: utility-font(sans, md),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-lg: (
@@ -540,8 +540,8 @@ $token-font-theme-sans-lg: (
     slug: "sans-lg",
     isReadable: true,
     content: utility-font(sans, lg),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-xl: (
@@ -549,8 +549,8 @@ $token-font-theme-sans-xl: (
     slug: "sans-xl",
     isReadable: true,
     content: utility-font(sans, xl),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-2xl: (
@@ -558,8 +558,8 @@ $token-font-theme-sans-2xl: (
     slug: "sans-2xl",
     isReadable: true,
     content: utility-font(sans, 2xl),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $token-font-theme-sans-3xl: (
@@ -567,8 +567,8 @@ $token-font-theme-sans-3xl: (
     slug: "sans-3xl",
     isReadable: true,
     content: utility-font(sans, 3xl),
-    dependency: $project-font-sans
-  )
+    dependency: $project-font-sans,
+  ),
 );
 
 $tokens-font-theme-sans: map-collect(
@@ -593,7 +593,7 @@ $palettes-font-theme-sans: (
   "palette-font-theme-sans-xl": $token-font-theme-sans-xl,
   "palette-font-theme-sans-2xl": $token-font-theme-sans-2xl,
   "palette-font-theme-sans-3xl": $token-font-theme-sans-3xl,
-  "palette-font-theme-sans": $tokens-font-theme-sans
+  "palette-font-theme-sans": $tokens-font-theme-sans,
 );
 
 $token-font-theme-serif-3xs: (
@@ -601,8 +601,8 @@ $token-font-theme-serif-3xs: (
     slug: "serif-3xs",
     isReadable: true,
     content: utility-font(serif, 3xs),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-2xs: (
@@ -610,8 +610,8 @@ $token-font-theme-serif-2xs: (
     slug: "serif-2xs",
     isReadable: true,
     content: utility-font(serif, 2xs),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-xs: (
@@ -619,8 +619,8 @@ $token-font-theme-serif-xs: (
     slug: "serif-xs",
     isReadable: true,
     content: utility-font(serif, xs),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-sm: (
@@ -628,8 +628,8 @@ $token-font-theme-serif-sm: (
     slug: "serif-sm",
     isReadable: true,
     content: utility-font(serif, sm),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-md: (
@@ -637,8 +637,8 @@ $token-font-theme-serif-md: (
     slug: "serif-md",
     isReadable: true,
     content: utility-font(serif, md),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-lg: (
@@ -646,8 +646,8 @@ $token-font-theme-serif-lg: (
     slug: "serif-lg",
     isReadable: true,
     content: utility-font(serif, lg),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-xl: (
@@ -655,8 +655,8 @@ $token-font-theme-serif-xl: (
     slug: "serif-xl",
     isReadable: true,
     content: utility-font(serif, xl),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-2xl: (
@@ -664,8 +664,8 @@ $token-font-theme-serif-2xl: (
     slug: "serif-2xl",
     isReadable: true,
     content: utility-font(serif, 2xl),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $token-font-theme-serif-3xl: (
@@ -673,8 +673,8 @@ $token-font-theme-serif-3xl: (
     slug: "serif-3xl",
     isReadable: true,
     content: utility-font(serif, 3xl),
-    dependency: $project-font-serif
-  )
+    dependency: $project-font-serif,
+  ),
 );
 
 $tokens-font-theme-serif: map-collect(
@@ -699,7 +699,7 @@ $palettes-font-theme-serif: (
   "palette-font-theme-serif-xl": $token-font-theme-serif-xl,
   "palette-font-theme-serif-2xl": $token-font-theme-serif-2xl,
   "palette-font-theme-serif-3xl": $token-font-theme-serif-3xl,
-  "palette-font-theme-serif": $tokens-font-theme-serif
+  "palette-font-theme-serif": $tokens-font-theme-serif,
 );
 
 $palette-font-theme-types: (
@@ -711,7 +711,7 @@ $palette-font-theme-types: (
       $tokens-font-theme-mono,
       $tokens-font-theme-sans,
       $tokens-font-theme-serif
-    )
+    ),
 );
 
 $palettes-font-theme-types: map-collect(
@@ -735,8 +735,8 @@ $token-font-theme-code-3xs: (
     slug: "code-3xs",
     isReadable: true,
     content: utility-font(code, 3xs),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-2xs: (
@@ -744,8 +744,8 @@ $token-font-theme-code-2xs: (
     slug: "code-2xs",
     isReadable: true,
     content: utility-font(code, 2xs),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-xs: (
@@ -753,8 +753,8 @@ $token-font-theme-code-xs: (
     slug: "code-xs",
     isReadable: true,
     content: utility-font(code, xs),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-sm: (
@@ -762,8 +762,8 @@ $token-font-theme-code-sm: (
     slug: "code-sm",
     isReadable: true,
     content: utility-font(code, sm),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-md: (
@@ -771,8 +771,8 @@ $token-font-theme-code-md: (
     slug: "code-md",
     isReadable: true,
     content: utility-font(code, md),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-lg: (
@@ -780,8 +780,8 @@ $token-font-theme-code-lg: (
     slug: "code-lg",
     isReadable: true,
     content: utility-font(code, lg),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-xl: (
@@ -789,8 +789,8 @@ $token-font-theme-code-xl: (
     slug: "code-xl",
     isReadable: true,
     content: utility-font(code, xl),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-2xl: (
@@ -798,8 +798,8 @@ $token-font-theme-code-2xl: (
     slug: "code-2xl",
     isReadable: true,
     content: utility-font(code, 2xl),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $token-font-theme-code-3xl: (
@@ -807,8 +807,8 @@ $token-font-theme-code-3xl: (
     slug: "code-3xl",
     isReadable: true,
     content: utility-font(code, 3xl),
-    dependency: $project-font-code
-  )
+    dependency: $project-font-code,
+  ),
 );
 
 $tokens-font-theme-code: map-collect(
@@ -833,7 +833,7 @@ $palettes-font-theme-code: (
   "palette-font-theme-code-xl": $token-font-theme-code-xl,
   "palette-font-theme-code-2xl": $token-font-theme-code-2xl,
   "palette-font-theme-code-3xl": $token-font-theme-code-3xl,
-  "palette-font-theme-code": $tokens-font-theme-code
+  "palette-font-theme-code": $tokens-font-theme-code,
 );
 
 $token-font-theme-ui-3xs: (
@@ -841,8 +841,8 @@ $token-font-theme-ui-3xs: (
     slug: "ui-3xs",
     isReadable: true,
     content: utility-font(ui, 3xs),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-2xs: (
@@ -850,8 +850,8 @@ $token-font-theme-ui-2xs: (
     slug: "ui-2xs",
     isReadable: true,
     content: utility-font(ui, 2xs),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-xs: (
@@ -859,8 +859,8 @@ $token-font-theme-ui-xs: (
     slug: "ui-xs",
     isReadable: true,
     content: utility-font(ui, xs),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-sm: (
@@ -868,8 +868,8 @@ $token-font-theme-ui-sm: (
     slug: "ui-sm",
     isReadable: true,
     content: utility-font(ui, sm),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-md: (
@@ -877,8 +877,8 @@ $token-font-theme-ui-md: (
     slug: "ui-md",
     isReadable: true,
     content: utility-font(ui, md),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-lg: (
@@ -886,8 +886,8 @@ $token-font-theme-ui-lg: (
     slug: "ui-lg",
     isReadable: true,
     content: utility-font(ui, lg),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-xl: (
@@ -895,8 +895,8 @@ $token-font-theme-ui-xl: (
     slug: "ui-xl",
     isReadable: true,
     content: utility-font(ui, xl),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-2xl: (
@@ -904,8 +904,8 @@ $token-font-theme-ui-2xl: (
     slug: "ui-2xl",
     isReadable: true,
     content: utility-font(ui, 2xl),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $token-font-theme-ui-3xl: (
@@ -913,8 +913,8 @@ $token-font-theme-ui-3xl: (
     slug: "ui-3xl",
     isReadable: true,
     content: utility-font(ui, 3xl),
-    dependency: $project-font-ui
-  )
+    dependency: $project-font-ui,
+  ),
 );
 
 $tokens-font-theme-ui: map-collect(
@@ -939,7 +939,7 @@ $palettes-font-theme-ui: (
   "palette-font-theme-ui-xl": $token-font-theme-ui-xl,
   "palette-font-theme-ui-2xl": $token-font-theme-ui-2xl,
   "palette-font-theme-ui-3xl": $token-font-theme-ui-3xl,
-  "palette-font-theme-ui": $tokens-font-theme-ui
+  "palette-font-theme-ui": $tokens-font-theme-ui,
 );
 
 $token-font-theme-heading-3xs: (
@@ -947,8 +947,8 @@ $token-font-theme-heading-3xs: (
     slug: "heading-3xs",
     isReadable: true,
     content: utility-font(heading, 3xs),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-2xs: (
@@ -956,8 +956,8 @@ $token-font-theme-heading-2xs: (
     slug: "heading-2xs",
     isReadable: true,
     content: utility-font(heading, 2xs),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-xs: (
@@ -965,8 +965,8 @@ $token-font-theme-heading-xs: (
     slug: "heading-xs",
     isReadable: true,
     content: utility-font(heading, xs),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-sm: (
@@ -974,8 +974,8 @@ $token-font-theme-heading-sm: (
     slug: "heading-sm",
     isReadable: true,
     content: utility-font(heading, sm),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-md: (
@@ -983,8 +983,8 @@ $token-font-theme-heading-md: (
     slug: "heading-md",
     isReadable: true,
     content: utility-font(heading, md),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-lg: (
@@ -992,8 +992,8 @@ $token-font-theme-heading-lg: (
     slug: "heading-lg",
     isReadable: true,
     content: utility-font(heading, lg),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-xl: (
@@ -1001,8 +1001,8 @@ $token-font-theme-heading-xl: (
     slug: "heading-xl",
     isReadable: true,
     content: utility-font(heading, xl),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-2xl: (
@@ -1010,8 +1010,8 @@ $token-font-theme-heading-2xl: (
     slug: "heading-2xl",
     isReadable: true,
     content: utility-font(heading, 2xl),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $token-font-theme-heading-3xl: (
@@ -1019,8 +1019,8 @@ $token-font-theme-heading-3xl: (
     slug: "heading-3xl",
     isReadable: true,
     content: utility-font(heading, 3xl),
-    dependency: $project-font-heading
-  )
+    dependency: $project-font-heading,
+  ),
 );
 
 $tokens-font-theme-heading: map-collect(
@@ -1045,7 +1045,7 @@ $palettes-font-theme-heading: (
   "palette-font-theme-heading-xl": $token-font-theme-heading-xl,
   "palette-font-theme-heading-2xl": $token-font-theme-heading-2xl,
   "palette-font-theme-heading-3xl": $token-font-theme-heading-3xl,
-  "palette-font-theme-heading": $tokens-font-theme-heading
+  "palette-font-theme-heading": $tokens-font-theme-heading,
 );
 
 $token-font-theme-body-3xs: (
@@ -1053,8 +1053,8 @@ $token-font-theme-body-3xs: (
     slug: "body-3xs",
     isReadable: true,
     content: utility-font(body, 3xs),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-2xs: (
@@ -1062,8 +1062,8 @@ $token-font-theme-body-2xs: (
     slug: "body-2xs",
     isReadable: true,
     content: utility-font(body, 2xs),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-xs: (
@@ -1071,8 +1071,8 @@ $token-font-theme-body-xs: (
     slug: "body-xs",
     isReadable: true,
     content: utility-font(body, xs),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-sm: (
@@ -1080,8 +1080,8 @@ $token-font-theme-body-sm: (
     slug: "body-sm",
     isReadable: true,
     content: utility-font(body, sm),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-md: (
@@ -1089,8 +1089,8 @@ $token-font-theme-body-md: (
     slug: "body-md",
     isReadable: true,
     content: utility-font(body, md),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-lg: (
@@ -1098,8 +1098,8 @@ $token-font-theme-body-lg: (
     slug: "body-lg",
     isReadable: true,
     content: utility-font(body, lg),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-xl: (
@@ -1107,8 +1107,8 @@ $token-font-theme-body-xl: (
     slug: "body-xl",
     isReadable: true,
     content: utility-font(body, xl),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-2xl: (
@@ -1116,8 +1116,8 @@ $token-font-theme-body-2xl: (
     slug: "body-2xl",
     isReadable: true,
     content: utility-font(body, 2xl),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $token-font-theme-body-3xl: (
@@ -1125,8 +1125,8 @@ $token-font-theme-body-3xl: (
     slug: "body-3xl",
     isReadable: true,
     content: utility-font(body, 3xl),
-    dependency: $project-font-body
-  )
+    dependency: $project-font-body,
+  ),
 );
 
 $tokens-font-theme-body: map-collect(
@@ -1151,7 +1151,7 @@ $palettes-font-theme-body: (
   "palette-font-theme-body-xl": $token-font-theme-body-xl,
   "palette-font-theme-body-2xl": $token-font-theme-body-2xl,
   "palette-font-theme-body-3xl": $token-font-theme-body-3xl,
-  "palette-font-theme-body": $tokens-font-theme-body
+  "palette-font-theme-body": $tokens-font-theme-body,
 );
 
 $token-font-theme-alt-3xs: (
@@ -1159,8 +1159,8 @@ $token-font-theme-alt-3xs: (
     slug: "alt-3xs",
     isReadable: true,
     content: utility-font(alt, 3xs),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-2xs: (
@@ -1168,8 +1168,8 @@ $token-font-theme-alt-2xs: (
     slug: "alt-2xs",
     isReadable: true,
     content: utility-font(alt, 2xs),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-xs: (
@@ -1177,8 +1177,8 @@ $token-font-theme-alt-xs: (
     slug: "alt-xs",
     isReadable: true,
     content: utility-font(alt, xs),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-sm: (
@@ -1186,8 +1186,8 @@ $token-font-theme-alt-sm: (
     slug: "alt-sm",
     isReadable: true,
     content: utility-font(alt, sm),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-md: (
@@ -1195,8 +1195,8 @@ $token-font-theme-alt-md: (
     slug: "alt-md",
     isReadable: true,
     content: utility-font(alt, md),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-lg: (
@@ -1204,8 +1204,8 @@ $token-font-theme-alt-lg: (
     slug: "alt-lg",
     isReadable: true,
     content: utility-font(alt, lg),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-xl: (
@@ -1213,8 +1213,8 @@ $token-font-theme-alt-xl: (
     slug: "alt-xl",
     isReadable: true,
     content: utility-font(alt, xl),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-2xl: (
@@ -1222,8 +1222,8 @@ $token-font-theme-alt-2xl: (
     slug: "alt-2xl",
     isReadable: true,
     content: utility-font(alt, 2xl),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $token-font-theme-alt-3xl: (
@@ -1231,8 +1231,8 @@ $token-font-theme-alt-3xl: (
     slug: "alt-3xl",
     isReadable: true,
     content: utility-font(alt, 3xl),
-    dependency: $project-font-alt
-  )
+    dependency: $project-font-alt,
+  ),
 );
 
 $tokens-font-theme-alt: map-collect(
@@ -1257,7 +1257,7 @@ $palettes-font-theme-alt: (
   "palette-font-theme-alt-xl": $token-font-theme-alt-xl,
   "palette-font-theme-alt-2xl": $token-font-theme-alt-2xl,
   "palette-font-theme-alt-3xl": $token-font-theme-alt-3xl,
-  "palette-font-theme-alt": $tokens-font-theme-alt
+  "palette-font-theme-alt": $tokens-font-theme-alt,
 );
 
 $palette-font-theme-roles: (
@@ -1268,7 +1268,7 @@ $palette-font-theme-roles: (
       $tokens-font-theme-heading,
       $tokens-font-theme-body,
       $tokens-font-theme-alt
-    )
+    ),
 );
 
 $palettes-font-theme-roles: map-collect(
@@ -1295,7 +1295,7 @@ $tokens-font-theme: map-collect(
 );
 
 $palette-font-theme: (
-  "palette-font-theme": $tokens-font-theme
+  "palette-font-theme": $tokens-font-theme,
 );
 
 $palettes-font-theme: map-collect(
@@ -1314,168 +1314,168 @@ $token-font-system-cond-micro: (
   cond-micro: (
     slug: "cond-micro",
     isReadable: true,
-    content: utility-font(cond, "micro")
-  )
+    content: utility-font(cond, "micro"),
+  ),
 );
 
 $token-font-system-cond-1: (
   cond-1: (
     slug: "cond-1",
     isReadable: true,
-    content: utility-font(cond, 1)
-  )
+    content: utility-font(cond, 1),
+  ),
 );
 
 $token-font-system-cond-2: (
   cond-2: (
     slug: "cond-2",
     isReadable: true,
-    content: utility-font(cond, 2)
-  )
+    content: utility-font(cond, 2),
+  ),
 );
 
 $token-font-system-cond-3: (
   cond-3: (
     slug: "cond-3",
     isReadable: true,
-    content: utility-font(cond, 3)
-  )
+    content: utility-font(cond, 3),
+  ),
 );
 
 $token-font-system-cond-4: (
   cond-4: (
     slug: "cond-4",
     isReadable: true,
-    content: utility-font(cond, 4)
-  )
+    content: utility-font(cond, 4),
+  ),
 );
 
 $token-font-system-cond-5: (
   cond-5: (
     slug: "cond-5",
     isReadable: true,
-    content: utility-font(cond, 5)
-  )
+    content: utility-font(cond, 5),
+  ),
 );
 
 $token-font-system-cond-6: (
   cond-6: (
     slug: "cond-6",
     isReadable: true,
-    content: utility-font(cond, 6)
-  )
+    content: utility-font(cond, 6),
+  ),
 );
 
 $token-font-system-cond-7: (
   cond-7: (
     slug: "cond-7",
     isReadable: true,
-    content: utility-font(cond, 7)
-  )
+    content: utility-font(cond, 7),
+  ),
 );
 
 $token-font-system-cond-8: (
   cond-8: (
     slug: "cond-8",
     isReadable: true,
-    content: utility-font(cond, 8)
-  )
+    content: utility-font(cond, 8),
+  ),
 );
 
 $token-font-system-cond-9: (
   cond-9: (
     slug: "cond-9",
     isReadable: true,
-    content: utility-font(cond, 9)
-  )
+    content: utility-font(cond, 9),
+  ),
 );
 
 $token-font-system-cond-10: (
   cond-10: (
     slug: "cond-10",
     isReadable: true,
-    content: utility-font(cond, 10)
-  )
+    content: utility-font(cond, 10),
+  ),
 );
 
 $token-font-system-cond-11: (
   cond-11: (
     slug: "cond-11",
     isReadable: true,
-    content: utility-font(cond, 11)
-  )
+    content: utility-font(cond, 11),
+  ),
 );
 
 $token-font-system-cond-12: (
   cond-12: (
     slug: "cond-12",
     isReadable: true,
-    content: utility-font(cond, 12)
-  )
+    content: utility-font(cond, 12),
+  ),
 );
 
 $token-font-system-cond-13: (
   cond-13: (
     slug: "cond-13",
     isReadable: true,
-    content: utility-font(cond, 13)
-  )
+    content: utility-font(cond, 13),
+  ),
 );
 
 $token-font-system-cond-14: (
   cond-14: (
     slug: "cond-14",
     isReadable: true,
-    content: utility-font(cond, 14)
-  )
+    content: utility-font(cond, 14),
+  ),
 );
 
 $token-font-system-cond-15: (
   cond-15: (
     slug: "cond-15",
     isReadable: true,
-    content: utility-font(cond, 15)
-  )
+    content: utility-font(cond, 15),
+  ),
 );
 
 $token-font-system-cond-16: (
   cond-16: (
     slug: "cond-16",
     isReadable: true,
-    content: utility-font(cond, 16)
-  )
+    content: utility-font(cond, 16),
+  ),
 );
 
 $token-font-system-cond-17: (
   cond-17: (
     slug: "cond-17",
     isReadable: true,
-    content: utility-font(cond, 17)
-  )
+    content: utility-font(cond, 17),
+  ),
 );
 
 $token-font-system-cond-18: (
   cond-18: (
     slug: "cond-18",
     isReadable: true,
-    content: utility-font(cond, 18)
-  )
+    content: utility-font(cond, 18),
+  ),
 );
 
 $token-font-system-cond-19: (
   cond-19: (
     slug: "cond-19",
     isReadable: true,
-    content: utility-font(cond, 19)
-  )
+    content: utility-font(cond, 19),
+  ),
 );
 
 $token-font-system-cond-20: (
   cond-20: (
     slug: "cond-20",
     isReadable: true,
-    content: utility-font(cond, 20)
-  )
+    content: utility-font(cond, 20),
+  ),
 );
 
 $tokens-font-system-cond-small: map-collect(
@@ -1522,168 +1522,168 @@ $token-font-system-icon-micro: (
   icon-micro: (
     slug: "icon-micro",
     isReadable: true,
-    content: utility-font(icon, "micro")
-  )
+    content: utility-font(icon, "micro"),
+  ),
 );
 
 $token-font-system-icon-1: (
   icon-1: (
     slug: "icon-1",
     isReadable: true,
-    content: utility-font(icon, 1)
-  )
+    content: utility-font(icon, 1),
+  ),
 );
 
 $token-font-system-icon-2: (
   icon-2: (
     slug: "icon-2",
     isReadable: true,
-    content: utility-font(icon, 2)
-  )
+    content: utility-font(icon, 2),
+  ),
 );
 
 $token-font-system-icon-3: (
   icon-3: (
     slug: "icon-3",
     isReadable: true,
-    content: utility-font(icon, 3)
-  )
+    content: utility-font(icon, 3),
+  ),
 );
 
 $token-font-system-icon-4: (
   icon-4: (
     slug: "icon-4",
     isReadable: true,
-    content: utility-font(icon, 4)
-  )
+    content: utility-font(icon, 4),
+  ),
 );
 
 $token-font-system-icon-5: (
   icon-5: (
     slug: "icon-5",
     isReadable: true,
-    content: utility-font(icon, 5)
-  )
+    content: utility-font(icon, 5),
+  ),
 );
 
 $token-font-system-icon-6: (
   icon-6: (
     slug: "icon-6",
     isReadable: true,
-    content: utility-font(icon, 6)
-  )
+    content: utility-font(icon, 6),
+  ),
 );
 
 $token-font-system-icon-7: (
   icon-7: (
     slug: "icon-7",
     isReadable: true,
-    content: utility-font(icon, 7)
-  )
+    content: utility-font(icon, 7),
+  ),
 );
 
 $token-font-system-icon-8: (
   icon-8: (
     slug: "icon-8",
     isReadable: true,
-    content: utility-font(icon, 8)
-  )
+    content: utility-font(icon, 8),
+  ),
 );
 
 $token-font-system-icon-9: (
   icon-9: (
     slug: "icon-9",
     isReadable: true,
-    content: utility-font(icon, 9)
-  )
+    content: utility-font(icon, 9),
+  ),
 );
 
 $token-font-system-icon-10: (
   icon-10: (
     slug: "icon-10",
     isReadable: true,
-    content: utility-font(icon, 10)
-  )
+    content: utility-font(icon, 10),
+  ),
 );
 
 $token-font-system-icon-11: (
   icon-11: (
     slug: "icon-11",
     isReadable: true,
-    content: utility-font(icon, 11)
-  )
+    content: utility-font(icon, 11),
+  ),
 );
 
 $token-font-system-icon-12: (
   icon-12: (
     slug: "icon-12",
     isReadable: true,
-    content: utility-font(icon, 12)
-  )
+    content: utility-font(icon, 12),
+  ),
 );
 
 $token-font-system-icon-13: (
   icon-13: (
     slug: "icon-13",
     isReadable: true,
-    content: utility-font(icon, 13)
-  )
+    content: utility-font(icon, 13),
+  ),
 );
 
 $token-font-system-icon-14: (
   icon-14: (
     slug: "icon-14",
     isReadable: true,
-    content: utility-font(icon, 14)
-  )
+    content: utility-font(icon, 14),
+  ),
 );
 
 $token-font-system-icon-15: (
   icon-15: (
     slug: "icon-15",
     isReadable: true,
-    content: utility-font(icon, 15)
-  )
+    content: utility-font(icon, 15),
+  ),
 );
 
 $token-font-system-icon-16: (
   icon-16: (
     slug: "icon-16",
     isReadable: true,
-    content: utility-font(icon, 16)
-  )
+    content: utility-font(icon, 16),
+  ),
 );
 
 $token-font-system-icon-17: (
   icon-17: (
     slug: "icon-17",
     isReadable: true,
-    content: utility-font(icon, 17)
-  )
+    content: utility-font(icon, 17),
+  ),
 );
 
 $token-font-system-icon-18: (
   icon-18: (
     slug: "icon-18",
     isReadable: true,
-    content: utility-font(icon, 18)
-  )
+    content: utility-font(icon, 18),
+  ),
 );
 
 $token-font-system-icon-19: (
   icon-19: (
     slug: "icon-19",
     isReadable: true,
-    content: utility-font(icon, 19)
-  )
+    content: utility-font(icon, 19),
+  ),
 );
 
 $token-font-system-icon-20: (
   icon-20: (
     slug: "icon-20",
     isReadable: true,
-    content: utility-font(icon, 20)
-  )
+    content: utility-font(icon, 20),
+  ),
 );
 
 $tokens-font-system-icon-small: map-collect(
@@ -1730,168 +1730,168 @@ $token-font-system-lang-micro: (
   lang-micro: (
     slug: "lang-micro",
     isReadable: true,
-    content: utility-font(lang, "micro")
-  )
+    content: utility-font(lang, "micro"),
+  ),
 );
 
 $token-font-system-lang-1: (
   lang-1: (
     slug: "lang-1",
     isReadable: true,
-    content: utility-font(lang, 1)
-  )
+    content: utility-font(lang, 1),
+  ),
 );
 
 $token-font-system-lang-2: (
   lang-2: (
     slug: "lang-2",
     isReadable: true,
-    content: utility-font(lang, 2)
-  )
+    content: utility-font(lang, 2),
+  ),
 );
 
 $token-font-system-lang-3: (
   lang-3: (
     slug: "lang-3",
     isReadable: true,
-    content: utility-font(lang, 3)
-  )
+    content: utility-font(lang, 3),
+  ),
 );
 
 $token-font-system-lang-4: (
   lang-4: (
     slug: "lang-4",
     isReadable: true,
-    content: utility-font(lang, 4)
-  )
+    content: utility-font(lang, 4),
+  ),
 );
 
 $token-font-system-lang-5: (
   lang-5: (
     slug: "lang-5",
     isReadable: true,
-    content: utility-font(lang, 5)
-  )
+    content: utility-font(lang, 5),
+  ),
 );
 
 $token-font-system-lang-6: (
   lang-6: (
     slug: "lang-6",
     isReadable: true,
-    content: utility-font(lang, 6)
-  )
+    content: utility-font(lang, 6),
+  ),
 );
 
 $token-font-system-lang-7: (
   lang-7: (
     slug: "lang-7",
     isReadable: true,
-    content: utility-font(lang, 7)
-  )
+    content: utility-font(lang, 7),
+  ),
 );
 
 $token-font-system-lang-8: (
   lang-8: (
     slug: "lang-8",
     isReadable: true,
-    content: utility-font(lang, 8)
-  )
+    content: utility-font(lang, 8),
+  ),
 );
 
 $token-font-system-lang-9: (
   lang-9: (
     slug: "lang-9",
     isReadable: true,
-    content: utility-font(lang, 9)
-  )
+    content: utility-font(lang, 9),
+  ),
 );
 
 $token-font-system-lang-10: (
   lang-10: (
     slug: "lang-10",
     isReadable: true,
-    content: utility-font(lang, 10)
-  )
+    content: utility-font(lang, 10),
+  ),
 );
 
 $token-font-system-lang-11: (
   lang-11: (
     slug: "lang-11",
     isReadable: true,
-    content: utility-font(lang, 11)
-  )
+    content: utility-font(lang, 11),
+  ),
 );
 
 $token-font-system-lang-12: (
   lang-12: (
     slug: "lang-12",
     isReadable: true,
-    content: utility-font(lang, 12)
-  )
+    content: utility-font(lang, 12),
+  ),
 );
 
 $token-font-system-lang-13: (
   lang-13: (
     slug: "lang-13",
     isReadable: true,
-    content: utility-font(lang, 13)
-  )
+    content: utility-font(lang, 13),
+  ),
 );
 
 $token-font-system-lang-14: (
   lang-14: (
     slug: "lang-14",
     isReadable: true,
-    content: utility-font(lang, 14)
-  )
+    content: utility-font(lang, 14),
+  ),
 );
 
 $token-font-system-lang-15: (
   lang-15: (
     slug: "lang-15",
     isReadable: true,
-    content: utility-font(lang, 15)
-  )
+    content: utility-font(lang, 15),
+  ),
 );
 
 $token-font-system-lang-16: (
   lang-16: (
     slug: "lang-16",
     isReadable: true,
-    content: utility-font(lang, 16)
-  )
+    content: utility-font(lang, 16),
+  ),
 );
 
 $token-font-system-lang-17: (
   lang-17: (
     slug: "lang-17",
     isReadable: true,
-    content: utility-font(lang, 17)
-  )
+    content: utility-font(lang, 17),
+  ),
 );
 
 $token-font-system-lang-18: (
   lang-18: (
     slug: "lang-18",
     isReadable: true,
-    content: utility-font(lang, 18)
-  )
+    content: utility-font(lang, 18),
+  ),
 );
 
 $token-font-system-lang-19: (
   lang-19: (
     slug: "lang-19",
     isReadable: true,
-    content: utility-font(lang, 19)
-  )
+    content: utility-font(lang, 19),
+  ),
 );
 
 $token-font-system-lang-20: (
   lang-20: (
     slug: "lang-20",
     isReadable: true,
-    content: utility-font(lang, 20)
-  )
+    content: utility-font(lang, 20),
+  ),
 );
 
 $tokens-font-system-lang-small: map-collect(
@@ -1938,168 +1938,168 @@ $token-font-system-mono-micro: (
   mono-micro: (
     slug: "mono-micro",
     isReadable: true,
-    content: utility-font(mono, "micro")
-  )
+    content: utility-font(mono, "micro"),
+  ),
 );
 
 $token-font-system-mono-1: (
   mono-1: (
     slug: "mono-1",
     isReadable: true,
-    content: utility-font(mono, 1)
-  )
+    content: utility-font(mono, 1),
+  ),
 );
 
 $token-font-system-mono-2: (
   mono-2: (
     slug: "mono-2",
     isReadable: true,
-    content: utility-font(mono, 2)
-  )
+    content: utility-font(mono, 2),
+  ),
 );
 
 $token-font-system-mono-3: (
   mono-3: (
     slug: "mono-3",
     isReadable: true,
-    content: utility-font(mono, 3)
-  )
+    content: utility-font(mono, 3),
+  ),
 );
 
 $token-font-system-mono-4: (
   mono-4: (
     slug: "mono-4",
     isReadable: true,
-    content: utility-font(mono, 4)
-  )
+    content: utility-font(mono, 4),
+  ),
 );
 
 $token-font-system-mono-5: (
   mono-5: (
     slug: "mono-5",
     isReadable: true,
-    content: utility-font(mono, 5)
-  )
+    content: utility-font(mono, 5),
+  ),
 );
 
 $token-font-system-mono-6: (
   mono-6: (
     slug: "mono-6",
     isReadable: true,
-    content: utility-font(mono, 6)
-  )
+    content: utility-font(mono, 6),
+  ),
 );
 
 $token-font-system-mono-7: (
   mono-7: (
     slug: "mono-7",
     isReadable: true,
-    content: utility-font(mono, 7)
-  )
+    content: utility-font(mono, 7),
+  ),
 );
 
 $token-font-system-mono-8: (
   mono-8: (
     slug: "mono-8",
     isReadable: true,
-    content: utility-font(mono, 8)
-  )
+    content: utility-font(mono, 8),
+  ),
 );
 
 $token-font-system-mono-9: (
   mono-9: (
     slug: "mono-9",
     isReadable: true,
-    content: utility-font(mono, 9)
-  )
+    content: utility-font(mono, 9),
+  ),
 );
 
 $token-font-system-mono-10: (
   mono-10: (
     slug: "mono-10",
     isReadable: true,
-    content: utility-font(mono, 10)
-  )
+    content: utility-font(mono, 10),
+  ),
 );
 
 $token-font-system-mono-11: (
   mono-11: (
     slug: "mono-11",
     isReadable: true,
-    content: utility-font(mono, 11)
-  )
+    content: utility-font(mono, 11),
+  ),
 );
 
 $token-font-system-mono-12: (
   mono-12: (
     slug: "mono-12",
     isReadable: true,
-    content: utility-font(mono, 12)
-  )
+    content: utility-font(mono, 12),
+  ),
 );
 
 $token-font-system-mono-13: (
   mono-13: (
     slug: "mono-13",
     isReadable: true,
-    content: utility-font(mono, 13)
-  )
+    content: utility-font(mono, 13),
+  ),
 );
 
 $token-font-system-mono-14: (
   mono-14: (
     slug: "mono-14",
     isReadable: true,
-    content: utility-font(mono, 14)
-  )
+    content: utility-font(mono, 14),
+  ),
 );
 
 $token-font-system-mono-15: (
   mono-15: (
     slug: "mono-15",
     isReadable: true,
-    content: utility-font(mono, 15)
-  )
+    content: utility-font(mono, 15),
+  ),
 );
 
 $token-font-system-mono-16: (
   mono-16: (
     slug: "mono-16",
     isReadable: true,
-    content: utility-font(mono, 16)
-  )
+    content: utility-font(mono, 16),
+  ),
 );
 
 $token-font-system-mono-17: (
   mono-17: (
     slug: "mono-17",
     isReadable: true,
-    content: utility-font(mono, 17)
-  )
+    content: utility-font(mono, 17),
+  ),
 );
 
 $token-font-system-mono-18: (
   mono-18: (
     slug: "mono-18",
     isReadable: true,
-    content: utility-font(mono, 18)
-  )
+    content: utility-font(mono, 18),
+  ),
 );
 
 $token-font-system-mono-19: (
   mono-19: (
     slug: "mono-19",
     isReadable: true,
-    content: utility-font(mono, 19)
-  )
+    content: utility-font(mono, 19),
+  ),
 );
 
 $token-font-system-mono-20: (
   mono-20: (
     slug: "mono-20",
     isReadable: true,
-    content: utility-font(mono, 20)
-  )
+    content: utility-font(mono, 20),
+  ),
 );
 
 $tokens-font-system-mono-small: map-collect(
@@ -2146,168 +2146,168 @@ $token-font-system-sans-micro: (
   sans-micro: (
     slug: "sans-micro",
     isReadable: true,
-    content: utility-font(sans, "micro")
-  )
+    content: utility-font(sans, "micro"),
+  ),
 );
 
 $token-font-system-sans-1: (
   sans-1: (
     slug: "sans-1",
     isReadable: true,
-    content: utility-font(sans, 1)
-  )
+    content: utility-font(sans, 1),
+  ),
 );
 
 $token-font-system-sans-2: (
   sans-2: (
     slug: "sans-2",
     isReadable: true,
-    content: utility-font(sans, 2)
-  )
+    content: utility-font(sans, 2),
+  ),
 );
 
 $token-font-system-sans-3: (
   sans-3: (
     slug: "sans-3",
     isReadable: true,
-    content: utility-font(sans, 3)
-  )
+    content: utility-font(sans, 3),
+  ),
 );
 
 $token-font-system-sans-4: (
   sans-4: (
     slug: "sans-4",
     isReadable: true,
-    content: utility-font(sans, 4)
-  )
+    content: utility-font(sans, 4),
+  ),
 );
 
 $token-font-system-sans-5: (
   sans-5: (
     slug: "sans-5",
     isReadable: true,
-    content: utility-font(sans, 5)
-  )
+    content: utility-font(sans, 5),
+  ),
 );
 
 $token-font-system-sans-6: (
   sans-6: (
     slug: "sans-6",
     isReadable: true,
-    content: utility-font(sans, 6)
-  )
+    content: utility-font(sans, 6),
+  ),
 );
 
 $token-font-system-sans-7: (
   sans-7: (
     slug: "sans-7",
     isReadable: true,
-    content: utility-font(sans, 7)
-  )
+    content: utility-font(sans, 7),
+  ),
 );
 
 $token-font-system-sans-8: (
   sans-8: (
     slug: "sans-8",
     isReadable: true,
-    content: utility-font(sans, 8)
-  )
+    content: utility-font(sans, 8),
+  ),
 );
 
 $token-font-system-sans-9: (
   sans-9: (
     slug: "sans-9",
     isReadable: true,
-    content: utility-font(sans, 9)
-  )
+    content: utility-font(sans, 9),
+  ),
 );
 
 $token-font-system-sans-10: (
   sans-10: (
     slug: "sans-10",
     isReadable: true,
-    content: utility-font(sans, 10)
-  )
+    content: utility-font(sans, 10),
+  ),
 );
 
 $token-font-system-sans-11: (
   sans-11: (
     slug: "sans-11",
     isReadable: true,
-    content: utility-font(sans, 11)
-  )
+    content: utility-font(sans, 11),
+  ),
 );
 
 $token-font-system-sans-12: (
   sans-12: (
     slug: "sans-12",
     isReadable: true,
-    content: utility-font(sans, 12)
-  )
+    content: utility-font(sans, 12),
+  ),
 );
 
 $token-font-system-sans-13: (
   sans-13: (
     slug: "sans-13",
     isReadable: true,
-    content: utility-font(sans, 13)
-  )
+    content: utility-font(sans, 13),
+  ),
 );
 
 $token-font-system-sans-14: (
   sans-14: (
     slug: "sans-14",
     isReadable: true,
-    content: utility-font(sans, 14)
-  )
+    content: utility-font(sans, 14),
+  ),
 );
 
 $token-font-system-sans-15: (
   sans-15: (
     slug: "sans-15",
     isReadable: true,
-    content: utility-font(sans, 15)
-  )
+    content: utility-font(sans, 15),
+  ),
 );
 
 $token-font-system-sans-16: (
   sans-16: (
     slug: "sans-16",
     isReadable: true,
-    content: utility-font(sans, 16)
-  )
+    content: utility-font(sans, 16),
+  ),
 );
 
 $token-font-system-sans-17: (
   sans-17: (
     slug: "sans-17",
     isReadable: true,
-    content: utility-font(sans, 17)
-  )
+    content: utility-font(sans, 17),
+  ),
 );
 
 $token-font-system-sans-18: (
   sans-18: (
     slug: "sans-18",
     isReadable: true,
-    content: utility-font(sans, 18)
-  )
+    content: utility-font(sans, 18),
+  ),
 );
 
 $token-font-system-sans-19: (
   sans-19: (
     slug: "sans-19",
     isReadable: true,
-    content: utility-font(sans, 19)
-  )
+    content: utility-font(sans, 19),
+  ),
 );
 
 $token-font-system-sans-20: (
   sans-20: (
     slug: "sans-20",
     isReadable: true,
-    content: utility-font(sans, 20)
-  )
+    content: utility-font(sans, 20),
+  ),
 );
 
 $tokens-font-system-sans-small: map-collect(
@@ -2354,168 +2354,168 @@ $token-font-system-serif-micro: (
   serif-micro: (
     slug: "serif-micro",
     isReadable: true,
-    content: utility-font(serif, "micro")
-  )
+    content: utility-font(serif, "micro"),
+  ),
 );
 
 $token-font-system-serif-1: (
   serif-1: (
     slug: "serif-1",
     isReadable: true,
-    content: utility-font(serif, 1)
-  )
+    content: utility-font(serif, 1),
+  ),
 );
 
 $token-font-system-serif-2: (
   serif-2: (
     slug: "serif-2",
     isReadable: true,
-    content: utility-font(serif, 2)
-  )
+    content: utility-font(serif, 2),
+  ),
 );
 
 $token-font-system-serif-3: (
   serif-3: (
     slug: "serif-3",
     isReadable: true,
-    content: utility-font(serif, 3)
-  )
+    content: utility-font(serif, 3),
+  ),
 );
 
 $token-font-system-serif-4: (
   serif-4: (
     slug: "serif-4",
     isReadable: true,
-    content: utility-font(serif, 4)
-  )
+    content: utility-font(serif, 4),
+  ),
 );
 
 $token-font-system-serif-5: (
   serif-5: (
     slug: "serif-5",
     isReadable: true,
-    content: utility-font(serif, 5)
-  )
+    content: utility-font(serif, 5),
+  ),
 );
 
 $token-font-system-serif-6: (
   serif-6: (
     slug: "serif-6",
     isReadable: true,
-    content: utility-font(serif, 6)
-  )
+    content: utility-font(serif, 6),
+  ),
 );
 
 $token-font-system-serif-7: (
   serif-7: (
     slug: "serif-7",
     isReadable: true,
-    content: utility-font(serif, 7)
-  )
+    content: utility-font(serif, 7),
+  ),
 );
 
 $token-font-system-serif-8: (
   serif-8: (
     slug: "serif-8",
     isReadable: true,
-    content: utility-font(serif, 8)
-  )
+    content: utility-font(serif, 8),
+  ),
 );
 
 $token-font-system-serif-9: (
   serif-9: (
     slug: "serif-9",
     isReadable: true,
-    content: utility-font(serif, 9)
-  )
+    content: utility-font(serif, 9),
+  ),
 );
 
 $token-font-system-serif-10: (
   serif-10: (
     slug: "serif-10",
     isReadable: true,
-    content: utility-font(serif, 10)
-  )
+    content: utility-font(serif, 10),
+  ),
 );
 
 $token-font-system-serif-11: (
   serif-11: (
     slug: "serif-11",
     isReadable: true,
-    content: utility-font(serif, 11)
-  )
+    content: utility-font(serif, 11),
+  ),
 );
 
 $token-font-system-serif-12: (
   serif-12: (
     slug: "serif-12",
     isReadable: true,
-    content: utility-font(serif, 12)
-  )
+    content: utility-font(serif, 12),
+  ),
 );
 
 $token-font-system-serif-13: (
   serif-13: (
     slug: "serif-13",
     isReadable: true,
-    content: utility-font(serif, 13)
-  )
+    content: utility-font(serif, 13),
+  ),
 );
 
 $token-font-system-serif-14: (
   serif-14: (
     slug: "serif-14",
     isReadable: true,
-    content: utility-font(serif, 14)
-  )
+    content: utility-font(serif, 14),
+  ),
 );
 
 $token-font-system-serif-15: (
   serif-15: (
     slug: "serif-15",
     isReadable: true,
-    content: utility-font(serif, 15)
-  )
+    content: utility-font(serif, 15),
+  ),
 );
 
 $token-font-system-serif-16: (
   serif-16: (
     slug: "serif-16",
     isReadable: true,
-    content: utility-font(serif, 16)
-  )
+    content: utility-font(serif, 16),
+  ),
 );
 
 $token-font-system-serif-17: (
   serif-17: (
     slug: "serif-17",
     isReadable: true,
-    content: utility-font(serif, 17)
-  )
+    content: utility-font(serif, 17),
+  ),
 );
 
 $token-font-system-serif-18: (
   serif-18: (
     slug: "serif-18",
     isReadable: true,
-    content: utility-font(serif, 18)
-  )
+    content: utility-font(serif, 18),
+  ),
 );
 
 $token-font-system-serif-19: (
   serif-19: (
     slug: "serif-19",
     isReadable: true,
-    content: utility-font(serif, 19)
-  )
+    content: utility-font(serif, 19),
+  ),
 );
 
 $token-font-system-serif-20: (
   serif-20: (
     slug: "serif-20",
     isReadable: true,
-    content: utility-font(serif, 20)
-  )
+    content: utility-font(serif, 20),
+  ),
 );
 
 $tokens-font-system-serif-small: map-collect(
@@ -2584,7 +2584,7 @@ $palettes-font-system-cond: (
   "palette-font-system-cond-medium": $tokens-font-system-cond-medium,
   "palette-font-system-cond-large": $tokens-font-system-cond-large,
   "palette-font-system-cond-larger": $tokens-font-system-cond-larger,
-  "palette-font-system-cond": $tokens-font-system-cond
+  "palette-font-system-cond": $tokens-font-system-cond,
 );
 
 $palettes-font-system-icon: (
@@ -2613,7 +2613,7 @@ $palettes-font-system-icon: (
   "palette-font-system-icon-medium": $tokens-font-system-icon-medium,
   "palette-font-system-icon-large": $tokens-font-system-icon-large,
   "palette-font-system-icon-larger": $tokens-font-system-icon-larger,
-  "palette-font-system-icon": $tokens-font-system-icon
+  "palette-font-system-icon": $tokens-font-system-icon,
 );
 
 $palettes-font-system-lang: (
@@ -2642,7 +2642,7 @@ $palettes-font-system-lang: (
   "palette-font-system-lang-medium": $tokens-font-system-lang-medium,
   "palette-font-system-lang-large": $tokens-font-system-lang-large,
   "palette-font-system-lang-larger": $tokens-font-system-lang-larger,
-  "palette-font-system-lang": $tokens-font-system-lang
+  "palette-font-system-lang": $tokens-font-system-lang,
 );
 
 $palettes-font-system-mono: (
@@ -2671,7 +2671,7 @@ $palettes-font-system-mono: (
   "palette-font-system-mono-medium": $tokens-font-system-mono-medium,
   "palette-font-system-mono-large": $tokens-font-system-mono-large,
   "palette-font-system-mono-larger": $tokens-font-system-mono-larger,
-  "palette-font-system-mono": $tokens-font-system-mono
+  "palette-font-system-mono": $tokens-font-system-mono,
 );
 
 $palettes-font-system-sans: (
@@ -2700,7 +2700,7 @@ $palettes-font-system-sans: (
   "palette-font-system-sans-medium": $tokens-font-system-sans-medium,
   "palette-font-system-sans-large": $tokens-font-system-sans-large,
   "palette-font-system-sans-larger": $tokens-font-system-sans-larger,
-  "palette-font-system-sans": $tokens-font-system-sans
+  "palette-font-system-sans": $tokens-font-system-sans,
 );
 
 $palettes-font-system-serif: (
@@ -2729,7 +2729,7 @@ $palettes-font-system-serif: (
   "palette-font-system-serif-medium": $tokens-font-system-serif-medium,
   "palette-font-system-serif-large": $tokens-font-system-serif-large,
   "palette-font-system-serif-larger": $tokens-font-system-serif-larger,
-  "palette-font-system-serif": $tokens-font-system-serif
+  "palette-font-system-serif": $tokens-font-system-serif,
 );
 
 $tokens-font-system: map-collect(
@@ -2742,7 +2742,7 @@ $tokens-font-system: map-collect(
 );
 
 $palette-font-system: (
-  "palette-font-system": $tokens-font-system
+  "palette-font-system": $tokens-font-system,
 );
 
 $palettes-font-system: map-collect(
@@ -2758,5 +2758,5 @@ $palettes-font-system: map-collect(
 $tokens-font: map-collect($tokens-font-theme, $tokens-font-system);
 
 $palette-font: (
-  "palette-font": $tokens-font
+  "palette-font": $tokens-font,
 );
