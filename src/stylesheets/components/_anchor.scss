@@ -78,7 +78,7 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 }
 
 .usa-anchor__branding-img {
-  @include media-block-img($margin-right: units(2));
+  @include media-block-img($margin-right: units(0));
   display: inline-flex;
   align-self: center;
 }
