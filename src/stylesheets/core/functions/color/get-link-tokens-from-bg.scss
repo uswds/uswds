@@ -98,7 +98,10 @@
 
         $custom-family-lighter: $custom-family;
         $custom-family-darker: $custom-family;
-        $custom-grade-index: list.index($uswds-color-theme-grades, $custom-grade);
+        $custom-grade-index: list.index(
+          $uswds-color-theme-grades,
+          $custom-grade
+        );
 
         // If it's the lightest grade, use "white" for the lighter family
         @if $custom-grade-index == 1 {

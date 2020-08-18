@@ -4,7 +4,7 @@
 
 @use "../general/str-split" as *;
 @use "../general/to-number" as *;
-
+@use "../color/get-color-token-assignment" as *;
 
 /*
 ----------------------------------------
@@ -21,26 +21,26 @@ returns 'null'
 
 @function decompose($token) {
   $separator: "-";
-  $family: null;
-  $grade: null;
-  $variant: null;
+  $family: false;
+  $grade: false;
+  $variant: false;
   $exceptions: (
     "black": 100,
-    "white": 0,
+    "white": 0
   );
 
+  $token: get-color-token-assignment($token);
   $split: str-split($token, $separator);
   $grade: list.nth($split, list.length($split));
 
   @if string.index($grade, "v") {
     $variant: "vivid";
-    $grade: string.slice($grade, 1, (string.index($grade, "v") - 1))
+    $grade: string.slice($grade, 1, (string.index($grade, "v") - 1));
   }
 
-  @if list.length($split) == 3 {
+  @if length($split) == 3 {
     $family: list.nth($split, 1) + $separator + list.nth($split, 2);
-  }
-  @else {
+  } @else {
     $family: list.nth($split, 1);
   }
 
