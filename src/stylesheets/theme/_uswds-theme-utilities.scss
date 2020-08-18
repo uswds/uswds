@@ -98,6 +98,15 @@ $align-items-settings: (
   visited: false,
 );
 
+$align-self-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+);
+
 $background-color-settings: (
   output: true,
   responsive: false,

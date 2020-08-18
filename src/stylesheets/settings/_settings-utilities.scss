@@ -98,6 +98,15 @@ $align-items-settings: (
   visited: false,
 ) !default;
 
+$align-self-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+) !default;
+
 $background-color-settings: (
   output: true,
   responsive: false,
@@ -590,6 +599,11 @@ $add-aspect-manual-values: () !default;
 
 $align-items-palettes: ("palette-align-items-default") !default;
 $align-items-manual-values: () !default;
+
+// .align-self
+
+$align-self-palettes: ("palette-align-self-default") !default;
+$align-self-manual-values: () !default;
 
 // .background-color
 
