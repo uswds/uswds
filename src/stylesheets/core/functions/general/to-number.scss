@@ -1,6 +1,7 @@
 @use "sass:meta";
 @use "sass:map";
 @use "sass:string";
+@use "sass:list";
 
 /// Casts a string into a number
 ///
@@ -8,6 +9,7 @@
 ///
 /// @return {Number}
 ///
+
 @function to-number($value) {
   @if meta.type-of($value) == 'number' {
     @return $value;
@@ -23,7 +25,7 @@
   @for $i from if($minus, 2, 1) through string.length($value) {
     $character: string.slice($value, $i, $i);
 
-    @if not (index(map.keys($numbers), $character) or $character == '.') {
+    @if not (list.index(map.keys($numbers), $character) or $character == '.') {
       @return to-length(if($minus, -$result, $result), string.slice($value, $i))
     }
 
