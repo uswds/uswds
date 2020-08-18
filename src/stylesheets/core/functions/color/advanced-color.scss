@@ -50,7 +50,7 @@ Derive a color from a color triplet:
   // passed to it, and args need to be re-set with the
   // values from the $color-family list:
   @if meta.type-of($color-family) == "list" {
-    @if length($color-family) > 2 {
+    @if list.length($color-family) > 2 {
       $color-variant: list.nth($color-family, 3);
     }
     $color-grade: list.nth($color-family, 2);
