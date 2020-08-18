@@ -1,5 +1,7 @@
 @use "sass:meta";
 
+@use "summation" as *;
+
 @function ln($value) {
   $ten-exp: 1;
   $ln-ten: 2.30258509;
