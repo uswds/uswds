@@ -25,7 +25,7 @@
     color: color($preferred-text-color);
   } @else {
     $grade-fallback: get-color-grade($fallback-text-color);
-    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    $magic-num-fallback: math.abs($grade-bg - $grade-fallback);
     @if $magic-num-fallback < $target-magic-number {
       @error "Neither '#{$preferred-text-color}' nor '#{$fallback-text-color}' have #{$wcag-target} contrast on a '#{$bg-color}' background.";
     }
