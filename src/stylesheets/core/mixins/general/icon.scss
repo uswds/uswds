@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:math";
+
 @use "./add-background-svg" as *;
 @use "../../functions" as *;
 
@@ -74,49 +77,49 @@
 // [base]-[variant].svg based on the specified background-color
 
 @mixin add-color-icon($icon-object, $contrast-bg) {
-  $filename-base: map-get($icon-object, "name");
-  $svg-height: map-get($icon-object, "svg-height");
-  $svg-width: map-get($icon-object, "svg-width");
+  $filename-base: map.get($icon-object, "name");
+  $svg-height: map.get($icon-object, "svg-height");
+  $svg-width: map.get($icon-object, "svg-width");
   $aspect: $svg-width / $svg-height;
   $height: if(
-    unitless(map-get($icon-object, "height")),
-    units(map-get($icon-object, "height")),
-    map-get($icon-object, "height")
+    math.is-unitless(map.get($icon-object, "height")),
+    units(map.get($icon-object, "height")),
+    map.get($icon-object, "height")
   );
   $width: $height * $aspect;
   $container-height: if(
-    map-has-key($icon-object, "container-height"),
-    units(map-get($icon-object, "container-height")),
+    map.has-key($icon-object, "container-height"),
+    units(map.get($icon-object, "container-height")),
     null
   );
   $container-width: if(
-    map-has-key($icon-object, "container-width"),
-    units(map-get($icon-object, "container-width")),
+    map.has-key($icon-object, "container-width"),
+    units(map.get($icon-object, "container-width")),
     null
   );
   $color: if(
-    map-has-key($icon-object, "color"),
-    map-get($icon-object, "color"),
+    map.has-key($icon-object, "color"),
+    map.get($icon-object, "color"),
     "ink"
   );
   $color-variant: if(
-    map-has-key($icon-object, "color-variant"),
-    map-get($icon-object, "color-variant"),
+    map.has-key($icon-object, "color-variant"),
+    map.get($icon-object, "color-variant"),
     "white"
   );
   $color-hover: if(
-    map-has-key($icon-object, "color-hover"),
-    map-get($icon-object, "color-hover"),
+    map.has-key($icon-object, "color-hover"),
+    map.get($icon-object, "color-hover"),
     null
   );
   $rotate: if(
-    map-has-key($icon-object, "rotate"),
-    map-get($icon-object, "rotate"),
+    map.has-key($icon-object, "rotate"),
+    map.get($icon-object, "rotate"),
     null
   );
   $path: if(
-    map-has-key($icon-object, "path"),
-    map-get($icon-object, "path"),
+    map.has-key($icon-object, "path"),
+    map.get($icon-object, "path"),
     $theme-image-path
   );
   $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, "black");
@@ -161,8 +164,8 @@
   $contrast-bg
 ) {
   $color-hover: if(
-    map-has-key($icon-object, "color-hover"),
-    map-get($icon-object, "color-hover"),
+    map.has-key($icon-object, "color-hover"),
+    map.get($icon-object, "color-hover"),
     null
   );
   &::#{$direction} {
