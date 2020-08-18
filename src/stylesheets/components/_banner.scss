@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+
 @use "../packages/required" as *;
 
 $banner-guidance-measure: 3;
@@ -5,8 +8,8 @@ $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
   $theme-banner-link-color
 );
-$banner-icon-color: nth($banner-icon-colors, 1);
-$banner-icon-hover: nth($banner-icon-colors, 2);
+$banner-icon-color: list.nth($banner-icon-colors, 1);
+$banner-icon-hover: list.nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
   "name": "chevron",
   "svg-height": 39,
@@ -16,7 +19,7 @@ $banner-icon-chevron: (
   "color-variant": "white",
   "color-hover": $banner-icon-hover
 );
-$banner-icon-chevron-up: map-merge(
+$banner-icon-chevron-up: map.merge(
   $banner-icon-chevron,
   (
     "rotate": 180deg
