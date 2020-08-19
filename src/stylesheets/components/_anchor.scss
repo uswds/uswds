@@ -37,8 +37,8 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   }
 
   // Only external links
-  a[href^='http:']#{$external-link-qualifier},
-  a[href^='https:']#{$external-link-qualifier} {
+  a[href^="http:"]#{$external-link-qualifier},
+  a[href^="https:"]#{$external-link-qualifier} {
     @include place-icon(
       $anchor-icon-external-link,
       "after",
@@ -92,7 +92,6 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 .usa-anchor__branding-description {
   flex: 1 1 0%;
 }
-
 
 //
 // Secondary Section
