@@ -1,5 +1,6 @@
-// Date Picker
+@use "../../packages/required" as *;
 
+// Date Picker
 .usa-date-picker__wrapper {
   display: none;
   position: relative;
