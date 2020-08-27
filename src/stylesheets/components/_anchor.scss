@@ -69,18 +69,22 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   @include at-media($theme-anchor-min-width) {
     @include grid-row;
     @include grid-gap;
+    @include u-align-items("align-center");
   }
 }
 
 .usa-anchor__branding-img:not(:only-child) {
   margin-bottom: units(2);
   @include u-text-decoration("no-underline");
+
+  @include at-media($theme-anchor-min-width) {
+    margin-bottom: 0;
+  }
 }
 
 .usa-anchor__branding-img {
   @include media-block-img($margin-right: units(0));
   display: inline-flex;
-  align-self: center;
 }
 
 .usa-anchor__branding-img img {
