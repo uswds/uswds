@@ -97,6 +97,30 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   flex: 1 1 0%;
 }
 
+// Required links
+// =====================================
+.usa-anchor__required-links-list {
+  @include u-margin-y(0);
+  list-style: none;
+  padding-left: 0;
+
+  @include at-media($theme-anchor-min-width) {
+    @include grid-row;
+    @include grid-gap($theme-anchor-gap);
+    @include u-flex("align-start");
+  }
+}
+
+.usa-anchor__required-links-item {
+  margin-bottom: units(1.5);
+}
+
+.usa-anchor__required-links-item {
+  @include at-media($theme-anchor-min-width) {
+    @include grid-col(6);
+  }
+}
+
 //
 // Secondary Section
 // =====================================
@@ -106,19 +130,6 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   border-top: 1px solid color("gray-5");
 }
 
-// Required links
-// =====================================
-.usa-anchor__required-links-list {
-  @include unstyled-list;
-
-  @include at-media($theme-anchor-min-width) {
-    @include grid-row;
-    @include grid-gap($theme-anchor-gap);
-    @include u-flex("align-start");
-  }
-}
-
-// Override `unstyled-list` margin on mobile.
-.usa-anchor__required-links-list > li:not(:last-child) {
-  margin-bottom: units(1.5);
+.usa-anchor__secondary-section .usa-link {
+  @include u-margin-left(1);
 }
