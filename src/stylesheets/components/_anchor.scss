@@ -1,5 +1,5 @@
 $theme-anchor-background-color: "base-darkest";
-$theme-anchor-min-width: "tablet";
+$theme-anchor-min-width: "desktop";
 $theme-anchor-gap: 4;
 $theme-site-domain: "my-domain";
 
@@ -55,10 +55,6 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 .usa-anchor__primary-section {
   padding-top: units(2.5);
   padding-bottom: units(2.5);
-
-  @include at-media($theme-breadcrumb-min-width) {
-    padding-bottom: units(1.5);
-  }
 }
 
 // Branding
@@ -104,21 +100,19 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   list-style: none;
   padding-left: 0;
 
+  @include at-media("tablet") {
+    column-count: 2;
+    column-gap: units($theme-anchor-gap);
+    column-fill: balance;
+  }
   @include at-media($theme-anchor-min-width) {
-    @include grid-row;
-    @include grid-gap($theme-anchor-gap);
-    @include u-flex("align-start");
+    column-count: 3;
   }
 }
 
 .usa-anchor__required-links-item {
+  break-inside: avoid;
   margin-bottom: units(1.5);
-}
-
-.usa-anchor__required-links-item {
-  @include at-media($theme-anchor-min-width) {
-    @include grid-col(6);
-  }
 }
 
 //
