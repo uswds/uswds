@@ -3,29 +3,6 @@ $theme-anchor-min-width: "desktop";
 $theme-anchor-gap: 4;
 $theme-site-domain: "my-domain";
 
-$anchor-icon-colors: get-link-tokens-from-bg(
-  $theme-anchor-background-color,
-  $theme-link-reverse-color
-);
-
-$anchor-icon-color: nth($anchor-icon-colors, 1);
-$anchor-icon-hover: nth($anchor-icon-colors, 2);
-
-// Need to create variants for IE11 so users can update background
-// and have the icon and link colors automatically update.
-$anchor-icon-external-link: (
-  "name": "external-link",
-  "svg-height": 40,
-  "svg-width": 40,
-  "height": 0.65em,
-  "color": $anchor-icon-color,
-  "color-hover": $anchor-icon-hover
-);
-
-// Ugly selector, but we're looking for external links that aren't
-// wrapping identifier logos
-$external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__branding-img)";
-
 //
 // General Styles
 // =====================================
@@ -35,18 +12,6 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   a {
     @include set-link-from-bg($theme-anchor-background-color);
   }
-
-  // Only external links
-  a[href^="http:"]#{$external-link-qualifier},
-  a[href^="https:"]#{$external-link-qualifier} {
-    @include place-icon(
-      $anchor-icon-external-link,
-      "after",
-      "2px",
-      baseline,
-      $theme-anchor-background-color
-    );
-  }
 }
 
 //
@@ -54,17 +19,17 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 // =====================================
 .usa-anchor__primary-section {
   padding-top: units(2.5);
-  padding-bottom: units(2.5);
+  padding-bottom: units(4);
 }
 
 // Branding
 // =====================================
 .usa-anchor__branding {
-  margin-bottom: units(2);
+  margin-bottom: units(4);
 
   @include at-media($theme-anchor-min-width) {
     @include grid-row;
-    @include grid-gap;
+    @include grid-gap("md");
     @include u-align-items("align-center");
   }
 }
@@ -99,6 +64,7 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
   @include u-margin-y(0);
   list-style: none;
   padding-left: 0;
+  width: max-content;
 
   @include at-media("tablet") {
     column-count: 2;
@@ -121,9 +87,12 @@ $external-link-qualifier: ":not([href*=#{$theme-site-domain}]):not(.usa-anchor__
 .usa-anchor__secondary-section {
   padding-top: units(1.5);
   padding-bottom: units(1.5);
-  border-top: 1px solid color("gray-5");
 }
 
-.usa-anchor__secondary-section .usa-link {
-  @include u-margin-left(1);
+.usa-anchor__secondary-section a {
+  @include u-font-weight("bold");
+}
+
+.usa-anchor__secondary-section .usa-link:not(:first-of-type) {
+  @include u-margin-left("05");
 }
