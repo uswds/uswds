@@ -1,7 +1,14 @@
 $theme-anchor-background-color: "base-darkest";
 $theme-anchor-min-width: "desktop";
 $theme-anchor-gap: 4;
-$theme-site-domain: "my-domain";
+$theme-anchor-secondary-link-color: "gray-20";
+
+@mixin anchor-secondary-link {
+  @include set-link-from-bg(
+    $theme-anchor-background-color,
+    $theme-anchor-secondary-link-color
+  );
+}
 
 //
 // General Styles
@@ -29,15 +36,10 @@ $theme-site-domain: "my-domain";
 // Branding
 // =====================================
 .usa-anchor__branding {
-  margin-bottom: units(4);
-
   @include at-media("tablet") {
     @include grid-row;
     @include grid-gap("md");
     @include u-align-items("align-center");
-  }
-  @include at-media("desktop") {
-    margin-bottom: units(2);
   }
 }
 
@@ -65,8 +67,32 @@ $theme-site-domain: "my-domain";
   flex: 1 1 0%;
 }
 
+// Domain link in description
+.usa-anchor__branding-description > a {
+  @include anchor-secondary-link;
+  text-decoration: none;
+}
+
+// Paragraph below domain link
+.usa-anchor__branding-description p:first-of-type {
+  @include u-margin-y(0);
+  font-weight: 700;
+}
+
 // Required links
 // =====================================
+.usa-anchor__branding + .usa-anchor__required-links {
+  margin-top: units(4);
+
+  @include at-media("tablet") {
+    margin-top: units(3);
+  }
+}
+
+.usa-anchor__required-links {
+  margin-bottom: units(1);
+}
+
 .usa-anchor__required-links-list {
   @include u-margin-y(0);
   list-style: none;
@@ -77,16 +103,23 @@ $theme-site-domain: "my-domain";
     column-count: 2;
     column-gap: units($theme-anchor-gap);
     column-fill: balance;
-    margin-bottom: units(1.5);
   }
-  @include at-media($theme-anchor-min-width) {
-    column-count: 3;
+  @include at-media("desktop") {
+    column-count: 4;
   }
 }
 
 .usa-anchor__required-links-item {
   break-inside: avoid;
   margin-bottom: units(1.5);
+
+  @include at-media("desktop") {
+    margin-bottom: units(1);
+  }
+}
+
+.usa-anchor__required-link {
+  @include anchor-secondary-link;
 }
 
 //
@@ -105,7 +138,7 @@ $theme-site-domain: "my-domain";
 .usa-anchor__secondary-section a {
   @include u-font-weight("bold");
   display: inline-block;
-  margin-top: units(1.5);
+  margin-top: units(1);
 
   @include at-media("tablet") {
     margin-top: 0;
@@ -114,4 +147,10 @@ $theme-site-domain: "my-domain";
 
 .usa-anchor__secondary-section .usa-link:not(:first-of-type) {
   @include u-margin-left("05");
+}
+
+.usa-anchor__contact-description {
+  @include at-media("tablet") {
+    display: inline-flex;
+  }
 }
