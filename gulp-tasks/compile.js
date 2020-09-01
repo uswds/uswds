@@ -9,6 +9,8 @@ const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
+const browserify = require('browserify');
+const through = require('through2');
 
 // Set sass compiler to use Dart Sass
 sass.compiler = require('sass');
@@ -23,6 +25,21 @@ function handleError(err) {
   console.error(err.toString());
   this.emit('end');
 }
+
+const browserified = function() {
+  return through.obj(function(chunk, enc, callback) {
+    if(chunk.isBuffer()) {
+      var b = browserify(chunk.path);
+      // Any custom browserify stuff should go here
+      //.transform(to5browserify);
+
+      chunk.contents = b.bundle();
+
+      this.push(chunk);
+    }
+    callback();
+  });
+};
 
 // Export our tasks.
 module.exports = {
@@ -39,6 +56,8 @@ module.exports = {
   // Compile JavaScript.
   compileJS: function() {
     return src(['./src/patterns/**/**/*.js'], { base: './' })
+    // return src(['../scripts/build.js'], { base: './' })
+      // .pipe(browserified())
       .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(
