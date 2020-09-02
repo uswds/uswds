@@ -1,2 +1,3 @@
 src/stylesheets/core/system-tokens/**/*
 *.html
+*.njk
