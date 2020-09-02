@@ -13,11 +13,11 @@ const EVENTS = {};
  * send a click event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.click = el => {
+EVENTS.click = (el) => {
   const evt = new MouseEvent("click", {
     view: el.ownerDocument.defaultView,
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };

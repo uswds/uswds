@@ -9,7 +9,7 @@ const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase() : "localhost";
 
 function launchChromeLocally(headless = true) {
   return chromeLauncher.launch({
-    chromeFlags: ["--disable-gpu", headless ? "--headless" : ""]
+    chromeFlags: ["--disable-gpu", headless ? "--headless" : ""],
   });
 }
 
@@ -23,7 +23,7 @@ function getRemoteChrome() {
     port: info.port,
     kill() {
       return Promise.resolve();
-    }
+    },
   });
 }
 
@@ -39,7 +39,7 @@ function loadPage({ cdp, url }) {
             new Error(`${response.url} returned HTTP ${response.status}!`)
           );
         });
-        Network.loadingFailed(details => {
+        Network.loadingFailed((details) => {
           reject(
             new Error(
               "A network request failed to load: " +
@@ -56,14 +56,14 @@ function loadPage({ cdp, url }) {
 }
 
 function getHandles() {
-  return Array.from(fractal.components.flatten().map(c => c.handle));
+  return Array.from(fractal.components.flatten().map((c) => c.handle));
 }
 
 const getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 const server = fractal.web.server({ sync: false });
 
 // eslint-disable-next-line no-param-reassign, no-return-assign
-const autobind = self => name => (self[name] = self[name].bind(self));
+const autobind = (self) => (name) => (self[name] = self[name].bind(self));
 
 class ChromeFractalTester {
   constructor() {
@@ -75,7 +75,7 @@ class ChromeFractalTester {
       "setup",
       "createChromeDevtoolsProtocol",
       "loadFractalPreview",
-      "teardown"
+      "teardown",
     ].forEach(autobind(this));
   }
 
@@ -88,7 +88,7 @@ class ChromeFractalTester {
     return server
       .start()
       .then(getChrome)
-      .then(newChrome => {
+      .then((newChrome) => {
         this.chrome = newChrome;
         this.chromeHost = this.chrome.host || "localhost";
         this.serverUrl = `http://${HOSTNAME}:${server.port}`;
@@ -98,7 +98,7 @@ class ChromeFractalTester {
   createChromeDevtoolsProtocol() {
     return CDP({
       host: this.chromeHost,
-      port: this.chrome.port
+      port: this.chrome.port,
     });
   }
 
