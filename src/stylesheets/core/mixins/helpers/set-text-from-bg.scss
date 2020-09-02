@@ -1,4 +1,5 @@
 @use "../../functions/color/get-color-from-bg" as *;
+@use "../../functions/utilities/color" as *;
 
 @mixin set-text-from-bg(
   $bg-color,

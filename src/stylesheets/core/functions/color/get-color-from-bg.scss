@@ -1,4 +1,5 @@
 @use "get-token-from-bg" as *;
+@use "../../functions/utilities/color" as *;
 
 @function get-color-from-bg(
   $bg-color,
