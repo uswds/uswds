@@ -13,11 +13,11 @@ const EVENTS = {};
  * send a click event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.click = el => {
+EVENTS.click = (el) => {
   const evt = new MouseEvent("click", {
     view: el.ownerDocument.defaultView,
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -28,6 +28,7 @@ describe("combo box component - disabled enhancement", () => {
   let root;
   let input;
   let select;
+  let toggle;
   let list;
 
   beforeEach(() => {
@@ -36,6 +37,7 @@ describe("combo box component - disabled enhancement", () => {
     root = body.querySelector(".usa-combo-box");
     input = root.querySelector(".usa-combo-box__input");
     select = root.querySelector(".usa-combo-box__select");
+    toggle = root.querySelector(".usa-combo-box__toggle-list");
     list = root.querySelector(".usa-combo-box__list");
   });
 
@@ -62,5 +64,18 @@ describe("combo box component - disabled enhancement", () => {
     EVENTS.click(input);
 
     assert.ok(list.hidden, "should not display the option list");
+  });
+
+  it("should not show the list when clicking the disabled button", () => {
+    EVENTS.click(toggle);
+
+    assert.ok(list.hidden, "should not display the option list");
+  });
+
+  it("should show the list when clicking the input once the component has been enabled", () => {
+    ComboBox.enable(root);
+    EVENTS.click(input);
+
+    assert.ok(!list.hidden, "should display the option list");
   });
 });

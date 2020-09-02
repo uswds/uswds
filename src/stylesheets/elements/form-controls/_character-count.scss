@@ -5,8 +5,7 @@
   padding-top: units(0.5);
 }
 
-.usa-character-count__message--invalid,
-.usa-hint.usa-character-count__message--invalid {
+.usa-character-count__message--invalid {
   color: color("error-dark");
   font-weight: font-weight("bold");
 }

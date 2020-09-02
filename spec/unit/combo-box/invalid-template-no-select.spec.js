@@ -18,7 +18,7 @@ describe("character count component without message", () => {
   it("should throw an error when a combo box component is created with no select element", () => {
     body.innerHTML = INVALID_TEMPLATE_NO_MESSAGE;
     assert.throws(() => ComboBox.on(), {
-      message: ".usa-combo-box is missing inner select"
+      message: ".usa-combo-box is missing inner select",
     });
   });
 });

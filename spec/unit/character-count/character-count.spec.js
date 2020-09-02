@@ -15,7 +15,7 @@ const EVENTS = {};
  * send an input event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = el => {
+EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 

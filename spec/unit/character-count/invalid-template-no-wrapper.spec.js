@@ -19,7 +19,7 @@ describe("character count input without wrapping element", () => {
     body.innerHTML = INVALID_TEMPLATE_NO_WRAPPER;
     assert.throws(() => CharacterCount.on(), {
       message:
-        ".usa-character-count__field is missing outer .usa-character-count"
+        ".usa-character-count__field is missing outer .usa-character-count",
     });
   });
 });

@@ -9,7 +9,7 @@
 ) {
   &::after {
     $icon-size: 0.65em;
-    @include add-background-svg("#{$external-link}", $image-path);
+    background-image: url("#{$image-path}/#{$external-link}.svg");
     background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 100%;

@@ -42,7 +42,6 @@ web.theme(
     format: "yaml",
     // which panels to show
     panels: ["html", "notes", "view", "context", "resources", "info"]
-    //    scripts: []
   })
 );
 

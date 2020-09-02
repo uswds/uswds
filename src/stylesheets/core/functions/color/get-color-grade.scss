@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+
+@use "./get-color-token-assignment" as *;
+@use "./luminance" as *;
+@use "./decompose" as *;
+@use "../../variables/luminance-grade-ranges" as *;
+
+/*
+----------------------------------------
+get-color-grade()
+----------------------------------------
+Derive the grade equivalent any color,
+even non-token colors
+----------------------------------------
+*/
+
+@function get-color-grade($color-token) {
+  $grade: null;
+  $lum: null;
+  $color: false;
+  @if meta.type-of($color-token) == "color" {
+    $color: $color-token;
+  } @else if meta.type-of(get-color-token-assignment($color-token)) == "color" {
+    $color: get-color-token-assignment($color-token);
+  }
+
+  @if $color {
+    $lum: luminance($color);
+
+    @each $grade, $range in $system-luminance-grade-ranges {
+      $min: list.nth($range, 1);
+      $max: list.nth($range, 2);
+      $next-max: false;
+      @if $grade < 100 {
+        @if $grade == 0 {
+          $next-max: list.nth(map.get($system-luminance-grade-ranges, 5), 2);
+        }
+        @else if $grade == 5 {
+          $next-max: list.nth(map.get($system-luminance-grade-ranges, 10), 2);
+        }
+        @else {
+          $next-max: list.nth(
+            map.get($system-luminance-grade-ranges, ($grade + 10)),
+            2
+          );
+        }
+      }
+      @if ($lum >= $min) and ($lum <= $max) {
+        @return $grade;
+      }
+      @if $next-max and ($lum < $min) and ($lum > $next-max) {
+        @return $grade + 4.9;
+      }
+    }
+  }
+
+  $system-token: get-color-token-assignment($color-token);
+  $grade: list.nth(decompose($system-token), 2);
+  @return $grade;
+}
