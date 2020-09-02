@@ -1,4 +1,5 @@
-@use "../../functions/color/get-system-color" as *;
+@use "../../../settings" as *;
+@use "../../../core/functions/color/get-system-color" as *;
 
 //red-cool
 $color-red-cool-5: get-system-color("red-cool", 5);
@@ -961,7 +962,7 @@ $system-color-shortcodes: (
   "violet-70v": $color-violet-70v,
   "violet-80v": $color-violet-80v,
   "violet-90v": $color-violet-90v,
-  "violet-warm-5 ": $color-violet-warm-5,
+  "violet-warm-5": $color-violet-warm-5,
   "violet-warm-10": $color-violet-warm-10,
   "violet-warm-20": $color-violet-warm-20,
   "violet-warm-30": $color-violet-warm-30,
