@@ -1,9 +1,10 @@
 @use "sass:list";
 @use "sass:map";
 
-@use "get-color-grade" as *;
 @use "decompose" as *;
 @use "luminance" as *;
+@use "get-color-grade" as *;
+@use "../../variables/luminance-grade-ranges" as *;
 
 /*
 ----------------------------------------
@@ -24,15 +25,23 @@ results than expected.
 
   @each $token, $value in $map {
     $family: list.nth(decompose($token), 1);
-    $grade: list.nth(decompose($token), 2);
-    @if not $value {
-    } @else if not index($exceptions, $family) {
+    @if not index($exceptions, $family) and $value{
+      $grade: list.nth(decompose($token), 2);
       $computed: get-color-grade($value);
-      @debug "Checked #{$family}-#{$grade}";
-      @if $grade <= 5 {
-      } @else if $computed != $grade {
-        @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map.get($system-luminance-grade-ranges, $grade)}";
+      @if $grade > 4 {
+        @if $computed == $grade {
+          @debug "#{$token}: OK";
+        }
+        @else {
+          @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map.get($system-luminance-grade-ranges, $grade)}";
+        }
       }
+      @else {
+        @debug "#{$token}: skipped";
+      }
+    }
+    @else {
+      @debug "#{$token}: skipped";
     }
   }
 
