@@ -1,6 +1,0 @@
-@use "sass:meta";
-@use "summation" as *;
-
-@function exp($value) {
-  @return summation(meta.get-function("exp-maclaurin"), $value, 0, 100);
-}
