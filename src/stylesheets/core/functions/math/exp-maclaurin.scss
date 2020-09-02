@@ -1,6 +1,0 @@
-@use "pow" as *;
-@use "factorial" as *;
-
-@function exp-maclaurin($x, $n) {
-  @return (pow($x, $n) / factorial($n));
-}

@@ -29,5 +29,5 @@ $tokens-color-state: (
   "disabled-light":
     set-theme-color(settings.$theme-color-disabled-light, no-warn),
   "disabled": set-theme-color(settings.$theme-color-disabled, no-warn),
-  "disabled-dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn)
+  "disabled-dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn),
 );

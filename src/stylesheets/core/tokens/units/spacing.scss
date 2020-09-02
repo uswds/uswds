@@ -4,102 +4,102 @@
 $system-spacing: (
   "smaller": (
     "1px": 1px,
-    "2px": 2px
+    "2px": 2px,
   ),
   "small": (
     "05": spacing-multiple(0.5),
     // 4px
-      1: spacing-multiple(1),
+    1: spacing-multiple(1),
     // 8px
-      "105": spacing-multiple(1.5),
+    "105": spacing-multiple(1.5),
     // 12px
-      2: spacing-multiple(2),
+    2: spacing-multiple(2),
     // 16px
-      "205": spacing-multiple(2.5),
+    "205": spacing-multiple(2.5),
     // 20px
-      3: spacing-multiple(3),
+    3: spacing-multiple(3),
     // 24px
   ),
   "smaller-negative": (
     "#{$neg-prefix}-1px": -1px,
-    "#{$neg-prefix}-2px": -2px
+    "#{$neg-prefix}-2px": -2px,
   ),
   "small-negative": (
     "#{$neg-prefix}-05": spacing-multiple(-0.5),
     // -4px
-      "#{$neg-prefix}-1": spacing-multiple(-1),
+    "#{$neg-prefix}-1": spacing-multiple(-1),
     // -8px
-      "#{$neg-prefix}-105": spacing-multiple(-1.5),
+    "#{$neg-prefix}-105": spacing-multiple(-1.5),
     // -12px
-      "#{$neg-prefix}-2": spacing-multiple(-2),
+    "#{$neg-prefix}-2": spacing-multiple(-2),
     // -16px
-      "#{$neg-prefix}-205": spacing-multiple(-2.5),
+    "#{$neg-prefix}-205": spacing-multiple(-2.5),
     // -20px
-      "#{$neg-prefix}-3": spacing-multiple(-3),
+    "#{$neg-prefix}-3": spacing-multiple(-3),
     // -24px
   ),
   "medium": (
     4: spacing-multiple(4),
     // 32px
-      5: spacing-multiple(5),
+    5: spacing-multiple(5),
     // 40px
-      6: spacing-multiple(6),
+    6: spacing-multiple(6),
     // 48px
-      7: spacing-multiple(7),
+    7: spacing-multiple(7),
     // 56px
-      8: spacing-multiple(8),
+    8: spacing-multiple(8),
     // 64px
-      9: spacing-multiple(9),
+    9: spacing-multiple(9),
     // 72px
-      10: spacing-multiple(10),
+    10: spacing-multiple(10),
     // 80px
-      15: spacing-multiple(15),
+    15: spacing-multiple(15),
     // 120px
   ),
   "medium-negative": (
     "#{$neg-prefix}-4": spacing-multiple(-4),
     // -32px
-      "#{$neg-prefix}-5": spacing-multiple(-5),
+    "#{$neg-prefix}-5": spacing-multiple(-5),
     // -40px
-      "#{$neg-prefix}-6": spacing-multiple(-6),
+    "#{$neg-prefix}-6": spacing-multiple(-6),
     // -48px
-      "#{$neg-prefix}-7": spacing-multiple(-7),
+    "#{$neg-prefix}-7": spacing-multiple(-7),
     // -56px
-      "#{$neg-prefix}-8": spacing-multiple(-8),
+    "#{$neg-prefix}-8": spacing-multiple(-8),
     // -64px
-      "#{$neg-prefix}-9": spacing-multiple(-9),
+    "#{$neg-prefix}-9": spacing-multiple(-9),
     // -72px
-      "#{$neg-prefix}-10": spacing-multiple(-10),
+    "#{$neg-prefix}-10": spacing-multiple(-10),
     // -80px
-      "#{$neg-prefix}-15": spacing-multiple(-15),
+    "#{$neg-prefix}-15": spacing-multiple(-15),
     // -120px
   ),
   "large": (
     "card": spacing-multiple(20),
     // 160px
-      "card-lg": spacing-multiple(30),
+    "card-lg": spacing-multiple(30),
     // 240px
-      "mobile": spacing-multiple(40),
+    "mobile": spacing-multiple(40),
     // 320px
   ),
   "larger": (
     "mobile-lg": spacing-multiple(60),
     // 480px
-      "tablet": spacing-multiple(80),
+    "tablet": spacing-multiple(80),
     // 640px
-      "tablet-lg": spacing-multiple(110),
+    "tablet-lg": spacing-multiple(110),
     // 880px
   ),
   "largest": (
     "desktop": spacing-multiple(128),
     // 1024px
-      "desktop-lg": spacing-multiple(150),
+    "desktop-lg": spacing-multiple(150),
     // 1200px
-      "widescreen": spacing-multiple(175),
+    "widescreen": spacing-multiple(175),
     // 1400px
   ),
   "special": (
     0: 0,
-    "auto": auto
-  )
+    "auto": auto,
+  ),
 );

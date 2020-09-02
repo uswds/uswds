@@ -13,7 +13,7 @@
   $colors: (
     "red": color.red($color),
     "green": color.green($color),
-    "blue": color.blue($color)
+    "blue": color.blue($color),
   );
 
   @each $name, $value in $colors {
@@ -22,7 +22,8 @@
 
     @if $value < 0.03928 {
       $value: $value / 12.92;
-    } @else {
+    }
+    @else {
       $value: ($value + 0.055) / 1.055;
       $value: pow($value, 2.4);
     }
@@ -30,7 +31,7 @@
     $colors: map.merge(
       $colors,
       (
-        $name: $value
+        $name: $value,
       )
     );
   }

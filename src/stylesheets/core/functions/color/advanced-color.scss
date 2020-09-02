@@ -4,7 +4,7 @@
 @use "../../functions/general/map-deep-get" as *;
 @use "../../functions/general/smart-quote" as *;
 @use "../../functions/general/unpack" as *;
-@use "../../functions/color/get-system-color" as *;
+@use "get-system-color" as *;
 
 /*
 ----------------------------------------

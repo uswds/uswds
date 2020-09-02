@@ -2,6 +2,8 @@ const accordion = require("./accordion");
 const banner = require("./banner");
 const characterCount = require("./character-count");
 const comboBox = require("./combo-box");
+const datePicker = require("./date-picker");
+const dateRangePicker = require("./date-range-picker");
 const fileInput = require("./file-input");
 const footer = require("./footer");
 const navigation = require("./navigation");
@@ -10,8 +12,6 @@ const search = require("./search");
 const skipnav = require("./skipnav");
 const tooltip = require("./tooltip");
 const validator = require("./validator");
-const datePicker = require("./date-picker");
-const dateRangePicker = require("./date-range-picker");
 
 module.exports = {
   accordion,

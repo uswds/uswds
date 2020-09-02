@@ -14,7 +14,7 @@ describe("toggleFieldMask()", () => {
     const text = createElement("input", {
       type: "text",
       autocapitalize: "off",
-      autocorrect: "off"
+      autocorrect: "off",
     });
     toggleFieldMask(text, true);
     assert.equal(text.getAttribute("type"), "password");
@@ -24,7 +24,7 @@ describe("toggleFieldMask()", () => {
     const password = createElement("input", {
       type: "password",
       autocapitalize: "off",
-      autocorrect: "off"
+      autocorrect: "off",
     });
     toggleFieldMask(password, false);
     assert.equal(password.getAttribute("type"), "text");

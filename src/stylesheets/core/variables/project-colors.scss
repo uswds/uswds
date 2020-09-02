@@ -12,7 +12,7 @@ $project-colors: (
     "default": set-theme-color(settings.$theme-color-base),
     "dark": set-theme-color(settings.$theme-color-base-dark),
     "darker": set-theme-color(settings.$theme-color-base-darker),
-    "darkest": set-theme-color(settings.$theme-color-base-darkest)
+    "darkest": set-theme-color(settings.$theme-color-base-darkest),
   ),
   "primary": (
     "lightest": set-theme-color(settings.$theme-color-primary-lightest),
@@ -22,7 +22,7 @@ $project-colors: (
     "vivid": set-theme-color(settings.$theme-color-primary-vivid),
     "dark": set-theme-color(settings.$theme-color-primary-dark),
     "darker": set-theme-color(settings.$theme-color-primary-darker),
-    "darkest": set-theme-color(settings.$theme-color-primary-darkest)
+    "darkest": set-theme-color(settings.$theme-color-primary-darkest),
   ),
   "secondary": (
     "lightest": set-theme-color(settings.$theme-color-secondary-lightest),
@@ -32,7 +32,7 @@ $project-colors: (
     "vivid": set-theme-color(settings.$theme-color-secondary-vivid),
     "dark": set-theme-color(settings.$theme-color-secondary-dark),
     "darker": set-theme-color(settings.$theme-color-secondary-darker),
-    "darkest": set-theme-color(settings.$theme-color-secondary-darkest)
+    "darkest": set-theme-color(settings.$theme-color-secondary-darkest),
   ),
   "accent-warm": (
     "lightest": set-theme-color(settings.$theme-color-accent-warm-lightest),
@@ -41,7 +41,7 @@ $project-colors: (
     "default": set-theme-color(settings.$theme-color-accent-warm),
     "dark": set-theme-color(settings.$theme-color-accent-warm-dark),
     "darker": set-theme-color(settings.$theme-color-accent-warm-darker),
-    "darkest": set-theme-color(settings.$theme-color-accent-warm-darkest)
+    "darkest": set-theme-color(settings.$theme-color-accent-warm-darkest),
   ),
   "accent-cool": (
     "lightest": set-theme-color(settings.$theme-color-accent-cool-lightest),
@@ -50,8 +50,8 @@ $project-colors: (
     "default": set-theme-color(settings.$theme-color-accent-cool),
     "dark": set-theme-color(settings.$theme-color-accent-cool-dark),
     "darker": set-theme-color(settings.$theme-color-accent-cool-darker),
-    "darkest": set-theme-color(settings.$theme-color-accent-cool-darkest)
-  )
+    "darkest": set-theme-color(settings.$theme-color-accent-cool-darkest),
+  ),
 );
 
 $project-state-colors: (
@@ -60,34 +60,34 @@ $project-state-colors: (
     "light": set-theme-color(settings.$theme-color-error-light),
     "default": set-theme-color(settings.$theme-color-error),
     "dark": set-theme-color(settings.$theme-color-error-dark),
-    "darker": set-theme-color(settings.$theme-color-error-darker)
+    "darker": set-theme-color(settings.$theme-color-error-darker),
   ),
   "warning": (
     "lighter": set-theme-color(settings.$theme-color-warning-lighter),
     "light": set-theme-color(settings.$theme-color-warning-light),
     "default": set-theme-color(settings.$theme-color-warning),
     "dark": set-theme-color(settings.$theme-color-warning-dark),
-    "darker": set-theme-color(settings.$theme-color-warning-darker)
+    "darker": set-theme-color(settings.$theme-color-warning-darker),
   ),
   "success": (
     "lighter": set-theme-color(settings.$theme-color-success-lighter),
     "light": set-theme-color(settings.$theme-color-success-light),
     "default": set-theme-color(settings.$theme-color-success),
     "dark": set-theme-color(settings.$theme-color-success-dark),
-    "darker": set-theme-color(settings.$theme-color-success-darker)
+    "darker": set-theme-color(settings.$theme-color-success-darker),
   ),
   "info": (
     "lighter": set-theme-color(settings.$theme-color-info-lighter),
     "light": set-theme-color(settings.$theme-color-info-light),
     "default": set-theme-color(settings.$theme-color-info),
     "dark": set-theme-color(settings.$theme-color-info-dark),
-    "darker": set-theme-color(settings.$theme-color-info-darker)
+    "darker": set-theme-color(settings.$theme-color-info-darker),
   ),
   "disabled": (
     "light": set-theme-color(settings.$theme-color-disabled-light),
     "default": set-theme-color(settings.$theme-color-disabled),
-    "dark": set-theme-color(settings.$theme-color-disabled-dark)
-  )
+    "dark": set-theme-color(settings.$theme-color-disabled-dark),
+  ),
 );
 
 $all-project-colors: general.map-collect(

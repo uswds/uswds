@@ -2,9 +2,10 @@
 @use "sass:meta";
 @use "sass:list";
 
-@use "get-color-token-assignment" as *;
-@use "luminance" as *;
-@use "decompose" as *;
+@use "./get-color-token-assignment" as *;
+@use "./luminance" as *;
+@use "./decompose" as *;
+@use "../../variables/luminance-grade-ranges" as *;
 
 /*
 ----------------------------------------
@@ -19,7 +20,6 @@ even non-token colors
   $grade: null;
   $lum: null;
   $color: false;
-
   @if meta.type-of($color-token) == "color" {
     $color: $color-token;
   } @else if meta.type-of(get-color-token-assignment($color-token)) == "color" {
@@ -34,9 +34,13 @@ even non-token colors
       $max: list.nth($range, 2);
       $next-max: false;
       @if $grade < 100 {
-        @if $grade == 5 {
+        @if $grade == 0 {
+          $next-max: list.nth(map.get($system-luminance-grade-ranges, 5), 2);
+        }
+        @else if $grade == 5 {
           $next-max: list.nth(map.get($system-luminance-grade-ranges, 10), 2);
-        } @else {
+        }
+        @else {
           $next-max: list.nth(
             map.get($system-luminance-grade-ranges, ($grade + 10)),
             2

@@ -10,7 +10,7 @@ const Behavior = require("receptor/behavior");
 // from the behavior props object, not from the module
 const sequence = (...seq) =>
   function callHooks(target = document.body) {
-    seq.forEach(method => {
+    seq.forEach((method) => {
       if (typeof this[method] === "function") {
         this[method].call(this, target);
       }
@@ -29,7 +29,7 @@ module.exports = (events, props) =>
     assign(
       {
         on: sequence("init", "add"),
-        off: sequence("teardown", "remove")
+        off: sequence("teardown", "remove"),
       },
       props
     )

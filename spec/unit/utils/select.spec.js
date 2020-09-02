@@ -10,25 +10,25 @@ const assertArrayWithLength = (array, length) => {
   assert.equal(array.length, length);
 };
 
-describe("select", function() {
-  before(function() {
+describe("select", function () {
+  before(function () {
     document.body.innerHTML = TEMPLATE;
   });
 
-  after(function() {
+  after(function () {
     document.body.innerHTML = "";
   });
 
-  it("returns an empty array if given a non-string selector", function() {
+  it("returns an empty array if given a non-string selector", function () {
     assertArrayWithLength(select(undefined), 0);
   });
 
-  it("returns an Array of selected DOM elements", function() {
+  it("returns an Array of selected DOM elements", function () {
     assertArrayWithLength(select("#id1"), 1);
     assertArrayWithLength(select(".firstclass"), 2);
   });
 
-  it("returns an Array of selected DOM elements in a particular context", function() {
+  it("returns an Array of selected DOM elements in a particular context", function () {
     assertArrayWithLength(select(".secondclass", select(".firstclass")), 1);
   });
 });
