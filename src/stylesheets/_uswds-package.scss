@@ -11,21 +11,28 @@
 @forward "./packages/usa-button-group";
 @forward "./packages/usa-card";
 @forward "./packages/usa-character-count";
+@forward "./packages/usa-checkbox-and-radio";
 @forward "./packages/usa-checklist";
 @forward "./packages/usa-combo-box";
 @forward "./packages/usa-content";
+@forward "./packages/usa-date-picker";
+@forward "./packages/usa-dropdown";
+@forward "./packages/usa-file-input";
 @forward "./packages/usa-footer";
 @forward "./packages/usa-graphic-list";
 @forward "./packages/usa-header";
 @forward "./packages/usa-hero";
+@forward "./packages/usa-input-and-textarea";
 @forward "./packages/usa-link";
 @forward "./packages/usa-list";
 @forward "./packages/usa-media-block";
 @forward "./packages/usa-megamenu";
+@forward "./packages/usa-memorable-date";
 @forward "./packages/usa-nav-container";
 @forward "./packages/usa-nav";
 @forward "./packages/usa-navbar";
 @forward "./packages/usa-prose";
+@forward "./packages/usa-range-input";
 @forward "./packages/usa-search";
 @forward "./packages/usa-section";
 @forward "./packages/usa-sidenav";
@@ -36,7 +43,7 @@
 
 // Component package groups
 // -------------------------------------
-@forward "./packages/form-controls";
+// @forward "./packages/form-controls";
 // @forward "./packages/form-templates";
 // @forward "./packages/typography";
 // @forward "./packages/uswds-components";
