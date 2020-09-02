@@ -28,6 +28,8 @@ jobs:
           paths:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+      - snyk/scan:
+          organization: uswds
       - run:
           name: Run test
           command: npm run test:ci
