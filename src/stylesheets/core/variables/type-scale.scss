@@ -12,7 +12,7 @@ $project-type-scale: (
   "lg": system-type-scale(settings.$theme-type-scale-lg),
   "xl": system-type-scale(settings.$theme-type-scale-xl),
   "2xl": system-type-scale(settings.$theme-type-scale-2xl),
-  "3xl": system-type-scale(settings.$theme-type-scale-3xl)
+  "3xl": system-type-scale(settings.$theme-type-scale-3xl),
 );
 
 $all-type-scale: general.map-collect($system-type-scale, $project-type-scale);

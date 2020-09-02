@@ -5,7 +5,6 @@
 @use "../general/str-split" as *;
 @use "../general/to-number" as *;
 
-
 /*
 ----------------------------------------
 decompose()
@@ -34,13 +33,12 @@ returns 'null'
 
   @if string.index($grade, "v") {
     $variant: "vivid";
-    $grade: string.slice($grade, 1, (string.index($grade, "v") - 1))
+    $grade: string.slice($grade, 1, (string.index($grade, "v") - 1));
   }
 
   @if list.length($split) == 3 {
     $family: list.nth($split, 1) + $separator + list.nth($split, 2);
-  }
-  @else {
+  } @else {
     $family: list.nth($split, 1);
   }
 

@@ -17,11 +17,10 @@ theme color token
   $grade: null;
 
   @if map.has-key($assignments-theme-color, $color-token) {
-    $system-token: map.get($assignments-theme-color, $system-token)
-  }
-  @else if not map.has-key($system-color-shortcodes, $color-token) {
+    $system-token: map.get($assignments-theme-color, $system-token);
+  } @else if not map.has-key($system-color-shortcodes, $color-token) {
     @error "'#{$color-token}' is not a valid color token.";
   }
 
   @return $system-token;
-};
+}

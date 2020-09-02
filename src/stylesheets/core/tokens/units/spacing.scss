@@ -4,7 +4,7 @@
 $system-spacing: (
   "smaller": (
     "1px": 1px,
-    "2px": 2px
+    "2px": 2px,
   ),
   "small": (
     "05": spacing-multiple(0.5),
@@ -22,7 +22,7 @@ $system-spacing: (
   ),
   "smaller-negative": (
     "#{$neg-prefix}-1px": -1px,
-    "#{$neg-prefix}-2px": -2px
+    "#{$neg-prefix}-2px": -2px,
   ),
   "small-negative": (
     "#{$neg-prefix}-05": spacing-multiple(-0.5),
@@ -100,6 +100,6 @@ $system-spacing: (
   ),
   "special": (
     0: 0,
-    "auto": auto
-  )
+    "auto": auto,
+  ),
 );

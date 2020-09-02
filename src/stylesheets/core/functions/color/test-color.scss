@@ -19,17 +19,18 @@ results than expected.
 */
 
 @function test-colors($map) {
-  $exceptions: "black", "white", "transparent", "black-transparent", "white-transparent";
+  $exceptions: "black", "white", "transparent", "black-transparent",
+    "white-transparent";
 
   @each $token, $value in $map {
     $family: list.nth(decompose($token), 1);
     $grade: list.nth(decompose($token), 2);
-    @if not $value {}
-    @else if not index($exceptions, $family) {
+    @if not $value {
+    } @else if not index($exceptions, $family) {
       $computed: get-color-grade($value);
       @debug "Checked #{$family}-#{$grade}";
-      @if $grade <= 5 {}
-      @else if $computed != $grade {
+      @if $grade <= 5 {
+      } @else if $computed != $grade {
         @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map.get($system-luminance-grade-ranges, $grade)}";
       }
     }

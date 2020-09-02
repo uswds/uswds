@@ -11,7 +11,7 @@ $project-font-stacks: (
   "heading": get-font-stack("heading"),
   "body": get-font-stack("body"),
   "code": get-font-stack("code"),
-  "alt": get-font-stack("alt")
+  "alt": get-font-stack("alt"),
 );
 
 $project-font-stack-cond: get-font-stack("cond");

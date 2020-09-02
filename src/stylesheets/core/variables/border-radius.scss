@@ -9,7 +9,7 @@ $project-border-radius: (
   "sm": units(settings.$theme-border-radius-sm),
   "md": units(settings.$theme-border-radius-md),
   "lg": units(settings.$theme-border-radius-lg),
-  "pill": 99rem
+  "pill": 99rem,
 );
 
 $all-border-radius: map-collect(

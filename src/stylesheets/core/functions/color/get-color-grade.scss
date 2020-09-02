@@ -22,8 +22,7 @@ even non-token colors
 
   @if meta.type-of($color-token) == "color" {
     $color: $color-token;
-  }
-  @else if meta.type-of(get-color-token-assignment($color-token)) == "color" {
+  } @else if meta.type-of(get-color-token-assignment($color-token)) == "color" {
     $color: get-color-token-assignment($color-token);
   }
 
@@ -37,9 +36,11 @@ even non-token colors
       @if $grade < 100 {
         @if $grade == 5 {
           $next-max: list.nth(map.get($system-luminance-grade-ranges, 10), 2);
-        }
-        @else {
-          $next-max: list.nth(map.get($system-luminance-grade-ranges, ($grade + 10)), 2);
+        } @else {
+          $next-max: list.nth(
+            map.get($system-luminance-grade-ranges, ($grade + 10)),
+            2
+          );
         }
       }
       @if ($lum >= $min) and ($lum <= $max) {
@@ -54,4 +55,4 @@ even non-token colors
   $system-token: get-color-token-assignment($color-token);
   $grade: list.nth(decompose($system-token), 2);
   @return $grade;
-};
+}

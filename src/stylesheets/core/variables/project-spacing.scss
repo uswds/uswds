@@ -36,7 +36,7 @@ $spacing-to-token: (
   "48": 6,
   "56": 7,
   "64": 8,
-  "72": 9
+  "72": 9,
 );
 
 $spacing-to-value: (
@@ -52,7 +52,7 @@ $spacing-to-value: (
   6: 48,
   7: 56,
   8: 64,
-  9: 72
+  9: 72,
 );
 
 $number-to-value: (
@@ -88,5 +88,5 @@ $number-to-value: (
   "-6": "neg-6",
   "-7": "neg-7",
   "-8": "neg-8",
-  "-9": "neg-9"
+  "-9": "neg-9",
 );
