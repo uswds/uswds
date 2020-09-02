@@ -117,7 +117,7 @@
     "nyc": "^15.1.0",
     "postcss-csso": "^4.0.0",
     "postcss-discard-comments": "^4.0.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.1.1",
     "resemblejs": "^3.2.4",
     "sass": "^1.26.8",
     "sinon": "^7.5.0",
