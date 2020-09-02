@@ -12,6 +12,6 @@ if (!(HIDDEN in elproto)) {
       } else {
         this.removeAttribute(HIDDEN);
       }
-    }
+    },
   });
 }
