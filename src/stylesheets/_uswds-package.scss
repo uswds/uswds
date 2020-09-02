@@ -10,8 +10,8 @@
 @forward "./packages/usa-button";
 @forward "./packages/usa-button-group";
 @forward "./packages/usa-card";
-@forward "./packages/usa-checklist";
 @forward "./packages/usa-character-count";
+@forward "./packages/usa-checklist";
 @forward "./packages/usa-combo-box";
 @forward "./packages/usa-content";
 @forward "./packages/usa-footer";
@@ -31,11 +31,12 @@
 @forward "./packages/usa-sidenav";
 @forward "./packages/usa-skipnav";
 @forward "./packages/usa-table";
+@forward "./packages/usa-tooltip";
 @forward "./packages/usa-tag";
 
 // Component package groups
 // -------------------------------------
-// @forward "./packages/form-controls";
+@forward "./packages/form-controls";
 // @forward "./packages/form-templates";
 // @forward "./packages/typography";
 // @forward "./packages/uswds-components";
