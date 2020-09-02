@@ -1,5 +1,4 @@
 $theme-anchor-background-color: "base-darkest";
-$theme-anchor-min-width: "desktop";
 $theme-anchor-gap: 4;
 $theme-anchor-secondary-link-color: "gray-20";
 
@@ -63,12 +62,17 @@ $theme-anchor-secondary-link-color: "gray-20";
   object-fit: contain;
 }
 
+.usa-anchor__branding-img--3x1 img {
+  width: 10.5rem; // 7 units [3.5rem] * 3
+  height: units(7);
+}
+
 .usa-anchor__branding-description {
   flex: 1 1 0%;
 }
 
 // Domain link in description
-.usa-anchor__branding-description > a {
+.usa-anchor__branding-domain-link {
   @include anchor-secondary-link;
   text-decoration: none;
 }
