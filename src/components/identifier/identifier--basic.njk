@@ -1,0 +1,74 @@
+<section class="usa-identifier" aria-label="Agency information and federally required links">
+  <div class="usa-identifier__primary-section">
+    <div class="grid-container">
+      <section class="usa-identifier__branding" aria-label="Agency identifiers by logo">
+        {% if branding|default(true) %}
+        <a href="https://home.treasury.gov/" class="usa-identifier__branding-img">
+          <img src="https://assets.codepen.io/23361/seal.png" alt="US Department of the Treasury logo" role="img">
+        </a>
+          {% if multiple_logos %}
+          <a href="javascript:void(0);" class="usa-identifier__branding-img">
+            <img src="https://assets.codepen.io/23361/gsa-logo-w100.png" alt="Placeholder logo"
+            role="img">
+          </a>
+          {% endif %}
+        {% endif %}
+        <div class="usa-identifier__branding-description" aria-label="Agency description">
+          <a class="usa-identifier__branding-domain-link" href="javascript:void(0);">irs.gov</a>
+          <p>
+            An official website of the <a href="https://home.treasury.gov/">Department of the Treasury</a>
+          </p>
+        </div>
+      </section>
+      <nav class="usa-identifier__required-links" aria-label="Required links">
+        <ul class="usa-identifier__required-links-list">
+          <li class="usa-identifier__required-links-item">
+            <a href="javascript:void(0);" class="usa-identifier__required-link usa-link">
+              About USDT
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/accessibility-aids"
+              class="usa-identifier__required-link usa-link">
+              Accessibility support
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia"
+              class="usa-identifier__required-link usa-link">
+              Freedom of Information Act requests
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/about-us/organization/office-of-civil-rights/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
+              class="usa-identifier__required-link usa-link">
+              No FEAR Act data
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link usa-link">
+              Office of the Inspector General
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link usa-link">
+              Performance reports
+            </a>
+          </li>
+          <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link usa-link">
+              Privacy policy
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="usa-identifier__secondary-section">
+    <div class="usa-identifier__contact">
+      <div class="grid-container" aria-label="Contact information">
+        <div class="usa-identifier__contact-description">Looking for U.S. government information and services?</div>
+        <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+      </div>
+    </div>
+</section>

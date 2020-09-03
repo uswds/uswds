@@ -12,7 +12,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 //
 // General Styles
 // =====================================
-.usa-anchor {
+.usa-identifier {
   @include set-text-and-bg($theme-anchor-background-color);
 
   a {
@@ -23,7 +23,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 //
 // Primary Section
 // =====================================
-.usa-anchor__primary-section {
+.usa-identifier__primary-section {
   padding-top: units(4);
   padding-bottom: units(0);
 
@@ -34,7 +34,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 
 // Branding
 // =====================================
-.usa-anchor__branding {
+.usa-identifier__branding {
   @include at-media("tablet") {
     @include grid-row;
     @include grid-gap("md");
@@ -42,7 +42,7 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__branding-img:not(:only-child) {
+.usa-identifier__branding-img:not(:only-child) {
   margin-bottom: units(2);
   @include u-text-decoration("no-underline");
 
@@ -51,41 +51,41 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__branding-img {
+.usa-identifier__branding-img {
   @include media-block-img($margin-right: units(0));
   display: inline-flex;
 }
 
-.usa-anchor__branding-img img {
+.usa-identifier__branding-img img {
   width: units(7);
   height: units(7);
   object-fit: contain;
 }
 
-.usa-anchor__branding-img--3x1 img {
+.usa-identifier__branding-img--3x1 img {
   width: 10.5rem; // 7 units [3.5rem] * 3
   height: units(7);
 }
 
-.usa-anchor__branding-description {
+.usa-identifier__branding-description {
   flex: 1 1 0%;
 }
 
 // Domain link in description
-.usa-anchor__branding-domain-link {
+.usa-identifier__branding-domain-link {
   @include anchor-secondary-link;
   text-decoration: none;
 }
 
 // Paragraph below domain link
-.usa-anchor__branding-description p:first-of-type {
+.usa-identifier__branding-description p:first-of-type {
   @include u-margin-y(0);
   font-weight: 700;
 }
 
 // Required links
 // =====================================
-.usa-anchor__branding + .usa-anchor__required-links {
+.usa-identifier__branding + .usa-identifier__required-links {
   margin-top: units(4);
 
   @include at-media("tablet") {
@@ -93,11 +93,11 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__required-links {
+.usa-identifier__required-links {
   margin-bottom: units(1);
 }
 
-.usa-anchor__required-links-list {
+.usa-identifier__required-links-list {
   @include u-margin-y(0);
   list-style: none;
   padding-left: 0;
@@ -113,7 +113,7 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__required-links-item {
+.usa-identifier__required-links-item {
   break-inside: avoid;
   margin-bottom: units(1.5);
 
@@ -122,14 +122,14 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__required-link {
+.usa-identifier__required-link {
   @include anchor-secondary-link;
 }
 
 //
 // Secondary Section
 // =====================================
-.usa-anchor__secondary-section {
+.usa-identifier__secondary-section {
   padding-top: units(2.5);
   padding-bottom: units(4);
 
@@ -139,7 +139,7 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__secondary-section a {
+.usa-identifier__secondary-section a {
   @include u-font-weight("bold");
   display: inline-block;
   margin-top: units(1);
@@ -149,11 +149,11 @@ $theme-anchor-secondary-link-color: "gray-20";
   }
 }
 
-.usa-anchor__secondary-section .usa-link:not(:first-of-type) {
+.usa-identifier__secondary-section .usa-link:not(:first-of-type) {
   @include u-margin-left("05");
 }
 
-.usa-anchor__contact-description {
+.usa-identifier__contact-description {
   @include at-media("tablet") {
     display: inline-flex;
   }
