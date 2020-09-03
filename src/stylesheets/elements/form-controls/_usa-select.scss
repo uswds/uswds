@@ -1,7 +1,5 @@
-@use "../../core/functions" as *;
-@use "../../core/mixins" as *;
-@use "../../settings" as *;
-@use "./global" as *;
+@use "../../packages/required" as *;
+@use "./usa-input" as *;
 
 .usa-select {
   @extend %block-input-general;
