@@ -1,5 +1,6 @@
 // dependencies
 @forward "global";
+// TODO: Why is accessibility not just part of global?
 @forward "../base/accessibility";
 @forward "layout-grid";
 @forward "usa-accordion";
@@ -11,4 +12,4 @@
 @forward "usa-skipnav";
 
 // src
-@forward "../components/header";
+@forward "../components/usa-header";
