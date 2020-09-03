@@ -1,8 +1,6 @@
 // dependencies
-@forward "global";
-// TODO: Why is accessibility not just part of global?
-@forward "../base/accessibility";
-@forward "layout-grid";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
 @forward "usa-accordion";
 @forward "usa-banner";
 @forward "usa-nav";

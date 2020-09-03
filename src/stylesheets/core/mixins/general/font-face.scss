@@ -2,7 +2,7 @@
 @use "../../functions" as *;
 @use "../../variables" as *;
 @use "../../tokens/font" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {

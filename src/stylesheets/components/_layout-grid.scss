@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../packages/required" as *;
+@use "../core" as *;
 
 $namespace-grid: ns("grid");
 

@@ -1,6 +1,5 @@
 @use "sass:map";
-@use "../core/mixins" as *;
-@use "../core/variables" as *;
+@use "../core" as *;
 
 @each $font-type-token, $metadata in $project-font-type-tokens {
   @if map.get($metadata, "typeface-token") {

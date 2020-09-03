@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "sass:list";
 
-@use "../../../settings" as *;
+@use "../../settings" as *;
 @use "../../functions/color/get-link-tokens-from-bg" as *;
 @use "../../functions/color/get-color-grade" as *;
 @use "../../functions/utilities/color" as *;

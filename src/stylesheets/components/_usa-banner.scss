@@ -1,7 +1,7 @@
 @use "sass:list";
 @use "sass:map";
 
-@use "../packages/required" as *;
+@use "../core" as *;
 
 $banner-guidance-measure: 3;
 $banner-icon-colors: get-link-tokens-from-bg(

@@ -3,7 +3,7 @@
 @use "sass:math";
 @use "sass:meta";
 
-@use "../../../settings" as *;
+@use "../../settings" as *;
 @use "../../tokens/color" as *;
 @use "../../functions/color/get-color-grade" as *;
 @use "../../functions/color/decompose" as *;

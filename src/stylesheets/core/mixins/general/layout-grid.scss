@@ -6,7 +6,7 @@
 @use "../../mixins/utilities" as *;
 @use "../../tokens" as *;
 @use "../../variables/column-gaps" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 @mixin grid-gap-responsive {
   $gap-mobile: if(

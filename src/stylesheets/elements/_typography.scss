@@ -1,6 +1,4 @@
-@use "../settings" as *;
-@use "../core/mixins" as *;
-@use "../core/functions/units/root" as *;
+@use "../core" as *;
 // TODO $root-font-size should not be in functions
 
 html {

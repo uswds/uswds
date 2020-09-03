@@ -11,7 +11,7 @@ or a hex value
 @use "sass:meta";
 @use "sass:string";
 @use "../../functions/general";
-@use "../../../settings";
+@use "../../settings";
 @use "../../tokens/color/shortcodes-color-system" as tokens;
 
 @function set-theme-color($value, $flag: null) {

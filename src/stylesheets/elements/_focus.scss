@@ -1,4 +1,4 @@
-@use "../core/mixins" as *;
+@use "../core" as *;
 
 // Apply :focus behavior to focusable elements only (For IE 11)
 input,
@@ -21,6 +21,3 @@ iframe,
   }
 }
 
-.usa-focus {
-  @include focus-outline;
-}

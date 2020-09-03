@@ -2,7 +2,7 @@
 @use "../../mixins/typography/typeset" as *;
 @use "../../mixins/helpers" as *;
 @use "../../mixins/utilities" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 @mixin usa-table {
   @include border-box-sizing;

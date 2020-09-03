@@ -1,11 +1,11 @@
 // dependencies
-@forward "global";
-@forward "layout-grid";
-@forward "typography";
-// TODO: Get more granular for form controls
-@forward "form-controls";
-@forward "usa-input";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
+@forward "uswds-typography";
 @forward "usa-button";
+@forward "usa-form";
+@forward "usa-input";
+@forward "usa-label";
 
 // component
 @forward "../components/usa-footer";

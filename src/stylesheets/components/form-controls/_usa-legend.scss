@@ -1,4 +1,4 @@
-@use "../../packages/required" as *;
+@use "../../core" as *;
 
 .usa-legend {
   font-size: font-size($theme-form-font-family, "xl");
