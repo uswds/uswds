@@ -12,7 +12,7 @@
   $magic-numbers: (
     "AA": 50,
     "AAA": 70,
-    "AA-large": 40
+    "AA-large": 40,
   );
   $target-magic-number: map.get($magic-numbers, $wcag-target);
   $grade-bg: get-color-grade($bg-color);

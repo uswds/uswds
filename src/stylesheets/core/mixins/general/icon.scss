@@ -169,7 +169,7 @@
     map.has-key($icon-object, "color-hover"),
     map.get($icon-object, "color-hover"),
     null
-    );
+  );
   &::#{$direction} {
     @include add-color-icon($icon-object, $contrast-bg);
     content: "";

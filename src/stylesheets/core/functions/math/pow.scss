@@ -77,9 +77,9 @@ Includes helper functions
   }
 
   @return summation(
-    meta.get-function("ln-maclaurin"),
-    $value / pow(10, $ten-exp),
-    1,
-    100
-  ) + $ten-exp * $ln-ten;
+      meta.get-function("ln-maclaurin"),
+      $value / pow(10, $ten-exp),
+      1,
+      100
+    ) + $ten-exp * $ln-ten;
 }

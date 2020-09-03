@@ -27,5 +27,5 @@ module.exports = {
   search,
   skipnav,
   tooltip,
-  validator
+  validator,
 };
