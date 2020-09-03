@@ -1,25 +1,25 @@
 <section class="usa-anchor" aria-label="Agency information and federally required links">
   <div class="usa-anchor__primary-section">
     <div class="grid-container">
-      {% if branding|default(true) %}
-        <section class="usa-anchor__branding" aria-label="Agency identifiers by logo">
-          <a href="https://home.treasury.gov/" class="usa-anchor__branding-img">
-            <img src="https://assets.codepen.io/23361/seal.png" alt="US Department of the Treasury logo" role="img">
-          </a>
+      <section class="usa-anchor__branding" aria-label="Agency identifiers by logo">
+        {% if branding|default(true) %}
+        <a href="https://home.treasury.gov/" class="usa-anchor__branding-img">
+          <img src="https://assets.codepen.io/23361/seal.png" alt="US Department of the Treasury logo" role="img">
+        </a>
           {% if multiple_logos %}
           <a href="javascript:void(0);" class="usa-anchor__branding-img">
             <img src="https://assets.codepen.io/23361/gsa-logo-w100.png" alt="Placeholder logo"
-              role="img">
+            role="img">
           </a>
           {% endif %}
-          <div class="usa-anchor__branding-description" aria-label="Agency description">
-            <a class="usa-anchor__branding-domain-link" href="javascript:void(0);">irs.gov</a>
-            <p>
-              An official website of the <a href="https://home.treasury.gov/">Department of the Treasury</a>.
-            </p>
-          </div>
-        </section>
-      {% endif %}
+        {% endif %}
+        <div class="usa-anchor__branding-description" aria-label="Agency description">
+          <a class="usa-anchor__branding-domain-link" href="javascript:void(0);">irs.gov</a>
+          <p>
+            An official website of the <a href="https://home.treasury.gov/">Department of the Treasury</a>.
+          </p>
+        </div>
+      </section>
       <nav class="usa-anchor__required-links" aria-label="Required links">
         <ul class="usa-anchor__required-links-list">
           <li class="usa-anchor__required-links-item">
