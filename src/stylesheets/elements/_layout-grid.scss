@@ -1,8 +1,6 @@
 @use "sass:map";
 @use "../packages/required" as *;
 
-/* stylelint-disable */
-
 $namespace-grid: ns("grid");
 
 // basic container
@@ -159,4 +157,3 @@ $namespace-grid: ns("grid");
     }
   }
 }
-/* stylelint-enable */
