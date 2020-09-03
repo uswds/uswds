@@ -1,11 +1,11 @@
-$theme-anchor-background-color: "base-darkest";
-$theme-anchor-gap: 4;
-$theme-anchor-secondary-link-color: "gray-20";
+$theme-identifier-background-color: "base-darkest";
+$theme-identifier-gap: 4;
+$theme-identifier-secondary-link-color: "gray-20";
 
-@mixin anchor-secondary-link {
+@mixin identifier-secondary-link {
   @include set-link-from-bg(
-    $theme-anchor-background-color,
-    $theme-anchor-secondary-link-color
+    $theme-identifier-background-color,
+    $theme-identifier-secondary-link-color
   );
 }
 
@@ -13,10 +13,10 @@ $theme-anchor-secondary-link-color: "gray-20";
 // General Styles
 // =====================================
 .usa-identifier {
-  @include set-text-and-bg($theme-anchor-background-color);
+  @include set-text-and-bg($theme-identifier-background-color);
 
   a {
-    @include set-link-from-bg($theme-anchor-background-color);
+    @include set-link-from-bg($theme-identifier-background-color);
   }
 }
 
@@ -73,7 +73,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 
 // Domain link in description
 .usa-identifier__branding-domain-link {
-  @include anchor-secondary-link;
+  @include identifier-secondary-link;
   text-decoration: none;
 }
 
@@ -105,7 +105,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 
   @include at-media("tablet") {
     column-count: 2;
-    column-gap: units($theme-anchor-gap);
+    column-gap: units($theme-identifier-gap);
     column-fill: balance;
   }
   @include at-media("desktop") {
@@ -123,7 +123,7 @@ $theme-anchor-secondary-link-color: "gray-20";
 }
 
 .usa-identifier__required-link {
-  @include anchor-secondary-link;
+  @include identifier-secondary-link;
 }
 
 //
