@@ -1,3 +1,18 @@
-label: Anchor
+label: Identifiers
 status: wip
 order: -1
+
+variants:
+  - name: default
+    label: Compare
+    status: null
+    branding: true
+
+  - name: basic
+    label: Basic Identifier
+
+  - name: no logos
+    label: No Logos
+
+  - name: multiple logos
+    label: Multiple Logos

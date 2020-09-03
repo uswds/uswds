@@ -1,68 +1,12 @@
-<section class="usa-anchor" aria-label="Agency information and federally required links">
-  <div class="usa-anchor__primary-section">
-    <div class="grid-container">
-      <section class="usa-anchor__branding" aria-label="Agency identifiers by logo">
-        <a href="https://home.treasury.gov/" class="usa-anchor__branding-img">
-          <img src="https://assets.codepen.io/23361/seal.png" alt="US Department of the Treasury logo" role="img">
-        </a>
-        <a href="javascript:void(0);" class="usa-anchor__branding-img usa-anchor__branding-img--3x1">
-          <img src="https://assets.codepen.io/23361/generic3-1.png" alt="Generic 3x1 aspect ratio placeholder logo" role="img">
-        </a>
-        <div class="usa-anchor__branding-description" aria-label="Agency description">
-          <a class="usa-anchor__branding-domain-link" href="javascript:void(0);">irs.gov</a>
-          <p>
-            An official website of the <a href="https://home.treasury.gov/">Department of the Treasury</a>.
-            Produced at taxpayer expense.
-          </p>
-        </div>
-      </section>
-      <nav class="usa-anchor__required-links" aria-label="Required links">
-        <ul class="usa-anchor__required-links-list">
-          <li class="usa-anchor__required-links-item">
-            <a href="javascript:void(0);" class="usa-anchor__required-link usa-link">
-              About USDT
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="https://www.gsa.gov/website-information/accessibility-aids" class="usa-anchor__required-link usa-link">
-              Accessibility support
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia" class="usa-anchor__required-link usa-link">
-              Freedom of Information Act requests
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="https://www.gsa.gov/about-us/organization/office-of-civil-rights/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
-              class="usa-anchor__required-link usa-link">
-              No FEAR Act data
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="https://www.gsaig.gov/" class="usa-anchor__required-link usa-link">
-              Office of the Inspector General
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="https://www.gsaig.gov/" class="usa-anchor__required-link usa-link">
-              Performance reports
-            </a>
-          </li>
-          <li class="usa-anchor__required-links-item">
-            <a href="" class="usa-anchor__required-link usa-link">
-              Privacy policy
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="usa-anchor__secondary-section">
-    <div class="usa-anchor__contact">
-      <div class="grid-container" aria-label="Contact information">
-        <div class="usa-anchor__contact-description">Looking for U.S. government information and services?</div>
-        <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
-    </div>
-  </div>
-</section>
+<div class="padding-2">
+  <h4>Basic Identifier</h4>
+  {%- render '@anchor--basic' -%}
+</div>
+<div class="padding-2">
+  <h4>Multiple logos identifier</h4>
+    {%- render '@anchor--multiple-logos' -%}
+</div>
+<div class="padding-2">
+  <h4>No logos identifier</h4>
+  {%- render '@anchor--no-logos' -%}
+</div>
