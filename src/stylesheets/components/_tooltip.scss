@@ -19,13 +19,13 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body {
+  @include typeset("ui", $theme-tooltip-font-size, 3);
   transition: opacity 0.08s ease-in-out;
   background-color: color($theme-tooltip-background-color);
   border-radius: radius($theme-button-border-radius);
   bottom: 0;
   color: color($theme-tooltip-font-color);
   display: none;
-  font-size: size("ui", $theme-tooltip-font-size);
   padding: units(1);
   position: absolute;
   pointer-events: none;
