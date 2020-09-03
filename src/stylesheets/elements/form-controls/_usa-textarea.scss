@@ -1,0 +1,11 @@
+@use "../../packages/required" as *;
+@use "./usa-input" as *;
+
+.usa-textarea {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+}
+
+.usa-textarea {
+  height: units("card");
+}

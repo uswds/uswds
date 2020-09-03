@@ -1,0 +1,6 @@
+@use "../../packages/required" as *;
+
+.usa-legend {
+  font-size: font-size($theme-form-font-family, "xl");
+  font-weight: font-weight("bold");
+}

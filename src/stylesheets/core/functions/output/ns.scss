@@ -7,7 +7,7 @@ namespace is set to output
 ----------------------------------------
 */
 
-@use "settings";
+@use "../../../settings";
 @use "../general";
 
 @function ns($type) {

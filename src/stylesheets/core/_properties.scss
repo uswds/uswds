@@ -402,6 +402,8 @@ $system-properties: (
   margin: (
     standard:
       map-collect(
+        map.get($system-spacing, "smaller-negative"),
+        map.get($system-spacing, "small-negative"),
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),

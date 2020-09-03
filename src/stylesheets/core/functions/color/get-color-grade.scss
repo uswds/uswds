@@ -36,11 +36,9 @@ even non-token colors
       @if $grade < 100 {
         @if $grade == 0 {
           $next-max: list.nth(map.get($system-luminance-grade-ranges, 5), 2);
-        }
-        @else if $grade == 5 {
+        } @else if $grade == 5 {
           $next-max: list.nth(map.get($system-luminance-grade-ranges, 10), 2);
-        }
-        @else {
+        } @else {
           $next-max: list.nth(
             map.get($system-luminance-grade-ranges, ($grade + 10)),
             2
