@@ -1,7 +1,3 @@
-$theme-identifier-background-color: "base-darkest";
-$theme-identifier-gap: 4;
-$theme-identifier-secondary-link-color: "gray-20";
-
 @mixin identifier-secondary-link {
   @include set-link-from-bg(
     $theme-identifier-background-color,
