@@ -24,12 +24,12 @@ $u-clearfix: (
         content: "both",
         extend: (
           "content": '""',
-          "display": "block"
-        )
-      )
+          "display": "block",
+        ),
+      ),
     ),
     settings: $clearfix-settings,
     property: "clear",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

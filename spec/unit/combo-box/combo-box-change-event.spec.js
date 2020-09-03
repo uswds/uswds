@@ -54,12 +54,12 @@ describe("combo box component change event dispatch", () => {
 
     assert.equal(
       select.value,
-      "value-ActionScript",
+      "apple",
       "should set that item to being the select option"
     );
     assert.equal(
       input.value,
-      "ActionScript",
+      "Apple",
       "should set that item to being the input value"
     );
 
@@ -74,19 +74,15 @@ describe("combo box component change event dispatch", () => {
   });
 
   it("should emit change events when resetting input values when an incomplete item is submitted through enter", () => {
-    select.value = "value-ActionScript";
+    select.value = "apple";
     input.value = "a";
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(select.value, "value-ActionScript");
-    assert.equal(
-      input.value,
-      "ActionScript",
-      "should reset the value on the input"
-    );
+    assert.equal(select.value, "apple");
+    assert.equal(input.value, "Apple", "should reset the value on the input");
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -95,7 +91,7 @@ describe("combo box component change event dispatch", () => {
   });
 
   it("should emit change events when closing the list but not the clear the input value when escape is performed while the list is open", () => {
-    select.value = "value-ActionScript";
+    select.value = "apple";
     input.value = "a";
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
@@ -104,14 +100,10 @@ describe("combo box component change event dispatch", () => {
 
     assert.equal(
       select.value,
-      "value-ActionScript",
+      "apple",
       "should not change the value of the select"
     );
-    assert.equal(
-      input.value,
-      "ActionScript",
-      "should reset the value in the input"
-    );
+    assert.equal(input.value, "Apple", "should reset the value in the input");
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -120,8 +112,8 @@ describe("combo box component change event dispatch", () => {
   });
 
   it("should emit change events when setting the input value when a complete selection is submitted by pressing enter", () => {
-    select.value = "value-ActionScript";
-    input.value = "go";
+    select.value = "apple";
+    input.value = "fig";
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
@@ -129,12 +121,12 @@ describe("combo box component change event dispatch", () => {
 
     assert.equal(
       select.value,
-      "value-Go",
+      "fig",
       "should set that item to being the select option"
     );
     assert.equal(
       input.value,
-      "Go",
+      "Fig",
       "should set that item to being the input value"
     );
     assert.ok(selectChangeSpy.called, "should have dispatched a change event");
@@ -142,32 +134,28 @@ describe("combo box component change event dispatch", () => {
   });
 
   it("should emit change events when selecting the focused list item in the list when pressing enter on a focused item", () => {
-    select.value = "value-JavaScript";
-    input.value = "la";
+    select.value = "grapefruit";
+    input.value = "emo";
 
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Lemon",
       "should focus the first item in the list"
     );
     EVENTS.keydownEnter(focusedOption);
 
-    assert.equal(
-      select.value,
-      "value-Erlang",
-      "select the first item in the list"
-    );
-    assert.equal(input.value, "Erlang", "should set the value in the input");
+    assert.equal(select.value, "lemon", "select the first item in the list");
+    assert.equal(input.value, "Lemon", "should set the value in the input");
     assert.ok(selectChangeSpy.called, "should have dispatched a change event");
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
 
   it("should emit change events when pressing escape from a focused item", () => {
-    select.value = "value-JavaScript";
-    input.value = "la";
+    select.value = "grapefruit";
+    input.value = "dew";
 
     EVENTS.input(input);
     assert.ok(
@@ -178,7 +166,7 @@ describe("combo box component change event dispatch", () => {
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Honeydew melon",
       "should focus the first item in the list"
     );
     EVENTS.keydownEscape(focusedOption);
@@ -186,12 +174,12 @@ describe("combo box component change event dispatch", () => {
     assert.ok(list.hidden, "should hide the option list");
     assert.equal(
       select.value,
-      "value-JavaScript",
+      "grapefruit",
       "should not change the value of the select"
     );
     assert.equal(
       input.value,
-      "JavaScript",
+      "Grapefruit",
       "should reset the value in the input"
     );
     assert.ok(

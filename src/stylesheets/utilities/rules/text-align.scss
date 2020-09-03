@@ -22,6 +22,6 @@ $u-text-align: (
       map-collect(get-palettes($text-align-palettes), $text-align-manual-values),
     settings: $text-align-settings,
     property: "text-align",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

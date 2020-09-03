@@ -1,0 +1,38 @@
+label: Date Picker
+status: ready
+preview: "@uswds-framed"
+
+variants:
+  - name: default
+    label: Default
+
+  - name: default-date
+    label: Default Date
+    context:
+      datePicker:
+        defaultDate: "2020-05-22"
+
+  - name: default-value
+    label: Default Value
+    context:
+      datePicker:
+        defaultValue: "2020-05-22"
+
+  - name: disabled
+    label: Disabled
+    context:
+      datePicker:
+        disabled: true
+
+  - name: restricted-date
+    label: Restricted Date
+    context:
+      datePicker:
+        minDate: "2020-05-22"
+        maxDate: "2021-06-20"
+
+  - name: range-date
+    label: Range Date
+    context:
+      datePicker:
+        rangeDate: "2020-05-22"

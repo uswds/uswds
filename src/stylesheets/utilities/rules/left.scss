@@ -23,6 +23,6 @@ $u-left: (
     values: map-collect(get-palettes($left-palettes), $left-manual-values),
     settings: $left-settings,
     property: "left",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

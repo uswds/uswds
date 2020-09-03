@@ -22,22 +22,22 @@ $u-margin: (
   margin: (
     base: "margin",
     modifiers: (
-      noModifier: ""
+      noModifier: "",
     ),
     values: map-collect(get-palettes($margin-palettes), $margin-manual-values),
     settings: $margin-settings,
     property: "margin",
-    type: "utility"
+    type: "utility",
   ),
   margin-vertical: (
     base: "margin",
     modifiers: (
       "y": (
         "-top",
-        "-bottom"
+        "-bottom",
       ),
       "top": "-top",
-      "bottom": "-bottom"
+      "bottom": "-bottom",
     ),
     values:
       map-collect(
@@ -46,17 +46,17 @@ $u-margin: (
       ),
     settings: $margin-settings,
     property: "margin",
-    type: "utility"
+    type: "utility",
   ),
   margin-horizontal: (
     base: "margin",
     modifiers: (
       "x": (
         "-left",
-        "-right"
+        "-right",
       ),
       "right": "-right",
-      "left": "-left"
+      "left": "-left",
     ),
     values:
       map-collect(
@@ -65,6 +65,6 @@ $u-margin: (
       ),
     settings: $margin-settings,
     property: "margin",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

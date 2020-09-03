@@ -4,7 +4,7 @@ $tokens-color-grayscale: (
   "gray-30": $color-gray-30,
   "gray-50": $color-gray-50,
   "gray-70": $color-gray-70,
-  "gray-90": $color-gray-90
+  "gray-90": $color-gray-90,
 );
 
 $tokens-color-system: map-collect(
@@ -52,5 +52,5 @@ $palettes-color: (
   "palette-color-grayscale": $tokens-color-grayscale,
   "palette-color-theme": $tokens-color-theme,
   "palette-color-state": $tokens-color-state,
-  "palette-color-system": $tokens-color-system
+  "palette-color-system": $tokens-color-system,
 );
