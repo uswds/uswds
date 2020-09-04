@@ -99,8 +99,10 @@
   @include focus-outline(null, null, null, 0.5);
 }
 
-.usa-checkbox__input:disabled + .usa-checkbox__label {
+.usa-checkbox__input:disabled + .usa-checkbox__label,
+.usa-radio__input:disabled + .usa-radio__label {
   color: color("disabled");
+  cursor: not-allowed;
 }
 
 .usa-checkbox__input:focus + .usa-checkbox__label::before {
