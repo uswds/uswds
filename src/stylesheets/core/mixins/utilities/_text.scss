@@ -47,7 +47,7 @@ $text-utililies: (
       map-deep-get($system-properties, "white-space", standard),
       map-deep-get($system-properties, "white-space", extended)
     ),
-  color: map-collect($tokens-color-required),
+  color: map-collect($tokens-color-global),
 );
 
 @mixin u-text($value...) {
