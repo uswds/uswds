@@ -47,7 +47,7 @@ describe("combo box component", () => {
     );
     assert.equal(
       input.getAttribute("id"),
-      "combo-box",
+      "fruit",
       "transfers id attribute to combo box"
     );
     assert.equal(
@@ -62,7 +62,7 @@ describe("combo box component", () => {
     );
     assert.equal(
       select.getAttribute("name"),
-      "combo-box",
+      "fruit",
       "should not transfer name attribute to combo box"
     );
     assert.equal(
@@ -180,12 +180,12 @@ describe("combo box component", () => {
 
     assert.equal(
       select.value,
-      "value-ActionScript",
+      "apple",
       "should set that item to the select option"
     );
     assert.equal(
       input.value,
-      "ActionScript",
+      "Apple",
       "should set that item to the input value"
     );
     assert.ok(list.hidden, "should hide the option list");
@@ -199,13 +199,13 @@ describe("combo box component", () => {
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(
       list.children.length,
-      10,
+      43,
       "should filter the item by the string being present in the option"
     );
   });
 
   it("should reset input values when an incomplete item is remaining on blur", () => {
-    select.value = "value-ActionScript";
+    select.value = "apricot";
     input.value = "a";
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
@@ -213,12 +213,12 @@ describe("combo box component", () => {
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "value-ActionScript");
-    assert.equal(input.value, "ActionScript");
+    assert.equal(select.value, "apricot");
+    assert.equal(input.value, "Apricot");
   });
 
   it("should reset input values when an incomplete item is submitted through enter", () => {
-    select.value = "value-ActionScript";
+    select.value = "cantaloupe";
     input.value = "a";
 
     EVENTS.input(input);
@@ -226,10 +226,10 @@ describe("combo box component", () => {
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "value-ActionScript");
+    assert.equal(select.value, "cantaloupe");
     assert.equal(
       input.value,
-      "ActionScript",
+      "Cantaloupe",
       "should reset the value on the input"
     );
     assert.ok(
@@ -249,7 +249,7 @@ describe("combo box component", () => {
   });
 
   it("should close the list and reset input value when escape is performed while the list is open", () => {
-    select.value = "value-ActionScript";
+    select.value = "cherry";
     input.value = "a";
 
     EVENTS.input(input);
@@ -259,32 +259,28 @@ describe("combo box component", () => {
     assert.ok(list.hidden, "should hide the option list");
     assert.equal(
       select.value,
-      "value-ActionScript",
+      "cherry",
       "should not change the value of the select"
     );
-    assert.equal(
-      input.value,
-      "ActionScript",
-      "should not change the value in the input"
-    );
+    assert.equal(input.value, "Cherry", "should reset the value in the input");
   });
 
   it("should reset the input value when a complete selection is left on blur from the input element", () => {
-    select.value = "value-ActionScript";
-    input.value = "go";
+    select.value = "coconut";
+    input.value = "date";
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "value-ActionScript");
-    assert.equal(input.value, "ActionScript");
+    assert.equal(select.value, "coconut");
+    assert.equal(input.value, "Coconut");
   });
 
   it("should set the input value when a complete selection is submitted by pressing enter", () => {
-    select.value = "value-ActionScript";
-    input.value = "go";
+    select.value = "cranberry";
+    input.value = "grape";
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
@@ -293,10 +289,14 @@ describe("combo box component", () => {
     assert.ok(list.hidden, "should hide the option list");
     assert.equal(
       select.value,
-      "value-Go",
+      "grape",
       "should set that item to the select option"
     );
-    assert.equal(input.value, "Go", "should set that item to the input value");
+    assert.equal(
+      input.value,
+      "Grape",
+      "should set that item to the input value"
+    );
   });
 
   it("should show the no results item when a nonexistent option is typed", () => {
@@ -321,7 +321,7 @@ describe("combo box component", () => {
   });
 
   it("should focus the first item in the list when pressing down from the input", () => {
-    input.value = "la";
+    input.value = "grape";
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
@@ -339,41 +339,45 @@ describe("combo box component", () => {
     );
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Grape",
       "should focus the first item in the list"
     );
   });
 
   it("should select the focused list item in the list when pressing enter on a focused item", () => {
-    select.value = "value-JavaScript";
-    input.value = "la";
+    select.value = "pineapple";
+    input.value = "berry";
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Blackberry",
       "should focus the first item in the list"
     );
     EVENTS.keydownEnter(focusedOption);
 
     assert.equal(
       select.value,
-      "value-Erlang",
+      "blackberry",
       "select the first item in the list"
     );
-    assert.equal(input.value, "Erlang", "should set the value in the input");
+    assert.equal(
+      input.value,
+      "Blackberry",
+      "should set the value in the input"
+    );
   });
 
   it("should select the focused list item in the list when pressing tab on a focused item", () => {
-    select.value = "value-JavaScript";
-    input.value = "la";
+    select.value = "cantaloupe";
+    input.value = "berry";
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Blackberry",
       "should focus the first item in the list"
     );
 
@@ -381,10 +385,14 @@ describe("combo box component", () => {
 
     assert.equal(
       select.value,
-      "value-Erlang",
+      "blackberry",
       "select the first item in the list"
     );
-    assert.equal(input.value, "Erlang", "should set the value in the input");
+    assert.equal(
+      input.value,
+      "Blackberry",
+      "should set the value in the input"
+    );
   });
 
   it("should not select the focused list item in the list when blurring component from a focused item", () => {
@@ -394,7 +402,7 @@ describe("combo box component", () => {
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Blackberry",
       "should focus the first item in the list"
     );
 
@@ -425,13 +433,13 @@ describe("combo box component", () => {
     );
     assert.equal(
       focusedOption.textContent,
-      "Scala",
+      "Plantain",
       "should focus the last item in the list"
     );
   });
 
   it("should not select the focused item in the list when pressing escape from the focused item", () => {
-    select.value = "value-JavaScript";
+    select.value = "pineapple";
     input.value = "la";
 
     EVENTS.input(input);
@@ -443,7 +451,7 @@ describe("combo box component", () => {
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Blackberry",
       "should focus the first item in the list"
     );
     EVENTS.keydownEscape(focusedOption);
@@ -451,12 +459,12 @@ describe("combo box component", () => {
     assert.ok(list.hidden, "should hide the option list");
     assert.equal(
       select.value,
-      "value-JavaScript",
+      "pineapple",
       "should not change the value of the select"
     );
     assert.equal(
       input.value,
-      "JavaScript",
+      "Pineapple",
       "should reset the value in the input"
     );
   });
@@ -475,7 +483,7 @@ describe("combo box component", () => {
     const focusedOption = document.activeElement;
     assert.equal(
       focusedOption.textContent,
-      "Erlang",
+      "Blackberry",
       "should focus the first item in the list"
     );
     EVENTS.keydownArrowUp(focusedOption);

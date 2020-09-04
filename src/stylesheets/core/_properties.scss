@@ -549,7 +549,7 @@ $system-properties: (
     extended: (),
   ),
   outline-color: (
-    standard: map-collect($tokens-color-global),
+    standard: map-collect($tokens-color-required),
     extended: $extended-colors,
   ),
   overflow: (

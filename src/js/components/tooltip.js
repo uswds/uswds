@@ -32,7 +32,6 @@ const addListenerMulti = (element, eventNames, listener) => {
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
-  let tooltipPosition = position;
 
   tooltipBody.setAttribute("aria-hidden", "false");
 
@@ -70,16 +69,18 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
   /**
-   * Position the tooltip body when the trigger is hovered
-   * Removes old positioning classnames and reapplies. This allows
-   * positioning to change in case the user resizes browser or DOM manipulation
-   * causes tooltip to get clipped from viewport
-   *
-   * @param {string} setPos - can be "top", "bottom", "right", "left"
-   */
-  const setPositionClass = (setPos) => {
-    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--${tooltipPosition}`);
-    tooltipPosition = setPos;
+  * Position the tooltip body when the trigger is hovered
+  * Removes old positioning classnames and reapplies. This allows
+  * positioning to change in case the user resizes browser or DOM manipulation
+  * causes tooltip to get clipped from viewport
+  *
+  * @param {string} setPos - can be "top", "bottom", "right", "left"
+  */
+  const setPositionClass = setPos => {
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--top`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--bottom`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--right`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--left`);
     tooltipBody.classList.add(`${TOOLTIP_BODY_CLASS}--${setPos}`);
   };
 

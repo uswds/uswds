@@ -70,6 +70,15 @@ describe("date picker component", () => {
     assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
   });
 
+  it("should close the calendar you press escape from the input", () => {
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.keydownEscape(input);
+
+    assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
+  });
+
   it("should display a calendar for the inputted date when the date picker button is clicked with a date entered", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);

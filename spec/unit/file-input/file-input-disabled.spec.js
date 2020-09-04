@@ -5,18 +5,18 @@ const path = require("path");
 
 const RENDER = "../../../build/components/render/";
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, RENDER, "file-input--default.html")
+  path.join(__dirname, RENDER, "file-input--disabled.html")
 );
 
-describe("file input: single file input", () => {
+describe("file input is disabled", () => {
   const { body } = document;
 
-  let dragText;
+  let component;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
     fileInput.on();
-    dragText = body.querySelector(".usa-file-input__drag-text");
+    component = body.querySelector(".usa-file-input");
     fileInput.on(body);
   });
 
@@ -25,7 +25,11 @@ describe("file input: single file input", () => {
     fileInput.off(body);
   });
 
-  it('uses singular "file" if there is not a "multiple" attribute', () => {
-    assert.equal(dragText.innerHTML, "Drag file here or ");
+  it("has disabled styling", () => {
+    const expectedClass = "usa-file-input--disabled";
+    assert.strictEqual(
+      component.getAttribute("class").includes(expectedClass),
+      true
+    );
   });
 });
