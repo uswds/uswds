@@ -1,7 +1,6 @@
 // dependencies
-@forward "global";
-@forward "../base/accessibility";
-@forward "layout-grid";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
 @forward "usa-accordion";
 @forward "usa-banner";
 @forward "usa-nav";
@@ -11,4 +10,4 @@
 @forward "usa-skipnav";
 
 // src
-@forward "../components/header";
+@forward "../components/usa-header";

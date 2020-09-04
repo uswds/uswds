@@ -1,4 +1,4 @@
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 @mixin border-box-sizing {
   @if not $theme-global-border-box-sizing {

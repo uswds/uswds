@@ -1,5 +1,5 @@
 @use "../../functions" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 // Focus state mixin
 @mixin focus-outline(

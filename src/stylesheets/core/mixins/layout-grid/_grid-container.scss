@@ -1,6 +1,6 @@
 @use "sass:list";
 @use "../utilities" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 @use "../../functions/general" as *;
 @use "../../mixins/general/add-responsive-site-margins" as *;
 @use "../../mixins/helpers/border-box-sizing.scss" as *;

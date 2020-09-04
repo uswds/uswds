@@ -20,7 +20,7 @@
 @use "./variables/border-radius" as *;
 @use "./variables/project-font-stacks" as *;
 // TODO: ^^^ why 'project' and why not?
-@use "../settings" as *;
+@use "./settings" as *;
 /*
 ----------------------------------------
 USWDS Properties

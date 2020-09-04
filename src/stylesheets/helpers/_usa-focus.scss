@@ -1,0 +1,5 @@
+@use "../core" as *;
+
+.usa-focus {
+  @include focus-outline;
+}

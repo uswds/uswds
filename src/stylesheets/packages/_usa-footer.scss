@@ -1,10 +1,11 @@
 // dependencies
-@forward "global";
-@forward "../elements/layout-grid";
-@forward "../elements/form-controls/usa-input";
-@forward "../elements/typography/list";
-@forward "../components/forms";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
+@forward "uswds-typography";
 @forward "usa-button";
+@forward "usa-form";
+@forward "usa-input";
+@forward "usa-label";
 
 // component
-@forward "../components/footer";
+@forward "../components/usa-footer";

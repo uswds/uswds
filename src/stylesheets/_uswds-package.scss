@@ -1,6 +1,9 @@
-// Layout grid
+// Dependency-only packages
 // -------------------------------------
-// @forward "./packages/layout-grid";
+// @forward "./packages/uswds-core";
+// @forward "./packages/uswds-elements";
+// @forward "./packages/uswds-global";
+// @forward "./packages/uswds-helpers";
 
 // Component packages
 // -------------------------------------
@@ -16,26 +19,34 @@
 @forward "./packages/usa-checklist";
 @forward "./packages/usa-combo-box";
 @forward "./packages/usa-content";
+@forward "./packages/usa-dark-background";
 @forward "./packages/usa-date-picker";
+@forward "./packages/usa-display";
+@forward "./packages/usa-embed-container";
 @forward "./packages/usa-error-message";
 @forward "./packages/usa-file-input";
 @forward "./packages/usa-fieldset";
 @forward "./packages/usa-footer";
+@forward "./packages/usa-form";
 @forward "./packages/usa-form-group";
 @forward "./packages/usa-graphic-list";
 @forward "./packages/usa-header";
 @forward "./packages/usa-hero";
 @forward "./packages/usa-hint";
 @forward "./packages/usa-input";
+@forward "./packages/usa-intro";
 @forward "./packages/usa-label";
+@forward "./packages/usa-layout-docs";
 @forward "./packages/usa-link";
 @forward "./packages/usa-list";
 @forward "./packages/usa-media-block";
+@forward "./packages/usa-media-link";
 @forward "./packages/usa-megamenu";
 @forward "./packages/usa-memorable-date";
 @forward "./packages/usa-nav-container";
 @forward "./packages/usa-nav";
 @forward "./packages/usa-navbar";
+@forward "./packages/usa-paragraph";
 @forward "./packages/usa-prose";
 @forward "./packages/usa-range";
 @forward "./packages/usa-search";
@@ -47,15 +58,16 @@
 @forward "./packages/usa-textarea";
 @forward "./packages/usa-tooltip";
 @forward "./packages/usa-tag";
+@forward "./packages/uswds-layout-grid";
 
 // Component package groups
 // -------------------------------------
-// @forward "./packages/form-controls";
-// @forward "./packages/form-templates";
-// @forward "./packages/typography";
 // @forward "./packages/uswds-components";
 // @forward "./packages/uswds-fonts";
-// @forward "./packages/validation";
+// @forward "./packages/uswds-form-controls";
+// @forward "./packages/uswds-form-templates";
+// @forward "./packages/uswds-typography";
+// @forward "./packages/uswds-validation";
 
 // Utilities (must be last)
 // -------------------------------------

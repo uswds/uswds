@@ -1,6 +1,6 @@
 @use "./add-background-svg" as *;
 @use "../../functions" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 @mixin external-link(
   $external-link,

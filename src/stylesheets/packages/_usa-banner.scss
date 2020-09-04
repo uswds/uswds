@@ -1,8 +1,8 @@
 // dependencies
-@forward "global";
-@forward "layout-grid";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
 @forward "usa-accordion";
 @forward "usa-media-block";
 
 // src
-@forward "../components/banner";
+@forward "../components/usa-banner";

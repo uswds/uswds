@@ -1,9 +1,0 @@
-@use "../packages/required" as *;
-
-.usa-nav-container {
-  @include at-media($theme-header-min-width) {
-    @include clearfix;
-    @include grid-container($theme-header-max-width);
-    @include u-padding-x($theme-site-margins-width);
-  }
-}

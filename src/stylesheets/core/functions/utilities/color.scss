@@ -9,7 +9,7 @@ Derive a color from a color shortcode
 @use "sass:map";
 @use "sass:meta";
 @use "sass:string";
-@use "../../../settings";
+@use "../../settings";
 @use "../../functions/general";
 @use "../../tokens/color/shortcodes-color-system" as *;
 @use "../../tokens/color/shortcodes-color-project" as *;

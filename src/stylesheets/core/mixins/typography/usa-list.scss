@@ -1,6 +1,6 @@
 @use "../../functions" as *;
 @use "../../mixins/utilities" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 @mixin usa-list {
   @include u-margin-y(1em);

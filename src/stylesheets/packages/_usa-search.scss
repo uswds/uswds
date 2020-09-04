@@ -1,8 +1,7 @@
 // dependencies
-@forward "global";
-@forward "../base/accessibility";
-@forward "../elements/form-controls/usa-input";
+@forward "uswds-global";
+@forward "usa-input";
 @forward "usa-button";
 
 // src
-@forward "../components/search";
+@forward "../components/usa-search";

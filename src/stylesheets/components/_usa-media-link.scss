@@ -1,0 +1,5 @@
+@use "../core" as *;
+
+.usa-media-link {
+  @include media-link();
+}

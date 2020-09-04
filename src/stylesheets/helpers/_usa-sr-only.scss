@@ -1,0 +1,5 @@
+@use "../core" as *;
+
+.usa-sr-only {
+  @include sr-only;
+}

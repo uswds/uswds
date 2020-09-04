@@ -3,7 +3,7 @@
 @use "../../mixins/helpers" as *;
 @use "../../mixins/typography/unstyled-list" as *;
 @use "../../mixins/utilities" as *;
-@use "../../../settings" as *;
+@use "../../settings" as *;
 
 $sidenav-level-1-inset: 2;
 $sidenav-level-2-inset: 4;
