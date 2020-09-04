@@ -120,6 +120,7 @@
 
 .usa-identifier__required-link {
   @include identifier-secondary-link;
+  display: inline-block;
 }
 
 //
