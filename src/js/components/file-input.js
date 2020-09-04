@@ -15,9 +15,9 @@ const CHOOSE_CLASS = `${PREFIX}-file-input__choose`;
 const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
 const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
 const DRAG_CLASS = `${PREFIX}-file-input--drag`;
-const LOADING_CLASS = 'is-loading';
-const HIDDEN_CLASS = 'display-none';
-const INVALID_FILE_CLASS = 'has-invalid-file';
+const LOADING_CLASS = "is-loading";
+const HIDDEN_CLASS = "display-none";
+const INVALID_FILE_CLASS = "has-invalid-file";
 const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-file-input__preview-image`;
 const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
 const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
@@ -42,17 +42,17 @@ const makeSafeForID = (name) => {
 };
 
 /**
-* Builds full file input component
-* @param {HTMLElement} fileInputEl - original file input on page
-* @returns {HTMLElement|HTMLElement} - Instructions, target area div
-*/
-const buildFileInput = fileInputEl => {
-  const acceptsMultiple = fileInputEl.hasAttribute('multiple');
-  const fileInputParent = document.createElement('div');
-  const dropTarget = document.createElement('div');
-  const box = document.createElement('div');
-  const instructions = document.createElement('div');
-  const disabled = fileInputEl.hasAttribute('disabled');
+ * Builds full file input component
+ * @param {HTMLElement} fileInputEl - original file input on page
+ * @returns {HTMLElement|HTMLElement} - Instructions, target area div
+ */
+const buildFileInput = (fileInputEl) => {
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
+  const fileInputParent = document.createElement("div");
+  const dropTarget = document.createElement("div");
+  const box = document.createElement("div");
+  const instructions = document.createElement("div");
+  const disabled = fileInputEl.hasAttribute("disabled");
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -74,7 +74,7 @@ const buildFileInput = fileInputEl => {
   // Disabled styling
   if (disabled) {
     fileInputParent.classList.add(DISABLED_CLASS);
-    fileInputParent.setAttribute('aria-disabled', 'true');
+    fileInputParent.setAttribute("aria-disabled", "true");
   }
 
   // Sets instruction test based on whether or not multipe files are accepted
@@ -192,63 +192,84 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
-     const reader = new FileReader();
-     const fileName = fileNames[i].name;
+    const reader = new FileReader();
+    const fileName = fileNames[i].name;
 
-     // Starts with a loading image while preview is created
-     reader.onloadstart = function createLoadingImage() {
-       const imageId = makeSafeForID(fileName);
-       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
+    // Starts with a loading image while preview is created
+    reader.onloadstart = function createLoadingImage() {
+      const imageId = makeSafeForID(fileName);
+      const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
 
-       instructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
-     }
+      instructions.insertAdjacentHTML(
+        "afterend",
+        `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`
+      );
+    };
 
-     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
-     reader.onloadend = function createFilePreview() {
-       const imageId = makeSafeForID(fileName);
-       const previewImage = document.getElementById(imageId);
-       if (fileName.indexOf(".pdf") > 0) {
-         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`)
-       }
-       else if ((fileName.indexOf('.doc') > 0) || (fileName.indexOf('.pages') > 0)) {
-         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`)
-       }
-       else if ((fileName.indexOf('.xls') > 0) || (fileName.indexOf('.numbers') > 0)) {
-        previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`)
-       }
-       else if ((fileName.indexOf('.mov') > 0) || (fileName.indexOf('.mp4') > 0)) {
-        previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`)
-       }
-       else {
-         previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
-       }
+    // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
+    reader.onloadend = function createFilePreview() {
+      const imageId = makeSafeForID(fileName);
+      const previewImage = document.getElementById(imageId);
+      if (fileName.indexOf(".pdf") > 0) {
+        previewImage.setAttribute(
+          "onerror",
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`
+        );
+      } else if (
+        fileName.indexOf(".doc") > 0 ||
+        fileName.indexOf(".pages") > 0
+      ) {
+        previewImage.setAttribute(
+          "onerror",
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`
+        );
+      } else if (
+        fileName.indexOf(".xls") > 0 ||
+        fileName.indexOf(".numbers") > 0
+      ) {
+        previewImage.setAttribute(
+          "onerror",
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`
+        );
+      } else if (fileName.indexOf(".mov") > 0 || fileName.indexOf(".mp4") > 0) {
+        previewImage.setAttribute(
+          "onerror",
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`
+        );
+      } else {
+        previewImage.setAttribute(
+          "onerror",
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`
+        );
+      }
 
-       // Removes loader and displays preview
-       previewImage.classList.remove(LOADING_CLASS);
-       previewImage.src = reader.result;
-     }
+      // Removes loader and displays preview
+      previewImage.classList.remove(LOADING_CLASS);
+      previewImage.src = reader.result;
+    };
 
-     if (fileNames[i]) {
-        reader.readAsDataURL(fileNames[i]);
-     }
+    if (fileNames[i]) {
+      reader.readAsDataURL(fileNames[i]);
+    }
 
-     // Adds heading above file previews, pluralizes if there are multiple
-     if (i === 0) {
-       dropTarget.insertBefore(filePreviewsHeading, instructions);
-       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
-     }
-     else if (i >= 1) {
-       dropTarget.insertBefore(filePreviewsHeading, instructions);
-       filePreviewsHeading.innerHTML = `${i + 1} files selected <span class="usa-file-input__choose">Change files</span>`;
-     }
+    // Adds heading above file previews, pluralizes if there are multiple
+    if (i === 0) {
+      dropTarget.insertBefore(filePreviewsHeading, instructions);
+      filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
+    } else if (i >= 1) {
+      dropTarget.insertBefore(filePreviewsHeading, instructions);
+      filePreviewsHeading.innerHTML = `${
+        i + 1
+      } files selected <span class="usa-file-input__choose">Change files</span>`;
+    }
 
-     // Hides null state content and sets preview heading class
-     if (filePreviewsHeading) {
-       instructions.classList.add(HIDDEN_CLASS);
-       filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
-     }
-   }
-}
+    // Hides null state content and sets preview heading class
+    if (filePreviewsHeading) {
+      instructions.classList.add(HIDDEN_CLASS);
+      filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
+    }
+  }
+};
 
 const fileInput = behavior(
   {},
