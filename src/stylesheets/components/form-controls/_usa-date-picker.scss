@@ -147,6 +147,8 @@
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
   }
 
   &--next-month:not([disabled]),
@@ -236,6 +238,8 @@
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
   }
 
   &--selected {
@@ -292,6 +296,8 @@
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
   }
 
   &--selected {

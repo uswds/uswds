@@ -32,8 +32,6 @@ const addListenerMulti = (element, eventNames, listener) => {
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
-  let tooltipPosition = position;
-
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -78,8 +76,10 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {string} setPos - can be "top", "bottom", "right", "left"
    */
   const setPositionClass = (setPos) => {
-    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--${tooltipPosition}`);
-    tooltipPosition = setPos;
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--top`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--bottom`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--right`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--left`);
     tooltipBody.classList.add(`${TOOLTIP_BODY_CLASS}--${setPos}`);
   };
 
