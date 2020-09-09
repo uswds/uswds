@@ -99,8 +99,10 @@ $theme-sidenav-font-family: "ui" !default;
 
 // Step indicator
 $step-indicator-background-color: "white";
+$theme-step-indicator-counter-gap: 0.5;
+$theme-step-indicator-counter-border: 0.5;
 $theme-step-indicator-counter-size: 5 !default;
-$theme-step-indicator-gap: 2px !default;
+$theme-step-indicator-gap: 0.5 !default;
 $theme-step-indicator-font-family: "ui" !default;
 $theme-step-indicator-heading-font-family: "ui" !default;
 $theme-step-indicator-heading-font-size: "lg" !default;
