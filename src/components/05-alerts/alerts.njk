@@ -5,106 +5,31 @@
     <h3 class="usa-alert__heading">{{ alert.title }}</h3>
     {%- endif %}
     <p class="usa-alert__text">{{ alert.content | safe }}</p>
-    <ul>
-      <li>Seeing new patients through telehealth</li>
+    <ul class="usa-list">
+      <li>Parent List item 1</li>
       <li>
-        Lorem ipsum dolor sit.
+        Parent list item 2
         <ul>
-          <li>List item 1</li>
+          <li>Child list item 1</li>
           <li>
-            List item 2
+            Child list item 2
             <ol>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
+              <li>Grandchild list item 1</li>
+              <li>Grandchild list item 2</li>
+              <li>Grandchild list item 3</li>
             </ol>
           </li>
           <li>
-            List item 3
+            Child list item 3
             <ul>
-              <li>Nested list item 1</li>
-              <li>Nested list item 2</li>
-              <li>Nested list item 3</li>
+              <li>Grandchild list item 1</li>
+              <li>Grandchild list item 2</li>
+              <li>Grandchild list item 3</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>Integrating telehealth into your current practice</li>
+      <li>Parent list item  4</li>
     </ul>
   </div>
 </div>
-
-<h6>Nested .usa-list</h6>
-<div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
-  <div class="usa-alert__body">
-    {%- if alert.title %}
-    <h3 class="usa-alert__heading">{{ alert.title }}</h3>
-    {%- endif %}
-    <p class="usa-alert__text">{{ alert.content | safe }}</p>
-    <ul class="usa-list">
-      <li>Seeing new patients through telehealth</li>
-      <li>
-        Lorem ipsum dolor sit.
-        <ul class="usa-list">
-          <li>List item 1</li>
-          <li>
-            List item 2
-            <ol class="usa-list">
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-            </ol>
-          </li>
-          <li>
-            List item 3
-            <ul class="usa-list">
-              <li>Nested list item 1</li>
-              <li>Nested list item 2</li>
-              <li>Nested list item 3</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Integrating telehealth into your current practice</li>
-    </ul>
-    <ul>
-      <li>list item 1</li>
-      <li>list item 2</li>
-      <li>list item 3</li>
-      <li>list item 4</li>
-    </ul>
-  </div>
-</div>
-
-<ul class="usa-list">
-  <li>usa-list</li>
-  <li>
-    Lorem ipsum dolor sit.
-    <ul class="usa-list">
-      <li>List item 1</li>
-      <li>
-        List item 2
-        <ol class="usa-list">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-  <li>Integrating telehealth into your current practice</li>
-</ul>
-<hr>
-<ul>
-  <li>Plain list item 1</li>
-  <li>
-    list item 2
-    <ul>
-      <li>Nested list item 1</li>
-      <li>Nested list item 2</li>
-      <li>Nested list item 3</li>
-    </ul>
-  </li>
-  <li>list item 3</li>
-  <li>list item 4</li>
-</ul>
