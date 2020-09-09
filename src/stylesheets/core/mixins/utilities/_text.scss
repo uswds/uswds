@@ -1,6 +1,11 @@
 // Outputs properties based on contents of text()
 
 $text-utililies: (
+  font-feature-settings:
+    map-collect(
+      map-deep-get($system-properties, font-feature-settings, standard),
+      map-deep-get($system-properties, font-feature-settings, extended)
+    ),
   font-style:
     map-collect(
       map-deep-get($system-properties, font-style, standard),

@@ -6,40 +6,158 @@ variants:
   - name: default
     context:
       heading: Default
-      noLabels: true
-      currentStep: 2
-      steps:
-        - step:
-          status: complete
-        - step:
-          status: current
-        - step:
-          status: incomplete
-        - step:
-          status: incomplete
-        - step:
-          status: incomplete 
-        - step:
-          status: incomplete
-
-  - name: With labels
-    context:
-      heading: Labeled segments
       showLabels: true
       currentStep: 2
       steps:
         - step:
           status: complete
-          label: Personal
+          label: Personal information
         - step:
           status: current
-          label: Household
+          label: Household status
         - step:
           status: incomplete
           label: Documents
         - step:
           status: incomplete
-          label: Review
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
 
+  - name: centered
+    context:
+      heading: centered
+      showLabels: true
+      centered: true
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
+
+  - name: No counter
+    context:
+      heading: No numbered counters
+      showLabels: true
+      currentStep: 2
+      variant: no-counter
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
+
+  - name: centered-no-counter
+    context:
+      heading: Centered and no counter
+      showLabels: true
+      centered: true
+      variant: no-counter
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
+
+  - name: No labels
+    context:
+      heading: No labels
+      showLabels: true
+      currentStep: 2
+      variant: no-labels
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
+
+  - name: centered-no-labels
+    context:
+      heading: Centered and no labels
+      showLabels: true
+      centered: true
+      variant: no-labels
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
+        - step:
+          status: incomplete
+          label: Work history
+        - step:
+          status: incomplete
+          label: Signature
+        - step:
+          status: incomplete
+          label: Review and complete
 
 

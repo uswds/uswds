@@ -1,8 +1,21 @@
+$step-indicator-circle-size: 5;
+$step-indicator-circle-gap: 0.5;
+$step-indicator-circle-border: 0.5;
+$step-indicator-label-margin-top: 1;
+$step-background-color: "white";
+
 .usa-step-indicator {
+  @include typeset(
+    $theme-step-indicator-font-family,
+    $theme-step-indicator-label-font-size,
+    2
+  );
+  background-color: color($step-background-color);
   margin-bottom: units($theme-step-indicator-margin-bottom);
 }
 
 .usa-step-indicator__segments {
+  counter-reset: usa-step-indicator;
   display: flex;
   list-style: none;
   margin: 0;
@@ -10,8 +23,13 @@
 }
 
 .usa-step-indicator__segment {
+  //@include u-margin-x($theme-step-indicator-gap / 2);
+  counter-increment: usa-step-indicator;
   flex: 1;
-  margin: units($theme-step-indicator-gap);
+  margin-top: calc(
+    ((#{units($step-indicator-circle-size)} - #{units($theme-step-indicator-segment-height)}) / 2) + #{units($step-indicator-circle-gap)}
+  );
+  max-width: units("card") + units(5);
   min-height: units($theme-step-indicator-segment-height);
   position: relative;
 
@@ -21,9 +39,34 @@
 
   &:last-child {
     margin-right: 0;
+    &:after {
+      display: none;
+    }
   }
 
-  &::before {
+  &:before {
+    @include u-circle($step-indicator-circle-size);
+    @include u-text("tabular");
+    background-color: color($step-background-color);
+    box-shadow:
+      inset 0 0 0 units($step-indicator-circle-border) color($theme-step-indicator-step-color),
+      0 0 0 units($step-indicator-circle-gap) color($step-background-color);
+    color: color($theme-step-indicator-step-color-complete);
+    content: counter(usa-step-indicator);
+    display: block;
+    font-weight: fw("bold");
+    line-height: lh($theme-step-indicator-font-family, 1);
+    padding: units(1.5);
+    position: absolute;
+    top: calc(
+      (#{units($step-indicator-circle-size)} - #{units($theme-step-indicator-segment-height)}) / -2
+    );
+    left: 0;
+    text-align: center;
+    z-index: z(100);
+  }
+
+  &:after {
     background-color: color($theme-step-indicator-step-color);
     content: "";
     display: block;
@@ -35,24 +78,48 @@
   }
 }
 
-.usa-step-indicator__segment--complete::before {
-  background-color: color($theme-step-indicator-step-color-complete);
+.usa-step-indicator__segment--complete {
+  &::before {
+    background-color: color($theme-step-indicator-step-color-complete);
+    box-shadow: 0 0 0 units(0.5) color($step-background-color);
+    color: color($step-background-color);
+  }
+  &::after {
+    background-color: color($theme-step-indicator-step-color-complete);
+  }
+  .usa-step-indicator__segment-label {
+    color: color($theme-step-indicator-step-color-complete);
+    font-weight: fw("bold");
+  }
 }
 
-.usa-step-indicator__segment--current::before {
-  background-color: color($theme-step-indicator-step-color-current);
+.usa-step-indicator__segment--current {
+  &::before {
+    background-color: color($theme-step-indicator-step-color-current);
+    box-shadow: 0 0 0 units(0.5) color($step-background-color);
+    color: color($step-background-color);
+  }
+  &::after {
+    background-color: color($theme-step-indicator-step-color-current);
+  }
+  .usa-step-indicator__segment-label {
+    color: color($theme-step-indicator-step-color-current);
+    font-weight: fw("bold");
+  }
 }
 
 .usa-step-indicator__segment-label {
+  color: color($theme-step-indicator-step-color-complete);
   display: block;
   font-size: size(
     $theme-step-indicator-font-family,
     $theme-step-indicator-label-font-size-small
   );
   margin-top: calc(
-    #{units($theme-step-indicator-segment-height)} + #{units(0.5)}
+    ((#{units($step-indicator-circle-size)} + #{units($theme-step-indicator-segment-height)}) / 2) + #{units($step-indicator-label-margin-top)}
   );
-  text-align: center;
+  padding-right: units(4);
+  text-align: left;
   @include at-media($theme-breadcrumb-min-width) {
     font-size: size(
       $theme-step-indicator-font-family,
@@ -73,7 +140,7 @@
     $theme-step-indicator-font-size-small
   );
   font-weight: font-weight("bold");
-  margin: units(2) 0 0;
+  margin: units(4) 0 0;
   @include at-media($theme-breadcrumb-min-width) {
     font-size: size(
       $theme-step-indicator-font-family,
@@ -83,16 +150,105 @@
 }
 
 .usa-step-indicator__current-step {
-  @include u-text("normal");
+  @include u-circle($step-indicator-circle-size);
+  @include u-text("normal", "tabular");
   background-color: color($theme-step-indicator-step-color-current);
-  border-radius: radius($theme-button-border-radius);
   color: color("white");
   display: inline-block;
-  margin-right: units(2px);
-  padding: units(2px) units(1);
+  padding: 7px;
+  text-align: center;
 }
 
 .usa-step-indicator__total-steps {
-  @include u-text("normal");
-  margin-right: units(0.5);
+  @include u-text("normal", "tabular");
+  margin-right: units(1);
+}
+
+.usa-step-indicator--no-counter,
+.usa-step-indicator--no-labels {
+  @include u-margin-x($theme-step-indicator-gap / -2);
+
+  .usa-step-indicator__segment {
+    // Add gap between segments
+    @include u-margin-x($theme-step-indicator-gap / 2);
+    // Remove extra counter margin
+    margin-top: 0;
+    &:before {
+      // Don't show counters
+      display: none;
+    }
+    &:last-child {
+      // Show last segment
+      &:after {
+        display: block;
+      }
+    }
+  }
+  // Remove extra margin for counters
+  .usa-step-indicator__segment-label {
+    margin-top: calc(
+      #{units($theme-step-indicator-segment-height)} + #{units($step-indicator-label-margin-top)}
+    );
+  }
+}
+
+.usa-step-indicator--no-labels {
+  .usa-step-indicator__segment-label {
+    // Don't show labels, even if they exist
+    display: none;
+  }
+}
+
+.usa-step-indicator--centered {
+  @include u-margin-x($theme-step-indicator-gap / -2);
+
+  .usa-step-indicator__segment {
+    @include u-margin-x($theme-step-indicator-gap / 2);
+
+    &:before {
+      left: calc(
+        50% - ((#{units($step-indicator-circle-size)} + #{units($step-indicator-circle-gap)}) / 2)
+      );
+    }
+
+    &:first-child {
+      &:after {
+        left: 50%;
+        right: 0;
+        width: auto;
+      }
+    }
+    &:last-child {
+      &:after {
+        display: block;
+        left: 0;
+        right: 50%;
+        width: auto;
+      }
+    }
+  }
+
+  .usa-step-indicator__segment-label {
+    // Balance label padding
+    @include u-padding-x(1);
+    // Center labels
+    text-align: center;
+  }
+
+  &.usa-step-indicator--no-counter,
+  &.usa-step-indicator--no-labels {
+    .usa-step-indicator__segment {
+      // Use full-width segments
+      &:first-child {
+        &:after {
+          left: 0;
+        }
+      }
+      &:last-child {
+        &:after {
+          right: 0;
+        }
+      }
+    }
+  }
 }
