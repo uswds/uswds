@@ -102,7 +102,6 @@ $step-indicator-background-color: "white";
 $theme-step-indicator-counter-gap: 0.5;
 $theme-step-indicator-counter-border: 0.5;
 $theme-step-indicator-counter-size: 5 !default;
-$theme-step-indicator-gap: 0.5 !default;
 $theme-step-indicator-font-family: "ui" !default;
 $theme-step-indicator-heading-font-family: "ui" !default;
 $theme-step-indicator-heading-font-size: "lg" !default;
@@ -113,6 +112,7 @@ $theme-step-indicator-min-width: "tablet" !default;
 $theme-step-indicator-segment-color: "primary-lighter" !default;
 $theme-step-indicator-segment-color-complete: "primary-dark" !default;
 $theme-step-indicator-segment-color-current: "ink" !default;
+$theme-step-indicator-segment-gap: 0.5 !default;
 $theme-step-indicator-segment-height: 1 !default;
 
 // Tooltips
