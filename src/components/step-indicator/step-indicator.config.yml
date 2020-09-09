@@ -28,6 +28,21 @@ variants:
           status: incomplete
           label: Review and complete
 
+  - name: short
+    context:
+      heading: Only a few steps
+      showLabels: true
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Documents
   - name: centered
     context:
       heading: centered
@@ -50,9 +65,6 @@ variants:
         - step:
           status: incomplete
           label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
 
   - name: No counter
     context:
