@@ -98,18 +98,22 @@ $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
 
 // Step indicator
-$theme-step-indicator-gap: 2px;
-$theme-step-indicator-label-font-size: "sm";
-$theme-step-indicator-label-font-size-small: "3xs";
-$theme-step-indicator-margin-bottom: 4;
-$theme-step-indicator-min-width: "mobile-lg";
-$theme-step-indicator-segment-height: 1;
-$theme-step-indicator-step-color: "primary-light";
-$theme-step-indicator-step-color-current: "primary-dark";
-$theme-step-indicator-step-color-complete: "primary-dark";
+$step-indicator-background-color: "white";
+$theme-step-indicator-counter-gap: 0.5;
+$theme-step-indicator-counter-border: 0.5;
+$theme-step-indicator-counter-size: 5;
 $theme-step-indicator-font-family: "ui";
-$theme-step-indicator-font-size: "lg";
-$theme-step-indicator-font-size-small: "md";
+$theme-step-indicator-heading-font-family: "ui";
+$theme-step-indicator-heading-font-size: "lg";
+$theme-step-indicator-heading-font-size-small: "md";
+$theme-step-indicator-label-font-size: "sm";
+$theme-step-indicator-margin-bottom: 4;
+$theme-step-indicator-min-width: "tablet";
+$theme-step-indicator-segment-color: "primary-lighter";
+$theme-step-indicator-segment-color-complete: "primary-dark";
+$theme-step-indicator-segment-color-current: "ink";
+$theme-step-indicator-segment-gap: 0.5;
+$theme-step-indicator-segment-height: 1;
 
 // Tooltips
 $theme-tooltip-background-color: "ink";
