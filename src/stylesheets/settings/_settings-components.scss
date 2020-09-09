@@ -98,18 +98,20 @@ $theme-sidenav-current-border-width: 0.5 !default;
 $theme-sidenav-font-family: "ui" !default;
 
 // Step indicator
+$step-indicator-background-color: "white";
+$theme-step-indicator-counter-size: 5 !default;
 $theme-step-indicator-gap: 2px !default;
-$theme-step-indicator-label-font-size: "sm" !default;
-$theme-step-indicator-label-font-size-small: "3xs" !default;
-$theme-step-indicator-margin-bottom: 4 !default;
-$theme-step-indicator-min-width: "mobile-lg" !default;
-$theme-step-indicator-segment-height: 1 !default;
-$theme-step-indicator-step-color: "primary-lighter" !default;
-$theme-step-indicator-step-color-current: "ink" !default;
-$theme-step-indicator-step-color-complete: "primary-dark" !default;
 $theme-step-indicator-font-family: "ui" !default;
-$theme-step-indicator-font-size: "lg" !default;
-$theme-step-indicator-font-size-small: "md" !default;
+$theme-step-indicator-heading-font-family: "ui" !default;
+$theme-step-indicator-heading-font-size: "lg" !default;
+$theme-step-indicator-heading-font-size-small: "md" !default;
+$theme-step-indicator-label-font-size: "sm" !default;
+$theme-step-indicator-margin-bottom: 4 !default;
+$theme-step-indicator-min-width: "tablet" !default;
+$theme-step-indicator-segment-color: "primary-lighter" !default;
+$theme-step-indicator-segment-color-complete: "primary-dark" !default;
+$theme-step-indicator-segment-color-current: "ink" !default;
+$theme-step-indicator-segment-height: 1 !default;
 
 // Tooltips
 $theme-tooltip-background-color: "ink" !default;
