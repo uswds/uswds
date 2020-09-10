@@ -13,15 +13,15 @@ const cFlags = require("./cflags");
 
 const task = "javascript";
 
-gulp.task(task, done => {
+gulp.task(task, (done) => {
   dutil.logMessage(task, "Compiling JavaScript");
 
   const defaultStream = browserify({
     entries: "src/js/start.js",
-    debug: true
+    debug: true,
   }).transform("babelify", {
     global: true,
-    presets: ["@babel/preset-env"]
+    presets: ["@babel/preset-env"],
   });
 
   const stream = defaultStream
@@ -41,7 +41,7 @@ gulp.task(task, done => {
     .on("error", log)
     .pipe(
       rename({
-        suffix: ".min"
+        suffix: ".min",
       })
     )
     .pipe(sourcemaps.write("."))
@@ -58,7 +58,7 @@ gulp.task(
       childProcess
         .spawn("./node_modules/.bin/tsc", { stdio: "inherit" })
         .on("error", reject)
-        .on("exit", code => {
+        .on("exit", (code) => {
           if (code === 0) {
             dutil.logMessage("typecheck", "TypeScript likes our code!");
             resolve();
@@ -69,7 +69,7 @@ gulp.task(
     })
 );
 
-gulp.task("eslint", done => {
+gulp.task("eslint", (done) => {
   if (!cFlags.test) {
     dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
     return done();
@@ -79,7 +79,7 @@ gulp.task("eslint", done => {
     .src(["src/js/**/*.js", "spec/**/*.js"])
     .pipe(
       eslint({
-        fix: true
+        fix: true,
       })
     )
     .pipe(eslint.format())
