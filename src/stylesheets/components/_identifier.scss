@@ -1,5 +1,4 @@
 $identifier-logo-height: 6;
-$identifier-identity-domain-color: "blue-30";
 $identifier-section-margin-y: 2;
 $identifier-section-margin-y-small: 1;
 $identifier-link-gap: 1.5;
@@ -75,7 +74,7 @@ $identifier-link-gap-desktop: 1;
 }
 
 .usa-identifier__identity-domain {
-  @include u-text("light", $identifier-identity-domain-color);
+  @include u-text("light", $theme-identifier-identity-domain-color);
 }
 
 .usa-identifier__identity-disclaimer {
