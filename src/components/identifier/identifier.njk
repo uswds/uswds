@@ -1,12 +1,84 @@
-<div class="padding-2">
-  <h4>Basic Identifier</h4>
-  {%- render '@identifier--basic' -%}
-</div>
-<div class="padding-2">
-  <h4>Multiple logos identifier</h4>
-    {%- render '@identifier--multiple-logos' -%}
-</div>
-<div class="padding-2">
-  <h4>No logos identifier</h4>
-  {%- render '@identifier--no-logos' -%}
+{% set taxpayer_disclaimer %}Produced and published at taxpayer expense.{% endset %}
+
+<div class="usa-identifier">
+  <div class="usa-identifier__section usa-identifier__section--masthead" aria-label="Agency identifier">
+    <div class="usa-identifier__container">
+      {% if parent.logo %}
+      <div class="usa-identifier__logos">
+        <a href="{{ parent.url }}" class="usa-identifier__logo">
+          <img
+            src="{{ parent.logo }}"
+            alt="{{ parent.name }} logo"
+            role="img">
+        </a>
+        {% if agency.logo %}
+        <a href="javascript:void(0);" class="usa-identifier__logo">
+          <img
+            src="{{ agency.logo }}"
+            alt="{{ agency.name }} logo"
+            role="img">
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">{{ domain }}</p>
+        <p class="usa-identifier__identity-disclaimer">
+          An official website of the <a href="{{ parent.url }}">{{ parent.name }}{% if agency %} and {% if agency.name %}the {% endif %}<a href="{{ agency.url }}">{% if agency.name %}{{ agency.name }}{% else %}{{ agency.shortname }}{% endif %}</a>{% endif %}{% if taxpayer %}. {{ taxpayer_disclaimer }}{% endif %}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+    <div class="usa-identifier__container">
+      <ul class="usa-identifier__required-links-list">
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.about }}" class="usa-identifier__required-link usa-link">
+            About {{ parent.shortname }}
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.accessibility }}"
+            class="usa-identifier__required-link usa-link">
+            Accessibility support
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.foia }}"
+            class="usa-identifier__required-link usa-link">
+            Freedom of Information Act requests
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.no_fear }}"
+            class="usa-identifier__required-link usa-link">
+            No FEAR Act data
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.oig }}" class="usa-identifier__required-link usa-link">
+            Office of the Inspector General
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.performance }}" class="usa-identifier__required-link usa-link">
+            Performance reports
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="{{ links.privacy }}" class="usa-identifier__required-link usa-link">
+            Privacy policy
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% if usagov %}
+  <div class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__contact-description">Looking for U.S. government information and services?</div>
+      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+    </div>
+  </div>
+  {% endif %}
 </div>

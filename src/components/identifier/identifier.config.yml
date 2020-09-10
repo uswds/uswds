@@ -1,15 +1,32 @@
-label: Identifiers
+label: Identifier
 status: wip
-order: -1
+context:
+  taxpayer: false
+  usagov: true
 
 variants:
   - name: default
-    label: Compare
-    status: null
-    branding: true
-
-  - name: basic
-    label: Basic Identifier
+    label: Default identifier
+    context:
+      domain: irs.gov
+      parent:
+        name: Department of the Treasury
+        shortname: Treasury
+        url: https://home.treasury.gov/
+        logo: https://assets.codepen.io/23361/seal.png
+      agency:
+        name: General Services Administration
+        shortname: GSA
+        url: https://gsa.gov/
+        logo: https://assets.codepen.io/23361/gsa-logo-w100.png
+      links:
+        about: javascript:void(0);
+        accessibility: javascript:void(0);
+        foia: javascript:void(0);
+        no_fear: javascript:void(0);
+        oig: javascript:void(0);
+        performance: javascript:void(0);
+        privacy: javascript:void(0);
 
   - name: no logos
     label: No Logos
