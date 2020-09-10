@@ -11,8 +11,8 @@ const HIDE_ATTR = "data-hide-text";
  * @param {string} showText
  * @return {strong} hideText
  */
-const getHideText = showText =>
-  showText.replace(/\bShow\b/i, show => `${show[0] === "S" ? "H" : "h"}ide`);
+const getHideText = (showText) =>
+  showText.replace(/\bShow\b/i, (show) => `${show[0] === "S" ? "H" : "h"}ide`);
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -23,7 +23,7 @@ const getHideText = showText =>
  * @param  {HTMLElement} el    Parent element containing the fields to be masked
  * @return {boolean}
  */
-module.exports = el => {
+module.exports = (el) => {
   // this is the *target* state:
   // * if the element has the attr and it's !== "true", pressed is true
   // * otherwise, pressed is false
@@ -31,7 +31,7 @@ module.exports = el => {
     el.hasAttribute(PRESSED) && el.getAttribute(PRESSED) !== "true";
 
   const fields = resolveIdRefs(el.getAttribute(CONTROLS));
-  fields.forEach(field => toggleFieldMask(field, pressed));
+  fields.forEach((field) => toggleFieldMask(field, pressed));
 
   if (!el.hasAttribute(SHOW_ATTR)) {
     el.setAttribute(SHOW_ATTR, el.textContent);

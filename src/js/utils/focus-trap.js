@@ -7,7 +7,7 @@ const activeElement = require("./active-element");
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const tabHandler = context => {
+const tabHandler = (context) => {
   const focusableElements = select(FOCUSABLE, context);
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
@@ -32,7 +32,7 @@ const tabHandler = context => {
     firstTabStop,
     lastTabStop,
     tabAhead,
-    tabBack
+    tabBack,
   };
 };
 
@@ -50,7 +50,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
     assign(
       {
         Tab: tabEventHandler.tabAhead,
-        "Shift+Tab": tabEventHandler.tabBack
+        "Shift+Tab": tabEventHandler.tabBack,
       },
       additionalKeyBindings
     )
@@ -58,7 +58,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
 
   const focusTrap = behavior(
     {
-      keydown: keyMappings
+      keydown: keyMappings,
     },
     {
       init() {
@@ -72,7 +72,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
         } else {
           this.off();
         }
-      }
+      },
     }
   );
 
