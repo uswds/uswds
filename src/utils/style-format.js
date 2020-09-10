@@ -22,7 +22,7 @@ const colorMap = `\${{global.category}}: (
 {{/each}}
 );`;
 
-handlebars.registerHelper("toNumber", function(item, options) {
+handlebars.registerHelper("toNumber", function (item, options) {
   const maybeNumber = Number(item);
   let output;
 
@@ -33,7 +33,7 @@ handlebars.registerHelper("toNumber", function(item, options) {
   return output;
 });
 
-handlebars.registerHelper("isObject", function(item, options) {
+handlebars.registerHelper("isObject", function (item, options) {
   if (typeof item === "object") {
     return options.fn(this);
   }
@@ -44,7 +44,7 @@ handlebars.registerPartial("colorList", colorListTemplate);
 
 const colorMapTemplate = handlebars.compile(colorMap);
 
-const format = options => {
+const format = (options) => {
   return new Promise((resolve, reject) => {
     fs.readFile(options.file, (err, buffer) => {
       if (err) {
@@ -54,7 +54,7 @@ const format = options => {
       const data = JSON.parse(buffer);
       let output = {
         output: options.output,
-        file: options.file
+        file: options.file,
       };
 
       try {
@@ -68,13 +68,13 @@ const format = options => {
   });
 };
 
-const generateFilename = filePath =>
+const generateFilename = (filePath) =>
   `_${path.basename(filePath).split(".")[0]}.scss`;
-const resolvePath = pathString =>
+const resolvePath = (pathString) =>
   path.resolve.apply(null, pathString.split("/"));
-const isDirectory = maybeDir => fs.lstatSync(maybeDir).isDirectory();
+const isDirectory = (maybeDir) => fs.lstatSync(maybeDir).isDirectory();
 
-const writeSassFile = sass => {
+const writeSassFile = (sass) => {
   const { output, file, data } = sass;
   const finalOutput = `${output}/${generateFilename(file)}`;
   fs.writeFileSync(resolvePath(finalOutput), data);
@@ -84,7 +84,7 @@ const argv = require("yargs").argv;
 const ARGS = {
   FILE: "file",
   OUTPUT: "output",
-  TEMPLATE: "template"
+  TEMPLATE: "template",
 };
 
 const rawFilePath = argv[ARGS.FILE];
@@ -102,22 +102,22 @@ if (isDirectory(rawFilePath)) {
     if (err) throw new Error();
 
     Promise.all(
-      files.map(file => {
+      files.map((file) => {
         const filePath = resolvePath(`${rawFilePath}/${file}`);
         return format({
           file: filePath,
           output: rawOutputPath,
-          template: colorMapTemplate
+          template: colorMapTemplate,
         });
       })
     )
-      .then(values => values.forEach(writeSassFile))
-      .catch(err => console.log(err));
+      .then((values) => values.forEach(writeSassFile))
+      .catch((err) => console.log(err));
   });
 } else {
   format({
     file: resolvePath(rawFilePath),
     output: rawOutputPath,
-    template: colorMapTemplate
+    template: colorMapTemplate,
   }).then(writeSassFile);
 }

@@ -14,7 +14,7 @@ uswds.components = components;
 
 domready(() => {
   const target = document.body;
-  Object.keys(components).forEach(key => {
+  Object.keys(components).forEach((key) => {
     const behavior = components[key];
     behavior.on(target);
   });
