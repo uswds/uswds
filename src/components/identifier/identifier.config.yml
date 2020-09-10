@@ -33,3 +33,8 @@ variants:
         shortname: false
         url: https://gsa.gov/
         logo: default
+
+  - name: taxpayer disclaimer
+    label: Taxpayer disclaimer
+    context:
+      taxpayer: true
