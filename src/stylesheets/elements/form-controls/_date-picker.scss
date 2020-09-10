@@ -1,0 +1,325 @@
+// Date Picker
+
+.usa-date-picker__wrapper {
+  display: none;
+  position: relative;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+// Date Picker -- initialized
+
+%usa-date-picker__button {
+  background-color: color("base-lightest");
+  border: 0;
+  width: 100%;
+
+  &:not([disabled]) {
+    cursor: pointer;
+
+    &:focus {
+      outline-offset: -4px;
+    }
+
+    &:hover {
+      background-color: color("base-lighter");
+    }
+
+    &:active {
+      background-color: color("base-light");
+    }
+  }
+}
+
+.usa-date-picker--active {
+  .usa-date-picker__button {
+    background-color: #f0f0f0;
+  }
+
+  .usa-date-picker__calendar {
+    z-index: z-index(400);
+  }
+}
+
+.usa-date-picker__button {
+  @extend %usa-date-picker__button;
+  @include add-background-svg("calendar-alt-solid");
+  align-self: stretch;
+  background-color: transparent;
+  background-position: center;
+  background-size: units(3);
+  margin-top: 0.5em;
+  width: 3em;
+}
+
+.usa-date-picker--initialized {
+  .usa-date-picker__wrapper {
+    display: flex;
+  }
+}
+
+// Date Picker - Calendar View
+
+.usa-date-picker__calendar {
+  background-color: color("base-lightest");
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: z-index(100);
+}
+
+// Date Picker - Table
+
+.usa-date-picker__calendar__table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%;
+
+  th {
+    font-weight: normal;
+  }
+
+  td {
+    padding: 0;
+  }
+}
+
+// Date Picker - Grid
+
+.usa-date-picker__calendar__row {
+  @include grid-row;
+  text-align: center;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__cell {
+  background-color: color("base-lightest");
+  flex: 1;
+}
+
+.usa-date-picker__calendar__cell--center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Date Picker - Date Selection View
+
+.usa-date-picker__calendar__previous-year,
+.usa-date-picker__calendar__previous-month,
+.usa-date-picker__calendar__next-year,
+.usa-date-picker__calendar__next-month {
+  @extend %usa-date-picker__button;
+  background-position: center;
+  background-size: auto units(2.5);
+  height: units(3);
+  padding: 20px 10px;
+}
+
+.usa-date-picker__calendar__previous-year:not([disabled]) {
+  @include add-background-svg("angle-double-left-solid");
+}
+
+.usa-date-picker__calendar__previous-month:not([disabled]) {
+  @include add-background-svg("angle-left-solid");
+}
+
+.usa-date-picker__calendar__next-year:not([disabled]) {
+  @include add-background-svg("angle-double-right-solid");
+}
+
+.usa-date-picker__calendar__next-month:not([disabled]) {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__day-of-week {
+  padding: 6px 0px;
+}
+
+.usa-date-picker__calendar__date {
+  @extend %usa-date-picker__button;
+  padding: 10px 0px;
+
+  &--focused {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
+  }
+
+  &--next-month:not([disabled]),
+  &--previous-month:not([disabled]) {
+    color: color("gray-warm-60");
+  }
+
+  &--selected,
+  &--range-date {
+    background-color: color("primary-vivid");
+    color: color("gray-2");
+
+    &:not([disabled]) {
+      background-color: color("primary-vivid");
+      color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
+    }
+  }
+
+  &--range-date-start {
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+  }
+
+  &--range-date-end {
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+  }
+
+  &--within-range {
+    background-color: color("blue-10v");
+
+    &:not([disabled]) {
+      background-color: color("blue-10v");
+
+      &:hover {
+        background-color: color("blue-10v");
+      }
+
+      &:focus {
+        background-color: color("blue-10v");
+      }
+
+      &:active {
+        background-color: color("blue-10v");
+      }
+    }
+  }
+}
+
+.usa-date-picker__calendar__month-label {
+  flex: 4;
+  text-align: center;
+}
+
+.usa-date-picker__calendar__year-selection,
+.usa-date-picker__calendar__month-selection {
+  @extend %usa-date-picker__button;
+  display: inline-block;
+  height: 100%;
+  padding: 8px 4px;
+  width: auto;
+}
+
+// Date Picker - Month Selection View
+
+.usa-date-picker__calendar__month-picker {
+  padding: 20px 5px;
+}
+
+.usa-date-picker__calendar__month {
+  @extend %usa-date-picker__button;
+  padding: 10px 0;
+
+  &--focused {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
+  }
+
+  &--selected {
+    background-color: color("primary-vivid");
+    color: color("gray-2");
+
+    &:not([disabled]) {
+      background-color: color("primary-vivid");
+      color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
+    }
+  }
+}
+
+// Date Picker - Year Selection View
+
+.usa-date-picker__calendar__year-picker {
+  padding: 20px 5px;
+}
+
+.usa-date-picker__calendar__previous-year-chunk,
+.usa-date-picker__calendar__next-year-chunk {
+  @extend %usa-date-picker__button;
+  background-position: center;
+  background-size: auto units(4);
+  margin: auto;
+  padding: 40px 0;
+}
+
+.usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
+  @include add-background-svg("angle-left-solid");
+}
+
+.usa-date-picker__calendar__next-year-chunk:not([disabled]) {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__year {
+  @extend %usa-date-picker__button;
+  padding: 10px 0;
+
+  &--focused {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
+  }
+
+  &--selected {
+    background-color: color("primary-vivid");
+    color: color("gray-2");
+
+    &:not([disabled]) {
+      background-color: color("primary-vivid");
+      color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.1
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -29,8 +29,21 @@ $theme-alert-icon-size: 4;
 $theme-alert-padding-x: 2.5;
 
 // Banner
+$theme-banner-background-color: "base-lightest";
 $theme-banner-font-family: "ui";
+$theme-banner-link-color: default;
 $theme-banner-max-width: "desktop";
+
+// Breadcrumb
+$theme-breadcrumb-background-color: "white";
+$theme-breadcrumb-font-size: "sm";
+$theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-link-color: default;
+$theme-breadcrumb-min-width: "mobile-lg";
+$theme-breadcrumb-padding-bottom: 2;
+$theme-breadcrumb-padding-top: 2;
+$theme-breadcrumb-padding-x: 0;
+$theme-breadcrumb-separator-color: "base";
 
 // Button
 $theme-button-font-family: "ui";
@@ -53,6 +66,7 @@ $theme-card-padding-y: 2;
 
 // Footer
 $theme-footer-font-family: "body";
+$theme-footer-max-width: "desktop";
 
 // Form and input
 $theme-checkbox-border-radius: "sm";
@@ -83,3 +97,8 @@ $theme-search-min-width: 27ch;
 // Sidenav
 $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
+
+// Tooltips
+$theme-tooltip-background-color: "ink";
+$theme-tooltip-font-color: "base-lightest";
+$theme-tooltip-font-size: "xs";

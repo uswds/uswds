@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.1
 ----------------------------------------
 GENERAL SETTINGS
 ----------------------------------------
@@ -50,12 +50,12 @@ Namespace
 $theme-namespace: (
   "grid": (
     namespace: "grid-",
-    output: true
+    output: true,
   ),
   "utility": (
     namespace: "u-",
-    output: false
-  )
+    output: false,
+  ),
 );
 
 /*

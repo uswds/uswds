@@ -9,7 +9,10 @@
 
 .usa-megamenu {
   .usa-col {
-    @include u-flex(1);
+    // Flex grow to take up available width.
+    // Flex shrink so long nav lines don't extend beyond viewport.
+    // Finally `flex-basis: auto` for IE11.
+    flex: 1 1 auto;
     @include at-media($theme-header-min-width) {
       // needs this round() to avoid a compile bug
       @include u-flex(round(12 / $theme-megamenu-columns));

@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.1
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -29,8 +29,21 @@ $theme-alert-icon-size: 4 !default;
 $theme-alert-padding-x: 2.5 !default;
 
 // Banner
+$theme-banner-background-color: "base-lightest" !default;
 $theme-banner-font-family: "ui" !default;
+$theme-banner-link-color: default !default;
 $theme-banner-max-width: "desktop" !default;
+
+// Breadcrumb
+$theme-breadcrumb-background-color: "white" !default;
+$theme-breadcrumb-font-size: "sm" !default;
+$theme-breadcrumb-font-family: "body" !default;
+$theme-breadcrumb-link-color: default !default;
+$theme-breadcrumb-min-width: "mobile-lg" !default;
+$theme-breadcrumb-padding-bottom: 2 !default;
+$theme-breadcrumb-padding-top: 2 !default;
+$theme-breadcrumb-padding-x: 0 !default;
+$theme-breadcrumb-separator-color: "base" !default;
 
 // Button
 $theme-button-font-family: "ui" !default;
@@ -53,6 +66,7 @@ $theme-card-padding-y: 2 !default;
 
 // Footer
 $theme-footer-font-family: "body" !default;
+$theme-footer-max-width: "desktop" !default;
 
 // Form and input
 $theme-checkbox-border-radius: "sm" !default;
@@ -83,3 +97,8 @@ $theme-search-min-width: 27ch !default;
 // Sidenav
 $theme-sidenav-current-border-width: 0.5 !default;
 $theme-sidenav-font-family: "ui" !default;
+
+// Tooltips
+$theme-tooltip-background-color: "ink" !default;
+$theme-tooltip-font-color: "base-lightest" !default;
+$theme-tooltip-font-size: "xs" !default;

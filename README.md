@@ -62,12 +62,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.7.0/uswds-2.7.0.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.8.1/uswds-2.8.1.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.7.0/
+   uswds-2.8.1/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -87,7 +87,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.7.0/
+   │   ├── uswds-2.8.1/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -107,10 +107,10 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <link rel="stylesheet" href="assets/uswds-2.7.0/css/uswds.min.css" />
+       <link rel="stylesheet" href="assets/uswds-2.8.1/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.7.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.8.1/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -216,10 +216,13 @@ scss
 
 The design system requires **autoprefixing** to work properly. This is included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
 
-**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
+**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
 
 ```
-'> 2%','Last 2 versions', 'IE 11'
+> 2%
+last 2 versions
+IE 11
+not dead
 ```
 
 > Note: **media query sorting** is no longer required as of USWDS 2.5.0. We stopped sorting media queries with [csso](https://github.com/css/csso) in USWDS 2.5.1 because it wasn't outputting as expected. While both the minified and unminified CSS files are modestly larger as a result: `268 KB` unsorted vs. `259 KB` sorted, our testing indicates that once the files are compressed server side with gzip, the unsorted CSS is actually smaller: `36 KB` unsorted and gzipped vs. `38 KB` sorted and gzipped. As a result, we recommend that teams do not use media query sorting at this time.
@@ -383,7 +386,7 @@ Many of our Fractal view templates are compatible with [Nunjucks](https://mozill
 
 ## Long-term support of v1.x
 
-[Version 1.x](https://v1.designsystem.digital.gov) is in [maintenance mode](https://en.wikipedia.org/wiki/Maintenance_mode) and will be supporting critical bug fixes through January 2020.
+[Version 1.x](https://v1.designsystem.digital.gov) is in maintenance mode. We will only make critical updates like security patches.
 
 ## Need installation help?
 
