@@ -1,9 +1,8 @@
-{% set taxpayer_disclaimer %}Produced and published at taxpayer expense.{% endset %}
-
+{%- set taxpayer_disclaimer %}Produced and published at taxpayer expense.{% endset -%}
 <div class="usa-identifier">
   <section class="usa-identifier__section usa-identifier__section--masthead" aria-label="Agency identifier">
     <div class="usa-identifier__container">
-      {% if parent.logo %}
+      {%- if parent.logo -%}
       <div class="usa-identifier__logos">
         <a href="{{ parent.url }}" class="usa-identifier__logo">
           <img
@@ -16,7 +15,7 @@
             alt="{{ parent.name }} logo"
             role="img">
         </a>
-        {% if agency.logo %}
+        {%- if agency.logo -%}
         <a href="javascript:void(0);" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
@@ -28,13 +27,13 @@
             alt="{{ agency.name }} logo"
             role="img">
         </a>
-        {% endif %}
+        {%- endif -%}
       </div>
-      {% endif %}
+      {%- endif -%}
       <div class="usa-identifier__identity" aria-label="Agency description">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
-          An official website of the <a href="{{ parent.url }}">{{ parent.name }}</a>{% if agency %} and {% if agency.name %}the {% endif %}<a href="{{ agency.url }}">{% if agency.name %}{{ agency.name }}{% else %}{{ agency.shortname }}{% endif %}</a>{% endif %}{% if taxpayer %}. {{ taxpayer_disclaimer }}{% endif %}
+          An official website of the <a href="{{ parent.url }}">{{ parent.name }}</a>{%- if agency -%} and {%- if agency.name -%}the {%- endif -%}<a href="{{ agency.url }}">{%- if agency.name -%}{{ agency.name }}{%- else -%}{{ agency.shortname }}{%- endif -%}</a>{%- endif -%}{%- if taxpayer -%}. {{ taxpayer_disclaimer }}{%- endif %}
         </p>
       </div>
     </div>
@@ -83,12 +82,12 @@
       </ul>
     </div>
   </nav>
-  {% if usagov %}
+  {%- if usagov -%}
   <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
     <div class="usa-identifier__container">
       <div class="usa-identifier__usagov-description">Looking for U.S. government information and services?</div>
       <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
     </div>
   </section>
-  {% endif %}
+  {%- endif -%}
 </div>
