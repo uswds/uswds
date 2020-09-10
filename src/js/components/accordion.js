@@ -16,10 +16,10 @@ const MULTISELECTABLE = "aria-multiselectable";
  * @param {HTMLElement} accordion
  * @return {array<HTMLButtonElement>}
  */
-const getAccordionButtons = accordion => {
+const getAccordionButtons = (accordion) => {
   const buttons = select(BUTTON, accordion);
 
-  return buttons.filter(button => button.closest(ACCORDION) === accordion);
+  return buttons.filter((button) => button.closest(ACCORDION) === accordion);
 };
 
 /**
@@ -45,7 +45,7 @@ const toggleButton = (button, expanded) => {
   const multiselectable = accordion.getAttribute(MULTISELECTABLE) === "true";
 
   if (safeExpanded && !multiselectable) {
-    getAccordionButtons(accordion).forEach(other => {
+    getAccordionButtons(accordion).forEach((other) => {
       if (other !== button) {
         toggle(other, false);
       }
@@ -57,13 +57,13 @@ const toggleButton = (button, expanded) => {
  * @param {HTMLButtonElement} button
  * @return {boolean} true
  */
-const showButton = button => toggleButton(button, true);
+const showButton = (button) => toggleButton(button, true);
 
 /**
  * @param {HTMLButtonElement} button
  * @return {boolean} false
  */
-const hideButton = button => toggleButton(button, false);
+const hideButton = (button) => toggleButton(button, false);
 
 const accordion = behavior(
   {
@@ -79,12 +79,12 @@ const accordion = behavior(
           // that we are still visible, so the user isn't confused.
           if (!isElementInViewport(this)) this.scrollIntoView();
         }
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
-      select(BUTTON, root).forEach(button => {
+      select(BUTTON, root).forEach((button) => {
         const expanded = button.getAttribute(EXPANDED) === "true";
         toggleButton(button, expanded);
       });
@@ -94,7 +94,7 @@ const accordion = behavior(
     show: showButton,
     hide: hideButton,
     toggle: toggleButton,
-    getButtons: getAccordionButtons
+    getButtons: getAccordionButtons,
   }
 );
 

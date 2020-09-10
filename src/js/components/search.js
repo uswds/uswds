@@ -11,7 +11,7 @@ const CONTEXT = "header"; // XXX
 
 let lastButton;
 
-const getForm = button => {
+const getForm = (button) => {
   const context = button.closest(CONTEXT);
   return context ? context.querySelector(FORM) : document.querySelector(FORM);
 };
@@ -70,19 +70,19 @@ function hideSearch() {
 const search = behavior(
   {
     [CLICK]: {
-      [BUTTON]: showSearch
-    }
+      [BUTTON]: showSearch,
+    },
   },
   {
     init(target) {
-      select(BUTTON, target).forEach(button => {
+      select(BUTTON, target).forEach((button) => {
         toggleSearch(button, false);
       });
     },
     teardown() {
       // forget the last button clicked
       lastButton = undefined;
-    }
+    },
   }
 );
 

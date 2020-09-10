@@ -1,1 +1,8 @@
-src/stylesheets/core/system-tokens/**/*
+*.html
+*.njk
+*.woff*
+*.svg
+*.ttf
+*.png
+*.ico
+*.gif

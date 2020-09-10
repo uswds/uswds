@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.8.0
+USWDS 2.8.1
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -66,6 +66,7 @@ $theme-card-padding-y: 2 !default;
 
 // Footer
 $theme-footer-font-family: "body" !default;
+$theme-footer-max-width: "desktop" !default;
 
 // Form and input
 $theme-checkbox-border-radius: "sm" !default;
