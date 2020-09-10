@@ -303,8 +303,8 @@ const fileInput = behavior(
           false
         );
 
+        // eslint-disable-next-line no-param-reassign
         fileInputEl.onchange = (e) => {
-          // eslint-disable-line no-param-reassign
           handleChange(e, fileInputEl, instructions, dropTarget);
         };
       });
