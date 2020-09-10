@@ -98,7 +98,7 @@ $identifier-link-gap-desktop: 1;
 
   @include at-media("tablet") {
     column-count: 2;
-    column-gap: units($theme-identifier-gap);
+    column-gap: units($theme-identifier-links-gap);
     column-fill: balance;
   }
 
