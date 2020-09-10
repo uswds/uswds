@@ -1,7 +1,7 @@
 {% set taxpayer_disclaimer %}Produced and published at taxpayer expense.{% endset %}
 
 <div class="usa-identifier">
-  <div class="usa-identifier__section usa-identifier__section--masthead" aria-label="Agency identifier">
+  <section class="usa-identifier__section usa-identifier__section--masthead" aria-label="Agency identifier">
     <div class="usa-identifier__container">
       {% if parent.logo %}
       <div class="usa-identifier__logos">
@@ -38,7 +38,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </section>
   <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
@@ -84,11 +84,11 @@
     </div>
   </nav>
   {% if usagov %}
-  <div class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
     <div class="usa-identifier__container">
       <div class="usa-identifier__usagov-description">Looking for U.S. government information and services?</div>
       <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
     </div>
-  </div>
+  </section>
   {% endif %}
 </div>
