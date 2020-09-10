@@ -47,7 +47,7 @@ const changeElementValue = (el, value = "") => {
   const event = new CustomEvent("change", {
     bubbles: true,
     cancelable: true,
-    detail: { value }
+    detail: { value },
   });
   elementToChange.dispatchEvent(event);
 };
@@ -75,7 +75,7 @@ const changeElementValue = (el, value = "") => {
  * @param {HTMLElement} el the element within the combo box
  * @returns {ComboBoxContext} elements
  */
-const getComboBoxContext = el => {
+const getComboBoxContext = (el) => {
   const comboBoxEl = el.closest(COMBO_BOX);
 
   if (!comboBoxEl) {
@@ -105,7 +105,7 @@ const getComboBoxContext = el => {
     toggleListBtnEl,
     clearInputBtnEl,
     isPristine,
-    disableFiltering
+    disableFiltering,
   };
 };
 
@@ -114,7 +114,7 @@ const getComboBoxContext = el => {
  *
  * @param {HTMLInputElement} el An element within the combo box component
  */
-const disable = el => {
+const disable = (el) => {
   const { inputEl, toggleListBtnEl, clearInputBtnEl } = getComboBoxContext(el);
 
   clearInputBtnEl.hidden = true;
@@ -128,7 +128,7 @@ const disable = el => {
  *
  * @param {HTMLInputElement} el An element within the combo box component
  */
-const enable = el => {
+const enable = (el) => {
   const { inputEl, toggleListBtnEl, clearInputBtnEl } = getComboBoxContext(el);
 
   clearInputBtnEl.hidden = false;
@@ -142,7 +142,7 @@ const enable = el => {
  *
  * @param {HTMLElement} _comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = _comboBoxEl => {
+const enhanceComboBox = (_comboBoxEl) => {
   const comboBoxEl = _comboBoxEl.closest(COMBO_BOX);
 
   if (comboBoxEl.dataset.enhanced) return;
@@ -182,7 +182,7 @@ const enhanceComboBox = _comboBoxEl => {
   selectEl.id = "";
   selectEl.value = "";
 
-  ["required", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "aria-label", "aria-labelledby"].forEach((name) => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
@@ -224,7 +224,7 @@ const enhanceComboBox = _comboBoxEl => {
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
-      </span>`
+      </span>`,
     ].join("")
   );
 
@@ -296,7 +296,7 @@ const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
  * @param {object} extras An object of regular expressions to replace and filter the query
  */
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
-  const escapeRegExp = text => {
+  const escapeRegExp = (text) => {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   };
 
@@ -326,7 +326,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
  *
  * @param {HTMLElement} el An element within the combo box component
  */
-const displayList = el => {
+const displayList = (el) => {
   const {
     comboBoxEl,
     selectEl,
@@ -334,7 +334,7 @@ const displayList = el => {
     listEl,
     statusEl,
     isPristine,
-    disableFiltering
+    disableFiltering,
   } = getComboBoxContext(el);
   let selectedItemId;
   let firstFoundId;
@@ -423,7 +423,7 @@ const displayList = el => {
 
   if (itemToFocus) {
     highlightOption(listEl, itemToFocus, {
-      skipFocus: true
+      skipFocus: true,
     });
   }
 };
@@ -433,7 +433,7 @@ const displayList = el => {
  *
  * @param {HTMLElement} el An element within the combo box component
  */
-const hideList = el => {
+const hideList = (el) => {
   const { inputEl, listEl, statusEl, focusedOptionEl } = getComboBoxContext(el);
 
   statusEl.innerHTML = "";
@@ -454,7 +454,7 @@ const hideList = el => {
  *
  * @param {HTMLElement} listOptionEl The list option being selected
  */
-const selectItem = listOptionEl => {
+const selectItem = (listOptionEl) => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(listOptionEl);
 
   changeElementValue(selectEl, listOptionEl.dataset.value);
@@ -469,7 +469,7 @@ const selectItem = listOptionEl => {
  *
  * @param {HTMLButtonElement} clearButtonEl The clear input button
  */
-const clearInput = clearButtonEl => {
+const clearInput = (clearButtonEl) => {
   const { comboBoxEl, listEl, selectEl, inputEl } = getComboBoxContext(
     clearButtonEl
   );
@@ -488,7 +488,7 @@ const clearInput = clearButtonEl => {
  *
  * @param {HTMLElement} el An element within the combo box component
  */
-const resetSelection = el => {
+const resetSelection = (el) => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(el);
 
   const selectValue = selectEl.value;
@@ -520,7 +520,7 @@ const resetSelection = el => {
  *
  * @param {HTMLElement} el An element within the combo box component
  */
-const completeSelection = el => {
+const completeSelection = (el) => {
   const { comboBoxEl, selectEl, inputEl, statusEl } = getComboBoxContext(el);
 
   statusEl.textContent = "";
@@ -547,7 +547,7 @@ const completeSelection = el => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleEscape = event => {
+const handleEscape = (event) => {
   const { comboBoxEl, inputEl } = getComboBoxContext(event.target);
 
   hideList(comboBoxEl);
@@ -560,7 +560,7 @@ const handleEscape = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleDownFromInput = event => {
+const handleDownFromInput = (event) => {
   const { comboBoxEl, listEl } = getComboBoxContext(event.target);
 
   if (listEl.hidden) {
@@ -583,7 +583,7 @@ const handleDownFromInput = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleEnterFromInput = event => {
+const handleEnterFromInput = (event) => {
   const { comboBoxEl, listEl } = getComboBoxContext(event.target);
   const listShown = !listEl.hidden;
 
@@ -601,7 +601,7 @@ const handleEnterFromInput = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleDownFromListOption = event => {
+const handleDownFromListOption = (event) => {
   const focusedOptionEl = event.target;
   const nextOptionEl = focusedOptionEl.nextSibling;
 
@@ -617,7 +617,7 @@ const handleDownFromListOption = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleTabFromListOption = event => {
+const handleTabFromListOption = (event) => {
   selectItem(event.target);
   event.preventDefault();
 };
@@ -627,7 +627,7 @@ const handleTabFromListOption = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleEnterFromListOption = event => {
+const handleEnterFromListOption = (event) => {
   selectItem(event.target);
   event.preventDefault();
 };
@@ -637,7 +637,7 @@ const handleEnterFromListOption = event => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleUpFromListOption = event => {
+const handleUpFromListOption = (event) => {
   const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
     event.target
   );
@@ -661,7 +661,7 @@ const handleUpFromListOption = event => {
  * @param {MouseEvent} event The mousemove event
  * @param {HTMLLIElement} listOptionEl An element within the combo box component
  */
-const handleMousemove = listOptionEl => {
+const handleMousemove = (listOptionEl) => {
   const isCurrentlyFocused = listOptionEl.classList.contains(
     LIST_OPTION_FOCUSED_CLASS
   );
@@ -669,7 +669,7 @@ const handleMousemove = listOptionEl => {
   if (isCurrentlyFocused) return;
 
   highlightOption(listOptionEl, listOptionEl, {
-    preventScroll: true
+    preventScroll: true,
   });
 };
 
@@ -678,7 +678,7 @@ const handleMousemove = listOptionEl => {
  *
  * @param {HTMLElement} el An element within the combo box component
  */
-const toggleList = el => {
+const toggleList = (el) => {
   const { comboBoxEl, listEl, inputEl } = getComboBoxContext(el);
 
   if (listEl.hidden) {
@@ -695,7 +695,7 @@ const toggleList = el => {
  *
  * @param {HTMLInputElement} el An element within the combo box component
  */
-const handleClickFromInput = el => {
+const handleClickFromInput = (el) => {
   const { comboBoxEl, listEl } = getComboBoxContext(el);
 
   if (listEl.hidden) {
@@ -721,7 +721,7 @@ const comboBox = behavior(
       [CLEAR_INPUT_BUTTON]() {
         if (this.disabled) return;
         clearInput(this);
-      }
+      },
     },
     focusout: {
       [COMBO_BOX](event) {
@@ -729,16 +729,16 @@ const comboBox = behavior(
           resetSelection(this);
           hideList(this);
         }
-      }
+      },
     },
     keydown: {
       [COMBO_BOX]: keymap({
-        Escape: handleEscape
+        Escape: handleEscape,
       }),
       [INPUT]: keymap({
         Enter: handleEnterFromInput,
         ArrowDown: handleDownFromInput,
-        Down: handleDownFromInput
+        Down: handleDownFromInput,
       }),
       [LIST_OPTION]: keymap({
         ArrowUp: handleUpFromListOption,
@@ -747,25 +747,25 @@ const comboBox = behavior(
         Down: handleDownFromListOption,
         Enter: handleEnterFromListOption,
         Tab: handleTabFromListOption,
-        "Shift+Tab": noop
-      })
+        "Shift+Tab": noop,
+      }),
     },
     input: {
       [INPUT]() {
         const comboBoxEl = this.closest(COMBO_BOX);
         comboBoxEl.classList.remove(COMBO_BOX_PRISTINE_CLASS);
         displayList(this);
-      }
+      },
     },
     mousemove: {
       [LIST_OPTION]() {
         handleMousemove(this);
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
-      select(COMBO_BOX, root).forEach(comboBoxEl => {
+      select(COMBO_BOX, root).forEach((comboBoxEl) => {
         enhanceComboBox(comboBoxEl);
       });
     },
@@ -776,7 +776,7 @@ const comboBox = behavior(
     enable,
     displayList,
     hideList,
-    COMBO_BOX_CLASS
+    COMBO_BOX_CLASS,
   }
 );
 

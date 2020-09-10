@@ -31,6 +31,6 @@ function setTabindex() {
 
 module.exports = behavior({
   [CLICK]: {
-    [LINK]: setTabindex
-  }
+    [LINK]: setTabindex,
+  },
 });

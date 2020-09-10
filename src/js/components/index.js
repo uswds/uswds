@@ -29,5 +29,5 @@ module.exports = {
   skipnav,
   timePicker,
   tooltip,
-  validator
+  validator,
 };

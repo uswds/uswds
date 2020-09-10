@@ -2,7 +2,7 @@
   border: none;
   margin-top: units(1);
   padding-left: 0;
-  padding-top: 0.2rem; // keeps input vertially centered on error state
+  padding-top: 0.2rem; // keeps input vertically centered on error state
 }
 
 .usa-file-input {
@@ -129,7 +129,7 @@
   }
 }
 
-.usa-file-input__preview__image {
+.usa-file-input__preview-image {
   border: none;
   display: block;
   height: units(5);
@@ -138,40 +138,40 @@
   width: units(5);
 }
 
-.usa-file-input__preview__image.is-loading {
+.usa-file-input__preview-image.is-loading {
   @include add-background-svg("loader");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: units(4);
 }
 
-.usa-file-input__preview__image--generic,
-.usa-file-input__preview__image--pdf,
-.usa-file-input__preview__image--word,
-.usa-file-input__preview__image--excel,
-.usa-file-input__preview__image--video {
+.usa-file-input__preview-image--generic,
+.usa-file-input__preview-image--pdf,
+.usa-file-input__preview-image--word,
+.usa-file-input__preview-image--excel,
+.usa-file-input__preview-image--video {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: units(3);
 }
 
-.usa-file-input__preview__image--pdf {
+.usa-file-input__preview-image--pdf {
   @include add-background-svg("file-pdf");
 }
 
-.usa-file-input__preview__image--generic {
+.usa-file-input__preview-image--generic {
   @include add-background-svg("file");
 }
 
-.usa-file-input__preview__image--word {
+.usa-file-input__preview-image--word {
   @include add-background-svg("file-word");
 }
 
-.usa-file-input__preview__image--excel {
+.usa-file-input__preview-image--excel {
   @include add-background-svg("file-excel");
 }
 
-.usa-file-input__preview__image--video {
+.usa-file-input__preview-image--video {
   @include add-background-svg("file-video");
 }
 
@@ -179,4 +179,21 @@
 .usa-form-group--error .usa-file-input__target {
   border-color: color("secondary-dark");
   border-width: 2px;
+}
+
+// Disabled state
+.usa-file-input--disabled {
+  pointer-events: none;
+
+  .usa-file-input__instructions {
+    opacity: 0.5;
+  }
+
+  .usa-file-input__box {
+    background-color: color($theme-color-disabled-light);
+  }
+
+  .usa-file-input__input[type] {
+    cursor: default;
+  }
 }

@@ -7,8 +7,8 @@ function change() {
 
 const validator = behavior({
   "keyup change": {
-    "input[data-validation-element]": change
-  }
+    "input[data-validation-element]": change,
+  },
 });
 
 module.exports = validator;

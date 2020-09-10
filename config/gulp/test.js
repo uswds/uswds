@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
 const mochaConfig = {
-  config: 'spec/.mocharc.json'
+  config: "spec/.mocharc.json",
 };
 
 gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha(mochaConfig)));
@@ -16,7 +16,7 @@ gulp.task("cover", () =>
     mocha(
       mochaConfig,
       Object.assign({
-        nyc: true
+        nyc: true,
       })
     )
   )

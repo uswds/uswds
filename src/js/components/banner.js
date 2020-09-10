@@ -12,6 +12,6 @@ const toggleBanner = function toggleEl(event) {
 
 module.exports = behavior({
   [CLICK]: {
-    [`${HEADER} [aria-controls]`]: toggleBanner
-  }
+    [`${HEADER} [aria-controls]`]: toggleBanner,
+  },
 });

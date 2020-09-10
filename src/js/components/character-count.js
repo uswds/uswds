@@ -22,7 +22,7 @@ const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__message--invalid`;
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getCharacterCountElements = inputEl => {
+const getCharacterCountElements = (inputEl) => {
   const characterCountEl = inputEl.closest(CHARACTER_COUNT);
 
   if (!characterCountEl) {
@@ -43,7 +43,7 @@ const getCharacterCountElements = inputEl => {
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const updateCountMessage = inputEl => {
+const updateCountMessage = (inputEl) => {
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   const maxlength = parseInt(
@@ -84,7 +84,7 @@ const updateCountMessage = inputEl => {
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const setupAttributes = inputEl => {
+const setupAttributes = (inputEl) => {
   const { characterCountEl } = getCharacterCountElements(inputEl);
 
   const maxlength = inputEl.getAttribute("maxlength");
@@ -100,18 +100,18 @@ const characterCount = behavior(
     input: {
       [INPUT]() {
         updateCountMessage(this);
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
-      select(INPUT, root).forEach(input => {
+      select(INPUT, root).forEach((input) => {
         setupAttributes(input);
         updateCountMessage(input);
       });
     },
     MESSAGE_INVALID_CLASS,
-    VALIDATION_MESSAGE
+    VALIDATION_MESSAGE,
   }
 );
 
