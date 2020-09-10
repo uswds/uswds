@@ -1,32 +1,34 @@
 label: Step indicator
 status: ready
 preview: "@uswds-content"
+context:
+  showLabels: true
+  currentStep: 3
+  steps:
+    - step:
+      status: complete
+      label: Personal information
+    - step:
+      status: complete
+      label: Household status
+    - step:
+      status: current
+      label: Documents
+    - step:
+      status: incomplete
+      label: Work history
+    - step:
+      status: incomplete
+      label: Signature
+    - step:
+      status: incomplete
+      label: Review and submit
 
 variants:
   - name: default
     context:
       heading: Default
-      showLabels: true
-      currentStep: 3
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: complete
-          label: Household status
-        - step:
-          status: current
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
+
 
   - name: short
     context:
@@ -43,54 +45,18 @@ variants:
         - step:
           status: incomplete
           label: Documents
+
   - name: centered
     context:
       heading: centered
       showLabels: true
       centered: true
-      currentStep: 2
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: current
-          label: Household status
-        - step:
-          status: incomplete
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
 
   - name: No counter
     context:
       heading: No numbered counters
       showLabels: true
-      currentStep: 2
       variant: no-counter
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: current
-          label: Household status
-        - step:
-          status: incomplete
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
 
   - name: centered-no-counter
     context:
@@ -98,78 +64,17 @@ variants:
       showLabels: true
       centered: true
       variant: no-counter
-      currentStep: 2
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: current
-          label: Household status
-        - step:
-          status: incomplete
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
+
 
   - name: No labels
     context:
       heading: No labels
-      showLabels: true
-      currentStep: 2
+      showLabels: false
       variant: no-labels
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: current
-          label: Household status
-        - step:
-          status: incomplete
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
 
   - name: centered-no-labels
     context:
       heading: Centered and no labels
-      showLabels: true
       centered: true
       variant: no-labels
-      currentStep: 2
-      steps:
-        - step:
-          status: complete
-          label: Personal information
-        - step:
-          status: current
-          label: Household status
-        - step:
-          status: incomplete
-          label: Documents
-        - step:
-          status: incomplete
-          label: Work history
-        - step:
-          status: incomplete
-          label: Signature
-        - step:
-          status: incomplete
-          label: Review and complete
-
 
