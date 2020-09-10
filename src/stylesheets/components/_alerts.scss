@@ -8,14 +8,14 @@ $usa-alerts: (
   success: "success-lighter",
   warning: "warning-lighter",
   error: "error-lighter",
-  info: "info-lighter"
+  info: "info-lighter",
 );
 
 $usa-alerts-bar: (
   success: "success",
   warning: "warning",
   error: "error",
-  info: "info"
+  info: "info",
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
