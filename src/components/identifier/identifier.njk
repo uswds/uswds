@@ -8,7 +8,11 @@
         <a href="{{ parent.url }}" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
+            {% if parent.logo == "default" %}
+            src="{{ uswds.path }}/img/circle-gray-20.svg"
+            {% else %}
             src="{{ parent.logo }}"
+            {% endif %}
             alt="{{ parent.name }} logo"
             role="img">
         </a>
@@ -16,7 +20,11 @@
         <a href="javascript:void(0);" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
+            {% if agency.logo == "default" %}
+            src="{{ uswds.path }}/img/circle-gray-20.svg"
+            {% else %}
             src="{{ agency.logo }}"
+            {% endif %}
             alt="{{ agency.name }} logo"
             role="img">
         </a>
