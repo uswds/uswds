@@ -15,7 +15,7 @@ const FILTER_DATASET = {
     "0?{{ hourQueryFilter }}:{{minuteQueryFilter}}.*{{ apQueryFilter }}m?",
   apQueryFilter: "([ap])",
   hourQueryFilter: "([1-9][0-2]?)",
-  minuteQueryFilter: "[\\d]+:([0-9]{0,2})"
+  minuteQueryFilter: "[\\d]+:([0-9]{0,2})",
 };
 
 /**
@@ -24,11 +24,11 @@ const FILTER_DATASET = {
  * @param {string} timeStr the time string to parse
  * @returns {number} the number of minutes
  */
-const parseTimeString = timeStr => {
+const parseTimeString = (timeStr) => {
   let minutes;
 
   if (timeStr) {
-    const [hours, mins] = timeStr.split(":").map(str => {
+    const [hours, mins] = timeStr.split(":").map((str) => {
       let value;
       const parsed = parseInt(str, 10);
       if (!Number.isNaN(parsed)) value = parsed;
@@ -48,7 +48,7 @@ const parseTimeString = timeStr => {
  *
  * @param {HTMLElement} el The initial wrapping element of the date picker component
  */
-const transformTimePicker = el => {
+const transformTimePicker = (el) => {
   const timePickerEl = el.closest(TIME_PICKER);
 
   const initialInputEl = timePickerEl.querySelector(`input`);
@@ -59,19 +59,21 @@ const transformTimePicker = el => {
 
   const selectEl = document.createElement("select");
 
-  ["id", "name", "required", "aria-label", "aria-labelledby"].forEach(name => {
-    if (initialInputEl.hasAttribute(name)) {
-      const value = initialInputEl.getAttribute(name);
-      selectEl.setAttribute(name, value);
-      initialInputEl.removeAttribute(name);
+  ["id", "name", "required", "aria-label", "aria-labelledby"].forEach(
+    (name) => {
+      if (initialInputEl.hasAttribute(name)) {
+        const value = initialInputEl.getAttribute(name);
+        selectEl.setAttribute(name, value);
+        initialInputEl.removeAttribute(name);
+      }
     }
-  });
+  );
 
   const padZeros = (value, length) => {
     return `0000${value}`.slice(-length);
   };
 
-  const getTimeContext = minutes => {
+  const getTimeContext = (minutes) => {
     const minute = minutes % 60;
     const hour24 = Math.floor(minutes / 60);
     const hour12 = hour24 % 12 || 12;
@@ -81,7 +83,7 @@ const transformTimePicker = el => {
       minute,
       hour24,
       hour12,
-      ampm
+      ampm,
     };
   };
 
@@ -109,7 +111,7 @@ const transformTimePicker = el => {
   timePickerEl.classList.add(COMBO_BOX_CLASS);
 
   // combo box properties
-  Object.keys(FILTER_DATASET).forEach(key => {
+  Object.keys(FILTER_DATASET).forEach((key) => {
     timePickerEl.dataset[key] = FILTER_DATASET[key];
   });
   timePickerEl.dataset.disableFiltering = "true";
@@ -122,12 +124,12 @@ const timePicker = behavior(
   {},
   {
     init(root) {
-      select(TIME_PICKER, root).forEach(timePickerEl => {
+      select(TIME_PICKER, root).forEach((timePickerEl) => {
         transformTimePicker(timePickerEl);
         enhanceComboBox(timePickerEl);
       });
     },
-    FILTER_DATASET
+    FILTER_DATASET,
   }
 );
 
