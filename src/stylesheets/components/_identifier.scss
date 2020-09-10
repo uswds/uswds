@@ -3,6 +3,7 @@ $identifier-section-margin-y: 2;
 $identifier-section-margin-y-small: 1;
 $identifier-link-gap: 1.5;
 $identifier-link-gap-desktop: 1;
+$identifier-links-gap: 4 !default;
 
 @mixin identifier-secondary-link {
   @include set-link-from-bg(
@@ -98,7 +99,7 @@ $identifier-link-gap-desktop: 1;
 
   @include at-media("tablet") {
     column-count: 2;
-    column-gap: units($theme-identifier-links-gap);
+    column-gap: units($identifier-links-gap);
     column-fill: balance;
   }
 
