@@ -7,6 +7,7 @@
       <div class="usa-identifier__logos">
         <a href="{{ parent.url }}" class="usa-identifier__logo">
           <img
+            class="usa-identifier__logo-img"
             src="{{ parent.logo }}"
             alt="{{ parent.name }} logo"
             role="img">
@@ -14,6 +15,7 @@
         {% if agency.logo %}
         <a href="javascript:void(0);" class="usa-identifier__logo">
           <img
+            class="usa-identifier__logo-img"
             src="{{ agency.logo }}"
             alt="{{ agency.name }} logo"
             role="img">
@@ -24,7 +26,7 @@
       <div class="usa-identifier__identity" aria-label="Agency description">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
-          An official website of the <a href="{{ parent.url }}">{{ parent.name }}{% if agency %} and {% if agency.name %}the {% endif %}<a href="{{ agency.url }}">{% if agency.name %}{{ agency.name }}{% else %}{{ agency.shortname }}{% endif %}</a>{% endif %}{% if taxpayer %}. {{ taxpayer_disclaimer }}{% endif %}</a>
+          An official website of the <a href="{{ parent.url }}">{{ parent.name }}</a>{% if agency %} and {% if agency.name %}the {% endif %}<a href="{{ agency.url }}">{% if agency.name %}{{ agency.name }}{% else %}{{ agency.shortname }}{% endif %}</a>{% endif %}{% if taxpayer %}. {{ taxpayer_disclaimer }}{% endif %}</a>
         </p>
       </div>
     </div>
@@ -32,51 +34,63 @@
   <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.about }}" class="usa-identifier__required-link usa-link">
-            About {{ parent.shortname }}
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.accessibility }}"
-            class="usa-identifier__required-link usa-link">
-            Accessibility support
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.foia }}"
-            class="usa-identifier__required-link usa-link">
-            Freedom of Information Act requests
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.no_fear }}"
-            class="usa-identifier__required-link usa-link">
-            No FEAR Act data
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.oig }}" class="usa-identifier__required-link usa-link">
-            Office of the Inspector General
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.performance }}" class="usa-identifier__required-link usa-link">
-            Performance reports
-          </a>
-        </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="{{ links.privacy }}" class="usa-identifier__required-link usa-link">
-            Privacy policy
-          </a>
-        </li>
+        <div class="usa-identifier__list-outer">
+          <div class="usa-identifier__list-inner">
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.about }}" class="usa-identifier__required-link">
+                About {{ parent.shortname }}
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.accessibility }}"
+                class="usa-identifier__required-link">
+                Accessibility support
+              </a>
+            </li>
+          </div>
+          <div class="usa-identifier__list-inner">
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.foia }}"
+                class="usa-identifier__required-link usa-link">
+                Freedom of Information Act requests
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.no_fear }}"
+                class="usa-identifier__required-link usa-link">
+                No FEAR Act data
+              </a>
+            </li>
+          </div>
+        </div>
+        <div class="usa-identifier__list-outer">
+          <div class="usa-identifier__list-inner">
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.oig }}" class="usa-identifier__required-link usa-link">
+                Office of the Inspector General
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.performance }}" class="usa-identifier__required-link usa-link">
+                Performance reports
+              </a>
+            </li>
+          </div>
+          <div class="usa-identifier__list-inner">
+            <li class="usa-identifier__required-links-item">
+              <a href="{{ links.privacy }}" class="usa-identifier__required-link usa-link">
+                Privacy policy
+              </a>
+            </li>
+          </div>
+        </div>
       </ul>
     </div>
   </nav>
   {% if usagov %}
   <div class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
     <div class="usa-identifier__container">
-      <div class="usa-identifier__contact-description">Looking for U.S. government information and services?</div>
+      <div class="usa-identifier__usagov-description">Looking for U.S. government information and services?</div>
       <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
     </div>
   </div>
