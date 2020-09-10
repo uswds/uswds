@@ -95,7 +95,6 @@ $identifier-links-gap: 4 !default;
 .usa-identifier__required-links-list {
   @include add-list-reset;
   @include u-margin-y(0);
-  width: max-content;
 
   @include at-media("tablet") {
     column-count: 2;
