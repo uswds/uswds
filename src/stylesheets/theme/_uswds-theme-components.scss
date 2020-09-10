@@ -87,9 +87,12 @@ $theme-header-min-width: "desktop";
 $theme-hero-image: "#{$theme-image-path}/hero.png";
 
 // Identifier
+$theme-identifier-font-family: "ui";
 $theme-identifier-background-color: "base-darkest";
-$theme-identifier-gap: 4;
-$theme-identifier-secondary-link-color: "gray-20";
+$theme-identifier-identity-domain-color: "primary-lighter";
+$theme-identifier-links-gap: 4;
+$theme-identifier-max-width: "desktop";
+$theme-identifier-secondary-link-color: "base-light";
 
 // Navigation
 $theme-navigation-font-family: "ui";
