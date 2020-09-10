@@ -7,16 +7,16 @@ variants:
     context:
       heading: Default
       showLabels: true
-      currentStep: 2
+      currentStep: 3
       steps:
         - step:
           status: complete
           label: Personal information
         - step:
-          status: current
+          status: complete
           label: Household status
         - step:
-          status: incomplete
+          status: current
           label: Documents
         - step:
           status: incomplete
