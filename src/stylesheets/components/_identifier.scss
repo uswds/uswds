@@ -1,7 +1,7 @@
 $identifier-logo-height: 6;
 $identifier-identity-domain-color: "blue-30";
 $identifier-section-margin-y: 2;
-$identifier-section-margin-y-small: 2;
+$identifier-section-margin-y-small: 1;
 $identifier-link-gap: 1.5;
 $identifier-link-gap-desktop: 1;
 
@@ -28,10 +28,6 @@ $identifier-link-gap-desktop: 1;
 
 .usa-identifier__section {
   @include u-padding-y($identifier-section-margin-y);
-
-  @include at-media("tablet") {
-    padding-top: units(2);
-  }
 }
 
 .usa-identifier__section--masthead {
@@ -75,7 +71,7 @@ $identifier-link-gap-desktop: 1;
 .usa-identifier__identity-domain,
 .usa-identifier__identity-disclaimer {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 .usa-identifier__identity-domain {
@@ -91,43 +87,35 @@ $identifier-link-gap-desktop: 1;
 }
 
 .usa-identifier__section--required-links {
-  @include u-padding-bottom($identifier-section-margin-y - $identifier-link-gap);
-
-  @include at-media("desktop") {
-    @include u-padding-bottom($identifier-section-margin-y - $identifier-link-gap-desktop);
+  @include at-media("tablet") {
+    @include u-padding-y($identifier-section-margin-y-small);
   }
 }
 
 .usa-identifier__required-links-list {
   @include u-margin-y(0);
-  display: flex;
-  flex-direction: column;
   list-style: none;
   padding-left: 0;
   width: max-content;
 
   @include at-media("tablet") {
-    flex-direction: row;
+    column-count: 2;
+    column-gap: units($theme-identifier-gap);
+    column-fill: balance;
   }
-}
 
-.usa-identifier__list-outer {
-  margin-right: units($theme-identifier-gap);
   @include at-media("desktop") {
-    display: flex;
-    margin-right: 0;
-  }
-}
-
-.usa-identifier__list-inner {
-  @include at-media("desktop") {
-    margin-right: units($theme-identifier-gap);
+    column-count: 3;
   }
 }
 
 .usa-identifier__required-links-item {
   break-inside: avoid;
   margin-bottom: units($identifier-link-gap);
+
+  &:last-child {
+    margin-bottom: units(0);
+  }
 
   @include at-media("desktop") {
     margin-bottom: units($identifier-link-gap-desktop);
