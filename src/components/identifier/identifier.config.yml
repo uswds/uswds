@@ -3,33 +3,33 @@ status: wip
 context:
   taxpayer: false
   usagov: true
+  domain: domain.gov
+  parent:
+    name: <Parent agency>
+    shortname: <Parent shortname>
+    url: javascript:void(0);
+    logo: default
+  links:
+    about: javascript:void(0);
+    accessibility: javascript:void(0);
+    foia: javascript:void(0);
+    no_fear: javascript:void(0);
+    oig: javascript:void(0);
+    performance: javascript:void(0);
+    privacy: javascript:void(0);
 
 variants:
-  - name: default
-    label: Default identifier
-    context:
-      domain: irs.gov
-      parent:
-        name: Department of the Treasury
-        shortname: Treasury
-        url: https://home.treasury.gov/
-        logo: https://assets.codepen.io/23361/seal.png
-      agency:
-        name: General Services Administration
-        shortname: GSA
-        url: https://gsa.gov/
-        logo: https://assets.codepen.io/23361/gsa-logo-w100.png
-      links:
-        about: javascript:void(0);
-        accessibility: javascript:void(0);
-        foia: javascript:void(0);
-        no_fear: javascript:void(0);
-        oig: javascript:void(0);
-        performance: javascript:void(0);
-        privacy: javascript:void(0);
-
   - name: no logos
     label: No Logos
+    context:
+      parent:
+        logo: false
 
   - name: multiple logos
     label: Multiple Logos
+    context:
+      agency:
+        name: <Other agency>
+        shortname: false
+        url: https://gsa.gov/
+        logo: default
