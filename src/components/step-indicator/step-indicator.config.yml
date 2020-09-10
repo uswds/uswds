@@ -29,7 +29,6 @@ variants:
     context:
       heading: Default
 
-
   - name: short
     context:
       heading: Only a few steps
@@ -65,7 +64,6 @@ variants:
       centered: true
       variant: no-counter
 
-
   - name: No labels
     context:
       heading: No labels
@@ -77,4 +75,3 @@ variants:
       heading: Centered and no labels
       centered: true
       variant: no-labels
-
