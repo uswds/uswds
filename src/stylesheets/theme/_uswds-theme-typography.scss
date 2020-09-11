@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.1
 ----------------------------------------
 TYPOGRAPHY SETTINGS
 ----------------------------------------
@@ -124,12 +124,12 @@ names to something more descriptive.
 $theme-typeface-tokens: (
   example-serif-token: (
     display-name: "Example Serif Display Name",
-    cap-height: 364px
+    cap-height: 364px,
   ),
   example-sans-token: (
     display-name: "Example Sans Display Name",
-    cap-height: 364px
-  )
+    cap-height: 364px,
+  ),
 );
 
 /*

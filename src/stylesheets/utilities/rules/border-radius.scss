@@ -24,20 +24,20 @@ $u-border-radius: (
       noModifier: "border-radius",
       "top": (
         "border-top-left-radius",
-        "border-top-right-radius"
+        "border-top-right-radius",
       ),
       "right": (
         "border-top-right-radius",
-        "border-bottom-right-radius"
+        "border-bottom-right-radius",
       ),
       "bottom": (
         "border-bottom-left-radius",
-        "border-bottom-right-radius"
+        "border-bottom-right-radius",
       ),
       "left": (
         "border-top-left-radius",
-        "border-bottom-left-radius"
-      )
+        "border-bottom-left-radius",
+      ),
     ),
     property: "",
     values:
@@ -46,6 +46,6 @@ $u-border-radius: (
         $border-radius-manual-values
       ),
     settings: $border-radius-settings,
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

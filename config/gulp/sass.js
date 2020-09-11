@@ -20,11 +20,11 @@ const normalizeCssFilter = filter("**/normalize.css", { restore: true });
 sass.compiler = require("sass");
 
 const IGNORE_STRING = "This file is ignored";
-const ignoreStylelintIgnoreWarnings = lintResults =>
+const ignoreStylelintIgnoreWarnings = (lintResults) =>
   formatters.string(
     lintResults.reduce((memo, result) => {
       const { warnings } = result;
-      const fileIsIgnored = warnings.some(warning =>
+      const fileIsIgnored = warnings.some((warning) =>
         RegExp(IGNORE_STRING, "i").test(warning.text)
       );
 
@@ -45,10 +45,10 @@ gulp.task("stylelint", () =>
         reporters: [
           {
             formatter: ignoreStylelintIgnoreWarnings,
-            console: true
-          }
+            console: true,
+          },
         ],
-        syntax: "scss"
+        syntax: "scss",
       })
     )
     .on("error", dutil.logError)
@@ -65,7 +65,7 @@ gulp.task("copy-vendor-sass", () => {
     .pipe(normalizeCssFilter)
     .pipe(rename("_normalize.scss"))
     .pipe(changed(destination))
-    .on("error", error => {
+    .on("error", (error) => {
       dutil.logError("copy-vendor-sass", error);
     })
     .pipe(gulp.dest(destination));
@@ -87,10 +87,7 @@ gulp.task(
   "sass",
   gulp.series("copy-vendor-sass", () => {
     dutil.logMessage(task, "Compiling Sass");
-    const pluginsProcess = [
-      discardComments(),
-      autoprefixer()
-    ];
+    const pluginsProcess = [discardComments(), autoprefixer()];
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
     return gulp
@@ -99,7 +96,7 @@ gulp.task(
       .pipe(
         sass
           .sync({
-            outputStyle: "expanded"
+            outputStyle: "expanded",
           })
           .on("error", sass.logError)
       )
@@ -109,7 +106,7 @@ gulp.task(
       .pipe(postcss(pluginsMinify))
       .pipe(
         rename({
-          suffix: ".min"
+          suffix: ".min",
         })
       )
       .pipe(sourcemaps.write("."))

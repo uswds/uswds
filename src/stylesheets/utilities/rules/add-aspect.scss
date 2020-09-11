@@ -29,8 +29,8 @@ $add-aspect: (
           "box-sizing": border-box,
           "height": 0,
           "overflow": hidden,
-          "padding": 0 0 177.77778%
-        )
+          "padding": 0 0 177.77778%,
+        ),
       ),
       1x1: (
         slug: "1x1",
@@ -40,8 +40,8 @@ $add-aspect: (
           "box-sizing": border-box,
           "height": 0,
           "overflow": hidden,
-          "padding": 0 0 100%
-        )
+          "padding": 0 0 100%,
+        ),
       ),
       4x3: (
         slug: "4x3",
@@ -51,8 +51,8 @@ $add-aspect: (
           "box-sizing": border-box,
           "height": 0,
           "overflow": hidden,
-          "padding": 0 0 75%
-        )
+          "padding": 0 0 75%,
+        ),
       ),
       16x9: (
         slug: "16x9",
@@ -62,8 +62,8 @@ $add-aspect: (
           "box-sizing": border-box,
           "height": 0,
           "overflow": hidden,
-          "padding": 0 0 56.25%
-        )
+          "padding": 0 0 56.25%,
+        ),
       ),
       2x1: (
         slug: "2x1",
@@ -73,12 +73,12 @@ $add-aspect: (
           "box-sizing": border-box,
           "height": 0,
           "overflow": hidden,
-          "padding": 0 0 50%
-        )
-      )
+          "padding": 0 0 50%,
+        ),
+      ),
     ),
     settings: $add-aspect-settings,
     property: "position",
-    type: "object"
-  )
+    type: "object",
+  ),
 );

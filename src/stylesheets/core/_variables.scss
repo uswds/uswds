@@ -74,7 +74,7 @@ $spacing-to-token: (
   "48": 6,
   "56": 7,
   "64": 8,
-  "72": 9
+  "72": 9,
 );
 
 $spacing-to-value: (
@@ -90,7 +90,7 @@ $spacing-to-value: (
   6: 48,
   7: 56,
   8: 64,
-  9: 72
+  9: 72,
 );
 
 $number-to-value: (
@@ -126,7 +126,7 @@ $number-to-value: (
   "-6": "neg-6",
   "-7": "neg-7",
   "-8": "neg-8",
-  "-9": "neg-9"
+  "-9": "neg-9",
 );
 
 /*
@@ -142,33 +142,33 @@ $project-font-type-tokens: (
   "cond": (
     "typeface-token": $theme-font-type-cond,
     "custom-stack": $theme-font-cond-custom-stack,
-    "src": $theme-font-cond-custom-src
+    "src": $theme-font-cond-custom-src,
   ),
   "icon": (
     "typeface-token": $theme-font-type-icon,
     "custom-stack": $theme-font-icon-custom-stack,
-    "src": $theme-font-icon-custom-src
+    "src": $theme-font-icon-custom-src,
   ),
   "lang": (
     "typeface-token": $theme-font-type-lang,
     "custom-stack": $theme-font-lang-custom-stack,
-    "src": $theme-font-lang-custom-src
+    "src": $theme-font-lang-custom-src,
   ),
   "mono": (
     "typeface-token": $theme-font-type-mono,
     "custom-stack": $theme-font-mono-custom-stack,
-    "src": $theme-font-mono-custom-src
+    "src": $theme-font-mono-custom-src,
   ),
   "sans": (
     "typeface-token": $theme-font-type-sans,
     "custom-stack": $theme-font-sans-custom-stack,
-    "src": $theme-font-sans-custom-src
+    "src": $theme-font-sans-custom-src,
   ),
   "serif": (
     "typeface-token": $theme-font-type-serif,
     "custom-stack": $theme-font-serif-custom-stack,
-    "src": $theme-font-serif-custom-src
-  )
+    "src": $theme-font-serif-custom-src,
+  ),
 );
 
 $project-font-role-tokens: (
@@ -176,7 +176,7 @@ $project-font-role-tokens: (
   "heading": $theme-font-role-heading,
   "body": $theme-font-role-body,
   "code": $theme-font-role-code,
-  "alt": $theme-font-role-alt
+  "alt": $theme-font-role-alt,
 );
 
 /*
@@ -201,7 +201,7 @@ $project-font-stacks: (
   "heading": get-font-stack("heading"),
   "body": get-font-stack("body"),
   "code": get-font-stack("code"),
-  "alt": get-font-stack("alt")
+  "alt": get-font-stack("alt"),
 );
 
 $project-font-stack-cond: get-font-stack("cond");
@@ -248,7 +248,7 @@ $project-cap-heights: (
   "heading": cap-height($project-font-heading),
   "body": cap-height($project-font-body),
   "code": cap-height($project-font-code),
-  "alt": cap-height($project-font-alt)
+  "alt": cap-height($project-font-alt),
 );
 
 $project-font-weights: (
@@ -258,7 +258,34 @@ $project-font-weights: (
   "medium": $theme-font-weight-medium,
   "semibold": $theme-font-weight-semibold,
   "bold": $theme-font-weight-bold,
-  "heavy": $theme-font-weight-heavy
+  "heavy": $theme-font-weight-heavy,
+);
+
+/*
+----------------------------------------
+Theme color families and grades
+----------------------------------------
+*/
+
+$uswds-color-families: (
+  "primary",
+  "secondary",
+  "accent",
+  "base",
+  "warning",
+  "error",
+  "success",
+  "info"
+);
+
+$uswds-color-theme-grades: (
+  "lightest",
+  "lighter",
+  "light",
+  "default",
+  "dark",
+  "darker",
+  "darkest"
 );
 
 /*
@@ -275,7 +302,7 @@ $project-colors: (
     "default": color($theme-color-base, set-theme),
     "dark": color($theme-color-base-dark, set-theme),
     "darker": color($theme-color-base-darker, set-theme),
-    "darkest": color($theme-color-base-darkest, set-theme)
+    "darkest": color($theme-color-base-darkest, set-theme),
   ),
   "primary": (
     "lightest": color($theme-color-primary-lightest, set-theme),
@@ -285,7 +312,7 @@ $project-colors: (
     "vivid": color($theme-color-primary-vivid, set-theme),
     "dark": color($theme-color-primary-dark, set-theme),
     "darker": color($theme-color-primary-darker, set-theme),
-    "darkest": color($theme-color-primary-darkest, set-theme)
+    "darkest": color($theme-color-primary-darkest, set-theme),
   ),
   "secondary": (
     "lightest": color($theme-color-secondary-lightest, set-theme),
@@ -295,7 +322,7 @@ $project-colors: (
     "vivid": color($theme-color-secondary-vivid, set-theme),
     "dark": color($theme-color-secondary-dark, set-theme),
     "darker": color($theme-color-secondary-darker, set-theme),
-    "darkest": color($theme-color-secondary-darkest, set-theme)
+    "darkest": color($theme-color-secondary-darkest, set-theme),
   ),
   "accent-warm": (
     "lightest": color($theme-color-accent-warm-lightest, set-theme),
@@ -304,7 +331,7 @@ $project-colors: (
     "default": color($theme-color-accent-warm, set-theme),
     "dark": color($theme-color-accent-warm-dark, set-theme),
     "darker": color($theme-color-accent-warm-darker, set-theme),
-    "darkest": color($theme-color-accent-warm-darkest, set-theme)
+    "darkest": color($theme-color-accent-warm-darkest, set-theme),
   ),
   "accent-cool": (
     "lightest": color($theme-color-accent-cool-lightest, set-theme),
@@ -313,8 +340,8 @@ $project-colors: (
     "default": color($theme-color-accent-cool, set-theme),
     "dark": color($theme-color-accent-cool-dark, set-theme),
     "darker": color($theme-color-accent-cool-darker, set-theme),
-    "darkest": color($theme-color-accent-cool-darkest, set-theme)
-  )
+    "darkest": color($theme-color-accent-cool-darkest, set-theme),
+  ),
 );
 
 $project-state-colors: (
@@ -323,34 +350,34 @@ $project-state-colors: (
     "light": color($theme-color-error-light, set-theme),
     "default": color($theme-color-error, set-theme),
     "dark": color($theme-color-error-dark, set-theme),
-    "darker": color($theme-color-error-darker, set-theme)
+    "darker": color($theme-color-error-darker, set-theme),
   ),
   "warning": (
     "lighter": color($theme-color-warning-lighter, set-theme),
     "light": color($theme-color-warning-light, set-theme),
     "default": color($theme-color-warning, set-theme),
     "dark": color($theme-color-warning-dark, set-theme),
-    "darker": color($theme-color-warning-darker, set-theme)
+    "darker": color($theme-color-warning-darker, set-theme),
   ),
   "success": (
     "lighter": color($theme-color-success-lighter, set-theme),
     "light": color($theme-color-success-light, set-theme),
     "default": color($theme-color-success, set-theme),
     "dark": color($theme-color-success-dark, set-theme),
-    "darker": color($theme-color-success-darker, set-theme)
+    "darker": color($theme-color-success-darker, set-theme),
   ),
   "info": (
     "lighter": color($theme-color-info-lighter, set-theme),
     "light": color($theme-color-info-light, set-theme),
     "default": color($theme-color-info, set-theme),
     "dark": color($theme-color-info-dark, set-theme),
-    "darker": color($theme-color-info-darker, set-theme)
+    "darker": color($theme-color-info-darker, set-theme),
   ),
   "disabled": (
     "light": color($theme-color-disabled-light, set-theme),
     "default": color($theme-color-disabled, set-theme),
-    "dark": color($theme-color-disabled-dark, set-theme)
-  )
+    "dark": color($theme-color-disabled-dark, set-theme),
+  ),
 );
 
 $all-project-colors: map-collect($project-colors, $project-state-colors);
@@ -366,6 +393,70 @@ $palette-colors: map-collect(
 Theme color shortcodes
 ----------------------------------------
 */
+
+$assignments-theme-color: (
+  "base-lightest": $theme-color-base-lightest,
+  "base-lighter": $theme-color-base-lighter,
+  "base-light": $theme-color-base-light,
+  "base": $theme-color-base,
+  "base-dark": $theme-color-base-dark,
+  "base-darker": $theme-color-base-darker,
+  "base-darkest": $theme-color-base-darkest,
+  "ink": $theme-color-base-darkest,
+  "primary-lightest": $theme-color-primary-lightest,
+  "primary-lighter": $theme-color-primary-lighter,
+  "primary-light": $theme-color-primary-light,
+  "primary": $theme-color-primary,
+  "primary-vivid": $theme-color-primary-vivid,
+  "primary-dark": $theme-color-primary-dark,
+  "primary-darker": $theme-color-primary-darker,
+  "primary-darkest": $theme-color-primary-darkest,
+  "secondary-lightest": $theme-color-secondary-lightest,
+  "secondary-lighter": $theme-color-secondary-lighter,
+  "secondary-light": $theme-color-secondary-light,
+  "secondary": $theme-color-secondary,
+  "secondary-vivid": $theme-color-secondary-vivid,
+  "secondary-dark": $theme-color-secondary-dark,
+  "secondary-darker": $theme-color-secondary-darker,
+  "secondary-darkest": $theme-color-secondary-darkest,
+  "accent-warm-darkest": $theme-color-accent-warm-darkest,
+  "accent-warm-darker": $theme-color-accent-warm-darker,
+  "accent-warm-dark": $theme-color-accent-warm-dark,
+  "accent-warm": $theme-color-accent-warm,
+  "accent-warm-light": $theme-color-accent-warm-light,
+  "accent-warm-lighter": $theme-color-accent-warm-lighter,
+  "accent-warm-lightest": $theme-color-accent-warm-lightest,
+  "accent-cool-darkest": $theme-color-accent-cool-darkest,
+  "accent-cool-darker": $theme-color-accent-cool-darker,
+  "accent-cool-dark": $theme-color-accent-cool-dark,
+  "accent-cool": $theme-color-accent-cool,
+  "accent-cool-light": $theme-color-accent-cool-light,
+  "accent-cool-lighter": $theme-color-accent-cool-lighter,
+  "accent-cool-lightest": $theme-color-accent-cool-lightest,
+  "error-lighter": $theme-color-error-lighter,
+  "error-light": $theme-color-error-light,
+  "error": $theme-color-error,
+  "error-dark": $theme-color-error-dark,
+  "error-darker": $theme-color-error-darker,
+  "warning-lighter": $theme-color-warning-lighter,
+  "warning-light": $theme-color-warning-light,
+  "warning": $theme-color-warning,
+  "warning-dark": $theme-color-warning-dark,
+  "warning-darker": $theme-color-warning-darker,
+  "success-lighter": $theme-color-success-lighter,
+  "success-light": $theme-color-success-light,
+  "success": $theme-color-success,
+  "success-dark": $theme-color-success-dark,
+  "success-darker": $theme-color-success-darker,
+  "info-lighter": $theme-color-info-lighter,
+  "info-light": $theme-color-info-light,
+  "info": $theme-color-info,
+  "info-dark": $theme-color-info-dark,
+  "info-darker": $theme-color-info-darker,
+  "disabled-light": $theme-color-disabled-light,
+  "disabled": $theme-color-disabled,
+  "disabled-dark": $theme-color-disabled-dark,
+);
 
 $tokens-color-theme: (
   "base-lightest": color($theme-color-base-lightest, set-theme, no-warn),
@@ -414,7 +505,7 @@ $tokens-color-theme: (
   "accent-cool-lighter":
     color($theme-color-accent-cool-lighter, set-theme, no-warn),
   "accent-cool-lightest":
-    color($theme-color-accent-cool-lightest, set-theme, no-warn)
+    color($theme-color-accent-cool-lightest, set-theme, no-warn),
 );
 
 $tokens-color-state: (
@@ -440,7 +531,7 @@ $tokens-color-state: (
   "info-darker": color($theme-color-info-darker, set-theme, no-warn),
   "disabled-light": color($theme-color-disabled-light, set-theme, no-warn),
   "disabled": color($theme-color-disabled, set-theme, no-warn),
-  "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn)
+  "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn),
 );
 
 $project-color-shortcodes: map-collect(
@@ -471,7 +562,7 @@ $project-type-scale: (
   "lg": system-type-scale($theme-type-scale-lg),
   "xl": system-type-scale($theme-type-scale-xl),
   "2xl": system-type-scale($theme-type-scale-2xl),
-  "3xl": system-type-scale($theme-type-scale-3xl)
+  "3xl": system-type-scale($theme-type-scale-3xl),
 );
 
 $all-type-scale: map-collect($system-type-scale, $project-type-scale);
@@ -487,7 +578,7 @@ $project-border-radius: (
   "sm": units($theme-border-radius-sm),
   "md": units($theme-border-radius-md),
   "lg": units($theme-border-radius-lg),
-  "pill": 99rem
+  "pill": 99rem,
 );
 
 $all-border-radius: map-collect(
@@ -505,7 +596,7 @@ Column gaps
 $project-column-gaps: (
   "sm": $theme-column-gap-sm,
   "md": $theme-column-gap-md,
-  "lg": $theme-column-gap-lg
+  "lg": $theme-column-gap-lg,
 );
 
 /*
@@ -530,5 +621,16 @@ $project-aspect-ratios: (
   "16x9": 56.25%,
   "1x1": 100%,
   "4x3": 75%,
-  "2x1": 50%
+  "2x1": 50%,
 );
+
+@if $test-system-color-tokens {
+  $color-test: test-colors($system-color-shortcodes);
+}
+
+/*
+----------------------------------------
+Easing
+----------------------------------------
+*/
+$project-easing: 0.2s ease-in-out;

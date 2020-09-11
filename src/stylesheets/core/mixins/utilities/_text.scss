@@ -1,6 +1,11 @@
 // Outputs properties based on contents of text()
 
 $text-utililies: (
+  font-feature-settings:
+    map-collect(
+      map-deep-get($system-properties, font-feature-settings, standard),
+      map-deep-get($system-properties, font-feature-settings, extended)
+    ),
   font-style:
     map-collect(
       map-deep-get($system-properties, font-style, standard),
@@ -41,7 +46,7 @@ $text-utililies: (
       map-deep-get($system-properties, white-space, standard),
       map-deep-get($system-properties, white-space, extended)
     ),
-  color: map-collect($tokens-color-required)
+  color: map-collect($tokens-color-required),
 );
 
 @mixin u-text($value...) {
