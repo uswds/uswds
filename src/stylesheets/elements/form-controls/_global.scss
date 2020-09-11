@@ -83,3 +83,9 @@ $input-select-margin-right: 1.5;
 .usa-label--required {
   color: color("error-dark");
 }
+
+.usa-legend--large {
+  font-size: font-size($theme-form-font-family, "xl");
+  font-weight: font-weight("bold");
+  margin-top: units(2);
+}
