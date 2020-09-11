@@ -13,10 +13,7 @@ context:
       label: Household status
     - step:
       status: current
-      label: Documents
-    - step:
-      status: incomplete
-      label: Work history
+      label: Supporting documents
     - step:
       status: incomplete
       label: Signature
@@ -43,7 +40,7 @@ variants:
           label: Household status
         - step:
           status: incomplete
-          label: Documents
+          label: Supporting documents
 
   - name: centered
     context:
@@ -51,18 +48,18 @@ variants:
       showLabels: true
       centered: true
 
-  - name: No counter
+  - name: No counters
     context:
       heading: No numbered counters
       showLabels: true
-      variant: no-counter
+      variant: no-counters
 
-  - name: centered-no-counter
+  - name: centered-no-counters
     context:
-      heading: Centered and no counter
+      heading: Centered and no counters
       showLabels: true
       centered: true
-      variant: no-counter
+      variant: no-counters
 
   - name: No labels
     context:
