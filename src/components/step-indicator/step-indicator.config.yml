@@ -1,0 +1,74 @@
+label: Step indicator
+status: ready
+preview: "@uswds-content"
+context:
+  showLabels: true
+  currentStep: 3
+  steps:
+    - step:
+      status: complete
+      label: Personal information
+    - step:
+      status: complete
+      label: Household status
+    - step:
+      status: current
+      label: Supporting documents
+    - step:
+      status: incomplete
+      label: Signature
+    - step:
+      status: incomplete
+      label: Review and submit
+
+variants:
+  - name: default
+    context:
+      heading: Default
+
+  - name: short
+    context:
+      heading: Only a few steps
+      showLabels: true
+      currentStep: 2
+      steps:
+        - step:
+          status: complete
+          label: Personal information
+        - step:
+          status: current
+          label: Household status
+        - step:
+          status: incomplete
+          label: Supporting documents
+
+  - name: centered
+    context:
+      heading: centered
+      showLabels: true
+      centered: true
+
+  - name: No counters
+    context:
+      heading: No numbered counters
+      showLabels: true
+      variant: no-counters
+
+  - name: centered-no-counters
+    context:
+      heading: Centered and no counters
+      showLabels: true
+      centered: true
+      variant: no-counters
+
+  - name: No labels
+    context:
+      heading: No labels
+      showLabels: false
+      variant: no-labels
+
+  - name: centered-no-labels
+    context:
+      heading: Centered and no labels
+      centered: true
+      variant: no-labels

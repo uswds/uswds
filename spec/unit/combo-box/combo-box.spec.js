@@ -424,8 +424,8 @@ describe("combo box component", () => {
       "should filter the item by the string being present in the option"
     );
     EVENTS.keydownArrowDown(input);
-    EVENTS.keydownArrowDown(input);
-    EVENTS.keydownArrowDown(input);
+    EVENTS.keydownArrowDown(document.activeElement);
+    EVENTS.keydownArrowDown(document.activeElement);
     const focusedOption = document.activeElement;
 
     assert.ok(
