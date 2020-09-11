@@ -30,6 +30,8 @@ const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
+const DEFAULT_FILTER = ".*{{query}}.*";
+
 const noop = () => {};
 
 /**
@@ -62,6 +64,8 @@ const changeElementValue = (el, value = "") => {
  * @property {HTMLLIElement} selectedOptionEl
  * @property {HTMLButtonElement} toggleListBtnEl
  * @property {HTMLButtonElement} clearInputBtnEl
+ * @property {boolean} isPristine
+ * @property {boolean} disableFiltering
  */
 
 /**
@@ -88,6 +92,7 @@ const getComboBoxContext = (el) => {
   const clearInputBtnEl = comboBoxEl.querySelector(CLEAR_INPUT_BUTTON);
 
   const isPristine = comboBoxEl.classList.contains(COMBO_BOX_PRISTINE_CLASS);
+  const disableFiltering = comboBoxEl.dataset.disableFiltering === "true";
 
   return {
     comboBoxEl,
@@ -100,6 +105,7 @@ const getComboBoxContext = (el) => {
     toggleListBtnEl,
     clearInputBtnEl,
     isPristine,
+    disableFiltering,
   };
 };
 
@@ -134,9 +140,13 @@ const enable = (el) => {
 /**
  * Enhance a select element into a combo box component.
  *
- * @param {HTMLElement} comboBoxEl The initial element of the combo box component
+ * @param {HTMLElement} _comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = (comboBoxEl) => {
+const enhanceComboBox = (_comboBoxEl) => {
+  const comboBoxEl = _comboBoxEl.closest(COMBO_BOX);
+
+  if (comboBoxEl.dataset.enhanced) return;
+
   const selectEl = comboBoxEl.querySelector("select");
 
   if (!selectEl) {
@@ -229,40 +239,30 @@ const enhanceComboBox = (comboBoxEl) => {
     disable(comboBoxEl);
     selectEl.disabled = false;
   }
+
+  comboBoxEl.dataset.enhanced = "true";
 };
 
 /**
  * Manage the focused element within the list options when
  * navigating via keyboard.
  *
- * @param {HTMLElement} el An element within the combo box component
- * @param {HTMLElement} currentEl An element within the combo box component
+ * @param {HTMLElement} el An anchor element within the combo box component
  * @param {HTMLElement} nextEl An element within the combo box component
  * @param {Object} options options
  * @param {boolean} options.skipFocus skip focus of highlighted item
  * @param {boolean} options.preventScroll should skip procedure to scroll to element
  */
-const highlightOption = (
-  el,
-  currentEl,
-  nextEl,
-  { skipFocus, preventScroll } = {}
-) => {
-  const { inputEl, listEl, selectedOptionEl } = getComboBoxContext(el);
+const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
+  const { inputEl, listEl, focusedOptionEl } = getComboBoxContext(el);
 
-  if (selectedOptionEl) {
-    selectedOptionEl.tabIndex = "-1";
-  }
-
-  if (currentEl) {
-    currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
-    currentEl.setAttribute("aria-selected", "false");
-    currentEl.setAttribute("tabIndex", "-1");
+  if (focusedOptionEl) {
+    focusedOptionEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+    focusedOptionEl.setAttribute("tabIndex", "-1");
   }
 
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
-    nextEl.setAttribute("aria-selected", "true");
     nextEl.setAttribute("tabIndex", "0");
     nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
 
@@ -289,35 +289,80 @@ const highlightOption = (
 };
 
 /**
+ * Generate a dynamic regular expression based off of a replaceable and possibly filtered value.
+ *
+ * @param {string} el An element within the combo box component
+ * @param {string} query The value to use in the regular expression
+ * @param {object} extras An object of regular expressions to replace and filter the query
+ */
+const generateDynamicRegExp = (filter, query = "", extras = {}) => {
+  const escapeRegExp = (text) => {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  };
+
+  let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
+    const key = $1.trim();
+    const queryFilter = extras[key];
+    if (key !== "query" && queryFilter) {
+      const matcher = new RegExp(queryFilter, "i");
+      const matches = query.match(matcher);
+
+      if (matches) {
+        return escapeRegExp(matches[1]);
+      }
+
+      return "";
+    }
+    return escapeRegExp(query);
+  });
+
+  find = "^(?:" + find + ")$";
+
+  return new RegExp(find, "i");
+};
+
+/**
  * Display the option list of a combo box component.
  *
  * @param {HTMLElement} el An element within the combo box component
  */
 const displayList = (el) => {
   const {
+    comboBoxEl,
     selectEl,
     inputEl,
     listEl,
     statusEl,
     isPristine,
+    disableFiltering,
   } = getComboBoxContext(el);
   let selectedItemId;
+  let firstFoundId;
 
   const listOptionBaseId = `${listEl.id}--option-`;
 
   const inputValue = (inputEl.value || "").toLowerCase();
+  const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
+  const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
+    const optionId = `${listOptionBaseId}${options.length}`;
+
     if (
       optionEl.value &&
-      (isPristine ||
+      (disableFiltering ||
+        isPristine ||
         !inputValue ||
-        optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
+        regex.test(optionEl.text))
     ) {
       if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = `${listOptionBaseId}${options.length}`;
+        selectedItemId = optionId;
+      }
+
+      if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
+        firstFoundId = optionId;
       }
 
       options.push(optionEl);
@@ -330,13 +375,16 @@ const displayList = (el) => {
       const optionId = `${listOptionBaseId}${index}`;
       const classes = [LIST_OPTION_CLASS];
       let tabindex = "-1";
+      let ariaSelected = "false";
 
       if (optionId === selectedItemId) {
-        classes.push(LIST_OPTION_SELECTED_CLASS);
+        classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
         tabindex = "0";
+        ariaSelected = "true";
       }
 
       if (!selectedItemId && index === 0) {
+        classes.push(LIST_OPTION_FOCUSED_CLASS);
         tabindex = "0";
       }
 
@@ -344,6 +392,7 @@ const displayList = (el) => {
           aria-selected="false"
           aria-setsize="${options.length}"
           aria-posinset="${index + 1}"
+          aria-selected="${ariaSelected}"
           id="${optionId}"
           class="${classes.join(" ")}"
           tabindex="${tabindex}"
@@ -364,9 +413,16 @@ const displayList = (el) => {
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : "No results.";
 
+  let itemToFocus;
+
   if (isPristine && selectedItemId) {
-    const selectedOptionEl = listEl.querySelector("#" + selectedItemId);
-    highlightOption(listEl, null, selectedOptionEl, {
+    itemToFocus = listEl.querySelector("#" + selectedItemId);
+  } else if (disableFiltering && firstFoundId) {
+    itemToFocus = listEl.querySelector("#" + firstFoundId);
+  }
+
+  if (itemToFocus) {
+    highlightOption(listEl, itemToFocus, {
       skipFocus: true,
     });
   }
@@ -465,22 +521,9 @@ const resetSelection = (el) => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const completeSelection = (el) => {
-  const {
-    comboBoxEl,
-    selectEl,
-    inputEl,
-    statusEl,
-    focusedOptionEl,
-  } = getComboBoxContext(el);
+  const { comboBoxEl, selectEl, inputEl, statusEl } = getComboBoxContext(el);
 
   statusEl.textContent = "";
-
-  if (focusedOptionEl) {
-    changeElementValue(selectEl, focusedOptionEl.dataset.value);
-    changeElementValue(inputEl, focusedOptionEl.textContent);
-    comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
-    return;
-  }
 
   const inputValue = (inputEl.value || "").toLowerCase();
 
@@ -517,25 +560,19 @@ const handleEscape = (event) => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleDown = (event) => {
-  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
-    event.target
-  );
+const handleDownFromInput = (event) => {
+  const { comboBoxEl, listEl } = getComboBoxContext(event.target);
 
   if (listEl.hidden) {
     displayList(comboBoxEl);
   }
 
   let nextOptionEl =
-    listEl.querySelector(LIST_OPTION_SELECTED) ||
+    listEl.querySelector(LIST_OPTION_FOCUSED) ||
     listEl.querySelector(LIST_OPTION);
 
-  if (focusedOptionEl) {
-    nextOptionEl = focusedOptionEl.nextSibling;
-  }
-
   if (nextOptionEl) {
-    highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
+    highlightOption(comboBoxEl, nextOptionEl);
   }
 
   event.preventDefault();
@@ -554,6 +591,22 @@ const handleEnterFromInput = (event) => {
 
   if (listShown) {
     hideList(comboBoxEl);
+  }
+
+  event.preventDefault();
+};
+
+/**
+ * Handle the down event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleDownFromListOption = (event) => {
+  const focusedOptionEl = event.target;
+  const nextOptionEl = focusedOptionEl.nextSibling;
+
+  if (nextOptionEl) {
+    highlightOption(focusedOptionEl, nextOptionEl);
   }
 
   event.preventDefault();
@@ -591,7 +644,7 @@ const handleUpFromListOption = (event) => {
   const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
   const listShown = !listEl.hidden;
 
-  highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
+  highlightOption(comboBoxEl, nextOptionEl);
 
   if (listShown) {
     event.preventDefault();
@@ -615,9 +668,7 @@ const handleMousemove = (listOptionEl) => {
 
   if (isCurrentlyFocused) return;
 
-  const { comboBoxEl, focusedOptionEl } = getComboBoxContext(listOptionEl);
-
-  highlightOption(comboBoxEl, focusedOptionEl, listOptionEl, {
+  highlightOption(listOptionEl, listOptionEl, {
     preventScroll: true,
   });
 };
@@ -682,16 +733,18 @@ const comboBox = behavior(
     },
     keydown: {
       [COMBO_BOX]: keymap({
-        ArrowDown: handleDown,
-        Down: handleDown,
         Escape: handleEscape,
       }),
       [INPUT]: keymap({
         Enter: handleEnterFromInput,
+        ArrowDown: handleDownFromInput,
+        Down: handleDownFromInput,
       }),
       [LIST_OPTION]: keymap({
         ArrowUp: handleUpFromListOption,
         Up: handleUpFromListOption,
+        ArrowDown: handleDownFromListOption,
+        Down: handleDownFromListOption,
         Enter: handleEnterFromListOption,
         Tab: handleTabFromListOption,
         "Shift+Tab": noop,
@@ -717,10 +770,13 @@ const comboBox = behavior(
       });
     },
     getComboBoxContext,
+    enhanceComboBox,
+    generateDynamicRegExp,
     disable,
     enable,
     displayList,
     hideList,
+    COMBO_BOX_CLASS,
   }
 );
 
