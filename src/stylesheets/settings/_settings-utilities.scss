@@ -33,21 +33,21 @@ used by utilities or layout grid
 $theme-utility-breakpoints: (
   "card": false,
   // 160px
-    "card-lg": false,
+  "card-lg": false,
   // 240px
-    "mobile": false,
+  "mobile": false,
   // 320px
-    "mobile-lg": true,
+  "mobile-lg": true,
   // 480px
-    "tablet": true,
+  "tablet": true,
   // 640px
-    "tablet-lg": false,
+  "tablet-lg": false,
   // 800px
-    "desktop": true,
+  "desktop": true,
   // 1024px
-    "desktop-lg": false,
+  "desktop-lg": false,
   // 1200px
-    "widescreen": false,
+  "widescreen": false,
   // 1400px
 ) !default;
 

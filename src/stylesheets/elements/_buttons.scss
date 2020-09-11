@@ -162,7 +162,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("secondary-dark");
+    @include set-text-and-bg("secondary-darker");
   }
 }
 
