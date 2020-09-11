@@ -98,6 +98,26 @@ $theme-search-min-width: 27ch;
 $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
 
+// Step indicator
+$step-indicator-background-color: "white";
+$theme-step-indicator-counter-gap: 0.5;
+$theme-step-indicator-counter-border: 0.5;
+$theme-step-indicator-counter-size: 5;
+$theme-step-indicator-font-family: "ui";
+$theme-step-indicator-heading-color: "ink";
+$theme-step-indicator-heading-font-family: "ui";
+$theme-step-indicator-heading-font-size: "lg";
+$theme-step-indicator-heading-font-size-small: "md";
+$theme-step-indicator-label-font-size: "sm";
+$theme-step-indicator-margin-bottom: 4;
+$theme-step-indicator-min-width: "tablet";
+$theme-step-indicator-segment-color-pending: "base-lighter";
+$theme-step-indicator-segment-color-complete: "primary-darker";
+$theme-step-indicator-segment-color-current: "primary";
+$theme-step-indicator-segment-gap: 2px;
+$theme-step-indicator-segment-height: 1;
+$theme-step-indicator-text-pending: "base-dark";
+
 // Tooltips
 $theme-tooltip-background-color: "ink";
 $theme-tooltip-font-color: "base-lightest";
