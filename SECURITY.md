@@ -20,5 +20,5 @@ We encourage you to verify the security and status of the USWDS package:
    NPM ensures you’re using a legitimate copy of USWDS straight from the source.
    It also makes it easier to stay up-to-date with the latest USWDS version.
 
-To learn more about our security best practices or to report a security issue,
+To learn more about our security practices or to report a security issue,
 please [email us](mailto:uswds@support.digitalgov.gov).
