@@ -1,35 +1,8 @@
-<h6>Plain lists</h6>
 <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
   <div class="usa-alert__body">
     {%- if alert.title %}
     <h3 class="usa-alert__heading">{{ alert.title }}</h3>
     {%- endif %}
     <p class="usa-alert__text">{{ alert.content | safe }}</p>
-    <ul class="usa-list">
-      <li>Parent List item 1</li>
-      <li>
-        Parent list item 2
-        <ul>
-          <li>Child list item 1</li>
-          <li>
-            Child list item 2
-            <ol>
-              <li>Grandchild list item 1</li>
-              <li>Grandchild list item 2</li>
-              <li>Grandchild list item 3</li>
-            </ol>
-          </li>
-          <li>
-            Child list item 3
-            <ul>
-              <li>Grandchild list item 1</li>
-              <li>Grandchild list item 2</li>
-              <li>Grandchild list item 3</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Parent list item  4</li>
-    </ul>
   </div>
 </div>
