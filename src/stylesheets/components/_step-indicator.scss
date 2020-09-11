@@ -309,7 +309,8 @@ $step-indicator-segment-height-mobile: 1;
   }
 
   &.usa-step-indicator--no-counters,
-  &.usa-step-indicator--no-labels {
+  &.usa-step-indicator--no-labels,
+  &.usa-step-indicator--centered {
     .usa-step-indicator__segment {
       // Use full-width segments
       &:first-child {
