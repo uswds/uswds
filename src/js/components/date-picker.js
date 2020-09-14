@@ -834,7 +834,9 @@ const enhanceDatePicker = el => {
     throw new Error(`${DATE_PICKER} is missing inner input`);
   }
 
-  internalInputEl.value = "";
+  if (internalInputEl.value) {
+    internalInputEl.value = "";
+  }
 
   const minDate = parseDateString(
     datePickerEl.dataset.minDate || internalInputEl.getAttribute("min")
@@ -2102,7 +2104,8 @@ const datePickerEvents = {
     }),
     [DATE_PICKER_CALENDAR](event) {
       this.dataset.keydownKeyCode = event.keyCode;
-
+    },
+    [DATE_PICKER](event) {
       const keyMap = keymap({
         Escape: handleEscapeFromCalendar
       });

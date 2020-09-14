@@ -22,12 +22,12 @@ $u-square: (
     modifiers: (
       square: (
         height,
-        width
-      )
+        width,
+      ),
     ),
     values: map-collect(get-palettes($square-palettes), $square-manual-values),
     settings: $square-settings,
     property: "",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

@@ -54,7 +54,7 @@ describe("combo box component - subsequent selection", () => {
     );
     assert.equal(
       highlightedOption.textContent,
-      "Go",
+      "Blackberry",
       "should be the previously selected item"
     );
   });
@@ -93,8 +93,8 @@ describe("combo box component - subsequent selection", () => {
   });
 
   it("should clear the input when the clear button is clicked", () => {
-    assert.equal(select.value, "value-Go");
-    assert.equal(input.value, "Go");
+    assert.equal(select.value, "blackberry");
+    assert.equal(input.value, "Blackberry");
 
     EVENTS.click(root.querySelector(".usa-combo-box__clear-input"));
 
@@ -107,7 +107,11 @@ describe("combo box component - subsequent selection", () => {
     input.value = "go";
     EVENTS.click(input);
     EVENTS.keydownEnter(input);
-    assert.equal(input.value, "Go", "should set that item to the input value");
+    assert.equal(
+      input.value,
+      "Blackberry",
+      "should set that item to the input value"
+    );
     EVENTS.click(input);
     assert.equal(
       list.children.length,
@@ -115,7 +119,7 @@ describe("combo box component - subsequent selection", () => {
       "should have all of the initial select items in the list except placeholder empty items"
     );
 
-    input.value = "COBOL";
+    input.value = "Fig";
     EVENTS.input(input);
 
     assert.equal(

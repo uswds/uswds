@@ -27,21 +27,21 @@ $u-border: (
       noModifier: "",
       "y": (
         "-top",
-        "-bottom"
+        "-bottom",
       ),
       "x": (
         "-left",
-        "-right"
+        "-right",
       ),
       "top": "-top",
       "right": "-right",
       "bottom": "-bottom",
-      "left": "-left"
+      "left": "-left",
     ),
     values: map-collect(get-palettes($border-palettes), $border-manual-values),
     valueAppend: " solid",
     settings: $border-settings,
     property: "border",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

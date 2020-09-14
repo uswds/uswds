@@ -1,0 +1,27 @@
+/*
+========================================
+align-self
+----------------------------------------
+usage:
+  .flex-align-self-[key]
+----------------------------------------
+output:
+  align-self: [value];
+----------------------------------------
+example:
+  .flex-align-self-start {
+    align-self: flex-start; }
+----------------------------------------
+*/
+
+$u-align-self: (
+  align-self: (
+    base: "flex",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($align-self-palettes), $align-self-manual-values),
+    settings: $align-self-settings,
+    property: "align-self",
+    type: "utility",
+  ),
+);
