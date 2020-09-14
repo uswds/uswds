@@ -11,5 +11,5 @@ module.exports = {
   //   touch and clicks. This meant the conditional effectively dropped
   //   support for the user's mouse, frustrating users who preferred
   //   it on those systems.
-  CLICK: "click"
+  CLICK: "click",
 };
