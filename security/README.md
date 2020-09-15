@@ -1,16 +1,13 @@
-This `security` directory contains the auto-generated sha256 hash's on release.
-This way users can verify they're using an authentic, unmodified, ZIP file from USWDS.
+This `/security` directory contains SHA-256 hashes for each USWDS hashed release ZIP file. Use these hashes to verify the authenticity of USWDS release ZIP files. Compare our SHA-256 hash to the hash you generate from the ZIP you wish to test.
 
-You can view the ZIP file's hash on OSX/Linux using the `sha256sum` command in terminal.
-
-For example:
+**OSX/Linux**: Use the `sha256sum` command in a terminal window. (Replace the path with the path to the file you wish to test.)
 
 ```bash
-sha256sum path/to/uswds-zip/uswds-2.9.0
+sha256sum path/to/filename.zip
 ```
 
-On Windows, you'll need to open up powershell and run:
+**Windows:** Open up PowerShell and run the following command. (Replace the path with the path to the file you wish to test.)
 
 ```bash
-powershell get-filehash -algorithm sha256 .\path\to\uswds-zip\uswds-2.9.0
+powershell get-filehash -algorithm sha256 .\path\to\filename.zip
 ```
