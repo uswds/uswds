@@ -90,6 +90,9 @@ $identifier-links-gap: 4 !default;
   @include at-media("tablet") {
     @include u-padding-y($identifier-section-margin-y-small);
   }
+  @include at-media("desktop") {
+    @include u-font-size($theme-identifier-font-family, "xs");
+  }
 }
 
 .usa-identifier__required-links-list {
