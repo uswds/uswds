@@ -1,92 +1,123 @@
-{%- set taxpayer_disclaimer %}Produced and published at taxpayer expense.{% endset -%}
 <div class="usa-identifier">
-  <section class="usa-identifier__section usa-identifier__section--masthead" aria-label="Agency identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="{{ masthead.label.content[lang] }}">
     <div class="usa-identifier__container">
-      {%- if parent.logo -%}
+      {%- if masthead.parent.logo -%}
       <div class="usa-identifier__logos">
-        <a href="{{ parent.url }}" class="usa-identifier__logo">
+        <a href="{{ masthead.parent.url[lang] }}" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
-            {% if parent.logo == "default" %}
+            {% if masthead.parent.logo == "default" %}
             src="{{ uswds.path }}/img/circle-gray-20.svg"
             {% else %}
-            src="{{ parent.logo }}"
+            src="{{ masthead.parent.logo }}"
             {% endif %}
-            alt="{{ parent.name }} logo"
+            {% if lang == "en" %}
+            alt="{{ masthead.parent.name[lang] }} logo"
+            {% elif lang == "es" %}
+            alt="Logo de la {{ masthead.parent.name[lang] }}"
+            {% endif %}
             role="img">
         </a>
-        {%- if agency.logo -%}
+        {%- if masthead.agency.logo %}
         <a href="javascript:void(0);" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
-            {% if agency.logo == "default" %}
+            {% if masthead.agency.logo == "default" %}
             src="{{ uswds.path }}/img/circle-gray-20.svg"
             {% else %}
-            src="{{ agency.logo }}"
+            src="{{ masthead.agency.logo }}"
             {% endif %}
-            alt="{{ agency.name }} logo"
+            {% if lang == "en" %}
+            alt="{{ masthead.agency.name[lang] }} logo"
+            {% elif lang == "es" %}
+            alt="Logo de la {{ masthead.agency.name[lang] }}"
+            {% endif %}
             role="img">
         </a>
         {%- endif -%}
       </div>
       {%- endif -%}
-      <div class="usa-identifier__identity" aria-label="Agency description">
+      <div class="usa-identifier__identity" aria-label="{{ masthead.description.label.content[lang] }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
-          An official website of the <a href="{{ parent.url }}">{{ parent.name }}</a>{%- if agency %} and {% if agency.name %}the {% endif %}<a href="{{ agency.url }}">{%- if agency.name -%}{{ agency.name }}{%- else -%}{{ agency.shortname }}{%- endif -%}</a>{%- endif -%}{%- if taxpayer %}. {{ taxpayer_disclaimer }}{%- endif %}
+          {{- masthead.text.content[lang] }} <a href="{{ masthead.parent.url[lang] }}">{{ masthead.parent.name[lang] }}</a>
+          {%- if masthead.agency.url[lang] %}
+          {%- if  lang == "en" %}
+          and
+          {%- elif  lang == "es" %}
+          y
+          {%- endif -%}
+          {% if masthead.agency.name[lang] %}
+          {%- if  lang == "en" %}
+          the
+          {% endif %}
+          {% endif %}
+          <a href="{{ masthead.agency.url[lang] }}">
+          {%- if masthead.agency.name[lang] -%}
+          {{ masthead.agency.name[lang] }}
+          {%- else -%}
+          {{ masthead.agency.shortname }}
+          {%- endif -%}
+          </a>
+          {%- endif -%}
+          {%- if masthead.taxpayer_disclaimer.display -%}
+          . {{ masthead.taxpayer_disclaimer.content[lang] }}
+          {%- endif -%}
         </p>
       </div>
     </div>
   </section>
-  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.label.content[lang] }}">
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.about }}" class="usa-identifier__required-link">
-            About {{ parent.shortname }}
+          <a href="{{ required_links.links.about.url[lang] }}" class="usa-identifier__required-link">
+            {{- required_links.links.about.content[lang] }} {{ masthead.parent.shortname -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.accessibility }}"
+          <a href="{{ required_links.links.accessibility.url[lang] }}"
             class="usa-identifier__required-link">
-            Accessibility support
+            {{- required_links.links.accessibility.content[lang] -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.foia }}"
+          <a href="{{ required_links.links.foia.content[lang] }}"
             class="usa-identifier__required-link usa-link">
-            FOIA requests
+            {{- required_links.links.foia.content[lang] -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.no_fear }}"
+          <a href="{{ required_links.links.no_fear.content[lang] }}"
             class="usa-identifier__required-link usa-link">
-            No FEAR Act data
+            {{- required_links.links.no_fear.content[lang] -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.oig }}" class="usa-identifier__required-link usa-link">
-            Office of the Inspector General
+          <a href="{{ required_links.links.oig.content[lang] }}" class="usa-identifier__required-link usa-link">
+            {{- required_links.links.oig.content[lang] -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.performance }}" class="usa-identifier__required-link usa-link">
-            Performance reports
+          <a href="{{ required_links.links.performance.content[lang] }}" class="usa-identifier__required-link usa-link">
+            {{- required_links.links.performance.content[lang] -}}
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ links.privacy }}" class="usa-identifier__required-link usa-link">
-            Privacy policy
+          <a href="{{ required_links.links.privacy.content[lang] }}" class="usa-identifier__required-link usa-link">
+            {{- required_links.links.privacy.content[lang] -}}
           </a>
         </li>
       </ul>
     </div>
   </nav>
-  {% if usagov -%}
-  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+  {% if usagov.display -%}
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="{{ usagov.label.content[lang] }}">
     <div class="usa-identifier__container">
-      <div class="usa-identifier__usagov-description">Looking for U.S. government information and services?</div>
-      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+      <div class="usa-identifier__usagov-description">{{ usagov.description.content[lang] }}</div>
+      <a href="{{ usagov.link.url[lang] }}" class="usa-link">{{ usagov.link.content[lang] }}</a>
     </div>
   </section>
   {% endif -%}
