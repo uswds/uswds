@@ -866,7 +866,7 @@ const enhanceDatePicker = (el) => {
     "beforeend",
     [
       `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role=”dialog” aria-modal=”true” hidden></div>`,
+      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
     ].join("")
   );

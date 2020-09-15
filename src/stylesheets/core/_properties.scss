@@ -44,6 +44,16 @@ $system-properties: (
     ),
     extended: (),
   ),
+  align-self: (
+    standard: (
+      "align-self-start": flex-start,
+      "align-self-end": flex-end,
+      "align-self-center": center,
+      "align-self-stretch": stretch,
+      "align-self-baseline": baseline,
+    ),
+    extended: (),
+  ),
   background-color: (
     standard: $standard-colors,
     extended: $extended-colors,
