@@ -44,19 +44,15 @@
         <p class="usa-identifier__identity-disclaimer">
           {{- masthead.text.content[lang] }} <a href="{{ masthead.parent.url[lang] }}">{{ masthead.parent.name[lang] }}</a>
           {%- if masthead.agency.url[lang] %}
-          {%- if  lang == "en" %}
-          and
-          {%- elif  lang == "es" %}
-          y
+          {%- if  lang == "en" %} and
+          {%- elif  lang == "es" %} y
           {%- endif -%}
           {% if masthead.agency.name[lang] %}
-          {%- if  lang == "en" %}
-          the
-          {% endif %}
-          {% endif %}
-          <a href="{{ masthead.agency.url[lang] }}">
+          {%- if  lang == "en" %} the
+          {%- endif %}
+          {%- endif %} <a href="{{ masthead.agency.url[lang] }}">
           {%- if masthead.agency.name[lang] -%}
-          {{ masthead.agency.name[lang] }}
+          {{- masthead.agency.name[lang] }}
           {%- else -%}
           {{ masthead.agency.shortname }}
           {%- endif -%}
