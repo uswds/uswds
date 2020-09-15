@@ -86,6 +86,13 @@ $theme-header-min-width: "desktop" !default;
 // Hero
 $theme-hero-image: "#{$theme-image-path}/hero.png" !default;
 
+// Identifier
+$theme-identifier-font-family: "ui" !default;
+$theme-identifier-background-color: "base-darkest" !default;
+$theme-identifier-identity-domain-color: "base-light" !default;
+$theme-identifier-max-width: "desktop" !default;
+$theme-identifier-secondary-link-color: "base-light" !default;
+
 // Navigation
 $theme-navigation-font-family: "ui" !default;
 $theme-megamenu-columns: 3 !default;
