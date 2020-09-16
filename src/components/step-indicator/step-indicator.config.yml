@@ -54,9 +54,9 @@ variants:
       showLabels: true
       variant: counters
 
-  - name: centered-no-counters
+  - name: centered-counters
     context:
-      heading: Centered and no counters
+      heading: Centered and counters
       showLabels: true
       centered: true
       variant: counters
