@@ -56,12 +56,6 @@ $step-indicator-counter-size-sm: 3;
 }
 
 .usa-step-indicator__segment--complete {
-  &::before {
-    background-color: color($theme-step-indicator-segment-color-complete);
-    box-shadow: 0 0 0 units($theme-step-indicator-counter-gap)
-      color($step-indicator-background-color);
-    color: color($step-indicator-background-color);
-  }
   &::after {
     background-color: color($theme-step-indicator-segment-color-complete);
   }
@@ -71,12 +65,6 @@ $step-indicator-counter-size-sm: 3;
 }
 
 .usa-step-indicator__segment--current {
-  &::before {
-    background-color: color($theme-step-indicator-segment-color-current);
-    box-shadow: 0 0 0 units($theme-step-indicator-counter-gap)
-      color($step-indicator-background-color);
-    color: color($step-indicator-background-color);
-  }
   &::after {
     background-color: color($theme-step-indicator-segment-color-current);
   }
@@ -218,6 +206,25 @@ $step-indicator-counter-size-sm: 3;
       }
     }
   }
+
+  .usa-step-indicator__segment--complete {
+    &::before {
+      background-color: color($theme-step-indicator-segment-color-complete);
+      box-shadow: 0 0 0 units($theme-step-indicator-counter-gap)
+        color($step-indicator-background-color);
+      color: color($step-indicator-background-color);
+    }
+  }
+
+  .usa-step-indicator__segment--current {
+    &::before {
+      background-color: color($theme-step-indicator-segment-color-current);
+      box-shadow: 0 0 0 units($theme-step-indicator-counter-gap)
+        color($step-indicator-background-color);
+      color: color($step-indicator-background-color);
+    }
+  }
+
   .usa-step-indicator__segment-label {
     @include at-media($theme-step-indicator-min-width) {
       // Add counter margin
