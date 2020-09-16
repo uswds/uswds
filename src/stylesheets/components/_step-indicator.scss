@@ -1,6 +1,8 @@
 $step-indicator-label-margin-top: 1;
 $step-indicator-margin-bottom: 4;
 $step-indicator-segment-height-mobile: 1;
+$theme-step-indicator-counter-size: 5;
+$theme-step-indicator-counter-size-sm: 3;
 
 .usa-step-indicator {
   @include typeset(
@@ -35,67 +37,6 @@ $step-indicator-segment-height-mobile: 1;
   min-height: units($theme-step-indicator-segment-height);
   position: relative;
 
-  @include at-media($theme-step-indicator-min-width) {
-    $counter-lh: lh($theme-step-indicator-font-family, 1);
-    // Remove segment gaps
-    @include u-margin-x(0);
-    // Add extra margin for counter
-    @if $theme-step-indicator-counter-gap == 0 {
-      margin-top: calc(
-        (
-          (
-              #{units($theme-step-indicator-counter-size)} -
-                #{units($theme-step-indicator-segment-height)}
-            ) /
-            2
-        )
-      );
-    } @else {
-      margin-top: calc(
-        (
-            (
-                #{units($theme-step-indicator-counter-size)} -
-                  #{units($theme-step-indicator-segment-height)}
-              ) /
-              2
-          ) +
-          #{units($theme-step-indicator-counter-gap)}
-      );
-    }
-    // Add counter
-    &:before {
-      @include u-circle($theme-step-indicator-counter-size);
-      @include u-text("tabular");
-      background-color: color($step-indicator-background-color);
-      box-shadow: inset 0 0 0 units($theme-step-indicator-counter-border-width)
-          color($theme-step-indicator-segment-color-pending),
-        0 0 0 units($theme-step-indicator-counter-gap)
-          color($step-indicator-background-color);
-      color: color($theme-step-indicator-text-pending-color);
-      content: counter(usa-step-indicator);
-      display: block;
-      font-weight: fw("bold");
-      line-height: lh($theme-step-indicator-font-family, 1);
-      // Magic number circle centering
-      padding: calc(
-        (#{units($theme-step-indicator-counter-size)} - (2ex * #{$counter-lh})) *
-          0.5
-      );
-      // padding: 1.5ex;
-      position: absolute;
-      top: calc(
-        (
-            #{units($theme-step-indicator-counter-size)} - #{units(
-                $theme-step-indicator-segment-height
-              )}
-          ) / -2
-      );
-      left: 0;
-      text-align: center;
-      z-index: z(100);
-    }
-  }
-
   // Add segment
   &:after {
     background-color: color($theme-step-indicator-segment-color-pending);
@@ -110,15 +51,6 @@ $step-indicator-segment-height-mobile: 1;
 
     @include at-media($theme-step-indicator-min-width) {
       height: units($theme-step-indicator-segment-height);
-    }
-  }
-
-  @include at-media($theme-step-indicator-min-width) {
-    &:last-child {
-      // Don't show the last segment when counters appear
-      &:after {
-        display: none;
-      }
     }
   }
 }
@@ -164,14 +96,11 @@ $step-indicator-segment-height-mobile: 1;
       $theme-step-indicator-font-family,
       $theme-step-indicator-label-font-size
     );
+    // Add margin based on segment size
     margin-top: calc(
-      (
-          (
-              #{units($theme-step-indicator-counter-size)} + #{units(
-                  $theme-step-indicator-segment-height
-                )}
-            ) / 2
-        ) + #{units($step-indicator-label-margin-top)}
+      #{units($theme-step-indicator-segment-height)} + #{units(
+          $step-indicator-label-margin-top
+        )}
     );
     padding-right: units(4);
     text-align: left;
@@ -220,7 +149,92 @@ $step-indicator-segment-height-mobile: 1;
   margin-right: units(1);
 }
 
-.usa-step-indicator--no-counters,
+.usa-step-indicator--counters {
+  .usa-step-indicator__segment {
+    $counter-lh: lh($theme-step-indicator-font-family, 1);
+    // Add counter
+    &:before {
+      @include u-circle($theme-step-indicator-counter-size);
+      @include u-text("tabular");
+      background-color: color($step-indicator-background-color);
+      box-shadow: inset 0 0 0 units($theme-step-indicator-counter-border-width)
+          color($theme-step-indicator-segment-color-pending),
+        0 0 0 units($theme-step-indicator-counter-gap)
+          color($step-indicator-background-color);
+      color: color($theme-step-indicator-text-pending-color);
+      content: counter(usa-step-indicator);
+      display: block;
+      font-weight: fw("bold");
+      line-height: lh($theme-step-indicator-font-family, 1);
+      // Magic number circle centering
+      padding: calc(
+        (#{units($theme-step-indicator-counter-size)} - (2ex * #{$counter-lh})) *
+          0.5
+      );
+      // padding: 1.5ex;
+      position: absolute;
+      top: calc(
+        (
+            #{units($theme-step-indicator-counter-size)} - #{units(
+                $theme-step-indicator-segment-height
+              )}
+          ) / -2
+      );
+      left: 0;
+      text-align: center;
+      z-index: z(100);
+    }
+
+    @include at-media($theme-step-indicator-min-width) {
+      // Remove segment gaps
+      @include u-margin-x(0);
+      // Add extra margin for counter
+      @if $theme-step-indicator-counter-gap == 0 {
+        margin-top: calc(
+          (
+            (
+                #{units($theme-step-indicator-counter-size)} -
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          )
+        );
+      } @else {
+        margin-top: calc(
+          (
+              (
+                  #{units($theme-step-indicator-counter-size)} -
+                    #{units($theme-step-indicator-segment-height)}
+                ) /
+                2
+            ) +
+            #{units($theme-step-indicator-counter-gap)}
+        );
+      }
+      &:last-child {
+        // Don't show the last segment when counters appear
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  .usa-step-indicator__segment-label {
+    @include at-media($theme-step-indicator-min-width) {
+      // Add counter margin
+      margin-top: calc(
+        (
+            (
+                #{units($theme-step-indicator-counter-size)} + #{units(
+                    $theme-step-indicator-segment-height
+                  )}
+              ) / 2
+          ) + #{units($step-indicator-label-margin-top)}
+      );
+    }
+  }
+}
+
 .usa-step-indicator--no-labels {
   margin-left: units($theme-step-indicator-segment-gap) / -2;
   margin-right: units($theme-step-indicator-segment-gap) / -2;
@@ -241,14 +255,6 @@ $step-indicator-segment-height-mobile: 1;
         display: block;
       }
     }
-  }
-  // Remove extra margin for counters
-  .usa-step-indicator__segment-label {
-    margin-top: calc(
-      #{units($theme-step-indicator-segment-height)} + #{units(
-          $step-indicator-label-margin-top
-        )}
-    );
   }
 }
 
