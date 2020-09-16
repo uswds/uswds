@@ -234,19 +234,21 @@ $step-indicator-counter-size-sm: 3;
   }
   // Adjust segments with centered variant
   &.usa-step-indicator--center {
-    &:first-child {
-      &:after {
-        left: 50%;
-        right: 0;
-        width: auto;
+    .usa-step-indicator__segment {
+      &:first-child {
+        &:after {
+          left: 50%;
+          right: 0;
+          width: auto;
+        }
       }
-    }
-    &:last-child {
-      &:after {
-        display: block;
-        left: 0;
-        right: 50%;
-        width: auto;
+      &:last-child {
+        &:after {
+          display: block;
+          left: 0;
+          right: 50%;
+          width: auto;
+        }
       }
     }
   }
