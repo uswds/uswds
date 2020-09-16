@@ -335,6 +335,7 @@ $step-indicator-counter-size-sm: 3;
     }
   }
 }
+
 .usa-step-indicator--no-labels {
   margin-left: units($theme-step-indicator-segment-gap) / -2;
   margin-right: units($theme-step-indicator-segment-gap) / -2;
@@ -398,7 +399,6 @@ $step-indicator-counter-size-sm: 3;
     text-align: center;
   }
 
-  &.usa-step-indicator--no-counters,
   &.usa-step-indicator--no-labels {
     .usa-step-indicator__segment {
       // Use full-width segments
