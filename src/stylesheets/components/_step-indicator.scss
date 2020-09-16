@@ -1,8 +1,8 @@
 $step-indicator-label-margin-top: 1;
 $step-indicator-margin-bottom: 4;
 $step-indicator-segment-height-mobile: 1;
-$theme-step-indicator-counter-size: 5;
-$theme-step-indicator-counter-size-sm: 3;
+$step-indicator-counter-size: 5;
+$step-indicator-counter-size-sm: 3;
 
 .usa-step-indicator {
   @include typeset(
@@ -131,14 +131,14 @@ $theme-step-indicator-counter-size-sm: 3;
 
 .usa-step-indicator__current-step {
   $step-lh: lh($theme-step-indicator-heading-font-family, 2);
-  @include u-circle($theme-step-indicator-counter-size);
+  @include u-circle($step-indicator-counter-size);
   @include u-text("normal", "tabular");
   background-color: color($theme-step-indicator-segment-color-current);
   color: color($step-indicator-background-color);
   display: inline-block;
   // Magic number circle centering
   padding: calc(
-    (#{units($theme-step-indicator-counter-size)} - (2ex * #{$step-lh})) * 0.5
+    (#{units($step-indicator-counter-size)} - (2ex * #{$step-lh})) * 0.5
   );
   text-align: center;
 }
@@ -154,7 +154,7 @@ $theme-step-indicator-counter-size-sm: 3;
     $counter-lh: lh($theme-step-indicator-font-family, 1);
     // Add counter
     &:before {
-      @include u-circle($theme-step-indicator-counter-size);
+      @include u-circle($step-indicator-counter-size);
       @include u-text("tabular");
       background-color: color($step-indicator-background-color);
       box-shadow: inset 0 0 0 units($theme-step-indicator-counter-border-width)
@@ -168,14 +168,13 @@ $theme-step-indicator-counter-size-sm: 3;
       line-height: lh($theme-step-indicator-font-family, 1);
       // Magic number circle centering
       padding: calc(
-        (#{units($theme-step-indicator-counter-size)} - (2ex * #{$counter-lh})) *
-          0.5
+        (#{units($step-indicator-counter-size)} - (2ex * #{$counter-lh})) * 0.5
       );
       // padding: 1.5ex;
       position: absolute;
       top: calc(
         (
-            #{units($theme-step-indicator-counter-size)} - #{units(
+            #{units($step-indicator-counter-size)} - #{units(
                 $theme-step-indicator-segment-height
               )}
           ) / -2
@@ -193,7 +192,7 @@ $theme-step-indicator-counter-size-sm: 3;
         margin-top: calc(
           (
             (
-                #{units($theme-step-indicator-counter-size)} -
+                #{units($step-indicator-counter-size)} -
                   #{units($theme-step-indicator-segment-height)}
               ) /
               2
@@ -203,7 +202,7 @@ $theme-step-indicator-counter-size-sm: 3;
         margin-top: calc(
           (
               (
-                  #{units($theme-step-indicator-counter-size)} -
+                  #{units($step-indicator-counter-size)} -
                     #{units($theme-step-indicator-segment-height)}
                 ) /
                 2
@@ -225,7 +224,7 @@ $theme-step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($theme-step-indicator-counter-size)} + #{units(
+                #{units($step-indicator-counter-size)} + #{units(
                     $theme-step-indicator-segment-height
                   )}
               ) / 2
@@ -275,13 +274,13 @@ $theme-step-indicator-counter-size-sm: 3;
 
     &:before {
       @if $theme-step-indicator-counter-gap == 0 {
-        left: calc(50% - ((#{units($theme-step-indicator-counter-size)}) / 2));
+        left: calc(50% - ((#{units($step-indicator-counter-size)}) / 2));
       } @else {
         left: calc(
           50% -
             (
               (
-                  #{units($theme-step-indicator-counter-size)} +
+                  #{units($step-indicator-counter-size)} +
                     #{units($theme-step-indicator-counter-gap)}
                 ) /
                 2
