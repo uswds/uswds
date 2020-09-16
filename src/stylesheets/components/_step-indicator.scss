@@ -137,7 +137,8 @@ $step-indicator-counter-size-sm: 3;
   margin-right: units(1);
 }
 
-.usa-step-indicator--counters {
+.usa-step-indicator--counters,
+.usa-step-indicator--counters-sm {
   .usa-step-indicator__segment {
     @include at-media($theme-step-indicator-min-width) {
       $counter-lh: lh($theme-step-indicator-font-family, 1);
@@ -243,6 +244,7 @@ $step-indicator-counter-size-sm: 3;
       );
     }
   }
+
   // Adjust segments with centered variant
   &.usa-step-indicator--center {
     @include at-media($theme-step-indicator-min-width) {
@@ -267,6 +269,72 @@ $step-indicator-counter-size-sm: 3;
   }
 }
 
+.usa-step-indicator--counters-sm {
+  .usa-step-indicator__segment {
+    @include at-media($theme-step-indicator-min-width) {
+      $counter-lh: lh($theme-step-indicator-font-family, 1);
+      // Add extra margin for counter
+      @if $theme-step-indicator-counter-gap == 0 {
+        margin-top: calc(
+          (
+            (
+                #{units($step-indicator-counter-size-sm)} -
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          )
+        );
+      } @else {
+        margin-top: calc(
+          (
+              (
+                  #{units($step-indicator-counter-size-sm)} -
+                    #{units($theme-step-indicator-segment-height)}
+                ) /
+                2
+            ) +
+            #{units($theme-step-indicator-counter-gap)}
+        );
+      }
+
+      // Add counter
+      &:before {
+        @include u-circle($step-indicator-counter-size-sm);
+        @include u-font-size($theme-step-indicator-font-family, 4);
+        padding: units(0.5);
+        top: calc(
+          (
+              #{units($step-indicator-counter-size-sm)} - #{units(
+                  $theme-step-indicator-segment-height
+                )}
+            ) / -2
+        );
+      }
+
+      &:last-child {
+        // Don't show the last segment when counters appear
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .usa-step-indicator__segment-label {
+    @include at-media($theme-step-indicator-min-width) {
+      // Add counter margin
+      margin-top: calc(
+        (
+            (
+                #{units($step-indicator-counter-size)} + #{units(
+                    $theme-step-indicator-segment-height
+                  )}
+              ) / 2
+          ) + #{units($step-indicator-label-margin-top)}
+      );
+    }
+  }
+}
 .usa-step-indicator--no-labels {
   margin-left: units($theme-step-indicator-segment-gap) / -2;
   margin-right: units($theme-step-indicator-segment-gap) / -2;

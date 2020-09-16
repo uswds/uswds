@@ -54,6 +54,12 @@ variants:
       showLabels: true
       variant: counters
 
+  - name: Small counters
+    context:
+      heading: Add small counters
+      showLabels: true
+      variant: counters-sm
+
   - name: centered-counters
     context:
       heading: Centered and counters
