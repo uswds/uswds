@@ -71,7 +71,7 @@ $step-indicator-segment-height-mobile: 1;
           color($theme-step-indicator-segment-color-pending),
         0 0 0 units($theme-step-indicator-counter-gap)
           color($step-indicator-background-color);
-      color: color($theme-step-indicator-text-pending);
+      color: color($theme-step-indicator-text-pending-color);
       content: counter(usa-step-indicator);
       display: block;
       font-weight: fw("bold");
@@ -158,7 +158,7 @@ $step-indicator-segment-height-mobile: 1;
   display: none;
   // Show labels only at the min-width
   @include at-media($theme-step-indicator-min-width) {
-    color: color($theme-step-indicator-text-pending);
+    color: color($theme-step-indicator-text-pending-color);
     display: block;
     font-size: size(
       $theme-step-indicator-font-family,
