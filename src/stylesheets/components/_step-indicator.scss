@@ -417,4 +417,25 @@ $step-indicator-counter-size-sm: 3;
       }
     }
   }
+
+  &.usa-step-indicator--counters-sm {
+    .usa-step-indicator__segment {
+      &:before {
+        @if $theme-step-indicator-counter-gap == 0 {
+          left: calc(50% - ((#{units($step-indicator-counter-size-sm)}) / 2));
+        } @else {
+          left: calc(
+            50% -
+              (
+                (
+                    #{units($step-indicator-counter-size-sm)} +
+                      #{units($theme-step-indicator-counter-gap)}
+                  ) /
+                  2
+              )
+          );
+        }
+      }
+    }
+  }
 }
