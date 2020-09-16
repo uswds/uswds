@@ -1,4 +1,4 @@
-<div class="usa-step-indicator{% if variant %} usa-step-indicator--{{ variant }}{% endif %}{% if centered %} usa-step-indicator--center{% endif %}" aria-label="progress">
+<div class="usa-step-indicator{% if variants %}{% for variant in variants %} usa-step-indicator--{{ variant }}{% endfor %}{% endif %}" aria-label="progress">
   <ol class="usa-step-indicator__segments"{% if noLabels %} aria-hidden="true"{% endif %}>{% for step in steps %}
     <li class="usa-step-indicator__segment{% if step.status == "complete" %} usa-step-indicator__segment--complete{% endif %}{% if step.status == "current" %} usa-step-indicator__segment--current{% endif %}"{% if step.status == "current" and showLabels %} aria-current="true"{% endif %}>{% if step.label %}
       <span class="usa-step-indicator__segment-label">{{ step.label }} {% if step.status == "complete" %}<span class="usa-sr-only">completed</span>{% endif %}{% if step.status == "incomplete" %}<span class="usa-sr-only">not completed</span>{% endif %}</span>

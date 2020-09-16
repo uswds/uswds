@@ -47,41 +47,79 @@ variants:
       heading: centered
       showLabels: true
       centered: true
+      variants:
+        - center
 
-  - name: Counters
+  - name: counters
     context:
       heading: Add counters
       showLabels: true
-      variant: counters
+      variants:
+        - counters
 
   - name: counters-sm
     context:
       heading: Add small counters
       showLabels: true
-      variant: counters-sm
+      variants:
+        - counters-sm
 
   - name: centered-counters
     context:
       heading: Centered and counters
       showLabels: true
-      centered: true
-      variant: counters
+      variants:
+        - counters
+        - center
 
   - name: centered-counters-sm
     context:
       heading: Centered and counters
       showLabels: true
-      centered: true
-      variant: counters-sm
+      variants:
+        - counters-sm
+        - center
 
-  - name: No labels
+  - name: no-labels
     context:
       heading: No labels
       showLabels: false
-      variant: no-labels
+      variants:
+        - no-labels
 
   - name: centered-no-labels
     context:
       heading: Centered and no labels
-      centered: true
-      variant: no-labels
+      variants:
+        - no-labels
+        - center
+
+  - name: counters-no-labels
+    context:
+      heading: Counters and no labels
+      variants:
+        - no-labels
+        - counters
+
+  - name: small-counters-no-labels
+    context:
+      heading: Small counters and no labels
+      variants:
+        - no-labels
+        - counters-sm
+
+  - name: centered-counters-no-labels
+    context:
+      heading: Centered counters and no labels
+      variants:
+        - no-labels
+        - counters
+        - center
+
+  - name: centered-counters-sm-no-labels
+    context:
+      heading: Centered small counters and no labels
+      variants:
+        - no-labels
+        - counters-sm
+        - center
