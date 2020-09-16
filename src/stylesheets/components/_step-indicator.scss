@@ -1,7 +1,7 @@
 $step-indicator-label-margin-top: 1;
 $step-indicator-margin-bottom: 4;
 $step-indicator-header-margin-top: 4;
-$step-indicator-header-margin-top-mobile: 2;
+$step-indicator-header-margin-top-sm: 2;
 $step-indicator-segment-height-mobile: 1;
 $step-indicator-counter-size: 5;
 $step-indicator-counter-size-sm: 3;
@@ -110,7 +110,7 @@ $step-indicator-counter-size-sm: 3;
     $theme-step-indicator-heading-font-size-small
   );
   font-weight: font-weight("bold");
-  margin: units($step-indicator-header-margin-top-mobile) 0 0;
+  margin: units($step-indicator-header-margin-top-sm) 0 0;
   @include at-media($theme-step-indicator-min-width) {
     font-size: size(
       $theme-step-indicator-heading-font-family,
@@ -359,6 +359,9 @@ $step-indicator-counter-size-sm: 3;
         display: block;
       }
     }
+  }
+  .usa-step-indicator__heading {
+    margin-top: units($step-indicator-header-margin-top-sm);
   }
 }
 
