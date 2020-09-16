@@ -300,8 +300,8 @@ $step-indicator-counter-size-sm: 3;
       // Add counter
       &:before {
         @include u-circle($step-indicator-counter-size-sm);
-        @include u-font-size($theme-step-indicator-font-family, 4);
-        padding: units(0.5);
+        @include u-font-size($theme-step-indicator-font-family, 3);
+        padding: calc(#{units(0.5)} + 1px);
         top: calc(
           (
               #{units($step-indicator-counter-size-sm)} - #{units(
