@@ -326,7 +326,7 @@ $step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($step-indicator-counter-size)} + #{units(
+                #{units($step-indicator-counter-size-sm)} + #{units(
                     $theme-step-indicator-segment-height
                   )}
               ) / 2
