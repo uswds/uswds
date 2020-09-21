@@ -31,24 +31,24 @@ used by utilities or layout grid
 */
 
 $theme-utility-breakpoints: (
+  // 160px:
   "card": false,
-  // 160px
+  // 240px:
   "card-lg": false,
-  // 240px
+  // 320px:
   "mobile": false,
-  // 320px
+  // 480px:
   "mobile-lg": true,
-  // 480px
+  // 640px:
   "tablet": true,
-  // 640px
+  // 800px:
   "tablet-lg": false,
-  // 800px
+  // 1024px:
   "desktop": true,
-  // 1024px
+  // 1200px:
   "desktop-lg": false,
-  // 1200px
-  "widescreen": false,
-  // 1400px
+  // 1400px:
+  "widescreen": false
 );
 
 /*
@@ -600,6 +600,11 @@ $add-aspect-manual-values: ();
 $align-items-palettes: ("palette-align-items-default");
 $align-items-manual-values: ();
 
+// .align-self
+
+$align-self-palettes: ("palette-align-self-default");
+$align-self-manual-values: ();
+
 // .background-color
 
 $background-color-palettes: ();
@@ -638,8 +643,7 @@ $bottom-manual-values: ();
 
 // .box-shadow
 
-$box-shadow-palettes: (/*
-  */ "palette-box-shadow-default");
+$box-shadow-palettes: ("palette-box-shadow-default");
 
 $box-shadow-manual-values: ();
 
