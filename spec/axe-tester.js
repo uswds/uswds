@@ -9,15 +9,15 @@ const AXE_CONTEXT = JSON.stringify({
     // iframes with data: URIs. The content of these iframes is just for
     // non-USWDS example content anyways, so just skip them to speed things
     // up.
-    ['iframe[src^="data:"]']
-  ]
+    ['iframe[src^="data:"]'],
+  ],
 });
 
 const AXE_OPTIONS = JSON.stringify({
   runOnly: {
     type: "tag",
     // @TODO Separate "best-practice" and use warn instead of fail. Issue #3333 on USWDS github
-    values: ["section508", "wcag2a", "wcag2aa"]
+    values: ["section508", "wcag2a", "wcag2aa"],
   },
   rules: {
     // Not all our examples need "skip to main content" links, so
@@ -30,8 +30,8 @@ const AXE_OPTIONS = JSON.stringify({
     // Not all examples have skip-link as a first element
     "skip-link": { enabled: false },
     // Not all examples will need an h1, ex: links.
-    "page-has-heading-one": { enabled: false }
-  }
+    "page-has-heading-one": { enabled: false },
+  },
 });
 
 // This function is only here so it can be easily .toString()'d
@@ -48,8 +48,8 @@ const RUN_AXE_FUNC_JS = function runAxe(context, options) {
 
 function load(cdp) {
   return cdp.Runtime.evaluate({
-    expression: `${AXE_JS};`
-  }).then(details => {
+    expression: `${AXE_JS};`,
+  }).then((details) => {
     assert.deepEqual(
       details,
       { result: { type: "undefined" } },
@@ -61,8 +61,8 @@ function load(cdp) {
 function run(cdp) {
   return cdp.Runtime.evaluate({
     expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${AXE_OPTIONS})`,
-    awaitPromise: true
-  }).then(details => {
+    awaitPromise: true,
+  }).then((details) => {
     if (details.result.type !== "string") {
       return Promise.reject(
         new Error(
@@ -89,5 +89,5 @@ function run(cdp) {
 
 module.exports = {
   load,
-  run
+  run,
 };

@@ -1,6 +1,6 @@
 const assert = require("assert");
 const {
-  generateDynamicRegExp
+  generateDynamicRegExp,
 } = require("../../../src/js/components/combo-box");
 const { FILTER_DATASET } = require("../../../src/js/components/time-picker");
 

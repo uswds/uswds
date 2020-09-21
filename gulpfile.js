@@ -11,7 +11,7 @@ require("./config/gulp/test");
 var gulp = require("gulp");
 var dutil = require("./config/gulp/doc-util");
 
-gulp.task("default", function(done) {
+gulp.task("default", function (done) {
   dutil.logIntroduction();
 
   dutil.logHelp(
@@ -72,7 +72,7 @@ gulp.task("default", function(done) {
   done();
 });
 
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
     gulp.watch("src/js/**/*.js", gulp.series("javascript"));
   return;

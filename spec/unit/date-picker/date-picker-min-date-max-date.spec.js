@@ -18,7 +18,7 @@ describe("date picker component with min date and max date", () => {
   let button;
   let error;
   let expectedError;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -30,7 +30,7 @@ describe("date picker component with min date and max date", () => {
     input = root.querySelector(".usa-date-picker__external-input");
     button = root.querySelector(".usa-date-picker__button");
     expectedError = "";
-    window.onerror = message => {
+    window.onerror = (message) => {
       error = message;
       return error === expectedError;
     };

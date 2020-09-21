@@ -19,7 +19,7 @@ describe("Date picker button without wrapping element", () => {
     DatePicker.on();
     button = body.querySelector(".usa-date-picker__button");
     expectedError = "";
-    window.onerror = message => {
+    window.onerror = (message) => {
       error = message;
       return error === expectedError;
     };

@@ -2,21 +2,21 @@ const del = require("del");
 const spawn = require("cross-spawn");
 const gulp = require("gulp");
 const dutil = require("./doc-util");
-const crypto = require('crypto');
-const fs = require('fs');
+const crypto = require("crypto");
+const fs = require("fs");
 
 const task = "release";
-const hash = crypto.createHash('sha256');
+const hash = crypto.createHash("sha256");
 
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
 const createHash = (file) => {
-  dutil.logMessage('createHash', 'Generating sha256sum hash from ZIP file.');
+  dutil.logMessage("createHash", "Generating sha256sum hash from ZIP file.");
 
   let file_buffer = fs.readFileSync(file);
   hash.update(file_buffer);
-  const dir = './security';
-  const hex = hash.digest('hex');
+  const dir = "./security";
+  const hex = hash.digest("hex");
   const fileName = `${dir}/${dutil.dirName}-zip-hash.txt`;
   const fileContents = hex;
 

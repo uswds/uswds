@@ -14,7 +14,7 @@ describe("date picker component with range date", () => {
   let root;
   let input;
   let button;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );

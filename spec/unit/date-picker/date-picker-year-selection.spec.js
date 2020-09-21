@@ -15,7 +15,7 @@ describe("date picker component year selection", () => {
   let input;
   let button;
 
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
