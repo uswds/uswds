@@ -1,4 +1,4 @@
 module.exports = {
   test: true,
-  cleanup: true
+  cleanup: true,
 };
