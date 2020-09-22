@@ -1,0 +1,7 @@
+@use "../settings";
+
+$grid-global: "";
+
+@if settings.$theme-layout-grid-use-important {
+  $grid-global: "!important";
+}

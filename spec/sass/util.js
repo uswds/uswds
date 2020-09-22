@@ -5,7 +5,7 @@ const sass = require("sass");
 exports.distPath = path.resolve(path.join(__dirname, "../../dist"));
 exports.distCssPath = path.join(exports.distPath, "css");
 exports.distScssPath = path.join(exports.distPath, "scss");
-exports.runGulp = task =>
+exports.runGulp = (task) =>
   new Promise((resolve, reject) => {
     child
       .spawn("./node_modules/.bin/gulp", [task], { stdio: "ignore" })
@@ -18,9 +18,9 @@ exports.render = (data, includePaths) =>
     sass.renderSync(
       {
         data,
-        includePaths
+        includePaths,
       },
-      error => {
+      (error) => {
         if (error) {
           reject(error);
         } else {

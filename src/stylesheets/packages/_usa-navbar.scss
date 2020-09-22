@@ -1,4 +1,5 @@
 // dependencies
+@forward "uswds-global";
 
 // src
-@import "../components/navbar";
+@forward "../components/usa-navbar";

@@ -1,2 +1,5 @@
+// dependencies
+@forward "uswds-global";
+
 // src
-@import "../components/tooltip";
+@forward "../components/usa-tooltip";

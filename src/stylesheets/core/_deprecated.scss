@@ -1,3 +1,6 @@
+@use "./mixins" as *;
+@use "./settings" as *;
+
 /*  deprecated.scss
     ---
     Occasionally the design system will deprecate
@@ -29,5 +32,5 @@ $theme-title-font-size: $theme-display-font-size;
 }
 
 @mixin typeset-title {
-  @include typeset-display;
+  @include usa-prose-display;
 }

@@ -1,0 +1,25 @@
+/*
+----------------------------------------
+base-to-map()
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@function base-to-map($values) {
+  $l: length($values);
+
+  @if $l == 1 or nth($values, $l) != isReadable {
+    @return (slug: $values, isReadable: true);
+  } @else {
+    $values: remove($values, isReadable);
+
+    @return (slug: unquote(nth($values, 1)), isReadable: true);
+  }
+}
+
+// TODO: Deprecate and delete

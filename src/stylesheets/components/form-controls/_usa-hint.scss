@@ -1,0 +1,7 @@
+@use "../../core" as *;
+@use "./usa-input" as *;
+
+.usa-hint {
+  @extend %block-input-general;
+  color: color("base");
+}

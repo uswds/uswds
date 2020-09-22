@@ -19,7 +19,7 @@ describe("navigation toggle", () => {
   let accordionButton;
   let navLink;
 
-  const isVisible = el => el.classList.contains("is-visible");
+  const isVisible = (el) => el.classList.contains("is-visible");
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;

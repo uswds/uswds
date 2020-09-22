@@ -1,0 +1,18 @@
+@use "../../functions/general/map-deep-get" as *;
+@use "../../properties" as *;
+
+/*
+----------------------------------------
+get-standard-values()
+----------------------------------------
+Gets a map of USWDS standard values
+for a property
+----------------------------------------
+*/
+
+@function get-standard-values($property) {
+  @return map-deep-get($system-properties, $property, standard);
+}
+
+// @debug get-standard-values("measure");
+// @return (1: 44ex, 2: 60ex, 3: 64ex, 4: 68ex, 5: 72ex, 6: 88ex, "none": none);

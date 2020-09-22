@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Outputs display
 
 @mixin u-display($value...) {
@@ -5,7 +8,10 @@
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
-  display: get-uswds-value(display, $value) #{$important};
+  display: get-uswds-value("display", $value) #{$important};
 }

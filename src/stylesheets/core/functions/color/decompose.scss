@@ -1,0 +1,54 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+
+@use "../general/str-split" as *;
+@use "../general/to-number" as *;
+@use "../color/get-color-token-assignment" as *;
+
+/*
+----------------------------------------
+decompose()
+----------------------------------------
+Convert a color token into into a list
+of form [family], [grade], [variant]
+Vivid variants return "vivid" as the
+variant.
+If neither grade nor variant exists,
+returns 'null'
+----------------------------------------
+*/
+
+@function decompose($token) {
+  $separator: "-";
+  $family: false;
+  $grade: false;
+  $variant: false;
+  $exceptions: (
+    "black": 100,
+    "white": 0,
+  );
+
+  $token: get-color-token-assignment($token);
+  $split: str-split($token, $separator);
+  $grade: list.nth($split, list.length($split));
+
+  @if string.index($grade, "v") {
+    $variant: "vivid";
+    $grade: string.slice($grade, 1, (string.index($grade, "v") - 1));
+  }
+
+  @if length($split) == 3 {
+    $family: list.nth($split, 1) + $separator + list.nth($split, 2);
+  } @else {
+    $family: list.nth($split, 1);
+  }
+
+  $grade: to-number($grade);
+
+  @if map.has-key($exceptions, $family) {
+    $grade: map.get($exceptions, $family);
+  }
+
+  @return $family, $grade, $variant;
+}

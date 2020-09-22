@@ -1,0 +1,44 @@
+@use "../../core" as *;
+
+@mixin prose-siblings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %siblings-prose-heading;
+  }
+
+  p {
+    @extend %siblings-prose-p;
+  }
+}
+
+.usa-prose {
+  @include typeset($theme-prose-font-family);
+  & > {
+    @include usa-content-styles;
+    @include prose-siblings;
+  }
+}
+
+%siblings-prose-heading {
+  * + & {
+    margin-top: 1.5em; // TODO: add as var to settings?
+  }
+
+  + * {
+    margin-top: 1em;
+  }
+}
+
+%siblings-prose-p {
+  * + & {
+    margin-top: 1em; // TODO: add as var to settings?
+  }
+
+  + * {
+    margin-top: 1em;
+  }
+}

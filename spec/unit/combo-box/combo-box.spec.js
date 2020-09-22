@@ -355,7 +355,6 @@ describe("combo box component", () => {
       "Blackberry",
       "should focus the first item in the list"
     );
-
     EVENTS.keydownEnter(focusedOption);
 
     assert.equal(

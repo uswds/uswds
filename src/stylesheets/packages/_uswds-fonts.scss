@@ -1,2 +1,5 @@
+// dependencies
+@forward "uswds-core";
+
 // src
-@import "../global/font-face";
+@forward "../elements/font-face";

@@ -1,0 +1,25 @@
+@use "./add-knockout-font-smoothing" as *;
+@use "../typography/usa-prose" as *;
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+
+@mixin button-unstyled {
+  @include no-knockout-font-smoothing;
+  @include usa-prose-link;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: font-weight("normal");
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  &:hover,
+  &:active {
+    @include no-knockout-font-smoothing;
+    background-color: transparent;
+    box-shadow: none;
+    text-decoration: underline;
+  }
+}

@@ -1,2 +1,6 @@
+// dependencies
+@forward "uswds-global";
+@forward "usa-button";
+
 // src
-@import "../components/button-groups";
+@forward "../components/usa-button-group";

@@ -126,7 +126,6 @@ context:
                 nor be deprived of life, liberty, or property, without due
                 process of law; nor shall private property be taken for public
                 use, without just compensation.
-
   after:
     - component: graphic-list
       context:

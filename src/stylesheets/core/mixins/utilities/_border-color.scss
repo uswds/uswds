@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Outputs border-color
 
 @mixin u-border-color($value...) {
@@ -5,6 +8,9 @@
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
   border-color: color($value) #{$important};

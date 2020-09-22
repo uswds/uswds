@@ -1,10 +1,11 @@
 // dependencies
-@import "../elements/layout-grid";
-@import "../elements/form-controls/global";
-@import "../elements/form-controls/text-input";
-@import "../elements/typography/list";
-@import "../components/forms";
-@import "usa-button";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
+@forward "uswds-typography";
+@forward "usa-button";
+@forward "usa-form";
+@forward "usa-input";
+@forward "usa-label";
 
 // component
-@import "../components/footer";
+@forward "../components/usa-footer";

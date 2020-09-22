@@ -1,8 +1,7 @@
 // dependencies
-@import "../base/accessibility";
-@import "../elements/form-controls/global";
-@import "../elements/form-controls/text-input";
-@import "usa-button";
+@forward "uswds-global";
+@forward "usa-input";
+@forward "usa-button";
 
 // src
-@import "../components/search";
+@forward "../components/usa-search";

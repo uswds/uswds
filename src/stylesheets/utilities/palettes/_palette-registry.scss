@@ -7,6 +7,13 @@ available utility palettes
 ----------------------------------------
 */
 
+@use "../../core/functions/general/map-collect" as *;
+@use "./color-palettes" as *;
+@use "./font-palettes" as *;
+@use "./spacing-palettes" as *;
+@use "./default-palettes" as *;
+@use "./colors/" as *;
+
 $palette-registry: map-collect(
   $palettes-units,
   $palettes-units-misc,

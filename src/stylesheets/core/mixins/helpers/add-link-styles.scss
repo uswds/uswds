@@ -1,0 +1,23 @@
+@use "sass:meta";
+@use "sass:list";
+
+@mixin add-link-styles($color, $hover: null, $active: null) {
+  @if meta.type-of($color) == "list" {
+    $active: list.nth($color, 3);
+    $hover: list.nth($color, 2);
+    $color: list.nth($color, 1);
+  }
+
+  &:link {
+    color: color($color);
+  }
+  &:visited {
+    color: color($color);
+  }
+  &:hover {
+    color: color($hover);
+  }
+  &:active {
+    color: color($active);
+  }
+}

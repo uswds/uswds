@@ -1,0 +1,102 @@
+@use "../settings";
+@use "../tokens/color/global";
+@use "../tokens/color/system-colors";
+@use "../functions/color/set-theme-color" as *;
+@use "../functions/general";
+
+$project-colors: (
+  "base": (
+    "lightest": set-theme-color(settings.$theme-color-base-lightest),
+    "lighter": set-theme-color(settings.$theme-color-base-lighter),
+    "light": set-theme-color(settings.$theme-color-base-light),
+    "default": set-theme-color(settings.$theme-color-base),
+    "dark": set-theme-color(settings.$theme-color-base-dark),
+    "darker": set-theme-color(settings.$theme-color-base-darker),
+    "darkest": set-theme-color(settings.$theme-color-base-darkest),
+  ),
+  "primary": (
+    "lightest": set-theme-color(settings.$theme-color-primary-lightest),
+    "lighter": set-theme-color(settings.$theme-color-primary-lighter),
+    "light": set-theme-color(settings.$theme-color-primary-light),
+    "default": set-theme-color(settings.$theme-color-primary),
+    "vivid": set-theme-color(settings.$theme-color-primary-vivid),
+    "dark": set-theme-color(settings.$theme-color-primary-dark),
+    "darker": set-theme-color(settings.$theme-color-primary-darker),
+    "darkest": set-theme-color(settings.$theme-color-primary-darkest),
+  ),
+  "secondary": (
+    "lightest": set-theme-color(settings.$theme-color-secondary-lightest),
+    "lighter": set-theme-color(settings.$theme-color-secondary-lighter),
+    "light": set-theme-color(settings.$theme-color-secondary-light),
+    "default": set-theme-color(settings.$theme-color-secondary),
+    "vivid": set-theme-color(settings.$theme-color-secondary-vivid),
+    "dark": set-theme-color(settings.$theme-color-secondary-dark),
+    "darker": set-theme-color(settings.$theme-color-secondary-darker),
+    "darkest": set-theme-color(settings.$theme-color-secondary-darkest),
+  ),
+  "accent-warm": (
+    "lightest": set-theme-color(settings.$theme-color-accent-warm-lightest),
+    "lighter": set-theme-color(settings.$theme-color-accent-warm-lighter),
+    "light": set-theme-color(settings.$theme-color-accent-warm-light),
+    "default": set-theme-color(settings.$theme-color-accent-warm),
+    "dark": set-theme-color(settings.$theme-color-accent-warm-dark),
+    "darker": set-theme-color(settings.$theme-color-accent-warm-darker),
+    "darkest": set-theme-color(settings.$theme-color-accent-warm-darkest),
+  ),
+  "accent-cool": (
+    "lightest": set-theme-color(settings.$theme-color-accent-cool-lightest),
+    "lighter": set-theme-color(settings.$theme-color-accent-cool-lighter),
+    "light": set-theme-color(settings.$theme-color-accent-cool-light),
+    "default": set-theme-color(settings.$theme-color-accent-cool),
+    "dark": set-theme-color(settings.$theme-color-accent-cool-dark),
+    "darker": set-theme-color(settings.$theme-color-accent-cool-darker),
+    "darkest": set-theme-color(settings.$theme-color-accent-cool-darkest),
+  ),
+);
+
+$project-state-colors: (
+  "error": (
+    "lighter": set-theme-color(settings.$theme-color-error-lighter),
+    "light": set-theme-color(settings.$theme-color-error-light),
+    "default": set-theme-color(settings.$theme-color-error),
+    "dark": set-theme-color(settings.$theme-color-error-dark),
+    "darker": set-theme-color(settings.$theme-color-error-darker),
+  ),
+  "warning": (
+    "lighter": set-theme-color(settings.$theme-color-warning-lighter),
+    "light": set-theme-color(settings.$theme-color-warning-light),
+    "default": set-theme-color(settings.$theme-color-warning),
+    "dark": set-theme-color(settings.$theme-color-warning-dark),
+    "darker": set-theme-color(settings.$theme-color-warning-darker),
+  ),
+  "success": (
+    "lighter": set-theme-color(settings.$theme-color-success-lighter),
+    "light": set-theme-color(settings.$theme-color-success-light),
+    "default": set-theme-color(settings.$theme-color-success),
+    "dark": set-theme-color(settings.$theme-color-success-dark),
+    "darker": set-theme-color(settings.$theme-color-success-darker),
+  ),
+  "info": (
+    "lighter": set-theme-color(settings.$theme-color-info-lighter),
+    "light": set-theme-color(settings.$theme-color-info-light),
+    "default": set-theme-color(settings.$theme-color-info),
+    "dark": set-theme-color(settings.$theme-color-info-dark),
+    "darker": set-theme-color(settings.$theme-color-info-darker),
+  ),
+  "disabled": (
+    "light": set-theme-color(settings.$theme-color-disabled-light),
+    "default": set-theme-color(settings.$theme-color-disabled),
+    "dark": set-theme-color(settings.$theme-color-disabled-dark),
+  ),
+);
+
+$all-project-colors: general.map-collect(
+  $project-colors,
+  $project-state-colors
+);
+
+$palette-colors: general.map-collect(
+  $all-project-colors,
+  global.$tokens-color-global,
+  system-colors.$system-colors
+);

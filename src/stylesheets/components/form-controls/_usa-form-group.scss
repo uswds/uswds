@@ -1,0 +1,12 @@
+@use "../../core" as *;
+
+.usa-form-group--error {
+  @include u-border-left(0.5, "error-dark");
+  margin-top: units(4);
+  padding-left: units(2);
+  position: relative;
+
+  @include at-media("desktop") {
+    margin-left: units(-2.5);
+  }
+}

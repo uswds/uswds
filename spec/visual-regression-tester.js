@@ -7,9 +7,9 @@ const SPEC_DIR = path.join(ROOT_DIR, "spec");
 const SCREENSHOTS_DIR = path.join(SPEC_DIR, "screenshots");
 const METADATA_PATH = path.join(SCREENSHOTS_DIR, "metadata.js");
 
-const clone = obj => JSON.parse(JSON.stringify(obj));
+const clone = (obj) => JSON.parse(JSON.stringify(obj));
 
-const autobind = self => name => {
+const autobind = (self) => (name) => {
   self[name] = self[name].bind(self);
 }; // eslint-disable-line
 
@@ -17,9 +17,9 @@ const failName = (handle, device) => `${handle}_${device.name}.fail.png`;
 
 const goldenName = (handle, device) => `${handle}_${device.name}.png`;
 
-const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
+const screenshotsPath = (filename) => path.join(SCREENSHOTS_DIR, filename);
 
-const safeDeleteSync = f => {
+const safeDeleteSync = (f) => {
   if (fs.existsSync(f)) fs.unlinkSync(f);
 };
 
@@ -42,7 +42,7 @@ class VisualRegressionTester {
 
     return Emulation.setDeviceMetricsOverride(metrics)
       .then(() => Page.getLayoutMetrics())
-      .then(result => {
+      .then((result) => {
         // This is weird, I'm not really sure what I'm doing, but after
         // a bunch of experimentation, this seems to do what we want, i.e.
         // capture a full-size screenshot of the entire page.
@@ -52,7 +52,7 @@ class VisualRegressionTester {
         // this code may not work for long. - AV 7/28/2017
         return Emulation.setVisibleSize({
           width: metrics.width,
-          height: result.contentSize.height
+          height: result.contentSize.height,
         }).then(() => {
           metrics.height = result.contentSize.height;
           metrics.dontSetVisibleSize = true;
@@ -60,7 +60,7 @@ class VisualRegressionTester {
         });
       })
       .then(() => Page.captureScreenshot({ format: "png" }))
-      .then(result => Buffer.from(result.data, "base64"));
+      .then((result) => Buffer.from(result.data, "base64"));
   }
 
   doesGoldenFileExist() {
@@ -108,11 +108,11 @@ class VisualRegressionTester {
 }
 
 VisualRegressionTester.writeMetadata = (handles, devices) => {
-  const exists = filename => fs.existsSync(screenshotsPath(filename));
+  const exists = (filename) => fs.existsSync(screenshotsPath(filename));
   const metadata = [];
 
-  handles.forEach(handle => {
-    devices.forEach(device => {
+  handles.forEach((handle) => {
+    devices.forEach((device) => {
       const golden = goldenName(handle, device);
       const fail = failName(handle, device);
 
@@ -123,7 +123,7 @@ VisualRegressionTester.writeMetadata = (handles, devices) => {
         device: device.description,
         failed: exists(fail),
         goldenName: golden,
-        failName: fail
+        failName: fail,
       });
     });
   });
@@ -138,8 +138,8 @@ VisualRegressionTester.writeMetadata = (handles, devices) => {
 VisualRegressionTester.cleanSync = (handles, devices) => {
   const files = [METADATA_PATH];
 
-  handles.forEach(handle => {
-    devices.forEach(device => {
+  handles.forEach((handle) => {
+    devices.forEach((device) => {
       files.push(
         screenshotsPath(goldenName(handle, device)),
         screenshotsPath(failName(handle, device))
@@ -159,7 +159,7 @@ if (!module.parent) {
     .command(
       ["test"],
       "run visual regression tests",
-      yargs => {
+      (yargs) => {
         yargs
           .alias("g", "grep")
           .describe("g", "only run tests matching a pattern")
@@ -168,12 +168,12 @@ if (!module.parent) {
           .alias("u", "updateGolden")
           .describe("u", "update golden screenshot");
       },
-      argv => {
+      (argv) => {
         const mocha = path.join(ROOT_DIR, "node_modules", ".bin", "mocha");
         const mochaArgs = [
           "--config",
           path.join(SPEC_DIR, ".mocharc.json"),
-          path.join(SPEC_DIR, "headless-chrome.js")
+          path.join(SPEC_DIR, "headless-chrome.js"),
         ];
         if (argv.grep) {
           mochaArgs.push("-g", argv.grep);
@@ -185,9 +185,9 @@ if (!module.parent) {
         require("child_process")
           .spawn(mocha, mochaArgs, {
             cwd: ROOT_DIR,
-            stdio: "inherit"
+            stdio: "inherit",
           })
-          .on("exit", code => {
+          .on("exit", (code) => {
             process.exit(code);
           });
       }
@@ -196,10 +196,10 @@ if (!module.parent) {
       ["list"],
       "list tests",
       () => {},
-      argv => {
+      (argv) => {
         require("./chrome-fractal-tester")
           .getHandles()
-          .then(handles => {
+          .then((handles) => {
             console.log(handles.join("\n"));
           });
       }

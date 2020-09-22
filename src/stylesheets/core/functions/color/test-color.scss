@@ -1,0 +1,46 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "decompose" as *;
+@use "luminance" as *;
+@use "get-color-grade" as *;
+@use "../../variables/luminance-grade-ranges" as *;
+
+/*
+----------------------------------------
+test-colors()
+----------------------------------------
+Check to see if all system colors
+fall between the proper relative
+luminance range for their grade.
+Has a couple quirks, as the luminance()
+function returns slightly different
+results than expected.
+----------------------------------------
+*/
+
+@function test-colors($map) {
+  $exceptions: "black", "white", "transparent", "black-transparent",
+    "white-transparent";
+
+  @each $token, $value in $map {
+    $family: list.nth(decompose($token), 1);
+    @if not index($exceptions, $family) and $value {
+      $grade: list.nth(decompose($token), 2);
+      $computed: get-color-grade($value);
+      @if $grade > 4 {
+        @if $computed == $grade {
+          @debug "#{$token}: OK";
+        } @else {
+          @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map.get($system-luminance-grade-ranges, $grade)}";
+        }
+      } @else {
+        @debug "#{$token}: skipped";
+      }
+    } @else {
+      @debug "#{$token}: skipped";
+    }
+  }
+
+  @return 1;
+}

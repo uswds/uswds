@@ -1,5 +1,6 @@
 // dependencies
-@import "usa-megamenu";
+@forward "uswds-global";
+@forward "usa-megamenu";
 
 // src
-@import "../components/navigation";
+@forward "../components/usa-nav";

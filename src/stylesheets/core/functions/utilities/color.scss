@@ -1,0 +1,51 @@
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../../settings";
+@use "../../functions/general";
+@use "../../tokens/color/shortcodes-color-system" as *;
+@use "../../tokens/color/shortcodes-color-project" as *;
+
+@function color($value) {
+  // Any value should be evaluated as a token
+
+  $value: general.smart-quote($value);
+
+  @if map.has-key($system-color-shortcodes, $value) {
+    $our-color: map.get($system-color-shortcodes, $value);
+    @if $our-color == false {
+      @error 'USWDS does not include -90v color tokens';
+    }
+    @return $our-color;
+  }
+
+  @if not(map.has-key($project-color-shortcodes, $value)) {
+    @error '`#{$value}` is not a valid USWDS color token. '
+        + 'See designsystem.digital.gov/design-tokens/color '
+        + 'for more information.';
+  }
+
+  $our-color: (map.get($project-color-shortcodes, $value));
+  @if $our-color == false {
+    @error '`#{$value}` is set to false in your project settings.';
+  }
+
+  @return $our-color;
+}
+
+// @debug color("orange-80v");
+// @return #e52207;
+// @debug color("primary-dark");
+// @return #1a4480;
+// @debug color("primary-lightest");
+// @return error: set to false;
+// @debug color(#f00);
+// @return error: not a valid token;

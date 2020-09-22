@@ -1,6 +1,7 @@
 // dependencies
-@import "../elements/layout-grid";
-@import "usa-button";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
+@forward "usa-button";
 
 // src
-@import "../components/hero";
+@forward "../components/usa-hero";

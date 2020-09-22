@@ -1,1 +1,5 @@
-@import "../components/identifier";
+// dependencies
+@forward "uswds-global";
+
+// src
+@forward "../components/usa-identifier";

@@ -1,4 +1,6 @@
-@import "../elements/typography/links";
-@import "usa-button";
+// dependencies
+@forward "uswds-global";
+@forward "usa-button";
 
-@import "../components/card";
+// src
+@forward "../components/usa-card";

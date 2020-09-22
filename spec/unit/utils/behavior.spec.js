@@ -20,7 +20,7 @@ describe("behavior", () => {
       const behavior = Behavior({
         init() {
           done();
-        }
+        },
       });
       behavior.on();
     });
@@ -30,7 +30,7 @@ describe("behavior", () => {
         init(target) {
           assert.equal(target, document.body);
           done();
-        }
+        },
       });
       behavior.on();
     });
@@ -41,7 +41,7 @@ describe("behavior", () => {
         init(target) {
           assert.equal(target, el);
           done();
-        }
+        },
       });
       behavior.on(el);
     });
@@ -52,7 +52,7 @@ describe("behavior", () => {
       const behavior = Behavior({
         teardown() {
           done();
-        }
+        },
       });
       behavior.off();
     });
@@ -62,7 +62,7 @@ describe("behavior", () => {
         teardown(target) {
           assert.equal(target, document.body);
           done();
-        }
+        },
       });
       behavior.off();
     });
@@ -73,7 +73,7 @@ describe("behavior", () => {
         teardown(target) {
           assert.equal(target, el);
           done();
-        }
+        },
       });
       behavior.off(el);
     });

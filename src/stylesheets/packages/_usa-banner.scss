@@ -1,7 +1,8 @@
 // dependencies
-@import "layout-grid";
-@import "usa-accordion";
-@import "usa-media-block";
+@forward "uswds-global";
+@forward "uswds-layout-grid";
+@forward "usa-accordion";
+@forward "usa-media-block";
 
 // src
-@import "../components/banner";
+@forward "../components/usa-banner";
