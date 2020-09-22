@@ -1,0 +1,11 @@
+// Outputs align-self
+
+@mixin u-align-self($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  align-self: get-uswds-value(align-self, $value) #{$important};
+}

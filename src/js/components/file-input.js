@@ -42,7 +42,7 @@ const makeSafeForID = (name) => {
 };
 
 /**
- * Builds full file input component
+ * Builds full file input comonent
  * @param {HTMLElement} fileInputEl - original file input on page
  * @returns {HTMLElement|HTMLElement} - Instructions, target area div
  */
