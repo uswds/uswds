@@ -20,9 +20,6 @@ jobs:
     <<: *container
     steps:
       - checkout
-      - run:
-          name: Install codeclimate
-          command: sudo npm install -g codeclimate-test-reporter
       - restore_cache:
           keys:
             - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
@@ -36,16 +33,6 @@ jobs:
       - run:
           name: Run test
           command: npm run test:ci
-      - run:
-          name: Run code coverage report
-          command: npm run cover
-      - run:
-          name: Checking build
-          command: |
-            if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -le 0 ]]; then
-              ls -agolf dist/
-              codeclimate-test-reporter < coverage/lcov.info
-            fi
 
   deploy:
     <<: *container
