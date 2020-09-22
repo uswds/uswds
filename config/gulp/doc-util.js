@@ -21,16 +21,16 @@ function notify(title, message, wait) {
   notifier.notify({
     title,
     message,
-    icon: 'src/img/favicons/favicon-192.png',
+    icon: "src/img/favicons/favicon-192.png",
     wait,
-    timeout: false
+    timeout: false,
   });
 }
 
 module.exports = {
   pkg: {
     name: pkg.name,
-    version: pkg.version
+    version: pkg.version,
   },
 
   dirName: `${pkg.name}-${pkg.version}`,
@@ -61,5 +61,5 @@ module.exports = {
   logMessage(name, message) {
     log(colors.cyan(name), colors.green(message));
     notify(`${this.dirName} gulp ${name}`, message, false);
-  }
+  },
 };

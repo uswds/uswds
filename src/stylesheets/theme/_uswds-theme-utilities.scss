@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.8.1
+USWDS 2.9.0
 ----------------------------------------
 UTILITIES SETTINGS
 ----------------------------------------
@@ -31,24 +31,24 @@ used by utilities or layout grid
 */
 
 $theme-utility-breakpoints: (
+  // 160px:
   "card": false,
-  // 160px
-    "card-lg": false,
-  // 240px
-    "mobile": false,
-  // 320px
-    "mobile-lg": true,
-  // 480px
-    "tablet": true,
-  // 640px
-    "tablet-lg": false,
-  // 800px
-    "desktop": true,
-  // 1024px
-    "desktop-lg": false,
-  // 1200px
-    "widescreen": false,
-  // 1400px
+  // 240px:
+  "card-lg": false,
+  // 320px:
+  "mobile": false,
+  // 480px:
+  "mobile-lg": true,
+  // 640px:
+  "tablet": true,
+  // 800px:
+  "tablet-lg": false,
+  // 1024px:
+  "desktop": true,
+  // 1200px:
+  "desktop-lg": false,
+  // 1400px:
+  "widescreen": false
 );
 
 /*
@@ -90,6 +90,15 @@ $add-list-reset-settings: (
 );
 
 $align-items-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+);
+
+$align-self-settings: (
   output: true,
   responsive: false,
   active: false,
@@ -591,6 +600,11 @@ $add-aspect-manual-values: ();
 $align-items-palettes: ("palette-align-items-default");
 $align-items-manual-values: ();
 
+// .align-self
+
+$align-self-palettes: ("palette-align-self-default");
+$align-self-manual-values: ();
+
 // .background-color
 
 $background-color-palettes: ();
@@ -629,8 +643,7 @@ $bottom-manual-values: ();
 
 // .box-shadow
 
-$box-shadow-palettes: (/*
-  */ "palette-box-shadow-default");
+$box-shadow-palettes: ("palette-box-shadow-default");
 
 $box-shadow-manual-values: ();
 

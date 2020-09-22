@@ -9,6 +9,7 @@ values as plugin
 
 $palettes-default: (
   "palette-align-items-default": get-standard-values(align-items),
+  "palette-align-self-default": get-standard-values(align-self),
   "palette-background-color-default": get-standard-values(background-color),
   "palette-border-default": get-standard-values(border),
   "palette-border-color-default": get-standard-values(border-color),
