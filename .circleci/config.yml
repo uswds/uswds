@@ -45,7 +45,7 @@ jobs:
       - run: npm rebuild node-sass
       - run:
           name: Build the USWDS package
-          command: npm run release
+          command: npm run build
       - run:
           name: Publish to NPM
           command: |
@@ -63,7 +63,7 @@ jobs:
       - run: npm rebuild node-sass
       - run:
           name: Build the USWDS package
-          command: npm run release
+          command: npm run build
       - run:
           name: Publish to NPM with `alpha` tag
           command: |
@@ -81,7 +81,7 @@ jobs:
       - run: npm rebuild node-sass
       - run:
           name: Build the USWDS package
-          command: npm run release
+          command: npm run build
       - run:
           name: Publish to NPM with `beta` tag
           command: |
