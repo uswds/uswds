@@ -71,9 +71,6 @@ jobs:
     <<: *container
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install --ignore-scripts
       - run: npm rebuild node-sass
       - run:
