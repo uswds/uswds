@@ -126,7 +126,7 @@ $z-index-overlay: 400;
   position: fixed;
   background: color("black");
   opacity: opacity(0);
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity $project-easing;
   visibility: hidden;
   z-index: z-index($z-index-overlay);
 
@@ -158,10 +158,15 @@ $z-index-overlay: 400;
       display: flex;
     }
 
-    .usa-current,
-    [aria-expanded="true"],
+    .usa-nav__primary-item > .usa-current,
     .usa-nav__link:hover {
       @include nav-border-basic;
+    }
+
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
     }
 
     .usa-nav__primary {
@@ -208,10 +213,15 @@ $z-index-overlay: 400;
   @include at-media($theme-header-min-width) {
     padding-top: 0;
 
-    .usa-current,
-    [aria-expanded="true"],
-    .usa-nav__link:hover {
+    .usa-nav__primary-item > .usa-current,
+    .usa-nav__primary-item > .usa-nav__link:hover {
       @include nav-border-extended;
+    }
+
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
     }
   }
 

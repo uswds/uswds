@@ -7,12 +7,10 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button {
   @include border-box-sizing;
   @include typeset($theme-button-font-family, null, 1);
-  @include add-knockout-font-smoothing;
+  @include set-text-and-bg("primary");
   appearance: none;
-  background-color: color("primary");
   border: 0;
   border-radius: radius($theme-button-border-radius);
-  color: color("white");
   cursor: pointer;
   display: inline-block;
   font-weight: font-weight("bold");
@@ -32,16 +30,14 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:hover,
   &.usa-button--hover {
-    background-color: color("primary-dark");
+    @include set-text-and-bg("primary-dark");
     border-bottom: 0;
-    color: color("white");
     text-decoration: none;
   }
 
   &:active,
   &.usa-button--active {
-    background-color: color("primary-darker");
-    color: color("white");
+    @include set-text-and-bg("primary-darker");
   }
 
   &:not([disabled]):focus,
@@ -55,31 +51,42 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--accent-cool {
-  @include no-knockout-font-smoothing;
-  background-color: color("accent-cool");
-  color: color("ink");
+  @include set-text-and-bg("accent-cool");
 
   &:visited {
-    color: color("ink");
+    @include set-text-and-bg("accent-cool");
   }
 
   &:hover,
   &.usa-button--hover {
-    @include add-knockout-font-smoothing;
-    background-color: color("accent-cool-dark");
-    color: color("white");
+    @include set-text-and-bg("accent-cool-dark");
   }
 
   &:active,
   &.usa-button--active {
-    @include add-knockout-font-smoothing;
-    background-color: color("accent-cool-darker");
-    color: color("white");
+    @include set-text-and-bg("accent-cool-darker");
+  }
+}
+
+.usa-button--accent-warm {
+  @include set-text-and-bg("accent-warm");
+
+  &:visited {
+    @include set-text-and-bg("accent-warm");
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("accent-warm-dark");
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("accent-warm-darker");
   }
 }
 
 .usa-button--outline {
-  @include no-knockout-font-smoothing;
   background-color: color("transparent");
   box-shadow: $button-stroke color("primary");
   color: color("primary");
@@ -145,30 +152,30 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--base {
-  background-color: color("base");
+  @include set-text-and-bg("base");
 
   &:hover,
   &.usa-button--hover {
-    background-color: color("base-dark");
+    @include set-text-and-bg("base-dark");
   }
 
   &:active,
   &.usa-button--active {
-    background-color: color("base-darker");
+    @include set-text-and-bg("base-darker");
   }
 }
 
 .usa-button--secondary {
-  background-color: color("secondary");
+  @include set-text-and-bg("secondary");
 
   &:hover,
   &.usa-button--hover {
-    background-color: color("secondary-dark");
+    @include set-text-and-bg("secondary-dark");
   }
 
   &:active,
   &.usa-button--active {
-    background-color: color("secondary-darker");
+    @include set-text-and-bg("secondary-darker");
   }
 }
 

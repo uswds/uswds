@@ -1,0 +1,126 @@
+.usa-combo-box {
+  max-width: units($theme-input-max-width);
+  position: relative;
+}
+
+.usa-combo-box--pristine {
+  .usa-combo-box__input {
+    padding-right: calc(5em + 4px);
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  .usa-combo-box__clear-input {
+    display: block;
+  }
+}
+
+.usa-combo-box__input {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  appearance: none;
+  margin-bottom: 0;
+  max-width: none;
+  padding-right: calc(2.5em + 3px);
+}
+
+button.usa-combo-box__toggle-list,
+button.usa-combo-box__clear-input {
+  &:focus {
+    outline-offset: -4px;
+  }
+}
+
+.usa-combo-box__toggle-list__wrapper:focus,
+.usa-combo-box__clear-input__wrapper:focus {
+  outline: 0;
+}
+
+.usa-combo-box__toggle-list,
+.usa-combo-box__clear-input {
+  background-color: transparent;
+  background-position: center;
+  background-size: auto units(1.5);
+  border: 0;
+  cursor: pointer;
+  margin-bottom: 0;
+  padding-right: units(4);
+  position: absolute;
+  top: 1px;
+  height: 2.25em;
+  z-index: z-index(100);
+}
+.usa-combo-box__clear-input {
+  @include add-background-svg("close-gray-60");
+
+  display: none;
+  right: calc(2.5em + 3px);
+}
+
+.usa-combo-box__toggle-list {
+  @include add-background-svg("arrow-down-gray-60");
+  right: 1px;
+}
+
+.usa-combo-box__input-button-separator {
+  background-color: color("gray-cool-20");
+  position: absolute;
+  top: 1px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  right: calc(2.5em + 2px);
+  box-sizing: border-box;
+  z-index: z-index(200);
+}
+
+.usa-combo-box__list {
+  @extend %block-input-general;
+  @include u-border(1px, "base-dark");
+  background-color: color("white");
+  border-radius: 0;
+  border-top: 0;
+  margin: 0;
+  max-height: 12.1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: z-index(300);
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.usa-combo-box__list-option {
+  border-bottom: units(1px) solid color("base-lighter");
+  cursor: pointer;
+  display: block;
+  padding: units(1);
+
+  &--focused {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+    position: relative;
+    z-index: z-index(100);
+
+    &:focus {
+      outline-offset: -4px;
+    }
+  }
+
+  &--selected {
+    background-color: color("primary");
+    border-color: color("primary");
+    color: color("white");
+  }
+}
+
+.usa-combo-box__list-option--no-results {
+  cursor: not-allowed;
+  display: block;
+  padding: units(1);
+}

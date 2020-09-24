@@ -22,6 +22,6 @@ $u-box-shadow: (
       map-collect(get-palettes($box-shadow-palettes), $box-shadow-manual-values),
     settings: $box-shadow-settings,
     property: "box-shadow",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );

@@ -1,0 +1,7 @@
+<ul class="usa-card-group">
+  {%- for card in cards -%}
+  <li class="usa-card {{ card.classes }}">
+    {% include "@card--basic" %}
+  </li>
+  {%- endfor -%}
+</ul>

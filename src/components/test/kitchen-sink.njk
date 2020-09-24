@@ -8,6 +8,7 @@
 
   <div class="usa-section">
     <div class="grid-container">
+      {% render '@breadcrumb--metadata' %}
       <div class="grid-row grid-gap">
         <div class="desktop:grid-col-3 usa-layout-docs__sidenav">
           {% render '@sidenav', {sidenav: sidenav} %}
@@ -32,7 +33,7 @@
           </p>
 
           {% for spec in inner %}
-          <section id="{{ spec.id }}" class="usa-prose margin-top-4">
+          <section id="{{ spec.id }}" class="margin-top-4">
             <h2>{{ spec.title }}</h2>
             {% if spec.include %}
               {% include spec.include %}

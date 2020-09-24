@@ -6,6 +6,11 @@ $flex-utililies: (
       map-deep-get($system-properties, align-items, standard),
       map-deep-get($system-properties, align-items, extended)
     ),
+  align-self:
+    map-collect(
+      map-deep-get($system-properties, align-self, standard),
+      map-deep-get($system-properties, align-self, extended)
+    ),
   flex:
     map-collect(
       map-deep-get($system-properties, flex, standard),
@@ -25,7 +30,7 @@ $flex-utililies: (
     map-collect(
       map-deep-get($system-properties, justify-content, standard),
       map-deep-get($system-properties, justify-content, extended)
-    )
+    ),
 );
 
 @mixin u-flex($value...) {

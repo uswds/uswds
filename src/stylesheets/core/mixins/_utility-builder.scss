@@ -63,7 +63,7 @@ future version of Sass' warning.
   $value-is-map: if(type-of($val-props) == "map", true, false);
 
   @if $media-key {
-    $media-prefix: #{$media-key}\: ;
+    $media-prefix: #{$media-key}\:;
   }
 
   .#{$media-prefix}#{ns("utility")}#{$selector} {
@@ -268,7 +268,7 @@ through all possible variants
               // all our build in the same loop.
 
               $our-modifiers: (
-                "slug": null
+                "slug": null,
               );
             }
 

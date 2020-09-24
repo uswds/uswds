@@ -32,104 +32,67 @@ $neg-prefix: "neg";
 $system-spacing: (
   smaller: (
     "1px": 1px,
-    "2px": 2px
+    "2px": 2px,
   ),
   small: (
     "05": spacing-multiple(0.5),
-    // 4px
-      1: spacing-multiple(1),
-    // 8px
-      "105": spacing-multiple(1.5),
-    // 12px
-      2: spacing-multiple(2),
-    // 16px
-      "205": spacing-multiple(2.5),
-    // 20px
-      3: spacing-multiple(3),
-    // 24px
+    1: spacing-multiple(1),
+    "105": spacing-multiple(1.5),
+    2: spacing-multiple(2),
+    "205": spacing-multiple(2.5),
+    3: spacing-multiple(3),
   ),
   smaller-negative: (
     "#{$neg-prefix}-1px": -1px,
-    "#{$neg-prefix}-2px": -2px
+    "#{$neg-prefix}-2px": -2px,
   ),
   small-negative: (
     "#{$neg-prefix}-05": spacing-multiple(-0.5),
-    // -4px
-      "#{$neg-prefix}-1": spacing-multiple(-1),
-    // -8px
-      "#{$neg-prefix}-105": spacing-multiple(-1.5),
-    // -12px
-      "#{$neg-prefix}-2": spacing-multiple(-2),
-    // -16px
-      "#{$neg-prefix}-205": spacing-multiple(-2.5),
-    // -20px
-      "#{$neg-prefix}-3": spacing-multiple(-3),
-    // -24px
+    "#{$neg-prefix}-1": spacing-multiple(-1),
+    "#{$neg-prefix}-105": spacing-multiple(-1.5),
+    "#{$neg-prefix}-2": spacing-multiple(-2),
+    "#{$neg-prefix}-205": spacing-multiple(-2.5),
+    "#{$neg-prefix}-3": spacing-multiple(-3),
   ),
   medium: (
     4: spacing-multiple(4),
-    // 32px
-      5: spacing-multiple(5),
-    // 40px
-      6: spacing-multiple(6),
-    // 48px
-      7: spacing-multiple(7),
-    // 56px
-      8: spacing-multiple(8),
-    // 64px
-      9: spacing-multiple(9),
-    // 72px
-      10: spacing-multiple(10),
-    // 80px
-      15: spacing-multiple(15),
-    // 120px
+    5: spacing-multiple(5),
+    6: spacing-multiple(6),
+    7: spacing-multiple(7),
+    8: spacing-multiple(8),
+    9: spacing-multiple(9),
+    10: spacing-multiple(10),
+    15: spacing-multiple(15),
   ),
   medium-negative: (
     "#{$neg-prefix}-4": spacing-multiple(-4),
-    // -32px
-      "#{$neg-prefix}-5": spacing-multiple(-5),
-    // -40px
-      "#{$neg-prefix}-6": spacing-multiple(-6),
-    // -48px
-      "#{$neg-prefix}-7": spacing-multiple(-7),
-    // -56px
-      "#{$neg-prefix}-8": spacing-multiple(-8),
-    // -64px
-      "#{$neg-prefix}-9": spacing-multiple(-9),
-    // -72px
-      "#{$neg-prefix}-10": spacing-multiple(-10),
-    // -80px
-      "#{$neg-prefix}-15": spacing-multiple(-15),
-    // -120px
+    "#{$neg-prefix}-5": spacing-multiple(-5),
+    "#{$neg-prefix}-6": spacing-multiple(-6),
+    "#{$neg-prefix}-7": spacing-multiple(-7),
+    "#{$neg-prefix}-8": spacing-multiple(-8),
+    "#{$neg-prefix}-9": spacing-multiple(-9),
+    "#{$neg-prefix}-10": spacing-multiple(-10),
+    "#{$neg-prefix}-15": spacing-multiple(-15),
   ),
   large: (
     "card": spacing-multiple(20),
-    // 160px
-      "card-lg": spacing-multiple(30),
-    // 240px
-      "mobile": spacing-multiple(40),
-    // 320px
+    "card-lg": spacing-multiple(30),
+    "mobile": spacing-multiple(40),
   ),
   larger: (
     "mobile-lg": spacing-multiple(60),
-    // 480px
-      "tablet": spacing-multiple(80),
-    // 640px
-      "tablet-lg": spacing-multiple(110),
-    // 880px
+    "tablet": spacing-multiple(80),
+    "tablet-lg": spacing-multiple(110),
   ),
   largest: (
     "desktop": spacing-multiple(128),
-    // 1024px
-      "desktop-lg": spacing-multiple(150),
-    // 1200px
-      "widescreen": spacing-multiple(175),
-    // 1400px
+    "desktop-lg": spacing-multiple(150),
+    "widescreen": spacing-multiple(175),
   ),
   special: (
     0: 0,
-    "auto": auto
-  )
+    "auto": auto,
+  ),
 );
 
 $system-column-gaps: (
@@ -141,7 +104,7 @@ $system-column-gaps: (
   3: 3,
   4: 4,
   5: 5,
-  6: 6
+  6: 6,
 );
 
 /*
@@ -167,8 +130,8 @@ $system-spacing-em: (
     "05em": 0.5em,
     1em: 1em,
     105em: 1.5em,
-    2em: 2em
-  )
+    2em: 2em,
+  ),
 );
 
 /*
@@ -177,55 +140,20 @@ Layout grid widths
 ----------------------------------------
 */
 
+// prettier-ignore
 $system-layout-grid-widths: (
-  1: 100% *
-    (
-      1 / 12
-    ),
-  2: 100% *
-    (
-      2 / 12
-    ),
-  3: 100% *
-    (
-      3 / 12
-    ),
-  4: 100% *
-    (
-      4 / 12
-    ),
-  5: 100% *
-    (
-      5 / 12
-    ),
-  6: 100% *
-    (
-      6 / 12
-    ),
-  7: 100% *
-    (
-      7 / 12
-    ),
-  8: 100% *
-    (
-      8 / 12
-    ),
-  9: 100% *
-    (
-      9 / 12
-    ),
-  10: 100% *
-    (
-      10 / 12
-    ),
-  11: 100% *
-    (
-      11 / 12
-    ),
-  12: 100% *
-    (
-      12 / 12
-    )
+  1: 100% * 1 / 12,
+  2: 100% * 2 / 12,
+  3: 100% * 3 / 12,
+  4: 100% * 4 / 12,
+  5: 100% * 5 / 12,
+  6: 100% * 6 / 12,
+  7: 100% * 7 / 12,
+  8: 100% * 8 / 12,
+  9: 100% * 9 / 12,
+  10: 100% * 10 / 12,
+  11: 100% * 11 / 12,
+  12: 100% * 12 / 12,
 );
 
 /*
@@ -254,34 +182,34 @@ $system-typeface-tokens: (
     display-name: null,
     cap-height: 362px,
     stack: $font-stack-system,
-    system-font: true
+    system-font: true,
   ),
   "georgia": (
     display-name: "Georgia",
     cap-height: 346px,
     stack: $font-stack-georgia,
-    system-font: true
+    system-font: true,
   ),
   "helvetica": (
     display-name: "Helvetica Neue",
     cap-height: 357px,
     stack: $font-stack-helvetica,
-    system-font: true
+    system-font: true,
   ),
   "tahoma": (
     display-name: "Tahoma",
     cap-height: 363px,
-    stack: $font-stack-system
+    stack: $font-stack-system,
   ),
   "verdana": (
     display-name: "Verdana",
     cap-height: 364px,
-    stack: $font-stack-system
+    stack: $font-stack-system,
   ),
   "open-sans": (
     display-name: "Open Sans",
     cap-height: 357px,
-    stack: $font-stack-system
+    stack: $font-stack-system,
   ),
   "merriweather": (
     display-name: "Merriweather Web",
@@ -298,7 +226,7 @@ $system-typeface-tokens: (
         600: false,
         700: "Latin-Merriweather-Bold",
         800: false,
-        900: "Latin-Merriweather-Black"
+        900: "Latin-Merriweather-Black",
       ),
       italic: (
         100: false,
@@ -309,9 +237,9 @@ $system-typeface-tokens: (
         600: false,
         700: "Latin-Merriweather-BoldItalic",
         800: false,
-        900: "Latin-Merriweather-BlackItalic"
-      )
-    )
+        900: "Latin-Merriweather-BlackItalic",
+      ),
+    ),
   ),
   "roboto-mono": (
     display-name: "Roboto Mono Web",
@@ -328,7 +256,7 @@ $system-typeface-tokens: (
         600: false,
         700: "roboto-mono-v5-latin-700",
         800: false,
-        900: false
+        900: false,
       ),
       italic: (
         100: "roboto-mono-v5-latin-100italic",
@@ -339,9 +267,9 @@ $system-typeface-tokens: (
         600: false,
         700: "roboto-mono-v5-latin-700italic",
         800: false,
-        900: false
-      )
-    )
+        900: false,
+      ),
+    ),
   ),
   "source-sans-pro": (
     display-name: "Source Sans Pro Web",
@@ -358,7 +286,7 @@ $system-typeface-tokens: (
         600: "sourcesanspro-semibold-webfont",
         700: "sourcesanspro-bold-webfont",
         800: false,
-        900: "sourcesanspro-black-webfont"
+        900: "sourcesanspro-black-webfont",
       ),
       italic: (
         100: false,
@@ -369,9 +297,9 @@ $system-typeface-tokens: (
         600: "sourcesanspro-semibolditalic-webfont",
         700: "sourcesanspro-bolditalic-webfont",
         800: false,
-        900: "sourcesanspro-blackitalic-webfont"
-      )
-    )
+        900: "sourcesanspro-blackitalic-webfont",
+      ),
+    ),
   ),
   "public-sans": (
     display-name: "Public Sans Web",
@@ -388,7 +316,7 @@ $system-typeface-tokens: (
         600: "PublicSans-SemiBold",
         700: "PublicSans-Bold",
         800: "PublicSans-ExtraBold",
-        900: "PublicSans-Black"
+        900: "PublicSans-Black",
       ),
       italic: (
         100: "PublicSans-ThinItalic",
@@ -399,10 +327,10 @@ $system-typeface-tokens: (
         600: "PublicSans-SemiBoldItalic",
         700: "PublicSans-BoldItalic",
         800: "PublicSans-ExtraBoldItalic",
-        900: "PublicSans-BlackItalic"
-      )
-    )
-  )
+        900: "PublicSans-BlackItalic",
+      ),
+    ),
+  ),
 );
 
 $all-typeface-tokens: map-merge(
@@ -437,7 +365,7 @@ $system-type-scale: (
   17: 64px,
   18: 80px,
   19: 120px,
-  20: 140px
+  20: 140px,
 );
 
 /*
@@ -465,7 +393,7 @@ $system-line-height: (
   3: 1.35,
   4: 1.5,
   5: 1.62,
-  6: 1.75
+  6: 1.75,
 );
 
 /*
@@ -480,6 +408,63 @@ fonts.
 */
 
 $system-base-cap-height: 362px;
+
+/*
+----------------------------------------
+Luminance ranges
+----------------------------------------
+*/
+
+$system-luminance-grade-ranges: (
+  0: (
+    1,
+    1,
+  ),
+  5: (
+    0.85,
+    0.93,
+  ),
+  10: (
+    0.75,
+    0.82,
+  ),
+  20: (
+    0.5,
+    0.65,
+  ),
+  30: (
+    0.35,
+    0.45,
+  ),
+  40: (
+    0.25,
+    0.3,
+  ),
+  50: (
+    0.175,
+    0.183,
+  ),
+  60: (
+    0.1,
+    0.125,
+  ),
+  70: (
+    0.05,
+    0.07,
+  ),
+  80: (
+    0.02,
+    0.04,
+  ),
+  90: (
+    0.005,
+    0.015,
+  ),
+  100: (
+    0,
+    0,
+  ),
+);
 
 /*
 ----------------------------------------
@@ -524,8 +509,8 @@ $system-color-black-transparent: (
     60: rgba(0, 0, 0, 0.6),
     70: rgba(0, 0, 0, 0.7),
     80: rgba(0, 0, 0, 0.8),
-    90: rgba(0, 0, 0, 0.9)
-  )
+    90: rgba(0, 0, 0, 0.9),
+  ),
 );
 
 $system-color-white-transparent: (
@@ -539,8 +524,8 @@ $system-color-white-transparent: (
     60: rgba(255, 255, 255, 0.6),
     70: rgba(255, 255, 255, 0.7),
     80: rgba(255, 255, 255, 0.8),
-    90: rgba(255, 255, 255, 0.9)
-  )
+    90: rgba(255, 255, 255, 0.9),
+  ),
 );
 
 $system-colors: map-collect(
@@ -576,7 +561,7 @@ $system-colors: map-collect(
 $tokens-color-required: (
   "transparent": transparent,
   "black": black,
-  "white": white
+  "white": white,
 );
 
 $tokens-color-basic: (
@@ -604,7 +589,7 @@ $tokens-color-basic: (
   "gray": false,
   "gray-warm": false,
   "black-transparent": false,
-  "white-transparent": false
+  "white-transparent": false,
 );
 
 //red-cool
@@ -1568,7 +1553,7 @@ $system-color-shortcodes: (
   "violet-70v": $color-violet-70v,
   "violet-80v": $color-violet-80v,
   "violet-90v": $color-violet-90v,
-  "violet-warm-5 ": $color-violet-warm-5,
+  "violet-warm-5": $color-violet-warm-5,
   "violet-warm-10": $color-violet-warm-10,
   "violet-warm-20": $color-violet-warm-20,
   "violet-warm-30": $color-violet-warm-30,
@@ -1669,5 +1654,5 @@ $system-color-shortcodes: (
   "white-transparent-60": $color-white-transparent-60,
   "white-transparent-70": $color-white-transparent-70,
   "white-transparent-80": $color-white-transparent-80,
-  "white-transparent-90": $color-white-transparent-90
+  "white-transparent-90": $color-white-transparent-90,
 );

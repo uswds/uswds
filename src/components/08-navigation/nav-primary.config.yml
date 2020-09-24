@@ -13,6 +13,7 @@ context:
             href: "#"
           - text: Navigation link
             href: "#"
+            is_current: false
           - text: Navigation link
             href: "#"
           - text: Navigation link

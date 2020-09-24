@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.6.0
+USWDS 2.9.0
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -29,8 +29,21 @@ $theme-alert-icon-size: 4;
 $theme-alert-padding-x: 2.5;
 
 // Banner
+$theme-banner-background-color: "base-lightest";
 $theme-banner-font-family: "ui";
+$theme-banner-link-color: default;
 $theme-banner-max-width: "desktop";
+
+// Breadcrumb
+$theme-breadcrumb-background-color: "white";
+$theme-breadcrumb-font-size: "sm";
+$theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-link-color: default;
+$theme-breadcrumb-min-width: "mobile-lg";
+$theme-breadcrumb-padding-bottom: 2;
+$theme-breadcrumb-padding-top: 2;
+$theme-breadcrumb-padding-x: 0;
+$theme-breadcrumb-separator-color: "base";
 
 // Button
 $theme-button-font-family: "ui";
@@ -38,8 +51,22 @@ $theme-button-border-radius: "md";
 $theme-button-small-width: 6;
 $theme-button-stroke-width: 2px;
 
+// Card
+$theme-card-border-color: "base-lighter";
+$theme-card-border-radius: "lg";
+$theme-card-border-width: 2px;
+$theme-card-gap: 2;
+$theme-card-flag-min-width: "tablet";
+$theme-card-flag-image-width: "card-lg";
+$theme-card-font-family: "body";
+$theme-card-header-typeset: "heading", "lg", 2;
+$theme-card-margin-bottom: 4;
+$theme-card-padding-perimeter: 3;
+$theme-card-padding-y: 2;
+
 // Footer
 $theme-footer-font-family: "body";
+$theme-footer-max-width: "desktop";
 
 // Form and input
 $theme-checkbox-border-radius: "sm";
@@ -59,6 +86,13 @@ $theme-header-min-width: "desktop";
 // Hero
 $theme-hero-image: "#{$theme-image-path}/hero.png";
 
+// Identifier
+$theme-identifier-font-family: "ui";
+$theme-identifier-background-color: "base-darkest";
+$theme-identifier-identity-domain-color: "base-light";
+$theme-identifier-max-width: "desktop";
+$theme-identifier-secondary-link-color: "base-light";
+
 // Navigation
 $theme-navigation-font-family: "ui";
 $theme-megamenu-columns: 3;
@@ -70,3 +104,26 @@ $theme-search-min-width: 27ch;
 // Sidenav
 $theme-sidenav-current-border-width: 0.5;
 $theme-sidenav-font-family: "ui";
+
+// Step indicator
+$step-indicator-background-color: "white";
+$theme-step-indicator-counter-gap: 0.5;
+$theme-step-indicator-counter-border-width: 0.5;
+$theme-step-indicator-font-family: "ui";
+$theme-step-indicator-heading-color: "ink";
+$theme-step-indicator-heading-font-family: "ui";
+$theme-step-indicator-heading-font-size: "lg";
+$theme-step-indicator-heading-font-size-small: "md";
+$theme-step-indicator-label-font-size: "sm";
+$theme-step-indicator-min-width: "tablet";
+$theme-step-indicator-segment-color-pending: "base-lighter";
+$theme-step-indicator-segment-color-complete: "primary-darker";
+$theme-step-indicator-segment-color-current: "primary";
+$theme-step-indicator-segment-gap: 2px;
+$theme-step-indicator-segment-height: 1;
+$theme-step-indicator-text-pending-color: "base-dark";
+
+// Tooltips
+$theme-tooltip-background-color: "ink";
+$theme-tooltip-font-color: "base-lightest";
+$theme-tooltip-font-size: "xs";

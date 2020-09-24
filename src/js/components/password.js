@@ -13,6 +13,6 @@ function toggle(event) {
 
 module.exports = behavior({
   [CLICK]: {
-    [LINK]: toggle
-  }
+    [LINK]: toggle,
+  },
 });

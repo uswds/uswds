@@ -3,7 +3,7 @@ const del = require("del");
 const dutil = require("./doc-util");
 const cFlags = require("./cflags");
 
-gulp.task("clean-dist", done => {
+gulp.task("clean-dist", (done) => {
   if (!cFlags.cleanup) {
     dutil.logMessage(
       "clean-dist",
@@ -16,7 +16,7 @@ gulp.task("clean-dist", done => {
   return del("dist");
 });
 
-gulp.task("docs", done => {
+gulp.task("docs", (done) => {
   dutil.logMessage("docs", "Copying documentation dist dir");
 
   const stream = gulp
@@ -30,7 +30,7 @@ gulp.task("docs", done => {
 gulp.task(
   "build",
   gulp.series(
-    done => {
+    (done) => {
       dutil.logIntroduction();
       dutil.logMessage("build", "Creating distribution directories.");
       done();

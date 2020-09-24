@@ -1,4 +1,4 @@
-<button class="usa-nav__close"><img src="{{ uswds.path }}/img/close.svg" alt="close"></button>
+<button class="usa-nav__close"><img src="{{ uswds.path }}/img/close.svg" role="img" alt="close"></button>
 <ul class="usa-nav__primary usa-accordion">
   {%- for link in nav.links -%}
   <li class="usa-nav__primary-item">
@@ -9,7 +9,7 @@
         {%- for child in link.links -%}
           {%- if loop.index < 4 -%}
             <li class="usa-nav__submenu-item">
-              <a href="{{ child.href }}">{{ child.text }}</a>
+              <a href="{{ child.href }}" class="{% if child.is_current %} usa-current{% endif %}"> {{ child.text }}</a>
             </li>
           {%- endif -%}
         {%- endfor -%}
@@ -20,7 +20,7 @@
               <ul class="usa-nav__submenu-list">
                 {%- for child in group -%}
                   <li class="usa-nav__submenu-item">
-                    <a href="{{ child.href }}">{{ child.text }}</a>
+                    <a href="{{ child.href }}" class="{% if child.is_current %} usa-current{% endif %}">{{ child.text }}</a>
                   </li>
                 {%- endfor -%}
               </ul>
@@ -30,7 +30,7 @@
       {%- endif -%}
     </{% if nav.mega %}div{% else %}ul{% endif %}>
     {%- else -%}
-    <a class="usa-nav__link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}"><span>{{ link.text }}</span></a>
+    <a class="usa-nav__link{% if link.is_current %} usa-current{% endif %}" href="{{ link.href }}"><span>{{ link.text }}</span></a>
     {% endif -%}
   </li>
   {%- endfor -%}

@@ -95,6 +95,7 @@
       @include u-flex($flex);
       @include u-width($width);
       @include u-maxw($maxw);
+      min-width: 1px; // IE 11
     } @else if not map-has-key($system-layout-grid-widths, $col) {
       @error '#{$col} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
     } @else {

@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.6.0
+USWDS 2.9.0
 ----------------------------------------
 UTILITIES SETTINGS
 ----------------------------------------
@@ -31,24 +31,24 @@ used by utilities or layout grid
 */
 
 $theme-utility-breakpoints: (
+  // 160px:
   "card": false,
-  // 160px
-    "card-lg": false,
-  // 240px
-    "mobile": false,
-  // 320px
-    "mobile-lg": true,
-  // 480px
-    "tablet": true,
-  // 640px
-    "tablet-lg": false,
-  // 800px
-    "desktop": true,
-  // 1024px
-    "desktop-lg": false,
-  // 1200px
-    "widescreen": false,
-  // 1400px
+  // 240px:
+  "card-lg": false,
+  // 320px:
+  "mobile": false,
+  // 480px:
+  "mobile-lg": true,
+  // 640px:
+  "tablet": true,
+  // 800px:
+  "tablet-lg": false,
+  // 1024px:
+  "desktop": true,
+  // 1200px:
+  "desktop-lg": false,
+  // 1400px:
+  "widescreen": false
 ) !default;
 
 /*
@@ -77,7 +77,7 @@ $add-aspect-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $add-list-reset-settings: (
@@ -86,7 +86,7 @@ $add-list-reset-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $align-items-settings: (
@@ -95,7 +95,16 @@ $align-items-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
+) !default;
+
+$align-self-settings: (
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
 ) !default;
 
 $background-color-settings: (
@@ -104,7 +113,7 @@ $background-color-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $border-settings: (
@@ -113,7 +122,7 @@ $border-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $border-color-settings: (
@@ -122,7 +131,7 @@ $border-color-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $border-radius-settings: (
@@ -131,7 +140,7 @@ $border-radius-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $border-style-settings: (
@@ -140,7 +149,7 @@ $border-style-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $border-width-settings: (
@@ -149,7 +158,7 @@ $border-width-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $bottom-settings: (
@@ -158,7 +167,7 @@ $bottom-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $box-shadow-settings: (
@@ -167,7 +176,7 @@ $box-shadow-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $circle-settings: (
@@ -176,7 +185,7 @@ $circle-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $clearfix-settings: (
@@ -185,7 +194,7 @@ $clearfix-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $color-settings: (
@@ -194,7 +203,7 @@ $color-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $cursor-settings: (
@@ -203,7 +212,7 @@ $cursor-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $display-settings: (
@@ -212,7 +221,7 @@ $display-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $flex-settings: (
@@ -221,7 +230,7 @@ $flex-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $flex-direction-settings: (
@@ -230,7 +239,7 @@ $flex-direction-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $flex-wrap-settings: (
@@ -239,7 +248,7 @@ $flex-wrap-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $float-settings: (
@@ -248,7 +257,7 @@ $float-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $font-settings: (
@@ -257,7 +266,7 @@ $font-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $font-family-settings: (
@@ -266,7 +275,7 @@ $font-family-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $font-feature-settings: (
@@ -275,7 +284,7 @@ $font-feature-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $font-style-settings: (
@@ -284,7 +293,7 @@ $font-style-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $font-weight-settings: (
@@ -293,7 +302,7 @@ $font-weight-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $height-settings: (
@@ -302,7 +311,7 @@ $height-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $justify-content-settings: (
@@ -311,7 +320,7 @@ $justify-content-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $left-settings: (
@@ -320,7 +329,7 @@ $left-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $letter-spacing-settings: (
@@ -329,7 +338,7 @@ $letter-spacing-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $line-height-settings: (
@@ -338,7 +347,7 @@ $line-height-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $margin-settings: (
@@ -347,7 +356,7 @@ $margin-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $max-height-settings: (
@@ -356,7 +365,7 @@ $max-height-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $max-width-settings: (
@@ -365,7 +374,7 @@ $max-width-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $measure-settings: (
@@ -374,7 +383,7 @@ $measure-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $min-height-settings: (
@@ -383,7 +392,7 @@ $min-height-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $min-width-settings: (
@@ -392,7 +401,7 @@ $min-width-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $opacity-settings: (
@@ -401,7 +410,7 @@ $opacity-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $order-settings: (
@@ -410,7 +419,7 @@ $order-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $outline-settings: (
@@ -419,7 +428,7 @@ $outline-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $outline-color-settings: (
@@ -428,7 +437,7 @@ $outline-color-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $overflow-settings: (
@@ -437,7 +446,7 @@ $overflow-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $padding-settings: (
@@ -446,7 +455,7 @@ $padding-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $pin-settings: (
@@ -455,7 +464,7 @@ $pin-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $position-settings: (
@@ -464,7 +473,7 @@ $position-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $right-settings: (
@@ -473,7 +482,7 @@ $right-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $square-settings: (
@@ -482,7 +491,7 @@ $square-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $text-align-settings: (
@@ -491,7 +500,7 @@ $text-align-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $text-decoration-settings: (
@@ -500,7 +509,7 @@ $text-decoration-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $text-decoration-color-settings: (
@@ -509,7 +518,7 @@ $text-decoration-color-settings: (
   active: false,
   focus: false,
   hover: true,
-  visited: false
+  visited: false,
 ) !default;
 
 $text-indent-settings: (
@@ -518,7 +527,7 @@ $text-indent-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $text-transform-settings: (
@@ -527,7 +536,7 @@ $text-transform-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $top-settings: (
@@ -536,7 +545,7 @@ $top-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $vertical-align-settings: (
@@ -545,7 +554,7 @@ $vertical-align-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $whitespace-settings: (
@@ -554,16 +563,16 @@ $whitespace-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $width-settings: (
   output: true,
-  responsive: false,
+  responsive: true,
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 $z-index-settings: (
@@ -572,7 +581,7 @@ $z-index-settings: (
   active: false,
   focus: false,
   hover: false,
-  visited: false
+  visited: false,
 ) !default;
 
 /*
@@ -590,6 +599,11 @@ $add-aspect-manual-values: () !default;
 
 $align-items-palettes: ("palette-align-items-default") !default;
 $align-items-manual-values: () !default;
+
+// .align-self
+
+$align-self-palettes: ("palette-align-self-default") !default;
+$align-self-manual-values: () !default;
 
 // .background-color
 

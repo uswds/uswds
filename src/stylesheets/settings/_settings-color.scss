@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.6.0
+USWDS 2.9.0
 ----------------------------------------
 COLOR SETTINGS
 ----------------------------------------
@@ -16,6 +16,8 @@ USWDS color tokens in the documentation:
 https://designsystem.digital.gov/design-tokens/color
 ----------------------------------------
 */
+
+$test-system-color-tokens: false !default;
 
 /*
 ----------------------------------------
@@ -131,3 +133,6 @@ $theme-link-color: "primary" !default;
 $theme-link-visited-color: "violet-70v" !default;
 $theme-link-hover-color: "primary-dark" !default;
 $theme-link-active-color: "primary-darker" !default;
+$theme-link-reverse-color: "base-lighter" !default;
+$theme-link-reverse-hover-color: "base-lightest" !default;
+$theme-link-reverse-active-color: "white" !default;

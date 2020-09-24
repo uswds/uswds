@@ -14,23 +14,23 @@ $extended-colors: map-collect($system-colors, $tokens-color-basic);
 
 $partial-values: (
   zero-zero: (
-    0: 0
+    0: 0,
   ),
   none: (
-    "none": none
+    "none": none,
   ),
   auto: (
-    "auto": auto
+    "auto": auto,
   ),
   full-percent: (
-    "full": 100%
+    "full": 100%,
   ),
   full-viewport-height: (
-    "viewport": 100vh
+    "viewport": 100vh,
   ),
   full-viewport-width: (
-    "viewport": 100vw
-  )
+    "viewport": 100vw,
+  ),
 );
 
 $system-properties: (
@@ -40,13 +40,23 @@ $system-properties: (
       "align-end": flex-end,
       "align-center": center,
       "align-stretch": stretch,
-      "align-baseline": baseline
+      "align-baseline": baseline,
     ),
-    extended: ()
+    extended: (),
+  ),
+  align-self: (
+    standard: (
+      "align-self-start": flex-start,
+      "align-self-end": flex-end,
+      "align-self-center": center,
+      "align-self-stretch": stretch,
+      "align-self-baseline": baseline,
+    ),
+    extended: (),
   ),
   background-color: (
     standard: $standard-colors,
-    extended: $extended-colors
+    extended: $extended-colors,
   ),
   border: (
     standard:
@@ -55,14 +65,14 @@ $system-properties: (
         map-get($system-spacing, "small"),
         map-get($partial-values, "zero-zero"),
         (
-          "noValue": 1px
+          "noValue": 1px,
         )
       ),
-    extended: ()
+    extended: (),
   ),
   border-color: (
     standard: $standard-colors,
-    extended: $extended-colors
+    extended: $extended-colors,
   ),
   border-radius: (
     standard: $project-border-radius,
@@ -70,15 +80,15 @@ $system-properties: (
       map-collect(
         map-get($system-spacing, "smaller"),
         map-get($system-spacing, "small")
-      )
+      ),
   ),
   border-style: (
     standard: (
       "dashed": dashed,
       "dotted": dotted,
-      "solid": solid
+      "solid": solid,
     ),
-    extended: ()
+    extended: (),
   ),
   border-width: (
     standard:
@@ -87,7 +97,7 @@ $system-properties: (
         map-get($system-spacing, "small"),
         map-get($partial-values, "zero-zero")
       ),
-    extended: ()
+    extended: (),
   ),
   bottom: (
     standard:
@@ -100,7 +110,7 @@ $system-properties: (
         map-get($partial-values, "auto"),
         map-get($partial-values, "full-percent")
       ),
-    extended: ()
+    extended: (),
   ),
   box-shadow: (
     standard: (
@@ -109,9 +119,9 @@ $system-properties: (
       2: 0 units(0.5) units(1) 0 rgba(0, 0, 0, 0.1),
       3: 0 units(1) units(2) 0 rgba(0, 0, 0, 0.1),
       4: 0 units(1.5) units(3) 0 rgba(0, 0, 0, 0.1),
-      5: 0 units(2) units(4) 0 rgba(0, 0, 0, 0.1)
+      5: 0 units(2) units(4) 0 rgba(0, 0, 0, 0.1),
     ),
-    extended: ()
+    extended: (),
   ),
   breakpoints: (
     standard:
@@ -120,7 +130,7 @@ $system-properties: (
         map-get($system-spacing, "larger"),
         map-get($system-spacing, "largest")
       ),
-    extended: ()
+    extended: (),
   ),
   circle: (
     standard:
@@ -130,11 +140,11 @@ $system-properties: (
         map-get($system-spacing, "medium"),
         map-get($system-spacing, "large")
       ),
-    extended: ()
+    extended: (),
   ),
   color: (
     standard: $standard-colors,
-    extended: $extended-colors
+    extended: $extended-colors,
   ),
   cursor: (
     standard: (
@@ -143,9 +153,9 @@ $system-properties: (
       "pointer": pointer,
       "wait": wait,
       "move": move,
-      "not-allowed": not-allowed
+      "not-allowed": not-allowed,
     ),
-    extended: ()
+    extended: (),
   ),
   display: (
     standard: (
@@ -157,68 +167,68 @@ $system-properties: (
       "inline-flex": inline-flex,
       "table": table,
       "table-cell": table-cell,
-      "table-row": table-row
+      "table-row": table-row,
     ),
-    extended: ()
+    extended: (),
   ),
   flex: (
     standard: (
-      1: 1 0 0,
-      2: 2 0 0,
-      3: 3 0 0,
-      4: 4 0 0,
-      5: 5 0 0,
-      6: 6 0 0,
-      7: 7 0 0,
-      8: 8 0 0,
-      9: 9 0 0,
-      10: 10 0 0,
-      11: 11 0 0,
-      12: 12 0 0,
-      "fill": 1 0 0,
-      "auto": 0 0 auto
+      1: 1 1 0%,
+      2: 2 1 0%,
+      3: 3 1 0%,
+      4: 4 1 0%,
+      5: 5 1 0%,
+      6: 6 1 0%,
+      7: 7 1 0%,
+      8: 8 1 0%,
+      9: 9 1 0%,
+      10: 10 1 0%,
+      11: 11 1 0%,
+      12: 12 1 0%,
+      "fill": 1 1 0%,
+      "auto": 0 1 auto,
     ),
-    extended: ()
+    extended: (),
   ),
   flex-direction: (
     standard: (
       "row": row,
-      "column": column
+      "column": column,
     ),
-    extended: ()
+    extended: (),
   ),
   flex-wrap: (
     standard: (
       "wrap": wrap,
-      "no-wrap": nowrap
+      "no-wrap": nowrap,
     ),
-    extended: ()
+    extended: (),
   ),
   float: (
     standard: (
       "left": left,
       "none": none,
-      "right": right
+      "right": right,
     ),
-    extended: ()
+    extended: (),
   ),
   font-family: (
     standard: $project-font-stacks,
-    extended: ()
+    extended: (),
   ),
   font-feature-settings: (
     standard: (
       "tabular": unquote('"tnum" 1, "kern" 1'),
-      "no-tabular": unquote('"kern" 1')
+      "no-tabular": unquote('"kern" 1'),
     ),
-    extended: ()
+    extended: (),
   ),
   font-style: (
     standard: (
       "italic": italic,
-      "no-italic": normal
+      "no-italic": normal,
     ),
-    extended: ()
+    extended: (),
   ),
   font-weight: (
     standard: (
@@ -228,7 +238,7 @@ $system-properties: (
       "medium": $theme-font-weight-medium,
       "semibold": $theme-font-weight-semibold,
       "bold": bold,
-      "heavy": $theme-font-weight-heavy
+      "heavy": $theme-font-weight-heavy,
     ),
     extended: (
       100: 100,
@@ -239,8 +249,8 @@ $system-properties: (
       600: 600,
       700: 700,
       800: 800,
-      900: 900
-    )
+      900: 900,
+    ),
   ),
   gap: (
     standard:
@@ -249,10 +259,10 @@ $system-properties: (
         (
           "sm": $theme-column-gap-sm,
           "md": $theme-column-gap-md,
-          "lg": $theme-column-gap-lg
+          "lg": $theme-column-gap-lg,
         )
       ),
-    extended: ()
+    extended: (),
   ),
   height: (
     standard:
@@ -266,16 +276,16 @@ $system-properties: (
         map-get($partial-values, "full-percent"),
         map-get($partial-values, "full-viewport-height")
       ),
-    extended: ()
+    extended: (),
   ),
   justify-content: (
     standard: (
       "justify-center": center,
       "justify-start": flex-start,
       "justify-end": flex-end,
-      "justify": space-between
+      "justify": space-between,
     ),
-    extended: ()
+    extended: (),
   ),
   left: (
     standard:
@@ -287,7 +297,7 @@ $system-properties: (
         map-get($partial-values, "zero-zero"),
         map-get($partial-values, "auto")
       ),
-    extended: ()
+    extended: (),
   ),
   letter-spacing: (
     standard: (
@@ -297,7 +307,7 @@ $system-properties: (
       "ls-neg-1": -0.01em,
       "ls-1": 0.025em,
       "ls-2": 0.1em,
-      "ls-3": 0.15em
+      "ls-3": 0.15em,
     ),
     extended: (),
     function: (
@@ -307,8 +317,8 @@ $system-properties: (
       -1: -0.01em,
       1: 0.025em,
       2: 0.1em,
-      3: 0.15em
-    )
+      3: 0.15em,
+    ),
   ),
   line-height: (
     standard: (
@@ -365,7 +375,7 @@ $system-properties: (
       "alt-3": lh("alt", 3),
       "alt-4": lh("alt", 4),
       "alt-5": lh("alt", 5),
-      "alt-6": lh("alt", 6)
+      "alt-6": lh("alt", 6),
     ),
     extended: (
       1: 1,
@@ -373,21 +383,38 @@ $system-properties: (
       3: 1.35,
       4: 1.5,
       5: 1.62,
-      6: 1.75
-    )
+      6: 1.75,
+    ),
   ),
   margin: (
     standard:
       map-collect(
+        map-get($system-spacing, "smaller-negative"),
+        map-get($system-spacing, "small-negative"),
         map-get($system-spacing, "smaller"),
         map-get($system-spacing, "small"),
         map-get($system-spacing, "medium"),
         map-get($system-spacing-em, "small"),
         map-get($partial-values, "zero-zero")
       ),
-    extended: ()
+    extended: (),
   ),
   margin-horizontal: (
+    standard:
+      map-collect(
+        map-get($system-spacing, "smaller"),
+        map-get($system-spacing, "small"),
+        map-get($system-spacing, "smaller-negative"),
+        map-get($system-spacing, "small-negative"),
+        map-get($system-spacing, "medium"),
+        map-get($system-spacing, "large"),
+        map-get($system-spacing-em, "small"),
+        map-get($partial-values, "zero-zero"),
+        map-get($partial-values, "auto")
+      ),
+    extended: (),
+  ),
+  margin-vertical: (
     standard:
       map-collect(
         map-get($system-spacing, "smaller"),
@@ -399,20 +426,7 @@ $system-properties: (
         map-get($partial-values, "zero-zero"),
         map-get($partial-values, "auto")
       ),
-    extended: ()
-  ),
-  margin-vertical: (
-    standard:
-      map-collect(
-        map-get($system-spacing, "smaller"),
-        map-get($system-spacing, "small"),
-        map-get($system-spacing, "smaller-negative"),
-        map-get($system-spacing, "small-negative"),
-        map-get($system-spacing, "medium"),
-        map-get($system-spacing-em, "small"),
-        map-get($partial-values, "zero-zero")
-      ),
-    extended: ()
+    extended: (),
   ),
   max-height: (
     standard:
@@ -424,7 +438,7 @@ $system-properties: (
         map-get($partial-values, "none"),
         map-get($partial-values, "full-viewport-height")
       ),
-    extended: ()
+    extended: (),
   ),
   max-width: (
     standard:
@@ -437,7 +451,7 @@ $system-properties: (
         map-get($partial-values, "none"),
         map-get($partial-values, "full-percent")
       ),
-    extended: ()
+    extended: (),
   ),
   measure: (
     standard: (
@@ -447,9 +461,9 @@ $system-properties: (
       4: $system-measure-large,
       5: $system-measure-larger,
       6: $system-measure-largest,
-      "none": none
+      "none": none,
     ),
-    extended: ()
+    extended: (),
   ),
   min-height: (
     standard:
@@ -463,7 +477,7 @@ $system-properties: (
         map-get($partial-values, "full-percent"),
         map-get($partial-values, "full-viewport-height")
       ),
-    extended: ()
+    extended: (),
   ),
   min-width: (
     standard:
@@ -472,7 +486,7 @@ $system-properties: (
         map-get($system-spacing, "medium"),
         map-get($partial-values, "zero-zero")
       ),
-    extended: ()
+    extended: (),
   ),
   opacity: (
     standard: (
@@ -486,9 +500,9 @@ $system-properties: (
       70: 0.7,
       80: 0.8,
       90: 0.9,
-      100: 1
+      100: 1,
     ),
-    extended: ()
+    extended: (),
   ),
   order: (
     standard: (
@@ -506,9 +520,9 @@ $system-properties: (
       8: 8,
       9: 9,
       10: 10,
-      11: 11
+      11: 11,
     ),
-    extended: ()
+    extended: (),
   ),
   outline: (
     standard:
@@ -516,23 +530,23 @@ $system-properties: (
         map-get($system-spacing, "smaller"),
         map-get($partial-values, "zero-zero"),
         (
-          "05": spacing-multiple(0.5)
+          "05": spacing-multiple(0.5),
         )
       ),
-    extended: ()
+    extended: (),
   ),
   outline-color: (
     standard: map-collect($tokens-color-required),
-    extended: $extended-colors
+    extended: $extended-colors,
   ),
   overflow: (
     standard: (
       "hidden": hidden,
       "scroll": scroll,
       "auto": auto,
-      "visible": visible
+      "visible": visible,
     ),
-    extended: ()
+    extended: (),
   ),
   padding: (
     standard:
@@ -542,7 +556,7 @@ $system-properties: (
         map-get($system-spacing, "medium"),
         map-get($partial-values, "zero-zero")
       ),
-    extended: ()
+    extended: (),
   ),
   position: (
     standard: (
@@ -550,9 +564,9 @@ $system-properties: (
       "fixed": fixed,
       "relative": relative,
       "static": static,
-      "sticky": sticky
+      "sticky": sticky,
     ),
-    extended: ()
+    extended: (),
   ),
   right: (
     standard:
@@ -564,7 +578,7 @@ $system-properties: (
         map-get($partial-values, "zero-zero"),
         map-get($partial-values, "auto")
       ),
-    extended: ()
+    extended: (),
   ),
   square: (
     standard:
@@ -574,29 +588,29 @@ $system-properties: (
         map-get($system-spacing, "medium"),
         map-get($system-spacing, "large")
       ),
-    extended: ()
+    extended: (),
   ),
   text-align: (
     standard: (
       "center": center,
       "left": left,
       "justify": justify,
-      "right": right
+      "right": right,
     ),
-    extended: ()
+    extended: (),
   ),
   text-decoration: (
     standard: (
       "strike": line-through,
       "underline": underline,
       "no-underline": none,
-      "no-strike": none
+      "no-strike": none,
     ),
-    extended: ()
+    extended: (),
   ),
   text-decoration-color: (
     standard: map-collect($standard-colors, map-get($partial-values, "auto")),
-    extended: $extended-colors
+    extended: $extended-colors,
   ),
   text-indent: (
     standard:
@@ -607,16 +621,16 @@ $system-properties: (
         map-get($system-spacing, "medium"),
         map-get($system-spacing, "medium-negative")
       ),
-    extended: ()
+    extended: (),
   ),
   text-transform: (
     standard: (
       "uppercase": uppercase,
       "no-uppercase": none,
       "lowercase": lowercase,
-      "no-lowercase": none
+      "no-lowercase": none,
     ),
-    extended: ()
+    extended: (),
   ),
   top: (
     standard:
@@ -628,7 +642,7 @@ $system-properties: (
         map-get($partial-values, "zero-zero"),
         map-get($partial-values, "auto")
       ),
-    extended: ()
+    extended: (),
   ),
   vertical-align: (
     standard: (
@@ -639,9 +653,9 @@ $system-properties: (
       "super": super,
       "tbottom": text-bottom,
       "ttop": text-top,
-      "top": top
+      "top": top,
     ),
-    extended: ()
+    extended: (),
   ),
   white-space: (
     standard: (
@@ -649,9 +663,9 @@ $system-properties: (
       "pre-line": pre-line,
       "pre-wrap": pre-wrap,
       "wrap": normal,
-      "no-wrap": nowrap
+      "no-wrap": nowrap,
     ),
-    extended: ()
+    extended: (),
   ),
   width: (
     standard:
@@ -666,7 +680,7 @@ $system-properties: (
         map-get($partial-values, "full-percent"),
         map-get($partial-values, "auto")
       ),
-    extended: ()
+    extended: (),
   ),
   z-index: (
     standard: (
@@ -678,8 +692,8 @@ $system-properties: (
       200: 200,
       300: 300,
       400: 400,
-      500: 500
+      500: 500,
     ),
-    extended: ()
-  )
+    extended: (),
+  ),
 );

@@ -7,13 +7,13 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.6.0
+USWDS 2.9.0
 ----------------------------------------
 TYPOGRAPHY SETTINGS
 ----------------------------------------
 Read more about settings and
 USWDS typography tokens in the documentation:
-https://designsystem.digital.gov/design-tokens/typography
+https://designsystem.digital.gov/design-tokens/typesetting/overview/
 ----------------------------------------
 */
 
@@ -124,12 +124,12 @@ names to something more descriptive.
 $theme-typeface-tokens: (
   example-serif-token: (
     display-name: "Example Serif Display Name",
-    cap-height: 364px
+    cap-height: 364px,
   ),
   example-sans-token: (
     display-name: "Example Sans Display Name",
-    cap-height: 364px
-  )
+    cap-height: 364px,
+  ),
 ) !default;
 
 /*

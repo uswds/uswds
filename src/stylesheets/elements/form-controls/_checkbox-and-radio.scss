@@ -31,7 +31,7 @@
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");
-  margin-bottom: units(1.5);
+  margin-top: units(1.5);
   padding-left: units($input-select-margin-right + $theme-input-select-size);
   position: relative;
   text-indent: units(-$input-select-margin-right - $theme-input-select-size);
@@ -99,8 +99,10 @@
   @include focus-outline(null, null, null, 0.5);
 }
 
-.usa-checkbox__input:disabled + .usa-checkbox__label {
+.usa-checkbox__input:disabled + .usa-checkbox__label,
+.usa-radio__input:disabled + .usa-radio__label {
   color: color("disabled");
+  cursor: not-allowed;
 }
 
 .usa-checkbox__input:focus + .usa-checkbox__label::before {

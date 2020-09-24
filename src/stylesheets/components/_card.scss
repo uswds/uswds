@@ -1,0 +1,346 @@
+/* TODO:
+ * Add a way to change the flag breakpoint as a modifier/class?
+ */
+
+@mixin card-inner-radius {
+  border-top-left-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
+  border-top-right-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
+}
+
+@include override-prose {
+  .usa-card-group {
+    @include add-list-reset;
+  }
+}
+
+.usa-card-group {
+  @include u-display("flex");
+  @include u-flex("column", "wrap", "align-stretch");
+  @include u-margin-x($theme-card-gap / -2);
+  @include at-media($theme-card-flag-min-width) {
+    @include u-flex("row");
+  }
+}
+
+@include override-prose {
+  .usa-card {
+    @include u-margin-bottom($theme-card-margin-bottom + 1);
+    @include u-maxw("none"); // override prose scope
+    &:last-child {
+      @include u-margin-bottom(
+        $theme-card-margin-bottom + 1
+      ); // override prose scope
+    }
+    @include at-media("tablet") {
+      @include u-margin-bottom($theme-card-margin-bottom);
+      &:last-child {
+        @include u-margin-bottom(
+          $theme-card-margin-bottom
+        ); // override prose scope
+      }
+    }
+  }
+}
+
+.usa-card__container {
+  @include border-box-sizing;
+  @include typeset;
+  @include u-bg("white");
+  @include u-border($theme-card-border-width, $theme-card-border-color);
+  @include u-display("flex");
+  @include u-height("full");
+  @include u-flex("column");
+  @include u-margin-x($theme-card-gap / 2);
+  @include u-position("relative");
+  @include u-radius($theme-card-border-radius);
+}
+
+.usa-card:not(.usa-card--flag) .usa-card__container > :only-child {
+  @include u-padding($theme-card-padding-perimeter);
+}
+
+.usa-card .usa-card__img {
+  @include u-display("block");
+}
+
+// Header
+// ---------------------------------
+.usa-card__header {
+  @include u-padding-bottom($theme-card-padding-y / 2);
+  @include u-padding-top($theme-card-padding-perimeter);
+  @include u-padding-x($theme-card-padding-perimeter);
+
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding-perimeter);
+  }
+}
+
+.usa-card__heading {
+  @include typeset($theme-card-header-typeset);
+  @include u-margin(0);
+}
+
+// Media
+// ---------------------------------
+.usa-card__media {
+  @include u-order("first");
+  // IE 11
+  // http://github.com/philipwalton/flexbugs/issues/75
+  min-height: 1px;
+}
+
+.usa-card__img {
+  @include card-inner-radius;
+  @include u-bg("base-lightest");
+  @include u-position("relative");
+  overflow: hidden;
+
+  img {
+    @include u-display("block");
+    @include u-height("full");
+    @include u-width("full");
+    object-fit: cover;
+  }
+}
+
+.usa-card__media--inset {
+  @include u-padding-top($theme-card-padding-perimeter);
+  @include u-padding-x($theme-card-padding-perimeter);
+
+  .usa-card__img {
+    @include u-radius(0);
+  }
+}
+
+// Body
+// ---------------------------------
+.usa-card__body {
+  @include u-flex("fill");
+  @include u-padding-x($theme-card-padding-perimeter);
+  @include u-padding-y($theme-card-padding-y / 2);
+  // IE 11
+  flex-basis: auto;
+
+  // adjust spacing if body lack siblings
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding-perimeter);
+  }
+
+  &:first-child {
+    @include u-padding-top($theme-card-padding-perimeter);
+  }
+
+  &:only-child {
+    @include u-padding-y($theme-card-padding-perimeter);
+  }
+}
+
+// Footer
+// ---------------------------------
+.usa-card__footer {
+  @include u-padding-bottom($theme-card-padding-perimeter);
+  @include u-padding-top($theme-card-padding-y / 2);
+  @include u-padding-x($theme-card-padding-perimeter);
+}
+
+.usa-card__footer .usa-button:only-of-type {
+  @include u-margin-right(0);
+}
+
+.usa-card__header,
+.usa-card__body {
+  // strip spacing from first and last content
+  > :last-child {
+    @include u-padding-bottom(0);
+    @include u-margin-bottom(0);
+  }
+
+  > :first-child {
+    @include u-margin-top(0);
+    @include u-padding-top(0);
+  }
+
+  > :only-child {
+    @include u-margin-y(0);
+    @include u-padding-y(0);
+  }
+}
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Exdent
+.usa-card__header--exdent,
+.usa-card__media--exdent,
+.usa-card__footer--exdent {
+  @include u-margin-x(-$theme-card-border-width);
+}
+
+.usa-card__header--exdent,
+.usa-card__footer--exdent {
+  > * {
+    @include u-padding-x($theme-card-border-width);
+  }
+}
+
+.usa-card__media--exdent {
+  @include u-margin-top(-$theme-card-border-width);
+
+  .usa-card__img {
+    @include u-radius-top($theme-card-border-radius);
+  }
+}
+
+// Header first
+// ---------------------------------
+.usa-card--header-first {
+  .usa-card__header {
+    @include card-inner-radius;
+    @include u-padding-bottom($theme-card-padding-y);
+  }
+
+  .usa-card__header--exdent {
+    @include u-margin-top(-$theme-card-border-width);
+    @include u-radius-top($theme-card-border-radius);
+  }
+
+  .usa-card__media--inset {
+    @include u-padding-top(0);
+  }
+
+  .usa-card__media {
+    @include u-order(0);
+  }
+
+  .usa-card__img {
+    @include u-radius(0);
+  }
+
+  .usa-card__body {
+    @include u-padding-top($theme-card-padding-y);
+  }
+}
+
+.usa-card--flag {
+  @include at-media($theme-card-flag-min-width) {
+    .usa-card__media {
+      @include u-display("flex");
+      @include u-overflow("hidden");
+      @include u-pin-y;
+      @include u-pin-left;
+      @include u-position("absolute");
+      @include u-width($theme-card-flag-image-width);
+    }
+    .usa-card__img {
+      @include u-radius(0);
+      border-top-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
+      border-bottom-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
+    }
+
+    .usa-card__header,
+    .usa-card__body,
+    .usa-card__footer {
+      @include u-margin-left($theme-card-flag-image-width);
+    }
+
+    .usa-card__media--exdent {
+      @include u-margin-left(-$theme-card-border-width);
+      @include u-margin-right(0);
+      @include u-margin-y(-$theme-card-border-width);
+
+      .usa-card__img {
+        @include u-radius-left($theme-card-border-radius);
+      }
+    }
+
+    .usa-card__media--inset {
+      @include u-padding-right(0);
+      @include u-padding-bottom($theme-card-padding-perimeter);
+
+      .usa-card__img {
+        @include u-radius(0);
+      }
+    }
+
+    &.usa-card--header-first {
+      .usa-card__header {
+        @include u-padding-bottom($theme-card-padding-y / 2);
+      }
+      .usa-card__body {
+        @include u-padding-top($theme-card-padding-y / 2);
+      }
+      .usa-card__media--inset {
+        @include u-padding-top($theme-card-padding-perimeter);
+      }
+    }
+
+    &.usa-card--media-right {
+      .usa-card__media {
+        @include u-left("auto");
+        @include u-right(0);
+      }
+
+      .usa-card__media--inset {
+        @include u-padding-left(0);
+        @include u-padding-right($theme-card-padding-perimeter);
+
+        .usa-card__img {
+          @include u-radius(0);
+        }
+      }
+
+      .usa-card__img {
+        @include u-radius(0);
+        border-top-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+        border-bottom-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+      }
+
+      .usa-card__header,
+      .usa-card__body,
+      .usa-card__footer {
+        @include u-margin-left(0);
+        @include u-margin-right($theme-card-flag-image-width);
+      }
+
+      .usa-card__media--exdent {
+        @include u-margin-right(-$theme-card-border-width);
+        @include u-margin-left(0);
+
+        .usa-card__img {
+          @include u-radius(0);
+          @include u-radius-right($theme-card-border-radius);
+        }
+      }
+    }
+  }
+}
+
+.usa-card:not(.usa-card--flag).usa-card__media--set-aspect {
+  @include add-aspect("16x9");
+  @include u-position("relative");
+
+  .usa-card__img {
+    @include u-pin-all;
+  }
+}

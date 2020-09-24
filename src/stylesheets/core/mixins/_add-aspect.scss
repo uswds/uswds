@@ -9,7 +9,6 @@
   @if map-has-key($project-aspect-ratios, $ratio) {
     box-sizing: border-box #{$important};
     height: 0 #{$important};
-    max-width: 100% #{$important};
     overflow: hidden #{$important};
     padding: 0 0 map-get($project-aspect-ratios, $ratio) #{$important};
   } @else {

@@ -8,14 +8,14 @@ $usa-alerts: (
   success: "success-lighter",
   warning: "warning-lighter",
   error: "error-lighter",
-  info: "info-lighter"
+  info: "info-lighter",
 );
 
 $usa-alerts-bar: (
   success: "success",
   warning: "warning",
   error: "error",
-  info: "info"
+  info: "info",
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -51,14 +51,13 @@ $alert-padding-left: units($theme-alert-padding-x) +
     width: units($theme-alert-bar-width);
   }
 
-  ul {
-    margin-bottom: 0;
-    margin-top: units(1);
-    padding-left: units(1);
-  }
-
-  .usa-checklist {
+  > .usa-list,
+  .usa-alert__body > .usa-list {
     padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

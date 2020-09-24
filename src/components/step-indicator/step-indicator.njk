@@ -1,0 +1,17 @@
+<div class="usa-step-indicator{% if variant %} usa-step-indicator--{{ variant }}{% endif %}{% if centered %} usa-step-indicator--center{% endif %}" aria-label="progress">
+  <ol class="usa-step-indicator__segments"{% if noLabels %} aria-hidden="true"{% endif %}>{% for step in steps %}
+    <li class="usa-step-indicator__segment{% if step.status == "complete" %} usa-step-indicator__segment--complete{% endif %}{% if step.status == "current" %} usa-step-indicator__segment--current{% endif %}"{% if step.status == "current" and showLabels %} aria-current="true"{% endif %}>{% if step.label %}
+      <span class="usa-step-indicator__segment-label">{{ step.label }} {% if step.status == "complete" %}<span class="usa-sr-only">completed</span>{% endif %}{% if step.status == "incomplete" %}<span class="usa-sr-only">not completed</span>{% endif %}</span>
+    {% endif %}</li>{% endfor %}
+  </ol>
+  <div class="usa-step-indicator__header">
+    <h2 class="usa-step-indicator__heading">
+      <span class="usa-step-indicator__heading-counter">
+        <span class="usa-sr-only">Step</span>
+        <span class="usa-step-indicator__current-step">{{ currentStep }}</span>
+        <span class="usa-step-indicator__total-steps">of {{ steps.length }}</span>
+      </span>
+      <span class="usa-step-indicator__heading-text">Supporting documents</span>
+    </h2>
+  </div>
+</div>
