@@ -7,9 +7,6 @@ const TEMPLATE = fs.readFileSync(`${__dirname}/controls-template.html`);
 
 // `aria` prefixed attributes
 const EXPANDED = "aria-expanded";
-const CONTROLS = "aria-controls";
-const HIDDEN = "hidden";
-const MULTISELECTABLE = "aria-multiselectable";
 
 // Accordion expand/collapse control classes
 const EXPANDBUTTON = 'usa-accordion__controls--expand-all';
@@ -20,23 +17,19 @@ describe("accordion controls behavior", () => {
 
   let root;
   let controls;
-  let button;
   let buttons;
-  let content;
+  let expandAllBtn;
+  let collapseAllBtn;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
     Accordion.on();
 
     root = body.querySelector(".usa-accordion");
-    controls = root.querySelectorAll(".usa-accordion__controls")[0];
+    [controls] = root.querySelectorAll(".usa-accordion__controls");
     expandAllBtn = root.querySelectorAll(`.${EXPANDBUTTON}`);
     collapseAllBtn = root.querySelectorAll(`.${COLLAPSEBUTTON}`);
     buttons = root.querySelectorAll(".usa-accordion__button");
-    /* eslint-disable */
-    button = buttons[0];
-    /* eslint-enable */
-    content = document.getElementById(button.getAttribute(CONTROLS));
   });
 
   afterEach(() => {
