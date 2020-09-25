@@ -93,7 +93,7 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy-alpha:
+      - deploy-beta:
           requires:
             - build
           filters:
