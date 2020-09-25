@@ -65,6 +65,12 @@ $accordion-border: units($theme-accordion-border-width) solid
   + .usa-accordion--bordered {
     margin-top: units(1);
   }
+
+  // Expand all / Collapse all button group
+  // Needs specificity to override .usa-button-group.
+  .usa-accordion__controls {
+    @include u-justify-content($theme-accordion-controls-alignment);
+  }
 }
 
 .usa-accordion--bordered {
