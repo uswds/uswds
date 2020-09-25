@@ -1,13 +1,21 @@
 <div class="usa-accordion{%
   if accordion.variant %} usa-accordion--{{ accordion.variant }}{% endif %}"{%
   if accordion.multiselectable == true %} aria-multiselectable="true"{% endif %}>
-  <button
-    class="usa-accordion__button-control-all usa-button"
-    aria-expanded="false"
-    data-expanded-text="Expand all sections"
-    data-collapsed-text="Collapse all sections">
-    Expand all sections
-  </button>
+  {% if accordion.controls %}
+    <ul class="usa-accordion__controls usa-button-group usa-button-group--segmented" aria-label="Accordion controls"
+      aria-expanded="false">
+      <li class="usa-button-group__item">
+        <button class="usa-accordion__controls--expand-all usa-button usa-button--outline">
+          Expand all
+        </button>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-accordion__controls--collapse-all usa-button usa-button--outline">
+          Collapse all
+        </button>
+      </li>
+    </ul>
+  {% endif %}
   {% for item in accordion.items %}
       <!-- Use the accurate heading level to maintain the document outline -->
       <h2 class="usa-accordion__heading">

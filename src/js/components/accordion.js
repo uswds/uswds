@@ -7,7 +7,9 @@ const { prefix: PREFIX } = require("../config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
-const BUTTON_CONTROL_ALL = `.${PREFIX}-accordion__button-control-all`;
+const CONTROLS = `.${PREFIX}-accordion__controls`;
+const BUTTON_EXPAND_ALL = `.${PREFIX}-accordion__controls--expand-all`;
+const BUTTON_COLLAPSE_ALL = `.${PREFIX}-accordion__controls--collapse-all`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "aria-multiselectable";
 
@@ -54,25 +56,18 @@ const toggleButton = (button, expanded) => {
   }
 };
 
-const toggleText = (element) => {
-  let myElement = element;
-  const originalString = myElement.textContent.trim();
-  const startText = myElement.getAttribute('data-expanded-text');
-  const endText = myElement.getAttribute('data-collapsed-text');
+const toggleAll = (buttonAll, isExpanded) => {
+  const controls = buttonAll.closest(CONTROLS);
+  const accordion = controls.closest(ACCORDION);
+  const buttons = accordion.querySelectorAll(BUTTON);
 
-  myElement.textContent = (originalString === startText) ? endText : startText;
+  controls.setAttribute('aria-expanded', isExpanded);
+  buttons.forEach((button) => toggle(button, isExpanded));
 }
 
-const toggleAll = (toggleAllBtn) => {
-  const accordion = toggleAllBtn.closest(ACCORDION);
-  const buttons = getAccordionButtons(accordion);
-  let accordionExpanded = (toggleAllBtn.getAttribute(EXPANDED) === "true");
+const expandAll = (expandAllBtn) => toggleAll(expandAllBtn, true);
 
-  toggleText(toggleAllBtn);
-  toggleAllBtn.setAttribute('aria-expanded', !accordionExpanded);
-
-  buttons.forEach(button => toggle(button, !accordionExpanded));
-}
+const collapseAll = (collapseAllBtn) => toggleAll(collapseAllBtn, false);
 
 /**
  * @param {HTMLButtonElement} button
@@ -101,9 +96,14 @@ const accordion = behavior(
           if (!isElementInViewport(this)) this.scrollIntoView();
         }
       },
-      [BUTTON_CONTROL_ALL]() {
-        toggleAll(this);
-      }
+      [BUTTON_EXPAND_ALL](event) {
+        event.preventDefault();
+        expandAll(this);
+      },
+      [BUTTON_COLLAPSE_ALL](event) {
+        event.preventDefault();
+        collapseAll(this);
+      },
     }
   },
   {
@@ -119,6 +119,8 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
+    expandAll,
+    collapseAll,
   }
 );
 

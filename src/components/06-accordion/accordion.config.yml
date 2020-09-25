@@ -24,6 +24,13 @@ variants:
       accordion:
         id_prefix: m-
         multiselectable: true
+  - name: expand-collapse all
+    notes: >
+      You can add controls to expand/collapse all accordion items.
+    context:
+      accordion:
+        id_prefix: all-
+        controls: true
 
 context:
   accordion:
