@@ -137,6 +137,7 @@
     "/dist/js",
     "/dist/scss",
     "/src/js",
-    "CONTRIBUTING.md"
+    "CONTRIBUTING.md",
+    "SECURITY.md"
   ]
 }
