@@ -130,5 +130,13 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "yargs": "^16.0.3"
-  }
+  },
+  "files": [
+    "/dist/fonts",
+    "/dist/img",
+    "/dist/js",
+    "/dist/scss",
+    "/src/js",
+    "CONTRIBUTING.md"
+  ]
 }
