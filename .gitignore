@@ -28,3 +28,7 @@ spec/screenshots/metadata.js
 
 # ignore sassdoc build
 sassdoc/
+
+# ignore tarballs and gzipped files
+*.tgz
+*.gz
