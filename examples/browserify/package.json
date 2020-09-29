@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build:js": "browserify --debug -p mapstraction -g babelify -g uglifyify src/js/main.js -o js/main.js"
+    "build:js": "browserify --debug -p mapstraction -g babelify -g uglifyify src/patterns/js/main.js -o js/main.js"
   },
   "babel": {
     "presets": [

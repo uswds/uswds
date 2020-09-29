@@ -38,7 +38,7 @@ const ignoreStylelintIgnoreWarnings = (lintResults) =>
 
 gulp.task("stylelint", () =>
   gulp
-    .src("./src/stylesheets/**/*.scss")
+    .src("./src/patterns/stylesheets/**/*.scss")
     .pipe(
       gulpStylelint({
         failAfterError: true,
@@ -58,7 +58,7 @@ gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
 
   const source = "./node_modules/normalize.css/normalize.css";
-  const destination = "src/stylesheets/lib";
+  const destination = "src/patterns/stylesheets/lib";
 
   const stream = gulp
     .src([source])
@@ -77,7 +77,7 @@ gulp.task("copy-dist-sass", () => {
   dutil.logMessage("copy-dist-sass", "Copying all Sass to dist dir");
 
   const stream = gulp
-    .src("src/stylesheets/**/*.scss")
+    .src("src/patterns/stylesheets/**/*.scss")
     .pipe(gulp.dest("dist/scss"));
 
   return stream;
@@ -91,7 +91,7 @@ gulp.task(
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
     return gulp
-      .src("src/stylesheets/uswds.scss")
+      .src("src/patterns/stylesheets/uswds.scss")
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass

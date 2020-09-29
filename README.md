@@ -352,7 +352,7 @@ $theme-image-path:  '../img';
 
 - **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 - **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
-- **JS** is located in: `src/js (/components, /utils)`.
+- **JS** is located in: `src/patterns/js (/components, /utils)`.
 - **Fonts** are located in: `dist/fonts`.
 - **Images** and icons are located in: `dist/img`.
 

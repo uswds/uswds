@@ -73,7 +73,7 @@ gulp.task("default", function(done) {
 });
 
 gulp.task("watch", function() {
-  gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
-    gulp.watch("src/js/**/*.js", gulp.series("javascript"));
+  gulp.watch("src/patterns/stylesheets/**/*.scss", gulp.series("sass")),
+    gulp.watch("src/patterns/js/**/*.js", gulp.series("javascript"));
   return;
 });

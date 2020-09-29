@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const CharacterCount = require("../../../src/js/components/character-count");
+const CharacterCount = require("../../../src/patterns/js/components/character-count");
 
 const { VALIDATION_MESSAGE, MESSAGE_INVALID_CLASS } = CharacterCount;
 

@@ -2,7 +2,7 @@ require("sass");
 const path = require("path");
 const { runGulp, distScssPath, render } = require("./util");
 
-const includePath = path.resolve(path.join(__dirname, "../../src/stylesheets"));
+const includePath = path.resolve(path.join(__dirname, "../../src/patterns/stylesheets"));
 
 describe("include paths", () => {
   it('can be loaded with @import "uswds"', async () => {

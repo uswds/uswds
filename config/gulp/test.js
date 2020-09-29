@@ -23,5 +23,5 @@ gulp.task("cover", () =>
 );
 
 gulp.task("test:watch", () => {
-  gulp.watch(["spec/**/*.spec.js", "src/js/**/*.js"], gulp.series("test"));
+  gulp.watch(["spec/**/*.spec.js", "src/patterns/js/**/*.js"], gulp.series("test"));
 });

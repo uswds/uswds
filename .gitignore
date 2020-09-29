@@ -17,7 +17,7 @@ dist/
 build/
 
 # ignore gulp-generated vendor files
-src/stylesheets/lib
+src/patterns/stylesheets/lib
 
 # ignore saved screenshots
 spec/screenshots/*.png

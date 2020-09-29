@@ -15,7 +15,7 @@ gulp.task("css", function() {
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        includePaths: ["node_modules/uswds/src/stylesheets"],
+        includePaths: ["node_modules/uswds/src/patterns/stylesheets"],
         outputStyle: "compressed"
       })
     )
@@ -32,7 +32,7 @@ gulp.task("css", function() {
 
 gulp.task("js", function() {
   return browserify({
-    entries: "src/js/main.js",
+    entries: "src/patterns/js/main.js",
     debug: true
   })
     .transform("babelify", {

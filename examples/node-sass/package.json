@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build:css": "node-sass --include-path node_modules/uswds/src/stylesheets src/css -o css",
+    "build:css": "node-sass --include-path node_modules/uswds/src/patterns/stylesheets src/css -o css",
     "watch:css": "npm run build:css -- --watch"
   },
   "dependencies": {

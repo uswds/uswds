@@ -9,7 +9,7 @@ First, install the dependencies with [npm]:
 npm install
 ```
 
-Once you've done this, you can modify [src/js/main.js](src/js/main.js) and run
+Once you've done this, you can modify [src/patterns/js/main.js](src/patterns/js/main.js) and run
 the following command to build `js/main.js` and its complimentary [source map]:
 
 ```sh

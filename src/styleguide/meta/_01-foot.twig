@@ -1,0 +1,18 @@
+    <!-- Fake drupalSettings if you need it. -->
+    {# <script type="application/json" data-drupal-selector="drupal-settings-json"></script> #}
+
+    <!-- Drupal-provided JS so we can mock Drupal JS Behaviors. -->
+    {# <script src="/core/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/core/assets/vendor/jquery-once/jquery.once.min.js"></script>
+    <script src="/core/assets/vendor/domready/ready.min.js"></script>
+    <script src="/core/misc/drupalSettingsLoader.js"></script>
+    <script src="/core/misc/drupal.js"></script>
+    <script src="/core/misc/drupal.init.js"></script> #}
+
+    <!-- Concatenated by Gulp so you don't have to manually add each file. -->
+    {# <script src="../../js/scripts.js?{{ cacheBuster }}"></script> #}
+
+    <!--DO NOT REMOVE-->
+    {{ patternLabFoot|raw }}
+  </body>
+</html>

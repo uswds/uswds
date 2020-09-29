@@ -1,6 +1,6 @@
 const browserifyConfig = {
   dist: {
-    src: "src/js/main.js",
+    src: "src/patterns/js/main.js",
     dest: "./assets/js/main.js",
     options: {
       browserifyOptions: {
@@ -24,7 +24,7 @@ const sassConfig = {
     dest: "./assets/css/style.css",
     options: {
       style: "nested",
-      includePaths: ["node_modules/uswds/src/stylesheets"]
+      includePaths: ["node_modules/uswds/src/patterns/stylesheets"]
     }
   }
 };
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 
     watch: {
       js: {
-        files: "src/js/**/*.js",
+        files: "src/patterns/js/**/*.js",
         task: "browserify"
       },
       sass: {

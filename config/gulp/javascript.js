@@ -17,7 +17,7 @@ gulp.task(task, (done) => {
   dutil.logMessage(task, "Compiling JavaScript");
 
   const defaultStream = browserify({
-    entries: "src/js/start.js",
+    entries: "src/patterns/js/start.js",
     debug: true,
   }).transform("babelify", {
     global: true,
@@ -76,7 +76,7 @@ gulp.task("eslint", (done) => {
   }
 
   return gulp
-    .src(["src/js/**/*.js", "spec/**/*.js"])
+    .src(["src/patterns/js/**/*.js", "spec/**/*.js"])
     .pipe(
       eslint({
         fix: true,

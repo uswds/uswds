@@ -16,7 +16,7 @@ The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Ap
 
 ### Files licensed under the MIT license
 
-The files in `src/stylesheets/lib` are from:
+The files in `src/patterns/stylesheets/lib` are from:
 
 - [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
