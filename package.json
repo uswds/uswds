@@ -21,7 +21,7 @@
     "federalist": "npm install && gulp build && fractal build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
     "mocha": "mocha",
-    "prepare": "gulp build",
+    "prepare": "gulp build && fractal build",
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
@@ -137,6 +137,7 @@
     "/dist/js",
     "/dist/scss",
     "/src/js",
+    "/build/components/render",
     "CONTRIBUTING.md",
     "SECURITY.md"
   ]
