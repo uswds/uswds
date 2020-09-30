@@ -101,7 +101,19 @@ fractalLoad.then(() => {
               cdp.Emulation.setDeviceMetricsOverride(device.metrics)
             );
 
-            it("has no aXe violations", () => axeTester.run(cdp));
+            // it('has no aXe violations', () => axeTester.run({ cdp }));
+            it('has no aXe violations', () => axeTester.run({ cdp, warn: true }));
+            // it('has no aXe warnings', () => {
+            //   axeTester.run({cdp, warn: true}).then(response => {
+            //     // console.log("\x1b[33m", response);
+            //   }).catch(
+            //     error => {
+            //       // console.warn(error);
+            //       // console.log(new Error(error));
+            //       // console.log('******************************');
+            //     }
+            //   )
+            // });
 
             if (process.env.ENABLE_SCREENSHOTS) {
               const vrt = new VisualRegressionTester({ handle, device });
