@@ -1,6 +1,6 @@
 version: "2"
 plugins:
-  duplication:
+  duplications:
     enabled: true
     config:
       languages:
