@@ -1,4 +1,4 @@
-// Bring in individual Gulp configurations
+// Bring in individual Gulp configurations system
 require("./config/gulp/flags");
 require("./config/gulp/sass");
 require("./config/gulp/javascript");
