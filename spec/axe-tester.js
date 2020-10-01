@@ -1,5 +1,6 @@
 const fs = require("fs");
 const assert = require("assert");
+const colors = require('ansi-colors');
 
 const AXE_JS = fs.readFileSync(`${__dirname}/../node_modules/axe-core/axe.js`);
 
@@ -13,26 +14,34 @@ const AXE_CONTEXT = JSON.stringify({
   ]
 });
 
-const AXE_OPTIONS = JSON.stringify({
+const AXE_OPTIONS = {
   runOnly: {
-    type: "tag",
+    type: 'tag',
     // @TODO Separate "best-practice" and use warn instead of fail. Issue #3333 on USWDS github
-    values: ["section508", "wcag2a", "wcag2aa"]
+    values: ['section508', 'wcag2a', 'wcag2aa'],
   },
   rules: {
     // Not all our examples need "skip to main content" links, so
     // ignore that rule.
     bypass: { enabled: false },
     // Nor do all our examples need main landmarks...
-    "landmark-one-main": { enabled: false },
+    'landmark-one-main': { enabled: false },
     // Not all content will be in a landmark region
     region: { enabled: false },
     // Not all examples have skip-link as a first element
-    "skip-link": { enabled: false },
+    'skip-link': { enabled: false },
     // Not all examples will need an h1, ex: links.
-    "page-has-heading-one": { enabled: false }
-  }
-});
+    'page-has-heading-one': { enabled: false },
+  },
+};
+
+const AXE_BEST_PRACTICES = {
+  ...AXE_OPTIONS,
+  runOnly: {
+    ...AXE_OPTIONS.runOnly.type,
+    values: ['best-practice'],
+  },
+}
 
 // This function is only here so it can be easily .toString()'d
 // and run in the context of a web page by Chrome. It will not
