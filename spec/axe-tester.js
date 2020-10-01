@@ -17,7 +17,6 @@ const AXE_CONTEXT = JSON.stringify({
 const AXE_OPTIONS = {
   runOnly: {
     type: 'tag',
-    // @TODO Separate "best-practice" and use warn instead of fail. Issue #3333 on USWDS github
     values: ['section508', 'wcag2a', 'wcag2aa'],
   },
   rules: {
