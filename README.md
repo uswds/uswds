@@ -290,8 +290,8 @@ The following is an example of theme settings from `_uswds-theme-spacing.scss`:
 ```scss
 $theme-site-max-width: "desktop";
 $theme-site-margins-breakpoint: "desktop";
-$theme-site-margins-width: 4;
-$theme-site-margins-mobile-width: 2;
+$theme-site-margins-width: 4.2;
+$theme-site-margins-mobile-width: 2.1;
 ```
 
 The USWDS uses those tokens to build component styles:
