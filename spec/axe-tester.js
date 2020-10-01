@@ -58,32 +58,39 @@ function load(cdp) {
   });
 }
 
-function run(cdp) {
+/**
+ *
+ * @param { cdp, warn } - Run axe via Chrome Dev Protocol with a show warnings
+ * option as a boolean to show axe bestPractice errors.
+ */
+function run({ cdp, warn = false } = {}) {
+  const AXE_SETTINGS = warn ? AXE_BEST_PRACTICES : AXE_OPTIONS;
+
   return cdp.Runtime.evaluate({
-    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${AXE_OPTIONS})`,
-    awaitPromise: true
-  }).then(details => {
-    if (details.result.type !== "string") {
-      return Promise.reject(
-        new Error(
-          `Unexpected result from aXe JS evaluation: ${JSON.stringify(
-            details.result,
-            null,
-            2
-          )}`
-        )
-      );
-    }
-    const viols = JSON.parse(details.result.value);
-    if (viols.length > 0) {
-      const errorMsg = `Found ${viols.length} aXe violations:
-        ${JSON.stringify(viols, null, 2)}
+    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${JSON.stringify(
+      AXE_SETTINGS
+    )})`,
+    awaitPromise: true,
+  })
+  .then((details) => {
+    const violations = JSON.parse(details.result.value);
+    const violations_formatted = JSON.stringify(violations, null, 2);
+
+    if (!violations.length) {
+      return Promise.resolve();
+    } else {
+      let errorMsg = `
+        Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
+        ${violations_formatted}
         To debug these violations, install aXe at:
         https://www.deque.com/products/axe/`;
 
-      return Promise.reject(new Error(errorMsg));
+        if (!warn) {
+          return Promise.reject(new Error(errorMsg));
+        } else {
+          console.log(colors.yellow(errorMsg));
+        }
     }
-    return Promise.resolve();
   });
 }
 
