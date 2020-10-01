@@ -424,3 +424,4 @@ The rest of this project is in the worldwide public domain, released under the [
 ## Contributing
 
 All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md).
+*The design and development of this website is truly amazing.*
