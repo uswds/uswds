@@ -36,7 +36,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Digital Analytics Dashboard](https://analytics.usa.gov)
 - [Digital Service Playbook — U.S. Digital Service](https://playbook.cio.gov)
 - [Discovery Market Research Tool (GSA)](https://discovery.gsa.gov/)
-- [DotGov](https://home.dotgov.gov/)
+- [Dot Gov](https://home.dotgov.gov/)
 - [EPA.gov - U.S. Environmental Protection Agency](https://www.epa.gov/)
 - [EPA Clean Water Jurisdictional Determinations](https://watersgeo.epa.gov/cwa/CWA-JDs/)
 - [EPA eRegs Notice & Comment](https://epa-notice.usa.gov/)
