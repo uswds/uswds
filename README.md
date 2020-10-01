@@ -94,7 +94,7 @@ How you implement the design system depends on the needs of your project and you
    └── index.html
    ```
 
-   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
+   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any asset that are unique to your project and separate from the design system assets.
 
 3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
 
@@ -245,9 +245,9 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 - The CSS organization and naming conventions follow **[18F’s Front End Guide](https://frontend.18f.gov/css/)**.
 - We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Front End Guide](https://frontend.18f.gov/css/formatting/)**.
 - CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
-- Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
+- Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens(`-`) instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
 - Uses **modular CSS** for scalable, modular, and flexible code.
-- Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
+- Uses **nesting** when needed`. Nest minimally with up to two levels of nesting.
 - Hard-coded magic numbers are avoided.
 - Media queries are built **mobile first**.
 - **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
@@ -320,7 +320,7 @@ This is the functional equivalent of:
 }
 ```
 
-Which, if `$theme-respect-user-font-size` is set to `true` would output something like:
+Which, if `$theme-respect-user-font-size` is set to `true` would  give output something like:
 
 ```css
 .usa-example {
