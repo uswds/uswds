@@ -6,7 +6,7 @@
     "node": ">= 4"
   },
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "src/patterns/js/start.js",
+  "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "src/patterns/stylesheets/uswds.scss",
   "mocha": {
@@ -17,9 +17,9 @@
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
     "cover": "nyc --reporter=lcov --config config/nycrc.yml gulp cover",
-    "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/system-tokens'",
+    "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/tokens/color'",
     "federalist": "npm install && gulp build && fractal build",
-    "lint": "eslint src/patterns/js/**/*.js spec/**/*.js",
+    "lint": "eslint src/js/**/*.js spec/**/*.js",
     "mocha": "mocha",
     "prepare": "gulp build",
     "preversion": "npm test",
@@ -34,11 +34,11 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/patterns/stylesheets/**/*.scss",
-    "prettier:js": "npx prettier --write ./src/patterns/js/**/*.js"
+    "prettier:js": "npx prettier --write ./src/js/**/*.js"
   },
   "watch": {
     "src/patterns/stylesheets/**/*.scss": "build:css",
-    "src/patterns/js/**/*.js": "build:js"
+    "src/js/**/*.js": "build:js"
   },
   "repository": {
     "type": "git",
@@ -113,7 +113,6 @@
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.1.3",
-    "node-notifier": "^8.0.0",
     "normalize.css": "^8.0.1",
     "nswatch": "^0.2.0",
     "nyc": "^15.1.0",
@@ -132,5 +131,15 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "yargs": "^16.0.3"
-  }
+  },
+  "files": [
+    "/dist/fonts",
+    "/dist/img",
+    "/dist/js",
+    "/dist/scss",
+    "/src/js",
+    "/build/components/render",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ]
 }

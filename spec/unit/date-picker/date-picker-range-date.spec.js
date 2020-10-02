@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
 const EVENTS = require("./events");
-const DatePicker = require("../../../src/patterns/js/components/date-picker");
+const DatePicker = require("../../../src/js/components/date-picker");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker-range-date.template.html")

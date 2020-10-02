@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
 const EVENTS = require("./events");
-const DatePicker = require("../../../src/patterns/js/components/date-picker");
-const DateRangePicker = require("../../../src/patterns/js/components/date-range-picker");
+const DatePicker = require("../../../src/js/components/date-picker");
+const DateRangePicker = require("../../../src/js/components/date-range-picker");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-range-picker-min-date-max-date.template.html")

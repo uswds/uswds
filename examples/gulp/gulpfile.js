@@ -32,7 +32,7 @@ gulp.task("css", function() {
 
 gulp.task("js", function() {
   return browserify({
-    entries: "src/patterns/js/main.js",
+    entries: "src/js/main.js",
     debug: true
   })
     .transform("babelify", {

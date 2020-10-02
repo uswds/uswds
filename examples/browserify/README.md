@@ -9,7 +9,7 @@ First, install the dependencies with [npm]:
 npm install
 ```
 
-Once you've done this, you can modify [src/patterns/js/main.js](src/patterns/js/main.js) and run
+Once you've done this, you can modify [src/js/main.js](src/js/main.js) and run
 the following command to build `js/main.js` and its complimentary [source map]:
 
 ```sh
@@ -49,5 +49,5 @@ for more information.
 ### JS bundling guidance
 - You don't need to use `babelify` if you're just using `require('uswds')`, because our ["main" field](https://github.com/18F/web-design-standards/blob/develop/package.json#L5) points to the built distribution.
 - If you wish to import uswds submodules directly with browserify,
- such as `require('uswds/src/patterns/js/components/accordion')`, you should use `babelify` as a global transform.
-- If you're using `babelify` (or another Babel-powered browserify transform) already, you can access the ES2015 entry point directly with `require('uswds/src/patterns/js/start')`. **Note that you must either use the transform globally, or tell it _not_ to exclude scripts in `node_modules`.**
+ such as `require('uswds/src/js/components/accordion')`, you should use `babelify` as a global transform.
+- If you're using `babelify` (or another Babel-powered browserify transform) already, you can access the ES2015 entry point directly with `require('uswds/src/js/start')`. **Note that you must either use the transform globally, or tell it _not_ to exclude scripts in `node_modules`.**

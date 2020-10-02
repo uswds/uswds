@@ -1,5 +1,5 @@
 const assert = require("assert");
-const tooltip = require("../../../src/patterns/js/components/tooltip");
+const tooltip = require("../../../src/js/components/tooltip");
 const fs = require("fs");
 const path = require("path");
 

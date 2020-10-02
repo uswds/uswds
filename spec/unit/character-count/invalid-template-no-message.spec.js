@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const CharacterCount = require("../../../src/patterns/js/components/character-count");
+const CharacterCount = require("../../../src/js/components/character-count");
 
 const INVALID_TEMPLATE_NO_MESSAGE = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-message.template.html")

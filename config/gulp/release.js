@@ -1,23 +1,21 @@
 const del = require("del");
 const spawn = require("cross-spawn");
 const gulp = require("gulp");
-const dutil = require("./doc-util");
 const crypto = require('crypto');
 const fs = require('fs');
-
-const task = "release";
+const log = require("fancy-log");
+const pkg = require("../../package.json");
 const hash = crypto.createHash('sha256');
+const dirName = pkg.name + '-' + pkg.version;
 
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
 const createHash = (file) => {
-  dutil.logMessage('createHash', 'Generating sha256sum hash from ZIP file.');
-
   let file_buffer = fs.readFileSync(file);
   hash.update(file_buffer);
   const dir = './security';
   const hex = hash.digest('hex');
-  const fileName = `${dir}/${dutil.dirName}-zip-hash.txt`;
+  const fileName = `${dir}/${dirName}-zip-hash.txt`;
   const fileContents = hex;
 
   if (!fs.existsSync(dir)) {
@@ -25,71 +23,53 @@ const createHash = (file) => {
   }
 
   fs.writeFile(fileName, fileContents, (error) => {
-    if (error) return dutil.logError(`Error writing hash: ${error}`);
+    if (error) return log(error);
   });
 };
 
 gulp.task("make-tmp-directory", () => {
-  dutil.logMessage(
-    "make-tmp-directory",
-    "Creating temporary release directory."
-  );
-  return gulp.src("dist/**/*").pipe(gulp.dest(dutil.dirName));
+  return gulp.src("dist/**/*").pipe(gulp.dest(dirName));
 });
 
 gulp.task("clean-tmp-directory", () => {
-  dutil.logMessage(
-    "clean-tmp-directory",
-    "Deleting temporary release directory."
-  );
-  return del(dutil.dirName);
+  return del(dirName);
 });
 
 gulp.task("zip-archives", (done) => {
   const zip = spawn("zip", [
     "--log-info",
     "-r",
-    `./dist/${dutil.dirName}.zip`,
-    dutil.dirName,
+    `./dist/${dirName}.zip`,
+    dirName,
     '-x "*.DS_Store"',
   ]);
 
-  dutil.logMessage(
-    "zip-archives",
-    `Creating a zip archive in dist/${dutil.dirName}.zip`
-  );
-
   zip.stdout.on("data", (data) => {
     if (/[\w\d]+/.test(data)) {
-      dutil.logData("zip-archives", data);
+      log(data);
     }
   });
 
-  zip.stderr.on("data", (data) => {
-    dutil.logError("zip-archives", data);
+  zip.stderr.on("data", (error) => {
+    log(error);
   });
 
   zip.on("error", (error) => {
-    dutil.logError("zip-archives", "Failed to create a zip archive");
+    log(error);
     done(error);
   });
 
   zip.on("close", (code) => {
     if (code === 0) {
-      createHash(`dist/${dutil.dirName}.zip`);
+      createHash(`dist/${dirName}.zip`);
       done();
     }
   });
 });
 
-gulp.task(
-  task,
+gulp.task("release",
   gulp.series(
     (done) => {
-      dutil.logMessage(
-        task,
-        `Creating a zip archive at dist/${dutil.dirName}.zip`
-      );
       done();
     },
     "build",

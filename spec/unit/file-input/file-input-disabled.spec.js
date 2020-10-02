@@ -1,5 +1,5 @@
 const assert = require("assert");
-const fileInput = require("../../../src/patterns/js/components/file-input");
+const fileInput = require("../../../src/js/components/file-input");
 const fs = require("fs");
 const path = require("path");
 

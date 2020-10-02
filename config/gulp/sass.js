@@ -11,12 +11,10 @@ const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const changed = require("gulp-changed");
-const dutil = require("./doc-util");
 const pkg = require("../../package.json");
+const log = require("fancy-log");
 
-const task = "sass";
 const normalizeCssFilter = filter("**/normalize.css", { restore: true });
-
 sass.compiler = require("sass");
 
 const IGNORE_STRING = "This file is ignored";
@@ -51,12 +49,12 @@ gulp.task("stylelint", () =>
         syntax: "scss",
       })
     )
-    .on("error", dutil.logError)
+    .on("error", (error) => {
+      log(error);
+    })
 );
 
 gulp.task("copy-vendor-sass", () => {
-  dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
-
   const source = "./node_modules/normalize.css/normalize.css";
   const destination = "src/patterns/stylesheets/lib";
 
@@ -66,7 +64,7 @@ gulp.task("copy-vendor-sass", () => {
     .pipe(rename("_normalize.scss"))
     .pipe(changed(destination))
     .on("error", (error) => {
-      dutil.logError("copy-vendor-sass", error);
+      log(error);
     })
     .pipe(gulp.dest(destination));
 
@@ -74,8 +72,6 @@ gulp.task("copy-vendor-sass", () => {
 });
 
 gulp.task("copy-dist-sass", () => {
-  dutil.logMessage("copy-dist-sass", "Copying all Sass to dist dir");
-
   const stream = gulp
     .src("src/patterns/stylesheets/**/*.scss")
     .pipe(gulp.dest("dist/scss"));
@@ -83,33 +79,24 @@ gulp.task("copy-dist-sass", () => {
   return stream;
 });
 
-gulp.task(
-  "sass",
-  gulp.series("copy-vendor-sass", () => {
-    dutil.logMessage(task, "Compiling Sass");
-    const pluginsProcess = [discardComments(), autoprefixer()];
-    const pluginsMinify = [csso({ forceMediaMerge: false })];
+gulp.task("sass", gulp.series("copy-vendor-sass", () => {
+  const pluginsProcess = [discardComments(), autoprefixer()];
+  const pluginsMinify = [csso({ forceMediaMerge: false })];
 
-    return gulp
-      .src("src/patterns/stylesheets/uswds.scss")
-      .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(
-        sass
-          .sync({
-            outputStyle: "expanded",
-          })
-          .on("error", sass.logError)
-      )
-      .pipe(postcss(pluginsProcess))
-      .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
-      .pipe(gulp.dest("dist/css"))
-      .pipe(postcss(pluginsMinify))
-      .pipe(
-        rename({
-          suffix: ".min",
-        })
-      )
-      .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("dist/css"));
+  return gulp
+    .src("src/patterns/stylesheets/uswds.scss")
+    .pipe(sourcemaps.init({ largeFile: true }))
+    .pipe(
+      sass
+        .sync({ outputStyle: "expanded", })
+        .on("error", sass.logError)
+    )
+    .pipe(postcss(pluginsProcess))
+    .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
+    .pipe(gulp.dest("dist/css"))
+    .pipe(postcss(pluginsMinify))
+    .pipe(rename({ suffix: ".min", }))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("dist/css"));
   })
 );

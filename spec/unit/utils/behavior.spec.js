@@ -1,7 +1,7 @@
 /* eslint-disable */
 // TODO: many of these dont test anything, use spies to ensure the methods are being called
 const assert = require("assert");
-const Behavior = require("../../../src/patterns/js/utils/behavior");
+const Behavior = require("../../../src/js/utils/behavior");
 
 describe("behavior", () => {
   it("returns an object", () => {

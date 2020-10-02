@@ -9,4 +9,4 @@ exclude_patterns:
   - config/**/*.js
   - dist/**/*.js
   - spec/**/*
-  - src/patterns/js/vendor/**/*.js
+  - src/js/vendor/**/*.js

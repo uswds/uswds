@@ -8,27 +8,18 @@ const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
-const dutil = require("./doc-util");
-const cFlags = require("./cflags");
+const pkg = require("../../package.json");
 
-const task = "javascript";
-
-gulp.task(task, (done) => {
-  dutil.logMessage(task, "Compiling JavaScript");
-
-  const defaultStream = browserify({
-    entries: "src/patterns/js/start.js",
-    debug: true,
-  }).transform("babelify", {
-    global: true,
-    presets: ["@babel/preset-env"],
-  });
+gulp.task("javascript", (done) => {
+  const defaultStream =
+    browserify({ entries: "src/js/start.js", debug: true, })
+    .transform("babelify", { global: true, presets: ["@babel/preset-env"],});
 
   const stream = defaultStream
     .bundle()
     .pipe(source("uswds.js")) // XXX why is this necessary?
     .pipe(buffer())
-    .pipe(rename({ basename: dutil.pkg.name }))
+    .pipe(rename({ basename: pkg.name }))
     .pipe(gulp.dest("dist/js"));
 
   stream.pipe(sourcemaps.init({ loadMaps: true }));
@@ -39,11 +30,7 @@ gulp.task(task, (done) => {
 
   stream
     .on("error", log)
-    .pipe(
-      rename({
-        suffix: ".min",
-      })
-    )
+    .pipe(rename({ suffix: ".min", }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/js"));
 
@@ -51,37 +38,24 @@ gulp.task(task, (done) => {
   return stream;
 });
 
-gulp.task(
-  "typecheck",
-  () =>
-    new Promise((resolve, reject) => {
-      childProcess
-        .spawn("./node_modules/.bin/tsc", { stdio: "inherit" })
-        .on("error", reject)
-        .on("exit", (code) => {
-          if (code === 0) {
-            dutil.logMessage("typecheck", "TypeScript likes our code!");
-            resolve();
-          } else {
-            reject(new Error("TypeScript failed, see output for details!"));
-          }
-        });
-    })
+gulp.task("typecheck", () => new Promise((resolve, reject) => {
+  childProcess
+    .spawn("./node_modules/.bin/tsc", { stdio: "inherit" })
+    .on("error", reject)
+    .on("exit", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error("TypeScript failed, see output for details!"));
+      }
+    });
+  })
 );
 
-gulp.task("eslint", (done) => {
-  if (!cFlags.test) {
-    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-    return done();
-  }
-
+gulp.task("eslint", () => {
   return gulp
-    .src(["src/patterns/js/**/*.js", "spec/**/*.js"])
-    .pipe(
-      eslint({
-        fix: true,
-      })
-    )
+    .src(["src/js/**/*.js", "spec/**/*.js"])
+    .pipe(eslint({ fix: true, }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });

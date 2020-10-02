@@ -1,5 +1,5 @@
 const assert = require("assert");
-const toggleFieldMask = require("../../../src/patterns/js/utils/toggle-field-mask");
+const toggleFieldMask = require("../../../src/js/utils/toggle-field-mask");
 
 const createElement = (name, attrs) => {
   const el = document.createElement(name);

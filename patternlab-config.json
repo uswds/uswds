@@ -47,7 +47,7 @@
         "viewall": "views/viewall.mustache"
       },
       "js": "./dist/js",
-      "images": "./dist/images",
+      "images": "./dist/img",
       "fonts": "./dist/fonts",
       "css": "./dist/css"
     },
@@ -58,7 +58,7 @@
       "annotations": "./patternlab/annotations/",
       "styleguide": "./patternlab/styleguide/",
       "js": "./patternlab/js",
-      "images": "./patternlab/images",
+      "images": "./patternlab/img",
       "fonts": "./patternlab/fonts",
       "css": "./patternlab/css"
     }

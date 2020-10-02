@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build:js": "webpack -p --devtool sourcemap src/patterns/js/main.js js/main.js"
+    "build:js": "webpack -p --devtool sourcemap src/js/main.js js/main.js"
   },
   "dependencies": {
     "uswds": "^1.1.0",

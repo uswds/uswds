@@ -1,6 +1,6 @@
 const browserifyConfig = {
   dist: {
-    src: "src/patterns/js/main.js",
+    src: "src/js/main.js",
     dest: "./assets/js/main.js",
     options: {
       browserifyOptions: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 
     watch: {
       js: {
-        files: "src/patterns/js/**/*.js",
+        files: "src/js/**/*.js",
         task: "browserify"
       },
       sass: {

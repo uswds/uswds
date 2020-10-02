@@ -1,5 +1,78 @@
+'use strict';
+
+// Include gulp helpers.
+const { series, parallel, watch } = require('gulp');
+
+// Include Pattern Lab and config.
+const config = require('./patternlab-config.json');
+const patternlab = require('@pattern-lab/core')(config);
+
+// Include Our tasks.
+//
+// Each task is broken apart to it's own node module.
+// Check out the ./gulp-tasks directory for more.
+const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass } = require('./gulp-tasks/clean');
+
+// Clean all directories.
+exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
+
+
+/**
+ * Start Pattern Lab build watch process.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function watchPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: true
+    })
+    .then(() => {
+      done();
+    });
+}
+
+/**
+ * Build Pattern Lab.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function buildPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: false
+    })
+    .then(() => {
+      done();
+    });
+}
+
+// Browsersync
+const server = require('browser-sync').create();
+
+/**
+ * Start browsersync server.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function serve(done) {
+  // See https://browsersync.io/docs/options for more options.
+  server.init({
+    server: ['./patternlab/'],
+    notify: false,
+    open: false
+  });
+  done();
+}
+
+
+
+
+
+
 // Bring in individual Gulp configurations
-require("./config/gulp/flags");
 require("./config/gulp/sass");
 require("./config/gulp/javascript");
 require("./config/gulp/images");
@@ -74,6 +147,10 @@ gulp.task("default", function(done) {
 
 gulp.task("watch", function() {
   gulp.watch("src/patterns/stylesheets/**/*.scss", gulp.series("sass")),
-    gulp.watch("src/patterns/js/**/*.js", gulp.series("javascript"));
+  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
   return;
 });
+
+
+
+exports.pl = buildPatternlab;
