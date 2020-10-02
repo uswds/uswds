@@ -82,22 +82,31 @@ function run({ cdp, warn = false } = {}) {
   })
   .then((details) => {
     const violations = JSON.parse(details.result.value);
-    const violations_formatted = JSON.stringify(violations, null, 2);
+    const violationsFormatted = JSON.stringify(violations, null, 2);
+
+    /**
+     * Reject and show an error if it's a 'section508', 'wcag2a', 'wcag2aa'
+     * violation. Otherwise, show a console warning.
+     */
+    const handleError = () => {
+      let errorMsg = `
+        Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
+        ${violationsFormatted}
+        To debug these violations, install aXe at:
+        https://www.deque.com/products/axe/`;
+
+      if (!warn) {
+        return Promise.reject(new Error(errorMsg));
+      } else {
+        /* eslint-disable-next-line no-console */
+        return console.log(colors.yellow(errorMsg));
+      }
+    };
 
     if (!violations.length) {
       return Promise.resolve();
     } else {
-      let errorMsg = `
-        Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
-        ${violations_formatted}
-        To debug these violations, install aXe at:
-        https://www.deque.com/products/axe/`;
-
-        if (!warn) {
-          return Promise.reject(new Error(errorMsg));
-        } else {
-          console.log(colors.yellow(errorMsg));
-        }
+      return handleError(violations);
     }
   });
 }
