@@ -77,7 +77,10 @@ $identifier-bold-weight: if($theme-font-weight-bold, "bold", "normal");
 }
 
 .usa-identifier__identity-domain {
-  @include u-text($identifier-thin-weight, $theme-identifier-identity-domain-color);
+  @include u-text(
+    $identifier-thin-weight,
+    $theme-identifier-identity-domain-color
+  );
 }
 
 .usa-identifier__identity-disclaimer {
