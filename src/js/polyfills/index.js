@@ -6,3 +6,5 @@ require("./element-hidden");
 require("./number-is-nan");
 // polyfills CustomEvent
 require("./custom-event");
+// polyfills forEach on nodelists
+require("./nodelist-foreach");
