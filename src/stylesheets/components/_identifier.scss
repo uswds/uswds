@@ -4,6 +4,8 @@ $identifier-section-margin-y-small: 1;
 $identifier-link-gap: 1.5;
 $identifier-link-gap-desktop: 1;
 $identifier-links-gap: 4 !default;
+$identifier-thin-weight: if($theme-font-weight-light, "light", "normal");
+$identifier-bold-weight: if($theme-font-weight-bold, "bold", "normal");
 
 @mixin identifier-secondary-link {
   @include set-link-from-bg(
@@ -75,11 +77,11 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__identity-domain {
-  @include u-text("light", $theme-identifier-identity-domain-color);
+  @include u-text($identifier-thin-weight, $theme-identifier-identity-domain-color);
 }
 
 .usa-identifier__identity-disclaimer {
-  @include u-text("bold");
+  @include u-text($identifier-bold-weight);
 
   a {
     @include set-link-from-bg($theme-identifier-background-color);
@@ -130,7 +132,7 @@ $identifier-links-gap: 4 !default;
 
 .usa-identifier__section--usagov a {
   @include set-link-from-bg($theme-identifier-background-color);
-  @include u-text("bold");
+  @include u-text($identifier-bold-weight);
   display: inline-block;
   margin-top: units(1);
 
