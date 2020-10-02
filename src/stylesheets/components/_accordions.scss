@@ -110,6 +110,10 @@ $accordion-border: units($theme-accordion-border-width) solid
   > *:last-child {
     margin-bottom: 0;
   }
+
+  @media print {
+    display: initial;
+  }
 }
 
 .usa-accordion__button {
