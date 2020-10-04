@@ -12,10 +12,34 @@ const patternlab = require('@pattern-lab/core')(config);
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
 const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass } = require('./gulp-tasks/clean');
+const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require('./gulp-tasks/copy');
+const { lintSass, lintJS } = require('./gulp-tasks/lint');
+const { compileSass, compileJS } = require('./gulp-tasks/compile');
+const server = require('browser-sync').create();
 
 // Clean all directories.
 exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
 
+// Lint Sass and JavaScript
+exports.lint = parallel(lintSass, lintJS);
+
+// Compile Our Sass and JS
+exports.compile = parallel(compileSass, compileJS);
+
+/**
+ * Start browsersync server.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function serve(done) {
+  // See https://browsersync.io/docs/options for more options.
+  server.init({
+    server: ['./patternlab/'],
+    notify: false,
+    open: false
+  });
+  done();
+}
 
 /**
  * Start Pattern Lab build watch process.
@@ -49,108 +73,63 @@ function buildPatternlab(done) {
     });
 }
 
-// Browsersync
-const server = require('browser-sync').create();
+// Build task for Pattern Lab.
+exports.styleguide = buildPatternlab;
 
 /**
- * Start browsersync server.
- * @param {function} done callback function.
+ * Watch Sass and JS files.
  * @returns {undefined}
  */
-function serve(done) {
-  // See https://browsersync.io/docs/options for more options.
-  server.init({
-    server: ['./patternlab/'],
-    notify: false,
-    open: false
+function watchFiles() {
+  // Watch all my sass files and compile sass if a file changes.
+  watch(
+    './src/patterns/**/**/*.scss',
+    series(parallel(lintSass, compileSass), (done) => {
+      server.reload('*.css');
+      done();
+    })
+  );
+
+  // Watch all my JS files and compile if a file changes.
+  watch(
+    './src/js/**/*.js',
+    series(parallel(lintJS, compileJS), (done) => {
+      server.reload('*.js');
+      done();
+    })
+  );
+
+  // Watch all my patterns and compile if a file changes.
+  watch(
+    './src/patterns/**/**/*{.twig,.yml}',
+    series(
+      parallel(buildPatternlab), (done) => {
+        server.reload('*{.html}');
+        done();
+      }
+    )
+  );
+
+  // Reload the browser after patternlab updates.
+  patternlab.events.on('patternlab-build-end', () => {
+    server.reload('*.html');
   });
-  done();
 }
 
+// Watch task that runs a browsersync server.
+exports.watch = series(
+  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
+  parallel(copyVendor),
+  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(copyFonts, copyImages, copySass, copyStyleguide),
+  series(watchPatternlab, serve, watchFiles)
+);
 
-
-
-
-
-// Bring in individual Gulp configurations
-require("./config/gulp/sass");
-require("./config/gulp/javascript");
-require("./config/gulp/images");
-require("./config/gulp/fonts");
-require("./config/gulp/build");
-require("./config/gulp/release");
-require("./config/gulp/test");
-
-var gulp = require("gulp");
-var dutil = require("./config/gulp/doc-util");
-
-gulp.task("default", function(done) {
-  dutil.logIntroduction();
-
-  dutil.logHelp(
-    "gulp",
-    "This task will output the currently supported automation tasks. (e.g. This help message.)"
-  );
-
-  dutil.logHelp(
-    "gulp no-cleanup [ task-name ]",
-    "Prefixing tasks with `no-cleanup ` will not remove the distribution directories."
-  );
-
-  dutil.logHelp(
-    "gulp no-test [ task-name ]",
-    "Prefixing tasks with `no-test` will disable testing and linting for all supported tasks."
-  );
-
-  dutil.logCommand(
-    "gulp clean-dist",
-    "This task will remove the distribution directories."
-  );
-
-  dutil.logHelp(
-    "gulp build",
-    "This task is an alias for running `gulp sass javascript images fonts` and is the recommended task to build all assets."
-  );
-
-  dutil.logCommand(
-    "gulp sass",
-    "This task will compile all the Sass files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp javascript",
-    "This task will compile all the JavaScript files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp images",
-    "This task will copy all the image files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp fonts",
-    "This task will copy all the font files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp release",
-    "This task will run `gulp build` and prepare a release directory."
-  );
-
-  dutil.logCommand(
-    "gulp test",
-    "This task will run `gulp test` and run this repository's unit tests."
-  );
-
-  done();
-});
-
-gulp.task("watch", function() {
-  gulp.watch("src/patterns/stylesheets/**/*.scss", gulp.series("sass")),
-  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
-  return;
-});
-
-
-
-exports.pl = buildPatternlab;
+// Default Task
+exports.default = series(
+  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
+  parallel(copyVendor),
+  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(copyFonts, copyImages, copySass, copyStyleguide),
+  buildPatternlab
+);
