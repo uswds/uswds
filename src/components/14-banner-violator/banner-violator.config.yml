@@ -41,16 +41,16 @@ variants:
         classes: "usa-alert--info"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
-  - name: no-icon
-    label: No icon
-    context:
-      alert:
-        classes: "usa-alert--info usa-alert--no-icon"
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+  # - name: no-icon
+  #   label: No icon
+  #   context:
+  #     alert:
+  #       classes: "usa-alert--info usa-alert--no-icon"
+  #       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
-  - name: slim
-    label: Slim
-    context:
-      alert:
-        classes: "usa-alert--info usa-alert--slim"
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+  # - name: slim
+  #   label: Slim
+  #   context:
+  #     alert:
+  #       classes: "usa-alert--info usa-alert--slim"
+  #       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
