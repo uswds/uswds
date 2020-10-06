@@ -20,7 +20,7 @@ module.exports = {
 
   // Copy Sass to dist folder
   copySass: function() {
-    return src('src/patterns/stylesheets/**/*.scss')
+    return src('src/patterns/**/**/*.scss')
       .pipe(dest('dist/scss'));
   },
 
