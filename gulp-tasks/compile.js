@@ -47,8 +47,8 @@ module.exports = {
       .pipe(sass.sync({ outputStyle: 'expanded' }).on('error', handleError))
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
-      .pipe(postcss(pluginsMinify))
       .pipe(dest('dist/css'))
+      .pipe(postcss(pluginsMinify))
       .pipe(rename({ suffix: '.min' }))
       .pipe(sourcemaps.write("."))
       .pipe(dest('dist/css'));
