@@ -1,0 +1,4 @@
+---
+modifier: 'usa-accordion--multiselectable'
+multiselectable: true
+id_prefix: 'm-'
