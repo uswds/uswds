@@ -12,19 +12,26 @@ const patternlab = require('@pattern-lab/core')(config);
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
 const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass } = require('./gulp-tasks/clean');
+const { compileSass, compileJS } = require('./gulp-tasks/compile');
 const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require('./gulp-tasks/copy');
 const { lintSass, lintJS } = require('./gulp-tasks/lint');
-const { compileSass, compileJS } = require('./gulp-tasks/compile');
+const { moveFonts, movePatternCSS } = require('./gulp-tasks/move');
 const server = require('browser-sync').create();
 
 // Clean all directories.
 exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
 
+// Lint Sass
+exports.lintSass = parallel(lintSass);
+
+// Lint JavaScript
+exports.lintJS = parallel(lintJS);
+
 // Lint Sass and JavaScript
 exports.lint = parallel(lintSass, lintJS);
 
 // Compile Our Sass and JS
-exports.compile = parallel(compileSass, compileJS);
+exports.compile = parallel(compileSass, compileJS, moveFonts, movePatternCSS);
 
 /**
  * Start browsersync server.
