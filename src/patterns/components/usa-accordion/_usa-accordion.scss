@@ -1,12 +1,9 @@
-@use "../core" as *;
+@use "../../stylesheets/core" as *;
 
 // Variables
-
-$accordion-border: units($theme-accordion-border-width) solid
-  color($theme-accordion-border-color);
+$accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
 
 // Accordion Styles
-
 @mixin accordion-list-styles {
   @include unstyled-list;
   color: color("ink");
@@ -19,7 +16,6 @@ $accordion-border: units($theme-accordion-border-width) solid
 @mixin accordion-button-styles {
   @include button-unstyled;
   @include add-background-svg("minus");
-
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
   background-size: units(2);
@@ -38,8 +34,8 @@ $accordion-border: units($theme-accordion-border-width) solid
     text-decoration: none;
   }
 }
-// scss-lint:enable PropertyCount
 
+// scss-lint:enable PropertyCount
 @mixin accordion-button-unopened-styles {
   @include add-background-svg("plus");
   background-size: units(2);
@@ -62,7 +58,6 @@ $accordion-border: units($theme-accordion-border-width) solid
   @include accordion-nested-list;
   @include border-box-sizing;
   @include typeset($theme-accordion-font-family);
-
   + .usa-accordion,
   + .usa-accordion--bordered {
     margin-top: units(1);

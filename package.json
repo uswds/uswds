@@ -133,7 +133,7 @@
     "/dist/js",
     "/dist/scss",
     "/src/js",
-    "/build/components/render",
+    "/patternlab",
     "CONTRIBUTING.md",
     "SECURITY.md"
   ]
