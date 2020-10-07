@@ -1,4 +1,4 @@
-@use "../core" as *;
+@use "../../stylesheets/core" as *;
 
 // Alert variables ---------- //
 // TODO: Custom alerts are effectively hidden and not well supported
@@ -22,8 +22,7 @@ $usa-alerts-bar: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-$alert-padding-left: units($theme-alert-padding-x) +
-  units($theme-alert-bar-width);
+$alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
