@@ -1,0 +1,41 @@
+// Alert variables ---------- //
+// TODO: Custom alerts are effectively hidden and not well supported
+// Consider removing or rebuilding
+$usa-custom-alerts: () !default;
+$usa-custom-alerts-bar: () !default;
+
+$usa-alerts: (
+  success: "success-lighter",
+  warning: "warning-lighter",
+  error: "error-lighter",
+  info: "info-lighter",
+);
+
+$usa-alerts-bar: (
+  success: "success",
+  warning: "warning",
+  error: "error",
+  info: "info",
+);
+
+$alerts: map-merge($usa-alerts, $usa-custom-alerts);
+
+.usa-alert-banner {
+  .usa-alert {
+    &::before {
+      display:none;
+    }
+  }
+}
+
+@each $name, $bgcolor in $alerts {
+  .usa-alert-banner--#{$name} {
+    background-color: color($bgcolor);
+  }
+}
+
+.usa-alert-banner--grid-contained {
+  .usa-alert {
+    @include grid-container();
+  }
+}

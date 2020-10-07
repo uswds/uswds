@@ -8,6 +8,8 @@ variants:
   - name: info
     label: Info
     context:
+      banner:
+        classes: "usa-alert-banner--info"
       alert:
         classes: "usa-alert--info"
         title: Informative status
@@ -15,6 +17,8 @@ variants:
   - name: success
     label: Success
     context:
+      banner:
+        classes: "usa-alert-banner--success"
       alert:
         classes: "usa-alert--success"
         title: Success status
@@ -22,6 +26,17 @@ variants:
   - name: warning
     label: Warning
     context:
+      banner:
+        classes: "usa-alert-banner--warning"
+      alert:
+        classes: "usa-alert--warning"
+        title: Warning status
+
+  - name: warning-grid-contained
+    label: Warning Grid Contained
+    context:
+      banner:
+        classes: "usa-alert-banner--warning usa-alert-banner--grid-contained"
       alert:
         classes: "usa-alert--warning"
         title: Warning status
@@ -29,6 +44,8 @@ variants:
   - name: error
     label: Error
     context:
+      banner:
+        classes: "usa-alert-banner---error"
       alert:
         classes: "usa-alert--error"
         title: Error status
@@ -37,20 +54,27 @@ variants:
   - name: no-header
     label: No header
     context:
+      banner:
+        classes: "usa-alert-banner--info"
       alert:
         classes: "usa-alert--info"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
-  # - name: no-icon
-  #   label: No icon
-  #   context:
-  #     alert:
-  #       classes: "usa-alert--info usa-alert--no-icon"
-  #       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
-  # - name: slim
-  #   label: Slim
-  #   context:
-  #     alert:
-  #       classes: "usa-alert--info usa-alert--slim"
-  #       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+  - name: no-icon
+    label: No icon
+    context:
+      banner:
+        classes: "usa-alert-banner--info"
+      alert:
+        classes: "usa-alert--info usa-alert--no-icon"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+
+  - name: slim
+    label: Slim
+    context:
+      banner:
+        classes: "usa-alert-banner--info"
+      alert:
+        classes: "usa-alert--info usa-alert--slim"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."

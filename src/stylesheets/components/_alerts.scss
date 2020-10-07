@@ -99,13 +99,6 @@ $alert-padding-left: units($theme-alert-padding-x) +
       background-color: color(map-get($alerts-bar, $name));
     }
 
-    &.usa-alert--full-width-banner .grid-container {
-      @include add-background-svg("alerts/#{$name}");
-      background-position: $alert-padding-left 0.25rem;
-      background-repeat: no-repeat;
-      background-size: units(4);
-    }
-
     .usa-alert__body {
       padding-left: units($theme-alert-icon-size) +
         units($theme-alert-padding-x);
@@ -146,14 +139,5 @@ $alert-padding-left: units($theme-alert-padding-x) +
 
   .usa-checklist {
     margin-top: units(2);
-  }
-}
-
-
-.usa-alert--full-width-banner {
-  background-image: none;
-
-  &::before {
-    display:none;
   }
 }

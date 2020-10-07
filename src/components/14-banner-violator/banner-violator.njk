@@ -1,6 +1,6 @@
 
-<div class="usa-alert usa-alert--full-width-banner {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
-  <div class="grid-container">
+<div class="usa-alert-banner {{ banner.classes }}">
+  <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
     <div class="usa-alert__body">
       {%- if alert.title %}
       <h3 class="usa-alert__heading">{{ alert.title }}</h3>
@@ -9,3 +9,4 @@
     </div>
   </div>
 </div>
+
