@@ -1,0 +1,16 @@
+{% embed '@components/usa-footer/usa-footer.twig' with {
+  'modifier': 'usa-footer--big'
+} %}
+  {% block primary %}
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-8">
+          {% include "@components/usa-footer/_usa-footer-nav-secondary.twig" %}
+        </div>
+        <div class="tablet:grid-col-4">
+          {% include "@components/usa-footer/_usa-signup.twig" %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}
