@@ -15,7 +15,8 @@ cards:
     header_first: false
     media: false
     content: |-
-      Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.
+      Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, 
+      nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.
     cta_text: ''
   - title: Cities have the capability of providing something for everybody
     grid_class: ''
