@@ -3,11 +3,13 @@
 
 <ul class="usa-card-group">
   {% for card in cards %}
+    {# Card overrides configure individual settings like grid classes, header placement, and direction of image for flags. #}
     {% set card_overrides = [
       card.grid_class|default(default_grid_class),
-      (card.header_first ? 'usa-card--header-first' : '')
+      (card.header_first ? 'usa-card--header-first' : ''),
+      ((card.flag_direction == 'right') ? 'usa-card--media-right' : '')
     ] %}
-    <li class="{{ card_classes ~ card_overrides|join(' ') }}">
+    <li class="{{ card_classes ~ " " ~ card_overrides|join(' ') }}">
       <div class="usa-card__container">
         <header class="usa-card__header">
           <h2 class="usa-card__heading">{{ card.title }}</h2>
@@ -24,15 +26,13 @@
         {% endif %}
         <div class="usa-card__body">
           {% if card.content %}
-            {% block card_body %}
-              <p>{{ card.content }}</p>
-            {% endblock %}
+            <p>{{ card.content }}</p>
           {% endif %}
         </div>
         <div class="usa-card__footer">
-          {% block card_footer %}
-            <button class="usa-button">Visit Florida Keys</button>
-          {% endblock %}
+          <button class="usa-button">
+            {{ card.cta_text|default('Visit Florida Keys') }}
+          </button>
         </div>
       </div>
     </li>
