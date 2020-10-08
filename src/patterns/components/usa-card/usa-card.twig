@@ -3,7 +3,11 @@
 
 <ul class="usa-card-group">
   {% for card in cards %}
-    <li class="{{ card_classes ~ card.grid_class|default(default_grid_class) }}">
+    {% set card_overrides = [
+      card.grid_class|default(default_grid_class),
+      (card.header_first ? 'usa-card--header-first' : '')
+    ] %}
+    <li class="{{ card_classes ~ card_overrides|join(' ') }}">
       <div class="usa-card__container">
         <header class="usa-card__header">
           <h2 class="usa-card__heading">{{ card.title }}</h2>
