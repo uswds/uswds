@@ -1,0 +1,25 @@
+---
+modifier: 'usa-card--flag'
+default_grid_class: ''
+cards:
+  - title: Default flag
+    grid_class: 'tablet:grid-col-6'
+    flag_direction: ''
+    media:
+      media_classes: ''
+      image_classes: ''
+      image_src: https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg
+      image_alt_text: A placeholder image
+    content: |-
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+  - title: Flag media right inset
+    grid_class: 'tablet:grid-col-6'
+    flag_direction: 'right'
+    media:
+      media_classes: 'usa-card__media--inset'
+      image_classes: ''
+      image_src: https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg
+      image_alt_text: A placeholder image
+    content: |-
+      Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.
