@@ -1,8 +1,0 @@
-label: Footer
-status: ready
-
-variants:
-  - name: default
-    label: Default
-
-context: {}

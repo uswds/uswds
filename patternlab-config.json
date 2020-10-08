@@ -95,6 +95,13 @@
           "paths": [
             "./node_modules/@pattern-lab/uikit-workshop/views-twig"
           ]
+        },
+        {
+          "id": "components",
+          "recursive": true,
+          "paths": [
+            "./src/patterns/components"
+          ]
         }
       ],
       "alterTwigEnv": [
