@@ -2,6 +2,11 @@
 <div class="usa-alert-banner {{ banner.classes }}">
   <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
     <div class="usa-alert__body">
+      {%- if banner.dismissible %}
+      <button class="usa-button usa-button--big usa-button--unstyled usa-alert-banner__close-btn" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {%- endif %}
       {%- if alert.title %}
       <h3 class="usa-alert__heading">{{ alert.title }}</h3>
       {%- endif %}

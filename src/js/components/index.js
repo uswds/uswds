@@ -1,4 +1,5 @@
 const accordion = require("./accordion");
+const alertBanner = require("./alert-banner");
 const banner = require("./banner");
 const characterCount = require("./character-count");
 const comboBox = require("./combo-box");
@@ -16,6 +17,7 @@ const timePicker = require("./time-picker");
 
 module.exports = {
   accordion,
+  alertBanner,
   banner,
   characterCount,
   comboBox,

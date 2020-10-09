@@ -1,6 +1,8 @@
 label: Banner Violator
 status: ready
 context:
+  banner:
+    dismissible: true
   alert:
     content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 

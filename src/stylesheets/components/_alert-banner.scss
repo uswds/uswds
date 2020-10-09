@@ -26,6 +26,9 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
       display:none;
     }
   }
+  .usa-alert__body {
+    display: block;
+  }
 }
 
 @each $name, $bgcolor in $alerts {
@@ -38,4 +41,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   .usa-alert {
     @include grid-container();
   }
+}
+
+.usa-alert-banner__close-btn {
+  color: color("ink");
+  float: right;
+  text-decoration: none;
 }
