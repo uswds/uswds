@@ -4,6 +4,11 @@ htmlClass: 'pl'
 bodyClass: 'body'
 modifier: ''
 extra_attributes: ''
+states:
+  - hover
+  - active
+  - focus
+  - disabled
 agency_contact_info:
   name: Name of Agency
   title: Agency Contact Center
