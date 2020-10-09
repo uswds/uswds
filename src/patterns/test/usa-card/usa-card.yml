@@ -9,6 +9,7 @@ cards:
     content: |-
       To look at him you'd think he wan's worth a cent.
     cta_text: Stick out
+    cta_modifier: 'usa-button--secondary'
   - title: There was a feller here once by the name of Jim Smiley
     classes_override: 'tablet:grid-col-6'
     header_first: false
@@ -29,6 +30,7 @@ cards:
     content: |-
       Duis hendrerit ligula eget urna malesuada malesuada. Nullam pretium purus laoreet, ornare leo in, lacinia augue. Mauris mattis laoreet leo in gravida. Nulla euismod tortor sem, id lacinia ligula semper tempus. Nam vestibulum mauris mauris, eu pharetra purus malesuada ut. Mauris ut ex pretium, dictum enim quis, consectetur velit. Curabitur at porttitor nulla, ut maximus quam.
     cta_text: Make some inquiries
+    cta_modifier: 'usa-button--outline'
   - title: My friend's friend
     classes_override: 'usa-card--flag tablet:grid-col-12'
     header_first: true
