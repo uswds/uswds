@@ -1,9 +1,9 @@
 ---
 modifier: ''
-default_grid_class: tablet:grid-col-4
+default_classes: tablet:grid-col-4
 cards:
   - title: Default card
-    grid_class: ''
+    classes_override: ''
     header_first: false
     media: false
     content: |-
@@ -11,7 +11,7 @@ cards:
       Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
     cta_text: ''
   - title: The economy of cities
-    grid_class: ''
+    classes_override: ''
     header_first: false
     media: false
     content: |-
@@ -19,7 +19,7 @@ cards:
       nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.
     cta_text: ''
   - title: Cities have the capability of providing something for everybody
-    grid_class: ''
+    classes_override: ''
     header_first: false
     media: false
     content: |-

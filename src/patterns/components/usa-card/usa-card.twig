@@ -5,11 +5,12 @@
   {% for card in cards %}
     {# Card overrides configure individual settings like grid classes, header placement, and direction of image for flags. #}
     {% set card_overrides = [
-      card.grid_class|default(default_grid_class),
+      card.classes_override|default(default_classes),
       (card.header_first ? 'usa-card--header-first' : ''),
       ((card.flag_direction == 'right') ? 'usa-card--media-right' : '')
     ] %}
     <li class="{{ card_classes ~ " " ~ card_overrides|join(' ') }}">
+      {# @TODO Allow for overrides on Container #}
       <div class="usa-card__container">
         <header class="usa-card__header">
           <h2 class="usa-card__heading">{{ card.title }}</h2>
@@ -30,6 +31,7 @@
           {% endif %}
         </div>
         <div class="usa-card__footer">
+          {# @TODO use a button component with `variant` #}
           <button class="usa-button">
             {{ card.cta_text|default('Visit Florida Keys') }}
           </button>

@@ -1,9 +1,9 @@
 ---
 modifier: 'usa-card--flag'
-default_grid_class: ''
+default_classes: ''
 cards:
   - title: Default flag
-    grid_class: 'tablet:grid-col-6'
+    classes_override: 'tablet:grid-col-6'
     flag_direction: ''
     media:
       media_classes: ''
@@ -14,7 +14,7 @@ cards:
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
   - title: Flag media right inset
-    grid_class: 'tablet:grid-col-6'
+    classes_override: 'tablet:grid-col-6'
     flag_direction: 'right'
     media:
       media_classes: 'usa-card__media--inset'
