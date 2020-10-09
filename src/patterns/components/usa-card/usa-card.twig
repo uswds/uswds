@@ -31,10 +31,10 @@
           {% endif %}
         </div>
         <div class="usa-card__footer">
-          {% include "@components/usa-button/usa-button.twig" with {
-            'modifier': card.cta_modifier|default(''),
-            'title': card.cta_text|default('Visit Florida Keys')
-          } %}
+        {% include "@components/usa-button/usa-button.twig" with {
+          'modifier': card.cta_modifier,
+          'title': card.cta_text|default('Visit Florida Keys')
+        } %}
         </div>
       </div>
     </li>
