@@ -31,10 +31,10 @@
           {% endif %}
         </div>
         <div class="usa-card__footer">
-          {# @TODO use a button component with `variant` #}
-          <button class="usa-button">
-            {{ card.cta_text|default('Visit Florida Keys') }}
-          </button>
+        {% include "@components/usa-button/usa-button.twig" with {
+          'modifier': card.cta_modifier,
+          'title': card.cta_text|default('Visit Florida Keys')
+        } %}
         </div>
       </div>
     </li>

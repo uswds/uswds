@@ -1,0 +1,15 @@
+<button class="usa-button {{ modifier }}">
+  {{ title|default(modifier) }}
+</button>
+
+{% if show_states|default(false) %}
+  {% for state in states %}
+    {% if state != "disabled" %}
+      <button class="usa-button {{ modifier }} usa-button--{{ state }}">
+    {% else %}
+      <button class="usa-button {{ modifier }}" disabled>
+    {% endif %}
+      {{ state|capitalize }}
+    </button>
+  {% endfor %}
+{% endif %}
