@@ -9,7 +9,7 @@ references:
     docker:
       - image: misterio92/ci-php-node
         environment:
-          CHROME_PATH: /usr/local/bin
+          CHROME_PATH: /usr/local/bin/google-chrome
 
   restore_deps: &restore_deps
     restore_cache:
