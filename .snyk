@@ -1,4 +1,103 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
-ignore: {}
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-MARKDOWNIT-459438:
+    - '@pattern-lab/core > markdown-it':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+    - '@pattern-lab/engine-twig-php > @pattern-lab/core > markdown-it':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODEFETCH-674311:
+    - '@pattern-lab/core > node-fetch':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+    - '@pattern-lab/engine-twig-php > @pattern-lab/core > node-fetch':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODESASS-535498:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODESASS-535502:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODESASS-540956:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODESASS-540958:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.302Z'
+  SNYK-JS-NODESASS-540964:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540974:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540978:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540980:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540990:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540992:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540994:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540996:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-540998:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.303Z'
+  SNYK-JS-NODESASS-541000:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.304Z'
+  SNYK-JS-NODESASS-541002:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: None given
+        expires: '2020-11-12T20:45:11.304Z'
+  SNYK-JS-OBJECTPATH-1017036:
+    - browser-sync > eazy-logger > tfunk > object-path:
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+  SNYK-JS-YARGSPARSER-560381:
+    - '@pattern-lab/uikit-workshop > critical > meow > yargs-parser':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+    - '@pattern-lab/uikit-workshop > critical > filter-css > meow > yargs-parser':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+    - '@pattern-lab/uikit-workshop > critical > inline-critical > meow > yargs-parser':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+    - '@pattern-lab/uikit-workshop > critical > postcss-image-inliner > asset-resolver > meow > yargs-parser':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+  'npm:braces:20180219':
+    - '@pattern-lab/core > chokidar > anymatch > micromatch > braces':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
+    - '@pattern-lab/engine-twig-php > @pattern-lab/core > chokidar > anymatch > micromatch > braces':
+        reason: None given
+        expires: '2020-11-12T20:45:11.306Z'
 patch: {}
