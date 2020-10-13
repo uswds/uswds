@@ -26,7 +26,13 @@ module.exports = {
 
   // Copy Images to dist folder
   copyImages: function() {
-    return src('src/img/**/*')
+    return src(['src/img/**/*', 'src/patterns/**/*{.png,.jpg,.svg}'])
+      .pipe(
+        rename(function(path) {
+          path.dirname = '';
+          return path;
+        })
+      )
       .pipe(dest('dist/img'));
   },
 

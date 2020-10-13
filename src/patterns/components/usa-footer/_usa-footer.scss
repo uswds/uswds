@@ -1,7 +1,6 @@
 @use "../../stylesheets/core" as *;
 
 // General footer styles
-
 .usa-footer {
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
@@ -216,19 +215,19 @@
 }
 
 .usa-social-link--facebook {
-  @include add-background-svg("social-icons/facebook25");
+  @include add-background-svg("facebook25");
 }
 
 .usa-social-link--twitter {
-  @include add-background-svg("social-icons/twitter16");
+  @include add-background-svg("twitter16");
 }
 
 .usa-social-link--youtube {
-  @include add-background-svg("social-icons/youtube15");
+  @include add-background-svg("youtube15");
 }
 
 .usa-social-link--rss {
-  @include add-background-svg("social-icons/rss25");
+  @include add-background-svg("rss25");
 }
 
 .usa-footer__address {
@@ -238,7 +237,6 @@
 }
 
 // Slim footer styles
-
 .usa-footer--slim {
   .usa-footer__nav {
     @include at-media("desktop") {
@@ -273,7 +271,6 @@
 }
 
 // Big footer styles
-
 .usa-footer--big {
   .usa-footer__nav {
     @include u-margin-x($theme-site-margins-mobile-width * -1);

@@ -5,12 +5,8 @@
  */
 
 @mixin card-inner-radius {
-  border-top-left-radius: calc(
-    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
-  );
-  border-top-right-radius: calc(
-    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
-  );
+  border-top-left-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
+  border-top-right-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
 }
 
 @include override-prose {
@@ -240,16 +236,8 @@
     }
     .usa-card__img {
       @include u-radius(0);
-      border-top-left-radius: calc(
-        #{radius($theme-card-border-radius)} - #{units(
-            $theme-card-border-width
-          )}
-      );
-      border-bottom-left-radius: calc(
-        #{radius($theme-card-border-radius)} - #{units(
-            $theme-card-border-width
-          )}
-      );
+      border-top-left-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
+      border-bottom-left-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
     }
 
     .usa-card__header,
@@ -306,16 +294,8 @@
 
       .usa-card__img {
         @include u-radius(0);
-        border-top-right-radius: calc(
-          #{radius($theme-card-border-radius)} - #{units(
-              $theme-card-border-width
-            )}
-        );
-        border-bottom-right-radius: calc(
-          #{radius($theme-card-border-radius)} - #{units(
-              $theme-card-border-width
-            )}
-        );
+        border-top-right-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
+        border-bottom-right-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
       }
 
       .usa-card__header,
