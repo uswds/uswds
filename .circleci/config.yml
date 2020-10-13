@@ -35,7 +35,7 @@ jobs:
       - browser-tools/install-chromedriver
       - run:
           name: Run test
-          command: npm run test:ci
+          command: npm run test:ci:temp
 
   deploy:
     <<: *container
