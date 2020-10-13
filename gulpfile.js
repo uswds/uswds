@@ -1,22 +1,41 @@
-'use strict';
+"use strict";
+
+// Old gulp tasks
+// Patch these in until ported into new syntax
+// test, regression: nope, not yet...
+// require("./config/gulp/test");
+// typecheck
+require("./config/gulp/javascript");
 
 // Include gulp helpers.
-const { series, parallel, watch } = require('gulp');
+const { series, parallel, watch } = require("gulp");
 
 // Include Pattern Lab and config.
-const config = require('./patternlab-config.json');
-const patternlab = require('@pattern-lab/core')(config);
+const config = require("./patternlab-config.json");
+const patternlab = require("@pattern-lab/core")(config);
 
 // Include Our tasks.
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
-const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass } = require('./gulp-tasks/clean');
-const { compileSass, compileJS } = require('./gulp-tasks/compile');
-const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require('./gulp-tasks/copy');
-const { lintSass, lintJS } = require('./gulp-tasks/lint');
-const { moveFonts, movePatternCSS } = require('./gulp-tasks/move');
-const server = require('browser-sync').create();
+const {
+  cleanCSS,
+  cleanFonts,
+  cleanImages,
+  cleanJS,
+  cleanSass,
+} = require("./gulp-tasks/clean");
+const { compileSass, compileJS } = require("./gulp-tasks/compile");
+const {
+  copyVendor,
+  copySass,
+  copyImages,
+  copyFonts,
+  copyStyleguide,
+} = require("./gulp-tasks/copy");
+const { lintSass, lintJS } = require("./gulp-tasks/lint");
+const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
+const server = require("browser-sync").create();
 
 // Clean all directories.
 exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
@@ -41,9 +60,9 @@ exports.compile = parallel(compileSass, compileJS, moveFonts, movePatternCSS);
 function serve(done) {
   // See https://browsersync.io/docs/options for more options.
   server.init({
-    server: ['./patternlab/'],
+    server: ["./patternlab/"],
     notify: false,
-    open: false
+    open: false,
   });
   done();
 }
@@ -57,7 +76,7 @@ function watchPatternlab(done) {
   patternlab
     .build({
       cleanPublic: config.cleanPublic,
-      watch: true
+      watch: true,
     })
     .then(() => {
       done();
@@ -73,7 +92,7 @@ function buildPatternlab(done) {
   patternlab
     .build({
       cleanPublic: config.cleanPublic,
-      watch: false
+      watch: false,
     })
     .then(() => {
       done();
@@ -90,36 +109,34 @@ exports.styleguide = buildPatternlab;
 function watchFiles() {
   // Watch all my sass files and compile sass if a file changes.
   watch(
-    './src/patterns/**/**/*.scss',
+    "./src/patterns/**/**/*.scss",
     series(parallel(lintSass, compileSass), (done) => {
-      server.reload('*.css');
+      server.reload("*.css");
       done();
     })
   );
 
   // Watch all my JS files and compile if a file changes.
   watch(
-    './src/js/**/*.js',
+    "./src/js/**/*.js",
     series(parallel(lintJS, compileJS), (done) => {
-      server.reload('*.js');
+      server.reload("*.js");
       done();
     })
   );
 
   // Watch all my patterns and compile if a file changes.
   watch(
-    './src/patterns/**/**/*{.twig,.yml}',
-    series(
-      parallel(buildPatternlab), (done) => {
-        server.reload('*{.html}');
-        done();
-      }
-    )
+    "./src/patterns/**/**/*{.twig,.yml}",
+    series(parallel(buildPatternlab), (done) => {
+      server.reload("*{.html}");
+      done();
+    })
   );
 
   // Reload the browser after patternlab updates.
-  patternlab.events.on('patternlab-build-end', () => {
-    server.reload('*.html');
+  patternlab.events.on("patternlab-build-end", () => {
+    server.reload("*.html");
   });
 }
 
