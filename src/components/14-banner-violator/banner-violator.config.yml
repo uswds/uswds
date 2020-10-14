@@ -53,6 +53,36 @@ variants:
         title: Error status
         role: "alert"
 
+  - name: error-grid-contained-list
+    label: Error Grid Contained with List
+    context:
+      banner:
+        classes: "usa-alert-banner--error usa-alert-banner--grid-contained"
+      alert:
+        classes: "usa-alert--error"
+        title: Warning status 
+        content: '<ul class="usa-list"><li>Unordered list item</li><li><a href="javascript:void(0);">Unordered list item</a></li><li>Unordered list item</li></ul>'
+
+  - name: emergency
+    label: Emergency
+    context:
+      banner:
+        classes: "usa-alert-banner--emergency"
+      alert:
+        classes: "usa-alert--emergency"
+        title: Emergency status
+        role: "alert"
+
+  - name: emergency-grid-contained-list
+    label: Emergency Grid Contained with List
+    context:
+      banner:
+        classes: "usa-alert-banner--emergency usa-alert-banner--grid-contained"
+      alert:
+        classes: "usa-alert--emergency"
+        title: Warning status 
+        content: '<ul class="usa-list usa-alert__text"><li>Unordered list item</li><li><a href="javascript:void(0);">Unordered list item</a></li><li>Unordered list item</li></ul>'
+
   - name: no-header
     label: No header
     context:

@@ -37,6 +37,8 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   }
 }
 
+
+
 .usa-alert-banner--grid-contained {
   .usa-alert {
     @include grid-container();
@@ -48,8 +50,43 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   float: right;
   text-decoration: none;
 
+
   &:hover {
     color: color("ink");
     text-decoration: none;
+  }
+}
+
+
+.usa-alert-banner--emergency {
+  background-color: #C14137;
+
+  .usa-alert-banner__close-btn {
+    @include set-link-from-bg($theme-color-secondary-dark);
+  }
+}
+
+
+
+.usa-alert--emergency {
+
+  @include add-background-svg("alerts/emergency");
+
+  background-color: #C14137;
+  color : #f2f3f4;
+
+  &::before {
+    background-color: color("red-60");
+  }
+
+  .usa-alert__body {
+    padding-left: units($theme-alert-icon-size) +
+      units($theme-alert-padding-x);
+  }
+
+  .usa-alert__text {
+    a {
+      @include set-link-from-bg($theme-color-secondary-dark);
+    }
   }
 }
