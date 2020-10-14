@@ -29,3 +29,6 @@ spec/screenshots/metadata.js
 
 # Ignore sassdoc build
 sassdoc/
+
+# Ignore previous build directory
+build/
