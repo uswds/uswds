@@ -47,4 +47,9 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   color: color("ink");
   float: right;
   text-decoration: none;
+
+  &:hover {
+    color: color("ink");
+    text-decoration: none;
+  }
 }
