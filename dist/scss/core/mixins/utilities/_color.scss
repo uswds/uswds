@@ -1,0 +1,10 @@
+// Outputs color
+
+@mixin u-color($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  color: color($value) #{$important};
+}

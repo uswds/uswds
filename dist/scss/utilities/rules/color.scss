@@ -1,0 +1,32 @@
+/*
+========================================
+color
+----------------------------------------
+usage:
+  .color-[key]
+----------------------------------------
+output:
+  color: [value];
+----------------------------------------
+example:
+  .color-black-100 {
+    color: #000; }
+----------------------------------------
+*/
+
+$u-color: (
+  color: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        $tokens-color-required,
+        get-palettes($color-palettes),
+        get-palettes($global-color-palettes),
+        $color-manual-values
+      ),
+    settings: $color-settings,
+    property: "color",
+    type: "utility",
+  ),
+);

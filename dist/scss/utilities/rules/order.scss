@@ -1,0 +1,29 @@
+/*
+========================================
+order
+----------------------------------------
+usage:
+  .order-[key]
+----------------------------------------
+output:
+  order: [value]
+----------------------------------------
+example:
+  .order-first {
+    order: -1; }
+
+  .order-2 {
+    order: 2; }
+----------------------------------------
+*/
+
+$u-order: (
+  order: (
+    base: "order",
+    modifiers: null,
+    values: map-collect(get-palettes($order-palettes), $order-manual-values),
+    settings: $order-settings,
+    property: "order",
+    type: "utility",
+  ),
+);

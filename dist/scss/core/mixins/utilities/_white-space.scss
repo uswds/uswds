@@ -1,0 +1,10 @@
+// Outputs white-space
+
+@mixin u-white-space($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  white-space: get-uswds-value(white-space, $value...) #{$important};
+}

@@ -1,0 +1,66 @@
+$tokens-color-gold-light: (
+  "gold-5": $color-gold-5,
+  "gold-10": $color-gold-10,
+  "gold-20": $color-gold-20,
+  "gold-30": $color-gold-30,
+);
+
+$tokens-color-gold-medium: (
+  "gold-40": $color-gold-40,
+  "gold-50": $color-gold-50,
+  "gold-60": $color-gold-60,
+);
+
+$tokens-color-gold-dark: (
+  "gold-70": $color-gold-70,
+  "gold-80": $color-gold-80,
+  "gold-90": $color-gold-90,
+);
+
+$tokens-color-gold-light-vivid: (
+  "gold-5v": $color-gold-5v,
+  "gold-10v": $color-gold-10v,
+  "gold-20v": $color-gold-20v,
+  "gold-30v": $color-gold-30v,
+);
+
+$tokens-color-gold-medium-vivid: (
+  "gold-40v": $color-gold-40v,
+  "gold-50v": $color-gold-50v,
+  "gold-60v": $color-gold-60v,
+);
+
+$tokens-color-gold-dark-vivid: (
+  "gold-70v": $color-gold-70v,
+  "gold-80v": $color-gold-80v,
+  "gold-90v": $color-gold-90v,
+);
+
+$tokens-color-gold-standard: map-collect(
+  $tokens-color-gold-light,
+  $tokens-color-gold-medium,
+  $tokens-color-gold-dark
+);
+
+$tokens-color-gold-vivid: map-collect(
+  $tokens-color-gold-light-vivid,
+  $tokens-color-gold-medium-vivid,
+  $tokens-color-gold-dark-vivid
+);
+
+$tokens-color-gold: map-collect(
+  $tokens-color-gold-standard,
+  $tokens-color-gold-vivid
+);
+
+$palettes-color-gold: (
+  "palette-color-system-gold-light": $tokens-color-gold-light,
+  "palette-color-system-gold-medium": $tokens-color-gold-medium,
+  "palette-color-system-gold-dark": $tokens-color-gold-dark,
+  "palette-color-system-gold-light-vivid": $tokens-color-gold-light-vivid,
+  "palette-color-system-gold-medium-vivid": $tokens-color-gold-medium-vivid,
+  "palette-color-system-gold-dark-vivid": $tokens-color-gold-dark-vivid,
+  "palette-color-system-gold-standard": $tokens-color-gold-standard,
+  "palette-color-system-gold-vivid": $tokens-color-gold-vivid,
+  "palette-color-system-gold": $tokens-color-gold,
+);

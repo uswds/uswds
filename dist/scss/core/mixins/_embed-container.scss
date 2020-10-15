@@ -1,0 +1,3 @@
+@mixin embed-container($height, $width) {
+  padding-bottom: percentage($height/$width);
+}

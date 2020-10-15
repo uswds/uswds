@@ -1,0 +1,128 @@
+@mixin grid-gap-responsive {
+  $gap-mobile: if(
+    map-has-key($system-column-gaps, $theme-column-gap-mobile),
+    map-get($system-column-gaps, $theme-column-gap-mobile),
+    "error"
+  );
+  $gap-desktop: if(
+    map-has-key($system-column-gaps, $theme-column-gap-desktop),
+    map-get($system-column-gaps, $theme-column-gap-desktop),
+    "error"
+  );
+
+  @if $gap-mobile == "error" {
+    @error '$theme-column-gap-mobile is not set to a valid column gap width.';
+  }
+
+  @if $gap-desktop == "error" {
+    @error '$theme-column-gap-desktop is not set to a valid column gap width.';
+  }
+
+  @include u-margin-x(
+    unquote("#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}")
+  );
+
+  > * {
+    @include this-border-box-sizing;
+    @include u-padding-x(calc-gap-offset($gap-mobile));
+  }
+
+  @include at-media("desktop") {
+    @include u-margin-x(
+      unquote("#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}")
+    );
+
+    > * {
+      @include this-border-box-sizing;
+      @include u-padding-x(calc-gap-offset($gap-desktop));
+    }
+  }
+}
+
+@mixin grid-gap($props...) {
+  $props: unpack($props);
+  @if length($props) == 0 {
+    @include grid-gap-responsive;
+  } @else {
+    $gap: smart-quote(nth($props, 1));
+    @if $gap == 0 {
+      @include u-margin-x(append-important($props, 0));
+
+      > * {
+        @include this-border-box-sizing;
+        @include u-padding-x(append-important($props, 0));
+      }
+    } @else {
+      @if map-has-key($project-column-gaps, $gap) {
+        $gap: map-get($project-column-gaps, $gap);
+      } @else if map-has-key($system-column-gaps, $gap) {
+        $gap: map-get($system-column-gaps, $gap);
+      }
+      @include u-margin-x(
+        append-important(
+          $props,
+          unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")
+        )
+      );
+      > * {
+        @include this-border-box-sizing;
+        @include u-padding-x(append-important($props, calc-gap-offset($gap)));
+      }
+    }
+  }
+}
+
+@mixin grid-col($props...) {
+  $props: unpack($props);
+  @include this-border-box-sizing;
+
+  @if length($props) == 0 {
+    @include u-flex(fill);
+    @include u-width(auto);
+  } @else {
+    $col: smart-quote(nth($props, 1));
+    @if $col == "auto" {
+      $flex: append-important($props, auto);
+      $width: append-important($props, auto);
+      $maxw: append-important($props, full);
+      @include u-flex($flex);
+      @include u-width($width);
+      @include u-maxw($maxw);
+    } @else if $col == "fill" {
+      $flex: append-important($props, fill);
+      $width: append-important($props, auto);
+      $maxw: append-important($props, full);
+      @include u-flex($flex);
+      @include u-width($width);
+      @include u-maxw($maxw);
+      min-width: 1px; // IE 11
+    } @else if not map-has-key($system-layout-grid-widths, $col) {
+      @error '#{$col} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
+    } @else {
+      $flex: append-important($props, auto);
+      $width: append-important(
+        $props,
+        map-get($system-layout-grid-widths, $col)
+      );
+      @include u-flex($flex);
+      @include u-width(override, $width);
+    }
+  }
+}
+
+@mixin grid-offset($props...) {
+  $props: unpack($props);
+  $offset: smart-quote(nth($props, 1));
+  @if $offset == "none" {
+    $width: append-important($props, 0);
+    @include u-margin-left(override, $width);
+  } @else if not map-has-key($system-layout-grid-widths, $offset) {
+    @error '#{$offset} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
+  } @else {
+    $width: append-important(
+      $props,
+      map-get($system-layout-grid-widths, $offset)
+    );
+    @include u-margin-left(override, $width);
+  }
+}

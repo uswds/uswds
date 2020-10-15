@@ -1,0 +1,199 @@
+[type="file"] {
+  border: none;
+  margin-top: units(1);
+  padding-left: 0;
+  padding-top: 0.2rem; // keeps input vertically centered on error state
+}
+
+.usa-file-input {
+  display: block;
+  max-width: units($theme-input-max-width);
+  width: 100%;
+}
+
+.usa-file-input__target {
+  border: 1px dashed color("base-light");
+  display: block;
+  font-size: size("body", "2xs");
+  margin-top: units(1);
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    border-color: color("base");
+  }
+}
+
+.usa-file-input__target.has-invalid-file {
+  border-color: color("accent-warm");
+}
+
+.usa-file-input__accepted-files-message {
+  font-weight: bold;
+  margin: units(-3) 0 units(3);
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.has-invalid-file .usa-file-input__accepted-files-message {
+  color: color("secondary-dark");
+}
+
+.usa-file-input__choose {
+  @include typeset-link;
+  font-weight: normal;
+}
+
+.usa-file-input__instructions {
+  display: inline-block;
+  padding: units(4) units(2);
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+
+  &.display-none {
+    display: none;
+  }
+}
+
+.usa-file-input__box {
+  background: white;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.usa-file-input .usa-file-input__input[type] {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  position: absolute;
+  padding: units(1);
+  text-indent: -999em;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.usa-file-input .usa-file-input__input[type]::-webkit-file-upload-button {
+  display: none;
+}
+
+.usa-file-input--drag .usa-file-input__target {
+  border-color: color("primary");
+}
+
+.usa-file-input--drag .usa-file-input__box {
+  background-color: color("primary-lighter") !important;
+}
+
+.usa-file-input--drag .usa-file-input__preview {
+  opacity: 0.1;
+}
+
+.usa-file-input__preview-heading {
+  align-items: center;
+  background: color("primary-lighter");
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  padding: units(1);
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.usa-file-input__preview {
+  align-items: center;
+  background: color("primary-lighter");
+  word-wrap: anywhere;
+  display: flex;
+  font-size: size("body", "3xs");
+  margin-top: units(1px);
+  padding: units(0.5) units(1);
+  pointer-events: none;
+  position: relative;
+  text-align: left;
+  z-index: 3;
+
+  &:last-child {
+    margin-bottom: units(-3);
+  }
+}
+
+.usa-file-input__preview-image {
+  border: none;
+  display: block;
+  height: units(5);
+  margin-right: units(1);
+  object-fit: contain;
+  width: units(5);
+}
+
+.usa-file-input__preview-image.is-loading {
+  @include add-background-svg("loader");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: units(4);
+}
+
+.usa-file-input__preview-image--generic,
+.usa-file-input__preview-image--pdf,
+.usa-file-input__preview-image--word,
+.usa-file-input__preview-image--excel,
+.usa-file-input__preview-image--video {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: units(3);
+}
+
+.usa-file-input__preview-image--pdf {
+  @include add-background-svg("file-pdf");
+}
+
+.usa-file-input__preview-image--generic {
+  @include add-background-svg("file");
+}
+
+.usa-file-input__preview-image--word {
+  @include add-background-svg("file-word");
+}
+
+.usa-file-input__preview-image--excel {
+  @include add-background-svg("file-excel");
+}
+
+.usa-file-input__preview-image--video {
+  @include add-background-svg("file-video");
+}
+
+// Error states
+.usa-form-group--error .usa-file-input__target {
+  border-color: color("secondary-dark");
+  border-width: 2px;
+}
+
+// Disabled state
+.usa-file-input--disabled {
+  pointer-events: none;
+
+  .usa-file-input__instructions {
+    opacity: 0.5;
+  }
+
+  .usa-file-input__box {
+    background-color: color($theme-color-disabled-light);
+  }
+
+  .usa-file-input__input[type] {
+    cursor: default;
+  }
+}

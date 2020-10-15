@@ -1,0 +1,35 @@
+/*
+========================================
+.clearfix
+----------------------------------------
+usage:
+  .clearfix
+----------------------------------------
+example:
+  .clearfix::after {
+    clear: both;
+    content: "";
+    display: block; }
+----------------------------------------
+*/
+
+$u-clearfix: (
+  clearfix: (
+    base: "clearfix::after",
+    modifiers: null,
+    values: (
+      reset: (
+        slug: "noValue",
+        isReadable: false,
+        content: "both",
+        extend: (
+          "content": '""',
+          "display": "block",
+        ),
+      ),
+    ),
+    settings: $clearfix-settings,
+    property: "clear",
+    type: "utility",
+  ),
+);

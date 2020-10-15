@@ -1,0 +1,32 @@
+// Outputs border-width of $value width
+@mixin u-border-width($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  border-width: get-uswds-value(border-width, $value) #{$important};
+}
+
+@mixin u-border-x-width($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  border-left-width: get-uswds-value(border-width, $value) #{$important};
+  border-right-width: get-uswds-value(border-width, $value) #{$important};
+}
+
+@mixin u-border-y-width($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  border-bottom-width: get-uswds-value(border-width, $value) #{$important};
+  border-top-width: get-uswds-value(border-width, $value) #{$important};
+}

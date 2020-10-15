@@ -1,0 +1,11 @@
+// Outputs display
+
+@mixin u-display($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  display: get-uswds-value(display, $value) #{$important};
+}

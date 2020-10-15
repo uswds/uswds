@@ -1,0 +1,10 @@
+// Outputs min-height
+
+@mixin u-minh($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  min-height: get-uswds-value(min-height, $value...) #{$important};
+}

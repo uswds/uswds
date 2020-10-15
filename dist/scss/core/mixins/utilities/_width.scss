@@ -1,0 +1,11 @@
+// Outputs width
+
+@mixin u-width($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  width: get-uswds-value(width, $value...) #{$important};
+}

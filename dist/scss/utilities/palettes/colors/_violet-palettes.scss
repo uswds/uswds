@@ -1,0 +1,66 @@
+$tokens-color-violet-light: (
+  "violet-5": $color-violet-5,
+  "violet-10": $color-violet-10,
+  "violet-20": $color-violet-20,
+  "violet-30": $color-violet-30,
+);
+
+$tokens-color-violet-medium: (
+  "violet-40": $color-violet-40,
+  "violet-50": $color-violet-50,
+  "violet-60": $color-violet-60,
+);
+
+$tokens-color-violet-dark: (
+  "violet-70": $color-violet-70,
+  "violet-80": $color-violet-80,
+  "violet-90": $color-violet-90,
+);
+
+$tokens-color-violet-light-vivid: (
+  "violet-5v": $color-violet-5v,
+  "violet-10v": $color-violet-10v,
+  "violet-20v": $color-violet-20v,
+  "violet-30v": $color-violet-30v,
+);
+
+$tokens-color-violet-medium-vivid: (
+  "violet-40v": $color-violet-40v,
+  "violet-50v": $color-violet-50v,
+  "violet-60v": $color-violet-60v,
+);
+
+$tokens-color-violet-dark-vivid: (
+  "violet-70v": $color-violet-70v,
+  "violet-80v": $color-violet-80v,
+  "violet-90v": $color-violet-90v,
+);
+
+$tokens-color-violet-standard: map-collect(
+  $tokens-color-violet-light,
+  $tokens-color-violet-medium,
+  $tokens-color-violet-dark
+);
+
+$tokens-color-violet-vivid: map-collect(
+  $tokens-color-violet-light-vivid,
+  $tokens-color-violet-medium-vivid,
+  $tokens-color-violet-dark-vivid
+);
+
+$tokens-color-violet: map-collect(
+  $tokens-color-violet-standard,
+  $tokens-color-violet-vivid
+);
+
+$palettes-color-violet: (
+  "palette-color-system-violet-light": $tokens-color-violet-light,
+  "palette-color-system-violet-medium": $tokens-color-violet-medium,
+  "palette-color-system-violet-dark": $tokens-color-violet-dark,
+  "palette-color-system-violet-light-vivid": $tokens-color-violet-light-vivid,
+  "palette-color-system-violet-medium-vivid": $tokens-color-violet-medium-vivid,
+  "palette-color-system-violet-dark-vivid": $tokens-color-violet-dark-vivid,
+  "palette-color-system-violet-standard": $tokens-color-violet-standard,
+  "palette-color-system-violet-vivid": $tokens-color-violet-vivid,
+  "palette-color-system-violet": $tokens-color-violet,
+);

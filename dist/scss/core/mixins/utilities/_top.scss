@@ -1,0 +1,10 @@
+// Outputs top
+
+@mixin u-top($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  top: get-uswds-value(top, $value...) #{$important};
+}

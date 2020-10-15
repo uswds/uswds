@@ -1,0 +1,10 @@
+// Outputs min-width
+
+@mixin u-minw($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  min-width: get-uswds-value(min-width, $value...) #{$important};
+}

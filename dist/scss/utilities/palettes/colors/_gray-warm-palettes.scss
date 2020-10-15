@@ -1,0 +1,40 @@
+$tokens-color-gray-warm-lighter: (
+  "gray-warm-1": $color-gray-warm-1,
+  "gray-warm-2": $color-gray-warm-2,
+  "gray-warm-3": $color-gray-warm-3,
+  "gray-warm-4": $color-gray-warm-4,
+);
+
+$tokens-color-gray-warm-light: (
+  "gray-warm-5": $color-gray-warm-5,
+  "gray-warm-10": $color-gray-warm-10,
+  "gray-warm-20": $color-gray-warm-20,
+  "gray-warm-30": $color-gray-warm-30,
+);
+
+$tokens-color-gray-warm-medium: (
+  "gray-warm-40": $color-gray-warm-40,
+  "gray-warm-50": $color-gray-warm-50,
+  "gray-warm-60": $color-gray-warm-60,
+);
+
+$tokens-color-gray-warm-dark: (
+  "gray-warm-70": $color-gray-warm-70,
+  "gray-warm-80": $color-gray-warm-80,
+  "gray-warm-90": $color-gray-warm-90,
+);
+
+$tokens-color-gray-warm: map-collect(
+  $tokens-color-gray-warm-lighter,
+  $tokens-color-gray-warm-light,
+  $tokens-color-gray-warm-medium,
+  $tokens-color-gray-warm-dark
+);
+
+$palettes-color-gray-warm: (
+  "palette-color-system-gray-warm-lighter": $tokens-color-gray-warm-lighter,
+  "palette-color-system-gray-warm-light": $tokens-color-gray-warm-light,
+  "palette-color-system-gray-warm-medium": $tokens-color-gray-warm-medium,
+  "palette-color-system-gray-warm-dark": $tokens-color-gray-warm-dark,
+  "palette-color-system-gray-warm": $tokens-color-gray-warm,
+);

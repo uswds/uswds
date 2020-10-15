@@ -1,0 +1,10 @@
+// Outputs top
+
+@mixin u-shadow($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  box-shadow: get-uswds-value(box-shadow, $value...) #{$important};
+}

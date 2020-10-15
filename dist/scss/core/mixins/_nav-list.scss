@@ -1,0 +1,95 @@
+$sidenav-level-1-inset: 2;
+$sidenav-level-2-inset: 4;
+$sidenav-level-3-inset: 6;
+$sidenav-level-4-inset: 8;
+
+@mixin nav-list($type) {
+  @include unstyled-list();
+
+  @if $type == "sidenav" {
+    &__item {
+      border-top: units(1px) solid color("base-lighter");
+    }
+  }
+
+  @if $type == "nav" {
+    &-item {
+      border-top: units(1px) solid color("base-lighter");
+    }
+  }
+
+  a {
+    color: color("base-dark");
+    display: block;
+    padding: units(1) units($sidenav-level-1-inset);
+    text-decoration: none;
+
+    &:hover {
+      background-color: color("base-lightest");
+      color: color("primary");
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline-offset: 0;
+    }
+  }
+
+  .usa-current {
+    @include add-bar(
+      $theme-sidenav-current-border-width,
+      "primary",
+      "left",
+      "pill",
+      0.5,
+      0.5
+    );
+    color: color("primary");
+    font-weight: font-weight("bold");
+
+    @include at-media("tablet") {
+      @include add-bar(
+        $theme-sidenav-current-border-width,
+        "primary",
+        "left",
+        "pill",
+        0,
+        0.5
+      );
+    }
+  }
+}
+
+@mixin nav-sublist {
+  @include unstyled-list();
+  margin: 0;
+
+  &-item {
+    border-top: units(1px) solid color("base-lighter");
+    font-size: font-size($theme-sidenav-font-family, "2xs");
+  }
+
+  .usa-current {
+    @include remove-bar;
+
+    @include at-media("tablet") {
+      @include remove-bar;
+    }
+  }
+
+  // level 2+
+  a {
+    padding-left: units($sidenav-level-2-inset);
+  }
+
+  // level 3+
+  & & a {
+    padding-left: units($sidenav-level-3-inset);
+  }
+
+  // level 4+
+  & & & a {
+    content: "foobar";
+    padding-left: units($sidenav-level-4-inset);
+  }
+}

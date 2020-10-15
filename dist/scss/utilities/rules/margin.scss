@@ -1,0 +1,70 @@
+/*
+========================================
+margin
+----------------------------------------
+usage:
+  .margin-[modifier]*-[key]
+----------------------------------------
+output:
+  margin: [value]
+----------------------------------------
+example:
+  .margin-x-auto {
+    margin-left: auto;
+    margin-right: auto; }
+
+  .margin-g105 {
+    margin: .75rem; }
+----------------------------------------
+*/
+
+$u-margin: (
+  margin: (
+    base: "margin",
+    modifiers: (
+      noModifier: "",
+    ),
+    values: map-collect(get-palettes($margin-palettes), $margin-manual-values),
+    settings: $margin-settings,
+    property: "margin",
+    type: "utility",
+  ),
+  margin-vertical: (
+    base: "margin",
+    modifiers: (
+      "y": (
+        "-top",
+        "-bottom",
+      ),
+      "top": "-top",
+      "bottom": "-bottom",
+    ),
+    values:
+      map-collect(
+        get-palettes($margin-vertical-palettes),
+        $margin-manual-values
+      ),
+    settings: $margin-settings,
+    property: "margin",
+    type: "utility",
+  ),
+  margin-horizontal: (
+    base: "margin",
+    modifiers: (
+      "x": (
+        "-left",
+        "-right",
+      ),
+      "right": "-right",
+      "left": "-left",
+    ),
+    values:
+      map-collect(
+        get-palettes($margin-horizontal-palettes),
+        $margin-manual-values
+      ),
+    settings: $margin-settings,
+    property: "margin",
+    type: "utility",
+  ),
+);

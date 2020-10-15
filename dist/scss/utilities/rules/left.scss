@@ -1,0 +1,28 @@
+/*
+========================================
+.left
+----------------------------------------
+property: left
+----------------------------------------
+usage:
+  .left-[key]
+----------------------------------------
+output:
+  left: [value];
+----------------------------------------
+example:
+  .left-n2px {
+    left: -2px; }
+----------------------------------------
+*/
+
+$u-left: (
+  left: (
+    base: "left",
+    modifiers: null,
+    values: map-collect(get-palettes($left-palettes), $left-manual-values),
+    settings: $left-settings,
+    property: "left",
+    type: "utility",
+  ),
+);

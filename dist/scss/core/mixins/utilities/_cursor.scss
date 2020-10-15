@@ -1,0 +1,10 @@
+// Outputs cursor
+
+@mixin u-cursor($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  cursor: get-uswds-value(cursor, $value) #{$important};
+}

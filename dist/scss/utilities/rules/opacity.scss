@@ -1,0 +1,26 @@
+/*
+========================================
+opacity
+----------------------------------------
+usage:
+  .opacity-[key]
+----------------------------------------
+output:
+  opacity: [value];
+----------------------------------------
+example:
+  .opacity-0 {
+    opacity: 0; }
+----------------------------------------
+*/
+
+$u-opacity: (
+  opacity: (
+    base: "opacity",
+    modifiers: null,
+    values: map-collect(get-palettes($opacity-palettes), $opacity-manual-values),
+    settings: $opacity-settings,
+    property: "opacity",
+    type: "utility",
+  ),
+);

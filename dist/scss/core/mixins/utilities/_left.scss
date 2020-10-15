@@ -1,0 +1,10 @@
+// Outputs right
+
+@mixin u-left($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  left: get-uswds-value(left, $value...) #{$important};
+}

@@ -1,0 +1,287 @@
+// Header helpers
+// ---------------------------------
+
+@mixin nav-border-extended {
+  @include add-bar(0.5, "primary", "bottom", 0, 2);
+}
+
+@mixin nav-border-basic {
+  @include add-bar(0.5, "primary", "bottom", 0, 2, -0.5);
+}
+
+$z-index-header: 300;
+$z-index-overlay: 400;
+
+// Header
+// ---------------------------------
+
+.usa-header {
+  @include clearfix;
+  @include typeset($theme-header-font-family);
+  @include border-box-sizing;
+  z-index: z-index($z-index-header);
+
+  a {
+    border-bottom: none;
+  }
+
+  // The search <form>
+  .usa-search {
+    @include at-media($theme-header-min-width) {
+      float: right;
+    }
+  }
+
+  // Accessibility: The <div> with search role
+  [role="search"] {
+    @include at-media($theme-header-min-width) {
+      float: right;
+      max-width: calc(
+        #{$theme-search-min-width} + #{units($theme-button-small-width)}
+      );
+      width: 100%;
+    }
+  }
+
+  // The search <input>
+  [type="search"] {
+    min-width: 0; // Fix a Firefox display quirk
+  }
+
+  + .usa-hero {
+    @include at-media($theme-header-min-width) {
+      border-top: units(1px) solid color("white");
+    }
+  }
+
+  + .usa-section,
+  + main {
+    @include at-media($theme-header-min-width) {
+      border-top: units(1px) solid color("base-lighter");
+    }
+  }
+}
+
+.usa-logo {
+  @include at-media-max($theme-header-min-width) {
+    @include u-flex("fill");
+    font-size: font-size($theme-header-font-family, "2xs");
+    line-height: line-height($theme-header-font-family, 1);
+    margin-left: units($theme-site-margins-mobile-width);
+  }
+
+  @include at-media($theme-header-min-width) {
+    margin-top: units(4);
+    margin-bottom: units(2);
+    font-size: font-size($theme-header-font-family, "lg");
+    line-height: line-height($theme-header-font-family, 2);
+  }
+
+  a {
+    color: color("ink");
+    text-decoration: none;
+  }
+}
+
+.usa-logo__text {
+  display: block;
+  font-style: normal;
+  font-weight: font-weight("bold");
+  margin: 0;
+}
+
+.usa-menu-btn {
+  @include button-unstyled;
+  @include u-flex("auto");
+  @include u-padding-x(1.5);
+  background-color: color("primary");
+  color: color("white");
+  font-size: font-size($theme-header-font-family, "3xs");
+  height: units($size-touch-target);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include at-media($theme-header-min-width) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: color("primary-dark");
+    color: color("white");
+    text-decoration: none;
+  }
+
+  &:active {
+    color: color("white");
+  }
+
+  &:visited {
+    color: color("white");
+  }
+}
+
+.usa-overlay {
+  @include u-pin("all");
+  position: fixed;
+  background: color("black");
+  opacity: opacity(0);
+  transition: opacity $project-easing;
+  visibility: hidden;
+  z-index: z-index($z-index-overlay);
+
+  &.is-visible {
+    opacity: opacity(20);
+    visibility: visible;
+  }
+}
+
+// usa-header--basic
+// ---------------------------------
+
+.usa-header--basic {
+  @include at-media($theme-header-min-width) {
+    .usa-navbar {
+      position: relative;
+      width: $theme-header-logo-text-width; // TODO: review this more
+    }
+
+    .usa-nav {
+      @include u-flex("row", "align-center", "justify-end");
+      display: flex;
+      padding: 0 0 units(0.5) units(1);
+      width: 100%;
+    }
+
+    .usa-nav-container {
+      @include u-flex("align-end", "justify");
+      display: flex;
+    }
+
+    .usa-nav__primary-item > .usa-current,
+    .usa-nav__link:hover {
+      @include nav-border-basic;
+    }
+
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
+    }
+
+    .usa-nav__primary {
+      width: auto;
+    }
+
+    // Issue #3401: last dropdown gets cutoff.
+    .usa-nav__primary-item:last-of-type {
+      position: relative;
+
+      .usa-nav__submenu {
+        @include u-pin-right;
+      }
+    }
+
+    .usa-search {
+      top: 0;
+    }
+  }
+  &.usa-header--megamenu {
+    .usa-nav__inner {
+      display: flex;
+      flex-direction: column;
+
+      @include at-media($theme-header-min-width) {
+        display: block;
+        float: right;
+        margin-top: units(-5);
+      }
+    }
+
+    .usa-nav__primary-item:last-of-type {
+      @include at-media($theme-header-min-width) {
+        position: static;
+      }
+    }
+  }
+}
+
+// usa-header--extended
+// ---------------------------------
+
+.usa-header--extended {
+  @include at-media($theme-header-min-width) {
+    padding-top: 0;
+
+    .usa-nav__primary-item > .usa-current,
+    .usa-nav__primary-item > .usa-nav__link:hover {
+      @include nav-border-extended;
+    }
+
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
+    }
+  }
+
+  .usa-logo {
+    @include at-media($theme-header-min-width) {
+      font-size: font-size($theme-header-font-family, "xl");
+      margin: units(4) 0 units(3);
+      max-width: 50%;
+    }
+  }
+
+  .usa-navbar {
+    @include at-media($theme-header-min-width) {
+      @include grid-container($theme-header-max-width);
+      display: block;
+      height: auto;
+      overflow: auto;
+    }
+  }
+
+  .usa-nav {
+    @include at-media($theme-header-min-width) {
+      border-top: units(1px) solid color("base-lighter");
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  .usa-nav__inner {
+    @include at-media($theme-header-min-width) {
+      @include grid-container($theme-header-max-width);
+      position: relative;
+    }
+  }
+
+  .usa-nav__primary {
+    @include at-media($theme-header-min-width) {
+      @include clearfix;
+      margin-left: units(-2);
+    }
+  }
+
+  .usa-nav__link {
+    @include at-media($theme-header-min-width) {
+      @include u-padding-y(2);
+    }
+  }
+
+  .usa-nav__submenu {
+    .usa-grid-full {
+      @include at-media($theme-header-min-width) {
+        padding-left: units(1.5);
+      }
+    }
+  }
+
+  .usa-nav__submenu.usa-megamenu {
+    @include at-media($theme-header-min-width) {
+      left: 0;
+      padding-left: units($theme-site-margins-width);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+/*
+========================================
+text-transform
+----------------------------------------
+usage:
+  .text-[value]
+----------------------------------------
+output:
+  text-transform: value;
+----------------------------------------
+example:
+  .text-uppercase {
+    text-transform: uppercase; }
+----------------------------------------
+*/
+
+$u-text-transform: (
+  text-transform: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($text-transform-palettes),
+        $text-transform-manual-values
+      ),
+    settings: $text-transform-settings,
+    property: "text-transform",
+    type: "utility",
+  ),
+);

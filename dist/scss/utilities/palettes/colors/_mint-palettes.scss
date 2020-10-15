@@ -1,0 +1,66 @@
+$tokens-color-mint-light: (
+  "mint-5": $color-mint-5,
+  "mint-10": $color-mint-10,
+  "mint-20": $color-mint-20,
+  "mint-30": $color-mint-30,
+);
+
+$tokens-color-mint-medium: (
+  "mint-40": $color-mint-40,
+  "mint-50": $color-mint-50,
+  "mint-60": $color-mint-60,
+);
+
+$tokens-color-mint-dark: (
+  "mint-70": $color-mint-70,
+  "mint-80": $color-mint-80,
+  "mint-90": $color-mint-90,
+);
+
+$tokens-color-mint-light-vivid: (
+  "mint-5v": $color-mint-5v,
+  "mint-10v": $color-mint-10v,
+  "mint-20v": $color-mint-20v,
+  "mint-30v": $color-mint-30v,
+);
+
+$tokens-color-mint-medium-vivid: (
+  "mint-40v": $color-mint-40v,
+  "mint-50v": $color-mint-50v,
+  "mint-60v": $color-mint-60v,
+);
+
+$tokens-color-mint-dark-vivid: (
+  "mint-70v": $color-mint-70v,
+  "mint-80v": $color-mint-80v,
+  "mint-90v": $color-mint-90v,
+);
+
+$tokens-color-mint-standard: map-collect(
+  $tokens-color-mint-light,
+  $tokens-color-mint-medium,
+  $tokens-color-mint-dark
+);
+
+$tokens-color-mint-vivid: map-collect(
+  $tokens-color-mint-light-vivid,
+  $tokens-color-mint-medium-vivid,
+  $tokens-color-mint-dark-vivid
+);
+
+$tokens-color-mint: map-collect(
+  $tokens-color-mint-standard,
+  $tokens-color-mint-vivid
+);
+
+$palettes-color-mint: (
+  "palette-color-system-mint-light": $tokens-color-mint-light,
+  "palette-color-system-mint-medium": $tokens-color-mint-medium,
+  "palette-color-system-mint-dark": $tokens-color-mint-dark,
+  "palette-color-system-mint-light-vivid": $tokens-color-mint-light-vivid,
+  "palette-color-system-mint-medium-vivid": $tokens-color-mint-medium-vivid,
+  "palette-color-system-mint-dark-vivid": $tokens-color-mint-dark-vivid,
+  "palette-color-system-mint-standard": $tokens-color-mint-standard,
+  "palette-color-system-mint-vivid": $tokens-color-mint-vivid,
+  "palette-color-system-mint": $tokens-color-mint,
+);

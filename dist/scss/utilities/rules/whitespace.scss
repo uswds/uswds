@@ -1,0 +1,27 @@
+/*
+========================================
+white-space
+----------------------------------------
+usage:
+  text-[key]
+----------------------------------------
+output:
+  white-space: [value];
+----------------------------------------
+example:
+  .text-pre-wrap {
+    white-space: pre-wrap; }
+----------------------------------------
+*/
+
+$u-whitespace: (
+  whitespace: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($whitespace-palettes), $whitespace-manual-values),
+    settings: $whitespace-settings,
+    property: "white-space",
+    type: "utility",
+  ),
+);

@@ -1,0 +1,159 @@
+/* stylelint-disable */
+
+$namespace-grid: ns("grid");
+
+// basic container
+.#{$namespace-grid}container {
+  $props: append-important($grid-global, $theme-grid-container-max-width);
+  @include grid-container($props);
+}
+
+// container with custom widths
+@each $width-key, $width-value in $system-breakpoints {
+  .#{$namespace-grid}container-#{$width-key} {
+    $props: append-important($grid-global, $width-key);
+    @include grid-container($props);
+  }
+}
+
+// responsive containers...
+@each $mq-key, $mq-value in $system-breakpoints {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
+    @include at-media($mq-key) {
+      .#{$mq-key}\:#{$namespace-grid}container {
+        $props: append-important($grid-global, desktop);
+        @include grid-container($props);
+      }
+
+      // ...with custom widths
+      @each $width-key, $width-value in $system-breakpoints {
+        .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
+          $props: append-important($grid-global, $width-key);
+          @include grid-container($props);
+        }
+      }
+    }
+  }
+}
+
+// basic row...
+.#{$namespace-grid}row {
+  @include grid-row;
+
+  // ...that includes column gaps
+  &.#{$namespace-grid}gap {
+    @include grid-gap-responsive;
+  }
+  @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard) {
+    &.#{$namespace-grid}gap-#{$gap-key} {
+      $props: append-important($grid-global, $gap-key);
+      @include grid-gap($props);
+    }
+  }
+
+  // responsive column gaps
+  @each $mq-key, $mq-value in $system-breakpoints {
+    @if map-get($theme-utility-breakpoints, $mq-key) {
+      @include at-media($mq-key) {
+        @each $gap-key,
+          $gap-val in map-deep-get($system-properties, gap, standard)
+        {
+          &.#{$mq-key}\:#{$namespace-grid}gap-#{$gap-key} {
+            $props: append-important($grid-global, $gap-key);
+            @include grid-gap($props);
+          }
+        }
+      }
+    }
+  }
+}
+
+// basic columns...
+[class*="#{$namespace-grid}col"] {
+  @include u-position(relative);
+  @include u-width(full);
+  box-sizing: border-box;
+}
+
+.#{$namespace-grid}col {
+  $props: append-important($grid-global, fill);
+  @include grid-col($props);
+}
+
+.#{$namespace-grid}col-auto {
+  $props: append-important($grid-global, auto);
+  @include grid-col($props);
+}
+
+.#{$namespace-grid}col-fill {
+  $props: append-important($grid-global, fill);
+  @include grid-col($props);
+}
+
+// ...with widths
+@each $width-key, $width-value in $system-layout-grid-widths {
+  .#{$namespace-grid}col-#{$width-key} {
+    $props: append-important($grid-global, $width-key);
+    @include grid-col($props);
+  }
+}
+
+// responsive columns
+@each $mq-key, $mq-value in $system-breakpoints {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
+    @include at-media($mq-key) {
+      .#{$mq-key}\:#{$namespace-grid}col {
+        $props: append-important($grid-global, fill);
+        @include grid-col($props);
+      }
+      .#{$mq-key}\:#{$namespace-grid}col-fill {
+        $props: append-important($grid-global, fill);
+        @include grid-col($props);
+      }
+      .#{$mq-key}\:#{$namespace-grid}col-auto {
+        $props: append-important($grid-global, auto);
+        @include grid-col($props);
+      }
+
+      @each $width-key, $width-value in $system-layout-grid-widths {
+        .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
+          $props: append-important($grid-global, $width-key);
+          @include grid-col($props);
+        }
+      }
+    }
+  }
+}
+
+// basic offsets
+@each $width-key, $width-value in $system-layout-grid-widths {
+  .#{$namespace-grid}offset-#{$width-key} {
+    $props: append-important($grid-global, $width-key);
+    @include grid-offset($props);
+  }
+}
+.#{$namespace-grid}offset-none {
+  $props: append-important($grid-global, none);
+  @include grid-offset($props);
+}
+
+// responsive offsets
+@each $mq-key, $mq-value in $system-breakpoints {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
+    @each $width-key, $width-value in $system-layout-grid-widths {
+      @include at-media($mq-key) {
+        .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
+          $props: append-important($grid-global, $width-key);
+          @include grid-offset($props);
+        }
+      }
+    }
+    @include at-media($mq-key) {
+      .#{$mq-key}\:#{$namespace-grid}offset-none {
+        $props: append-important($grid-global, none);
+        @include grid-offset($props);
+      }
+    }
+  }
+}
+/* stylelint-enable */

@@ -1,0 +1,67 @@
+$tokens-color-magenta-light: (
+  "magenta-5": $color-magenta-5,
+  "magenta-10": $color-magenta-10,
+  "magenta-20": $color-magenta-20,
+  "magenta-30": $color-magenta-30,
+);
+
+$tokens-color-magenta-medium: (
+  "magenta-40": $color-magenta-40,
+  "magenta-50": $color-magenta-50,
+  "magenta-60": $color-magenta-60,
+);
+
+$tokens-color-magenta-dark: (
+  "magenta-70": $color-magenta-70,
+  "magenta-80": $color-magenta-80,
+  "magenta-90": $color-magenta-90,
+);
+
+$tokens-color-magenta-light-vivid: (
+  "magenta-5v": $color-magenta-5v,
+  "magenta-10v": $color-magenta-10v,
+  "magenta-20v": $color-magenta-20v,
+  "magenta-30v": $color-magenta-30v,
+);
+
+$tokens-color-magenta-medium-vivid: (
+  "magenta-40v": $color-magenta-40v,
+  "magenta-50v": $color-magenta-50v,
+  "magenta-60v": $color-magenta-60v,
+);
+
+$tokens-color-magenta-dark-vivid: (
+  "magenta-70v": $color-magenta-70v,
+  "magenta-80v": $color-magenta-80v,
+  "magenta-90v": $color-magenta-90v,
+);
+
+$tokens-color-magenta-standard: map-collect(
+  $tokens-color-magenta-light,
+  $tokens-color-magenta-medium,
+  $tokens-color-magenta-dark
+);
+
+$tokens-color-magenta-vivid: map-collect(
+  $tokens-color-magenta-light-vivid,
+  $tokens-color-magenta-medium-vivid,
+  $tokens-color-magenta-dark-vivid
+);
+
+$tokens-color-magenta: map-collect(
+  $tokens-color-magenta-standard,
+  $tokens-color-magenta-vivid
+);
+
+$palettes-color-magenta: (
+  "palette-color-system-magenta-light": $tokens-color-magenta-light,
+  "palette-color-system-magenta-medium": $tokens-color-magenta-medium,
+  "palette-color-system-magenta-dark": $tokens-color-magenta-dark,
+  "palette-color-system-magenta-light-vivid": $tokens-color-magenta-light-vivid,
+  "palette-color-system-magenta-medium-vivid":
+    $tokens-color-magenta-medium-vivid,
+  "palette-color-system-magenta-dark-vivid": $tokens-color-magenta-dark-vivid,
+  "palette-color-system-magenta-standard": $tokens-color-magenta-standard,
+  "palette-color-system-magenta-vivid": $tokens-color-magenta-vivid,
+  "palette-color-system-magenta": $tokens-color-magenta,
+);

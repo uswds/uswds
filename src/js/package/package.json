@@ -1,0 +1,41 @@
+{
+  "name": "uswds-npm",
+  "version": "0.0.1",
+  "description": "npm package",
+  "engines": {
+    "node": ">= 4"
+  },
+  "main": "dist/js/uswds.min.js",
+  "jsnext:main": "src/js/start.js",
+  "style": "dist/css/uswds.min.css",
+  "sass": "src/stylesheets/uswds.scss",
+  "mocha": {
+    "config": "spec/.mocharc.json"
+  },
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uswds/uswds.git"
+  },
+  "author": "18F",
+  "contributors": [
+    "Justin Sarnik <justin.sarnik@gsa.gov>"
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "classlist-polyfill": "^1.0.3",
+    "del": "^5.1.0",
+    "domready": "^1.0.8",
+    "elem-dataset": "^2.0.0",
+    "lodash.debounce": "^4.0.7",
+    "object-assign": "^4.1.1",
+    "receptor": "^1.0.0",
+    "resolve-id-refs": "^0.1.0"
+  }
+}

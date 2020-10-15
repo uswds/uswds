@@ -1,0 +1,22 @@
+$aspect-height: 9;
+$aspect-width: 16;
+
+.usa-embed-container {
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.usa-embed-container {
+  @include embed-container($aspect-height, $aspect-width);
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}

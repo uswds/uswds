@@ -1,0 +1,11 @@
+// Outputs border-color
+
+@mixin u-border-color($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  border-color: color($value) #{$important};
+}

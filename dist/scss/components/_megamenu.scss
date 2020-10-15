@@ -1,0 +1,45 @@
+@mixin outer-megamenu {
+  @include u-pin("y");
+  background-color: color("primary-darker");
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.usa-megamenu {
+  .usa-col {
+    // Flex grow to take up available width.
+    // Flex shrink so long nav lines don't extend beyond viewport.
+    // Finally `flex-basis: auto` for IE11.
+    flex: 1 1 auto;
+    @include at-media($theme-header-min-width) {
+      // needs this round() to avoid a compile bug
+      @include u-flex(round(12 / $theme-megamenu-columns));
+    }
+  }
+}
+
+.usa-megamenu.usa-nav__submenu {
+  @include at-media($theme-header-min-width) {
+    @include u-padding-x(0);
+    @include u-padding-y(4);
+    left: -$theme-header-logo-text-width;
+    right: 0;
+    width: auto;
+  }
+
+  &::before {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu;
+      right: 100%;
+    }
+  }
+
+  &::after {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu;
+      left: 100%;
+    }
+  }
+}

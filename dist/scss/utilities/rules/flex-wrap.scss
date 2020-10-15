@@ -1,0 +1,27 @@
+/*
+========================================
+flex-wrap
+----------------------------------------
+usage:
+  .flex-wrap-[key]
+----------------------------------------
+output:
+  flex-wrap: [value];
+----------------------------------------
+example:
+  .flex-wrap {
+    flex-wrap: wrap; }
+----------------------------------------
+*/
+
+$u-flex-wrap: (
+  flex-wrap: (
+    base: "flex",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($flex-wrap-palettes), $flex-wrap-manual-values),
+    settings: $flex-wrap-settings,
+    property: "flex-wrap",
+    type: "utility",
+  ),
+);

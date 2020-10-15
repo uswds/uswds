@@ -1,0 +1,28 @@
+/*
+========================================
+z-index
+----------------------------------------
+usage:
+  z-[key]
+----------------------------------------
+output:
+  z-index: [value];
+----------------------------------------
+example:
+  .z-100 {
+    z-index: 100; }
+  .z-top {
+    z-index: 9999; }
+----------------------------------------
+*/
+
+$u-z-index: (
+  z-index: (
+    base: "z",
+    modifiers: null,
+    values: map-collect(get-palettes($z-index-palettes), $z-index-manual-values),
+    settings: $z-index-settings,
+    property: "z-index",
+    type: "utility",
+  ),
+);

@@ -1,0 +1,10 @@
+// Outputs flex-direction
+
+@mixin u-flex-direction($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  flex-direction: get-uswds-value(flex-direction, $value) #{$important};
+}

@@ -1,0 +1,11 @@
+// Outputs height
+
+@mixin u-height($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  height: get-uswds-value(height, $value...) #{$important};
+}

@@ -1,0 +1,17 @@
+@mixin button-disabled {
+  @include add-knockout-font-smoothing;
+  background-color: color("disabled");
+  color: color("white");
+  pointer-events: none;
+
+  &:hover,
+  &.usa-button--hover,
+  &:active,
+  &.usa-button--active,
+  &:focus,
+  &.usa-focus {
+    background-color: color("disabled");
+    border: 0;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,10 @@
+// Outputs vertical-align property
+
+@mixin u-vertical-align($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  vertical-align: get-uswds-value(vertical-align, $value...) #{$important};
+}

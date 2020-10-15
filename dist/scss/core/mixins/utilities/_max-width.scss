@@ -1,0 +1,10 @@
+// Outputs max-width
+
+@mixin u-maxw($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  max-width: get-uswds-value(max-width, $value...) #{$important};
+}

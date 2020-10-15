@@ -1,0 +1,7 @@
+img {
+  max-width: 100%;
+}
+
+.usa-media-link {
+  @include media-link();
+}

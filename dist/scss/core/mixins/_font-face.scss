@@ -1,0 +1,103 @@
+// Output the @font-face rule
+@mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
+  $file-path: unquote($file-path);
+
+  // TODO: If $theme-use-rails-pipeline use font-url() statements
+  // instead of url()
+  // Dunno why I can't do this without an error...
+
+  @font-face {
+    font-family: unquote($display-name);
+    font-style: unquote($font-style);
+    font-weight: $font-weight;
+    font-display: fallback;
+    src: url(#{$file-path}.woff2) format("woff2"),
+      url(#{$file-path}.woff) format("woff"),
+      url(#{$file-path}.ttf) format("truetype");
+  }
+}
+
+// Loop through weights, then call at-font-face
+@mixin generate-font-face(
+  $font-style-src,
+  $output-weights,
+  $display-name,
+  $dir,
+  $font-style
+) {
+  @each $font-weight, $filename in $font-style-src {
+    @each $key, $output-weight in $output-weights {
+      @if $output-weight == $font-weight and $filename {
+        @include at-font-face(
+          "#{$display-name}",
+          "#{$theme-font-path}/#{$dir}/#{$filename}",
+          #{$font-weight},
+          unquote("#{$font-style}")
+        );
+      }
+    }
+  }
+}
+
+// Collect all font metadata, then call generate-font-face
+@mixin render-font-face($typeface-token, $src) {
+  $generate: false;
+  $this-src: ();
+  $output-weights: $project-font-weights;
+  @if $theme-generate-all-weights {
+    $output-weights: (
+      100: 100,
+      200: 200,
+      300: 300,
+      400: 400,
+      500: 500,
+      600: 600,
+      700: 700,
+      800: 800,
+      900: 900,
+    );
+  }
+
+  $typeface-metadata: map-get($all-typeface-tokens, $typeface-token);
+
+  // If the typeface has src in its USWDS metadata, generate and
+  // set $this-src
+  @if map-get($typeface-metadata, src) {
+    $generate: true;
+    $this-src: map-get($typeface-metadata, src);
+  }
+
+  // If the typeface has custom src sefined, generate and override
+  // any existing USWDS src
+  @if $src {
+    $generate: true;
+    $this-src: $src;
+  }
+
+  @if $generate {
+    $display-name: map-get($typeface-metadata, display-name);
+    $roman: map-get($this-src, roman);
+    $italic: map-get($this-src, italic);
+    $dir: map-get($this-src, dir);
+
+    @if $roman {
+      @include generate-font-face(
+        $roman,
+        $output-weights,
+        $display-name,
+        $dir,
+        normal
+      );
+    }
+
+    @if $italic {
+      @include generate-font-face(
+        $italic,
+        $output-weights,
+        $display-name,
+        $dir,
+        italic
+      );
+    }
+  }
+}

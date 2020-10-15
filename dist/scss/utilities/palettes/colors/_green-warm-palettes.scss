@@ -1,0 +1,69 @@
+$tokens-color-green-warm-light: (
+  "green-warm-5": $color-green-warm-5,
+  "green-warm-10": $color-green-warm-10,
+  "green-warm-20": $color-green-warm-20,
+  "green-warm-30": $color-green-warm-30,
+);
+
+$tokens-color-green-warm-medium: (
+  "green-warm-40": $color-green-warm-40,
+  "green-warm-50": $color-green-warm-50,
+  "green-warm-60": $color-green-warm-60,
+);
+
+$tokens-color-green-warm-dark: (
+  "green-warm-70": $color-green-warm-70,
+  "green-warm-80": $color-green-warm-80,
+  "green-warm-90": $color-green-warm-90,
+);
+
+$tokens-color-green-warm-light-vivid: (
+  "green-warm-5v": $color-green-warm-5v,
+  "green-warm-10v": $color-green-warm-10v,
+  "green-warm-20v": $color-green-warm-20v,
+  "green-warm-30v": $color-green-warm-30v,
+);
+
+$tokens-color-green-warm-medium-vivid: (
+  "green-warm-40v": $color-green-warm-40v,
+  "green-warm-50v": $color-green-warm-50v,
+  "green-warm-60v": $color-green-warm-60v,
+);
+
+$tokens-color-green-warm-dark-vivid: (
+  "green-warm-70v": $color-green-warm-70v,
+  "green-warm-80v": $color-green-warm-80v,
+  "green-warm-90v": $color-green-warm-90v,
+);
+
+$tokens-color-green-warm-standard: map-collect(
+  $tokens-color-green-warm-light,
+  $tokens-color-green-warm-medium,
+  $tokens-color-green-warm-dark
+);
+
+$tokens-color-green-warm-vivid: map-collect(
+  $tokens-color-green-warm-light-vivid,
+  $tokens-color-green-warm-medium-vivid,
+  $tokens-color-green-warm-dark-vivid
+);
+
+$tokens-color-green-warm: map-collect(
+  $tokens-color-green-warm-standard,
+  $tokens-color-green-warm-vivid
+);
+
+$palettes-color-green-warm: (
+  "palette-color-system-green-warm-light": $tokens-color-green-warm-light,
+  "palette-color-system-green-warm-medium": $tokens-color-green-warm-medium,
+  "palette-color-system-green-warm-dark": $tokens-color-green-warm-dark,
+  "palette-color-system-green-warm-light-vivid":
+    $tokens-color-green-warm-light-vivid,
+  "palette-color-system-green-warm-medium-vivid":
+    $tokens-color-green-warm-medium-vivid,
+  "palette-color-system-green-warm-dark-vivid":
+    $tokens-color-green-warm-dark-vivid,
+  "palette-color-system-green-warm-standard": $tokens-color-green-warm-standard,
+  "palette-color-system-green-warm-vivid": $tokens-color-green-warm-vivid,
+  "palette-color-system-green-warm": $tokens-color-green-warm,
+);

@@ -1,0 +1,49 @@
+// Adds padding either l/r(x) or t/b(y)
+
+@mixin padding-n($side, $value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  @if $side == all {
+    padding: get-uswds-value(padding, $value...) #{$important};
+  } @else if $side == x {
+    padding-left: get-uswds-value(padding, $value...) #{$important};
+    padding-right: get-uswds-value(padding, $value...) #{$important};
+  } @else if $side == y {
+    padding-bottom: get-uswds-value(padding, $value...) #{$important};
+    padding-top: get-uswds-value(padding, $value...) #{$important};
+  } @else {
+    padding-#{$side}: get-uswds-value(padding, $value...) #{$important};
+  }
+}
+
+@mixin u-padding($value...) {
+  @include padding-n(all, $value...);
+}
+
+@mixin u-padding-x($value...) {
+  @include padding-n(x, $value...);
+}
+
+@mixin u-padding-y($value...) {
+  @include padding-n(y, $value...);
+}
+
+@mixin u-padding-top($value...) {
+  @include padding-n(top, $value...);
+}
+
+@mixin u-padding-right($value...) {
+  @include padding-n(right, $value...);
+}
+
+@mixin u-padding-bottom($value...) {
+  @include padding-n(bottom, $value...);
+}
+
+@mixin u-padding-left($value...) {
+  @include padding-n(left, $value...);
+}

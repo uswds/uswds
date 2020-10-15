@@ -1,0 +1,46 @@
+/*
+========================================
+PALETTE REGISTRY
+----------------------------------------
+This map collects the
+available utility palettes
+----------------------------------------
+*/
+
+$palette-registry: map-collect(
+  $palettes-units,
+  $palettes-units-misc,
+  $palette-font,
+  $palettes-font-theme,
+  $palettes-font-system,
+  $palettes-font-misc,
+  $palettes-color,
+  $palettes-color-black-transparent,
+  $palettes-color-blue-warm,
+  $palettes-color-blue-cool,
+  $palettes-color-blue,
+  $palettes-color-cyan,
+  $palettes-color-gray-cool,
+  $palettes-color-gray-warm,
+  $palettes-color-gray,
+  $palettes-color-gold,
+  $palettes-color-green-cool,
+  $palettes-color-green-warm,
+  $palettes-color-green,
+  $palettes-color-indigo-cool,
+  $palettes-color-indigo-warm,
+  $palettes-color-indigo,
+  $palettes-color-magenta,
+  $palettes-color-mint-cool,
+  $palettes-color-mint,
+  $palettes-color-orange-warm,
+  $palettes-color-orange,
+  $palettes-color-red-warm,
+  $palettes-color-red,
+  $palettes-color-red-cool,
+  $palettes-color-violet-warm,
+  $palettes-color-violet,
+  $palettes-color-white-transparent,
+  $palettes-color-yellow,
+  $palettes-default
+);

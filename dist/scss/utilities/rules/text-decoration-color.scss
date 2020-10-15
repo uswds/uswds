@@ -1,0 +1,31 @@
+/*
+========================================
+text-decoration-color
+----------------------------------------
+usage:
+  .text-decoration-color-[key]
+----------------------------------------
+output:
+  text-decoration-color: [value]
+----------------------------------------
+example:
+  .text-decoration-color-black {
+    text-decoration-color: #000; }
+----------------------------------------
+*/
+
+$u-text-decoration-color: (
+  text-decoration-color: (
+    base: "underline",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($text-decoration-color-palettes),
+        get-palettes($global-color-palettes),
+        $text-decoration-color-manual-values
+      ),
+    settings: $text-decoration-color-settings,
+    property: "text-decoration-color",
+    type: "utility",
+  ),
+);

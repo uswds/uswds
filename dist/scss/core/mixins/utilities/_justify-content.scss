@@ -1,0 +1,10 @@
+// Outputs justify-content
+
+@mixin u-justify-content($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  justify-content: get-uswds-value(justify-content, $value...) #{$important};
+}

@@ -1,0 +1,30 @@
+/*
+========================================
+border-style
+----------------------------------------
+usage:
+  .border[-modifier]*-[key]
+----------------------------------------
+output:
+  border-style: [value];
+----------------------------------------
+example:
+  .border-dotted {
+    border-style: dotted; }
+----------------------------------------
+*/
+
+$u-border-style: (
+  border-style: (
+    base: "border",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($border-style-palettes),
+        $border-style-manual-values
+      ),
+    settings: $border-style-settings,
+    property: "border-style",
+    type: "utility",
+  ),
+);

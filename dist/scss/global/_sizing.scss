@@ -1,0 +1,14 @@
+// Apply a natural box layout model to all elements, but allowing components to
+// change
+
+@if $theme-global-border-box-sizing {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}

@@ -1,0 +1,82 @@
+$utility-pin-options: "all", "x", "y", "top", "bottom", "left", "right", "none";
+
+@mixin u-pin($value...) {
+  $important: null;
+  $position-absolute: append-important($value, absolute);
+  $position-static: append-important($value, static);
+  $has-position: false;
+
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+
+  @each $option in $value {
+    $option: smart-quote($option);
+    @if $option != "none" and not $has-position {
+      @include u-position($position-absolute);
+      $has-position: true;
+    }
+    @if $option == "all" {
+      bottom: 0#{$important};
+      left: 0#{$important};
+      right: 0#{$important};
+      top: 0#{$important};
+    } @else if $option == "x" {
+      left: 0#{$important};
+      right: 0#{$important};
+    } @else if $option == "y" {
+      bottom: 0#{$important};
+      top: 0#{$important};
+    } @else if $option == "top" {
+      top: 0#{$important};
+    } @else if $option == "bottom" {
+      bottom: 0#{$important};
+    } @else if $option == "left" {
+      left: 0#{$important};
+    } @else if $option == "right" {
+      right: 0#{$important};
+    } @else if $option == "none" {
+      $has-position: false;
+      @include u-position($position-static);
+      bottom: auto#{$important};
+      left: auto#{$important};
+      right: auto#{$important};
+      top: auto#{$important};
+    } @else {
+      @error '`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}';
+    }
+  }
+}
+
+@mixin u-pin-none($value...) {
+  @include u-pin("none", $value...);
+}
+
+@mixin u-pin-all($value...) {
+  @include u-pin("all", $value...);
+}
+
+@mixin u-pin-y($value...) {
+  @include u-pin("y", $value...);
+}
+
+@mixin u-pin-x($value...) {
+  @include u-pin("x", $value...);
+}
+
+@mixin u-pin-bottom($value...) {
+  @include u-pin("bottom", $value...);
+}
+
+@mixin u-pin-left($value...) {
+  @include u-pin("left", $value...);
+}
+
+@mixin u-pin-right($value...) {
+  @include u-pin("right", $value...);
+}
+
+@mixin u-pin-top($value...) {
+  @include u-pin("top", $value...);
+}

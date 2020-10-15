@@ -1,0 +1,10 @@
+// Outputs text-align property
+
+@mixin u-text-align($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  text-align: get-uswds-value(text-align, $value...) #{$important};
+}

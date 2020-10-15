@@ -1,0 +1,11 @@
+/* stylelint-disable */
+
+@each $font-type-token, $metadata in $project-font-type-tokens {
+  @if map-get($metadata, "typeface-token") {
+    $this-typeface-token: map-get($metadata, "typeface-token");
+    $this-src: map-get($metadata, "src");
+    @include render-font-face($this-typeface-token, $this-src);
+  }
+}
+
+/* stylelint-enable */

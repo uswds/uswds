@@ -1,0 +1,161 @@
+/*
+----------------------------------------
+typeset()
+----------------------------------------
+Sets:
+- family
+- size
+- line-height
+----------------------------------------
+*/
+
+@mixin typeset(
+  $family: $theme-body-font-family,
+  $scale: $theme-body-font-size,
+  $line-height: $theme-body-line-height
+) {
+  @if type-of($family) == "list" {
+    $list: $family;
+    $family: if(nth($list, 1), nth($list, 1), null);
+    $scale: if(nth($list, 2), nth($list, 2), null);
+    $line-height: if(nth($list, 3), nth($list, 3), null);
+  }
+  $family: if($family == null, $theme-body-font-family, $family);
+  $scale: if($scale == null, $theme-body-font-size, $scale);
+  $line-height: if($line-height == null, $theme-body-line-height, $line-height);
+  @include u-font($family, $scale);
+  @include u-line-height($family, $line-height);
+}
+
+@mixin typeset-heading {
+  @include u-margin-y(0);
+  clear: both;
+
+  * + & {
+    margin-top: 1.5em; // TODO: add as var to settings?
+  }
+
+  + * {
+    margin-top: 1em;
+  }
+}
+
+// typeset element mixins
+@mixin typeset-p {
+  line-height: line-height($theme-body-font-family, $theme-body-line-height);
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: measure($theme-text-measure);
+
+  * + & {
+    margin-top: 1em; // TODO: add as var to settings?
+  }
+
+  + * {
+    margin-top: 1em;
+  }
+}
+
+@mixin typeset-link {
+  color: color($theme-link-color);
+  text-decoration: underline;
+
+  &:hover {
+    color: color($theme-link-hover-color);
+  }
+
+  &:active {
+    color: color($theme-link-active-color);
+  }
+
+  &:focus {
+    @include focus-outline;
+  }
+
+  &:visited {
+    color: color($theme-link-visited-color);
+  }
+}
+
+@mixin display {
+  @include typeset(
+    "heading",
+    $theme-display-font-size,
+    $theme-heading-line-height
+  );
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-display {
+  @include typeset-heading;
+  @include display;
+}
+
+@mixin h1 {
+  @include typeset("heading", $theme-h1-font-size, $theme-heading-line-height);
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-h1 {
+  @include typeset-heading;
+  @include h1;
+}
+
+@mixin h2 {
+  @include typeset("heading", $theme-h2-font-size, $theme-heading-line-height);
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-h2 {
+  @include typeset-heading;
+  @include h2;
+}
+
+@mixin h3 {
+  @include typeset("heading", $theme-h3-font-size, $theme-heading-line-height);
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-h3 {
+  @include typeset-heading;
+  @include h3;
+}
+
+@mixin h4 {
+  @include typeset("heading", $theme-h4-font-size, $theme-heading-line-height);
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-h4 {
+  @include typeset-heading;
+  @include h4;
+}
+
+@mixin h5 {
+  @include typeset("heading", $theme-h5-font-size, $theme-heading-line-height);
+
+  font-weight: fw("bold");
+}
+
+@mixin typeset-h5 {
+  @include typeset-heading;
+  @include h5;
+}
+
+@mixin h6 {
+  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
+
+  font-weight: fw("normal");
+  letter-spacing: ls("ls-1");
+  text-transform: uppercase;
+}
+
+@mixin typeset-h6 {
+  @include typeset-heading;
+  @include h6;
+}

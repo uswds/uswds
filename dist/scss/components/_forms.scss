@@ -1,0 +1,54 @@
+.usa-form {
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
+  @include border-box-sizing;
+}
+
+.usa-form {
+  @include at-media("mobile-lg") {
+    max-width: units("mobile");
+  }
+
+  .usa-input,
+  .usa-range,
+  .usa-select,
+  .usa-textarea {
+    // max width not needed since .usa-form has one of its own
+    max-width: none;
+  }
+
+  .usa-input--small {
+    max-width: units(8);
+  }
+
+  .usa-input--medium {
+    max-width: units(15);
+  }
+
+  .usa-button {
+    margin-top: units(1);
+
+    @include at-media("mobile-lg") {
+      margin-top: units(3);
+    }
+  }
+
+  a {
+    @include typeset-link;
+  }
+}
+
+.usa-form--large {
+  @include at-media("mobile-lg") {
+    max-width: units("mobile-lg");
+  }
+}
+
+.usa-form__note {
+  @include typeset($theme-form-font-family, "2xs", 3);
+  float: right;
+  margin: units(0.5) 0 units(2);
+}

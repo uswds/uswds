@@ -1,0 +1,636 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.0 Variables
+Use for computed variables or any
+not meant to be set by system users
+directly.
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Touch target size
+----------------------------------------
+*/
+
+$size-touch-target: 6; // 48px to meet WCAG minimum of 44px
+
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$ns-utility: ns("utility");
+$ns-grid: ns("grid");
+
+/*
+----------------------------------------
+Spacing
+----------------------------------------
+All spacing values that can be called
+by units()
+----------------------------------------
+*/
+
+$project-spacing-standard: map-collect(
+  map-get($system-spacing, smaller),
+  map-get($system-spacing, small),
+  map-get($system-spacing, smaller-negative),
+  map-get($system-spacing, small-negative),
+  map-get($system-spacing, medium),
+  map-get($system-spacing, medium-negative),
+  map-get($system-spacing, large),
+  map-get($system-spacing, larger),
+  map-get($system-spacing, largest),
+  map-get($system-spacing, special)
+);
+
+$project-spacing-named: map-collect(
+  map-get($system-spacing, large),
+  map-get($system-spacing, larger),
+  map-get($system-spacing, largest)
+);
+
+$spacing-to-token: (
+  "0": 0,
+  "1": "1px",
+  "2": "2px",
+  "4": "05",
+  "8": 1,
+  "12": "105",
+  "16": 2,
+  "20": "205",
+  "24": 3,
+  "32": 4,
+  "40": 5,
+  "48": 6,
+  "56": 7,
+  "64": 8,
+  "72": 9,
+);
+
+$spacing-to-value: (
+  0: 0,
+  "2px": 2,
+  "05": 4,
+  1: 8,
+  "105": 12,
+  2: 16,
+  3: 24,
+  4: 32,
+  5: 40,
+  6: 48,
+  7: 56,
+  8: 64,
+  9: 72,
+);
+
+$number-to-value: (
+  "1px": "1px",
+  "2px": "2px",
+  "0": 0,
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "15": 15,
+  "0.5": "05",
+  ".5": "05",
+  "1.5": "105",
+  "2.5": "205",
+  "-1px": "neg-1px",
+  "-2px": "neg-2px",
+  "-0.5": "neg-05",
+  "-.5": "neg-05",
+  "-1": "neg-1",
+  "-1.5": "neg-105",
+  "-2": "neg-2",
+  "-2.5": "neg-205",
+  "-3": "neg-3",
+  "-4": "neg-4",
+  "-5": "neg-5",
+  "-6": "neg-6",
+  "-7": "neg-7",
+  "-8": "neg-8",
+  "-9": "neg-9",
+);
+
+/*
+----------------------------------------
+Project fonts
+----------------------------------------
+Collects font settings in a map for
+looping.
+----------------------------------------
+*/
+
+$project-font-type-tokens: (
+  "cond": (
+    "typeface-token": $theme-font-type-cond,
+    "custom-stack": $theme-font-cond-custom-stack,
+    "src": $theme-font-cond-custom-src,
+  ),
+  "icon": (
+    "typeface-token": $theme-font-type-icon,
+    "custom-stack": $theme-font-icon-custom-stack,
+    "src": $theme-font-icon-custom-src,
+  ),
+  "lang": (
+    "typeface-token": $theme-font-type-lang,
+    "custom-stack": $theme-font-lang-custom-stack,
+    "src": $theme-font-lang-custom-src,
+  ),
+  "mono": (
+    "typeface-token": $theme-font-type-mono,
+    "custom-stack": $theme-font-mono-custom-stack,
+    "src": $theme-font-mono-custom-src,
+  ),
+  "sans": (
+    "typeface-token": $theme-font-type-sans,
+    "custom-stack": $theme-font-sans-custom-stack,
+    "src": $theme-font-sans-custom-src,
+  ),
+  "serif": (
+    "typeface-token": $theme-font-type-serif,
+    "custom-stack": $theme-font-serif-custom-stack,
+    "src": $theme-font-serif-custom-src,
+  ),
+);
+
+$project-font-role-tokens: (
+  "ui": $theme-font-role-ui,
+  "heading": $theme-font-role-heading,
+  "body": $theme-font-role-body,
+  "code": $theme-font-role-code,
+  "alt": $theme-font-role-alt,
+);
+
+/*
+----------------------------------------
+Font stack
+----------------------------------------
+Compute the project font stack based on
+the project fonts and the font
+definition values set in
+core/_font-definitions
+----------------------------------------
+*/
+
+$project-font-stacks: (
+  "cond": get-font-stack("cond"),
+  "icon": get-font-stack("icon"),
+  "lang": get-font-stack("lang"),
+  "mono": get-font-stack("mono"),
+  "sans": get-font-stack("sans"),
+  "serif": get-font-stack("serif"),
+  "ui": get-font-stack("ui"),
+  "heading": get-font-stack("heading"),
+  "body": get-font-stack("body"),
+  "code": get-font-stack("code"),
+  "alt": get-font-stack("alt"),
+);
+
+$project-font-stack-cond: get-font-stack("cond");
+$project-font-stack-icon: get-font-stack("icon");
+$project-font-stack-lang: get-font-stack("lang");
+$project-font-stack-mono: get-font-stack("mono");
+$project-font-stack-sans: get-font-stack("sans");
+$project-font-stack-serif: get-font-stack("serif");
+$project-font-stack-ui: get-font-stack("ui");
+$project-font-stack-heading: get-font-stack("heading");
+$project-font-stack-body: get-font-stack("body");
+$project-font-stack-code: get-font-stack("code");
+$project-font-stack-alt: get-font-stack("alt");
+
+$project-font-cond: get-typeface-token("cond");
+$project-font-icon: get-typeface-token("icon");
+$project-font-lang: get-typeface-token("lang");
+$project-font-mono: get-typeface-token("mono");
+$project-font-sans: get-typeface-token("sans");
+$project-font-serif: get-typeface-token("serif");
+$project-font-ui: get-typeface-token("ui");
+$project-font-heading: get-typeface-token("heading");
+$project-font-body: get-typeface-token("body");
+$project-font-code: get-typeface-token("code");
+$project-font-alt: get-typeface-token("alt");
+
+/*
+----------------------------------------
+Cap heights
+----------------------------------------
+Collect project cap heights
+----------------------------------------
+*/
+
+$project-cap-heights: (
+  "base": $system-base-cap-height,
+  "cond": cap-height($project-font-cond),
+  "icon": cap-height($project-font-icon),
+  "lang": cap-height($project-font-lang),
+  "mono": cap-height($project-font-mono),
+  "sans": cap-height($project-font-sans),
+  "serif": cap-height($project-font-serif),
+  "ui": cap-height($project-font-ui),
+  "heading": cap-height($project-font-heading),
+  "body": cap-height($project-font-body),
+  "code": cap-height($project-font-code),
+  "alt": cap-height($project-font-alt),
+);
+
+$project-font-weights: (
+  "thin": $theme-font-weight-thin,
+  "light": $theme-font-weight-light,
+  "normal": $theme-font-weight-normal,
+  "medium": $theme-font-weight-medium,
+  "semibold": $theme-font-weight-semibold,
+  "bold": $theme-font-weight-bold,
+  "heavy": $theme-font-weight-heavy,
+);
+
+/*
+----------------------------------------
+Theme color families and grades
+----------------------------------------
+*/
+
+$uswds-color-families: (
+  "primary",
+  "secondary",
+  "accent",
+  "base",
+  "warning",
+  "error",
+  "success",
+  "info"
+);
+
+$uswds-color-theme-grades: (
+  "lightest",
+  "lighter",
+  "light",
+  "default",
+  "dark",
+  "darker",
+  "darkest"
+);
+
+/*
+----------------------------------------
+Theme color map
+----------------------------------------
+*/
+
+$project-colors: (
+  "base": (
+    "lightest": color($theme-color-base-lightest, set-theme),
+    "lighter": color($theme-color-base-lighter, set-theme),
+    "light": color($theme-color-base-light, set-theme),
+    "default": color($theme-color-base, set-theme),
+    "dark": color($theme-color-base-dark, set-theme),
+    "darker": color($theme-color-base-darker, set-theme),
+    "darkest": color($theme-color-base-darkest, set-theme),
+  ),
+  "primary": (
+    "lightest": color($theme-color-primary-lightest, set-theme),
+    "lighter": color($theme-color-primary-lighter, set-theme),
+    "light": color($theme-color-primary-light, set-theme),
+    "default": color($theme-color-primary, set-theme),
+    "vivid": color($theme-color-primary-vivid, set-theme),
+    "dark": color($theme-color-primary-dark, set-theme),
+    "darker": color($theme-color-primary-darker, set-theme),
+    "darkest": color($theme-color-primary-darkest, set-theme),
+  ),
+  "secondary": (
+    "lightest": color($theme-color-secondary-lightest, set-theme),
+    "lighter": color($theme-color-secondary-lighter, set-theme),
+    "light": color($theme-color-secondary-light, set-theme),
+    "default": color($theme-color-secondary, set-theme),
+    "vivid": color($theme-color-secondary-vivid, set-theme),
+    "dark": color($theme-color-secondary-dark, set-theme),
+    "darker": color($theme-color-secondary-darker, set-theme),
+    "darkest": color($theme-color-secondary-darkest, set-theme),
+  ),
+  "accent-warm": (
+    "lightest": color($theme-color-accent-warm-lightest, set-theme),
+    "lighter": color($theme-color-accent-warm-lighter, set-theme),
+    "light": color($theme-color-accent-warm-light, set-theme),
+    "default": color($theme-color-accent-warm, set-theme),
+    "dark": color($theme-color-accent-warm-dark, set-theme),
+    "darker": color($theme-color-accent-warm-darker, set-theme),
+    "darkest": color($theme-color-accent-warm-darkest, set-theme),
+  ),
+  "accent-cool": (
+    "lightest": color($theme-color-accent-cool-lightest, set-theme),
+    "lighter": color($theme-color-accent-cool-lighter, set-theme),
+    "light": color($theme-color-accent-cool-light, set-theme),
+    "default": color($theme-color-accent-cool, set-theme),
+    "dark": color($theme-color-accent-cool-dark, set-theme),
+    "darker": color($theme-color-accent-cool-darker, set-theme),
+    "darkest": color($theme-color-accent-cool-darkest, set-theme),
+  ),
+);
+
+$project-state-colors: (
+  "error": (
+    "lighter": color($theme-color-error-lighter, set-theme),
+    "light": color($theme-color-error-light, set-theme),
+    "default": color($theme-color-error, set-theme),
+    "dark": color($theme-color-error-dark, set-theme),
+    "darker": color($theme-color-error-darker, set-theme),
+  ),
+  "warning": (
+    "lighter": color($theme-color-warning-lighter, set-theme),
+    "light": color($theme-color-warning-light, set-theme),
+    "default": color($theme-color-warning, set-theme),
+    "dark": color($theme-color-warning-dark, set-theme),
+    "darker": color($theme-color-warning-darker, set-theme),
+  ),
+  "success": (
+    "lighter": color($theme-color-success-lighter, set-theme),
+    "light": color($theme-color-success-light, set-theme),
+    "default": color($theme-color-success, set-theme),
+    "dark": color($theme-color-success-dark, set-theme),
+    "darker": color($theme-color-success-darker, set-theme),
+  ),
+  "info": (
+    "lighter": color($theme-color-info-lighter, set-theme),
+    "light": color($theme-color-info-light, set-theme),
+    "default": color($theme-color-info, set-theme),
+    "dark": color($theme-color-info-dark, set-theme),
+    "darker": color($theme-color-info-darker, set-theme),
+  ),
+  "disabled": (
+    "light": color($theme-color-disabled-light, set-theme),
+    "default": color($theme-color-disabled, set-theme),
+    "dark": color($theme-color-disabled-dark, set-theme),
+  ),
+);
+
+$all-project-colors: map-collect($project-colors, $project-state-colors);
+
+$palette-colors: map-collect(
+  $all-project-colors,
+  $tokens-color-required,
+  $system-colors
+);
+
+/*
+----------------------------------------
+Theme color shortcodes
+----------------------------------------
+*/
+
+$assignments-theme-color: (
+  "base-lightest": $theme-color-base-lightest,
+  "base-lighter": $theme-color-base-lighter,
+  "base-light": $theme-color-base-light,
+  "base": $theme-color-base,
+  "base-dark": $theme-color-base-dark,
+  "base-darker": $theme-color-base-darker,
+  "base-darkest": $theme-color-base-darkest,
+  "ink": $theme-color-base-darkest,
+  "primary-lightest": $theme-color-primary-lightest,
+  "primary-lighter": $theme-color-primary-lighter,
+  "primary-light": $theme-color-primary-light,
+  "primary": $theme-color-primary,
+  "primary-vivid": $theme-color-primary-vivid,
+  "primary-dark": $theme-color-primary-dark,
+  "primary-darker": $theme-color-primary-darker,
+  "primary-darkest": $theme-color-primary-darkest,
+  "secondary-lightest": $theme-color-secondary-lightest,
+  "secondary-lighter": $theme-color-secondary-lighter,
+  "secondary-light": $theme-color-secondary-light,
+  "secondary": $theme-color-secondary,
+  "secondary-vivid": $theme-color-secondary-vivid,
+  "secondary-dark": $theme-color-secondary-dark,
+  "secondary-darker": $theme-color-secondary-darker,
+  "secondary-darkest": $theme-color-secondary-darkest,
+  "accent-warm-darkest": $theme-color-accent-warm-darkest,
+  "accent-warm-darker": $theme-color-accent-warm-darker,
+  "accent-warm-dark": $theme-color-accent-warm-dark,
+  "accent-warm": $theme-color-accent-warm,
+  "accent-warm-light": $theme-color-accent-warm-light,
+  "accent-warm-lighter": $theme-color-accent-warm-lighter,
+  "accent-warm-lightest": $theme-color-accent-warm-lightest,
+  "accent-cool-darkest": $theme-color-accent-cool-darkest,
+  "accent-cool-darker": $theme-color-accent-cool-darker,
+  "accent-cool-dark": $theme-color-accent-cool-dark,
+  "accent-cool": $theme-color-accent-cool,
+  "accent-cool-light": $theme-color-accent-cool-light,
+  "accent-cool-lighter": $theme-color-accent-cool-lighter,
+  "accent-cool-lightest": $theme-color-accent-cool-lightest,
+  "error-lighter": $theme-color-error-lighter,
+  "error-light": $theme-color-error-light,
+  "error": $theme-color-error,
+  "error-dark": $theme-color-error-dark,
+  "error-darker": $theme-color-error-darker,
+  "warning-lighter": $theme-color-warning-lighter,
+  "warning-light": $theme-color-warning-light,
+  "warning": $theme-color-warning,
+  "warning-dark": $theme-color-warning-dark,
+  "warning-darker": $theme-color-warning-darker,
+  "success-lighter": $theme-color-success-lighter,
+  "success-light": $theme-color-success-light,
+  "success": $theme-color-success,
+  "success-dark": $theme-color-success-dark,
+  "success-darker": $theme-color-success-darker,
+  "info-lighter": $theme-color-info-lighter,
+  "info-light": $theme-color-info-light,
+  "info": $theme-color-info,
+  "info-dark": $theme-color-info-dark,
+  "info-darker": $theme-color-info-darker,
+  "disabled-light": $theme-color-disabled-light,
+  "disabled": $theme-color-disabled,
+  "disabled-dark": $theme-color-disabled-dark,
+);
+
+$tokens-color-theme: (
+  "base-lightest": color($theme-color-base-lightest, set-theme, no-warn),
+  "base-lighter": color($theme-color-base-lighter, set-theme, no-warn),
+  "base-light": color($theme-color-base-light, set-theme, no-warn),
+  "base": color($theme-color-base, set-theme, no-warn),
+  "base-dark": color($theme-color-base-dark, set-theme, no-warn),
+  "base-darker": color($theme-color-base-darker, set-theme, no-warn),
+  "base-darkest": color($theme-color-base-darkest, set-theme, no-warn),
+  "ink": color($theme-color-base-ink, set-theme, no-warn),
+  "primary-lightest": color($theme-color-primary-lightest, set-theme, no-warn),
+  "primary-lighter": color($theme-color-primary-lighter, set-theme, no-warn),
+  "primary-light": color($theme-color-primary-light, set-theme, no-warn),
+  "primary": color($theme-color-primary, set-theme, no-warn),
+  "primary-vivid": color($theme-color-primary-vivid, set-theme, no-warn),
+  "primary-dark": color($theme-color-primary-dark, set-theme, no-warn),
+  "primary-darker": color($theme-color-primary-darker, set-theme, no-warn),
+  "primary-darkest": color($theme-color-primary-darkest, set-theme, no-warn),
+  "secondary-lightest":
+    color($theme-color-secondary-lightest, set-theme, no-warn),
+  "secondary-lighter": color($theme-color-secondary-lighter, set-theme, no-warn),
+  "secondary-light": color($theme-color-secondary-light, set-theme, no-warn),
+  "secondary": color($theme-color-secondary, set-theme, no-warn),
+  "secondary-vivid": color($theme-color-secondary-vivid, set-theme, no-warn),
+  "secondary-dark": color($theme-color-secondary-dark, set-theme, no-warn),
+  "secondary-darker": color($theme-color-secondary-darker, set-theme, no-warn),
+  "secondary-darkest": color($theme-color-secondary-darkest, set-theme, no-warn),
+  "accent-warm-darkest":
+    color($theme-color-accent-warm-darkest, set-theme, no-warn),
+  "accent-warm-darker":
+    color($theme-color-accent-warm-darker, set-theme, no-warn),
+  "accent-warm-dark": color($theme-color-accent-warm-dark, set-theme, no-warn),
+  "accent-warm": color($theme-color-accent-warm, set-theme, no-warn),
+  "accent-warm-light": color($theme-color-accent-warm-light, set-theme, no-warn),
+  "accent-warm-lighter":
+    color($theme-color-accent-warm-lighter, set-theme, no-warn),
+  "accent-warm-lightest":
+    color($theme-color-accent-warm-lightest, set-theme, no-warn),
+  "accent-cool-darkest":
+    color($theme-color-accent-cool-darkest, set-theme, no-warn),
+  "accent-cool-darker":
+    color($theme-color-accent-cool-darker, set-theme, no-warn),
+  "accent-cool-dark": color($theme-color-accent-cool-dark, set-theme, no-warn),
+  "accent-cool": color($theme-color-accent-cool, set-theme, no-warn),
+  "accent-cool-light": color($theme-color-accent-cool-light, set-theme, no-warn),
+  "accent-cool-lighter":
+    color($theme-color-accent-cool-lighter, set-theme, no-warn),
+  "accent-cool-lightest":
+    color($theme-color-accent-cool-lightest, set-theme, no-warn),
+);
+
+$tokens-color-state: (
+  "error-lighter": color($theme-color-error-lighter, set-theme, no-warn),
+  "error-light": color($theme-color-error-light, set-theme, no-warn),
+  "error": color($theme-color-error, set-theme, no-warn),
+  "error-dark": color($theme-color-error-dark, set-theme, no-warn),
+  "error-darker": color($theme-color-error-darker, set-theme, no-warn),
+  "warning-lighter": color($theme-color-warning-lighter, set-theme, no-warn),
+  "warning-light": color($theme-color-warning-light, set-theme, no-warn),
+  "warning": color($theme-color-warning, set-theme, no-warn),
+  "warning-dark": color($theme-color-warning-dark, set-theme, no-warn),
+  "warning-darker": color($theme-color-warning-darker, set-theme, no-warn),
+  "success-lighter": color($theme-color-success-lighter, set-theme, no-warn),
+  "success-light": color($theme-color-success-light, set-theme, no-warn),
+  "success": color($theme-color-success, set-theme, no-warn),
+  "success-dark": color($theme-color-success-dark, set-theme, no-warn),
+  "success-darker": color($theme-color-success-darker, set-theme, no-warn),
+  "info-lighter": color($theme-color-info-lighter, set-theme, no-warn),
+  "info-light": color($theme-color-info-light, set-theme, no-warn),
+  "info": color($theme-color-info, set-theme, no-warn),
+  "info-dark": color($theme-color-info-dark, set-theme, no-warn),
+  "info-darker": color($theme-color-info-darker, set-theme, no-warn),
+  "disabled-light": color($theme-color-disabled-light, set-theme, no-warn),
+  "disabled": color($theme-color-disabled, set-theme, no-warn),
+  "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn),
+);
+
+$project-color-shortcodes: map-collect(
+  $tokens-color-theme,
+  $tokens-color-state
+);
+
+$all-color-shortcodes: map-collect(
+  $tokens-color-required,
+  $system-color-shortcodes,
+  $project-color-shortcodes
+);
+
+$color-palette-grayscale: $system-color-gray;
+
+/*
+----------------------------------------
+Build the project type scale map
+----------------------------------------
+*/
+
+$project-type-scale: (
+  "3xs": system-type-scale($theme-type-scale-3xs),
+  "2xs": system-type-scale($theme-type-scale-2xs),
+  "xs": system-type-scale($theme-type-scale-xs),
+  "sm": system-type-scale($theme-type-scale-sm),
+  "md": system-type-scale($theme-type-scale-md),
+  "lg": system-type-scale($theme-type-scale-lg),
+  "xl": system-type-scale($theme-type-scale-xl),
+  "2xl": system-type-scale($theme-type-scale-2xl),
+  "3xl": system-type-scale($theme-type-scale-3xl),
+);
+
+$all-type-scale: map-collect($system-type-scale, $project-type-scale);
+
+/*
+----------------------------------------
+Border-radius
+----------------------------------------
+*/
+
+$project-border-radius: (
+  0: 0,
+  "sm": units($theme-border-radius-sm),
+  "md": units($theme-border-radius-md),
+  "lg": units($theme-border-radius-lg),
+  "pill": 99rem,
+);
+
+$all-border-radius: map-collect(
+  $project-border-radius,
+  map-get($system-spacing, smaller),
+  map-get($system-spacing, small)
+);
+
+/*
+----------------------------------------
+Column gaps
+----------------------------------------
+*/
+
+$project-column-gaps: (
+  "sm": $theme-column-gap-sm,
+  "md": $theme-column-gap-md,
+  "lg": $theme-column-gap-lg,
+);
+
+/*
+----------------------------------------
+Grid
+----------------------------------------
+*/
+
+$grid-global: "";
+
+@if $theme-layout-grid-use-important {
+  $grid-global: "!important";
+}
+
+/*
+----------------------------------------
+Aspect Ratios
+----------------------------------------
+*/
+$project-aspect-ratios: (
+  "9x16": 177.77778%,
+  "16x9": 56.25%,
+  "1x1": 100%,
+  "4x3": 75%,
+  "2x1": 50%,
+);
+
+@if $test-system-color-tokens {
+  $color-test: test-colors($system-color-shortcodes);
+}
+
+/*
+----------------------------------------
+Easing
+----------------------------------------
+*/
+$project-easing: 0.2s ease-in-out;

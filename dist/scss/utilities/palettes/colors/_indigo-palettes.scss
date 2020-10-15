@@ -1,0 +1,66 @@
+$tokens-color-indigo-light: (
+  "indigo-5": $color-indigo-5,
+  "indigo-10": $color-indigo-10,
+  "indigo-20": $color-indigo-20,
+  "indigo-30": $color-indigo-30,
+);
+
+$tokens-color-indigo-medium: (
+  "indigo-40": $color-indigo-40,
+  "indigo-50": $color-indigo-50,
+  "indigo-60": $color-indigo-60,
+);
+
+$tokens-color-indigo-dark: (
+  "indigo-70": $color-indigo-70,
+  "indigo-80": $color-indigo-80,
+  "indigo-90": $color-indigo-90,
+);
+
+$tokens-color-indigo-light-vivid: (
+  "indigo-5v": $color-indigo-5v,
+  "indigo-10v": $color-indigo-10v,
+  "indigo-20v": $color-indigo-20v,
+  "indigo-30v": $color-indigo-30v,
+);
+
+$tokens-color-indigo-medium-vivid: (
+  "indigo-40v": $color-indigo-40v,
+  "indigo-50v": $color-indigo-50v,
+  "indigo-60v": $color-indigo-60v,
+);
+
+$tokens-color-indigo-dark-vivid: (
+  "indigo-70v": $color-indigo-70v,
+  "indigo-80v": $color-indigo-80v,
+  "indigo-90v": $color-indigo-90v,
+);
+
+$tokens-color-indigo-standard: map-collect(
+  $tokens-color-indigo-light,
+  $tokens-color-indigo-medium,
+  $tokens-color-indigo-dark
+);
+
+$tokens-color-indigo-vivid: map-collect(
+  $tokens-color-indigo-light-vivid,
+  $tokens-color-indigo-medium-vivid,
+  $tokens-color-indigo-dark-vivid
+);
+
+$tokens-color-indigo: map-collect(
+  $tokens-color-indigo-standard,
+  $tokens-color-indigo-vivid
+);
+
+$palettes-color-indigo: (
+  "palette-color-system-indigo-light": $tokens-color-indigo-light,
+  "palette-color-system-indigo-medium": $tokens-color-indigo-medium,
+  "palette-color-system-indigo-dark": $tokens-color-indigo-dark,
+  "palette-color-system-indigo-light-vivid": $tokens-color-indigo-light-vivid,
+  "palette-color-system-indigo-medium-vivid": $tokens-color-indigo-medium-vivid,
+  "palette-color-system-indigo-dark-vivid": $tokens-color-indigo-dark-vivid,
+  "palette-color-system-indigo-standard": $tokens-color-indigo-standard,
+  "palette-color-system-indigo-vivid": $tokens-color-indigo-vivid,
+  "palette-color-system-indigo": $tokens-color-indigo,
+);

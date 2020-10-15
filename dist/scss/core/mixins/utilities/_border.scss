@@ -1,0 +1,142 @@
+$border-utilities: (
+  "width":
+    map-collect(
+      map-deep-get($system-properties, border-width, standard),
+      map-deep-get($system-properties, border-width, extended)
+    ),
+  "style":
+    map-collect(
+      map-deep-get($system-properties, border-style, standard),
+      map-deep-get($system-properties, border-style, extended)
+    ),
+);
+
+@mixin border-n($side, $value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  $has-style: false;
+  $widths: map-get($border-utilities, "width");
+
+  @each $this-value in $value {
+    $match: false;
+    @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
+      $match: true;
+      $this-value: smart-quote($this-value);
+      @if $side == n {
+        border-color: color($this-value) #{$important};
+      } @else if $side == x {
+        border-left-color: color($this-value) #{$important};
+        border-right-color: color($this-value) #{$important};
+      } @else if $side == y {
+        border-bottom-color: color($this-value) #{$important};
+        border-top-color: color($this-value) #{$important};
+      } @else {
+        border-#{$side}-color: color($this-value) #{$important};
+      }
+    } @else if type-of($this-value) == "number" {
+      $converted-value: number-to-token($this-value);
+      @if map-has-key($widths, $converted-value) {
+        $match: true;
+        $final-value: map-get($widths, $converted-value);
+        @if $side == n {
+          border-width: unquote("#{$final-value}#{$important}");
+        } @else if $side == x {
+          border-left-width: unquote("#{$final-value}#{$important}");
+          border-right-width: unquote("#{$final-value}#{$important}");
+        } @else if $side == y {
+          border-bottom-width: unquote("#{$final-value}#{$important}");
+          border-top-width: unquote("#{$final-value}#{$important}");
+        } @else {
+          border-#{$side}-width: unquote("#{$final-value}#{$important}");
+        }
+      } @else {
+        @error '#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}';
+      }
+    } @else if map-has-key($widths, smart-quote($this-value)) {
+      $match: true;
+      $this-value: smart-quote($this-value);
+      $final-value: map-get($widths, $this-value);
+      @if $side == n {
+        border-width: unquote("#{$final-value}#{$important}");
+      } @else if $side == x {
+        border-left-width: unquote("#{$final-value}#{$important}");
+        border-right-width: unquote("#{$final-value}#{$important}");
+      } @else if $side == y {
+        border-bottom-width: unquote("#{$final-value}#{$important}");
+        border-top-width: unquote("#{$final-value}#{$important}");
+      } @else {
+        border-#{$side}-width: unquote("#{$final-value}#{$important}");
+      }
+    } @else {
+      $converted-value: smart-quote($this-value);
+      $styles: map-get($border-utilities, "style");
+      @if map-has-key($styles, $converted-value) {
+        $match: true;
+        $has-style: true;
+        $final-value: map-get($styles, $converted-value);
+        @if $side == n {
+          border-style: unquote("#{$final-value}#{$important}");
+        } @else if $side == x {
+          border-left-style: unquote("#{$final-value}#{$important}");
+          border-right-style: unquote("#{$final-value}#{$important}");
+        } @else if $side == y {
+          border-bottom-style: unquote("#{$final-value}#{$important}");
+          border-top-style: unquote("#{$final-value}#{$important}");
+        } @else {
+          border-#{$side}-style: unquote("#{$final-value}#{$important}");
+        }
+      } @else {
+        @error '`#{$this-value}` is not a valid `border` token. '
+          + 'Use valid color, units, and border-style tokens '
+          + 'separated by commas.';
+      }
+    }
+    @if not $match {
+      @error '`#{$this-value}` is not a valid `border` token.';
+    }
+  }
+  @if not $has-style {
+    @if $side == n {
+      border-style: solid#{$important};
+    } @else if $side == x {
+      border-left-style: solid#{$important};
+      border-right-style: solid#{$important};
+    } @else if $side == y {
+      border-bottom-style: solid#{$important};
+      border-top-style: solid#{$important};
+    } @else {
+      border-#{$side}-style: solid#{$important};
+    }
+  }
+}
+
+@mixin u-border($value...) {
+  @include border-n(n, $value...);
+}
+
+@mixin u-border-x($value...) {
+  @include border-n(x, $value...);
+}
+
+@mixin u-border-y($value...) {
+  @include border-n(y, $value...);
+}
+
+@mixin u-border-top($value...) {
+  @include border-n(top, $value...);
+}
+
+@mixin u-border-right($value...) {
+  @include border-n(right, $value...);
+}
+
+@mixin u-border-bottom($value...) {
+  @include border-n(bottom, $value...);
+}
+
+@mixin u-border-left($value...) {
+  @include border-n(left, $value...);
+}

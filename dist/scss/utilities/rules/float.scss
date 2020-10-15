@@ -1,0 +1,26 @@
+/*
+========================================
+float
+----------------------------------------
+usage:
+  .float-[value]
+----------------------------------------
+output:
+  float: [value];
+----------------------------------------
+example:
+  .float-left {
+    float: left; }
+----------------------------------------
+*/
+
+$u-float: (
+  float: (
+    base: "float",
+    modifiers: null,
+    values: map-collect(get-palettes($float-palettes), $float-manual-values),
+    settings: $float-settings,
+    property: "float",
+    type: "utility",
+  ),
+);

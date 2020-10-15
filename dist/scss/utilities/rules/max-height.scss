@@ -1,0 +1,27 @@
+/*
+========================================
+max-height
+----------------------------------------
+usage:
+  .maxh[key]
+----------------------------------------
+output:
+  max-height: [value];
+----------------------------------------
+example:
+  .maxh-viewport {
+    max-height: 100vh; }
+----------------------------------------
+*/
+
+$u-max-height: (
+  max-height: (
+    base: "maxh",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($max-height-palettes), $max-height-manual-values),
+    settings: $max-height-settings,
+    property: "max-height",
+    type: "utility",
+  ),
+);

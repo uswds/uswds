@@ -1,0 +1,4 @@
+@mixin media-block-img($margin-right: units(1)) {
+  flex-shrink: 0;
+  margin-right: $margin-right;
+}

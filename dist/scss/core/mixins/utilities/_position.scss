@@ -1,0 +1,10 @@
+// Outputs position property
+
+@mixin u-position($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    $important: " !important";
+  }
+  position: get-uswds-value(position, $value...) #{$important};
+}

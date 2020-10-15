@@ -1,0 +1,101 @@
+/*
+========================================
+PIN
+----------------------------------------
+usage:
+  .pin-all
+----------------------------------------
+output:
+  bottom: 0
+  left:0
+  right: 0
+  top: 0
+----------------------------------------
+example:
+  .pin-all
+----------------------------------------
+*/
+
+$u-pin: (
+  pin: (
+    base: "pin",
+    modifiers: null,
+    values: (
+      all: (
+        slug: "all",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "bottom": "0",
+          "left": "0",
+          "right": "0",
+          "top": "0",
+        ),
+      ),
+      x: (
+        slug: "x",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "left": "0",
+          "right": "0",
+        ),
+      ),
+      y: (
+        slug: "y",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "bottom": "0",
+          "top": "0",
+        ),
+      ),
+      bottom: (
+        slug: "bottom",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "bottom": "0",
+        ),
+      ),
+      left: (
+        slug: "left",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "left": "0",
+        ),
+      ),
+      right: (
+        slug: "right",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "right": "0",
+        ),
+      ),
+      top: (
+        slug: "top",
+        isReadable: true,
+        content: "absolute",
+        extend: (
+          "top": "0",
+        ),
+      ),
+      none: (
+        slug: "none",
+        isReadable: true,
+        content: static,
+        extend: (
+          "bottom": auto,
+          "left": auto,
+          "right": auto,
+          "top": auto,
+        ),
+      ),
+    ),
+    settings: $pin-settings,
+    property: "position",
+    type: "utility",
+  ),
+);

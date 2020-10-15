@@ -1,0 +1,31 @@
+/*
+========================================
+font-feature-settings
+----------------------------------------
+usage:
+  .text-[key]
+----------------------------------------
+output:
+  font-feature-settings: [value];
+----------------------------------------
+example:
+  .text-tabular {
+    font-feature-settings:
+      'tnum' 1, 'kern' 1; }
+----------------------------------------
+*/
+
+$u-font-feature: (
+  font-feature: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($font-feature-palettes),
+        $font-feature-manual-values
+      ),
+    settings: $font-feature-settings,
+    property: "font-feature-settings",
+    type: "utility",
+  ),
+);

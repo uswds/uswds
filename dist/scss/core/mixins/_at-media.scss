@@ -1,0 +1,36 @@
+// Mobile-first media query helper
+
+@mixin at-media($bp) {
+  $quoted-bp: smart-quote($bp);
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+  @if map-has-key($our-breakpoints, $quoted-bp) {
+    @if $theme-respect-user-font-size {
+      $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp));
+    } @else {
+      $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp));
+    }
+  } @else {
+    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
+  }
+  @media all and (min-width: #{$bp}) {
+    @content;
+  }
+}
+
+// Max-width media query
+@mixin at-media-max($bp) {
+  $quoted-bp: smart-quote($bp);
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+  @if map-has-key($our-breakpoints, $quoted-bp) {
+    @if $theme-respect-user-font-size {
+      $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp)) - 0.01em;
+    } @else {
+      $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp)) - 1px;
+    }
+  } @else {
+    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
+  }
+  @media all and (max-width: #{$bp}) {
+    @content;
+  }
+}

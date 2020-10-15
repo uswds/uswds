@@ -1,0 +1,17 @@
+@mixin add-aspect($ratio...) {
+  $ratio: unpack($ratio);
+  $important: null;
+  @if has-important($ratio) {
+    $ratio: nth($ratio, 1);
+    $important: "!important";
+  }
+
+  @if map-has-key($project-aspect-ratios, $ratio) {
+    box-sizing: border-box #{$important};
+    height: 0 #{$important};
+    overflow: hidden #{$important};
+    padding: 0 0 map-get($project-aspect-ratios, $ratio) #{$important};
+  } @else {
+    @error '`#{$ratio}` is not a valid key in $project-aspect-ratios. Valid values: #{map-keys($project-aspect-ratios)}';
+  }
+}
