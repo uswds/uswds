@@ -1,0 +1,40 @@
+{% set three_levels = {
+  'items': [
+    {
+      'label': 'Parent link'
+    },
+    {
+      'label': 'Parent link',
+      'current': true,
+      'subnav': [
+        {
+          'label': 'Child link',
+        },
+        {
+          'label': 'Child link',
+          'subnav': [
+            {
+              'label': 'Grandchild link'
+            },
+            {
+              'label': 'Grandchild link',
+              'current': true,
+            },
+            {
+              'label': 'Grandchild link'
+            },
+          ],
+        },
+        {
+          'label': 'Child link',
+        },
+      ]
+    },
+    {
+      'label': 'Parent link'
+    },
+  ]
+} %}
+
+<h6 class="padding-bottom-2">Three levels</h6>
+{% include "@components/usa-sidenav/usa-sidenav.twig" with three_levels %}

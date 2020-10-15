@@ -102,6 +102,13 @@
           "paths": [
             "./src/patterns/components"
           ]
+        },
+        {
+          "id": "compare",
+          "recursive": true,
+          "paths": [
+            "./src/patterns/compare"
+          ]
         }
       ],
       "alterTwigEnv": [
