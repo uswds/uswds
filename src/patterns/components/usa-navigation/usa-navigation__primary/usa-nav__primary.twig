@@ -1,0 +1,125 @@
+{% import _self as menus %}
+
+{{ menus.menu_links(items, 0, megamenu, 0, NULL, 0) }}
+
+{% macro menu_links(
+  items, 
+  menu_level, 
+  megamenu, 
+  button_id, 
+  parent, 
+  duplicate_parent
+) %}
+  {% import _self as menus %}
+
+  {% if items %}
+
+    {% if menu_level == 0 %}
+      <ul class="usa-nav__primary usa-accordion">
+    {% elseif menu_level > 0 and not megamenu %}
+      <ul id="{{ button_id }}" class="usa-nav__submenu">
+    {% else %}
+      <ul class="usa-nav__submenu-list">
+    {% endif %}
+
+    {% if duplicate_parent %}
+      <li>
+        <a href="{{ parent.href }}">
+          <span>{{ parent.label }}</span>
+        </a>
+      </li>
+    {% endif %}
+
+    {% for item in items %}
+      {% if menu_level != 0 %}
+        {% set list_classes = 'usa-nav__submenu-item' %}
+      {% else %}
+        {% set list_classes = 'usa-nav__primary-item' %}
+      {% endif %}
+
+      <li class="{{ list_classes }}">
+        {% if menu_level == 0 and item.subnav %}
+          <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="{{ item.id }}">
+            <span>{{ item.label }}</span>
+          </button>
+          {% if megamenu %}
+            <div id="{{ item.id }}" class="usa-nav__submenu usa-megamenu">
+              <div class="grid-row grid-gap-4">
+                {% for column in item.subnav|batch(3) %}
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                    {% for list in column %}
+                      <li class="usa-nav__submenu-item">
+                        {{ list.label }}
+                      </li>
+                    {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+            {{ menus.menu_links(
+              item.subnav,
+              menu_level + 1,
+              megamenu,
+              item.id,
+              item,
+              duplicate_parent
+            ) }}
+          {% endif %}
+        {% else %}
+          <a href="{{ item.href }}" {% if menu_level == 0 %} class="usa-nav-link" {% endif %}>
+            {% if megamenu %}
+              {{ item.label }}
+            {% else %}
+              <span>{{ item.label }}</span>
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+    {# <button class="usa-nav__close"><img src="{{ uswds.path }}/img/close.svg" role="img" alt="close"></button>
+    <ul class="usa-nav__primary usa-accordion">
+      {%- for link in nav.links -%}
+      <li class="usa-nav__primary-item">
+        {% if link.links -%}
+        <button class="usa-accordion__button usa-nav__link{% if link.is_current %}  usa-current{% endif %}" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}"><span>{{ link.text }}</span></button>
+        <{% if nav.mega %}div{% else %}ul{% endif %} id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav__submenu{% if nav.mega %} usa-megamenu{% endif %}">
+          {%- if nav.id_prefix == "basic-" or nav.id_prefix == "extended-" -%}
+            {%- for child in link.links -%}
+              {%- if loop.index < 4 -%}
+                <li class="usa-nav__submenu-item">
+                  <a href="{{ child.href }}" class="{% if child.is_current %} usa-current{% endif %}"> {{ child.text }}</a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            <div class="grid-row grid-gap-4">
+              {%- for group in link.links | batch(3) -%}
+                <div class="usa-col">
+                  <ul class="usa-nav__submenu-list">
+                    {%- for child in group -%}
+                      <li class="usa-nav__submenu-item">
+                        <a href="{{ child.href }}" class="{% if child.is_current %} usa-current{% endif %}">{{ child.text }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </{% if nav.mega %}div{% else %}ul{% endif %}>
+        {%- else -%}
+        <a class="usa-nav__link{% if link.is_current %} usa-current{% endif %}" href="{{ link.href }}"><span>{{ link.text }}</span></a>
+        {% endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- if nav.search -%}
+      {% render '@search--header', {search: nav.search, id_prefix: nav.id_prefix}, true %}
+    {%- endif -%} #}
