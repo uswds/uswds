@@ -1,5 +1,11 @@
-<button class="usa-button {{ modifier }}">
+<button class="usa-button {{ modifier }}" {% if submit %}type="submit"{% endif %}>
+  {% if sr_only %}
+    <span class="usa-sr-only">
+  {% endif %}
   {{ title|default(modifier) }}
+  {% if sr_only %}
+    </span>
+  {% endif %}  
 </button>
 
 {% if show_states|default(false) %}

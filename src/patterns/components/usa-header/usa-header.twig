@@ -1,0 +1,15 @@
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--basic {{ modifier }}">
+  <div class="usa-nav-container">
+    {% include "@components/usa-site-title/usa-site-title.twig" %}
+    <nav aria-label="Primary navigation" class="usa-nav">
+      {% include "@components/usa-nav/usa-nav__primary/usa-nav__primary.twig" with {
+        'megamenu': megamenu 
+      } %}
+      {% include "@components/usa-search/usa-search.twig" with { 
+        'modifier': 'usa-search--small' 
+        } 
+      %}
+    </nav>
+  </div>
+</header>
