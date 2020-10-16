@@ -1,0 +1,24 @@
+---
+title: 'Extended header with mega-menu'
+# Nav options
+megamenu: true
+items:
+  - label: Current section
+    current: true
+    id: extended-mega-nav-section-one
+    subnav: &subnav
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: A very long navigation link that goes onto two lines
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+      - label: Navigation link
+  - label: Section
+    id: extended-mega-nav-section-two
+    subnav: *subnav
