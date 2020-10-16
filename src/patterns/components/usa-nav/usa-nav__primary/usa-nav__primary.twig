@@ -34,7 +34,7 @@
       <li class="{{ list_classes }}">
         {% if menu_level == 0 and item.subnav %}
           {# TODO: Use or create a toggle button component #}
-          {% set btn_classes = 'usa-accordion__button usa-nav__link' %}
+          {% set btn_classes = 'usa-accordion__button usa-nav__link' ~ ((item.current) ? ' usa-current') %}
           <button class="{{ btn_classes }}" aria-expanded="false" aria-controls="{{ item.id }}">
             <span>{{ item.label }}</span>
           </button>
