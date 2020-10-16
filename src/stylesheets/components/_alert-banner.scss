@@ -83,7 +83,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
       units($theme-alert-padding-x);
   }
 
-  .usa-alert__text {
+  .usa-alert__text, .usa-list {
     a {
       @include set-link-from-bg($theme-color-secondary-dark);
     }
