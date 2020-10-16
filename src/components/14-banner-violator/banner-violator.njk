@@ -10,7 +10,14 @@
       {%- if alert.title %}
       <h3 class="usa-alert__heading">{{ alert.title }}</h3>
       {%- endif %}
+
+      {%- if alert.list %}
+      {{ alert.list | safe }}
+      {%- endif %}
+
+      {%- if alert.content %}
       <p class="usa-alert__text">{{ alert.content | safe }}</p>
+      {%- endif %}
     </div>
   </div>
 </div>

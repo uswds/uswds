@@ -80,8 +80,14 @@ variants:
         classes: "usa-alert-banner--emergency usa-alert-banner--grid-contained"
       alert:
         classes: "usa-alert--emergency"
-        title: Warning status 
-        content: '<ul class="usa-list usa-alert__text"><li>Unordered list item</li><li><a href="javascript:void(0);">Unordered list item</a></li><li>Unordered list item</li></ul>'
+        title: Coronavirus Information 
+        content: false
+        list: '
+          <ul class="usa-list usa-list--unstyled">
+            <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank">How to prepare and protect yourself</a></li>
+            <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/index.html" target="_blank">What to do if you think you are sick</a></li>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" target="_blank">Find a Testing Location</a></li>
+          </ul>'
 
   - name: no-header
     label: No header
