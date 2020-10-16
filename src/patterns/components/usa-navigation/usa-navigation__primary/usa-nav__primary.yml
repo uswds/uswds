@@ -1,6 +1,6 @@
 ---
 modifier: 'usa-nav__primary'
-megamenu: false
+megamenu: true
 items:
   - label: Section
     href: javascript:void(0);
