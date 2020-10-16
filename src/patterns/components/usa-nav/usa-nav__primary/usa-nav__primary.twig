@@ -10,11 +10,16 @@
   button_id
 ) %}
   {% import _self as menus %}
+  
 
   {% if items %}
 
     {# 1st level #}
     {% if menu_level == 0 %}
+      {# TODO: Create a button icon component #}
+      <button class="usa-nav__close">
+        <img src="/img/close.svg" role="img" alt="close">
+      </button>
       <ul class="usa-nav__primary usa-accordion">
     {# 2nd level subnavs that aren't megamenu #}
     {% elseif menu_level > 0 and not megamenu %}
