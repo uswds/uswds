@@ -1,5 +1,5 @@
 ---
-modifier: 'usa-nav__secondary'
+modifier: ''
 search: false
 items:
   - label: Secondary link

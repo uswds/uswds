@@ -1,12 +1,7 @@
-{% 
-  set list_class, 
-  list_item_class = modifier ~ '-links', modifier ~ '-item'
-%}
-
-<div class="{{ modifier }}">
-  <ul class="{{ list_class }}">
+<div class="usa-nav__secondary {{ modifier }}">
+  <ul class="usa-nav__secondary-links">
     {% for item in items %}
-    <li class="{{ list_item_class }}">
+    <li class="usa-nav__secondary-item">
       <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
         {{ item.label }}
       </a>
