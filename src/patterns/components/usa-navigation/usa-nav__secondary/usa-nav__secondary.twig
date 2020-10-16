@@ -1,0 +1,19 @@
+{% 
+  set list_class, 
+  list_item_class = modifier ~ '-links', modifier ~ '-item'
+%}
+
+<div class="{{ modifier }}">
+  <ul class="{{ list_class }}">
+    {% for item in items %}
+    <li class="{{ list_item_class }}">
+      <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
+        {{ item.label }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if search %}
+    {% include "@components/usa-search/usa-search.twig" with { 'modifier': 'usa-search--small' } %}
+  {% endif %}
+</div>

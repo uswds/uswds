@@ -1,4 +1,4 @@
-<form class="usa-search {{ modifier }} {% if search_js %} js-search-form{% endif %}" role="search">
+<form class="usa-search {{ modifier }} {% if search_js|default(false) %} js-search-form{% endif %}" role="search">
   <label class="usa-sr-only" for="{{ form_id }}">{{ search.label }}</label>
   <input class="usa-input" id="{{ form_id }}" type="search" name="search">
   {% if modifier != 'usa-search--small' %}
