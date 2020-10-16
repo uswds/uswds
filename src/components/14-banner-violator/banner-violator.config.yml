@@ -73,7 +73,7 @@ variants:
         title: Coronavirus Information 
         content: false
         list: '
-          <ul class="usa-list usa-list--unstyled">
+          <ul class="usa-list">
             <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank">How to prepare and protect yourself</a></li>
             <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/index.html" target="_blank">What to do if you think you are sick</a></li>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" target="_blank">Find a Testing Location</a></li>

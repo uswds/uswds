@@ -18,6 +18,11 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     &::before {
       display:none;
     }
+
+    > .usa-list,
+    .usa-alert__body > .usa-list {
+      padding-left: 2ch;
+    }
   }
   .usa-alert__body {
     display: block;
