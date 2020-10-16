@@ -2,20 +2,13 @@
 // TODO: Custom alerts are effectively hidden and not well supported
 // Consider removing or rebuilding
 $usa-custom-alerts: () !default;
-$usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
   success: "success-lighter",
   warning: "warning-lighter",
   error: "error-lighter",
   info: "info-lighter",
-);
-
-$usa-alerts-bar: (
-  success: "success",
-  warning: "warning",
-  error: "error",
-  info: "info",
+  emergency: "emergency"
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -31,61 +24,29 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   }
 }
 
-@each $name, $bgcolor in $alerts {
-  .usa-alert-banner--#{$name} {
-    background-color: color($bgcolor);
-  }
-}
-
-
-
-.usa-alert-banner--grid-contained {
-  .usa-alert {
-    @include grid-container();
-  }
-}
-
 .usa-alert-banner__close-btn {
-  color: color("ink");
   float: right;
   text-decoration: none;
-  //red-vivid-60
+  
   &:hover {
-    color: color("ink");
     text-decoration: none;
   }
 }
 
+@each $name, $bgcolor in $alerts {
+  .usa-alert-banner--#{$name} {
+    background-color: color($bgcolor);
+    $banner-text-color-token:  get-token-from-bg($bgcolor);
+    color: color($banner-text-color-token);
 
-.usa-alert-banner--emergency {
-  background-color: #C14137;
-
-  .usa-alert-banner__close-btn {
-    @include set-link-from-bg($theme-color-secondary-dark);
+    .usa-alert-banner__close-btn {
+      @include set-link-from-bg($bgcolor, $banner-text-color-token);
+    }
   }
 }
 
-
-
-.usa-alert--emergency {
-
-  @include add-background-svg("alerts/emergency");
-
-  background-color: #C14137;
-  color : #f2f3f4;
-
-  &::before {
-    background-color: color("red-60");
-  }
-
-  .usa-alert__body {
-    padding-left: units($theme-alert-icon-size) +
-      units($theme-alert-padding-x);
-  }
-
-  .usa-alert__text, .usa-list {
-    a {
-      @include set-link-from-bg($theme-color-secondary-dark);
-    }
+.usa-alert-banner--grid-contained {
+  .usa-alert {
+    @include grid-container();
   }
 }
