@@ -115,3 +115,29 @@
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
   cursor: not-allowed;
 }
+
+// Checkboxes and radios with tap-friendly targets
+
+.usa-checkbox__input--big-target + .usa-checkbox__label,
+.usa-radio__input--big-target + .usa-radio__label {
+  //@include transition(border-color .08s ease-in-out, background-color .08s ease-in-out);
+  border: 2px solid color('base-lighter');
+  border-radius: 4px;
+  //font-weight: $font-normal;
+  margin: units(1) 0;
+  padding: units(1.5) units(2) units(1.5) units(5);
+}
+
+.usa-checkbox__input--big-target:not([disabled]) + .usa-checkbox__label:hover,
+.usa-radio__input--big-target:not([disabled]) + .usa-radio__label:hover {
+  background-color: color('base-lightest');
+}
+
+.usa-checkbox__input--big-target:checked + .usa-checkbox__label,
+.usa-checkbox__input--big-target:checked:hover + .usa-checkbox__label,
+.usa-radio__input--big-target:checked + .usa-radio__label,
+.usa-radio__input--big-target:checked:hover + .usa-radio__label {
+  background-color: color('accent-cool-lighter');
+  border-color: color('accent-cool-light');
+  font-weight: bold;
+}
