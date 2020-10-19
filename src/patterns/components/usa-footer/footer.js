@@ -1,7 +1,6 @@
 'use strict';
 const debounce = require('lodash').debounce;
-const behavior = require('../../../utils/behavior');
-const select = require('../../../utils/select');
+const { behavior, select } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 
 const CLICK = 'click';

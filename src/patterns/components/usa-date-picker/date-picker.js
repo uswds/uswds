@@ -1,11 +1,12 @@
 'use strict';
 const receptor = require('receptor');
-// const { keyup } = receptor;
-const behavior = require('../../../utils/behavior');
-const select = require('../../../utils/select');
+const {
+  behavior,
+  select,
+  activeElement,
+  isIosDevice
+} = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
-const activeElement = require('../../../utils/active-element');
-const isIosDevice = require('../../../utils/is-ios-device');
 
 const CLICK = 'click';
 

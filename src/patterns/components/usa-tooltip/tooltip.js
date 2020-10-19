@@ -1,9 +1,7 @@
 'use strict';
 // Tooltips
-const select = require('../../../utils/select');
-const behavior = require('../../../utils/behavior');
+const { behavior, select, isElementInViewport } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
-const isElementInViewport = require('../../../utils/is-in-viewport');
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;

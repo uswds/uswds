@@ -1,7 +1,6 @@
 'use strict';
 
-const behavior = require('../../../utils/behavior');
-const validate = require('../../../utils/validate-input');
+const { behavior, validate } = require('../../../utils');
 
 function change() {
   validate(this);

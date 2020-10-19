@@ -1,8 +1,5 @@
 'use strict';
-const behavior = require('../../../utils/behavior');
-const select = require('../../../utils/select');
-const toggle = require('../../../utils/toggle');
-const FocusTrap = require('../../../utils/focus-trap');
+const { behavior, select, toggle, focusTrap } = require('../../../utils');
 const accordion = require('../usa-accordion/accordion');
 const { prefix: PREFIX } = require('../../../config');
 
@@ -132,7 +129,7 @@ navigation = behavior(
       const trapContainer = root.querySelector(NAV);
 
       if (trapContainer) {
-        navigation.focusTrap = FocusTrap(trapContainer, {
+        navigation.focusTrap = focusTrap(trapContainer, {
           Escape: onMenuClose
         });
       }

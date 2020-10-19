@@ -1,6 +1,6 @@
 'use strict';
 
-const behavior = require('../../../utils/behavior');
+const { behavior } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 
 const CLICK = 'click';

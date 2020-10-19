@@ -1,6 +1,10 @@
 'use strict';
-const behavior = require('../../../utils/behavior');
-const { select, toggle, isElementInViewport } = require('../../../utils/utils');
+const {
+  behavior,
+  select,
+  toggle,
+  isElementInViewport
+} = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 
 const CLICK = 'click';

@@ -6,9 +6,30 @@
 /* eslint-disable require-jsdoc */
 'use strict';
 const assign = require('object-assign');
-const { keymap } = require('receptor');
-const behavior = require('./behavior');
+const receptor = require('receptor');
+const { keymap } = receptor;
 
+const behavior = (events, props) => {
+    const sequence = (...seq) =>
+        function callHooks(target = document.body) {
+            seq.forEach(method => {
+            if (typeof this[method] === 'function') {
+                this[method].call(this, target);
+            }
+            });
+        };
+
+    return receptor.behavior(
+            events,
+            Object.assign(
+            {
+                on: sequence('init', 'add'),
+                off: sequence('teardown', 'remove')
+            },
+            props
+            )
+        );
+}
 
 const select = (selector, context) => {
     const isElement = value => value && typeof value === 'object' && value.nodeType === 1;
@@ -138,7 +159,6 @@ const toggleFieldMask = (field, mask) => {
 
 const toggleFormInput = (el) => {
     const resolveIdRefs = require("resolve-id-refs");
-    const toggleFieldMask = require("./toggle-field-mask");
     
     const CONTROLS = "aria-controls";
     const PRESSED = "aria-pressed";
@@ -236,6 +256,7 @@ const validateInput = (_el) => {
 }
 
 module.exports = {
+  behavior: behavior,
   select: select,
   activeElement: activeElement,
   focusTrap: focusTrap,

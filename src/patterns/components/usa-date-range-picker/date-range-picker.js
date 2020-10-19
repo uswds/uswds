@@ -1,6 +1,5 @@
 'use strict';
-const behavior = require('../../../utils/behavior');
-const select = require('../../../utils/select');
+const { behavior, select } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 const {
   getDatePickerContext,

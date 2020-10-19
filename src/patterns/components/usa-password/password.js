@@ -1,6 +1,5 @@
 'use strict';
-const behavior = require('../../../utils/behavior');
-const toggleFormInput = require('../../../utils/toggle-form-input');
+const { behavior, toggleFormInput } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 
 const CLICK = 'click';

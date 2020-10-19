@@ -1,6 +1,5 @@
 'use strict';
-const select = require('../../../utils/select');
-const behavior = require('../../../utils/behavior');
+const { behavior, select } = require('../../../utils');
 const { prefix: PREFIX } = require('../../../config');
 
 const CHARACTER_COUNT = `.${PREFIX}-character-count`;

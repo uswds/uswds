@@ -1,7 +1,6 @@
 'use strict';
 const receptor = require('receptor').ignore;
-const behavior = require('../../../utils/behavior');
-const select = require('../../../utils/select');
+const { behavior, select } = require('../../../utils');
 
 const CLICK = 'click';
 const BUTTON = '.js-search-button';
