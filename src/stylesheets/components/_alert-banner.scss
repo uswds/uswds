@@ -33,6 +33,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   float: right;
   text-decoration: none;
   
+  img {
+    width: 0.75rem;
+  }
+  
   &:hover {
     text-decoration: none;
   }

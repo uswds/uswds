@@ -4,7 +4,7 @@
     <div class="usa-alert__body">
       {%- if banner.dismissible %}
       <button class="usa-button usa-button--big usa-button--unstyled usa-alert-banner__close-btn" aria-label="Dismiss alert" type="button" data-close>
-        <span aria-hidden="true">&times;</span>
+        <img src="{{ banner.close_svg_path }}" alt="close">
       </button>
       {%- endif %}
       {%- if alert.title %}

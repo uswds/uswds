@@ -2,6 +2,7 @@ label: Banner Violator
 status: ready
 context:
   banner:
+    close_svg_path: ../../dist/img/close.svg
     dismissible: true
   alert:
     content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
@@ -57,6 +58,7 @@ variants:
     label: Emergency
     context:
       banner:
+        close_svg_path: ../../dist/img/close-white.svg
         classes: "usa-alert-banner--emergency"
       alert:
         classes: ""
@@ -67,6 +69,7 @@ variants:
     label: Emergency Grid Contained with List
     context:
       banner:
+        close_svg_path: ../../dist/img/close-white.svg
         classes: "usa-alert-banner--emergency usa-alert-banner--grid-contained"
       alert:
         classes: ""
