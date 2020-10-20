@@ -3,9 +3,7 @@
   <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
     <div class="usa-alert__body">
       {%- if siteAlert.dismissible %}
-      <button class="usa-button usa-button--big usa-button--unstyled usa-site-alert__close-btn" aria-label="Dismiss alert" type="button" data-close>
-        <img src="{{ siteAlert.close_svg_path }}" alt="close">
-      </button>
+      <button class="usa-button usa-button--unstyled usa-site-alert__close-btn" aria-label="Dismiss alert" type="button"></button>
       {%- endif %}
       {%- if alert.title %}
       <h3 class="usa-alert__heading">{{ alert.title }}</h3>

@@ -13,6 +13,14 @@ $usa-alerts: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
+
+$alert-icon-close: (
+  "name": "close",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $theme-icon-image-size
+);
+
 .usa-site-alert {
   .usa-alert {
     &::before {
@@ -47,6 +55,16 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     background-color: color($bgcolor);
     $banner-text-color-token:  get-token-from-bg($bgcolor);
     color: color($banner-text-color-token);
+
+    .usa-site-alert__close-btn {
+      @include place-icon(
+        $alert-icon-close,
+        "after",
+        0,
+        middle,
+        $bgcolor
+      );
+    }
 
     .usa-alert {
       @include alert-status-styles($name, $bgcolor);
