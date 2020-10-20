@@ -35,6 +35,14 @@ variants:
         title: Error status
         role: "alert"
 
+  - name: emergency
+    label: Emergency
+    context:
+      alert:
+        classes: "usa-alert--emergency"
+        title: Emergency status
+        role: "alert"
+
   - name: no-header
     label: No header
     context:

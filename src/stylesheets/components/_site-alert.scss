@@ -48,33 +48,8 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     $banner-text-color-token:  get-token-from-bg($bgcolor);
     color: color($banner-text-color-token);
 
-    .usa-site-alert__close-btn {
-      @include set-link-from-bg($bgcolor, $banner-text-color-token);
-    }
-
     .usa-alert {
-      @include add-background-svg("alerts/#{$name}");
-
-      background-color: color($bgcolor);
-      
-      .usa-alert__body {
-        padding-left: units($theme-alert-icon-size) +
-          units($theme-alert-padding-x);
-      }
-
-      .usa-alert__text, .usa-list {
-        a {
-          @include set-link-from-bg($bgcolor);
-        }
-      }
-    }
-
-    .usa-alert--no-icon {
-      background-image: none;
-    
-      .usa-alert__body {
-        padding-left: 0;
-      }
+      @include alert-status-styles($name, $bgcolor);
     }
   }
 }

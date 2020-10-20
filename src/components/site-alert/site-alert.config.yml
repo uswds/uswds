@@ -86,6 +86,7 @@ variants:
     context:
       siteAlert:
         classes: "usa-site-alert--info"
+        dismissible: false
       alert:
         classes: ""
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."

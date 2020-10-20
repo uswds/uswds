@@ -96,23 +96,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
 
 @each $name, $bgcolor in $alerts {
   .usa-alert--#{$name} {
-    @include add-background-svg("alerts/#{$name}");
-    background-color: color($bgcolor);
-
-    &::before {
-      background-color: color(map-get($alerts-bar, $name));
-    }
-
-    .usa-alert__body {
-      padding-left: units($theme-alert-icon-size) +
-        units($theme-alert-padding-x);
-    }
-
-    .usa-alert__text, .usa-list {
-      a {
-        @include set-link-from-bg($bgcolor);
-      }
-    }
+    @include alert-status-styles($name, $bgcolor);
   }
 }
 
@@ -129,14 +113,6 @@ $alert-padding-left: units($theme-alert-padding-x) +
   .usa-alert__text:only-child {
     margin-bottom: units(0.5);
     padding-top: units(0.5);
-  }
-}
-
-.usa-alert--no-icon {
-  background-image: none;
-
-  .usa-alert__body {
-    padding-left: 0;
   }
 }
 
