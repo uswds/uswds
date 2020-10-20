@@ -3,14 +3,14 @@ const { CLICK } = require("../events");
 
 const { prefix: PREFIX } = require("../config");
 
-const ALERT_BANNER_CLASS = `${PREFIX}-alert-banner`;
+const SITE_ALERT_CLASS = `${PREFIX}-site-alert`;
 
-const ALERT_BANNER = `.${ALERT_BANNER_CLASS}`;
-const CLOSE_BUTTON = `.${ALERT_BANNER_CLASS}__close-btn`;
+const SITE_ALERT = `.${SITE_ALERT_CLASS}`;
+const CLOSE_BUTTON = `.${SITE_ALERT_CLASS}__close-btn`;
 
 const closeBanner = function toggleEl(event) {
     event.preventDefault();
-    this.closest(ALERT_BANNER).hidden = true;
+    this.closest(SITE_ALERT).hidden = true;
 };
 
 module.exports = behavior({

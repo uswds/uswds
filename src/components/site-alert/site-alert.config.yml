@@ -1,7 +1,6 @@
-label: Banner Violator
-status: ready
+label: Site Alert
 context:
-  banner:
+  siteAlert:
     close_svg_path: ../../dist/img/close.svg
     dismissible: true
   alert:
@@ -11,8 +10,8 @@ variants:
   - name: info
     label: Info
     context:
-      banner:
-        classes: "usa-alert-banner--info"
+      siteAlert:
+        classes: "usa-site-alert--info"
       alert:
         classes: ""
         title: Informative status
@@ -20,8 +19,8 @@ variants:
   - name: success
     label: Success
     context:
-      banner:
-        classes: "usa-alert-banner--success"
+      siteAlert:
+        classes: "usa-site-alert--success"
       alert:
         classes: ""
         title: Success status
@@ -29,8 +28,8 @@ variants:
   - name: warning
     label: Warning
     context:
-      banner:
-        classes: "usa-alert-banner--warning"
+      siteAlert:
+        classes: "usa-site-alert--warning"
       alert:
         classes: ""
         title: Warning status
@@ -38,8 +37,8 @@ variants:
   - name: warning-grid-contained
     label: Warning Grid Contained
     context:
-      banner:
-        classes: "usa-alert-banner--warning usa-alert-banner--grid-contained"
+      siteAlert:
+        classes: "usa-site-alert--warning usa-site-alert--grid-contained"
       alert:
         classes: ""
         title: Warning status
@@ -47,8 +46,8 @@ variants:
   - name: error
     label: Error
     context:
-      banner:
-        classes: "usa-alert-banner--error"
+      siteAlert:
+        classes: "usa-site-alert--error"
       alert:
         classes: ""
         title: Error status
@@ -57,9 +56,9 @@ variants:
   - name: emergency
     label: Emergency
     context:
-      banner:
+      siteAlert:
         close_svg_path: ../../dist/img/close-white.svg
-        classes: "usa-alert-banner--emergency"
+        classes: "usa-site-alert--emergency"
       alert:
         classes: ""
         title: Emergency status
@@ -68,9 +67,9 @@ variants:
   - name: emergency-grid-contained-list
     label: Emergency Grid Contained with List
     context:
-      banner:
+      siteAlert:
         close_svg_path: ../../dist/img/close-white.svg
-        classes: "usa-alert-banner--emergency usa-alert-banner--grid-contained"
+        classes: "usa-site-alert--emergency usa-site-alert--grid-contained"
       alert:
         classes: ""
         title: Coronavirus Information 
@@ -85,18 +84,17 @@ variants:
   - name: no-header
     label: No header
     context:
-      banner:
-        classes: "usa-alert-banner--info"
+      siteAlert:
+        classes: "usa-site-alert--info"
       alert:
         classes: ""
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
-
   - name: no-icon
     label: No icon
     context:
-      banner:
-        classes: "usa-alert-banner--info"
+      siteAlert:
+        classes: "usa-site-alert--info"
       alert:
         classes: "usa-alert--no-icon"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
@@ -104,8 +102,8 @@ variants:
   - name: slim
     label: Slim
     context:
-      banner:
-        classes: "usa-alert-banner--info"
+      siteAlert:
+        classes: "usa-site-alert--info"
       alert:
         classes: "usa-alert--slim"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."

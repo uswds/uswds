@@ -1,5 +1,4 @@
 const accordion = require("./accordion");
-const alertBanner = require("./alert-banner");
 const banner = require("./banner");
 const characterCount = require("./character-count");
 const comboBox = require("./combo-box");
@@ -8,6 +7,7 @@ const footer = require("./footer");
 const navigation = require("./navigation");
 const password = require("./password");
 const search = require("./search");
+const siteAlert = require("./site-alert");
 const skipnav = require("./skipnav");
 const tooltip = require("./tooltip");
 const validator = require("./validator");
@@ -17,7 +17,6 @@ const timePicker = require("./time-picker");
 
 module.exports = {
   accordion,
-  alertBanner,
   banner,
   characterCount,
   comboBox,
@@ -28,6 +27,7 @@ module.exports = {
   navigation,
   password,
   search,
+  siteAlert,
   skipnav,
   timePicker,
   tooltip,

@@ -1,10 +1,10 @@
 
-<div class="usa-alert-banner {{ banner.classes }}">
+<div class="usa-site-alert {{ siteAlert.classes }}">
   <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
     <div class="usa-alert__body">
-      {%- if banner.dismissible %}
-      <button class="usa-button usa-button--big usa-button--unstyled usa-alert-banner__close-btn" aria-label="Dismiss alert" type="button" data-close>
-        <img src="{{ banner.close_svg_path }}" alt="close">
+      {%- if siteAlert.dismissible %}
+      <button class="usa-button usa-button--big usa-button--unstyled usa-site-alert__close-btn" aria-label="Dismiss alert" type="button" data-close>
+        <img src="{{ siteAlert.close_svg_path }}" alt="close">
       </button>
       {%- endif %}
       {%- if alert.title %}

@@ -13,7 +13,7 @@ $usa-alerts: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
-.usa-alert-banner {
+.usa-site-alert {
   .usa-alert {
     &::before {
       display:none;
@@ -29,7 +29,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   }
 }
 
-.usa-alert-banner__close-btn {
+.usa-site-alert__close-btn {
   float: right;
   text-decoration: none;
   
@@ -43,12 +43,12 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 }
 
 @each $name, $bgcolor in $alerts {
-  .usa-alert-banner--#{$name} {
+  .usa-site-alert--#{$name} {
     background-color: color($bgcolor);
     $banner-text-color-token:  get-token-from-bg($bgcolor);
     color: color($banner-text-color-token);
 
-    .usa-alert-banner__close-btn {
+    .usa-site-alert__close-btn {
       @include set-link-from-bg($bgcolor, $banner-text-color-token);
     }
 
@@ -79,7 +79,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   }
 }
 
-.usa-alert-banner--grid-contained {
+.usa-site-alert--grid-contained {
   .usa-alert {
     @include grid-container();
   }
