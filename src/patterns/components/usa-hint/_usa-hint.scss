@@ -1,0 +1,7 @@
+@use "../../stylesheets/core" as *;
+@use "../usa-input/usa-input" as *;
+
+.usa-hint {
+  @extend %block-input-general;
+  color: color("base");
+}
