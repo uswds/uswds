@@ -1,4 +1,4 @@
-@use "../../core" as *;
+@use "../../stylesheets/core" as *;
 
 %block-input-general {
   @include border-box-sizing;
