@@ -1,5 +1,5 @@
-@use "../../core" as *;
-@use "./usa-input" as *;
+@use "../../stylesheets/core" as *;
+@use "../usa-input/usa-input" as *;
 
 .usa-textarea {
   @extend %block-input-general;
