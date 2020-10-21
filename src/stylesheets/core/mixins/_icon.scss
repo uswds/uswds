@@ -116,8 +116,8 @@
     map-get($icon-object, "path"),
     $theme-image-path
   );
-  $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, $color);
-  $filename-ie11-variant: if($ie11-variant == "ink", null, $ie11-variant);
+  $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, "black");
+  $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
   $filename: if(
     $filename-ie11-variant,
     "#{$filename-base}-#{$filename-ie11-variant}.svg",
@@ -135,10 +135,10 @@
     transform: rotate($rotate);
   }
 
-  // Mask supported styles
+  // Mask supportered styles
   @supports (mask: url("")) or (-webkit-mask: url("")) {
     background: none;
-    background-color: color($ie11-variant);
+    background-color: color($color);
     mask: $image-props;
     @if $color-hover {
       &:hover {
