@@ -9,16 +9,15 @@ $usa-alerts: (
   warning: "warning-lighter",
   error: "error-lighter",
   info: "info-lighter",
-  emergency: "emergency"
+  emergency: "emergency",
 );
-
 
 $usa-alerts-bar: (
   success: "success",
   warning: "warning",
   error: "error",
   info: "info",
-  emergency: "emergency"
+  emergency: "emergency",
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -53,7 +52,6 @@ $alert-padding-left: units($theme-alert-padding-x) +
     top: 0;
     width: units($theme-alert-bar-width);
   }
-
 
   > .usa-list,
   .usa-alert__body > .usa-list {

@@ -380,7 +380,7 @@ $project-state-colors: (
   ),
   "emergency": (
     "default": color($theme-color-emergency, set-theme),
-  )
+  ),
 );
 
 $all-project-colors: map-collect($project-colors, $project-state-colors);

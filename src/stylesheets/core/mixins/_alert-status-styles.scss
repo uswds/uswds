@@ -1,7 +1,7 @@
 @mixin alert-status-styles($name, $bgcolor) {
   @include add-background-svg("alerts/#{$name}");
   background-color: color($bgcolor);
-  $banner-text-color-token:  get-token-from-bg($bgcolor);
+  $banner-text-color-token: get-token-from-bg($bgcolor);
   color: color($banner-text-color-token);
 
   &::before {
@@ -9,11 +9,11 @@
   }
 
   .usa-alert__body {
-    padding-left: units($theme-alert-icon-size) +
-      units($theme-alert-padding-x);
+    padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
   }
 
-  .usa-alert__text, .usa-list {
+  .usa-alert__text,
+  .usa-list {
     a {
       @include set-link-from-bg($bgcolor);
     }
@@ -21,7 +21,7 @@
 
   &.usa-alert--no-icon {
     background-image: none;
-  
+
     .usa-alert__body {
       padding-left: 0;
     }

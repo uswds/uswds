@@ -8,7 +8,7 @@ $usa-alerts: (
   warning: "warning-lighter",
   error: "error-lighter",
   info: "info-lighter",
-  emergency: "emergency"
+  emergency: "emergency",
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -16,7 +16,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 .usa-site-alert {
   .usa-alert {
     &::before {
-      display:none;
+      display: none;
     }
 
     > .usa-list,
@@ -32,11 +32,11 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 .usa-site-alert__close-btn {
   float: right;
   text-decoration: none;
-  
+
   img {
     width: 0.75rem;
   }
-  
+
   &:hover {
     text-decoration: none;
   }
@@ -45,7 +45,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 @each $name, $bgcolor in $alerts {
   .usa-site-alert--#{$name} {
     background-color: color($bgcolor);
-    $banner-text-color-token:  get-token-from-bg($bgcolor);
+    $banner-text-color-token: get-token-from-bg($bgcolor);
     color: color($banner-text-color-token);
 
     .usa-alert {
