@@ -1,45 +1,33 @@
+{% set placeholder_logo = '/img/circle-gray-20.svg' %}
+
 <div class="usa-identifier">
   <section
     class="usa-identifier__section usa-identifier__section--masthead"
-    aria-label="{{ masthead.label.content[lang] }}">
+    aria-label="{{ masthead.label }}">
     <div class="usa-identifier__container">
-      {%- if masthead.parent.logo -%}
+      {%- if masthead.parent.logo or mashead.agency.logo -%}
       <div class="usa-identifier__logos">
-        <a href="{{ masthead.parent.url[lang] }}" class="usa-identifier__logo">
+        <a href="{{ masthead.parent.url }}" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
-            {% if masthead.parent.logo == "default" %}
-            src="{{ uswds.path }}/img/circle-gray-20.svg"
-            {% else %}
-            src="{{ masthead.parent.logo }}"
-            {% endif %}
-            {% if lang == "en" %}
-            alt="{{ masthead.parent.name[lang] }} logo"
-            {% elif lang == "es" %}
-            alt="Logo de la {{ masthead.parent.name[lang] }}"
-            {% endif %}
+            src="{{ masthead.parent.logo|default(placeholder_logo) }}"
+            alt="{{ masthead.parent.name }} logo"
             role="img">
         </a>
         {%- if masthead.agency.logo %}
         <a href="javascript:void(0);" class="usa-identifier__logo">
           <img
             class="usa-identifier__logo-img"
-            {% if masthead.agency.logo == "default" %}
-            src="{{ uswds.path }}/img/circle-gray-20.svg"
-            {% else %}
-            src="{{ masthead.agency.logo }}"
+            {% if masthead.agency.logo %}
+            src="{{ masthead.agency.logo|default(placeholder_logo) }}"
             {% endif %}
-            {% if lang == "en" %}
-            alt="{{ masthead.agency.name[lang] }} logo"
-            {% elif lang == "es" %}
-            alt="Logo de la {{ masthead.agency.name[lang] }}"
-            {% endif %}
+            alt="{{ masthead.agency.name }} logo"
             role="img">
         </a>
         {%- endif -%}
       </div>
       {%- endif -%}
-      <div class="usa-identifier__identity" aria-label="{{ masthead.description.label.content[lang] }}">
+      {# <div class="usa-identifier__identity" aria-label="{{ masthead.description.label.content[lang] }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
           {{- masthead.text.content[lang] }} <a href="{{ masthead.parent.url[lang] }}">{{ masthead.parent.name[lang] }}</a>
@@ -62,10 +50,10 @@
           . {{ masthead.taxpayer_disclaimer.content[lang] }}
           {%- endif -%}
         </p>
-      </div>
+      </div> #}
     </div>
   </section>
-  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.label.content[lang] }}">
+  {# <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.label.content[lang] }}">
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
         <li class="usa-identifier__required-links-item">
@@ -108,13 +96,13 @@
         </li>
       </ul>
     </div>
-  </nav>
-  {% if usagov.display -%}
+  </nav> #}
+  {# {% if usagov.display -%}
   <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="{{ usagov.label.content[lang] }}">
     <div class="usa-identifier__container">
       <div class="usa-identifier__usagov-description">{{ usagov.description.content[lang] }}</div>
       <a href="{{ usagov.link.url[lang] }}" class="usa-link">{{ usagov.link.content[lang] }}</a>
     </div>
   </section>
-  {% endif -%}
+  {% endif -%} #}
 </div>
