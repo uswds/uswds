@@ -3,7 +3,7 @@
 <div class="usa-identifier">
   <section
     class="usa-identifier__section usa-identifier__section--masthead"
-    aria-label="{{ masthead.label }}">
+    aria-label="{{ masthead.aria_label }}">
     <div class="usa-identifier__container">
       {%- if masthead.parent.logo or masthead.agency.logo -%}
       <div class="usa-identifier__logos">
@@ -51,7 +51,7 @@
       </div>
     </div>
   </section>
-  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.label.content[lang] }}">
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.aria_label }}">
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
         {% for link in required_links.links %}
