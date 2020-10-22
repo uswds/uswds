@@ -11,7 +11,7 @@
           <img
             class="usa-identifier__logo-img"
             src="{{ masthead.parent.logo|default(placeholder_logo) }}"
-            alt="{{ masthead.parent.name }} logo"
+            alt="{{ masthead.parent.name|e }} logo"
             role="img">
         </a>
         {%- if masthead.agency.logo %}
@@ -21,7 +21,7 @@
             {% if masthead.agency.logo %}
             src="{{ masthead.agency.logo|default(placeholder_logo) }}"
             {% endif %}
-            alt="{{ masthead.agency.name }} logo"
+            alt="{{ masthead.agency.name|e }} logo"
             role="img">
         </a>
         {%- endif -%}
@@ -35,9 +35,9 @@
           {% if masthead.agency.name %} the{%- endif %}
             <a href="{{ masthead.agency.url }}">
               {% if masthead.agency.name -%}
-              {{ masthead.agency.name }}
+              {{ masthead.agency.name|e }}
               {% else %}
-              {{ masthead.agency.shortname }}
+              {{ masthead.agency.shortname|e }}
               {%- endif -%}
             </a>
           {% if masthead.taxpayer_disclaimer.display %}
