@@ -1,0 +1,5 @@
+---
+# Centered isn't a modifier because it can go along with other modifiers.
+modifier: ''
+show_labels: true
+centered: true
