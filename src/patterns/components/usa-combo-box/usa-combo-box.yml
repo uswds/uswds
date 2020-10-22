@@ -1,0 +1,9 @@
+---
+modifier: ''
+name: 'fruit'
+id: 'fruit'
+label: 'Select a fruit'
+default_value: ''
+placeholder: ''
+disabled: false
+required: false

@@ -1,15 +1,6 @@
-<label class="usa-label" for="{{ comboBox.name }}">{{ comboBox.label }}</label>
-<div class="usa-combo-box{% if comboBox.utilities %} {{ comboBox.utilities }}{% endif %}"
-  {% if comboBox.defaultValue %} data-default-value="{{ comboBox.defaultValue }}"{% endif %}
-  {% if comboBox.placeholder %} data-placeholder="{{ comboBox.placeholder }}"{% endif %}
->
-  <select
-    class="usa-select"
-    name="{{ comboBox.name }}"
-    id="{% if comboBox.id %}{{ comboBox.id }}{% else %}{{ comboBox.name }}{% endif %}"
-    {% if comboBox.disabled %} disabled{% endif %}
-    {% if comboBox.required %} required{% endif %}
-  >
+<label class="usa-label" for="{{ name }}">{{ label }}</label>
+<div class="usa-combo-box {{ modifier }}" {% if default_value %} data-default-value="{{ default_value }}"{% endif %} {% if placeholder %} data-placeholder="{{ placeholder }}"{% endif %}>
+  <select class="usa-select" name="{{ name }}" id="{{ id }}" {% if disabled %} disabled{% endif %} {% if required %} required{% endif %}>
     <option value>Select a fruit</option>
     <option value="apple">Apple</option>
     <option value="apricot">Apricot</option>
