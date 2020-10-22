@@ -1,7 +1,6 @@
 ---
 modifier: ''
 domain: domain.gov
-lang: en
 masthead:
   aria_label: Agency identifier
   description: Agency description
@@ -12,10 +11,10 @@ masthead:
     url: javascript:void(0)
     logo: "/img/circle-gray-20.svg"
   agency:
-    name: 
-    shortname:
-    url:
-    logo:
+    name: <Other agency>
+    shortname: <Other agency shortname>
+    url: javascript:void(0)
+    logo: "/img/circle-gray-20.svg"
   taxpayer_disclaimer:
     content: Produced and published at taxpayer expense.
     display: false

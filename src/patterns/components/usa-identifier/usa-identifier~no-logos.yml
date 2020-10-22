@@ -1,6 +1,7 @@
 ---
 modifier: ''
 domain: domain.gov
+lang: en
 masthead:
   aria_label: Agency identifier
   description: Agency description

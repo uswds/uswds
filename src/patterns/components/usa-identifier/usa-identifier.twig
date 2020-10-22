@@ -31,8 +31,12 @@
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
           {{ masthead.content }} <a href="{{ masthead.parent.url }}">{{ masthead.parent.name|e }}</a>
-          {%- if masthead.agency.url %}and{%- endif -%}
-          {% if masthead.agency.name %} the{%- endif %}
+          {% if masthead.agency.url %}
+            {{ (lang == "es") ? "y" : "and" }}
+          {% endif %}
+          {% if masthead.agency.name or masthead.agency.shortname %} 
+            {{ (lang == "en") ? "the" : ""}}
+          {%- endif %}
             <a href="{{ masthead.agency.url }}">
               {% if masthead.agency.name -%}
               {{ masthead.agency.name|e }}
