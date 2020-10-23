@@ -1,4 +1,4 @@
-@use "../../core" as *;
+@use "../../stylesheets/core" as *;
 
 .usa-form-group--error {
   @include u-border-left(0.5, "error-dark");
