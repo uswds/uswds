@@ -1,7 +1,6 @@
 {% set step_indicator_classes = [
   'usa-step-indicator',
-  (modifier ? ' ' ~ modifier),
-  (centered ? ' usa-step-indicator--center'),
+  (modifier ? ' ' ~ modifier)
 ] %}
 
 {% set 
@@ -9,8 +8,8 @@
   total_steps = NULL, steps|length %}
 
 <div class="{{ step_indicator_classes|join }}" aria-label="progress">
-  {% set show_labels_class = show_labels == false ? " aria-hidden='true'" %}
-  <ol class="usa-step-indicator__segments{{ show_labels_class }}">
+  {% set show_labels_aria = show_labels == false ? 'aria-hidden="true"' %}
+  <ol class="usa-step-indicator__segments" {{ show_labels_aria }}>
     {% for step in steps %}
       {% set step_classes = [
         'usa-step-indicator__segment',
