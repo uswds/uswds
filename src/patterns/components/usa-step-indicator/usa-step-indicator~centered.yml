@@ -1,5 +1,3 @@
 ---
-# Centered isn't a modifier because it can go along with other modifiers.
-modifier: ''
+modifier: 'usa-step-indicator--center'
 show_labels: true
-centered: true
