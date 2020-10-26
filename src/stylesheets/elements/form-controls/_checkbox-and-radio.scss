@@ -118,17 +118,24 @@
 
 // Checkboxes and radios with tap-friendly targets
 
-.usa-checkbox__input--big-target + .usa-checkbox__label,
-.usa-radio__input--big-target + .usa-radio__label {
+.usa-checkbox__input--tile + .usa-checkbox__label,
+.usa-radio__input--tile + .usa-radio__label {
   border: 2px solid color('base-lighter');
   border-radius: 4px;
-  margin: units(1.5) 0;
+  margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);
 }
 
-.usa-checkbox__input--big-target:checked + .usa-checkbox__label,
-.usa-radio__input--big-target:checked + .usa-radio__label {
+.usa-checkbox__input--tile:checked + .usa-checkbox__label,
+.usa-radio__input--tile:checked + .usa-radio__label {
   background-color: color('accent-cool-lighter');
   border-color: color('accent-cool-light');
-  font-weight: bold;
+}
+
+.usa-checkbox__label-description,
+.usa-radio__label-description {
+  display: block;
+  font-size: size('ui', 'xs');
+  margin-top: units(1);
+  text-indent: 0;
 }
