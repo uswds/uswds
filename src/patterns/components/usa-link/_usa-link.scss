@@ -1,4 +1,4 @@
-@use "../../core/mixins" as *;
+@use "../../stylesheets/core/mixins" as *;
 
 .usa-link {
   @include usa-prose-link;
