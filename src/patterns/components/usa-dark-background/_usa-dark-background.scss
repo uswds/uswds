@@ -1,4 +1,4 @@
-@use "../../core" as *;
+@use "../../stylesheets/core" as *;
 
 .usa-dark-background {
   @include add-knockout-font-smoothing;
