@@ -1,7 +1,5 @@
 @use "../../stylesheets/core" as *;
 
-$input-select-margin-right: 1.5;
-
 @include override-prose {
   .usa-input-list {
     @include add-list-reset;
@@ -34,9 +32,9 @@ $input-select-margin-right: 1.5;
   display: inherit;
   font-weight: font-weight("normal");
   margin-top: units(1.5);
-  padding-left: units($input-select-margin-right + $theme-input-select-size);
+  padding-left: units(1.5 + $theme-input-select-size);
   position: relative;
-  text-indent: units(-$input-select-margin-right - $theme-input-select-size);
+  text-indent: units(-1.5 - $theme-input-select-size);
 }
 
 .usa-radio__label::before {
@@ -55,7 +53,7 @@ $input-select-margin-right: 1.5;
 .usa-radio__label::before {
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   line-height: units($theme-input-select-size);
-  margin-right: units($input-select-margin-right);
+  margin-right: units(1.5);
 }
 
 .usa-radio__input:checked + .usa-radio__label::before {

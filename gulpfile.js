@@ -18,21 +18,9 @@ const patternlab = require("@pattern-lab/core")(config);
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
-const {
-  cleanCSS,
-  cleanFonts,
-  cleanImages,
-  cleanJS,
-  cleanSass,
-} = require("./gulp-tasks/clean");
+const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass,} = require("./gulp-tasks/clean");
 const { compileSass, compileJS } = require("./gulp-tasks/compile");
-const {
-  copyVendor,
-  copySass,
-  copyImages,
-  copyFonts,
-  copyStyleguide,
-} = require("./gulp-tasks/copy");
+const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const server = require("browser-sync").create();
@@ -113,7 +101,7 @@ function watchFiles() {
     series(parallel(lintSass, compileSass), (done) => {
       server.reload("*.css");
       done();
-    })
+     })
   );
 
   // Watch all my JS files and compile if a file changes.
