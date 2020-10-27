@@ -18,7 +18,7 @@
     "compile": "gulp compile",
     "cover": "nyc --reporter=lcov --config config/nycrc.yml gulp cover",
     "federalist": "npm install && gulp",
-    "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/tokens/color'",
+    "format-tokens": "node ./src/js/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/tokens/color'",
     "lint": "gulp lint",
     "mocha": "mocha",
     "prepare": "gulp",
