@@ -275,7 +275,7 @@ Each component has a standardized interface that can be used to extend it furthe
 
 Some components have additional methods for manipulating specific aspects of them based on what they are and what they do. These can be found in the component's JS file.
 
-**If you are using am odern framework such as React/Angular you can import components and initialize it in your libraries dom ready lifecycle event.**
+**If you are using a modern framework such as React/Angular you can import components and initialize it in your libraries dom ready lifecycle event.**
 
 Importing a modular component.
 
@@ -291,8 +291,8 @@ function App() {
   const ref = document.body;
 
   useEffect(() => {
-     // inititalize
-     characterCount.on(ref); // default ref is document.body, if you want to use default you do not bave to pass arguments
+     // initialize
+     characterCount.on(ref); // default ref is document.body, if you want to use default you do not have to pass arguments
      accordion.on();
 
      // remove event listeners when component un-mounts.
@@ -309,11 +309,11 @@ Angular example:
 ```js
 export class App implements OnInit {
   constructor() {
-    this.ref = document.body; // default ref is document.body, if you want to use default you do not bave to pass arguments
+    this.ref = document.body; // default ref is document.body, if you want to use default you do not have to pass arguments
   }
 
   ngOnInit() {
-    // inititalize
+    // initialize
     characterCount.on(this.ref);
     accordion.on();
   }
