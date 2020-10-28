@@ -25,15 +25,15 @@
   @include u-margin-bottom(1);
 }
 
-.usa-featured__teaser {
+.usa-featured-content__teaser {
   @include u-margin-y(1);
 }
 
-.usa-featured__meta-list {
+.usa-featured-content__meta-list {
   @include u-margin-y(1);
 }
 
-.usa-featured__meta-item {
+.usa-featured-content__meta-item {
   display: inline-block;
   margin-right: units(1.5);
 }
