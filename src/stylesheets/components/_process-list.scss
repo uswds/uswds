@@ -1,0 +1,47 @@
+// PROCESS LIST
+ol.usa-process-list {
+    @include typeset($theme-alert-font-family);
+    @include unstyled-list;
+    $bullet-line-width: 4px;
+    $bullet-color: #c4c4c4;
+    $bullet-border-width: $bullet-line-width;
+    $bullet-background-color: #c4c4c4;
+    $bullet-size: 50px;
+    border-left: $bullet-line-width solid $bullet-color;
+    counter-reset: numbered-list;
+    margin-left: 10px;
+    position: relative;
+
+    li {
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 42px;
+        padding-left: 50px;
+        h4 {
+        }
+        &:last-child {
+            border-left: $bullet-line-width solid $bullet-background-color;
+            margin-left: -$bullet-line-width;
+        }
+
+        &:before {
+            $half-of-font-size: -0.5em;
+            background-color: $bullet-color;
+            border: $bullet-border-width solid #ffffff;
+            border-radius: 50%;
+            color: #171717;
+            content: counter(numbered-list, decimal);
+            counter-increment: numbered-list;
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            width: $bullet-size;
+            height: $bullet-size;
+            margin-top: $half-of-font-size;
+            line-height: 42px;
+            position: absolute;
+            left: -27px;
+            text-align: center;
+        }
+    }
+}
