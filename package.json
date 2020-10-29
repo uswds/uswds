@@ -118,6 +118,7 @@
     "resemblejs": "^3.2.5",
     "sass": "^1.26.11",
     "sinon": "^9.0.3",
+    "snyk": "^1.421.1",
     "stylelint": "^13.7.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended-scss": "^4.2.0",
