@@ -26,6 +26,7 @@
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
+    "start": "gulp watch",
     "test": "snyk test && gulp lintJS && gulp typecheck && gulp lintSass && gulp test && gulp regression",
     "test:ci": "gulp lintJS && gulp typecheck && gulp lintSass && gulp test && gulp regression",
     "test:ci:temp": "gulp typecheck && gulp lintJS && gulp lintSass",
