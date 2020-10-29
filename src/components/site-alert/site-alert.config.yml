@@ -1,7 +1,7 @@
 label: Site Alert
 context:
   siteAlert:
-    close_svg_path: ../../dist/img/close.svg
+    close_svg: /img/close.svg
     dismissible: true
   alert:
     content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
@@ -57,7 +57,7 @@ variants:
     label: Emergency
     context:
       siteAlert:
-        close_svg_path: ../../dist/img/close-white.svg
+        close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency"
       alert:
         classes: ""
@@ -68,11 +68,11 @@ variants:
     label: Emergency Grid Contained with List
     context:
       siteAlert:
-        close_svg_path: ../../dist/img/close-white.svg
+        close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency usa-site-alert--grid-contained"
       alert:
         classes: ""
-        title: Coronavirus Information 
+        title: Coronavirus Information
         content: false
         list: '
           <ul class="usa-list">
