@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="pl" lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pattern Lab</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1604011636665" media="all" />
+    <link rel="stylesheet" href="../../css/uswds.min.css?1604011636665" media="all" />
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="body"><div class="usa-embed-container" aria-label="16:9">
+    <iframe src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A" title="16:9 aspect ratio example iframe" frameborder="0"></iframe>
+</div>
+
+<p>The responsive embed container can be used to ensure that its contents scale to the width of its parent element while retaining an aspect ratio of 16:9.</p>
+<p># Responsive embed container<br>
+The `usa-embed-container` class can be applied to a `div` that contains an `<iframe>` to ensure the content inside the `<iframe>` is responsive.<br>
+The `usa-embed-container` class does not define a maximum width and `<iframe>` content will expand to fill the space it is given. A `max-width` property may be applied to the parent container to restrict the width of the embedded content.<br>
+The `usa-embed-container` class currently assumes the embedded content fits a 16:9 aspect ratio – the default on the most popular video hosting providers. The `$aspect-width` and `$aspect-height` variables in the `_embed` component may be adjusted to support additional aspect ratios.
+</p><script src="../../js/uswds.min.js?1604011636665"></script>
+
+    <!--DO NOT REMOVE-->
+    <script type="text/json" id="pl-pattern-data-footer" class="pl-js-pattern-data">
+  {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"components","patternSubtype":"usa-embed-container"},"patternExtension":"twig","patternName":"Usa Embed Container","patternPartial":"components-usa-embed-container","patternState":"","patternEngineName":"twig-php","extraOutput":{}}
+</script>
+
+<script>
+  window.patternData = {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"components","patternSubtype":"usa-embed-container"},"patternExtension":"twig","patternName":"Usa Embed Container","patternPartial":"components-usa-embed-container","patternState":"","patternEngineName":"twig-php","extraOutput":{}};
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1604011636665">
+  (function() {
+    if (self != top) {
+      var cb = '1604011636665';
+      var js = [];
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+
+<script type="module">
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  import('../../styleguide/js/patternlab-pattern.modern.js');
+</script>
+
+<script id="pl-js-insert-1604011636665" nomodule>
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  loadJS('../../styleguide/js/patternlab-pattern.js');
+</script>
+
+  </body>
+</html>

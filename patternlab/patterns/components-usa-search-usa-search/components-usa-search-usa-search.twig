@@ -1,0 +1,16 @@
+<form class="usa-search {{ modifier }} {% if search_js|default(false) %} js-search-form{% endif %}" role="search">
+  <label class="usa-sr-only" for="{{ form_id }}">{{ search.label }}</label>
+  <input class="usa-input" id="{{ form_id }}" type="search" name="search">
+  {% if modifier != 'usa-search--small' %}
+    {# TODO: Allow passing markup to buttons #}
+    <button class="usa-button" type="submit">
+      <span class="usa-search__submit-text">Search</span>
+    </button>
+  {% else %}
+    {% include "@components/usa-button/usa-button.twig" with {
+      'title': 'Search',
+      'submit': true, 
+      'sr_only': true 
+    } %}
+  {% endif %}
+</form>

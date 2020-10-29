@@ -1,0 +1,6 @@
+<div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
+  <label class="usa-label{% if error %} usa-label--error{% endif %}" for="{{ id }}">{{ label }}</label>
+  {%- if hint %}<span class="usa-hint" id="{{ id }}-hint">{{ hint }}</span>{%- endif -%}
+  {%- if error %}<span class="usa-error-message" id="{{ id }}-alert" role="alert">{{ error_message }}</span>{%- endif %}
+  <input id="{{ id }}"  class="usa-file-input"  type="file"  name="{{ id }}"  {% if hint -%}aria-describedby="{{ id }}-hint"{%- endif -%}{% if accept -%}accept="{{ accept }}"{%- endif -%}{% if multiple -%} multiple{%- endif -%}{% if disabled -%} disabled{%- endif -%} />
+</div>

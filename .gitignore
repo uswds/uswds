@@ -14,7 +14,8 @@ coverage
 dist
 
 # Ignore Patternlab files that change every time.
-patternlab
+# include patternlab until we can build it on federalist
+# patternlab
 dependencyGraph.json
 
 # Ignore gulp-generated vendor files

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="pl" lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pattern Lab</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1604011636665" media="all" />
+    <link rel="stylesheet" href="../../css/uswds.min.css?1604011636665" media="all" />
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="body"><div class="usa-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Identificador de la agencia">
+    <div class="usa-identifier__container"><div class="usa-identifier__logos">
+        <a href="javascript:void(0)" class="usa-identifier__logo">
+          <img
+            class="usa-identifier__logo-img"
+            src="/img/circle-gray-20.svg"
+            alt="&lt;Parent agency&gt; logo"
+            role="img">
+        </a></div><div class="usa-identifier__identity" aria-label="Descripción de la agencia">
+        <p class="usa-identifier__identity-domain">domain.gov</p>
+        <p class="usa-identifier__identity-disclaimer">
+          Un sitio web oficial de <a href="javascript:void(0)">&lt;Parent agency&gt;</a>
+                                <a href="">
+                            </a>
+                    . Producido y publicado con dinero de los contribuyentes de impuestos.</p>
+      </div>
+    </div>
+  </section>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Enlaces importantes">
+    <div class="usa-identifier__container">
+      <ul class="usa-identifier__required-links-list">
+                  <li class="usa-identifier__required-links-item">
+            <a href="javascript:void(0)" class="usa-identifier__required-link">
+              Acerca de &lt;Parent shortname&gt;
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Soporte de accesibilidad 
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Solicitud a través de FOIA 
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Datos de la ley No FEAR 
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Oficina del Inspector General 
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Informes de desempeño 
+            </a>
+          </li>
+                  <li class="usa-identifier__required-links-item">
+            <a href="" class="usa-identifier__required-link">
+              Política de privacidad 
+            </a>
+          </li>
+              </ul>
+    </div>
+  </nav>
+    <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Información y servicios del Gobierno de EE. UU.">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">¿Necesita información y servicios del Gobierno?</div>
+      <a href="https://www.usa.gov/espanol/" class="usa-link">Visite USA.gov en Español</a>
+    </div>
+  </section>
+  </div><script src="../../js/uswds.min.js?1604011636665"></script>
+
+    <!--DO NOT REMOVE-->
+    <script type="text/json" id="pl-pattern-data-footer" class="pl-js-pattern-data">
+  {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"components","patternSubtype":"usa-identifier"},"patternExtension":"twig","patternName":"Usa Identifier Taxpayer Disclaimer Spanish","patternPartial":"components-usa-identifier-taxpayer-disclaimer-spanish","patternState":"","patternEngineName":"twig-php","extraOutput":{}}
+</script>
+
+<script>
+  window.patternData = {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"components","patternSubtype":"usa-identifier"},"patternExtension":"twig","patternName":"Usa Identifier Taxpayer Disclaimer Spanish","patternPartial":"components-usa-identifier-taxpayer-disclaimer-spanish","patternState":"","patternEngineName":"twig-php","extraOutput":{}};
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1604011636665">
+  (function() {
+    if (self != top) {
+      var cb = '1604011636665';
+      var js = [];
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+
+<script type="module">
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  import('../../styleguide/js/patternlab-pattern.modern.js');
+</script>
+
+<script id="pl-js-insert-1604011636665" nomodule>
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  loadJS('../../styleguide/js/patternlab-pattern.js');
+</script>
+
+  </body>
+</html>
