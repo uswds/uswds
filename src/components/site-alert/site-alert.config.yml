@@ -13,17 +13,7 @@ variants:
       siteAlert:
         classes: "usa-site-alert--info"
       alert:
-        classes: ""
         title: Informative status
-
-  - name: success
-    label: Success
-    context:
-      siteAlert:
-        classes: "usa-site-alert--success"
-      alert:
-        classes: ""
-        title: Success status
 
   - name: warning
     label: Warning
@@ -31,7 +21,6 @@ variants:
       siteAlert:
         classes: "usa-site-alert--warning"
       alert:
-        classes: ""
         title: Warning status
 
   - name: warning-grid-contained
@@ -40,7 +29,6 @@ variants:
       siteAlert:
         classes: "usa-site-alert--warning usa-site-alert--grid-contained"
       alert:
-        classes: ""
         title: Warning status
 
   - name: error
@@ -49,7 +37,6 @@ variants:
       siteAlert:
         classes: "usa-site-alert--error"
       alert:
-        classes: ""
         title: Error status
         role: "alert"
 
@@ -60,7 +47,6 @@ variants:
         close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency"
       alert:
-        classes: ""
         title: Emergency status
         role: "alert"
 
@@ -71,14 +57,13 @@ variants:
         close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency usa-site-alert--grid-contained"
       alert:
-        classes: ""
-        title: Coronavirus Information
+        title: Emergency status
         content: false
         list: '
           <ul class="usa-list">
-            <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank">How to prepare and protect yourself</a></li>
-            <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/index.html" target="_blank">What to do if you think you are sick</a></li>
-            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" target="_blank">Find a Testing Location</a></li>
+          <li>Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
+          <li>Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
+          <li>Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
           </ul>'
 
   - name: no-header
@@ -88,7 +73,6 @@ variants:
         classes: "usa-site-alert--info"
         dismissible: false
       alert:
-        classes: ""
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: no-icon
