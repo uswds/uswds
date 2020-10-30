@@ -23,14 +23,6 @@ variants:
       alert:
         title: Warning status
 
-  - name: warning-grid-contained
-    label: Warning Grid Contained
-    context:
-      siteAlert:
-        classes: "usa-site-alert--warning usa-site-alert--grid-contained"
-      alert:
-        title: Warning status
-
   - name: error
     label: Error
     context:
@@ -50,12 +42,12 @@ variants:
         title: Emergency status
         role: "alert"
 
-  - name: emergency-grid-contained-list
-    label: Emergency Grid Contained with List
+  - name: emergency-list
+    label: Emergency with List
     context:
       siteAlert:
         close_svg: /img/close-white.svg
-        classes: "usa-site-alert--emergency usa-site-alert--grid-contained"
+        classes: "usa-site-alert--emergency"
       alert:
         title: Emergency status
         content: false
