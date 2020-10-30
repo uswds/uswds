@@ -12,11 +12,8 @@
     padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
   }
 
-  .usa-alert__text,
-  .usa-list {
-    a {
-      @include set-link-from-bg($bgcolor);
-    }
+  .usa-link {
+    @include set-link-from-bg($bgcolor);
   }
 
   &.usa-alert--no-icon {

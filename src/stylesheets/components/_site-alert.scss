@@ -14,6 +14,8 @@ $usa-alerts: (
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-site-alert {
+  background-color: color("base-lightest");
+
   .usa-alert {
     @include grid-container($theme-site-alert-max-width);
 

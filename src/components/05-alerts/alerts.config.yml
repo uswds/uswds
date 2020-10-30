@@ -3,7 +3,7 @@ status: ready
 preview: "@uswds-framed"
 context:
   alert:
-    content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
+    content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
 variants:
   - name: info
