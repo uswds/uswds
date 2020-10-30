@@ -36,7 +36,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   text-decoration: none;
 
   img {
-    width: 0.75rem;
+    width: units(1.5);
   }
 
   &:hover {
