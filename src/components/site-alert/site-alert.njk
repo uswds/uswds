@@ -2,7 +2,7 @@
   <div class="usa-alert{% if alert.classes %} {{ alert.classes }}{% endif %}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
     <div class="usa-alert__body">
       {%- if siteAlert.dismissible %}
-      <button class="usa-button usa-button--big usa-button--unstyled usa-site-alert__close-btn" aria-label="Dismiss alert" type="button" data-close>
+      <button class="usa-button usa-button--big usa-button--unstyled usa-site-alert__close-btn" aria-label="Close alert" type="button">
         <img src="{{ uswds.path }}{{ siteAlert.close_svg }}" alt="close">
       </button>
       {%- endif %}
