@@ -15,6 +15,8 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-site-alert {
   .usa-alert {
+    @include grid-container($theme-site-alert-max-width);
+
     &::before {
       display: none;
     }
@@ -51,11 +53,5 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     .usa-alert {
       @include alert-status-styles($name, $bgcolor);
     }
-  }
-}
-
-.usa-site-alert--grid-contained {
-  .usa-alert {
-    @include grid-container();
   }
 }
