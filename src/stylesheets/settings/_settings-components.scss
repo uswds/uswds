@@ -93,6 +93,15 @@ $theme-identifier-identity-domain-color: "base-light" !default;
 $theme-identifier-max-width: "desktop" !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
+// Process List
+$theme-process-list-bullet-font-family: "ui" !default;
+$theme-process-list-font-family: "ui" !default;
+$theme-process-list-header-typeset: "heading", "lg", 2 !default;
+$theme-process-list-heading-color: "ink" !default;
+$theme-process-list-heading-font-family: "ui" !default;
+$theme-process-list-heading-font-size-small: "md" !default;
+$theme-process-list-heading-font-size: "lg" !default;
+
 // Navigation
 $theme-navigation-font-family: "ui" !default;
 $theme-megamenu-columns: 3 !default;

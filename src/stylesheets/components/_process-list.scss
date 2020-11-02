@@ -1,47 +1,57 @@
 // PROCESS LIST
-ol.usa-process-list {
-    @include typeset($theme-alert-font-family);
+$bullet-size: 50px;
+$bullet-color: color("base-lighter");
+$bullet-line-width: 4px;
+$bullet-background-color: $bullet-color;
+$bullet-border-width: $bullet-line-width;
+
+.usa-process-list {
+    @include typeset($theme-process-list-font-family);
     @include unstyled-list;
-    $bullet-line-width: 4px;
-    $bullet-color: #c4c4c4;
-    $bullet-border-width: $bullet-line-width;
-    $bullet-background-color: #c4c4c4;
-    $bullet-size: 50px;
-    border-left: $bullet-line-width solid $bullet-color;
     counter-reset: numbered-list;
-    margin-left: 10px;
     position: relative;
-
-    li {
+    > li {
+        border-left: $bullet-line-width solid $bullet-color;
         font-size: 16px;
-        line-height: 1.2;
-        margin-bottom: 42px;
-        padding-left: 50px;
-        h4 {
-        }
+        padding-bottom: units(4);
+        padding-left: $bullet-size;
         &:last-child {
-            border-left: $bullet-line-width solid $bullet-background-color;
-            margin-left: -$bullet-line-width;
+            border-left: none;
         }
-
-        &:before {
+        &::before {
+            @include u-flex("row", "align-center", "justify-center");
             $half-of-font-size: -0.5em;
             background-color: $bullet-color;
-            border: $bullet-border-width solid #ffffff;
             border-radius: 50%;
-            color: #171717;
+            border: $bullet-border-width solid color("white");
+            color: color($theme-process-list-heading-color);
             content: counter(numbered-list, decimal);
             counter-increment: numbered-list;
-            display: block;
-            font-size: 32px;
-            font-weight: 700;
-            width: $bullet-size;
+            display: flex;
+            font-family: family($theme-process-list-bullet-font-family);
+            font-size: size($theme-process-list-bullet-font-family, $theme-process-list-heading-font-size);
+            font-weight: font-weight("bold");
             height: $bullet-size;
+            left: $bullet-size / -2;
+            line-height: 1.2;
             margin-top: $half-of-font-size;
-            line-height: 42px;
             position: absolute;
-            left: -27px;
-            text-align: center;
+            width: $bullet-size;
         }
+    }
+}
+
+.usa-process-list__heading {
+    color: color($theme-process-list-heading-color);
+    font-family: family($theme-process-list-heading-font-family);
+    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size-small);
+    font-weight: font-weight("bold");
+    margin-top: 0;
+    margin-bottom: units(1);
+}
+
+.usa-process-list--no-line {
+    > li {
+        border-left: none;
     }
 }
