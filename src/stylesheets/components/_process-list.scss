@@ -9,6 +9,7 @@ $bullet-border-width: $bullet-line-width;
     @include typeset($theme-process-list-font-family);
     @include unstyled-list;
     counter-reset: numbered-list;
+    padding: 20px 0 0 23px;
     position: relative;
     > li {
         border-left: $bullet-line-width solid $bullet-color;
@@ -32,7 +33,8 @@ $bullet-border-width: $bullet-line-width;
             font-size: size($theme-process-list-bullet-font-family, $theme-process-list-heading-font-size);
             font-weight: font-weight("bold");
             height: $bullet-size;
-            left: $bullet-size / -2;
+            //left: ($bullet-size / -2) + 2;
+            left: 0;
             line-height: 1.2;
             margin-top: $half-of-font-size;
             position: absolute;
@@ -50,7 +52,7 @@ $bullet-border-width: $bullet-line-width;
     margin-bottom: units(1);
 }
 
-.usa-process-list--no-line {
+.usa-process-list--no-connection {
     > li {
         border-left: none;
     }
