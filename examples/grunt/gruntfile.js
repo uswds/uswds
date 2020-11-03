@@ -24,7 +24,7 @@ const sassConfig = {
     dest: "./assets/css/style.css",
     options: {
       style: "nested",
-      includePaths: ["node_modules/uswds/src/stylesheets"]
+      includePaths: ["node_modules/uswds/src/patterns/stylesheets"]
     }
   }
 };

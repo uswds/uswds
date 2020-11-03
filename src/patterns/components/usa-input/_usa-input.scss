@@ -1,0 +1,36 @@
+@use "../../stylesheets/core" as *;
+
+%block-input-general {
+  @include border-box-sizing;
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
+}
+
+%block-input-styles {
+  @include u-border(1px, "base-dark");
+  appearance: none;
+  border-radius: 0;
+  color: color("ink"); // standardize on firefox
+  display: block;
+  height: units(5);
+  margin-top: units(1);
+  max-width: units($theme-input-max-width);
+  padding: units(1);
+  width: 100%;
+
+  &.usa-input--success {
+    @include u-border($theme-input-state-border-width, "success");
+  }
+}
+
+.usa-input {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+}
+
+.usa-input--error {
+  @include u-border($theme-input-state-border-width, "error-dark");
+}

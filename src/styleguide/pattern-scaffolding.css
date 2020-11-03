@@ -1,0 +1,148 @@
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+
+/**
+ * By default we want to add padding so the style guide is more
+ * readable. This can be overridden in each patterns data file.
+ */
+.pl {
+  padding: 35px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+#sg-patterns {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 8px;
+}
+
+.pl-c-category {
+  display: none;
+}
+
+/* Increases size of pattern category and pattern name */
+.pl-c-category__title a {
+  font-size: 32px;
+}
+
+.pl-c-pattern__title a {
+  font-size: 24px;
+}
+
+/* Colors */
+.pl-swatch__group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pl-swatch {
+  align-items: flex-end;
+  border: 3px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  display: flex;
+  height: 180px;
+  margin: 0 5px 5px 0;
+  position: relative;
+  width: 180px;
+}
+
+.pl-swatch__meta {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: small;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Fonts */
+.pl-font {
+  margin-bottom: 45px;
+}
+
+.pl-font__family {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.pl-font__item {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0;
+}
+
+.pl-font__preview {
+  border-bottom: 0;
+  border-right: 2px solid #eee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 5px 30px 0 0;
+  padding: 0 20px;
+  text-align: left;
+  width: 65%;
+}
+
+.pl-font__preview-character {
+  flex-shrink: 0;
+  font-size: 75px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: left;
+  width: 35%;
+}
+
+.pl-font__preview-meta {
+  text-align: left;
+  width: 100%;
+}
+
+.pl-font__label {
+  color: #999;
+}
+
+.pl-font__name {
+  color: #565454;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+.pl-font__weight {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.pl-font__style {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+/* Box Shadows */
+.pl-box-shadow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pl-box-shadow__item {
+  display: flex;
+  flex: 0 0 12.5rem;
+  height: 12.5rem;
+  margin: 0 1.5rem 3.125rem;
+  width: 12.5rem;
+}
+
+.pl-box-shadow__label {
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}

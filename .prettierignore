@@ -1,8 +1,9 @@
 *.html
-*.njk
+*.twig
 *.woff*
 *.svg
 *.ttf
 *.png
 *.ico
 *.gif
+*.scss

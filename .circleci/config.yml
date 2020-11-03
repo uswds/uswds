@@ -2,13 +2,14 @@ version: 2.1
 
 orbs:
   snyk: snyk/snyk@0.0.12
+  browser-tools: circleci/browser-tools@1.0.1
 
 references:
   container: &container
     docker:
-      - image: circleci/node:12.13.0-browsers
+      - image: circleci/php:7.4-node-browsers
         environment:
-          CHROME_PATH: /usr/bin/google-chrome
+          CHROME_PATH: /usr/local/bin/google-chrome
 
   restore_deps: &restore_deps
     restore_cache:
@@ -30,9 +31,14 @@ jobs:
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - snyk/scan:
           organization: uswds
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Build Patternlab
+          command: npm run build
       - run:
           name: Run test
-          command: npm run test:ci
+          command: npm run test:ci:temp
 
   deploy:
     <<: *container

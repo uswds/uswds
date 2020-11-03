@@ -1,0 +1,10 @@
+steps:
+  - step:
+    status: complete
+    label: Test information
+  - step:
+    status: current
+    label: Household status
+  - step:
+    status: incomplete
+    label: Supporting documents

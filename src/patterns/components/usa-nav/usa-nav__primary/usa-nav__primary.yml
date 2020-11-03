@@ -1,0 +1,28 @@
+---
+modifier: 'usa-nav__primary'
+megamenu: true
+items:
+  - label: Section
+    href: javascript:void(0);
+    current: true
+    id: nav-section-three
+    subnav: &subnav_links
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+    - label: Nested section
+  - label: Section
+    href: javascript:void(0);
+    current: true
+    id: nav-section-four
+    subnav: *subnav_links
+  - label: Section
+    href: javascript:void(0); 

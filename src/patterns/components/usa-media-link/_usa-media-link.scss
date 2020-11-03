@@ -1,0 +1,5 @@
+@use "../../stylesheets/core" as *;
+
+.usa-media-link {
+  @include media-link();
+}

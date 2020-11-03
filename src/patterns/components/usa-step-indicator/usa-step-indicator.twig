@@ -1,0 +1,48 @@
+{% set step_indicator_classes = [
+  'usa-step-indicator',
+  (modifier ? ' ' ~ modifier)
+] %}
+
+{% set 
+  active_step, 
+  total_steps = NULL, steps|length %}
+
+<div class="{{ step_indicator_classes|join }}" aria-label="progress">
+  {% set show_labels_aria = show_labels == false ? 'aria-hidden="true"' %}
+  <ol class="usa-step-indicator__segments" {{ show_labels_aria }}>
+    {% for step in steps %}
+      {% set step_classes = [
+        'usa-step-indicator__segment',
+        (step.status == "complete" ? " usa-step-indicator__segment--complete"),
+        (step.status == "current" ? " usa-step-indicator__segment--current"),
+      ] %}
+      {% if step.status == "current" %}{% set active_step = loop.index %}{% endif %}
+      <li class="{{ step_classes|join }}" 
+        {% if step.status == "current" and show_labels %}
+          aria-current="true" 
+        {% endif %}>
+        {% if step.label %}
+          <span class="usa-step-indicator__segment-label">{{ step.label }}
+            {% if step.status == "complete" %}
+              <span class="usa-sr-only">completed</span>
+            {% endif %}
+            {% if step.status == "incomplete" %}
+              <span class="usa-sr-only">not completed</span>
+            {% endif %}
+          </span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+  <div class="usa-step-indicator__header">
+    <h2 class="usa-step-indicator__heading">
+      <span class="usa-step-indicator__heading-counter">
+        <span class="usa-sr-only">Step</span>
+        <span class="usa-step-indicator__current-step">{{ active_step }}</span>
+        <span class="usa-step-indicator__total-steps">of
+          {{ total_steps }}</span>
+      </span>
+      <span class="usa-step-indicator__heading-text">Supporting documents</span>
+    </h2>
+  </div>
+</div>

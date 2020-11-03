@@ -15,7 +15,7 @@ gulp.task("css", function() {
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        includePaths: ["node_modules/uswds/src/stylesheets"],
+        includePaths: ["node_modules/uswds/src/patterns/stylesheets"],
         outputStyle: "compressed"
       })
     )
