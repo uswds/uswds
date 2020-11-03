@@ -4,12 +4,13 @@ $bullet-color: color("base-lighter");
 $bullet-line-width: 4px;
 $bullet-background-color: $bullet-color;
 $bullet-border-width: $bullet-line-width;
+$padding-left: (($bullet-size / 2) - ($bullet-line-width / 2));
 
 .usa-process-list {
     @include typeset($theme-process-list-font-family);
     @include unstyled-list;
     counter-reset: numbered-list;
-    padding: 20px 0 0 23px;
+    padding: 20px 0 0 $padding-left;
     position: relative;
     > li {
         border-left: $bullet-line-width solid $bullet-color;
@@ -33,13 +34,18 @@ $bullet-border-width: $bullet-line-width;
             font-size: size($theme-process-list-bullet-font-family, $theme-process-list-heading-font-size);
             font-weight: font-weight("bold");
             height: $bullet-size;
-            //left: ($bullet-size / -2) + 2;
             left: 0;
             line-height: 1.2;
             margin-top: $half-of-font-size;
             position: absolute;
             width: $bullet-size;
         }
+    }
+}
+
+.usa-prose {
+    > ol {
+        padding-left: $padding-left;
     }
 }
 
