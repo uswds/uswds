@@ -134,7 +134,6 @@
     "/dist/js",
     "/dist/scss",
     "/src/js",
-    "/patternlab",
     "CONTRIBUTING.md",
     "SECURITY.md"
   ]
