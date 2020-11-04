@@ -1,0 +1,151 @@
+// PROCESS LIST
+$bullet-size: 48px;
+$bullet-color: color("primary");
+$bullet-text-color: color("white");
+$bullet-line-width: 8px;
+$bullet-line-color: color("base-lighter");
+$bullet-background-color: $bullet-color;
+$bullet-border-width: $bullet-line-width / 2;
+$padding-left: (($bullet-size / 2) - ($bullet-line-width / 2));
+
+.usa-process-list {
+    @include typeset($theme-lists-font-family);
+    @include unstyled-list;
+    counter-reset: numbered-list;
+    padding: 20px 0 0 $padding-left;
+    position: relative;
+    > li {
+        border-left: $bullet-line-width solid $bullet-line-color;
+        font-size: 16px;
+        padding-bottom: units(4);
+        padding-left: $bullet-size;
+        &:last-child {
+            border-left: none;
+        }
+        &::before {
+            @include u-flex("row", "align-center", "justify-center");
+            $half-of-font-size: -0.5em;
+            background-color: $bullet-color;
+            border-radius: 50%;
+            border: $bullet-border-width solid color("white");
+            color: $bullet-text-color;
+            content: counter(numbered-list, decimal);
+            counter-increment: numbered-list;
+            display: flex;
+            font-family: family($theme-process-list-bullet-font-family);
+            font-size: size($theme-process-list-bullet-font-family, $theme-process-list-heading-font-size);
+            font-weight: font-weight("bold");
+            height: $bullet-size;
+            left: 0;
+            line-height: 1.2;
+            margin-top: $half-of-font-size;
+            position: absolute;
+            width: $bullet-size;
+        }
+    }
+}
+
+.usa-prose {
+    > ol {
+        padding-left: $padding-left;
+    }
+}
+
+.usa-process-list__heading {
+    color: color($theme-process-list-heading-color);
+    font-family: family($theme-process-list-heading-font-family);
+    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size-small);
+    font-weight: font-weight("bold");
+    margin-top: 0;
+    margin-bottom: units(1);
+}
+
+.usa-process-list--no-connection {
+    > li {
+        border-left: none;
+    }
+}
+
+
+
+
+
+// ICON LIST
+$usa-custom-icons-list: () !default;
+
+$usa-icons-list: (
+    arrow: "arrow",
+    check: "check",
+    circle: "circle",
+    plus: "plus",
+);
+
+$icons-list: map-merge($usa-icons-list, $usa-custom-icons-list);
+
+.usa-icon-list {
+    @include typeset($theme-lists-font-family);
+    @include unstyled-list;
+    padding: 20px 0 0 0;
+    position: relative;
+    > li {
+        font-size: 16px;
+        padding-bottom: units(4);
+        padding-left: 40px;
+    }
+}
+
+.usa-prose {
+    > ul {
+        padding-left: $padding-left;
+    }
+}
+
+.usa-icon-list__heading {
+    color: color($theme-process-list-heading-color);
+    font-family: family($theme-process-list-heading-font-family);
+    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size-small);
+    font-weight: font-weight("bold");
+    margin-top: 0;
+    margin-bottom: units(1);
+}
+
+.usa-icon-list__icon {
+    display: table-cell;
+    padding-right: units($theme-alert-bar-width);
+}
+
+@each $name, $icon in $icons-list {
+    .usa-icon-list--#{$name} {
+        li::before {
+            @include add-background-svg("lists/#{$name}");
+            background-position: center;
+            background-size: cover;
+            content: "";
+            height: $theme-icon-arrow-height;
+            left: 0;
+            margin-top: 5px;
+            position: absolute;
+            width: $theme-icon-arrow-width;
+        }
+    }
+}
+.usa-icon-list--check {
+    li::before {
+        height: $theme-icon-check-height;
+        width: $theme-icon-check-width;
+    }
+}
+
+.usa-icon-list--circle {
+    li::before {
+        height: $theme-icon-circle-height;
+        width: $theme-icon-circle-width;
+    }
+}
+
+.usa-icon-list--plus {
+    li::before {
+        height: $theme-icon-plus-height;
+        width: $theme-icon-plus-width;
+    }
+}

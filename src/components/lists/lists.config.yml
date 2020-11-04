@@ -1,0 +1,36 @@
+label: Lists
+status: wip
+preview: "@uswds-framed"
+context:
+  lists:
+    content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
+
+variants:
+  - name: arrow
+    label: Arrow
+    context:
+      icon-list:
+        classes: "usa-icon-list--arrow"
+        title: Arrow icon
+
+  - name: check
+    label: Check
+    context:
+      icon-list:
+        classes: "usa-icon-list--check"
+        title: Check icon
+
+  - name: circle
+    label: Circle
+    context:
+      icon-list:
+        classes: "usa-icon-list--circle"
+        title: Circle icon
+
+  - name: plus
+    label: Plus
+    context:
+      icon-list:
+        classes: "usa-icon-list--plus"
+        title: Plus icon
+        role: "list"
