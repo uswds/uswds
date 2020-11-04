@@ -5,8 +5,9 @@ const { prefix: PREFIX } = require("../config");
 const HEADER = `.${PREFIX}-banner__header`;
 const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;
 
-const toggleBanner = function toggleEl(event) {
-  event.preventDefault();
+function toggleBanner(event) {
+  const checkbox = event.target;
+  checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false');
   this.closest(HEADER).classList.toggle(EXPANDED_CLASS);
 };
 

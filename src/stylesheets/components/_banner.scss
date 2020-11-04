@@ -51,14 +51,32 @@ $banner-icon-close: (
   @include set-text-from-bg($theme-banner-background-color);
 }
 
+.usa-banner__toggle {
+  @include u-pin-all;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+
+  @include at-media("tablet") {
+    @include add-sr-only;
+  }
+
+  &:focus + .usa-banner__button {
+    @include focus-outline;
+  }
+
+  &:not(:checked) ~ .usa-banner__content {
+    @include u-display("none");
+  }
+}
+
 .usa-banner__content {
-  @include grid-container($theme-banner-max-width);
-  @include add-responsive-site-margins;
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-left: units(0);
+  padding-right: units(0);
   padding-top: units(0.5);
   width: 100%;
 
@@ -193,9 +211,18 @@ $banner-icon-close: (
 
 .usa-banner__button {
   @include button-unstyled;
-  @include u-pin("left");
-  @include u-pin("y");
   @include u-text("primary", underline, baseline);
+  @include set-link-from-bg(
+    $theme-banner-background-color,
+    $theme-banner-link-color
+  );
+  @include place-icon(
+    $banner-icon-chevron,
+    "after",
+    2px,
+    middle,
+    $theme-banner-background-color
+  );
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color
@@ -204,9 +231,10 @@ $banner-icon-close: (
   font-size: font-size($theme-banner-font-family, 1);
   height: auto;
   line-height: line-height($theme-banner-font-family, 2);
-  padding-top: units(0);
+  margin-left: units(3);
   padding-left: units(0);
-  text-decoration: none;
+  padding-top: units(0);
+  text-decoration: underline;
   width: auto;
 
   @include at-media-max("tablet") {
@@ -214,32 +242,16 @@ $banner-icon-close: (
   }
 
   @include at-media("tablet") {
-    @include place-icon(
-      $banner-icon-chevron,
-      "after",
-      2px,
-      middle,
-      $theme-banner-background-color
-    );
-    @include set-link-from-bg(
-      $theme-banner-background-color,
-      $theme-banner-link-color
-    );
-    @include u-pin("none");
     display: inline;
     margin-left: units(1);
-    position: relative;
-
-    &:hover {
-      // Underline added to inner text instead.
-      text-decoration: none;
-    }
   }
 
+  .usa-banner__toggle + &,
   &[aria-expanded="false"] {
     background-image: none;
   }
 
+  .usa-banner__toggle:checked + &,
   &[aria-expanded="true"] {
     background-image: none;
 
@@ -279,16 +291,12 @@ $banner-icon-close: (
       padding: units(0);
       position: relative;
     }
-  }
-}
 
-.usa-banner__button-text {
-  @include add-sr-only;
-  text-decoration: underline;
-
-  @include at-media("tablet") {
-    @include add-no-sr-only;
-    display: inline;
+    .usa-banner__button-text {
+      @include at-media-max("tablet") {
+        @include add-sr-only;
+      }
+    }
   }
 }
 
