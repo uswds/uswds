@@ -237,7 +237,7 @@ $system-properties: (
       "normal": normal,
       "medium": $theme-font-weight-medium,
       "semibold": $theme-font-weight-semibold,
-      "bold": bold,
+      "bold": $theme-font-weight-bold,
       "heavy": $theme-font-weight-heavy,
     ),
     extended: (
