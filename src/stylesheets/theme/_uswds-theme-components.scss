@@ -94,7 +94,12 @@ $theme-identifier-max-width: "desktop";
 $theme-identifier-secondary-link-color: "base-light";
 
 // Lists
-$theme-lists-font-family: "ui";
+$theme-process-list-bullet-size: 6;
+$theme-process-list-bullet-color: "primary";
+$theme-process-list-bullet-text-color: "white";
+$theme-process-list-bullet-stroke-color: "white";
+$theme-process-list-connection-line-width: 1;
+$theme-process-list-connection-line-color: "base-lighter";
 $theme-process-list-bullet-font-family: "ui";
 $theme-process-list-font-family: "ui";
 $theme-process-list-header-typeset: "heading", "lg", 2;
@@ -102,16 +107,6 @@ $theme-process-list-heading-color: "ink";
 $theme-process-list-heading-font-family: "ui";
 $theme-process-list-heading-font-size-small: "md";
 $theme-process-list-heading-font-size: "lg";
-$theme-icon-list-icon-size: 4;
-$theme-icon-list-padding-x: 2.5;
-$theme-icon-arrow-height: 24px;
-$theme-icon-arrow-width: 15px;
-$theme-icon-check-height: 20px;
-$theme-icon-check-width: 26px;
-$theme-icon-circle-height: 20px;
-$theme-icon-circle-width: 20px;
-$theme-icon-plus-height: 20px;
-$theme-icon-plus-width: 20px;
 
 // Navigation
 $theme-navigation-font-family: "ui";
