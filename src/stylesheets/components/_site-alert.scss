@@ -28,14 +28,19 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
       padding-left: 2ch;
     }
   }
+
   .usa-alert__body {
     display: block;
+    position: relative;
   }
 }
 
 .usa-site-alert__close-btn {
-  float: right;
+  display: none;
+  position: absolute;
+  right: 0;
   text-decoration: none;
+  top: 0;
 
   img {
     width: units(1.5);
@@ -43,6 +48,17 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
   &:hover {
     text-decoration: none;
+  }
+}
+
+.usa-site-alert--close-btn-active {
+  .usa-site-alert__close-btn {
+    display: block;
+    width: auto;
+  }
+
+  .usa-alert__body {
+    padding-right: units(1.5);
   }
 }
 
