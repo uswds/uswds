@@ -6,6 +6,7 @@ const { src, dest } = require('gulp');
 // Include Our Plugins
 const filter = require("gulp-filter");
 const rename = require('gulp-rename');
+const mergeStream = require('merge-stream');
 
 // Export our tasks.
 module.exports = {
@@ -20,8 +21,12 @@ module.exports = {
 
   // Copy Sass to dist folder
   copySass: function() {
-    return src('src/patterns/**/**/*.scss')
-      .pipe(dest('dist/scss'));
+    return mergeStream(
+      src('src/patterns/components/**/*.scss')
+        .pipe(dest('dist/scss/components')),
+      src('src/patterns/stylesheets/**/*.scss')
+        .pipe(dest('dist/scss'))
+    )
   },
 
   // Copy Images to dist folder
