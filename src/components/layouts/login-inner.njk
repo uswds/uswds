@@ -1,0 +1,42 @@
+<main id="main-content">
+
+  {% if tagline %}
+  <div class="bg-base-lightest">
+    <section class="grid-container usa-section">
+      <div class="grid-row flex-justify-center">
+        <div class="grid-col-12 tablet:grid-col-8 desktop:grid-col-6">
+          <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
+            <h1 class="margin-bottom-0">Sign in</h1>
+            <form class="usa-form">
+              <fieldset class="usa-fieldset">
+                <legend class="usa-legend margin-top-1">Access your account.</legend>
+
+                <label class="usa-label" for="email">Email address</label>
+                <input class="usa-input" id="email" name="email" type="email" autocapitalize="off" autocorrect="off">
+
+                <label class="usa-label" for="password-sign-in">Password</label>
+                <input class="usa-input" id="password-sign-in" name="password" type="password">
+                <p class="usa-form__note">
+                  <a title="Show password" href="javascript:void(0);"
+                    class="usa-show-password"
+                    aria-controls="password-sign-in">Show password</a>
+                </p>
+
+                <input class="usa-button" type="submit" value="Sign in">
+                <p><a href="javascript:void(0);" title="Forgot password">
+                  Forgot password?</a></p>
+              </fieldset>
+            </form>
+          </div>
+          <p class="text-center">Don’t have an account? <a href="javascript:void(0);">Create your account now.</a></p>
+
+          {% render '@layout--federal-employee-login' %}
+          
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  {% endif %}
+
+</main>
