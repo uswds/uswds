@@ -3,9 +3,9 @@
   {% if tagline %}
   <div class="bg-base-lightest">
     <section class="grid-container usa-section">
-      <div class="grid-row margin-x-neg-205 margin-bottom-7">
-        <div class="grid-col-12 tablet:grid-col-6 padding-x-205">
-          <h1 class="tablet:display-none">A tagline that explains the benefit of creating an account.</h1>
+      <div class="grid-row margin-x-neg-205 margin-bottom-7  flex-justify-center">
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205 margin-bottom-7">
+          <h1 class="desktop:display-none font-sans-lg margin-bottom-4">A tagline that explains the benefit of creating an account.</h1>
           <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
             <h1 class="margin-bottom-0">Sign in to your account</h1>
             <p class="margin-top-1">You can access your account by logging in with one of the options below.</p>
@@ -19,9 +19,11 @@
             </div>
           </div>
         </div>
-        <div class="grid-col-12 tablet:grid-col-6 padding-x-205">
-        {% render '@layout--value-props' %}
-        {% render '@layout--federal-employee-login' %}
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205">
+        <div class="usa-prose">
+          {% render '@layout--value-props' %}
+          {% render '@layout--federal-employee-login' %}
+        </div>
       </div>
     </section>
   </div>
