@@ -20,7 +20,12 @@
 .usa-featured-content__heading {
   a {
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
+
   @include u-margin-top(0);
   @include u-margin-bottom(1);
 }
