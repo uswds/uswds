@@ -17,7 +17,7 @@ $usa-alerts-bar: (
   warning: "warning",
   error: "error",
   info: "info",
-  emergency: "emergency",
+  emergency: "emergency-dark",
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);

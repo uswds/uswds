@@ -2,18 +2,23 @@
 // TODO: Custom alerts are effectively hidden and not well supported
 // Consider removing or rebuilding
 $usa-custom-alerts: () !default;
+$usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: "success-lighter",
-  warning: "warning-lighter",
-  error: "error-lighter",
   info: "info-lighter",
   emergency: "emergency",
 );
 
+$usa-alerts-bar: (
+  info: "info",
+  emergency: "emergency-dark",
+);
+
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
+$alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 
 .usa-site-alert {
+  position: relative;
   background-color: color("base-lightest");
 
   .usa-alert {
@@ -31,16 +36,25 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
   .usa-alert__body {
     display: block;
-    position: relative;
+
+    @include at-media("tablet") {
+      position: relative;
+    }
   }
 }
 
 .usa-site-alert__close-btn {
   display: none;
+  line-height: units(1.5);
+  padding: units(1.5);
   position: absolute;
   right: 0;
   text-decoration: none;
   top: 0;
+
+  @include at-media("tablet") {
+    padding: 0;
+  }
 
   img {
     width: units(1.5);
@@ -64,9 +78,23 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 @each $name, $bgcolor in $alerts {
   .usa-site-alert--#{$name} {
-    background-color: color($bgcolor);
     $banner-text-color-token: get-token-from-bg($bgcolor);
+
+    background-color: color($bgcolor);
     color: color($banner-text-color-token);
+
+    .usa-site-alert__close-btn {
+      $close-btn-background: color(map-get($alerts-bar, $name));
+      $close-btn-color-token: get-token-from-bg($close-btn-background);
+
+      background-color: $close-btn-background;
+      color: color($close-btn-color-token);
+
+      @include at-media("tablet") {
+        background-color: color($bgcolor);
+        color: color($banner-text-color-token);
+      }
+    }
 
     .usa-alert {
       @include alert-status-styles($name, $bgcolor);

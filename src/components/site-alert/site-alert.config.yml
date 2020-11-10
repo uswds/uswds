@@ -15,23 +15,6 @@ variants:
       alert:
         title: Informative status
 
-  - name: warning
-    label: Warning
-    context:
-      siteAlert:
-        classes: "usa-site-alert--warning"
-      alert:
-        title: Warning status
-
-  - name: error
-    label: Error
-    context:
-      siteAlert:
-        classes: "usa-site-alert--error"
-      alert:
-        title: Error status
-        role: "alert"
-
   - name: emergency
     label: Emergency
     context:

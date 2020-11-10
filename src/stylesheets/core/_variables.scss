@@ -380,6 +380,7 @@ $project-state-colors: (
   ),
   "emergency": (
     "default": color($theme-color-emergency, set-theme),
+    "dark": color($theme-color-emergency-dark, set-theme),
   ),
 );
 
@@ -460,6 +461,7 @@ $assignments-theme-color: (
   "disabled": $theme-color-disabled,
   "disabled-dark": $theme-color-disabled-dark,
   "emergency": $theme-color-emergency,
+  "emergency-dark": $theme-color-emergency-dark,
 );
 
 $tokens-color-theme: (
@@ -537,6 +539,7 @@ $tokens-color-state: (
   "disabled": color($theme-color-disabled, set-theme, no-warn),
   "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn),
   "emergency": color($theme-color-emergency, set-theme, no-warn),
+  "emergency-dark": color($theme-color-emergency-dark, set-theme, no-warn),
 );
 
 $project-color-shortcodes: map-collect(
