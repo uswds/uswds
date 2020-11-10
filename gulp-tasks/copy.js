@@ -26,7 +26,7 @@ module.exports = {
 
     return mergeStream(
       src('src/patterns/components/**/*.scss')
-        .pipe(replace(/(..\/..\/stylesheets)/g, '../stylesheets'))
+        .pipe(replace(/(..\/..\/stylesheets)/g, '../..'))
         .pipe(dest('dist/scss/components')),
       src('src/patterns/stylesheets/**/*.scss')
         .pipe(replace(/(..\/..\/components)/g, '../components'))
