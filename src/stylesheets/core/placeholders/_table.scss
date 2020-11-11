@@ -16,16 +16,29 @@
     }
   }
 
-  th {
-    text-align: left;
-  }
-
   th,
   td {
     @include u-border(1px, "base-dark");
     background-color: color("white");
     font-weight: $theme-font-weight-normal;
     padding: units(1) units(2);
+
+    &[align="right"] {
+      text-align: right;
+    }
+
+    &[align="center"] {
+      text-align: center;
+    }
+
+    & {
+      text-align: left;
+    }
+
+    pre, code {
+      margin: 0;
+      @include u-font("mono", "sm");
+    }
   }
 
   caption {
@@ -49,10 +62,109 @@
     border-left: 0;
     border-right: 0;
   }
+  @include at-media("mobile-lg") {
 
-  th {
-    &:first-child {
-      padding-left: 0;
+    &:not(.usa-table--striped) {
+      th,
+      td {
+        &:first-child {
+          padding-left: 0;
+        }
+      }
     }
+  }
+}
+
+%usa-table--compact {
+  th,
+  td {
+    padding: units(0.5) units(1.5);
+  }
+}
+
+%usa-table--striped {
+  tr:nth-child(even) {
+    td, 
+    th {
+      background-color: color("base-lightest");
+    }
+  }
+}
+
+%usa-table--stacked {
+  @include at-media-max("mobile-lg") {
+    thead {
+      display: none;
+    }
+
+    th,
+    td {
+      display: block;
+      width: 100%;
+      border-top-width: 0;
+    }
+    
+    tr {
+      @include u-border-top(0.5, "base-dark");
+      display: block;
+      width: 100%;
+
+      &:nth-child(even) {
+        td, 
+        th {
+          background-color: inherit;
+        }
+      }
+
+      &:first-child {
+        th:first-child,
+        td:first-child {
+          @include u-border-top(1px, "base-dark");
+        }
+      }
+    }
+
+    th[data-label]:before,
+    td[data-label]:before {
+      @include u-border-bottom(1px, "base-dark");
+      content: attr(data-label);
+      display: block;
+      font-weight: $theme-font-weight-bold;
+      margin: units(-1) units(-2) units(1);
+      padding: units(1) units(2);
+    }
+  }
+
+}
+
+%usa-table--stacked-header {
+  @extend %usa-table--stacked;
+  @include at-media-max("mobile-lg") {
+    tr {
+      td:first-child,
+      th:first-child {
+        background-color: color("base-lightest");
+        @include typeset($theme-body-font-family, $theme-h3-font-size, $theme-heading-line-height);
+        font-weight: fw("bold");
+        padding: units(1.5) units(2);
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+%usa-table-container--scrollable {
+  overflow-y: hidden;
+  margin: units(2.5) 0;
+
+  .usa-table {
+    margin: 0;
+  }
+
+  th, td {
+    white-space: nowrap;
   }
 }
