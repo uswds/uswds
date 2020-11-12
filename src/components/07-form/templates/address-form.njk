@@ -1,19 +1,22 @@
 <form class="usa-form usa-form--large">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend">Mailing address</legend>
-    <label class="usa-label" for="mailing-address-1">Street address 1</label>
+    <p>
+      Required fields are marked with an <abbr title="required" class="usa-hint">*</abbr>.
+    </p>
+    <label class="usa-label" for="mailing-address-1">Street address 1 <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text">
 
-    <label class="usa-label" for="mailing-address-2">Street address 2 <span class="usa-hint">(optional)</span></label>
+    <label class="usa-label" for="mailing-address-2">Street address 2</label>
     <input class="usa-input" id="mailing-address-2" name="mailing-address-2" type="text">
 
     <div class="grid-row grid-gap">
       <div class="mobile-lg:grid-col-8">
-        <label class="usa-label" for="city">City</label>
+        <label class="usa-label" for="city">City <abbr title="required" class="usa-hint">*</abbr></label>
         <input class="usa-input" id="city" name="city" type="text">
       </div>
       <div class="mobile-lg:grid-col-4">
-        <label class="usa-label" for="state">State</label>
+        <label class="usa-label" for="state">State <abbr title="required" class="usa-hint">*</abbr></label>
         <select class="usa-select" id="state" name="state">
           <option value>- Select -</option>
           <option value="AL">Alabama</option>
@@ -77,7 +80,7 @@
       </div>
     </div>
 
-    <label class="usa-label" for="zip">ZIP</label>
+    <label class="usa-label" for="zip">ZIP <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input usa-input--medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?">
   </fieldset>
 </form>
