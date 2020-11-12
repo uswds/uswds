@@ -93,20 +93,20 @@ $theme-identifier-identity-domain-color: "base-light";
 $theme-identifier-max-width: "desktop";
 $theme-identifier-secondary-link-color: "base-light";
 
-// Lists
-$theme-process-list-bullet-size: 6;
-$theme-process-list-bullet-color: "primary";
-$theme-process-list-bullet-text-color: "white";
-$theme-process-list-bullet-stroke-color: "white";
-$theme-process-list-connection-line-width: 1;
-$theme-process-list-connection-line-color: "base-lighter";
+// Process List
+$theme-process-list-bullet-background-color: "primary";
+$theme-process-list-bullet-border-color: "white";
 $theme-process-list-bullet-font-family: "ui";
+$theme-process-list-bullet-font-size: "lg";
+$theme-process-list-bullet-size: 5;
+$theme-process-list-bullet-text-color: "white";
+$theme-process-list-connection-line-color: "base-lighter";
+$theme-process-list-connection-line-width: 1;
 $theme-process-list-font-family: "ui";
-$theme-process-list-header-typeset: "heading", "lg", 2;
+$theme-process-list-font-size: "sm";
 $theme-process-list-heading-color: "ink";
 $theme-process-list-heading-font-family: "ui";
-$theme-process-list-heading-font-size-small: "md";
-$theme-process-list-heading-font-size: "lg";
+$theme-process-list-heading-font-size: "md";
 
 // Navigation
 $theme-navigation-font-family: "ui";

@@ -1,35 +1,36 @@
 // PROCESS LIST
-$bullet-border-width: units($theme-process-list-connection-line-width) / 2;
-$padding-left: ((units($theme-process-list-bullet-size) / 2) - (units($theme-process-list-connection-line-width) / 2));
+$theme-process-list-bullet-border-width: units($theme-process-list-connection-line-width) / 2;
+$theme-process-list-bullet-content-padding: (units($theme-process-list-bullet-size) / 2) - units(0.5);
+$theme-process-list-bullet-line-x-position: ((units($theme-process-list-bullet-size) / 2) - (units($theme-process-list-connection-line-width) / 2));
 
 .usa-process-list {
-    @include typeset($theme-process-list-bullet-font-family);
+    @include typeset($theme-process-list-font-family);
     @include unstyled-list;
-    counter-reset: numbered-list;
-    padding: 20px 0 0 $padding-left;
+    counter-reset: usa-numbered-list;
+    padding: 20px 0 0 $theme-process-list-bullet-line-x-position;
     position: relative;
 }
 
 .usa-process-list__item {
     border-left: units($theme-process-list-connection-line-width) solid color($theme-process-list-connection-line-color);
-    font-size: 16px;
+    font-size: size($theme-process-list-font-family, $theme-process-list-font-size);;
     padding-bottom: units(4);
-    padding-left: units($theme-process-list-bullet-size);
+    padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2);
     &:last-child {
-        border-left: none;
+        border-left: units($theme-process-list-connection-line-width) solid transparent;
     }
     &::before {
         @include u-flex("row", "align-center", "justify-center");
-        $half-of-font-size: -0.5em;
-        background-color: color($theme-process-list-bullet-color);
-        border-radius: 50%;
-        border: $bullet-border-width solid color($theme-process-list-bullet-stroke-color);
+        $half-of-font-size: -0.4rem;
+        background-color: color($theme-process-list-bullet-background-color);
+        border-radius: 99rem;
+        box-shadow: 0 0 0 $theme-process-list-bullet-border-width color($theme-process-list-bullet-border-color);
         color: color($theme-process-list-bullet-text-color);
-        content: counter(numbered-list, decimal);
-        counter-increment: numbered-list;
+        content: counter(usa-numbered-list, decimal);
+        counter-increment: usa-numbered-list;
         display: flex;
         font-family: family($theme-process-list-bullet-font-family);
-        font-size: size($theme-process-list-bullet-font-family, $theme-process-list-heading-font-size);
+        font-size: size($theme-process-list-bullet-font-family, $theme-process-list-bullet-font-size);
         font-weight: font-weight("bold");
         height: units($theme-process-list-bullet-size);
         left: 0;
@@ -42,21 +43,21 @@ $padding-left: ((units($theme-process-list-bullet-size) / 2) - (units($theme-pro
 
 .usa-prose {
     > .usa-process-list {
-        padding-left: $padding-left;
+        padding-left: $theme-process-list-bullet-content-padding;
     }
 }
 
 .usa-process-list__heading {
     color: color($theme-process-list-heading-color);
     font-family: family($theme-process-list-heading-font-family);
-    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size-small);
+    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size);
     font-weight: font-weight("bold");
-    margin-top: 0;
-    margin-bottom: units(1);
+    margin: 0;
 }
 
 .usa-process-list--no-connection {
     > .usa-process-list__item {
         border-left: none;
+        padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2.5);
     }
 }
