@@ -42,3 +42,27 @@
   display: inline-block;
   margin-right: units(1.5);
 }
+
+.usa-featured-content__calendar-date {
+  @include media-block-img;
+  width: 75px;
+  border: 1px solid #f0f0f0;
+}
+
+.usa-featured-content__calendar-date-month,
+.usa-featured-content__calendar-date-day {
+  display: block;
+  padding: units(1);
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.usa-featured-content__calendar-date-month {
+  background-color: color("primary");
+  color: color("white");
+}
+
+.usa-featured-content__calendar-date-day {
+  color: color("primary");
+}
