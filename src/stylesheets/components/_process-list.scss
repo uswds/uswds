@@ -1,63 +1,65 @@
 // PROCESS LIST
 $theme-process-list-bullet-border-width: units($theme-process-list-connection-line-width) / 2;
 $theme-process-list-bullet-content-padding: (units($theme-process-list-bullet-size) / 2) - units(0.5);
-$theme-process-list-bullet-line-x-position: ((units($theme-process-list-bullet-size) / 2) - (units($theme-process-list-connection-line-width) / 2));
+$theme-process-list-bullet-line-x-position: (
+  (units($theme-process-list-bullet-size) / 2) - (units($theme-process-list-connection-line-width) / 2)
+);
 
 .usa-process-list {
-    @include typeset($theme-process-list-font-family);
-    @include unstyled-list;
-    counter-reset: usa-numbered-list;
-    padding: 20px 0 0 $theme-process-list-bullet-line-x-position;
-    position: relative;
+  @include typeset($theme-process-list-font-family);
+  @include unstyled-list;
+  counter-reset: usa-numbered-list;
+  padding: 20px 0 0 $theme-process-list-bullet-line-x-position;
+  position: relative;
 }
 
 .usa-process-list__item {
-    border-left: units($theme-process-list-connection-line-width) solid color($theme-process-list-connection-line-color);
-    font-size: size($theme-process-list-font-family, $theme-process-list-font-size);;
-    padding-bottom: units(4);
-    padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2);
-    &:last-child {
-        border-left: units($theme-process-list-connection-line-width) solid transparent;
-    }
-    &::before {
-        @include u-flex("row", "align-center", "justify-center");
-        $half-of-font-size: -0.4rem;
-        background-color: color($theme-process-list-bullet-background-color);
-        border-radius: 99rem;
-        box-shadow: 0 0 0 $theme-process-list-bullet-border-width color($theme-process-list-bullet-border-color);
-        color: color($theme-process-list-bullet-text-color);
-        content: counter(usa-numbered-list, decimal);
-        counter-increment: usa-numbered-list;
-        display: flex;
-        font-family: family($theme-process-list-bullet-font-family);
-        font-size: size($theme-process-list-bullet-font-family, $theme-process-list-bullet-font-size);
-        font-weight: font-weight("bold");
-        height: units($theme-process-list-bullet-size);
-        left: 0;
-        line-height: 1.2;
-        margin-top: $half-of-font-size;
-        position: absolute;
-        width: units($theme-process-list-bullet-size);
-    }
+  border-left: units($theme-process-list-connection-line-width) solid color($theme-process-list-connection-line-color);
+  font-size: size($theme-process-list-font-family, $theme-process-list-font-size);
+  padding-bottom: units(4);
+  padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2);
+  &:last-child {
+    border-left: units($theme-process-list-connection-line-width) solid transparent;
+  }
+  &::before {
+    @include u-flex("row", "align-center", "justify-center");
+    $half-of-font-size: -0.4rem;
+    background-color: color($theme-process-list-bullet-background-color);
+    border-radius: 99rem;
+    box-shadow: 0 0 0 $theme-process-list-bullet-border-width color($theme-process-list-bullet-border-color);
+    color: color($theme-process-list-bullet-text-color);
+    content: counter(usa-numbered-list, decimal);
+    counter-increment: usa-numbered-list;
+    display: flex;
+    font-family: family($theme-process-list-bullet-font-family);
+    font-size: size($theme-process-list-bullet-font-family, $theme-process-list-bullet-font-size);
+    font-weight: font-weight("bold");
+    height: units($theme-process-list-bullet-size);
+    left: 0;
+    line-height: 1.2;
+    margin-top: $half-of-font-size;
+    position: absolute;
+    width: units($theme-process-list-bullet-size);
+  }
 }
 
 .usa-prose {
-    > .usa-process-list {
-        padding-left: $theme-process-list-bullet-content-padding;
-    }
+  > .usa-process-list {
+    padding-left: $theme-process-list-bullet-content-padding;
+  }
 }
 
 .usa-process-list__heading {
-    color: color($theme-process-list-heading-color);
-    font-family: family($theme-process-list-heading-font-family);
-    font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size);
-    font-weight: font-weight("bold");
-    margin: 0;
+  color: color($theme-process-list-heading-color);
+  font-family: family($theme-process-list-heading-font-family);
+  font-size: size($theme-process-list-heading-font-family, $theme-process-list-heading-font-size);
+  font-weight: font-weight("bold");
+  margin: 0;
 }
 
 .usa-process-list--no-connection {
-    > .usa-process-list__item {
-        border-left: none;
-        padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2.5);
-    }
+  > .usa-process-list__item {
+    border-left: none;
+    padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2.5);
+  }
 }
