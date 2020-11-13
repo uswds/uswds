@@ -4,20 +4,16 @@ const ROLE_BUTTON = `a[role="button"]`;
 
 const toggleRoleBtn = function toggleRoleBtn(event) {
   event.preventDefault();
-  console.log(event, 'Running');
   event.target.click();
 };
 
 const roleButton = behavior(
   {
-    keyDown: {
+    keydown: {
       [ROLE_BUTTON]: keymap({
-        Space: toggleRoleBtn
+        " ": toggleRoleBtn
       })
     }
-  },
-  {
-    init(root) {}
   }
 );
 
