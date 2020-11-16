@@ -1,10 +1,13 @@
 <form class="usa-form usa-form--large">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend">Mailing address</legend>
-    <label class="usa-label" for="mailing-address-1">Street Number and Name</label>
+    <p>
+      Required fields are marked with an <abbr title="required" class="usa-hint">*</abbr>.
+    </p>
+    <label class="usa-label" for="mailing-address-1">Street Number and Name <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text">
 
-    <label class="usa-label" for="apt-floor-suite">Apartment/Floor/Suite <span class="usa-hint">(optional)</span></label>
+    <label class="usa-label" for="apt-floor-suite">Apartment/Floor/Suite</label>
     <select class="usa-select" id="apt-floor-suite" name="apt-floor-suite">
         <option value>- Select -</option>
         <option value="apartment">Apartment</option>
@@ -12,13 +15,13 @@
         <option value="suite">Suite</option>
     </select>
 
-    <label class="usa-label" for="apt-floor-suite-no">Unit Number <span class="usa-hint">(optional)</span></label>
+    <label class="usa-label" for="apt-floor-suite-no">Unit Number</label>
     <input class="usa-input" id="apt-floor-suite-no" name="apt-floor-suite-no" type="text">
 
-    <label class="usa-label" for="city">City</label>
+    <label class="usa-label" for="city">City <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input" id="city" name="city" type="text">
 
-    <label class="usa-label" for="state">State</label>
+    <label class="usa-label" for="state">State <abbr title="required" class="usa-hint">*</abbr></label>
     <div class="usa-combo-box">
       <select class="usa-select" id="state" name="state">
         <option value>- Select -</option>
@@ -82,7 +85,7 @@
       </select>
     </div>
 
-    <label class="usa-label" for="zip">Zip Code</label>
+    <label class="usa-label" for="zip">Zip Code <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input usa-input--medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?">
   </fieldset>
 </form>
