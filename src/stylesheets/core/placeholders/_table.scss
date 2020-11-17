@@ -46,17 +46,6 @@
     border-left: 0;
     border-right: 0;
   }
-  @include at-media("mobile-lg") {
-
-    &:not(.usa-table--striped) {
-      th,
-      td {
-        &:first-child {
-          padding-left: 0;
-        }
-      }
-    }
-  }
 }
 
 %usa-table--compact {
