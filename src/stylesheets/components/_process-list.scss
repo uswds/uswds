@@ -24,8 +24,8 @@ $theme-process-list-bullet-line-x-position: (
   &::before {
     @include u-flex("row", "align-center", "justify-center");
     $half-of-font-size: -0.4rem;
+    @include u-circle($theme-process-list-bullet-size);
     background-color: color($theme-process-list-bullet-background-color);
-    border-radius: 99rem;
     box-shadow: 0 0 0 $theme-process-list-bullet-border-width color($theme-process-list-bullet-border-color);
     color: color($theme-process-list-bullet-text-color);
     content: counter(usa-numbered-list, decimal);
@@ -36,7 +36,7 @@ $theme-process-list-bullet-line-x-position: (
     font-weight: font-weight("bold");
     height: units($theme-process-list-bullet-size);
     left: 0;
-    line-height: 1.2;
+    line-height: lh($theme-process-list-bullet-font-family, 1);
     margin-top: $half-of-font-size;
     position: absolute;
     width: units($theme-process-list-bullet-size);
