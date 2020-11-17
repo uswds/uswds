@@ -2,7 +2,6 @@ label: Site Alert
 context:
   siteAlert:
     close_svg: /img/close.svg
-    dismissible: true
   alert:
     content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
@@ -46,7 +45,6 @@ variants:
     context:
       siteAlert:
         classes: "usa-site-alert--info"
-        dismissible: false
       alert:
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
