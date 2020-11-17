@@ -4,6 +4,7 @@
   border-collapse: collapse;
   border-spacing: 0;
   margin: units(2.5) 0;
+  text-align: left;
 
   thead {
     th {
@@ -22,23 +23,6 @@
     background-color: color("white");
     font-weight: $theme-font-weight-normal;
     padding: units(1) units(2);
-
-    &[align="right"] {
-      text-align: right;
-    }
-
-    &[align="center"] {
-      text-align: center;
-    }
-
-    & {
-      text-align: left;
-    }
-
-    pre, code {
-      margin: 0;
-      @include u-font("mono", "sm");
-    }
   }
 
   caption {
