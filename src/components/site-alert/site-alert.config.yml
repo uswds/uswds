@@ -52,16 +52,14 @@ variants:
     label: No icon
     context:
       siteAlert:
-        classes: "usa-site-alert--info"
+        classes: "usa-site-alert--emergency usa-site-alert--no-icon"
       alert:
-        classes: "usa-alert--no-icon"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: slim
     label: Slim
     context:
       siteAlert:
-        classes: "usa-site-alert--info"
+        classes: "usa-site-alert--info usa-site-alert--slim"
       alert:
-        classes: "usa-alert--slim"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
