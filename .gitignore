@@ -28,3 +28,6 @@ spec/screenshots/metadata.js
 
 # ignore sassdoc build
 sassdoc/
+
+# ignore gulp-generated svg-sprite
+src/img/sprite.svg
