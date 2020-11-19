@@ -9,12 +9,14 @@
             <form class="usa-form">
               <fieldset class="usa-fieldset">
                 <legend class="usa-legend margin-top-1">Get started with an account.</legend>
-
-                <label class="usa-label" for="email">Email address</label>
+                <p>
+                  <abbr title="required" class="usa-hint">*</abbr> indicates required field.
+                </p>
+                <label class="usa-label" for="email">Email address <abbr title="required" class="usa-hint">*</abbr></label>
                 <input class="usa-input" id="email" name="email" type="email" autocapitalize="off" autocorrect="off" required>
                 
 
-                <label class="usa-label" for="password-create-account">Create password</label>
+                <label class="usa-label" for="password-create-account">Create password <abbr title="required" class="usa-hint">*</abbr></label>
                 <input class="usa-input" id="password-create-account" name="password" type="password" required>
                 
                 <p class="usa-form__note">
@@ -23,13 +25,13 @@
                     aria-controls="password-create-account password-create-account-confirm">Show password</a>
                 </p>
 
-                <label class="usa-label" for="password-create-account-confirm">Re-type password</label>
+                <label class="usa-label" for="password-create-account-confirm">Re-type password <abbr title="required" class="usa-hint">*</abbr></label>
                 <input class="usa-input" id="password-create-account-confirm" name="password-confirm" type="password" required>
                 
 
                 <div class="usa-checkbox margin-y-3">
                   <input class="usa-checkbox__input" id="terms-and-conditions" type="checkbox" name="terms-and-conditions" value="terms" required>
-                  <label class="usa-checkbox__label" for="terms-and-conditions">I agree to the <a href="javascript:void()">terms and conditions</a>.</label>
+                  <label class="usa-checkbox__label" for="terms-and-conditions">I agree to the <a href="javascript:void()">terms and conditions</a>. <abbr title="required" class="usa-hint">*</abbr></label>
                 </div>
 
                 <input class="usa-button" type="submit" value="Create account">
