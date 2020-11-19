@@ -1,4 +1,11 @@
 .usa-featured-content {
+  @extend %usa-list;
+}
+
+.usa-featured-content__item {
+  @extend %usa-list-item;
+  @include unstyled-list;
+
   @include u-align-items("align-start");
   @include u-display("flex");
   @include u-margin-y(1);
