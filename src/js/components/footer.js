@@ -22,7 +22,7 @@ function showPanel() {
     // selector is scoped to ".{prefix}-footer-big nav"
     const collapsibleEls = select(COLLAPSIBLE, collapseEl.closest(NAV));
 
-    collapsibleEls.forEach(el => {
+    collapsibleEls.forEach((el) => {
       if (el !== collapseEl) {
         el.classList.add(HIDDEN);
       }
@@ -36,14 +36,14 @@ const resize = debounce(() => {
   if (lastInnerWidth === window.innerWidth) return;
   lastInnerWidth = window.innerWidth;
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;
-  select(COLLAPSIBLE).forEach(list => list.classList.toggle(HIDDEN, hidden));
+  select(COLLAPSIBLE).forEach((list) => list.classList.toggle(HIDDEN, hidden));
 }, DEBOUNCE_RATE);
 
 module.exports = behavior(
   {
     [CLICK]: {
-      [BUTTON]: showPanel
-    }
+      [BUTTON]: showPanel,
+    },
   },
   {
     // export for use elsewhere
@@ -57,6 +57,6 @@ module.exports = behavior(
 
     teardown() {
       window.removeEventListener("resize", resize);
-    }
+    },
   }
 );

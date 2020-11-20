@@ -14,6 +14,12 @@ variants:
       label: Accent cool buttons
       classes: "usa-button--accent-cool"
 
+  - name: accent-warm
+    context:
+      category: alternate
+      label: Accent warm buttons
+      classes: "usa-button--accent-warm"
+
   - name: base
     context:
       category: alternate

@@ -101,7 +101,8 @@ fractalLoad.then(() => {
               cdp.Emulation.setDeviceMetricsOverride(device.metrics)
             );
 
-            it("has no aXe violations", () => axeTester.run(cdp));
+            it('has no aXe violations', () => axeTester.run({ cdp }));
+            it('shows aXe warnings', () => axeTester.run({ cdp, warn: true }));
 
             if (process.env.ENABLE_SCREENSHOTS) {
               const vrt = new VisualRegressionTester({ handle, device });
