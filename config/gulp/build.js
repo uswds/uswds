@@ -36,8 +36,8 @@ gulp.task(
       done();
     },
     "clean-dist",
-    "docs",
     "build-sprite",
+    "docs",
     "rename-sprite",
     gulp.parallel("sass", "javascript", "images", "fonts"),
     // We need to copy the Sass to dist *after* the sass task, to ensure
