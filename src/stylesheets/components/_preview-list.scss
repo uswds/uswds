@@ -1,8 +1,8 @@
-.usa-featured-content {
+.usa-preview-list {
   @extend %usa-list;
 }
 
-.usa-featured-content__item {
+.usa-preview-list__item {
   @extend %usa-list-item;
   @include unstyled-list;
 
@@ -11,11 +11,11 @@
   @include u-margin-y(1);
 }
 
-.usa-featured-content__img {
+.usa-preview-list__img {
   @include media-block-img;
 }
 
-.usa-featured-content__body {
+.usa-preview-list__body {
   @include u-flex(1);
   @include typeset(
     $theme-step-indicator-font-family,
@@ -24,7 +24,7 @@
   );
 }
 
-.usa-featured-content__heading {
+.usa-preview-list__heading {
   a {
     text-decoration: none;
 
@@ -37,27 +37,27 @@
   @include u-margin-bottom(1);
 }
 
-.usa-featured-content__teaser {
+.usa-preview-list__teaser {
   @include u-margin-y(1);
 }
 
-.usa-featured-content__meta-list {
+.usa-preview-list__meta-list {
   @include u-margin-y(1);
 }
 
-.usa-featured-content__meta-item {
+.usa-preview-list__meta-item {
   display: inline-block;
   margin-right: units(1.5);
 }
 
-.usa-featured-content__calendar-date {
+.usa-preview-list__calendar-date {
   @include media-block-img;
   width: 75px;
   border: 1px solid #f0f0f0;
 }
 
-.usa-featured-content__calendar-date-month,
-.usa-featured-content__calendar-date-day {
+.usa-preview-list__calendar-date-month,
+.usa-preview-list__calendar-date-day {
   display: block;
   padding: units(1);
   text-align: center;
@@ -65,11 +65,11 @@
   font-size: 17px;
 }
 
-.usa-featured-content__calendar-date-month {
+.usa-preview-list__calendar-date-month {
   background-color: color("primary");
   color: color("white");
 }
 
-.usa-featured-content__calendar-date-day {
+.usa-preview-list__calendar-date-day {
   color: color("primary");
 }
