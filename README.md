@@ -275,7 +275,7 @@ Each component has a standardized interface that can be used to extend it furthe
 
 Some components have additional methods based on that component's functionality. Any additional methods are found in that component's JavaScript file.
 
-**If you are using a modern framework such as React or Angular you can import components and initialize them in your library's DOM ready lifecycle event.**
+**If you’re using a modern framework like React or Angular you can import components and initialize them in your library's DOM ready lifecycle event.**
 
 Importing a modular component.
 
