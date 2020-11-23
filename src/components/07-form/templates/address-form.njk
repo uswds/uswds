@@ -7,13 +7,37 @@
     <label class="usa-label" for="mailing-address-1">Street Number and Name <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text">
 
-    <label class="usa-label" for="apt-floor-suite">Apartment/Floor/Suite</label>
-    <select class="usa-select" id="apt-floor-suite" name="apt-floor-suite">
-        <option value>- Select -</option>
-        <option value="apartment">Apartment</option>
-        <option value="floor">Floor</option>
-        <option value="suite">Suite</option>
-    </select>
+    <label class="usa-label" for="apt-suite-other">Apt/Suite/Other</label>
+    <div class="usa-combo-box">
+      <select class="usa-select" id="apt-suite-other" name="apt-suite-other">
+          <option value>- Select -</option>
+          <option value="apt">APT - Apartment</option>
+          <option value="bsmt">BSMT - Basement</option>
+          <option value="blank">Unable to determine</option>
+          <option value="bldg">BLDG - Building</option>
+          <option value="dept">DEPT - Department</option>
+          <option value="fl">FL - Floor</option>
+          <option value="frnt">FRNT - Front</option>
+          <option value="hngr">HNGR - Hanger</option>
+          <option value="key">KEY - Key</option>
+          <option value="lbby">LBBY - Lobby</option>
+          <option value="lot">LOT - Lot</option>
+          <option value="lowr">LOWR - Lower</option>
+          <option value="ofc">OFC - Office</option>
+          <option value="ph">PH - Penthouse</option>
+          <option value="pier">PIER - Pier</option>
+          <option value="rear">REAR - Rear</option>
+          <option value="rm">RM - Room</option>
+          <option value="side">SIDE - Side</option>
+          <option value="slip">SLIP - Slip</option>
+          <option value="spc">SPC - Space</option>
+          <option value="stop">STOP - Stop</option>
+          <option value="ste">STE - Suite</option>
+          <option value="trlr">TRLR - Trailer</option>
+          <option value="unit">UNIT - Unit</option>
+          <option value="uppr">UPPR - Upper</option>
+      </select>
+    </div>
 
     <label class="usa-label" for="apt-floor-suite-no">Unit Number</label>
     <input class="usa-input" id="apt-floor-suite-no" name="apt-floor-suite-no" type="text">
