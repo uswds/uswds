@@ -11,17 +11,17 @@
   @include u-margin-y(1);
 }
 
+.usa-preview-list__item + .usa-preview-list__item {
+  @include u-margin-top(2);
+}
+
 .usa-preview-list__img {
   @include media-block-img;
 }
 
 .usa-preview-list__body {
   @include u-flex(1);
-  @include typeset(
-    $theme-step-indicator-font-family,
-    $theme-step-indicator-label-font-size,
-    2
-  );
+  @include typeset("ui", "sm", 3);
 }
 
 .usa-preview-list__heading {
@@ -48,6 +48,7 @@
 .usa-preview-list__meta-item {
   display: inline-block;
   margin-right: units(1.5);
+  @include typeset("ui", "2xs", 3);
 }
 
 .usa-preview-list__calendar-date {
