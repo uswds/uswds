@@ -17,6 +17,7 @@
 
 .usa-preview-list__img {
   @include media-block-img;
+  width: units(10);
 }
 
 .usa-preview-list__body {
@@ -55,6 +56,7 @@
   @include media-block-img;
   width: 75px;
   border: 1px solid #f0f0f0;
+  text-decoration: none;
 }
 
 .usa-preview-list__calendar-date-month,
