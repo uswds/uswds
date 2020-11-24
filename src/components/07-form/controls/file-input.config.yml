@@ -15,8 +15,17 @@ variants:
       hint: Select PDF or TXT files
       multiple: true
       accept:
-        - .pdf
+        - .pdf 
         - .txt
+
+  - name: specific
+    context:
+      id: specific
+      label: Input accepts any kind of image
+      hint: Select any type of image format
+      multiple: true
+      accept:
+        - image/*
 
   - name: multiple
     context:
