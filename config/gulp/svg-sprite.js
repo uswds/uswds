@@ -1,11 +1,8 @@
 const gulp = require('gulp');
-const clean = require('gulp-clean');
+const del = require('del');
 const svgSprite = require('gulp-svg-sprite');
 const rename = require('gulp-rename');
-const { Stream } = require('stream');
 const svgPath = 'src/img';
-
-const task = "svg-sprite";
 
 
 // More complex configuration example
@@ -45,15 +42,15 @@ gulp.task("build-sprite", function (done) {
  });
 
  gulp.task("clean-sprite", function(cb) {
-  const stream = gulp.src(`dist/img/symbol`, {allowEmpty: true}).pipe(clean());
-  cb();
-  return stream;
+   cb();
+   return del.sync(`${svgPath}/symbol`);
  });
  
  gulp.task(
   "svg-sprite",
   gulp.series(
     "build-sprite",
-    "rename-sprite"
+    "rename-sprite",
+    "clean-sprite"
   )
 ); 
