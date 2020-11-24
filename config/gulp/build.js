@@ -36,12 +36,12 @@ gulp.task(
       done();
     },
     "clean-dist",
-    "build-sprite",
+    "svg-sprite",
     "docs",
-    "rename-sprite",
     gulp.parallel("sass", "javascript", "images", "fonts"),
     // We need to copy the Sass to dist *after* the sass task, to ensure
     // that vendor libraries have been copied to the Sass directory first.
-    "copy-dist-sass"
+    "copy-dist-sass",
+    "clean-sprite"
   )
 );

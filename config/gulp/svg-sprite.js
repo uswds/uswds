@@ -3,8 +3,7 @@ const clean = require('gulp-clean');
 const svgSprite = require('gulp-svg-sprite');
 const rename = require('gulp-rename');
 const { Stream } = require('stream');
-const srcPath = './src/img/usa-icons/',
-      staticPath = './src/img';
+const svgPath = 'src/img';
 
 const task = "svg-sprite";
 
@@ -24,27 +23,31 @@ config = {
     }
   },
   mode: {
-    symbol: true, // Activate the «symbol» mode
-    dest: "foo"
+    symbol: true
   }
 };
 
 gulp.task("build-sprite", function (done) {
-  gulp.src(`${srcPath}**/*.svg`)
+  gulp.src(`${svgPath}/usa-icons/**/*.svg`)
     .pipe(svgSprite(config))
     .on('error', function(error) {
       console.log("There was an error");
     })
-    .pipe(gulp.dest(`${staticPath}`))
+    .pipe(gulp.dest(`${svgPath}`))
     .on('end', function () { done(); });
  });
 
  gulp.task("rename-sprite", function (done) {
-  gulp.src(`${staticPath}/symbol/svg/sprite.symbol.svg`)
-    .pipe(rename(`${staticPath}/sprite.svg`))
+  gulp.src(`${svgPath}/symbol/svg/sprite.symbol.svg`)
+    .pipe(rename(`${svgPath}/sprite.svg`))
     .pipe(gulp.dest(`./`))
     .on('end', function () { done(); });
+ });
 
+ gulp.task("clean-sprite", function(cb) {
+  const stream = gulp.src(`dist/img/symbol`, {allowEmpty: true}).pipe(clean());
+  cb();
+  return stream;
  });
  
  gulp.task(
