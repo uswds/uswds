@@ -67,68 +67,72 @@
   
   }
 
-%usa-table--stacked {
-  @include at-media-max("mobile-lg") {
-    thead {
-      display: none;
-    }
+@mixin table-stacked-styles {
+  thead {
+    display: none;
+  }
 
-    th,
-    td {
-      display: block;
-      width: 100%;
-      border-top-width: 0;
-    }
-    
-    tr {
-      @include u-border-top(0.5, $theme-table-border-color);
-      display: block;
-      width: 100%;
+  th,
+  td {
+    display: block;
+    width: 100%;
+    border-top-width: 0;
+  }
+  
+  tr {
+    @include u-border-top(0.5, $theme-table-border-color);
+    display: block;
+    width: 100%;
 
-      &:nth-child(even) {
-        td, 
-        th {
-          background-color: inherit;
-        }
-      }
-
-      &:first-child {
-        th:first-child,
-        td:first-child {
-          @include u-border-top(1px, $theme-table-border-color);
-        }
+    &:nth-child(even) {
+      td, 
+      th {
+        background-color: inherit;
       }
     }
 
-    th[data-label]:before,
-    td[data-label]:before {
-      @include u-border-bottom(1px, $theme-table-border-color);
-      content: attr(data-label);
-      display: block;
-      font-weight: $theme-font-weight-bold;
-      margin: units(-1) units(-2) units(1);
-      padding: units(1) units(2);
+    &:first-child {
+      th:first-child,
+      td:first-child {
+        @include u-border-top(1px, $theme-table-border-color);
+      }
     }
   }
 
+  th[data-label]:before,
+  td[data-label]:before {
+    @include u-border-bottom(1px, $theme-table-border-color);
+    content: attr(data-label);
+    display: block;
+    font-weight: $theme-font-weight-bold;
+    margin: units(-1) units(-2) units(1);
+    padding: units(1) units(2);
+  }
+}
+
+@mixin table-stacked-header-styles {
+  tr {
+    td:first-child,
+    th:first-child {
+      background-color: color($theme-table-header-background-color);
+      @include typeset($theme-body-font-family, $theme-h3-font-size, $theme-heading-line-height);
+      font-weight: fw("bold");
+      padding: units(1.5) units(2);
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+%usa-table--stacked {
+  @include table-stacked-styles;
 }
 
 %usa-table--stacked-header {
-  @extend %usa-table--stacked;
-  @include at-media-max("mobile-lg") {
-    tr {
-      td:first-child,
-      th:first-child {
-        background-color: color($theme-table-header-background-color);
-        @include typeset($theme-body-font-family, $theme-h3-font-size, $theme-heading-line-height);
-        font-weight: fw("bold");
-        padding: units(1.5) units(2);
-        &:before {
-          display: none;
-        }
-      }
-    }
-  }
+  @include table-stacked-styles;
+  @include table-stacked-header-styles;
+
 }
 
 
