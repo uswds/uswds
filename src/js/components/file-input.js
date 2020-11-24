@@ -142,11 +142,12 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
-  const acceptedFiles = fileInputEl.getAttribute("accept");
+  const acceptedFilesAttr = fileInputEl.getAttribute("accept");
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
   // Runs if only specific files are accepted
-  if (acceptedFiles) {
+  if (acceptedFilesAttr) {
+    const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
@@ -154,15 +155,16 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
       const file = e.dataTransfer.files[i];
       if (allFilesAllowed) {
-        allFilesAllowed = file.name.indexOf(acceptedFiles);
-        if (allFilesAllowed < 0) {
-          break;
+        for (let j = 0; j < acceptedFiles.length; j += 1) {
+          const fileType = acceptedFiles[j];
+          allFilesAllowed = file.name.indexOf(fileType) > 0 || file.type === fileType;
+          if (allFilesAllowed) break;
         }
       }
     }
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
-    if (allFilesAllowed < 0) {
+    if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
