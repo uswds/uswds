@@ -58,14 +58,13 @@
 %usa-table--striped {
   tbody {
     tr:nth-child(even) {
-      td, 
+      td,
       th {
         background-color: color($theme-table-stripe-background-color);
       }
     }
   }
-  
-  }
+}
 
 @mixin table-stacked-styles {
   thead {
@@ -78,14 +77,14 @@
     width: 100%;
     border-top-width: 0;
   }
-  
+
   tr {
     @include u-border-top(0.5, $theme-table-border-color);
     display: block;
     width: 100%;
 
     &:nth-child(even) {
-      td, 
+      td,
       th {
         background-color: inherit;
       }
@@ -115,7 +114,11 @@
     td:first-child,
     th:first-child {
       background-color: color($theme-table-header-background-color);
-      @include typeset($theme-body-font-family, $theme-h3-font-size, $theme-heading-line-height);
+      @include typeset(
+        $theme-body-font-family,
+        $theme-h3-font-size,
+        $theme-heading-line-height
+      );
       font-weight: fw("bold");
       padding: units(1.5) units(2);
       &:before {
@@ -132,9 +135,7 @@
 %usa-table--stacked-header {
   @include table-stacked-styles;
   @include table-stacked-header-styles;
-
 }
-
 
 %usa-table-container--scrollable {
   overflow-y: hidden;
@@ -144,7 +145,8 @@
     margin: 0;
   }
 
-  th, td {
+  th,
+  td {
     white-space: nowrap;
   }
 }
