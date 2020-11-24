@@ -40,13 +40,14 @@ gulp.task("build-sprite", function (done) {
  });
 
  gulp.task("rename-sprite", function (done) {
-  gulp.src(`${staticPath}/symbol/svg/sprite.symbol.svg`)
+  gulp.src(`${staticPath}/symbol/svg/sprite.symbol.svg`, {allowEmpty: true})
     .pipe(rename(`${staticPath}/sprite.svg`))
     .pipe(gulp.dest(`./`))
     .on('end', function () { done(); });
   gulp.src(`${staticPath}/symbol`, {allowEmpty: true})
     .pipe(clean());
  });
+ 
  gulp.task(
   "svg-sprite",
   gulp.series(
