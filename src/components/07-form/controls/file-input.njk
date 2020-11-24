@@ -10,13 +10,14 @@
     {{ errorMessage }}
   </span>
   {%- endif %}
+  <!-- Formatted this way for code example on USWDS-Site  -->
   <input id="{{ name }}-{{ id }}"
     class="usa-file-input"
     type="file"
     name="{{ name }}-{{ id }}"
     {% if hint or accept or multiple or disable -%}
       {% if hint %}aria-describedby="{{ name }}-{{ id }}-hint"{%- endif %}
-      {% if accept %}accept="{{ accept }}"{%- endif -%}
+    {% if accept %}accept="{{ accept }}"{%- endif -%}
       {%- if multiple -%} multiple{%- endif -%}
       {%- if disabled %} disabled{%- endif -%}
     {%- endif %}
