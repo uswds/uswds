@@ -18,9 +18,9 @@ variants:
         - .pdf 
         - .txt
 
-  - name: specific
+  - name: wildcard
     context:
-      id: specific
+      id: wildcard
       label: Input accepts any kind of image
       hint: Select any type of image format
       multiple: true
