@@ -57,7 +57,7 @@
 
 %usa-table--striped {
   tbody {
-    tr:nth-child(even) {
+    tr:nth-child(odd) {
       td,
       th {
         background-color: color($theme-table-stripe-background-color);
@@ -75,15 +75,19 @@
   td {
     display: block;
     width: 100%;
-    border-top-width: 0;
+    border-bottom-width: 0;
   }
 
   tr {
-    @include u-border-top(0.5, $theme-table-border-color);
+    @include u-border-bottom(0.5, $theme-table-border-color);
     display: block;
     width: 100%;
-
-    &:nth-child(even) {
+    border-top-width: 0;
+    th:first-child,
+    td:first-child {
+      border-top-width: 0;
+    }
+    &:nth-child(odd) {
       td,
       th {
         background-color: inherit;
@@ -93,19 +97,22 @@
     &:first-child {
       th:first-child,
       td:first-child {
-        @include u-border-top(1px, $theme-table-border-color);
+        @include u-border-top(0.5, $theme-table-border-color);
       }
     }
   }
 
-  th[data-label]:before,
-  td[data-label]:before {
-    @include u-border-bottom(1px, $theme-table-border-color);
-    content: attr(data-label);
-    display: block;
-    font-weight: $theme-font-weight-bold;
-    margin: units(-1) units(-2) units(1);
-    padding: units(1) units(2);
+  th[data-label],
+  td[data-label] {
+    padding-bottom: units(2.5);
+
+    &:before {
+      content: attr(data-label);
+      display: block;
+      font-weight: $theme-font-weight-bold;
+      margin: units(-1) units(-2) units(0);
+      padding: units(1.5) units(2) units(0.5);
+    }
   }
 }
 
