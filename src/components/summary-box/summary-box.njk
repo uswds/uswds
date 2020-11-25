@@ -1,0 +1,8 @@
+<div class="usa-summary-box {{ summaryBox.classes }}">
+  <div class="usa-summary-box__body">
+    {%- if summaryBox.title %}
+      <h3 class="usa-summary-box__heading">{{ summaryBox.title }}</h3>
+    {%- endif %}
+    <p class="usa-summary-box__text">{{ summaryBox.content | safe }}</p>
+  </div>
+</div>

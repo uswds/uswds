@@ -1,0 +1,74 @@
+$usa-custom-summary-boxes: () !default;
+$usa-custom-summary-boxes-border: () !default;
+
+$usa-summary-boxes: (
+  success: "success-lighter",
+  warning: "warning-lighter",
+  error: "error-lighter",
+  info: "info-lighter",
+);
+
+$usa-summary-boxes-border: (
+  success: "success",
+  warning: "warning",
+  error: "error",
+  info: "info",
+);
+
+$summary-boxes: map-merge($usa-summary-boxes, $usa-custom-summary-boxes);
+$summary-boxes-border: map-merge(
+  $usa-summary-boxes-border,
+  $usa-custom-summary-boxes-border
+);
+
+.usa-summary-box {
+  @include typeset($theme-summary-box-font-family);
+  @include border-box-sizing;
+  background-color: color("info-lighter");
+  border: $theme-summary-box-border-width color("info") solid;
+  padding: units(4) units(3);
+  position: relative;
+
+  > .usa-list,
+  .usa-summary-box__body > .usa-list {
+    padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.usa-summary-box__body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.usa-summary-box__heading {
+  @include typeset($theme-summary-box-font-family, "lg", 2);
+  margin-top: 0;
+  margin-bottom: units(1);
+}
+
+.usa-summary-box__text {
+  @include u-margin-y(0);
+
+  a {
+    @include typeset-link;
+  }
+}
+
+.usa-summary-box__text:only-child {
+  margin-bottom: $theme-summary-box-border-width;
+  padding-top: units(0.5);
+}
+
+@each $name, $bgcolor in $summary-boxes {
+  .usa-summary-box--#{$name} {
+    background-color: color($bgcolor);
+    border: $theme-summary-box-border-width color($name) solid;
+    &::before {
+      background-color: color(map-get($summary-boxes-border, $name));
+    }
+  }
+}
