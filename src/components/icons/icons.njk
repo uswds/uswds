@@ -1,13 +1,27 @@
-<div class="text-primary-vivid">
-<svg class="usa-icon usa-icon--sm" aria-hidden="true" >
-  <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
-</svg>
 
-<svg class="usa-icon" aria-hidden="true" >
-  <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
-</svg>
-
-<svg class="usa-icon usa-icon--lg" aria-hidden="true" >
-  <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
-</svg>
+<label for="icon-filter">Type to filter icons</label>
+<input id="icon-filter" class="usa-input" type="text" onkeyup="filter(this)"/>
+<div class="display-flex flex-wrap margin-top-5">
+{% for item in icons.items %}
+  <div class="icon-example display-flex width-card height-card flex-align-center flex-align-center border-1px flex-column flex-justify-center padding-2 border-base-lighter" data-meta="{{ item.name }} {{ item.meta }}">
+  <svg class="usa-icon" aria-hidden="true" >
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ item.name }}"></use>
+  </svg>
+  <div class="font-sans-3xs margin-top-2 text-base">{{ item.name }}</div>
+  </div>
+{% endfor %}
 </div>
+
+<script>
+function filter(e){
+    search = e.value.toLowerCase();
+    document.querySelectorAll('.icon-example').forEach(function(row){
+        text = row.getAttribute("data-meta").toLowerCase();
+        if(text.match(search)){
+            row.style.display="flex"
+        } else {
+            row.style.display="none"
+        }
+    })
+}
+</script>

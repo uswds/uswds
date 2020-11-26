@@ -1,3 +1,405 @@
 label: Icons
 status: ready
 preview: "@uswds-content"
+
+context:
+  icons:
+    items: 
+      - name: accessibility_new
+        meta: "accessible"
+      - name: accessible_forward
+        meta: "accessible"
+      - name: account_balance
+        meta: ""
+      - name: account_box
+        meta: ""
+      - name: account_circle
+        meta: ""
+      - name: add
+        meta: "plus"
+      - name: add_circle
+        meta: "plus"
+      - name: add_circle_outline
+        meta: "plus"
+      - name: alarm
+        meta: ""
+      - name: alternate_email
+        meta: ""
+      - name: announcement
+        meta: ""
+      - name: arrow_back
+        meta: ""
+      - name: arrow_downward
+        meta: ""
+      - name: arrow_drop_down
+        meta: ""
+      - name: arrow_drop_up
+        meta: ""
+      - name: arrow_forward
+        meta: ""
+      - name: arrow_upward
+        meta: ""
+      - name: attach_file
+        meta: ""
+      - name: bookmark
+        meta: ""
+      - name: bug_report
+        meta: ""
+      - name: build
+        meta: ""
+      - name: calendar_today
+        meta: ""
+      - name: campaign
+        meta: ""
+      - name: cancel
+        meta: ""
+      - name: chat
+        meta: ""
+      - name: check
+        meta: ""
+      - name: check_circle
+        meta: ""
+      - name: check_circle_outline
+        meta: ""
+      - name: checkroom
+        meta: ""
+      - name: clean_hands
+        meta: ""
+      - name: close
+        meta: ""
+      - name: closed_caption
+        meta: ""
+      - name: cloud
+        meta: ""
+      - name: code
+        meta: ""
+      - name: comment
+        meta: ""
+      - name: contact_page
+        meta: ""
+      - name: content_copy
+        meta: ""
+      - name: coronavirus
+        meta: ""
+      - name: create
+        meta: ""
+      - name: credit_card
+        meta: ""
+      - name: delete
+        meta: ""
+      - name: device_thermostat
+        meta: ""
+      - name: directions
+        meta: ""
+      - name: directions_bike
+        meta: ""
+      - name: directions_bus
+        meta: ""
+      - name: directions_car
+        meta: ""
+      - name: directions_walk
+        meta: ""
+      - name: do_not_disturb
+        meta: ""
+      - name: do_not_disturb_alt
+        meta: ""
+      - name: do_not_touch
+        meta: ""
+      - name: done
+        meta: ""
+      - name: drag_handle
+        meta: ""
+      - name: eco
+        meta: ""
+      - name: edit
+        meta: ""
+      - name: emoji_events
+        meta: ""
+      - name: error
+        meta: ""
+      - name: error_outline
+        meta: ""
+      - name: event
+        meta: ""
+      - name: expand_less
+        meta: ""
+      - name: expand_more
+        meta: ""
+      - name: facebook
+        meta: ""
+      - name: fast_forward
+        meta: ""
+      - name: fast_rewind
+        meta: ""
+      - name: favorite
+        meta: ""
+      - name: favorite_border
+        meta: ""
+      - name: feedback
+        meta: ""
+      - name: file_download
+        meta: ""
+      - name: file_present
+        meta: ""
+      - name: file_upload
+        meta: ""
+      - name: filter_alt
+        meta: ""
+      - name: filter_list
+        meta: ""
+      - name: fingerprint
+        meta: ""
+      - name: first_page
+        meta: ""
+      - name: flag
+        meta: ""
+      - name: flight
+        meta: ""
+      - name: folder
+        meta: ""
+      - name: folder_open
+        meta: ""
+      - name: format_size
+        meta: ""
+      - name: forum
+        meta: ""
+      - name: grid_view
+        meta: ""
+      - name: group_add
+        meta: ""
+      - name: groups
+        meta: ""
+      - name: hearing
+        meta: ""
+      - name: help
+        meta: ""
+      - name: help_outline
+        meta: ""
+      - name: highlight_off
+        meta: ""
+      - name: history
+        meta: ""
+      - name: home
+        meta: ""
+      - name: hourglass_empty
+        meta: ""
+      - name: house
+        meta: ""
+      - name: image
+        meta: ""
+      - name: info
+        meta: ""
+      - name: info_outline
+        meta: ""
+      - name: insert_photo
+        meta: ""
+      - name: insights
+        meta: ""
+      - name: keyboard
+        meta: ""
+      - name: keyboard_arrow_down
+        meta: ""
+      - name: keyboard_arrow_left
+        meta: ""
+      - name: keyboard_arrow_right
+        meta: ""
+      - name: keyboard_arrow_up
+        meta: ""
+      - name: language
+        meta: ""
+      - name: launch
+        meta: ""
+      - name: lightbulb
+        meta: ""
+      - name: lightbulb_outline
+        meta: ""
+      - name: link
+        meta: ""
+      - name: link_off
+        meta: ""
+      - name: list
+        meta: ""
+      - name: local_cafe
+        meta: ""
+      - name: local_grocery_store
+        meta: ""
+      - name: local_hospital
+        meta: ""
+      - name: local_library
+        meta: ""
+      - name: local_offer
+        meta: ""
+      - name: local_parking
+        meta: ""
+      - name: local_police
+        meta: ""
+      - name: local_taxi
+        meta: ""
+      - name: location_city
+        meta: ""
+      - name: location_on
+        meta: ""
+      - name: lock
+        meta: ""
+      - name: lock_open
+        meta: ""
+      - name: lock_outline
+        meta: ""
+      - name: login
+        meta: ""
+      - name: logout
+        meta: ""
+      - name: loop
+        meta: ""
+      - name: mail
+        meta: ""
+      - name: mail_outline
+        meta: ""
+      - name: map
+        meta: ""
+      - name: masks
+        meta: ""
+      - name: menu
+        meta: ""
+      - name: military_tech
+        meta: ""
+      - name: more_horiz
+        meta: ""
+      - name: more_vert
+        meta: ""
+      - name: navigate_before
+        meta: ""
+      - name: navigate_next
+        meta: ""
+      - name: near_me
+        meta: ""
+      - name: notifications
+        meta: ""
+      - name: notifications_active
+        meta: ""
+      - name: notifications_none
+        meta: ""
+      - name: notifications_off
+        meta: ""
+      - name: park
+        meta: ""
+      - name: people
+        meta: ""
+      - name: person
+        meta: ""
+      - name: phone
+        meta: ""
+      - name: photo_camera
+        meta: ""
+      - name: priority_high
+        meta: ""
+      - name: public
+        meta: ""
+      - name: push_pin
+        meta: ""
+      - name: remove_red_eye
+        meta: ""
+      - name: report
+        meta: ""
+      - name: restaurant
+        meta: ""
+      - name: rss_feed
+        meta: ""
+      - name: save_alt
+        meta: ""
+      - name: schedule
+        meta: ""
+      - name: school
+        meta: ""
+      - name: search
+        meta: ""
+      - name: security
+        meta: ""
+      - name: send
+        meta: ""
+      - name: sentiment_dissatisfied
+        meta: ""
+      - name: sentiment_neutral
+        meta: ""
+      - name: sentiment_satisfied
+        meta: ""
+      - name: sentiment_satisfied_alt
+        meta: ""
+      - name: sentiment_very_dissatisfied
+        meta: ""
+      - name: sentiment_very_satisfied
+        meta: ""
+      - name: settings
+        meta: ""
+      - name: share
+        meta: ""
+      - name: shield
+        meta: ""
+      - name: shopping_basket
+        meta: ""
+      - name: soap
+        meta: ""
+      - name: spellcheck
+        meta: ""
+      - name: star
+        meta: ""
+      - name: star_border
+        meta: ""
+      - name: star_half
+        meta: ""
+      - name: star_outline
+        meta: ""
+      - name: star_rate
+        meta: ""
+      - name: store
+        meta: ""
+      - name: support
+        meta: ""
+      - name: support_agent
+        meta: ""
+      - name: text_fields
+        meta: ""
+      - name: thumb_down_off_alt
+        meta: ""
+      - name: thumb_up_alt
+        meta: ""
+      - name: toggle_off
+        meta: ""
+      - name: toggle_on
+        meta: ""
+      - name: topic
+        meta: ""
+      - name: translate
+        meta: ""
+      - name: trending_down
+        meta: ""
+      - name: trending_up
+        meta: ""
+      - name: undo
+        meta: ""
+      - name: unfold_less
+        meta: ""
+      - name: unfold_more
+        meta: ""
+      - name: update
+        meta: ""
+      - name: upload_file
+        meta: ""
+      - name: verified
+        meta: ""
+      - name: verified_user
+        meta: ""
+      - name: visibility
+        meta: ""
+      - name: visibility_off
+        meta: ""
+      - name: volume_off
+        meta: ""
+      - name: warning
+        meta: ""
+      - name: wash
+        meta: ""
+      - name: wifi
+        meta: ""
+      - name: work
+        meta: ""
