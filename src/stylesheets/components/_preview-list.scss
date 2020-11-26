@@ -1,5 +1,6 @@
 .usa-preview-list {
   @extend %usa-list;
+  @include u-padding-left(0);
 }
 
 .usa-preview-list__item {
