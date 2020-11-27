@@ -8,73 +8,73 @@ context:
       - name: accessibility_new
         meta: "accessible"
       - name: accessible_forward
-        meta: "accessible"
+        meta: "accessible wheelchair"
       - name: account_balance
-        meta: ""
+        meta: "finance institution"
       - name: account_box
-        meta: ""
+        meta: "user"
       - name: account_circle
-        meta: ""
+        meta: "user"
       - name: add
-        meta: "plus"
+        meta: "plus open"
       - name: add_circle
-        meta: "plus"
+        meta: "plus open"
       - name: add_circle_outline
-        meta: "plus"
+        meta: "plus open"
       - name: alarm
-        meta: ""
+        meta: "clock time"
       - name: alternate_email
-        meta: ""
+        meta: "at-sign"
       - name: announcement
-        meta: ""
+        meta: "exclamation"
       - name: arrow_back
-        meta: ""
+        meta: "navigation direction"
       - name: arrow_downward
-        meta: ""
+        meta: "navigation direction"
       - name: arrow_drop_down
-        meta: ""
+        meta: "carrot"
       - name: arrow_drop_up
-        meta: ""
+        meta: "carrot"
       - name: arrow_forward
-        meta: ""
+        meta: "navigation direction"
       - name: arrow_upward
-        meta: ""
+        meta: "navigation direction"
       - name: attach_file
-        meta: ""
+        meta: "paperclip"
       - name: bookmark
         meta: ""
       - name: bug_report
         meta: ""
       - name: build
-        meta: ""
+        meta: "wrench"
       - name: calendar_today
-        meta: ""
+        meta: "date"
       - name: campaign
-        meta: ""
+        meta: "bullhorn"
       - name: cancel
-        meta: ""
+        meta: "x close"
       - name: chat
-        meta: ""
+        meta: "comment"
       - name: check
-        meta: ""
+        meta: "done complete"
       - name: check_circle
-        meta: ""
+        meta: "done complete"
       - name: check_circle_outline
-        meta: ""
+        meta: "done complete"
       - name: checkroom
-        meta: ""
+        meta: "coathanger"
       - name: clean_hands
-        meta: ""
+        meta: "sanitize wash soap"
       - name: close
-        meta: ""
+        meta: "x"
       - name: closed_caption
-        meta: ""
+        meta: "cc video accessiblity"
       - name: cloud
         meta: ""
       - name: code
         meta: ""
       - name: comment
-        meta: ""
+        meta: "chat"
       - name: contact_page
         meta: ""
       - name: content_copy
@@ -82,79 +82,79 @@ context:
       - name: coronavirus
         meta: ""
       - name: create
-        meta: ""
+        meta: "edit pen"
       - name: credit_card
-        meta: ""
+        meta: "payment"
       - name: delete
-        meta: ""
+        meta: "trash"
       - name: device_thermostat
         meta: ""
       - name: directions
-        meta: ""
+        meta: "arrow"
       - name: directions_bike
-        meta: ""
+        meta: "bicycle transportation"
       - name: directions_bus
-        meta: ""
+        meta: "public transportation"
       - name: directions_car
-        meta: ""
+        meta: "automobile transportation"
       - name: directions_walk
         meta: ""
       - name: do_not_disturb
-        meta: ""
+        meta: "none disallowed"
       - name: do_not_disturb_alt
-        meta: ""
+        meta: "none disallowed"
       - name: do_not_touch
-        meta: ""
+        meta: "no touch"
       - name: done
-        meta: ""
+        meta: "check"
       - name: drag_handle
-        meta: ""
+        meta: "dragger"
       - name: eco
-        meta: ""
+        meta: "leaf"
       - name: edit
-        meta: ""
+        meta: "pen"
       - name: emoji_events
-        meta: ""
+        meta: "trophy"
       - name: error
-        meta: ""
+        meta: "exclamation"
       - name: error_outline
-        meta: ""
+        meta: "exclamation"
       - name: event
-        meta: ""
+        meta: "calendar"
       - name: expand_less
-        meta: ""
+        meta: "chevron arrow"
       - name: expand_more
-        meta: ""
+        meta: "chevron arrow"
       - name: facebook
-        meta: ""
+        meta: "social media"
       - name: fast_forward
-        meta: ""
+        meta: "arrow direction"
       - name: fast_rewind
-        meta: ""
+        meta: "arrow direction"
       - name: favorite
-        meta: ""
+        meta: "heart"
       - name: favorite_border
-        meta: ""
+        meta: "heart"
       - name: feedback
-        meta: ""
+        meta: "exclamation"
       - name: file_download
-        meta: ""
+        meta: "arrow save"
       - name: file_present
-        meta: ""
+        meta: "paperclip"
       - name: file_upload
-        meta: ""
+        meta: "post arrow"
       - name: filter_alt
         meta: ""
       - name: filter_list
         meta: ""
       - name: fingerprint
-        meta: ""
+        meta: "biometric"
       - name: first_page
-        meta: ""
+        meta: "arrow"
       - name: flag
-        meta: ""
+        meta: "important"
       - name: flight
-        meta: ""
+        meta: "airplane jet"
       - name: folder
         meta: ""
       - name: folder_open
@@ -162,83 +162,83 @@ context:
       - name: format_size
         meta: ""
       - name: forum
-        meta: ""
+        meta: "chat conversation"
       - name: grid_view
         meta: ""
       - name: group_add
-        meta: ""
+        meta: "users"
       - name: groups
-        meta: ""
+        meta: "users"
       - name: hearing
-        meta: ""
+        meta: "accessibility"
       - name: help
-        meta: ""
+        meta: "question mark"
       - name: help_outline
-        meta: ""
+        meta: "question mark"
       - name: highlight_off
-        meta: ""
+        meta: "x close"
       - name: history
-        meta: ""
+        meta: "clock"
       - name: home
-        meta: ""
+        meta: "house"
       - name: hourglass_empty
         meta: ""
       - name: house
-        meta: ""
+        meta: "home"
       - name: image
-        meta: ""
+        meta: "photo picture"
       - name: info
-        meta: ""
+        meta: "information status"
       - name: info_outline
-        meta: ""
+        meta: "information status"
       - name: insert_photo
-        meta: ""
+        meta: "picture image"
       - name: insights
         meta: ""
       - name: keyboard
         meta: ""
       - name: keyboard_arrow_down
-        meta: ""
+        meta: "direction chevron navigation"
       - name: keyboard_arrow_left
-        meta: ""
+        meta: "direction chevron navigation"
       - name: keyboard_arrow_right
-        meta: ""
+        meta: "direction chevron navigation"
       - name: keyboard_arrow_up
-        meta: ""
+        meta: "direction chevron navigation"
       - name: language
-        meta: ""
+        meta: "translate localize world globe"
       - name: launch
-        meta: ""
+        meta: "external"
       - name: lightbulb
-        meta: ""
+        meta: "idea insight"
       - name: lightbulb_outline
-        meta: ""
+        meta: "idea insight"
       - name: link
-        meta: ""
+        meta: "hyperlink"
       - name: link_off
-        meta: ""
+        meta: "hyperlink"
       - name: list
-        meta: ""
+        meta: "bullet"
       - name: local_cafe
-        meta: ""
+        meta: "coffee cup"
       - name: local_grocery_store
-        meta: ""
+        meta: "cart"
       - name: local_hospital
-        meta: ""
+        meta: "health help"
       - name: local_library
-        meta: ""
+        meta: "book"
       - name: local_offer
-        meta: ""
+        meta: "tag category"
       - name: local_parking
         meta: ""
       - name: local_police
-        meta: ""
+        meta: "law shield"
       - name: local_taxi
-        meta: ""
+        meta: "cab transportation"
       - name: location_city
-        meta: ""
+        meta: "buildings"
       - name: location_on
-        meta: ""
+        meta: "marker pin map"
       - name: lock
         meta: ""
       - name: lock_open
@@ -250,156 +250,156 @@ context:
       - name: logout
         meta: ""
       - name: loop
-        meta: ""
+        meta: "repeat"
       - name: mail
-        meta: ""
+        meta: "envelope message"
       - name: mail_outline
-        meta: ""
+        meta: "envelope message"
       - name: map
-        meta: ""
+        meta: "direction"
       - name: masks
         meta: ""
       - name: menu
-        meta: ""
+        meta: "hamburger navigation"
       - name: military_tech
         meta: ""
       - name: more_horiz
-        meta: ""
+        meta: "menu navigation"
       - name: more_vert
-        meta: ""
+        meta: "menu navigation"
       - name: navigate_before
-        meta: ""
+        meta: "chevron arrow direction"
       - name: navigate_next
-        meta: ""
+        meta: "chevron arrow direction"
       - name: near_me
-        meta: ""
+        meta: "location compass proximity"
       - name: notifications
-        meta: ""
+        meta: "bell"
       - name: notifications_active
-        meta: ""
+        meta: "bell"
       - name: notifications_none
-        meta: ""
+        meta: "bell"
       - name: notifications_off
-        meta: ""
+        meta: "bell"
       - name: park
-        meta: ""
+        meta: "tree"
       - name: people
-        meta: ""
+        meta: "users"
       - name: person
-        meta: ""
+        meta: "user"
       - name: phone
-        meta: ""
+        meta: "telephone"
       - name: photo_camera
-        meta: ""
+        meta: "image picture"
       - name: priority_high
-        meta: ""
+        meta: "exclamation error notice"
       - name: public
-        meta: ""
+        meta: "world globe earth language"
       - name: push_pin
-        meta: ""
+        meta: "save"
       - name: remove_red_eye
-        meta: ""
+        meta: "visibility"
       - name: report
-        meta: ""
+        meta: "exlamation"
       - name: restaurant
-        meta: ""
+        meta: "dining food"
       - name: rss_feed
         meta: ""
       - name: save_alt
-        meta: ""
+        meta: "arrow"
       - name: schedule
-        meta: ""
+        meta: "clock"
       - name: school
-        meta: ""
+        meta: "education graduation"
       - name: search
-        meta: ""
+        meta: "magnifying glass find"
       - name: security
-        meta: ""
+        meta: "shield"
       - name: send
-        meta: ""
+        meta: "mail deliver"
       - name: sentiment_dissatisfied
-        meta: ""
+        meta: "face review feeling customer"
       - name: sentiment_neutral
-        meta: ""
+        meta: "face reate review feeling customer"
       - name: sentiment_satisfied
-        meta: ""
+        meta: "face reate review feeling customer"
       - name: sentiment_satisfied_alt
-        meta: ""
+        meta: "face reate review feeling customer"
       - name: sentiment_very_dissatisfied
-        meta: ""
+        meta: "face reate review feeling customer"
       - name: sentiment_very_satisfied
-        meta: ""
+        meta: "face reate review feeling customer"
       - name: settings
-        meta: ""
+        meta: "gear cog"
       - name: share
-        meta: ""
+        meta: "social"
       - name: shield
         meta: ""
       - name: shopping_basket
-        meta: ""
+        meta: "cart purchase"
       - name: soap
-        meta: ""
+        meta: "sanitize safety"
       - name: spellcheck
-        meta: ""
+        meta: "edit"
       - name: star
-        meta: ""
+        meta: "review rate"
       - name: star_border
-        meta: ""
+        meta: "review rate"
       - name: star_half
-        meta: ""
+        meta: "review rate"
       - name: star_outline
-        meta: ""
+        meta: "review rate"
       - name: star_rate
-        meta: ""
+        meta: "review rate"
       - name: store
-        meta: ""
+        meta: "business"
       - name: support
-        meta: ""
+        meta: "help life preserver"
       - name: support_agent
         meta: ""
       - name: text_fields
-        meta: ""
+        meta: "edit"
       - name: thumb_down_off_alt
-        meta: ""
+        meta: "rate review"
       - name: thumb_up_alt
-        meta: ""
+        meta: "rate review"
       - name: toggle_off
-        meta: ""
+        meta: "switch"
       - name: toggle_on
-        meta: ""
+        meta: "switch"
       - name: topic
-        meta: ""
+        meta: "folder"
       - name: translate
         meta: ""
       - name: trending_down
-        meta: ""
+        meta: "arrow"
       - name: trending_up
-        meta: ""
+        meta: "arrow"
       - name: undo
-        meta: ""
+        meta: "edit"
       - name: unfold_less
-        meta: ""
+        meta: "arrows"
       - name: unfold_more
-        meta: ""
+        meta: "arrows"
       - name: update
-        meta: ""
+        meta: "clock"
       - name: upload_file
         meta: ""
       - name: verified
-        meta: ""
+        meta: "check"
       - name: verified_user
-        meta: ""
+        meta: "check"
       - name: visibility
-        meta: ""
+        meta: "eye"
       - name: visibility_off
-        meta: ""
+        meta: "eye"
       - name: volume_off
-        meta: ""
+        meta: "speaker"
       - name: warning
-        meta: ""
+        meta: "exclamation triangle"
       - name: wash
-        meta: ""
+        meta: "sanitize hand"
       - name: wifi
-        meta: ""
+        meta: "signal"
       - name: work
-        meta: ""
+        meta: "briefcase"
