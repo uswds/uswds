@@ -1,17 +1,22 @@
-<label for="icon-filter">Type to filter icons</label>
-<input class="usa-input" id="icon-filter" class="usa-input" type="text" onkeyup="filter(this)"/>
-
-<p class="text-base">Click an icon to copy code snippet</p>
+<div role="region" aria-atomic="true">
+  <label for="icon-filter">Type to filter icons</label>
+  <input class="usa-input" id="icon-filter" class="usa-input" type="text" onkeyup="filter(this)"/>
+  <p class="text-base" aria-live="polite"><span id="icon-count">{{icons.items.length}} icons.</span> Click an icon to copy its code snippet.</p>
+</div>
 <div class="display-flex flex-wrap margin-top-5">
 {% for item in icons.items %}
-  <a href="javascript:void(0)" role="region" aria-atomic="true" onclick="copyHTML(this)" class="text-no-underline text-black icon-example display-flex width-card height-card flex-align-center flex-align-center border-1px flex-column flex-justify-center padding-2 border-base-lighter hover:bg-primary-vivid hover:text-white hover:border-primary-darker position-relative" data-meta="{{ item.name }} {{ item.meta }}">
-  <svg class="usa-icon" aria-hidden="true" >
-    <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ item.name }}"></use>
-  </svg>
-  <div class="font-sans-3xs margin-top-2" aria-label="{{ item.name }} icon. Click to copy to clipboard">{{ item.name }}</div>
-  </a>
+  <div role="region" aria-atomic="true" class="position-relative icon-example hover:text-white" data-meta="{{ item.name }} {{ item.meta }}" aria-label="{{ item.name }} icon.">
+    <button type="button" onclick="copyHTML(this)" class="bg-transparent cursor-pointer text-no-underline text-black display-flex width-card height-card flex-align-center flex-align-center border-1px flex-column flex-justify-center padding-2 border-base-lighter hover:text-white hover:bg-primary-vivid hover:border-primary-darker" aria-label="Copy to clipboard">
+      <svg class="usa-icon" aria-hidden="true">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ item.name }}"></use>
+      </svg>
+      <span class="font-sans-3xs margin-top-2 display-block" aria-hidden="true">{{ item.name }}</span>
+    </button>
+    <span aria-live="assertive" class="message-holder bottom-1 position-absolute font-sans-3xs text-bold display-block text-center left-0 width-full" aria-label="{{ item.name }}"></span>
+  </div>
 {% endfor %}
 </div>
+
 
 <script>
 function filter(e){
@@ -19,28 +24,31 @@ function filter(e){
     document.querySelectorAll('.icon-example').forEach(function(row){
         text = row.getAttribute("data-meta").toLowerCase();
         if(text.match(search)){
-            row.style.display="flex"
+            row.classList.remove("display-none");
         } else {
-            row.style.display="none"
+            row.classList.add("display-none");
         }
-    })
+    });
+    iconCount = document.querySelectorAll('.icon-example:not(.display-none)').length;
+    var word = (iconCount === 1) ? "icon" : "icons";
+    document.getElementById("icon-count").innerHTML = `${iconCount} ${word}.`
 }
 
 function copyHTML(el){
-  code = el.firstElementChild.outerHTML;
+  code = el.querySelector("svg").outerHTML;
+  messagePlaceholder = el.nextElementSibling;
   oldCopyNotice = document.getElementById("icon-copy-notice");
+  console.log(code);
 
   if (oldCopyNotice) { oldCopyNotice.remove(); }
   
-  message = document.createElement("div");
-  message.classList.add("position-absolute", "bottom-1", "font-sans-3xs", "text-bold");
+  message = document.createElement("span");
   message.setAttribute("id", "icon-copy-notice");
   message.setAttribute("aria-live", "assertive");
   message.innerHTML = "Copied to clipboard!";
 
    /* Copy the text inside the text field */
   navigator.clipboard.writeText(code);
-  el.append(message);
+  messagePlaceholder.append(message);
 }
 </script>
-
