@@ -1,14 +1,15 @@
-
 <label for="icon-filter">Type to filter icons</label>
-<input id="icon-filter" class="usa-input" type="text" onkeyup="filter(this)"/>
+<input class="usa-input" id="icon-filter" class="usa-input" type="text" onkeyup="filter(this)"/>
+
+<p class="text-base">Click an icon to copy code snippet</p>
 <div class="display-flex flex-wrap margin-top-5">
 {% for item in icons.items %}
-  <div class="icon-example display-flex width-card height-card flex-align-center flex-align-center border-1px flex-column flex-justify-center padding-2 border-base-lighter" data-meta="{{ item.name }} {{ item.meta }}">
+  <a href="javascript:void(0)" role="region" aria-atomic="true" onclick="copyHTML(this)" class="text-no-underline text-black icon-example display-flex width-card height-card flex-align-center flex-align-center border-1px flex-column flex-justify-center padding-2 border-base-lighter hover:bg-primary-vivid hover:text-white hover:border-primary-darker position-relative" data-meta="{{ item.name }} {{ item.meta }}">
   <svg class="usa-icon" aria-hidden="true" >
     <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ item.name }}"></use>
   </svg>
-  <div class="font-sans-3xs margin-top-2 text-base">{{ item.name }}</div>
-  </div>
+  <div class="font-sans-3xs margin-top-2" aria-label="{{ item.name }} icon. Click to copy to clipboard">{{ item.name }}</div>
+  </a>
 {% endfor %}
 </div>
 
@@ -24,4 +25,22 @@ function filter(e){
         }
     })
 }
+
+function copyHTML(el){
+  code = el.firstElementChild.outerHTML;
+  oldCopyNotice = document.getElementById("icon-copy-notice");
+
+  if (oldCopyNotice) { oldCopyNotice.remove(); }
+  
+  message = document.createElement("div");
+  message.classList.add("position-absolute", "bottom-1", "font-sans-3xs", "text-bold");
+  message.setAttribute("id", "icon-copy-notice");
+  message.setAttribute("aria-live", "assertive");
+  message.innerHTML = "Copied to clipboard!";
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(code);
+  el.append(message);
+}
 </script>
+
