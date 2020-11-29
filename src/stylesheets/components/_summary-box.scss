@@ -17,24 +17,29 @@ $usa-summary-boxes-border: (
 
 $summary-boxes: map-merge($usa-summary-boxes, $usa-custom-summary-boxes);
 $summary-boxes-border: map-merge(
-  $usa-summary-boxes-border,
+  $usa-summary-boxes-border, 
   $usa-custom-summary-boxes-border
 );
 
 .usa-summary-box {
   @include typeset($theme-summary-box-font-family);
   @include border-box-sizing;
-  background-color: color("info-lighter");
+  background-color: color($theme-summary-box-background-color);
   border: $theme-summary-box-border-width color("info") solid;
   padding: units(4) units(3);
   position: relative;
 
-  > .usa-list,
-  .usa-summary-box__body > .usa-list {
-    padding-left: 0;
-
+  .usa-list {
     &:last-child {
       margin-bottom: 0;
+    }
+    &.usa-summary-box--checkmarks {
+      list-style: none;
+      padding-left: 8px;
+      li::before {
+        content: "✓";
+        margin-right: 8px;
+      }
     }
   }
 }
@@ -52,15 +57,15 @@ $summary-boxes-border: map-merge(
 
 .usa-summary-box__text {
   @include u-margin-y(0);
-
-  a {
-    @include typeset-link;
-  }
 }
 
 .usa-summary-box__text:only-child {
   margin-bottom: $theme-summary-box-border-width;
   padding-top: units(0.5);
+}
+
+.usa-summary-box__link {
+  @include u-text($theme-summary-box-link-color);
 }
 
 @each $name, $bgcolor in $summary-boxes {
