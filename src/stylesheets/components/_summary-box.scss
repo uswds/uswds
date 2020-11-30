@@ -1,31 +1,8 @@
-$usa-custom-summary-boxes: () !default;
-$usa-custom-summary-boxes-border: () !default;
-
-$usa-summary-boxes: (
-  success: "success-lighter",
-  warning: "warning-lighter",
-  error: "error-lighter",
-  info: "info-lighter",
-);
-
-$usa-summary-boxes-border: (
-  success: "success",
-  warning: "warning",
-  error: "error",
-  info: "info",
-);
-
-$summary-boxes: map-merge($usa-summary-boxes, $usa-custom-summary-boxes);
-$summary-boxes-border: map-merge(
-  $usa-summary-boxes-border, 
-  $usa-custom-summary-boxes-border
-);
-
 .usa-summary-box {
   @include typeset($theme-summary-box-font-family);
   @include border-box-sizing;
   background-color: color($theme-summary-box-background-color);
-  border: $theme-summary-box-border-width color("info") solid;
+  border: $theme-summary-box-border-width color($theme-summary-box-border-color) solid;
   padding: units(4) units(3);
   position: relative;
 
@@ -35,10 +12,10 @@ $summary-boxes-border: map-merge(
     }
     &.usa-summary-box--checkmarks {
       list-style: none;
-      padding-left: 8px;
+      padding-left: units(1);
       li::before {
         content: "✓";
-        margin-right: 8px;
+        margin-right: units(1);
       }
     }
   }
@@ -66,14 +43,10 @@ $summary-boxes-border: map-merge(
 
 .usa-summary-box__link {
   @include u-text($theme-summary-box-link-color);
-}
-
-@each $name, $bgcolor in $summary-boxes {
-  .usa-summary-box--#{$name} {
-    background-color: color($bgcolor);
-    border: $theme-summary-box-border-width color($name) solid;
-    &::before {
-      background-color: color(map-get($summary-boxes-border, $name));
-    }
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    @include u-text($theme-summary-box-link-color);
   }
 }
