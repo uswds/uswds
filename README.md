@@ -259,13 +259,13 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 
 **Unfortunately, customizing the JavaScript for the USWDS currently requires NodeJS and a module bundler like Browserify or Webpack. We apologize for this inconvenience, and are working to resolve it in a future release of the design system.**
 
-The JavaScript for the USWDS is separated into components in the same manner as the visual interface which is all initialized with event handlers when the DOM is ready. These components are accessible as CommonJS modules that can be required in other JavaScript files which then must be built for the browser. The components are currently not accessible in the global browser scope, but can be extended to be included by requiring `components` and setting it to a global scope:
+USWDS JavaScript is separated into components (just as with the CSS and HTML) and initialized with event handlers when the DOM is ready. These components are accessible as CommonJS modules that can be required in other JavaScript files, then built for the browser. The components are not accessible in the global browser scope, but can be extended to be included by requiring `components` and setting it to a global scope:
 
 ```js
 window.uswds = require("./components");
 ```
 
-Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion__button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
+Each component has a standardized interface that can be used to extend it further. The components store a HTML class (like `.usa-accordion__button[aria-controls]`) used to link HTML elements with the JavaScript component. When a component is initialized, it searches through the current HTML DOM to find all elements that match the class and initializes the component JavaScript for those elements. The primary methods for each component include:
 
 - `on`: Initialize a component's JavaScript behavior by passing the root element, such as `window.document`.
 - `off`: The opposite of `on`, de-initializes a component, removing any JavaScript event handlers on the component.
@@ -273,7 +273,58 @@ Each component has a standardized interface that can be used to extend it furthe
 - `show`: Shows a whole, hidden component.
 - `toggle`: Toggles the visibility of a component on and off based on the previous state.
 
-Some components have additional methods for manipulating specific aspects of them based on what they are and what they do. These can be found in the component's JS file.
+Some components have additional methods based on that component's functionality. Any additional methods are found in that component's JavaScript file.
+
+**If you’re using a modern framework like React or Angular you can import components and initialize them in your library's DOM ready lifecycle event.**
+
+Importing a modular component.
+
+```js
+import USWDS from "../node_modules/uswds/src/js/components";
+const { characterCount, accordion } = USWDS; // deconstruct your components here
+```
+
+React hooks example:
+
+```js
+function App() {
+  const ref = document.body;
+
+  useEffect(() => {
+    // initialize
+    characterCount.on(ref); // default ref is document.body, if you want to use default you do not have to pass arguments
+    accordion.on();
+
+    // remove event listeners when component un-mounts.
+    return () => {
+      characterCount.off();
+      accordion.off();
+    };
+  });
+}
+```
+
+Angular example:
+
+```js
+export class App implements OnInit {
+  constructor() {
+    this.ref = document.body; // default ref is document.body, if you want to use default you do not have to pass arguments
+  }
+
+  ngOnInit() {
+    // initialize
+    characterCount.on(this.ref);
+    accordion.on();
+  }
+
+  // remove event listeners when component un-mounts.
+  ngOnDestroy() {
+    characterCount.off();
+    accordion.off();
+  }
+}
+```
 
 ## Customization, theming, and tokens
 
