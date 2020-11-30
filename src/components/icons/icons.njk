@@ -6,7 +6,7 @@
 <div class="display-flex flex-wrap margin-top-5">
 {% for item in icons.items %}
   <div role="region" aria-atomic="true" class="position-relative icon-example border-1px border-base-lighter hover:text-white hover:bg-primary-vivid hover:border-primary-darker " data-meta="{{ item.name }} {{ item.meta }}" aria-label="{{ item.name }} icon.">
-    <button type="button" onclick="copyHTML(this)" class="bg-transparent cursor-pointer text-no-underline text-black display-flex width-card height-card flex-align-center flex-align-center border-0 flex-column flex-justify-center padding-2  hover:text-white" aria-label="Copy to clipboard">
+    <button type="button" onclick="copyHTML(this)" class="bg-transparent cursor-pointer text-no-underline text-black display-flex width-card height-card flex-align-center flex-align-center border-0 flex-column flex-justify-center padding-2  hover:text-white" aria-label="Copy to clipboard" style="-webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text;">
       <svg class="usa-icon" aria-hidden="true">
         <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ item.name }}"></use>
       </svg>
