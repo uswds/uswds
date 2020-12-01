@@ -32,9 +32,9 @@ context:
       - name: arrow_downward
         meta: "navigation direction"
       - name: arrow_drop_down
-        meta: "carrot"
+        meta: "carrot caret"
       - name: arrow_drop_up
-        meta: "carrot"
+        meta: "carrot caret"
       - name: arrow_forward
         meta: "navigation direction"
       - name: arrow_upward
@@ -81,8 +81,6 @@ context:
         meta: ""
       - name: coronavirus
         meta: ""
-      - name: create
-        meta: "edit pen"
       - name: credit_card
         meta: "payment"
       - name: delete
@@ -100,19 +98,15 @@ context:
       - name: directions_walk
         meta: ""
       - name: do_not_disturb
-        meta: "none disallowed"
-      - name: do_not_disturb_alt
-        meta: "none disallowed"
+        meta: "none disallowed cross-out no"
       - name: do_not_touch
         meta: "no touch"
-      - name: done
-        meta: "check"
       - name: drag_handle
         meta: "dragger"
       - name: eco
         meta: "leaf"
       - name: edit
-        meta: "pen"
+        meta: "pen write pencil"
       - name: emoji_events
         meta: "trophy"
       - name: error
@@ -122,21 +116,19 @@ context:
       - name: event
         meta: "calendar"
       - name: expand_less
-        meta: "chevron arrow"
+        meta: "chevron arrow up"
       - name: expand_more
-        meta: "chevron arrow"
+        meta: "chevron arrow down"
       - name: facebook
         meta: "social media"
       - name: fast_forward
-        meta: "arrow direction"
+        meta: "arrow direction right"
       - name: fast_rewind
-        meta: "arrow direction"
+        meta: "arrow direction left"
       - name: favorite
         meta: "heart"
       - name: favorite_border
         meta: "heart"
-      - name: feedback
-        meta: "exclamation"
       - name: file_download
         meta: "arrow save"
       - name: file_present
@@ -183,32 +175,20 @@ context:
         meta: "house"
       - name: hourglass_empty
         meta: ""
-      - name: house
-        meta: "home"
       - name: image
         meta: "photo picture"
       - name: info
         meta: "information status"
       - name: info_outline
         meta: "information status"
-      - name: insert_photo
-        meta: "picture image"
       - name: insights
         meta: ""
       - name: keyboard
         meta: ""
-      - name: keyboard_arrow_down
-        meta: "direction chevron navigation"
-      - name: keyboard_arrow_left
-        meta: "direction chevron navigation"
-      - name: keyboard_arrow_right
-        meta: "direction chevron navigation"
-      - name: keyboard_arrow_up
-        meta: "direction chevron navigation"
       - name: language
         meta: "translate localize world globe"
       - name: launch
-        meta: "external"
+        meta: "external link new window"
       - name: lightbulb
         meta: "idea insight"
       - name: lightbulb_outline
@@ -268,9 +248,9 @@ context:
       - name: more_vert
         meta: "menu navigation"
       - name: navigate_before
-        meta: "chevron arrow direction"
+        meta: "chevron arrow left direction"
       - name: navigate_next
-        meta: "chevron arrow direction"
+        meta: "chevron arrow right direction"
       - name: near_me
         meta: "location compass proximity"
       - name: notifications
@@ -318,17 +298,15 @@ context:
       - name: send
         meta: "mail deliver"
       - name: sentiment_dissatisfied
-        meta: "face review feeling customer"
+        meta: "face review feeling customer frown"
       - name: sentiment_neutral
         meta: "face reate review feeling customer"
       - name: sentiment_satisfied
-        meta: "face reate review feeling customer"
+        meta: "face reate review feeling customer smile"
       - name: sentiment_satisfied_alt
-        meta: "face reate review feeling customer"
+        meta: "face reate review feeling customer smile"
       - name: sentiment_very_dissatisfied
-        meta: "face reate review feeling customer"
-      - name: sentiment_very_satisfied
-        meta: "face reate review feeling customer"
+        meta: "face reate review feeling customer frown"
       - name: settings
         meta: "gear cog"
       - name: share
@@ -343,13 +321,9 @@ context:
         meta: "edit"
       - name: star
         meta: "review rate"
-      - name: star_border
-        meta: "review rate"
       - name: star_half
         meta: "review rate"
       - name: star_outline
-        meta: "review rate"
-      - name: star_rate
         meta: "review rate"
       - name: store
         meta: "business"
@@ -376,11 +350,11 @@ context:
       - name: trending_up
         meta: "arrow"
       - name: undo
-        meta: "edit"
+        meta: "edit arrow"
       - name: unfold_less
-        meta: "arrows"
+        meta: "arrows collapse"
       - name: unfold_more
-        meta: "arrows"
+        meta: "arrows expand"
       - name: update
         meta: "clock"
       - name: upload_file
