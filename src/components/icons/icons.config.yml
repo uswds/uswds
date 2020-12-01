@@ -41,6 +41,10 @@ context:
         meta: "navigation direction"
       - name: attach_file
         meta: "paperclip"
+      - name: attach_money
+        meta: "dollar sign cash financial"
+      - name: autorenew
+        meta: "refresh"
       - name: bookmark
         meta: ""
       - name: bug_report
@@ -98,7 +102,7 @@ context:
       - name: directions_walk
         meta: ""
       - name: do_not_disturb
-        meta: "none disallowed cross-out no"
+        meta: "none disallowed cross-out no block"
       - name: do_not_touch
         meta: "no touch"
       - name: drag_handle
@@ -145,6 +149,8 @@ context:
         meta: "arrow"
       - name: flag
         meta: "important"
+      - name: flickr
+        meta: "social media"
       - name: flight
         meta: "airplane jet"
       - name: folder
@@ -155,6 +161,8 @@ context:
         meta: ""
       - name: forum
         meta: "chat conversation"
+      - name: github
+        meta: "social media"
       - name: grid_view
         meta: ""
       - name: group_add
@@ -183,10 +191,16 @@ context:
         meta: "information status"
       - name: insights
         meta: ""
+      - name: instagram
+        meta: "social media"
       - name: keyboard
+        meta: ""
+      - name: label
         meta: ""
       - name: language
         meta: "translate localize world globe"
+      - name: last_page
+        meta: "arrow left"
       - name: launch
         meta: "external link new window"
       - name: lightbulb
@@ -247,6 +261,8 @@ context:
         meta: "menu navigation"
       - name: more_vert
         meta: "menu navigation"
+      - name: my_location
+        meta: "map geolocate"
       - name: navigate_before
         meta: "chevron arrow left direction"
       - name: navigate_next
@@ -280,7 +296,7 @@ context:
       - name: remove_red_eye
         meta: "visibility"
       - name: report
-        meta: "exlamation"
+        meta: "exlamation danger stop"
       - name: restaurant
         meta: "dining food"
       - name: rss_feed
@@ -349,6 +365,8 @@ context:
         meta: "arrow"
       - name: trending_up
         meta: "arrow"
+      - name: twitter
+        meta: "social media"
       - name: undo
         meta: "edit arrow"
       - name: unfold_less
@@ -377,3 +395,11 @@ context:
         meta: "signal"
       - name: work
         meta: "briefcase"
+      - name: youtube
+        meta: "social media"
+      - name: zoom_in
+        meta: "expand enlarge magnifying glass"
+      - name: zoom_out_map
+        meta: "expand fullscreen"
+      - name: zoom_out
+        meta: "shrink magnifying glass"
