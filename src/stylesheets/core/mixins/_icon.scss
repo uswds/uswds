@@ -139,6 +139,7 @@
   @supports (mask: url("")) or (-webkit-mask: url("")) {
     background: none;
     background-color: color($color);
+    -webkit-mask: $image-props;
     mask: $image-props;
     @if $color-hover {
       &:hover {
