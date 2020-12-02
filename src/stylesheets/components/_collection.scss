@@ -1,9 +1,9 @@
-.usa-preview-list {
+.usa-collection {
   @extend %usa-list;
   @include u-padding-left(0);
 }
 
-.usa-preview-list__item {
+.usa-collection__item {
   @extend %usa-list-item;
   @include unstyled-list;
 
@@ -12,21 +12,21 @@
   @include u-margin-y(1);
 }
 
-.usa-preview-list__item + .usa-preview-list__item {
+.usa-collection__item + .usa-collection__item {
   @include u-margin-top(2);
 }
 
-.usa-preview-list__img {
+.usa-collection__img {
   @include media-block-img;
   width: units(10);
 }
 
-.usa-preview-list__body {
+.usa-collection__body {
   @include u-flex(1);
   @include typeset("ui", "sm", 3);
 }
 
-.usa-preview-list__heading {
+.usa-collection__heading {
   a {
     text-decoration: none;
 
@@ -39,29 +39,29 @@
   @include u-margin-bottom(1);
 }
 
-.usa-preview-list__teaser {
+.usa-collection__teaser {
   @include u-margin-y(1);
 }
 
-.usa-preview-list__meta-list {
+.usa-collection__meta-list {
   @include u-margin-y(1);
 }
 
-.usa-preview-list__meta-item {
+.usa-collection__meta-item {
   display: inline-block;
   margin-right: units(1.5);
   @include typeset("ui", "2xs", 3);
 }
 
-.usa-preview-list__calendar-date {
+.usa-collection__calendar-date {
   @include media-block-img;
   width: 75px;
   border: 1px solid #f0f0f0;
   text-decoration: none;
 }
 
-.usa-preview-list__calendar-date-month,
-.usa-preview-list__calendar-date-day {
+.usa-collection__calendar-date-month,
+.usa-collection__calendar-date-day {
   display: block;
   padding: units(1);
   text-align: center;
@@ -69,11 +69,11 @@
   font-size: 17px;
 }
 
-.usa-preview-list__calendar-date-month {
+.usa-collection__calendar-date-month {
   background-color: color("primary");
   color: color("white");
 }
 
-.usa-preview-list__calendar-date-day {
+.usa-collection__calendar-date-day {
   color: color("primary");
 }
