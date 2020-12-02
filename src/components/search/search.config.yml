@@ -7,12 +7,12 @@ context:
   input_modifier: ''
 
 variants:
-  - name: Big
+  - name: big
     context:
       label: Big
       modifier: usa-search--big
       input_modifier: 'en-big'
-  - name: Small
+  - name: small
     context:
       label: Small
       modifier: usa-search--small
@@ -23,13 +23,13 @@ variants:
       text: Buscar
       modifier: ''
       input_modifier: 'es'
-  - name: Big-lang-es
+  - name: big-lang-es
     context:
       label: Big (Spanish)
       text: Buscar
       modifier: usa-search--big
       input_modifier: 'es-big'
-  - name: Small-lang-es
+  - name: small-lang-es
     context:
       label: Small (Spanish)
       text: Buscar
