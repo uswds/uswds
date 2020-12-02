@@ -5,6 +5,7 @@
   border-spacing: 0;
   margin: units(2.5) 0;
   text-align: left;
+  color: color($theme-table-text-color);
 
   thead {
     th {
@@ -14,6 +15,7 @@
     th,
     td {
       background-color: color($theme-table-header-background-color);
+      color: color($theme-table-header-text-color);
     }
   }
 
@@ -61,6 +63,7 @@
       td,
       th {
         background-color: color($theme-table-stripe-background-color);
+        color: color($theme-table-stripe-text-color);
       }
     }
   }
@@ -121,6 +124,7 @@
     td:first-child,
     th:first-child {
       background-color: color($theme-table-header-background-color);
+      color: color($theme-table-header-text-color);
       @include typeset(
         $theme-body-font-family,
         $theme-h3-font-size,
