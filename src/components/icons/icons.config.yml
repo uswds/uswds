@@ -172,6 +172,8 @@ context:
         meta: ""
       - name: folder_open
         meta: ""
+      - name: format_quote
+        meta: "blockquote quotation"
       - name: format_size
         meta: ""
       - name: forum
@@ -308,8 +310,6 @@ context:
         meta: "world globe earth language"
       - name: push_pin
         meta: "save"
-      - name: quote
-        meta: "blockquote quotation"
       - name: remove_red_eye
         meta: "visibility"
       - name: report
