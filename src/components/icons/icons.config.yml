@@ -4,6 +4,21 @@ preview: "@uswds-content"
 
 context:
   icons:
+    sizes:
+      - units: "3"
+        pixels: "24px"
+      - units: "4"
+        pixels: "32px"
+      - units: "5"
+        pixels: "40px"
+      - units: "6"
+        pixels: "48px"
+      - units: "7"
+        pixels: "56px"
+      - units: "8"
+        pixels: "64px"
+      - units: "9"
+        pixels: "72px"
     items: 
       - name: accessibility_new
         meta: "accessible"
