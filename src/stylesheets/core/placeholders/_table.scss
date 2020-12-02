@@ -22,6 +22,7 @@
   th,
   td {
     @include u-border(1px, $theme-table-border-color);
+    text-align: inherit;
     background-color: color("white");
     font-weight: fw("normal");
     padding: units(1) units(2);
