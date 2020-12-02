@@ -1,51 +1,51 @@
 // PROCESS LIST
-$theme-process-list-bullet-border-width: units($theme-process-list-connection-line-width) / 2;
-$theme-process-list-bullet-content-padding: (units($theme-process-list-bullet-size) / 2) - units(0.5);
-$theme-process-list-bullet-line-x-position: (
-  (units($theme-process-list-bullet-size) / 2) - (units($theme-process-list-connection-line-width) / 2)
+$theme-process-list-counter-border-width: units($theme-process-list-connector-line-width) / 2;
+$theme-process-list-counter-content-padding: (units($theme-process-list-counter-size) / 2) - units(0.5);
+$theme-process-list-counter-line-x-position: (
+  (units($theme-process-list-counter-size) / 2) - (units($theme-process-list-connector-line-width) / 2)
 );
 
 .usa-process-list {
   @include typeset($theme-process-list-font-family);
   @include unstyled-list;
   counter-reset: usa-numbered-list;
-  padding: 20px 0 0 $theme-process-list-bullet-line-x-position;
+  padding: 20px 0 0 $theme-process-list-counter-line-x-position;
   position: relative;
 }
 
 .usa-process-list__item {
-  border-left: units($theme-process-list-connection-line-width) solid color($theme-process-list-connection-line-color);
+  border-left: units($theme-process-list-connector-line-width) solid color($theme-process-list-connector-line-color);
   font-size: size($theme-process-list-font-family, $theme-process-list-font-size);
   padding-bottom: units(4);
-  padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2);
+  padding-left: calc(#{$theme-process-list-counter-content-padding} * 2);
   &:last-child {
-    border-left: units($theme-process-list-connection-line-width) solid transparent;
+    border-left: units($theme-process-list-connector-line-width) solid transparent;
   }
   &::before {
     @include u-flex("row", "align-center", "justify-center");
     $half-of-font-size: -0.4rem;
-    @include u-circle($theme-process-list-bullet-size);
-    background-color: color($theme-process-list-bullet-background-color);
-    box-shadow: 0 0 0 $theme-process-list-bullet-border-width color($theme-process-list-bullet-border-color);
-    color: color($theme-process-list-bullet-text-color);
+    @include u-circle($theme-process-list-counter-size);
+    background-color: color($theme-process-list-counter-background-color);
+    box-shadow: 0 0 0 $theme-process-list-counter-border-width color($theme-process-list-counter-border-color);
+    color: color($theme-process-list-counter-text-color);
     content: counter(usa-numbered-list, decimal);
     counter-increment: usa-numbered-list;
     display: flex;
-    font-family: family($theme-process-list-bullet-font-family);
-    font-size: size($theme-process-list-bullet-font-family, $theme-process-list-bullet-font-size);
+    font-family: family($theme-process-list-counter-font-family);
+    font-size: size($theme-process-list-counter-font-family, $theme-process-list-counter-font-size);
     font-weight: font-weight("bold");
-    height: units($theme-process-list-bullet-size);
+    height: units($theme-process-list-counter-size);
     left: 0;
-    line-height: lh($theme-process-list-bullet-font-family, 1);
+    line-height: lh($theme-process-list-counter-font-family, 1);
     margin-top: $half-of-font-size;
     position: absolute;
-    width: units($theme-process-list-bullet-size);
+    width: units($theme-process-list-counter-size);
   }
 }
 
 .usa-prose {
   > .usa-process-list {
-    padding-left: $theme-process-list-bullet-content-padding;
+    padding-left: $theme-process-list-counter-content-padding;
   }
 }
 
@@ -57,9 +57,9 @@ $theme-process-list-bullet-line-x-position: (
   margin: 0;
 }
 
-.usa-process-list--no-connection {
+.usa-process-list--no-connector {
   > .usa-process-list__item {
     border-left: none;
-    padding-left: calc(#{$theme-process-list-bullet-content-padding} * 2.5);
+    padding-left: calc(#{$theme-process-list-counter-content-padding} * 2.5);
   }
 }
