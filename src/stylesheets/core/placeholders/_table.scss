@@ -9,7 +9,7 @@
 
   thead {
     th {
-      font-weight: $theme-font-weight-bold;
+      font-weight: fw("bold");
     }
 
     th,
@@ -23,13 +23,13 @@
   td {
     @include u-border(1px, $theme-table-border-color);
     background-color: color("white");
-    font-weight: $theme-font-weight-normal;
+    font-weight: fw("normal");
     padding: units(1) units(2);
   }
 
   caption {
     @include u-font("body", "xs");
-    font-weight: $theme-font-weight-bold;
+    font-weight: fw("bold");
     margin-bottom: units(1.5);
     text-align: left;
   }
@@ -112,7 +112,7 @@
     &:before {
       content: attr(data-label);
       display: block;
-      font-weight: $theme-font-weight-bold;
+      font-weight: fw("bold");
       margin: units(-1) units(-2) units(0);
       padding: units(1.5) units(2) units(0.5);
     }
