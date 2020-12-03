@@ -130,7 +130,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Transportation Security Administration (TSA)](https://www.tsa.gov/)
 - [U.S. Agency for Global Media](https://www.usagm.gov/)
 - [U.S. Agency for International Development (USAID)](https://www.usaid.gov/)
-- [U.S. Army Medical Center of Excellence (MEDCoE)](https://www.cs.amedd.army.mil/)
+- [U.S. Army Medical Center of Excellence (MEDCoE)](https://medcoe.army.mil)
 - [U.S. Data Federation](http://federation.data.gov/)
 - [U.S. Department of Agriculture (USDA)](https://www.usda.gov/)
 - [U.S. Department of Labor](https://www.dol.gov/)
