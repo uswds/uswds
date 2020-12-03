@@ -1,6 +1,7 @@
 const domready = require("domready");
+
 // eslint-disable-next-line no-unused-vars
-const UswdsGlobalLibraryObject = {}; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
+const USWDS_LIBRARY_PRESENT = {}; // GLOBAL variable to indicate that USWDS JS loaded into the DOM
 
 /**
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
