@@ -2,21 +2,14 @@
   @include typeset($theme-summary-box-font-family);
   @include border-box-sizing;
   background-color: color($theme-summary-box-background-color);
-  border: $theme-summary-box-border-width color($theme-summary-box-border-color) solid;
+  border: $theme-summary-box-border-width color($theme-summary-box-border-color)
+    solid;
   padding: units(4) units(3);
   position: relative;
 
   .usa-list {
     &:last-child {
       margin-bottom: 0;
-    }
-    &.usa-summary-box--checkmarks {
-      list-style: none;
-      padding-left: units(1);
-      li::before {
-        content: "✓";
-        margin-right: units(1);
-      }
     }
   }
 }
