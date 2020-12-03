@@ -5,6 +5,9 @@ preview: "@uswds-framed"
 variants:
   - name: default
     label: Borderless
+    context:
+      accordion:
+        controls: true
 
   - name: bordered
     notes: >
@@ -14,6 +17,7 @@ variants:
       accordion:
         id_prefix: b-
         variant: bordered
+        controls: true
 
   - name: multiselectable
     notes: >
@@ -24,6 +28,7 @@ variants:
       accordion:
         id_prefix: m-
         multiselectable: true
+        controls: true
   - name: expand-collapse all
     notes: >
       You can add controls to expand/collapse all accordion items.
