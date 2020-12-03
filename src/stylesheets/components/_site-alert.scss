@@ -2,20 +2,13 @@
 // TODO: Custom alerts are effectively hidden and not well supported
 // Consider removing or rebuilding
 $usa-custom-alerts: () !default;
-$usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
   info: "info-lighter",
   emergency: "emergency",
 );
 
-$usa-alerts-bar: (
-  info: "info",
-  emergency: "emergency-dark",
-);
-
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
-$alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 
 .usa-site-alert {
   position: relative;
@@ -68,18 +61,6 @@ $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 
 .usa-site-alert--slim {
   .usa-alert {
-    background-position: $alert-padding-left center;
-    background-size: units(3);
-    padding-bottom: units($theme-alert-bar-width);
-    padding-top: units($theme-alert-bar-width);
-
-    .usa-alert__body {
-      padding-left: units(5);
-    }
-
-    .usa-alert__text:only-child {
-      margin-bottom: units(0.5);
-      padding-top: units(0.5);
-    }
+    @include alert-slim-styles;
   }
 }
