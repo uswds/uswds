@@ -1,4 +1,5 @@
 const domready = require("domready");
+// eslint-disable-next-line no-unused-vars
 const UswdsGlobalLibraryObject = {}; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
 /**
