@@ -7,7 +7,6 @@ const footer = require("./footer");
 const navigation = require("./navigation");
 const password = require("./password");
 const search = require("./search");
-const skipnav = require("./skipnav");
 const tooltip = require("./tooltip");
 const validator = require("./validator");
 const datePicker = require("./date-picker");
@@ -26,7 +25,6 @@ module.exports = {
   navigation,
   password,
   search,
-  skipnav,
   timePicker,
   tooltip,
   validator,
