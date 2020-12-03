@@ -1,7 +1,5 @@
 label: Site Alert
 context:
-  siteAlert:
-    close_svg: /img/close.svg
   alert:
     content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
@@ -18,7 +16,6 @@ variants:
     label: Emergency
     context:
       siteAlert:
-        close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency"
       alert:
         title: Emergency status
@@ -28,7 +25,6 @@ variants:
     label: Emergency with List
     context:
       siteAlert:
-        close_svg: /img/close-white.svg
         classes: "usa-site-alert--emergency"
       alert:
         title: Emergency status
