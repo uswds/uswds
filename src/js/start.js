@@ -1,4 +1,5 @@
 const domready = require("domready");
+const UswdsGlobalLibraryObject = {}; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
 /**
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
