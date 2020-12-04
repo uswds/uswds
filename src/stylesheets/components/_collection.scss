@@ -25,8 +25,8 @@
 }
 
 .usa-collection__heading {
-  @include u-margin-top(0);
   @include u-margin-bottom(0);
+  @include u-margin-top(0);
 }
 
 .usa-collection__teaser {
@@ -38,9 +38,9 @@
 }
 
 .usa-collection__meta-item {
+  @include typeset("ui", "2xs", 3);
   display: block;
   margin-right: units(1);
-  @include typeset("ui", "2xs", 3);
 
   &.usa-tag {
     @include u-bg("base-lighter");
@@ -54,18 +54,20 @@
 
 .usa-collection__calendar-date {
   @include media-block-img;
-  width: 75px;
-  border: 1px solid #f0f0f0;
+  @include u-radius("sm");
+  border: 1px solid color("primary");
+  margin-right: units(2);
   text-decoration: none;
+  width: units(10);
 }
 
 .usa-collection__calendar-date-month,
 .usa-collection__calendar-date-day {
+  @include u-font("ui", 6);
   display: block;
+  font-weight: fw("bold");
   padding: units(1);
   text-align: center;
-  font-weight: 700;
-  font-size: 17px;
 }
 
 .usa-collection__calendar-date-month {
