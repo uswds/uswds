@@ -25,12 +25,6 @@
 }
 
 .usa-collection__heading {
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
   @include u-margin-top(0);
   @include u-margin-bottom(0);
 }
