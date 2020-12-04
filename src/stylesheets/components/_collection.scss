@@ -3,6 +3,7 @@ $collection-thumb-width-mobile: 8;
 $collection-thumb-margin: 2;
 
 .usa-collection {
+  @include typeset($theme-collection-font-family, "sm", 3);
   @extend %usa-list;
   @include u-padding-left(0);
 }
@@ -31,10 +32,10 @@ $collection-thumb-margin: 2;
 
 .usa-collection__body {
   @include u-flex(1);
-  @include typeset("ui", "sm", 3);
 }
 
 .usa-collection__heading {
+  @include typeset($theme-collection-header-typeset);
   @include u-margin-bottom(0);
   @include u-margin-top(0);
 }
