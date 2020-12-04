@@ -49,6 +49,11 @@
     @include u-text("ink");
     display: inline-block;
     margin-top: units(0.5);
+
+    &--new {
+      @include u-bg("accent-warm-dark");
+      @include u-text("white");
+    }
   }
 }
 
