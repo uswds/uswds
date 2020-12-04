@@ -10,8 +10,8 @@
   @include u-align-items("align-start");
   @include u-border-top(1px);
   @include u-display("flex");
-  @include u-margin-y(1);
-  @include u-padding-top(1);
+  @include u-margin-y(2);
+  @include u-padding-top(2);
 }
 
 .usa-collection__img {
@@ -74,9 +74,9 @@
   color: color("primary");
 }
 
-.usa-collection--expanded {
+.usa-collection--condensed {
   .usa-collection__item {
-    @include u-margin-y(2);
-    @include u-padding-top(2);
+    @include u-margin-y(1);
+    @include u-padding-top(1);
   }
 }
