@@ -63,7 +63,11 @@
   border: 1px solid color("primary");
   margin-right: units(2);
   text-decoration: none;
-  width: units(10);
+  width: units(8);
+
+  @include at-media("tablet") {
+    width: units(10);
+  }
 }
 
 .usa-collection__calendar-date-month,
@@ -71,8 +75,12 @@
   @include u-font("ui", 6);
   display: block;
   font-weight: fw("bold");
-  padding: units(1);
+  padding: units(0.5);
   text-align: center;
+
+  @include at-media("tablet") {
+    padding: units(1);
+  }
 }
 
 .usa-collection__calendar-date-month {
