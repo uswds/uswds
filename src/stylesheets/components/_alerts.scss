@@ -88,6 +88,11 @@ $alert-padding-left: units($theme-alert-padding-x) +
   @include alert-slim-styles;
 }
 
+.usa-alert--no-heading {
+  background-position: $alert-padding-left
+    calc(#{units($theme-alert-padding-x)} - #{units(0.5)});
+}
+
 .usa-alert--validation {
   background-size: units(3);
 

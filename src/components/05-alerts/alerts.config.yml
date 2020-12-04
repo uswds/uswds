@@ -47,7 +47,7 @@ variants:
     label: No header
     context:
       alert:
-        classes: "usa-alert--info"
+        classes: "usa-alert--info usa-alert--no-heading"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: no-icon
