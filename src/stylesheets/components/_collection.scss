@@ -38,13 +38,14 @@
 }
 
 .usa-collection__meta-item {
-  display: inline-block;
+  display: block;
   margin-right: units(1);
   @include typeset("ui", "2xs", 3);
 
   &.usa-tag {
     @include u-line-height("ui", 1);
     @include u-padding-y(0.5);
+    display: inline-block;
     margin-top: units(0.5);
   }
 }
