@@ -1,0 +1,38 @@
+<h1 class="display-flex flex-align-center">
+Relative to font size 
+<svg class="usa-icon" aria-hidden="true" role="img">
+  <use xlink:href="../../dist/img/sprite.svg#arrow_forward"></use>
+</svg>
+</h1>
+
+<p class="display-flex flex-align-center">
+Relative to font size 
+<svg class="usa-icon" aria-hidden="true" role="img">
+  <use xlink:href="../../dist/img/sprite.svg#arrow_forward"></use>
+</svg>
+</p>
+
+<table class="usa-table usa-table--borderless width-full">
+  <caption>Fixed sizes</caption>
+  <thead>
+    <th>Modifier</th>
+    <th>Icon</th>
+    <th>Units</th>
+    <th>Pixels</th>
+  </thead>
+  <tbody>
+{% for item in icons.sizes %}
+  <tr>
+    <th><code>.usa-icon--size-{{item.units}}</code></th>
+    <td>
+      <svg class="usa-icon usa-icon--size-{{item.units}}" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#accessibility_new"></use>
+      </svg>
+    </td>
+    <td><code>{{item.units}}</code></td>
+    <td><code>{{item.pixels}}</code></td>
+  </tr>
+{% endfor %}
+  </tbody>
+</table>
+
