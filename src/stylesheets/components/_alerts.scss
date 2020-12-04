@@ -1,6 +1,6 @@
 // Alert variables ---------- //
 
-$usa-alert-icons: (
+$alert-icons: (
   success: "check_circle",
   warning: "warning",
   error: "error",
@@ -78,7 +78,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
   padding-top: units(0.5);
 }
 
-@each $name, $icon in $usa-alert-icons {
+@each $name, $icon in $alert-icons {
   .usa-alert--#{$name} {
     @include alert-status-styles($name, $icon);
   }

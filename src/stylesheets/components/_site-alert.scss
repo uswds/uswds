@@ -1,14 +1,9 @@
 // Alert variables ---------- //
-// TODO: Custom alerts are effectively hidden and not well supported
-// Consider removing or rebuilding
-$usa-custom-alerts: () !default;
 
-$usa-alerts: (
-  info: "info-lighter",
-  emergency: "emergency",
+$alert-icons: (
+  info: "info",
+  emergency: "error",
 );
-
-$alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-site-alert {
   position: relative;
@@ -36,15 +31,15 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   }
 }
 
-@each $name, $bgcolor in $alerts {
+@each $name, $icon in $alert-icons {
   .usa-site-alert--#{$name} {
+    $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
     $banner-text-color-token: get-token-from-bg($bgcolor);
-
     background-color: color($bgcolor);
     color: color($banner-text-color-token);
 
     .usa-alert {
-      @include alert-status-styles($name, $bgcolor);
+      @include alert-status-styles($name, $icon);
     }
   }
 }
