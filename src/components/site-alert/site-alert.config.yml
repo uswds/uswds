@@ -54,4 +54,4 @@ variants:
     label: Slim
     context:
       siteAlert:
-        classes: "usa-site-alert--info usa-site-alert--slim"
+        classes: "usa-site-alert--emergency usa-site-alert--slim"
