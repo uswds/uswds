@@ -5,7 +5,7 @@ $usa-alert-icons: (
   warning: "warning",
   error: "error",
   info: "info",
-  emergency: "warning",
+  emergency: "error",
 );
 
 $alert-padding-left: units($theme-alert-padding-x) +
