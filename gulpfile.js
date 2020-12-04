@@ -4,6 +4,7 @@ require("./config/gulp/sass");
 require("./config/gulp/javascript");
 require("./config/gulp/images");
 require("./config/gulp/fonts");
+require("./config/gulp/svg-sprite");
 require("./config/gulp/build");
 require("./config/gulp/release");
 require("./config/gulp/test");
@@ -67,6 +68,11 @@ gulp.task("default", function(done) {
   dutil.logCommand(
     "gulp test",
     "This task will run `gulp test` and run this repository's unit tests."
+  );
+
+  dutil.logCommand(
+    "gulp svg-sprite",
+    "This task will compile all the svg files in the usa-icons directory into an svg sprite."
   );
 
   done();
