@@ -19,7 +19,11 @@
   }
 
   .usa-link {
-    @include set-link-from-bg($bgcolor);
+    @if $name != "emergency" {
+      @include set-link-from-bg($bgcolor);
+    } @else {
+      @include set-link-from-bg($bgcolor, "ink", "base-lighter");
+    }
   }
 
   &.usa-alert--no-icon {
