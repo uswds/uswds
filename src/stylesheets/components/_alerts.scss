@@ -15,7 +15,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
   background-color: color("base-lightest");
-  background-position: $alert-padding-left units($theme-alert-padding-x);
+  background-position: $alert-padding-left units($theme-alert-padding-x - 1);
   background-repeat: no-repeat;
   background-size: units(5);
   padding-bottom: units(2);
@@ -60,7 +60,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
 }
 
 .usa-alert__heading {
-  @include typeset($theme-alert-font-family, "lg", 2);
+  @include typeset($theme-alert-font-family, "lg", 1);
   margin-top: 0;
   margin-bottom: units(1);
 }
