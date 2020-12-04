@@ -43,8 +43,10 @@
   @include typeset("ui", "2xs", 3);
 
   &.usa-tag {
+    @include u-bg("base-lighter");
     @include u-line-height("ui", 1);
     @include u-padding-y(0.5);
+    @include u-text("ink");
     display: inline-block;
     margin-top: units(0.5);
   }
