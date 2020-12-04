@@ -3,6 +3,7 @@ const domready = require("domready");
 window.uswdsPresent = true;
 const UswdsGlobalLibraryObject = {}; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
+
 /**
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
  * older browsers, so must be loaded first.
@@ -16,6 +17,9 @@ const components = require("./components");
 uswds.components = components;
 
 domready(() => {
+  if(typeof UswdsGlobalLibraryObject !== 'undefined'){
+    console.log('test')
+  }
   const target = document.body;
   Object.keys(components).forEach((key) => {
     const behavior = components[key];
