@@ -1,7 +1,7 @@
 label: Site Alert
 context:
   alert:
-    content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
+    content: <strong>Short alert message.</strong> Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
 
 variants:
   - name: info
@@ -10,7 +10,8 @@ variants:
       siteAlert:
         classes: "usa-site-alert--info"
       alert:
-        title: Informative status
+        title: Short alert message
+        content: Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
 
   - name: emergency
     label: Emergency
@@ -18,8 +19,9 @@ variants:
       siteAlert:
         classes: "usa-site-alert--emergency"
       alert:
-        title: Emergency status
+        title: Emergency alert message
         role: "alert"
+        content: Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
 
   - name: emergency-list
     label: Emergency with List
@@ -27,35 +29,29 @@ variants:
       siteAlert:
         classes: "usa-site-alert--emergency"
       alert:
-        title: Emergency status
+        title: Emergency alert message
         content: false
         list: '
           <ul class="usa-list">
-          <li>Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
-          <li>Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
-          <li>Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</li>
+          <li>The primary emergency message and <a class="usa-link" href="javascript:void(0);">a link</a> for supporting context.</li>
+          <li>Another message, <a class="usa-link" href="javascript:void(0);">and another link</a>.</li>
+          <li>A final emergency message.</li>
           </ul>'
 
   - name: no-header
     label: No header
     context:
       siteAlert:
-        classes: "usa-site-alert--info"
-      alert:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        classes: "usa-site-alert--emergency usa-site-alert--no-heading"
 
   - name: no-icon
     label: No icon
     context:
       siteAlert:
         classes: "usa-site-alert--emergency usa-site-alert--no-icon"
-      alert:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: slim
     label: Slim
     context:
       siteAlert:
         classes: "usa-site-alert--info usa-site-alert--slim"
-      alert:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
