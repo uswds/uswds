@@ -39,8 +39,14 @@
 
 .usa-collection__meta-item {
   display: inline-block;
-  margin-right: units(1.5);
+  margin-right: units(1);
   @include typeset("ui", "2xs", 3);
+
+  &.usa-tag {
+    @include u-line-height("ui", 1);
+    @include u-padding-y(0.5);
+    margin-top: units(0.5);
+  }
 }
 
 .usa-collection__calendar-date {
@@ -66,4 +72,11 @@
 
 .usa-collection__calendar-date-day {
   color: color("primary");
+}
+
+.usa-collection--expanded {
+  .usa-collection__item {
+    @include u-margin-y(2);
+    @include u-padding-top(2);
+  }
 }
