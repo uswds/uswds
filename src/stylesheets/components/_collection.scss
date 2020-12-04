@@ -8,12 +8,10 @@
   @include unstyled-list;
 
   @include u-align-items("align-start");
+  @include u-border-top(1px);
   @include u-display("flex");
   @include u-margin-y(1);
-}
-
-.usa-collection__item + .usa-collection__item {
-  @include u-margin-top(2);
+  @include u-padding-top(1);
 }
 
 .usa-collection__img {
@@ -28,15 +26,13 @@
 
 .usa-collection__heading {
   a {
-    text-decoration: none;
-
     &:hover {
       text-decoration: underline;
     }
   }
 
   @include u-margin-top(0);
-  @include u-margin-bottom(1);
+  @include u-margin-bottom(0);
 }
 
 .usa-collection__teaser {
@@ -44,7 +40,7 @@
 }
 
 .usa-collection__meta-list {
-  @include u-margin-y(1);
+  @include u-margin-top(0.5);
 }
 
 .usa-collection__meta-item {
