@@ -11,7 +11,6 @@ $collection-thumb-margin: 2;
 .usa-collection__item {
   @extend %usa-list-item;
   @include unstyled-list;
-
   @include u-align-items("align-start");
   @include u-border-top(1px);
   @include u-display("flex");
@@ -45,6 +44,7 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__meta {
+  @include unstyled-list;
   @include u-margin-top(0.5);
 }
 
