@@ -1,3 +1,7 @@
+$collection-thumb-width: 10;
+$collection-thumb-width-mobile: 8;
+$collection-thumb-margin: 2;
+
 .usa-collection {
   @extend %usa-list;
   @include u-padding-left(0);
@@ -14,9 +18,15 @@
   @include u-padding-top(2);
 }
 
-.usa-collection__img {
+.usa-collection__img,
+.usa-collection__calendar-date {
   @include media-block-img;
-  width: units(10);
+  width: units($collection-thumb-width-mobile);
+  margin-right: units($collection-thumb-margin);
+
+  @include at-media("tablet") {
+    width: units($collection-thumb-width);
+  }
 }
 
 .usa-collection__body {
@@ -58,16 +68,10 @@
 }
 
 .usa-collection__calendar-date {
-  @include media-block-img;
   @include u-radius("sm");
   border: 1px solid color("primary");
-  margin-right: units(2);
   text-decoration: none;
   width: units(8);
-
-  @include at-media("tablet") {
-    width: units(10);
-  }
 }
 
 .usa-collection__calendar-date-month,
