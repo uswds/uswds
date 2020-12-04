@@ -20,7 +20,6 @@ variants:
         classes: "usa-site-alert--emergency"
       alert:
         title: Emergency alert message
-        role: "alert"
         content: Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
 
   - name: emergency-list
