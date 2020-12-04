@@ -40,6 +40,11 @@ $alert-icons: (
 
     .usa-alert {
       @include alert-status-styles($name, $icon);
+      background-position-x: units($theme-site-margins-mobile-width);
+
+      @include at-media($theme-site-margins-breakpoint) {
+        background-position-x: units($theme-site-margins-width);
+      }
     }
   }
 }
@@ -57,5 +62,15 @@ $alert-icons: (
 .usa-site-alert--slim {
   .usa-alert {
     @include alert-slim-styles;
+  }
+}
+
+.usa-site-alert--no-heading {
+  .usa-alert {
+    background-position-x: units($theme-site-margins-mobile-width);
+
+    @include at-media($theme-site-margins-breakpoint) {
+      background-position-x: units($theme-site-margins-width);
+    }
   }
 }
