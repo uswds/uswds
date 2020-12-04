@@ -48,6 +48,7 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__meta-item {
+  @include u-margin-top(0.5);
   @include typeset("ui", "2xs", 3);
   display: block;
   margin-right: units(1);
