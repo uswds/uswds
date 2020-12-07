@@ -108,8 +108,8 @@ $theme-process-list-counter-border-width: 0.5 !default;
 $theme-process-list-counter-border-color: "ink" !default;
 $theme-process-list-counter-font-family: "ui" !default;
 $theme-process-list-counter-font-size: "lg" !default;
-$theme-process-list-counter-gap-width: 0.5 !default; // new
-$theme-process-list-counter-gap-color: "white" !default; // new
+$theme-process-list-counter-gap-width: 0.5 !default;
+$theme-process-list-counter-gap-color: "white" !default;
 $theme-process-list-counter-size: 5 !default;
 $theme-process-list-counter-text-color: "ink" !default;
 $theme-process-list-connector-color: "primary-lighter" !default;
@@ -118,7 +118,7 @@ $theme-process-list-font-family: "ui" !default;
 $theme-process-list-font-size: "sm" !default;
 $theme-process-list-heading-color: "ink" !default;
 $theme-process-list-heading-font-family: "ui" !default;
-$theme-process-list-heading-font-size: "md" !default;
+$theme-process-list-heading-font-size: "lg" !default;
 
 // Navigation
 $theme-navigation-font-family: "ui" !default;

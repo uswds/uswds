@@ -103,19 +103,22 @@ $theme-identifier-max-width: "desktop";
 $theme-identifier-secondary-link-color: "base-light";
 
 // Process List
-$theme-process-list-counter-background-color: "primary";
-$theme-process-list-counter-border-color: "white";
+$theme-process-list-counter-background-color: "white";
+$theme-process-list-counter-border-width: 0.5;
+$theme-process-list-counter-border-color: "ink";
 $theme-process-list-counter-font-family: "ui";
 $theme-process-list-counter-font-size: "lg";
+$theme-process-list-counter-gap-width: 0.5;
+$theme-process-list-counter-gap-color: "white";
 $theme-process-list-counter-size: 5;
-$theme-process-list-counter-text-color: "white";
-$theme-process-list-connector-color: "base-lighter";
+$theme-process-list-counter-text-color: "ink";
+$theme-process-list-connector-color: "primary-lighter";
 $theme-process-list-connector-width: 1;
 $theme-process-list-font-family: "ui";
 $theme-process-list-font-size: "sm";
 $theme-process-list-heading-color: "ink";
 $theme-process-list-heading-font-family: "ui";
-$theme-process-list-heading-font-size: "md";
+$theme-process-list-heading-font-size: "lg";
 
 // Navigation
 $theme-navigation-font-family: "ui";
