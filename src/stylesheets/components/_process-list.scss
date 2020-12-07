@@ -54,6 +54,10 @@ $theme-process-list-counter-line-x-position: (
     position: absolute;
     width: units($theme-process-list-counter-size);
   }
+
+  ul {
+    list-style-type: disc;
+  }
 }
 
 .usa-prose {
