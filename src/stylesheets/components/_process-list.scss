@@ -65,6 +65,10 @@ $theme-process-list-counter-line-x-position: calc(
   ul {
     list-style-type: disc;
   }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .usa-prose {
