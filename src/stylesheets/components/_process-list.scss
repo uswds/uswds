@@ -18,6 +18,11 @@ $theme-process-list-counter-line-x-position: calc(
   counter-reset: usa-numbered-list;
   padding: 20px 0 0 $theme-process-list-counter-line-x-position;
   position: relative;
+
+  // Use increased specificity to override unstyled-list()
+  & > .usa-process-list__item {
+    @include u-measure(5);
+  }
 }
 
 .usa-process-list__item {
