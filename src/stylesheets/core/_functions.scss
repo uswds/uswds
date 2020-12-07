@@ -1774,7 +1774,7 @@ system z-index
 
   $target-magic-number: map-get($magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
-  $our-color-tokens: ($preferred-link-color, $fallback-link-color);
+  $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
 
   $link-token: false;
   $hover-token: false;
