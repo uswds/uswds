@@ -119,7 +119,8 @@
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
-  border: units($theme-input-tile-border-width) solid color($theme-input-tile-border-color);
+  border: units($theme-input-tile-border-width) solid
+    color($theme-input-tile-border-color);
   border-radius: radius($theme-input-tile-border-radius);
   margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);
@@ -134,7 +135,7 @@
 .usa-checkbox__label-description,
 .usa-radio__label-description {
   display: block;
-  font-size: size('ui', '2xs');
+  font-size: size("ui", "2xs");
   margin-top: units(1);
   text-indent: 0;
 }
