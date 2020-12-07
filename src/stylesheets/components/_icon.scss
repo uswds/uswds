@@ -1,0 +1,23 @@
+$tokens-icon-sizes: (
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+);
+
+.usa-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+}
+
+@each $token, $units in $tokens-icon-sizes {
+  .usa-icon--size-#{$units} {
+    height: units($units);
+    width: units($units);
+  }
+}

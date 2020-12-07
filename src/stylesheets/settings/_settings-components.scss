@@ -64,6 +64,10 @@ $theme-card-margin-bottom: 4 !default;
 $theme-card-padding-perimeter: 3 !default;
 $theme-card-padding-y: 2 !default;
 
+// Collection
+$theme-collection-header-typeset: "ui", "md", 3 !default;
+$theme-collection-font-family: "ui" !default;
+
 // Footer
 $theme-footer-font-family: "body" !default;
 $theme-footer-max-width: "desktop" !default;
@@ -76,6 +80,11 @@ $theme-input-max-width: "mobile-lg" !default;
 $theme-input-select-border-width: 2px !default;
 $theme-input-select-size: 2.5 !default;
 $theme-input-state-border-width: 0.5 !default;
+$theme-input-tile-background-color-selected: "primary-lighter" !default;
+$theme-input-tile-border-radius: "md" !default;
+$theme-input-tile-border-width: 2px !default;
+$theme-input-tile-border-color: "base-lighter" !default;
+$theme-input-tile-border-color-selected: "primary-light" !default;
 
 // Header
 $theme-header-font-family: "ui" !default;
@@ -137,6 +146,14 @@ $theme-step-indicator-segment-color-current: "primary" !default;
 $theme-step-indicator-segment-gap: 2px !default;
 $theme-step-indicator-segment-height: 1 !default;
 $theme-step-indicator-text-pending-color: "base-dark" !default;
+
+// Table
+$theme-table-border-color: "ink" !default;
+$theme-table-header-background-color: "base-lighter" !default;
+$theme-table-header-text-color: "ink" !default;
+$theme-table-stripe-background-color: "base-lightest" !default;
+$theme-table-stripe-text-color: "ink" !default;
+$theme-table-text-color: "ink" !default;
 
 // Tooltips
 $theme-tooltip-background-color: "ink" !default;
