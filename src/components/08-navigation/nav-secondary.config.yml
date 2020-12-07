@@ -1,5 +1,6 @@
 label: Secondary (header)
 preview: "@uswds-header"
+status: ready
 
 context:
   nav:
