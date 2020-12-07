@@ -1,13 +1,15 @@
 // PROCESS LIST
-$theme-process-list-counter-border-width: units(
-    $theme-process-list-connector-width
-  ) / 2;
-$theme-process-list-counter-content-padding: (
-    units($theme-process-list-counter-size) / 2
-  ) - units(0.5);
-$theme-process-list-counter-line-x-position: (
-  (units($theme-process-list-counter-size) / 2) -
-    (units($theme-process-list-connector-width) / 2)
+$theme-process-list-counter-border-width: calc(
+  #{units($theme-process-list-connector-width)} / 2
+);
+$theme-process-list-counter-content-padding: calc(
+  (#{units($theme-process-list-counter-size)} / 2) - #{units(0.5)}
+);
+$theme-process-list-counter-line-x-position: calc(
+  (
+    (#{units($theme-process-list-counter-size)} / 2) -
+      (#{units($theme-process-list-connector-width)} / 2)
+  )
 );
 
 .usa-process-list {
