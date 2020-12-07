@@ -12,12 +12,12 @@ $banner-icon-chevron: (
   "height": 0.8ex,
   "color": $banner-icon-color,
   "color-variant": "white",
-  "color-hover": $banner-icon-hover
+  "color-hover": $banner-icon-hover,
 );
 $banner-icon-chevron-up: map-merge(
   $banner-icon-chevron,
   (
-    "rotate": 180deg
+    "rotate": 180deg,
   )
 );
 $banner-icon-close: (
@@ -28,7 +28,7 @@ $banner-icon-close: (
   "color": "blue-60v",
   "color-variant": "white",
   "container-height": $size-touch-target,
-  "container-width": $size-touch-target
+  "container-width": $size-touch-target,
 );
 
 .usa-banner {

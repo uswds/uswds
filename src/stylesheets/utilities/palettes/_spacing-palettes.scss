@@ -15,7 +15,7 @@ $tokens-units-ch-positive: (
   "2ch": "2ch",
   "3ch": "3ch",
   "4ch": "4ch",
-  "5ch": "5ch"
+  "5ch": "5ch",
 );
 
 $tokens-units-ch-negative: (
@@ -25,7 +25,7 @@ $tokens-units-ch-negative: (
   "#{$neg-prefix}-2ch": "-2ch",
   "#{$neg-prefix}-3ch": "-3ch",
   "#{$neg-prefix}-4ch": "-4ch",
-  "#{$neg-prefix}-5ch": "-5ch"
+  "#{$neg-prefix}-5ch": "-5ch",
 );
 
 $tokens-units-em: (
@@ -40,7 +40,7 @@ $tokens-units-em: (
   "7em": "7em",
   "8em": "8em",
   "9em": "9em",
-  "10em": "10em"
+  "10em": "10em",
 );
 
 $tokens-units-percentage: (
@@ -57,11 +57,11 @@ $tokens-units-percentage: (
   "75ct": 75%,
   "80ct": 80%,
   "90ct": 90%,
-  "100ct": 100%
+  "100ct": 100%,
 );
 
 $tokens-units-zero: (
-  "0": 0
+  "0": 0,
 );
 
 $palettes-units: (
@@ -105,7 +105,7 @@ $palettes-units: (
       map-get($system-spacing, large),
       map-get($system-spacing, larger),
       map-get($system-spacing, largest)
-    )
+    ),
 );
 
 $palettes-units-misc: (
@@ -131,5 +131,5 @@ $palettes-units-misc: (
       $tokens-units-em,
       $tokens-units-percentage,
       $tokens-units-zero
-    )
+    ),
 );

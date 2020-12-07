@@ -31,7 +31,7 @@
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");
-  margin-bottom: units(1.5);
+  margin-top: units(1.5);
   padding-left: units($input-select-margin-right + $theme-input-select-size);
   position: relative;
   text-indent: units(-$input-select-margin-right - $theme-input-select-size);
@@ -99,8 +99,10 @@
   @include focus-outline(null, null, null, 0.5);
 }
 
-.usa-checkbox__input:disabled + .usa-checkbox__label {
+.usa-checkbox__input:disabled + .usa-checkbox__label,
+.usa-radio__input:disabled + .usa-radio__label {
   color: color("disabled");
+  cursor: not-allowed;
 }
 
 .usa-checkbox__input:focus + .usa-checkbox__label::before {
@@ -112,4 +114,27 @@
   background: color("disabled-light");
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
   cursor: not-allowed;
+}
+
+// Checkboxes and radios with tap-friendly targets
+.usa-checkbox__input--tile + .usa-checkbox__label,
+.usa-radio__input--tile + .usa-radio__label {
+  border: units($theme-input-tile-border-width) solid color($theme-input-tile-border-color);
+  border-radius: radius($theme-input-tile-border-radius);
+  margin: units(1) 0;
+  padding: units(1.5) units(2) units(1.5) units(5);
+}
+
+.usa-checkbox__input--tile:checked + .usa-checkbox__label,
+.usa-radio__input--tile:checked + .usa-radio__label {
+  background-color: color($theme-input-tile-background-color-selected);
+  border-color: color($theme-input-tile-border-color-selected);
+}
+
+.usa-checkbox__label-description,
+.usa-radio__label-description {
+  display: block;
+  font-size: size('ui', '2xs');
+  margin-top: units(1);
+  text-indent: 0;
 }

@@ -1,13 +1,20 @@
-<label class="usa-label" for="input-single">Single file</label>
-<span class="usa-hint" id="input-single-hint">Must be a PDF</span>
-<input id="input-single" class="usa-file-input" type="file" name="input-single" accept=".pdf" aria-describedby="input-single-hint" />
+{% set name = "file-input" %}
 
-<label class="usa-label" for="input-multiple">Multiple files</label>
-<span class="usa-hint" id="input-multiple-hit">Any file type</span>
-<input id="input-multiple" class="usa-file-input"  type="file" name="input-multiple" aria-describedby="input-multiple-hit" multiple />
-
-<div class="usa-form-group usa-form-group--error">
-  <label class="usa-label usa-label--error" for="file-input-error">Error example</label>
-  <span class="usa-error-message" id="file-input-error-message" role="alert">Helpful error message</span>
-  <input id="file-input-error" class="usa-file-input" multiple type="file" name="file-input-error" aria-describedby="file-input-error-message"/>
+<div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
+  <label class="usa-label{% if error %} usa-label--error{% endif %}" for="{{ name }}-{{ id }}">{{ label }}</label>
+  {%- if hint %}
+  <span class="usa-hint" id="{{ name }}-{{ id }}-hint">{{ hint }}</span>
+  {%- endif -%}
+  {%- if error %}
+  <span class="usa-error-message" id="{{ name }}-{{ id }}-alert">{{ errorMessage }}</span>
+  {%- endif %}
+  <!-- Formatted this way for code example on USWDS-Site  -->
+  <input id="{{ name }}-{{ id }}"
+    class="usa-file-input"
+    type="file"
+    name="{{ name }}-{{ id }}"
+    {% if hint or error -%}aria-describedby="{% if hint -%}{{ name }}-{{ id }}-hint{%- endif -%}{% if error %} {{ name }}-{{ id }}-alert{%- endif -%}"{%- endif -%}
+    {% if accept -%}accept="{{ accept }}"{%- endif -%}
+    {% if multiple -%} multiple{%- endif -%}
+    {% if disabled -%} disabled{%- endif -%} />
 </div>

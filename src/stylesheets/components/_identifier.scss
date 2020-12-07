@@ -1,0 +1,146 @@
+$identifier-logo-height: 6;
+$identifier-section-margin-y: 2;
+$identifier-section-margin-y-small: 1;
+$identifier-link-gap: 1.5;
+$identifier-link-gap-desktop: 1;
+$identifier-links-gap: 4 !default;
+
+@mixin identifier-secondary-link {
+  @include set-link-from-bg(
+    $theme-identifier-background-color,
+    $theme-identifier-secondary-link-color
+  );
+}
+
+//
+// General Styles
+// =====================================
+.usa-identifier {
+  @include typeset($theme-identifier-font-family, "sm", 3);
+  @include set-text-and-bg($theme-identifier-background-color);
+  padding-bottom: units(2);
+}
+
+.usa-identifier__container {
+  @include grid-container;
+  @include u-maxw($theme-identifier-max-width);
+}
+
+.usa-identifier__section {
+  @include u-padding-y($identifier-section-margin-y);
+}
+
+.usa-identifier__section--masthead {
+  .usa-identifier__container {
+    @include at-media("tablet") {
+      @include u-align-items("align-center");
+      @include u-display("flex");
+    }
+  }
+}
+
+.usa-identifier__logos {
+  display: flex;
+  margin-right: units(2);
+}
+
+.usa-identifier__logo {
+  @include u-text-decoration("no-underline");
+  height: units($identifier-logo-height);
+  display: block;
+
+  & + .usa-identifier__logo {
+    margin-left: units(1);
+  }
+}
+
+.usa-identifier__logo-img {
+  height: 100%;
+  width: auto;
+}
+
+.usa-identifier__identity {
+  @include u-flex("fill");
+  margin-top: units(2);
+
+  @include at-media("tablet") {
+    margin-top: units(0);
+  }
+}
+
+.usa-identifier__identity-domain,
+.usa-identifier__identity-disclaimer {
+  margin: 0;
+  padding: 0;
+}
+
+.usa-identifier__identity-domain {
+  @include u-text($theme-identifier-identity-domain-color);
+}
+
+.usa-identifier__identity-disclaimer {
+  @include u-text("bold");
+
+  a {
+    @include set-link-from-bg($theme-identifier-background-color);
+  }
+}
+
+.usa-identifier__section--required-links {
+  @include at-media("tablet") {
+    @include u-padding-y($identifier-section-margin-y-small);
+  }
+  @include at-media("desktop") {
+    @include u-font-size($theme-identifier-font-family, "xs");
+  }
+}
+
+.usa-identifier__required-links-list {
+  @include add-list-reset;
+  @include u-margin-y(0);
+
+  @include at-media("tablet") {
+    column-count: 2;
+    column-gap: units($identifier-links-gap);
+    column-fill: balance;
+  }
+
+  @include at-media("desktop") {
+    column-count: 4;
+  }
+}
+
+.usa-identifier__required-links-item {
+  break-inside: avoid;
+  margin-bottom: units($identifier-link-gap);
+
+  &:last-child {
+    margin-bottom: units(0);
+  }
+
+  @include at-media("desktop") {
+    margin-bottom: units($identifier-link-gap-desktop);
+  }
+}
+
+.usa-identifier__required-link {
+  @include identifier-secondary-link;
+  display: inline-block;
+}
+
+.usa-identifier__section--usagov a {
+  @include set-link-from-bg($theme-identifier-background-color);
+  @include u-text("bold");
+  display: inline-block;
+  margin-top: units(1);
+
+  @include at-media("tablet") {
+    margin-top: 0;
+  }
+}
+
+.usa-identifier__usagov-description {
+  @include at-media("tablet") {
+    display: inline-flex;
+  }
+}

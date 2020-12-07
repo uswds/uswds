@@ -25,13 +25,15 @@ let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const toggleNav = active => {
+const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
-  select(TOGGLES).forEach(el => el.classList.toggle(VISIBLE_CLASS, safeActive));
+  select(TOGGLES).forEach((el) =>
+    el.classList.toggle(VISIBLE_CLASS, safeActive)
+  );
 
   navigation.focusTrap.update(safeActive);
 
@@ -112,15 +114,15 @@ navigation = behavior(
         const acc = this.closest(accordion.ACCORDION);
 
         if (acc) {
-          accordion.getButtons(acc).forEach(btn => accordion.hide(btn));
+          accordion.getButtons(acc).forEach((btn) => accordion.hide(btn));
         }
 
         // If the mobile navigation menu is active, we want to hide it.
         if (isActive()) {
           navigation.toggleNav.call(navigation, false);
         }
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
@@ -128,7 +130,7 @@ navigation = behavior(
 
       if (trapContainer) {
         navigation.focusTrap = FocusTrap(trapContainer, {
-          Escape: onMenuClose
+          Escape: onMenuClose,
         });
       }
 
@@ -140,7 +142,7 @@ navigation = behavior(
       navActive = false;
     },
     focusTrap: null,
-    toggleNav
+    toggleNav,
   }
 );
 

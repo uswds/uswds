@@ -7,7 +7,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button {
   @include border-box-sizing;
   @include typeset($theme-button-font-family, null, 1);
-  @include add-knockout-font-smoothing;
   @include set-text-and-bg("primary");
   appearance: none;
   border: 0;
@@ -52,7 +51,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--accent-cool {
-  @include no-knockout-font-smoothing;
   @include set-text-and-bg("accent-cool");
 
   &:visited {
@@ -61,19 +59,34 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:hover,
   &.usa-button--hover {
-    @include add-knockout-font-smoothing;
     @include set-text-and-bg("accent-cool-dark");
   }
 
   &:active,
   &.usa-button--active {
-    @include add-knockout-font-smoothing;
     @include set-text-and-bg("accent-cool-darker");
   }
 }
 
+.usa-button--accent-warm {
+  @include set-text-and-bg("accent-warm");
+
+  &:visited {
+    @include set-text-and-bg("accent-warm");
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("accent-warm-dark");
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("accent-warm-darker");
+  }
+}
+
 .usa-button--outline {
-  @include no-knockout-font-smoothing;
   background-color: color("transparent");
   box-shadow: $button-stroke color("primary");
   color: color("primary");
@@ -162,7 +175,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("secondary-dark");
+    @include set-text-and-bg("secondary-darker");
   }
 }
 

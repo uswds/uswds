@@ -4,7 +4,7 @@
  * @param {any} value
  * @return {boolean}
  */
-const isElement = value =>
+const isElement = (value) =>
   value && typeof value === "object" && value.nodeType === 1;
 
 /**

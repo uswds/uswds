@@ -8,7 +8,7 @@ $border-utilities: (
     map-collect(
       map-deep-get($system-properties, border-style, standard),
       map-deep-get($system-properties, border-style, extended)
-    )
+    ),
 );
 
 @mixin border-n($side, $value...) {

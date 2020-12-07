@@ -33,6 +33,15 @@ const SKIP_COMPONENTS = [
   "layout--docs",
   "layout--docs-inner",
   "layout--landing-inner",
+  "layout--sign-in",
+  "layout--sign-in-inner",
+  "layout--sign-in-multiple",
+  "layout--sign-in-multiple-inner",
+  "layout--create-account",
+  "layout--create-account-inner",
+  "layout--header-empty",
+  "layout--federal-employee-sign-in",
+  "layout--value-props",
   "header",
   "fonts"
 ];
@@ -101,7 +110,8 @@ fractalLoad.then(() => {
               cdp.Emulation.setDeviceMetricsOverride(device.metrics)
             );
 
-            it("has no aXe violations", () => axeTester.run(cdp));
+            it('has no aXe violations', () => axeTester.run({ cdp }));
+            it('shows aXe warnings', () => axeTester.run({ cdp, warn: true }));
 
             if (process.env.ENABLE_SCREENSHOTS) {
               const vrt = new VisualRegressionTester({ handle, device });

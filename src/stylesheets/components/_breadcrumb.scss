@@ -16,7 +16,7 @@ $icon-breadcrumb-separator: (
   "svg-height": 64,
   "svg-width": 40,
   "height": $breadcrumb-icon-height,
-  "color": $theme-breadcrumb-separator-color
+  "color": $theme-breadcrumb-separator-color,
 );
 
 $icon-breadcrumb-back: (
@@ -24,7 +24,7 @@ $icon-breadcrumb-back: (
   "svg-height": 64,
   "svg-width": 64,
   "height": $breadcrumb-icon-height,
-  "color": $theme-breadcrumb-separator-color
+  "color": $theme-breadcrumb-separator-color,
 );
 
 // Set default value for custom mixin exdent-icon()
@@ -75,8 +75,8 @@ $breadcrumb-back-icon-aspect: (
 .usa-breadcrumb__list {
   @include unstyled-list;
   @include u-display("block");
-  @include u-margin(-$theme-focus-width);
   @include u-padding($theme-focus-width);
+  margin: units($theme-focus-width) * -1;
 }
 
 .usa-breadcrumb__list-item {

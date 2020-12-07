@@ -9,15 +9,17 @@ require("./polyfills");
 const uswds = require("./config");
 
 const components = require("./components");
+const svg4everybody = require("./polyfills/svg4everybody");
 
 uswds.components = components;
 
 domready(() => {
   const target = document.body;
-  Object.keys(components).forEach(key => {
+  Object.keys(components).forEach((key) => {
     const behavior = components[key];
     behavior.on(target);
   });
+  svg4everybody();
 });
 
 module.exports = uswds;

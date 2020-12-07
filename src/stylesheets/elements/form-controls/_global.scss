@@ -62,9 +62,15 @@ $input-select-margin-right: 1.5;
   color: color("base");
 }
 
-.usa-label {
+.usa-label,
+.usa-legend {
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
   display: block;
-  line-height: line-height($theme-form-font-family, 2);
+  font-weight: font-weight("normal");
   margin-top: units(3);
   max-width: units($theme-input-max-width);
 }
@@ -78,7 +84,8 @@ $input-select-margin-right: 1.5;
   color: color("error-dark");
 }
 
-.usa-legend {
+.usa-legend--large {
   font-size: font-size($theme-form-font-family, "xl");
   font-weight: font-weight("bold");
+  margin-top: units(2);
 }

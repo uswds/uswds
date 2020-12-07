@@ -21,6 +21,6 @@ $u-display: (
     values: map-collect(get-palettes($display-palettes), $display-manual-values),
     settings: $display-settings,
     property: "display",
-    type: "utility"
-  )
+    type: "utility",
+  ),
 );
