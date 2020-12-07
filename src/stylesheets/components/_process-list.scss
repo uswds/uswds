@@ -29,6 +29,7 @@ $theme-process-list-counter-line-x-position: calc(
     $theme-process-list-font-family,
     $theme-process-list-font-size
   );
+  margin-bottom: 0;
   padding-bottom: units(4);
   padding-left: calc(#{$theme-process-list-counter-content-padding} * 2);
 
@@ -65,6 +66,14 @@ $theme-process-list-counter-line-x-position: calc(
 
   ul {
     list-style-type: disc;
+
+    li {
+      margin-bottom: units(0.5);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   > *:last-child {
@@ -74,7 +83,12 @@ $theme-process-list-counter-line-x-position: calc(
 
 .usa-prose {
   > .usa-process-list {
+    margin-top: 0;
     padding-left: $theme-process-list-counter-content-padding;
+
+    .usa-process-list__item {
+      margin-bottom: 0;
+    }
   }
 }
 
