@@ -1722,7 +1722,10 @@ system z-index
   } @else {
     $grade-fallback: get-color-grade($fallback-text-color);
     $magic-num-fallback: abs($grade-bg - $grade-fallback);
-    $color: $fallback-text-color;
+
+    @if $magic-num-fallback >= $target-magic-number {
+      $color: $fallback-text-color;
+    }
   }
 
   @if not $color {
