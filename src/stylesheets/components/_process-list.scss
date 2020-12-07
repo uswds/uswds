@@ -86,4 +86,8 @@ $theme-process-list-counter-line-x-position: calc(
   );
   font-weight: font-weight("bold");
   margin: 0;
+
+  & + * {
+    margin-top: units(0.5);
+  }
 }
