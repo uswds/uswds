@@ -1,25 +1,13 @@
 // Alert variables ---------- //
-// TODO: Custom alerts are effectively hidden and not well supported
-// Consider removing or rebuilding
-$usa-custom-alerts: () !default;
-$usa-custom-alerts-bar: () !default;
 
-$usa-alerts: (
-  success: "success-lighter",
-  warning: "warning-lighter",
-  error: "error-lighter",
-  info: "info-lighter",
-);
-
-$usa-alerts-bar: (
-  success: "success",
+$alert-icons: (
+  success: "check_circle",
   warning: "warning",
   error: "error",
   info: "info",
+  emergency: "error",
 );
 
-$alerts: map-merge($usa-alerts, $usa-custom-alerts);
-$alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 $alert-padding-left: units($theme-alert-padding-x) +
   units($theme-alert-bar-width);
 
@@ -27,9 +15,9 @@ $alert-padding-left: units($theme-alert-padding-x) +
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
   background-color: color("base-lightest");
-  background-position: $alert-padding-left units($theme-alert-padding-x);
+  background-position: $alert-padding-left units($theme-alert-padding-x - 1);
   background-repeat: no-repeat;
-  background-size: units(4);
+  background-size: units(5);
   padding-bottom: units(2);
   padding-left: $alert-padding-left;
   padding-right: units($theme-alert-padding-x);
@@ -72,7 +60,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
 }
 
 .usa-alert__heading {
-  @include typeset($theme-alert-font-family, "lg", 2);
+  @include typeset($theme-alert-font-family, "lg", 1);
   margin-top: 0;
   margin-bottom: units(1);
 }
@@ -90,44 +78,19 @@ $alert-padding-left: units($theme-alert-padding-x) +
   padding-top: units(0.5);
 }
 
-@each $name, $bgcolor in $alerts {
+@each $name, $icon in $alert-icons {
   .usa-alert--#{$name} {
-    @include add-background-svg("alerts/#{$name}");
-    background-color: color($bgcolor);
-
-    &::before {
-      background-color: color(map-get($alerts-bar, $name));
-    }
-
-    .usa-alert__body {
-      padding-left: units($theme-alert-icon-size) +
-        units($theme-alert-padding-x);
-    }
+    @include alert-status-styles($name, $icon);
   }
 }
 
 .usa-alert--slim {
-  background-position: $alert-padding-left center;
-  background-size: units(3);
-  padding-bottom: units($theme-alert-bar-width);
-  padding-top: units($theme-alert-bar-width);
-
-  .usa-alert__body {
-    padding-left: units(5);
-  }
-
-  .usa-alert__text:only-child {
-    margin-bottom: units(0.5);
-    padding-top: units(0.5);
-  }
+  @include alert-slim-styles;
 }
 
-.usa-alert--no-icon {
-  background-image: none;
-
-  .usa-alert__body {
-    padding-left: 0;
-  }
+.usa-alert--no-heading {
+  background-position: $alert-padding-left
+    calc(#{units($theme-alert-padding-x)} - #{units(0.5)});
 }
 
 .usa-alert--validation {
