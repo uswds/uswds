@@ -3,9 +3,9 @@
   @include typeset;
   border-collapse: collapse;
   border-spacing: 0;
+  color: color($theme-table-text-color);
   margin: units(2.5) 0;
   text-align: left;
-  color: color($theme-table-text-color);
 
   thead {
     th {
@@ -22,10 +22,10 @@
   th,
   td {
     @include u-border(1px, $theme-table-border-color);
-    text-align: inherit;
     background-color: color("white");
     font-weight: fw("normal");
     padding: units(1) units(2);
+    text-align: inherit;
   }
 
   caption {
@@ -77,16 +77,16 @@
 
   th,
   td {
+    border-bottom-width: 0;
     display: block;
     width: 100%;
-    border-bottom-width: 0;
   }
 
   tr {
     @include u-border-bottom(0.5, $theme-table-border-color);
+    border-top-width: 0;
     display: block;
     width: 100%;
-    border-top-width: 0;
     th:first-child,
     td:first-child {
       border-top-width: 0;
@@ -124,13 +124,13 @@
   tr {
     td:first-child,
     th:first-child {
-      background-color: color($theme-table-header-background-color);
-      color: color($theme-table-header-text-color);
       @include typeset(
         $theme-body-font-family,
         $theme-h4-font-size,
         $theme-heading-line-height
       );
+      background-color: color($theme-table-header-background-color);
+      color: color($theme-table-header-text-color);
       font-weight: fw("bold");
       padding: units(1.5) units(2);
       &:before {
@@ -150,8 +150,8 @@
 }
 
 %usa-table-container--scrollable {
-  overflow-y: hidden;
   margin: units(2.5) 0;
+  overflow-y: hidden;
 
   .usa-table {
     margin: 0;
