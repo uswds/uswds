@@ -1741,6 +1741,9 @@ system z-index
   $fallback-text-color: "ink",
   $wcag-target: "AA"
 ) {
+  @if $preferred-text-color == default {
+    $preferred-text-color: "white";
+  }
   $color: get-token-from-bg(
     $bg-color,
     $preferred-text-color,
