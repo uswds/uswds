@@ -8,3 +8,6 @@ require("./number-is-nan");
 require("./custom-event");
 // polyfills forEach on nodelists
 require("./nodelist-foreach");
+// polyfills svg4everybody
+require("./svg4everybody");
+
