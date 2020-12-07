@@ -5,6 +5,7 @@
     $theme-summary-box-background-color,
     $theme-summary-box-text-color
   );
+  @include u-radius($theme-summary-box-border-radius);
   border: $theme-summary-box-border-width color($theme-summary-box-border-color)
     solid;
   padding: units(4) units(3);
