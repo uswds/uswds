@@ -1,7 +1,10 @@
 .usa-summary-box {
   @include typeset($theme-summary-box-font-family);
   @include border-box-sizing;
-  background-color: color($theme-summary-box-background-color);
+  @include set-text-and-bg(
+    $theme-summary-box-background-color,
+    $theme-summary-box-text-color
+  );
   border: $theme-summary-box-border-width color($theme-summary-box-border-color)
     solid;
   padding: units(4) units(3);
@@ -35,11 +38,8 @@
 }
 
 .usa-summary-box__link {
-  @include u-text($theme-summary-box-link-color);
-  &:hover {
-    text-decoration: none;
-  }
-  &:visited {
-    @include u-text($theme-summary-box-link-color);
-  }
+  @include set-link-from-bg(
+    $theme-summary-box-background-color,
+    $theme-summary-box-link-color
+  );
 }
