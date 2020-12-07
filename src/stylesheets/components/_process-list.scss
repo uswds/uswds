@@ -37,8 +37,8 @@ $theme-process-list-counter-line-x-position: calc(
     $half-of-font-size: -0.4rem;
     @include u-circle($theme-process-list-counter-size);
     background-color: color($theme-process-list-counter-background-color);
-    box-shadow: 0 0 0 $theme-process-list-counter-border-width
-      color($theme-process-list-counter-border-color);
+    box-shadow: 0 0 0 units($theme-process-list-counter-gap-width)
+      color($theme-process-list-counter-gap-color);
     color: color($theme-process-list-counter-text-color);
     content: counter(usa-numbered-list, decimal);
     counter-increment: usa-numbered-list;
