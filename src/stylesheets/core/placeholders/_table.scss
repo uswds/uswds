@@ -108,7 +108,7 @@
 
   th[data-label],
   td[data-label] {
-    padding-bottom: units(2.5);
+    padding-bottom: units(1.5);
 
     &:before {
       content: attr(data-label);
@@ -128,7 +128,7 @@
       color: color($theme-table-header-text-color);
       @include typeset(
         $theme-body-font-family,
-        $theme-h3-font-size,
+        $theme-h4-font-size,
         $theme-heading-line-height
       );
       font-weight: fw("bold");
