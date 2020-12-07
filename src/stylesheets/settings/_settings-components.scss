@@ -64,6 +64,10 @@ $theme-card-margin-bottom: 4 !default;
 $theme-card-padding-perimeter: 3 !default;
 $theme-card-padding-y: 2 !default;
 
+// Collection
+$theme-collection-header-typeset: "ui", "md", 3 !default;
+$theme-collection-font-family: "ui" !default;
+
 // Footer
 $theme-footer-font-family: "body" !default;
 $theme-footer-max-width: "desktop" !default;
@@ -76,6 +80,11 @@ $theme-input-max-width: "mobile-lg" !default;
 $theme-input-select-border-width: 2px !default;
 $theme-input-select-size: 2.5 !default;
 $theme-input-state-border-width: 0.5 !default;
+$theme-input-tile-background-color-selected: 'primary-lighter' !default;
+$theme-input-tile-border-radius: "md" !default;
+$theme-input-tile-border-width: 2px !default;
+$theme-input-tile-border-color: 'base-lighter' !default;
+$theme-input-tile-border-color-selected: 'primary-light' !default;
 
 // Header
 $theme-header-font-family: "ui" !default;
