@@ -1,38 +1,140 @@
 // ? Potential settings
 // ? ---------------------------------
 $theme-pagination-breakpoint: "mobile-lg";
+$theme-pagination-padding: 1;
+$theme-pagination-border-radius: "md";
+$theme-pagination-border-width: 1px;
+$theme-pagination-border-color: "base-light";
+$theme-pagination-background-color: "gray-2";
+$theme-pagination-margin-y: 1.5;
 
-.usa-pagination__list {
-  @include add-list-reset;
-  display: flex;
-  flex-flow: row nowrap;
+// Pagination
+// ---------------------------------
+.usa-pagination {
+  @include u-margin-y($theme-pagination-margin-y);
   align-items: center;
-  justify-content: space-between;
-
-  @include at-media($theme-pagination-breakpoint) {
-    justify-content: start;
-  }
+  display: flex;
+  flex-direction: row;
 }
 
-//
+// Shared styles
+// ---------------------------------
+.usa-pagination__label,
+.usa-pagination__link,
+.usa-pagination__current,
+.usa-pagination__ellipsis {
+  padding: units($theme-pagination-padding);
+}
+
 // Only display Previous/Next on mobile
-//
-.usa-pagination__item--previous-group,
-.usa-pagination__item--page-no,
-.usa-pagination__item--next-group {
+.usa-pagination__label,
+.usa-pagination__item:not(.usa-pagination__previous-page):not(.usa-pagination__next-page),
+.usa-pagination__view-all {
   @include at-media-max($theme-pagination-breakpoint) {
     display: none;
   }
 }
 
 .usa-pagination__link,
-.usa-pagination__current {
-  padding: units("05");
+.usa-pagination__current,
+.usa-pagination__ellipsis {
+  background-color: color($theme-pagination-background-color);
+  border-color: color($theme-pagination-border-color);
+  border-style: solid;
+  border-width: units($theme-pagination-border-width);
+  display: inline-flex;
+  justify-content: center;
+
+  @include at-media($theme-pagination-breakpoint) {
+    width: 100%;
+  }
+}
+
+// Showing X of Y label
+// ---------------------------------
+.usa-pagination__label {
+  flex-grow: 1;
+  padding-left: 0;
+}
+
+// Pagination nav
+// ---------------------------------
+.usa-pagination__list {
+  @include add-list-reset;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+
+  @include at-media($theme-pagination-breakpoint) {
+    justify-content: start;
+    margin-left: units(2);
+    margin-right: units(2);
+    width: auto;
+  }
+}
+
+// Pagination nav items
+.usa-pagination__item {
+  line-height: 1;
+  min-width: 2ex;
+
+  @include at-media($theme-pagination-breakpoint) {
+    flex: 1;
+  }
+
+  // All pagination items, except the 1st.
+  &:not(:first-of-type) > * {
+    @include at-media($theme-pagination-breakpoint) {
+      border-left-color: transparent;
+    }
+  }
 }
 
 .usa-pagination__link {
-  color: inherit;
-  display: inline-flex;
   align-items: center;
+  color: inherit;
   text-decoration: none;
+  outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
+
+  &[disabled] {
+    color: color("base-light");
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: color("primary");
+  }
+}
+
+.usa-pagination__previous-group {
+  .usa-pagination__link {
+    border-bottom-left-radius: radius($theme-pagination-border-radius);
+    border-top-left-radius: radius($theme-pagination-border-radius);
+  }
+}
+
+.usa-pagination__current {
+  @include set-text-and-bg($theme-color-primary);
+  border-color: color("primary-darker");
+}
+
+.usa-pagination__next-group {
+  .usa-pagination__link {
+    border-bottom-right-radius: radius($theme-pagination-border-radius);
+    border-top-right-radius: radius($theme-pagination-border-radius);
+  }
+}
+
+// View All link
+// ---------------------------------
+.usa-pagination__view-all {
+  color: color("base-darker");
+  margin-left: auto;
+  text-decoration: none;
+
+  &:hover {
+    color: color("primary");
+  }
 }
