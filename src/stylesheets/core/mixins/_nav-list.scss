@@ -18,7 +18,7 @@ $sidenav-level-4-inset: 8;
     }
   }
 
-  a {
+  a:not(.usa-button) {
     color: color("base-dark");
     display: block;
     padding: units(1) units($sidenav-level-1-inset);
