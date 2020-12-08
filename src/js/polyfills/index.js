@@ -6,3 +6,6 @@ require("./element-hidden");
 require("./number-is-nan");
 // polyfills CustomEvent
 require("./custom-event");
+// polyfills svg4everybody
+require("./svg4everybody");
+

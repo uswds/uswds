@@ -6,13 +6,14 @@
   <span class="usa-hint" id="{{ name }}-{{ id }}-hint">{{ hint }}</span>
   {%- endif -%}
   {%- if error %}
-  <span class="usa-error-message" id="{{ name }}-{{ id }}-alert" role="alert">{{ errorMessage }}</span>
+  <span class="usa-error-message" id="{{ name }}-{{ id }}-alert">{{ errorMessage }}</span>
   {%- endif %}
+  <!-- Formatted this way for code example on USWDS-Site  -->
   <input id="{{ name }}-{{ id }}"
     class="usa-file-input"
     type="file"
     name="{{ name }}-{{ id }}"
-    {% if hint -%}aria-describedby="{{ name }}-{{ id }}-hint"{%- endif -%}
+    {% if hint or error -%}aria-describedby="{% if hint -%}{{ name }}-{{ id }}-hint{%- endif -%}{% if error %} {{ name }}-{{ id }}-alert{%- endif -%}"{%- endif -%}
     {% if accept -%}accept="{{ accept }}"{%- endif -%}
     {% if multiple -%} multiple{%- endif -%}
     {% if disabled -%} disabled{%- endif -%} />

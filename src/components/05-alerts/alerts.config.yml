@@ -3,7 +3,7 @@ status: ready
 preview: "@uswds-framed"
 context:
   alert:
-    content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
+    content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
 variants:
   - name: info
@@ -35,11 +35,19 @@ variants:
         title: Error status
         role: "alert"
 
+  - name: emergency
+    label: Emergency
+    context:
+      alert:
+        classes: "usa-alert--emergency"
+        title: Emergency status
+        role: "alert"
+
   - name: no-header
     label: No header
     context:
       alert:
-        classes: "usa-alert--info"
+        classes: "usa-alert--info usa-alert--no-heading"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: no-icon
