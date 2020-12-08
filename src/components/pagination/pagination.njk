@@ -2,63 +2,72 @@
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
 <nav aria-label="pagination" class="usa-pagination">
+  <span class="usa-pagination__label">
+    Showing ✖ of 11 total pages
+  </span>
+
   <ul class="usa-pagination__list">
     {# Previous buttons #}
-    <li class="usa-pagination__item usa-pagination__item--previous-group">
+    <li class="usa-pagination__item usa-pagination__previous-group">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="First group">
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#first_page"></use>
         </svg>
-        First
       </a>
     </li>
-    <li class="usa-pagination__item usa-pagination__item--previous-page">
+    <li class="usa-pagination__item usa-pagination__previous-page">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Previous page">
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_before"></use>
         </svg>
-        Previous
       </a>
     </li>
 
     {# Page numbers #}
-    <li class="usa-pagination__item usa-pagination__item--page-no">
+    <li class="usa-pagination__item usa-pagination__page-no">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 1">
         1
       </a>
     </li>
-    <li class="usa-pagination__item usa-pagination__item--page-no">
+    <li class="usa-pagination__item usa-pagination__page-no">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 2">
         2
       </a>
     </li>
-    <li class="usa-pagination__item usa-pagination__item--page-no">
+    <li class="usa-pagination__item usa-pagination__page-no">
       <span class="usa-pagination__current" aria-label="Current page, page 3" aria-current="page">
         3
       </span>
     </li>
-    <li class="usa-pagination__item usa-pagination__item--page-no">
+    <li class="usa-pagination__item">
+      <span class="usa-pagination__ellipsis">
+        …
+      </span>
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 4">
-        4
+        11
       </a>
     </li>
 
     {# Next buttons #}
-    <li class="usa-pagination__item usa-pagination__item--next-page">
+    <li class="usa-pagination__item usa-pagination__next-page">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Next page">
-        Next
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_next"></use>
       </svg>
       </a>
     </li>
-    <li class="usa-pagination__item usa-pagination__item--next-group">
+    <li class="usa-pagination__item usa-pagination__next-group">
       <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Next group">
-        Last
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#last_page"></use>
         </svg>
       </a>
     </li>
   </ul>
+
+  <a href="{{ placeholder_link }}" class="usa-pagination__view-all usa-link" aria-label="View all pages">
+    View all
+  </a>
 </nav>
