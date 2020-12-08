@@ -1,9 +1,20 @@
+{% from "pagination/_pagination-link.njk" import paginationLink %}
+
+
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
+
+{% set
+  first_two_pager_items = range(1, pagination.items - (pagination.items - 3))
+%}
+{%
+  set last_two_pager_items = range(pagination.items - 1, pagination.items + 1)
+%}
+
 <nav aria-label="pagination" class="usa-pagination">
   <span class="usa-pagination__label">
-    Showing ✖ of 12 total pages
+    Showing 1 of {{ pagination.items }} total pages
   </span>
 
   <ul class="usa-pagination__list">
@@ -25,32 +36,35 @@
     </li>
 
     {# Page numbers #}
-    <li class="usa-pagination__item usa-pagination__page-no">
-      <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 1">
-        1
-      </a>
-    </li>
+    {% if pagination.items <= 4 %}
 
-    <li class="usa-pagination__item usa-pagination__page-no">
-      <span class="usa-pagination__current" aria-label="Current page, page 2" aria-current="page">
-        2
-      </span>
-    </li>
-    <li class="usa-pagination__item">
-      <span class="usa-pagination__ellipsis" aria-label="X pages in between">
-        …
-      </span>
-    </li>
-    <li class="usa-pagination__item usa-pagination__page-no">
-      <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 11">
-        11
-      </a>
-    </li>
-    <li class="usa-pagination__item usa-pagination__page-no">
-      <a href="{{ placeholder_link }}" class="usa-pagination__link" aria-label="Page 12">
-        12
-      </a>
-    </li>
+      {# List all of them if less than 4 #}
+      {% for item in range(1, pagination.items + 1) %}
+        <li class="usa-pagination__item usa-pagination__page-no">
+          {{ paginationLink(item, pagination.current) }}
+        </li>
+      {% endfor %}
+    {% else %}
+      {# Otherwise show first and last 2 #}
+      {% for item in first_two_pager_items %}
+        <li class="usa-pagination__item usa-pagination__page-no">
+          {{ paginationLink(item, pagination.current) }}
+        </li>
+      {% endfor %}
+
+      <li class="usa-pagination__item">
+        <span class="usa-pagination__ellipsis" aria-label="X pages in between">
+          …
+        </span>
+      </li>
+
+      {% for item in last_two_pager_items %}
+        <li class="usa-pagination__item usa-pagination__page-no">
+          {{ paginationLink(item, pagination.current) }}
+        </li>
+      {% endfor %}
+    {% endif %}
+
 
     {# Next buttons #}
     <li class="usa-pagination__item usa-pagination__next-page">
