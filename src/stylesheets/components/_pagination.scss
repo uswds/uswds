@@ -115,6 +115,31 @@ $theme-pagination-margin-y: 1.5;
   }
 }
 
+.usa-pagination__previous-page,
+.usa-pagination__next-page {
+  .usa-pagination__button-text {
+    display: none;
+  }
+
+  @include at-media-max($theme-pagination-breakpoint) {
+    flex: 1 1 50%;
+
+    .usa-pagination__link {
+      width: 100%;
+    }
+
+    .usa-pagination__button-text {
+      display: block;
+    }
+  }
+}
+
+.usa-pagination__previous-page {
+  @include at-media-max($theme-pagination-breakpoint) {
+    margin-right: units(1.5);
+  }
+}
+
 .usa-pagination__current {
   @include set-text-and-bg($theme-color-primary);
   border-color: color("primary-darker");
