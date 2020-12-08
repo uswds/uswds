@@ -6,6 +6,7 @@ const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
 const INPUT_CLASS = `${PREFIX}-file-input__input`;
 const TARGET_CLASS = `${PREFIX}-file-input__target`;
+const INPUT = `.${INPUT_CLASS}`;
 const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
@@ -26,6 +27,61 @@ const VIDEO_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--video`;
 const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
+/**
+ * The properties and elements within the file input.
+ * @typedef {Object} FileInputContext
+ * @property {HTMLDivElement} dropZoneEl
+ * @property {HTMLInputElement} inputEl
+ */
+
+/**
+ * Get an object of the properties and elements belonging directly to the given
+ * file input component.
+ *
+ * @param {HTMLElement} el the element within the file input
+ * @returns {FileInputContext} elements
+ */
+const getFileInputContext = (el) => {
+  const dropZoneEl = el.closest(DROPZONE);
+
+  if (!dropZoneEl) {
+    throw new Error(`Element is missing outer ${DROPZONE}`);
+  }
+
+  const inputEl = dropZoneEl.querySelector(INPUT);
+
+  return {
+    dropZoneEl,
+    inputEl,
+  };
+};
+
+/**
+ * Disable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const disable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = true;
+  dropZoneEl.classList.add(DISABLED_CLASS);
+  dropZoneEl.setAttribute("aria-disabled", "true");
+};
+
+/**
+ * Enable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const enable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = false;
+  dropZoneEl.classList.remove(DISABLED_CLASS);
+  dropZoneEl.removeAttribute("aria-disabled");
+};
 
 /**
  * Creates an ID name for each file that strips all invalid characters.
@@ -73,8 +129,7 @@ const buildFileInput = (fileInputEl) => {
 
   // Disabled styling
   if (disabled) {
-    fileInputParent.classList.add(DISABLED_CLASS);
-    fileInputParent.setAttribute("aria-disabled", "true");
+    disable(fileInputEl);
   }
 
   // Sets instruction test based on whether or not multipe files are accepted
@@ -309,6 +364,9 @@ const fileInput = behavior(
         };
       });
     },
+    getFileInputContext,
+    disable,
+    enable,
   }
 );
 
