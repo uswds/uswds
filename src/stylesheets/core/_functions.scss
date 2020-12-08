@@ -1722,7 +1722,10 @@ system z-index
   } @else {
     $grade-fallback: get-color-grade($fallback-text-color);
     $magic-num-fallback: abs($grade-bg - $grade-fallback);
-    $color: $fallback-text-color;
+
+    @if $magic-num-fallback >= $target-magic-number {
+      $color: $fallback-text-color;
+    }
   }
 
   @if not $color {
@@ -1738,6 +1741,9 @@ system z-index
   $fallback-text-color: "ink",
   $wcag-target: "AA"
 ) {
+  @if $preferred-text-color == default {
+    $preferred-text-color: "white";
+  }
   $color: get-token-from-bg(
     $bg-color,
     $preferred-text-color,
@@ -1768,7 +1774,7 @@ system z-index
 
   $target-magic-number: map-get($magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
-  $our-color-tokens: ($preferred-link-color, $fallback-link-color);
+  $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
 
   $link-token: false;
   $hover-token: false;

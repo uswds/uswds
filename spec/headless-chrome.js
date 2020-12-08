@@ -33,6 +33,15 @@ const SKIP_COMPONENTS = [
   "layout--docs",
   "layout--docs-inner",
   "layout--landing-inner",
+  "layout--sign-in",
+  "layout--sign-in-inner",
+  "layout--sign-in-multiple",
+  "layout--sign-in-multiple-inner",
+  "layout--create-account",
+  "layout--create-account-inner",
+  "layout--header-empty",
+  "layout--federal-employee-sign-in",
+  "layout--value-props",
   "header",
   "fonts"
 ];
