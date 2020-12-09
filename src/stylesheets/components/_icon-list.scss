@@ -9,14 +9,14 @@
     font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     padding-bottom: units(2);
     padding-left: 0;
+    display: flex;
   }
 
   .usa-icon-list__icon {
-    float: left;
   }
 
   .usa-icon-list__content {
-    padding-left: units(2);
+    padding-left: units(1);
   }
 
   .usa-prose {
