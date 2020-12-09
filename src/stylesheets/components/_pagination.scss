@@ -15,6 +15,10 @@ $theme-pagination-margin-y: 1.5;
   align-items: center;
   display: flex;
   flex-direction: row;
+
+  @include at-media($theme-pagination-breakpoint) {
+    gap: units(2);
+  }
 }
 
 // Shared styles
@@ -22,8 +26,10 @@ $theme-pagination-margin-y: 1.5;
 .usa-pagination__label,
 .usa-pagination__link,
 .usa-pagination__current,
-.usa-pagination__ellipsis {
-  padding: units($theme-pagination-padding);
+.usa-pagination__ellipsis,
+.usa-pagination__view-all {
+  padding-top: units($theme-pagination-padding);
+  padding-bottom: units($theme-pagination-padding);
 }
 
 // Only display Previous/Next on mobile
@@ -69,8 +75,6 @@ $theme-pagination-margin-y: 1.5;
 
   @include at-media($theme-pagination-breakpoint) {
     justify-content: start;
-    margin-left: units(2);
-    margin-right: units(2);
     width: auto;
   }
 }
@@ -97,6 +101,7 @@ $theme-pagination-margin-y: 1.5;
   color: inherit;
   text-decoration: none;
   outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
+  padding: units($theme-pagination-padding);
 
   &[disabled] {
     color: color("base-light");
@@ -161,5 +166,25 @@ $theme-pagination-margin-y: 1.5;
 
   &:hover {
     color: color("primary");
+  }
+}
+
+// ---------------------------------
+// Variants
+// ---------------------------------
+.usa-pagination--centered {
+
+  @include at-media($theme-pagination-breakpoint) {
+    .usa-pagination__label {
+      flex-grow: 0;
+    }
+
+    .usa-pagination__list {
+      @include u-margin-x(auto);
+    }
+
+    .usa-pagination__view-all {
+      margin-left: auto;
+    }
   }
 }

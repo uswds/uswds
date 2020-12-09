@@ -4,6 +4,13 @@ order: -1
 
 context:
   placeholder_link: "javascript:void(0);"
+  modifier: ''
   pagination:
     items: 24
     current: 10
+
+
+variants:
+  - name: Centered
+    context:
+      modifier: usa-pagination--centered
