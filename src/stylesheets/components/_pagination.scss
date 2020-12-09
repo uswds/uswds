@@ -107,7 +107,7 @@ $theme-pagination-min-width: 4.5ch;
   text-decoration: none;
 
   &[disabled] {
-    color: color("base-light");
+    color: color("base-light") !important;
     pointer-events: none;
   }
 
