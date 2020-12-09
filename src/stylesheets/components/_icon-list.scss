@@ -1,74 +1,25 @@
-// PROCESS LIST
-$theme-icon-list-counter-border-width: units(
-    $theme-icon-list-connector-width
-  ) / 2;
-$theme-icon-list-counter-content-padding: (
-    units($theme-icon-list-counter-size) / 2
-  ) - units(0.5);
-$theme-icon-list-counter-line-x-position: (
-  (units($theme-icon-list-counter-size) / 2) -
-    (units($theme-icon-list-connector-width) / 2)
-);
-
+// ICON LIST
 .usa-icon-list {
   @include typeset($theme-icon-list-font-family);
   @include unstyled-list;
-  counter-reset: usa-numbered-list;
-  padding: 20px 0 0 $theme-icon-list-counter-line-x-position;
-  position: relative;
 }
 
 .usa-icon-list__item {
-  border-left: units($theme-icon-list-connector-width) solid
-    color($theme-icon-list-connector-color);
-  font-size: size(
-    $theme-icon-list-font-family,
-    $theme-icon-list-font-size
-  );
+  font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
   padding-bottom: units(4);
-  padding-left: calc(#{$theme-icon-list-counter-content-padding} * 2);
-  &:last-child {
-    border-left: units($theme-icon-list-connector-width) solid transparent;
-  }
-  &::before {
-    @include u-flex("row", "align-center", "justify-center");
-    $half-of-font-size: -0.4rem;
-    @include u-circle($theme-icon-list-counter-size);
-    background-color: color($theme-icon-list-counter-background-color);
-    box-shadow: 0 0 0 $theme-icon-list-counter-border-width
-      color($theme-icon-list-counter-border-color);
-    color: color($theme-icon-list-counter-text-color);
-    content: counter(usa-numbered-list, decimal);
-    counter-increment: usa-numbered-list;
-    display: flex;
-    font-family: family($theme-icon-list-counter-font-family);
-    font-size: size(
-      $theme-icon-list-counter-font-family,
-      $theme-icon-list-counter-font-size
-    );
-    font-weight: font-weight("bold");
-    height: units($theme-icon-list-counter-size);
-    left: 0;
-    line-height: lh($theme-icon-list-counter-font-family, 1);
-    margin-top: $half-of-font-size;
-    position: absolute;
-    width: units($theme-icon-list-counter-size);
-  }
+  padding-left: 0;
+}
+
+.usa-icon-list__icon {
+  float: left;
+}
+
+.usa-icon-list__content {
+  padding-left: units(6);
 }
 
 .usa-prose {
   > .usa-icon-list {
-    padding-left: $theme-icon-list-counter-content-padding;
+    padding-left: 0;
   }
-}
-
-.usa-icon-list__heading {
-  color: color($theme-icon-list-heading-color);
-  font-family: family($theme-icon-list-heading-font-family);
-  font-size: size(
-    $theme-icon-list-heading-font-family,
-    $theme-icon-list-heading-font-size
-  );
-  font-weight: font-weight("bold");
-  margin: 0;
 }
