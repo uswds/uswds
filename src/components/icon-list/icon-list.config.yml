@@ -1,3 +1,20 @@
 label: Icon list
 status: wip
 preview: "@uswds-content"
+context:
+  items:
+    - icon:
+        name: check_circle
+        size: 3
+        color: primary-vivid
+      content: First thing you need to do.
+    - icon:
+        name: alarm
+        size: 3
+        color: success
+      content: Another thing you need to do.
+    - icon:
+        name: cancel
+        size: 3
+        color: secondary
+      content: The final thing you need to do.

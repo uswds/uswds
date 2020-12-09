@@ -1,38 +1,14 @@
 <ul class="usa-icon-list">
+  {% for item in items %}
   <li class="usa-icon-list__item">
-    <div class="usa-icon-list__icon">
-      <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-        <use xlink:href="../../dist/img/sprite.svg#star"></use>
+    <div class="usa-icon-list__icon{% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
+      <svg class="usa-icon usa-icon--size-{{ item.icon.size }}" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#{{ item.icon.name }}"></use>
       </svg>
     </div>
     <div class="usa-icon-list__content">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien.</p>
-      <ul>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis.</li>
-        <li>Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum.</li>
-        <li>Aliquam erat volutpat. Sed quis velit.</li>
-      </ul>
+      {{ item.content }}
     </div>
   </li>
-  <li class="usa-icon-list__item">
-    <div class="usa-icon-list__icon">
-      <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-        <use xlink:href="../../dist/img/sprite.svg#check"></use>
-      </svg>
-    </div>
-    <div class="usa-icon-list__content">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien.</p>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien.</p>
-    </div>
-  </li>
-  <li class="usa-icon-list__item">
-    <div class="usa-icon-list__icon">
-      <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-        <use xlink:href="../../dist/img/sprite.svg#alarm"></use>
-      </svg>
-    </div>
-    <div class="usa-icon-list__content">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien.</p>
-    </div>
-  </li>
+  {% endfor %}
 </ul>
