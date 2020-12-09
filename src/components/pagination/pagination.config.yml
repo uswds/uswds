@@ -5,5 +5,5 @@ order: -1
 context:
   placeholder_link: "javascript:void(0);"
   pagination:
-    items: 12
-    current: 2
+    items: 24
+    current: 10
