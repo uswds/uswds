@@ -5,6 +5,7 @@ order: -1
 context:
   placeholder_link: "javascript:void(0);"
   modifier: ''
+  aria_label: 'pagination'
   pagination:
     items: 24
     current: 10

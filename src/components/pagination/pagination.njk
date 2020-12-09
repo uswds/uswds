@@ -13,7 +13,7 @@
   }
 %}
 
-<nav aria-label="pagination" class="usa-pagination {{ modifier | default('') }}">
+<nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier | default('') }}">
   <span class="usa-pagination__label">
     Showing {{ pagination.current }} of {{ pagination.items }} total pages
   </span>
