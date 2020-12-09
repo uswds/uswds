@@ -83,7 +83,7 @@ $theme-pagination-min-width: 4.5ch;
 
 // Pagination nav items
 .usa-pagination__item {
-  @include u-text('tabular');
+  @include u-text("tabular");
   line-height: 1;
   min-width: $theme-pagination-min-width;
 
@@ -183,7 +183,6 @@ $theme-pagination-min-width: 4.5ch;
 // Variants
 // ---------------------------------
 .usa-pagination--centered {
-
   @include at-media($theme-pagination-breakpoint) {
     .usa-pagination__label {
       flex-grow: 0;
