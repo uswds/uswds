@@ -8,6 +8,7 @@
   .usa-icon-list__item {
     font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     display: flex;
+    position: relative;
 
     & + .usa-icon-list__item {
       padding-top: units(2);
