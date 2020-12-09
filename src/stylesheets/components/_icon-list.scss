@@ -1,25 +1,27 @@
 // ICON LIST
-.usa-icon-list {
-  @include typeset($theme-icon-list-font-family);
-  @include unstyled-list;
-}
+@include override-prose {
+  .usa-icon-list {
+    @include typeset($theme-icon-list-font-family);
+    @include unstyled-list;
+  }
 
-.usa-icon-list__item {
-  font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
-  padding-bottom: units(4);
-  padding-left: 0;
-}
-
-.usa-icon-list__icon {
-  float: left;
-}
-
-.usa-icon-list__content {
-  padding-left: units(6);
-}
-
-.usa-prose {
-  > .usa-icon-list {
+  .usa-icon-list__item {
+    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
+    padding-bottom: units(2);
     padding-left: 0;
+  }
+
+  .usa-icon-list__icon {
+    float: left;
+  }
+
+  .usa-icon-list__content {
+    padding-left: units(2);
+  }
+
+  .usa-prose {
+    > .usa-icon-list {
+      padding-left: 0;
+    }
   }
 }

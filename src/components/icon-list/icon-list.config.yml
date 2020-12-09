@@ -1,6 +1,6 @@
 label: Icon list
 status: wip
-preview: "@uswds-framed"
+preview: "@uswds-content"
 context:
   items:
     - icon:
