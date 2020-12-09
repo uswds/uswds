@@ -123,6 +123,7 @@
     "resemblejs": "^3.2.5",
     "sass": "^1.29.0",
     "sinon": "^9.2.1",
+    "snyk": "^1.434.4",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended-scss": "^4.2.0",
