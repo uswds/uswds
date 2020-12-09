@@ -4,6 +4,7 @@
   <h2>First selected</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination few test 1',
       pagination: {
         items: 4,
         current: 1
@@ -17,6 +18,7 @@
   <h2>In between</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination few test 2',
       pagination: {
         items: 4,
         current: 2
@@ -26,6 +28,7 @@
   %}
   {% render '@pagination',
     {
+      aria_label: 'pagination few test 3',
       pagination: {
         items: 4,
         current: 3
@@ -39,6 +42,7 @@
   <h2>Last selected</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination few test 4',
       pagination: {
         items: 4,
         current: 4
@@ -53,6 +57,7 @@
   <h2>First selected</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination many test 1',
       pagination: {
         items: 50,
         current: 1
@@ -66,6 +71,7 @@
   <h2>In between</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination many test 2',
       pagination: {
         items: 50,
         current: 2
@@ -76,6 +82,7 @@
 
   {% render '@pagination',
     {
+      aria_label: 'pagination many test 3',
       pagination: {
         items: 50,
         current: 22
@@ -89,6 +96,7 @@
   <h2>Last selected</h2>
   {% render '@pagination',
     {
+      aria_label: 'pagination many test 4',
       pagination: {
         items: 50,
         current: 48
@@ -100,12 +108,22 @@
 
 <div class="usa-section usa-section--light">
   <div class="grid-container">
-    {% render pagination %}
+    {% render '@pagination',
+      {
+        aria_label: 'pagination light section test'
+      },
+      merge=true
+    %}
   </div>
 </div>
 
 <div class="usa-section usa-section--dark">
   <div class="grid-container">
-    {% render pagination %}
+    {% render '@pagination',
+      {
+        aria_label: 'pagination dark section test'
+      },
+      merge=true
+    %}
   </div>
 </div>
