@@ -1,5 +1,5 @@
 <ul class="usa-icon-list">
-  {% for item in items %}
+  {%- for item in items -%}
   <li class="usa-icon-list__item">
     <div class="usa-icon-list__icon{% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
       <svg class="usa-icon usa-icon--size-{{ item.icon.size }}" aria-hidden="true" role="img">
@@ -10,5 +10,5 @@
       {{ item.content }}
     </div>
   </li>
-  {% endfor %}
+  {%- endfor -%}
 </ul>
