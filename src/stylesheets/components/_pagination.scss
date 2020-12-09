@@ -5,8 +5,10 @@ $theme-pagination-padding: 1;
 $theme-pagination-border-radius: "md";
 $theme-pagination-border-width: 1px;
 $theme-pagination-border-color: "base-light";
+$theme-pagination-pager-color: "ink";
 $theme-pagination-background-color: "gray-2";
 $theme-pagination-margin-y: 1.5;
+$theme-pagination-min-width: 4.5ch;
 
 // Pagination
 // ---------------------------------
@@ -81,8 +83,9 @@ $theme-pagination-margin-y: 1.5;
 
 // Pagination nav items
 .usa-pagination__item {
+  @include u-text('tabular');
   line-height: 1;
-  min-width: 2ex;
+  min-width: $theme-pagination-min-width;
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
@@ -98,10 +101,10 @@ $theme-pagination-margin-y: 1.5;
 
 .usa-pagination__link {
   align-items: center;
-  color: inherit;
-  text-decoration: none;
+  color: color($theme-pagination-pager-color) !important;
   outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
   padding: units($theme-pagination-padding);
+  text-decoration: none;
 
   &[disabled] {
     color: color("base-light");
@@ -114,6 +117,8 @@ $theme-pagination-margin-y: 1.5;
 }
 
 .usa-pagination__ellipsis {
+  color: color($theme-pagination-pager-color) !important;
+  user-select: none;
   padding: units($theme-pagination-padding);
 }
 
