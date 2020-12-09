@@ -59,7 +59,11 @@ Sets:
 @mixin typeset-link {
   color: color($theme-link-color);
   text-decoration: underline;
-
+  
+  &:visited {
+    color: color($theme-link-visited-color);
+  }
+  
   &:hover {
     color: color($theme-link-hover-color);
   }
@@ -70,10 +74,6 @@ Sets:
 
   &:focus {
     @include focus-outline;
-  }
-
-  &:visited {
-    color: color($theme-link-visited-color);
   }
 }
 
