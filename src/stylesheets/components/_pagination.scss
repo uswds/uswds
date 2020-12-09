@@ -1,6 +1,6 @@
 // ? Potential settings
 // ? ---------------------------------
-$theme-pagination-breakpoint: "mobile-lg";
+$theme-pagination-breakpoint: "tablet";
 $theme-pagination-padding: 1;
 $theme-pagination-border-radius: "md";
 $theme-pagination-border-width: 1px;
@@ -85,7 +85,7 @@ $theme-pagination-margin-y: 1.5;
   min-width: 2ex;
 
   @include at-media($theme-pagination-breakpoint) {
-    flex: 1;
+    flex: 1 0 auto; // flex: 1 won't work in IE11
   }
 
   // All pagination items, except the 1st.
@@ -111,6 +111,10 @@ $theme-pagination-margin-y: 1.5;
   &:hover {
     color: color("primary");
   }
+}
+
+.usa-pagination__ellipsis {
+  padding: units($theme-pagination-padding);
 }
 
 .usa-pagination__previous-group {
@@ -148,6 +152,7 @@ $theme-pagination-margin-y: 1.5;
 .usa-pagination__current {
   @include set-text-and-bg($theme-color-primary);
   border-color: color("primary-darker");
+  padding: units($theme-pagination-padding);
 }
 
 .usa-pagination__next-group {
