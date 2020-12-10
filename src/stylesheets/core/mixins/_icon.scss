@@ -136,7 +136,7 @@
   }
 
   // Mask supportered styles
-  @supports (mask: url("")) or (-webkit-mask: url("")) {
+  @supports (mask: url("")) {
     background: none;
     background-color: color($color);
     mask: $image-props;
