@@ -13,52 +13,51 @@ const cFlags = require("./cflags");
 
 const task = "javascript";
 
-const entryPoints = [
-  "src/js/start.js",
-  "src/js/uswds-detector.js"
-]
+const entryPoints = ["src/js/start.js", "src/js/uswds-init.js"];
 
 gulp.task(task, (done) => {
   dutil.logMessage(task, "Compiling JavaScript");
 
   const defaultStreams = entryPoints.map((entry) => {
-    return browserify({ 
-        entries: [entry],
-        debug: true,
+    return browserify({
+      entries: [entry],
+      debug: true,
     }).transform("babelify", {
       global: true,
-      presets: ["@babel/preset-env"]
+      presets: ["@babel/preset-env"],
     });
   });
 
   const streams = defaultStreams.map((stream, i) => {
-    const BASENAME = i === 0 ? dutil.pkg.name : 'detector';
-    return stream.bundle()
-          .pipe(source(`${BASENAME}.js`)) // XXX why is this necessary?
-          .pipe(buffer())
-          .pipe(rename({ basename: BASENAME }))
-          .pipe(gulp.dest("dist/js"));
-  })
-    
+    const BASENAME = i === 0 ? dutil.pkg.name : "uswds-init";
+    return stream
+      .bundle()
+      .pipe(source(`${BASENAME}.js`)) // XXX why is this necessary?
+      .pipe(buffer())
+      .pipe(rename({ basename: BASENAME }))
+      .pipe(gulp.dest("dist/js"));
+  });
+
   streams.map((stream) => {
     return stream.pipe(sourcemaps.init({ loadMaps: true }));
-  })
+  });
 
   if (process.env.NODE_ENV !== "development") {
     streams.map((stream) => {
       return stream.pipe(uglify());
-    })
+    });
   }
 
   streams.map((stream) => {
-    return stream.on("error", log)
-        .pipe(
-          rename({
-            suffix: ".min",
-          })
-        )
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist/js"));
+    return stream
+      .on("error", log)
+      .pipe(
+        rename({
+          suffix: ".min",
+        })
+      )
+      .pipe(sourcemaps.write("."))
+      .pipe(gulp.dest("dist/js"));
   });
 
   done();
