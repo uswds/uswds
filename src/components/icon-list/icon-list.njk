@@ -7,7 +7,7 @@
       </svg>
     </div>
     <div class="usa-icon-list__content">
-      {{ item.content }}
+      {{ item.content | safe }}
     </div>
   </li>
   {%- endfor -%}
