@@ -4,17 +4,46 @@ preview: "@uswds-content"
 context:
   items:
     - icon:
-        name: check_circle
-        size: 3
+        name: cancel
+        size: 4
         color: primary-vivid
       content: First thing you need to do.
     - icon:
-        name: alarm
-        size: 3
+        name: cancel
+        size: 5
         color: success
       content: Another thing you need to do.
     - icon:
         name: cancel
-        size: 3
         color: secondary
       content: The final thing you need to do.
+
+variants:
+  - name: dont-list
+    label: Don't list
+    context:
+      iconColor: error
+      items:
+        - content: Don't do this.
+          icon:
+              name: cancel
+        - content: Don't do this either.
+          icon:
+              name: cancel
+        - content: Definitely don't do this.
+          icon:
+              name: cancel
+  - name: do-list
+    label: Do list
+    context:
+      iconColor: success
+      items:
+        - icon:
+            name: check_circle
+          content: First thing you need to do.
+        - icon:
+            name: check_circle
+          content: Another thing you need to do.
+        - icon:
+            name: check_circle
+          content: The final thing you need to do.
