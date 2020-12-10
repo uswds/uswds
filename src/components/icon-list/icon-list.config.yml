@@ -50,10 +50,12 @@ variants:
   - name: complex-list
     label: List with complex content
     context:
-      iconColor: primary
+      iconSize: 4
       items:
         - icon:
-            name: check_circle
+            name: info
+            color: primary-vivid
+            utilities:
           content: The Celebrated Jumping Frog of Calaveras County. By Mark Twain.
         - icon:
             name: check_circle
