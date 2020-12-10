@@ -1,8 +1,22 @@
 // ICON LIST
+
 @include override-prose {
   .usa-icon-list {
     @include typeset($theme-icon-list-font-family);
     @include unstyled-list;
+
+    @each $color, $grades in $all-project-colors {
+      @each $grade, $value in $grades {
+        @if $value {
+          $prefix: if($grade != "default", #{$color}-#{$grade}, #{$color});
+          &--#{$prefix} {
+            .usa-icon-list__icon {
+              color: color($prefix);
+            }
+          }
+        }
+      }
+    }
   }
 
   .usa-icon-list__item {
