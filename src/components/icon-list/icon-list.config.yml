@@ -1,2 +1,78 @@
 label: Icon list
 status: wip
+preview: "@uswds-content"
+context:
+  items:
+    - icon:
+        name: cancel
+        size: 4
+        color: primary-vivid
+      content: First thing you need to do.
+    - icon:
+        name: cancel
+        size: 5
+        color: success
+      content: Another thing you need to do.
+    - icon:
+        name: cancel
+        color: secondary
+      content: The final thing you need to do.
+
+variants:
+  - name: dont-list
+    label: Don't list
+    context:
+      iconColor: error
+      items:
+        - content: Don’t do this.
+          icon:
+              name: cancel
+        - content: Don’t do this either.
+          icon:
+              name: cancel
+        - content: Definitely don’t do this.
+          icon:
+              name: cancel
+  - name: do-list
+    label: Do list
+    context:
+      iconColor: primary
+      items:
+        - icon:
+            name: check_circle
+          content: First thing you need to do.
+        - icon:
+            name: check_circle
+          content: Another thing you need to do is quite a bit longer than the other two things. We wish it could be shorter, but it is just a really long requirement.
+        - icon:
+            name: check_circle
+          content: The final thing you need to do.
+  - name: complex-list
+    label: List with complex content
+    context:
+      iconSize: 4
+      items:
+        - icon:
+            name: info
+            color: primary-vivid
+            utilities: bottom-neg-2px
+          content: |
+            <h3 class="font-sans-xl line-height-sans-2">The Celebrated Jumping Frog of Calaveras County. <span class="text-normal">By Mark Twain.</span></h3>
+        - icon:
+            name: chat
+            color: base-darkest
+            utilities: bottom-2px
+          content: |
+            <h4>Here's how it begins:</h4>
+            <p>In compliance with the request of a friend of mine, who wrote me from the East, I called on good-natured, garrulous old Simon Wheeler, and inquired after my friend's friend, Leonidas W. Smiley, as requested to do, and I hereunto append the result. I have a lurking suspicion that Leonidas W. Smiley is a myth; that my friend never knew such a personage; and that he only conjectured that, if I asked old Wheeler about him, it would remind him of his infamous Jim Smiley, and he would go to work and bore me nearly to death with some infernal reminiscence of him as long and tedious as it should be useless to me. If that was the design, it certainly succeeded.</p>
+            <ul>
+              <li>I found Simon Wheeler dozing comfortably by the bar-room stove of the old, dilapidated tavern in the ancient mining camp of Angel's</li>
+              <li>I noticed that he was fat and bald-headed</li>
+              <li>He had an expression of winning gentleness and simplicity upon his tranquil countenance</li>
+            </ul>
+            <p>Simon Wheeler backed me into a corner and blockaded me there with his chair, and then sat me down and reeled off the monotonous narrative which follows this paragraph. He never smiled, he never frowned, he never changed his voice from the gentle-flowing key to which he tuned the initial sentence, he never betrayed the slightest suspicion of enthusiasm; but all through the interminable narrative there ran a vein of impressive earnestness and sincerity, which showed me plainly that, so far from his imagining that there was any thing ridiculous or funny about his story, he regarded it as a really important matter, and admired its two heroes as men of transcendent genius in finesse. To me, the spectacle of a man drifting serenely along through such a queer yarn without ever smiling, was exquisitely absurd. As I said before, I asked him to tell me what he knew of Rev. Leonidas W. Smiley, and he replied as follows. I let him go on in his own way, and never interrupted him once:</p>
+        - icon:
+            name: comment
+            color: secondary
+            utilities: bottom-05
+          content: There was a feller here once by the name of Jim Smiley, in the winter of '49 or may be it was the spring of '50 I don't recollect exactly, somehow, though what makes me think it was one or the other is because I remember the big flume wasn't finished when he first came to the camp; but any way, he was the curiosest man about always betting on any thing that turned up you ever see, if he could get any body to bet on the other side; and if he couldn't, he'd change sides. Any way that suited the other man would suit him any way just so's he got a bet, he was satisfied. But still he was lucky, uncommon lucky; he most always come out winner. He was always ready and laying for a chance; there couldn't be no solittry thing mentioned but that feller'd offer to bet on it, and -take any side you please, as I was just telling you. If there was a horse-race, you'd find him flush, or you'd find him busted at the end of it; if there was a dog-fight, he'd bet on it; if there was a cat-fight, he'd bet on it; if there was a chicken-fight, he'd bet on it; why, if there was two birds setting on a fence, he would bet you which one would fly first; or if there was a camp-meeting, he would be there reg'lar, to bet on Parson Walker, which he judged to be the best exhorter about here, and so he was, too, and a good man. If he even seen a straddle-bug start to go anywheres, he would bet you how long it would take him to get wherever he was going to, and if you took him up, he would foller that straddle-bug to Mexico but what he would find out where he was bound for and how long he was on the road. Lots of the boys here has seen that Smiley, and can tell you about him. Why, it never made no difference to him he would bet on any thing the dangdest feller. Parson Walker's wife laid very sick once, for a good while, and it seemed as if they warn's going to save her; but one morning he come in, and Smiley asked how she was, and he said she was considerable better thank the Lord for his inftnit mercy and coming on so smart that, with the blessing of Providence, she'd get well yet; and Smiley, before he thought, says, "Well, I'll risk two- and-a-half that she don't, any way."

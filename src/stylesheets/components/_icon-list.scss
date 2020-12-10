@@ -1,25 +1,64 @@
 // ICON LIST
-.usa-icon-list {
-  @include typeset($theme-icon-list-font-family);
-  @include unstyled-list;
-}
 
-.usa-icon-list__item {
-  font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
-  padding-bottom: units(4);
-  padding-left: 0;
-}
+$icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
 
-.usa-icon-list__icon {
-  float: left;
-}
+@include override-prose {
+  .usa-icon-list {
+    @include typeset($theme-icon-list-font-family);
+    @include unstyled-list;
+    @include u-measure(5);
 
-.usa-icon-list__content {
-  padding-left: units(6);
-}
+    @each $color, $grades in $all-project-colors {
+      @each $grade, $value in $grades {
+        @if $value {
+          $prefix: if($grade != "default", #{$color}-#{$grade}, #{$color});
+          &--#{$prefix} {
+            .usa-icon-list__icon {
+              color: color($prefix);
+            }
+          }
+        }
+      }
+    }
 
-.usa-prose {
-  > .usa-icon-list {
-    padding-left: 0;
+    @each $size in $icon-list-sizes {
+      &--size-#{$size} {
+        .usa-icon-list__icon {
+          .usa-icon {
+            @include u-square($size);
+          }
+        }
+      }
+    }
+  }
+
+  .usa-icon-list__item {
+    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
+    display: flex;
+    position: relative;
+
+    & + .usa-icon-list__item {
+      padding-top: units(1.5);
+    }
+  }
+
+  .usa-icon-list__icon {
+    .usa-icon {
+      display: block;
+      height: 1.5em;
+      position: relative;
+      width: 1.5em;
+    }
+  }
+
+  .usa-icon-list__content {
+    padding-left: 0.5em;
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    ul li {
+      list-style-type: disc;
+    }
   }
 }
