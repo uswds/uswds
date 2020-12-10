@@ -43,7 +43,7 @@ variants:
           content: First thing you need to do.
         - icon:
             name: check_circle
-          content: Another thing you need to do.
+          content: Another thing you need to do is quite a bit longer than the other two things. We wish it could be shorter, but it is just a really long requirement.
         - icon:
             name: check_circle
           content: The final thing you need to do.
