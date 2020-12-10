@@ -6,6 +6,7 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
   .usa-icon-list {
     @include typeset($theme-icon-list-font-family);
     @include unstyled-list;
+    @include u-measure(5);
 
     @each $color, $grades in $all-project-colors {
       @each $grade, $value in $grades {
