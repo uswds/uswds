@@ -24,19 +24,19 @@ variants:
     context:
       iconColor: error
       items:
-        - content: Don't do this.
+        - content: Don’t do this.
           icon:
               name: cancel
-        - content: Don't do this either.
+        - content: Don’t do this either.
           icon:
               name: cancel
-        - content: Definitely don't do this.
+        - content: Definitely don’t do this.
           icon:
               name: cancel
   - name: do-list
     label: Do list
     context:
-      iconColor: success
+      iconColor: primary
       items:
         - icon:
             name: check_circle
