@@ -1,4 +1,4 @@
-<ul class="usa-icon-list">
+<ul class="usa-icon-list{% if iconColor %} usa-icon-list--{{ iconColor }}{% endif %}{% if iconSize %} usa-icon-list--size-{{ iconSize }}{% endif %}">
   {%- for item in items -%}
   <li class="usa-icon-list__item">
     <div class="usa-icon-list__icon{% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
