@@ -55,7 +55,7 @@ variants:
         - icon:
             name: info
             color: primary-vivid
-            utilities:
+            utilities: bottom-05
           content: The Celebrated Jumping Frog of Calaveras County. By Mark Twain.
         - icon:
             name: check_circle
