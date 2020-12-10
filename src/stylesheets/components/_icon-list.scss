@@ -1,5 +1,7 @@
 // ICON LIST
 
+$icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
+
 @include override-prose {
   .usa-icon-list {
     @include typeset($theme-icon-list-font-family);
@@ -13,6 +15,16 @@
             .usa-icon-list__icon {
               color: color($prefix);
             }
+          }
+        }
+      }
+    }
+
+    @each $size in $icon-list-sizes {
+      &--size-#{$size} {
+        .usa-icon-list__icon {
+          .usa-icon {
+            @include u-square($size);
           }
         }
       }
