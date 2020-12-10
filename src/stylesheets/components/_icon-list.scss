@@ -37,13 +37,15 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
     position: relative;
 
     & + .usa-icon-list__item {
-      padding-top: units(2);
+      padding-top: units(1.5);
     }
   }
 
   .usa-icon-list__icon {
     .usa-icon {
       display: block;
+      height: 1.5em;
+      width: 1.5em;
     }
   }
 
