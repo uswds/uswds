@@ -1,11 +1,13 @@
-<div class="grid-row grid-gap-lg">
-  <div class="grid-col-4">
-    <h3>Do these things</h3>
-    {% render '@icon-list--do-list' %}
-  </div>
-  <div class="grid-col-4">
-    <h3>Don’t do these things</h3>
-    {% render '@icon-list--dont-list' %}
+<div class="border-2px padding-2 radius-md width-tablet">
+  <div class="grid-row grid-gap-lg">
+    <div class="grid-col">
+      <h3 class="margin-top-0 line-height-sans-2">Do these things</h3>
+      {% render '@icon-list--do-list' %}
+    </div>
+    <div class="grid-col">
+      <h3 class="margin-top-0 line-height-sans-2">Don’t do these things</h3>
+      {% render '@icon-list--dont-list' %}
+    </div>
   </div>
 </div>
 
