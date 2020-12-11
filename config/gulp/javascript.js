@@ -7,7 +7,7 @@ const log = require("fancy-log");
 const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify");
+const uglify = require("gulp-uglify-es").default;
 const dutil = require("./doc-util");
 const cFlags = require("./cflags");
 
@@ -44,21 +44,18 @@ gulp.task(task, (done) => {
 
   if (process.env.NODE_ENV !== "development") {
     streams.map((stream) => {
-      return stream.pipe(uglify());
+      return stream
+        .on("error", log)
+        .pipe(uglify())
+        .pipe(
+          rename({
+            suffix: ".min",
+          })
+        )
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest("dist/js"));
     });
   }
-
-  streams.map((stream) => {
-    return stream
-      .on("error", log)
-      .pipe(
-        rename({
-          suffix: ".min",
-        })
-      )
-      .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("dist/js"));
-  });
 
   done();
   return streams;
