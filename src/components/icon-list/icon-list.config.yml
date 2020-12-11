@@ -7,7 +7,7 @@ context:
         name: cancel
         size: 4
         color: primary-vivid
-      content: First thing you need to do.
+      content: A thing you need to do.
     - icon:
         name: cancel
         size: 5
@@ -16,7 +16,7 @@ context:
     - icon:
         name: cancel
         color: secondary
-      content: The final thing you need to do.
+      content: Yet another thing you need to do.
 
 variants:
   - name: dont-list
@@ -40,13 +40,13 @@ variants:
       items:
         - icon:
             name: check_circle
-          content: First thing you need to do.
+          content: A thing you need to do.
         - icon:
             name: check_circle
           content: Another thing you need to do is quite a bit longer than the other two things. We wish it could be shorter, but it is just a really long requirement.
         - icon:
             name: check_circle
-          content: The final thing you need to do.
+          content: Yet another thing you need to do.
   - name: complex-list
     label: List with complex content
     context:
