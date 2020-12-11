@@ -25,7 +25,7 @@
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
-    "start": "fractal start --sync & npm run watch",
+    "start": "npm run build && fractal start --sync & npm run watch",
     "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression",
     "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression",
     "test:unit": "gulp test",
