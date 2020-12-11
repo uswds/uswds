@@ -39,23 +39,18 @@ gulp.task(task, (done) => {
   });
 
   streams.map((stream) => {
-    return stream.pipe(sourcemaps.init({ loadMaps: true }));
+    return stream
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .on("error", log)
+      .pipe(uglify())
+      .pipe(
+        rename({
+          suffix: ".min",
+        })
+      )
+      .pipe(sourcemaps.write("."))
+      .pipe(gulp.dest("dist/js"));
   });
-
-  if (process.env.NODE_ENV !== "development") {
-    streams.map((stream) => {
-      return stream
-        .on("error", log)
-        .pipe(uglify())
-        .pipe(
-          rename({
-            suffix: ".min",
-          })
-        )
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist/js"));
-    });
-  }
 
   done();
   return streams;
