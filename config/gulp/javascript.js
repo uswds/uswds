@@ -7,7 +7,7 @@ const log = require("fancy-log");
 const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify-es").default;
+const uglify = require("gulp-uglify");
 const dutil = require("./doc-util");
 const cFlags = require("./cflags");
 
