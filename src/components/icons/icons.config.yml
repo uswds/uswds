@@ -356,6 +356,8 @@ context:
         meta: "dining food"
       - name: rss_feed
         meta: ""
+      - name: safety_divider
+        meta: "barrier"
       - name: sanitizer
         meta: "hand clean"
       - name: save_alt
@@ -392,6 +394,8 @@ context:
         meta: "cart purchase"
       - name: soap
         meta: "sanitize safety hand wash"
+      - name: social_distance
+        meta: ""
       - name: spellcheck
         meta: "edit"
       - name: star
