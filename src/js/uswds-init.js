@@ -1,6 +1,5 @@
 const docElem = window.document.documentElement;
 const loadingClass = "usa-js-loading";
-const loadedClass = "usa-js-present";
 
 function addLoadingClass() {
   if (docElem.className === "") {
@@ -14,10 +13,6 @@ function revertClass() {
   docElem.className = docElem.className.replace(loadingClass, "");
 }
 
-function switchToLoadedClass() {
-  docElem.className = docElem.className.replace(loadingClass, loadedClass);
-}
-
 if ("querySelector" in window.document && "addEventListener" in window) {
   addLoadingClass();
 
@@ -28,13 +23,13 @@ if ("querySelector" in window.document && "addEventListener" in window) {
     setTimeout(() => {
       timeout += 1;
       if (typeof uswdsPresent !== "undefined") {
-        // External file loaded
+        // USWDS library loaded
         clearTimeout(fallback);
-        setTimeout(switchToLoadedClass, 100);
+        setTimeout(revertClass, 100);
       } else if (timeout > 0) {
         poll();
       } else {
-        // External library failed to load
+        // USWDS library failed to load
       }
     }, 100);
   };
