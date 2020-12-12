@@ -9,6 +9,7 @@ function revertClass() {
   docElem.className = docElem.className.replace(loadingClass, "");
 }
 
+// Based on https://www.filamentgroup.com/lab/enhancing-optimistically.html
 if ("querySelector" in window.document && "addEventListener" in window) {
   addLoadingClass();
 
