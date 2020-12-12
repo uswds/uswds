@@ -2,11 +2,7 @@ const docElem = window.document.documentElement;
 const loadingClass = "usa-js-loading";
 
 function addLoadingClass() {
-  if (docElem.className === "") {
-    docElem.className += loadingClass;
-  } else {
-    docElem.className += ` ${loadingClass}`;
-  }
+  docElem.className += ` ${loadingClass}`;
 }
 
 function revertClass() {
