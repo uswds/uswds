@@ -217,7 +217,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
             file.type.includes(fileType.replace(/\*/g, ""));
           if (allFilesAllowed) break;
         }
-      }
+      } else break;
     }
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
