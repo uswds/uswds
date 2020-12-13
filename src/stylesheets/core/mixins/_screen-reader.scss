@@ -2,11 +2,13 @@
 @mixin sr-only {
   position: absolute;
   left: -999em;
+  right: auto;
 }
 
 @mixin add-sr-only {
   position: absolute;
   left: -999em;
+  right: auto;
 }
 
 // This "negates" the sr-only helper; useful if
