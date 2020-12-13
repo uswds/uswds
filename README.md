@@ -60,7 +60,7 @@ How you implement the design system depends on the needs of your project and you
 
 - **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
-### Download
+### Download and install
 
 1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.9.0/uswds-2.9.0.zip) from the latest USWDS release and open that file.
 
@@ -75,12 +75,23 @@ How you implement the design system depends on the needs of your project and you
    ├── fonts/
    ├── img/
    ├── js/
+   │   ├── uswds-init.js
+   │   ├── uswds-init.min.js
+   │   ├── uswds-init.min.js.map
    │   ├── uswds.min.js.map
    │   ├── uswds.min.js
    │   └── uswds.js
    └── scss/
 
    ```
+
+   The three files critical to any USWDS project are the **stylesheet**, the **library**, and the **intializer**. Any project requires both the stylesheet and library to function properly.
+
+   **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. Reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document.
+
+   **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document.
+
+   **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
@@ -96,7 +107,7 @@ How you implement the design system depends on the needs of your project and you
 
    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
+3. Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. We also provide Sass (.scss) files in the zip package which you should use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
 
    Here is an example of how to reference these assets in your `index.html` file:
 
@@ -107,6 +118,7 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
+       <script src="assets/uswds-2.9.0/js/uswds-init.min.js"></script>
        <link rel="stylesheet" href="assets/uswds-2.9.0/css/uswds.min.css" />
      </head>
      <body>

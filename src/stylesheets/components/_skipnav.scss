@@ -10,7 +10,8 @@
   transition: $project-easing;
   z-index: z-index(100);
 
-  &:focus {
+  &:focus,
+  &.usa-focus {
     background: color("white");
     left: 0;
     position: absolute;

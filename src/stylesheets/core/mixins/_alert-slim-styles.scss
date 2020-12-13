@@ -1,0 +1,15 @@
+@mixin alert-slim-styles {
+  background-position: $alert-padding-left units(1.5);
+  background-size: units(3);
+  padding-bottom: units($theme-alert-bar-width);
+  padding-top: units($theme-alert-bar-width);
+
+  .usa-alert__body {
+    padding-left: units(4);
+  }
+
+  .usa-alert__text:only-child {
+    margin-bottom: units(0.5);
+    padding-top: units(0.5);
+  }
+}
