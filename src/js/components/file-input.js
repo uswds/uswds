@@ -86,7 +86,7 @@ const enable = (el) => {
 /**
  * Creates an ID name for each file that strips all invalid characters.
  * @param {string} name - name of the file added to file input
- * @returns {string} same characters as the name with invalide chars removed
+ * @returns {string} same characters as the name with invalid chars removed
  */
 const makeSafeForID = (name) => {
   return name.replace(/[^a-z0-9]/g, function replaceName(s) {
@@ -132,7 +132,7 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // Sets instruction test based on whether or not multipe files are accepted
+  // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
     instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
@@ -153,7 +153,7 @@ const buildFileInput = (fileInputEl) => {
 /**
  * Removes image previews, we want to start with a clean list every time files are added to the file input
  * @param {HTMLElement} dropTarget - target area div that encases the input
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
@@ -193,7 +193,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * when correct files are added.
  * @param {event} e
  * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
@@ -239,7 +239,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
  * and removes old ones.
  * @param {event} e
  * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
