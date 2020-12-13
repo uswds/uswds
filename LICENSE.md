@@ -12,7 +12,9 @@ The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave G
 
 ### Files licensed under the Apache 2.0 License
 
-The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
+The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+
+The Google Material icons in `src/img/usa-icons` and `src/img/usa-icons-unused` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 

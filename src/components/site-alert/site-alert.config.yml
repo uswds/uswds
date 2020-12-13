@@ -1,4 +1,5 @@
 label: Site Alert
+status: ready
 context:
   alert:
     content: <strong>Short alert message.</strong> Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.

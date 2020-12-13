@@ -1,4 +1,5 @@
 label: Banner
+status: ready
 
 context:
   banner:
