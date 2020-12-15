@@ -59,24 +59,24 @@ const toggleButton = (button, expanded) => {
  * @param {HTMLElement} button
  */
 const toggleText = (element) => {
-  let control_button = element;
+  let controlBtn = element;
 
-  const originalString = control_button.textContent.trim();
-  const startText = control_button.getAttribute("data-label--expanded");
-  const endText = control_button.getAttribute("data-label--collapsed");
+  const originalString = controlBtn.textContent.trim();
+  const startText = controlBtn.getAttribute("data-label--expanded");
+  const endText = controlBtn.getAttribute("data-label--collapsed");
 
-  control_button.textContent = (originalString === startText) ? endText : startText;
+  controlBtn.textContent = (originalString === startText) ? endText : startText;
 }
 
 const toggleAll = (buttonAll) => {
-  const control_all = buttonAll.closest(BUTTON_CONTROL_ALL);
-  const accordion = control_all.closest(ACCORDION);
+  const controlAllBtn = buttonAll.closest(BUTTON_CONTROL_ALL);
+  const accordion = controlAllBtn.closest(ACCORDION);
   const buttons = accordion.querySelectorAll(BUTTON);
 
-  let accordionIsExpanded = control_all.getAttribute(EXPANDED) === "true";
+  let accordionIsExpanded = controlAllBtn.getAttribute(EXPANDED) === "true";
 
-  toggleText(control_all);
-  control_all.setAttribute("aria-expanded", !accordionIsExpanded);
+  toggleText(controlAllBtn);
+  controlAllBtn.setAttribute("aria-expanded", !accordionIsExpanded);
   buttons.forEach((button) => toggle(button, !accordionIsExpanded));
 }
 
