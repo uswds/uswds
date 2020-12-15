@@ -7,7 +7,6 @@ variants:
     label: Borderless
     context:
       accordion:
-        controls: true
 
   - name: bordered
     notes: >
@@ -17,7 +16,6 @@ variants:
       accordion:
         id_prefix: b-
         variant: bordered
-        controls: true
 
   - name: multiselectable
     notes: >
@@ -28,17 +26,19 @@ variants:
       accordion:
         id_prefix: m-
         multiselectable: true
-        controls: true
   - name: expand-collapse all
     notes: >
       You can add controls to expand/collapse all accordion items.
     context:
       accordion:
         id_prefix: all-
-        controls: true
 
+# Defaults
 context:
   accordion:
+    controls: true
+    control_expanded_label: Expand all sections
+    control_collapsed_label: Collapse all sections
     items:
       - title: First Amendment
         id: a1
