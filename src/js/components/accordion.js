@@ -7,9 +7,7 @@ const { prefix: PREFIX } = require("../config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
-const CONTROLS = `.${PREFIX}-accordion__controls`;
-const BUTTON_EXPAND_ALL = `.${PREFIX}-accordion__controls--expand-all`;
-const BUTTON_COLLAPSE_ALL = `.${PREFIX}-accordion__controls--collapse-all`;
+const BUTTON_CONTROL_ALL = `.${PREFIX}-accordion__control-all`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "aria-multiselectable";
 
@@ -56,18 +54,32 @@ const toggleButton = (button, expanded) => {
   }
 };
 
-const toggleAll = (buttonAll, isExpanded) => {
-  const controls = buttonAll.closest(CONTROLS);
-  const accordion = controls.closest(ACCORDION);
-  const buttons = accordion.querySelectorAll(BUTTON);
+/**
+ * Toggle the Collapse/Expand all text label.
+ * @param {HTMLElement} button
+ */
+const toggleText = (element) => {
+  let control_button = element;
 
-  controls.setAttribute('aria-expanded', isExpanded);
-  buttons.forEach((button) => toggle(button, isExpanded));
+  const originalString = control_button.textContent.trim();
+  const startText = control_button.getAttribute("data-label--expanded");
+  const endText = control_button.getAttribute("data-label--collapsed");
+
+  control_button.textContent = (originalString === startText) ? endText : startText;
 }
 
-const expandAll = (expandAllBtn) => toggleAll(expandAllBtn, true);
+const toggleAll = (buttonAll) => {
+  const control_all = buttonAll.closest(BUTTON_CONTROL_ALL);
+  const accordion = control_all.closest(ACCORDION);
+  const buttons = accordion.querySelectorAll(BUTTON);
 
-const collapseAll = (collapseAllBtn) => toggleAll(collapseAllBtn, false);
+  let accordionIsExpanded = control_all.getAttribute(EXPANDED) === "true";
+
+  toggleText(control_all);
+  control_all.setAttribute("aria-expanded", !accordionIsExpanded);
+  buttons.forEach((button) => toggle(button, !accordionIsExpanded));
+}
+
 
 /**
  * @param {HTMLButtonElement} button
@@ -96,15 +108,11 @@ const accordion = behavior(
           if (!isElementInViewport(this)) this.scrollIntoView();
         }
       },
-      [BUTTON_EXPAND_ALL](event) {
+      [BUTTON_CONTROL_ALL](event) {
         event.preventDefault();
-        expandAll(this);
-      },
-      [BUTTON_COLLAPSE_ALL](event) {
-        event.preventDefault();
-        collapseAll(this);
-      },
-    }
+        toggleAll(this);
+      }
+    },
   },
   {
     init(root) {
@@ -118,9 +126,7 @@ const accordion = behavior(
     show: showButton,
     hide: hideButton,
     toggle: toggleButton,
-    getButtons: getAccordionButtons,
-    expandAll,
-    collapseAll,
+    getButtons: getAccordionButtons
   }
 );
 
