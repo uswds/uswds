@@ -159,10 +159,12 @@ $theme-step-indicator-text-pending-color: "base-dark";
 
 // Summary box
 $theme-summary-box-background-color: "info-lighter";
-$theme-summary-box-border-color: "info";
+$theme-summary-box-border-color: "info-light";
 $theme-summary-box-border-width: 1px;
+$theme-summary-box-border-radius: "md";
 $theme-summary-box-font-family: "ui";
-$theme-summary-box-link-color: "ink";
+$theme-summary-box-link-color: default;
+$theme-summary-box-text-color: default;
 
 // Table
 $theme-table-border-color: "ink";

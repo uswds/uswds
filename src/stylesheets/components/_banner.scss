@@ -295,3 +295,10 @@ $banner-icon-close: (
 .usa-banner__icon {
   width: units(5);
 }
+
+// [uswds-init.js] Offscreen content while js is loading
+.usa-js-loading {
+  .usa-banner__content {
+    @include add-sr-only;
+  }
+}

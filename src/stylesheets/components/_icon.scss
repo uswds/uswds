@@ -8,16 +8,18 @@ $tokens-icon-sizes: (
   "9": 9,
 );
 
+$icon-inline-size-magic-number: 1em;
+
 .usa-icon {
   display: inline-block;
   fill: currentColor;
-  height: 1em;
-  width: 1em;
+  height: $icon-inline-size-magic-number;
+  position: relative;
+  width: $icon-inline-size-magic-number;
 }
 
 @each $token, $units in $tokens-icon-sizes {
   .usa-icon--size-#{$units} {
-    height: units($units);
-    width: units($units);
+    @include u-square($units);
   }
 }

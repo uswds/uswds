@@ -80,7 +80,8 @@ $input-select-margin-right: 1.5;
   margin-top: 0;
 }
 
-.usa-label--required {
+.usa-label--required,
+.usa-hint--required {
   color: color("error-dark");
 }
 
@@ -88,4 +89,9 @@ $input-select-margin-right: 1.5;
   font-size: font-size($theme-form-font-family, "xl");
   font-weight: font-weight("bold");
   margin-top: units(2);
+}
+
+// Don't show dotted underline with "required" asterisk because it can cause legibility issues ad appear as an ellipsis...
+abbr[title="required"] {
+  text-decoration: none;
 }
