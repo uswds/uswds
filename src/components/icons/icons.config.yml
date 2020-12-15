@@ -19,7 +19,7 @@ context:
         pixels: "64px"
       - units: "9"
         pixels: "72px"
-    items: 
+    items:
       - name: accessibility_new
         meta: "accessible"
       - name: accessible_forward
@@ -350,8 +350,10 @@ context:
         meta: "occupancy"
       - name: remove_red_eye
         meta: "visibility"
+      - name: remove
+        meta: "minus collapse"
       - name: report
-        meta: "exlamation danger stop"
+        meta: "exclamation danger stop"
       - name: restaurant
         meta: "dining food"
       - name: rss_feed
