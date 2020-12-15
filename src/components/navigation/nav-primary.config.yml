@@ -1,5 +1,6 @@
 label: Primary (header)
 preview: "@uswds-header"
+status: ready
 
 context:
   nav:

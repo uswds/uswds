@@ -1,5 +1,6 @@
 label: Card
 preview: "@uswds-content"
+status: ready
 
 variants:
   - name: compare

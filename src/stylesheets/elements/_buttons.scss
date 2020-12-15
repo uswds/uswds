@@ -138,6 +138,10 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
       @include button-unstyled;
       color: color($button-inverse-color);
 
+      &:visited {
+        color: color($button-inverse-color);
+      }
+
       &:hover,
       &.usa-button--hover {
         color: color($button-inverse-hover-color);
