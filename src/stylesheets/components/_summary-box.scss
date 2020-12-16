@@ -16,6 +16,10 @@
       margin-bottom: 0;
     }
   }
+
+  * + & {
+    margin-top: units(2);
+  }
 }
 
 .usa-summary-box__body {
