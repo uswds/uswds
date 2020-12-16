@@ -76,6 +76,10 @@ $theme-process-list-counter-line-x-position: calc(
     }
   }
 
+  > *:first-child {
+    margin-top: 0;
+  }
+
   > *:last-child {
     margin-bottom: 0;
   }
