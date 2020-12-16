@@ -43,4 +43,16 @@
     $theme-summary-box-background-color,
     $theme-summary-box-link-color
   );
+  &[href^="#"] {
+    $link-tokens: get-link-tokens-from-bg(
+      $theme-summary-box-background-color,
+      $theme-summary-box-link-color
+    );
+    &:visited {
+      color: color(nth($link-tokens, 1));
+    }
+    &:hover {
+      color: color(nth($link-tokens, 2));
+    }
+  }
 }
