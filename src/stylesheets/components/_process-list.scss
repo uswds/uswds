@@ -9,30 +9,34 @@ $theme-process-list-counter-line-x-position: calc(
   )
 );
 
-.usa-process-list {
-  @include typeset($theme-process-list-font-family);
-  @include unstyled-list;
-  counter-reset: usa-numbered-list;
-  padding: 20px 0 0 $theme-process-list-counter-line-x-position;
-  position: relative;
+@include override-prose {
+  .usa-process-list {
+    @include typeset($theme-process-list-font-family);
+    @include unstyled-list;
+    counter-reset: usa-numbered-list;
+    padding: 20px 0 0 $theme-process-list-counter-line-x-position;
+    position: relative;
 
-  // Use increased specificity to override unstyled-list()
-  & > .usa-process-list__item {
-    @include u-measure(5);
+    // Use increased specificity to override unstyled-list()
+    & > .usa-process-list__item {
+      @include u-measure(5);
+    }
+  }
+
+  .usa-process-list__item {
+    border-left: units($theme-process-list-connector-width) solid
+      color($theme-process-list-connector-color);
+    font-size: size(
+      $theme-process-list-font-family,
+      $theme-process-list-font-size
+    );
+    margin-bottom: 0;
+    padding-bottom: units(4);
+    padding-left: calc(#{$theme-process-list-counter-content-padding} * 2);
   }
 }
 
 .usa-process-list__item {
-  border-left: units($theme-process-list-connector-width) solid
-    color($theme-process-list-connector-color);
-  font-size: size(
-    $theme-process-list-font-family,
-    $theme-process-list-font-size
-  );
-  margin-bottom: 0;
-  padding-bottom: units(4);
-  padding-left: calc(#{$theme-process-list-counter-content-padding} * 2);
-
   &:last-child {
     border-left: units($theme-process-list-connector-width) solid transparent;
   }
@@ -76,19 +80,12 @@ $theme-process-list-counter-line-x-position: calc(
     }
   }
 
+  > *:first-child {
+    margin-top: 0;
+  }
+
   > *:last-child {
     margin-bottom: 0;
-  }
-}
-
-.usa-prose {
-  > .usa-process-list {
-    margin-top: 0;
-    padding-left: $theme-process-list-counter-content-padding;
-
-    .usa-process-list__item {
-      margin-bottom: 0;
-    }
   }
 }
 
