@@ -13,8 +13,11 @@
     class="usa-file-input"
     type="file"
     name="{{ name }}-{{ id }}"
-    {% if hint or error -%}aria-describedby="{% if hint -%}{{ name }}-{{ id }}-hint{%- endif -%}{% if error %} {{ name }}-{{ id }}-alert{%- endif -%}"{%- endif -%}
-    {% if accept -%}accept="{{ accept }}"{%- endif -%}
-    {% if multiple -%} multiple{%- endif -%}
-    {% if disabled -%} disabled{%- endif -%} />
+    {% if hint or accept or multiple or disabled -%}
+      {% if hint %}aria-describedby="{{ name }}-{{ id }}-hint"{%- endif %}
+    {% if accept %}accept="{{ accept }}"{%- endif -%}
+      {%- if multiple -%} multiple{%- endif -%}
+      {%- if disabled %} disabled{%- endif -%}
+    {%- endif %}
+  />
 </div>
