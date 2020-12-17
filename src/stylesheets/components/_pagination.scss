@@ -184,16 +184,18 @@ $theme-pagination-min-width: 4.5ch;
 // ---------------------------------
 .usa-pagination--centered {
   @include at-media($theme-pagination-breakpoint) {
+    // Pushes the pager and view all to visually
     .usa-pagination__label {
-      flex-grow: 0;
+      flex-grow: 0.3;
     }
 
     .usa-pagination__list {
-      @include u-margin-x(auto);
+      @include u-margin-left(0);
     }
 
     .usa-pagination__view-all {
-      margin-left: auto;
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 }
