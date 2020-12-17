@@ -41,7 +41,11 @@ web.theme(
     // display context data in YAML
     format: "yaml",
     // which panels to show
-    panels: ["html", "notes", "view", "context", "resources", "info"]
+    panels: ["html", "notes", "view", "context", "resources", "info"],
+    scripts: [
+      "default",
+      "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS"
+    ]
   })
 );
 

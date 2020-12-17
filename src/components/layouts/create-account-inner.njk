@@ -1,0 +1,52 @@
+<main id="main-content">
+  <div class="bg-base-lightest">
+    <section class="grid-container usa-section">
+      <div class="grid-row margin-x-neg-205 flex-justify-center">
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205 margin-bottom-4">
+          <h1 class="desktop:display-none font-sans-lg margin-bottom-4 tablet:margin-top-neg-3">A tagline that explains the benefit of creating an account.</h1>
+          <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
+            <h1 class="margin-bottom-0">Create account</h1>
+            <form class="usa-form">
+              <fieldset class="usa-fieldset">
+                <legend class="usa-legend margin-top-1">Get started with an account.</legend>
+                <p>
+                  <abbr title="required" class="usa-hint usa-hint--required">*</abbr> indicates a required field.
+                </p>
+                <label class="usa-label" for="email">Email address <abbr title="required" class="usa-label--required">*</abbr></label>
+                <input class="usa-input" id="email" name="email" type="email" autocapitalize="off" autocorrect="off" required>
+
+
+                <label class="usa-label" for="password-create-account">Create password <abbr title="required" class="usa-label--required">*</abbr></label>
+                <input class="usa-input" id="password-create-account" name="password" type="password" required>
+
+                <p class="usa-form__note">
+                  <a title="Show password" href="javascript:void(0);"
+                    class="usa-show-password"
+                    aria-controls="password-create-account password-create-account-confirm">Show password</a>
+                </p>
+
+                <label class="usa-label" for="password-create-account-confirm">Re-type password <abbr title="required" class="usa-label--required">*</abbr></label>
+                <input class="usa-input" id="password-create-account-confirm" name="password-confirm" type="password" required>
+
+
+                <div class="usa-checkbox margin-y-3">
+                  <input class="usa-checkbox__input" id="terms-and-conditions" type="checkbox" name="terms-and-conditions" value="terms" required>
+                  <label class="usa-checkbox__label" for="terms-and-conditions">I agree to the <a href="javascript:void()">terms and conditions</a>. <abbr title="required" class="usa-label--required">*</abbr></label>
+                </div>
+
+                <input class="usa-button" type="submit" value="Create account">
+              </fieldset>
+            </form>
+          </div>
+          <p class="text-center desktop:text-left">Already have an account? <a class="usa-link" href="javascript:void(0);">Sign in</a>.</p>
+
+        </div>
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205">
+            <div class="border-top border-base-lighter padding-top-4 desktop:border-0 desktop:padding-top-0">
+            {% render '@layout--value-props' %}
+            {% render '@layout--federal-employee-sign-in' %}
+            </div>
+        </div>
+    </section>
+  </div>
+</main>

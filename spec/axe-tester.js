@@ -1,5 +1,6 @@
 const fs = require("fs");
 const assert = require("assert");
+const colors = require('ansi-colors');
 
 const AXE_JS = fs.readFileSync(`${__dirname}/../node_modules/axe-core/axe.js`);
 
@@ -13,26 +14,33 @@ const AXE_CONTEXT = JSON.stringify({
   ]
 });
 
-const AXE_OPTIONS = JSON.stringify({
+const AXE_OPTIONS = {
   runOnly: {
-    type: "tag",
-    // @TODO Separate "best-practice" and use warn instead of fail. Issue #3333 on USWDS github
-    values: ["section508", "wcag2a", "wcag2aa"]
+    type: 'tag',
+    values: ['section508', 'wcag2a', 'wcag2aa'],
   },
   rules: {
     // Not all our examples need "skip to main content" links, so
     // ignore that rule.
     bypass: { enabled: false },
     // Nor do all our examples need main landmarks...
-    "landmark-one-main": { enabled: false },
+    'landmark-one-main': { enabled: false },
     // Not all content will be in a landmark region
     region: { enabled: false },
     // Not all examples have skip-link as a first element
-    "skip-link": { enabled: false },
+    'skip-link': { enabled: false },
     // Not all examples will need an h1, ex: links.
-    "page-has-heading-one": { enabled: false }
-  }
-});
+    'page-has-heading-one': { enabled: false },
+  },
+};
+
+const AXE_BEST_PRACTICES = {
+  ...AXE_OPTIONS,
+  runOnly: {
+    ...AXE_OPTIONS.runOnly.type,
+    values: ['best-practice'],
+  },
+}
 
 // This function is only here so it can be easily .toString()'d
 // and run in the context of a web page by Chrome. It will not
@@ -58,32 +66,48 @@ function load(cdp) {
   });
 }
 
-function run(cdp) {
+/**
+ *
+ * @param { cdp, warn } - Run axe via Chrome Dev Protocol with a show warnings
+ * option as a boolean to show axe bestPractice errors.
+ */
+function run({ cdp, warn = false } = {}) {
+  const AXE_SETTINGS = warn ? AXE_BEST_PRACTICES : AXE_OPTIONS;
+
   return cdp.Runtime.evaluate({
-    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${AXE_OPTIONS})`,
-    awaitPromise: true
-  }).then(details => {
-    if (details.result.type !== "string") {
-      return Promise.reject(
-        new Error(
-          `Unexpected result from aXe JS evaluation: ${JSON.stringify(
-            details.result,
-            null,
-            2
-          )}`
-        )
-      );
-    }
-    const viols = JSON.parse(details.result.value);
-    if (viols.length > 0) {
-      const errorMsg = `Found ${viols.length} aXe violations:
-        ${JSON.stringify(viols, null, 2)}
+    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${JSON.stringify(
+      AXE_SETTINGS
+    )})`,
+    awaitPromise: true,
+  })
+  .then((details) => {
+    const violations = JSON.parse(details.result.value);
+    const violationsFormatted = JSON.stringify(violations, null, 2);
+
+    /**
+     * Reject and show an error if it's a 'section508', 'wcag2a', 'wcag2aa'
+     * violation. Otherwise, show a console warning.
+     */
+    const handleError = () => {
+      let errorMsg = `
+        Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
+        ${violationsFormatted}
         To debug these violations, install aXe at:
         https://www.deque.com/products/axe/`;
 
-      return Promise.reject(new Error(errorMsg));
+      if (!warn) {
+        return Promise.reject(new Error(errorMsg));
+      } else {
+        /* eslint-disable-next-line no-console */
+        return console.log(colors.yellow(errorMsg));
+      }
+    };
+
+    if (!violations.length) {
+      return Promise.resolve();
+    } else {
+      return handleError(violations);
     }
-    return Promise.resolve();
   });
 }
 

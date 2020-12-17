@@ -285,3 +285,10 @@ $z-index-overlay: 400;
     }
   }
 }
+
+// [uswds-init.js] Offscreen content while js is loading
+html.usa-js-loading {
+  .usa-nav__submenu {
+    @include add-sr-only;
+  }
+}

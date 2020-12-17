@@ -1,0 +1,10 @@
+label: Secondary (header)
+preview: "@uswds-header"
+status: ready
+
+context:
+  nav:
+    search: true
+    links:
+      - text: Secondary link
+      - text: Another secondary link
