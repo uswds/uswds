@@ -16,7 +16,7 @@
     {% if hint or accept or multiple or disabled -%}
       {% if hint %}aria-describedby="{{ name }}-{{ id }}-hint"{%- endif %}
     {% if accept %}accept="{{ accept }}"{%- endif -%}
-      {%- if multiple -%} multiple{%- endif -%}
+      {%- if multiple %} multiple{%- endif -%}
       {%- if disabled %} disabled{%- endif -%}
     {%- endif %}
   />
