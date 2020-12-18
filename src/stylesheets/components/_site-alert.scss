@@ -1,0 +1,79 @@
+// Alert variables ---------- //
+
+$alert-icons: (
+  info: "info",
+  emergency: "error",
+);
+
+@mixin site-alert-icon-margin {
+  background-position-x: units($theme-site-margins-mobile-width);
+
+  @include at-media($theme-site-margins-breakpoint) {
+    background-position-x: units($theme-site-margins-width);
+  }
+}
+
+.usa-site-alert {
+  position: relative;
+  background-color: color("base-lightest");
+
+  .usa-alert {
+    @include grid-container($theme-site-alert-max-width);
+    @include site-alert-icon-margin;
+
+    &::before {
+      display: none;
+    }
+
+    > .usa-list,
+    .usa-alert__body > .usa-list {
+      padding-left: 2ch;
+    }
+  }
+
+  .usa-alert__body {
+    display: block;
+
+    @include at-media("tablet") {
+      position: relative;
+    }
+  }
+}
+
+@each $name, $icon in $alert-icons {
+  .usa-site-alert--#{$name} {
+    $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+    $banner-text-color-token: get-token-from-bg($bgcolor);
+    background-color: color($bgcolor);
+    color: color($banner-text-color-token);
+
+    .usa-alert {
+      @include alert-status-styles($name, $icon);
+    }
+  }
+}
+
+.usa-site-alert--no-icon {
+  .usa-alert {
+    background-image: none;
+
+    .usa-alert__body {
+      padding-left: 0;
+    }
+  }
+}
+
+.usa-site-alert--slim {
+  .usa-alert {
+    @include alert-slim-styles;
+    @include site-alert-icon-margin;
+  }
+}
+
+.usa-site-alert--no-heading {
+  .usa-alert {
+    background-position-y: calc(
+      #{units($theme-alert-padding-x)} - #{units(0.5)}
+    );
+  }
+}

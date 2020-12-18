@@ -1,0 +1,25 @@
+$tokens-icon-sizes: (
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+);
+
+$icon-inline-size-magic-number: 1em;
+
+.usa-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: $icon-inline-size-magic-number;
+  position: relative;
+  width: $icon-inline-size-magic-number;
+}
+
+@each $token, $units in $tokens-icon-sizes {
+  .usa-icon--size-#{$units} {
+    @include u-square($units);
+  }
+}

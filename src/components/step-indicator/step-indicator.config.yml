@@ -48,18 +48,31 @@ variants:
       showLabels: true
       centered: true
 
-  - name: No counters
+  - name: Counters
     context:
-      heading: No numbered counters
+      heading: Add counters
       showLabels: true
-      variant: no-counters
+      variant: counters
 
-  - name: centered-no-counters
+  - name: counters-sm
     context:
-      heading: Centered and no counters
+      heading: Add small counters
+      showLabels: true
+      variant: counters-sm
+
+  - name: centered-counters
+    context:
+      heading: Centered and counters
       showLabels: true
       centered: true
-      variant: no-counters
+      variant: counters
+
+  - name: centered-counters-sm
+    context:
+      heading: Centered and counters
+      showLabels: true
+      centered: true
+      variant: counters-sm
 
   - name: No labels
     context:

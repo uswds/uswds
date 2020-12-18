@@ -1,8 +1,8 @@
 // TODO: abstract and integrate
 @mixin search-icon {
-  @include add-background-svg("search");
+  @include add-background-svg("usa-icons-bg/search--white");
   background-position: center center;
-  background-size: units(2);
+  background-size: units(3);
 }
 
 .usa-search {
