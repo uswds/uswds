@@ -154,7 +154,9 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
+  const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
+  const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
   const defaultValue = comboBoxEl.dataset.defaultValue;
@@ -176,6 +178,7 @@ const enhanceComboBox = (_comboBoxEl) => {
     }
   }
 
+  selectLabel.setAttribute("id", listIdLabel);
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only", SELECT_CLASS);
@@ -218,6 +221,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
+        aria-labelledby="${listIdLabel}"
         hidden>
       </ul>`,
       `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
