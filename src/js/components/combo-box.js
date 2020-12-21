@@ -154,7 +154,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
-  const selectLabel = document.querySelector(`label[for="${selectId}"]`);
+  const selectLabel = comboBoxEl.previousElementSibling;
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
@@ -176,6 +176,18 @@ const enhanceComboBox = (_comboBoxEl) => {
         break;
       }
     }
+  }
+
+  /**
+   * Throw error if combobox is missing a label or label is missing
+   * `for` attribute. Otherwise, set the ID to match the <ul> aria-labelledby
+   */
+  if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
+    throw new Error(
+      `${COMBO_BOX} for ${selectId} is missing a label or a "for" attribute`
+    );
+  } else {
+    selectLabel.setAttribute("id", listIdLabel);
   }
 
   selectLabel.setAttribute("id", listIdLabel);
