@@ -9,41 +9,46 @@
     </label>
     <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text">
 
-    <label class="usa-label" for="apt-suite-other">Unit type</label>
-    <div class="usa-combo-box">
-      <select class="usa-select" id="apt-suite-other" name="apt-suite-other">
-          <option value>- Select -</option>
-          <option value="APT">APT - Apartment</option>
-          <option value="BSMT">BSMT - Basement</option>
-          <option value="BLDG">BLDG - Building</option>
-          <option value="DEPT">DEPT - Department</option>
-          <option value="FL">FL - Floor</option>
-          <option value="FRNT">FRNT - Front</option>
-          <option value="HNGR">HNGR - Hanger</option>
-          <option value="KEY">KEY - Key</option>
-          <option value="LBBY">LBBY - Lobby</option>
-          <option value="LOT">LOT - Lot</option>
-          <option value="LOWR">LOWR - Lower</option>
-          <option value="OFC">OFC - Office</option>
-          <option value="OTHER">Other</option>
-          <option value="PH">PH - Penthouse</option>
-          <option value="PIER">PIER - Pier</option>
-          <option value="REAR">REAR - Rear</option>
-          <option value="RM">RM - Room</option>
-          <option value="SIDE">SIDE - Side</option>
-          <option value="SLIP">SLIP - Slip</option>
-          <option value="SPC">SPC - Space</option>
-          <option value="STOP">STOP - Stop</option>
-          <option value="STE">STE - Suite</option>
-          <option value="TRLR">TRLR - Trailer</option>
-          <option value="UNAVAILABLE">Unable to determine</option>
-          <option value="UNIT">UNIT - Unit</option>
-          <option value="UPPR">UPPR - Upper</option>
-      </select>
+    <div class="grid-row grid-gap">
+      <div class="mobile-lg:grid-col-8">
+        <label class="usa-label" for="apt-suite-other">Unit type</label>
+        <div class="usa-combo-box">
+          <select class="usa-select" id="apt-suite-other" name="apt-suite-other">
+              <option value>- Select -</option>
+              <option value="APT">APT - Apartment</option>
+              <option value="BSMT">BSMT - Basement</option>
+              <option value="BLDG">BLDG - Building</option>
+              <option value="DEPT">DEPT - Department</option>
+              <option value="FL">FL - Floor</option>
+              <option value="FRNT">FRNT - Front</option>
+              <option value="HNGR">HNGR - Hanger</option>
+              <option value="KEY">KEY - Key</option>
+              <option value="LBBY">LBBY - Lobby</option>
+              <option value="LOT">LOT - Lot</option>
+              <option value="LOWR">LOWR - Lower</option>
+              <option value="OFC">OFC - Office</option>
+              <option value="OTHER">Other</option>
+              <option value="PH">PH - Penthouse</option>
+              <option value="PIER">PIER - Pier</option>
+              <option value="REAR">REAR - Rear</option>
+              <option value="RM">RM - Room</option>
+              <option value="SIDE">SIDE - Side</option>
+              <option value="SLIP">SLIP - Slip</option>
+              <option value="SPC">SPC - Space</option>
+              <option value="STOP">STOP - Stop</option>
+              <option value="STE">STE - Suite</option>
+              <option value="TRLR">TRLR - Trailer</option>
+              <option value="UNAVAILABLE">Unable to determine</option>
+              <option value="UNIT">UNIT - Unit</option>
+              <option value="UPPR">UPPR - Upper</option>
+          </select>
+        </div>
+      </div>
+      <div class="mobile-lg:grid-col-4">
+        <label class="usa-label" for="apt-floor-suite-no">Unit number</label>
+        <input class="usa-input" id="apt-floor-suite-no" name="apt-floor-suite-no" type="text">
+      </div>
     </div>
-
-    <label class="usa-label" for="apt-floor-suite-no">Unit number</label>
-    <input class="usa-input" id="apt-floor-suite-no" name="apt-floor-suite-no" type="text">
 
     <label class="usa-label" for="city">City <abbr title="required" class="usa-hint">*</abbr></label>
     <input class="usa-input" id="city" name="city" type="text">
