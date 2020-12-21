@@ -154,7 +154,8 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
-  const selectLabel = comboBoxEl.previousElementSibling;
+  const selectParent = comboBoxEl.parentElement;
+  const selectLabel = selectParent.querySelector("label");
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
@@ -184,7 +185,7 @@ const enhanceComboBox = (_comboBoxEl) => {
    */
   if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
     throw new Error(
-      `${COMBO_BOX} for ${selectId} is missing a label or a "for" attribute`
+      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`
     );
   } else {
     selectLabel.setAttribute("id", listIdLabel);
