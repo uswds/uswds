@@ -4,118 +4,101 @@
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
+{% set ellipsis %}
+<li class="usa-pagination__item" role="presentation">
+  <span class="usa-pagination__ellipsis">
+    …
+  </span>
+</li>
+{% endset %}
+
 {% set
   pager_ranges = {
-    'first_two': range(pagination.current, pagination.current + 2),
-    'last_two': range(pagination.items - 1, pagination.items + 1),
-    'last_four': range(pagination.items - 3, pagination.items + 1),
-    'all': range(1, pagination.items + 1)
+    'default': range(pagination.current - 1, pagination.current + 2),
+    'last_item': pagination.items,
+    'first_three': range(2, 5),
+    'last_three': range(pagination.items - 3, pagination.items),
+    'all': range(2, pagination.items)
   }
 %}
 
 <nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier | default('') }}">
-  <span class="usa-pagination__label">
-    Showing {{ pagination.current }} of {{ pagination.items }} total pages
-  </span>
 
   <ul class="usa-pagination__list">
-    {# Previous buttons #}
-    <li class="usa-pagination__item usa-pagination__previous-group">
-      <a
-        href="{{ placeholder_link }}"
-        class="usa-pagination__link"
-        aria-label="First group"
-        {{ 'disabled' if pagination.items <= 2 or pagination.current == 1 }}>
-        <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="{{ sprite_path }}#first_page"></use>
-        </svg>
-      </a>
-    </li>
-    <li class="usa-pagination__item usa-pagination__previous-page">
-      <a
-        href="{{ placeholder_link }}"
-        class="usa-pagination__link"
-        aria-label="Previous page"
-        {{ 'disabled' if pagination.current == 1 }}>
-        <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="{{ sprite_path }}#navigate_before"></use>
-        </svg>
-        <span class="usa-pagination__button-text">Previous</span>
-      </a>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      {{ paginationLink(1, pagination.current) }}
     </li>
 
     {# Page numbers #}
-    {#
-      /**
-      * Three Cases
-      * 1. Less than four items
-      * 2. Current is one of the last four items
-      * 3. Default (current + 1, ellipsis, last two)
-      */
-    #}
     {% switch true %}
-      {% case (pagination.items <= 4) %}
+      {% case pagination.items <= 4 %}
         {# List all of them if less than 4 #}
-        {% for item in pager_ranges.all %}
+        {% for item in pager_ranges.all  %}
           <li class="usa-pagination__item usa-pagination__page-no">
             {{ paginationLink(item, pagination.current) }}
           </li>
         {% endfor %}
-      {% case (pagination.current >= pagination.items - 4) %}
-        {# If last 4 items #}
-        {% for item in pager_ranges.last_four %}
+      {% case pagination.current <= 4 and pagination.items >= 4 %}
+        {# Show first three only #}
+        {% for item in pager_ranges.first_three  %}
+          <li class="usa-pagination__item usa-pagination__page-no">
+            {{ paginationLink(item, pagination.current) }}
+          </li>
+        {% endfor %}
+
+        {{ ellipsis | safe }}
+
+      {% case (pagination.current >= pagination.items - 3) %}
+        {{ ellipsis | safe }}
+
+        {# Show last three #}
+        {% for item in pager_ranges.last_three %}
           <li class="usa-pagination__item usa-pagination__page-no">
             {{ paginationLink(item, pagination.current) }}
           </li>
         {% endfor %}
       {% default %}
-        {# Show current and + 1 #}
-        {% for item in pager_ranges.first_two %}
+        {{ ellipsis | safe }}
+
+        {# Default - Current -1, Current, Current + 1 #}
+        {% for item in pager_ranges.default %}
           <li class="usa-pagination__item usa-pagination__page-no">
             {{ paginationLink(item, pagination.current) }}
           </li>
         {% endfor %}
 
-        <li class="usa-pagination__item">
-          <span class="usa-pagination__ellipsis" aria-label="X pages in between">
-            …
-          </span>
-        </li>
-
-        {% for item in pager_ranges.last_two %}
-          <li class="usa-pagination__item usa-pagination__page-no">
-            {{ paginationLink(item, pagination.current) }}
-          </li>
-        {% endfor %}
+        {{ ellipsis | safe }}
     {% endswitch %}
 
-    {# Next buttons #}
-    <li class="usa-pagination__item usa-pagination__next-page">
-      <a
-        href="{{ placeholder_link }}"
-        class="usa-pagination__link"
-        aria-label="Next page"
-        {{ 'disabled' if pagination.items == pagination.current }}>
-        <span class="usa-pagination__button-text">Next</span>
-        <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="{{ sprite_path }}#navigate_next"></use>
-      </svg>
-      </a>
-    </li>
-    <li class="usa-pagination__item usa-pagination__next-group">
-      <a
-        href="{{ placeholder_link }}"
-        class="usa-pagination__link"
-        aria-label="Next group"
-        {{ 'disabled' if pagination.items <= 2 or pagination.current == pagination.items }}>
-        <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="{{ sprite_path }}#last_page"></use>
-        </svg>
-      </a>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      {{ paginationLink(pager_ranges.last_item, pagination.current) }}
     </li>
   </ul>
 
+  {# Previous page #}
+  <a
+    href="{{ placeholder_link }}"
+    class="usa-pagination__link usa-pagination__previous-page"
+    aria-label="Previous page"
+    {{ 'disabled' if pagination.current == 1 }}>
+    <svg class="usa-icon" aria-hidden="true" role="img">
+      <use xlink:href="{{ sprite_path }}#navigate_before"></use>
+    </svg>
+    <span class="usa-pagination__button-text">Previous</span>
+  </a>
+
+  {# Next page #}
+  <a
+    href="{{ placeholder_link }}"
+    class="usa-pagination__link usa-pagination__next-page"
+    aria-label="Next page"
+    {{ 'disabled' if pagination.items == pagination.current }}>
+    <span class="usa-pagination__button-text">Next</span>
+    <svg class="usa-icon" aria-hidden="true" role="img">
+      <use xlink:href="{{ sprite_path }}#navigate_next"></use>
+    </svg>
+  </a>
   <a href="{{ placeholder_link }}" class="usa-pagination__view-all usa-link" aria-label="View all pages">
-    View all
+    View all results
   </a>
 </nav>
