@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.9.0
+USWDS 2.10.0
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -65,8 +65,8 @@ $theme-card-padding-perimeter: 3 !default;
 $theme-card-padding-y: 2 !default;
 
 // Collection
-$theme-collection-header-typeset: "ui", "md", 3 !default;
 $theme-collection-font-family: "ui" !default;
+$theme-collection-header-typeset: "ui", "md", 3 !default;
 
 // Footer
 $theme-footer-font-family: "body" !default;
@@ -132,6 +132,9 @@ $theme-search-min-width: 27ch !default;
 $theme-sidenav-current-border-width: 0.5 !default;
 $theme-sidenav-font-family: "ui" !default;
 
+// Site Alert
+$theme-site-alert-max-width: "desktop" !default;
+
 // Step indicator
 $step-indicator-background-color: "white" !default;
 $theme-step-indicator-counter-gap: 0.5 !default;
@@ -149,6 +152,15 @@ $theme-step-indicator-segment-color-current: "primary" !default;
 $theme-step-indicator-segment-gap: 2px !default;
 $theme-step-indicator-segment-height: 1 !default;
 $theme-step-indicator-text-pending-color: "base-dark" !default;
+
+// Summary box
+$theme-summary-box-background-color: "info-lighter" !default;
+$theme-summary-box-border-color: "info-light" !default;
+$theme-summary-box-border-width: 1px !default;
+$theme-summary-box-border-radius: "md" !default;
+$theme-summary-box-font-family: "ui" !default;
+$theme-summary-box-link-color: default !default;
+$theme-summary-box-text-color: default !default;
 
 // Table
 $theme-table-border-color: "ink" !default;

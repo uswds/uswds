@@ -19,7 +19,7 @@ context:
         pixels: "64px"
       - units: "9"
         pixels: "72px"
-    items: 
+    items:
       - name: accessibility_new
         meta: "accessible"
       - name: accessible_forward
@@ -27,7 +27,7 @@ context:
       - name: account_balance
         meta: "finance institution"
       - name: account_box
-        meta: "user"
+        meta: "user identity identification"
       - name: account_circle
         meta: "user"
       - name: add
@@ -54,12 +54,20 @@ context:
         meta: "navigation direction"
       - name: arrow_upward
         meta: "navigation direction"
+      - name: api
+        meta: "application programming interface"
+      - name: assessment
+        meta: "metrics bar chart test results"
       - name: attach_file
         meta: "paperclip"
       - name: attach_money
         meta: "dollar sign cash financial"
       - name: autorenew
         meta: "refresh"
+      - name: backpack
+        meta: "bag emergency kit"
+      - name: bathtub
+        meta: "bathe shower hygiene"
       - name: bookmark
         meta: ""
       - name: bug_report
@@ -76,6 +84,8 @@ context:
         meta: "comment"
       - name: check
         meta: "done complete"
+      - name: check_box_outline_blank
+        meta: "square"
       - name: check_circle
         meta: "done complete"
       - name: check_circle_outline
@@ -94,6 +104,10 @@ context:
         meta: ""
       - name: comment
         meta: "chat"
+      - name: connect_without_contact
+        meta: ""
+      - name: construction
+        meta: "tool"
       - name: contact_page
         meta: ""
       - name: content_copy
@@ -102,6 +116,8 @@ context:
         meta: ""
       - name: credit_card
         meta: "payment"
+      - name: deck
+        meta: "patio dine dining bar"
       - name: delete
         meta: "trash"
       - name: device_thermostat
@@ -126,6 +142,8 @@ context:
         meta: "leaf"
       - name: edit
         meta: "pen write pencil"
+      - name: electrical_services
+        meta: "electricity power"
       - name: emoji_events
         meta: "trophy"
       - name: error
@@ -198,6 +216,8 @@ context:
         meta: "clock"
       - name: home
         meta: "house"
+      - name: hotel
+        meta: "motel lodging"
       - name: hourglass_empty
         meta: ""
       - name: image
@@ -232,16 +252,24 @@ context:
         meta: "bullet"
       - name: local_cafe
         meta: "coffee cup"
+      - name: local_fire_department
+        meta: ""
+      - name: local_gas_station
+        meta: "fuel"
       - name: local_grocery_store
         meta: "cart"
       - name: local_hospital
         meta: "health help"
+      - name: local_laundry_service
+        meta: "laundromat wash"
       - name: local_library
         meta: "book"
       - name: local_offer
         meta: "tag category"
       - name: local_parking
         meta: ""
+      - name: local_pharmacy
+        meta: "prescription medication medicine drugs"
       - name: local_police
         meta: "law shield"
       - name: local_taxi
@@ -270,6 +298,8 @@ context:
         meta: "direction"
       - name: masks
         meta: ""
+      - name: medical_services
+        meta: "first aid kit"
       - name: menu
         meta: "hamburger navigation"
       - name: military_tech
@@ -300,30 +330,46 @@ context:
         meta: "users"
       - name: person
         meta: "user"
+      - name: pets
+        meta: "dog cat paw"
       - name: phone
         meta: "telephone"
       - name: photo_camera
         meta: "image picture"
+      - name: print
+        meta: "printer"
       - name: priority_high
         meta: "exclamation error notice"
       - name: public
         meta: "world globe earth language"
       - name: push_pin
         meta: "save"
+      - name: radio_button_unchecked
+        meta: "circle check box"
+      - name: reduce_capacity
+        meta: "occupancy"
       - name: remove_red_eye
         meta: "visibility"
+      - name: remove
+        meta: "minus collapse"
       - name: report
-        meta: "exlamation danger stop"
+        meta: "exclamation danger stop"
       - name: restaurant
         meta: "dining food"
       - name: rss_feed
         meta: ""
+      - name: safety_divider
+        meta: "barrier"
+      - name: sanitizer
+        meta: "hand clean"
       - name: save_alt
         meta: "arrow"
       - name: schedule
         meta: "clock"
       - name: school
         meta: "education graduation"
+      - name: science
+        meta: ""
       - name: search
         meta: "magnifying glass find"
       - name: security
@@ -349,7 +395,9 @@ context:
       - name: shopping_basket
         meta: "cart purchase"
       - name: soap
-        meta: "sanitize safety"
+        meta: "sanitize safety hand wash"
+      - name: social_distance
+        meta: ""
       - name: spellcheck
         meta: "edit"
       - name: star
@@ -370,6 +418,8 @@ context:
         meta: "rate review"
       - name: thumb_up_alt
         meta: "rate review"
+      - name: timer
+        meta: "countdown"
       - name: toggle_off
         meta: "switch"
       - name: toggle_on

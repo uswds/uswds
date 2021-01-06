@@ -13,9 +13,19 @@ variants:
       id: specific
       label: Input accepts only specific file types
       hint: Select PDF or TXT files
+      multiple: true
       accept:
-        - .pdf
+        - .pdf 
         - .txt
+
+  - name: wildcard
+    context:
+      id: wildcard
+      label: Input accepts any kind of image
+      hint: Select any type of image format
+      multiple: true
+      accept:
+        - image/*
 
   - name: multiple
     context:
