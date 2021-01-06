@@ -2,27 +2,36 @@
   $bg-color,
   $preferred-text-color: "white",
   $fallback-text-color: "ink",
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $important: null
 ) {
+  @if $important {
+    $important: " !important";
+  }
   color: get-color-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
     $wcag-target
-  );
+  ) #{$important};
 }
 
 @mixin set-text-and-bg(
   $bg-color,
   $preferred-text-color: "white",
   $fallback-text-color: "ink",
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $important: null
 ) {
+  @if $important {
+    $important: " !important";
+  }
   @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
-    $wcag-target
+    $wcag-target,
+    $important
   );
-  background-color: color($bg-color);
+  background-color: color($bg-color) #{$important};
 }

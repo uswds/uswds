@@ -7,7 +7,8 @@ $theme-pagination-border-width: 1px;
 $theme-pagination-border-color: "base-light";
 $theme-pagination-pager-color: "ink";
 $theme-pagination-background-color: "gray-2";
-$theme-pagination-margin-y: 1.5;
+$theme-pagination-margin-y: 2;
+$theme-pagination-margin-x: 0.5;
 $theme-pagination-min-width: 4.5ch;
 
 // Pagination
@@ -25,13 +26,21 @@ $theme-pagination-min-width: 4.5ch;
 
 // Shared styles
 // ---------------------------------
-.usa-pagination__label,
-.usa-pagination__link,
-.usa-pagination__current,
-.usa-pagination__ellipsis,
-.usa-pagination__view-all {
+%pagination-button-styles {
+  background-color: color($theme-pagination-background-color);
+  border-color: color($theme-pagination-border-color);
+  border-style: solid;
+  border-radius: radius($theme-pagination-border-radius);
+  border-width: units($theme-pagination-border-width);
+  display: inline-flex;
+  justify-content: center;
   padding-top: units($theme-pagination-padding);
   padding-bottom: units($theme-pagination-padding);
+
+  // Takes up all available width in pagination nav.
+  @include at-media($theme-pagination-breakpoint) {
+    width: 100%;
+  }
 }
 
 // Only display Previous/Next on mobile
@@ -43,26 +52,9 @@ $theme-pagination-min-width: 4.5ch;
   }
 }
 
-.usa-pagination__link,
-.usa-pagination__current,
-.usa-pagination__ellipsis {
-  background-color: color($theme-pagination-background-color);
-  border-color: color($theme-pagination-border-color);
-  border-style: solid;
-  border-width: units($theme-pagination-border-width);
-  display: inline-flex;
-  justify-content: center;
-
-  @include at-media($theme-pagination-breakpoint) {
-    width: 100%;
-  }
-}
-
 // Showing X of Y label
 // ---------------------------------
 .usa-pagination__label {
-  flex-grow: 1;
-  padding-left: 0;
 }
 
 // Pagination nav
@@ -70,13 +62,13 @@ $theme-pagination-min-width: 4.5ch;
 .usa-pagination__list {
   @include add-list-reset;
   align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  display: none;
+  margin-right: auto;
   width: 100%;
 
   @include at-media($theme-pagination-breakpoint) {
-    justify-content: start;
+    display: flex;
+    flex-flow: row nowrap;
     width: auto;
   }
 }
@@ -85,24 +77,20 @@ $theme-pagination-min-width: 4.5ch;
 .usa-pagination__item {
   @include u-text("tabular");
   line-height: 1;
+  margin-left: units($theme-pagination-margin-x);
+  margin-right: units($theme-pagination-margin-x);
   min-width: $theme-pagination-min-width;
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
   }
-
-  // All pagination items, except the 1st.
-  &:not(:first-of-type) > * {
-    @include at-media($theme-pagination-breakpoint) {
-      border-left-color: transparent;
-    }
-  }
 }
 
 .usa-pagination__link {
+  @extend %pagination-button-styles;
   align-items: center;
   color: color($theme-pagination-pager-color) !important;
-  outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
+  // outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
   padding: units($theme-pagination-padding);
   text-decoration: none;
 
@@ -112,25 +100,34 @@ $theme-pagination-min-width: 4.5ch;
   }
 
   &:hover {
-    color: color("primary");
+    color: color("primary") !important;
+  }
+}
+
+.usa-pagination__link--current {
+  @include set-text-and-bg($theme-color-primary, $important: true);
+  border-color: color("primary-darker");
+  padding: units($theme-pagination-padding);
+
+  &:hover,
+  &:focus,
+  &:active {
+    @include set-text-and-bg(
+      "primary-darker",
+      $important: true
+    );
   }
 }
 
 .usa-pagination__ellipsis {
-  color: color($theme-pagination-pager-color) !important;
   user-select: none;
   padding: units($theme-pagination-padding);
 }
 
-.usa-pagination__previous-group {
-  .usa-pagination__link {
-    border-bottom-left-radius: radius($theme-pagination-border-radius);
-    border-top-left-radius: radius($theme-pagination-border-radius);
-  }
-}
-
 .usa-pagination__previous-page,
 .usa-pagination__next-page {
+  width: 100%;
+
   .usa-pagination__button-text {
     display: none;
   }
@@ -138,13 +135,13 @@ $theme-pagination-min-width: 4.5ch;
   @include at-media-max($theme-pagination-breakpoint) {
     flex: 1 1 50%;
 
-    .usa-pagination__link {
-      width: 100%;
-    }
-
     .usa-pagination__button-text {
       display: block;
     }
+  }
+
+  @include at-media($theme-pagination-breakpoint) {
+    width: auto;
   }
 }
 
@@ -154,29 +151,11 @@ $theme-pagination-min-width: 4.5ch;
   }
 }
 
-.usa-pagination__current {
-  @include set-text-and-bg($theme-color-primary);
-  border-color: color("primary-darker");
-  padding: units($theme-pagination-padding);
-}
-
-.usa-pagination__next-group {
-  .usa-pagination__link {
-    border-bottom-right-radius: radius($theme-pagination-border-radius);
-    border-top-right-radius: radius($theme-pagination-border-radius);
-  }
-}
 
 // View All link
 // ---------------------------------
 .usa-pagination__view-all {
-  color: color("base-darker");
-  margin-left: auto;
   text-decoration: none;
-
-  &:hover {
-    color: color("primary");
-  }
 }
 
 // ---------------------------------
