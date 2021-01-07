@@ -5,6 +5,23 @@
   "engines": {
     "node": ">= 4"
   },
+  "keywords": [
+    "ui",
+    "uswds",
+    "components",
+    "library",
+    "open source",
+    "united states",
+    "usa",
+    "u.s.",
+    "government",
+    "websites"
+  ],
+  "module": "./dist/js/uswds.min.js",
+  "exports": {
+    "import": "./dist/js/uswds.min.js",
+    "default": "./dist/js/uswds.min.js"
+  },
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -64,6 +81,7 @@
     "url": "https://github.com/uswds/uswds/issues"
   },
   "homepage": "https://github.com/uswds/uswds#readme",
+  "types": "./index.d.ts",
   "dependencies": {
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
