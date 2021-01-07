@@ -1,0 +1,57 @@
+label: Site Alert
+status: ready
+context:
+  alert:
+    content: <strong>Short alert message.</strong> Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
+
+variants:
+  - name: info
+    label: Info
+    context:
+      siteAlert:
+        classes: "usa-site-alert--info"
+      alert:
+        title: Short alert message
+        content: Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
+
+  - name: emergency
+    label: Emergency
+    context:
+      siteAlert:
+        classes: "usa-site-alert--emergency"
+      alert:
+        title: Emergency alert message
+        content: Additional context and followup information including <a class="usa-link" href="javascript:void(0);">a link</a>.
+
+  - name: emergency-list
+    label: Emergency with List
+    context:
+      siteAlert:
+        classes: "usa-site-alert--emergency"
+      alert:
+        title: Emergency alert message
+        content: false
+        list: '
+          <ul class="usa-list">
+          <li>The primary emergency message and <a class="usa-link" href="javascript:void(0);">a link</a> for supporting context.</li>
+          <li>Another message, <a class="usa-link" href="javascript:void(0);">and another link</a>.</li>
+          <li>A final emergency message.</li>
+          </ul>'
+
+  - name: no-header
+    label: No header
+    context:
+      siteAlert:
+        classes: "usa-site-alert--emergency usa-site-alert--no-heading"
+
+  - name: no-icon
+    label: No icon
+    context:
+      siteAlert:
+        classes: "usa-site-alert--emergency usa-site-alert--no-icon"
+
+  - name: slim
+    label: Slim
+    context:
+      siteAlert:
+        classes: "usa-site-alert--emergency usa-site-alert--slim"

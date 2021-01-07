@@ -6,6 +6,7 @@ const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
 const INPUT_CLASS = `${PREFIX}-file-input__input`;
 const TARGET_CLASS = `${PREFIX}-file-input__target`;
+const INPUT = `.${INPUT_CLASS}`;
 const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
@@ -28,9 +29,64 @@ const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 /**
+ * The properties and elements within the file input.
+ * @typedef {Object} FileInputContext
+ * @property {HTMLDivElement} dropZoneEl
+ * @property {HTMLInputElement} inputEl
+ */
+
+/**
+ * Get an object of the properties and elements belonging directly to the given
+ * file input component.
+ *
+ * @param {HTMLElement} el the element within the file input
+ * @returns {FileInputContext} elements
+ */
+const getFileInputContext = (el) => {
+  const dropZoneEl = el.closest(DROPZONE);
+
+  if (!dropZoneEl) {
+    throw new Error(`Element is missing outer ${DROPZONE}`);
+  }
+
+  const inputEl = dropZoneEl.querySelector(INPUT);
+
+  return {
+    dropZoneEl,
+    inputEl,
+  };
+};
+
+/**
+ * Disable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const disable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = true;
+  dropZoneEl.classList.add(DISABLED_CLASS);
+  dropZoneEl.setAttribute("aria-disabled", "true");
+};
+
+/**
+ * Enable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const enable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = false;
+  dropZoneEl.classList.remove(DISABLED_CLASS);
+  dropZoneEl.removeAttribute("aria-disabled");
+};
+
+/**
  * Creates an ID name for each file that strips all invalid characters.
  * @param {string} name - name of the file added to file input
- * @returns {string} same characters as the name with invalide chars removed
+ * @returns {string} same characters as the name with invalid chars removed
  */
 const makeSafeForID = (name) => {
   return name.replace(/[^a-z0-9]/g, function replaceName(s) {
@@ -73,11 +129,10 @@ const buildFileInput = (fileInputEl) => {
 
   // Disabled styling
   if (disabled) {
-    fileInputParent.classList.add(DISABLED_CLASS);
-    fileInputParent.setAttribute("aria-disabled", "true");
+    disable(fileInputEl);
   }
 
-  // Sets instruction test based on whether or not multipe files are accepted
+  // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
     instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
@@ -98,7 +153,7 @@ const buildFileInput = (fileInputEl) => {
 /**
  * Removes image previews, we want to start with a clean list every time files are added to the file input
  * @param {HTMLElement} dropTarget - target area div that encases the input
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
@@ -138,15 +193,16 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * when correct files are added.
  * @param {event} e
  * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
-  const acceptedFiles = fileInputEl.getAttribute("accept");
+  const acceptedFilesAttr = fileInputEl.getAttribute("accept");
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
   // Runs if only specific files are accepted
-  if (acceptedFiles) {
+  if (acceptedFilesAttr) {
+    const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
@@ -154,15 +210,18 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
       const file = e.dataTransfer.files[i];
       if (allFilesAllowed) {
-        allFilesAllowed = file.name.indexOf(acceptedFiles);
-        if (allFilesAllowed < 0) {
-          break;
+        for (let j = 0; j < acceptedFiles.length; j += 1) {
+          const fileType = acceptedFiles[j];
+          allFilesAllowed =
+            file.name.indexOf(fileType) > 0 ||
+            file.type.includes(fileType.replace(/\*/g, ""));
+          if (allFilesAllowed) break;
         }
-      }
+      } else break;
     }
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
-    if (allFilesAllowed < 0) {
+    if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
@@ -180,7 +239,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
  * and removes old ones.
  * @param {event} e
  * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
@@ -309,6 +368,9 @@ const fileInput = behavior(
         };
       });
     },
+    getFileInputContext,
+    disable,
+    enable,
   }
 );
 

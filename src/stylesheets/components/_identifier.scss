@@ -75,7 +75,7 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__identity-domain {
-  @include u-text("light", $theme-identifier-identity-domain-color);
+  @include u-text($theme-identifier-identity-domain-color);
 }
 
 .usa-identifier__identity-disclaimer {

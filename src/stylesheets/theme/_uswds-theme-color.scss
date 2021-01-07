@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.9.0
+USWDS 2.10.0
 ----------------------------------------
 COLOR SETTINGS
 ----------------------------------------
@@ -119,6 +119,10 @@ $theme-color-disabled-family: "gray";
 $theme-color-disabled-light: "gray-10";
 $theme-color-disabled: "gray-20";
 $theme-color-disabled-dark: "gray-30";
+
+// Emergency colors
+$theme-color-emergency: "red-warm-60v";
+$theme-color-emergency-dark: "red-warm-80";
 
 /*
 ----------------------------------------
