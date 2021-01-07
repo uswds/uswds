@@ -22,6 +22,10 @@
     "import": "./dist/js/uswds.min.js",
     "default": "./dist/js/uswds.min.js"
   },
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -81,7 +85,6 @@
     "url": "https://github.com/uswds/uswds/issues"
   },
   "homepage": "https://github.com/uswds/uswds#readme",
-  "types": "./index.d.ts",
   "dependencies": {
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
@@ -96,6 +99,7 @@
     "@babel/preset-env": "^7.12.10",
     "@frctl/fractal": "^1.5.1",
     "@frctl/nunjucks": "^2.0.5",
+    "@skypack/package-check": "^0.2.2",
     "@types/node": "^14.14.13",
     "ansi-colors": "^4.1.1",
     "autoprefixer": "^10.1.0",
