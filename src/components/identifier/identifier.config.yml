@@ -83,8 +83,8 @@ context:
           es: javascript:void(0);
       performance:
         content:
-          en: Performance reports
-          es: Informes de desempeño
+          en: Budget and Performance
+          es: Presupuesto y Desempeño
         url:
           en: javascript:void(0);
           es: javascript:void(0);
