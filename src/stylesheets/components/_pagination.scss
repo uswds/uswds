@@ -24,6 +24,11 @@ $theme-pagination-min-width: 4.5ch;
   }
 }
 
+.usa-pagination .usa-icon {
+  height: px-to-rem(18);
+  width: px-to-rem(18);
+}
+
 // Shared styles
 // ---------------------------------
 %pagination-button-styles {
@@ -34,8 +39,7 @@ $theme-pagination-min-width: 4.5ch;
   border-width: units($theme-pagination-border-width);
   display: inline-flex;
   justify-content: center;
-  padding-top: units($theme-pagination-padding);
-  padding-bottom: units($theme-pagination-padding);
+  padding: units($theme-pagination-padding);
 
   // Takes up all available width in pagination nav.
   @include at-media($theme-pagination-breakpoint) {
@@ -50,11 +54,6 @@ $theme-pagination-min-width: 4.5ch;
   @include at-media-max($theme-pagination-breakpoint) {
     display: none;
   }
-}
-
-// Showing X of Y label
-// ---------------------------------
-.usa-pagination__label {
 }
 
 // Pagination nav
@@ -90,8 +89,6 @@ $theme-pagination-min-width: 4.5ch;
   @extend %pagination-button-styles;
   align-items: center;
   color: color($theme-pagination-pager-color) !important;
-  // outline-offset: (units($theme-pagination-padding) / 2) * -1 !important;
-  padding: units($theme-pagination-padding);
   text-decoration: none;
 
   &[disabled] {
@@ -107,7 +104,6 @@ $theme-pagination-min-width: 4.5ch;
 .usa-pagination__link--current {
   @include set-text-and-bg($theme-color-primary, $important: true);
   border-color: color("primary-darker");
-  padding: units($theme-pagination-padding);
 
   &:hover,
   &:focus,
