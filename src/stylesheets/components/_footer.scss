@@ -225,6 +225,10 @@
   @include add-background-svg("social-icons/youtube15");
 }
 
+.usa-social-link--instagram {
+  @include add-background-svg("social-icons/instagram25");
+}
+
 .usa-social-link--rss {
   @include add-background-svg("social-icons/rss25");
 }
