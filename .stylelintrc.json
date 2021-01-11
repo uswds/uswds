@@ -8,5 +8,5 @@
     "no-descending-specificity": null,
     "no-duplicate-selectors": null
   },
-  "ignoreFiles": "./src/stylesheets/lib/**/*"
+  "ignoreFiles": "./src/patterns/stylesheets/lib/**/*"
 }
