@@ -1,0 +1,3 @@
+---
+modifier: 'usa-table--stacked usa-table--borderless'
+caption: 'Stacked borderless table (when on a <span class="text-no-wrap">mobile-width</span> screen)'

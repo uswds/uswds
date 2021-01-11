@@ -1,0 +1,8 @@
+.usa-hint {
+  @extend %block-input-general;
+  color: color("base");
+}
+
+.usa-hint--required {
+  color: color("error-dark");
+}

@@ -1,0 +1,22 @@
+---
+modifier: 'usa-step-indicator--counters-sm'
+showLabels: true
+centered: false
+currentStep: 3
+steps:
+  - step:
+    status: complete
+    label: Personal information
+  - step:
+    status: complete
+    label: Household status
+  - step:
+    status: current
+    label: Supporting documents
+  - step:
+    status: incomplete
+    label: Signature
+  - step:
+    status: incomplete
+    label: Review and submit
+

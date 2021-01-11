@@ -1,0 +1,4 @@
+---
+scrollable: false
+modifier: 'usa-table--striped'
+caption: 'Bordered table with horizontal stripes'

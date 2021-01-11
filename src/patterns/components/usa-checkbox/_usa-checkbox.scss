@@ -1,0 +1,100 @@
+$input-select-margin-right: 1.5;
+
+@include override-prose {
+  .usa-input-list {
+    @include add-list-reset;
+
+    li {
+      line-height: line-height($theme-form-font-family, $theme-input-line-height);
+    }
+  }
+}
+
+.usa-checkbox__input {
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include sr-only();
+
+  .lt-ie9 & {
+    border: 0;
+    float: left;
+    margin: units(0.5) units(0.5) 0 0;
+    position: static;
+    width: auto;
+  }
+}
+
+.usa-checkbox__label {
+  cursor: pointer;
+  display: inherit;
+  font-weight: font-weight("normal");
+  margin-top: units(1.5);
+  padding-left: units($input-select-margin-right + $theme-input-select-size);
+  position: relative;
+  text-indent: units(-$input-select-margin-right - $theme-input-select-size);
+
+  &::before {
+    @include u-square($theme-input-select-size);
+    background: color("white");
+    border-radius: radius($theme-checkbox-border-radius);
+    box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
+    content: "\a0";
+    display: inline-block;
+    left: units($theme-input-select-border-width);
+    line-height: units($theme-input-select-size);
+    margin-right: units($input-select-margin-right);
+    position: relative;
+    text-indent: 0;
+    vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+  }
+}
+
+.usa-checkbox__input:checked + .usa-checkbox__label::before {
+  @include add-background-svg("correct8");
+  background-color: color("primary");
+  background-position: center center;
+  background-size: units(1.5) auto;
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary");
+
+  @media print {
+    background-image: none;
+    background-color: color("white");
+    content: url("#{$theme-image-path}/checkbox-check-print.svg");
+    text-indent: 0;
+  }
+}
+
+.usa-checkbox__input:disabled + .usa-checkbox__label {
+  color: color("disabled");
+  cursor: not-allowed;
+}
+
+.usa-checkbox__input:focus + .usa-checkbox__label::before {
+  @include focus-outline;
+}
+
+.usa-checkbox__input:disabled + .usa-checkbox__label::before {
+  background: color("disabled-light");
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
+  cursor: not-allowed;
+}
+
+// Checkboxes with tap-friendly targets
+.usa-checkbox__input--tile + .usa-checkbox__label {
+  border: units($theme-input-tile-border-width) solid color($theme-input-tile-border-color);
+  border-radius: radius($theme-input-tile-border-radius);
+  margin: units(1) 0;
+  padding: units(1.5) units(2) units(1.5) units(5);
+}
+
+.usa-checkbox__input--tile:checked + .usa-checkbox__label {
+  background-color: color($theme-input-tile-background-color-selected);
+  border-color: color($theme-input-tile-border-color-selected);
+}
+
+.usa-checkbox__label-description {
+  display: block;
+  font-size: size("ui", "2xs");
+  margin-top: units(1);
+  text-indent: 0;
+}

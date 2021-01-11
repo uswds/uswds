@@ -1,0 +1,3 @@
+---
+modifier: 'usa-table--stacked-header usa-table--borderless'
+caption: 'Stacked borderless table with headers (when on a mobile-width screen)'

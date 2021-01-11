@@ -1,85 +1,147 @@
-// Bring in individual Gulp configurations
-require("./config/gulp/flags");
-require("./config/gulp/sass");
+"use strict";
+
+// Old gulp tasks
+// Patch these in until ported into new syntax
+// test, regression: nope, not yet...
+// require("./config/gulp/test");
+// typecheck
 require("./config/gulp/javascript");
-require("./config/gulp/images");
-require("./config/gulp/fonts");
-require("./config/gulp/svg-sprite");
-require("./config/gulp/build");
-require("./config/gulp/release");
-require("./config/gulp/test");
 
-var gulp = require("gulp");
-var dutil = require("./config/gulp/doc-util");
+// Include gulp helpers.
+const { series, parallel, watch } = require("gulp");
 
-gulp.task("default", function(done) {
-  dutil.logIntroduction();
+// Include Pattern Lab and config.
+const config = require("./patternlab-config.json");
+const patternlab = require("@pattern-lab/core")(config);
 
-  dutil.logHelp(
-    "gulp",
-    "This task will output the currently supported automation tasks. (e.g. This help message.)"
-  );
+// Include Our tasks.
+//
+// Each task is broken apart to it's own node module.
+// Check out the ./gulp-tasks directory for more.
+const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass,} = require("./gulp-tasks/clean");
+const { compileSass, compileJS } = require("./gulp-tasks/compile");
+const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
+const { lintSass, lintJS } = require("./gulp-tasks/lint");
+const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
+const server = require("browser-sync").create();
 
-  dutil.logHelp(
-    "gulp no-cleanup [ task-name ]",
-    "Prefixing tasks with `no-cleanup ` will not remove the distribution directories."
-  );
+// Clean all directories.
+exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
 
-  dutil.logHelp(
-    "gulp no-test [ task-name ]",
-    "Prefixing tasks with `no-test` will disable testing and linting for all supported tasks."
-  );
+// Lint Sass
+exports.lintSass = parallel(lintSass);
 
-  dutil.logCommand(
-    "gulp clean-dist",
-    "This task will remove the distribution directories."
-  );
+// Lint JavaScript
+exports.lintJS = parallel(lintJS);
 
-  dutil.logHelp(
-    "gulp build",
-    "This task is an alias for running `gulp sass javascript images fonts` and is the recommended task to build all assets."
-  );
+// Lint Sass and JavaScript
+exports.lint = parallel(lintSass, lintJS);
 
-  dutil.logCommand(
-    "gulp sass",
-    "This task will compile all the Sass files into distribution directories."
-  );
+// Compile Our Sass and JS
+exports.compile = parallel(compileSass, compileJS, moveFonts, movePatternCSS);
 
-  dutil.logCommand(
-    "gulp javascript",
-    "This task will compile all the JavaScript files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp images",
-    "This task will copy all the image files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp fonts",
-    "This task will copy all the font files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp release",
-    "This task will run `gulp build` and prepare a release directory."
-  );
-
-  dutil.logCommand(
-    "gulp test",
-    "This task will run `gulp test` and run this repository's unit tests."
-  );
-
-  dutil.logCommand(
-    "gulp svg-sprite",
-    "This task will compile all the svg files in the usa-icons directory into an svg sprite."
-  );
-
+/**
+ * Start browsersync server.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function serve(done) {
+  // See https://browsersync.io/docs/options for more options.
+  server.init({
+    server: ["./patternlab/"],
+    notify: false,
+    open: false,
+  });
   done();
-});
+}
 
-gulp.task("watch", function() {
-  gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
-    gulp.watch("src/js/**/*.js", gulp.series("javascript"));
-  return;
-});
+/**
+ * Start Pattern Lab build watch process.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function watchPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: true,
+    })
+    .then(() => {
+      done();
+    });
+}
+
+/**
+ * Build Pattern Lab.
+ * @param {function} done callback function.
+ * @returns {undefined}
+ */
+function buildPatternlab(done) {
+  patternlab
+    .build({
+      cleanPublic: config.cleanPublic,
+      watch: false,
+    })
+    .then(() => {
+      done();
+    });
+}
+
+// Build task for Pattern Lab.
+exports.styleguide = buildPatternlab;
+
+/**
+ * Watch Sass and JS files.
+ * @returns {undefined}
+ */
+function watchFiles() {
+  // Watch all my sass files and compile sass if a file changes.
+  watch(
+    "./src/patterns/**/**/*.scss",
+    series(parallel(lintSass, compileSass), (done) => {
+      server.reload("*.css");
+      done();
+     })
+  );
+
+  // Watch all my JS files and compile if a file changes.
+  watch(
+    "./src/js/**/*.js",
+    series(parallel(lintJS, compileJS), (done) => {
+      server.reload("*.js");
+      done();
+    })
+  );
+
+  // Watch all my patterns and compile if a file changes.
+  watch(
+    "./src/patterns/**/**/*{.twig,.yml}",
+    series(parallel(buildPatternlab), (done) => {
+      server.reload("*{.html}");
+      done();
+    })
+  );
+
+  // Reload the browser after patternlab updates.
+  patternlab.events.on("patternlab-build-end", () => {
+    server.reload("*.html");
+  });
+}
+
+// Watch task that runs a browsersync server.
+exports.watch = series(
+  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
+  parallel(copyVendor),
+  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(copyFonts, copyImages, copySass, copyStyleguide),
+  series(watchPatternlab, serve, watchFiles)
+);
+
+// Default Task
+exports.default = series(
+  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
+  parallel(copyVendor),
+  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(copyFonts, copyImages, copySass, copyStyleguide),
+  buildPatternlab
+);

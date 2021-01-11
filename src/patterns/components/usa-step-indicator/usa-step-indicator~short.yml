@@ -1,0 +1,15 @@
+---
+modifier: ''
+showLabels: true
+centered: false
+currentStep: 2
+steps:
+  - step:
+    status: complete
+    label: Personal information
+  - step:
+    status: current
+    label: Household status
+  - step:
+    status: incomplete
+    label: Supporting documents

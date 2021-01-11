@@ -1,0 +1,4 @@
+---
+modifier: 'usa-button--outline usa-button--inverse'
+title: 'Outline inverse button'
+show_states: true

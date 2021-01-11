@@ -1,0 +1,6 @@
+---
+heading: 'Default'
+modifier: ''
+items:
+  - '<a href="#" class="usa-button usa-button--outline">Back</a>'
+  - '<button class="usa-button">Continue</button>'

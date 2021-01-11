@@ -1,0 +1,7 @@
+.usa-prose {
+  @include typeset($theme-prose-font-family);
+
+  &> {
+    @include usa-content-styles;
+  }
+}

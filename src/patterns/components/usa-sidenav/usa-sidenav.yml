@@ -1,0 +1,10 @@
+---
+modifier: ''
+items:
+  - label: Current page
+    href: javascript:void(0);
+    current: true
+  - label: Parent link
+    href: javascript:void(0);
+  - label: Parent link
+    href: javascript:void(0);
