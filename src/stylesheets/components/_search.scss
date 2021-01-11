@@ -18,6 +18,7 @@
   // ...or if the component has a separate <div[role="search"]> (<=2.4.0)
   [role="search"] {
     display: flex;
+    flex-shrink: 0;
   }
 
   [type="submit"] {
