@@ -17,6 +17,7 @@ const replace = require("gulp-replace");
 const sass = require('gulp-sass');
 const source = require("vinyl-source-stream");
 const sourcemaps = require('gulp-sourcemaps');
+const svgSprite = require('gulp-svg-sprite');
 const uglify = require("gulp-uglify");
 
 // Initialize Plugins
@@ -25,6 +26,27 @@ const pluginsMinify = [csso({ forceMediaMerge: false })];
 
 // Set sass compiler to use Dart Sass
 sass.compiler = require('sass');
+
+// More complex configuration example
+const svgConfig = {
+  shape: {
+    dimension: { // Set maximum dimensions
+      maxWidth: 24,
+      maxHeight: 24
+    },
+    id: {
+      separator: "-"
+    },
+    spacing: { // Add padding
+      padding: 0
+    }
+  },
+  mode: {
+    symbol: {
+      sprite: "../sprite.svg"
+    }
+  }
+};
 
 /**
  * Error handler function so we can see when errors happen.
@@ -52,6 +74,13 @@ module.exports = {
       .pipe(rename({ suffix: '.min' }))
       .pipe(sourcemaps.write("."))
       .pipe(dest('dist/css'));
+  },
+
+  // Compile Sprite.
+  compileSprite: function() {
+    return src('src/img/usa-icons/**/*.svg')
+      .pipe(svgSprite(svgConfig)).on('error', handleError)
+      .pipe(dest('src/img'))
   },
 
   // Compile JavaScript.

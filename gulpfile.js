@@ -19,7 +19,7 @@ const patternlab = require("@pattern-lab/core")(config);
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
 const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass,} = require("./gulp-tasks/clean");
-const { compileSass, compileJS } = require("./gulp-tasks/compile");
+const { compileSass, compileJS, compileSprite } = require("./gulp-tasks/compile");
 const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
@@ -38,7 +38,7 @@ exports.lintJS = parallel(lintJS);
 exports.lint = parallel(lintSass, lintJS);
 
 // Compile Our Sass and JS
-exports.compile = parallel(compileSass, compileJS, moveFonts, movePatternCSS);
+exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, movePatternCSS);
 
 /**
  * Start browsersync server.
@@ -132,7 +132,7 @@ function watchFiles() {
 exports.watch = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
   parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(watchPatternlab, serve, watchFiles)
 );
@@ -141,7 +141,7 @@ exports.watch = series(
 exports.default = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
   parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS),
+  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   buildPatternlab
 );

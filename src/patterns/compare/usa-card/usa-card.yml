@@ -1,0 +1,21 @@
+---
+modifier: ''
+default_classes: ''
+cards:
+  - title: Card
+    classes_override: 'tablet:grid-col-4'
+    media: false
+    content: |-
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+  - title: Card with media
+    classes_override: 'tablet:grid-col-4'
+    header_first: false
+    media: true
+    content: |-
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Excepturi nobis dolores molestias! Quas quisquam a officia eos.
+  - title: Media and header first
+    classes_override: 'tablet:grid-col-4'
+    header_first: true
+    media: true
+    content: |-
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.

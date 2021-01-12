@@ -30,5 +30,4 @@ module.exports = {
    cleanSass: function() {
     return del(['./dist/scss/*'], { force: true });
   }
-
 };

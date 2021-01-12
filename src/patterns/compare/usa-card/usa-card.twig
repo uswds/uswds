@@ -1,0 +1,23 @@
+{% set flag_settings = {
+  'modifier': 'usa-card--flag',
+  'cards': [
+    {
+      'title': 'Flag default',
+      'classes_override': 'tablet:grid-col-6',
+      'media': true,
+      'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      'title': 'Flag media on right',
+      'classes_override': 'tablet:grid-col-6 usa-card--media-right',
+      'media': true,
+      'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    }
+  ]
+} %}
+
+<h4 class="padding-bottom-2">Standard layout</h4>
+{% include "@components/usa-card/usa-card.twig" %}
+
+<h4 class="padding-bottom-2">Flag layout</h4>
+{% include "@components/usa-card/usa-card.twig" with flag_settings %}
