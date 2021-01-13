@@ -3,6 +3,7 @@
 .usa-date-picker__wrapper {
   display: none;
   position: relative;
+  max-width: units($theme-input-max-width);
 
   &:focus {
     outline: 0;
