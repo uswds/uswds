@@ -15,9 +15,9 @@ const getCellValue = (tr, index) => tr.children[index].innerText || tr.children[
 
 // only sorts strings alphabetically, doesn't yet compare floats
 const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
-    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2)
+    // if neither value is empty, and if both values are already numbers, compare numerically. Otherwise, compare alphabetically based on current user locale
+    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.languages[0] || navigator.language, {numeric: true, ignorePunctuation: true})
     )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
-
 
 /**
  * Get an Array of column headers elements belonging directly to the given
