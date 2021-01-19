@@ -1753,9 +1753,14 @@ system z-index
   @return color($color);
 }
 
-@function is-custom-color(
-  $color-token
-) {
+/*
+----------------------------------------
+is-custom-color()
+----------------------------------------
+Check whether color token is a USWDS color or custom
+----------------------------------------
+*/
+@function is-custom-color($color-token) {
   $color-token: type-of(map-get($assignments-theme-color, $color-token));
 
   @if $color-token != "color" {
@@ -1764,6 +1769,50 @@ system z-index
     @return true;
   }
 }
+
+/*
+----------------------------------------
+get-custom-color-split()
+----------------------------------------
+Get custom color split values
+----------------------------------------
+*/
+@function get-custom-color-split($custom-token) {
+  $custom-split: str-split($custom-token, "-");
+
+  // ignore vivid in token calculations, treat as default
+  @if index($custom-split, "vivid") {
+    $custom-split: remove($custom-split, "vivid");
+  }
+
+  @return $custom-split;
+}
+
+/*
+----------------------------------------
+get-custom-color-family()
+----------------------------------------
+Get color family from custom split
+----------------------------------------
+*/
+@function get-custom-color-family($custom-split) {
+  // Set family as the first string in the split
+  $custom-family: nth($custom-split, 1);
+
+  @if $custom-family == "accent" {
+    $custom-family: $custom-family + "-" + nth($custom-split, 2);
+  }
+
+  @return $custom-family;
+}
+
+/*
+----------------------------------------
+get-link-tokens-from-bg()
+----------------------------------------
+Get accessible link colors from background
+----------------------------------------
+*/
 @function get-link-tokens-from-bg(
   $bg-color,
   $preferred-link-color: $theme-link-color,
@@ -1813,23 +1862,17 @@ system z-index
         $custom-token: $color-token;
         $custom-token-lighter: false;
         $custom-token-darker: false;
-        $custom-split: str-split($custom-token, "-");
+        $custom-split: get-custom-color-split($custom-token);
         $custom-grade: false;
         $custom-grade-lighter: false;
         $custom-grade-darker: false;
         //@debug "custom split:" + $custom-split;
 
-        // set family as the first string in the split
-        $custom-family: nth($custom-split, 1);
+        $custom-family: get-custom-color-family($custom-split);
 
-        // ignore vivid in token calculations, treat as default
-        @if index($custom-split, "vivid") {
-          $custom-split: remove($custom-split, "vivid");
-        }
-
+        //? TODO @function get-custom-grade()
         // set family and grade for "accent" families, since their family includes the split character
         @if $custom-family == "accent" {
-          $custom-family: $custom-family + "-" + nth($custom-split, 2);
           $custom-grade: if(
             length($custom-split) == 3,
             nth($custom-split, 3),
