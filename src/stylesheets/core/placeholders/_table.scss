@@ -176,6 +176,7 @@
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   text-decoration: none;
   width: 100%;
+  height: 100%;
   border-width: units(2px) 0;
   border-style: solid;
   border-color: transparent;
@@ -203,6 +204,7 @@
 
 th.usa-table__header--sortable {
   padding: 0;
+  height: 1px;
 }
 
 .usa-table__header__button {
