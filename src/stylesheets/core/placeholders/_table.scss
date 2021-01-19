@@ -25,7 +25,6 @@
     background-color: color("white");
     font-weight: fw("normal");
     padding: units(1) units(2);
-    text-align: inherit;
   }
 
   caption {
@@ -160,5 +159,67 @@
   th,
   td {
     white-space: nowrap;
+  }
+}
+
+
+
+@mixin table-button-unsorted-styles {
+  @include button-unstyled;
+  @include add-background-svg("usa-icons/arrow_sort");
+
+  background-position: right units(1.5) center;
+  background-size: units(2);
+  color: color("ink");
+  cursor: pointer;
+  display: inline-block;
+  font-weight: font-weight("bold");
+  margin: 0;
+  padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
+  text-decoration: none;
+  width: 100%;
+
+  &:hover {
+    background-color: color("base-lightest");
+    color: color("ink");
+    text-decoration: none;
+  }
+}
+// scss-lint:enable PropertyCount
+
+@mixin table-button-sort-ascending-styles {
+  @include add-background-svg("usa-icons/arrow_downward");
+  background-size: units(2);
+  background-color: color("base-lightest");
+
+}
+
+@mixin table-button-sort-descending-styles {
+  @include add-background-svg("usa-icons/arrow_upward");
+  background-size: units(2);
+  background-color: color("base-lightest");
+}
+
+th.usa-table__header--sortable {
+  padding: 0;
+}
+
+.usa-table__header__button {
+  @include table-button-unsorted-styles;
+}
+
+// .usa-table__header--sortable[aria-sort="none"] {
+//   .usa-table__header__button {
+//     @include table-button-unsorted-styles;
+//   }
+// }
+.usa-table__header--sortable[aria-sort="descending"] {
+  .usa-table__header__button {
+    @include table-button-sort-descending-styles;
+  }
+}
+.usa-table__header--sortable[aria-sort="ascending"] {
+  .usa-table__header__button {
+    @include table-button-sort-ascending-styles;
   }
 }
