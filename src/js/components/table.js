@@ -15,7 +15,7 @@ const getCellValue = (tr, index) => tr.children[index].innerText || tr.children[
 
 // only sorts strings alphabetically, doesn't yet compare floats
 const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
-    v1 !== '' && v2 !== '' && !Number.isNaN(v1) && !Number.isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2)
     )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
 
 
