@@ -176,7 +176,9 @@
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   text-decoration: none;
   width: 100%;
-
+  border-width: units(2px) 0;
+  border-style: solid;
+  border-color: transparent;
   &:hover {
     background-color: color("base-lightest");
     color: color("ink");
@@ -185,16 +187,18 @@
 }
 // scss-lint:enable PropertyCount
 
-@mixin table-button-sort-ascending-styles {
-  @include add-background-svg("usa-icons/arrow_downward");
+@mixin table-button-sorted-styles {
   background-size: units(2);
   background-color: color("base-lightest");
+  border-bottom-color: color("ink");
 }
-
-@mixin table-button-sort-descending-styles {
+@mixin table-button-sorted-ascending-styles {
+  @include table-button-sorted-styles;
   @include add-background-svg("usa-icons/arrow_upward");
-  background-size: units(2);
-  background-color: color("base-lightest");
+}
+@mixin table-button-sorted-descending-styles {
+  @include table-button-sorted-styles;
+  @include add-background-svg("usa-icons/arrow_downward");
 }
 
 th.usa-table__header--sortable {
@@ -212,12 +216,12 @@ th.usa-table__header--sortable {
 // }
 .usa-table__header--sortable[aria-sort="descending"] {
   .usa-table__header__button {
-    @include table-button-sort-descending-styles;
+    @include table-button-sorted-descending-styles;
   }
 }
 
 .usa-table__header--sortable[aria-sort="ascending"] {
   .usa-table__header__button {
-    @include table-button-sort-ascending-styles;
+    @include table-button-sorted-ascending-styles;
   }
 }
