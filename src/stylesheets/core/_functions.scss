@@ -1753,6 +1753,17 @@ system z-index
   @return color($color);
 }
 
+@function is-custom-color(
+  $color-token
+) {
+  $color-token: type-of(map-get($assignments-theme-color, $color-token));
+
+  @if $color-token != "color" {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
 @function get-link-tokens-from-bg(
   $bg-color,
   $preferred-link-color: $theme-link-color,
@@ -1782,11 +1793,7 @@ system z-index
   @each $color-token in $our-color-tokens {
     //@debug "color token: " + $color-token;
     // If the color token is a custom color, set a $custom flag
-    $custom: if(
-      type-of(map-get($assignments-theme-color, $color-token)) == "color",
-      true,
-      false
-    );
+    $custom: is-custom-color($color-token);
 
     // Only get a link color if one has not yet been found
     @if not $found {
