@@ -162,8 +162,6 @@
   }
 }
 
-
-
 @mixin table-button-unsorted-styles {
   @include button-unstyled;
   @include add-background-svg("usa-icons/arrow_sort");
@@ -191,7 +189,6 @@
   @include add-background-svg("usa-icons/arrow_downward");
   background-size: units(2);
   background-color: color("base-lightest");
-
 }
 
 @mixin table-button-sort-descending-styles {
@@ -218,6 +215,7 @@ th.usa-table__header--sortable {
     @include table-button-sort-descending-styles;
   }
 }
+
 .usa-table__header--sortable[aria-sort="ascending"] {
   .usa-table__header__button {
     @include table-button-sort-ascending-styles;

@@ -15,7 +15,7 @@ const getCellValue = (tr, index) => tr.children[index].innerText || tr.children[
 
 // only sorts strings alphabetically, doesn't yet compare floats
 const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
-    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    v1 !== '' && v2 !== '' && !Number.isNaN(v1) && !Number.isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
     )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
 
 
@@ -49,7 +49,7 @@ const sortRows = (header, ascending) => {
 
   const tbody = header.closest(TABLE).querySelector('tbody');
   Array.from(tbody.querySelectorAll('tr'))
-    .sort(compareFunction(Array.from(header.parentNode.children).indexOf(header), ascending = !ascending))
+    .sort(compareFunction(Array.from(header.parentNode.children).indexOf(header), !ascending))
     .forEach(tr => tbody.appendChild(tr) );
 
 
@@ -107,7 +107,7 @@ const table = behavior(
     init(root) {
       const sortableHeaders = select(HEADER, root);
       let firstSortable = sortableHeaders.find((header) => header.getAttribute(SORTABLE) === "ascending" || header.getAttribute(SORTABLE) === "descending");
-      if (typeof firstSortable === undefined) {
+      if (typeof firstSortable === "undefined") {
         // no sortable headers found
         return;
       }   
