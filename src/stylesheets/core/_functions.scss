@@ -1836,6 +1836,56 @@ Get custom color grade from custom color split
 
 /*
 ----------------------------------------
+get-custom-color-lighter-grade()
+----------------------------------------
+Get lighter grade from custom color
+----------------------------------------
+*/
+@function get-custom-color-lighter-grade($custom-color-grade-index) {
+  $custom-color-grade-lighter: false;
+
+ // If it's the lightest grade, use "white" for the lighter family
+  @if $custom-color-grade-index != 1 {
+    $custom-color-grade-lighter: nth(
+      $uswds-color-theme-grades,
+      ($custom-color-grade-index - 1)
+    );
+  }
+
+  @if $custom-color-grade-lighter != "default" {
+    @return $custom-color-grade-lighter;
+  } @else {
+    @return false;
+  }
+}
+/*
+----------------------------------------
+get-custom-color-darker-grade()
+----------------------------------------
+Get darker grade from custom color
+----------------------------------------
+*/
+@function get-custom-color-darker-grade($custom-color-grade-index) {
+  $custom-color-grade-darker: false;
+
+  // If it's the darkest grade, use "black" for the lighter family
+  @if $custom-color-grade-index != length($uswds-color-theme-grades) {
+    $custom-color-grade-darker: nth(
+      $uswds-color-theme-grades,
+      ($custom-color-grade-index + 1)
+    );
+  }
+
+  // If any calculated grade is "default", don't output the grade
+  @if $custom-color-grade-darker != "default" {
+    @return $custom-color-grade-darker;
+  } @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
 get-link-tokens-from-bg()
 ----------------------------------------
 Get accessible link colors against background color
@@ -1911,36 +1961,18 @@ Get accessible link colors against background color
         // If it's the lightest grade, use "white" for the lighter family
         @if $custom-grade-index == 1 {
           $custom-family-lighter: "white";
-        } @else {
-          $custom-grade-lighter: nth(
-            $uswds-color-theme-grades,
-            ($custom-grade-index - 1)
-          );
         }
-        //@debug "lighter grade: " + $custom-grade-lighter;
+
+        $custom-grade-lighter: get-custom-color-lighter-grade($custom-grade-index);
+        // @debug "lighter grade: " + $custom-grade-lighter;
+
         // If it's the darkest grade, use "black" for the lighter family
         @if $custom-grade-index == length($uswds-color-theme-grades) {
           $custom-family-darker: "black";
-        } @else {
-          $custom-grade-darker: nth(
-            $uswds-color-theme-grades,
-            ($custom-grade-index + 1)
-          );
         }
-        //@debug "darker grade: " + $custom-grade-darker;
 
-        // If any calculated grade is "default", don't output the grade
-        $custom-grade-darker: if(
-          $custom-grade-darker == "default",
-          false,
-          $custom-grade-darker
-        );
-
-        $custom-grade-lighter: if(
-          $custom-grade-lighter == "default",
-          false,
-          $custom-grade-lighter
-        );
+        $custom-grade-darker: get-custom-color-darker-grade($custom-grade-index);
+        // @debug "darker grade: " + $custom-grade-darker;
 
         // Build the custom lighter and darker tokens
         $token-darker: if(
