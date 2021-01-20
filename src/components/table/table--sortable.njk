@@ -1,77 +1,89 @@
 <table class="usa-table usa-table--sortable">
-  <caption>Sortable table example - Federal Budget Baseline Projections</caption>
+  <caption>Sortable table example - Various content types</caption>
   <thead>
     <tr>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="ascending">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable aria-sort="descending">
         <button class="usa-table__header__button" 
-          aria-label="Sort by Fiscal Year in descending order">
-          Fiscal Year
+          aria-label="Sortable column, sorted descending, activate to sort by Year in ascending order">
+          Year
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Revenue in ascending order">
-          Revenue
+          aria-label="Sortable column, unsorted, activate to sort by Month in ascending order">
+          Month
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Outlays in ascending order">
-          Outlays
-        </button>
-
-      </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
-        <button class="usa-table__header__button" 
-          aria-label="Sort by Budget Deficit in ascending order">
-          Budget Deficit
+          aria-label="Sortable column, unsorted, activate to sort by Percent in ascending order">
+          Percent
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Debt Held By Public in ascending order">
-          Debt Held By Public
+          aria-label="Sortable column, unsorted, activate to sort by Count in ascending order">
+          Count
+        </button>
+      </th>
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
+        <button class="usa-table__header__button" 
+          aria-label="Sortable column, unsorted, activate to sort by Ordinal Rank in ascending order">
+          Rank (Ordinal)
+        </button>
+      </th>
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
+        <button class="usa-table__header__button" 
+          aria-label="Sortable column, unsorted, activate to sort by Cardinal Rank in ascending order">
+          Rank (Cardinal)
+        </button>
+      </th>
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
+        <button class="usa-table__header__button" 
+          aria-label="Sortable column, unsorted, activate to sort by Timestamp in ascending order">
+          Unix Timestamp
         </button>
       </th>
     </tr>
   </thead>
   <tr>
-    <th>2017</th>
-    <td class="font-mono-sm text-tabular text-right">17.2%</td>
-    <td class="font-mono-sm text-tabular text-right">20.6%</td>
-    <td class="font-mono-sm text-tabular text-right">-3.5%</td>
-    <td class="font-mono-sm text-tabular text-right">76.0%</td>
+    <th>2020 AD</th>
+    <td data-sort-value="3">March</td>
+    <td data-sort-value="0.206" class="font-mono-sm text-tabular text-right">20.6%</td>
+    <td data-sort-value="23612" class="font-mono-sm text-tabular text-right">23,612</td>
+    <td data-sort-value="3">Third</td>
+    <td data-sort-value="3">3rd</td>
+    <td data-sort-value="1332884673452">March 27, 2012</td>
   </tr>
   <tr>
-    <th>2018</th>
-    <td class="font-mono-sm text-tabular text-right">16.4%</td>
-    <td class="font-mono-sm text-tabular text-right">20.2%</td>
-    <td class="font-mono-sm text-tabular text-right">-3.8%</td>
-    <td class="font-mono-sm text-tabular text-right">77.4%</td>
+    <th>2000 AD</th>
+    <td data-sort-value="4">April</td>
+    <td data-sort-value="0.026" class="font-mono-sm text-tabular text-right">2.6%</td>
+    <td data-sort-value="-32" class="font-mono-sm text-tabular text-right">-32</td>
+    <td data-sort-value="1">First</td>
+    <td data-sort-value="1">1st</td>
+    <td data-sort-value="1617974313232">April 9, 2021</td>
   </tr>
   <tr>
-    <th>2019</th>
-    <td class="font-mono-sm text-tabular text-right">16.3%</td>
-    <td class="font-mono-sm text-tabular text-right">21.0%</td>
-    <td class="font-mono-sm text-tabular text-right">-114.6%</td> <!-- value is compared only as a string -->
-    <td class="font-mono-sm text-tabular text-right">79.2%</td>
+    <th>200 AD</th>
+    <td data-sort-value="1">January</td>
+    <td data-sort-value="-0.036" class="font-mono-sm text-tabular text-right">-3.6%</td>
+    <td data-sort-value="0.002" class="font-mono-sm text-tabular text-right">0.002</td>
+    <td data-sort-value="2">Second</td>
+    <td>2nd</td>
+    <td data-sort-value="1611169964684">January 20, 2021</td>
   </tr>
   <tr>
-    <th>2020</th>
-    <td class="font-mono-sm text-tabular text-right">16.7%</td>
-    <td class="font-mono-sm text-tabular text-right">21.3%</td>
-    <td class="font-mono-sm text-tabular text-right">-4.6%</td>
-    <td class="font-mono-sm text-tabular text-right">80.9%</td>
-  </tr>
-  <tr>
-    <th>2021</th>
-    <td class="font-mono-sm text-tabular text-right">16.7%</td>
-    <td class="font-mono-sm text-tabular text-right">21.6%</td>
-    <td class="font-mono-sm text-tabular text-right">-4.9%</td>
-    <td class="font-mono-sm text-tabular text-right">83.1%</td>
+    <th>20 BC</th>
+    <td data-sort-value="12">December</td>
+    <td data-sort-value="-3.006" class="font-mono-sm text-tabular text-right">-300.6%</td>
+    <td data-sort-value="0" class="font-mono-sm text-tabular text-right">0</td>
+    <td data-sort-value="4">Fourth</td>
+    <td data-sort-value="4">4th</td>
+    <td data-sort-value="1608114345343">December 16, 2020</td>
+
   </tr>
 </table>
-<p>Values as percent of GDP. Data for illustration purposes only.</p>
 
 <br><br>
 
@@ -79,76 +91,85 @@
   <caption>Sortable borderless table example - Various content types</caption>
   <thead>
     <tr>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="ascending">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable aria-sort="descending">
         <button class="usa-table__header__button" 
-          aria-label="Sort by Year in descending order">
+          aria-label="Sortable column, sorted descending, activate to sort by Year in ascending order">
           Year
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Month in ascending order">
+          aria-label="Sortable column, unsorted, activate to sort by Month in ascending order">
           Month
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Percent in ascending order">
+          aria-label="Sortable column, unsorted, activate to sort by Percent in ascending order">
           Percent
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Count in ascending order">
+          aria-label="Sortable column, unsorted, activate to sort by Count in ascending order">
           Count
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Ordinal Rank in ascending order">
+          aria-label="Sortable column, unsorted, activate to sort by Ordinal Rank in ascending order">
           Rank (Ordinal)
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Cardinal Rank in ascending order">
+          aria-label="Sortable column, unsorted, activate to sort by Cardinal Rank in ascending order">
           Rank (Cardinal)
         </button>
       </th>
-      <th class="usa-table__header--sortable" scope="col" role="columnheader" aria-sort="none">
+      <th class="usa-table__header--sortable" scope="col" role="columnheader" data-sortable>
         <button class="usa-table__header__button" 
-          aria-label="Sort by Nominal Identifier in ascending order">
-          Identifier (Nominal)
+          aria-label="Sort by Timestamp in ascending order">
+          Unix Timestamp
         </button>
       </th>
     </tr>
   </thead>
   <tr>
-    <th>2020</th>
-    <td>March</td>
-    <td class="font-mono-sm text-tabular text-right">20.6%</td>
-    <td class="font-mono-sm text-tabular text-right">23,612</td>
-    <td>Third</td>
-    <td>3rd</td>
-    <td>234115</td>
+    <th>2020 AD</th>
+    <td data-sort-value="3">March</td>
+    <td data-sort-value="0.206" class="font-mono-sm text-tabular text-right">20.6%</td>
+    <td data-sort-value="23612" class="font-mono-sm text-tabular text-right">23,612</td>
+    <td data-sort-value="3">Third</td>
+    <td data-sort-value="3">3rd</td>
+    <td data-sort-value="1332884673452">March 27, 2012</td>
   </tr>
   <tr>
-    <th>2000</th>
-    <td>April</td>
-    <td class="font-mono-sm text-tabular text-right">2.6%</td>
-    <td class="font-mono-sm text-tabular text-right">-32</td>
-    <td>First</td>
-    <td>1st</td>
-    <td>000001</td>
+    <th>2000 AD</th>
+    <td data-sort-value="4">April</td>
+    <td data-sort-value="0.026" class="font-mono-sm text-tabular text-right">2.6%</td>
+    <td data-sort-value="-32" class="font-mono-sm text-tabular text-right">-32</td>
+    <td data-sort-value="1">First</td>
+    <td data-sort-value="1">1st</td>
+    <td data-sort-value="1617974313232">April 9, 2021</td>
   </tr>
   <tr>
-    <th>200</th>
-    <td>January</td>
-    <td class="font-mono-sm text-tabular text-right">-3.6%</td>
-    <td class="font-mono-sm text-tabular text-right">0.002</td>
-    <td>Second</td>
+    <th>200 AD</th>
+    <td data-sort-value="1">January</td>
+    <td data-sort-value="-0.036" class="font-mono-sm text-tabular text-right">-3.6%</td>
+    <td data-sort-value="0.002" class="font-mono-sm text-tabular text-right">0.002</td>
+    <td data-sort-value="2">Second</td>
     <td>2nd</td>
-    <td>333323</td>
+    <td data-sort-value="1611169964684">January 20, 2021</td>
+  </tr>
+  <tr>
+    <th>20 BC</th>
+    <td data-sort-value="12">December</td>
+    <td data-sort-value="-3.006" class="font-mono-sm text-tabular text-right">-300.6%</td>
+    <td data-sort-value="0" class="font-mono-sm text-tabular text-right">0</td>
+    <td data-sort-value="4">Fourth</td>
+    <td data-sort-value="4">4th</td>
+    <td data-sort-value="1608114345343">December 16, 2020</td>
+
   </tr>
 </table>
-<p>Values as percent of GDP. Data for illustration purposes only.</p>

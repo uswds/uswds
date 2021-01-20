@@ -4,13 +4,19 @@ const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
 
 const TABLE = `.${PREFIX}-table--sortable`;
-const SORTABLE = "aria-sort";
+const SORTABLE = "data-sortable";
+const SORTED = "aria-sort";
+const ASCENDING = "ascending";
+const DESCENDING = "descending";
+const SORT_OVERRIDE = "data-sort-value";
 
 const BUTTON = `.${PREFIX}-table__header--sortable[${SORTABLE}] > button`;
 const HEADER = `.${PREFIX}-table__header--sortable[${SORTABLE}]`;
 
 
-const getCellValue = (tr, index) => tr.children[index].innerText || tr.children[index].textContent;
+const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRIDE) 
+                                  || tr.children[index].innerText 
+                                  || tr.children[index].textContent;
 
 
 // only sorts strings alphabetically, doesn't yet compare floats
@@ -32,19 +38,20 @@ const getColumnHeaders = (table) => {
 
 const updateSortLabel = (header) => {
   const headerName = header.querySelector(BUTTON).innerText;
-  const headerIsAscending = header.getAttribute(SORTABLE) === "ascending";
+  const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
+  const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
 
-  const headerLabel = `Sort by ${headerName} in ${headerIsAscending ? 'descending' : 'ascending'} order`;
+  const headerLabel = `Sortable column, ${isSorted ? `sorted ${sortedAscending ? ASCENDING : DESCENDING}`: 'unsorted'}, activate to sort by ${headerName} in ${!!sortedAscending ? DESCENDING : ASCENDING} order`;
   header.querySelector(BUTTON).setAttribute("aria-label", headerLabel);
 }
 
 const unsetSort = (header) => {
-  header.setAttribute(SORTABLE, "none");
+  header.removeAttribute(SORTED);
   updateSortLabel(header);
 }
 
 const sortRows = (header, ascending) => {
-  header.setAttribute(SORTABLE, ascending === true ? "descending" : "ascending");
+  header.setAttribute(SORTED, ascending === true ? DESCENDING : ASCENDING );
   updateSortLabel(header);
 
   const tbody = header.closest(TABLE).querySelector('tbody');
@@ -72,7 +79,7 @@ const toggleSort = (header, ascending) => {
   let safeAscending = ascending;
 
   if (typeof safeAscending !== "boolean") {
-    safeAscending = header.getAttribute(SORTABLE) === "ascending";
+    safeAscending = header.getAttribute(SORTABLE) === ASCENDING;
   }
 
   if (!table) {
@@ -98,7 +105,7 @@ const table = behavior(
         event.preventDefault();
         toggleSort(
           event.target.parentNode, 
-          event.target.parentNode.getAttribute(SORTABLE) === "ascending"); 
+          event.target.parentNode.getAttribute(SORTED) === "ascending"); 
           // TODO event is on the button for now, come back to this
       },
     },
@@ -106,18 +113,18 @@ const table = behavior(
   {
     init(root) {
       const sortableHeaders = select(HEADER, root);
-      let firstSortable = sortableHeaders.find((header) => header.getAttribute(SORTABLE) === "ascending" || header.getAttribute(SORTABLE) === "descending");
-      if (typeof firstSortable === "undefined") {
+      let firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
+      if (typeof firstSorted === "undefined") {
         // no sortable headers found
         return;
       }   
-      const sortDir = firstSortable.getAttribute(SORTABLE);
-      if (sortDir === "ascending") {
-        toggleSort(firstSortable, true);
+      const sortDir = firstSorted.getAttribute(SORTABLE);
+      if (sortDir === ASCENDING) {
+        toggleSort(firstSorted, true);
         return;
       }
-      else if (sortDir === "descending") {
-        toggleSort(firstSortable, false);
+      else if (sortDir === DESCENDING) {
+        toggleSort(firstSorted, false);
         return;
       }
     },
