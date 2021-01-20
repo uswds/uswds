@@ -164,10 +164,10 @@
 
 @mixin table-button-unsorted-styles {
   @include button-unstyled;
-  @include add-background-svg("usa-icons/arrow_sort");
+  @include add-background-svg("usa-icons/swap_vert");
 
   background-position: right units(1.5) center;
-  background-size: units(2);
+  background-size: units(3);
   color: color("ink");
   cursor: pointer;
   display: inline-block;
@@ -202,7 +202,7 @@
   @include add-background-svg("usa-icons/arrow_downward");
 }
 
-th.usa-table__header--sortable {
+th.usa-table__header--sortable[data-sortable] {
   padding: 0;
   height: 1px;
 }
