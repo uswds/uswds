@@ -1777,15 +1777,15 @@ get-custom-color-split()
 Get custom color split values
 ----------------------------------------
 */
-@function get-custom-color-split($custom-token) {
-  $custom-split: str-split($custom-token, "-");
+@function get-custom-color-split($custom-color-token) {
+  $custom-color-split: str-split($custom-color-token, "-");
 
   // ignore vivid in token calculations, treat as default
-  @if index($custom-split, "vivid") {
-    $custom-split: remove($custom-split, "vivid");
+  @if index($custom-color-split, "vivid") {
+    $custom-color-split: remove($custom-color-split, "vivid");
   }
 
-  @return $custom-split;
+  @return $custom-color-split;
 }
 
 /*
