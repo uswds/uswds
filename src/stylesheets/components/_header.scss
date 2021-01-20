@@ -37,8 +37,8 @@ $z-index-overlay: 400;
     @include at-media($theme-header-min-width) {
       float: right;
       max-width: calc(
-        #{$theme-search-min-width} + #{units($theme-button-small-width)}
-      );
+        #{$theme-search-min-width + 1} + #{units($theme-button-small-width)}
+      ); // + 1 fixes Safari quirk.
       width: 100%;
     }
   }
