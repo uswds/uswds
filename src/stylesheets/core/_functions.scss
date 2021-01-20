@@ -1884,8 +1884,12 @@ Get accessible link colors against background color
       $hover-grade: false;
       $hover-vivid: false;
 
-      // If the link color is custom, output theme tokens, not system tokens
-      @if $custom {
+      // Use system tokens for link color. Otherwise use theme tokens if it's a custom color
+      @if not $custom {
+        //@debug "not custom";
+        $decomposed: decompose($color-token);
+      }
+      @else {
         //@debug "uses custom color.";
         $custom-token: $color-token;
         $custom-token-lighter: false;
@@ -1931,6 +1935,7 @@ Get accessible link colors against background color
           false,
           $custom-grade-darker
         );
+
         $custom-grade-lighter: if(
           $custom-grade-lighter == "default",
           false,
@@ -1948,9 +1953,6 @@ Get accessible link colors against background color
           $custom-family + "-" + $custom-grade-lighter,
           $custom-family-lighter
         );
-      } @else {
-        //@debug "not custom";
-        $decomposed: decompose($color-token);
       }
 
       @if $link-grade == 0 {
