@@ -10,16 +10,28 @@ const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
 
-const BUTTON = `.${PREFIX}-table__header--sortable[${SORTABLE}] > button`;
-const HEADER = `.${PREFIX}-table__header--sortable[${SORTABLE}]`;
+const BUTTON = `.${PREFIX}-table__header__button`;
+const HEADER = `.${PREFIX}-table__header[${SORTABLE}]`;
 
 
+/** Gets the data-sort-value attribute value, if provided — otherwise, gets
+ * the innerText or textContent — of the child element (HTMLTableCellElement) 
+ * at the specified index of the given table row
+ * 
+ * @param {number} index
+ * @param {array<HTMLTableRowElement>} tr
+ * @return {boolean} 
+ */
 const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRIDE) 
                                   || tr.children[index].innerText 
                                   || tr.children[index].textContent;
 
-
-// only sorts strings alphabetically, doesn't yet compare floats
+/**
+ * Compares the values of two row array items at the given index, then sorts by the given direction
+ * @param {number} index
+ * @param {string} direction
+ * @return {boloean} 
+ */
 const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
     // if neither value is empty, and if both values are already numbers, compare numerically. Otherwise, compare alphabetically based on current user locale
     v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.languages[0] || navigator.language, {numeric: true, ignorePunctuation: true})
@@ -36,20 +48,35 @@ const getColumnHeaders = (table) => {
   return headers.filter((header) => header.closest(TABLE) === table);
 };
 
+/**
+ * Update the button label within the given header element, resetting it
+ * to the default state (ready to sort ascending) if it's no longer sorted
+ * @param {HTMLTableHeaderCellElement} header
+ */
 const updateSortLabel = (header) => {
   const headerName = header.querySelector(BUTTON).innerText;
   const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
   const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
 
-  const headerLabel = `Sortable column, ${isSorted ? `sorted ${sortedAscending ? ASCENDING : DESCENDING}`: 'unsorted'}, activate to sort by ${headerName} in ${!!sortedAscending ? DESCENDING : ASCENDING} order`;
+  const headerLabel = `Sortable column, ${isSorted ? `sorted ${sortedAscending ? ASCENDING : DESCENDING}`: 'unsorted'}, activate to sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
   header.querySelector(BUTTON).setAttribute("aria-label", headerLabel);
 }
 
+/**
+ * Remove the aria-sort attribute on the given header element, and reset the label
+ * @param {HTMLTableHeaderCellElement} header
+ */
 const unsetSort = (header) => {
   header.removeAttribute(SORTED);
   updateSortLabel(header);
 }
 
+/**
+ * Sort rows either ascending or descending, based on a given header's aria-sort attribute
+ * @param {HTMLTableHeaderCellElement} header
+ * @param {boolean} ascending
+ * @return {boolean} true
+ */
 const sortRows = (header, ascending) => {
   header.setAttribute(SORTED, ascending === true ? DESCENDING : ASCENDING );
   updateSortLabel(header);
@@ -58,12 +85,8 @@ const sortRows = (header, ascending) => {
   Array.from(tbody.querySelectorAll('tr'))
     .sort(compareFunction(Array.from(header.parentNode.children).indexOf(header), !ascending))
     .forEach(tr => tbody.appendChild(tr) );
-
-
-  // TODO: handle errors here 
   return true;
 }
-
 
 /**
  * Toggle a header's sort state, optionally providing a target
@@ -72,16 +95,15 @@ const sortRows = (header, ascending) => {
  * @param {HTMLTableHeaderCellElement} header
  * @param {boolean?} ascending If no state is provided, the current
  * state will be toggled (from false to true, and vice-versa).
- * @return {boolean} the resulting state
  */
 const toggleSort = (header, ascending) => {
   const table = header.closest(TABLE);
   let safeAscending = ascending;
 
   if (typeof safeAscending !== "boolean") {
-    safeAscending = header.getAttribute(SORTABLE) === ASCENDING;
+    safeAscending = header.getAttribute(SORTED) === ASCENDING;
   }
-
+  
   if (!table) {
     throw new Error(`${HEADER} is missing outer ${TABLE}`);
   }
@@ -113,19 +135,17 @@ const table = behavior(
   {
     init(root) {
       const sortableHeaders = select(HEADER, root);
-      let firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
+      const firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
-        return;
       }   
-      const sortDir = firstSorted.getAttribute(SORTABLE);
+      const sortDir = firstSorted.getAttribute(SORTED);
       if (sortDir === ASCENDING) {
         toggleSort(firstSorted, true);
         return;
       }
       else if (sortDir === DESCENDING) {
         toggleSort(firstSorted, false);
-        return;
       }
     },
     TABLE,

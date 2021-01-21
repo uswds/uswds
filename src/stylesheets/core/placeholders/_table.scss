@@ -202,7 +202,7 @@
   @include add-background-svg("usa-icons/arrow_downward");
 }
 
-th.usa-table__header--sortable[data-sortable] {
+.usa-table__header[data-sortable] {
   padding: 0;
   height: 1px;
 }
@@ -216,13 +216,13 @@ th.usa-table__header--sortable[data-sortable] {
 //     @include table-button-unsorted-styles;
 //   }
 // }
-.usa-table__header--sortable[aria-sort="descending"] {
+.usa-table__header[data-sortable][aria-sort="descending"] {
   .usa-table__header__button {
     @include table-button-sorted-descending-styles;
   }
 }
 
-.usa-table__header--sortable[aria-sort="ascending"] {
+.usa-table__header[data-sortable][aria-sort="ascending"] {
   .usa-table__header__button {
     @include table-button-sorted-ascending-styles;
   }
