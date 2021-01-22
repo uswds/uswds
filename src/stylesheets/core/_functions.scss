@@ -1755,6 +1755,50 @@ system z-index
 
 /*
 ----------------------------------------
+closest-to-number()
+----------------------------------------
+Get closest value to target from a list of numbers
+[$list-of-values] - list
+[$target-value] - number
+----------------------------------------
+*/
+
+// $closest-number-example: 40, 42, 80;
+//  - returns 42
+// $closest-number-example: 20, 33, 55;
+//  - returns 55
+@function closest-to-number($list, $target-value) {
+
+  $closest-number: null;
+  $smallest-difference: null;
+
+  @if not $target-value {
+    @error "You need to provide a target number to compare against."
+  }
+
+  @each $number in $list {
+    $difference: abs($number - $target-value);
+
+    @if($smallest-difference) {
+      @if ($smallest-difference > $difference) {
+        $closest-number: $number;
+        $smallest-diff: $difference;
+      }
+    } @else {
+      $closest-number: $number;
+      $smallest-difference: $difference;
+    }
+  }
+
+  // @debug("$closest-number: #{$closest-number}");
+  @return $closest-number;
+}
+
+// @debug(closest-to-number($closest-number-example, 50));
+
+
+/*
+----------------------------------------
 is-custom-color()
 ----------------------------------------
 Check whether color token is a USWDS color or custom
