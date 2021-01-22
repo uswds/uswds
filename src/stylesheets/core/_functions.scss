@@ -1758,8 +1758,17 @@ system z-index
 is-custom-color()
 ----------------------------------------
 Check whether color token is a USWDS color or custom
+[$color-token] - string
 ----------------------------------------
 */
+
+// is-custom-color() expects a single color token:
+//
+// [$color-token]
+// ex: "$theme-color-accent-cool-lighter: #a1dffc;"
+//     - returns true
+// ex: "$theme-color-accent-cool-lighter: blue-cool-5v;"
+//     - returns false
 @function is-custom-color($color-token) {
   $color-token: type-of(map-get($assignments-theme-color, $color-token));
 
@@ -1775,8 +1784,10 @@ Check whether color token is a USWDS color or custom
 get-custom-color-split()
 ----------------------------------------
 Get custom color split values
+@param {$custom-color-token} string
 ----------------------------------------
 */
+
 @function get-custom-color-split($custom-color-token) {
   $custom-color-split: str-split($custom-color-token, "-");
 
@@ -1795,6 +1806,10 @@ get-custom-color-family()
 Get color family from custom color split
 ----------------------------------------
 */
+
+// [$custom-color-split]
+// ex: "accent" "cool" "lighter"
+// Returns: "accent-cool"
 @function get-custom-color-family($custom-color-split) {
   // Set family as the first string in the split
   $custom-color-family: nth($custom-color-split, 1);
@@ -1803,6 +1818,7 @@ Get color family from custom color split
     $custom-color-family: $custom-color-family + "-" + nth($custom-color-split, 2);
   }
 
+  // @debug($custom-color-family);
   @return $custom-color-family;
 }
 
@@ -1813,7 +1829,17 @@ get-custom-color-grade()
 Get custom color grade from custom color split
 ----------------------------------------
 */
+
+// get-custom-color-grade() expects a list from custom color and its base family
+//
+// [$custom-color-split]
+// ex: "accent" "cool" "lighter"
+// [$custom-color-family]
+// ex: "accent-cool"
+// Returns: "default"
 @function get-custom-color-grade($custom-color-split, $custom-color-family) {
+  // @debug("$custom-color-split: #{$custom-color-split}");
+  // @debug("$custom-color-family: #{$custom-color-family}");
   $custom-color-grade: false;
 
   // set family and grade for "accent" families, since their family includes the split character
@@ -1831,6 +1857,7 @@ Get custom color grade from custom color split
     );
   }
 
+  // @debug("$custom-color-grade: #{$custom-color-grade}");
   @return $custom-color-grade;
 }
 
@@ -1838,7 +1865,7 @@ Get custom color grade from custom color split
 ----------------------------------------
 get-custom-color-lighter-grade()
 ----------------------------------------
-Get lighter grade from custom color
+Get lighter grade from custom color, expects number
 ----------------------------------------
 */
 @function get-custom-color-lighter-grade($custom-color-grade-index) {
@@ -1858,11 +1885,12 @@ Get lighter grade from custom color
     @return false;
   }
 }
+
 /*
 ----------------------------------------
 get-custom-color-darker-grade()
 ----------------------------------------
-Get darker grade from custom color
+Get darker grade from custom color, expects number
 ----------------------------------------
 */
 @function get-custom-color-darker-grade($custom-color-grade-index) {
