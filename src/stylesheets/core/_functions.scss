@@ -1986,6 +1986,8 @@ Get accessible link colors against background color
   $bg-grade: get-color-grade($bg-color);
   $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
 
+  $color-token-values: ();
+
   $link-token: false;
   $hover-token: false;
 
@@ -2006,6 +2008,8 @@ Get accessible link colors against background color
       $hover-grade: false;
       $hover-vivid: false;
 
+      $color-token-values: append($color-token-values, $link-magic-number);
+
       // Use system tokens for link color. Otherwise use theme tokens if it's a custom color
       @if not $custom {
         //@debug "not custom";
@@ -2022,7 +2026,8 @@ Get accessible link colors against background color
         $custom-grade-lighter: false;
         $custom-grade-darker: false;
 
-        // @debug "custom split:" + $custom-split;
+
+        @debug "custom split:" + $custom-split;
         // @debug "custom family: " + $custom-family;
         // @debug "custom grade: " + $custom-grade;
 
@@ -2114,9 +2119,20 @@ Get accessible link colors against background color
             );
           }
         }
+      } @else {
+        @debug($link-magic-number);
+        @debug($color-token, $link-grade-token);
+        // @debug($color-token-values);
+        // Closest color to target magic number
+        $closest-color-token: max($color-token-values...);
+
+        @if $closest-color-token == $link-magic-number {
+          @debug("Selected color token is #{$color-token}");
+        }
       }
     }
   }
+
 
   @if not $hover-token {
     @error 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" can be #{$wcag-target} contrast links and hovers on a "#{$bg-color}" background.';
