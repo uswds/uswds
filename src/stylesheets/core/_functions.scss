@@ -1758,7 +1758,7 @@ system z-index
 closest-to-number()
 ----------------------------------------
 Get closest value to target from a list of numbers
-[$list-of-values] - list
+[$list] - list
 [$target-value] - number
 ----------------------------------------
 */
@@ -2027,7 +2027,7 @@ Get accessible link colors against background color
         $custom-grade-darker: false;
 
 
-        @debug "custom split:" + $custom-split;
+        // @debug "custom split:" + $custom-split;
         // @debug "custom family: " + $custom-family;
         // @debug "custom grade: " + $custom-grade;
 
@@ -2112,8 +2112,19 @@ Get accessible link colors against background color
             $hover-token: $token-lighter;
           } @else {
             $hover-grade: $link-grade - $grade-step;
+
+            // In case you have a lighter color value as default
+            // and the lightest value is false, it will default to white
+            // Possible use case for clamp()
+            //
+            // Ex:
+            // $theme-color-accent-cool-lighter: "blue-cool-5v";
+            // $theme-color-accent-cool-lightest: false;
+            //
+            // $link-color: "accent-cool-lighter"
+            // $hover-color: "white"
             $hover-token: if(
-              $hover-grade == 0,
+              $hover-grade <= 0,
               "white",
               #{$link-family}-#{$hover-grade}#{$link-vivid}
             );
