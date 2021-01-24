@@ -1767,30 +1767,28 @@ Get closest value to target from a list of numbers
 //  - returns 42
 // $closest-number-example: 20, 33, 55;
 //  - returns 55
-@function closest-to-number($list, $target-value) {
+// $closest-number-example: 20, 40, 30;
+//  - returns 40
 
+@function closest-to-number($list, $target-value) {
   $closest-number: null;
   $smallest-difference: null;
 
-  @if not $target-value {
-    @error "You need to provide a target number to compare against."
-  }
+  @each $num in $list {
+    $difference: abs($num - $target-value);
 
-  @each $number in $list {
-    $difference: abs($number - $target-value);
-
-    @if($smallest-difference) {
+    @if ($smallest-difference) {
       @if ($smallest-difference > $difference) {
-        $closest-number: $number;
-        $smallest-diff: $difference;
+        $closest-number: $num;
+        $smallest-difference: $difference;
       }
-    } @else {
-      $closest-number: $number;
+    }
+    @else {
+      $closest-number: $num;
       $smallest-difference: $difference;
     }
   }
 
-  // @debug("$closest-number: #{$closest-number}");
   @return $closest-number;
 }
 
