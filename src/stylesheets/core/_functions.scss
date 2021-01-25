@@ -1956,68 +1956,17 @@ Get darker grade from custom color, expects number
 
 /*
 ----------------------------------------
-get-link-tokens-from-bg()
+get-custom-color-shades()
 ----------------------------------------
-Get accessible link colors against background color
+Get lighter and darker custom color shades for get-link-tokens-from-bg()
 ----------------------------------------
 */
-@function get-link-tokens-from-bg(
-  $bg-color,
-  $preferred-link-color: $theme-link-color,
-  $fallback-link-color: $theme-link-reverse-color,
-  $wcag-target: "AA"
-) {
-  $magic-numbers: (
-    "AA": 50,
-    "AAA": 70,
-    "AA-large": 40,
-  );
-  $grade-step: 10;
-  $found: false;
-  $decomposed: false;
 
-  @if $preferred-link-color == default {
-    $preferred-link-color: $theme-link-color;
-  }
-
-  $target-magic-number: map-get($magic-numbers, $wcag-target);
-  $bg-grade: get-color-grade($bg-color);
-  $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
-
-  $color-token-values: ();
-
-  $link-token: false;
-  $hover-token: false;
-
-  @each $color-token in $our-color-tokens {
-    //@debug "color token: " + $color-token;
-    // If the color token is a custom color, set a $custom flag
-    $custom: is-custom-color($color-token);
-
-      $link-grade-token: get-color-grade($color-token);
-    $link-grade: $link-grade-token;
-      $link-magic-number: abs($bg-grade - $link-grade);
-
-    $color-token-values: append($color-token-values, $link-magic-number);
-
-    // Only get a link color if one has not yet been found
-    @if not $found {
-      $token-darker: false;
-      $token-lighter: false;
-      $link-family: false;
-      $link-vivid: false;
-      $hover-grade: false;
-      $hover-vivid: false;
-
-      // @debug("$link-grade-token: #{$link-grade-token}");
-      // @debug("$link-magic-number: #{$link-magic-number}");
-
-      // Use system tokens for link color. Otherwise use theme tokens if it's a custom color
-      @if not $custom {
-        //@debug "not custom";
-        $decomposed: decompose($color-token);
-      }
-      @else {
+// Expects a color token and returns it's lighter and darker token values.
+//
+// Ex: "accent-warm-darker"
+// Returns: "accent-warm-darkest", "accent-warm"
+@function get-custom-color-shades($color-token) {
         $custom-token: $color-token;
         $custom-token-lighter: false;
         $custom-token-darker: false;
@@ -2026,7 +1975,6 @@ Get accessible link colors against background color
         $custom-grade: get-custom-color-grade($custom-split, $custom-family);
         $custom-grade-lighter: false;
         $custom-grade-darker: false;
-
 
         // @debug "custom split:" + $custom-split;
         // @debug "custom family: " + $custom-family;
@@ -2058,39 +2006,134 @@ Get accessible link colors against background color
           $custom-family + "-" + $custom-grade-darker,
           $custom-family-darker
         );
+
         $token-lighter: if(
           $custom-grade-lighter,
           $custom-family + "-" + $custom-grade-lighter,
           $custom-family-lighter
         );
+
+  // @debug("$token-darker: #{$token-darker} $token-lighter: #{$token-lighter}");
+  @return $token-darker, $token-lighter;
+}
+
+/*
+----------------------------------------
+get-link-tokens-from-bg()
+----------------------------------------
+Get accessible link colors against background color
+----------------------------------------
+*/
+@function get-link-tokens-from-bg(
+$bg-color,
+$preferred-link-color: $theme-link-color,
+$fallback-link-color: $theme-link-reverse-color,
+$wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40,
+  );
+  $grade-step: 10;
+  $found: false;
+  $decomposed: false;
+
+  @if $preferred-link-color == default {
+    $preferred-link-color: $theme-link-color;
+  }
+
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $bg-grade: get-color-grade($bg-color);
+  $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
+
+  $color-token-values: ();
+
+  $link-token: false;
+  $hover-token: false;
+
+  @each $color-token in $our-color-tokens {
+    //@debug "color token: " + $color-token;
+    $custom: is-custom-color($color-token);
+
+    $link-grade-token: get-color-grade($color-token);
+    $link-grade: $link-grade-token;
+    $link-magic-number: abs($bg-grade - $link-grade);
+
+    $color-token-values: append($color-token-values, $link-magic-number);
       }
 
-      @if $link-grade == 0 {
-        @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
-      } @else if $link-grade == 100 {
-        @warn '"black" isn\'t a valid link color token, since it has no darker hover state.';
+  $found-color: false;
+
+  // Find the closest color to $target-magic-number.
+  @each $color-token-value in $color-token-values {
+    @if not $found-color {
+      $closest-color-token: closest-to-number(
+        $color-token-values,
+        $target-magic-number
+      );
+
+      $closest-color-token-index: index(
+        $color-token-values,
+        $closest-color-token
+      );
+
+      $selected-color-token: nth(
+        $our-color-tokens,
+        $closest-color-token-index
+      );
+
+      // @debug("$color-token-values: #{$color-token-values}");
+      // @debug("$closest-color-token: #{$closest-color-token}");
+      // @debug("$closest-color-token-index: #{$closest-color-token-index}");
+      // @debug("$selected-color-token: #{$selected-color-token}");
+      $found-color: $selected-color-token;
       }
+  }
 
-      // Check that link meets contrast target
-      @if $link-magic-number >= $target-magic-number {
-        $found: true;
-        // Calculate additional link properties
+  // @debug("$found-color: #{$found-color}");
 
-        $link-token: $color-token;
+  // Get color grades
+  $link-token: $found-color;
+  $custom: is-custom-color($link-token);
+  $grade-token: get-color-grade($link-token);
+  $link-grade: $grade-token;
+  $link-magic-number: abs($bg-grade - $link-grade);
+  $token-darker: false;
+  $token-lighter: false;
+  $link-family: false;
+  $link-vivid: false;
+  $hover-grade: false;
+  $hover-vivid: false;
 
+  // Use system tokens for link color.
+  // Otherwise use theme tokens if it's a custom color
         @if not $custom {
+    //@debug "Uses system color.";
+    $decomposed: decompose($link-token);
           $link-family: nth($decomposed, 1);
           //@debug "link family: " + $link-family;
           $link-vivid: "";
           @if nth($decomposed, 3) {
             $link-vivid: "v";
           }
+  } @else {
+    //@debug "Uses custom color.";
+    // Get custom tokens
+    $custom-color-tokens: get-custom-color-shades($link-token);
+    $token-darker: nth($custom-color-tokens, 1);
+    $token-lighter: nth($custom-color-tokens, 2);
         }
 
-        // If link is darker than bg, use darker hover
-        // Exclude black as it has no darker hover
+  @if $link-grade == 0 {
+    @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
+  } @else if $link-grade == 100 {
+    @warn '"black" isn\'t a valid link color token, since it has no darker hover state.';
+  }
+
+  // Determine whether link is darker or lighter than background
         @if ($link-grade > $bg-grade) and ($link-grade != 100) {
-          //@debug "Link is darker than background";
+    // @debug "Link is darker than background";
           @if $token-darker {
             //@debug "Getting darker token...";
             $hover-token: $token-darker;
@@ -2106,23 +2149,19 @@ Get accessible link colors against background color
               "black",
               #{$link-family}-#{$hover-grade}#{$hover-vivid}
             );
+      // @debug("$hover-token: #{$hover-token}");
           }
         }
-
-        // If link is lighter than bg, use lighter hover
-        // Exclude white equivalents as they have no lighter hover
         @else if ($link-grade != 0) and ($link-grade != 100) {
-          //@debug "Link is lighter than background";
+    // @debug "Link is lighter than background";
+
           @if $token-lighter {
-            //@debug "Getting lighter token...";
+      // @debug "Getting lighter token...";
             $hover-token: $token-lighter;
           } @else {
             $hover-grade: $link-grade - $grade-step;
+      // @debug("$hover-grade: #{$hover-grade}");
 
-            // In case you have a lighter color value as default
-            // and the lightest value is false, it will default to white
-            // Possible use case for clamp()
-            //
             // Ex:
             // $theme-color-accent-cool-lighter: "blue-cool-5v";
             // $theme-color-accent-cool-lightest: false;
@@ -2130,67 +2169,19 @@ Get accessible link colors against background color
             // $link-color: "accent-cool-lighter"
             // $hover-color: "white"
             $hover-token: if(
-              $hover-grade <= 0,
+        $hover-grade == 0,
               "white",
               #{$link-family}-#{$hover-grade}#{$link-vivid}
             );
+
+      // @debug("$hover-token: #{$hover-token}");
           }
-        }
-      }
-
-      // Closest color to target magic number
-      $closest-color-token: closest-to-number(
-        $color-token-values,
-        $target-magic-number
-      );
-
-      @debug("$color-token-values: " + $color-token-values);
-      @debug("$link-magic-number: " + $link-magic-number);
-      @debug("$closest-color-token: " + $closest-color-token);
-
-      // @if $closest-color-token == $link-magic-number {
-      //   // $found: true;
-      //   @debug("Closest color token: " + $color-token);
-      //   $link-token: $color-token;
-      //   // $hover-token: $color-token;
-      // }
-    }
   }
 
-  $found-color: false;
-
-  @each $color-token-value in $color-token-values {
-    @if not $found-color {
-      $closest-color-token: closest-to-number(
-        $color-token-values,
-        $target-magic-number
-            );
-
-      $closest-color-token-index: index(
-        $color-token-values,
-        $closest-color-token
-      );
-
-      $selected-color-token: nth(
-        $our-color-tokens,
-        $closest-color-token-index
-            );
-
-      @debug("$color-token-values: #{$color-token-values}");
-      @debug("$closest-color-token: #{$closest-color-token}");
-      // @debug("$closest-color-token-index: #{$closest-color-token-index}");
-      // @debug("$selected-color-token: #{$selected-color-token}");
-      $found-color: $selected-color-token;
-          }
-
-    @debug $found-color;
+  @if not ($link-magic-number >= $target-magic-number) {
+    @warn 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" meet #{$wcag-target} standard contrast on a "#{$bg-color}" background. The closest color is #{$found-color}. Consider updating your colors to meet accessibility requirements.';
   }
 
-
-  @if not $hover-token {
-    @error 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" can be #{$wcag-target} contrast links and hovers on a "#{$bg-color}" background.';
-  }
-
-  //@debug "#{$link-token}, #{$hover-token}";
+  // @debug "#{$link-token}, #{$hover-token}";
   @return $link-token, $hover-token;
 }
