@@ -1976,6 +1976,8 @@ Get lighter and darker custom color shades for get-link-tokens-from-bg()
   $custom-grade-lighter: false;
   $custom-grade-darker: false;
 
+  // Check for "ink" and set family to "base", otherwise it will look for "ink-darker".
+  $custom-family: if($custom-family == "ink", "base", $custom-family);
   // @debug "custom split:" + $custom-split;
   // @debug "custom family: " + $custom-family;
   // @debug "custom grade: " + $custom-grade;
