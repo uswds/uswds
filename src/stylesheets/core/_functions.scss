@@ -1994,11 +1994,14 @@ Get accessible link colors against background color
     // If the color token is a custom color, set a $custom flag
     $custom: is-custom-color($color-token);
 
+      $link-grade-token: get-color-grade($color-token);
+    $link-grade: $link-grade-token;
+      $link-magic-number: abs($bg-grade - $link-grade);
+
+    $color-token-values: append($color-token-values, $link-magic-number);
+
     // Only get a link color if one has not yet been found
     @if not $found {
-      $link-grade-token: get-color-grade($color-token);
-      $link-grade: if($link-grade-token < 10, 0, $link-grade-token);
-      $link-magic-number: abs($bg-grade - $link-grade);
       $token-darker: false;
       $token-lighter: false;
       $link-family: false;
@@ -2006,7 +2009,8 @@ Get accessible link colors against background color
       $hover-grade: false;
       $hover-vivid: false;
 
-      $color-token-values: append($color-token-values, $link-magic-number);
+      // @debug("$link-grade-token: #{$link-grade-token}");
+      // @debug("$link-magic-number: #{$link-magic-number}");
 
       // Use system tokens for link color. Otherwise use theme tokens if it's a custom color
       @if not $custom {
@@ -2014,7 +2018,6 @@ Get accessible link colors against background color
         $decomposed: decompose($color-token);
       }
       @else {
-        //@debug "uses custom color.";
         $custom-token: $color-token;
         $custom-token-lighter: false;
         $custom-token-darker: false;
@@ -2069,11 +2072,12 @@ Get accessible link colors against background color
       }
 
       // Check that link meets contrast target
-      @else if $link-magic-number >= $target-magic-number {
+      @if $link-magic-number >= $target-magic-number {
         $found: true;
         // Calculate additional link properties
 
         $link-token: $color-token;
+
         @if not $custom {
           $link-family: nth($decomposed, 1);
           //@debug "link family: " + $link-family;
@@ -2092,7 +2096,11 @@ Get accessible link colors against background color
             $hover-token: $token-darker;
           } @else {
             $hover-grade: $link-grade + $grade-step;
-            $hover-vivid: if($hover-grade == 90, "", $link-vivid);
+            $hover-vivid: if(
+              $hover-grade == 90,
+              "",
+              $link-vivid
+            );
             $hover-token: if(
               $hover-grade == 100,
               "black",
@@ -2128,18 +2136,54 @@ Get accessible link colors against background color
             );
           }
         }
-      } @else {
-        @debug($link-magic-number);
-        @debug($color-token, $link-grade-token);
-        // @debug($color-token-values);
-        // Closest color to target magic number
-        $closest-color-token: max($color-token-values...);
-
-        @if $closest-color-token == $link-magic-number {
-          @debug("Selected color token is #{$color-token}");
-        }
       }
+
+      // Closest color to target magic number
+      $closest-color-token: closest-to-number(
+        $color-token-values,
+        $target-magic-number
+      );
+
+      @debug("$color-token-values: " + $color-token-values);
+      @debug("$link-magic-number: " + $link-magic-number);
+      @debug("$closest-color-token: " + $closest-color-token);
+
+      // @if $closest-color-token == $link-magic-number {
+      //   // $found: true;
+      //   @debug("Closest color token: " + $color-token);
+      //   $link-token: $color-token;
+      //   // $hover-token: $color-token;
+      // }
     }
+  }
+
+  $found-color: false;
+
+  @each $color-token-value in $color-token-values {
+    @if not $found-color {
+      $closest-color-token: closest-to-number(
+        $color-token-values,
+        $target-magic-number
+            );
+
+      $closest-color-token-index: index(
+        $color-token-values,
+        $closest-color-token
+      );
+
+      $selected-color-token: nth(
+        $our-color-tokens,
+        $closest-color-token-index
+            );
+
+      @debug("$color-token-values: #{$color-token-values}");
+      @debug("$closest-color-token: #{$closest-color-token}");
+      // @debug("$closest-color-token-index: #{$closest-color-token-index}");
+      // @debug("$selected-color-token: #{$selected-color-token}");
+      $found-color: $selected-color-token;
+          }
+
+    @debug $found-color;
   }
 
 
