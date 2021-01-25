@@ -1782,8 +1782,7 @@ Get closest value to target from a list of numbers
         $closest-number: $num;
         $smallest-difference: $difference;
       }
-    }
-    @else {
+    } @else {
       $closest-number: $num;
       $smallest-difference: $difference;
     }
@@ -1793,7 +1792,6 @@ Get closest value to target from a list of numbers
 }
 
 // @debug(closest-to-number($closest-number-example, 50));
-
 
 /*
 ----------------------------------------
@@ -1857,7 +1855,9 @@ Get color family from custom color split
   $custom-color-family: nth($custom-color-split, 1);
 
   @if $custom-color-family == "accent" {
-    $custom-color-family: $custom-color-family + "-" + nth($custom-color-split, 2);
+    $custom-color-family: $custom-color-family +
+      "-" +
+      nth($custom-color-split, 2);
   }
 
   // @debug($custom-color-family);
@@ -1913,7 +1913,7 @@ Get lighter grade from custom color, expects number
 @function get-custom-color-lighter-grade($custom-color-grade-index) {
   $custom-color-grade-lighter: false;
 
- // If it's the lightest grade, use "white" for the lighter family
+  // If it's the lightest grade, use "white" for the lighter family
   @if $custom-color-grade-index != 1 {
     $custom-color-grade-lighter: nth(
       $uswds-color-theme-grades,
@@ -1967,51 +1967,51 @@ Get lighter and darker custom color shades for get-link-tokens-from-bg()
 // Ex: "accent-warm-darker"
 // Returns: "accent-warm-darkest", "accent-warm"
 @function get-custom-color-shades($color-token) {
-        $custom-token: $color-token;
-        $custom-token-lighter: false;
-        $custom-token-darker: false;
-        $custom-split: get-custom-color-split($custom-token);
-        $custom-family: get-custom-color-family($custom-split);
-        $custom-grade: get-custom-color-grade($custom-split, $custom-family);
-        $custom-grade-lighter: false;
-        $custom-grade-darker: false;
+  $custom-token: $color-token;
+  $custom-token-lighter: false;
+  $custom-token-darker: false;
+  $custom-split: get-custom-color-split($custom-token);
+  $custom-family: get-custom-color-family($custom-split);
+  $custom-grade: get-custom-color-grade($custom-split, $custom-family);
+  $custom-grade-lighter: false;
+  $custom-grade-darker: false;
 
-        // @debug "custom split:" + $custom-split;
-        // @debug "custom family: " + $custom-family;
-        // @debug "custom grade: " + $custom-grade;
+  // @debug "custom split:" + $custom-split;
+  // @debug "custom family: " + $custom-family;
+  // @debug "custom grade: " + $custom-grade;
 
-        $custom-family-lighter: $custom-family;
-        $custom-family-darker: $custom-family;
-        $custom-grade-index: index($uswds-color-theme-grades, $custom-grade);
+  $custom-family-lighter: $custom-family;
+  $custom-family-darker: $custom-family;
+  $custom-grade-index: index($uswds-color-theme-grades, $custom-grade);
 
-        // If it's the lightest grade, use "white" for the lighter family
-        @if $custom-grade-index == 1 {
-          $custom-family-lighter: "white";
-        }
+  // If it's the lightest grade, use "white" for the lighter family
+  @if $custom-grade-index == 1 {
+    $custom-family-lighter: "white";
+  }
 
-        $custom-grade-lighter: get-custom-color-lighter-grade($custom-grade-index);
-        // @debug "lighter grade: " + $custom-grade-lighter;
+  $custom-grade-lighter: get-custom-color-lighter-grade($custom-grade-index);
+  // @debug "lighter grade: " + $custom-grade-lighter;
 
-        // If it's the darkest grade, use "black" for the lighter family
-        @if $custom-grade-index == length($uswds-color-theme-grades) {
-          $custom-family-darker: "black";
-        }
+  // If it's the darkest grade, use "black" for the lighter family
+  @if $custom-grade-index == length($uswds-color-theme-grades) {
+    $custom-family-darker: "black";
+  }
 
-        $custom-grade-darker: get-custom-color-darker-grade($custom-grade-index);
-        // @debug "darker grade: " + $custom-grade-darker;
+  $custom-grade-darker: get-custom-color-darker-grade($custom-grade-index);
+  // @debug "darker grade: " + $custom-grade-darker;
 
-        // Build the custom lighter and darker tokens
-        $token-darker: if(
-          $custom-grade-darker,
-          $custom-family + "-" + $custom-grade-darker,
-          $custom-family-darker
-        );
+  // Build the custom lighter and darker tokens
+  $token-darker: if(
+    $custom-grade-darker,
+    $custom-family + "-" + $custom-grade-darker,
+    $custom-family-darker
+  );
 
-        $token-lighter: if(
-          $custom-grade-lighter,
-          $custom-family + "-" + $custom-grade-lighter,
-          $custom-family-lighter
-        );
+  $token-lighter: if(
+    $custom-grade-lighter,
+    $custom-family + "-" + $custom-grade-lighter,
+    $custom-family-lighter
+  );
 
   // @debug("$token-darker: #{$token-darker} $token-lighter: #{$token-lighter}");
   @return $token-darker, $token-lighter;
@@ -2025,10 +2025,10 @@ Get accessible link colors against background color
 ----------------------------------------
 */
 @function get-link-tokens-from-bg(
-$bg-color,
-$preferred-link-color: $theme-link-color,
-$fallback-link-color: $theme-link-reverse-color,
-$wcag-target: "AA"
+  $bg-color,
+  $preferred-link-color: $theme-link-color,
+  $fallback-link-color: $theme-link-reverse-color,
+  $wcag-target: "AA"
 ) {
   $magic-numbers: (
     "AA": 50,
@@ -2061,7 +2061,7 @@ $wcag-target: "AA"
     $link-magic-number: abs($bg-grade - $link-grade);
 
     $color-token-values: append($color-token-values, $link-magic-number);
-      }
+  }
 
   $found-color: false;
 
@@ -2078,17 +2078,14 @@ $wcag-target: "AA"
         $closest-color-token
       );
 
-      $selected-color-token: nth(
-        $our-color-tokens,
-        $closest-color-token-index
-      );
+      $selected-color-token: nth($our-color-tokens, $closest-color-token-index);
 
       // @debug("$color-token-values: #{$color-token-values}");
       // @debug("$closest-color-token: #{$closest-color-token}");
       // @debug("$closest-color-token-index: #{$closest-color-token-index}");
       // @debug("$selected-color-token: #{$selected-color-token}");
       $found-color: $selected-color-token;
-      }
+    }
   }
 
   // @debug("$found-color: #{$found-color}");
@@ -2108,22 +2105,22 @@ $wcag-target: "AA"
 
   // Use system tokens for link color.
   // Otherwise use theme tokens if it's a custom color
-        @if not $custom {
+  @if not $custom {
     //@debug "Uses system color.";
     $decomposed: decompose($link-token);
-          $link-family: nth($decomposed, 1);
-          //@debug "link family: " + $link-family;
-          $link-vivid: "";
-          @if nth($decomposed, 3) {
-            $link-vivid: "v";
-          }
+    $link-family: nth($decomposed, 1);
+    //@debug "link family: " + $link-family;
+    $link-vivid: "";
+    @if nth($decomposed, 3) {
+      $link-vivid: "v";
+    }
   } @else {
     //@debug "Uses custom color.";
     // Get custom tokens
     $custom-color-tokens: get-custom-color-shades($link-token);
     $token-darker: nth($custom-color-tokens, 1);
     $token-lighter: nth($custom-color-tokens, 2);
-        }
+  }
 
   @if $link-grade == 0 {
     @warn 'Tokens with grades less than 10 (including "white") aren\'t valid link color tokens, since they have no lighter hover states.';
@@ -2132,53 +2129,48 @@ $wcag-target: "AA"
   }
 
   // Determine whether link is darker or lighter than background
-        @if ($link-grade > $bg-grade) and ($link-grade != 100) {
+  @if ($link-grade > $bg-grade) and ($link-grade != 100) {
     // @debug "Link is darker than background";
-          @if $token-darker {
-            //@debug "Getting darker token...";
-            $hover-token: $token-darker;
-          } @else {
-            $hover-grade: $link-grade + $grade-step;
-            $hover-vivid: if(
-              $hover-grade == 90,
-              "",
-              $link-vivid
-            );
-            $hover-token: if(
-              $hover-grade == 100,
-              "black",
-              #{$link-family}-#{$hover-grade}#{$hover-vivid}
-            );
+    @if $token-darker {
+      //@debug "Getting darker token...";
+      $hover-token: $token-darker;
+    } @else {
+      $hover-grade: $link-grade + $grade-step;
+      $hover-vivid: if($hover-grade == 90, "", $link-vivid);
+      $hover-token: if(
+        $hover-grade == 100,
+        "black",
+        #{$link-family}-#{$hover-grade}#{$hover-vivid}
+      );
       // @debug("$hover-token: #{$hover-token}");
-          }
-        }
-        @else if ($link-grade != 0) and ($link-grade != 100) {
+    }
+  } @else if ($link-grade != 0) and ($link-grade != 100) {
     // @debug "Link is lighter than background";
 
-          @if $token-lighter {
+    @if $token-lighter {
       // @debug "Getting lighter token...";
-            $hover-token: $token-lighter;
-          } @else {
-            $hover-grade: $link-grade - $grade-step;
+      $hover-token: $token-lighter;
+    } @else {
+      $hover-grade: $link-grade - $grade-step;
       // @debug("$hover-grade: #{$hover-grade}");
 
-            // Ex:
-            // $theme-color-accent-cool-lighter: "blue-cool-5v";
-            // $theme-color-accent-cool-lightest: false;
-            //
-            // $link-color: "accent-cool-lighter"
-            // $hover-color: "white"
-            $hover-token: if(
+      // Ex:
+      // $theme-color-accent-cool-lighter: "blue-cool-5v";
+      // $theme-color-accent-cool-lightest: false;
+      //
+      // $link-color: "accent-cool-lighter"
+      // $hover-color: "white"
+      $hover-token: if(
         $hover-grade == 0,
-              "white",
-              #{$link-family}-#{$hover-grade}#{$link-vivid}
-            );
+        "white",
+        #{$link-family}-#{$hover-grade}#{$link-vivid}
+      );
 
       // @debug("$hover-token: #{$hover-token}");
-          }
+    }
   }
 
-  @if not ($link-magic-number >= $target-magic-number) {
+  @if not($link-magic-number >= $target-magic-number) {
     @warn 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" meet #{$wcag-target} standard contrast on a "#{$bg-color}" background. The closest color is #{$found-color}. Consider updating your colors to meet accessibility requirements.';
   }
 
