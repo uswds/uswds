@@ -1884,17 +1884,17 @@ Get custom color grade from custom color split
   // @debug("$custom-color-family: #{$custom-color-family}");
   $custom-color-grade: false;
 
-  // set family and grade for "accent" families, since their family includes the split character
-  @if $custom-color-family != "accent" {
+  // Set family and grade for "accent" families
+  @if str-index($custom-color-family, "accent") {
     $custom-color-grade: if(
-      length($custom-color-split) == 2,
-      nth($custom-color-split, 2),
+      length($custom-color-split) == 3,
+      nth($custom-color-split, 3),
       "default"
     );
   } @else {
     $custom-color-grade: if(
-      length($custom-color-split) == 3,
-      nth($custom-color-split, 3),
+      length($custom-color-split) == 2,
+      nth($custom-color-split, 2),
       "default"
     );
   }
