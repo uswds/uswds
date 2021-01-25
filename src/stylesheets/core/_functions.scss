@@ -1978,6 +1978,7 @@ Get lighter and darker custom color shades for get-link-tokens-from-bg()
 
   // Check for "ink" and set family to "base", otherwise it will look for "ink-darker".
   $custom-family: if($custom-family == "ink", "base", $custom-family);
+
   // @debug "custom split:" + $custom-split;
   // @debug "custom family: " + $custom-family;
   // @debug "custom grade: " + $custom-grade;
@@ -2069,7 +2070,15 @@ Get accessible link colors against background color
 
   // Find the closest color to $target-magic-number.
   @each $color-token-value in $color-token-values {
-    @if not $found-color {
+    @if $color-token-value >= $target-magic-number {
+      // @debug("Color meets or exceeds target magic number");
+      $found-color-token-index: index(
+        $color-token-values,
+        $color-token-value
+      );
+
+      $found-color: nth($our-color-tokens, $found-color-token-index);
+    } @else {
       $closest-color-token: closest-to-number(
         $color-token-values,
         $target-magic-number
@@ -2108,20 +2117,22 @@ Get accessible link colors against background color
   // Use system tokens for link color.
   // Otherwise use theme tokens if it's a custom color
   @if not $custom {
-    //@debug "Uses system color.";
+    // @debug "Uses system color.";
     $decomposed: decompose($link-token);
     $link-family: nth($decomposed, 1);
-    //@debug "link family: " + $link-family;
+    // @debug "link family: " + $link-family;
     $link-vivid: "";
     @if nth($decomposed, 3) {
       $link-vivid: "v";
     }
   } @else {
-    //@debug "Uses custom color.";
+    // @debug "Uses custom color.";
     // Get custom tokens
     $custom-color-tokens: get-custom-color-shades($link-token);
     $token-darker: nth($custom-color-tokens, 1);
     $token-lighter: nth($custom-color-tokens, 2);
+
+    // @debug("$custom-color-tokens: #{$custom-color-tokens}");
   }
 
   @if $link-grade == 0 {
@@ -2170,10 +2181,6 @@ Get accessible link colors against background color
 
       // @debug("$hover-token: #{$hover-token}");
     }
-  }
-
-  @if not($link-magic-number >= $target-magic-number) {
-    @warn 'Neither "#{$preferred-link-color}" nor "#{$fallback-link-color}" meet #{$wcag-target} standard contrast on a "#{$bg-color}" background. The closest color is #{$found-color}. Consider updating your colors to meet accessibility requirements.';
   }
 
   // @debug "#{$link-token}, #{$hover-token}";
