@@ -2072,10 +2072,7 @@ Get accessible link colors against background color
   @each $color-token-value in $color-token-values {
     @if $color-token-value >= $target-magic-number {
       // @debug("Color meets or exceeds target magic number");
-      $found-color-token-index: index(
-        $color-token-values,
-        $color-token-value
-      );
+      $found-color-token-index: index($color-token-values, $color-token-value);
 
       $found-color: nth($our-color-tokens, $found-color-token-index);
     } @else {
