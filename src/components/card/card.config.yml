@@ -133,14 +133,14 @@ variants:
     context:
       cards:
         - title: Default flag
-          classes: "usa-card--flag tablet:grid-col-6"
+          classes: "usa-card--flag desktop:grid-col-6"
           media: true
           media_classes: ""
           image_classes: ""
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
         - title: Flag media right inset
-          classes: "usa-card--flag usa-card--media-right tablet:grid-col-6"
+          classes: "usa-card--flag usa-card--media-right desktop:grid-col-6"
           media: true
           media_classes: "usa-card__media--inset"
           image_classes: ""
