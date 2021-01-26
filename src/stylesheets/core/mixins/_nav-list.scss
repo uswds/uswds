@@ -78,17 +78,17 @@ $sidenav-level-4-inset: 8;
   }
 
   // level 2+
-  a {
+  a:not(.usa-button) {
     padding-left: units($sidenav-level-2-inset);
   }
 
   // level 3+
-  & & a {
+  & & a:not(.usa-button) {
     padding-left: units($sidenav-level-3-inset);
   }
 
   // level 4+
-  & & & a {
+  & & & a:not(.usa-button) {
     content: "foobar";
     padding-left: units($sidenav-level-4-inset);
   }
