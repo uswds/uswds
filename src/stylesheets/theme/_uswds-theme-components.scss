@@ -102,6 +102,18 @@ $theme-identifier-identity-domain-color: "base-light";
 $theme-identifier-max-width: "desktop";
 $theme-identifier-secondary-link-color: "base-light";
 
+// Pagination
+$theme-pagination-background-color: "gray-2";
+$theme-pagination-border-color: "base-light";
+$theme-pagination-border-radius: "md";
+$theme-pagination-border-width: 1px;
+$theme-pagination-breakpoint: "tablet";
+$theme-pagination-margin-x: 0.5;
+$theme-pagination-margin-y: 2;
+$theme-pagination-min-width: 4.5ch;
+$theme-pagination-padding: 1;
+$theme-pagination-pager-color: "ink";
+
 // Process List
 $theme-process-list-counter-background-color: "white";
 $theme-process-list-counter-border-color: "ink";
