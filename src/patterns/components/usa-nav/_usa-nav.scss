@@ -200,8 +200,9 @@ $nav-link-arrow-icon-size: 1;
   margin-top: units(2);
 
   @include at-media($theme-header-min-width) {
-    // Note: Previius calc() couldn't work. don't hardcode rem vals
+    @include u-flex("column", "align-end");
     bottom: units(8); // XXX magic number
+    display: flex;
     font-size: font-size($theme-navigation-font-family, "2xs");
     margin-top: units(1);
     min-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
