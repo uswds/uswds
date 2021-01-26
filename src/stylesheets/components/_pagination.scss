@@ -49,7 +49,7 @@ $theme-pagination-min-width: 4.5ch;
 
 // Only display Previous/Next on mobile
 .usa-pagination__label,
-.usa-pagination__item:not(.usa-pagination__previous-page):not(.usa-pagination__next-page),
+.usa-pagination__item,
 .usa-pagination__view-all {
   @include at-media-max($theme-pagination-breakpoint) {
     display: none;
