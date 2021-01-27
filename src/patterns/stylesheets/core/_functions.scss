@@ -1094,7 +1094,7 @@ Includes helper functions
 
 /*
 ----------------------------------------
-decompose()
+decompose-color-token()
 ----------------------------------------
 Convert a color token into into a list
 of form [family], [grade], [variant]
@@ -1107,7 +1107,7 @@ returns 'null'
 ----------------------------------------
 */
 
-@function decompose($token) {
+@function decompose-color-token($token) {
   $separator: "-";
   $family: false;
   $grade: false;
@@ -1160,8 +1160,8 @@ results than expected.
     "white-transparent";
 
   @each $token, $value in $map {
-    $family: nth(decompose($token), 1);
-    $grade: nth(decompose($token), 2);
+    $family: nth(decompose-color-token($token), 1);
+    $grade: nth(decompose-color-token($token), 2);
     @if not $value {
       // empty block
     } @else if not index($exceptions, $family) {
@@ -1336,13 +1336,13 @@ even non-token colors
   }
 
   $system-token: $color-token;
-  $token-family: nth(decompose($system-token), 1);
+  $token-family: nth(decompose-color-token($system-token), 1);
   // If the color uses transparency, throw an error
   @if str-index($token-family, "transparent") {
     @return uswds-error($transparency-error);
   }
   // Otherwise, return token grade
-  $token-grade: nth(decompose($system-token), 2);
+  $token-grade: nth(decompose-color-token($system-token), 2);
   @return $token-grade;
 }
 
@@ -2186,7 +2186,7 @@ Get accessible link colors against background color
   // Otherwise use theme tokens if it's a custom color
   @if not $custom {
     // @debug "Uses system color.";
-    $decomposed: decompose($link-token);
+    $decomposed: decompose-color-token($link-token);
     $link-family: nth($decomposed, 1);
     // @debug "link family: " + $link-family;
     $link-vivid: "";
