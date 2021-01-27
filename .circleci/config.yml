@@ -18,6 +18,7 @@ references:
 jobs:
   build:
     <<: *container
+    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -46,6 +47,12 @@ jobs:
               ls -agolf dist/
               codeclimate-test-reporter < coverage/lcov.info
             fi
+      - run:
+          name: Compress Artifacts
+          command: tar -cvzf artifact.tar dist
+      - store_artifacts:
+          path: /tmp/artifact.tar
+          destination: federalist-build
 
   deploy:
     <<: *container
