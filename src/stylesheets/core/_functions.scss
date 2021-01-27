@@ -1204,6 +1204,15 @@ theme color token
 ----------------------------------------
 */
 
+$_error-output-override: false !default;
+@function uswds-error($message, $override: $_error-output-override) {
+  @if $override {
+    @return "Error: #{$message}";
+  }
+
+  @error "#{$message}";
+}
+
 @function get-color-token-assignment($color-token) {
   $system-token: $color-token;
   $grade: null;
@@ -1211,7 +1220,7 @@ theme color token
   @if map-has-key($assignments-theme-color, $color-token) {
     $system-token: map-get($assignments-theme-color, $system-token);
   } @else if not map-has-key($system-color-shortcodes, $color-token) {
-    @error "'#{$color-token}' is not a valid color token.";
+    @return uswds-error("'#{$color-token}' is not a valid color token.");
   }
 
   @return $system-token;
