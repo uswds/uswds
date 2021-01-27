@@ -38,6 +38,9 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
           display: flex;
           margin-bottom: 0;
           position: relative;
+          & + p {
+            margin-top: 0.2rem;
+          }
         }
       }
     }
@@ -63,7 +66,7 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
   }
 
   .usa-icon-list__content {
-    padding-left: 0.5em;
+    padding-left: 1em;
     > *:first-child {
       margin-top: 0;
     }
