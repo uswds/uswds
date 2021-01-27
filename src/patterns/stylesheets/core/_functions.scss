@@ -42,6 +42,18 @@ $_error-output-override: false !default;
 
 /*
 ----------------------------------------
+not-color-token()
+----------------------------------------
+Returns a common not-a-color-token error.
+----------------------------------------
+*/
+
+@function not-color-token($color-token) {
+  @return uswds-error("'#{$color-token}' is not a valid USWDS color token.");
+}
+
+/*
+----------------------------------------
 map-deep-get()
 ----------------------------------------
 @author Hugo Giraudel
@@ -1237,6 +1249,27 @@ theme color token
 
 /*
 ----------------------------------------
+is-color-token()
+----------------------------------------
+Returns whether a given string is a
+USWDS color token.
+----------------------------------------
+*/
+
+@function is-color-token($token) {
+  $system-token: if(
+    map-has-key($all-color-shortcodes, $token),
+    get-color-token-assignment($token),
+    false
+  );
+  @if not $system-token {
+    @return false;
+  }
+  @return true;
+}
+
+/*
+----------------------------------------
 get-color-grade()
 ----------------------------------------
 Derive the grade equivalent any color,
@@ -1298,16 +1331,11 @@ even non-token colors
     }
   }
 
-  // If it's not a valid color token, throw an error
-  $system-token: if(
-    map-has-key($all-color-shortcodes, $color-token),
-    get-color-token-assignment($color-token),
-    false
-  );
-  @if not $system-token {
-    @return uswds-error("'#{$color-token}' is not a valid USWDS color token.");
+  @if not is-color-token($color-token) {
+    @return not-color-token($color-token);
   }
 
+  $system-token: $color-token;
   $token-family: nth(decompose($system-token), 1);
   // If the color uses transparency, throw an error
   @if str-index($token-family, "transparent") {
@@ -1378,9 +1406,7 @@ Derive a color from a color shortcode
     }
   }
 
-  @error '`#{$value}` is not a valid USWDS color token. '
-      + 'See designsystem.digital.gov/design-tokens/color '
-      + 'for more information.';
+  @return not-color-token($value);
 }
 
 /*
