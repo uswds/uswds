@@ -27,6 +27,12 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
           .usa-icon {
             @include u-square($size);
           }
+          margin-top: -4px;
+        }
+        .usa-icon-list__heading {
+          font-size: calc(#{units($size)} / 2);
+          display: flex;
+          position: relative;
         }
       }
     }
