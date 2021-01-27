@@ -2070,29 +2070,30 @@ Get accessible link colors against background color
 
   // Find the closest color to $target-magic-number.
   @each $color-token-value in $color-token-values {
-    @if $color-token-value >= $target-magic-number {
-      // @debug("Color meets or exceeds target magic number");
-      $found-color-token-index: index($color-token-values, $color-token-value);
+    @if not $found-color {
+      @if $color-token-value >= $target-magic-number {
+        // @debug("Color meets or exceeds target magic number");
+        $found-color-token-index: index($color-token-values, $color-token-value);
+        $found-color: nth($our-color-tokens, $found-color-token-index);
+      } @else {
+        $closest-color-token: closest-to-number(
+          $color-token-values,
+          $target-magic-number
+        );
 
-      $found-color: nth($our-color-tokens, $found-color-token-index);
-    } @else {
-      $closest-color-token: closest-to-number(
-        $color-token-values,
-        $target-magic-number
-      );
+        $closest-color-token-index: index(
+          $color-token-values,
+          $closest-color-token
+        );
 
-      $closest-color-token-index: index(
-        $color-token-values,
-        $closest-color-token
-      );
+        $selected-color-token: nth($our-color-tokens, $closest-color-token-index);
 
-      $selected-color-token: nth($our-color-tokens, $closest-color-token-index);
-
-      // @debug("$color-token-values: #{$color-token-values}");
-      // @debug("$closest-color-token: #{$closest-color-token}");
-      // @debug("$closest-color-token-index: #{$closest-color-token-index}");
-      // @debug("$selected-color-token: #{$selected-color-token}");
-      $found-color: $selected-color-token;
+        // @debug("$color-token-values: #{$color-token-values}");
+        // @debug("$closest-color-token: #{$closest-color-token}");
+        // @debug("$closest-color-token-index: #{$closest-color-token-index}");
+        // @debug("$selected-color-token: #{$selected-color-token}");
+        $found-color: $selected-color-token;
+      }
     }
   }
 
