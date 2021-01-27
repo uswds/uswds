@@ -166,12 +166,24 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
       positionTop(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
         positionBottom(tooltipBody);
+        if (!isElementInViewport(tooltipBody)) {
+          positionLeft(tooltipBody);
+          if (!isElementInViewport(tooltipBody)) {
+            positionRight(tooltipBody);
+          }
+        }
       }
       break;
     case "bottom":
       positionBottom(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
         positionTop(tooltipBody);
+        if (!isElementInViewport(tooltipBody)) {
+          positionLeft(tooltipBody);
+          if (!isElementInViewport(tooltipBody)) {
+            positionRight(tooltipBody);
+          }
+        }
       }
       break;
     case "right":
