@@ -1248,6 +1248,7 @@ even non-token colors
   $grade: null;
   $lum: null;
   $custom-color: false;
+  $transparency-error: "USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
 
   // Determine if the color is a custom color
   @if type-of($color-token) == "color" {
@@ -1258,6 +1259,10 @@ even non-token colors
 
   // If it's custom, compare its rLum to USWDS grade rLum ranges
   @if $custom-color {
+    // If the color uses transparency, throw an error
+    @if opacity($custom-color) != 1 {
+      @return uswds-error($transparency-error);
+    }
     $lum: luminance($custom-color);
     // Cycle through grades, knowing current AND next grade
     $our-grades: map-keys($system-luminance-grade-ranges);
@@ -1294,8 +1299,14 @@ even non-token colors
   }
 
   $system-token: get-color-token-assignment($color-token);
-  $grade: nth(decompose($system-token), 2);
-  @return $grade;
+  $token-family: nth(decompose($system-token), 1);
+  // If the color uses transparency, throw an error
+  @if str-index($token-family, "transparent") {
+    @return uswds-error($transparency-error);
+  }
+  // Otherwise, return token grade
+  $token-grade: nth(decompose($system-token), 2);
+  @return $token-grade;
 }
 
 /*
