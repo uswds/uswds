@@ -1,0 +1,46 @@
+$_error-output-override: true;
+$theme-color-primary-lightest: "gray-warm-3";
+$theme-color-accent-warm-lightest: #dad; // 24.9
+
+@import "node_modules/sass-true/sass/true";
+@import "../../../src/stylesheets/uswds.scss";
+
+// Tests
+
+@include describe("[function] get-color-grade()") {
+  @include it("Returns the proper grade for a system color token.") {
+    $test: get-color-grade("red-50");
+    $expect: 50;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper grade for a theme color token.") {
+    $test: get-color-grade("primary-lightest");
+    $expect: 3;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper grade custom hex theme token.") {
+    $test: get-color-grade("accent-warm-lightest");
+    $expect: 24.9;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper grade custom hex color.") {
+    $test: get-color-grade(#dad);
+    $expect: 24.9;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns an error if passed a transparent color.") {
+    $test: get-color-grade(rgba(0, 0, 0, 0.3));
+    $expect: "Error: 'foo' is not a valid color token.";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns an error if passed a transparent token.") {
+    $test: get-color-grade("black-transparent-50");
+    $expect: "Error: 'foo' is not a valid color token.";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns an error if passed a non-token string.") {
+    $test: get-color-grade("foo");
+    $expect: "Error: 'foo' is not a valid color token.";
+    @include assert-equal($test, $expect);
+  }
+}
