@@ -1238,16 +1238,17 @@ even non-token colors
 @function get-color-grade($color-token) {
   $grade: null;
   $lum: null;
-  $color: false;
+  $custom-color: false;
 
+  // Determine if the color is a custom color
   @if type-of($color-token) == "color" {
-    $color: $color-token;
+    $custom-color: $color-token;
   } @else if type-of(get-color-token-assignment($color-token)) == "color" {
-    $color: get-color-token-assignment($color-token);
+    $custom-color: get-color-token-assignment($color-token);
   }
 
-  @if $color {
-    $lum: luminance($color);
+  @if $custom-color {
+    $lum: luminance($custom-color);
 
     @each $grade, $range in $system-luminance-grade-ranges {
       $min: nth($range, 1);
