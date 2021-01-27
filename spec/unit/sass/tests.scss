@@ -2,13 +2,127 @@ $_error-output-override: true;
 $theme-show-notifications: false;
 $theme-show-compile-warnings: false;
 $theme-color-primary-lightest: "gray-warm-3";
+$theme-color-warning: "orange-50v";
 $theme-color-accent-warm-lightest: #dad; // 25
+$theme-color-accent-cool-lightest: false; // 25
 
 @import "node_modules/sass-true/sass/true";
 @import "../../../src/stylesheets/uswds.scss";
 
-// Tests
+// is-system-color-token()
+@include describe("[function] is-system-color-token()") {
+  @include it("Returns `true` for a system color token.") {
+    $test: is-system-color-token("red-50");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for a theme color token.") {
+    $test: is-system-color-token("primary");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for a random string.") {
+    $test: is-system-color-token("foo");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for regular color.") {
+    $test: is-system-color-token(rgba(0, 0, 0, 0.2));
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
 
+// is-theme-color-token()
+@include describe("[function] is-theme-color-token()") {
+  @include it("Returns `true` for a theme color token.") {
+    $test: is-theme-color-token("accent-warm-lightest");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `true` for a state color token.") {
+    $test: is-theme-color-token("warning");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for a system color token.") {
+    $test: is-theme-color-token("red-50");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for a random string.") {
+    $test: is-theme-color-token("foo");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for regular color.") {
+    $test: is-theme-color-token(rgba(0, 0, 0, 0.2));
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
+
+// is-color-token()
+@include describe("[function] is-color-token()") {
+  @include it("Returns `true` for a theme color token.") {
+    $test: is-color-token("ink");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `true` for a system color token.") {
+    $test: is-color-token("green-cool-30v");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for a random string.") {
+    $test: is-color-token("foo");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for regular color.") {
+    $test: is-color-token(rgba(0, 0, 0, 0.2));
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
+
+// get-color-token-assignment()
+@include describe("[function] get-color-token-assignment()") {
+  @include it("Returns a token assignment for a standard theme token.") {
+    $test: get-color-token-assignment("primary-lightest");
+    $expect: "gray-warm-3";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a token assignment for a standard state token.") {
+    $test: get-color-token-assignment("warning");
+    $expect: "orange-50v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a custom color for a custom theme token.") {
+    $test: get-color-token-assignment("accent-warm-lightest");
+    $expect: #dad;
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Returns `false` when there's no color assigned to a theme token."
+  ) {
+    $test: get-color-token-assignment("accent-warm-lightest");
+    $expect: #dad;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a system token when passed a system token.") {
+    $test: get-color-token-assignment("blue-10");
+    $expect: "blue-10";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` for there's no color assigned.") {
+    $test: get-color-token-assignment("accent-cool-lightest");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
+
+// get-color-grade()
 @include describe("[function] get-color-grade()") {
   @include it("Returns the proper grade for a system color token.") {
     $test: get-color-grade("red-50");

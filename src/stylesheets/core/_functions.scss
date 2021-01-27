@@ -1117,7 +1117,6 @@ returns 'null'
     "white": 0,
   );
 
-  $token: get-color-token-assignment($token);
   $split: str-split($token, $separator);
   $grade: nth($split, length($split));
 
@@ -1227,6 +1226,38 @@ string
 
 /*
 ----------------------------------------
+is-system-color-token()
+----------------------------------------
+Return whether a token is a system
+color token
+----------------------------------------
+*/
+
+@function is-system-color-token($token) {
+  @if map-has-key($system-color-shortcodes, $token) {
+    @return true;
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
+is-theme-color-token()
+----------------------------------------
+Return whether a token is a theme
+color token
+----------------------------------------
+*/
+
+@function is-theme-color-token($token) {
+  @if map-has-key($project-color-shortcodes, $token) {
+    @return true;
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
 get-color-token-assignment()
 ----------------------------------------
 Get the system token equivalent of any
@@ -1235,16 +1266,18 @@ theme color token
 */
 
 @function get-color-token-assignment($color-token) {
-  $system-token: $color-token;
-  $grade: null;
+  @if is-system-color-token($color-token) {
+    $system-token: $color-token;
+    @return $system-token;
+  }
 
-  @if map-has-key($assignments-theme-color, $color-token) {
-    $system-token: map-get($assignments-theme-color, $system-token);
-  } @else if not map-has-key($system-color-shortcodes, $color-token) {
+  @if not is-theme-color-token($color-token) {
     @return uswds-error("'#{$color-token}' is not a valid color token.");
   }
 
-  @return $system-token;
+  $theme-token: $color-token;
+  $theme-token-assignment: map-get($assignments-theme-color, $theme-token);
+  @return $theme-token-assignment;
 }
 
 /*
@@ -1257,15 +1290,8 @@ USWDS color token.
 */
 
 @function is-color-token($token) {
-  $system-token: if(
-    map-has-key($all-color-shortcodes, $token),
-    get-color-token-assignment($token),
-    false
-  );
-  @if not $system-token {
-    @return false;
-  }
-  @return true;
+  $is-color-token: if(map-has-key($all-color-shortcodes, $token), true, false);
+  @return $is-color-token;
 }
 
 /*
@@ -1335,7 +1361,7 @@ even non-token colors
     @return not-color-token($color-token);
   }
 
-  $system-token: $color-token;
+  $system-token: get-color-token-assignment($color-token);
   $token-family: nth(decompose-color-token($system-token), 1);
   // If the color uses transparency, throw an error
   @if str-index($token-family, "transparent") {
@@ -1892,27 +1918,7 @@ custom color assignment
 
 /*
 ----------------------------------------
-get-custom-color-split()
-----------------------------------------
-Get custom color split values
-@param {$custom-color-token} string
-----------------------------------------
-*/
-
-@function get-custom-color-split($custom-color-token) {
-  $custom-color-split: str-split($custom-color-token, "-");
-
-  // ignore vivid in token calculations, treat as default
-  @if index($custom-color-split, "vivid") {
-    $custom-color-split: remove($custom-color-split, "vivid");
-  }
-
-  @return $custom-color-split;
-}
-
-/*
-----------------------------------------
-get-custom-color-family()
+get-color-token-family()
 ----------------------------------------
 Get color family from custom color split
 ----------------------------------------
@@ -1921,18 +1927,11 @@ Get color family from custom color split
 // [$custom-color-split]
 // ex: "accent" "cool" "lighter"
 // Returns: "accent-cool"
-@function get-custom-color-family($custom-color-split) {
-  // Set family as the first string in the split
-  $custom-color-family: nth($custom-color-split, 1);
+@function get-color-token-family($color-token) {
+  $token-decomposed: decompose-color-token($color-token);
+  $color-token-family: nth($token-decomposed, 1);
 
-  @if $custom-color-family == "accent" {
-    $custom-color-family: $custom-color-family +
-      "-" +
-      nth($custom-color-split, 2);
-  }
-
-  // @debug($custom-color-family);
-  @return $custom-color-family;
+  @return $color-token-family;
 }
 
 /*
@@ -2042,7 +2041,7 @@ Get lighter and darker custom color shades for get-link-tokens-from-bg()
   $custom-token-lighter: false;
   $custom-token-darker: false;
   $custom-split: get-custom-color-split($custom-token);
-  $custom-family: get-custom-color-family($custom-split);
+  $custom-family: get-color-token-family($custom-split);
   $custom-grade: get-custom-color-grade($custom-split, $custom-family);
   $custom-grade-lighter: false;
   $custom-grade-darker: false;
