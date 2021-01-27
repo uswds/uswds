@@ -1871,28 +1871,23 @@ Get closest value to target from a list of numbers
 
 /*
 ----------------------------------------
-is-custom-color()
+has-custom-color-assignment()
 ----------------------------------------
-Check whether color token is a USWDS color or custom
-[$color-token] - string
+Check whether a theme color token has a
+custom color assignment
+
+[$theme-token] - string
 ----------------------------------------
 */
 
-// is-custom-color() expects a single color token:
-//
-// [$color-token]
-// ex: "$theme-color-accent-cool-lighter: #a1dffc;"
-//     - returns true
-// ex: "$theme-color-accent-cool-lighter: blue-cool-5v;"
-//     - returns false
-@function is-custom-color($color-token) {
-  $color-token: type-of(map-get($assignments-theme-color, $color-token));
+@function has-custom-color-assignment($theme-token) {
+  $assignment: get-color-token-assignment($theme-token);
+  $assignment-type: type-of($assignment);
 
-  @if $color-token != "color" {
-    @return false;
-  } @else {
+  @if $assignment-type == "color" {
     @return true;
   }
+  @return false;
 }
 
 /*
@@ -2133,7 +2128,7 @@ Get accessible link colors against background color
 
   @each $color-token in $our-color-tokens {
     //@debug "color token: " + $color-token;
-    $custom: is-custom-color($color-token);
+    $custom: has-custom-color-assignment($color-token);
 
     $link-grade-token: get-color-grade($color-token);
     $link-grade: $link-grade-token;
@@ -2176,7 +2171,7 @@ Get accessible link colors against background color
 
   // Get color grades
   $link-token: $found-color;
-  $custom: is-custom-color($link-token);
+  $custom: has-custom-color-assignment($link-token);
   $grade-token: get-color-grade($link-token);
   $link-grade: $grade-token;
   $link-magic-number: abs($bg-grade - $link-grade);
