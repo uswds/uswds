@@ -24,6 +24,24 @@ General-purpose functions
 
 /*
 ----------------------------------------
+uswds-error()
+----------------------------------------
+Allow the system to pass an error as text
+to test error states in unit testing
+----------------------------------------
+*/
+
+$_error-output-override: false !default;
+@function uswds-error($message, $override: $_error-output-override) {
+  @if $override {
+    @return "Error: #{$message}";
+  }
+
+  @error "#{$message}";
+}
+
+/*
+----------------------------------------
 map-deep-get()
 ----------------------------------------
 @author Hugo Giraudel
@@ -1204,15 +1222,6 @@ theme color token
 ----------------------------------------
 */
 
-$_error-output-override: false !default;
-@function uswds-error($message, $override: $_error-output-override) {
-  @if $override {
-    @return "Error: #{$message}";
-  }
-
-  @error "#{$message}";
-}
-
 @function get-color-token-assignment($color-token) {
   $system-token: $color-token;
   $grade: null;
@@ -1247,28 +1256,39 @@ even non-token colors
     $custom-color: get-color-token-assignment($color-token);
   }
 
+  // If it's custom, compare its rLum to USWDS grade rLum ranges
   @if $custom-color {
     $lum: luminance($custom-color);
-
-    @each $grade, $range in $system-luminance-grade-ranges {
-      $min: nth($range, 1);
-      $max: nth($range, 2);
-      $next-max: false;
-      @if $grade < 100 {
-        @if $grade == 5 {
-          $next-max: nth(map-get($system-luminance-grade-ranges, 10), 2);
-        } @else {
-          $next-max: nth(
-            map-get($system-luminance-grade-ranges, ($grade + 10)),
-            2
-          );
-        }
+    // Cycle through grades, knowing current AND next grade
+    $our-grades: map-keys($system-luminance-grade-ranges);
+    $grade-count: length($our-grades);
+    @for $i from 1 through $grade-count {
+      $this-grade: nth($our-grades, $i);
+      $this-grade-min: map-deep-get(
+        $system-luminance-grade-ranges,
+        $this-grade,
+        "min"
+      );
+      $this-grade-max: map-deep-get(
+        $system-luminance-grade-ranges,
+        $this-grade,
+        "max"
+      );
+      $next-grade: if($i < $grade-count, nth($our-grades, $i + 1), false);
+      $next-grade-min: if(
+        $next-grade,
+        map-deep-get($system-luminance-grade-ranges, $next-grade, "min"),
+        false
+      );
+      // If the lum fits the range, assign a USWDS grade
+      // Otherwise, set a grade midway between two USWDS grades
+      @if ($lum >= $this-grade-min) and ($lum <= $this-grade-max) {
+        @return $this-grade;
       }
-      @if ($lum >= $min) and ($lum <= $max) {
-        @return $grade;
-      }
-      @if $next-max and ($lum < $min) and ($lum > $next-max) {
-        @return $grade + 4.9;
+      @if ($lum > $this-grade-max) and ($lum < $next-grade-min) {
+        $custom-grade-midpoint: ($this-grade + $next-grade) / 2;
+        $custom-grade: $custom-grade-midpoint;
+        @return $custom-grade;
       }
     }
   }
