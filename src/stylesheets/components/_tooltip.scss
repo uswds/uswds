@@ -51,7 +51,8 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--wrap {
-  width: 100%;
+  width: auto;
+  min-width: 100%;
   white-space: normal;
 }
 
