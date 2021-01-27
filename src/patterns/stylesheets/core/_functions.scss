@@ -1260,7 +1260,7 @@ even non-token colors
   // If it's custom, compare its rLum to USWDS grade rLum ranges
   @if $custom-color {
     // If the color uses transparency, throw an error
-    @if opacity($custom-color) != 1 {
+    @if alpha($custom-color) != 1 {
       @return uswds-error($transparency-error);
     }
     $lum: luminance($custom-color);
@@ -1298,7 +1298,16 @@ even non-token colors
     }
   }
 
-  $system-token: get-color-token-assignment($color-token);
+  // If it's not a valid color token, throw an error
+  $system-token: if(
+    map-has-key($all-color-shortcodes, $color-token),
+    get-color-token-assignment($color-token),
+    false
+  );
+  @if not $system-token {
+    @return uswds-error("'#{$color-token}' is not a valid USWDS color token.");
+  }
+
   $token-family: nth(decompose($system-token), 1);
   // If the color uses transparency, throw an error
   @if str-index($token-family, "transparent") {
