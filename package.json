@@ -23,6 +23,7 @@
     "prepare": "gulp",
     "preversion": "npm test",
     "release": "gulp release",
+    "federalist": "npm install && gulp",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "gulp watch",
     "test": "snyk test && gulp lintJS && gulp typecheck && gulp lintSass && gulp test && gulp regression",
