@@ -34,7 +34,7 @@
   "paths": {
     "source": {
       "root": "./src/",
-      "patterns": "./src/patterns/",
+      "patterns": "./src/new-patterns/",
       "data": "./src/styleguide/data/",
       "meta": "./src/styleguide/meta/",
       "annotations": "./src/styleguide/annotations/",
@@ -53,7 +53,7 @@
     },
     "public": {
       "root": "./patternlab/",
-      "patterns": "./patternlab/patterns/",
+      "patterns": "./patternlab/new-patterns/",
       "data": "./patternlab/styleguide/data/",
       "annotations": "./patternlab/annotations/",
       "styleguide": "./patternlab/styleguide/",
@@ -100,22 +100,14 @@
           "id": "components",
           "recursive": true,
           "paths": [
-            "./src/patterns/components"
+            "./src/new-patterns/components"
           ]
         },
         {
           "id": "compare",
           "recursive": true,
           "paths": [
-            "./src/patterns/compare"
-          ]
-        }
-      ],
-      "alterTwigEnv": [
-        {
-          "file": "./src/styleguide/drupal-twig/alter-twig.php",
-          "functions": [
-            "twig_extensions"
+            "./src/new-patterns/compare"
           ]
         }
       ]
