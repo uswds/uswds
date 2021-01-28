@@ -4,12 +4,13 @@
   $fallback-text-color: "ink",
   $wcag-target: "AA"
 ) {
-  color: get-color-from-bg(
+  $accessible-color-token: get-token-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
     $wcag-target
   );
+  color: color($accessible-color-token);
 }
 
 @mixin set-text-and-bg(
