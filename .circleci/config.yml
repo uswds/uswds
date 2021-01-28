@@ -18,7 +18,7 @@ references:
 jobs:
   build:
     <<: *container
-    working_directory: /tmp
+    working_directory: /
     steps:
       - checkout
       - run:
