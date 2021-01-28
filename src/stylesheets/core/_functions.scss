@@ -1800,6 +1800,11 @@ system z-index
   @return z-index($value);
 }
 
+@function magic-number($grade-1, $grade-2) {
+  $magic-number: abs($grade-1 - $grade-2);
+  @return $magic-number;
+}
+
 @function get-token-from-bg(
   $bg-color,
   $preferred-text-color: "white",
@@ -1814,7 +1819,7 @@ system z-index
   $target-magic-number: map-get($magic-numbers, $wcag-target);
   $grade-bg: get-color-grade($bg-color);
   $grade-preferred: get-color-grade($preferred-text-color);
-  $magic-num-preferred: abs($grade-bg - $grade-preferred);
+  $magic-num-preferred: magic-number($grade-bg, $grade-preferred);
   $color: false;
 
   //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
@@ -1823,7 +1828,7 @@ system z-index
     $color: $preferred-text-color;
   } @else {
     $grade-fallback: get-color-grade($fallback-text-color);
-    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    $magic-num-fallback: magic-number($grade-bg, $grade-fallback);
 
     @if $magic-num-fallback >= $target-magic-number {
       $color: $fallback-text-color;
