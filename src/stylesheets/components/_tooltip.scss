@@ -52,8 +52,9 @@ $triangle-size: 5px;
 
 .usa-tooltip__body--wrap {
   width: auto;
-  min-width: 100%;
+  min-width: calc(100% / 2);
   white-space: normal;
+  text-align: center;
 }
 
 .usa-tooltip__body.is-set {
