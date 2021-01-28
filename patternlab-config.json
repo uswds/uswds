@@ -52,15 +52,15 @@
       "css": "./dist/css"
     },
     "public": {
-      "root": "./patternlab/",
-      "patterns": "./patternlab/new-patterns/",
-      "data": "./patternlab/styleguide/data/",
-      "annotations": "./patternlab/annotations/",
-      "styleguide": "./patternlab/styleguide/",
-      "js": "./patternlab/js",
-      "images": "./patternlab/img",
-      "fonts": "./patternlab/fonts",
-      "css": "./patternlab/css"
+      "root": "./build/",
+      "patterns": "./build/new-patterns/",
+      "data": "./build/styleguide/data/",
+      "annotations": "./build/annotations/",
+      "styleguide": "./build/styleguide/",
+      "js": "./build/js",
+      "images": "./build/img",
+      "fonts": "./build/fonts",
+      "css": "./build/css"
     }
   },
   "patternExtension": "twig",

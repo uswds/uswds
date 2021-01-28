@@ -48,7 +48,7 @@ exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, mov
 function serve(done) {
   // See https://browsersync.io/docs/options for more options.
   server.init({
-    server: ["./patternlab/"],
+    server: ["./build/"],
     notify: false,
     open: false,
   });
