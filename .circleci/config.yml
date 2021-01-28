@@ -18,7 +18,6 @@ references:
 jobs:
   build:
     <<: *container
-    working_directory: /
     steps:
       - checkout
       - run:
@@ -51,7 +50,7 @@ jobs:
           name: Compress Artifacts
           command: tar -cvzf artifact.tar dist
       - store_artifacts:
-          path: /tmp/artifact.tar
+          path: ./artifact.tar
           destination: federalist-build
 
   deploy:
