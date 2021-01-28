@@ -1103,7 +1103,7 @@ Vivid variants return "vivid" as the
 variant.
 
 If neither grade nor variant exists,
-returns 'null'
+returns 'false'
 ----------------------------------------
 */
 
@@ -1116,27 +1116,45 @@ returns 'null'
     "black": 100,
     "white": 0,
   );
-
-  $split: str-split($token, $separator);
-  $grade: nth($split, length($split));
-
-  @if str-index($grade, "v") {
-    $variant: "vivid";
-    $grade: str-slice($grade, 1, (str-index($grade, "v") - 1));
-  }
-
-  @if length($split) == 3 {
-    $family: nth($split, 1) + $separator + nth($split, 2);
+  $token: if($token == "ink", "base-darkest", $token);
+  // If there's no separator, set family and grade
+  @if not str-index($token, $separator) {
+    $family: $token;
+    $grade: if(
+      map-has-key($exceptions, $family),
+      map-get($exceptions, $family),
+      "default"
+    );
   } @else {
-    $family: nth($split, 1);
+    $split: str-split($token, $separator);
+    $last: nth($split, length($split));
+    // If the last string is over 3 char, it's a theme token
+    @if length($last) > 3 {
+      @if $last == "vivid" {
+        $variant: "vivid";
+        $grade: "default";
+      } @else {
+        $grade: $last;
+      }
+      // Otherwise treat as system token
+    } @else {
+      // Determine if it's a vivid variant
+      @if str-index($last, "v") {
+        $variant: "vivid";
+        $grade: str-slice($last, 1, (str-index($last, "v") - 1));
+      } @else {
+        $grade: $last;
+      }
+      // Collect compound-word families
+      @if length($split) == 3 {
+        $family: nth($split, 1) + $separator + nth($split, 2);
+      } @else {
+        $family: nth($split, 1);
+      }
+      // Make sure the grade is a number
+      $grade: if(type-of($grade) == "string", to-number($grade), $grade);
+    }
   }
-
-  $grade: to-number($grade);
-
-  @if map-has-key($exceptions, $family) {
-    $grade: map-get($exceptions, $family);
-  }
-
   @return $family, $grade, $variant;
 }
 
@@ -2104,20 +2122,24 @@ Get accessible link colors against background color
   $bg-color,
   $preferred-link-token: $theme-link-color,
   $fallback-link-token: $theme-link-reverse-color,
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $reference: false
 ) {
-  $link-is-default: false;
+  $is-default: false;
   // "default" may be passed as a Preferred color,
   // which should be considered equal to $theme-link-color
   @if $preferred-link-token == "default" {
     $preferred-link-token: $theme-link-color;
-    $link-is-default: true;
+    $is-default: true;
   }
   $target-magic-number: map-get($system-magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
   $our-color-tokens: ($preferred-link-token, $fallback-link-token);
   $accessible-link-token: false;
+  $accessible-link-grade: false;
+  $preferred-hover-token: false;
   $accessible-hover-token: false;
+  $reference-text: if($reference, "[#{$reference}] ", "");
   // Check both link tokens.
   // Accept a token if it has proper contrast.
   @each $token in $our-color-tokens {
@@ -2125,22 +2147,80 @@ Get accessible link colors against background color
     $magic-number: magic-number($token-grade, $bg-grade);
     @if $magic-number >= $target-magic-number {
       $accessible-link-token: $token;
+      $accessible-link-grade: $token-grade;
     }
   }
   // If neither is accessible,
   // warn the user and use the Preferred token
   @if not $accessible-link-token {
-    @warn "Whoops. None of those tokens work.";
+    @warn "#{$reference-text}The link color does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
     $accessible-link-token: $preferred-link-token;
+    $accessible-link-grade: get-color-grade($preferred-link-token);
   }
   // # If link is lighter than bg set type as "reverse"
-  // # Check if using default link color
-  // + Check appropriate hover
-  // + Set hover color
-  // # Get lighter or darker hover
-  // ? If theme, use theme
-  // ? If system, use system, with same vivid
-  // + Set hover color
-  // - Set opposite hover
+  $is-reverse: if($accessible-link-grade < $bg-grade, true, false);
+  // # If using defaults, set the default hover
+  @if $is-default {
+    $link-kind: "default";
+    @if $is-reverse {
+      $preferred-hover-token: $theme-link-reverse-hover-color;
+      $link-kind: "default reverse";
+    } @else {
+      $preferred-hover-token: $theme-link-hover-color;
+    }
+    $preferred-hover-grade: get-color-grade($preferred-hover-token);
+    @if not
+      accessible-magic-number($preferred-hover-grade, $bg-grade, $wcag-target)
+    {
+      @warn "#{$reference-text}The #{$link-kind} link hover does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
+    }
+    $accessible-hover-token: $preferred-hover-token;
+  } @else {
+    @if is-reverse {
+      // if theme, get lighter theme color
+      // if system, get lighter system color
+      // if no lighter, test default
+    } @else {
+      // if theme, get darker theme color
+      // if system, get darker system color
+      // if no darker, test default
+    }
+    // if no hover set, use link color
+  }
   @return ($accessible-link-token, $accessible-link-token);
+}
+
+@function get-color-token-type($token) {
+  $type: if(is-system-color-token($token), "system", false);
+  $type: if(is-theme-color-token($token), "theme", $type);
+  @if not $type {
+    @error "#{$token} is not a valid color token";
+  }
+  @return $type;
+}
+
+@function get-theme-grade($theme-token) {
+  @if $theme-token == "ink" {
+    $theme-token: "base-darkest";
+  }
+  $grade: nth(decompose-color-token($theme-token), 2);
+  @if $grade == "vivid" {
+    $grade: "default";
+  }
+  @return $grade;
+}
+
+@function get-darker-token($token) {
+  $type: get-color-token-type($token);
+  @if $type == "system" {
+  }
+}
+
+@function accessible-magic-number($grade-1, $grade-2, $wcag-target) {
+  $target-magic-number: map-get($system-magic-numbers, $wcag-target);
+  $magic-number: abs($grade-1 - $grade-2);
+  @if $magic-number >= $target-magic-number {
+    @return true;
+  }
+  @return false;
 }
