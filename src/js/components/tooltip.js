@@ -170,7 +170,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
         pos(t)
         resolve(isElementInViewport(t))
       });
-      // when the promis resolves
+      // when the promise resolves
       tryPosition.then(value => {
         // push the return value of viewport visibility
         validate.push(value)
