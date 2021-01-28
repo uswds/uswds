@@ -15,6 +15,7 @@ dist/
 
 # ignore the Pattern Lab directory
 patternlab/
+build/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib
