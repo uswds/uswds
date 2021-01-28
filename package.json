@@ -62,7 +62,7 @@
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
     "@pattern-lab/core": "^5.13.3",
-    "@pattern-lab/engine-twig-php": "^5.13.3",
+    "@pattern-lab/engine-twig": "^5.14.0",
     "@pattern-lab/uikit-workshop": "^5.13.3",
     "browser-sync": "^2.26.13",
     "classlist-polyfill": "^1.0.3",
