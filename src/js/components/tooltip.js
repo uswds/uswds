@@ -184,7 +184,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
       return null
     })
     // if no positions are avalible we force an adjustment to the width
-    if ( validate.every( v => v === false )) {
+    if (validate.every( v => v === false )) {
       tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
     }
     return bestPosition
