@@ -18,6 +18,7 @@ references:
 jobs:
   build:
     <<: *container
+    working_directory: /home/circleci/project/
     steps:
       - checkout
       - run:
@@ -48,9 +49,9 @@ jobs:
             fi
       - run:
           name: Compress Artifacts
-          command: tar -cvzf artifact.tar dist
+          command: tar -cvzf artifact.tar /home/circleci/project/dist
       - store_artifacts:
-          path: ./artifact.tar
+          path: /home/circleci/project/artifact.tar
           destination: federalist-build
 
   deploy:
