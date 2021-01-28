@@ -3,6 +3,10 @@ version: 2.1
 orbs:
   snyk: snyk/snyk@0.0.12
 
+general:
+  artifacts:
+    - "/home/circleci/project/dist/*tar"
+
 references:
   container: &container
     docker:
@@ -52,7 +56,6 @@ jobs:
           command: tar -cvzf artifact.tar /home/circleci/project/dist
       - store_artifacts:
           path: /home/circleci/project/artifact.tar
-          destination: federalist-build
 
   deploy:
     <<: *container
