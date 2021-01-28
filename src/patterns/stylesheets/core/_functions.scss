@@ -1811,12 +1811,7 @@ system z-index
   $fallback-text-color: "ink",
   $wcag-target: "AA"
 ) {
-  $magic-numbers: (
-    "AA": 50,
-    "AAA": 70,
-    "AA-large": 40,
-  );
-  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $target-magic-number: map-get($system-magic-numbers, $wcag-target);
   $grade-bg: get-color-grade($bg-color);
   $grade-preferred: get-color-grade($preferred-text-color);
   $magic-num-preferred: magic-number($grade-bg, $grade-preferred);
@@ -2108,11 +2103,6 @@ Get accessible link colors against background color
   $fallback-link-color: $theme-link-reverse-color,
   $wcag-target: "AA"
 ) {
-  $magic-numbers: (
-    "AA": 50,
-    "AAA": 70,
-    "AA-large": 40,
-  );
   $grade-step: 10;
   $found: false;
   $decomposed: false;
@@ -2121,7 +2111,7 @@ Get accessible link colors against background color
     $preferred-link-color: $theme-link-color;
   }
 
-  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $target-magic-number: map-get($system-magic-numbers, $wcag-target);
   $bg-grade: get-color-grade($bg-color);
   $our-color-tokens: ($preferred-link-color, $fallback-link-color, "ink");
 
