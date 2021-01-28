@@ -154,31 +154,37 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    */
 
   function findBestPosition(t) {
-
+    // create array of optional positions
     const positions = [
       positionBottom,
       positionLeft,
       positionRight,
       positionTop,
     ]
-
+    // we will push validations here to check later
+    const validate = []
+    // iterate through each of the position options
     const bestPosition = positions.forEach(pos => {
-
+      // try and position then check if it is visible
       const tryPosition = new Promise((resolve) => {
         pos(t)
         resolve(isElementInViewport(t))
       });
-
+      // when the promis resolves
       tryPosition.then(value => {
-        if (value && value) {
-         return pos(t)
+        // push the return value of viewport visibility
+        validate.push(value)
+        // we return early if it is not visible
+        if (!value) {
+         return null
         }
-        return null
+        // otherwise we just return the visible position
+        return pos(t)
       });
       return null
     })
-
-    if (bestPosition === undefined) {
+    // if no positions are avalible we force an adjustment to the width
+    if ( validate.every( v => v === false )) {
       tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
     }
     return bestPosition
@@ -188,7 +194,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
     case "top":
       positionTop(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
-        findBestPosition(position,tooltipBody)
+        findBestPosition(tooltipBody)
       }
       break;
     case "bottom":
