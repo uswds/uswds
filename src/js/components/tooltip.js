@@ -85,16 +85,11 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
 
   /**
    * Positions tooltip at the top
-   * We check if the element is in the viewport so we know whether or not we
-   * need to constrain the width
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionTop = (e) => {
     setPositionClass("top");
     e.style.marginLeft = `${adjustHorizontalCenter}px`;
-    if (!isElementInViewport(e)) {
-      e.classList.add(ADJUST_WIDTH_CLASS);
-    }
     e.style.marginBottom = `${
       adjustToEdgeY + offsetForBottomMargin + offsetForBottomPadding
     }px`;
@@ -102,16 +97,11 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
 
   /**
    * Positions tooltip at the bottom
-   * We check if the element is in theviewport so we know whether or not we
-   * need to constrain the width
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionBottom = (e) => {
     setPositionClass("bottom");
     e.style.marginLeft = `${adjustHorizontalCenter}px`;
-    if (!isElementInViewport(e)) {
-      e.classList.add(ADJUST_WIDTH_CLASS);
-    }
     e.style.marginTop = `${
       adjustToEdgeY + offsetForTopMargin + offsetForTopPadding
     }px`;
@@ -160,48 +150,63 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * We try to set the position based on the
    * original intention, but make adjustments
    * if the element is clipped out of the viewport
+   * we constrain the width only as a last resort
    */
+
+  function findBestPosition(t) {
+
+    const positions = [
+      positionBottom,
+      positionLeft,
+      positionRight,
+      positionTop,
+    ]
+
+    const bestPosition = positions.forEach(pos => {
+
+      const tryPosition = new Promise((resolve) => {
+        pos(t)
+        resolve(isElementInViewport(t))
+      });
+
+      tryPosition.then(value => {
+        if (value && value) {
+         return pos(t)
+        }
+        return null
+      });
+      return null
+    })
+
+    if (bestPosition === undefined) {
+      tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
+    }
+    return bestPosition
+  }
+
   switch (position) {
     case "top":
       positionTop(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
-        positionBottom(tooltipBody);
-        if (!isElementInViewport(tooltipBody)) {
-          positionLeft(tooltipBody);
-          if (!isElementInViewport(tooltipBody)) {
-            positionRight(tooltipBody);
-          }
-        }
+        findBestPosition(position,tooltipBody)
       }
       break;
     case "bottom":
       positionBottom(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
-        positionTop(tooltipBody);
-        if (!isElementInViewport(tooltipBody)) {
-          positionLeft(tooltipBody);
-          if (!isElementInViewport(tooltipBody)) {
-            positionRight(tooltipBody);
-          }
-        }
+        findBestPosition(tooltipBody)
       }
       break;
     case "right":
       positionRight(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
-        positionLeft(tooltipBody);
-        if (!isElementInViewport(tooltipBody)) {
-          positionTop(tooltipBody);
-        }
+        findBestPosition(tooltipBody)
       }
       break;
     case "left":
       positionLeft(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
-        positionRight(tooltipBody);
-        if (!isElementInViewport(tooltipBody)) {
-          positionTop(tooltipBody);
-        }
+        findBestPosition(tooltipBody)
       }
       break;
 
