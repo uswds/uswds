@@ -34,7 +34,7 @@
   "paths": {
     "source": {
       "root": "./src/",
-      "patterns": "./src/new-patterns/",
+      "patterns": "./src/patterns/",
       "data": "./src/styleguide/data/",
       "meta": "./src/styleguide/meta/",
       "annotations": "./src/styleguide/annotations/",
@@ -53,7 +53,7 @@
     },
     "public": {
       "root": "./build/",
-      "patterns": "./build/new-patterns/",
+      "patterns": "./build/patterns/",
       "data": "./build/styleguide/data/",
       "annotations": "./build/annotations/",
       "styleguide": "./build/styleguide/",
@@ -71,7 +71,10 @@
     "wait": 1000
   },
   "starterkitSubDir": "dist",
-  "styleGuideExcludes": [],
+  "styleGuideExcludes": [
+    "compare",
+    "test"
+  ],
   "theme": {
     "color": "light",
     "density": "compact",
@@ -100,14 +103,14 @@
           "id": "components",
           "recursive": true,
           "paths": [
-            "./src/new-patterns/components"
+            "./src/patterns/components"
           ]
         },
         {
           "id": "compare",
           "recursive": true,
           "paths": [
-            "./src/new-patterns/compare"
+            "./src/patterns/compare"
           ]
         }
       ]
