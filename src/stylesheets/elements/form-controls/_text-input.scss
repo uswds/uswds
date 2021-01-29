@@ -29,6 +29,7 @@
     border: 0;
     height: 100%;
     margin-top: 0;
+    min-width: 0;
     width: 100%;
 
     &:focus {
@@ -46,7 +47,6 @@
   user-select: none;
 
   .usa-icon {
-    color: color("ink");
     height: units(3);
     width: units(3);
   }
