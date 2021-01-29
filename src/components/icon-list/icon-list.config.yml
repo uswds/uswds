@@ -43,7 +43,7 @@ variants:
           content: |
             <p class="usa-icon-list__heading">Talk to trusted organizations about volunteering.</p>
   - name: complex-list
-    label: Default with title and description
+    label: With title and description
     context:
       iconSize: 4
       items:

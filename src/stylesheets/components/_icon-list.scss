@@ -1,6 +1,7 @@
 // ICON LIST
 
 $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
+$icon-list-font-sizes: (3 "md", 4 "md", 5 "md", 6 "lg", 7 "xl", 8 "2xl", 9 "3xl");
 
 @include override-prose {
   .usa-icon-list {
@@ -25,7 +26,7 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
       font-size: size($theme-icon-list-font-family, "lg");
     }
 
-    @each $size in $icon-list-sizes {
+    @each $size, $token in $icon-list-font-sizes {
       &--size-#{$size} {
         .usa-icon-list__icon {
           .usa-icon {
@@ -34,13 +35,14 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
           margin-top: units(-0.5);
         }
         .usa-icon-list__heading {
-          font-size: calc(#{units($size)} / 2);
-          display: flex;
+          font-size: size("ui", "#{$token}");
           margin-bottom: 0;
-          position: relative;
           & + p {
-            margin-top: 0.2rem;
+            margin-top: units(0.5);
           }
+        }
+        .usa-icon-list__content {
+          padding-left: calc(#{units($size)} * 0.3);
         }
       }
     }
@@ -66,7 +68,7 @@ $icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
   }
 
   .usa-icon-list__content {
-    padding-left: 1em;
+    padding-left: 0.5rem;
     > *:first-child {
       margin-top: 0;
     }
