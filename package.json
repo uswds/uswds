@@ -72,6 +72,7 @@
     "elem-dataset": "^2.0.0",
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
+    "patch-package": "^6.2.2",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
   },
