@@ -37,16 +37,13 @@
   }
 }
 
-
-
 .usa-input-prefix,
 .usa-input-suffix {
   color: color("base");
   //font-size: size($theme-form-font-family, 3);
   line-height: 0;
   padding: 0 units(1);
-  pointer-events: none;
-  user-select: none;   
+  user-select: none;
 
   .usa-icon {
     color: color("ink");
