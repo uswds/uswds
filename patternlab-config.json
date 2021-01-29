@@ -80,8 +80,8 @@
     "density": "comfortable",
     "layout": "vertical",
     "logo": {
-      "text": "US Web Design System",
-      "url": "/",
+      "text": "USWDS",
+      "url": "./?p=all",
       "srcLight": "https://raw.githubusercontent.com/uswds/uswds-site/main/img/uswds-logo/4c-lg-on-white.svg",
       "width": "25",
       "height": "25"
