@@ -35,7 +35,7 @@ $icon-list-font-sizes: (3 "md", 4 "md", 5 "md", 6 "lg", 7 "xl", 8 "2xl", 9 "3xl"
           margin-top: units(-0.5);
         }
         .usa-icon-list__heading {
-          font-size: size("ui", "#{$token}");
+          font-size: size($theme-icon-list-font-family, "#{$token}");
           margin-bottom: 0;
           & + p {
             margin-top: units(0.5);
