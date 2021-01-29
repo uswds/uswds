@@ -1,7 +1,6 @@
 // ICON LIST
 
-$icon-list-sizes: (3, 4, 5, 6, 7, 8, 9);
-$icon-list-font-sizes: (3 "md", 4 "md", 5 "md", 6 "lg", 7 "xl", 8 "2xl", 9 "3xl");
+$icon-list-font-sizes: (3 "md" 0.07, 4 "md" -0.05, 5 "md" -0.12, 6 "lg" -0.12, 7 "xl" 0, 8 "2xl" 0, 9 "3xl" .04);
 
 @include override-prose {
   .usa-icon-list {
@@ -26,13 +25,13 @@ $icon-list-font-sizes: (3 "md", 4 "md", 5 "md", 6 "lg", 7 "xl", 8 "2xl", 9 "3xl"
       font-size: size($theme-icon-list-font-family, "lg");
     }
 
-    @each $size, $token in $icon-list-font-sizes {
+    @each $size, $token, $margin-top-factor in $icon-list-font-sizes {
       &--size-#{$size} {
         .usa-icon-list__icon {
           .usa-icon {
             @include u-square($size);
           }
-          margin-top: units(-0.5);
+            margin-top: calc(#{units($size)} * #{$margin-top-factor});
         }
         .usa-icon-list__heading {
           font-size: size($theme-icon-list-font-family, "#{$token}");
