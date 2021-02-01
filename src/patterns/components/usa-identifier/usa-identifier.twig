@@ -1,4 +1,4 @@
-{% set placeholder_logo = '/img/circle-gray-20.svg' %}
+{% set placeholder_logo = img_path ~ '/circle-gray-20.svg' %}
 
 <div class="usa-identifier">
   <section
@@ -34,7 +34,7 @@
           {% if masthead.agency.url %}
             {{ (lang == "es") ? "y" : "and" }}
           {% endif %}
-          {% if masthead.agency.name or masthead.agency.shortname %} 
+          {% if masthead.agency.name or masthead.agency.shortname %}
             {{ (lang == "en") ? "the" : ""}}
           {%- endif %}
             <a href="{{ masthead.agency.url }}">
