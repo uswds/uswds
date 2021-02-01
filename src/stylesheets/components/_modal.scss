@@ -1,0 +1,10 @@
+.usa-modal {
+  display: none;
+  border: 1px solid;
+  background: white;
+  padding: 50px;
+
+  &.is-visible {
+    display: block;
+  }
+}
