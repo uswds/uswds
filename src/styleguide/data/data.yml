@@ -4,6 +4,7 @@ htmlClass: 'pl'
 bodyClass: 'body'
 modifier: ''
 extra_attributes: ''
+img_path: '../../img'
 states:
   - hover
   - active
