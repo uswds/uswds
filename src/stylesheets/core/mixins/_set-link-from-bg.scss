@@ -2,20 +2,21 @@
   $bg-color,
   $preferred-link-color: $theme-link-color,
   $fallback-link-color: $theme-link-reverse-color,
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $context: false
 ) {
   $link-tokens: get-link-tokens-from-bg(
     $bg-color,
     $preferred-link-color,
     $fallback-link-color,
-    $wcag-target
+    $wcag-target,
+    $context
   );
 
   $link-token: nth($link-tokens, 1);
   $hover-token: nth($link-tokens, 2);
   $visited-token: if(
-    abs(get-color-grade($theme-link-visited-color) - get-color-grade($bg-color))
-      < 50,
+    abs(color-grade($theme-link-visited-color) - color-grade($bg-color)) < 50,
     $link-token,
     $theme-link-visited-color
   );
