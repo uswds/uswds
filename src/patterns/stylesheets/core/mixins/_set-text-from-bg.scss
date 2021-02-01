@@ -2,13 +2,15 @@
   $bg-color,
   $preferred-text-color: "white",
   $fallback-text-color: "ink",
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $context: false
 ) {
-  $accessible-color-token: get-token-from-bg(
+  $accessible-color-token: get-color-token-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
-    $wcag-target
+    $wcag-target,
+    $context
   );
   color: color($accessible-color-token);
 }
@@ -17,13 +19,15 @@
   $bg-color,
   $preferred-text-color: "white",
   $fallback-text-color: "ink",
-  $wcag-target: "AA"
+  $wcag-target: "AA",
+  $context: false
 ) {
   @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
-    $wcag-target
+    $wcag-target,
+    $context
   );
   background-color: color($bg-color);
 }
