@@ -7,7 +7,9 @@
       </button>
     </h2>
     <div id="{{ id_prefix }}{{ item.id }}" class="usa-accordion__content usa-prose">
-      {{ item.content }}
+      {% autoescape false %}
+        {{ item.content }}
+      {% endautoescape %}
     </div>
   {% endfor %}
 </div>

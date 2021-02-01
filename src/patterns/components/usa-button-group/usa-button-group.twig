@@ -2,7 +2,9 @@
 <ul class="usa-button-group {{ modifier }}">
   {% for item in items %}
     <li class="usa-button-group__item">
-      {{ item }}
+      {% autoescape false %}
+        {{ item }}
+      {% endautoescape %}
     </li>
   {% endfor %}
 </ul>
