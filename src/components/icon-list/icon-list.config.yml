@@ -5,12 +5,12 @@ context:
   items:
     - icon:
         name: check_circle
-        size: 4
+        size: lg
         color: green
       content: Donate cash when possible.
     - icon:
         name: check_circle
-        size: 5
+        size: lg
         color: green
       content: Confirm what donations are needed.
     - icon:
@@ -22,7 +22,7 @@ variants:
   - name: large-icon
     label: Large icon
     context:
-      iconSize: 6
+      iconSize: xl
       items:
         - icon:
             name: attach_money
@@ -45,7 +45,7 @@ variants:
   - name: complex-list
     label: With title and description
     context:
-      iconSize: 4
+      iconSize: lg
       items:
         - icon:
             name: attach_money
@@ -77,7 +77,7 @@ variants:
   - name: complex-list2
     label: Large with title and description
     context:
-      iconSize: 6
+      iconSize: 2xl
       items:
         - icon:
             name: attach_money

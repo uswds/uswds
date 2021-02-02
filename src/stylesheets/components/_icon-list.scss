@@ -1,6 +1,14 @@
 // ICON LIST
 
-$icon-list-font-sizes: (3 "md" 0.07, 4 "md" -0.05, 5 "md" -0.12, 6 "lg" -0.12, 7 "xl" 0, 8 "2xl" 0, 9 "3xl" .04);
+$icon-list-font-sizes: (
+  "xs" $theme-type-scale-xs,
+  "sm" $theme-type-scale-sm,
+  "md" $theme-type-scale-md,
+  "lg" $theme-type-scale-lg,
+  "xl" $theme-type-scale-xl,
+  "2xl" $theme-type-scale-2xl,
+  "3xl" $theme-type-scale-3xl
+);
 
 @include override-prose {
   .usa-icon-list {
@@ -25,23 +33,24 @@ $icon-list-font-sizes: (3 "md" 0.07, 4 "md" -0.05, 5 "md" -0.12, 6 "lg" -0.12, 7
       font-size: size($theme-icon-list-font-family, "lg");
     }
 
-    @each $size, $token, $margin-top-factor in $icon-list-font-sizes {
-      &--size-#{$size} {
+    @each $token, $val in $icon-list-font-sizes {
+      &--size-#{$token} {
         .usa-icon-list__icon {
           .usa-icon {
-            @include u-square($size);
+            height: system-type-scale($val);
+            margin-top: 30%;
+            width: system-type-scale($val);
           }
-            margin-top: calc(#{units($size)} * #{$margin-top-factor});
         }
         .usa-icon-list__heading {
-          font-size: size($theme-icon-list-font-family, "#{$token}");
+          font-size: size($theme-icon-list-font-family, $token);
           margin-bottom: 0;
           & + p {
             margin-top: units(0.5);
           }
         }
         .usa-icon-list__content {
-          padding-left: calc(#{units($size)} * 0.3);
+          padding-left: system-type-scale($val) - 8px;
         }
       }
     }
