@@ -1952,18 +1952,20 @@ returns: link-token, hover-token
   @if $is-default {
     // $link-kind is used for error messaging
     $link-kind: "default";
+    $default-hover-token: $theme-link-hover-color;
     @if $is-reverse {
       $default-hover-token: $theme-link-reverse-hover-color;
       $link-kind: "default reverse";
-    } @else {
-      $default-hover-token: $theme-link-hover-color;
     }
     $default-hover-grade: color-grade($default-hover-token);
-    $accessible-hover-token: if(
-      is-accessible-magic-number($default-hover-grade, $bg-grade, $wcag-target),
-      $default-hover-token,
-      false
-    );
+    @if is-accessible-magic-number(
+      $default-hover-grade,
+      $bg-grade,
+      $wcag-target
+    )
+    {
+      $accessible-hover-token: $default-hover-token;
+    }
     @if not $accessible-hover-token {
       @warn "#{$context-text}The #{$link-kind} link hover (`#{$default-hover-token}`) does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
     }
@@ -2078,8 +2080,7 @@ color-variant("red-50v")
 next-token()
 ----------------------------------------
 Returns next "darker" or "lighter" color
-token, of the same token type and the
-same variant.
+token of the same token type and variant.
 
 Returns: color-token | false
 
