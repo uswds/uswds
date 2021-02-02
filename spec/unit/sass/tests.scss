@@ -373,25 +373,25 @@ $this-function: "next-token()";
   }
 }
 
-$this-function: "token-grade()";
+$this-function: "color-token-grade()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns `default` from default theme token.") {
-    $test: token-grade("primary");
+    $test: color-token-grade("primary");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from default compound theme token.") {
-    $test: token-grade("accent-warm");
+    $test: color-token-grade("accent-warm");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from a vivid theme token.") {
-    $test: token-grade("secondary-vivid");
+    $test: color-token-grade("secondary-vivid");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns proper relative grade from theme token.") {
-    $test: token-grade("accent-warm-dark");
+    $test: color-token-grade("accent-warm-dark");
     $expect: "dark";
     @include assert-equal($test, $expect);
   }

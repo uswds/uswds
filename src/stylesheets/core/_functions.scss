@@ -1389,7 +1389,7 @@ even non-token colors
     @return uswds-error($transparency-error);
   }
   // Otherwise, return token grade
-  $token-grade: token-grade($token-split);
+  $token-grade: color-token-grade($token-split);
   @return $token-grade;
 }
 
@@ -2057,22 +2057,22 @@ color-token-variant(("red", 50, "vivid"))
 
 /*
 ----------------------------------------
-token-grade()
+color-token-grade()
 ----------------------------------------
 Returns the grade of a USWDS color token.
 
 Returns: color-grade
 
-token-grade("accent-warm")
+color-token-grade("accent-warm")
 > "default"
 
-token-grade("accent-warm-vivid")
+color-token-grade("accent-warm-vivid")
 > "default"
 
-token-grade("accent-warm-darker")
+color-token-grade("accent-warm-darker")
 > "darker"
 
-token-grade("red-50v")
+color-token-grade("red-50v")
 > 50
 
 color-token-variant(("red", 50, "vivid"))
@@ -2080,7 +2080,7 @@ color-token-variant(("red", 50, "vivid"))
 ----------------------------------------
 */
 
-@function token-grade($color-token) {
+@function color-token-grade($color-token) {
   $split: if(
     type-of($color-token) == "list",
     $color-token,
@@ -2183,7 +2183,7 @@ next-token("black", "lighter")
     @if str-index($current-family, "-transparent") {
       @return false;
     }
-    $current-grade: token-grade($token-split);
+    $current-grade: color-token-grade($token-split);
     // Nothing can be darker than black or lighter than white
     @if $direction == "darker" and $current-grade == 100 {
       @return false;
@@ -2220,7 +2220,7 @@ next-token("black", "lighter")
     }
     // 1. Theme case
   } @else {
-    $current-grade: token-grade($token-split);
+    $current-grade: color-token-grade($token-split);
     // Vivid theme token should be considered default for ordering
     $current-grade: if($current-grade == "vivid", "default", $current-grade);
     $current-family: color-token-family($token-split);
