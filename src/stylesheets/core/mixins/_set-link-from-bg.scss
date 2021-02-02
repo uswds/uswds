@@ -1,7 +1,7 @@
 @mixin set-link-from-bg(
   $bg-color,
-  $preferred-link-color: $theme-link-color,
-  $fallback-link-color: $theme-link-reverse-color,
+  $preferred-link-color: default,
+  $fallback-link-color: default,
   $wcag-target: "AA",
   $context: false
 ) {
