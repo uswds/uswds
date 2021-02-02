@@ -1908,6 +1908,34 @@ Get accessible link colors for a given
 background color
 
 returns: link-token, hover-token
+
+get-link-tokens-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10", "red-5"
+
+get-link-tokens-from-bg(
+  "black",
+  "red-60v",
+  "red-10v",
+  "AA-large")
+> "red-60v", "red-50v"
+
+get-link-tokens-from-bg(
+  "black",
+  "red-5v",
+  "red-60v",
+  "AA")
+> "red-5v", "white"
+
+get-link-tokens-from-bg(
+  "black",
+  "white",
+  "red-60v",
+  "AA")
+> "white", "white"
 ----------------------------------------
 */
 
