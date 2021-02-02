@@ -3,6 +3,7 @@
 // =====================================
 
 // This helps balance spacing around inline-block elements
+$breadcrumb-context: "Breadcrumb";
 $gap-inline-spacer: -0.25em;
 
 $breadcrumb-gap: 1.5;
@@ -35,8 +36,15 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
 }
 
 .usa-breadcrumb {
-  @include typeset($theme-breadcrumb-font-family, $theme-breadcrumb-font-size, 3);
-  @include set-text-and-bg($theme-breadcrumb-background-color);
+  @include typeset(
+    $theme-breadcrumb-font-family,
+    $theme-breadcrumb-font-size,
+    3
+  );
+  @include set-text-and-bg(
+    $theme-breadcrumb-background-color,
+    $context: $breadcrumb-context
+  );
   @include u-padding-x($theme-breadcrumb-padding-x);
 
   @include at-media($theme-breadcrumb-min-width) {
@@ -90,8 +98,11 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
           $theme-breadcrumb-background-color);
 
         // Override link colors from button-unstyled()
-        @include set-link-from-bg($theme-breadcrumb-background-color,
-          $theme-breadcrumb-link-color);
+        @include set-link-from-bg(
+          $theme-breadcrumb-background-color,
+          $theme-breadcrumb-link-color,
+          $context: $breadcrumb-context
+        );
 
         @include u-display("inline-block");
         @include u-padding-bottom($theme-breadcrumb-padding-bottom);
@@ -137,8 +148,11 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
 }
 
 .usa-breadcrumb__link {
-  @include set-link-from-bg($theme-breadcrumb-background-color,
-    $theme-breadcrumb-link-color);
+  @include set-link-from-bg(
+    $theme-breadcrumb-background-color,
+    $theme-breadcrumb-link-color,
+    $context: $breadcrumb-context
+  );
   @include u-display("inline");
 
   // Prevent underline that extends beyond text
