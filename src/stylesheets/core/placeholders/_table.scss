@@ -61,7 +61,7 @@
 
   @mixin table-button-unsorted-styles {
     @include button-unstyled;
-    @include add-background-svg("usa-icons/swap_vert");
+    // @include add-background-svg("usa-icons/swap_vert");
     position: absolute;
     top: 50%;
     right: .25rem;
@@ -71,7 +71,7 @@
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    padding: units(2);
+    @include u-square(3);
     text-decoration: none;
     transform: translate(0, -50%);
     &:hover {
@@ -81,12 +81,12 @@
   }
 
   @mixin table-button-sorted-ascending-styles {
-    background-size: units(2);
-    @include add-background-svg("usa-icons/arrow_upward");
+    // background-size: units(2);
+    // @include add-background-svg("usa-icons/arrow_upward");
   }
   @mixin table-button-sorted-descending-styles {
-    background-size: units(2);
-    @include add-background-svg("usa-icons/arrow_downward");
+    // background-size: units(2);
+    // @include add-background-svg("usa-icons/arrow_downward");
   }
 
   .usa-table__header--sortable {

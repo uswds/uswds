@@ -8,6 +8,10 @@ const SORTED = "aria-sort";
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
+const ICON_PATH = "../../dist/img/sprite.svg";
+const ICON_UNSORTED = `${ICON_PATH}#swap_vert`;
+const ICON_ASCENDING = `${ICON_PATH}#arrow_upward`;
+const ICON_DESCENDING = `${ICON_PATH}#arrow_downward`;
 
 const BUTTON_CLASS = `${PREFIX}-table__header__button`;
 const BUTTON = `.${BUTTON_CLASS}`;
@@ -64,11 +68,12 @@ const updateSortLabel = (header) => {
 }
 
 /**
- * Remove the aria-sort attribute on the given header element, and reset the label
+ * Remove the aria-sort attribute on the given header element, and reset the label and button icon
  * @param {HTMLTableHeaderCellElement} header
  */
 const unsetSort = (header) => {
   header.removeAttribute(SORTED);
+  updateButtonIcon(header.querySelector(BUTTON))
   updateSortLabel(header);
 }
 
@@ -80,6 +85,7 @@ const unsetSort = (header) => {
  */
 const sortRows = (header, ascending) => {
   header.setAttribute(SORTED, ascending === true ? DESCENDING : ASCENDING );
+  updateButtonIcon(header.querySelector(BUTTON), ascending === true ? DESCENDING : ASCENDING);
   updateSortLabel(header);
 
   const tbody = header.closest(TABLE).querySelector('tbody');
@@ -100,7 +106,6 @@ const sortRows = (header, ascending) => {
 const toggleSort = (header, ascending) => {
   const table = header.closest(TABLE);
   let safeAscending = ascending;
-
   if (typeof safeAscending !== "boolean") {
     safeAscending = header.getAttribute(SORTED) === ASCENDING;
   }
@@ -122,6 +127,7 @@ const toggleSort = (header, ascending) => {
 };
 
 /**
+ ** Inserts a button with icon inside a sortable header
  * @param {HTMLTableHeaderCellElement} header
  */
 
@@ -129,12 +135,32 @@ const createHeaderButton = (header) => {
   const buttonEl = document.createElement("button");
   buttonEl.setAttribute('tabindex', '0');
   buttonEl.classList.add(BUTTON_CLASS);
+  buttonEl.innerHTML = `
+    <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img">
+      <use href="${ICON_UNSORTED}"></use>
+    </svg>
+  `;
   header.appendChild(buttonEl);
   updateSortLabel(header);
 }
 
+/**
+ ** Updates button icon path to display a sort direction, if provided.
+ * Otherwise, show the unsorted icon.
+ * @param {HTMLButtonElement} button
+ * @param {String} sortDirection optional
+ */
+
+const updateButtonIcon = (button, sortDirection = "") => {
+  let icon = ICON_UNSORTED;
+  if (sortDirection === ASCENDING) icon = ICON_ASCENDING;
+  if (sortDirection === DESCENDING) icon = ICON_DESCENDING;
+  button.querySelector(".usa-icon use").setAttribute("href", icon);
+}
+
 
 /**
+ * Update the live region immediately following the table whenever sort changes.
  * @param {HTMLTableElement} table
  * @param {HTMLTableHeaderCellElement} sortedHeader
  */
@@ -144,9 +170,11 @@ const updateLiveRegion = (table, sortedHeader) => {
   const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
   const headerLabel = sortedHeader.innerText;
   const liveRegion = table.nextElementSibling;
-  if (liveRegion.matches(ANNOUNCEMENT_REGION)) {
+  if (liveRegion && liveRegion.matches(ANNOUNCEMENT_REGION)) {
     var sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
     liveRegion.innerText = sortAnnouncement;  
+  } else {
+    throw new Error(`Table containing a sortable column header is not followed by an aria-live region.`)
   }
 }
  
@@ -158,21 +186,21 @@ const table = behavior(
       [BUTTON](event) {
         event.preventDefault();
         toggleSort(
-          event.target.parentNode, 
-          event.target.parentNode.getAttribute(SORTED) === "ascending"); 
+          event.target.closest(HEADER), 
+          event.target.closest(HEADER).getAttribute(SORTED) === ASCENDING
+        ); 
       },
     },
   },
   {
     init(root) {
       const sortableHeaders = select(HEADER, root);
-      // if (sortableHeaders.length > 0) {
-      //   select(TABLE, root).forEach((TABLE) => initLiveRegion(TABLE));
-      // }
       sortableHeaders.forEach((header) => createHeaderButton(header));
+
       const firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
+        return;
       }   
       const sortDir = firstSorted.getAttribute(SORTED);
       if (sortDir === ASCENDING) {
