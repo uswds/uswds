@@ -76,6 +76,7 @@ const setUpAttributes = (modalWindow) => {
   const modalContent = modalWindow.innerHTML;
   const wrappedContent = `<div class="usa-modal__inner">${modalContent}</div>`;
   modalWindow.innerHTML = wrappedContent;
+  modalWindow.setAttribute("role", "dialog");
 }
 
 const onMenuClose = () => modal.toggleModal.call(modal, false);
