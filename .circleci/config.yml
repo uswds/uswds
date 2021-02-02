@@ -55,7 +55,7 @@ jobs:
           name: Compress Artifacts
           command: tar -cvzf artifact.tar /home/circleci/project/build
       - store_artifacts:
-          path: /home/circleci/project/artifact.tar
+          path: artifact.tar
 
   deploy:
     <<: *container
