@@ -131,55 +131,55 @@ $theme-link-reverse-active-color: "white";
   }
 }
 
-// color-grade()
-@include describe("[function] color-grade()") {
+// calculate-grade()
+@include describe("[function] calculate-grade()") {
   @include it("Returns the proper grade for a system color token.") {
-    $test: color-grade("red-50");
+    $test: calculate-grade("red-50");
     $expect: 50;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade for a theme color token.") {
-    $test: color-grade("primary-lightest");
+    $test: calculate-grade("primary-lightest");
     $expect: 3;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade custom hex theme token.") {
-    $test: color-grade("accent-warm-lightest");
+    $test: calculate-grade("accent-warm-lightest");
     $expect: 25;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade custom hex color.") {
-    $test: color-grade(#ffe);
+    $test: calculate-grade(#ffe);
     $expect: 2.5;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade custom hex color.") {
-    $test: color-grade("secondary");
+    $test: calculate-grade("secondary");
     $expect: 65;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade custom hex color.") {
-    $test: color-grade("secondary-vivid");
+    $test: calculate-grade("secondary-vivid");
     $expect: 55;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper grade custom hex color.") {
-    $test: color-grade("secondary-dark");
+    $test: calculate-grade("secondary-dark");
     $expect: 70;
     @include assert-equal($test, $expect);
   }
   @include it("Returns an error if passed a transparent color.") {
-    $test: color-grade(rgba(0, 0, 0, 0.3));
+    $test: calculate-grade(rgba(0, 0, 0, 0.3));
     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
     @include assert-equal($test, $expect);
   }
   @include it("Returns an error if passed a transparent token.") {
-    $test: color-grade("black-transparent-50");
+    $test: calculate-grade("black-transparent-50");
     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
     @include assert-equal($test, $expect);
   }
   @include it("Returns an error if passed a non-token string.") {
-    $test: color-grade("foo");
+    $test: calculate-grade("foo");
     $expect: "Error: 'foo' is not a valid USWDS color token.";
     @include assert-equal($test, $expect);
   }
@@ -383,6 +383,16 @@ $this-function: "theme-grade()";
     $expect: "default";
     @include assert-equal($test, $expect);
   }
+  @include it("Returns `default` from a vivid theme token.") {
+    $test: theme-grade("secondary-vivid");
+    $expect: "default";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper relative grade from theme token.") {
+    $test: theme-grade("accent-warm-dark");
+    $expect: "dark";
+    @include assert-equal($test, $expect);
+  }
 }
 
 $this-function: "get-link-tokens-from-bg()";
@@ -400,6 +410,26 @@ $this-function: "get-link-tokens-from-bg()";
   @include it("Builds proper links from custom hex.") {
     $test: get-link-tokens-from-bg("white", "secondary-vivid");
     $expect: "secondary-vivid", "secondary-dark";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper preferred links from color tokens.") {
+    $test: get-link-tokens-from-bg("white", "red-50v", "red-20v");
+    $expect: "red-50v", "red-60v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper fallback links from color tokens.") {
+    $test: get-link-tokens-from-bg("white", "red-20v", "red-50v");
+    $expect: "red-50v", "red-60v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper preferred reverse links from color tokens.") {
+    $test: get-link-tokens-from-bg("black", "red-50v", "red-20v");
+    $expect: "red-50v", "red-40v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper fallback reverse links from color tokens.") {
+    $test: get-link-tokens-from-bg("black", "red-60v", "red-50v");
+    $expect: "red-50v", "red-40v";
     @include assert-equal($test, $expect);
   }
   @include it(
