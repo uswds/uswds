@@ -373,25 +373,25 @@ $this-function: "next-token()";
   }
 }
 
-$this-function: "theme-grade()";
+$this-function: "token-grade()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns `default` from default theme token.") {
-    $test: theme-grade("primary");
+    $test: token-grade("primary");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from default compound theme token.") {
-    $test: theme-grade("accent-warm");
+    $test: token-grade("accent-warm");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from a vivid theme token.") {
-    $test: theme-grade("secondary-vivid");
+    $test: token-grade("secondary-vivid");
     $expect: "default";
     @include assert-equal($test, $expect);
   }
   @include it("Returns proper relative grade from theme token.") {
-    $test: theme-grade("accent-warm-dark");
+    $test: token-grade("accent-warm-dark");
     $expect: "dark";
     @include assert-equal($test, $expect);
   }
@@ -421,7 +421,7 @@ $this-function: "get-color-token-from-bg()";
     @include assert-equal($test, $expect);
   }
   @include it(
-    "Passing a the `transparent` token throws an error. (Hard error in non-test environment.)"
+    "Passing the `transparent` token throws an error. (Hard error in non-test environment.)"
   ) {
     $test: calculate-grade("transparent");
     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";

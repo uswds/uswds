@@ -1378,13 +1378,13 @@ even non-token colors
   }
 
   $system-token: color-token-assignment($color-token);
-  $token-family: nth(decompose-color-token($system-token), 1);
+  $token-family: color-family($system-token);
   // If the color uses transparency, throw an error
   @if str-index($token-family, "transparent") {
     @return uswds-error($transparency-error);
   }
   // Otherwise, return token grade
-  $token-grade: nth(decompose-color-token($system-token), 2);
+  $token-grade: token-grade($system-token);
   @return $token-grade;
 }
 
@@ -2016,24 +2016,27 @@ color-family("red-50v")
 
 /*
 ----------------------------------------
-theme-grade()
+token-grade()
 ----------------------------------------
-Returns the grade of a theme token.
+Returns the grade of a USWDS color token.
 
 Returns: color-grade
 
-color-family("accent-warm")
+token-grade("accent-warm")
 > "default"
 
-color-family("accent-warm-vivid")
+token-grade("accent-warm-vivid")
 > "default"
 
-color-family("accent-warm-darker")
+token-grade("accent-warm-darker")
 > "darker"
+
+token-grade("red-50v")
+> 50
 ----------------------------------------
 */
 
-@function theme-grade($theme-token) {
+@function token-grade($theme-token) {
   $grade: nth(decompose-color-token($theme-token), 2);
   @return $grade;
 }
@@ -2159,7 +2162,7 @@ next-token("black", "lighter")
     }
     // 1. Theme case
   } @else {
-    $current-grade: theme-grade($token);
+    $current-grade: token-grade($token);
     // Vivid theme token should be considered default for ordering
     $current-grade: if($current-grade == "vivid", "default", $current-grade);
     $current-family: color-family($token);
