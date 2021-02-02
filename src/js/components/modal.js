@@ -51,6 +51,8 @@ function toggleModal(active) {
     const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
     const menuButton = body.querySelector(OPENERS);
 
+    console.log(closeButton);
+
     if (safeActive && closeButton) {
       // The mobile nav was just activated, so focus on the close button,
       // which is just before all the nav elements in the tab order.
@@ -73,7 +75,7 @@ function toggleModal(active) {
 
 const setUpAttributes = (modalWindow) => {
   const modalContent = modalWindow.innerHTML;
-  const wrappedContent = `<div class="usa-modal__close usa-modal__scrim"><div class="usa-modal__inner">${modalContent}</div></div>`;
+  const wrappedContent = `<div class="usa-modal__scrim"><div class="usa-modal__inner">${modalContent}</div></div>`;
   const modalID = modalWindow.getAttribute("id");
   modalWindow.innerHTML = wrappedContent;
   const modalClosers = modalWindow.querySelectorAll(CLOSERS);
