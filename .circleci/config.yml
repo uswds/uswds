@@ -22,7 +22,7 @@ references:
 jobs:
   build:
     <<: *container
-    working_directory: /
+    working_directory: /home/circleci/project/
     steps:
       - checkout
       - run:
