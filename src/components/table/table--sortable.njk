@@ -1,46 +1,39 @@
 <table class="usa-table usa-table--sortable">
-  <caption>Sortable table example - Various content types</caption>
-  <thead>
+  <caption>Sortable table with various content types</caption>
+   <thead>
     <tr>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable aria-sort="descending">
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, sorted descending, activate to sort by Year in ascending order">
+        <button class="usa-table__header__button"> 
           Year
         </button>
       </th>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Month in ascending order">
+        <button class="usa-table__header__button">
           Month
         </button>
       </th>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Percent in ascending order">
+        <button class="usa-table__header__button">
           Percent
         </button>
       </th>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Count in ascending order">
+        <button class="usa-table__header__button">
           Count
         </button>
       </th>
-      <th class="usa-table__header" scope="col" role="columnheader" data-sortable aria-sort="descending">
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Ordinal Rank in ascending order">
+      <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
+        <button class="usa-table__header__button">
           Rank (Ordinal)
         </button>
       </th>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Cardinal Rank in ascending order">
+        <button class="usa-table__header__button">
           Rank (Cardinal)
         </button>
       </th>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable>
-        <button class="usa-table__header__button" 
-          aria-label="Sortable column, unsorted, activate to sort by Timestamp in ascending order">
+        <button class="usa-table__header__button">
           Unix Timestamp
         </button>
       </th>
@@ -86,11 +79,13 @@
     </tr>
   </tbody>
 </table>
-
+<div class="usa-sr-only usa-table__announcement-region" aria-live="polite">
+  <!-- this content will change when sort changes -->
+</div>
 <br><br>
 
 <table class="usa-table usa-table--sortable usa-table--borderless">
-  <caption>Sortable borderless table example - Various content types</caption>
+  <caption>Sortable borderless table with various content types</caption>
   <thead>
     <tr>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable aria-sort="descending">
@@ -177,10 +172,13 @@
     </tr>
   </tbody>
 </table>
+<div class="usa-sr-only usa-table__announcement-region" aria-live="polite">
+  <!-- this content will change when sort changes -->
+</div>
 <br><br>
 
 <table class="usa-table usa-table--sortable">
-  <caption>Sortable borderless table - Recently admitted states</caption>
+  <caption>Recently admitted US states (sortable table example)</caption>
   <thead>
     <tr>
       <th class="usa-table__header" scope="col" role="columnheader" data-sortable aria-sort="descending">
@@ -284,4 +282,7 @@
     </tr> 
   </tbody>
 </table>
+<div class="usa-sr-only usa-table__announcement-region" aria-live="polite">
+  <!-- this content will change when sort changes -->
+</div>
 <p>Data for illustration purposes only.</p>

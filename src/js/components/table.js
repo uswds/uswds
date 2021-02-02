@@ -12,7 +12,7 @@ const SORT_OVERRIDE = "data-sort-value";
 
 const BUTTON = `.${PREFIX}-table__header__button`;
 const HEADER = `.${PREFIX}-table__header[${SORTABLE}]`;
-
+const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="polite"]`;
 
 /** Gets the data-sort-value attribute value, if provided — otherwise, gets
  * the innerText or textContent — of the child element (HTMLTableCellElement) 
@@ -40,7 +40,7 @@ const compareFunction = (index, direction) => (a, b) => ((v1, v2) =>
 /**
  * Get an Array of column headers elements belonging directly to the given
  * table element.
- * @param {HTMLElement} table
+ * @param {HTMLTableElement} table
  * @return {array<HTMLTableHeaderCellElement>}
  */
 const getColumnHeaders = (table) => {
@@ -58,7 +58,7 @@ const updateSortLabel = (header) => {
   const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
   const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
 
-  const headerLabel = `Sortable column, ${isSorted ? `sorted ${sortedAscending ? ASCENDING : DESCENDING}`: 'unsorted'}, activate to sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
+  const headerLabel = `Sortable column, ${isSorted ? `currently ${sortedAscending ? `in ${ASCENDING} order` : `in ${DESCENDING} order`}`: 'unsorted'}, activate to sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
   header.querySelector(BUTTON).setAttribute("aria-label", headerLabel);
 }
 
@@ -116,8 +116,40 @@ const toggleSort = (header, ascending) => {
         unsetSort(otherHeader);
       }
     });
+    updateLiveRegion(table, header);
   }
 };
+
+/**
+ * @param {HTMLTableHeaderCellElement} header
+ */
+
+const createHeaderButton = (header) => {
+  var button = header.querySelector('BUTTON');
+  button.setAttribute('tabindex', '0');
+  updateSortLabel(header);
+}
+
+
+/**
+ * @param {HTMLTableElement} table
+ * @param {HTMLTableHeaderCellElement} sortedHeader
+ */
+
+const updateLiveRegion = (table, sortedHeader) => {
+  const caption = table.querySelector('caption').innerText;
+  const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
+  const headerLabel = sortedHeader.querySelector('BUTTON').innerText;
+  const liveRegion = table.nextElementSibling;
+  console.log(liveRegion);
+  if (liveRegion.matches(ANNOUNCEMENT_REGION)) {
+    var sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
+    console.log(sortAnnouncement);
+    liveRegion.innerText = sortAnnouncement;  
+  }
+
+}
+ 
 
 
 const table = behavior(
@@ -128,13 +160,16 @@ const table = behavior(
         toggleSort(
           event.target.parentNode, 
           event.target.parentNode.getAttribute(SORTED) === "ascending"); 
-          // TODO event is on the button for now, come back to this
       },
     },
   },
   {
     init(root) {
       const sortableHeaders = select(HEADER, root);
+      // if (sortableHeaders.length > 0) {
+      //   select(TABLE, root).forEach((TABLE) => initLiveRegion(TABLE));
+      // }
+      sortableHeaders.forEach((header) => createHeaderButton(header));
       const firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
