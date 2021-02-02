@@ -179,7 +179,7 @@ $theme-link-reverse-active-color: "white";
     @include assert-equal($test, $expect);
   }
   @include it("Returns an error if passed a non-token string.") {
-    $test: calculate-grade("foo");
+    $test: color-token-assignment("foo");
     $expect: "Error: 'foo' is not a valid USWDS color token.";
     @include assert-equal($test, $expect);
   }
