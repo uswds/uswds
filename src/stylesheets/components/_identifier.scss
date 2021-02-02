@@ -10,7 +10,7 @@ $identifier-links-gap: 4 !default;
   @include set-link-from-bg(
     $theme-identifier-background-color,
     $theme-identifier-primary-link-color,
-    $theme-color-base-darker
+    $context: $identifier-context
   );
 }
 
@@ -18,7 +18,7 @@ $identifier-links-gap: 4 !default;
   @include set-link-from-bg(
     $theme-identifier-background-color,
     $theme-identifier-secondary-link-color,
-    $theme-color-base-dark
+    $context: $identifier-context
   );
 }
 
