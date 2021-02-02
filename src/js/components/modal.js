@@ -73,7 +73,7 @@ function toggleModal(active) {
 
 const setUpAttributes = (modalWindow) => {
   const modalContent = modalWindow.innerHTML;
-  const wrappedContent = `<div class="usa-modal__inner">${modalContent}</div><div class="usa-modal__close usa-modal__scrim"></div>`;
+  const wrappedContent = `<div class="usa-modal__close usa-modal__scrim"><div class="usa-modal__inner">${modalContent}</div></div>`;
   const modalID = modalWindow.getAttribute("id");
   modalWindow.innerHTML = wrappedContent;
   const modalClosers = modalWindow.querySelectorAll(CLOSERS);
