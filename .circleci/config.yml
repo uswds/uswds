@@ -53,7 +53,7 @@ jobs:
             fi
       - run:
           name: Compress Artifacts
-          command: tar -cvzf artifact.tar /home/circleci/project/build
+          command: tar -cvzf artifact.tar build
       - store_artifacts:
           path: artifact.tar
 
