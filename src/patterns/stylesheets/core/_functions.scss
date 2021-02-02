@@ -2166,6 +2166,7 @@ next-token("black", "lighter")
 @function next-token($token, $direction) {
   $next-token: false;
   $type: color-token-type($token);
+  $token-split: decompose-color-token($token);
   // 1. System case
   @if $type == "system" {
     // transparent tokens return don't have a next token
@@ -2176,13 +2177,13 @@ next-token("black", "lighter")
     $current-family: if(
       $token == "white" or $token == "black",
       "gray",
-      color-family($token)
+      color-family($token-split)
     );
     // black- and white-transparent tokens don't have a next
     @if str-index($current-family, "-transparent") {
       @return false;
     }
-    $current-grade: calculate-grade($token);
+    $current-grade: token-grade($token-split);
     // Nothing can be darker than black or lighter than white
     @if $direction == "darker" and $current-grade == 100 {
       @return false;
@@ -2205,7 +2206,7 @@ next-token("black", "lighter")
     $output-grade: $next-grade;
     // Keep the same vivid variant as the parent
     // Note: Grade 90 has no vivid variant
-    @if color-variant($token) == "vivid" and ($next-grade < 90) {
+    @if color-variant($token-split) == "vivid" and ($next-grade < 90) {
       $output-grade: $next-grade + "v";
     }
     // Use black and white tokens for grades 100 and 0...
@@ -2219,10 +2220,10 @@ next-token("black", "lighter")
     }
     // 1. Theme case
   } @else {
-    $current-grade: token-grade($token);
+    $current-grade: token-grade($token-split);
     // Vivid theme token should be considered default for ordering
     $current-grade: if($current-grade == "vivid", "default", $current-grade);
-    $current-family: color-family($token);
+    $current-family: color-family($token-split);
     // Ink should be considered base-darkest
     // TODO: Should it?
     @if $token == "ink" {
