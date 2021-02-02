@@ -562,25 +562,25 @@ $this-function: "is-accessible-magic-number()";
   }
 }
 
-$this-function: "color-variant()";
+$this-function: "color-token-variant()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns `vivid` if it's a vivid system token.") {
-    $test: color-variant("red-50v");
+    $test: color-token-variant("red-50v");
     $expect: "vivid";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `vivid` if it's a vivid theme token.") {
-    $test: color-variant("primary-vivid");
+    $test: color-token-variant("primary-vivid");
     $expect: "vivid";
     @include assert-equal($test, $expect);
   }
   @include it("Returns false if it's a standard system token.") {
-    $test: color-variant("red-50");
+    $test: color-token-variant("red-50");
     $expect: false;
     @include assert-equal($test, $expect);
   }
   @include it("Returns false if it's a standard theme token.") {
-    $test: color-variant("warning");
+    $test: color-token-variant("warning");
     $expect: false;
     @include assert-equal($test, $expect);
   }
