@@ -34,6 +34,83 @@
     margin-bottom: units(1.5);
     text-align: left;
   }
+
+
+  @mixin table-header-unsorted-styles {
+    padding-right: units(5);
+    position: relative;
+    &:after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0;
+      border-bottom-width: units(1px);
+      border-bottom-color: transparent;
+      border-bottom-style: solid;
+    }
+  }
+
+  @mixin table-header-sorted-styles {
+    background-color: color("base-lightest");
+    &:after {
+      border-bottom-color: color("ink");
+    }
+  }
+
+  @mixin table-button-unsorted-styles {
+    @include button-unstyled;
+    @include add-background-svg("usa-icons/swap_vert");
+    position: absolute;
+    top: 50%;
+    right: .25rem;
+    background-position: center center;
+    background-size: units(3);
+    color: color("ink");
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: units(2);
+    text-decoration: none;
+    transform: translate(0, -50%);
+    &:hover {
+      background-color: color("base-lightest");
+      color: color("ink");
+    }
+  }
+
+  @mixin table-button-sorted-ascending-styles {
+    background-size: units(2);
+    @include add-background-svg("usa-icons/arrow_upward");
+  }
+  @mixin table-button-sorted-descending-styles {
+    background-size: units(2);
+    @include add-background-svg("usa-icons/arrow_downward");
+  }
+
+  .usa-table__header--sortable {
+    @include table-header-unsorted-styles;
+
+  }
+
+  .usa-table__header__button {
+    @include table-button-unsorted-styles;
+  }
+
+  .usa-table__header--sortable[aria-sort="descending"] {
+    @include table-header-sorted-styles;
+    .usa-table__header__button {
+      @include table-button-sorted-descending-styles;
+    }
+  }
+
+  .usa-table__header--sortable[aria-sort="ascending"] {
+    @include table-header-sorted-styles;
+    .usa-table__header__button {
+      @include table-button-sorted-ascending-styles;
+    }
+  }
 }
 
 %usa-table--borderless {
@@ -160,82 +237,5 @@
   th,
   td {
     white-space: nowrap;
-  }
-}
-
-@mixin table-header-unsorted-styles {
-  padding-right: units(5);
-  position: relative;
-  &:after {
-    content: "";
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0;
-    border-bottom-width: units(1px);
-    border-bottom-color: transparent;
-    border-bottom-style: solid;
-  }
-}
-
-@mixin table-button-unsorted-styles {
-  @include button-unstyled;
-  @include add-background-svg("usa-icons/swap_vert");
-  position: absolute;
-  top: 50%;
-  right: .25rem;
-  background-position: center center;
-  background-size: units(3);
-  color: color("ink");
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
-  padding: units(2);
-  text-decoration: none;
-  transform: translate(0, -50%);
-  &:hover {
-    background-color: color("base-lightest");
-    color: color("ink");
-  }
-}
-
-
-@mixin table-header-sorted-styles {
-  background-color: color("base-lightest");
-  &:after {
-    border-bottom-color: color("ink");
-  }
-}
-
-@mixin table-button-sorted-ascending-styles {
-  background-size: units(2);
-  @include add-background-svg("usa-icons/arrow_upward");
-}
-@mixin table-button-sorted-descending-styles {
-  background-size: units(2);
-  @include add-background-svg("usa-icons/arrow_downward");
-}
-
-.usa-table__header[data-sortable] {
-  @include table-header-unsorted-styles;
-
-}
-
-.usa-table__header__button {
-  @include table-button-unsorted-styles;
-}
-
-.usa-table__header[data-sortable][aria-sort="descending"] {
-  @include table-header-sorted-styles;
-  .usa-table__header__button {
-    @include table-button-sorted-descending-styles;
-  }
-}
-
-.usa-table__header[data-sortable][aria-sort="ascending"] {
-  @include table-header-sorted-styles;
-  .usa-table__header__button {
-    @include table-button-sorted-ascending-styles;
   }
 }

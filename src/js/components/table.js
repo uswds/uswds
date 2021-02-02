@@ -3,8 +3,7 @@ const behavior = require("../utils/behavior");
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
 
-const TABLE = `.${PREFIX}-table--sortable`;
-const SORTABLE = "data-sortable";
+const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
@@ -12,7 +11,7 @@ const SORT_OVERRIDE = "data-sort-value";
 
 const BUTTON_CLASS = `${PREFIX}-table__header__button`;
 const BUTTON = `.${BUTTON_CLASS}`;
-const HEADER = `.${PREFIX}-table__header[${SORTABLE}]`;
+const HEADER = `.${PREFIX}-table__header--sortable`;
 const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="polite"]`;
 
 /** Gets the data-sort-value attribute value, if provided — otherwise, gets
@@ -145,13 +144,10 @@ const updateLiveRegion = (table, sortedHeader) => {
   const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
   const headerLabel = sortedHeader.innerText;
   const liveRegion = table.nextElementSibling;
-  console.log(liveRegion);
   if (liveRegion.matches(ANNOUNCEMENT_REGION)) {
     var sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
-    console.log(sortAnnouncement);
     liveRegion.innerText = sortAnnouncement;  
   }
-
 }
  
 
