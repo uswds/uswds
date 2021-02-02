@@ -16,7 +16,8 @@
   $link-token: nth($link-tokens, 1);
   $hover-token: nth($link-tokens, 2);
   $visited-token: if(
-    abs(color-grade($theme-link-visited-color) - color-grade($bg-color)) < 50,
+    abs(calculate-grade($theme-link-visited-color) - calculate-grade($bg-color))
+      < 50,
     $link-token,
     $theme-link-visited-color
   );
