@@ -1868,7 +1868,6 @@ get-color-token-from-bg(
   $context-text: if($context, "[#{$context}] ", "");
   // "default" may be passed as a Preferred color,
   // which should be considered equal to $theme-link-color
-  @debug $preferred-text-token, $fallback-text-token;
   @if $preferred-text-token == "default" {
     $preferred-text-token: "white";
     $fallback-text-token: "ink";
@@ -1942,8 +1941,8 @@ get-link-tokens-from-bg(
 
 @function get-link-tokens-from-bg(
   $bg-color,
-  $preferred-link-token: $theme-link-reverse-color,
-  $fallback-link-token: $theme-link-color,
+  $preferred-link-token: default,
+  $fallback-link-token: default,
   $wcag-target: "AA",
   $context: false
 ) {
@@ -1951,16 +1950,15 @@ get-link-tokens-from-bg(
   $is-default: false;
   $is-default-preferred: false;
   $is-default-fallback: false;
-  // "default" may be passed as a Preferred color,
-  // which should be considered equal to $theme-link-color
-  $is-reverse-default: if($preferred-link-token == "default", true, false);
-  $is-standard-default: if($fallback-link-token == "default", true, false);
-  $is-default: if($is-reverse-default and $is-standard-default, true, false);
-  @if $is-reverse-default {
+  $default-reverse: false;
+  $default-standard: false;
+  @if $preferred-link-token == "default" {
     $preferred-link-token: $theme-link-reverse-color;
+    $default-reverse: true;
   }
-  @if $is-standard-default {
+  @if $fallback-link-token == "default" {
     $fallback-link-token: $theme-link-color;
+    $standard-reverse: true;
   }
   $bg-grade: calculate-grade($bg-color);
   $preferred-hover-token: false;
@@ -1981,11 +1979,11 @@ get-link-tokens-from-bg(
   // $link-kind is used for error messaging
   $link-kind: false;
   @if $is-reverse {
-    @if $is-reverse-default {
+    @if $default-reverse {
       $default-hover-token: $theme-link-reverse-hover-color;
       $link-kind: "default reverse";
     }
-  } @else if $is-standard-default {
+  } @else if $default-standard {
     $default-hover-token: $theme-link-hover-color;
     $link-kind: "default";
   }
