@@ -1956,6 +1956,12 @@ get-link-tokens-from-bg(
   $is-reverse-default: if($preferred-link-token == "default", true, false);
   $is-standard-default: if($fallback-link-token == "default", true, false);
   $is-default: if($is-reverse-default and $is-standard-default, true, false);
+  @if $is-reverse-default {
+    $preferred-link-token: $theme-link-reverse-color;
+  }
+  @if $is-standard-default {
+    $fallback-link-token: $theme-link-color;
+  }
   $bg-grade: calculate-grade($bg-color);
   $preferred-hover-token: false;
   $default-hover-token: false;
