@@ -449,4 +449,29 @@ $this-function: "is-accessible-magic-number()";
     @include assert-equal($test, $expect);
   }
 }
+
+$this-function: "color-variant()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns `vivid` it's a vivid system token.") {
+    $test: color-variant("red-50v");
+    $expect: "vivid";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `vivid` it's a vivid theme token.") {
+    $test: color-variant("primary-vivid");
+    $expect: "vivid";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false it's a standard system token.") {
+    $test: color-variant("red-50");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false it's a standard theme token.") {
+    $test: color-variant("warning");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
+
 // Debug
