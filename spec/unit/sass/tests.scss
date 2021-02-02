@@ -419,6 +419,27 @@ $this-function: "get-color-token-from-bg()";
     @include assert-equal($test, $expect);
   }
   @include it(
+    "Passing a the `transparent` token throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade("transparent");
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Passing a transparent color throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade("black-transparent-50");
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Passing a transparent custom color throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade(rgba(0, 0, 0, 0.2));
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
     "[LOOK FOR WARNING] Return non-accessible combination with preferred and WARNING."
   ) {
     $test: get-color-token-from-bg(
