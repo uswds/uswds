@@ -397,6 +397,43 @@ $this-function: "theme-grade()";
   }
 }
 
+$this-function: "get-color-token-from-bg()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the default from light bg.") {
+    $test: get-color-token-from-bg("white");
+    $expect: "ink";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the default reverse from dark bg.") {
+    $test: get-color-token-from-bg("ink");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Returns custom hex theme color, calculating proper custom grade"
+  ) {
+    $test: get-color-token-from-bg(
+      "gray-80",
+      "gray-40",
+      "accent-warm-lightest"
+    );
+    $expect: "accent-warm-lightest";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Return non-accessible combination with preferred and WARNING."
+  ) {
+    $test: get-color-token-from-bg(
+      "white",
+      "accent-warm-lightest",
+      "gray-10",
+      $context: "get-color-token-from-bg(): Failing contrast"
+    );
+    $expect: "accent-warm-lightest";
+    @include assert-equal($test, $expect);
+  }
+}
+
 $this-function: "get-link-tokens-from-bg()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns the standard defaults from light bg.") {
@@ -440,7 +477,7 @@ $this-function: "get-link-tokens-from-bg()";
     $test: get-link-tokens-from-bg(
       "black",
       "white",
-      $context: "Test: No hover possible (white)"
+      $context: "get-link-tokens-from-bg(): No hover possible (white)"
     );
     $expect: "white", "white";
     @include assert-equal($test, $expect);
@@ -451,7 +488,7 @@ $this-function: "get-link-tokens-from-bg()";
     $test: get-link-tokens-from-bg(
       "white",
       "black",
-      $context: "Test: No hover possible (black)"
+      $context: "get-link-tokens-from-bg(): No hover possible (black)"
     );
     $expect: "black", "black";
     @include assert-equal($test, $expect);
@@ -463,7 +500,7 @@ $this-function: "get-link-tokens-from-bg()";
       "white",
       "accent-warm-light",
       "gray-10",
-      $context: "Test: Failing contrast"
+      $context: "get-link-tokens-from-bg(): Failing contrast"
     );
     $expect: "accent-warm-light", "accent-warm";
     @include assert-equal($test, $expect);
@@ -506,22 +543,22 @@ $this-function: "is-accessible-magic-number()";
 
 $this-function: "color-variant()";
 @include describe("[function] #{$this-function}") {
-  @include it("Returns `vivid` it's a vivid system token.") {
+  @include it("Returns `vivid` if it's a vivid system token.") {
     $test: color-variant("red-50v");
     $expect: "vivid";
     @include assert-equal($test, $expect);
   }
-  @include it("Returns `vivid` it's a vivid theme token.") {
+  @include it("Returns `vivid` if it's a vivid theme token.") {
     $test: color-variant("primary-vivid");
     $expect: "vivid";
     @include assert-equal($test, $expect);
   }
-  @include it("Returns false it's a standard system token.") {
+  @include it("Returns false if it's a standard system token.") {
     $test: color-variant("red-50");
     $expect: false;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns false it's a standard theme token.") {
+  @include it("Returns false if it's a standard theme token.") {
     $test: color-variant("warning");
     $expect: false;
     @include assert-equal($test, $expect);
