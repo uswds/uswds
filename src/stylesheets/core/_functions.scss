@@ -1911,7 +1911,6 @@ returns: link-token, hover-token
   $wcag-target: "AA",
   $context: false
 ) {
-  // @debug $bg-color, $preferred-link-token, $fallback-link-token, $wcag-target;
   $is-default: false;
   // "default" may be passed as a Preferred color,
   // which should be considered equal to $theme-link-color
@@ -1927,14 +1926,13 @@ returns: link-token, hover-token
   $preferred-hover-token: false;
   $accessible-hover-token: false;
   $context-text: if($context, "[#{$context}] ", "");
+  // 1. Get the link color token
   // Check both link tokens.
-  // Accept a token if it has proper contrast.
+  // Accept a token if it has specified accessible contrast.
   @each $token in $our-color-tokens {
     @if not $accessible-link-token {
       $token-grade: color-grade($token);
-      // @debug "#{$token} grade: #{$token-grade}";
-      $magic-number: magic-number($token-grade, $bg-grade);
-      @if $magic-number >= $target-magic-number {
+      @if is-accessible-magic-number($token-grade, $bg-grade, $wcag-target) {
         $accessible-link-token: $token;
         $accessible-link-grade: $token-grade;
       }
@@ -1947,39 +1945,42 @@ returns: link-token, hover-token
     $accessible-link-token: $preferred-link-token;
     $accessible-link-grade: color-grade($preferred-link-token);
   }
-  // # If link is lighter than bg set type as "reverse"
+  // 2. Get the hover color token
+  // If link is lighter than bg set $is-reverse to true
   $is-reverse: if($accessible-link-grade < $bg-grade, true, false);
-  // # If using defaults, set the default hover
+  // If using defaults, set the default hover
   @if $is-default {
+    // $link-kind is used for error messaging
     $link-kind: "default";
     @if $is-reverse {
-      $preferred-hover-token: $theme-link-reverse-hover-color;
+      $default-hover-token: $theme-link-reverse-hover-color;
       $link-kind: "default reverse";
     } @else {
-      $preferred-hover-token: $theme-link-hover-color;
+      $default-hover-token: $theme-link-hover-color;
     }
-    $preferred-hover-grade: color-grade($preferred-hover-token);
-    @if not
-      is-accessible-magic-number(
-        $preferred-hover-grade,
-        $bg-grade,
-        $wcag-target
-      )
-    {
-      @warn "#{$context-text}The #{$link-kind} link hover does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
+    $default-hover-grade: color-grade($default-hover-token);
+    $accessible-hover-token: if(
+      is-accessible-magic-number($default-hover-grade, $bg-grade, $wcag-target),
+      $default-hover-token,
+      false
+    );
+    @if not $accessible-hover-token {
+      @warn "#{$context-text}The #{$link-kind} link hover (`#{$default-hover-token}`) does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
     }
-    $accessible-hover-token: $preferred-hover-token;
   } @else {
+    // Get the next token in the proper direction
     $direction: if($is-reverse, "lighter", "darker");
     $hover-token: next-token($accessible-link-token, $direction);
+    // Use the next token, if it is valid
     @if $hover-token {
       $accessible-hover-token: $hover-token;
+      // Otherwise use the token itself as hover, and warn.
     } @else {
       $accessible-hover-token: $accessible-link-token;
       @warn "#{$context-text}A #{$accessible-hover-token} link does not have #{$direction} hover available. Hover set to link color.";
     }
   }
-  @return ($accessible-link-token, $accessible-hover-token);
+  @return $accessible-link-token, $accessible-hover-token;
 }
 
 /*
@@ -2117,75 +2118,92 @@ next-token("black", "lighter")
 @function next-token($token, $direction) {
   $next-token: false;
   $type: color-token-type($token);
+  // 1. System case
   @if $type == "system" {
+    // transparent tokens return don't have a next token
     @if $token == "transparent" {
       @return false;
     }
+    // black and white tokens use the gray family for next
     $current-family: if(
       $token == "white" or $token == "black",
       "gray",
       color-family($token)
     );
-    @if str-index($current-family, "transparent") {
+    // black- and white-transparent tokens don't have a next
+    @if str-index($current-family, "-transparent") {
       @return false;
     }
     $current-grade: color-grade($token);
+    // Nothing can be darker than black or lighter than white
     @if $direction == "darker" and $current-grade == 100 {
       @return false;
     }
     @if $direction == "lighter" and $current-grade == 0 {
       @return false;
     }
+    // Grades under 5 should be treated as 5
     @if $current-grade > 0 and $current-grade < 5 {
       $current-grade: 5;
     }
     $system-grade-list: map-keys($system-color-grades);
     $current-grade-index: index($system-grade-list, $current-grade);
-    // note: system grades go from darkest (100) to lightest (0)
+    // Note: System grades go from darkest (100) to lightest (0)
     $next-grade: if(
       $direction == "darker",
       nth($system-grade-list, ($current-grade-index - 1)),
       nth($system-grade-list, ($current-grade-index + 1))
     );
     $output-grade: $next-grade;
-    // keep the same vivid variant as the parent
+    // Keep the same vivid variant as the parent
+    // Note: Grade 90 has no vivid variant
     @if color-variant($token) == "vivid" and ($next-grade < 90) {
       $output-grade: $next-grade + "v";
     }
+    // Use black and white tokens for grades 100 and 0...
     @if $next-grade == 100 {
       $next-token: "black";
     } @else if $next-grade == 0 {
       $next-token: "white";
+      // ...Otherwise output token in expected form
     } @else {
       $next-token: $current-family + "-" + $output-grade;
     }
+    // 1. Theme case
   } @else {
     $current-grade: theme-grade($token);
+    // Vivid theme token should be considered default for ordering
     $current-grade: if($current-grade == "vivid", "default", $current-grade);
     $current-family: color-family($token);
+    // Ink should be considered base-darkest
+    // TODO: Should it?
     @if $token == "ink" {
       $current-family: "base";
       $current-grade: "darkest";
     }
+    // Black is darker than darkest
     @if $direction == "darker" and $current-grade == "darkest" {
       @return "black";
     }
+    // White is lighter than lightest
     @if $direction == "lighter" and $current-grade == "lightest" {
       @return "white";
     }
     $theme-grade-list: map-keys($theme-color-grades);
     $current-grade-index: index($theme-grade-list, $current-grade);
-    // note: theme grades go from `lightest` to `darkest`
+    // Note: Theme grades go from `lightest` to `darkest`
     $next-grade: if(
       $direction == "darker",
       nth($theme-grade-list, ($current-grade-index + 1)),
       nth($theme-grade-list, ($current-grade-index - 1))
     );
+    // Exclude `default` from token output
     @if $next-grade == "default" {
       @return $current-family;
     } @else {
       $next-token: $current-family + "-" + $next-grade;
     }
+    // If the next color is set to false, use black/white instead
     @if not color-token-assignment($next-token) {
       @if $direction == "darker" {
         @return "black";
@@ -2202,15 +2220,15 @@ next-token("black", "lighter")
 ----------------------------------------
 is-accessible-magic-number()
 ----------------------------------------
-Returns whether two color tokens achieve
+Returns whether two grades achieve
 specified target color contrast
 
 Returns: true | false
 
-is-accessible-magic-number("red-10", "red-50", "AA")
+is-accessible-magic-number(10, 50, "AA")
 > false
 
-is-accessible-magic-number("red-10", "red-60", "AA")
+is-accessible-magic-number(10, 60, "AA")
 > true
 ----------------------------------------
 */
