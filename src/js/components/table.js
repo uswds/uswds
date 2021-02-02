@@ -10,7 +10,8 @@ const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
 
-const BUTTON = `.${PREFIX}-table__header__button`;
+const BUTTON_CLASS = `${PREFIX}-table__header__button`;
+const BUTTON = `.${BUTTON_CLASS}`;
 const HEADER = `.${PREFIX}-table__header[${SORTABLE}]`;
 const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="polite"]`;
 
@@ -54,12 +55,13 @@ const getColumnHeaders = (table) => {
  * @param {HTMLTableHeaderCellElement} header
  */
 const updateSortLabel = (header) => {
-  const headerName = header.querySelector(BUTTON).innerText;
+  const headerName = header.innerText;
   const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
   const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
-
-  const headerLabel = `Sortable column, ${isSorted ? `currently ${sortedAscending ? `in ${ASCENDING} order` : `in ${DESCENDING} order`}`: 'unsorted'}, activate to sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
-  header.querySelector(BUTTON).setAttribute("aria-label", headerLabel);
+  const headerLabel = `Sortable column named '${headerName}', ${isSorted ? `currently ${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`: 'unsorted'}`;
+  const headerButtonLabel = `Sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
+  header.setAttribute("aria-label", headerLabel);
+  header.querySelector(BUTTON).setAttribute("aria-label", headerButtonLabel);
 }
 
 /**
@@ -125,8 +127,10 @@ const toggleSort = (header, ascending) => {
  */
 
 const createHeaderButton = (header) => {
-  var button = header.querySelector('BUTTON');
-  button.setAttribute('tabindex', '0');
+  const buttonEl = document.createElement("button");
+  buttonEl.setAttribute('tabindex', '0');
+  buttonEl.classList.add(BUTTON_CLASS);
+  header.appendChild(buttonEl);
   updateSortLabel(header);
 }
 
@@ -139,7 +143,7 @@ const createHeaderButton = (header) => {
 const updateLiveRegion = (table, sortedHeader) => {
   const caption = table.querySelector('caption').innerText;
   const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
-  const headerLabel = sortedHeader.querySelector('BUTTON').innerText;
+  const headerLabel = sortedHeader.innerText;
   const liveRegion = table.nextElementSibling;
   console.log(liveRegion);
   if (liveRegion.matches(ANNOUNCEMENT_REGION)) {
@@ -155,7 +159,7 @@ const updateLiveRegion = (table, sortedHeader) => {
 const table = behavior(
   {
     [CLICK]: {
-      [HEADER](event) {
+      [BUTTON](event) {
         event.preventDefault();
         toggleSort(
           event.target.parentNode, 
