@@ -435,13 +435,35 @@ $this-function: "get-link-tokens-from-bg()";
     @include assert-equal($test, $expect);
   }
   @include it(
-    "[LOOK FOR WARNING] Return non-accessible link/hover, but WARN."
+    "[LOOK FOR WARNING] White link has no hover possible so sets hover to white with WARNING."
+  ) {
+    $test: get-link-tokens-from-bg(
+      "black",
+      "white",
+      $context: "Test: No hover possible (white)"
+    );
+    $expect: "white", "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Black link has no hover possible so sets hover to black with WARNING."
+  ) {
+    $test: get-link-tokens-from-bg(
+      "white",
+      "black",
+      $context: "Test: No hover possible (black)"
+    );
+    $expect: "black", "black";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Return non-accessible link/hover with WARNING."
   ) {
     $test: get-link-tokens-from-bg(
       "white",
       "accent-warm-light",
       "gray-10",
-      $context: "Test failing contrast"
+      $context: "Test: Failing contrast"
     );
     $expect: "accent-warm-light", "accent-warm";
     @include assert-equal($test, $expect);
