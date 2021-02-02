@@ -11,7 +11,7 @@ const MODAL = `.${PREFIX}-modal`;
 const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const OPENERS = `.${PREFIX}-modal-btn[aria-controls]`;
-const CLOSERS = `${CLOSE_BUTTON}`;
+const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
 const TOGGLES = [MODAL, OVERLAY].join(", ");
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
@@ -30,7 +30,7 @@ function toggleModal(active) {
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
   if (modalId) {
-    targetModal.classList.toggle(VISIBLE_CLASS, safeActive)
+    targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
   }
   else {
     select(TOGGLES).forEach((el) => {
@@ -44,6 +44,7 @@ function toggleModal(active) {
       Escape: onMenuClose,
     });
 
+
     modal.focusTrap.update(safeActive);
   
     const closeButton = targetModal.querySelector(CLOSE_BUTTON);
@@ -53,7 +54,6 @@ function toggleModal(active) {
     if (safeActive && closeButton) {
       // The mobile nav was just activated, so focus on the close button,
       // which is just before all the nav elements in the tab order.
-      console.log("we're opening")
       closeButton.focus();
     } else if (
       !safeActive &&
@@ -72,11 +72,17 @@ function toggleModal(active) {
 };
 
 const setUpAttributes = (modalWindow) => {
-  console.log(modalWindow);
   const modalContent = modalWindow.innerHTML;
-  const wrappedContent = `<div class="usa-modal__inner">${modalContent}</div>`;
+  const wrappedContent = `<div class="usa-modal__inner">${modalContent}</div><div class="usa-modal__close usa-modal__scrim"></div>`;
+  const modalID = modalWindow.getAttribute("id");
   modalWindow.innerHTML = wrappedContent;
+  const modalClosers = modalWindow.querySelectorAll(CLOSERS);
   modalWindow.setAttribute("role", "dialog");
+
+  modalClosers.forEach((el) => {
+    el.setAttribute("aria-controls", modalID);
+    }
+  );
 }
 
 const onMenuClose = () => modal.toggleModal.call(modal, false);

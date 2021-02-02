@@ -1,6 +1,6 @@
 .usa-modal {
   display: none;
-  background: rgba(0,0,0,.25);
+  background: rgba(0,0,0,.5);
   text-align: center;
   //padding: 20px 0;
 
@@ -38,4 +38,16 @@
 
   display: inline-block;
   vertical-align: middle;
+
+  z-index: 300;
+}
+
+.usa-modal__scrim {
+  z-index: 200;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
