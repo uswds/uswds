@@ -43,9 +43,7 @@ $alert-icons: (
 @each $name, $icon in $alert-icons {
   .usa-site-alert--#{$name} {
     $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-    $banner-text-color-token: get-color-token-from-bg($bgcolor);
-    background-color: color($bgcolor);
-    color: color($banner-text-color-token);
+    @include set-text-and-bg($bgcolor);
 
     .usa-alert {
       @include alert-status-styles($name, $icon);
