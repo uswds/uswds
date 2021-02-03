@@ -1,4 +1,6 @@
 $_error-output-override: true;
+$theme-show-notifications: false;
+$theme-show-compile-warnings: true;
 $theme-color-primary-lightest: "gray-warm-3";
 $theme-color-warning: "orange-50v";
 $theme-color-secondary: rgb(47, 92, 78); // grade 65
@@ -399,12 +401,22 @@ $this-function: "get-color-token-from-bg()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns the default from light bg.") {
     $test: get-color-token-from-bg("white");
-    $expect: "ink";
+    $expect: $theme-text-color;
     @include assert-equal($test, $expect);
   }
   @include it("Returns the default reverse from dark bg.") {
     $test: get-color-token-from-bg("ink");
-    $expect: "white";
+    $expect: $theme-text-reverse-color;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper AA Large color.") {
+    $test: get-color-token-from-bg("white", "gray-40", "gray-50", "AA-large");
+    $expect: "gray-40";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper AAA color.") {
+    $test: get-color-token-from-bg("white", "gray-50", "gray-70", "AAA");
+    $expect: "gray-70";
     @include assert-equal($test, $expect);
   }
   @include it(
@@ -416,6 +428,18 @@ $this-function: "get-color-token-from-bg()";
       "accent-warm-lightest"
     );
     $expect: "accent-warm-lightest";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Picks the best color, if neither preferred nor fallback pass, with WARNING."
+  ) {
+    $test: get-color-token-from-bg(
+      "gray-50",
+      "gray-20",
+      "gray-90",
+      $context: "get-color-token-from-bg(): No accessible option (choose best)"
+    );
+    $expect: "gray-90";
     @include assert-equal($test, $expect);
   }
   @include it(
