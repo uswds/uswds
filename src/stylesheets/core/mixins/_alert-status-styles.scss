@@ -26,7 +26,7 @@
       $bgcolor,
       $theme-alert-link-reverse-color,
       $theme-alert-link-color,
-      $context: "Alert (emergency)"
+      $context: "Alert (#{$name})"
     );
   }
 
