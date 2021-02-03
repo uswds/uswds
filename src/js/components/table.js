@@ -197,7 +197,7 @@ const table = behavior(
       const sortableHeaders = select(HEADER, root);
       sortableHeaders.forEach((header) => createHeaderButton(header));
 
-      const firstSorted = sortableHeaders.find((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING);
+      const firstSorted = sortableHeaders.filter((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING)[0];
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
         return;
