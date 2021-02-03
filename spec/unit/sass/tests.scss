@@ -251,7 +251,7 @@ $this-function: "color-token-type()";
     @include assert-equal($test, $expect);
   }
   @include it("Identifies the `transparent` token as `system`.") {
-    $test: color-token-type("white");
+    $test: color-token-type("transparent");
     $expect: "system";
     @include assert-equal($test, $expect);
   }
