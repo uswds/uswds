@@ -12,11 +12,7 @@
     $wcag-target,
     $context
   );
-  $bg-color: if(
-    $bg-color == "default",
-    $theme-body-background-color,
-    $bg-color
-  );
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
   $link-token: nth($link-tokens, 1);
   $hover-token: nth($link-tokens, 2);
   $visited-token: if(
