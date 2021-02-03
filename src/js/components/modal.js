@@ -1,6 +1,5 @@
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
-const toggle = require("../utils/toggle");
 const FocusTrap = require("../utils/focus-trap");
 
 const { CLICK } = require("../events");
@@ -13,6 +12,7 @@ const OVERLAY = `.${PREFIX}-overlay`;
 const OPENERS = `.${PREFIX}-modal-btn[aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
 const TOGGLES = [MODAL, OVERLAY].join(", ");
+const INNERDIV = `.${PREFIX}-modal__inner`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
@@ -22,10 +22,24 @@ let modal;
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 function toggleModal(active) {
+  console.log(modal);
+  const foo = event.target;
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
   const modalId = typeof this.getAttribute !== "function" ? false : this.getAttribute("aria-controls");
   const targetModal = modalId != false ? document.getElementById(modalId) : body.querySelector(".usa-modal.is-visible");
+ 
+  if ( foo && targetModal && (foo == targetModal.querySelector(INNERDIV) || foo.closest(".usa-modal__inner") == targetModal.querySelector(INNERDIV))) {
+
+    if (foo.classList.contains("usa-modal__close")) {
+      // do nothing
+    }
+    else {
+      event.stopPropagation();
+      return false;
+    }
+    
+  }
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
@@ -40,18 +54,16 @@ function toggleModal(active) {
   }
 
   if (targetModal) {
+    
     modal.focusTrap = FocusTrap(targetModal, {
       Escape: onMenuClose,
     });
-
 
     modal.focusTrap.update(safeActive);
   
     const closeButton = targetModal.querySelector(CLOSE_BUTTON);
     const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
     const menuButton = body.querySelector(OPENERS);
-
-    console.log(closeButton);
 
     if (safeActive && closeButton) {
       // The mobile nav was just activated, so focus on the close button,
@@ -87,7 +99,10 @@ const setUpAttributes = (modalWindow) => {
   );
 }
 
-const onMenuClose = () => modal.toggleModal.call(modal, false);
+const onMenuClose = () => {
+  console.log("menu close");
+  modal.toggleModal.call(modal, false);
+};
 
 modal = behavior(
   {
