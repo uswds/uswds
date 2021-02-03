@@ -24,16 +24,12 @@
   }
 
   .usa-link {
-    @if $name != "emergency" {
-      @include set-link-from-bg($bgcolor, $context: "Alert (#{$name})");
-    } @else {
-      @include set-link-from-bg(
-        $bgcolor,
-        "ink",
-        "base-lighter",
-        $context: "Alert (emergency)"
-      );
-    }
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (emergency)"
+    );
   }
 
   &.usa-alert--no-icon {
