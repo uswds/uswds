@@ -29,19 +29,19 @@ variants:
             color: primary
             utilities: bottom-0
           content: |
-            <p class="usa-icon-list__heading">Donate cash when possible.</p>
+            <p class="usa-icon-list__title">Donate cash when possible.</p>
         - icon:
             name: mail
             color: primary
             utilities: bottom-0
           content: |
-            <p class="usa-icon-list__heading">Confirm what donations are needed.</p>
+            <p class="usa-icon-list__title">Confirm what donations are needed.</p>
         - icon:
             name: chat
             color: primary
             utilities: bottom-0
           content: |
-            <p class="usa-icon-list__heading">Talk to trusted organizations about volunteering.</p>
+            <p class="usa-icon-list__title">Talk to trusted organizations about volunteering.</p>
   - name: complex-list
     label: With title and description
     context:
@@ -52,14 +52,14 @@ variants:
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Donate cash when possible.</h2>
+            <h2 class="usa-icon-list__title">Donate cash when possible.</h2>
             <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
         - icon:
             name: mail
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Confirm what donations are needed.</h2>
+            <h2 class="usa-icon-list__title">Confirm what donations are needed.</h2>
             <p>Unsolicited goods NOT needed burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
             <p>Critical needs change rapidly. Confirm with trusted organizations what items are needed BEFORE collecting. Remember to:</p>
             <ul>
@@ -72,7 +72,7 @@ variants:
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Talk to trusted organizations about volunteering.</h2>
+            <h2 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h2>
             <p>Don’t self-deploy to disaster areas. Trusted organizations operating in the affected area know where volunteers are needed and can ensure appropriate volunteer safety, training and housing.</p>
   - name: complex-list2
     label: Large with title and description
@@ -84,14 +84,14 @@ variants:
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Donate cash when possible.</h2>
+            <h2 class="usa-icon-list__title">Donate cash when possible.</h2>
             <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
         - icon:
             name: mail
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Confirm what donations are needed.</h2>
+            <h2 class="usa-icon-list__title">Confirm what donations are needed.</h2>
             <p>Unsolicited goods NOT needed burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
             <p>Critical needs change rapidly. Confirm with trusted organizations what items are needed BEFORE collecting. Remember to:</p>
             <ul>
@@ -104,6 +104,6 @@ variants:
             color: primary
             utilities: bottom-0
           content: |
-            <h2 class="usa-icon-list__heading">Talk to trusted organizations about volunteering.</h2>
+            <h2 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h2>
             <p>Don’t self-deploy to disaster areas. Trusted organizations operating in the affected area know where volunteers are needed and can ensure appropriate volunteer safety, training and housing.</p>
 

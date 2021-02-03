@@ -29,7 +29,7 @@ $icon-list-font-sizes: (
       }
     }
 
-    .usa-icon-list__heading {
+    .usa-icon-list__title {
       font-size: size($theme-icon-list-font-family, "lg");
     }
 
@@ -42,7 +42,7 @@ $icon-list-font-sizes: (
             width: system-type-scale($val) * 1.3;
           }
         }
-        .usa-icon-list__heading {
+        .usa-icon-list__title {
           font-size: size($theme-icon-list-font-family, $token);
           margin-bottom: 0;
           & + p {
