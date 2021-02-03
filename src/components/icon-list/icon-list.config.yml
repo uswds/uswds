@@ -22,7 +22,7 @@ variants:
   - name: large-icon
     label: Large icon
     context:
-      iconSize: xl
+      iconSize: lg
       items:
         - icon:
             name: attach_money
@@ -43,9 +43,9 @@ variants:
           content: |
             <p class="usa-icon-list__title">Talk to trusted organizations about volunteering.</p>
   - name: complex-list
-    label: With title and description
+    label: Default with title and description
     context:
-      iconSize: lg
+      iconSize: sm
       items:
         - icon:
             name: attach_money
@@ -77,7 +77,7 @@ variants:
   - name: complex-list2
     label: Large with title and description
     context:
-      iconSize: 2xl
+      iconSize: lg
       items:
         - icon:
             name: attach_money

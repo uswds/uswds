@@ -37,9 +37,9 @@ $icon-list-font-sizes: (
       &--size-#{$token} {
         .usa-icon-list__icon {
           .usa-icon {
-            height: system-type-scale($val) * 1.3;
-            margin-top: 16%;
-            width: system-type-scale($val) * 1.3;
+            height: system-type-scale($val) * 2;
+            margin-top: -8%;
+            width: system-type-scale($val) * 2;
           }
         }
         .usa-icon-list__title {
