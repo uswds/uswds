@@ -1,7 +1,7 @@
 @mixin set-text-from-bg(
-  $bg-color,
-  $preferred-text-color: default,
-  $fallback-text-color: default,
+  $bg-color: "default",
+  $preferred-text-color: "default",
+  $fallback-text-color: "default",
   $wcag-target: "AA",
   $context: false
 ) {
@@ -16,9 +16,9 @@
 }
 
 @mixin set-text-and-bg(
-  $bg-color,
-  $preferred-text-color: default,
-  $fallback-text-color: default,
+  $bg-color: "default",
+  $preferred-text-color: "default",
+  $fallback-text-color: "default",
   $wcag-target: "AA",
   $context: false
 ) {
@@ -28,6 +28,11 @@
     $fallback-text-color,
     $wcag-target,
     $context
+  );
+  $bg-color: if(
+    $bg-color == "default",
+    $theme-body-background-color,
+    $bg-color
   );
   background-color: color($bg-color);
 }

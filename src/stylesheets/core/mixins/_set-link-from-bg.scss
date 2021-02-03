@@ -1,7 +1,7 @@
 @mixin set-link-from-bg(
-  $bg-color,
-  $preferred-link-color: default,
-  $fallback-link-color: default,
+  $bg-color: "default",
+  $preferred-link-color: "default",
+  $fallback-link-color: "default",
   $wcag-target: "AA",
   $context: false
 ) {
@@ -12,7 +12,11 @@
     $wcag-target,
     $context
   );
-
+  $bg-color: if(
+    $bg-color == "default",
+    $theme-body-background-color,
+    $bg-color
+  );
   $link-token: nth($link-tokens, 1);
   $hover-token: nth($link-tokens, 2);
   $visited-token: if(
