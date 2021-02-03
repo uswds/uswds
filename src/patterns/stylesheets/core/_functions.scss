@@ -1859,15 +1859,17 @@ get-color-token-from-bg(
 
 // TODO: Should preferred and fallback be standard/reverse text color settings?
 @function get-color-token-from-bg(
-  $bg-color,
-  $preferred-text-token: default,
-  $fallback-text-token: default,
+  $bg-color: "default",
+  $preferred-text-token: "default",
+  $fallback-text-token: "default",
   $wcag-target: "AA",
   $context: false
 ) {
   $context-text: if($context, "[#{$context}] ", "");
-  // "default" may be passed as a Preferred color,
-  // which should be considered equal to $theme-link-color
+  // Set defaults
+  @if $bg-color == "default" {
+    $bg-color: $theme-body-background-color;
+  }
   @if $preferred-text-token == "default" {
     $preferred-text-token: $theme-text-reverse-color;
   }
@@ -1942,9 +1944,9 @@ get-link-tokens-from-bg(
 */
 
 @function get-link-tokens-from-bg(
-  $bg-color,
-  $preferred-link-token: default,
-  $fallback-link-token: default,
+  $bg-color: "default",
+  $preferred-link-token: "default",
+  $fallback-link-token: "default",
   $wcag-target: "AA",
   $context: false
 ) {
@@ -1954,6 +1956,9 @@ get-link-tokens-from-bg(
   $is-default-fallback: false;
   $default-reverse: false;
   $default-standard: false;
+  @if $bg-color == "default" {
+    $bg-color: $theme-body-background-color;
+  }
   @if $preferred-link-token == "default" {
     $preferred-link-token: $theme-link-reverse-color;
     $default-reverse: true;
