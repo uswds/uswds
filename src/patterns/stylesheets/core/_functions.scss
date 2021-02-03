@@ -1840,6 +1840,23 @@ return: 40
 
 /*
 ----------------------------------------
+get-default()
+----------------------------------------
+Returns the default value from a map
+of project defaults
+
+get-default("bg-color")
+> $theme-body-background-color
+----------------------------------------
+*/
+
+@function get-default($var) {
+  $value: map-get($project-defaults, $var);
+  @return $value;
+}
+
+/*
+----------------------------------------
 get-color-token-from-bg()
 ----------------------------------------
 Returns an accessible foreground color
@@ -1857,7 +1874,6 @@ get-color-token-from-bg(
 ----------------------------------------
 */
 
-// TODO: Should preferred and fallback be standard/reverse text color settings?
 @function get-color-token-from-bg(
   $bg-color: "default",
   $preferred-text-token: "default",
@@ -1868,13 +1884,13 @@ get-color-token-from-bg(
   $context-text: if($context, "[#{$context}] ", "");
   // Set defaults
   @if $bg-color == "default" {
-    $bg-color: $theme-body-background-color;
+    $bg-color: get-default("bg-color");
   }
   @if $preferred-text-token == "default" {
-    $preferred-text-token: $theme-text-reverse-color;
+    $preferred-text-token: get-default("preferred-text-token");
   }
   @if $fallback-text-token == "default" {
-    $fallback-text-token: $theme-text-color;
+    $fallback-text-token: get-default("fallback-text-token");
   }
   $target-magic-number: map-get($system-magic-numbers, $wcag-target);
   $bg-grade: calculate-grade($bg-color);
@@ -1957,14 +1973,14 @@ get-link-tokens-from-bg(
   $default-reverse: false;
   $default-standard: false;
   @if $bg-color == "default" {
-    $bg-color: $theme-body-background-color;
+    $bg-color: get-default("bg-color");
   }
   @if $preferred-link-token == "default" {
-    $preferred-link-token: $theme-link-reverse-color;
+    $preferred-link-token: get-default("preferred-link-token");
     $default-reverse: true;
   }
   @if $fallback-link-token == "default" {
-    $fallback-link-token: $theme-link-color;
+    $fallback-link-token: get-default("fallback-link-token");
     $standard-reverse: true;
   }
   $bg-grade: calculate-grade($bg-color);

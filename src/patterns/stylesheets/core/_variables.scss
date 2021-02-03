@@ -656,3 +656,17 @@ Easing
 ----------------------------------------
 */
 $project-easing: 0.2s ease-in-out;
+
+/*
+----------------------------------------
+Project defaults
+----------------------------------------
+*/
+
+$project-defaults: (
+  "bg-color": $theme-body-background-color,
+  "preferred-text-token": $theme-text-reverse-color,
+  "fallback-text-token": $theme-text-color,
+  "preferred-link-token": $theme-link-reverse-color,
+  "fallback-link-token": $theme-link-color,
+);
