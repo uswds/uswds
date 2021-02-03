@@ -2,8 +2,6 @@
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
-    "ink",
-    "white",
     $context: "Alert text"
   );
   $icon-path: if(
