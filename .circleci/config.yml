@@ -5,7 +5,7 @@ orbs:
 
 general:
   artifacts:
-    - "/home/circleci/project/dist/*tar"
+    - "/home/circleci/project/*tar"
 
 references:
   container: &container
