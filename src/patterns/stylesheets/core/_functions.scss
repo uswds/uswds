@@ -1860,8 +1860,8 @@ get-color-token-from-bg(
 // TODO: Should preferred and fallback be standard/reverse text color settings?
 @function get-color-token-from-bg(
   $bg-color,
-  $preferred-text-token: "white",
-  $fallback-text-token: "ink",
+  $preferred-text-token: default,
+  $fallback-text-token: default,
   $wcag-target: "AA",
   $context: false
 ) {
@@ -1869,8 +1869,10 @@ get-color-token-from-bg(
   // "default" may be passed as a Preferred color,
   // which should be considered equal to $theme-link-color
   @if $preferred-text-token == "default" {
-    $preferred-text-token: "white";
-    $fallback-text-token: "ink";
+    $preferred-text-token: $theme-text-reverse-color;
+  }
+  @if $fallback-text-token == "default" {
+    $fallback-text-token: $theme-text-color;
   }
   $target-magic-number: map-get($system-magic-numbers, $wcag-target);
   $bg-grade: calculate-grade($bg-color);
