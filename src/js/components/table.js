@@ -61,8 +61,8 @@ const updateSortLabel = (header) => {
   const headerName = header.innerText;
   const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
   const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
-  const headerLabel = `Sortable column named '${headerName}', ${isSorted ? `currently ${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`: 'unsorted'}`;
-  const headerButtonLabel = `Sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order`;
+  const headerLabel = `${headerName}', sortable column, currently ${isSorted ? `${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`: 'unsorted'}`;
+  const headerButtonLabel = `Sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order.`;
   header.setAttribute("aria-label", headerLabel);
   header.querySelector(BUTTON).setAttribute("aria-label", headerButtonLabel);
 }
