@@ -56,6 +56,14 @@ jobs:
           command: tar -cvzf artifact.tar build
       - store_artifacts:
           path: artifact.tar
+      - run:
+          name: Commit to GitHub
+          command: |
+            git config user.name "CircleCI Job"
+            git checkout js-federalist-build
+            git add artifact.tar
+            git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
+            git push origin js-federalist-build
 
   deploy:
     <<: *container
