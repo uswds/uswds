@@ -15,7 +15,7 @@ masthead:
     name: <Other agency>
     shortname: <Other agency shortname>
     url: javascript:void(0)
-    logo: "/img/circle-gray-20.svg"
+    logo: "../../img/circle-gray-20.svg"
   taxpayer_disclaimer:
     content: Producido y publicado con dinero de los contribuyentes de impuestos.
     display: false
