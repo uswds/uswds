@@ -215,12 +215,12 @@ $this-function: "decompose-color-token()";
   }
   @include it("Returns `default` grade for default compound theme tokens.") {
     $test: decompose-color-token("accent-cool");
-    $expect: "accent-cool", "default", false;
+    $expect: "accent-cool", "root", false;
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` grade for default theme tokens.") {
     $test: decompose-color-token("base");
-    $expect: "base", "default", false;
+    $expect: "base", "root", false;
     @include assert-equal($test, $expect);
   }
   @include it("Returns proper values for `ink` token.") {
@@ -230,7 +230,7 @@ $this-function: "decompose-color-token()";
   }
   @include it("Returns proper values for vivid theme tokens.") {
     $test: decompose-color-token("secondary-vivid");
-    $expect: "secondary", "default", "vivid";
+    $expect: "secondary", "root", "vivid";
     @include assert-equal($test, $expect);
   }
 }
@@ -377,17 +377,17 @@ $this-function: "color-token-grade()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns `default` from default theme token.") {
     $test: color-token-grade("primary");
-    $expect: "default";
+    $expect: "root";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from default compound theme token.") {
     $test: color-token-grade("accent-warm");
-    $expect: "default";
+    $expect: "root";
     @include assert-equal($test, $expect);
   }
   @include it("Returns `default` from a vivid theme token.") {
     $test: color-token-grade("secondary-vivid");
-    $expect: "default";
+    $expect: "root";
     @include assert-equal($test, $expect);
   }
   @include it("Returns proper relative grade from theme token.") {

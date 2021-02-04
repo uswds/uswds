@@ -1123,7 +1123,7 @@ returns 'false'
     $grade: if(
       map-has-key($exceptions, $family),
       map-get($exceptions, $family),
-      "default"
+      "root"
     );
   } @else {
     $split: str-split($token, $separator);
@@ -1132,9 +1132,9 @@ returns 'false'
     @if str-length($last) > 3 {
       @if $last == "vivid" {
         $variant: "vivid";
-        $grade: "default";
+        $grade: "root";
       } @else if $last == "warm" or $last == "cool" {
-        $grade: "default";
+        $grade: "root";
       } @else {
         $grade: $last;
       }
@@ -1469,7 +1469,7 @@ Derive a color from a color triplet:
 //
 // [family]
 // ex: color('primary')
-//     - the default in a theme palette family
+//     - the root in a theme palette family
 //
 // [family], [grade]
 // ex: color('red', 50)
@@ -1525,9 +1525,9 @@ Derive a color from a color triplet:
     @return get-system-color($color-family, $color-grade, $color-variant);
   }
 
-  // non-number grades are associated with non-default theme colors
+  // non-number grades are associated with non-root theme colors
   // ex: ('base', 'darker')
-  // default theme colors have no grade
+  // root theme colors have no grade
   // ex: ('base')
   @if map-has-key($all-project-colors, $color-family) {
     @if not
@@ -2112,10 +2112,10 @@ Returns the grade of a USWDS color token.
 Returns: color-grade
 
 color-token-grade("accent-warm")
-> "default"
+> "root"
 
 color-token-grade("accent-warm-vivid")
-> "default"
+> "root"
 
 color-token-grade("accent-warm-darker")
 > "darker"
@@ -2269,8 +2269,8 @@ next-token("black", "lighter")
     // 1. Theme case
   } @else {
     $current-grade: color-token-grade($token-split);
-    // Vivid theme token should be considered default for ordering
-    $current-grade: if($current-grade == "vivid", "default", $current-grade);
+    // Vivid theme token should be considered root for ordering
+    $current-grade: if($current-grade == "vivid", "root", $current-grade);
     $current-family: color-token-family($token-split);
     // Ink should be considered base-darkest
     // TODO: Should it?
@@ -2294,8 +2294,8 @@ next-token("black", "lighter")
       nth($theme-grade-list, ($current-grade-index + 1)),
       nth($theme-grade-list, ($current-grade-index - 1))
     );
-    // Exclude `default` from token output
-    @if $next-grade == "default" {
+    // Exclude `root` from token output
+    @if $next-grade == "root" {
       @return $current-family;
     } @else {
       $next-token: $current-family + "-" + $next-grade;
