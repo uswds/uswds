@@ -48,8 +48,15 @@ Returns a common not-a-token error.
 ----------------------------------------
 */
 
-@function error-not-token($token, $type) {
-  @return uswds-error("'#{$token}' is not a valid USWDS #{$type} token.");
+@function error-not-token($token, $type, $valid-token-map: false) {
+  $valid-token-message: if(
+    $valid-token-map,
+    " Valid tokens: #{map-keys($valid-token-map)}",
+    ""
+  );
+  @return uswds-error(
+    "'#{$token}' is not a valid USWDS #{$type} token.#{$valid-token-message}"
+  );
 }
 
 /*
@@ -433,8 +440,7 @@ not exist in the typeface-token map.
 
 @function validate-typeface-token($typeface-token) {
   @if not map-has-key($all-typeface-tokens, $typeface-token) {
-    @error '`#{$typeface-token}` is not a valid USWDS typeface token. '
-      + 'Valid tokens: #{map-keys($all-typeface-tokens)} ';
+    @return error-not-token($typeface-token, "typeface", $all-typeface-tokens);
   }
 
   @return $typeface-token;
@@ -511,15 +517,13 @@ withholds certain errors.
 
 @function utility-font($family, $scale) {
   @if not map-has-key($project-cap-heights, $family) {
-    @error '#{$family} is not a valid USWDS font family token. '
-      + 'Valid tokens: #{map-keys($project-cap-heights)}';
+    @return error-not-token($family, "font family", $project-cap-heights);
   }
 
   $quote-scale: smart-quote($scale);
 
   @if not map-get($all-type-scale, $quote-scale) {
-    @error '`#{$scale}` is not a valid USWDS font scale token. '
-      + 'Valid tokens: #{map-keys($all-type-scale)}';
+    @return error-not-token($scale, "font scale", $all-type-scale);
   }
 
   $this-cap: map-get($project-cap-heights, $family);
@@ -554,13 +558,11 @@ a family and a line-height scale unit
   $scale: smart-quote(nth($props, 2));
 
   @if not map-has-key($project-cap-heights, $family) {
-    @error '#{$family} is not a valid USWDS font family token. '
-      + 'Valid tokens: #{map-keys($project-cap-heights)}';
+    @return error-not-token($family, "font family", $project-cap-heights);
   }
 
   @if not map-get($system-line-height, $scale) {
-    @error '`#{$scale}` is not a valid USWDS line-height token. '
-      + 'Valid tokens: #{map-keys($system-line-height)}';
+    @return error-not-token($scale, "line-height", $system-line-height);
   }
 
   @if not map-get($project-cap-heights, $family) {
@@ -755,8 +757,7 @@ Get a value from the system type scale
   }
 
   @if not map-has-key($system-type-scale, $scale) {
-    @error '`#{$scale}` is not a valid USWDS type scale token. '
-      + 'Valid tokens: #{map-keys($system-type-scale)}';
+    @return error-not-token($scale, "type scale", $system-type-scale);
   }
 
   @return map-get($system-type-scale, $scale);
@@ -907,9 +908,7 @@ functions and mixins.
 
   // TODO: what are these last two cases? Evaluate.
   @if not(type-of($value) == "number" and not unitless($value)) {
-    @error '`#{$value}` is not a valid USWDS `#{$property}` token. '
-      + 'You should correct this. Standard `#{$property}` tokens: '
-      + ' #{map-keys($our-standard-values)}';
+    @return error-not-token($value, $property, $our-standard-values);
   }
 
   @if $theme-show-compile-warnings {
@@ -1538,8 +1537,7 @@ Derive a color from a color triplet:
         + '#{map-keys(map-get($all-project-colors, $color-family))}';
     }
   } @else {
-    @error '`#{$color-family}` is not a valid USWDS theme family token. '
-      + 'Valid family tokens: #{map-keys($all-project-colors)}';
+    @return error-not-token($color-family, "theme family", $all-project-colors);
   }
   @return map-deep-get($all-project-colors, $color-family, $color-grade);
 }
@@ -1561,9 +1559,7 @@ the desired final units (currently rem)
   );
 
   @if not map-has-key($project-spacing-standard, $converted) {
-    @error '`#{$value}` is not a valid USWDS spacing unit token. '
-      + 'Valid spacing unit tokens: '
-      + '#{map-keys($project-spacing-standard)}';
+    @return error-not-token($value, "spacing unit", $project-spacing-standard);
   }
 
   @return map-get($project-spacing-standard, $converted);
@@ -1612,8 +1608,7 @@ border-radii
   @if map-has-key($all-border-radius, $value) {
     @return map-get($all-border-radius, $value);
   } @else {
-    @error '`#{$value}` is not a valid USWDS border radius token. '
-      + 'Valid tokens: #{map-keys($all-border-radius)}';
+    @return error-not-token($value, "border radius", $all-border-radius);
   }
 }
 
@@ -1773,12 +1768,10 @@ Get type scale value from a [family] and
   $our-scale: smart-quote($scale);
 
   @if not map-has-key($project-cap-heights, $our-family) {
-    @error '#{$our-family} is not a valid USWDS font family token. '
-      + 'Valid tokens: #{map-keys($project-cap-heights)}';
+    @return error-not-token($our-family, "font family", $project-cap-heights);
   }
   @if not map-get($all-type-scale, $our-scale) {
-    @error '`#{$our-scale}` is not a valid USWDS font scale token. '
-      + 'Valid token: #{map-keys($all-type-scale)}';
+    @return error-not-token($our-scale, "font scale", $all-type-scale);
   }
 
   $this-cap: map-get($project-cap-heights, $our-family);
