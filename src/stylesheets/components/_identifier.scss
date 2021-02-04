@@ -1,3 +1,4 @@
+$identifier-context: "Identifier";
 $identifier-logo-height: 6;
 $identifier-section-margin-y: 2;
 $identifier-section-margin-y-small: 1;
@@ -9,7 +10,7 @@ $identifier-links-gap: 4 !default;
   @include set-link-from-bg(
     $theme-identifier-background-color,
     $theme-identifier-primary-link-color,
-    $theme-color-base-darker
+    $context: $identifier-context
   );
 }
 
@@ -17,7 +18,7 @@ $identifier-links-gap: 4 !default;
   @include set-link-from-bg(
     $theme-identifier-background-color,
     $theme-identifier-secondary-link-color,
-    $theme-color-base-dark
+    $context: $identifier-context
   );
 }
 
@@ -26,7 +27,10 @@ $identifier-links-gap: 4 !default;
 // =====================================
 .usa-identifier {
   @include typeset($theme-identifier-font-family, "sm", 3);
-  @include set-text-and-bg($theme-identifier-background-color);
+  @include set-text-and-bg(
+    $theme-identifier-background-color,
+    $context: $identifier-context
+  );
   padding-bottom: units(2);
 }
 

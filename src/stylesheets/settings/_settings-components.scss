@@ -27,6 +27,10 @@ $theme-alert-bar-width: 1 !default;
 $theme-alert-font-family: "ui" !default;
 $theme-alert-icon-size: 4 !default;
 $theme-alert-padding-x: 2.5 !default;
+$theme-alert-text-color: default !default;
+$theme-alert-text-reverse-color: default !default;
+$theme-alert-link-color: default !default;
+$theme-alert-link-reverse-color: default !default;
 
 // Banner
 $theme-banner-background-color: "base-lightest" !default;
@@ -35,7 +39,7 @@ $theme-banner-link-color: default !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Breadcrumb
-$theme-breadcrumb-background-color: "white" !default;
+$theme-breadcrumb-background-color: "default" !default;
 $theme-breadcrumb-font-size: "sm" !default;
 $theme-breadcrumb-font-family: "body" !default;
 $theme-breadcrumb-link-color: default !default;
@@ -100,7 +104,7 @@ $theme-identifier-background-color: "base-darkest" !default;
 $theme-identifier-font-family: "ui" !default;
 $theme-identifier-identity-domain-color: "base-light" !default;
 $theme-identifier-max-width: "desktop" !default;
-$theme-identifier-primary-link-color: "base-lighter" !default;
+$theme-identifier-primary-link-color: default !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
 // Process List

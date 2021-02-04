@@ -132,6 +132,13 @@ General colors
 ----------------------------------------
 */
 
+// Body
+$theme-body-background-color: "white" !default;
+
+// Text
+$theme-text-color: "ink" !default;
+$theme-text-reverse-color: "white" !default;
+
 // Links
 $theme-link-color: "primary" !default;
 $theme-link-visited-color: "violet-70v" !default;
