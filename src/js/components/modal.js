@@ -21,13 +21,6 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-function escKeyPress(event) {
-  if(event.key === "Escape"){
-    console.log("hem");
-    onMenuClose();
-  }
-}
-
 function toggleModal(active) {
   const clickedElement = event.target;
   const { body } = document;
