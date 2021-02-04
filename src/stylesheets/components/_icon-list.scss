@@ -1,4 +1,11 @@
-// ICON LIST
+// Variables
+
+// Size icons based on the theme-type-scale-[size] number and this factor
+$icon-list-icon-size-factor: 2;
+// Center the icon to the title text, works for all size variants
+$icon-list-icon-margin-top: -8%;
+// Fine tune the space between the icon and content with this factor
+$icon-list-icon-padding-left-factor: 0.6;
 
 $icon-list-font-sizes: (
   "xs" $theme-type-scale-xs,
@@ -29,6 +36,7 @@ $icon-list-font-sizes: (
       }
     }
 
+    // Set default title font size if no size variant class is present
     .usa-icon-list__title {
       font-size: size($theme-icon-list-font-family, "lg");
     }
@@ -37,9 +45,10 @@ $icon-list-font-sizes: (
       &--size-#{$token} {
         .usa-icon-list__icon {
           .usa-icon {
-            height: system-type-scale($val) * 2;
-            margin-top: -8%;
-            width: system-type-scale($val) * 2;
+            // Set the height and width of the icon based on the size variant and factor
+            height: system-type-scale($val) * $icon-list-icon-size-factor;
+            margin-top: $icon-list-icon-margin-top;
+            width: system-type-scale($val) * $icon-list-icon-size-factor;
           }
         }
         .usa-icon-list__title {
@@ -50,7 +59,8 @@ $icon-list-font-sizes: (
           }
         }
         .usa-icon-list__content {
-          padding-left: system-type-scale($val) * 0.6;
+          // Calculate the space between the icon and content based on the size variant and factor
+          padding-left: system-type-scale($val) * $icon-list-icon-padding-left-factor;
         }
       }
     }
