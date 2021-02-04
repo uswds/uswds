@@ -1826,14 +1826,27 @@ system z-index
 magic-number()
 ----------------------------------------
 Returns the magic number of two color
-tokens
+grades. Takes numbers or color tokens.
 
-magic-number(red-50, red-10)
+magic-number(50, 10)
+return: 40
+
+magic-number("red-50", "red-10")
 return: 40
 ----------------------------------------
 */
 
 @function magic-number($grade-1, $grade-2) {
+  $grade-1: if(
+    type-of($grade-1) == "number",
+    $grade-1,
+    calculate-grade($grade-1)
+  );
+  $grade-2: if(
+    type-of($grade-2) == "number",
+    $grade-2,
+    calculate-grade($grade-2)
+  );
   $magic-number: abs($grade-1 - $grade-2);
   @return $magic-number;
 }
@@ -1894,7 +1907,7 @@ get-color-token-from-bg(
   @if $fallback-text-token == "default" {
     $fallback-text-token: get-default("fallback-text-token");
   }
-  $target-magic-number: map-get($system-magic-numbers, $wcag-target);
+  $target-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
   $bg-grade: calculate-grade($bg-color);
   $our-color-tokens: ($preferred-text-token, $fallback-text-token);
   $accessible-text-token: false;
@@ -2315,6 +2328,27 @@ next-token("black", "lighter")
 
 /*
 ----------------------------------------
+wcag-magic-number()
+----------------------------------------
+Returns the magic number of a specific
+wcag grade:
+
+"AA"
+"AA-Large"
+"AAA"
+
+wcag-magic-number("AA")
+> 50
+----------------------------------------
+*/
+
+@function wcag-magic-number($wcag-target) {
+  $wcag-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
+  @return $wcag-magic-number;
+}
+
+/*
+----------------------------------------
 is-accessible-magic-number()
 ----------------------------------------
 Returns whether two grades achieve
@@ -2331,8 +2365,8 @@ is-accessible-magic-number(10, 60, "AA")
 */
 
 @function is-accessible-magic-number($grade-1, $grade-2, $wcag-target) {
-  $target-magic-number: map-get($system-magic-numbers, $wcag-target);
-  $magic-number: abs($grade-1 - $grade-2);
+  $target-magic-number: wcag-magic-number($wcag-target);
+  $magic-number: magic-number($grade-1, $grade-2);
   @if $magic-number >= $target-magic-number {
     @return true;
   }
