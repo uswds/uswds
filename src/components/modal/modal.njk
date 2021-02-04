@@ -44,7 +44,7 @@
 
  
 
-<button type="button" class="usa-button usa-modal-btn" aria-controls="modal2">Open modal2</button>
+<button type="button" class="usa-button usa-modal-btn " aria-controls="modal2">Open modal2</button>
 
 <div class="usa-modal" id="modal2">
   <button type="button" class="usa-button usa-modal__close">Close modal 2</button> 
@@ -55,9 +55,11 @@
     <li><a href="#">link</a></li>
   </ul>
 
+  <input class="usa-input" type="text"/>
+
   <button type="button" class="usa-button usa-button--outline usa-modal__close" onclick="theClick()">Onclick</button>
 
-  <button type="button" class="usa-button usa-button--outline usa-modal__close" id="foo">Event</button>
+  <button type="button" class="usa-button usa-button--outline usa-modal__close" id="foo" aria-controls="modal2">Event</button>
 </div>
 
 <button type="button" class="usa-button usa-button--outline" id="bar">Event outside</button>
@@ -94,17 +96,24 @@
 
 
 <script>
-var foo = document.getElementById("foo");
-var bar = document.getElementById("bar");
-var theClick = function() {
-  myFunction()
-}
 
-function myFunction() {
-  console.log("Hello World!");
-} 
 
-foo.addEventListener("click", myFunction);
-bar.addEventListener("click", myFunction);
 
+document.addEventListener("DOMContentLoaded", () => {
+  var foo = document.getElementById("foo");
+  var bar = document.getElementById("bar");
+  var theClick = function() {
+    myFunction()
+  }
+
+  function myFunction() {
+    console.log("Hello World!");
+  } 
+
+  foo.addEventListener("click", myFunction);
+  bar.addEventListener("click", myFunction);
+
+
+  console.log(foo);
+})
 </script>

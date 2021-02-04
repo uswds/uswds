@@ -21,21 +21,32 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
+function escKeyPress(event) {
+  if(event.key === "Escape"){
+    console.log("hem");
+    onMenuClose();
+  }
+}
+
 function toggleModal(active) {
-  console.log(modal);
-  const foo = event.target;
+  const clickedElement = event.target;
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
+
+  // This is weird because can't do getAttribute on esc key
   const modalId = typeof this.getAttribute !== "function" ? false : this.getAttribute("aria-controls");
   const targetModal = modalId != false ? document.getElementById(modalId) : body.querySelector(".usa-modal.is-visible");
  
-  if ( foo && targetModal && (foo == targetModal.querySelector(INNERDIV) || foo.closest(".usa-modal__inner") == targetModal.querySelector(INNERDIV))) {
+  // This basically stops the propagation by determining if
+  // the clicked element is not a child element in the modal
+  // and is also not a close button
+  if ( clickedElement && targetModal && (clickedElement == targetModal.querySelector(INNERDIV) || clickedElement.closest(".usa-modal__inner") == targetModal.querySelector(INNERDIV))) {
 
-    if (foo.classList.contains("usa-modal__close")) {
-      // do nothing
+    if (clickedElement.classList.contains("usa-modal__close")) {
+      // do nothing. move on.
     }
     else {
-      event.stopPropagation();
+      //event.stopPropagation();
       return false;
     }
     
@@ -53,46 +64,67 @@ function toggleModal(active) {
     );
   }
 
+  
+  
   if (targetModal) {
     
-    modal.focusTrap = FocusTrap(targetModal, {
-      Escape: onMenuClose,
-    });
+    //modal.focusTrap = FocusTrap(targetModal, {
+    //  Escape: onMenuClose,
+    //});
 
-    modal.focusTrap.update(safeActive);
+    modal.focusTrap = FocusTrap(targetModal);
   
+    
+    modal.focusTrap.update(safeActive);
+    
     const closeButton = targetModal.querySelector(CLOSE_BUTTON);
     const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
     const menuButton = body.querySelector(OPENERS);
 
     if (safeActive && closeButton) {
-      // The mobile nav was just activated, so focus on the close button,
-      // which is just before all the nav elements in the tab order.
+      // The modal window is opened. Focus is set to close button.
       closeButton.focus();
+      document.addEventListener('keydown', function(event){    
+        if(event.key === "Escape"){
+          onMenuClose();
+        }
+      }, { once: false });
     } else if (
       !safeActive &&
       menuButton &&
       returnFocus
     ) {
-      // The mobile nav was just deactivated, and focus was on the close
-      // button, which is no longer visible. We don't want the focus to
-      // disappear into the void, so focus on the menu button if it's
-      // visible (this may have been what the user was just focused on,
-      // if they triggered the mobile nav by mistake).
+      // The modal window is closed.
+      // Focus is returned to the opener 
       returnFocus.focus();
     }
   }
   return safeActive;
 };
 
-const setUpAttributes = (modalWindow) => {
-  const modalContent = modalWindow.innerHTML;
-  const wrappedContent = `<div class="usa-modal__scrim"><div class="usa-modal__inner">${modalContent}</div></div>`;
-  const modalID = modalWindow.getAttribute("id");
-  modalWindow.innerHTML = wrappedContent;
-  const modalClosers = modalWindow.querySelectorAll(CLOSERS);
-  modalWindow.setAttribute("role", "dialog");
+const setUpAttributes = (baseElement) => {
+  const modalContent = baseElement;
+  const outerDiv = document.createElement('div');
+  const overlayDiv = document.createElement('div');
 
+  // Rebuild the modal element
+  modalContent.parentNode.insertBefore(outerDiv, modalContent);
+  outerDiv.appendChild(modalContent);
+  modalContent.parentNode.insertBefore(overlayDiv, modalContent);
+  overlayDiv.appendChild(modalContent);
+
+  // Add classes and attributes
+  outerDiv.classList.add("usa-modal");
+  overlayDiv.classList.add("usa-modal__scrim");
+  modalContent.classList.remove("usa-modal");
+  modalContent.classList.add("usa-modal__inner");
+  const modalID = baseElement.getAttribute("id");
+  const modalClosers = outerDiv.querySelectorAll(CLOSERS);
+  outerDiv.setAttribute("role", "dialog");
+  outerDiv.setAttribute("id", modalID);
+  baseElement.removeAttribute("id");
+
+  // Add aria-controls
   modalClosers.forEach((el) => {
     el.setAttribute("aria-controls", modalID);
     }
@@ -100,7 +132,7 @@ const setUpAttributes = (modalWindow) => {
 }
 
 const onMenuClose = () => {
-  console.log("menu close");
+  console.log("eeee");
   modal.toggleModal.call(modal, false);
 };
 
@@ -115,7 +147,7 @@ modal = behavior(
     init(root) {
       select(MODAL, root).forEach((modalWindow) => {
         setUpAttributes(modalWindow);
-      });
+      });   
     },
     focusTrap: null,
     toggleModal,
