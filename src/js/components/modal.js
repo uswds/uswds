@@ -81,7 +81,7 @@ function toggleModal(active) {
         if(event.key === "Escape"){
           onMenuClose();
         }
-      }, { once: false });
+      }, { once: true });
     } else if (
       !safeActive &&
       menuButton &&
