@@ -87,7 +87,11 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__identity-domain {
-  @include u-text($theme-identifier-identity-domain-color);
+  @include set-text-from-bg(
+    $theme-identifier-background-color,
+    $theme-identifier-identity-domain-color,
+    $context: $identifier-context
+  );
 }
 
 .usa-identifier__identity-disclaimer {
