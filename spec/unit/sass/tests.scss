@@ -157,22 +157,22 @@ $theme-link-reverse-active-color: "white";
     $expect: 25;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns the proper grade custom hex color.") {
+  @include it("Returns the proper grade for a custom hex color.") {
     $test: calculate-grade(#ffe);
     $expect: 2.5;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns the proper grade custom hex color.") {
+  @include it("Returns the proper grade for a custom hex color.") {
     $test: calculate-grade("secondary");
     $expect: 65;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns the proper grade custom hex color.") {
+  @include it("Returns the proper grade for a custom hex color.") {
     $test: calculate-grade("secondary-vivid");
     $expect: 55;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns the proper grade custom hex color.") {
+  @include it("Returns the proper grade for a custom hex color.") {
     $test: calculate-grade("secondary-dark");
     $expect: 70;
     @include assert-equal($test, $expect);
