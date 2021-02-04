@@ -468,36 +468,36 @@ $system-color-grades: (
 
 $theme-color-grades: (
   "lightest": (
-    "min": 0,
-    "max": 0,
+    "min": 5,
+    "max": 10,
   ),
   "lighter": (
-    "min": 0.005,
-    "max": 0.015,
+    "min": 10,
+    "max": 20,
   ),
   "light": (
-    "min": 0.02,
-    "max": 0.04,
+    "min": 30,
+    "max": 40,
   ),
-  "default": (
-    "min": 0.05,
-    "max": 0.07,
+  "root": (
+    "min": 50,
+    "max": 50,
     "vivid": (
-      "min": 0.05,
-      "max": 0.07,
+      "min": 30,
+      "max": 50,
     ),
   ),
   "dark": (
-    "min": 0.1,
-    "max": 0.125,
+    "min": 60,
+    "max": 60,
   ),
   "darker": (
-    "min": 0.175,
-    "max": 0.183,
+    "min": 70,
+    "max": 80,
   ),
   "darkest": (
-    "min": 0.25,
-    "max": 0.3,
+    "min": 90,
+    "max": 90,
   ),
 );
 
