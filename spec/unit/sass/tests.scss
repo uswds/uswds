@@ -1,12 +1,19 @@
 $_error-output-override: true;
+
+$custom-hex-grade-25: #dad;
+$custom-hex-grade-55: rgb(0, 124, 87);
+$custom-hex-grade-65: rgb(47, 92, 78);
+$custom-hex-grade-70: rgb(0, 75, 68);
+$custom-hex-transparent: rgb(0, 0, 0, 0.2);
+
 $theme-show-notifications: false;
 $theme-show-compile-warnings: true;
 $theme-color-primary-lightest: "gray-warm-3";
 $theme-color-warning: "orange-50v";
-$theme-color-secondary: rgb(47, 92, 78); // grade 65
-$theme-color-secondary-vivid: rgb(0, 124, 87); // grade 55
-$theme-color-secondary-dark: rgb(0, 75, 68); // grade 70
-$theme-color-accent-warm-lightest: #dad; // grade 25
+$theme-color-secondary: $custom-hex-grade-65;
+$theme-color-secondary-vivid: $custom-hex-grade-55;
+$theme-color-secondary-dark: $custom-hex-grade-70;
+$theme-color-accent-warm-lightest: $custom-hex-grade-25;
 $theme-color-accent-cool-lightest: false;
 
 $theme-link-color: "primary";
