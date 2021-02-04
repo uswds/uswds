@@ -7,9 +7,10 @@ const { prefix: PREFIX } = require("../config");
 
 const MODAL = `.${PREFIX}-modal`;
 
+const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
 const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
-const OPENERS = `.${PREFIX}-modal-btn[aria-controls]`;
+const OPENERS = `.${PREFIX}-modal-open[aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
 const TOGGLES = [MODAL, OVERLAY].join(", ");
 const INNERDIV = `.${PREFIX}-modal__inner`;
@@ -22,77 +23,75 @@ let modal;
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 function toggleModal(active) {
-  const clickedElement = event.target;
+  let clickedElement = event.target;
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
+  const modalId = clickedElement.getAttribute("aria-controls");
+  const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal.is-visible");
 
-  // This is weird because can't do getAttribute on esc key
-  const modalId = typeof this.getAttribute !== "function" ? false : this.getAttribute("aria-controls");
-  const targetModal = modalId != false ? document.getElementById(modalId) : body.querySelector(".usa-modal.is-visible");
- 
-  // This basically stops the propagation by determining if
-  // the clicked element is not a child element in the modal
-  // and is also not a close button
-  if ( clickedElement && targetModal && (clickedElement == targetModal.querySelector(INNERDIV) || clickedElement.closest(".usa-modal__inner") == targetModal.querySelector(INNERDIV))) {
+  // Sets the clicked element to the close button
+  // so esc key always closes modal
+  if (event.type === "keydown" && targetModal !== null) {
+    clickedElement = targetModal.querySelector(CLOSE_BUTTON)
+  }
 
-    if (clickedElement.classList.contains("usa-modal__close")) {
-      // do nothing. move on.
-    }
-    else {
-      //event.stopPropagation();
-      return false;
-    }
+
     
-  }
+    // This is weird because can't do getAttribute on esc key
+    
+    //console.log(clickedElement.classList);
+     //This basically stops the propagation by determining if
+     //the clicked element is not a child element in the modal
+     //and is also not a close button
+    if ( clickedElement.closest(".usa-modal__inner") ) {
 
-  body.classList.toggle(ACTIVE_CLASS, safeActive);
-
-  if (modalId) {
-    targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
-  }
-  else {
-    select(TOGGLES).forEach((el) => {
-      el.classList.toggle(VISIBLE_CLASS, safeActive)
+      if (clickedElement.classList.contains("usa-modal__close")) {
+        // do nothing. move on.
       }
-    );
-  }
-
-  
-  
-  if (targetModal) {
-    
-    //modal.focusTrap = FocusTrap(targetModal, {
-    //  Escape: onMenuClose,
-    //});
-
-    modal.focusTrap = FocusTrap(targetModal);
-  
-    
-    modal.focusTrap.update(safeActive);
-    
-    const closeButton = targetModal.querySelector(CLOSE_BUTTON);
-    const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
-    const menuButton = body.querySelector(OPENERS);
-
-    if (safeActive && closeButton) {
-      // The modal window is opened. Focus is set to close button.
-      closeButton.focus();
-      document.addEventListener('keydown', function(event){    
-        if(event.key === "Escape"){
-          onMenuClose();
-        }
-      }, { once: true });
-    } else if (
-      !safeActive &&
-      menuButton &&
-      returnFocus
-    ) {
-      // The modal window is closed.
-      // Focus is returned to the opener 
-      returnFocus.focus();
+      else {
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+      }
+      
     }
-  }
-  return safeActive;
+
+    body.classList.toggle(ACTIVE_CLASS, safeActive);
+
+    if (targetModal !== null) {
+        
+      targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
+    
+      modal.focusTrap = FocusTrap(targetModal, {
+        Escape: onMenuClose,
+      });
+      modal.focusTrap.update(safeActive);
+      
+
+      const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
+      const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
+      const menuButton = body.querySelector(OPENERS);
+
+      if (safeActive && openFocusEl) {
+        // The modal window is opened. Focus is set to close button.
+        openFocusEl.focus();
+        //document.addEventListener('keydown', function(event){    
+        //  if(event.key === "Escape"){
+        //    onMenuClose();
+        //  }
+        //}, { once: true });
+      } else if (
+        !safeActive &&
+        menuButton &&
+        returnFocus
+      ) {
+        // The modal window is closed.
+        // Focus is returned to the opener 
+        returnFocus.focus();
+      }
+    }
+    return safeActive;
+ 
 };
 
 const setUpAttributes = (baseElement) => {
@@ -116,6 +115,7 @@ const setUpAttributes = (baseElement) => {
   outerDiv.setAttribute("role", "dialog");
   outerDiv.setAttribute("id", modalID);
   baseElement.removeAttribute("id");
+  baseElement.setAttribute("tabindex", "-1");
 
   // Add aria-controls
   modalClosers.forEach((el) => {
@@ -125,7 +125,7 @@ const setUpAttributes = (baseElement) => {
 }
 
 const onMenuClose = () => {
-  console.log("eeee");
+  console.log("Hitting that escape key");
   modal.toggleModal.call(modal, false);
 };
 

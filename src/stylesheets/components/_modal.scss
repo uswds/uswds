@@ -11,18 +11,21 @@
 }
 
 .usa-modal__inner {
-  border: 1px solid;
+  @include u-radius($theme-card-border-radius);
+  border: 1px solid color("base");
   background: white;
-  padding: 50px;
-  max-width: 255px;
+  max-width: 500px;
   text-align: left;
   margin: 20px auto;
-
   display: inline-block;
   vertical-align: middle;
   position: relative;
 
   z-index: 300;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .usa-modal__scrim {
@@ -37,6 +40,7 @@
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  padding: units(3);
 
     &:before {
       content: '';
@@ -45,4 +49,35 @@
       vertical-align: middle;
       margin-right: -0.25em;
     }
+}
+
+.usa-modal__header {
+  display: flex;
+  width: 100%;
+}
+
+// Prevents JS not recognizing as part of close button.
+.usa-modal__close > .usa-icon {
+  pointer-events: none;
+}
+
+.usa-modal__close--x {
+  align-self: flex-end;
+  background-color: transparent;
+  color: color("base");
+  flex-shrink: 0;
+  margin: 0 0 0 auto;
+  padding: units(1);
+  width: auto;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    color: color("ink");
+  }
+
+  .usa-icon {
+    height: units(4);
+    width: units(4);
+  }
 }
