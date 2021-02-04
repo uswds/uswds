@@ -74,7 +74,12 @@ function toggleModal(active) {
 
       if (safeActive && openFocusEl) {
         // The modal window is opened. Focus is set to close button.
-        openFocusEl.focus();
+
+        // This if timeout could be fractal weirdness
+        // in safari. But gives element a chance to appear
+        // before setting focus.
+        setTimeout(function(){ openFocusEl.focus(); }, 10);
+
         //document.addEventListener('keydown', function(event){    
         //  if(event.key === "Escape"){
         //    onMenuClose();
@@ -112,9 +117,12 @@ const setUpAttributes = (baseElement) => {
   modalContent.classList.add("usa-modal__inner");
   const modalID = baseElement.getAttribute("id");
   const modalClosers = outerDiv.querySelectorAll(CLOSERS);
+  const ariaLabel = baseElement.getAttribute("aria-labelledby");
   outerDiv.setAttribute("role", "dialog");
   outerDiv.setAttribute("id", modalID);
+  outerDiv.setAttribute("aria-labelledby", ariaLabel);
   baseElement.removeAttribute("id");
+  baseElement.removeAttribute("aria-labelledby");
   baseElement.setAttribute("tabindex", "-1");
 
   // Add aria-controls
