@@ -41,12 +41,21 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   // Calculate sizing and adjustments for positioning
   const tooltipWidth = tooltipTrigger.offsetWidth;
   const tooltipHeight = tooltipTrigger.offsetHeight;
+
   const offsetForTopMargin = parseInt(
     window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-top"),
     10
   );
   const offsetForBottomMargin = parseInt(
     window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-bottom"),
+    10
+  );
+  const offsetForRightMargin = parseInt(
+    window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-right"),
+    10
+  );
+  const offsetForLeftMargin = parseInt(
+    window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-left"),
     10
   );
   const offsetForTopPadding = parseInt(
@@ -57,15 +66,46 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
     window.getComputedStyle(wrapper).getPropertyValue("padding-bottom"),
     10
   );
+  const offsetForRightPadding = parseInt(
+    window.getComputedStyle(wrapper).getPropertyValue("padding-right"),
+    10
+  );
+  const offsetForLeftPadding = parseInt(
+    window.getComputedStyle(wrapper).getPropertyValue("padding-left"),
+    10
+  );
   const offsetForTooltipBodyHeight = parseInt(
     window.getComputedStyle(tooltipBody).getPropertyValue("height"),
     10
   );
-  const leftOffset = tooltipTrigger.offsetLeft;
-  const toolTipBodyWidth = tooltipBody.offsetWidth;
-  const adjustHorizontalCenter = tooltipWidth / 2 + leftOffset;
-  const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
-  const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
+  const offsetForTooltipBodyWidth = parseInt(
+    window.getComputedStyle(tooltipBody).getPropertyValue("width"),
+    10
+  );
+  // const offsetTotalHeight = tooltipTrigger.offsetHeight + offsetForTopMargin + offsetForBottomMargin + offsetForTopPadding + offsetForBottomPadding + offsetForTooltipBodyHeight
+
+  // const offsetTotalWidth = tooltipTrigger.offsetWidth + offsetForRightMargin + offsetForLeftMargin + offsetForRightPadding + offsetForLeftPadding + offsetForTooltipBodyHeight
+
+  // console.log(
+  //   tooltipTrigger.offsetHeight,
+  //   offsetForTopMargin,
+  //   offsetForBottomMargin,
+  //   offsetForTopPadding,
+  //   offsetForBottomPadding,
+  //   offsetForTooltipBodyHeight,
+  // )
+  // const leftOffset = tooltipTrigger.offsetLeft;
+  // const toolTipBodyWidth = tooltipBody.offsetWidth;
+  const adjustHorizontalCenter = tooltipWidth / 2;
+  const adjustVerticalCenter = tooltipWidth / 2;
+  const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE;
+  const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE;
+
+  // console.log({offsetTotalHeight})
+  // console.log({offsetTotalWidth})
+  // console.log({tooltipTrigger})
+  // console.log({offsetTotalHeight})
+  // console.log({adjustToEdgeY})
 
   /**
    * Position the tooltip body when the trigger is hovered
@@ -89,10 +129,20 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    */
   const positionTop = (e) => {
     setPositionClass("top");
-    e.style.marginLeft = `${adjustHorizontalCenter}px`;
-    e.style.marginBottom = `${
-      adjustToEdgeY + offsetForBottomMargin + offsetForBottomPadding
-    }px`;
+    e.style.bottom = `auto`;
+    e.style.right = `auto`;
+    e.style.left = `50%`;
+    e.style.top = `-${TRIANGLE_SIZE}px`;
+    e.style.margin = `-${tooltipBody.offsetHeight}px 0 0 -${tooltipBody.offsetWidth / 2}px`;
+    // e.style.top = `-${tooltipBody.offsetHeight + TRIANGLE_SIZE}px`;
+    // e.style.left = `${(tooltipTrigger.offsetWidth - tooltipBody.offsetHeight) / 2}px`;
+    // e.style.marginLeft = `${adjustHorizontalCenter}px`;
+    // e.style.marginBottom = `${tooltipTrigger.offsetHeight + TRIANGLE_SIZE}px`;
+    // e.style.marginLeft = `${adjustHorizontalCenter}px`;
+    // e.style.marginBottom = `${
+    //   adjustToEdgeY + offsetForBottomMargin + offsetForBottomPadding
+    // }px`;
+    // return false
   };
 
   /**
@@ -101,11 +151,25 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    */
   const positionBottom = (e) => {
     setPositionClass("bottom");
-    e.style.marginLeft = `${adjustHorizontalCenter}px`;
-    e.style.marginTop = `${
-      adjustToEdgeY + offsetForTopMargin + offsetForTopPadding
-    }px`;
+    e.style.bottom = `auto`;
+    e.style.right = `auto`;
+    e.style.top = `auto`;
+    e.style.left = `50%`;
+    e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${tooltipBody.offsetWidth / 2}px`;
+    // e.style.bottom = `-${TRIANGLE_SIZE}px`;
+    // e.style.bottom = `-${tooltipBody.offsetHeight + TRIANGLE_SIZE}px`;
+    // e.style.left = `${(tooltipTrigger.offsetWidth - tooltipBody.offsetWidth) / 2}px`;
+    // e.style.marginLeft = `${adjustHorizontalCenter}px`;
+    // e.style.marginBottom = `${tooltipTrigger.offsetHeight + TRIANGLE_SIZE}px`;
+    // e.style.marginTop = `${
+    //   adjustToEdgeY + offsetForTopMargin + offsetForTopPadding
+    // }px`;
+    // return false
   };
+
+// console.log(tooltipBody.offsetWidth)
+// console.log(offsetForRightMargin)
+// console.log(TRIANGLE_SIZE)
 
   /**
    * Positions tooltip at the right
@@ -113,14 +177,23 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    */
   const positionRight = (e) => {
     setPositionClass("right");
-    e.style.marginBottom = "0";
-    e.style.marginLeft = `${adjustToEdgeX + leftOffset}px`;
-    e.style.bottom = `${
-      (tooltipHeight - offsetForTooltipBodyHeight) / 2 +
-      offsetForBottomMargin +
-      offsetForBottomPadding
-    }px`;
-    return false;
+    e.style.bottom = `auto`;
+    e.style.left = `auto`;
+    e.style.top = `50%`;
+    e.style.right = `-${TRIANGLE_SIZE}px`;
+    e.style.margin = `-${tooltipBody.offsetHeight / 2}px -${(tooltipBody.offsetWidth - offsetForRightMargin)}px 0 0`;
+    // e.style.top = `${(tooltipTrigger.offsetHeight - tooltipBody.offsetHeight) / 2}px`;
+    // e.style.left = `${tooltipTrigger.offsetWidth + TRIANGLE_SIZE}px`;
+    // e.style.marginLeft = `${tooltipTrigger.offsetWidth + TRIANGLE_SIZE}px`;
+    // e.style.marginBottom = `${adjustVerticalCenter / 2}px`;
+    // e.style.marginBottom = "0";
+    // e.style.marginLeft = `${adjustToEdgeX + leftOffset}px`;
+    // e.style.bottom = `${
+    //   (tooltipHeight - offsetForTooltipBodyHeight) / 2 +
+    //   offsetForBottomMargin +
+    //   offsetForBottomPadding
+    // }px`;
+    // return false;
   };
 
   /**
@@ -129,21 +202,32 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    */
   const positionLeft = (e) => {
     setPositionClass("left");
-    e.style.marginBottom = "0";
-    if (leftOffset > toolTipBodyWidth) {
-      e.style.marginLeft = `${
-        leftOffset - toolTipBodyWidth - (TRIANGLE_SIZE + SPACER)
-      }px`;
-    } else {
-      e.style.marginLeft = `-${
-        toolTipBodyWidth - leftOffset + (TRIANGLE_SIZE + SPACER)
-      }px`;
-    }
-    e.style.bottom = `${
-      (tooltipHeight - offsetForTooltipBodyHeight) / 2 +
-      offsetForBottomMargin +
-      offsetForBottomPadding
-    }px`;
+    e.style.bottom = `auto`;
+    e.style.right = `auto`;
+    e.style.top = `50%`;
+    e.style.left = `-${TRIANGLE_SIZE}px`;
+    e.style.margin = `-${tooltipBody.offsetHeight / 2}px 0 0 -${tooltipBody.offsetWidth}px`;
+    // e.style.top = `${(tooltipTrigger.offsetHeight - tooltipBody.offsetHeight) / 2}px`;
+    // e.style.left = `-${tooltipBody.offsetWidth + TRIANGLE_SIZE}px`
+    // e.style.right = `${tooltipTrigger.offsetWidth + tooltipBody.offsetWidth + TRIANGLE_SIZE + offsetForRightMargin}px`;
+    // e.style.marginRight = `${adjustToEdgeX}px`;
+    // e.style.marginBottom = `${adjustVerticalCenter}px`;
+    // e.style.marginBottom = "0";
+    // if (leftOffset > toolTipBodyWidth) {
+    //   e.style.marginLeft = `${
+    //     leftOffset - toolTipBodyWidth - (TRIANGLE_SIZE + SPACER)
+    //   }px`;
+    // } else {
+    //   e.style.marginLeft = `-${
+    //     toolTipBodyWidth - leftOffset + (TRIANGLE_SIZE + SPACER)
+    //   }px`;
+    // }
+    // e.style.bottom = `${
+    //   (tooltipHeight - offsetForTooltipBodyHeight) / 2 +
+    //   offsetForBottomMargin +
+    //   offsetForBottomPadding
+    // }px`;
+    // return false
   };
 
   /**
@@ -156,9 +240,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   function findBestPosition(t) {
     // create array of optional positions
     const positions = [
-      positionBottom,
-      positionLeft,
       positionRight,
+      positionLeft,
+      positionBottom,
       positionTop,
     ]
     // we will push validations here to check later
@@ -184,34 +268,44 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
       return null
     })
     // if no positions are avalible we force an adjustment to the width
-    if (validate.every( v => v === false )) {
-      tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
-    }
-    return bestPosition
+    // if (validate.every( v => v === false )) {
+    //   tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
+    // }
+    console.log(bestPosition)
+
+    return bestPosition === "undefined" ? 'top' : bestPosition
   }
 
   switch (position) {
     case "top":
       positionTop(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
+        console.log('I can not see all the conent!!')
         findBestPosition(tooltipBody)
+        if (!isElementInViewport(tooltipBody)) {
+          tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
+          findBestPosition(tooltipBody)
+        }
       }
       break;
     case "bottom":
       positionBottom(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
+        console.log('I can not see all the conent!!')
         findBestPosition(tooltipBody)
       }
       break;
     case "right":
       positionRight(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
+        console.log('I can not see all the conent!!')
         findBestPosition(tooltipBody)
       }
       break;
     case "left":
       positionLeft(tooltipBody);
       if (!isElementInViewport(tooltipBody)) {
+        console.log('I can not see all the conent!!')
         findBestPosition(tooltipBody)
       }
       break;
