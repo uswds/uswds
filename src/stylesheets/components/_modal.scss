@@ -1,8 +1,6 @@
 .usa-modal {
   display: none;
-  
   text-align: center;
-  //padding: 20px 0;
 
   &.is-visible {
     display: block;
@@ -14,13 +12,12 @@
   @include u-radius($theme-card-border-radius);
   border: 1px solid color("base");
   background: white;
-  max-width: 500px;
-  text-align: left;
-  margin: 20px auto;
   display: inline-block;
-  vertical-align: middle;
+  margin: units(2.5) auto;
+  max-width: 500px;
   position: relative;
-
+  text-align: left;
+  vertical-align: middle;
   z-index: 300;
 
   &:focus {
@@ -29,26 +26,26 @@
 }
 
 .usa-modal__scrim {
-  background: rgba(0,0,0,.5);
-  z-index: 200;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  background: rgba(0, 0, 0, 0.5);
   bottom: 0;
+  height: 100%;
+  left: 0;
   overflow: scroll;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   padding: units(3);
+  position: fixed;
+  scroll-behavior: smooth;
+  top: 0;
+  width: 100%;
+  z-index: 200;
 
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-right: -0.25em;
-    }
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
 }
 
 .usa-modal__header {

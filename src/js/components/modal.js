@@ -5,12 +5,15 @@ const FocusTrap = require("../utils/focus-trap");
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
 
-const MODAL = `.${PREFIX}-modal`;
-
+const MODAL_CLASSNAME = `${PREFIX}-modal`;
+const MODAL_INNER_CLASSNAME = `${MODAL_CLASSNAME}__inner`;
+const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__scrim`;
+const OPENER_ATTRIBUTE = "data-usa-modal";
+const MODAL = `.${MODAL_CLASSNAME}`;
 const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
 const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
-const OPENERS = `.${PREFIX}-modal-open[aria-controls]`;
-const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
+const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
+const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
@@ -19,17 +22,24 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
+/**
+ *  Is bound to escape key, closes modal when 
+ */
 const onMenuClose = () => {
-  console.log("Hitting that escape key");
   modal.toggleModal.call(modal, false);
 };
 
-
-function toggleModal(event, active) {
+/**
+ *  Toggle the visibility of a modal window
+ *
+ * @param {KeyboardEvent} event the keydown event
+ * @returns {boolean} safeActive if mobile is open
+ */
+function toggleModal(event) {
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
-  const safeActive = typeof active === "boolean" ? active : !isActive();
+  const safeActive = !isActive();
   const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal.is-visible");
   const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal.is-visible");
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
@@ -48,7 +58,7 @@ function toggleModal(event, active) {
     // Make sure we click the opener
     // If it doesn't have an ID, make one
     // Store id as data attribute on modal
-    if (clickedElement.classList.contains("usa-modal-open")) {
+    if (clickedElement.hasAttribute(OPENER_ATTRIBUTE)) {
       if (this.getAttribute("id") === null) {
         originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
         this.setAttribute("id", originalOpener);
@@ -62,7 +72,7 @@ function toggleModal(event, active) {
     // This basically stops the propagation by determining if
     // the clicked element is not a child element in the modal
     // and is also not a close button.
-    if (clickedElement.closest(".usa-modal__inner")) {
+    if (clickedElement.closest(`.${MODAL_INNER_CLASSNAME}`)) {
       if (clickedElement.classList.contains("usa-modal__close")) {
         // do nothing. move on.
       }
@@ -85,7 +95,7 @@ function toggleModal(event, active) {
     // This if timeout could be fractal weirdness
     // in safari. But gives element a chance to appear
     // before setting focus.
-    setTimeout(function(){ openFocusEl.focus(); }, 10);
+    setTimeout(() => openFocusEl.focus(), 10);
     modal.focusTrap = FocusTrap(targetModal, {
       Escape: onMenuClose,
     });
@@ -104,31 +114,49 @@ function toggleModal(event, active) {
   return safeActive;
 };
 
-const setUpAttributes = (baseElement) => {
-  const modalContent = baseElement;
-  const outerDiv = document.createElement('div');
+/**
+ *  Builds modal window from base HTML
+ *
+ * @param {HTMLElement} baseComponent the modal html in the DOM
+ */
+const setUpAttributes = (baseComponent) => {
+  const modalContent = baseComponent;
+  const modalParent = document.createElement('div');
   const overlayDiv = document.createElement('div');
+  const modalID = baseComponent.getAttribute("id");
+  const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
+  const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
+  const modalClosers = modalParent.querySelectorAll(CLOSERS);
 
   // Rebuild the modal element
-  modalContent.parentNode.insertBefore(outerDiv, modalContent);
-  outerDiv.appendChild(modalContent);
+  modalContent.parentNode.insertBefore(modalParent, modalContent);
+  modalParent.appendChild(modalContent);
   modalContent.parentNode.insertBefore(overlayDiv, modalContent);
   overlayDiv.appendChild(modalContent);
 
   // Add classes and attributes
-  outerDiv.classList.add("usa-modal");
-  overlayDiv.classList.add("usa-modal__scrim");
-  modalContent.classList.remove("usa-modal");
-  modalContent.classList.add("usa-modal__inner");
-  const modalID = baseElement.getAttribute("id");
-  const modalClosers = outerDiv.querySelectorAll(CLOSERS);
-  const ariaLabel = baseElement.getAttribute("aria-labelledby");
-  outerDiv.setAttribute("role", "dialog");
-  outerDiv.setAttribute("id", modalID);
-  outerDiv.setAttribute("aria-labelledby", ariaLabel);
-  baseElement.removeAttribute("id");
-  baseElement.removeAttribute("aria-labelledby");
-  baseElement.setAttribute("tabindex", "-1");
+  modalParent.classList.add(MODAL_CLASSNAME);
+  overlayDiv.classList.add(OVERLAY_CLASSNAME);
+  modalContent.classList.remove(MODAL_CLASSNAME);
+  modalContent.classList.add(MODAL_INNER_CLASSNAME);
+  
+  modalParent.setAttribute("role", "dialog");
+  modalParent.setAttribute("id", modalID);
+
+  if (ariaLabelledBy) {
+    modalParent.setAttribute("aria-labelledby", ariaLabelledBy);
+  }
+
+  if (ariaDescribedBy) {
+    modalParent.setAttribute("aria-describedby", ariaDescribedBy);
+  }
+  
+
+  // Update the base element HTML
+  baseComponent.removeAttribute("id");
+  baseComponent.removeAttribute("aria-labelledby");
+  baseComponent.removeAttribute("aria-describedby");
+  baseComponent.setAttribute("tabindex", "-1");
 
   // Add aria-controls
   modalClosers.forEach((el) => {
