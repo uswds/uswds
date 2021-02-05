@@ -73,10 +73,7 @@ function toggleModal(active) {
         
       targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
     
-      modal.focusTrap = FocusTrap(targetModal, {
-        Escape: onMenuClose,
-      });
-      modal.focusTrap.update(safeActive);
+      
       
 
       const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
@@ -90,7 +87,11 @@ function toggleModal(active) {
         // in safari. But gives element a chance to appear
         // before setting focus.
         setTimeout(function(){ openFocusEl.focus(); }, 10);
-
+        modal.focusTrap = FocusTrap(targetModal, {
+          Escape: onMenuClose,
+        });
+        modal.focusTrap.update(safeActive);
+        event.stopPropagation();
         //document.addEventListener('keydown', function(event){    
         //  if(event.key === "Escape"){
         //    onMenuClose();
@@ -104,10 +105,10 @@ function toggleModal(active) {
         // The modal window is closed.
         // Focus is returned to the opener 
         returnFocus.focus();
+        modal.focusTrap.update(safeActive);
       }
     }
     return safeActive;
- 
 };
 
 const setUpAttributes = (baseElement) => {
