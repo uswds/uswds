@@ -9,7 +9,6 @@ const MODAL = `.${PREFIX}-modal`;
 
 const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
 const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
-const OVERLAY = `.${PREFIX}-overlay`;
 const OPENERS = `.${PREFIX}-modal-open[aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
 
