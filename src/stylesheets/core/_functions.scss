@@ -2071,7 +2071,7 @@ Returns: "system" | "theme"
 @function color-token-type($token) {
   $type: if(is-system-color-token($token), "system", false);
   @if not $type {
-    $type: if(is-theme-color-token($token), "theme", $type);
+    $type: if(is-theme-color-token($token), "theme", false);
   }
   @if not $type {
     @return error-not-token($token, "color");
@@ -2271,7 +2271,7 @@ next-token("black", "lighter")
     } @else {
       $next-token: $current-family + "-" + $output-grade;
     }
-    // 1. Theme case
+    // 2. Theme case
   } @else {
     $current-grade: color-token-grade($token-split);
     // Vivid theme token should be considered root for ordering
