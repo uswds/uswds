@@ -1,6 +1,7 @@
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const FocusTrap = require("../utils/focus-trap");
+const ScrollBarWidth = require("../utils/scrollbar-width");
 
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
@@ -21,6 +22,7 @@ const VISIBLE_CLASS = "is-visible";
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+const SCROLLBAR_WIDTH = ScrollBarWidth();
 
 /**
  *  Is bound to escape key, closes modal when 
@@ -95,7 +97,8 @@ function toggleModal(event) {
     // This if timeout could be fractal weirdness
     // in safari. But gives element a chance to appear
     // before setting focus.
-    setTimeout(() => openFocusEl.focus(), 10);
+    body.style.paddingRight = SCROLLBAR_WIDTH;
+    setTimeout(() => openFocusEl.focus(), 5);
     modal.focusTrap = FocusTrap(targetModal, {
       Escape: onMenuClose,
     });
@@ -106,7 +109,8 @@ function toggleModal(event) {
     returnFocus
   ) {
     // The modal window is closed.
-    // Focus is returned to the opener 
+    // Focus is returned to the opener
+    body.style.paddingRight = 0; 
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
