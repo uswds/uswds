@@ -23,6 +23,7 @@ let modal;
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 function toggleModal(active) {
+  let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
@@ -35,6 +36,19 @@ function toggleModal(active) {
     clickedElement = targetModal.querySelector(CLOSE_BUTTON)
   }
 
+  // Make sure we click the opener
+  // If it doesn't have an ID, make one
+  // Store id as data attribute on modal
+  if (clickedElement.classList.contains("usa-modal-open")) {
+    if (this.getAttribute("id") === null) {
+      originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
+      this.setAttribute("id", originalOpener);
+    } 
+    else {
+      originalOpener = this.getAttribute("id");
+    }
+    targetModal.setAttribute("data-opener", originalOpener);
+  }
 
     
     // This is weird because can't do getAttribute on esc key
@@ -69,7 +83,8 @@ function toggleModal(active) {
       
 
       const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
-      const returnFocus = body.querySelector(`[aria-controls="${targetModal.getAttribute("id")}"]`)
+      const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
+      console.log(returnFocus);
       const menuButton = body.querySelector(OPENERS);
 
       if (safeActive && openFocusEl) {
