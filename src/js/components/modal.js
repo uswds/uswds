@@ -12,8 +12,6 @@ const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const OPENERS = `.${PREFIX}-modal-open[aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-modal__scrim`;
-const TOGGLES = [MODAL, OVERLAY].join(", ");
-const INNERDIV = `.${PREFIX}-modal__inner`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
@@ -21,6 +19,12 @@ const VISIBLE_CLASS = "is-visible";
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+
+const onMenuClose = () => {
+  console.log("Hitting that escape key");
+  modal.toggleModal.call(modal, false);
+};
+
 
 function toggleModal(event, active) {
   let originalOpener;
@@ -133,11 +137,6 @@ const setUpAttributes = (baseElement) => {
     }
   );
 }
-
-const onMenuClose = () => {
-  console.log("Hitting that escape key");
-  modal.toggleModal.call(modal, false);
-};
 
 modal = behavior(
   {
