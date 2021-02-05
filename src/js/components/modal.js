@@ -22,13 +22,16 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-function toggleModal(active) {
+function toggleModal(event, active) {
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
-  const modalId = clickedElement.getAttribute("aria-controls");
+  const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal.is-visible");
   const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal.is-visible");
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
+  const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
+  const menuButton = body.querySelector(OPENERS);
 
   // Sets the clicked element to the close button
   // so esc key always closes modal
@@ -36,26 +39,27 @@ function toggleModal(active) {
     clickedElement = targetModal.querySelector(CLOSE_BUTTON)
   }
 
-  // Make sure we click the opener
-  // If it doesn't have an ID, make one
-  // Store id as data attribute on modal
-  // AND operator keeps us safe from ESC key that won't unbind
-  if ((clickedElement.classList.contains("usa-modal-open") && (event.type !== "keydown"))) {
-    if (this.getAttribute("id") === null) {
-      originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
-      this.setAttribute("id", originalOpener);
-    } 
-    else {
-      originalOpener = this.getAttribute("id");
-    }
-    targetModal.setAttribute("data-opener", originalOpener);
-  }
+  // When we're not hitting the escape key…
+  if (clickedElement) {
 
-    
-    //This basically stops the propagation by determining if
-    //the clicked element is not a child element in the modal
-    //and is also not a close button
-    if ( clickedElement.closest(".usa-modal__inner") ) {
+    // Make sure we click the opener
+    // If it doesn't have an ID, make one
+    // Store id as data attribute on modal
+    if (clickedElement.classList.contains("usa-modal-open")) {
+      if (this.getAttribute("id") === null) {
+        originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
+        this.setAttribute("id", originalOpener);
+      } 
+      else {
+        originalOpener = this.getAttribute("id");
+      }
+      targetModal.setAttribute("data-opener", originalOpener);
+    }
+   
+    // This basically stops the propagation by determining if
+    // the clicked element is not a child element in the modal
+    // and is also not a close button.
+    if (clickedElement.closest(".usa-modal__inner")) {
       if (clickedElement.classList.contains("usa-modal__close")) {
         // do nothing. move on.
       }
@@ -65,50 +69,36 @@ function toggleModal(active) {
         return false;
       }
     }
+  } 
 
-    // Active class shares same as navigation
-    body.classList.toggle(ACTIVE_CLASS, safeActive);
-    
-    if (targetModal !== null) {
-        
-      targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
-    
-      
-      
+  // Active class shares same as navigation
+  body.classList.toggle(ACTIVE_CLASS, safeActive);
+  targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
 
-      const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
-      const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
-      const menuButton = body.querySelector(OPENERS);
+  // Handle the focus actions
+  if (safeActive && openFocusEl) {
+    // The modal window is opened. Focus is set to close button.
 
-      if (safeActive && openFocusEl) {
-        // The modal window is opened. Focus is set to close button.
+    // This if timeout could be fractal weirdness
+    // in safari. But gives element a chance to appear
+    // before setting focus.
+    setTimeout(function(){ openFocusEl.focus(); }, 10);
+    modal.focusTrap = FocusTrap(targetModal, {
+      Escape: onMenuClose,
+    });
+    modal.focusTrap.update(safeActive);
+  } else if (
+    !safeActive &&
+    menuButton &&
+    returnFocus
+  ) {
+    // The modal window is closed.
+    // Focus is returned to the opener 
+    returnFocus.focus();
+    modal.focusTrap.update(safeActive);
+  }
 
-        // This if timeout could be fractal weirdness
-        // in safari. But gives element a chance to appear
-        // before setting focus.
-        setTimeout(function(){ openFocusEl.focus(); }, 10);
-        modal.focusTrap = FocusTrap(targetModal, {
-          Escape: onMenuClose,
-        });
-        modal.focusTrap.update(safeActive);
-        event.stopPropagation();
-        //document.addEventListener('keydown', function(event){    
-        //  if(event.key === "Escape"){
-        //    onMenuClose();
-        //  }
-        //}, { once: true });
-      } else if (
-        !safeActive &&
-        menuButton &&
-        returnFocus
-      ) {
-        // The modal window is closed.
-        // Focus is returned to the opener 
-        returnFocus.focus();
-        modal.focusTrap.update(safeActive);
-      }
-    }
-    return safeActive;
+  return safeActive;
 };
 
 const setUpAttributes = (baseElement) => {
