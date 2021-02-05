@@ -8,8 +8,8 @@
 require("./config/gulp/javascript");
 
 // Include gulp helpers.
-const { series, parallel, watch } = require("gulp");
-
+const { series, parallel, watch, task } = require("gulp");
+const run = require('gulp-run-command').default
 // Include Pattern Lab and config.
 const config = require("./patternlab-config.json");
 const patternlab = require("@pattern-lab/core")(config);
@@ -23,6 +23,7 @@ const { compileSass, compileJS, compileSprite } = require("./gulp-tasks/compile"
 const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
+const gulpEslint = require("gulp-eslint");
 const server = require("browser-sync").create();
 
 // Clean all directories.
@@ -40,6 +41,9 @@ exports.lint = parallel(lintSass, lintJS);
 // Compile Our Sass and JS
 exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, movePatternCSS);
 
+exports.buildPatterns = run('npm run pl:build --pattern')
+
+
 /**
  * Start browsersync server.
  * @param {function} done callback function.
@@ -55,40 +59,8 @@ function serve(done) {
   done();
 }
 
-/**
- * Start Pattern Lab build watch process.
- * @param {function} done callback function.
- * @returns {undefined}
- */
-function watchPatternlab(done) {
-  patternlab
-    .build({
-      cleanPublic: config.cleanPublic,
-      watch: true,
-    })
-    .then(() => {
-      done();
-    });
-}
-
-/**
- * Build Pattern Lab.
- * @param {function} done callback function.
- * @returns {undefined}
- */
-function buildPatternlab(done) {
-  patternlab
-    .build({
-      cleanPublic: config.cleanPublic,
-      watch: false,
-    })
-    .then(() => {
-      done();
-    });
-}
-
 // Build task for Pattern Lab.
-exports.styleguide = buildPatternlab;
+exports.styleguide = run('npm run pl:build --pattern');
 
 /**
  * Watch Sass and JS files.
@@ -116,17 +88,10 @@ function watchFiles() {
   // Watch all my patterns and compile if a file changes.
   watch(
     "./src/patterns/**/**/*{.twig,.yml}",
-    series(parallel(buildPatternlab), (done) => {
-      server.reload("*{.html}");
-      done();
-    })
+      run('npm run pl:build --pattern'),
   );
-
-  // Reload the browser after patternlab updates.
-  patternlab.events.on("patternlab-build-end", () => {
-    server.reload("*.html");
-  });
 }
+
 
 // Watch task that runs a browsersync server.
 exports.watch = series(
@@ -134,7 +99,7 @@ exports.watch = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  series(watchPatternlab, serve, watchFiles)
+  series(serve, watchFiles)
 );
 
 // Default Task
@@ -143,5 +108,5 @@ exports.default = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  buildPatternlab
+  // buildPatternlab
 );
