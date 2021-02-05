@@ -8,7 +8,7 @@
 require("./config/gulp/javascript");
 
 // Include gulp helpers.
-const { series, parallel, watch, task } = require("gulp");
+const { series, parallel, watch } = require("gulp");
 const run = require('gulp-run-command').default
 // Include Pattern Lab and config.
 const config = require("./patternlab-config.json");
@@ -41,8 +41,13 @@ exports.lint = parallel(lintSass, lintJS);
 // Compile Our Sass and JS
 exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, movePatternCSS);
 
-task('rebuild patterns', run('npm run pl:build --pattern'))
-task('build pattern lab', run('npm run pl:build'))
+async function rebuildPL() {
+  return run("npm run pl:build --pattern")();
+}
+
+async function buildPL() {
+  return run("npm run pl:build")();
+}
 
 /**
  * Start browsersync server.
@@ -85,7 +90,7 @@ function watchFiles() {
   // Watch all my patterns and compile if a file changes.
   watch(
     "./src/patterns/**/**/*{.twig,.yml}",
-    series(['rebuild patterns'], (done) => {
+    series(rebuildPL, (done) => {
       server.reload("*.html");
       done();
     })
@@ -93,8 +98,7 @@ function watchFiles() {
 }
 
 // Build task for Pattern Lab.
-exports.styleguide = ['build pattern lab'];
-
+exports.styleguide = buildPL;
 
 // Watch task that runs a browsersync server.
 exports.watch = series(
@@ -102,7 +106,7 @@ exports.watch = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  series(['rebuild patterns'], serve, watchFiles)
+  series(rebuildPL, serve, watchFiles)
 );
 
 // Default Task
@@ -111,5 +115,5 @@ exports.default = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  ['build pattern lab']
+  buildPL
 );
