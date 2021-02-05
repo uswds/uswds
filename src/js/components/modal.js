@@ -39,7 +39,8 @@ function toggleModal(active) {
   // Make sure we click the opener
   // If it doesn't have an ID, make one
   // Store id as data attribute on modal
-  if (clickedElement.classList.contains("usa-modal-open")) {
+  // AND operator keeps us safe from ESC key that won't unbind
+  if ((clickedElement.classList.contains("usa-modal-open") && (event.type !== "keydown"))) {
     if (this.getAttribute("id") === null) {
       originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
       this.setAttribute("id", originalOpener);
@@ -51,14 +52,10 @@ function toggleModal(active) {
   }
 
     
-    // This is weird because can't do getAttribute on esc key
-    
-    //console.log(clickedElement.classList);
-     //This basically stops the propagation by determining if
-     //the clicked element is not a child element in the modal
-     //and is also not a close button
+    //This basically stops the propagation by determining if
+    //the clicked element is not a child element in the modal
+    //and is also not a close button
     if ( clickedElement.closest(".usa-modal__inner") ) {
-
       if (clickedElement.classList.contains("usa-modal__close")) {
         // do nothing. move on.
       }
@@ -67,11 +64,11 @@ function toggleModal(active) {
         event.preventDefault();
         return false;
       }
-      
     }
 
+    // Active class shares same as navigation
     body.classList.toggle(ACTIVE_CLASS, safeActive);
-
+    
     if (targetModal !== null) {
         
       targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
@@ -84,7 +81,6 @@ function toggleModal(active) {
 
       const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
       const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
-      console.log(returnFocus);
       const menuButton = body.querySelector(OPENERS);
 
       if (safeActive && openFocusEl) {
