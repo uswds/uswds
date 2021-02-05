@@ -41,8 +41,8 @@ exports.lint = parallel(lintSass, lintJS);
 // Compile Our Sass and JS
 exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, movePatternCSS);
 
-exports.buildPatterns = run('npm run pl:build --pattern')
-
+task('rebuild patterns', run('npm run pl:build --pattern'))
+task('build pattern lab', run('npm run pl:build'))
 
 /**
  * Start browsersync server.
@@ -58,9 +58,6 @@ function serve(done) {
   });
   done();
 }
-
-// Build task for Pattern Lab.
-exports.styleguide = run('npm run pl:build --pattern');
 
 /**
  * Watch Sass and JS files.
@@ -88,9 +85,15 @@ function watchFiles() {
   // Watch all my patterns and compile if a file changes.
   watch(
     "./src/patterns/**/**/*{.twig,.yml}",
-      run('npm run pl:build --pattern'),
+    series(['rebuild patterns'], (done) => {
+      server.reload("*.html");
+      done();
+    })
   );
 }
+
+// Build task for Pattern Lab.
+exports.styleguide = ['build pattern lab'];
 
 
 // Watch task that runs a browsersync server.
@@ -99,7 +102,7 @@ exports.watch = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  series(serve, watchFiles)
+  series(['rebuild patterns'], serve, watchFiles)
 );
 
 // Default Task
@@ -108,5 +111,5 @@ exports.default = series(
   parallel(copyVendor),
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  // buildPatternlab
+  ['build pattern lab']
 );
