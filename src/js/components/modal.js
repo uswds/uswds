@@ -90,6 +90,11 @@ function toggleModal(event) {
   body.classList.toggle(ACTIVE_CLASS, safeActive);
   targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
 
+  // Account for content shifting from body overflow: hidden
+  // We only check paddingRight in case apps are adding other properties
+  // to the body element
+  body.style.paddingRight = body.style.paddingRight === SCROLLBAR_WIDTH ? 0 : SCROLLBAR_WIDTH;
+
   // Handle the focus actions
   if (safeActive && openFocusEl) {
     // The modal window is opened. Focus is set to close button.
@@ -97,7 +102,6 @@ function toggleModal(event) {
     // This if timeout could be fractal weirdness
     // in safari. But gives element a chance to appear
     // before setting focus.
-    body.style.paddingRight = SCROLLBAR_WIDTH;
     setTimeout(() => openFocusEl.focus(), 5);
     modal.focusTrap = FocusTrap(targetModal, {
       Escape: onMenuClose,
@@ -110,7 +114,6 @@ function toggleModal(event) {
   ) {
     // The modal window is closed.
     // Focus is returned to the opener
-    body.style.paddingRight = 0; 
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
