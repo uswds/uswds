@@ -5,6 +5,27 @@
   "engines": {
     "node": ">= 4"
   },
+  "keywords": [
+    "ui",
+    "uswds",
+    "components",
+    "library",
+    "open source",
+    "united states",
+    "usa",
+    "u.s.",
+    "government",
+    "websites"
+  ],
+  "module": "./dist/js/uswds.min.js",
+  "exports": {
+    "import": "./dist/js/uswds.min.js",
+    "default": "./dist/js/uswds.min.js"
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
