@@ -1,6 +1,9 @@
 @mixin alert-status-styles($name, $icon) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-token-from-bg($bgcolor, "ink", "white");
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $context: "Alert text"
+  );
   $icon-path: if(
     $banner-text-color-token == "ink",
     "usa-icons/#{$icon}",
@@ -19,11 +22,12 @@
   }
 
   .usa-link {
-    @if $name != "emergency" {
-      @include set-link-from-bg($bgcolor);
-    } @else {
-      @include set-link-from-bg($bgcolor, "ink", "base-lighter");
-    }
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
   }
 
   &.usa-alert--no-icon {
