@@ -63,11 +63,11 @@
 }
 
 // Prevents JS not recognizing as part of close button.
-.usa-modal__close > .usa-icon {
+.usa-modal *[data-close-modal] > .usa-icon {
   pointer-events: none;
 }
 
-.usa-modal__close--x {
+.usa-modal__close {
   align-self: flex-end;
   background-color: transparent;
   color: color("base");

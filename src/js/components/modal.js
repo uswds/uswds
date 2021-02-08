@@ -10,9 +10,10 @@ const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const MODAL_INNER_CLASSNAME = `${MODAL_CLASSNAME}__inner`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__scrim`;
 const OPENER_ATTRIBUTE = "data-usa-modal";
+const CLOSER_ATTRIBUTE = "data-close-modal";
 const MODAL = `.${MODAL_CLASSNAME}`;
 const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
-const CLOSE_BUTTON = `.${PREFIX}-modal__close`;
+const CLOSE_BUTTON = `${MODAL} *[${CLOSER_ATTRIBUTE}]`;
 const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}`;
 
@@ -75,7 +76,7 @@ function toggleModal(event) {
     // the clicked element is not a child element in the modal
     // and is also not a close button.
     if (clickedElement.closest(`.${MODAL_INNER_CLASSNAME}`)) {
-      if (clickedElement.classList.contains("usa-modal__close")) {
+      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE)) {
         // do nothing. move on.
       }
       else {

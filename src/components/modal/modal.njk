@@ -16,16 +16,16 @@
       <div class="margin-top-3">
       <ul class="usa-button-group">
         <li class="usa-button-group__item">
-          <button type="button" class="usa-button usa-modal__close" id="foo2">Okay</button>
+          <button type="button" class="usa-button" id="foo2" data-close-modal>Okay</button>
         </li>
         <li class="usa-button-group__item">
-          <button type="button" class="usa-button usa-button--unstyled usa-modal__close padding-105 text-center">Cancel</button>
+          <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Cancel</button>
         </li>
       </ul> 
       </div>
     </div>
     <div class="usa-modal__header">
-      <button type="button" class="usa-button usa-modal__close usa-modal__close--x"  title="close this window">
+      <button type="button" class="usa-button usa-modal__close"  title="close this window"  data-close-modal>
         <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
           <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
         </svg>
@@ -62,7 +62,7 @@
 
 <div class="usa-modal" id="modal1" aria-labelledby="modal1heading">
   <div class="usa-modal__header">
-    <button type="button" class="usa-button usa-modal__close usa-modal__close--x" title="close this window">
+    <button type="button" class="usa-button usa-modal__close" title="close this window"   data-close-modal>
       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
         <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
       </svg>
