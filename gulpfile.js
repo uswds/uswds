@@ -1,5 +1,3 @@
-"use strict";
-
 // Old gulp tasks
 // Patch these in until ported into new syntax
 // test, regression: nope, not yet...
