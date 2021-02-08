@@ -162,6 +162,7 @@
 
 .usa-footer__logo-heading {
   @include typeset($theme-footer-font-family, $theme-h3-font-size, 1);
+  @include u-font-weight("bold");
   @include u-margin-y(1);
 }
 

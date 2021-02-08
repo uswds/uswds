@@ -5,6 +5,27 @@
   "engines": {
     "node": ">= 4"
   },
+  "keywords": [
+    "ui",
+    "uswds",
+    "components",
+    "library",
+    "open source",
+    "united states",
+    "usa",
+    "u.s.",
+    "government",
+    "websites"
+  ],
+  "module": "./dist/js/uswds.min.js",
+  "exports": {
+    "import": "./dist/js/uswds.min.js",
+    "default": "./dist/js/uswds.min.js"
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -26,8 +47,9 @@
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "npm run build && fractal start --sync & npm run watch",
-    "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression",
+    "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression && npm run test:sass",
     "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression",
+    "test:sass": "mocha spec/unit/sass/sass-spec.js",
     "test:unit": "gulp test",
     "test:visual": "node ./spec/visual-regression-tester.js test",
     "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
@@ -122,8 +144,9 @@
     "prettier": "^2.2.0",
     "resemblejs": "^3.2.5",
     "sass": "^1.29.0",
+    "sass-true": "^6.0.1",
     "sinon": "^9.2.2",
-    "snyk": "^1.437.0",
+    "snyk": "^1.439.1",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended-scss": "^4.2.0",

@@ -154,7 +154,10 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
+  const selectParent = comboBoxEl.parentElement;
+  const selectLabel = selectParent.querySelector("label");
   const listId = `${selectId}--list`;
+  const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
   const defaultValue = comboBoxEl.dataset.defaultValue;
@@ -176,6 +179,19 @@ const enhanceComboBox = (_comboBoxEl) => {
     }
   }
 
+  /**
+   * Throw error if combobox is missing a label or label is missing
+   * `for` attribute. Otherwise, set the ID to match the <ul> aria-labelledby
+   */
+  if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
+    throw new Error(
+      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`
+    );
+  } else {
+    selectLabel.setAttribute("id", listIdLabel);
+  }
+
+  selectLabel.setAttribute("id", listIdLabel);
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only", SELECT_CLASS);
@@ -218,6 +234,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
+        aria-labelledby="${listIdLabel}"
         hidden>
       </ul>`,
       `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
