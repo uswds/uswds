@@ -19,6 +19,7 @@ const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
+const HIDDEN_CLASS = "is-hidden";
 
 let modal;
 
@@ -39,6 +40,7 @@ const onMenuClose = () => {
  * @returns {boolean} safeActive if mobile is open
  */
 function toggleModal(event) {
+  event.preventDefault();
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
@@ -90,6 +92,7 @@ function toggleModal(event) {
   // Active class shares same as navigation
   body.classList.toggle(ACTIVE_CLASS, safeActive);
   targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
+  targetModal.classList.toggle(HIDDEN_CLASS, !safeActive);
 
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
@@ -143,6 +146,7 @@ const setUpAttributes = (baseComponent) => {
   overlayDiv.appendChild(modalContent);
 
   // Add classes and attributes
+  modalParent.classList.add(HIDDEN_CLASS);
   modalParent.classList.add(MODAL_CLASSNAME);
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
   modalContent.classList.remove(MODAL_CLASSNAME);

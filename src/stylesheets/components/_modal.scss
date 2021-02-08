@@ -1,6 +1,9 @@
 .usa-modal {
-  display: none;
   text-align: center;
+
+  &.is-hidden {
+    display: none;
+  }
 
   &.is-visible {
     display: block;
