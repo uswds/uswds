@@ -40,7 +40,6 @@ const onMenuClose = () => {
  * @returns {boolean} safeActive if mobile is open
  */
 function toggleModal(event) {
-  event.preventDefault();
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
@@ -59,6 +58,7 @@ function toggleModal(event) {
 
   // When we're not hitting the escape key…
   if (clickedElement) {
+    event.preventDefault();
 
     // Make sure we click the opener
     // If it doesn't have an ID, make one
