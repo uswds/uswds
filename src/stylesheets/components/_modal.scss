@@ -1,3 +1,13 @@
+.usa-js-no-click {
+  pointer-events: none;
+  user-select: none;
+
+  .usa-modal,
+  .usa-modal * {
+    pointer-events: auto;
+  }
+}
+
 .usa-modal {
   text-align: center;
 
@@ -8,6 +18,7 @@
   &.is-visible {
     display: block;
     position: fixed;
+    z-index: 1000;
   }
 }
 
@@ -49,6 +60,14 @@
     vertical-align: middle;
     margin-right: -0.25em;
   }
+
+  &[data-force-action="true"] {
+    pointer-events: none;
+
+    * {
+      pointer-events: auto;
+    }
+  }
 }
 
 .usa-modal__content {
@@ -67,7 +86,7 @@
 
 // Prevents JS not recognizing as part of close button.
 .usa-modal *[data-close-modal] > .usa-icon {
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 .usa-modal__close {

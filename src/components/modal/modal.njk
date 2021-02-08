@@ -5,6 +5,61 @@
 
 <a id="baz" href="#modal3eee" class="usa-button" aria-controls="modal3eee" data-usa-modal aria-haspopup="dialog">Open a modal</a>
 
+<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe" aria-modal="true">
+  <div class="usa-modal__content usa-modal__content--reverse">
+    <div class="usa-modal__main padding-x-4 padding-bottom-4">
+      <div class="usa-prose">
+        <h2 id="modal3eeeheading">Welcome to the modal</h2>
+        <p id="describe">We’ve got fun and games</p>
+      </div>
+
+      <div class="margin-top-3">
+      <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button" id="foo2" data-close-modal>Okay</button>
+        </li>
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Cancel</button>
+        </li>
+      </ul> 
+      </div>
+    </div>
+    <div class="usa-modal__header">
+      <button type="button" class="usa-button usa-modal__close"  title="close this window"  data-close-modal>
+        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+          <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<a href="#modal-force-action" class="usa-button" aria-controls="modal-force-action" data-usa-modal aria-haspopup="dialog">Forced action</a>
+
+<div class="usa-modal" id="modal-force-action" aria-labelledby="modal-force-action-title" aria-describedby="modal-force-action-description" aria-modal="true" data-force-action>
+  <div class="usa-modal__content usa-modal__content--reverse">
+    <div class="usa-modal__main padding-x-4 padding-y-4">
+      <div class="usa-prose">
+        <h2 id="modal-force-action-title">Warning: Your session is about to expire</h2>
+        <p id="modal-force-action-description">Do you want to extend your session?</p>
+      </div>
+
+      <div class="margin-top-3">
+      <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button" data-close-modal>Yes</button>
+        </li>
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>No</button>
+        </li>
+      </ul> 
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <h2>Header Level 2</h2>
@@ -31,7 +86,7 @@
 }
 </code></pre>
 
-<button type="button" class="usa-button" aria-controls="modal1" data-usa-modal>Open very tall modal</button>
+<a href="#modal1" class="usa-button" aria-controls="modal1" data-usa-modal>Open very tall modal</a>
 
 <div class="usa-modal" id="modal1" aria-labelledby="modal1heading">
   <div class="usa-modal__header">
@@ -188,31 +243,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe" aria-modal="true">
-  <div class="usa-modal__content usa-modal__content--reverse">
-    <div class="usa-modal__main padding-x-4 padding-bottom-4">
-      <div class="usa-prose">
-        <h2 id="modal3eeeheading">Welcome to the modal</h2>
-        <p id="describe">We’ve got fun and games</p>
-      </div>
-
-      <div class="margin-top-3">
-      <ul class="usa-button-group">
-        <li class="usa-button-group__item">
-          <button type="button" class="usa-button" id="foo2" data-close-modal>Okay</button>
-        </li>
-        <li class="usa-button-group__item">
-          <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Cancel</button>
-        </li>
-      </ul> 
-      </div>
-    </div>
-    <div class="usa-modal__header">
-      <button type="button" class="usa-button usa-modal__close"  title="close this window"  data-close-modal>
-        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-          <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>

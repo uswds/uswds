@@ -11,13 +11,15 @@ const MODAL_INNER_CLASSNAME = `${MODAL_CLASSNAME}__inner`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__overlay`;
 const OPENER_ATTRIBUTE = "data-usa-modal";
 const CLOSER_ATTRIBUTE = "data-close-modal";
+const FORCE_ACTION_ATTRIBUTE = "data-force-action";
 const MODAL = `.${MODAL_CLASSNAME}`;
 const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
 const CLOSE_BUTTON = `${MODAL} *[${CLOSER_ATTRIBUTE}]`;
 const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
-const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}`;
+const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
+const PREVENT_CLICK_CLASS = "usa-js-no-click";
 const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
@@ -42,6 +44,7 @@ const onMenuClose = () => {
 function toggleModal(event) {
   let originalOpener;
   let clickedElement = event.target;
+  console.log(clickedElement);
   const { body } = document;
   const safeActive = !isActive();
   const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal.is-visible");
@@ -49,6 +52,7 @@ function toggleModal(event) {
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
   const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
   const menuButton = body.querySelector(OPENERS);
+  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
   // Sets the clicked element to the close button
   // so esc key always closes modal
@@ -94,6 +98,13 @@ function toggleModal(event) {
   targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
   targetModal.classList.toggle(HIDDEN_CLASS, !safeActive);
 
+  // If user is forced to take an action, adding
+  // a class to the body that prevents clicking underneath
+  // overlay
+  if (forceUserAction){
+    body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
+  }
+
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
   // to the body element
@@ -107,9 +118,17 @@ function toggleModal(event) {
     // in safari. But gives element a chance to appear
     // before setting focus.
     setTimeout(() => openFocusEl.focus(), 10);
-    modal.focusTrap = FocusTrap(targetModal, {
-      Escape: onMenuClose,
-    });
+
+    // Enables the escape if we're not forcing
+    // the user to take an action
+    if (forceUserAction){
+      modal.focusTrap = FocusTrap(targetModal);
+    }
+    else {
+      modal.focusTrap = FocusTrap(targetModal, {
+        Escape: onMenuClose,
+      });
+    }
     modal.focusTrap.update(safeActive);
   } else if (
     !safeActive &&
@@ -137,6 +156,7 @@ const setUpAttributes = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
+  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
   const modalClosers = modalParent.querySelectorAll(CLOSERS);
 
   // Rebuild the modal element
@@ -161,6 +181,11 @@ const setUpAttributes = (baseComponent) => {
 
   if (ariaDescribedBy) {
     modalParent.setAttribute("aria-describedby", ariaDescribedBy);
+  }
+
+  if (forceUserAction) {
+    overlayDiv.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
+    modalParent.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
   }
   
 
