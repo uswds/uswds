@@ -36,13 +36,8 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
-    "patternlab": "patternlab",
-    "pl:dev": "node ./node_modules/@pattern-lab/uikit-workshop/build-tools.js",
-    "build:uikit": "cross-env-shell PL_CONFIG_PATH='${INIT_CWD}/.patternlabrc.js' npm run build --prefix node_modules/@pattern-lab/uikit-workshop -- --patternlabrc '$PL_CONFIG_PATH'",
     "pl:build": "patternlab build --config ./patternlab-config.json",
     "pl:help": "patternlab --help",
-    "pl:install": "patternlab install --config ./patternlab-config.json",
-    "pl:serve": "patternlab serve --config ./patternlab-config.json -v",
     "pl:version": "patternlab --version"
   },
   "repository": {

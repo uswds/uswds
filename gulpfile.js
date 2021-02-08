@@ -9,15 +9,31 @@ require("./config/gulp/javascript");
 
 // Include gulp helpers.
 const { series, parallel, watch } = require("gulp");
-const run = require('gulp-run-command').default;
+const run = require("gulp-run-command").default;
 
 // Include Our tasks.
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
-const { cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass,} = require("./gulp-tasks/clean");
-const { compileSass, compileJS, compileSprite } = require("./gulp-tasks/compile");
-const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
+const {
+  cleanCSS,
+  cleanFonts,
+  cleanImages,
+  cleanJS,
+  cleanSass,
+} = require("./gulp-tasks/clean");
+const {
+  compileSass,
+  compileJS,
+  compileSprite,
+} = require("./gulp-tasks/compile");
+const {
+  copyVendor,
+  copySass,
+  copyImages,
+  copyFonts,
+  copyStyleguide,
+} = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const server = require("browser-sync").create();
@@ -35,7 +51,13 @@ exports.lintJS = parallel(lintJS);
 exports.lint = parallel(lintSass, lintJS);
 
 // Compile Our Sass and JS
-exports.compile = parallel(compileSass, compileJS, compileSprite, moveFonts, movePatternCSS);
+exports.compile = parallel(
+  compileSass,
+  compileJS,
+  compileSprite,
+  moveFonts,
+  movePatternCSS
+);
 
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
@@ -71,7 +93,7 @@ function watchFiles() {
     series(parallel(lintSass, compileSass), (done) => {
       server.reload("*.css");
       done();
-     })
+    })
   );
 
   // Watch all my JS files and compile if a file changes.
