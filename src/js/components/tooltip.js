@@ -38,75 +38,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   // we can begin running the calculations below.
   tooltipBody.classList.add(SET_CLASS);
 
-  // Calculate sizing and adjustments for positioning
-  const tooltipWidth = tooltipTrigger.offsetWidth;
-  const tooltipHeight = tooltipTrigger.offsetHeight;
-
-  // const offsetForTopMargin = parseInt(
-  //   window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-top"),
-  //   10
-  // );
-  // const offsetForBottomMargin = parseInt(
-  //   window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-bottom"),
-  //   10
-  // );
-  const offsetForRightMargin = parseInt(
-    window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-right"),
-    10
-  );
-  // const offsetForLeftMargin = parseInt(
-  //   window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-left"),
-  //   10
-  // );
-  // const offsetForTopPadding = parseInt(
-  //   window.getComputedStyle(wrapper).getPropertyValue("padding-top"),
-  //   10
-  // );
-  // const offsetForBottomPadding = parseInt(
-  //   window.getComputedStyle(wrapper).getPropertyValue("padding-bottom"),
-  //   10
-  // );
-  // const offsetForRightPadding = parseInt(
-  //   window.getComputedStyle(wrapper).getPropertyValue("padding-right"),
-  //   10
-  // );
-  // const offsetForLeftPadding = parseInt(
-  //   window.getComputedStyle(wrapper).getPropertyValue("padding-left"),
-  //   10
-  // );
-  // const offsetForTooltipBodyHeight = parseInt(
-  //   window.getComputedStyle(tooltipBody).getPropertyValue("height"),
-  //   10
-  // );
-  // const offsetForTooltipBodyWidth = parseInt(
-  //   window.getComputedStyle(tooltipBody).getPropertyValue("width"),
-  //   10
-  // );
-  // const offsetTotalHeight = tooltipTrigger.offsetHeight + offsetForTopMargin + offsetForBottomMargin + offsetForTopPadding + offsetForBottomPadding + offsetForTooltipBodyHeight
-
-  // const offsetTotalWidth = tooltipTrigger.offsetWidth + offsetForRightMargin + offsetForLeftMargin + offsetForRightPadding + offsetForLeftPadding + offsetForTooltipBodyHeight
-
-  // console.log(
-  //   tooltipTrigger.offsetHeight,
-  //   offsetForTopMargin,
-  //   offsetForBottomMargin,
-  //   offsetForTopPadding,
-  //   offsetForBottomPadding,
-  //   offsetForTooltipBodyHeight,
-  // )
-  // const leftOffset = tooltipTrigger.offsetLeft;
-  // const toolTipBodyWidth = tooltipBody.offsetWidth;
-  const adjustHorizontalCenter = tooltipWidth / 2;
-  const adjustVerticalCenter = tooltipWidth / 2;
-  const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE;
-  const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE;
-
-  // console.log({offsetTotalHeight})
-  // console.log({offsetTotalWidth})
-  // console.log({tooltipTrigger})
-  // console.log({offsetTotalHeight})
-  // console.log({adjustToEdgeY})
-
   /**
    * Position the tooltip body when the trigger is hovered
    * Removes old positioning classnames and reapplies. This allows
@@ -130,24 +61,53 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    *
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const resetPosition = (e) => {
-    e.style.top = null;
-    e.style.bottom = null;
-    e.style.right = null;
-    e.style.left = null;
-    e.style.margin = null;
-  };
+    const resetPositionStyles = (e) => {
+      e.style.top = null;
+      e.style.bottom = null;
+      e.style.right = null;
+      e.style.left = null;
+      e.style.margin = null;
+    };
+
+    /**
+     * get margin offset calculations
+     *
+     * @param {HTMLElement} target - this is the tooltip body
+     * @param {String} propertyValue - this is the tooltip body
+     */
+
+    const offsetMargin = (target, propertyValue) => parseInt(
+      window.getComputedStyle(target).getPropertyValue(propertyValue),
+      10
+    );
+
+    /**
+     * Calculate margin offset
+     * tooltip trigger margin(position) offset + tooltipBody offsetWidth
+     * @param {String} marginPosition
+     * @param {Number} tooltipBodyOffset
+     * @param {HTMLElement} trigger
+     */
+
+    const calculateMarginOffset = ( marginPosition , tooltipBodyOffset, trigger ) => {
+     const offset = tooltipBodyOffset - offsetMargin(trigger , `margin-${marginPosition}`)
+     return offset
+    };
 
   /**
    * Positions tooltip at the top
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionTop = (e) => {
-    resetPosition(e);
+
+    resetPositionStyles(e);
+    const topMargin = calculateMarginOffset("top", e.offsetHeight, tooltipTrigger)
+    const leftMargin = calculateMarginOffset("left", e.offsetWidth, tooltipTrigger)
+
     setPositionClass("top");
-    e.style.left = `50%`;
-    e.style.top = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${tooltipBody.offsetHeight}px 0 0 -${tooltipBody.offsetWidth / 2}px`;
+    e.style.left = `50%`; // center the element
+    e.style.top = `-${TRIANGLE_SIZE}px`; // consider the psuedo element
+    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`; // apply our margins based on the offest of the tooltip body
     return false
   };
 
@@ -156,10 +116,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionBottom = (e) => {
-    resetPosition(e);
+
+    resetPositionStyles(e);
+    const leftMargin = calculateMarginOffset("left", e.offsetWidth, tooltipTrigger)
+
     setPositionClass("bottom");
     e.style.left = `50%`;
-    e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${tooltipBody.offsetWidth / 2}px`;
+    e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${leftMargin / 2}px`;
     return false
   };
 
@@ -168,11 +131,14 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionRight = (e) => {
-    resetPosition(e);
+    resetPositionStyles(e);
+    const topMargin = calculateMarginOffset("top", e.offsetHeight, tooltipTrigger)
+    const rightMargin = calculateMarginOffset("right", e.offsetWidth, tooltipTrigger)
+
     setPositionClass("right");
     e.style.top = `50%`;
     e.style.right = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${tooltipBody.offsetHeight / 2}px -${(tooltipBody.offsetWidth - offsetForRightMargin)}px 0 0`;
+    e.style.margin = `-${topMargin / 2}px -${rightMargin}px 0 0`;
     return false;
   };
 
@@ -181,11 +147,15 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionLeft = (e) => {
-    resetPosition(e);
+    // e.classList.add(ADJUST_WIDTH_CLASS);
+    resetPositionStyles(e);
+    const topMargin = calculateMarginOffset("top", e.offsetHeight, tooltipTrigger)
+    const leftMargin = calculateMarginOffset("left", e.offsetWidth, tooltipTrigger)
+
     setPositionClass("left");
     e.style.top = `50%`;
     e.style.left = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${tooltipBody.offsetHeight / 2}px 0 0 -${tooltipBody.offsetWidth}px`;
+    e.style.margin = `-${topMargin / 2}px 0 0 -${leftMargin}px`;
     return false
   };
 
@@ -199,40 +169,43 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   function findBestPosition(t) {
     // create array of optional positions
     const positions = [
-      positionRight,
-      positionLeft,
-      positionBottom,
       positionTop,
+      positionBottom,
+      positionLeft,
+      positionRight,
     ]
     // we will push validations here to check later
-    const validate = []
+    const validate = [];
     // iterate through each of the position options
     const bestPosition = positions.forEach(pos => {
       // try and position then check if it is visible
-      const tryPosition = new Promise((resolve) => {
+      const tryPosition = new Promise((resolve, reject) => {
         pos(t)
         resolve(isElementInViewport(t))
+        reject(new Error('ahh shhh'))
       });
       // when the promise resolves
-      tryPosition.then(value => {
+      tryPosition.then(result => {
         // push the return value of viewport visibility
-        validate.push(value)
+        validate.push(result)
         // we return early if it is not visible
-        if (!value) {
-         return null
+        if (result === false) {
+        //  return null
+          return null
         }
         // otherwise we just return the visible position
         return pos(t)
+      }).then(() => {
+        if (validate.length === 4 && validate.every( v => v === false)) {
+          t.classList.add(ADJUST_WIDTH_CLASS);
+          findBestPosition(t); // TODO: if our vw won't allow for any positiong the depth recursion is too great.
+        }
       });
       return null
     })
-    // if no positions are avalible we force an adjustment to the width
-    // if (validate.every( v => v === false )) {
-    //   tooltipBody.classList.add(ADJUST_WIDTH_CLASS)
-    // }
-    // console.log(bestPosition)
 
-    return bestPosition
+
+    return bestPosition;
   }
 
   switch (position) {
