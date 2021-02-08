@@ -5,6 +5,7 @@
   .usa-modal,
   .usa-modal * {
     pointer-events: auto;
+    user-select: text;
   }
 }
 
