@@ -44,7 +44,6 @@ const onMenuClose = () => {
 function toggleModal(event) {
   let originalOpener;
   let clickedElement = event.target;
-  console.log(clickedElement);
   const { body } = document;
   const safeActive = !isActive();
   const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal.is-visible");
