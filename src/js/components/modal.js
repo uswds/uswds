@@ -102,7 +102,7 @@ function toggleModal(event) {
     // This if timeout could be fractal weirdness
     // in safari. But gives element a chance to appear
     // before setting focus.
-    setTimeout(() => openFocusEl.focus(), 5);
+    setTimeout(() => openFocusEl.focus(), 10);
     modal.focusTrap = FocusTrap(targetModal, {
       Escape: onMenuClose,
     });

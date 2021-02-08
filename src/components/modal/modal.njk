@@ -3,34 +3,35 @@
 
 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="javascript:void(0);" aria-controls="modal3eee" data-usa-modal>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
 
-<button id="baz" type="button" class="usa-button" aria-controls="modal3eee" data-usa-modal>Open a modal</button>
+<button id="baz" type="button" class="usa-button" aria-controls="modal3eee" data-usa-modal aria-haspopup="dialog">Open a modal</button>
 
-<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe">
-  <div class="usa-modal__header">
-    <button type="button" class="usa-button usa-modal__close usa-modal__close--x"  title="close this window">
-      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-        <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
-      </svg>
-    </button>
-  </div>
-  <div class="usa-modal__content padding-x-4 padding-bottom-4">
-     
-     <div class="usa-prose">
-      <h2 id="modal3eeeheading">Welcome to the modal</h2>
-      <p id="describe">We’ve got fun and games</p>
-     </div>
+<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe" aria-modal="true">
+  <div class="usa-modal__content usa-modal__content--reverse">
+    <div class="usa-modal__main padding-x-4 padding-bottom-4">
+      <div class="usa-prose">
+        <h2 id="modal3eeeheading">Welcome to the modal</h2>
+        <p id="describe">We’ve got fun and games</p>
+      </div>
 
-    <div class="margin-top-3">
-    <ul class="usa-button-group">
-      <li class="usa-button-group__item">
-        <button type="button" class="usa-button usa-modal__close" id="foo2">Okay</button>
-      </li>
-      <li class="usa-button-group__item">
-        <button type="button" class="usa-button usa-button--unstyled usa-modal__close padding-105 text-center">Cancel</button>
-      </li>
-    </ul> 
+      <div class="margin-top-3">
+      <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button usa-modal__close" id="foo2">Okay</button>
+        </li>
+        <li class="usa-button-group__item">
+          <button type="button" class="usa-button usa-button--unstyled usa-modal__close padding-105 text-center">Cancel</button>
+        </li>
+      </ul> 
+      </div>
     </div>
-  </div> 
+    <div class="usa-modal__header">
+      <button type="button" class="usa-button usa-modal__close usa-modal__close--x"  title="close this window">
+        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+          <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 </div>
 
 <h2>Header Level 2</h2>

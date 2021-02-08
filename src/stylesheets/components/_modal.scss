@@ -48,6 +48,15 @@
   }
 }
 
+.usa-modal__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.usa-modal__content--reverse {
+  flex-direction: column-reverse;
+}
+
 .usa-modal__header {
   display: flex;
   width: 100%;

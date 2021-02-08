@@ -26,6 +26,13 @@ const tabHandler = (context) => {
       event.preventDefault();
       lastTabStop.focus();
     }
+    // This checks if you want to set the initial focus to a container
+    // instead of an element within, and the user tabs back. 
+    // Then we set the focus to the first
+    else if (!focusableElements.includes(activeElement())) {
+      event.preventDefault();
+      firstTabStop.focus();
+    }
   }
 
   return {
