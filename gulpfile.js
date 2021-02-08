@@ -9,10 +9,7 @@ require("./config/gulp/javascript");
 
 // Include gulp helpers.
 const { series, parallel, watch } = require("gulp");
-const run = require('gulp-run-command').default
-// Include Pattern Lab and config.
-const config = require("./patternlab-config.json");
-const patternlab = require("@pattern-lab/core")(config);
+const run = require('gulp-run-command').default;
 
 // Include Our tasks.
 //
@@ -23,7 +20,6 @@ const { compileSass, compileJS, compileSprite } = require("./gulp-tasks/compile"
 const { copyVendor, copySass, copyImages, copyFonts, copyStyleguide } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
-const gulpEslint = require("gulp-eslint");
 const server = require("browser-sync").create();
 
 // Clean all directories.
