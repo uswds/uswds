@@ -1,5 +1,12 @@
 ## A few parts of this project are not in the public domain
 
+### Copyright Ownership of Works Created by U.S. Federal Employees
+
+This repository contains both the original icon design for Material icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications into a font design called [insert name], which is a “Modified Version” of Material.
+As a work of the United States Government, the software modifications made by GSA are not subject to copyright within the United States. Additionally, GSA waives copyright and related rights in its software modifications worldwide through the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/).
+The Work (as defined in the Apache 2.0 License) remains subject to copyright under the Apache 2.0 License.
+This Modified Version ([insert name]) contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
+
 ### Files licensed under the SIL Open Font License, Version 1.1
 
 The Source Sans Pro font files in `src/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
@@ -59,3 +66,7 @@ Unless expressly stated otherwise, the person who associated a work with this de
 ### Contributions to this project
 
 As stated in [CONTRIBUTING](CONTRIBUTING.md), all contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+
+### Trademark
+
+GSA owns, reserves, and retains all rights, title, and interest in all trademarks owned by GSA. The User does not acquire any right or interest of any kind in any GSA trademark because of their use of the Modified Version or any of the modifications made to the Work by GSA.
