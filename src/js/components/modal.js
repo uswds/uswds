@@ -171,10 +171,9 @@ const setUpAttributes = (baseComponent) => {
   baseComponent.setAttribute("tabindex", "-1");
 
   // Add aria-controls
-  modalClosers.forEach((el) => {
+  select(modalClosers).forEach((el) => {
     el.setAttribute("aria-controls", modalID);
-    }
-  );
+  }); 
 }
 
 modal = behavior(
