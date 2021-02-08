@@ -11,7 +11,6 @@ const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
 const SET_CLASS = "is-set";
 const VISIBLE_CLASS = "is-visible";
 const TRIANGLE_SIZE = 5;
-// const SPACER = 2;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
@@ -31,7 +30,7 @@ const addListenerMulti = (element, eventNames, listener) => {
  * Shows the tooltip
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
-const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
+const showToolTip = (tooltipBody, tooltipTrigger, position ) => {
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -90,7 +89,11 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
      */
 
     const calculateMarginOffset = ( marginPosition , tooltipBodyOffset, trigger ) => {
-     const offset = tooltipBodyOffset - offsetMargin(trigger , `margin-${marginPosition}`)
+
+     const offset = offsetMargin(trigger , `margin-${marginPosition}`) > 0
+     ? tooltipBodyOffset - offsetMargin(trigger , `margin-${marginPosition}`)
+     : tooltipBodyOffset
+
      return offset
     };
 
@@ -131,14 +134,24 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionRight = (e) => {
+
     resetPositionStyles(e);
     const topMargin = calculateMarginOffset("top", e.offsetHeight, tooltipTrigger)
-    const rightMargin = calculateMarginOffset("right", e.offsetWidth, tooltipTrigger)
+    // we have to check for some utility margins
+    const rightMargin = calculateMarginOffset(
+        "right",
+        tooltipTrigger.offsetLeft > e.offsetWidth
+        ? ((tooltipTrigger.offsetLeft - TRIANGLE_SIZE) - (e.offsetWidth / 2))
+        : e.offsetWidth,
+        tooltipTrigger
+      )
 
     setPositionClass("right");
     e.style.top = `50%`;
     e.style.right = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${topMargin / 2}px -${rightMargin}px 0 0`;
+    e.style.margin = `-${topMargin / 2}px ${
+      tooltipTrigger.offsetLeft > e.offsetWidth ? rightMargin : -rightMargin
+    }px 0 0`;
     return false;
   };
 
@@ -147,15 +160,23 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionLeft = (e) => {
-    // e.classList.add(ADJUST_WIDTH_CLASS);
     resetPositionStyles(e);
     const topMargin = calculateMarginOffset("top", e.offsetHeight, tooltipTrigger)
-    const leftMargin = calculateMarginOffset("left", e.offsetWidth, tooltipTrigger)
+    // we have to check for some utility margins
+    const leftMargin = calculateMarginOffset(
+        "left",
+        tooltipTrigger.offsetLeft > e.offsetWidth
+        ? tooltipTrigger.offsetLeft - e.offsetWidth
+        : e.offsetWidth ,
+        tooltipTrigger
+      )
 
     setPositionClass("left");
     e.style.top = `50%`;
     e.style.left = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${topMargin / 2}px 0 0 -${leftMargin}px`;
+    e.style.margin = `-${topMargin / 2}px 0 0 ${
+      tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
+    }px`;
     return false
   };
 
@@ -171,8 +192,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
     const positions = [
       positionTop,
       positionBottom,
-      positionLeft,
       positionRight,
+      positionLeft
     ]
     // we will push validations here to check later
     const validate = [];
@@ -182,7 +203,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
       const tryPosition = new Promise((resolve, reject) => {
         pos(t)
         resolve(isElementInViewport(t))
-        reject(new Error('ahh shhh'))
+        reject(new Error('error'))
       });
       // when the promise resolves
       tryPosition.then(result => {
@@ -196,14 +217,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
         // otherwise we just return the visible position
         return pos(t)
       }).then(() => {
-        if (validate.length === 4 && validate.every( v => v === false)) {
+        if (validate.every( v => v === false)) {
           t.classList.add(ADJUST_WIDTH_CLASS);
-          findBestPosition(t); // TODO: if our vw won't allow for any positiong the depth recursion is too great.
+          findBestPosition(t);
         }
       });
       return null
     })
-
 
     return bestPosition;
   }
