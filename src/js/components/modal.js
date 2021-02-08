@@ -8,7 +8,7 @@ const { prefix: PREFIX } = require("../config");
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const MODAL_INNER_CLASSNAME = `${MODAL_CLASSNAME}__inner`;
-const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__scrim`;
+const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__overlay`;
 const OPENER_ATTRIBUTE = "data-usa-modal";
 const CLOSER_ATTRIBUTE = "data-close-modal";
 const MODAL = `.${MODAL_CLASSNAME}`;
