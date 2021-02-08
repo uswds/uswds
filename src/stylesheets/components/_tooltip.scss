@@ -28,20 +28,11 @@ $triangle-size: 5px;
   pointer-events: none;
   width: auto;
   white-space: pre;
-  // top: 0;
-  // left: 0;
-  // left: 0;
-  // top: 0;
-  // bottom: 0;
-  // right: 0;
-  // opacity: 0;
-  // transform: translateX(-50%);
+  z-index: 100000;
 
   /* Center vertically */
   position: absolute;
-  // top: 50%;
-  // left: 50%;
-  z-index: 100000;
+ /* positioning is completed with JS */
 
   &:after {
     content: "";
@@ -60,13 +51,10 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--wrap {
-  content: '';
-  width: auto;
-  min-width: calc(100% / 2);
+  width: 100%;
   white-space: normal;
   text-align: center;
-  // margin: 0; // zero it out
-  // height: auto;
+  min-width: calc(100vw / 2);
 }
 
 .usa-tooltip__body.is-set {
@@ -79,8 +67,6 @@ $triangle-size: 5px;
 
 
 .usa-tooltip__body--bottom {
-  // bottom: auto;
-  // top: 0;
 
   &:after {
     border-left: $triangle-size solid transparent;
@@ -93,8 +79,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--right {
-  // top: auto;
-
 
   &:after {
     border-top: $triangle-size solid transparent;
@@ -110,10 +94,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--left {
-  // top: auto;
-  // left: 0;
-  // right: auto;
-  // transform: translateX(0);
 
   &:after {
     border-top: $triangle-size solid transparent;
