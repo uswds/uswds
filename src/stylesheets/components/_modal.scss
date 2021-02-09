@@ -14,6 +14,9 @@
   position: fixed;
   z-index: 1000;
 
+  // Using visibility: hidden instead of display: none because
+  // of iOS VoiceOver issue: 
+  // https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
   &.is-hidden {
     visibility: hidden;
   }
@@ -86,7 +89,8 @@
 }
 
 // Prevents JS not recognizing as part of close button.
-.usa-modal *[data-close-modal] > .usa-icon {
+.usa-modal *[data-close-modal] > .usa-icon,
+.usa-modal *[data-close-modal] > .usa-icon use {
   pointer-events: none !important;
 }
 

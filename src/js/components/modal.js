@@ -213,9 +213,9 @@ modal = behavior(
       select(MODAL, root).forEach((modalWindow) => {
         setUpAttributes(modalWindow);
       });
-      //select(OPENERS, root).forEach((item) => {
-      //  item.setAttribute("aria-haspopup", "dialog");
-      //});    
+      ///select(OPENERS, root).forEach((item) => {
+      ///  item.setAttribute("aria-haspopup", "dialog");
+      ///});    
     },
     focusTrap: null,
     toggleModal,
