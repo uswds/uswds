@@ -23,10 +23,10 @@ $banner-icon-chevron-up: map-merge(
   )
 );
 $banner-icon-close: (
-  "name": "close-alt",
+  "name": "usa-icons/close",
   "svg-height": 40,
   "svg-width": 40,
-  "height": $theme-icon-image-size,
+  "height": 3,
   "color": "blue-60v",
   "color-variant": "white",
   "container-height": $size-touch-target,
