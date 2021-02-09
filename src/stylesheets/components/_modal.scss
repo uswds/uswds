@@ -39,7 +39,7 @@
   z-index: 300;
 
   &:focus {
-    //outline: none;
+    outline: none;
   }
 }
 
@@ -114,7 +114,7 @@
 
   .usa-icon {
     height: units(2.5);
-    margin-right: units(0.25);
+    margin-right: units(2px);
     width: units(2.5);
   }
 }

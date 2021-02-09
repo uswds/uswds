@@ -54,7 +54,6 @@ function toggleModal(event) {
   const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
-  console.log(nonModals);
 
   // Sets the clicked element to the close button
   // so esc key always closes modal
@@ -146,11 +145,11 @@ function toggleModal(event) {
     }
     modal.focusTrap.update(safeActive);
     openFocusEl.focus();
-    //setTimeout(function(){ 
-    //  for (var i = 0; i < nonModals.length; i++) {
-    //    nonModals[i].setAttribute("aria-hidden", "true");
-    //  }}, 
-    //  100);
+    setTimeout(function(){ 
+      for (var i = 0; i < nonModals.length; i +=1 ) {
+        nonModals[i].setAttribute("aria-hidden", "true");
+      }}, 
+      100);
   } else if (
     !safeActive &&
     menuButton &&
@@ -158,7 +157,7 @@ function toggleModal(event) {
   ) {
     // The modal window is closed.
     // Focus is returned to the opener
-    for (var i = 0; i < nonModals.length; i++) {
+    for ( var i = 0; i < nonModals.length; i+=1 ) {
       nonModals[i].removeAttribute("aria-hidden");
     }
     returnFocus.focus();
