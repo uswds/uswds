@@ -155,9 +155,8 @@ const setUpAttributes = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
-  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
-  const modalClosers = modalParent.querySelectorAll(CLOSERS);
-
+  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) : false;
+ 
   // Rebuild the modal element
   modalContent.parentNode.insertBefore(modalParent, modalContent);
   modalParent.appendChild(modalContent);
@@ -170,7 +169,8 @@ const setUpAttributes = (baseComponent) => {
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
   modalContent.classList.remove(MODAL_CLASSNAME);
   modalContent.classList.add(MODAL_INNER_CLASSNAME);
-  
+
+  // Set attributes
   modalParent.setAttribute("role", "dialog");
   modalParent.setAttribute("id", modalID);
 
@@ -195,6 +195,7 @@ const setUpAttributes = (baseComponent) => {
   baseComponent.setAttribute("tabindex", "-1");
 
   // Add aria-controls
+  const modalClosers = modalParent.querySelectorAll(CLOSERS);
   select(modalClosers).forEach((el) => {
     el.setAttribute("aria-controls", modalID);
   }); 
@@ -211,7 +212,10 @@ modal = behavior(
     init(root) {
       select(MODAL, root).forEach((modalWindow) => {
         setUpAttributes(modalWindow);
-      });   
+      });
+      //select(OPENERS, root).forEach((item) => {
+      //  item.setAttribute("aria-haspopup", "dialog");
+      //});    
     },
     focusTrap: null,
     toggleModal,

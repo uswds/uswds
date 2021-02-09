@@ -11,15 +11,15 @@
 
 .usa-modal {
   text-align: center;
+  position: fixed;
+  z-index: 1000;
 
   &.is-hidden {
-    display: none;
+    visibility: hidden;
   }
 
   &.is-visible {
-    display: block;
-    position: fixed;
-    z-index: 1000;
+    visibility: visible; 
   }
 }
 
@@ -109,4 +109,13 @@
     height: units(4);
     width: units(4);
   }
+}
+
+// Variants
+.usa-modal--small {
+  max-width: 292px;
+}
+
+.usa-modal--large {
+  max-width: 800px;
 }

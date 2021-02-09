@@ -1,11 +1,11 @@
 <div style="max-width: 77ch; margin: 0 auto;" class="padding-4">
 <h1>HTML Ipsum Presents</h1>
 
-<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#modal3eee" aria-controls="modal3eee" data-usa-modal>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#modal3eee" aria-controls="modal3eee" data-usa-modal>This opens a modal</a> in turpis pulvinar facilisis. Ut felis.</p>
 
-<a id="baz" href="#modal3eee" class="usa-button" aria-controls="modal3eee" data-usa-modal aria-haspopup="dialog">Open a modal</a>
+<a id="baz" href="#modal3eee" class="usa-button" aria-controls="modal3eee" data-usa-modal>Same modal as text aboves</a>
 
-<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe" aria-modal="true">
+<div class="usa-modal" id="modal3eee" aria-labelledby="modal3eeeheading" aria-describedby="describe">
   <div class="usa-modal__content usa-modal__content--reverse">
     <div class="usa-modal__main padding-x-4 padding-bottom-4">
       <div class="usa-prose">
@@ -36,7 +36,7 @@
 
 
 
-<a href="#modal-force-action" class="usa-button" aria-controls="modal-force-action" data-usa-modal aria-haspopup="dialog">Forced action</a>
+<a href="#modal-force-action" class="usa-button" aria-controls="modal-force-action" data-usa-modal>Forced action</a>
 
 <div class="usa-modal" id="modal-force-action" aria-labelledby="modal-force-action-title" aria-describedby="modal-force-action-description" aria-modal="true" data-force-action>
   <div class="usa-modal__content usa-modal__content--reverse">
@@ -60,7 +60,72 @@
   </div>
 </div>
 
+<h2>Modal window sizes</h2>
 
+<div>
+  <a href="#modal3eee" class="usa-button" aria-controls="modal-sm" data-usa-modal>Small modal</a>
+
+  <div class="usa-modal usa-modal--small" id="modal-sm" aria-labelledby="modal-sm-heading">
+    <div class="usa-modal__content usa-modal__content--reverse">
+      <div class="usa-modal__main padding-x-4 padding-bottom-4">
+        <div class="usa-prose">
+          <h2 id="modal-sm-heading">Small modal</h2>
+          <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas..</p>
+        </div>
+
+        <div class="margin-top-3">
+        <ul class="usa-button-group">
+          <li class="usa-button-group__item">
+            <button type="button" class="usa-button" id="foo2" data-close-modal>Got it</button>
+          </li>
+        </ul> 
+        </div>
+      </div>
+      <div class="usa-modal__header">
+        <button type="button" class="usa-button usa-modal__close"  title="close this window"  data-close-modal>
+          <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+            <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <a href="#modal3eee" class="usa-button" aria-controls="modal-lg" data-usa-modal>Large modal</a>
+  <div class="usa-modal usa-modal--lg" id="modal-lg" aria-labelledby="modal-lg-heading" aria-modal="true">
+    <div class="usa-modal__content usa-modal__content--reverse">
+      <div class="usa-modal__main padding-x-4 padding-bottom-4">
+        <div class="usa-prose">
+          <h2 id="modal-lg-heading">Large modal</h2>
+          <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas..</p>
+
+          <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+          <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+        </div>
+
+        <div class="margin-top-3">
+        <ul class="usa-button-group">
+          <li class="usa-button-group__item">
+            <button type="button" class="usa-button" id="foo2" data-close-modal>Got it</button>
+          </li>
+        </ul> 
+        </div>
+      </div>
+      <div class="usa-modal__header">
+        <button type="button" class="usa-button usa-modal__close"  title="close this window"  data-close-modal>
+          <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+            <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div></div>
 
 <h2>Header Level 2</h2>
 
@@ -219,27 +284,3 @@
 </code></pre>
 
 </div>
-
-
-<script>
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  var foo = document.getElementById("foo2");
-  var bar = document.getElementById("bar");
-  var theClick = function() {
-    myFunction()
-  }
-
-  function myFunction() {
-    console.log("Hello World!");
-  } 
-
-  foo.addEventListener("click", myFunction);
- // bar.addEventListener("click", myFunction);
-
-})
-</script>
-
-
