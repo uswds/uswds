@@ -23,9 +23,6 @@
     "default": "./dist/js/uswds.min.js"
   },
   "types": "./index.d.ts",
-  "files": [
-    "dist"
-  ],
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
