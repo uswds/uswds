@@ -39,7 +39,7 @@
   z-index: 300;
 
   &:focus {
-    outline: none;
+    //outline: none;
   }
 }
 
@@ -95,12 +95,15 @@
 }
 
 .usa-modal__close {
+  align-items: center;
   align-self: flex-end;
   background-color: transparent;
   color: color("base");
+  display: flex;
   flex-shrink: 0;
+  font-size: 12px;
   margin: 0 0 0 auto;
-  padding: units(1);
+  padding: units(2) units(2);
   width: auto;
 
   &:hover,
@@ -110,8 +113,9 @@
   }
 
   .usa-icon {
-    height: units(4);
-    width: units(4);
+    height: units(2.5);
+    margin-right: units(0.25);
+    width: units(2.5);
   }
 }
 

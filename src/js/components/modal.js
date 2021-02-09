@@ -23,6 +23,8 @@ const PREVENT_CLICK_CLASS = "usa-js-no-click";
 const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
+const nonModals = document.querySelectorAll(`body > *:not(${MODAL}):not([aria-hidden])`);
+
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
@@ -52,6 +54,7 @@ function toggleModal(event) {
   const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
+  console.log(nonModals);
 
   // Sets the clicked element to the close button
   // so esc key always closes modal
@@ -116,7 +119,20 @@ function toggleModal(event) {
     // This if timeout could be fractal weirdness
     // in safari. But gives element a chance to appear
     // before setting focus.
-    setTimeout(() => openFocusEl.focus(), 10);
+    //setTimeout(function(){ 
+    //  nonModals.forEach(el => {
+    //    el.setAttribute("aria-hidden", "true");
+    //    el.setAttribute("inert", "")
+    //  }) }, 
+    //100);
+
+    
+
+    //setTimeout(() => openFocusEl.focus(), 15);
+
+    
+
+    
 
     // Enables the escape if we're not forcing
     // the user to take an action
@@ -129,6 +145,12 @@ function toggleModal(event) {
       });
     }
     modal.focusTrap.update(safeActive);
+    openFocusEl.focus();
+    //setTimeout(function(){ 
+    //  for (var i = 0; i < nonModals.length; i++) {
+    //    nonModals[i].setAttribute("aria-hidden", "true");
+    //  }}, 
+    //  100);
   } else if (
     !safeActive &&
     menuButton &&
@@ -136,6 +158,9 @@ function toggleModal(event) {
   ) {
     // The modal window is closed.
     // Focus is returned to the opener
+    for (var i = 0; i < nonModals.length; i++) {
+      nonModals[i].removeAttribute("aria-hidden");
+    }
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
@@ -199,6 +224,9 @@ const setUpAttributes = (baseComponent) => {
   select(modalClosers).forEach((el) => {
     el.setAttribute("aria-controls", modalID);
   }); 
+
+  // Move to the end of the DOM
+  document.body.appendChild(modalParent);
 }
 
 modal = behavior(
@@ -213,9 +241,18 @@ modal = behavior(
       select(MODAL, root).forEach((modalWindow) => {
         setUpAttributes(modalWindow);
       });
-      ///select(OPENERS, root).forEach((item) => {
-      ///  item.setAttribute("aria-haspopup", "dialog");
-      ///});    
+      
+      select(OPENERS, root).forEach((item) => {
+        
+        // Turn anchor links into buttons
+        if ( item.nodeName === "A" ) {
+          item.setAttribute("role", "button");
+        }
+        
+        // Can ucomment when aria-haspopup="dialog" is supported
+        // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+        // item.setAttribute("aria-haspopup", "dialog");
+      });    
     },
     focusTrap: null,
     toggleModal,
