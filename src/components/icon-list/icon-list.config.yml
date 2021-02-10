@@ -22,32 +22,31 @@ variants:
   - name: rich
     label: Rich content
     context:
-      iconSize: sm
       items:
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Donate cash when possible.</h3>
-            <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+            <h3 class="usa-icon-list__title">Donate cash when possible.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
 
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Confirm what donations are needed.</h3>
-            <p class="margin-top-1">Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
+            <h3 class="usa-icon-list__title">Confirm what donations are needed.</h3>
+            <p>Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
 
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Talk to trusted organizations about volunteering.</h3>
-            <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
-  - name: large-icon
+            <h3 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+  - name: custom-size
     label: Custom size
     context:
       iconSize: lg
@@ -67,7 +66,7 @@ variants:
             color: ink
             utilities:
           content: Talk to trusted organizations about volunteering.
-  - name: rich-large
+  - name: custom-size-rich
     label: Custom size with rich content
     context:
       iconSize: lg
@@ -77,21 +76,21 @@ variants:
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Donate cash when possible.</h3>
-            <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+            <h3 class="usa-icon-list__title">Donate cash when possible.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
 
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Confirm what donations are needed.</h3>
-            <p class="margin-top-1">Unsolicited goods NOT needed burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
+            <h3 class="usa-icon-list__title">Confirm what donations are needed.</h3>
+            <p>Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
 
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Talk to trusted organizations about volunteering.</h3>
-            <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+            <h3 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
