@@ -69,7 +69,7 @@ context:
       - name: bathtub
         meta: "bathe shower hygiene"
       - name: bedding
-        meta: ""
+        meta: "blanket"
       - name: bookmark
         meta: ""
       - name: bug_report
@@ -81,7 +81,7 @@ context:
       - name: campaign
         meta: "bullhorn"
       - name: camping
-        meta: "tent"
+        meta: "tent shelter"
       - name: cancel
         meta: "x close"
       - name: chat
@@ -114,6 +114,8 @@ context:
         meta: ""
       - name: construction
         meta: "tool"
+      - name: construction_worker
+        meta: "maintenance"
       - name: contact_page
         meta: ""
       - name: content_copy
@@ -413,11 +415,13 @@ context:
       - name: shopping_basket
         meta: "cart purchase"
       - name: snow
-        meta: "storm weather winter emergency"
+        meta: "storm weather winter emergency blizzard"
       - name: soap
         meta: "sanitize safety hand wash"
       - name: social_distance
         meta: ""
+      - name: sort_arrow
+        meta: "direction up down"
       - name: spellcheck
         meta: "edit"
       - name: star
