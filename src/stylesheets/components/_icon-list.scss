@@ -39,6 +39,10 @@ $icon-list-font-sizes: (
     // Set default title font size if no size variant class is present
     .usa-icon-list__title {
       font-size: size($theme-icon-list-font-family, "lg");
+      margin-bottom: units(0);
+      & + * {
+        margin-top: units(1);
+      }
     }
   }
 
