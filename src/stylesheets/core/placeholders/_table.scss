@@ -53,11 +53,11 @@
   }
 
   @mixin table-header-sorted-styles {
-    background-color: color("theme-table-sorted-background-color");
+    background-color: color($theme-table-sorted-header-background-color);
     border-width: units(2px) units(2px) units(1px);
-    border-left-color: color("theme-table-sorted-border-color");
-    border-right-color: color("theme-table-sorted-border-color");
-    border-top-color: color("theme-table-sorted-border-color");
+    border-left-color: color($theme-table-sorted-border-color);
+    border-right-color: color($theme-table-sorted-border-color);
+    border-top-color: color($theme-table-sorted-border-color);
     
     // &:after {
     //   border-bottom-color: color("ink");
@@ -95,20 +95,20 @@
   @mixin table-button-unsorted-styles {
     @include table-button-default-styles;
     .usa-icon > g#unsorted {
-      fill: color("theme-table-unsorted-icon-color");
+      fill: color($theme-table-unsorted-icon-color);
     }
   }
 
   @mixin table-button-sorted-ascending-styles {
     @include table-button-default-styles;
     .usa-icon > g#ascending {
-      fill: color("theme-table-sorted-icon-color");
+      fill: color($theme-table-sorted-icon-color);
     }
   }
   @mixin table-button-sorted-descending-styles {
     @include table-button-default-styles;
     .usa-icon > g#descending {
-      fill: color("theme-table-sorted-icon-color");
+      fill: color($theme-table-sorted-icon-color);
     }
   }
 
@@ -139,16 +139,16 @@
 
   td[data-sort-active],
   th[data-sort-active] {
-    background-color: color("theme-table-sorted-background-color");
+    background-color: color($theme-table-sorted-background-color);
     border-left-width: units(2px);
     border-right-width: units(2px);
-    border-left-color: color("theme-table-sorted-border-color");
-    border-right-color: color("theme-table-sorted-border-color");
+    border-left-color: color($theme-table-sorted-border-color);
+    border-right-color: color($theme-table-sorted-border-color);
   }
   tr:last-child > td[data-sort-active],
   tr:last-child > th[data-sort-active] {
     border-bottom-width: units(2px);
-    border-bottom-color: color("theme-table-sorted-border-color");
+    border-bottom-color: color($theme-table-sorted-border-color);
   }
 }
 
