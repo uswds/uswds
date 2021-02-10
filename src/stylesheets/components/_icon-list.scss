@@ -40,27 +40,50 @@ $icon-list-font-sizes: (
     .usa-icon-list__title {
       font-size: size($theme-icon-list-font-family, "lg");
     }
+  }
 
+  // Generate responsive variants
+  // Create a map for looping that includes a default or no-breakpoint version
+  $this-null: (
+    "none": null,
+  );
+  $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
+  @each $mq-key, $mq-value in $icon-list-breakpoints {
     @each $token, $val in $icon-list-font-sizes {
-      &--size-#{$token} {
-        .usa-icon-list__icon {
-          .usa-icon {
-            // Set the height and width of the icon based on the size variant and factor
-            height: system-type-scale($val) * $icon-list-icon-size-factor;
-            margin-top: $icon-list-icon-margin-top;
-            width: system-type-scale($val) * $icon-list-icon-size-factor;
+      // Set the prefix
+      // An empty string if "none"
+      $prefix: false;
+      @if $mq-key == "none" {
+        $prefix: "";
+      }
+      // Or the standard prefix if the break[pint is output
+      @else if map-get($theme-utility-breakpoints, $mq-key) {
+        $prefix: "#{$mq-key}\\:";
+      }
+      @if $prefix {
+        @include at-media($mq-key) {
+          .#{$prefix}usa-icon-list--size-#{$token} {
+            .usa-icon-list__icon {
+              .usa-icon {
+                // Set the height and width of the icon based on the size variant and factor
+                height: system-type-scale($val) * $icon-list-icon-size-factor;
+                margin-top: $icon-list-icon-margin-top;
+                width: system-type-scale($val) * $icon-list-icon-size-factor;
+              }
+            }
+            .usa-icon-list__content {
+              // Calculate the space between the icon and content based on the size variant and factor
+              padding-left: system-type-scale($val) *
+                $icon-list-icon-padding-left-factor;
+
+              // Resize the content unless a manual class is set
+              &:not(.usa-icon-list__content--manual),
+              &:not(.usa-icon-list__content--manual) * {
+                font-size: size($theme-icon-list-font-family, $token);
+                margin-bottom: 0;
+              }
+            }
           }
-        }
-        .usa-icon-list__title {
-          font-size: size($theme-icon-list-font-family, $token);
-          margin-bottom: 0;
-          & + p {
-            margin-top: units(0.5);
-          }
-        }
-        .usa-icon-list__content {
-          // Calculate the space between the icon and content based on the size variant and factor
-          padding-left: system-type-scale($val) * $icon-list-icon-padding-left-factor;
         }
       }
     }
@@ -89,6 +112,9 @@ $icon-list-font-sizes: (
     padding-left: 0.5rem;
     > *:first-child {
       margin-top: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
     }
 
     ul li {
