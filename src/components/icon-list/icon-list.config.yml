@@ -22,13 +22,14 @@ variants:
   - name: rich
     label: Rich content
     context:
+      iconSize: sm
       items:
         - icon:
             name: check_circle
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0 line-height-sans-3">Donate cash when possible.</h2>
+            <h3 class="margin-0">Donate cash when possible.</h3>
             <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
 
         - icon:
@@ -36,7 +37,7 @@ variants:
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0 line-height-sans-3">Confirm what donations are needed.</h3>
+            <h3 class="margin-0">Confirm what donations are needed.</h3>
             <p class="margin-top-1">Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
 
         - icon:
@@ -44,7 +45,7 @@ variants:
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0 line-height-sans-3">Talk to trusted organizations about volunteering.</h3>
+            <h3 class="margin-0">Talk to trusted organizations about volunteering.</h3>
             <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
   - name: large-icon
     label: Custom size
@@ -76,7 +77,7 @@ variants:
             color: ink
             utilities:
           content: |
-            <h3 class="margin-0">Donate cash when possible.</h2>
+            <h3 class="margin-0">Donate cash when possible.</h3>
             <p class="margin-top-1">Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
 
         - icon:
