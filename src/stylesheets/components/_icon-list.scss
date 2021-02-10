@@ -29,8 +29,8 @@ $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
   }
 
   .usa-icon-list__item {
-    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     display: flex;
+    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     position: relative;
 
     & + .usa-icon-list__item {
@@ -98,10 +98,10 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
           }
 
           .usa-icon-list__content {
-            // Calculate the space between the icon and content based on the size variant and factor
-            padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
             // Resize simple (un-marked up) content
             font-size: size($theme-icon-list-font-family, $token);
+            // Calculate the space between the icon and content based on the size variant and factor
+            padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
 
             // But don't resize any block-level element inside content
             > p,
@@ -137,8 +137,8 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
 }
 
 .usa-icon-list__content {
-  padding-left: $type-scale * $icon-list-icon-padding-left-factor;
   font-size: $type-scale;
+  padding-left: $type-scale * $icon-list-icon-padding-left-factor;
   > *:first-child {
     margin-top: 0;
   }
