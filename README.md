@@ -28,7 +28,7 @@ This repository is for the design system code itself. We maintain [another repos
 - [Where things live](#where-things-live)
 - [Browser support](#browser-support)
 - [Accessibility](#accessibility)
-- [Fractal](#fractal)
+- [Pattern library](#pattern-library)
   - [Template compatibility](#template-compatibility)
 - [Need installation help?](#need-installation-help)
 - [Contributing to the code base](#contributing-to-the-code-base)
@@ -427,25 +427,67 @@ We’ve designed the design system to support older and newer browsers through [
 
 The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
 
-## Fractal
+## Pattern library
 
-We're using [Fractal](http://fractal.build) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
+We're using [Pattern lab](https://patternlab.io/) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
 
 ```sh
 npm start
 ```
 
-Then, visit [http://localhost:3000/](http://localhost:3000/) to see the design system in action.
+Then, visit [http://localhost:3000/](http://localhost:3000/) to see the design system in action. It will watch for changes in twig, scss, and JS and refresh.
 
-_**Optional**: To re-build when code changes are made, run the following command from the project directory in a separate terminal window:_
-
-```sh
-npm run watch
-```
 
 ### Template compatibility
+We're using `engine-twig`, which uses Twing, to get rid of the PHP dependency. This means there are a few differences between this Twig engine and the more common PHP engine.
 
-Many of our Fractal view templates are compatible with [Nunjucks](https://mozilla.github.io/nunjucks/) (for JavaScript/Node), [Jinja](http://jinja.pocoo.org/docs/2.9/) (Python), and [Twig](https://twig.sensiolabs.org/) (PHP) out of the box. Components that reference other components use a Fractal-specific `{% render %}` tag that will either need to be implemented in other environments or replaced with the appropriate `{% include %}` tags.
+**Key differences**
+
+Namespacing not supported - Use relative paths.
+
+```twig
+❌ {% include "@components/usa-card/usa-card.twig" %}
+
+✔ {% include "./components/usa-card/usa-card.twig" %}
+```
+
+Generated variants with YML *
+```
+✔ usa-button-group.twig
+❕ usa-button-group~segmented.yml  // Requires patch
+```
+
+*Works with patch [`31931c7`](https://github.com/uswds/uswds/commit/31931c7ee1ecf31c54981c1691a047157d458bfb).
+
+HTML in YML renders as string
+```yml
+# Given
+items:
+  - '<button class="usa-button">Map</button>'
+  - '<button class="usa-button usa-button--outline">Satellite</button>'
+  - '<button class="usa-button usa-button--outline">Hybrid</button>'
+```
+
+Results in the markup being output as a string.
+
+Workarounds available with `autoescape false` and `|raw` filter.
+
+```twig
+<li class="usa-button-group__item">
+  {% autoescape false %}
+    {{ item }}
+  {% endautoescape %}
+</li>
+```
+
+```twig
+{{ domain.text|raw }}
+```
+
+Global variables don't work as expected
+Setting a variable like `img_path` in `src/styleguide/data/data.yml` renders as empty string in some templates, for example in `usa-nav__primary.twig`.
+
+Just be aware when using macro's and ensure you have a proper fallback value.
 
 ## Long-term support of v1.x
 
