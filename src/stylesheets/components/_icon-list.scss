@@ -35,17 +35,7 @@ $icon-list-font-sizes: (
         }
       }
     }
-
-    // Set default title font size if no size variant class is present
-    .usa-icon-list__title {
-      font-size: size($theme-icon-list-font-family, "lg");
-      margin-bottom: units(0);
-      & + * {
-        margin-top: units(1);
-      }
-    }
   }
-
   // Generate responsive variants
   // Create a map for looping that includes a default or no-breakpoint version
   $this-null: (
@@ -75,15 +65,19 @@ $icon-list-font-sizes: (
                 width: system-type-scale($val) * $icon-list-icon-size-factor;
               }
             }
+
+            .usa-icon-list__title {
+              font-size: size($theme-icon-list-font-family, $token);
+            }
+
             .usa-icon-list__content {
               // Calculate the space between the icon and content based on the size variant and factor
               padding-left: system-type-scale($val) *
                 $icon-list-icon-padding-left-factor;
 
               // Resize the content unless a manual class is set
-              > *:not(p, h1, h2, h3, h4, h5, h6) {
+              > *:not(p, h1, h2, h3, h4, h5, h6, ul, ol) {
                 font-size: size($theme-icon-list-font-family, $token);
-                margin-bottom: 0;
               }
             }
           }
@@ -122,6 +116,16 @@ $icon-list-font-sizes: (
 
     ul li {
       list-style-type: disc;
+    }
+  }
+
+  .usa-icon-list__title {
+    font-size: size($theme-icon-list-font-family, "lg");
+    line-height: lh($theme-icon-list-font-family, $theme-heading-line-height);
+    margin-bottom: units(0);
+    padding-top: 0.25em;
+    & + * {
+      margin-top: units(1);
     }
   }
 }
