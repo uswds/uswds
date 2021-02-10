@@ -278,7 +278,7 @@
               <li>Modals can be closed with the escape key unless the behavior is disabled</li>
               <li>All other content on the page is hidden when modals are open so that screen readers only read the content inside the modal</li>
               <li>Modals use <code>role="dialog"</code> and <code>aria-labelledby</code>. <code>aria-describedby</code> is optional.</li>
-              <li>Modals openers should be links, this way modal content can be accessed with <code>href</code> in case there are js issues. Any <code>&lt;a&gt;<code> that opens a modal is programatically given <code>role="button"</code>, which resolves issues opening modals in VoiceOver on Safari</li>
+              <li>Modals openers should be links, this way modal content can be accessed with <code>href</code> in case there are js issues. Any <code>&lt;a&gt;</code> that opens a modal is programatically given <code>role="button"</code>, which resolves issues opening modals in VoiceOver on Safari</li>
               <li>Initial HTML is kept at bare minimum. JavaScript helps write most of the modal content, including handling some aria attributes, additional divs, overlays, etc., reduce implementation errors and handle future changes.</li> 
             </ul>
           </div>

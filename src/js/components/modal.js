@@ -129,7 +129,7 @@ function toggleModal(event) {
     openFocusEl.focus();
 
     // Hides everything that is not the modal from screen readers
-    for (var i = 0; i < nonModals.length; i +=1 ) {
+    for ( let i = 0; i < nonModals.length; i +=1 ) {
       nonModals[i].setAttribute("aria-hidden", "true");
     }
   } else if (
@@ -139,7 +139,7 @@ function toggleModal(event) {
   ) {
     // The modal window is closed.
     // Non-modals now accesible to screen reader
-    for ( var i = 0; i < nonModals.length; i+=1 ) {
+    for ( let i = 0; i < nonModals.length; i+=1 ) {
       nonModals[i].removeAttribute("aria-hidden");
     }
 

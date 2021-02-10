@@ -13,7 +13,7 @@
   text-align: center;
 
   // Using visibility: hidden instead of display: none because
-  // of iOS VoiceOver issue: 
+  // of iOS VoiceOver issue:
   // https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
   &.is-hidden {
     visibility: hidden;
@@ -23,7 +23,7 @@
   &.is-visible {
     visibility: visible;
     position: fixed;
-    z-index: 1000; 
+    z-index: 1000;
   }
 }
 
@@ -35,7 +35,7 @@
   }
 
   .usa-modal:target {
-    position:static;
+    position: static;
   }
 }
 
@@ -120,7 +120,7 @@
   color: color("base");
   display: flex;
   flex-shrink: 0;
-  font-size: size('ui', '2xs');
+  font-size: size("ui", "2xs");
   margin: units(-4) 0 0 auto;
   padding: units(2) units(2);
   width: auto;
@@ -139,8 +139,8 @@
 }
 
 .usa-modal__heading {
-  @include u-font('heading', 'lg');
-  line-height: line-height('heading', 3);
+  @include u-font("heading", "lg");
+  line-height: line-height("heading", 3);
   margin-top: 0;
 }
 
@@ -156,14 +156,13 @@
   .usa-modal__main {
     padding-bottom: units(8);
     padding-top: units(2.5);
-    width: 100%; 
+    width: 100%;
     max-width: 631px;
   }
 
   .usa-modal__heading {
-
     @include at-media("tablet") {
-      @include u-font('heading', 'xl');
+      @include u-font("heading", "xl");
     }
   }
 }
