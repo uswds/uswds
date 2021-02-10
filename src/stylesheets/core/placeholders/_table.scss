@@ -53,13 +53,18 @@
   }
 
   @mixin table-header-sorted-styles {
-    background-color: color("base-lightest");
-    &:after {
-      border-bottom-color: color("ink");
-    }
+    background-color: color("theme-table-sorted-background-color");
+    border-width: units(2px) units(2px) units(1px);
+    border-left-color: color("theme-table-sorted-border-color");
+    border-right-color: color("theme-table-sorted-border-color");
+    border-top-color: color("theme-table-sorted-border-color");
+    
+    // &:after {
+    //   border-bottom-color: color("ink");
+    // }
   }
 
-  @mixin table-button-unsorted-styles {
+  @mixin table-button-default-styles {
     @include button-unstyled;
     // @include add-background-svg("usa-icons/swap_vert");
     position: absolute;
@@ -71,31 +76,51 @@
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    @include u-square(3);
+    @include u-square(4);
     text-decoration: none;
+    text-align: center;
     transform: translate(0, -50%);
     &:hover {
-      background-color: color("base-lightest");
-      color: color("ink");
+      // background-color: color("base-lightest");
+      // color: color("ink");
+    }
+    .usa-icon {
+      @include u-square(3);
+      vertical-align: middle;
+      & > g {
+        fill: transparent;
+      }
+    }
+  }
+  @mixin table-button-unsorted-styles {
+    @include table-button-default-styles;
+    .usa-icon > g#unsorted {
+      fill: color("theme-table-unsorted-icon-color");
     }
   }
 
   @mixin table-button-sorted-ascending-styles {
-    // background-size: units(2);
-    // @include add-background-svg("usa-icons/arrow_upward");
+    @include table-button-default-styles;
+    .usa-icon > g#ascending {
+      fill: color("theme-table-sorted-icon-color");
+    }
   }
   @mixin table-button-sorted-descending-styles {
-    // background-size: units(2);
-    // @include add-background-svg("usa-icons/arrow_downward");
+    @include table-button-default-styles;
+    .usa-icon > g#descending {
+      fill: color("theme-table-sorted-icon-color");
+    }
   }
 
   .usa-table__header--sortable {
     @include table-header-unsorted-styles;
-
   }
 
-  .usa-table__header__button {
-    @include table-button-unsorted-styles;
+  .usa-table__header--sortable:not([aria-sort]),
+  .usa-table__header--sortable[aria-sort="none"] {
+    .usa-table__header__button {
+      @include table-button-unsorted-styles;
+    }
   }
 
   .usa-table__header--sortable[aria-sort="descending"] {
@@ -110,6 +135,20 @@
     .usa-table__header__button {
       @include table-button-sorted-ascending-styles;
     }
+  }
+
+  td[data-sort-active],
+  th[data-sort-active] {
+    background-color: color("theme-table-sorted-background-color");
+    border-left-width: units(2px);
+    border-right-width: units(2px);
+    border-left-color: color("theme-table-sorted-border-color");
+    border-right-color: color("theme-table-sorted-border-color");
+  }
+  tr:last-child > td[data-sort-active],
+  tr:last-child > th[data-sort-active] {
+    border-bottom-width: units(2px);
+    border-bottom-color: color("theme-table-sorted-border-color");
   }
 }
 

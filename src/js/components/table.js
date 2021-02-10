@@ -8,10 +8,20 @@ const SORTED = "aria-sort";
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
-const ICON_PATH = "../../dist/img/sprite.svg";
-const ICON_UNSORTED = `${ICON_PATH}#swap_vert`;
-const ICON_ASCENDING = `${ICON_PATH}#arrow_upward`;
-const ICON_DESCENDING = `${ICON_PATH}#arrow_downward`;
+
+const ICON_SOURCE = `
+  <svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g id="descending">
+      <path d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z"/>
+    </g>
+    <g id="ascending">
+      <path transform="rotate(180, 12, 12)" d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z"/>
+    </g>
+    <g id="unsorted" >
+      <polygon points="15.17 15 13 17.17 13 6.83 15.17 9 16.58 7.59 12 3 7.41 7.59 8.83 9 11 6.83 11 17.17 8.83 15 7.42 16.41 12 21 16.59 16.41 15.17 15"/>
+    </g>
+  </svg>
+`;
 
 const BUTTON_CLASS = `${PREFIX}-table__header__button`;
 const BUTTON = `.${BUTTON_CLASS}`;
@@ -73,7 +83,6 @@ const updateSortLabel = (header) => {
  */
 const unsetSort = (header) => {
   header.removeAttribute(SORTED);
-  updateButtonIcon(header.querySelector(BUTTON))
   updateSortLabel(header);
 }
 
@@ -85,13 +94,34 @@ const unsetSort = (header) => {
  */
 const sortRows = (header, ascending) => {
   header.setAttribute(SORTED, ascending === true ? DESCENDING : ASCENDING );
-  updateButtonIcon(header.querySelector(BUTTON), ascending === true ? DESCENDING : ASCENDING);
   updateSortLabel(header);
 
   const tbody = header.closest(TABLE).querySelector('tbody');
-  Array.from(tbody.querySelectorAll('tr'))
-    .sort(compareFunction(Array.from(header.parentNode.children).indexOf(header), !ascending))
-    .forEach(tr => tbody.appendChild(tr) );
+
+  // We can use Array.from() and Array.sort() instead once we drop IE support, likely in the summer of 2021
+  //
+  // Array.from(tbody.querySelectorAll('tr').sort(
+  //   compareFunction(
+  //     Array.from(header.parentNode.children).indexOf(header),
+  //     !ascending)
+  //   )
+  // .forEach(tr => tbody.appendChild(tr) );
+
+  // turn array-like sets into true arrays so that we can sort them
+  let allRows = [].slice.call(tbody.querySelectorAll('tr')); 
+  const allHeaders = [].slice.call(header.parentNode.children);
+  const thisHeaderIndex = allHeaders.indexOf(header);
+  allRows.sort(
+    compareFunction(
+      thisHeaderIndex, 
+      !ascending
+    )
+  ).forEach(tr => {
+    [].slice.call(tr.children).forEach(td => td.removeAttribute("data-sort-active"));
+    tr.children[thisHeaderIndex].setAttribute("data-sort-active", true);
+    tbody.appendChild(tr) 
+  });
+  
   return true;
 }
 
@@ -135,27 +165,9 @@ const createHeaderButton = (header) => {
   const buttonEl = document.createElement("button");
   buttonEl.setAttribute('tabindex', '0');
   buttonEl.classList.add(BUTTON_CLASS);
-  buttonEl.innerHTML = `
-    <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img">
-      <use href="${ICON_UNSORTED}"></use>
-    </svg>
-  `;
+  buttonEl.innerHTML = `${ICON_SOURCE}`;
   header.appendChild(buttonEl);
   updateSortLabel(header);
-}
-
-/**
- ** Updates button icon path to display a sort direction, if provided.
- * Otherwise, show the unsorted icon.
- * @param {HTMLButtonElement} button
- * @param {String} sortDirection optional
- */
-
-const updateButtonIcon = (button, sortDirection = "") => {
-  let icon = ICON_UNSORTED;
-  if (sortDirection === ASCENDING) icon = ICON_ASCENDING;
-  if (sortDirection === DESCENDING) icon = ICON_DESCENDING;
-  button.querySelector(".usa-icon use").setAttribute("href", icon);
 }
 
 
