@@ -80,7 +80,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
     @if $mq-key == "none" {
       $prefix: "";
     }
-    // Or the standard prefix if the break[pint is output
+    // Or the standard prefix if the breakpoint is output
     @else if map-get($theme-utility-breakpoints, $mq-key) {
       $prefix: "#{$mq-key}\\:";
     }
