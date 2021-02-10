@@ -104,7 +104,15 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             font-size: size($theme-icon-list-font-family, $token);
 
             // But don't resize any element inside content
-            > * {
+            > p,
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > ul,
+            > ol,
+            > div {
               font-size: initial;
             }
 

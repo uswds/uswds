@@ -19,6 +19,26 @@ context:
       content: Don't just show up to a disaster area.
 
 variants:
+  - name: simple
+    label: Simple content
+    context:
+      items:
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Use cash.</span> Donate cash when possible.
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Check first.</span> Confirm what donations are needed.
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Volunteer.</span> Talk to trusted organizations about volunteering.
+
   - name: rich
     label: Rich content
     context:
@@ -55,17 +75,17 @@ variants:
             name: check
             color: green
             utilities:
-          content: Donate cash when possible.
+          content: <span class="text-bold">Use cash.</span> Donate cash when possible.
         - icon:
             name: check
             color: green
             utilities:
-          content: Confirm what donations are needed.
+          content: <span class="text-bold">Check first.</span> Confirm what donations are needed.
         - icon:
             name: check
             color: green
             utilities:
-          content: Talk to trusted organizations about volunteering.
+          content: <span class="text-bold">Volunteer.</span> Talk to trusted organizations about volunteering.
   - name: custom-size-rich
     label: Custom size with rich content
     context:
