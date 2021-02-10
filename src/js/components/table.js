@@ -23,9 +23,9 @@ const ICON_SOURCE = `
   </svg>
 `;
 
-const BUTTON_CLASS = `${PREFIX}-table__header__button`;
-const BUTTON = `.${BUTTON_CLASS}`;
-const HEADER = `.${PREFIX}-table__header--sortable`;
+const SORT_BUTTON_CLASS = `${PREFIX}-table__header__button`;
+const SORT_BUTTON = `.${SORT_BUTTON_CLASS}`;
+const SORTABLE_HEADER = `th[data-sortable]`;
 const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="polite"]`;
 
 /** Gets the data-sort-value attribute value, if provided — otherwise, gets
@@ -48,7 +48,7 @@ const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRID
  */
 const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
     // if neither value is empty, and if both values are already numbers, compare numerically. Otherwise, compare alphabetically based on current user locale
-    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.languages[0] || navigator.language, {numeric: true, ignorePunctuation: true})
+    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.language, {numeric: true, ignorePunctuation: true})
     )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
 
 /**
@@ -58,7 +58,7 @@ const compareFunction = (index, direction) => (a, b) => ((v1, v2) =>
  * @return {array<HTMLTableHeaderCellElement>}
  */
 const getColumnHeaders = (table) => {
-  const headers = select(HEADER, table);
+  const headers = select(SORTABLE_HEADER, table);
   return headers.filter((header) => header.closest(TABLE) === table);
 };
 
@@ -74,7 +74,7 @@ const updateSortLabel = (header) => {
   const headerLabel = `${headerName}', sortable column, currently ${isSorted ? `${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`: 'unsorted'}`;
   const headerButtonLabel = `Sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order.`;
   header.setAttribute("aria-label", headerLabel);
-  header.querySelector(BUTTON).setAttribute("aria-label", headerButtonLabel);
+  header.querySelector(SORT_BUTTON).setAttribute("aria-label", headerButtonLabel);
 }
 
 /**
@@ -141,7 +141,7 @@ const toggleSort = (header, ascending) => {
   }
   
   if (!table) {
-    throw new Error(`${HEADER} is missing outer ${TABLE}`);
+    throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
   safeAscending = sortRows(header, ascending);
@@ -164,7 +164,7 @@ const toggleSort = (header, ascending) => {
 const createHeaderButton = (header) => {
   const buttonEl = document.createElement("button");
   buttonEl.setAttribute('tabindex', '0');
-  buttonEl.classList.add(BUTTON_CLASS);
+  buttonEl.classList.add(SORT_BUTTON_CLASS);
   buttonEl.innerHTML = `${ICON_SOURCE}`;
   header.appendChild(buttonEl);
   updateSortLabel(header);
@@ -195,18 +195,18 @@ const updateLiveRegion = (table, sortedHeader) => {
 const table = behavior(
   {
     [CLICK]: {
-      [BUTTON](event) {
+      [SORT_BUTTON](event) {
         event.preventDefault();
         toggleSort(
-          event.target.closest(HEADER), 
-          event.target.closest(HEADER).getAttribute(SORTED) === ASCENDING
+          event.target.closest(SORTABLE_HEADER), 
+          event.target.closest(SORTABLE_HEADER).getAttribute(SORTED) === ASCENDING
         ); 
       },
     },
   },
   {
     init(root) {
-      const sortableHeaders = select(HEADER, root);
+      const sortableHeaders = select(SORTABLE_HEADER, root);
       sortableHeaders.forEach((header) => createHeaderButton(header));
 
       const firstSorted = sortableHeaders.filter((header) => header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING)[0];
@@ -224,8 +224,8 @@ const table = behavior(
       }
     },
     TABLE,
-    HEADER,
-    BUTTON
+    SORTABLE_HEADER,
+    SORT_BUTTON
   }
 );
 
