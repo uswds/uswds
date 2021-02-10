@@ -36,7 +36,7 @@ Here are a few guidelines to follow when submitting a pull request:
 
 The U.S. Web Design System `uswds` package (the zip download and the
 files needed to use the Design System on your project) is built primarily with
-two [Node.js] tools: [Fractal] and [Gulp]. Once you've cloned this
+two [Node.js] tools: [Pattern lab] and [Gulp]. Once you've cloned this
 repository, you'll need to install its dependencies:
 
 ```sh
@@ -45,7 +45,7 @@ npm install
 
 **ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
 
-To start the [Fractal] live reload server, run:
+To start the [Pattern lab] live reload server, run:
 
 ```sh
 npm start
@@ -57,7 +57,7 @@ you make to the component templates or configurations will reload the page
 automatically.
 
 If you're working on the JavaScript or CSS, you can run the "watch" task in
-another shell to automatically rebuild the distribution files that Fractal
+another shell to automatically rebuild the distribution files that Pattern lab
 references with:
 
 ```sh
@@ -108,7 +108,7 @@ for each OS can [be found here](https://github.com/SeleniumHQ/selenium/wiki/Chro
 The Design System comes with optional tooling for detecting visual regressions,
 which can be especially useful if you're refactoring CSS.
 
-These tests work by comparing current screenshots of the Design System's Fractal
+These tests work by comparing current screenshots of the Design System's pattern library
 components to "golden" screenshots that represent what the components are
 supposed to look like.
 
@@ -188,7 +188,7 @@ dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
 
 [Node.js]: https://nodejs.org
-[Fractal]: http://fractal.build
+[Pattern lab]: https://patternlab.io/
 [Gulp]: http://gulpjs.com/
 [Yarn]: https://yarnpkg.com/
 [eslint]: http://eslint.org/

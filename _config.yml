@@ -1,3 +1,3 @@
 # when publishing on Federalist, build only the files in ./build
-# (where Fractal puts everything)
+# (where Pattern library compiles to)
 source: build
