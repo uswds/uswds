@@ -77,8 +77,7 @@ $icon-list-font-sizes: (
                 $icon-list-icon-padding-left-factor;
 
               // Resize the content unless a manual class is set
-              &:not(.usa-icon-list__content--manual),
-              &:not(.usa-icon-list__content--manual) * {
+              > *:not(p, h1, h2, h3, h4, h5, h6) {
                 font-size: size($theme-icon-list-font-family, $token);
                 margin-bottom: 0;
               }
