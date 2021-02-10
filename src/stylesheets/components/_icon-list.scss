@@ -6,6 +6,8 @@ $icon-list-icon-size-factor: 1.75;
 $icon-list-icon-margin-top: -8%;
 // Fine tune the space between the icon and content with this factor
 $icon-list-icon-padding-left-factor: 0.6;
+// Fine tune the title top padding given a line height of 2
+$icon-list-title-padding-top: 0.2em;
 
 $icon-list-font-sizes: (
   "xs" $theme-type-scale-xs,
@@ -70,9 +72,10 @@ $icon-list-font-sizes: (
             .usa-icon-list__content {
               // Calculate the space between the icon and content based on the size variant and factor
               padding-left: $type-scale * $icon-list-icon-padding-left-factor;
+              // Resize simple (un-marked up) content
               font-size: size($theme-icon-list-font-family, $token);
 
-              // Resize the content unless a manual class is set
+              // But don't resize any element inside content
               p,
               h1,
               h2,
@@ -108,8 +111,8 @@ $icon-list-font-sizes: (
   $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
   .usa-icon-list__icon {
     .usa-icon {
-      display: block;
       // Set the height and width of the icon based on the size variant and factor
+      display: block;
       height: $type-scale * $icon-list-icon-size-factor;
       margin-top: $icon-list-icon-margin-top;
       position: relative;
@@ -136,7 +139,7 @@ $icon-list-font-sizes: (
     font-size: size($theme-icon-list-font-family, $theme-body-font-size);
     line-height: lh($theme-icon-list-font-family, $theme-heading-line-height);
     margin-bottom: units(0);
-    padding-top: 0.25em;
+    padding-top: $icon-list-title-padding-top;
     & + * {
       margin-top: units(1);
     }
