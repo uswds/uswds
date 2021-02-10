@@ -63,7 +63,6 @@ function toggleModal(event) {
 
   // When we're not hitting the escape key…
   if (clickedElement) {
-    event.preventDefault();
 
     // Make sure we click the opener
     // If it doesn't have an ID, make one
@@ -88,7 +87,6 @@ function toggleModal(event) {
       }
       else {
         event.stopPropagation();
-        event.preventDefault();
         return false;
       }
     }
@@ -115,25 +113,7 @@ function toggleModal(event) {
   if (safeActive && openFocusEl) {
     // The modal window is opened. Focus is set to close button.
 
-    // This if timeout could be fractal weirdness
-    // in safari. But gives element a chance to appear
-    // before setting focus.
-    //setTimeout(function(){ 
-    //  nonModals.forEach(el => {
-    //    el.setAttribute("aria-hidden", "true");
-    //    el.setAttribute("inert", "")
-    //  }) }, 
-    //100);
-
-    
-
-    //setTimeout(() => openFocusEl.focus(), 15);
-
-    
-
-    
-
-    // Enables the escape if we're not forcing
+    // Binds escape key if we're not forcing
     // the user to take an action
     if (forceUserAction){
       modal.focusTrap = FocusTrap(targetModal);
@@ -143,23 +123,27 @@ function toggleModal(event) {
         Escape: onMenuClose,
       });
     }
+
+    // Handles focus setting and interactions
     modal.focusTrap.update(safeActive);
     openFocusEl.focus();
-    setTimeout(function(){ 
-      for (var i = 0; i < nonModals.length; i +=1 ) {
-        nonModals[i].setAttribute("aria-hidden", "true");
-      }}, 
-      100);
+
+    // Hides everything that is not the modal from screen readers
+    for (var i = 0; i < nonModals.length; i +=1 ) {
+      nonModals[i].setAttribute("aria-hidden", "true");
+    }
   } else if (
     !safeActive &&
     menuButton &&
     returnFocus
   ) {
     // The modal window is closed.
-    // Focus is returned to the opener
+    // Non-modals now accesible to screen reader
     for ( var i = 0; i < nonModals.length; i+=1 ) {
       nonModals[i].removeAttribute("aria-hidden");
     }
+
+    // Focus is returned to the opener
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
@@ -224,7 +208,9 @@ const setUpAttributes = (baseComponent) => {
     el.setAttribute("aria-controls", modalID);
   }); 
 
-  // Move to the end of the DOM
+  // Move all modals to the end of the DOM. Doing this allows us to
+  // more easily find the elements to hide from screen readers 
+  // when the modal is open.
   document.body.appendChild(modalParent);
 }
 
@@ -243,13 +229,16 @@ modal = behavior(
       
       select(OPENERS, root).forEach((item) => {
         
-        // Turn anchor links into buttons
+        // Turn anchor links into buttons because of
+        // VoiceOver on Safari
         if ( item.nodeName === "A" ) {
           item.setAttribute("role", "button");
         }
         
-        // Can ucomment when aria-haspopup="dialog" is supported
+        // Can uncomment when aria-haspopup="dialog" is supported
         // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+        // Most screen readers support aria-haspopup, but might announce
+        // as opening a menu if "dialog" is not supported.
         // item.setAttribute("aria-haspopup", "dialog");
       });    
     },
