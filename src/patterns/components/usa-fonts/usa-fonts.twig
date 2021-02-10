@@ -4,7 +4,7 @@
 
   <div class="grid-row grid-gap">
     <div class="tablet:grid-col">
-      {{ face.description }}
+      {{ face.description|raw }}
     </div>
 
     <div class="usa-{{ face.id }} typography-{{ face.id }}-intro tablet:grid-col">

@@ -3,6 +3,10 @@
     {%- if title %}
       <h3 class="usa-alert__heading">{{ title }}</h3>
     {%- endif %}
-    <p class="usa-alert__text">{{ text }}</p>
+    <p class="usa-alert__text">
+      {% autoescape false %}
+        {{ text }}
+      {% endautoescape %}
+    </p>
   </div>
 </div>

@@ -43,7 +43,7 @@
         "general-header": "views/partials/general-header.mustache",
         "general-footer": "views/partials/general-footer.mustache",
         "patternSection": "views/partials/patternSection.mustache",
-        "patternSectionSubtype": "views/partials/patternSectionSubtype.mustache",
+        "patternSectionSubgroup": "views/partials/patternSectionSubgroup.mustache",
         "viewall": "views/viewall.mustache"
       },
       "js": "./dist/js",
@@ -52,15 +52,15 @@
       "css": "./dist/css"
     },
     "public": {
-      "root": "./patternlab/",
-      "patterns": "./patternlab/patterns/",
-      "data": "./patternlab/styleguide/data/",
-      "annotations": "./patternlab/annotations/",
-      "styleguide": "./patternlab/styleguide/",
-      "js": "./patternlab/js",
-      "images": "./patternlab/img",
-      "fonts": "./patternlab/fonts",
-      "css": "./patternlab/css"
+      "root": "./build/",
+      "patterns": "./build/patterns/",
+      "data": "./build/styleguide/data/",
+      "annotations": "./build/annotations/",
+      "styleguide": "./build/styleguide/",
+      "js": "./build/js",
+      "images": "./build/img",
+      "fonts": "./build/fonts",
+      "css": "./build/css"
     }
   },
   "patternExtension": "twig",
@@ -71,11 +71,21 @@
     "wait": 1000
   },
   "starterkitSubDir": "dist",
-  "styleGuideExcludes": [],
+  "styleGuideExcludes": [
+    "compare",
+    "test"
+  ],
   "theme": {
     "color": "light",
-    "density": "compact",
-    "layout": "horizontal"
+    "density": "comfortable",
+    "layout": "vertical",
+    "logo": {
+      "text": "USWDS",
+      "url": "./?p=all",
+      "srcLight": "https://raw.githubusercontent.com/uswds/uswds-site/main/img/uswds-logo/4c-lg-on-white.svg",
+      "width": "25",
+      "height": "25"
+    }
   },
   "uikits": [
     {
@@ -108,14 +118,6 @@
           "recursive": true,
           "paths": [
             "./src/patterns/compare"
-          ]
-        }
-      ],
-      "alterTwigEnv": [
-        {
-          "file": "./src/styleguide/drupal-twig/alter-twig.php",
-          "functions": [
-            "twig_extensions"
           ]
         }
       ]

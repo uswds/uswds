@@ -24,7 +24,7 @@ cards:
         </ol>
     cta_text: Help the less fortunate
   - title: I hereunto append the result
-    classes_override: 'usa-card--flag tablet:grid-col-12'
+    classes_override: 'usa-card--flag desktop:grid-col-6'
     header_first: true
     media: true
     content: |-
@@ -32,7 +32,7 @@ cards:
     cta_text: Make some inquiries
     cta_modifier: 'usa-button--outline'
   - title: My friend's friend
-    classes_override: 'usa-card--flag tablet:grid-col-12'
+    classes_override: 'usa-card--flag desktop:grid-col-6'
     header_first: true
     flag_direction: 'right'
     media:
