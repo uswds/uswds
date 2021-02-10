@@ -94,8 +94,16 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     tooltipBodyOffset,
     trigger
   ) => {
+
+    console.log({
+      marginPosition,
+      tooltipBodyOffset,
+      trigger
+    },
+    offsetMargin(trigger, `margin-${marginPosition}`))
+
     const offset =
-      offsetMargin(trigger, `margin-${marginPosition}`) > 0
+      offsetMargin(trigger, `margin-${marginPosition}`) >= 0
         ? tooltipBodyOffset - offsetMargin(trigger, `margin-${marginPosition}`)
         : tooltipBodyOffset;
 
@@ -156,20 +164,32 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       tooltipTrigger
     );
 
+    console.log(tooltipTrigger.offsetLeft)
+    // console.log(tooltipTrigger.offsetWidth)
+    console.log(e.offsetWidth)
+    //TODO: Need to take care of the margin here, still conflicts
+
     // we have to check for some utility margins
     const rightMargin = calculateMarginOffset(
       "right",
       tooltipTrigger.offsetLeft > e.offsetWidth
         ? tooltipTrigger.offsetLeft - e.offsetWidth
-        : e.offsetWidth,
+        : tooltipTrigger.offsetLeft + e.offsetWidth,
       tooltipTrigger
     );
 
+    console.log(rightMargin)
+
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.right = `-${TRIANGLE_SIZE}px`;
+    e.style.right = `${
+      tooltipTrigger.offsetLeft > e.offsetWidth
+        ? TRIANGLE_SIZE
+        : -TRIANGLE_SIZE}px`;
     e.style.margin = `-${topMargin / 2}px ${
-      tooltipTrigger.offsetLeft > e.offsetWidth ? rightMargin : -rightMargin
+      tooltipTrigger.offsetLeft > e.offsetWidth
+      ? rightMargin
+      : -rightMargin
     }px 0 0`;
     return false;
   };
