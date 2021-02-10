@@ -28,6 +28,7 @@ const SORT_BUTTON = `.${SORT_BUTTON_CLASS}`;
 const SORTABLE_HEADER = `th[data-sortable]`;
 const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="polite"]`;
 
+
 /** Gets the data-sort-value attribute value, if provided — otherwise, gets
  * the innerText or textContent — of the child element (HTMLTableCellElement) 
  * at the specified index of the given table row
@@ -37,8 +38,8 @@ const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="po
  * @return {boolean} 
  */
 const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRIDE) 
-                                  || tr.children[index].innerText 
-                                  || tr.children[index].textContent;
+  || tr.children[index].innerText 
+  || tr.children[index].textContent;
 
 /**
  * Compares the values of two row array items at the given index, then sorts by the given direction
@@ -72,9 +73,9 @@ const updateSortLabel = (header) => {
   const sortedAscending = header.getAttribute(SORTED) === ASCENDING;
   const isSorted = header.getAttribute(SORTED) === ASCENDING || header.getAttribute(SORTED) === DESCENDING || false;
   const headerLabel = `${headerName}', sortable column, currently ${isSorted ? `${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`: 'unsorted'}`;
-  const headerButtonLabel = `Sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order.`;
+  const headerButtonLabel = `Click to sort by ${headerName} in ${sortedAscending ? DESCENDING : ASCENDING} order.`;
   header.setAttribute("aria-label", headerLabel);
-  header.querySelector(SORT_BUTTON).setAttribute("aria-label", headerButtonLabel);
+  header.querySelector(SORT_BUTTON).setAttribute("title", headerButtonLabel);
 }
 
 /**
@@ -98,7 +99,7 @@ const sortRows = (header, ascending) => {
 
   const tbody = header.closest(TABLE).querySelector('tbody');
 
-  // We can use Array.from() and Array.sort() instead once we drop IE support, likely in the summer of 2021
+  // We can use Array.from() and Array.sort() instead once we drop IE11 support, likely in the summer of 2021
   //
   // Array.from(tbody.querySelectorAll('tr').sort(
   //   compareFunction(
@@ -107,8 +108,8 @@ const sortRows = (header, ascending) => {
   //   )
   // .forEach(tr => tbody.appendChild(tr) );
 
-  // turn array-like sets into true arrays so that we can sort them
-  let allRows = [].slice.call(tbody.querySelectorAll('tr')); 
+  // [].slice.call() turns array-like sets into true arrays so that we can sort them
+  const allRows = [].slice.call(tbody.querySelectorAll('tr')); 
   const allHeaders = [].slice.call(header.parentNode.children);
   const thisHeaderIndex = allHeaders.indexOf(header);
   allRows.sort(
@@ -123,6 +124,25 @@ const sortRows = (header, ascending) => {
   });
   
   return true;
+}
+
+/**
+ * Update the live region immediately following the table whenever sort changes.
+ * @param {HTMLTableElement} table
+ * @param {HTMLTableHeaderCellElement} sortedHeader
+ */
+
+const updateLiveRegion = (table, sortedHeader) => {
+  const caption = table.querySelector('caption').innerText;
+  const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
+  const headerLabel = sortedHeader.innerText;
+  const liveRegion = table.nextElementSibling;
+  if (liveRegion && liveRegion.matches(ANNOUNCEMENT_REGION)) {
+    const sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
+    liveRegion.innerText = sortAnnouncement;  
+  } else {
+    throw new Error(`Table containing a sortable column header is not followed by an aria-live region.`)
+  }
 }
 
 /**
@@ -170,28 +190,6 @@ const createHeaderButton = (header) => {
   updateSortLabel(header);
 }
 
-
-/**
- * Update the live region immediately following the table whenever sort changes.
- * @param {HTMLTableElement} table
- * @param {HTMLTableHeaderCellElement} sortedHeader
- */
-
-const updateLiveRegion = (table, sortedHeader) => {
-  const caption = table.querySelector('caption').innerText;
-  const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
-  const headerLabel = sortedHeader.innerText;
-  const liveRegion = table.nextElementSibling;
-  if (liveRegion && liveRegion.matches(ANNOUNCEMENT_REGION)) {
-    var sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
-    liveRegion.innerText = sortAnnouncement;  
-  } else {
-    throw new Error(`Table containing a sortable column header is not followed by an aria-live region.`)
-  }
-}
- 
-
-
 const table = behavior(
   {
     [CLICK]: {
@@ -217,7 +215,7 @@ const table = behavior(
       const sortDir = firstSorted.getAttribute(SORTED);
       if (sortDir === ASCENDING) {
         toggleSort(firstSorted, true);
-        return;
+        
       }
       else if (sortDir === DESCENDING) {
         toggleSort(firstSorted, false);

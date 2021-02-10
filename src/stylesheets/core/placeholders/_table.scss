@@ -45,50 +45,42 @@
     padding-right: units(5);
     position: relative;
     &:after {
-      content: "";
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 0;
-      border-bottom-width: units(1px);
       border-bottom-color: transparent;
       border-bottom-style: solid;
+      border-bottom-width: units(1px);
+      bottom: 0;
+      content: "";
+      height: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
     }
   }
 
   @mixin table-header-sorted-styles {
     background-color: color($theme-table-sorted-header-background-color);
-    border-width: units(2px) units(2px) units(1px);
     border-left-color: color($theme-table-sorted-border-color);
     border-right-color: color($theme-table-sorted-border-color);
     border-top-color: color($theme-table-sorted-border-color);
-    
-    // &:after {
-    //   border-bottom-color: color("ink");
-    // }
+    border-width: units(2px) units(2px) units(1px);
   }
 
   @mixin table-button-default-styles {
     @include button-unstyled;
-    // @include add-background-svg("usa-icons/swap_vert");
-    position: absolute;
-    top: 50%;
-    right: .25rem;
+    @include u-square(4);
     background-position: center center;
     background-size: units(3);
-    color: color("ink");
+    color: color($theme-table-unsorted-icon-color);
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    @include u-square(4);
-    text-decoration: none;
+    position: absolute;
+    right: .25rem;
     text-align: center;
+    text-decoration: none;
+    // vertically center button within table header
+    top: 50%;
     transform: translate(0, -50%);
-    &:hover {
-      // background-color: color("base-lightest");
-      // color: color("ink");
-    }
     .usa-icon {
       @include u-square(3);
       vertical-align: middle;
@@ -97,10 +89,17 @@
       }
     }
   }
+
+  // The SVG in the sortable column button contains three icon shapes.
+  // This CSS controls which of the shapes is 'filled' when active.
+
   @mixin table-button-unsorted-styles {
     @include table-button-default-styles;
     .usa-icon > g#unsorted {
       fill: color($theme-table-unsorted-icon-color);
+    }
+    &:hover .usa-icon > g#unsorted {
+      fill: color($theme-table-sorted-icon-color);
     }
   }
 
