@@ -1,7 +1,7 @@
 // Variables
 
 // Size icons based on the theme-type-scale-[size] number and this factor
-$icon-list-icon-size-factor: 2;
+$icon-list-icon-size-factor: 1.75;
 // Center the icon to the title text, works for all size variants
 $icon-list-icon-margin-top: -8%;
 // Fine tune the space between the icon and content with this factor
@@ -55,28 +55,37 @@ $icon-list-font-sizes: (
         $prefix: "#{$mq-key}\\:";
       }
       @if $prefix {
+        $type-scale: font-size($theme-icon-list-font-family, $token);
         @include at-media($mq-key) {
           .#{$prefix}usa-icon-list--size-#{$token} {
             .usa-icon-list__icon {
               .usa-icon {
                 // Set the height and width of the icon based on the size variant and factor
-                height: system-type-scale($val) * $icon-list-icon-size-factor;
+                height: $type-scale * $icon-list-icon-size-factor;
                 margin-top: $icon-list-icon-margin-top;
-                width: system-type-scale($val) * $icon-list-icon-size-factor;
+                width: $type-scale * $icon-list-icon-size-factor;
               }
-            }
-
-            .usa-icon-list__title {
-              font-size: size($theme-icon-list-font-family, $token);
             }
 
             .usa-icon-list__content {
               // Calculate the space between the icon and content based on the size variant and factor
-              padding-left: system-type-scale($val) *
-                $icon-list-icon-padding-left-factor;
+              padding-left: $type-scale * $icon-list-icon-padding-left-factor;
+              font-size: size($theme-icon-list-font-family, $token);
 
               // Resize the content unless a manual class is set
-              > *:not(p, h1, h2, h3, h4, h5, h6, ul, ol) {
+              p,
+              h1,
+              h2,
+              h3,
+              h4,
+              h5,
+              h6,
+              ul,
+              ol {
+                font-size: initial;
+              }
+
+              .usa-icon-list__title {
                 font-size: size($theme-icon-list-font-family, $token);
               }
             }
@@ -96,17 +105,21 @@ $icon-list-font-sizes: (
     }
   }
 
+  $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
   .usa-icon-list__icon {
     .usa-icon {
       display: block;
-      height: 1.5em;
+      // Set the height and width of the icon based on the size variant and factor
+      height: $type-scale * $icon-list-icon-size-factor;
+      margin-top: $icon-list-icon-margin-top;
       position: relative;
-      width: 1.5em;
+      width: $type-scale * $icon-list-icon-size-factor;
     }
   }
 
   .usa-icon-list__content {
-    padding-left: 0.5rem;
+    padding-left: $type-scale * $icon-list-icon-padding-left-factor;
+    font-size: $type-scale;
     > *:first-child {
       margin-top: 0;
     }
@@ -120,7 +133,7 @@ $icon-list-font-sizes: (
   }
 
   .usa-icon-list__title {
-    font-size: size($theme-icon-list-font-family, "lg");
+    font-size: size($theme-icon-list-font-family, $theme-body-font-size);
     line-height: lh($theme-icon-list-font-family, $theme-heading-line-height);
     margin-bottom: units(0);
     padding-top: 0.25em;
