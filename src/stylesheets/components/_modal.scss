@@ -11,18 +11,29 @@
 
 .usa-modal {
   text-align: center;
-  position: fixed;
-  z-index: 1000;
 
   // Using visibility: hidden instead of display: none because
   // of iOS VoiceOver issue: 
   // https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
   &.is-hidden {
     visibility: hidden;
+    position: fixed;
   }
 
   &.is-visible {
-    visibility: visible; 
+    visibility: visible;
+    position: fixed;
+    z-index: 1000; 
+  }
+}
+
+.usa-js-loading {
+  .usa-modal {
+    @include add-sr-only;
+  }
+
+  .usa-modal:target {
+    position:static;
   }
 }
 
