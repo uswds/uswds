@@ -103,7 +103,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             // Resize simple (un-marked up) content
             font-size: size($theme-icon-list-font-family, $token);
 
-            // But don't resize any element inside content
+            // But don't resize any block-level element inside content
             > p,
             > h2,
             > h3,
