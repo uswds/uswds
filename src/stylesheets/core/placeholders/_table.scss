@@ -9,6 +9,7 @@
 
   thead {
     th {
+      background-clip: padding-box;
       font-weight: fw("bold");
       line-height: line-height($theme-body-font-family, $theme-input-line-height);
     }
@@ -30,7 +31,6 @@
     background-color: color("white");
     font-weight: fw("normal");
     padding: units(1) units(2);
-    background-clip: padding-box;
   }
 
   caption {
@@ -185,6 +185,9 @@
       th {
         background-color: color($theme-table-stripe-background-color);
         color: color($theme-table-stripe-text-color);
+        &[data-sort-active] {
+          background-color: color($theme-table-sorted-stripe-background-color);
+        }
       }
     }
   }
