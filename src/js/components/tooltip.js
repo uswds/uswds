@@ -103,7 +103,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     offsetMargin(trigger, `margin-${marginPosition}`))
 
     const offset =
-      offsetMargin(trigger, `margin-${marginPosition}`) >= 0
+      offsetMargin(trigger, `margin-${marginPosition}`) > 0
         ? tooltipBodyOffset - offsetMargin(trigger, `margin-${marginPosition}`)
         : tooltipBodyOffset;
 
@@ -174,7 +174,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       "right",
       tooltipTrigger.offsetLeft > e.offsetWidth
         ? tooltipTrigger.offsetLeft - e.offsetWidth
-        : tooltipTrigger.offsetLeft + e.offsetWidth,
+        : e.offsetWidth,
       tooltipTrigger
     );
 
@@ -182,10 +182,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
 
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.right = `${
-      tooltipTrigger.offsetLeft > e.offsetWidth
-        ? TRIANGLE_SIZE
-        : -TRIANGLE_SIZE}px`;
+    e.style.right = `-${TRIANGLE_SIZE}px`;
+    // e.style.margin = `-${topMargin / 2}px 0 0 0`;
+    // e.style.right =
+    //   tooltipTrigger.offsetLeft > e.offsetWidth
+    //     ? `${((-TRIANGLE_SIZE) + offsetMargin(tooltipTrigger, `margin-right`))}px`
+    //     : `${((-TRIANGLE_SIZE) - offsetMargin(tooltipTrigger, `margin-right`))}px`
     e.style.margin = `-${topMargin / 2}px ${
       tooltipTrigger.offsetLeft > e.offsetWidth
       ? rightMargin
