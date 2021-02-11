@@ -3,17 +3,19 @@
 @mixin at-media($bp) {
   $quoted-bp: smart-quote($bp);
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
-  @if map-has-key($our-breakpoints, $quoted-bp) {
+  @if $quoted-bp == "none" {
+    @content;
+  } @else if map-has-key($our-breakpoints, $quoted-bp) {
     @if $theme-respect-user-font-size {
       $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp));
     } @else {
       $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp));
     }
+    @media all and (min-width: #{$bp}) {
+      @content;
+    }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
-  }
-  @media all and (min-width: #{$bp}) {
-    @content;
   }
 }
 

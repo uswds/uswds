@@ -15,95 +15,102 @@ context:
       content: Confirm what donations are needed.
     - icon:
         name: cancel
-        color: secondary
+        color: red
       content: Don't just show up to a disaster area.
 
 variants:
-  - name: large-icon
-    label: Large icon
+  - name: simple
+    label: Simple content
     context:
-      iconSize: lg
       items:
         - icon:
-            name: attach_money
-            color: primary
-            utilities: bottom-0
-          content: |
-            <p class="usa-icon-list__title">Donate cash when possible.</p>
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Use cash.</span> Donate cash when possible.
         - icon:
-            name: mail
-            color: primary
-            utilities: bottom-0
-          content: |
-            <p class="usa-icon-list__title">Confirm what donations are needed.</p>
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Check first.</span> Confirm what donations are needed.
         - icon:
-            name: chat
-            color: primary
-            utilities: bottom-0
-          content: |
-            <p class="usa-icon-list__title">Talk to trusted organizations about volunteering.</p>
-  - name: complex-list
-    label: Default with title and description
-    context:
-      iconSize: sm
-      items:
-        - icon:
-            name: attach_money
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Donate cash when possible.</h2>
-            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
-        - icon:
-            name: mail
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Confirm what donations are needed.</h2>
-            <p>Unsolicited goods NOT needed burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
-            <p>Critical needs change rapidly. Confirm with trusted organizations what items are needed BEFORE collecting. Remember to:</p>
-            <ul>
-              <li>Pack and label carefully</li>
-              <li>Confirm delivery locations</li>
-              <li>Arrange transportation</li>
-            </ul>
-        - icon:
-            name: chat
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h2>
-            <p>Don’t self-deploy to disaster areas. Trusted organizations operating in the affected area know where volunteers are needed and can ensure appropriate volunteer safety, training and housing.</p>
-  - name: complex-list2
-    label: Large with title and description
-    context:
-      iconSize: lg
-      items:
-        - icon:
-            name: attach_money
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Donate cash when possible.</h2>
-            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
-        - icon:
-            name: mail
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Confirm what donations are needed.</h2>
-            <p>Unsolicited goods NOT needed burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
-            <p>Critical needs change rapidly. Confirm with trusted organizations what items are needed BEFORE collecting. Remember to:</p>
-            <ul>
-              <li>Pack and label carefully</li>
-              <li>Confirm delivery locations</li>
-              <li>Arrange transportation</li>
-            </ul>
-        - icon:
-            name: chat
-            color: primary
-            utilities: bottom-0
-          content: |
-            <h2 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h2>
-            <p>Don’t self-deploy to disaster areas. Trusted organizations operating in the affected area know where volunteers are needed and can ensure appropriate volunteer safety, training and housing.</p>
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Volunteer.</span> Talk to trusted organizations about volunteering.
 
+  - name: rich
+    label: Rich content
+    context:
+      items:
+        - icon:
+            name: check_circle
+            color: ink
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Donate cash when possible.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+
+        - icon:
+            name: check_circle
+            color: ink
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Confirm what donations are needed.</h3>
+            <p>Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
+
+        - icon:
+            name: check_circle
+            color: ink
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+  - name: custom-size
+    label: Custom size
+    context:
+      iconSize: lg
+      items:
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Use cash.</span> Donate cash when possible.
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Check first.</span> Confirm what donations are needed.
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: <span class="text-bold">Volunteer.</span> Talk to trusted organizations about volunteering.
+  - name: custom-size-rich
+    label: Custom size with rich content
+    context:
+      iconSize: lg
+      items:
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Donate cash when possible.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
+
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Confirm what donations are needed.</h3>
+            <p>Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed needs, drawing away valuable volunteer labor, transportation and warehouse space.</p>
+
+        - icon:
+            name: check
+            color: green
+            utilities:
+          content: |
+            <h3 class="usa-icon-list__title">Talk to trusted organizations about volunteering.</h3>
+            <p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>
