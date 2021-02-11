@@ -11,13 +11,13 @@ const SORT_OVERRIDE = "data-sort-value";
 
 const ICON_SOURCE = `
   <svg class="${PREFIX}-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g id="descending" fill="transparent">
+    <g class="descending" fill="transparent">
       <path d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z"/>
     </g>
-    <g id="ascending" fill="transparent">
+    <g class="ascending" fill="transparent">
       <path transform="rotate(180, 12, 12)" d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z"/>
     </g>
-    <g id="unsorted" fill="transparent">
+    <g class="unsorted" fill="transparent">
       <polygon points="15.17 15 13 17.17 13 6.83 15.17 9 16.58 7.59 12 3 7.41 7.59 8.83 9 11 6.83 11 17.17 8.83 15 7.42 16.41 12 21 16.59 16.41 15.17 15"/>
     </g>
   </svg>

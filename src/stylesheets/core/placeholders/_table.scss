@@ -95,23 +95,23 @@
 
   @mixin table-button-unsorted-styles {
     @include table-button-default-styles;
-    .usa-icon > g#unsorted {
+    .usa-icon > g.unsorted {
       fill: color($theme-table-unsorted-icon-color);
     }
-    &:hover .usa-icon > g#unsorted {
+    &:hover .usa-icon > g.unsorted {
       fill: color($theme-table-sorted-icon-color);
     }
   }
 
   @mixin table-button-sorted-ascending-styles {
     @include table-button-default-styles;
-    .usa-icon > g#ascending {
+    .usa-icon > g.ascending {
       fill: color($theme-table-sorted-icon-color);
     }
   }
   @mixin table-button-sorted-descending-styles {
     @include table-button-default-styles;
-    .usa-icon > g#descending {
+    .usa-icon > g.descending {
       fill: color($theme-table-sorted-icon-color);
     }
   }
