@@ -23,7 +23,7 @@
   &.is-visible {
     visibility: visible;
     position: fixed;
-    z-index: 1000;
+    z-index: z-index($theme-modal-z-index);
   }
 }
 
@@ -40,16 +40,15 @@
 }
 
 .usa-modal__inner {
-  @include u-radius($theme-card-border-radius);
-  border: 1px solid color("base");
+  @include u-radius($theme-modal-border-radius);
+  @include u-border($theme-modal-border-width, $theme-modal-border-color);
   background: white;
   display: inline-block;
   margin: units(2.5) auto;
-  max-width: 500px;
+  max-width: $theme-modal-default-max-width;
   position: relative;
   text-align: left;
   vertical-align: middle;
-  z-index: 300;
 
   &:focus {
     outline: none;
@@ -78,7 +77,6 @@
   scroll-behavior: smooth;
   top: 0;
   width: 100%;
-  z-index: 200;
 
   &:before {
     content: "";
@@ -156,7 +154,7 @@
     padding-bottom: units(8);
     padding-top: units(2.5);
     width: 100%;
-    max-width: 631px;
+    max-width: $theme-modal-lg-max-width;
   }
 
   .usa-modal__heading {
