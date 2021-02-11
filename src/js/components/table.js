@@ -47,10 +47,21 @@ const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRID
  * @param {string} direction
  * @return {boolean}
  */
-const compareFunction = (index, direction) => (a, b) => ((v1, v2) =>
-    // if neither value is empty, and if both values are already numbers, compare numerically. Otherwise, compare alphabetically based on current user locale
-    v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.language, {numeric: true, ignorePunctuation: true})
-    )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
+const compareFunction = (index, isAscending) => (thisRow, nextRow) => {
+
+  // get values to compare from data attribute or cell content
+  let value1 = getCellValue(isAscending ? thisRow : nextRow, index);
+  let value2 = getCellValue(isAscending ? nextRow : thisRow, index);
+
+  // if neither value is empty, and if both values are already numbers, compare numerically
+  if (value1 !== '' && value2 !== '' && !Number.isNaN(Number(value1)) && !Number.isNaN(Number(value2))) {
+    return value1 - value2;
+  } else {
+  // Otherwise, compare alphabetically based on current user locale
+    return value1.toString().localeCompare(value2, navigator.language, {numeric: true, ignorePunctuation: true})
+  }
+}
+
 
 /**
  * Get an Array of column headers elements belonging directly to the given
@@ -90,11 +101,11 @@ const unsetSort = (header) => {
 /**
  * Sort rows either ascending or descending, based on a given header's aria-sort attribute
  * @param {HTMLTableHeaderCellElement} header
- * @param {boolean} ascending
+ * @param {boolean} isAscending
  * @return {boolean} true
  */
-const sortRows = (header, ascending) => {
-  header.setAttribute(SORTED, ascending === true ? DESCENDING : ASCENDING );
+const sortRows = (header, isAscending) => {
+  header.setAttribute(SORTED, isAscending === true ? DESCENDING : ASCENDING );
   updateSortLabel(header);
 
   const tbody = header.closest(TABLE).querySelector('tbody');
@@ -104,7 +115,7 @@ const sortRows = (header, ascending) => {
   // Array.from(tbody.querySelectorAll('tr').sort(
   //   compareFunction(
   //     Array.from(header.parentNode.children).indexOf(header),
-  //     !ascending)
+  //     !isAscending)
   //   )
   // .forEach(tr => tbody.appendChild(tr) );
 
@@ -115,7 +126,7 @@ const sortRows = (header, ascending) => {
   allRows.sort(
     compareFunction(
       thisHeaderIndex,
-      !ascending
+      !isAscending
     )
   ).forEach(tr => {
     [].slice.call(tr.children).forEach(td => td.removeAttribute("data-sort-active"));
@@ -150,12 +161,12 @@ const updateLiveRegion = (table, sortedHeader) => {
  * state.
  *
  * @param {HTMLTableHeaderCellElement} header
- * @param {boolean?} ascending If no state is provided, the current
+ * @param {boolean?} isAscending If no state is provided, the current
  * state will be toggled (from false to true, and vice-versa).
  */
-const toggleSort = (header, ascending) => {
+const toggleSort = (header, isAscending) => {
   const table = header.closest(TABLE);
-  let safeAscending = ascending;
+  let safeAscending = isAscending;
   if (typeof safeAscending !== "boolean") {
     safeAscending = header.getAttribute(SORTED) === ASCENDING;
   }
@@ -164,7 +175,7 @@ const toggleSort = (header, ascending) => {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
-  safeAscending = sortRows(header, ascending);
+  safeAscending = sortRows(header, isAscending);
 
   if (safeAscending) {
     getColumnHeaders(table).forEach((otherHeader) => {
