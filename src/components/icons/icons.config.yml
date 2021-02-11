@@ -54,8 +54,6 @@ context:
         meta: "navigation direction"
       - name: arrow_upward
         meta: "navigation direction"
-      - name: swap_vert
-        meta: "navigation direction"
       - name: api
         meta: "application programming interface"
       - name: assessment
