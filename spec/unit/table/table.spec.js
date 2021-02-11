@@ -106,9 +106,9 @@ describe("Sortable Table", () => {
     it('has an SVG which displays the correct icon', () => {
       const currentSortDirection = sortableHeaders[0].getAttribute("aria-sort");
       const futureSortDirection = currentSortDirection ===  DESCENDING ? ASCENDING : DESCENDING; 
-      const activeSVGNode = sortableHeaders[0].querySelector(`.usa-icon > #${currentSortDirection}`);
-      const inactiveSVGNode = sortableHeaders[0].querySelector(`.usa-icon > #${futureSortDirection}`);
-      const unsortedSVGNode = sortableHeaders[0].querySelector(".usa-icon > #unsorted");
+      const activeSVGNode = sortableHeaders[0].querySelector(`.usa-icon > .${currentSortDirection}`);
+      const inactiveSVGNode = sortableHeaders[0].querySelector(`.usa-icon > .${futureSortDirection}`);
+      const unsortedSVGNode = sortableHeaders[0].querySelector(".usa-icon > .unsorted");
       assert.notEqual((getComputedStyle(activeSVGNode).fill), "transparent");
       assert.equal((getComputedStyle(inactiveSVGNode).fill), "transparent");
       assert.equal((getComputedStyle(unsortedSVGNode).fill), "transparent");
