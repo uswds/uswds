@@ -3,6 +3,7 @@ const assert = require("assert");
 const fs = require("fs");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
+const STYLES = fs.readFileSync(`${__dirname}/../../../dist/css/uswds.min.css`);
 
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
@@ -11,6 +12,8 @@ const sortButtonEl = ".usa-table__header__button";
 
 describe("Sortable Table", () => {
   const { body } = document;
+  
+  document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`)
 
   let root;
   let tbody;
@@ -99,6 +102,17 @@ describe("Sortable Table", () => {
       assert.equal(firstHeaderButton.classList.contains("usa-table__header__button"), true);
       assert.equal(firstHeaderButton.getAttribute("title").includes(futureSortDirection), true);
     });
+
+    it('has an SVG which displays the correct icon', () => {
+      const currentSortDirection = sortableHeaders[0].getAttribute("aria-sort");
+      const futureSortDirection = currentSortDirection ===  DESCENDING ? ASCENDING : DESCENDING; 
+      const activeSVGNode = sortableHeaders[0].querySelector(`.usa-icon > #${currentSortDirection}`);
+      const inactiveSVGNode = sortableHeaders[0].querySelector(`.usa-icon > #${futureSortDirection}`);
+      const unsortedSVGNode = sortableHeaders[0].querySelector(".usa-icon > #unsorted");
+      assert.notEqual((getComputedStyle(activeSVGNode).fill), "transparent");
+      assert.equal((getComputedStyle(inactiveSVGNode).fill), "transparent");
+      assert.equal((getComputedStyle(unsortedSVGNode).fill), "transparent");
+    })
 
   });
 
