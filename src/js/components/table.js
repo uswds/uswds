@@ -30,24 +30,24 @@ const ANNOUNCEMENT_REGION = `.${PREFIX}-table__announcement-region[aria-live="po
 
 
 /** Gets the data-sort-value attribute value, if provided — otherwise, gets
- * the innerText or textContent — of the child element (HTMLTableCellElement) 
+ * the innerText or textContent — of the child element (HTMLTableCellElement)
  * at the specified index of the given table row
- * 
+ *
  * @param {number} index
  * @param {array<HTMLTableRowElement>} tr
- * @return {boolean} 
+ * @return {boolean}
  */
-const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRIDE) 
-  || tr.children[index].innerText 
+const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRIDE)
+  || tr.children[index].innerText
   || tr.children[index].textContent;
 
 /**
  * Compares the values of two row array items at the given index, then sorts by the given direction
  * @param {number} index
  * @param {string} direction
- * @return {boloean} 
+ * @return {boolean}
  */
-const compareFunction = (index, direction) => (a, b) => ((v1, v2) => 
+const compareFunction = (index, direction) => (a, b) => ((v1, v2) =>
     // if neither value is empty, and if both values are already numbers, compare numerically. Otherwise, compare alphabetically based on current user locale
     v1 !== '' && v2 !== '' && !Number.isNaN(Number(v1)) && !Number.isNaN(Number(v2)) ? v1 - v2 : v1.toString().localeCompare(v2, navigator.language, {numeric: true, ignorePunctuation: true})
     )(getCellValue(direction ? a : b, index), getCellValue(direction ? b : a, index));
@@ -109,20 +109,20 @@ const sortRows = (header, ascending) => {
   // .forEach(tr => tbody.appendChild(tr) );
 
   // [].slice.call() turns array-like sets into true arrays so that we can sort them
-  const allRows = [].slice.call(tbody.querySelectorAll('tr')); 
+  const allRows = [].slice.call(tbody.querySelectorAll('tr'));
   const allHeaders = [].slice.call(header.parentNode.children);
   const thisHeaderIndex = allHeaders.indexOf(header);
   allRows.sort(
     compareFunction(
-      thisHeaderIndex, 
+      thisHeaderIndex,
       !ascending
     )
   ).forEach(tr => {
     [].slice.call(tr.children).forEach(td => td.removeAttribute("data-sort-active"));
     tr.children[thisHeaderIndex].setAttribute("data-sort-active", true);
-    tbody.appendChild(tr) 
+    tbody.appendChild(tr)
   });
-  
+
   return true;
 }
 
@@ -139,7 +139,7 @@ const updateLiveRegion = (table, sortedHeader) => {
   const liveRegion = table.nextElementSibling;
   if (liveRegion && liveRegion.matches(ANNOUNCEMENT_REGION)) {
     const sortAnnouncement = `The table named "${caption}" is now sorted by ${headerLabel} in ${sortedAscending ? ASCENDING : DESCENDING } order.`;
-    liveRegion.innerText = sortAnnouncement;  
+    liveRegion.innerText = sortAnnouncement;
   } else {
     throw new Error(`Table containing a sortable column header is not followed by an aria-live region.`)
   }
@@ -159,7 +159,7 @@ const toggleSort = (header, ascending) => {
   if (typeof safeAscending !== "boolean") {
     safeAscending = header.getAttribute(SORTED) === ASCENDING;
   }
-  
+
   if (!table) {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
@@ -196,9 +196,9 @@ const table = behavior(
       [SORT_BUTTON](event) {
         event.preventDefault();
         toggleSort(
-          event.target.closest(SORTABLE_HEADER), 
+          event.target.closest(SORTABLE_HEADER),
           event.target.closest(SORTABLE_HEADER).getAttribute(SORTED) === ASCENDING
-        ); 
+        );
       },
     },
   },
@@ -211,11 +211,11 @@ const table = behavior(
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
         return;
-      }   
+      }
       const sortDir = firstSorted.getAttribute(SORTED);
       if (sortDir === ASCENDING) {
         toggleSort(firstSorted, true);
-        
+
       }
       else if (sortDir === DESCENDING) {
         toggleSort(firstSorted, false);
