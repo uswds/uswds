@@ -233,7 +233,9 @@ modal = behavior(
         // VoiceOver on Safari
         if ( item.nodeName === "A" ) {
           item.setAttribute("role", "button");
-          item.setAttribute("href", "javascript:void(0)")
+          item.addEventListener("click", function(e){
+            e.preventDefault();
+          })
         }
         
         // Can uncomment when aria-haspopup="dialog" is supported
