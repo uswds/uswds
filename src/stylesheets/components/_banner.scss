@@ -1,7 +1,9 @@
+$banner-context: "Banner";
 $banner-guidance-measure: 3;
 $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
-  $theme-banner-link-color
+  $theme-banner-link-color,
+  $context: $banner-context
 );
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
@@ -48,7 +50,10 @@ $banner-icon-close: (
 
 .usa-banner__header,
 .usa-banner__content {
-  @include set-text-from-bg($theme-banner-background-color);
+  @include set-text-from-bg(
+    $theme-banner-background-color,
+    $context: $banner-context
+  );
 }
 
 .usa-banner__content {
@@ -138,7 +143,8 @@ $banner-icon-close: (
   );
   @include set-link-from-bg(
     $theme-banner-background-color,
-    $theme-banner-link-color
+    $theme-banner-link-color,
+    $context: $banner-context
   );
 
   line-height: line-height($theme-banner-font-family, 2);
@@ -198,7 +204,8 @@ $banner-icon-close: (
   @include u-text("primary", underline, baseline);
   @include set-link-from-bg(
     $theme-banner-background-color,
-    $theme-banner-link-color
+    $theme-banner-link-color,
+    $context: $banner-context
   );
   display: block;
   font-size: font-size($theme-banner-font-family, 1);
@@ -223,7 +230,8 @@ $banner-icon-close: (
     );
     @include set-link-from-bg(
       $theme-banner-background-color,
-      $theme-banner-link-color
+      $theme-banner-link-color,
+      $context: $banner-context
     );
     @include u-pin("none");
     display: inline;
