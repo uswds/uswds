@@ -283,7 +283,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Actually show the tooltip. The VISIBLE_CLASS
    * will change the opacity to 1
    */
-  setTimeout(function makeVisible() {
+  setTimeout(() => {
     tooltipBody.classList.add(VISIBLE_CLASS);
   }, 20);
 };
@@ -367,7 +367,7 @@ const tooltip = behavior(
           addListenerMulti(
             tooltipTrigger,
             "mouseenter focus",
-            function handleShow() {
+            () => {
               showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
               return false;
             }
@@ -377,7 +377,7 @@ const tooltip = behavior(
           addListenerMulti(
             tooltipTrigger,
             "mouseleave blur keydown",
-            function handleHide() {
+            () => {
               hideToolTip(tooltipBody);
               return false;
             }
