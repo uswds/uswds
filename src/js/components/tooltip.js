@@ -31,7 +31,6 @@ const addListenerMulti = (element, eventNames, listener) => {
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
-
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -212,12 +211,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * if the element is clipped out of the viewport
    * we constrain the width only as a last resort
    * @param {HTMLElement} element(alias tooltipBody)
+   * @param {Number} attempt (--flag)
    */
 
+  const maxAttempts = 2;
 
-  const maxAttempts = 2
   function findBestPosition(element, attempt = 1) {
-
     // create array of optional positions
     const positions = [
       positionTop,
@@ -226,32 +225,28 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       positionLeft,
     ];
 
-    let hasVisiblePosition = false
+    let hasVisiblePosition = false;
 
+    // we take a recursive approach
     function recursive(i) {
-
       if (i < positions.length) {
-        const pos = positions[i]
+        const pos = positions[i];
         pos(element);
-
-        if (i === 0) {
-          isElementInViewport(element);
-        }
 
         if (!isElementInViewport(element)) {
           recursive((i += 1));
         } else {
-          hasVisiblePosition = true
+          hasVisiblePosition = true;
         }
       }
     }
 
     recursive(0);
-
+    // if we can't find a position we compress it and try again
     if (!hasVisiblePosition) {
       element.classList.add(ADJUST_WIDTH_CLASS);
       if (attempt <= maxAttempts) {
-        findBestPosition(element, attempt += 1)
+        findBestPosition(element, (attempt += 1));
       }
     }
   }
