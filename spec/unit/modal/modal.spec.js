@@ -10,8 +10,8 @@ describe("Modal window", () => {
   const { body } = document;
 
   let closeButton;
+  let modalWrapper;
   let modalWindow;
-  let modalInner;
   let openButton1;
   let openButton2;
   let overlay;
@@ -22,9 +22,9 @@ describe("Modal window", () => {
     body.innerHTML = TEMPLATE;
     modal.on();
     closeButton = body.querySelector("#close-button");
+    modalWrapper = body.querySelector(".usa-modal-wrapper");
     modalWindow = body.querySelector(".usa-modal");
-    modalInner = body.querySelector(".usa-modal__inner");
-    overlay = body.querySelector(".usa-modal__overlay");
+    overlay = body.querySelector(".usa-modal-overlay");
     openButton1 = body.querySelector("#open-button1");
     openButton2 = body.querySelector("#open-button2");
   });
@@ -38,30 +38,30 @@ describe("Modal window", () => {
   describe("Builds the modal HTML", () => {
     
     it('creates new parent elements', () => {
-      assert.ok(modalInner, "creates inner div");
+      assert.ok(modalWindow, "creates inner div");
       assert.ok(overlay, "creates the overlay");
-      assert.ok(modalWindow, "creates the outer div");
+      assert.ok(modalWrapper, "creates the outer div");
     });
 
     it('adds role="dialog" to modal parent', () => {
-      assert.strictEqual(modalWindow.getAttribute("role"), "dialog");
+      assert.strictEqual(modalWrapper.getAttribute("role"), "dialog");
     });
 
     it('moves aria-lableledby, aria-describedby, and id to the parent', () => {
-      assert.strictEqual(modalInner.hasAttribute("aria-describedby"), false);
-      assert.strictEqual(modalInner.hasAttribute("aria-labelledby"), false);
-      assert.strictEqual(modalInner.hasAttribute("id"), false);
-      assert.strictEqual(modalWindow.hasAttribute("aria-describedby"), true);
-      assert.strictEqual(modalWindow.hasAttribute("aria-labelledby"), true);
-      assert.strictEqual(modalWindow.getAttribute("id"), "modal");
+      assert.strictEqual(modalWindow.hasAttribute("aria-describedby"), false);
+      assert.strictEqual(modalWindow.hasAttribute("aria-labelledby"), false);
+      assert.strictEqual(modalWindow.hasAttribute("id"), false);
+      assert.strictEqual(modalWrapper.hasAttribute("aria-describedby"), true);
+      assert.strictEqual(modalWrapper.hasAttribute("aria-labelledby"), true);
+      assert.strictEqual(modalWrapper.getAttribute("id"), "modal");
     })
 
     it('sets tabindex="-1" to the modal window', () => {
-      assert.strictEqual(modalInner.getAttribute("tabindex"), "-1");
+      assert.strictEqual(modalWindow.getAttribute("tabindex"), "-1");
     });
 
     it('moves the modal to the bottom of the DOM', () => {
-      assert.strictEqual(body.lastElementChild.classList.contains("usa-modal"), true);
+      assert.strictEqual(body.lastElementChild.classList.contains("usa-modal-wrapper"), true);
     });
 
     it('adds role="button" to any <a> opener, but not <button>', () => {
@@ -81,7 +81,7 @@ describe("Modal window", () => {
     });
 
     it("makes the modal visible", () => {
-      assert.strictEqual(isVisible(modalWindow), true);
+      assert.strictEqual(isVisible(modalWrapper), true);
     });
 
     it("adjusts for scrollbar shift", () => {
@@ -89,7 +89,7 @@ describe("Modal window", () => {
     });
 
     it("focuses the modal window when opened", () => {
-      assert.strictEqual(document.activeElement, modalInner);
+      assert.strictEqual(document.activeElement, modalWindow);
     });
   });
 
@@ -101,12 +101,12 @@ describe("Modal window", () => {
     
     it("hides the modal when an close button is clicked", () => {
       closeButton.click();
-      assert.strictEqual(isVisible(modalWindow), false);
+      assert.strictEqual(isVisible(modalWrapper), false);
     });
   
     it("closes the modal when the overlay is clicked", () => {
       overlay.click();
-      assert.strictEqual(isVisible(modalWindow), false);
+      assert.strictEqual(isVisible(modalWrapper), false);
     });
 
     it("sends focus to the element that opened it", () => {

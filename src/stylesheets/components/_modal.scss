@@ -9,7 +9,7 @@
   }
 }
 
-.usa-modal {
+.usa-modal-wrapper {
   text-align: center;
   transition: opacity $project-easing;
 
@@ -30,45 +30,7 @@
   }
 }
 
-// Prevents modals from flickering
-// Still allows content to be accessed
-.usa-js-loading {
-  .usa-modal {
-    @include add-sr-only;
-  }
-
-  .usa-modal:target {
-    position: static;
-  }
-}
-
-.usa-modal__inner {
-  @include u-radius($theme-modal-border-radius);
-  @include u-border($theme-modal-border-width, $theme-modal-border-color);
-  background: white;
-  display: inline-block;
-  margin: units(2.5) auto;
-  max-width: $theme-modal-default-max-width;
-  position: relative;
-  text-align: left;
-  vertical-align: middle;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.usa-modal__content {
-  width: 100%;
-  padding-top: units(4);
-}
-
-.usa-modal__main {
-  margin: 0 auto;
-  padding: units(1) units(4) units(4);
-}
-
-.usa-modal__overlay {
+.usa-modal-overlay {
   background: rgba(0, 0, 0, 0.5);
   bottom: 0;
   height: 100%;
@@ -97,6 +59,44 @@
   }
 }
 
+// Prevents modals from flickering
+// Still allows content to be accessed
+.usa-js-loading {
+  .usa-modal-wrapper {
+    @include add-sr-only;
+  }
+
+  .usa-modal-wrapper:target {
+    position: static;
+  }
+}
+
+.usa-modal {
+  @include u-radius($theme-modal-border-radius);
+  @include u-border($theme-modal-border-width, $theme-modal-border-color);
+  background: white;
+  display: inline-block;
+  margin: units(2.5) auto;
+  max-width: $theme-modal-default-max-width;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.usa-modal__content {
+  width: 100%;
+  padding-top: units(4);
+}
+
+.usa-modal__main {
+  margin: 0 auto;
+  padding: units(1) units(4) units(4);
+}
+
 .usa-modal__content {
   display: flex;
   flex-direction: column-reverse;
@@ -108,8 +108,8 @@
 }
 
 // Prevents JS not recognizing as part of close button.
-.usa-modal *[data-close-modal] > .usa-icon,
-.usa-modal *[data-close-modal] > .usa-icon use {
+.usa-modal-wrapper *[data-close-modal] > .usa-icon,
+.usa-modal-wrapper *[data-close-modal] > .usa-icon use {
   pointer-events: none !important;
 }
 

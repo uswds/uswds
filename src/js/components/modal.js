@@ -7,14 +7,14 @@ const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
-const MODAL_INNER_CLASSNAME = `${MODAL_CLASSNAME}__inner`;
-const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}__overlay`;
+const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}-overlay`;
+const WRAPPER_CLASSNAME = `${MODAL_CLASSNAME}-wrapper`;
 const OPENER_ATTRIBUTE = "data-open-modal";
 const CLOSER_ATTRIBUTE = "data-close-modal";
 const FORCE_ACTION_ATTRIBUTE = "data-force-action";
 const MODAL = `.${MODAL_CLASSNAME}`;
-const INITIAL_FOCUS = `${MODAL} *[data-focus]`;
-const CLOSE_BUTTON = `${MODAL} *[${CLOSER_ATTRIBUTE}]`;
+const INITIAL_FOCUS = `.${WRAPPER_CLASSNAME} *[data-focus]`;
+const CLOSE_BUTTON = `${WRAPPER_CLASSNAME} *[${CLOSER_ATTRIBUTE}]`;
 const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
 
@@ -48,9 +48,9 @@ function toggleModal(event) {
   let clickedElement = event.target;
   const { body } = document;
   const safeActive = !isActive();
-  const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal.is-visible");
-  const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal.is-visible");
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal__inner");
+  const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal-wrapper.is-visible");
+  const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal-wrapper.is-visible");
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal");
   const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
@@ -81,7 +81,7 @@ function toggleModal(event) {
     // This basically stops the propagation by determining if
     // the clicked element is not a child element in the modal
     // and is also not a close button.
-    if (clickedElement.closest(`.${MODAL_INNER_CLASSNAME}`)) {
+    if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
       if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE)) {
         // do nothing. move on.
       }
@@ -158,7 +158,7 @@ function toggleModal(event) {
  */
 const setUpAttributes = (baseComponent) => {
   const modalContent = baseComponent;
-  const modalParent = document.createElement('div');
+  const modalWrapper = document.createElement('div');
   const overlayDiv = document.createElement('div');
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
@@ -166,33 +166,31 @@ const setUpAttributes = (baseComponent) => {
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) : false;
  
   // Rebuild the modal element
-  modalContent.parentNode.insertBefore(modalParent, modalContent);
-  modalParent.appendChild(modalContent);
+  modalContent.parentNode.insertBefore(modalWrapper, modalContent);
+  modalWrapper.appendChild(modalContent);
   modalContent.parentNode.insertBefore(overlayDiv, modalContent);
   overlayDiv.appendChild(modalContent);
 
   // Add classes and attributes
-  modalParent.classList.add(HIDDEN_CLASS);
-  modalParent.classList.add(MODAL_CLASSNAME);
+  modalWrapper.classList.add(HIDDEN_CLASS);
+  modalWrapper.classList.add(WRAPPER_CLASSNAME);
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
-  modalContent.classList.remove(MODAL_CLASSNAME);
-  modalContent.classList.add(MODAL_INNER_CLASSNAME);
 
   // Set attributes
-  modalParent.setAttribute("role", "dialog");
-  modalParent.setAttribute("id", modalID);
+  modalWrapper.setAttribute("role", "dialog");
+  modalWrapper.setAttribute("id", modalID);
 
   if (ariaLabelledBy) {
-    modalParent.setAttribute("aria-labelledby", ariaLabelledBy);
+    modalWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
   }
 
   if (ariaDescribedBy) {
-    modalParent.setAttribute("aria-describedby", ariaDescribedBy);
+    modalWrapper.setAttribute("aria-describedby", ariaDescribedBy);
   }
 
   if (forceUserAction) {
-    overlayDiv.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
-    modalParent.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
+    //overlayDiv.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
+    modalWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
   }
   
 
@@ -203,7 +201,7 @@ const setUpAttributes = (baseComponent) => {
   baseComponent.setAttribute("tabindex", "-1");
 
   // Add aria-controls
-  const modalClosers = modalParent.querySelectorAll(CLOSERS);
+  const modalClosers = modalWrapper.querySelectorAll(CLOSERS);
   select(modalClosers).forEach((el) => {
     el.setAttribute("aria-controls", modalID);
   }); 
@@ -211,7 +209,7 @@ const setUpAttributes = (baseComponent) => {
   // Move all modals to the end of the DOM. Doing this allows us to
   // more easily find the elements to hide from screen readers 
   // when the modal is open.
-  document.body.appendChild(modalParent);
+  document.body.appendChild(modalWrapper);
 }
 
 modal = behavior(
