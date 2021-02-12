@@ -89,19 +89,14 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} trigger
    */
 
+  // offsetLeft = the left position, and margin of the element, the left padding, scrollbar and border of the offsetParent element
+  // offsetWidth = The offsetWidth property returns the viewable width of an element in pixels, including padding, border and scrollbar, but not the margin.
+
   const calculateMarginOffset = (
     marginPosition,
     tooltipBodyOffset,
     trigger
   ) => {
-
-    console.log({
-      marginPosition,
-      tooltipBodyOffset,
-      trigger
-    },
-    offsetMargin(trigger, `margin-${marginPosition}`))
-
     const offset =
       offsetMargin(trigger, `margin-${marginPosition}`) > 0
         ? tooltipBodyOffset - offsetMargin(trigger, `margin-${marginPosition}`)
@@ -164,35 +159,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       tooltipTrigger
     );
 
-    console.log(tooltipTrigger.offsetLeft)
-    // console.log(tooltipTrigger.offsetWidth)
-    console.log(e.offsetWidth)
-    //TODO: Need to take care of the margin here, still conflicts
-
-    // we have to check for some utility margins
-    const rightMargin = calculateMarginOffset(
-      "right",
-      tooltipTrigger.offsetLeft > e.offsetWidth
-        ? tooltipTrigger.offsetLeft - e.offsetWidth
-        : e.offsetWidth,
-      tooltipTrigger
-    );
-
-    console.log(rightMargin)
-
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.right = `-${TRIANGLE_SIZE}px`;
-    // e.style.margin = `-${topMargin / 2}px 0 0 0`;
-    // e.style.right =
-    //   tooltipTrigger.offsetLeft > e.offsetWidth
-    //     ? `${((-TRIANGLE_SIZE) + offsetMargin(tooltipTrigger, `margin-right`))}px`
-    //     : `${((-TRIANGLE_SIZE) - offsetMargin(tooltipTrigger, `margin-right`))}px`
-    e.style.margin = `-${topMargin / 2}px ${
-      tooltipTrigger.offsetLeft > e.offsetWidth
-      ? rightMargin
-      : -rightMargin
-    }px 0 0`;
+    e.style.left = `${
+      tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
+    }px`;
+    e.style.margin = `-${topMargin / 2}px 0 0 0`;
     return false;
   };
 
@@ -219,6 +191,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("left");
     e.style.top = `50%`;
     e.style.left = `-${TRIANGLE_SIZE}px`;
+    e.style.margin = `-${topMargin / 2}px 0 0 0`;
     e.style.margin = `-${topMargin / 2}px 0 0 ${
       tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
     }px`;
