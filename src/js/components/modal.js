@@ -82,7 +82,7 @@ function toggleModal(event) {
     // the clicked element is not a child element in the modal
     // and is also not a close button.
     if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
-      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE)) {
+      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)) {
         // do nothing. move on.
       }
       else {

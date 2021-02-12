@@ -71,6 +71,12 @@
   }
 }
 
+// Prevents propagation issue in Safari an opener
+// has a child element, which 
+[data-open-modal] * {
+  pointer-events: none;
+}
+
 .usa-modal {
   @include u-radius($theme-modal-border-radius);
   @include u-border($theme-modal-border-width, $theme-modal-border-color);
