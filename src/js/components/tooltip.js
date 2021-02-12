@@ -31,6 +31,7 @@ const addListenerMulti = (element, eventNames, listener) => {
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
+
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -116,7 +117,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const positionTop = (e) => {
     resetPositionStyles(e); // ensures we start from the same point
     // get details on the elements object with
-    // console.log({e})
 
     const topMargin = calculateMarginOffset(
       "top",
@@ -135,7 +135,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.top = `-${TRIANGLE_SIZE}px`; // consider the psuedo element
     // apply our margins based on the offest
     e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`;
-    return false;
   };
 
   /**
@@ -154,7 +153,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("bottom");
     e.style.left = `50%`;
     e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${leftMargin / 2}px`;
-    return false;
   };
 
   /**
@@ -176,7 +174,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
     }px`;
     e.style.margin = `-${topMargin / 2}px 0 0 0`;
-    return false;
   };
 
   /**
@@ -207,7 +204,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.margin = `-${topMargin / 2}px 0 0 ${
       tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
     }px`; // adjust the margin
-    return false;
   };
 
   /**
@@ -218,7 +214,10 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} element(alias tooltipBody)
    */
 
-  function findBestPosition(element) {
+
+  const maxAttempts = 2
+  function findBestPosition(element, attempt = 1) {
+
     // create array of optional positions
     const positions = [
       positionTop,
@@ -226,40 +225,35 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       positionRight,
       positionLeft,
     ];
-    // we will push validations here to check later
-    const validate = [];
-    // iterate through each of the position options
-    const bestPosition = positions.forEach((pos) => {
-      // try and position, then check if it is visible
-      const tryPosition = new Promise((resolve, reject) => {
+
+    let hasVisiblePosition = false
+
+    function recursive(i) {
+
+      if (i < positions.length) {
+        const pos = positions[i]
         pos(element);
-        resolve(isElementInViewport(element));
-        reject(new Error("error"));
-      });
-      // when the promise resolves
-      tryPosition
-        .then((result) => {
-          // push the return value of viewport visibility
-          validate.push(result);
-          // we return early if it is not visible
-          if (result === false) {
-            //  return null
-            return null;
-          }
-          // otherwise we just return the visible position
-          return pos(element);
-        })
-        .then(() => {
-          // only if our content doesn't fit within the window
-          // and a better position can not be found, we constrain it
-          if (validate.every((validation) => validation === false)) {
-            element.classList.add(ADJUST_WIDTH_CLASS);
-            findBestPosition(element);
-          }
-        });
-      return null;
-    });
-    return bestPosition;
+
+        if (i === 0) {
+          isElementInViewport(element);
+        }
+
+        if (!isElementInViewport(element)) {
+          recursive((i += 1));
+        } else {
+          hasVisiblePosition = true
+        }
+      }
+    }
+
+    recursive(0);
+
+    if (!hasVisiblePosition) {
+      element.classList.add(ADJUST_WIDTH_CLASS);
+      if (attempt <= maxAttempts) {
+        findBestPosition(element, attempt += 1)
+      }
+    }
   }
 
   switch (position) {
