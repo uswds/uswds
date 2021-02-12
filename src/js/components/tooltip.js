@@ -61,6 +61,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const resetPositionStyles = (e) => {
+    // we don't override anything in the stylesheet when finding alt positions
     e.style.top = null;
     e.style.bottom = null;
     e.style.right = null;
@@ -81,6 +82,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       10
     );
 
+  // offsetLeft = the left position, and margin of the element, the left
+  // padding, scrollbar and border of the offsetParent element
+  // offsetWidth = The offsetWidth property returns the viewable width of an
+  // element in pixels, including padding, border and scrollbar, but not
+  // the margin.
+
   /**
    * Calculate margin offset
    * tooltip trigger margin(position) offset + tooltipBody offsetWidth
@@ -88,9 +95,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {Number} tooltipBodyOffset
    * @param {HTMLElement} trigger
    */
-
-  // offsetLeft = the left position, and margin of the element, the left padding, scrollbar and border of the offsetParent element
-  // offsetWidth = The offsetWidth property returns the viewable width of an element in pixels, including padding, border and scrollbar, but not the margin.
 
   const calculateMarginOffset = (
     marginPosition,
@@ -110,12 +114,16 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionTop = (e) => {
-    resetPositionStyles(e);
+    resetPositionStyles(e); // ensures we start from the same point
+    // get details on the elements object with
+    // console.log({e})
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
       tooltipTrigger
     );
+
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
@@ -125,7 +133,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("top");
     e.style.left = `50%`; // center the element
     e.style.top = `-${TRIANGLE_SIZE}px`; // consider the psuedo element
-    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`; // apply our margins based on the offest of the tooltip body
+    // apply our margins based on the offest
+    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`;
     return false;
   };
 
@@ -135,6 +144,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionBottom = (e) => {
     resetPositionStyles(e);
+
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
@@ -153,6 +163,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionRight = (e) => {
     resetPositionStyles(e);
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
@@ -174,11 +185,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionLeft = (e) => {
     resetPositionStyles(e);
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
       tooltipTrigger
     );
+
     // we have to check for some utility margins
     const leftMargin = calculateMarginOffset(
       "left",
@@ -191,10 +204,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("left");
     e.style.top = `50%`;
     e.style.left = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${topMargin / 2}px 0 0 0`;
     e.style.margin = `-${topMargin / 2}px 0 0 ${
       tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
-    }px`;
+    }px`; // adjust the margin
     return false;
   };
 
@@ -203,9 +215,10 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * original intention, but make adjustments
    * if the element is clipped out of the viewport
    * we constrain the width only as a last resort
+   * @param {HTMLElement} element(alias tooltipBody)
    */
 
-  function findBestPosition(t) {
+  function findBestPosition(element) {
     // create array of optional positions
     const positions = [
       positionTop,
@@ -217,10 +230,10 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const validate = [];
     // iterate through each of the position options
     const bestPosition = positions.forEach((pos) => {
-      // try and position then check if it is visible
+      // try and position, then check if it is visible
       const tryPosition = new Promise((resolve, reject) => {
-        pos(t);
-        resolve(isElementInViewport(t));
+        pos(element);
+        resolve(isElementInViewport(element));
         reject(new Error("error"));
       });
       // when the promise resolves
@@ -234,17 +247,18 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
             return null;
           }
           // otherwise we just return the visible position
-          return pos(t);
+          return pos(element);
         })
         .then(() => {
-          if (validate.every((v) => v === false)) {
-            t.classList.add(ADJUST_WIDTH_CLASS);
-            findBestPosition(t);
+          // only if our content doesn't fit within the window
+          // and a better position can not be found, we constrain it
+          if (validate.every((validation) => validation === false)) {
+            element.classList.add(ADJUST_WIDTH_CLASS);
+            findBestPosition(element);
           }
         });
       return null;
     });
-
     return bestPosition;
   }
 
@@ -364,24 +378,18 @@ const tooltip = behavior(
 
         if (tooltipContent) {
           // Listeners for showing and hiding the tooltip
-          addListenerMulti(
-            tooltipTrigger,
-            "mouseenter focus",
-            () => {
-              showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
-              return false;
-            }
-          );
+          addListenerMulti(tooltipTrigger, "mouseenter focus", () => {
+            showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
+            return false;
+          });
 
-          // Keydown here prevents tooltips from being read twice by screen reader. also allows excape key to close it (along with any other.)
-          addListenerMulti(
-            tooltipTrigger,
-            "mouseleave blur keydown",
-            () => {
-              hideToolTip(tooltipBody);
-              return false;
-            }
-          );
+          // Keydown here prevents tooltips from being read twice by
+          // screen reader. also allows excape key to close it
+          // (along with any other.)
+          addListenerMulti(tooltipTrigger, "mouseleave blur keydown", () => {
+            hideToolTip(tooltipBody);
+            return false;
+          });
         } else {
           // throw error or let other tooltips on page function?
         }
