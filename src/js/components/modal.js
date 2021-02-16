@@ -29,6 +29,8 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
+const INITIAL_PADDING = window.getComputedStyle(document.body).getPropertyValue('padding-right');
+const TEMPORARY_PADDING = parseInt(INITIAL_PADDING.replace(/px/,"")) + parseInt(SCROLLBAR_WIDTH.replace(/px/,"")) + "px";
 
 /**
  *  Is bound to escape key, closes modal when 
@@ -103,7 +105,7 @@ function toggleModal(event) {
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
   // to the body element
-  body.style.paddingRight = body.style.paddingRight === SCROLLBAR_WIDTH ? 0 : SCROLLBAR_WIDTH;
+  body.style.paddingRight = body.style.paddingRight === TEMPORARY_PADDING ? INITIAL_PADDING : TEMPORARY_PADDING;
 
   // Handle the focus actions
   if (safeActive && openFocusEl) {
