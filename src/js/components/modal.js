@@ -78,17 +78,13 @@ function toggleModal(event) {
       targetModal.setAttribute("data-opener", originalOpener);
     }
    
-    // This basically stops the propagation by determining if
-    // the clicked element is not a child element in the modal
-    // and is also not a close button.
-    if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
-      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)) {
-        // do nothing. move on.
-      }
-      else {
-        event.stopPropagation();
-        return false;
-      }
+    // This basically stops the propagation if the element
+    // is inside the modal and not a close button or
+    // element inside a close button
+    if (clickedElement.closest(`.${MODAL_CLASSNAME}`) &&
+    (!clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || !clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`))) {
+      event.stopPropagation();
+      return false;
     }
   } 
 
@@ -189,7 +185,6 @@ const setUpAttributes = (baseComponent) => {
   }
 
   if (forceUserAction) {
-    //overlayDiv.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
     modalWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
   }
   
@@ -231,7 +226,7 @@ modal = behavior(
         // VoiceOver on Safari
         if ( item.nodeName === "A" ) {
           item.setAttribute("role", "button");
-          item.addEventListener("click", function(e){
+          item.addEventListener("click", (e) => {
             e.preventDefault();
           })
         }
