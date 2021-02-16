@@ -50,16 +50,15 @@ const getCellValue = (tr, index) => tr.children[index].getAttribute(SORT_OVERRID
 const compareFunction = (index, isAscending) => (thisRow, nextRow) => {
 
   // get values to compare from data attribute or cell content
-  let value1 = getCellValue(isAscending ? thisRow : nextRow, index);
-  let value2 = getCellValue(isAscending ? nextRow : thisRow, index);
+  const value1 = getCellValue(isAscending ? thisRow : nextRow, index);
+  const value2 = getCellValue(isAscending ? nextRow : thisRow, index);
 
   // if neither value is empty, and if both values are already numbers, compare numerically
-  if (value1 !== '' && value2 !== '' && !Number.isNaN(Number(value1)) && !Number.isNaN(Number(value2))) {
+  if (value1 && value2 && !Number.isNaN(Number(value1)) && !Number.isNaN(Number(value2))) {
     return value1 - value2;
-  } else {
+  } 
   // Otherwise, compare alphabetically based on current user locale
-    return value1.toString().localeCompare(value2, navigator.language, {numeric: true, ignorePunctuation: true})
-  }
+  return value1.toString().localeCompare(value2, navigator.language, {numeric: true, ignorePunctuation: true})
 }
 
 
