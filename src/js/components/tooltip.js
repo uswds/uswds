@@ -61,6 +61,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const resetPositionStyles = (e) => {
+    // we don't override anything in the stylesheet when finding alt positions
     e.style.top = null;
     e.style.bottom = null;
     e.style.right = null;
@@ -80,6 +81,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       window.getComputedStyle(target).getPropertyValue(propertyValue),
       10
     );
+
+  // offsetLeft = the left position, and margin of the element, the left
+  // padding, scrollbar and border of the offsetParent element
+  // offsetWidth = The offsetWidth property returns the viewable width of an
+  // element in pixels, including padding, border and scrollbar, but not
+  // the margin.
 
   /**
    * Calculate margin offset
@@ -107,12 +114,15 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {HTMLElement} e - this is the tooltip body
    */
   const positionTop = (e) => {
-    resetPositionStyles(e);
+    resetPositionStyles(e); // ensures we start from the same point
+    // get details on the elements object with
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
       tooltipTrigger
     );
+
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
@@ -122,8 +132,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("top");
     e.style.left = `50%`; // center the element
     e.style.top = `-${TRIANGLE_SIZE}px`; // consider the psuedo element
-    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`; // apply our margins based on the offest of the tooltip body
-    return false;
+    // apply our margins based on the offest
+    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`;
   };
 
   /**
@@ -132,6 +142,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionBottom = (e) => {
     resetPositionStyles(e);
+
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
@@ -141,7 +152,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("bottom");
     e.style.left = `50%`;
     e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${leftMargin / 2}px`;
-    return false;
   };
 
   /**
@@ -150,28 +160,19 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionRight = (e) => {
     resetPositionStyles(e);
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
       tooltipTrigger
     );
 
-    // we have to check for some utility margins
-    const rightMargin = calculateMarginOffset(
-      "right",
-      tooltipTrigger.offsetLeft > e.offsetWidth
-        ? tooltipTrigger.offsetLeft - e.offsetWidth
-        : e.offsetWidth,
-      tooltipTrigger
-    );
-
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.right = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${topMargin / 2}px ${
-      tooltipTrigger.offsetLeft > e.offsetWidth ? rightMargin : -rightMargin
-    }px 0 0`;
-    return false;
+    e.style.left = `${
+      tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
+    }px`;
+    e.style.margin = `-${topMargin / 2}px 0 0 0`;
   };
 
   /**
@@ -180,11 +181,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    */
   const positionLeft = (e) => {
     resetPositionStyles(e);
+
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
       tooltipTrigger
     );
+
     // we have to check for some utility margins
     const leftMargin = calculateMarginOffset(
       "left",
@@ -199,8 +202,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.left = `-${TRIANGLE_SIZE}px`;
     e.style.margin = `-${topMargin / 2}px 0 0 ${
       tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
-    }px`;
-    return false;
+    }px`; // adjust the margin
   };
 
   /**
@@ -208,9 +210,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * original intention, but make adjustments
    * if the element is clipped out of the viewport
    * we constrain the width only as a last resort
+   * @param {HTMLElement} element(alias tooltipBody)
+   * @param {Number} attempt (--flag)
    */
 
-  function findBestPosition(t) {
+  const maxAttempts = 2;
+
+  function findBestPosition(element, attempt = 1) {
     // create array of optional positions
     const positions = [
       positionTop,
@@ -218,39 +224,31 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       positionRight,
       positionLeft,
     ];
-    // we will push validations here to check later
-    const validate = [];
-    // iterate through each of the position options
-    const bestPosition = positions.forEach((pos) => {
-      // try and position then check if it is visible
-      const tryPosition = new Promise((resolve, reject) => {
-        pos(t);
-        resolve(isElementInViewport(t));
-        reject(new Error("error"));
-      });
-      // when the promise resolves
-      tryPosition
-        .then((result) => {
-          // push the return value of viewport visibility
-          validate.push(result);
-          // we return early if it is not visible
-          if (result === false) {
-            //  return null
-            return null;
-          }
-          // otherwise we just return the visible position
-          return pos(t);
-        })
-        .then(() => {
-          if (validate.every((v) => v === false)) {
-            t.classList.add(ADJUST_WIDTH_CLASS);
-            findBestPosition(t);
-          }
-        });
-      return null;
-    });
 
-    return bestPosition;
+    let hasVisiblePosition = false;
+
+    // we take a recursive approach
+    function recursive(i) {
+      if (i < positions.length) {
+        const pos = positions[i];
+        pos(element);
+
+        if (!isElementInViewport(element)) {
+          recursive((i += 1));
+        } else {
+          hasVisiblePosition = true;
+        }
+      }
+    }
+
+    recursive(0);
+    // if we can't find a position we compress it and try again
+    if (!hasVisiblePosition) {
+      element.classList.add(ADJUST_WIDTH_CLASS);
+      if (attempt <= maxAttempts) {
+        findBestPosition(element, (attempt += 1));
+      }
+    }
   }
 
   switch (position) {
@@ -288,7 +286,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Actually show the tooltip. The VISIBLE_CLASS
    * will change the opacity to 1
    */
-  setTimeout(function makeVisible() {
+  setTimeout(() => {
     tooltipBody.classList.add(VISIBLE_CLASS);
   }, 20);
 };
@@ -369,24 +367,18 @@ const tooltip = behavior(
 
         if (tooltipContent) {
           // Listeners for showing and hiding the tooltip
-          addListenerMulti(
-            tooltipTrigger,
-            "mouseenter focus",
-            function handleShow() {
-              showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
-              return false;
-            }
-          );
+          addListenerMulti(tooltipTrigger, "mouseenter focus", () => {
+            showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
+            return false;
+          });
 
-          // Keydown here prevents tooltips from being read twice by screen reader. also allows excape key to close it (along with any other.)
-          addListenerMulti(
-            tooltipTrigger,
-            "mouseleave blur keydown",
-            function handleHide() {
-              hideToolTip(tooltipBody);
-              return false;
-            }
-          );
+          // Keydown here prevents tooltips from being read twice by
+          // screen reader. also allows excape key to close it
+          // (along with any other.)
+          addListenerMulti(tooltipTrigger, "mouseleave blur keydown", () => {
+            hideToolTip(tooltipBody);
+            return false;
+          });
         } else {
           // throw error or let other tooltips on page function?
         }
