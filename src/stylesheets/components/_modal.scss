@@ -9,6 +9,12 @@
   }
 }
 
+// Prevents propagation issue in Safari an opener
+// has a child element, which 
+[data-open-modal] * {
+  pointer-events: none;
+}
+
 .usa-modal-wrapper {
   text-align: center;
   transition: opacity $project-easing;
@@ -71,15 +77,9 @@
   }
 }
 
-// Prevents propagation issue in Safari an opener
-// has a child element, which 
-[data-open-modal] * {
-  pointer-events: none;
-}
-
 .usa-modal {
   @include u-radius($theme-modal-border-radius);
-  @include u-border($theme-modal-border-width, $theme-modal-border-color);
+  @include u-shadow($theme-modal-box-shadow); 
   background: white;
   display: inline-block;
   margin: units(2.5) auto;
@@ -128,7 +128,7 @@
   flex-shrink: 0;
   font-size: size("ui", "2xs");
   margin: units(-4) 0 0 auto;
-  padding: units(2) units(2);
+  padding: units(0.5) units(0.5);
   width: auto;
 
   &:hover,
@@ -138,9 +138,9 @@
   }
 
   .usa-icon {
-    height: units(2.5);
-    margin-right: units(2px);
-    width: units(2.5);
+    height: units(4);
+    margin: units(2px) units(2px) 0 0;
+    width: units(4);
   }
 }
 
@@ -156,14 +156,14 @@
 
 // Variants
 .usa-modal--lg {
-  max-width: 800px;
+  max-width: $theme-modal-lg-max-width;
   width: 100%;
 
   .usa-modal__main {
     padding-bottom: units(8);
     padding-top: units(2.5);
     width: 100%;
-    max-width: $theme-modal-lg-max-width;
+    max-width: $theme-modal-lg-content-max-width;
   }
 
   .usa-modal__heading {
