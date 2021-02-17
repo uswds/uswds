@@ -84,10 +84,6 @@ describe("Modal window", () => {
       assert.strictEqual(isVisible(modalWrapper), true);
     });
 
-    it("adjusts for scrollbar shift", () => {
-      assert.strictEqual(body.getAttribute("style"), "padding-right: 0px;");
-    });
-
     it("focuses the modal window when opened", () => {
       assert.strictEqual(document.activeElement, modalWindow);
     });

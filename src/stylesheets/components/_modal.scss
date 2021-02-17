@@ -10,7 +10,8 @@
 }
 
 // Prevents propagation issue in Safari an opener
-// has a child element, which 
+// has a child element, and when clicked, prevents
+// intended action
 [data-open-modal] * {
   pointer-events: none;
 }
@@ -79,7 +80,7 @@
 
 .usa-modal {
   @include u-radius($theme-modal-border-radius);
-  @include u-shadow($theme-modal-box-shadow); 
+  @include u-shadow($theme-modal-box-shadow);
   background: white;
   display: inline-block;
   margin: units(2.5) auto;
