@@ -1,0 +1,68 @@
+@media print {
+  *,
+  *:before,
+  *:after,
+  *:first-letter,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    background: transparent !important;
+    // Black prints faster
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  // Force underlines on all anchor tags to clearly indicate a link in print
+  a,
+  a:visited {
+    text-decoration: underline !important;
+  }
+  // Print the URL in parenthesis after the text of the link
+  a[href]:after {
+    content: " (" attr(href) ")" !important;
+    word-break: break-all !important;
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")" !important;
+  }
+  // Don't show links that are fragment identifiers,
+  // or use the `javascript:` pseudo protocol
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "" !important;
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999 !important;
+    page-break-inside: avoid !important;
+  }
+  // Printing Tables
+  thead {
+    display: table-header-group !important;
+  }
+  tr,
+  img {
+    page-break-inside: avoid !important;
+  }
+  // Specify the number of lines in a paragraph that should be
+  // left at the top (widows) or bottom (orphans) of a page.
+  p,
+  h2,
+  h3 {
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid !important;
+  }
+
+  // Print utility for hiding from display
+  .print\:display-none {
+    display: none !important;
+  }
+}

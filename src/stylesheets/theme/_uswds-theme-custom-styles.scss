@@ -19,3 +19,10 @@ i.e.
 @include u-padding-right('05');
 ----------------------------------------
 */
+
+@media print {
+  // Add your custom print styles here
+  /* .sample-selector {
+    display: none !important;
+  } */
+}
