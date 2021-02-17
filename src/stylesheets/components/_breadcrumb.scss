@@ -172,3 +172,15 @@ $breadcrumb-back-icon-aspect: (
     @include u-text("underline");
   }
 }
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Breadcrumb wrap
+.usa-breadcrumb--wrap {
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-line-height($theme-breadcrumb-font-family, 4);
+  }
+
+}
