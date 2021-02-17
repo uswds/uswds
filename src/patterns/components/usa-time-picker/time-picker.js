@@ -1,7 +1,7 @@
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
-const { prefix: PREFIX } = require("../config");
-const { COMBO_BOX_CLASS, enhanceComboBox } = require("./combo-box");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
+const { prefix: PREFIX } = require("../../config");
+const { COMBO_BOX_CLASS, enhanceComboBox } = require("../usa-combo-box/combo-box");
 
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;

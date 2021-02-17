@@ -1,11 +1,11 @@
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
-const { prefix: PREFIX } = require("../config");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
+const { prefix: PREFIX } = require("../../config");
 const {
   getDatePickerContext,
   isDateInputInvalid,
   updateCalendarIfVisible,
-} = require("./date-picker");
+} = require("../usa-date-picker/date-picker");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;

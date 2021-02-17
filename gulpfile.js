@@ -96,7 +96,7 @@ function watchFiles() {
 
   // Watch all my JS files and compile if a file changes.
   watch(
-    "./src/js/**/*.js",
+    "./src/patterns/**/**/*.js",
     series(parallel(lintJS, compileJS), (done) => {
       server.reload("*.js");
       done();

@@ -10,7 +10,7 @@ require("./polyfills");
 
 const uswds = require("./config");
 
-const components = require("./components");
+const components = require("./index");
 const svg4everybody = require("./polyfills/svg4everybody");
 
 uswds.components = components;

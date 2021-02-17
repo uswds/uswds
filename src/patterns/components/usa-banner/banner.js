@@ -1,6 +1,6 @@
-const behavior = require("../utils/behavior");
-const { CLICK } = require("../events");
-const { prefix: PREFIX } = require("../config");
+const behavior = require("../../utils/behavior");
+const { CLICK } = require("../../events");
+const { prefix: PREFIX } = require("../../config");
 
 const HEADER = `.${PREFIX}-banner__header`;
 const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;

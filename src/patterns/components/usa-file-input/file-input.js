@@ -1,6 +1,6 @@
-const select = require("../utils/select");
-const behavior = require("../utils/behavior");
-const { prefix: PREFIX } = require("../config");
+const select = require("../../utils/select");
+const behavior = require("../../utils/behavior");
+const { prefix: PREFIX } = require("../../config");
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
