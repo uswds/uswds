@@ -23,17 +23,24 @@ const PREVENT_CLICK_CLASS = "usa-js-no-click";
 const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
-const nonModals = document.querySelectorAll(`body > *:not(${MODAL}):not([aria-hidden])`);
+const nonModals = document.querySelectorAll(
+  `body > *:not(${MODAL}):not([aria-hidden])`
+);
 
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
-const INITIAL_PADDING = window.getComputedStyle(document.body).getPropertyValue('padding-right');
-const TEMPORARY_PADDING = parseInt(INITIAL_PADDING.replace(/px/,""), 10) + parseInt(SCROLLBAR_WIDTH.replace(/px/,""), 10) + "px";
+const INITIAL_PADDING = window
+  .getComputedStyle(document.body)
+  .getPropertyValue("padding-right");
+const TEMPORARY_PADDING =
+  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
+  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10) +
+  "px";
 
 /**
- *  Is bound to escape key, closes modal when 
+ *  Is bound to escape key, closes modal when
  */
 const onMenuClose = () => {
   modal.toggleModal.call(modal, false);
@@ -50,22 +57,29 @@ function toggleModal(event) {
   let clickedElement = event.target;
   const { body } = document;
   const safeActive = !isActive();
-  const modalId = clickedElement ? clickedElement.getAttribute("aria-controls") : document.querySelector(".usa-modal-wrapper.is-visible");
-  const targetModal = safeActive ? document.getElementById(modalId) : document.querySelector(".usa-modal-wrapper.is-visible");
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) ? targetModal.querySelector(INITIAL_FOCUS) : targetModal.querySelector(".usa-modal");
-  const returnFocus = document.getElementById(targetModal.getAttribute("data-opener"));
+  const modalId = clickedElement
+    ? clickedElement.getAttribute("aria-controls")
+    : document.querySelector(".usa-modal-wrapper.is-visible");
+  const targetModal = safeActive
+    ? document.getElementById(modalId)
+    : document.querySelector(".usa-modal-wrapper.is-visible");
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
+    ? targetModal.querySelector(INITIAL_FOCUS)
+    : targetModal.querySelector(".usa-modal");
+  const returnFocus = document.getElementById(
+    targetModal.getAttribute("data-opener")
+  );
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
   // Sets the clicked element to the close button
   // so esc key always closes modal
   if (event.type === "keydown" && targetModal !== null) {
-    clickedElement = targetModal.querySelector(CLOSE_BUTTON)
+    clickedElement = targetModal.querySelector(CLOSE_BUTTON);
   }
 
   // When we're not hitting the escape key…
   if (clickedElement) {
-
     // Make sure we click the opener
     // If it doesn't have an ID, make one
     // Store id as data attribute on modal
@@ -73,22 +87,24 @@ function toggleModal(event) {
       if (this.getAttribute("id") === null) {
         originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
         this.setAttribute("id", originalOpener);
-      } 
-      else {
+      } else {
         originalOpener = this.getAttribute("id");
       }
       targetModal.setAttribute("data-opener", originalOpener);
     }
-   
+
     // This basically stops the propagation if the element
     // is inside the modal and not a close button or
     // element inside a close button
-    if (clickedElement.closest(`.${MODAL_CLASSNAME}`) &&
-    (!clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || !clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`))) {
+    if (
+      clickedElement.closest(`.${MODAL_CLASSNAME}`) &&
+      (!clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
+        !clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`))
+    ) {
       event.stopPropagation();
       return false;
     }
-  } 
+  }
 
   // Active class shares same as navigation
   body.classList.toggle(ACTIVE_CLASS, safeActive);
@@ -98,14 +114,17 @@ function toggleModal(event) {
   // If user is forced to take an action, adding
   // a class to the body that prevents clicking underneath
   // overlay
-  if (forceUserAction){
+  if (forceUserAction) {
     body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
 
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
   // to the body element
-  body.style.paddingRight = body.style.paddingRight === TEMPORARY_PADDING ? INITIAL_PADDING : TEMPORARY_PADDING;
+  body.style.paddingRight =
+    body.style.paddingRight === TEMPORARY_PADDING
+      ? INITIAL_PADDING
+      : TEMPORARY_PADDING;
 
   // Handle the focus actions
   if (safeActive && openFocusEl) {
@@ -113,10 +132,9 @@ function toggleModal(event) {
 
     // Binds escape key if we're not forcing
     // the user to take an action
-    if (forceUserAction){
+    if (forceUserAction) {
       modal.focusTrap = FocusTrap(targetModal);
-    }
-    else {
+    } else {
       modal.focusTrap = FocusTrap(targetModal, {
         Escape: onMenuClose,
       });
@@ -127,17 +145,13 @@ function toggleModal(event) {
     openFocusEl.focus();
 
     // Hides everything that is not the modal from screen readers
-    for ( let i = 0; i < nonModals.length; i +=1 ) {
+    for (let i = 0; i < nonModals.length; i += 1) {
       nonModals[i].setAttribute("aria-hidden", "true");
     }
-  } else if (
-    !safeActive &&
-    menuButton &&
-    returnFocus
-  ) {
+  } else if (!safeActive && menuButton && returnFocus) {
     // The modal window is closed.
     // Non-modals now accesible to screen reader
-    for ( let i = 0; i < nonModals.length; i+=1 ) {
+    for (let i = 0; i < nonModals.length; i += 1) {
       nonModals[i].removeAttribute("aria-hidden");
     }
 
@@ -147,7 +161,7 @@ function toggleModal(event) {
   }
 
   return safeActive;
-};
+}
 
 /**
  *  Builds modal window from base HTML
@@ -156,13 +170,15 @@ function toggleModal(event) {
  */
 const setUpAttributes = (baseComponent) => {
   const modalContent = baseComponent;
-  const modalWrapper = document.createElement('div');
-  const overlayDiv = document.createElement('div');
+  const modalWrapper = document.createElement("div");
+  const overlayDiv = document.createElement("div");
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
-  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE) : false;
- 
+  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
+    ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
+    : false;
+
   // Rebuild the modal element
   modalContent.parentNode.insertBefore(modalWrapper, modalContent);
   modalWrapper.appendChild(modalContent);
@@ -189,7 +205,6 @@ const setUpAttributes = (baseComponent) => {
   if (forceUserAction) {
     modalWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
   }
-  
 
   // Update the base element HTML
   baseComponent.removeAttribute("id");
@@ -201,13 +216,13 @@ const setUpAttributes = (baseComponent) => {
   const modalClosers = modalWrapper.querySelectorAll(CLOSERS);
   select(modalClosers).forEach((el) => {
     el.setAttribute("aria-controls", modalID);
-  }); 
+  });
 
   // Move all modals to the end of the DOM. Doing this allows us to
-  // more easily find the elements to hide from screen readers 
+  // more easily find the elements to hide from screen readers
   // when the modal is open.
   document.body.appendChild(modalWrapper);
-}
+};
 
 modal = behavior(
   {
@@ -221,24 +236,23 @@ modal = behavior(
       select(MODAL, root).forEach((modalWindow) => {
         setUpAttributes(modalWindow);
       });
-      
+
       select(OPENERS, root).forEach((item) => {
-        
         // Turn anchor links into buttons because of
         // VoiceOver on Safari
-        if ( item.nodeName === "A" ) {
+        if (item.nodeName === "A") {
           item.setAttribute("role", "button");
           item.addEventListener("click", (e) => {
             e.preventDefault();
-          })
+          });
         }
-        
+
         // Can uncomment when aria-haspopup="dialog" is supported
         // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
         // Most screen readers support aria-haspopup, but might announce
         // as opening a menu if "dialog" is not supported.
         // item.setAttribute("aria-haspopup", "dialog");
-      });    
+      });
     },
     focusTrap: null,
     toggleModal,
