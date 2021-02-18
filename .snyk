@@ -2,19 +2,8 @@
 version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-<<<<<<< HEAD
   SNYK-JS-GLOBPARENT-1016905:
     - del > globby > fast-glob > glob-parent:
         reason: None given
         expires: '2021-02-25T21:48:00.048Z'
-=======
-  SNYK-JS-NODENOTIFIER-1035794:
-    - node-notifier:
-        reason: None given
-        expires: '2021-02-18T14:56:48.531Z'
-  SNYK-JS-GLOBPARENT-1016905:
-    - del > globby > fast-glob > glob-parent:
-        reason: None given
-        expires: '2021-02-18T14:56:48.532Z'
->>>>>>> 404 templates
 patch: {}
