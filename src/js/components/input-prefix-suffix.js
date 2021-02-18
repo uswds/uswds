@@ -13,11 +13,11 @@ function setFocus(el) {
 }
 
 function handleFocus() {
-  this.closest(CONTAINER).classList.add(FOCUS_CLASS);                 
+  this.closest(CONTAINER).classList.add(FOCUS_CLASS);
 }
 
 function handleBlur() {
-  this.closest(CONTAINER).classList.remove(FOCUS_CLASS); 
+  this.closest(CONTAINER).classList.remove(FOCUS_CLASS);
 }
 
 const inputPrefixSuffix = behavior(
@@ -34,7 +34,7 @@ const inputPrefixSuffix = behavior(
         inputEl.addEventListener("focus", handleFocus, false);
         inputEl.addEventListener("blur", handleBlur, false);
       });
-    }
+    },
   }
 );
 
