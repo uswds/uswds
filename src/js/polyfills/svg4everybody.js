@@ -1,5 +1,6 @@
 /* eslint-disable */
 !function(root, factory) {
+  if(root === undefined) root = window; //*  THIS IS A HOTFIX FOR BABEL TRANSPILERS ADDING USING STRICT MODE CAUSING ROOT TO BE UNDEFINED. 
   "function" == typeof define && define.amd ? // AMD. Register as an anonymous module unless amdModuleId is set
   define([], function() {
       return root.svg4everybody = factory();
