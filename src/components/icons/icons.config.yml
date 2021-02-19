@@ -92,6 +92,10 @@ context:
         meta: "done complete"
       - name: checkroom
         meta: "coathanger"
+      - name: chevron_left
+        meta: "arrow back angle direction"
+      - name: chevron_right
+        meta: "arrow forward angle direction"
       - name: clean_hands
         meta: "sanitize wash soap"
       - name: close
@@ -314,6 +318,10 @@ context:
         meta: "chevron arrow left direction"
       - name: navigate_next
         meta: "chevron arrow right direction"
+      - name: navigate_far_before
+        meta: "chevron double arrow left direction"
+      - name: navigate_far_next
+        meta: "chevron double arrow right direction"
       - name: near_me
         meta: "location compass proximity"
       - name: notifications
