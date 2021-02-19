@@ -316,15 +316,15 @@
 
       // Arrow for collapsible content.
       &::before {
-        @include add-background-svg("arrow-down");
+        @include add-background-svg("usa-icons/expand_more");
+        @include u-square(2.5);
         align-items: center;
         background-size: contain;
         content: "";
         display: inline-flex;
-        height: units(1.5);
         justify-content: center;
-        margin-right: units(1);
-        width: units(1.5);
+        margin-right: units(0.5);
+        margin-left: units(-0.5);
       }
 
       @include at-media("mobile-lg") {
@@ -341,7 +341,7 @@
 
       .usa-footer__primary-link {
         &::before {
-          @include add-background-svg("arrow-right");
+          @include add-background-svg("usa-icons/chevron_right");
         }
 
         @include at-media("mobile-lg") {
