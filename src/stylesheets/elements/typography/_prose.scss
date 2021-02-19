@@ -1,6 +1,5 @@
 .usa-prose {
   @include typeset($theme-prose-font-family);
-  @include usa-link-style;
 
   & > {
     @include usa-paragraph-style;
