@@ -5,7 +5,7 @@ const comboBox = require("./components/usa-combo-box/combo-box");
 const fileInput = require("./components/usa-file-input/file-input");
 const footer = require("./components/usa-footer/footer");
 const navigation = require("./components/usa-sidenav/navigation");
-// const password = require("./components/usa-accordion/password");
+const password = require("./components/_usa-password/password");
 const search = require("./components/usa-search/search");
 const skipnav = require("./components/usa-skipnav/skipnav");
 const tooltip = require("./components/usa-tooltip/tooltip");
@@ -24,7 +24,7 @@ module.exports = {
   fileInput,
   footer,
   navigation,
-  // password,
+  password,
   search,
   skipnav,
   timePicker,
