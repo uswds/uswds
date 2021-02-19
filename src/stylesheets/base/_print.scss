@@ -1,4 +1,6 @@
 @media print {
+  // Ensure elements have transparent backgrounds and text is black
+  // plus remove any shadow effects
   *,
   *:before,
   *:after,
@@ -8,10 +10,26 @@
   blockquote:first-line,
   li:first-line {
     background: transparent !important;
-    // Black prints faster
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
+  }
+  // Set body and article elements to 100% width and remove margins
+  body,
+  article {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  // Hide elements that are not necessary for print
+  nav,
+  aside,
+  footer {
+    display: none !important;
+  }
+  // Fine tune page margins to maximize space
+  @page {
+    margin: 2cm;
   }
   // Force underlines on all anchor tags to clearly indicate a link in print
   a,
@@ -35,33 +53,48 @@
   pre {
     white-space: pre-wrap !important;
   }
+  // Add a border around pre and blockquote tags to clearly indicate these elements in printt
   pre,
   blockquote {
     border: 1px solid #999 !important;
-    page-break-inside: avoid !important;
   }
-  // Printing Tables
+  // Print table headers on every page
   thead {
     display: table-header-group !important;
   }
-  tr,
+  // Avoid breaking a table row onto more than one page
+  tr {
+    break-inside: avoid !important;
+  }
+  // Avoid breaking headings onto more than one page
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid !important;
+    break-inside: avoid !important;
+  }
+  // Prevent images from being cut off and bleeding over the edge
+  // and from being split to another page
   img {
-    page-break-inside: avoid !important;
+    max-width: 100% !important;
+    break-inside: avoid !important;
+    break-after: avoid !important;
   }
-  // Specify the number of lines in a paragraph that should be
-  // left at the top (widows) or bottom (orphans) of a page.
-  p,
-  h2,
-  h3 {
-    orphans: 3 !important;
-    widows: 3 !important;
+  blockquote,
+  table,
+  pre {
+    break-inside: avoid !important;
   }
-  h2,
-  h3 {
-    page-break-after: avoid !important;
+  // Keep lists on the same page
+  ul,
+  ol,
+  dl {
+    break-before: avoid !important;
   }
-
-  // Print utility for hiding from display
+  // Print utility class for hiding from display
   .print\:display-none {
     display: none !important;
   }

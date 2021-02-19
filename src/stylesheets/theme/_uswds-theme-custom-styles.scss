@@ -22,7 +22,15 @@ i.e.
 
 @media print {
   // Add your custom print styles here
-  /* .sample-selector {
-    display: none !important;
-  } */
+  // .sample-selector {
+  //   display: none !important;
+  // }
+
+  // For sites that use absolute paths in hrefs (e.g. href="/page")
+  // uncomment the following code to prepend your full domain name
+  // to the printed URL
+  // a[href^="/"]:after {
+  //   content: " (https://[your-domain-name]" attr(href) ")" !important;
+  // }
+
 }
