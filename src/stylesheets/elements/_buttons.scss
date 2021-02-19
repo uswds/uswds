@@ -1,5 +1,6 @@
 // Buttons variables
 
+$button-context: "Button";
 $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 // Buttons
@@ -7,7 +8,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button {
   @include border-box-sizing;
   @include typeset($theme-button-font-family, null, 1);
-  @include set-text-and-bg("primary");
+  @include set-text-and-bg("primary", $context: $button-context);
   appearance: none;
   border: 0;
   border-radius: radius($theme-button-border-radius);
@@ -30,14 +31,14 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:hover,
   &.usa-button--hover {
-    @include set-text-and-bg("primary-dark");
+    @include set-text-and-bg("primary-dark", $context: $button-context);
     border-bottom: 0;
     text-decoration: none;
   }
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("primary-darker");
+    @include set-text-and-bg("primary-darker", $context: $button-context);
   }
 
   &:not([disabled]):focus,
@@ -51,38 +52,38 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--accent-cool {
-  @include set-text-and-bg("accent-cool");
+  @include set-text-and-bg("accent-cool", $context: $button-context);
 
   &:visited {
-    @include set-text-and-bg("accent-cool");
+    @include set-text-and-bg("accent-cool", $context: $button-context);
   }
 
   &:hover,
   &.usa-button--hover {
-    @include set-text-and-bg("accent-cool-dark");
+    @include set-text-and-bg("accent-cool-dark", $context: $button-context);
   }
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("accent-cool-darker");
+    @include set-text-and-bg("accent-cool-darker", $context: $button-context);
   }
 }
 
 .usa-button--accent-warm {
-  @include set-text-and-bg("accent-warm");
+  @include set-text-and-bg("accent-warm", $context: $button-context);
 
   &:visited {
-    @include set-text-and-bg("accent-warm");
+    @include set-text-and-bg("accent-warm", $context: $button-context);
   }
 
   &:hover,
   &.usa-button--hover {
-    @include set-text-and-bg("accent-warm-dark");
+    @include set-text-and-bg("accent-warm-dark", $context: $button-context);
   }
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("accent-warm-darker");
+    @include set-text-and-bg("accent-warm-darker", $context: $button-context);
   }
 }
 
@@ -156,30 +157,30 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--base {
-  @include set-text-and-bg("base");
+  @include set-text-and-bg("base", $context: $button-context);
 
   &:hover,
   &.usa-button--hover {
-    @include set-text-and-bg("base-dark");
+    @include set-text-and-bg("base-dark", $context: $button-context);
   }
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("base-darker");
+    @include set-text-and-bg("base-darker", $context: $button-context);
   }
 }
 
 .usa-button--secondary {
-  @include set-text-and-bg("secondary");
+  @include set-text-and-bg("secondary", $context: $button-context);
 
   &:hover,
   &.usa-button--hover {
-    @include set-text-and-bg("secondary-dark");
+    @include set-text-and-bg("secondary-dark", $context: $button-context);
   }
 
   &:active,
   &.usa-button--active {
-    @include set-text-and-bg("secondary-darker");
+    @include set-text-and-bg("secondary-darker", $context: $button-context);
   }
 }
 
