@@ -282,11 +282,11 @@
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
-  @include add-background-svg("angle-left-solid");
+  @include add-background-svg("usa-icons/navigate_before");
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
-  @include add-background-svg("angle-right-solid");
+  @include add-background-svg("usa-icons/navigate_next");
 }
 
 .usa-date-picker__calendar__year {
