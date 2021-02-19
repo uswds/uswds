@@ -341,7 +341,7 @@
 
       .usa-footer__primary-link {
         &::before {
-          @include add-background-svg("usa-icons/chevron_right");
+          @include add-background-svg("usa-icons/navigate_next");
         }
 
         @include at-media("mobile-lg") {
