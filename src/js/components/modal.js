@@ -96,13 +96,16 @@ function toggleModal(event) {
     // This basically stops the propagation if the element
     // is inside the modal and not a close button or
     // element inside a close button
-    if (
-      clickedElement.closest(`.${MODAL_CLASSNAME}`) &&
-      (!clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
-        !clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`))
-    ) {
-      event.stopPropagation();
-      return false;
+    if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
+      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || 
+          clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
+      ) {
+        // do nothing. move on.
+      }
+      else {
+        event.stopPropagation();
+        return false;
+      }
     }
   }
 
