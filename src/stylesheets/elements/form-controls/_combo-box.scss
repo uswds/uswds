@@ -44,13 +44,13 @@ button.usa-combo-box__clear-input {
   background-position: center;
   background-size: auto units(3);
   border: 0;
+  bottom: 1px;
   cursor: pointer;
   margin-bottom: 0;
   opacity: 0.6;
   padding-right: units(4);
   position: absolute;
   top: 1px;
-  height: 2.25em;
   z-index: z-index(100);
 }
 .usa-combo-box__clear-input {
