@@ -47,6 +47,10 @@
   a {
     color: color("base-lighter");
 
+    &:visited {
+      color: color("base-lighter");
+    }
+
     &:hover {
       color: color("white");
     }
