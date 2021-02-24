@@ -10,23 +10,17 @@
 // this file is for.
 
 // const fractal = require("../fractal.config");
+const { styleguide } = require("../gulpfile");
 
-// exports.fractalLoad = fractal.components.load();
+async function loadPatternLab() {
+  const promise = new Promise((resolve, reject) => {
+    resolve(styleguide());
+  });
 
-// Promise.all([exports.fractalLoad])
-//   .then(() => {
-//     run();
-//   })
-//   .catch(() => {
-//     process.exit(1);
-//   });
+  const ready = await promise; // wait until the promise resolves (*)
+  console.log(ready);
+  console.log("patternlab is ready.."); // "done!"
+  return ready;
+}
 
-setTimeout(function () {
-  // do some setup
-
-  // describe("my suite", function () {
-  //   // ...
-  // });
-
-  run();
-}, 5000);
+loadPatternLab().then(() => run());
