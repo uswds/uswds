@@ -2,7 +2,7 @@ const os = require("os");
 const urlParse = require("url").parse;
 const chromeLauncher = require("chrome-launcher");
 const CDP = require("chrome-remote-interface");
-const fractal = require("../fractal.config");
+const { loadPatternLab } = require("./delayed-root-suite")
 
 const { REMOTE_CHROME_URL } = process.env;
 const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase() : "localhost";
@@ -56,16 +56,20 @@ function loadPage({ cdp, url }) {
 }
 
 function getHandles() {
-  return Array.from(fractal.components.flatten().map(c => c.handle));
+  handles = ["/patterns/components-usa-accordion-usa-accordion/components-usa-accordion-usa-accordion.rendered.html"];
+  // map our patternlab components
+  return handles;
 }
 
 const getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
-const server = fractal.web.server({ sync: false });
+// set our patternlab web server
+// const server = "localhost";
+// const server = fractal.web.server({ sync: false });
 
 // eslint-disable-next-line no-param-reassign, no-return-assign
 const autobind = self => name => (self[name] = self[name].bind(self));
 
-class ChromeFractalTester {
+class ChromePatternLabTester {
   constructor() {
     this.chrome = null;
     this.chromeHost = null;
@@ -74,8 +78,8 @@ class ChromeFractalTester {
     [
       "setup",
       "createChromeDevtoolsProtocol",
-      "loadFractalPreview",
-      "teardown"
+      "loadPatternLabPreview",
+      "teardown",
     ].forEach(autobind(this));
   }
 
@@ -85,35 +89,41 @@ class ChromeFractalTester {
     // keeping some network connections to the server alive, which
     // makes it harder to kill, so it's easier to just let mocha
     // terminate the process when it's done running tests.
-    return server
-      .start()
-      .then(getChrome)
-      .then(newChrome => {
-        this.chrome = newChrome;
-        this.chromeHost = this.chrome.host || "localhost";
-        this.serverUrl = `http://${HOSTNAME}:${server.port}`;
-      });
+    // return server
+    // .start()
+    // .then(getChrome)
+    getChrome().then((newChrome) => {
+      this.chrome = newChrome;
+      this.chromeHost = this.chrome.host || "localhost";
+      this.serverUrl = `localhost:3000`;
+    });
   }
 
   createChromeDevtoolsProtocol() {
     return CDP({
       host: this.chromeHost,
-      port: this.chrome.port
+      port: this.chrome.port,
     });
   }
 
-  loadFractalPreview(cdp, handle) {
-    const url = `${this.serverUrl}/components/preview/${handle}`;
+  // load our patternlab preview /patterns/components-usa-accordion-usa-accordion/components-usa-accordion-usa-accordion.rendered.html
+
+  loadPatternLabPreview(cdp, handle) {
+    const url = `${this.serverUrl}${handle}`;
+    // const url = `${this.serverUrl}/components/preview/${handle}`;
     return loadPage({ url, cdp });
   }
+
+  // loadFractalPreview(cdp, handle) {
+  //   const url = `${this.serverUrl}/components/preview/${handle}`;
+  //   return loadPage({ url, cdp });
+  // }
 
   teardown() {
     return this.chrome.kill();
   }
 }
 
-ChromeFractalTester.getHandles = () => {
-  return fractal.components.load().then(getHandles);
-};
+ChromePatternLabTester.getHandles = () => loadPatternLab.then(getHandles);
 
-module.exports = ChromeFractalTester;
+module.exports = ChromePatternLabTester;
