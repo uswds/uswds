@@ -1,7 +1,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const behavior = require("../../../src/js/components/footer");
+const behavior = require("../../../src/patterns/components/usa-footer/footer");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 

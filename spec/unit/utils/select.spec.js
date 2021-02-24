@@ -1,7 +1,7 @@
 "use strict";
 const fs = require("fs");
 const assert = require("assert");
-const select = require("../../../src/js/utils/select");
+const select = require("../../../src/patterns/utils/select");
 
 const TEMPLATE = fs.readFileSync(__dirname + "/select.template.html");
 

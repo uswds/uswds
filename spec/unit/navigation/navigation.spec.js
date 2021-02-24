@@ -2,8 +2,8 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 const sinon = require("sinon");
-const navigation = require("../../../src/js/components/navigation");
-const accordion = require("../../../src/js/components/accordion");
+const navigation = require("../../../src/patterns/components/usa-sidenav/navigation");
+const accordion = require("../../../src/patterns/components/usa-accordion/accordion");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 

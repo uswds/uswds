@@ -1,8 +1,8 @@
 const assert = require("assert");
 const {
   generateDynamicRegExp
-} = require("../../../src/js/components/combo-box");
-const { FILTER_DATASET } = require("../../../src/js/components/time-picker");
+} = require("../../../src/patterns/components/usa-combo-box/combo-box");
+const { FILTER_DATASET } = require("../../../src/patterns/components/usa-time-picker/time-picker");
 
 describe("time picker regex", () => {
   const { filter, ...dataset } = FILTER_DATASET;

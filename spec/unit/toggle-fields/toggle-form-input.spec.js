@@ -1,7 +1,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const toggleFormInput = require("../../../src/js/utils/toggle-form-input");
+const toggleFormInput = require("../../../src/patterns/utils/toggle-form-input");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 

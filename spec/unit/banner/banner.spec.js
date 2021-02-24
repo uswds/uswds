@@ -1,6 +1,6 @@
 const assert = require("assert");
-const banner = require("../../../src/js/components/banner");
-const accordion = require("../../../src/js/components/accordion");
+const banner = require("../../../src/patterns/components/usa-banner/banner");
+const accordion = require("../../../src/patterns/components/usa-accordion/accordion");
 const fs = require("fs");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);

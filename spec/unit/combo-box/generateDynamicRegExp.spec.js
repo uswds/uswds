@@ -1,7 +1,7 @@
 const assert = require("assert");
 const {
   generateDynamicRegExp
-} = require("../../../src/js/components/combo-box");
+} = require("../../../src/patterns/components/usa-combo-box/combo-box");
 
 describe("generateDynamicRegExp function", () => {
   it("allows for static string", () => {

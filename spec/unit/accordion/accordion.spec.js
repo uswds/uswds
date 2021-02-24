@@ -1,4 +1,4 @@
-const Accordion = require("../../../src/js/components/accordion");
+const Accordion = require("../../../src/patterns/components/usa-accordion/accordion");
 const assert = require("assert");
 const fs = require("fs");
 

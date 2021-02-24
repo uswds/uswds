@@ -1,5 +1,5 @@
 const assert = require("assert");
-const isInViewport = require("../../../src/js/utils/is-in-viewport");
+const isInViewport = require("../../../src/patterns/utils/is-in-viewport");
 
 function fakeEl(rect) {
   return {

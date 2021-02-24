@@ -1,11 +1,13 @@
 const assert = require("assert");
-const fileInput = require("../../../src/js/components/file-input");
+const fileInput = require("../../../src/patterns/components/usa-file-input/file-input");
 const fs = require("fs");
 const path = require("path");
 
-const RENDER = "../../../build/components/render/";
+// ../../../build/components/render/
+
+const RENDER = "../../../build/patterns/components-usa-file-input-usa-file-input-disabled";
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, RENDER, "file-input--disabled.html")
+  path.join(__dirname, RENDER, "components-usa-file-input-usa-file-input-disabled.rendered.html")
 );
 
 describe("file input is disabled", () => {

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const sinon = require("sinon");
 const assert = require("assert");
-const ComboBox = require("../../../src/js/components/combo-box");
+const ComboBox = require("../../../src/patterns/components/usa-combo-box/combo-box");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(

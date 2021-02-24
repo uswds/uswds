@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
-const ComboBox = require('../../../src/js/components/combo-box');
+const ComboBox = require('../../../src/patterns/components/usa-combo-box/combo-box');
 
 const INVALID_TEMPLATE_NO_MESSAGE = fs.readFileSync(path.join(__dirname, '/invalid-template-no-select.template.html'));
 
