@@ -1,7 +1,7 @@
 // Old gulp tasks
 // Patch these in until ported into new syntax
 // test, regression: nope, not yet...
-// require("./config/gulp/test");
+require("./config/gulp/test");
 // typecheck
 require("./config/gulp/javascript");
 
