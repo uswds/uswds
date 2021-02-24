@@ -9,14 +9,24 @@
 // prerequisites needed for test collection to work. That's what
 // this file is for.
 
-const fractal = require("../fractal.config");
+// const fractal = require("../fractal.config");
 
-exports.fractalLoad = fractal.components.load();
+// exports.fractalLoad = fractal.components.load();
 
-Promise.all([exports.fractalLoad])
-  .then(() => {
-    run();
-  })
-  .catch(() => {
-    process.exit(1);
-  });
+// Promise.all([exports.fractalLoad])
+//   .then(() => {
+//     run();
+//   })
+//   .catch(() => {
+//     process.exit(1);
+//   });
+
+setTimeout(function () {
+  // do some setup
+
+  // describe("my suite", function () {
+  //   // ...
+  // });
+
+  run();
+}, 5000);
