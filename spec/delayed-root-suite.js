@@ -8,19 +8,29 @@
 // which we need to call manually once we're done loading any
 // prerequisites needed for test collection to work. That's what
 // this file is for.
+const fs = require("fs");
+const path = require("path");
 
-// const fractal = require("../fractal.config");
+const ROOT_DIR = path.join(__dirname, "..");
+const PL_BUILD_DIR = path.join(ROOT_DIR, "build");
 const { styleguide } = require("../gulpfile");
 
 async function loadPatternLab() {
   const promise = new Promise((resolve, reject) => {
-    resolve(styleguide());
+    if (fs.existsSync(PL_BUILD_DIR)) {
+      console.log("patterns already built");
+      setTimeout(() => resolve(), 5000);
+    } else {
+      resolve(styleguide());
+    }
   });
 
   const ready = await promise; // wait until the promise resolves (*)
-  console.log(ready);
   console.log("patternlab is ready.."); // "done!"
+
+  // once patternlab is built we need to get an array of
+  // component pages that are made avalible
   return ready;
 }
 
-loadPatternLab().then(() => run());
+exports.loadPatternLab = loadPatternLab().then(() => run());
