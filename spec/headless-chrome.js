@@ -1,6 +1,6 @@
-const { fractalLoad } = require("./delayed-root-suite");
-const VisualRegressionTester = require("./visual-regression-tester");
-const ChromeFractalTester = require("./chrome-fractal-tester");
+const { loadPatternLab } = require("./delayed-root-suite");
+// const VisualRegressionTester = require("./visual-regression-tester");
+const ChromePatternLabTester = require("./chrome-patternlab-tester");
 const axeTester = require("./axe-tester");
 
 class Device {
@@ -57,28 +57,28 @@ const DEVICES = [
   })
 ];
 
-fractalLoad.then(() => {
-  const chromeFractalTester = new ChromeFractalTester();
-  const { handles } = chromeFractalTester;
+loadPatternLab.then(() => {
+  const chromePatternLabTester = new ChromePatternLabTester();
+  const { handles } = chromePatternLabTester;
 
   describe("fractal component", function setupTester() {
     this.timeout(20000);
 
-    before("setup ChromeFractalTester", chromeFractalTester.setup);
+    before("setup ChromePatternLabTester", chromePatternLabTester.setup);
 
-    after("teardown ChromeFractalTester", chromeFractalTester.teardown);
+    after("teardown ChromePatternLabTester", chromePatternLabTester.teardown);
 
-    if (process.env.ENABLE_SCREENSHOTS) {
-      if (process.env.UPDATE_GOLDEN_SCREENSHOTS) {
-        VisualRegressionTester.cleanSync(handles, DEVICES);
-      }
+    // if (process.env.ENABLE_SCREENSHOTS) {
+    //   if (process.env.UPDATE_GOLDEN_SCREENSHOTS) {
+    //     VisualRegressionTester.cleanSync(handles, DEVICES);
+    //   }
 
-      after("create visual regression testing metadata", () =>
-        VisualRegressionTester.writeMetadata(handles, DEVICES)
-      );
-    }
+    //   after("create visual regression testing metadata", () =>
+    //     VisualRegressionTester.writeMetadata(handles, DEVICES)
+    //   );
+    // }
 
-    handles.forEach(handle => {
+    handles.forEach((handle) => {
       let cdp;
 
       describe(`"${handle}"`, () => {
@@ -88,41 +88,41 @@ fractalLoad.then(() => {
         }
 
         before("init chrome devtools protocol", () => {
-          return chromeFractalTester
+          return chromePatternLabTester
             .createChromeDevtoolsProtocol()
-            .then(client => {
+            .then((client) => {
               cdp = client;
             });
         });
 
         before("load fractal component in chrome", function waitBeforeChrome() {
           this.timeout(20000);
-          return chromeFractalTester.loadFractalPreview(cdp, handle);
+          return chromePatternLabTester.loadPatternLabPreview(cdp, handle);
         });
 
         before("inject aXe", () => axeTester.load(cdp));
 
         after("shutdown chrome devtools protocol", () => cdp.close());
 
-        DEVICES.forEach(device => {
+        DEVICES.forEach((device) => {
           describe(`on ${device.description}`, () => {
             before("set device metrics", () =>
               cdp.Emulation.setDeviceMetricsOverride(device.metrics)
             );
 
-            it('has no aXe violations', () => axeTester.run({ cdp }));
-            it('shows aXe warnings', () => axeTester.run({ cdp, warn: true }));
+            it("has no aXe violations", () => axeTester.run({ cdp }));
+            it("shows aXe warnings", () => axeTester.run({ cdp, warn: true }));
 
-            if (process.env.ENABLE_SCREENSHOTS) {
-              const vrt = new VisualRegressionTester({ handle, device });
-              if (vrt.doesGoldenFileExist()) {
-                it("matches golden screenshot", () =>
-                  vrt.screenshot(cdp).then(vrt.ensureMatchesGoldenFile));
-              } else {
-                it("is the new golden screenshot", () =>
-                  vrt.screenshot(cdp).then(vrt.saveToGoldenFile));
-              }
-            }
+            //   if (process.env.ENABLE_SCREENSHOTS) {
+            //     const vrt = new VisualRegressionTester({ handle, device });
+            //     if (vrt.doesGoldenFileExist()) {
+            //       it("matches golden screenshot", () =>
+            //         vrt.screenshot(cdp).then(vrt.ensureMatchesGoldenFile));
+            //     } else {
+            //       it("is the new golden screenshot", () =>
+            //         vrt.screenshot(cdp).then(vrt.saveToGoldenFile));
+            //     }
+            //   }
           });
         });
       });
