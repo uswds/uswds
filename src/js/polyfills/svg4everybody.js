@@ -1,18 +1,7 @@
 /* eslint-disable */
-!(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define([], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory();
-  } else {
-    // Browser globals (root is window)
-    root.returnExports = factory();
-  }
-}(typeof self !== 'undefined' ? self : this, function () {
+!function(factory) {
+  module.exports = factory();
+}(function() {
   /*! svg4everybody v2.1.9 | github.com/jonathantneal/svg4everybody */
   function embed(parent, svg, target, use) {
       // if the target exists
@@ -126,4 +115,4 @@
       return svg;
   }
   return svg4everybody;
-}));
+});
