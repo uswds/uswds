@@ -214,7 +214,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
           const fileType = acceptedFiles[j];
           allFilesAllowed =
             file.name.indexOf(fileType) > 0 ||
-            file.type.includes(fileType.replace(/\*/g, ""));
+            file.type.indexOf(fileType.replace("*", "")) === 0;
           if (allFilesAllowed) break;
         }
       } else break;
