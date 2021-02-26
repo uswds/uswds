@@ -3,8 +3,6 @@ const fileInput = require("../../../src/patterns/components/usa-file-input/file-
 const fs = require("fs");
 const path = require("path");
 
-// ../../../build/components/render/
-
 const RENDER = "../../../build/patterns/components-usa-file-input-usa-file-input-disabled";
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, RENDER, "components-usa-file-input-usa-file-input-disabled.rendered.html")
