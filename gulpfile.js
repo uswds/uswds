@@ -1,7 +1,5 @@
 // Old gulp tasks
 // Patch these in until ported into new syntax
-// test, regression: nope, not yet...
-require("./config/gulp/test");
 // typecheck
 require("./config/gulp/javascript");
 
@@ -13,6 +11,10 @@ const run = require("gulp-run-command").default;
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
+const {
+  unitTests,
+  a11y,
+} = require("./config/gulp/test");
 const {
   cleanCSS,
   cleanFonts,
@@ -65,12 +67,16 @@ async function buildPL() {
   return run("npm run pl:build")();
 }
 
+async function exitServer() {
+  return server.exit()
+}
+
 /**
  * Start browsersync server.
  * @param {function} done callback function.
  * @returns {undefined}
  */
-function serve(done) {
+function serve(done,exit) {
   // See https://browsersync.io/docs/options for more options.
   server.init({
     server: ["./build/"],
@@ -111,6 +117,12 @@ function watchFiles() {
       done();
     })
   );
+
+  // Watch all my unit tests and run if a file changes.
+  watch(
+    "./spec/**/*.spec.js",
+    series(unitTests, (done) => done())
+  );
 }
 
 // Build task for Pattern Lab.
@@ -123,6 +135,16 @@ exports.watch = series(
   parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(rebuildPL, serve, watchFiles)
+);
+
+// Clean all directories.
+exports.test = series(
+  lintJS,
+  lintSass,
+  unitTests,
+  serve,
+  a11y,
+  exitServer
 );
 
 // Default Task
