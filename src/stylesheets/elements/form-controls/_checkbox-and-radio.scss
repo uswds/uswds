@@ -61,6 +61,7 @@
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   line-height: units($theme-input-select-size);
   margin-right: units($input-select-margin-right);
+  text-indent: 0;
 }
 
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
