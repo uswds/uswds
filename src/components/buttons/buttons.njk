@@ -2,15 +2,35 @@
 <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif -%}
 
-<button class="usa-button {{ classes }}">Default</button>
+<button class="usa-button {{ classes }} margin-y-05">Default</button>
+<button class="usa-button {{ classes }} display-inline-flex flex-align-center flex-justify-center margin-y-05 radius-pill font-ui-sm padding-y-1 padding-x-105 text-normal">
+  <svg class="usa-icon margin-right-1" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#mail"></use>
+  </svg>
+  Send us an email
+  <svg class="usa-icon margin-left-05" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#expand_more"></use>
+  </svg>
+</button>
+<button class="usa-button {{ classes }} display-inline-flex flex-align-center flex-justify-center margin-y-05 radius-pill font-ui-sm padding-y-1 padding-x-105 text-normal square-5 padding-1">
+  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#mail"></use>
+  </svg>
+</button>
+<button class="usa-button {{ classes }} display-inline-flex flex-align-center flex-justify-center margin-y-05 radius-pill font-ui-sm text-normal square-5 padding-1">
+  <svg class="usa-icon height-full width-full" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#add"></use>
+  </svg>
+</button>
 {% if (category != 'disabled') and (category != 'big') -%}
-<button class="usa-button {{ classes }} usa-button--hover">Hover</button>
-<button class="usa-button {{ classes }} usa-button--active">Active</button>
-<button class="usa-button {{ classes }} usa-focus">Focus</button>
-<button class="usa-button {{ classes }}" disabled>Disabled</button>
+<button class="usa-button {{ classes }} margin-y-05 usa-button--hover">Hover</button>
+<button class="usa-button {{ classes }}  margin-y-05 usa-button--active">Active</button>
+<button class="usa-button {{ classes }}  margin-y-05 usa-focus">Focus</button>
+<button class="usa-button {{ classes }} margin-y-05" disabled>Disabled</button>
 {%- endif -%}
 <button class="usa-button {{ classes }} usa-button--unstyled">Unstyled button</button>
 
 {%- if (classes == 'usa-button--outline usa-button--inverse') %}
 </div>
 {%- endif %}
+

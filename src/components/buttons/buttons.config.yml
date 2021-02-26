@@ -1,5 +1,6 @@
 label: Buttons
 status: ready
+preview: "@uswds-framed"
 
 variants:
   - name: secondary
