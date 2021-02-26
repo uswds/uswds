@@ -86,6 +86,17 @@ function serve(done,exit) {
   done();
 }
 
+exports.a11y = series(serve, a11y, exitServer);
+
+exports.test = series(
+  lintJS,
+  lintSass,
+  unitTests,
+  serve,
+  a11y,
+  exitServer
+);
+
 /**
  * Watch Sass and JS files.
  * @returns {undefined}
@@ -137,15 +148,6 @@ exports.watch = series(
   series(rebuildPL, serve, watchFiles)
 );
 
-// Clean all directories.
-exports.test = series(
-  lintJS,
-  lintSass,
-  unitTests,
-  serve,
-  a11y,
-  exitServer
-);
 
 // Default Task
 exports.default = series(
