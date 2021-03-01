@@ -1,11 +1,11 @@
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
-const toggle = require("../utils/toggle");
-const FocusTrap = require("../utils/focus-trap");
-const accordion = require("./accordion");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
+const toggle = require("../../utils/toggle");
+const FocusTrap = require("../../utils/focus-trap");
+const accordion = require("../usa-accordion/accordion");
 
-const { CLICK } = require("../events");
-const { prefix: PREFIX } = require("../config");
+const { CLICK } = require("../../events");
+const { prefix: PREFIX } = require("../../config");
 
 const BODY = "body";
 const NAV = `.${PREFIX}-nav`;

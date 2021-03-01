@@ -1,8 +1,8 @@
 const ignore = require("receptor/ignore");
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
 
-const { CLICK } = require("../events");
+const { CLICK } = require("../../events");
 
 const BUTTON = ".js-search-button";
 const FORM = ".js-search-form";

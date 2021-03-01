@@ -1,8 +1,8 @@
 const debounce = require("lodash.debounce");
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
-const { CLICK } = require("../events");
-const { prefix: PREFIX } = require("../config");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
+const { CLICK } = require("../../events");
+const { prefix: PREFIX } = require("../../config");
 
 const HIDDEN = "hidden";
 const SCOPE = `.${PREFIX}-footer--big`;

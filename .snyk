@@ -4,11 +4,8 @@ version: v1.14.1
 ignore:
   SNYK-JS-GLOBPARENT-1016905:
     - del > globby > fast-glob > glob-parent:
-        reason: None given
-        expires: '2021-02-25T21:48:00.048Z'
-      browser-sync > chokidar > glob-parent:
-        reason: No patch available.
-        expires: '2021-03-11T17:49:21.414Z'
+        reason: No available patch or upgrade.
+        expires: '2021-03-31T17:53:45.553Z'
     - '@pattern-lab/core > @pattern-lab/live-server > chokidar > glob-parent':
         reason: No patch available.
         expires: '2021-03-11T17:49:21.414Z'
@@ -30,6 +27,9 @@ ignore:
     - '@pattern-lab/uikit-workshop > critical > postcss-image-inliner > asset-resolver > globby > fast-glob > glob-parent':
         reason: No patch available.
         expires: '2021-03-11T17:49:21.415Z'
+    - browser-sync > chokidar > glob-parent:
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
   SNYK-JS-ENGINEIO-1056749:
     - browser-sync > socket.io > engine.io:
         reason: No patch available.

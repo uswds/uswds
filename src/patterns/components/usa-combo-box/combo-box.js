@@ -1,8 +1,8 @@
 const keymap = require("receptor/keymap");
-const select = require("../utils/select");
-const behavior = require("../utils/behavior");
-const { prefix: PREFIX } = require("../config");
-const { CLICK } = require("../events");
+const select = require("../../utils/select");
+const behavior = require("../../utils/behavior");
+const { prefix: PREFIX } = require("../../config");
+const { CLICK } = require("../../events");
 
 const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
 const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;

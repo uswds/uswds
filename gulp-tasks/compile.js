@@ -84,7 +84,7 @@ module.exports = {
 
   // Compile JavaScript.
   compileJS: function(done) {
-    const entryPoints = ["src/js/start.js", "src/js/uswds-init.js"];
+    const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
     const defaultStreams = entryPoints.map((entry) => {
       return browserify({

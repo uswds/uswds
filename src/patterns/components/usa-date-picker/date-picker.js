@@ -1,10 +1,10 @@
 const keymap = require("receptor/keymap");
-const behavior = require("../utils/behavior");
-const select = require("../utils/select");
-const { prefix: PREFIX } = require("../config");
-const { CLICK } = require("../events");
-const activeElement = require("../utils/active-element");
-const isIosDevice = require("../utils/is-ios-device");
+const behavior = require("../../utils/behavior");
+const select = require("../../utils/select");
+const { prefix: PREFIX } = require("../../config");
+const { CLICK } = require("../../events");
+const activeElement = require("../../utils/active-element");
+const isIosDevice = require("../../utils/is-ios-device");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;

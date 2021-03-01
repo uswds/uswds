@@ -27,7 +27,7 @@ module.exports = {
 
   // Lint JavaScript based on .eslintrc config.
   lintJS: function() {
-    return src(['src/js/**/*.js", "spec/**/*.js'])
+    return src(['src/patterns/**/**/*.js", "spec/**/*.js'])
       .pipe(eslint({ fix: true }))
       .pipe(eslint.format())
       .pipe(eslint.failAfterError());

@@ -13,7 +13,7 @@ const cFlags = require("./cflags");
 
 const task = "javascript";
 
-const entryPoints = ["src/js/start.js", "src/js/uswds-init.js"];
+const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
 gulp.task(task, (done) => {
   dutil.logMessage(task, "Compiling JavaScript");
@@ -81,7 +81,7 @@ gulp.task("eslint", (done) => {
   }
 
   return gulp
-    .src(["src/js/**/*.js", "spec/**/*.js"])
+    .src(["src/patterns/**/**/*.js", "spec/**/*.js"])
     .pipe(
       eslint({
         fix: true,
