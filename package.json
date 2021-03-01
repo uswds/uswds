@@ -46,7 +46,7 @@
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "gulp watch",
     "test": "snyk test && gulp typecheck && gulp test",
-    "test:ci": "gulp lintJS && gulp typecheck && gulp lintSass && gulp test",
+    "test:ci": "gulp typecheck && gulp test",
     "test:a11y": "gulp a11y",
     "test:ci:temp": "gulp typecheck && gulp lintJS && gulp lintSass",
     "test:sass": "mocha spec/unit/sass/sass-spec.js",
