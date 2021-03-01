@@ -16,6 +16,7 @@ module.exports = {
 
   // run accessiblity.
   a11y() {
-    return gulp.src("spec/headless-chrome.js").pipe(mocha(mochaConfig));
+    // return gulp.src("spec/headless-chrome.js").pipe(mocha(mochaConfig));
+    return gulp.src("spec/a11y.js").pipe(mocha(mochaConfig));
   }
 };
