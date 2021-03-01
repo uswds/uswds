@@ -10,8 +10,8 @@ const AXE_CONTEXT = JSON.stringify({
     // iframes with data: URIs. The content of these iframes is just for
     // non-USWDS example content anyways, so just skip them to speed things
     // up.
-    ['iframe[src^="data:"]']
-  ]
+    ['iframe[src^="data:"]'],
+  ],
 });
 
 const AXE_OPTIONS = {
@@ -31,6 +31,8 @@ const AXE_OPTIONS = {
     'skip-link': { enabled: false },
     // Not all examples will need an h1, ex: links.
     'page-has-heading-one': { enabled: false },
+    // we don't need html lang check for components.
+    'html-has-lang': { enabled: false },
   },
 };
 
@@ -40,7 +42,7 @@ const AXE_BEST_PRACTICES = {
     ...AXE_OPTIONS.runOnly.type,
     values: ['best-practice'],
   },
-}
+};
 
 // This function is only here so it can be easily .toString()'d
 // and run in the context of a web page by Chrome. It will not
@@ -56,8 +58,8 @@ const RUN_AXE_FUNC_JS = function runAxe(context, options) {
 
 function load(cdp) {
   return cdp.Runtime.evaluate({
-    expression: `${AXE_JS};`
-  }).then(details => {
+    expression: `${AXE_JS};`,
+  }).then((details) => {
     assert.deepEqual(
       details,
       { result: { type: "undefined" } },
@@ -76,42 +78,42 @@ function run({ cdp, warn = false } = {}) {
 
   return cdp.Runtime.evaluate({
     expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${JSON.stringify(
-      AXE_SETTINGS
+      AXE_SETTINGS,
     )})`,
     awaitPromise: true,
   })
-  .then((details) => {
-    const violations = JSON.parse(details.result.value);
-    const violationsFormatted = JSON.stringify(violations, null, 2);
+    .then((details) => {
+      const violations = JSON.parse(details.result.value);
+      const violationsFormatted = JSON.stringify(violations, null, 2);
 
-    /**
-     * Reject and show an error if it's a 'section508', 'wcag2a', 'wcag2aa'
-     * violation. Otherwise, show a console warning.
-     */
-    const handleError = () => {
-      let errorMsg = `
-        Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
-        ${violationsFormatted}
-        To debug these violations, install aXe at:
-        https://www.deque.com/products/axe/`;
+      /**
+       * Reject and show an error if it's a 'section508', 'wcag2a', 'wcag2aa'
+       * violation. Otherwise, show a console warning.
+       */
+      const handleError = () => {
+        let errorMsg = `
+          Found ${violations.length} aXe ${warn ? 'warnings' : 'violations'}:
+          ${violationsFormatted}
+          To debug these violations, install aXe at:
+          https://www.deque.com/products/axe/`;
 
-      if (!warn) {
-        return Promise.reject(new Error(errorMsg));
+        if (!warn) {
+          return Promise.reject(new Error(errorMsg));
+        } else {
+          /* eslint-disable-next-line no-console */
+          return console.log(colors.yellow(errorMsg));
+        }
+      };
+
+      if (!violations.length) {
+        return Promise.resolve();
       } else {
-        /* eslint-disable-next-line no-console */
-        return console.log(colors.yellow(errorMsg));
+        return handleError(violations);
       }
-    };
-
-    if (!violations.length) {
-      return Promise.resolve();
-    } else {
-      return handleError(violations);
-    }
-  });
+    });
 }
 
 module.exports = {
   load,
-  run
+  run,
 };
