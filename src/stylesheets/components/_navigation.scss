@@ -212,11 +212,19 @@ $nav-link-arrow-icon-size: 2;
   }
 
   .usa-search {
-    margin-top: units(2);
     width: 100%;
+    bottom: units("05");
 
     @include at-media($theme-header-min-width) {
       margin-left: 0;
+    }
+  }
+
+  .usa-nav__secondary-links ~ .usa-search {
+    bottom: 0;
+    margin-top: units(2);
+
+    @include at-media($theme-header-min-width) {
       margin-top: units(1);
     }
   }
