@@ -1,4 +1,4 @@
-$date-picker-max-width: "mobile-lg";
+$date-picker-max-width: "mobile";
 
 // Date Picker
 
@@ -67,6 +67,7 @@ $date-picker-max-width: "mobile-lg";
 
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
+  left: auto;
   max-width: units($date-picker-max-width);
   position: absolute;
   right: 0;
