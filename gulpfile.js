@@ -77,7 +77,7 @@ async function exitServer() {
  * @param {function} done callback function.
  * @returns {undefined}
  */
-function serve(done,exit) {
+function serve(done) {
   // See https://browsersync.io/docs/options for more options.
   server.init({
     server: ["./build/"],
