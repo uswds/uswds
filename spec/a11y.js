@@ -1,12 +1,35 @@
 const chromeLauncher = require("chrome-launcher");
 const CDP = require("chrome-remote-interface");
-// const { loadPatternLab } = require("./delayed-root-suite");
-// const ChromePatternLabTester = require("./chrome-patternlab-tester");
 const axeTester = require("./axe-tester");
+const fs = require("fs");
+const path = require("path");
+const ROOT_DIR = path.join(__dirname, "..");
+const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
 
+// get all rendered.html files
 const handles = [
-  "/patterns/components-usa-accordion-usa-accordion/components-usa-accordion-usa-accordion.rendered.html"
+  "/patterns/components-usa-accordion-usa-accordion/components-usa-accordion-usa-accordion.rendered.html",
 ];
+
+// const handles = [];
+
+// fs.readdir(PL_BUILD_PATTERNS_DIR, (err, files) => {
+//   if (err) console.log(err);
+//   else {
+//     files.forEach((file) => {
+//       const builtComponentDir = PL_BUILD_PATTERNS_DIR + file;
+//       fs.readdir(builtComponentDir, (err, dir) => {
+//         if (err) console.log(err);
+//         dir.forEach((component) => {
+//           if (component.includes(".rendered.html")) {
+//             // console.log(handles)
+//             handles.push("/patterns/" + file + "/" + component);
+//           }
+//         });
+//       });
+//     });
+//   }
+// });
 
 let chrome;
 let chromeHost;
@@ -20,7 +43,6 @@ async function launchChrome() {
       logLevel: "verbose",
     })
     .then((newChrome) => {
-      // console.log(newChrome);
       chrome = newChrome;
       chromeHost = chrome.host;
       serverUrl = "http://localhost:3000";
@@ -47,22 +69,25 @@ async function loadPatternLabPreview(c, h) {
   return loadPage(c, url);
 }
 
-describe("a11y tests", function () {
-  this.timeout(20000);
+if (handles.length > 0) {
+  describe("a11y tests", function () {
+    this.timeout(20000);
 
-  handles.forEach((handle) => {
-    before(async () => {
-      await launchChrome();
-      await createChromeDevtoolsProtocol().then((client) => {
-        cdp = client;
-        return loadPatternLabPreview(cdp, handle);
+    describe(`looking for violations`, () => {
+      console.log(handles);
+      handles.forEach((handle) => {
+        before(async () => {
+          await launchChrome();
+          await createChromeDevtoolsProtocol().then((client) => {
+            cdp = client;
+            return loadPatternLabPreview(cdp, handle);
+          });
+          axeTester.load(cdp);
+        });
+        after("shutdown chrome devtools protocol", () => cdp.close());
+        // test cases
+        it("shows aXe warnings", () => axeTester.run({ cdp, warn: false }));
       });
-      axeTester.load(cdp);
-    });
-
-    describe(`looking for violations on ${handle}`, () => {
-      // test cases
-      it("shows aXe warnings", () => axeTester.run({ cdp, warn: false }));
     });
   });
-});
+}
