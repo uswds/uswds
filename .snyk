@@ -5,5 +5,5 @@ ignore:
   SNYK-JS-GLOBPARENT-1016905:
     - del > globby > fast-glob > glob-parent:
         reason: None given
-        expires: '2021-02-25T21:48:00.048Z'
+        expires: '2021-03-31T23:14:27.003Z'
 patch: {}
