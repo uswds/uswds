@@ -41,10 +41,7 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-form-group {
-  // Add to margin to form groups that follow elements
-  * + & {
-    margin-top: units(2);
-  }
+  margin-top: units(2);
 
   // Let form-group handle top margin
   .usa-label:first-child {
