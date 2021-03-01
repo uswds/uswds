@@ -14,6 +14,7 @@ const run = require("gulp-run-command").default;
 const {
   unitTests,
   a11y,
+  cover,
 } = require("./config/gulp/test");
 const {
   cleanCSS,
@@ -87,6 +88,8 @@ function serve(done,exit) {
 }
 
 exports.a11y = series(serve, a11y, exitServer);
+
+exports.cover = cover;
 
 exports.test = series(
   lintJS,
