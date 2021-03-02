@@ -138,6 +138,14 @@
   border-color: color($theme-input-tile-border-color-selected);
 }
 
+
+.usa-checkbox__input--tile:disabled:checked + .usa-checkbox__label,
+.usa-radio__input--tile:disabled:checked + .usa-radio__label {
+  background-color: color("disabled-light");
+  border-color: color($theme-input-tile-border-color);
+}
+
+
 .usa-checkbox__label-description,
 .usa-radio__label-description {
   display: block;
