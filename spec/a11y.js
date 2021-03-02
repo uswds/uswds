@@ -1,17 +1,20 @@
 const chromeLauncher = require("chrome-launcher");
 const CDP = require("chrome-remote-interface");
 const axeTester = require("./axe-tester");
-const fs = require("fs");
-const path = require("path");
-const ROOT_DIR = path.join(__dirname, "..");
-const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
+const { getComponents } = require("./delayed-root-suite");
+// const fs = require("fs");
+// const path = require("path");
+// const ROOT_DIR = path.join(__dirname, "..");
+// const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
 
 // get all rendered.html files
 const handles = [
   "/patterns/components-usa-accordion-usa-accordion/components-usa-accordion-usa-accordion.rendered.html",
 ];
 
-// const handles = [];
+getComponents.then((components) => console.log({ components }));
+
+// const components = [];
 
 // fs.readdir(PL_BUILD_PATTERNS_DIR, (err, files) => {
 //   if (err) console.log(err);
@@ -22,14 +25,43 @@ const handles = [
 //         if (err) console.log(err);
 //         dir.forEach((component) => {
 //           if (component.includes(".rendered.html")) {
-//             // console.log(handles)
-//             handles.push("/patterns/" + file + "/" + component);
+//             components.push("/patterns/" + file + "/" + component);
 //           }
 //         });
 //       });
 //     });
 //   }
 // });
+
+// const getComponents = new Promise((resolve, reject) => {
+//   const components = [];
+
+//   async function findAllComponents() {
+//     fs.readdir(PL_BUILD_PATTERNS_DIR, (err, files) => {
+//       if (err) console.log(err);
+//       else {
+//         files.forEach((file) => {
+//           const builtComponentDir = PL_BUILD_PATTERNS_DIR + file;
+//           fs.readdir(builtComponentDir, (err, dir) => {
+//             if (err) console.log(err);
+//             dir.forEach((component) => {
+//               if (component.includes(".rendered.html")) {
+//                 components.push("/patterns/" + file + "/" + component);
+//               }
+//             });
+//           });
+//         });
+//       }
+//     });
+//   }
+
+//   resolve(findAllComponents().then(() => {
+//     console.log(components);
+//     return components;
+//   }));
+// });
+
+// getComponents.then((value) => console.log(value));
 
 let chrome;
 let chromeHost;
@@ -69,25 +101,30 @@ async function loadPatternLabPreview(c, h) {
   return loadPage(c, url);
 }
 
-if (handles.length > 0) {
-  describe("a11y tests", function () {
-    this.timeout(20000);
+describe("a11y tests", function () {
+  this.timeout(20000);
 
-    describe(`looking for violations`, () => {
-      console.log(handles);
-      handles.forEach((handle) => {
-        before(async () => {
-          await launchChrome();
-          await createChromeDevtoolsProtocol().then((client) => {
-            cdp = client;
-            return loadPatternLabPreview(cdp, handle);
-          });
-          axeTester.load(cdp);
+  before(async () => {
+    await launchChrome();
+  });
+
+  describe(`looking for violations`, () => {
+    console.log(handles);
+    // console.log(components);
+    handles.forEach((handle) => {
+      before(async () => {
+        await createChromeDevtoolsProtocol().then((client) => {
+          cdp = client;
+          return loadPatternLabPreview(cdp, handle);
         });
-        after("shutdown chrome devtools protocol", () => cdp.close());
-        // test cases
-        it("shows aXe warnings", () => axeTester.run({ cdp, warn: false }));
+        axeTester.load(cdp);
       });
+      after("shutdown chrome devtools protocol", () => cdp.close());
+      // test cases
+      it(`${handle} passes without a11y errors`, () =>
+        axeTester.run({ cdp, warn: false }));
     });
   });
-}
+});
+// });
+// }
