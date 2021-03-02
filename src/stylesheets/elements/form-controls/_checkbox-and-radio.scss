@@ -118,8 +118,8 @@
 }
 
 .usa-radio__input:checked:disabled + .usa-radio__label::before {
-  background: color('disabled-dark');
-  box-shadow: 0 0 0 2px color('disabled-dark'), inset 0 0 0 2px color('disabled-light');
+  background: color("disabled-dark");
+  box-shadow: 0 0 0 2px color("disabled-dark"), inset 0 0 0 2px color("disabled-light");
 }
 
 // Checkboxes and radios with tap-friendly targets
