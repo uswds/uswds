@@ -1,8 +1,11 @@
+$date-picker-max-width: "mobile";
+
 // Date Picker
 
 .usa-date-picker__wrapper {
   display: none;
   position: relative;
+  max-width: units($theme-input-max-width);
 
   &:focus {
     outline: 0;
@@ -45,7 +48,7 @@
 
 .usa-date-picker__button {
   @extend %usa-date-picker__button;
-  @include add-background-svg("calendar-alt-solid");
+  @include add-background-svg("usa-icons/calendar_today");
   align-self: stretch;
   background-color: transparent;
   background-position: center;
@@ -64,8 +67,10 @@
 
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
-  left: 0;
+  left: auto;
+  max-width: units($date-picker-max-width);
   position: absolute;
+  right: 0;
   width: 100%;
   z-index: z-index(100);
 }
@@ -115,25 +120,25 @@
 .usa-date-picker__calendar__next-month {
   @extend %usa-date-picker__button;
   background-position: center;
-  background-size: auto units(2.5);
+  background-size: auto units(3);
   height: units(3);
   padding: 20px 10px;
 }
 
 .usa-date-picker__calendar__previous-year:not([disabled]) {
-  @include add-background-svg("angle-double-left-solid");
+  @include add-background-svg("usa-icons/navigate_far_before");
 }
 
 .usa-date-picker__calendar__previous-month:not([disabled]) {
-  @include add-background-svg("angle-left-solid");
+  @include add-background-svg("usa-icons/navigate_before");
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
-  @include add-background-svg("angle-double-right-solid");
+  @include add-background-svg("usa-icons/navigate_far_next");
 }
 
 .usa-date-picker__calendar__next-month:not([disabled]) {
-  @include add-background-svg("angle-right-solid");
+  @include add-background-svg("usa-icons/navigate_next");
 }
 
 .usa-date-picker__calendar__day-of-week {
@@ -282,11 +287,11 @@
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
-  @include add-background-svg("angle-left-solid");
+  @include add-background-svg("usa-icons/navigate_before");
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
-  @include add-background-svg("angle-right-solid");
+  @include add-background-svg("usa-icons/navigate_next");
 }
 
 .usa-date-picker__calendar__year {
