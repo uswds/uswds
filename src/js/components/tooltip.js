@@ -228,24 +228,26 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     let hasVisiblePosition = false;
 
     // we take a recursive approach
-    function recursive(i) {
+    function tryPositions(i) {
       if (i < positions.length) {
         const pos = positions[i];
         pos(element);
 
         if (!isElementInViewport(element)) {
-          recursive((i += 1));
+          // eslint-disable-next-line no-param-reassign
+          tryPositions((i += 1));
         } else {
           hasVisiblePosition = true;
         }
       }
     }
 
-    recursive(0);
+    tryPositions(0);
     // if we can't find a position we compress it and try again
     if (!hasVisiblePosition) {
       element.classList.add(ADJUST_WIDTH_CLASS);
       if (attempt <= maxAttempts) {
+        // eslint-disable-next-line no-param-reassign
         findBestPosition(element, (attempt += 1));
       }
     }

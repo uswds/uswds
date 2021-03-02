@@ -29,10 +29,8 @@ $triangle-size: 5px;
   width: auto;
   white-space: pre;
   z-index: 100000;
-
-  /* Center vertically */
   position: absolute;
- /* positioning is completed with JS */
+  /* positioning is completed with JS */
 
   &:after {
     content: "";
@@ -65,9 +63,7 @@ $triangle-size: 5px;
   opacity: 1;
 }
 
-
 .usa-tooltip__body--bottom {
-
   &:after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
@@ -79,7 +75,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--right {
-
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
@@ -94,7 +89,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--left {
-
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
