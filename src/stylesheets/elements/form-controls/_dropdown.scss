@@ -1,11 +1,11 @@
 .usa-select {
   @extend %block-input-general;
   @extend %block-input-styles;
-  @include add-background-svg("arrow-both");
+  @include add-background-svg("usa-icons/unfold_more");
   appearance: none;
   background-color: color("white");
-  background-position: right units(1.5) center;
-  background-size: units(1);
+  background-position: right units(1) center;
+  background-size: units(2.5);
   padding-right: units(4);
 
   &::-ms-expand {
