@@ -288,7 +288,8 @@ $z-index-overlay: 400;
 
 // [uswds-init.js] Offscreen content while js is loading
 html.usa-js-loading {
-  .usa-nav__submenu {
+  .usa-nav__submenu,
+  .usa-nav__submenu.usa-megamenu {
     @include add-sr-only;
   }
 }
