@@ -52,9 +52,8 @@ async function getComponents() {
     });
   });
 
-  const paths = await Promise.all([buildComponentPaths]).then(
+  const paths = await Promise.resolve(buildComponentPaths).then(
     (values) => {
-      console.log(values);
       return values;
     },
   );
