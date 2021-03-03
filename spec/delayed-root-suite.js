@@ -16,47 +16,49 @@ const PL_BUILD_DIR = path.join(ROOT_DIR, "build");
 const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
 const { styleguide } = require("../gulpfile");
 
-function buildFilePath() {
-  const components = [];
-  let done = false;
-  fs.readdir(PL_BUILD_PATTERNS_DIR, (err, files) => {
-    files.forEach((file) => {
-      const builtComponentDir = PL_BUILD_PATTERNS_DIR + file;
-      fs.readdir(builtComponentDir, (err, dir) => {
-        // if (err) console.log(err);
-        dir.forEach((component) => {
-          if (component.includes(".rendered.html")) {
-            const c = file + "/" + component;
-            // console.log({ c });
-            components.push(c);
-          }
-          // console.log("1", {components});
-          return components;
-        });
+async function getComponents() {
+  const getDirectories = new Promise((resolve, reject) => {
+    const directories = [];
+    fs.readdir(PL_BUILD_PATTERNS_DIR, (err, files) => {
+      files.forEach((file, index) => {
+        directories.push(file);
+        if (index === files.length - 1) {
+          console.log("getting components");
+          resolve(directories);
+        }
       });
     });
   });
-}
 
-async function getPatterns() {
-  const promise = new Promise((resolve, reject) => {
-    resolve(buildFilePath());
+  const buildComponentPaths = new Promise((resolve, reject) => {
+    const components = [];
+    getDirectories.then((directories) => {
+      directories.map((file, index) => {
+        const builtComponentDir = PL_BUILD_PATTERNS_DIR + file;
+        fs.readdir(builtComponentDir, (err, dir) => {
+          dir.forEach((component) => {
+            if (component.includes(".rendered.html")) {
+              const c = file + "/" + component;
+              components.push(c);
+            }
+            if (index === directories.length - 1) {
+              console.log("resolving component paths");
+              resolve(components);
+            }
+          });
+        });
+        return true;
+      });
+    });
   });
 
-  const handles = await promise; // wait until the promise resolves (*)
-  console.log("patternlab is ready.."); // "done!"
-
-  return handles;
-}
-
-const p = Promise.resolve(getPatterns());
-const p2 = new Promise((resolve) => resolve(p));
-
-async function getComponents() {
-  const str = await p2;
-  // `p2` "assimilates" the value of `p`.
-  console.log(str); // 'Hello, World'
-  return str;
+  const paths = await Promise.all([buildComponentPaths]).then(
+    (values) => {
+      console.log(values);
+      return values;
+    },
+  );
+  return paths;
 }
 
 async function loadPatternLab() {
@@ -76,7 +78,7 @@ async function loadPatternLab() {
 }
 
 exports.loadPatternLab = loadPatternLab();
-exports.getComponents = getComponents().then(values => console.log({values}));
+exports.getComponents = getComponents();
 
 Promise.all([exports.loadPatternLab, exports.getComponents])
   .then(() => {
