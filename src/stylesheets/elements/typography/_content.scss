@@ -41,18 +41,18 @@
 
   p,
   span {
-    color: color("white");
+    color: color($theme-text-reverse-color);
   }
 
   a {
-    color: color("base-lighter");
+    color: color($theme-link-reverse-color);
 
     &:visited {
-      color: color("base-lighter");
+      color: color($theme-link-reverse-color);
     }
 
     &:hover {
-      color: color("white");
+      color: color($theme-link-reverse-hover-color);
     }
   }
 }
