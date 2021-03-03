@@ -34,9 +34,9 @@ describe("Modal window", () => {
     body.className = "";
     modal.off();
   });
-  
+
   describe("Builds the modal HTML", () => {
-    
+
     it('creates new parent elements', () => {
       assert.ok(modalWindow, "creates inner div");
       assert.ok(overlay, "creates the overlay");
@@ -94,12 +94,12 @@ describe("Modal window", () => {
     beforeEach(() => {
       openButton2.click();
     });
-    
-    it("hides the modal when an close button is clicked", () => {
+
+    it("hides the modal when close button is clicked", () => {
       closeButton.click();
       assert.strictEqual(isVisible(modalWrapper), false);
     });
-  
+
     it("closes the modal when the overlay is clicked", () => {
       overlay.click();
       assert.strictEqual(isVisible(modalWrapper), false);
