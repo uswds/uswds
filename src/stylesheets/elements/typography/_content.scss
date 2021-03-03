@@ -41,7 +41,7 @@
 
   p,
   span {
-    color: color("white");
+    color: color($theme-text-reverse-color);
   }
 
   a {
