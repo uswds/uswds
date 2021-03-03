@@ -213,9 +213,9 @@ $nav-link-arrow-icon-size: 2;
 
   .usa-search {
     width: 100%;
-    bottom: units("05");
 
     @include at-media($theme-header-min-width) {
+      bottom: 7.5px; // Magic Number to vertically center when .usa-nav__secondary-links is not a sibling.
       margin-left: 0;
     }
   }
