@@ -2,6 +2,8 @@
 
 {% block body %}
 
+  {% render '@modal' %}
+
   {% for spec in before %}
     {% render '@' + spec.component, spec.context, true %}
   {% endfor %}
