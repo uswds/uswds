@@ -1,23 +1,28 @@
 @mixin set-link-from-bg(
-  $bg-color,
-  $preferred-link-color: $theme-link-color,
-  $fallback-link-color: $theme-link-reverse-color,
-  $wcag-target: "AA"
+  $bg-color: "default",
+  $preferred-link-color: "default",
+  $fallback-link-color: "default",
+  $wcag-target: "AA",
+  $context: false
 ) {
   $link-tokens: get-link-tokens-from-bg(
     $bg-color,
     $preferred-link-color,
     $fallback-link-color,
-    $wcag-target
+    $wcag-target,
+    $context
   );
-
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
   $link-token: nth($link-tokens, 1);
   $hover-token: nth($link-tokens, 2);
   $visited-token: if(
-    abs(get-color-grade($theme-link-visited-color) - get-color-grade($bg-color))
-      < 50,
-    $link-token,
-    $theme-link-visited-color
+    is-accessible-magic-number(
+      $theme-link-visited-color,
+      $bg-color,
+      $wcag-target
+    ),
+    $theme-link-visited-color,
+    $link-token
   );
   color: color($link-token);
   &:visited {
