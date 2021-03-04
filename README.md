@@ -12,7 +12,7 @@ This repository is for the design system code itself. We maintain [another repos
 - [Recent updates](#recent-updates)
 - [Getting started](#getting-started)
 - [Using the design system](#using-the-design-system)
-  - [Download](#download)
+  - [Download and install](#download-and-install)
   - [Install using `npm`](#install-using-npm)
     - [Using the USWDS package](#using-the-uswds-package)
     - [Sass and theme settings](#sass-and-theme-settings)
