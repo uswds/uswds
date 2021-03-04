@@ -1,5 +1,4 @@
 body {
-  background-color: color("white");
-  color: color("ink");
+  @include set-text-and-bg($context: "Body");
   overflow-x: hidden;
 }

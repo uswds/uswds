@@ -3,27 +3,28 @@
 // =====================================
 
 // This helps balance spacing around inline-block elements
+$breadcrumb-context: "Breadcrumb";
 $gap-inline-spacer: -0.25em;
+$icon-vertical-spacer: -0.2em;
 
 $breadcrumb-gap: 1.5;
-$breadcrumb-icon-height: 1.35ex;
-$breadcrumb-icon-spacing: calc(
-  #{units($breadcrumb-gap)} + #{$gap-inline-spacer}
-);
+$breadcrumb-icon-height: 2.5ex;
+$breadcrumb-icon-display-height: 2ex;
+$breadcrumb-icon-spacing: 0px;
 
 $icon-breadcrumb-separator: (
-  "name": "angle-arrow-right",
-  "svg-height": 64,
+  "name": "usa-icons/navigate_next",
+  "svg-height": 40,
   "svg-width": 40,
-  "height": $breadcrumb-icon-height,
+  "height": $breadcrumb-icon-display-height,
   "color": $theme-breadcrumb-separator-color,
 );
 
 $icon-breadcrumb-back: (
-  "name": "arrow-left",
-  "svg-height": 64,
-  "svg-width": 64,
-  "height": $breadcrumb-icon-height,
+  "name": "usa-icons/arrow_back",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $breadcrumb-icon-display-height,
   "color": $theme-breadcrumb-separator-color,
 );
 
@@ -36,7 +37,7 @@ $breadcrumb-back-icon-aspect: (
 // Defines spacing so back icon is optically placed
 @mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
-  $icon-width: $breadcrumb-icon-height * $aspect;
+  $icon-width: $breadcrumb-icon-display-height * $aspect;
   padding-left: calc(#{$icon-width} + #{$breadcrumb-icon-spacing});
   text-indent: calc((#{$icon-width} + #{$breadcrumb-icon-spacing}) * -1);
 }
@@ -47,18 +48,15 @@ $breadcrumb-back-icon-aspect: (
     $theme-breadcrumb-font-size,
     3
   );
-  @include set-text-and-bg($theme-breadcrumb-background-color);
+  @include set-text-and-bg(
+    $theme-breadcrumb-background-color,
+    $context: $breadcrumb-context
+  );
   @include u-padding-x($theme-breadcrumb-padding-x);
 
   @include at-media($theme-breadcrumb-min-width) {
     @include u-padding-bottom($theme-breadcrumb-padding-bottom);
     @include u-padding-top($theme-breadcrumb-padding-top);
-  }
-
-  &.usa-breadcrumb--wrap {
-    @include at-media($theme-breadcrumb-min-width) {
-      @include u-line-height($theme-breadcrumb-font-family, 4);
-    }
   }
 
   &:not(.usa-breadcrumb--wrap) {
@@ -105,12 +103,20 @@ $breadcrumb-back-icon-aspect: (
         // Override link colors from button-unstyled()
         @include set-link-from-bg(
           $theme-breadcrumb-background-color,
-          $theme-breadcrumb-link-color
+          $theme-breadcrumb-link-color,
+          $context: $breadcrumb-context
         );
 
         @include u-display("inline-block");
         @include u-padding-bottom($theme-breadcrumb-padding-bottom);
         @include u-padding-top($theme-breadcrumb-padding-top);
+
+        &:before {
+          bottom: $icon-vertical-spacer;
+          // Magic number to center icon
+          height: $breadcrumb-icon-display-height;
+          position: relative;
+        }
 
         // Prevent underline that extends beyond text
         &,
@@ -146,8 +152,12 @@ $breadcrumb-back-icon-aspect: (
 
     // Style overrides for separator using non-token values
     &:not(:last-child)::after {
+      // Magic number to center icon
+      bottom: $icon-vertical-spacer;
       margin-left: $breadcrumb-icon-spacing;
       margin-right: $breadcrumb-icon-spacing;
+      height: $breadcrumb-icon-display-height;
+      position: relative;
     }
   }
 }
@@ -155,7 +165,8 @@ $breadcrumb-back-icon-aspect: (
 .usa-breadcrumb__link {
   @include set-link-from-bg(
     $theme-breadcrumb-background-color,
-    $theme-breadcrumb-link-color
+    $theme-breadcrumb-link-color,
+    $context: $breadcrumb-context
   );
   @include u-display("inline");
 
@@ -164,5 +175,20 @@ $breadcrumb-back-icon-aspect: (
 
   span {
     @include u-text("underline");
+  }
+}
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Breadcrumb wrap
+.usa-breadcrumb--wrap {
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-line-height($theme-breadcrumb-font-family, 4);
+  }
+
+  .usa-breadcrumb__list-item {
+    @include u-display("inline-block");
   }
 }
