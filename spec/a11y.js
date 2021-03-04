@@ -1,14 +1,15 @@
 const chromeLauncher = require("chrome-launcher");
 const CDP = require("chrome-remote-interface");
 const axeTester = require("./axe-tester");
-const { getComponents } = require("./delayed-root-suite");
+const { getComponents } = require("./patternlab-utils");
 
 let chrome;
 let chromeHost;
 let serverUrl;
 let cdp;
 
-async function launchChrome() {
+function launchChrome() {
+  console.log("launching headless chrome");
   return chromeLauncher
     .launch({
       chromeFlags: ["--disable-gpu", "--headless"],
@@ -21,7 +22,7 @@ async function launchChrome() {
     });
 }
 
-async function createChromeDevtoolsProtocol() {
+function createChromeDevtoolsProtocol() {
   return CDP({
     host: chromeHost,
     port: chrome.port,
@@ -36,7 +37,7 @@ async function loadPage(client, url) {
   await Page.loadEventFired();
 }
 
-async function loadPatternLabPreview(c, h) {
+function loadPatternLabPreview(c, h) {
   const url = `${serverUrl}${h}`;
   return loadPage(c, url);
 }
@@ -48,7 +49,6 @@ getComponents.then((handles) => {
     before(async () => {
       await launchChrome();
     });
-
     describe(`looking for violations`, () => {
       handles.forEach((handle) => {
         before(async () => {
@@ -60,8 +60,15 @@ getComponents.then((handles) => {
         });
         after("shutdown chrome devtools protocol", () => cdp.close());
         // test cases
-        it(`${handle} passes without a11y errors`, () =>
-          axeTester.run({ cdp, warn: true }));
+        const regex = /(usa).*.\//g;
+
+        const componentName = handle.match(regex);
+
+        describe(`testing ${componentName[0]}`, () => {
+          it("has no a11y errors", () => axeTester.run({ cdp, warn: false }));
+          it("passes without warnings", () =>
+            axeTester.run({ cdp, warn: true }));
+        });
       });
     });
   });
