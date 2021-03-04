@@ -42,25 +42,26 @@ button.usa-combo-box__clear-input {
 .usa-combo-box__clear-input {
   background-color: transparent;
   background-position: center;
-  background-size: auto units(1.5);
+  background-size: auto units(3);
   border: 0;
+  bottom: 1px;
   cursor: pointer;
   margin-bottom: 0;
+  opacity: 0.6;
   padding-right: units(4);
   position: absolute;
   top: 1px;
-  height: 2.25em;
   z-index: z-index(100);
 }
 .usa-combo-box__clear-input {
-  @include add-background-svg("close-gray-60");
-
+  @include add-background-svg("usa-icons/close");
   display: none;
   right: calc(2.5em + 3px);
 }
 
 .usa-combo-box__toggle-list {
-  @include add-background-svg("arrow-down-gray-60");
+  @include add-background-svg("usa-icons/expand_more");
+  background-size: auto units(4);
   right: 1px;
 }
 

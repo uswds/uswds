@@ -1,6 +1,6 @@
 label: Combo Box
 status: ready
-preview: "@uswds-framed"
+preview: "@uswds-form"
 
 variants:
   - name: default
