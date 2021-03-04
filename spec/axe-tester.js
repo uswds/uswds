@@ -73,7 +73,7 @@ function load(cdp) {
  * @param { cdp, warn } - Run axe via Chrome Dev Protocol with a show warnings
  * option as a boolean to show axe bestPractice errors.
  */
-function run({ cdp, warn = false } = {}) {
+function run({ cdp, warn = true } = {}) {
   const AXE_SETTINGS = warn ? AXE_BEST_PRACTICES : AXE_OPTIONS;
 
   return cdp.Runtime.evaluate({
@@ -97,19 +97,17 @@ function run({ cdp, warn = false } = {}) {
           To debug these violations, install aXe at:
           https://www.deque.com/products/axe/`;
 
-        if (!warn) {
+        if (warn === false) {
           return Promise.reject(new Error(errorMsg));
-        } else {
-          /* eslint-disable-next-line no-console */
-          return console.log(colors.yellow(errorMsg));
         }
+        /* eslint-disable-next-line no-console */
+        return console.log(colors.yellow(errorMsg));
       };
 
       if (!violations.length) {
         return Promise.resolve();
-      } else {
-        return handleError(violations);
       }
+      return handleError(violations);
     });
 }
 
