@@ -56,7 +56,7 @@ We’re glad you’d like to use the design system — here’s how you can get 
 
 How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the design system](#download)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download-and-install)** if you are not familiar with `npm` and package management.
 
 - **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
