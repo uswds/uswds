@@ -119,14 +119,13 @@
   $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
   $filename-ie11: if(
     $ie11-variant == "white",
-    "#{$filename-base}--white.svg",
-    "#{$filename-base}.svg"
+    "usa-icons-bg/#{$filename-base}--white.svg",
+    "usa-icons/#{$filename-base}.svg"
   );
 
   $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
     #{$width} #{$height};
-  $image-props: url("#{$path}/usa-icons-bg/#{$filename-ie11}") no-repeat center /
-    #{$width} #{$height};
+  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / #{$width} #{$height};
 
   // Default background shorthand for browsers that don't support mask or supports.
   background: $image-props;
