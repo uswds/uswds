@@ -12,7 +12,7 @@ This repository is for the design system code itself. We maintain [another repos
 - [Recent updates](#recent-updates)
 - [Getting started](#getting-started)
 - [Using the design system](#using-the-design-system)
-  - [Download](#download)
+  - [Download and install](#download-and-install)
   - [Install using `npm`](#install-using-npm)
     - [Using the USWDS package](#using-the-uswds-package)
     - [Sass and theme settings](#sass-and-theme-settings)
@@ -56,18 +56,18 @@ We’re glad you’d like to use the design system — here’s how you can get 
 
 How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the design system](#download)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download-and-install)** if you are not familiar with `npm` and package management.
 
 - **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
 ### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.10.1/uswds-2.10.1.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.10.2/uswds-2.10.2.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.10.1/
+   uswds-2.10.2/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -98,7 +98,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.10.1/
+   │   ├── uswds-2.10.2/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -118,11 +118,11 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.10.1/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.10.1/css/uswds.min.css" />
+       <script src="assets/uswds-2.10.2/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.10.2/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.10.1/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.10.2/js/uswds.min.js"></script>
      </body>
    </html>
    ```
