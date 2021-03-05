@@ -2,14 +2,12 @@
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
-    $context: "Alert text"
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
   );
-  $icon-path: if(
-    $banner-text-color-token == "ink",
-    "usa-icons/#{$icon}",
-    "alerts/#{$icon}-white"
-  );
-  @include add-background-svg($icon-path);
+
+  @include add-alert-icon($icon, $banner-text-color-token);
   background-color: color($bgcolor);
   color: color($banner-text-color-token);
 
@@ -18,7 +16,11 @@
   }
 
   .usa-alert__body {
-    padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
+    padding-left: calc(
+      #{$alert-icon-optical-padding} - #{units($theme-alert-bar-width)} + #{units(
+          $theme-alert-icon-size
+        )} + #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
+    );
   }
 
   .usa-link {
