@@ -1,9 +1,10 @@
+$alert-slim-icon-size: units(3);
 $alert-icon-optical-factor: calc(#{units($theme-alert-icon-size)} / 5);
 $alert-icon-optical-padding: calc(
-  #{units($theme-alert-padding-x)} + #{units($theme-alert-bar-width)} - #{$alert-icon-optical-factor}
+  #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
 );
 
-@mixin add-alert-icon($name, $color) {
+@mixin add-alert-icon($name, $color, $bgcolor) {
   $this-icon-object: map-merge(
     $icon-object,
     (
@@ -12,17 +13,24 @@ $alert-icon-optical-padding: calc(
       "height": $theme-alert-icon-size,
     )
   );
-  &:after {
-    @include add-color-icon($this-icon-object, "base-lightest");
+  &:before {
+    @include add-color-icon($this-icon-object, $bgcolor);
     // Position centered in the alert
     bottom: 0;
     content: "";
     display: block;
-    // bar + padding - optical spacing value
+    // padding - optical spacing value
     left: $alert-icon-optical-padding;
     position: absolute;
     height: auto;
     top: 0;
+  }
+  &.usa-alert--slim:before {
+    background-size: $alert-slim-icon-size;
+    width: $alert-slim-icon-size;
+    @supports (mask: url("")) {
+      mask-size: $alert-slim-icon-size;
+    }
   }
 }
 
@@ -54,29 +62,14 @@ $alert-padding-left: units($theme-alert-bar-width);
     $theme-alert-text-color,
     $theme-alert-text-reverse-color
   );
-  background-position: $alert-padding-left units($theme-alert-padding-x - 1);
-  background-repeat: no-repeat;
-  background-size: units($theme-alert-icon-size);
-  padding-bottom: units(2);
-  padding-left: $alert-padding-left;
-  padding-right: units($theme-alert-padding-x);
-  padding-top: units($theme-alert-padding-x);
+  @include u-padding-y($theme-alert-padding-y);
   position: relative;
 
   * + & {
     margin-top: units(2);
   }
 
-  // TODO: why is this not simply a border?
-  &:before {
-    background-color: color("base-light");
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: units($theme-alert-bar-width);
-  }
+  border-left: units($theme-alert-bar-width) solid color("base-light");
 
   > .usa-list,
   .usa-alert__body > .usa-list {
@@ -86,6 +79,16 @@ $alert-padding-left: units($theme-alert-bar-width);
       margin-bottom: 0;
     }
   }
+}
+
+@each $name, $icon in $alert-icons {
+  .usa-alert--#{$name} {
+    @include alert-status-styles($name, $icon);
+  }
+}
+
+.usa-alert__body {
+  @include u-padding-x($theme-alert-padding-x);
 }
 
 .usa-alert__heading {
@@ -103,23 +106,11 @@ $alert-padding-left: units($theme-alert-bar-width);
 }
 
 .usa-alert__text:only-child {
-  margin-bottom: units($theme-alert-bar-width);
-  padding-top: units(0.5);
-}
-
-@each $name, $icon in $alert-icons {
-  .usa-alert--#{$name} {
-    @include alert-status-styles($name, $icon);
-  }
+  @include u-padding-y(0);
 }
 
 .usa-alert--slim {
   @include alert-slim-styles;
-}
-
-.usa-alert--no-heading {
-  background-position: $alert-padding-left
-    calc(#{units($theme-alert-padding-x)} - #{units(0.5)});
 }
 
 .usa-alert--validation {
@@ -137,16 +128,5 @@ $alert-padding-left: units($theme-alert-bar-width);
 }
 
 .usa-alert--emergency {
-  &:after {
-    // this one has no bar
-    left: calc(
-      #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
-    );
-  }
-  .usa-alert__body {
-    padding-left: calc(
-      (2 * #{units($theme-alert-padding-x)}) + #{units($theme-alert-icon-size)} -
-        (2 * #{$alert-icon-optical-factor}) - #{units($theme-alert-bar-width)}
-    );
-  }
+  border-left: none;
 }
