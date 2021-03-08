@@ -61,10 +61,6 @@
 
   @mixin table-header-sorted-styles {
     background-color: color($theme-table-sorted-header-background-color);
-    border-left-color: color($theme-table-sorted-border-color);
-    border-right-color: color($theme-table-sorted-border-color);
-    border-top-color: color($theme-table-sorted-border-color);
-    border-width: units(2px) units(2px) units(1px);
   }
 
   @mixin table-button-default-styles {
