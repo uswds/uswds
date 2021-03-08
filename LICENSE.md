@@ -8,7 +8,7 @@ As a work of the United States Government, the software modifications made by GS
 
 The Work (as defined in the Apache 2.0 License) remains subject to copyright under the Apache 2.0 License.
 
-This Modified Version contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
+This Modified Version collected in `src/img/sprite.svg` contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
 
 ### Files licensed under the SIL Open Font License, Version 1.1
 
