@@ -3,8 +3,10 @@
 ### Copyright Ownership of Works Created by U.S. Federal Employees
 
 This repository contains both the original icon design for Material icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications into a font design called [insert name], which is a “Modified Version” of Material.
+
 As a work of the United States Government, the software modifications made by GSA are not subject to copyright within the United States. Additionally, GSA waives copyright and related rights in its software modifications worldwide through the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/).
 The Work (as defined in the Apache 2.0 License) remains subject to copyright under the Apache 2.0 License.
+
 This Modified Version ([insert name]) contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
 
 ### Files licensed under the SIL Open Font License, Version 1.1
@@ -21,7 +23,7 @@ The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave G
 
 The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-The Google Material icons in `src/img/usa-icons` and `src/img/usa-icons-unused` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Google Material icons in `src/img/usa-icons` and `src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 
