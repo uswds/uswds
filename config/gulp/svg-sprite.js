@@ -46,7 +46,7 @@ gulp.task("rename-sprite", () => {
     .pipe(gulp.dest(`./`));
 });
 
-gulp.task("clean-sprite", (done) => del(`${svgPath}/symbol`, done));
+gulp.task("clean-sprite", () => del(`${svgPath}/symbol`));
 
 gulp.task(
   "svg-sprite",
