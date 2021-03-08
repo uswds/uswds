@@ -11,7 +11,10 @@
     th {
       background-clip: padding-box;
       font-weight: fw("bold");
-      line-height: line-height($theme-body-font-family, $theme-input-line-height);
+      line-height: line-height(
+        $theme-body-font-family,
+        $theme-input-line-height
+      );
     }
 
     th,
@@ -39,7 +42,6 @@
     margin-bottom: units(1.5);
     text-align: left;
   }
-
 
   @mixin table-header-unsorted-styles {
     padding-right: units(5);
@@ -75,7 +77,7 @@
     display: inline-block;
     margin: 0;
     position: absolute;
-    right: .25rem;
+    right: 0.25rem;
     text-align: center;
     text-decoration: none;
     // vertically center button within table header
@@ -144,15 +146,6 @@
   td[data-sort-active],
   th[data-sort-active] {
     background-color: color($theme-table-sorted-background-color);
-    border-left-width: units(2px);
-    border-right-width: units(2px);
-    border-left-color: color($theme-table-sorted-border-color);
-    border-right-color: color($theme-table-sorted-border-color);
-  }
-  tr:last-child > td[data-sort-active],
-  tr:last-child > th[data-sort-active] {
-    border-bottom-width: units(2px);
-    border-bottom-color: color($theme-table-sorted-border-color);
   }
 }
 
