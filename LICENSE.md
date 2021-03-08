@@ -18,7 +18,7 @@ The Merriweather font files in `src/fonts/merriweather` are the version 2.001 fi
 
 The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
 
-The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
+Icon files in `src/img` and `src/img/social-icons` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
 
 ### Files licensed under the Apache 2.0 License
 
