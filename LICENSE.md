@@ -1,13 +1,14 @@
 ## A few parts of this project are not in the public domain
 
-### Copyright Ownership of Works Created by U.S. Federal Employees
+### Copyright ownership of Works created by U.S. federal employees
 
-This repository contains both the original icon design for Material icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications into a font design called [insert name], which is a “Modified Version” of Material.
+This repository contains both the original icon design for Material icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Material icons.
 
 As a work of the United States Government, the software modifications made by GSA are not subject to copyright within the United States. Additionally, GSA waives copyright and related rights in its software modifications worldwide through the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/).
+
 The Work (as defined in the Apache 2.0 License) remains subject to copyright under the Apache 2.0 License.
 
-This Modified Version ([insert name]) contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
+This Modified Version contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
 
 ### Files licensed under the SIL Open Font License, Version 1.1
 
@@ -53,13 +54,13 @@ Additionally, we waive copyright and related rights in the work worldwide throug
 
 This is a human-readable summary of the [Legal Code (read the full text)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 
-#### No Copyright
+#### No copyright
 
 The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
 You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
 
-#### Other Information
+#### Other information
 
 In no way are the patent or trademark rights of any person affected by CC0, nor are the rights that other persons may have in the work or in how the work is used, such as publicity or privacy rights.
 
