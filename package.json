@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -23,9 +23,6 @@
     "default": "./dist/js/uswds.min.js"
   },
   "types": "./index.d.ts",
-  "files": [
-    "dist"
-  ],
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -98,8 +95,8 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.10",
-    "@frctl/fractal": "^1.5.1",
-    "@frctl/nunjucks": "^2.0.5",
+    "@frctl/fractal": "^1.5.4",
+    "@frctl/nunjucks": "^2.0.8",
     "@types/node": "^14.14.13",
     "ansi-colors": "^4.1.1",
     "autoprefixer": "^10.1.0",
