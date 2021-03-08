@@ -96,10 +96,11 @@ $theme-header-min-width: "desktop" !default;
 $theme-hero-image: "#{$theme-image-path}/hero.png" !default;
 
 // Identifier
-$theme-identifier-font-family: "ui" !default;
 $theme-identifier-background-color: "base-darkest" !default;
+$theme-identifier-font-family: "ui" !default;
 $theme-identifier-identity-domain-color: "base-light" !default;
 $theme-identifier-max-width: "desktop" !default;
+$theme-identifier-primary-link-color: "base-lighter" !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
 // Process List

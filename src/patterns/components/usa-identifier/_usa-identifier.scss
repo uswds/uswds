@@ -5,9 +5,19 @@ $identifier-link-gap: 1.5;
 $identifier-link-gap-desktop: 1;
 $identifier-links-gap: 4 !default;
 
+@mixin identifier-primary-link {
+  @include set-link-from-bg(
+    $theme-identifier-background-color,
+    $theme-identifier-primary-link-color,
+    $theme-link-color
+  );
+}
+
 @mixin identifier-secondary-link {
-  @include set-link-from-bg($theme-identifier-background-color,
-    $theme-identifier-secondary-link-color);
+  @include set-link-from-bg(
+    $theme-identifier-secondary-link-color,
+    $theme-link-color
+  );
 }
 
 //
@@ -80,7 +90,7 @@ $identifier-links-gap: 4 !default;
   @include u-text("bold");
 
   a {
-    @include set-link-from-bg($theme-identifier-background-color);
+    @include identifier-primary-link;
   }
 }
 
@@ -128,7 +138,7 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__section--usagov a {
-  @include set-link-from-bg($theme-identifier-background-color);
+  @include identifier-primary-link;
   @include u-text("bold");
   display: inline-block;
   margin-top: units(1);
