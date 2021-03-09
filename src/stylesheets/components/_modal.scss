@@ -95,18 +95,15 @@
 }
 
 .usa-modal__content {
-  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
   padding-top: units(4);
+  width: 100%;
 }
 
 .usa-modal__main {
   margin: 0 auto;
   padding: units(1) units(4) units(4);
-}
-
-.usa-modal__content {
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .usa-modal__header {
