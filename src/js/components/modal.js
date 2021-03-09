@@ -18,7 +18,7 @@ const CLOSE_BUTTON = `${WRAPPER_CLASSNAME} *[${CLOSER_ATTRIBUTE}]`;
 const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
 
-const ACTIVE_CLASS = "usa-js-mobile-nav--active";
+const ACTIVE_CLASS = "usa-js-modal--active";
 const PREVENT_CLICK_CLASS = "usa-js-no-click";
 const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
@@ -97,7 +97,7 @@ function toggleModal(event) {
     // is inside the modal and not a close button or
     // element inside a close button
     if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
-      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) || 
+      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
           clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
       ) {
         // do nothing. move on.
