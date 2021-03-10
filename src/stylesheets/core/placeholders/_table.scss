@@ -1,22 +1,55 @@
-$table-text-color: get-color-token-from-bg(
-  $bg-color: $theme-body-background-color,
-  $preferred-text-token: $theme-text-reverse-color,
-  $fallback-text-token: $theme-table-text-color,
-  $context: "Table text",
+$table-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-body-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-text-color,
+    $context: "Table text",
+  )
 );
 
-$table-header-text-color: get-color-token-from-bg(
-  $bg-color: $theme-table-header-background-color,
-  $preferred-text-token: $theme-text-reverse-color,
-  $fallback-text-token: $theme-table-header-text-color,
-  $context: "Table header text",
+$table-header-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-header-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-header-text-color,
+    $context: "Table header text",
+  )
 );
 
-$table-stripe-text-color: get-color-token-from-bg(
-  $bg-color: $theme-table-stripe-background-color,
-  $preferred-text-token: $theme-text-reverse-color,
-  $fallback-text-token: $theme-table-stripe-text-color,
-  $context: "Table stripe text",
+$table-stripe-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-stripe-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-stripe-text-color,
+    $context: "Table stripe text",
+  )
+);
+
+$table-sorted-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-text-color,
+    $context: "Table sorted text",
+  )
+);
+
+$table-sorted-header-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-header-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-header-text-color,
+    $context: "Table sorted header text",
+  )
+);
+
+$table-sorted-stripe-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-stripe-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-stripe-text-color,
+    $context: "Table sorted stripe text",
+  )
 );
 
 %usa-table {
@@ -24,13 +57,14 @@ $table-stripe-text-color: get-color-token-from-bg(
   @include typeset;
   border-collapse: collapse;
   border-spacing: 0;
-  color: color($table-text-color);
+  color: $table-text-color;
   margin: units(2.5) 0;
   text-align: left;
 
   thead {
     th {
       background-clip: padding-box;
+      color: $table-header-text-color;
       font-weight: fw("bold");
       line-height: line-height(
         $theme-body-font-family,
@@ -41,7 +75,7 @@ $table-stripe-text-color: get-color-token-from-bg(
     th,
     td {
       background-color: color($theme-table-header-background-color);
-      color: color($table-header-text-color);
+      color: $table-header-text-color;
     }
   }
   tbody {
@@ -51,8 +85,8 @@ $table-stripe-text-color: get-color-token-from-bg(
   }
   th,
   td {
-    @include u-border(1px, $table-text-color);
     background-color: color($theme-body-background-color);
+    border: 1px solid $table-text-color;
     font-weight: fw("normal");
     padding: units(1) units(2);
   }
@@ -118,20 +152,20 @@ $table-stripe-text-color: get-color-token-from-bg(
       fill: color($theme-table-unsorted-icon-color);
     }
     &:hover .usa-icon > g.unsorted {
-      fill: color($table-text-color);
+      fill: $table-text-color;
     }
   }
 
   @mixin table-button-sorted-ascending-styles {
     @include table-button-default-styles;
     .usa-icon > g.ascending {
-      fill: color($table-text-color);
+      fill: $table-sorted-header-text-color;
     }
   }
   @mixin table-button-sorted-descending-styles {
     @include table-button-default-styles;
     .usa-icon > g.descending {
-      fill: color($table-text-color);
+      fill: $table-sorted-header-text-color;
     }
   }
 
@@ -160,46 +194,16 @@ $table-stripe-text-color: get-color-token-from-bg(
     }
   }
 
-  td[data-sort-active],
-  th[data-sort-active] {
-    background-color: color($theme-table-sorted-background-color);
-  }
-}
-
-%usa-table--borderless {
   thead {
-    th {
-      background-color: transparent;
-      border-top: 0;
+    th[data-sort-active] {
+      background-color: color($theme-table-sorted-header-background-color);
+      color: $table-sorted-header-text-color;
     }
   }
 
-  th,
-  td {
-    border-left: 0;
-    border-right: 0;
-  }
-}
-
-%usa-table--compact {
-  th,
-  td {
-    padding: units(0.5) units(1.5);
-  }
-}
-
-%usa-table--striped {
-  tbody {
-    tr:nth-child(odd) {
-      td,
-      th {
-        background-color: color($theme-table-stripe-background-color);
-        color: color($table-stripe-text-color);
-        &[data-sort-active] {
-          background-color: color($theme-table-sorted-stripe-background-color);
-        }
-      }
-    }
+  td[data-sort-active] {
+    background-color: color($theme-table-sorted-background-color);
+    color: $table-sorted-text-color;
   }
 }
 
@@ -216,7 +220,7 @@ $table-stripe-text-color: get-color-token-from-bg(
   }
 
   tr {
-    @include u-border-bottom(0.5, $table-text-color);
+    border-bottom: units(0.5) solid $table-text-color;
     border-top-width: 0;
     display: block;
     width: 100%;
@@ -234,7 +238,7 @@ $table-stripe-text-color: get-color-token-from-bg(
     &:first-child {
       th:first-child,
       td:first-child {
-        @include u-border-top(0.5, $table-text-color);
+        border-top: units(0.5) solid $table-text-color;
       }
     }
   }
@@ -263,11 +267,54 @@ $table-stripe-text-color: get-color-token-from-bg(
         $theme-heading-line-height
       );
       background-color: color($theme-table-header-background-color);
-      color: color($table-header-text-color);
+      color: $table-header-text-color;
       font-weight: fw("bold");
       padding: units(1.5) units(2);
       &:before {
         display: none;
+      }
+    }
+  }
+}
+
+%usa-table--borderless {
+  thead {
+    th {
+      background-color: transparent;
+      border-top: 0;
+      color: $table-text-color;
+
+      &[aria-sort] {
+        color: $table-sorted-header-text-color;
+      }
+    }
+  }
+
+  th,
+  td {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+%usa-table--compact {
+  th,
+  td {
+    padding: units(0.5) units(1.5);
+  }
+}
+
+%usa-table--striped {
+  tbody {
+    tr:nth-child(odd) {
+      td,
+      th {
+        background-color: color($theme-table-stripe-background-color);
+        color: $table-stripe-text-color;
+        &[data-sort-active] {
+          background-color: color($theme-table-sorted-stripe-background-color);
+          color: $table-sorted-stripe-text-color;
+        }
       }
     }
   }
