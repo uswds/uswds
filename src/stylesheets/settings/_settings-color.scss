@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.10.0
+USWDS 2.10.2
 ----------------------------------------
 COLOR SETTINGS
 ----------------------------------------
@@ -131,6 +131,13 @@ $theme-color-emergency-dark: "red-warm-80" !default;
 General colors
 ----------------------------------------
 */
+
+// Body
+$theme-body-background-color: "white" !default;
+
+// Text
+$theme-text-color: "ink" !default;
+$theme-text-reverse-color: "white" !default;
 
 // Links
 $theme-link-color: "primary" !default;

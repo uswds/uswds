@@ -1,13 +1,7 @@
 /* eslint-disable */
-!function(root, factory) {
-  "function" == typeof define && define.amd ? // AMD. Register as an anonymous module unless amdModuleId is set
-  define([], function() {
-      return root.svg4everybody = factory();
-  }) : "object" == typeof module && module.exports ? // Node. Does not work with strict CommonJS, but
-  // only CommonJS-like environments that support module.exports,
-  // like Node.
-  module.exports = factory() : root.svg4everybody = factory();
-}(this, function() {
+!function(factory) {
+  module.exports = factory();
+}(function() {
   /*! svg4everybody v2.1.9 | github.com/jonathantneal/svg4everybody */
   function embed(parent, svg, target, use) {
       // if the target exists
@@ -39,16 +33,16 @@
               // get the cached html document
               var cachedDocument = xhr._cachedDocument;
               // ensure the cached html document based on the xhr response
-              cachedDocument || (cachedDocument = xhr._cachedDocument = document.implementation.createHTMLDocument(""), 
+              cachedDocument || (cachedDocument = xhr._cachedDocument = document.implementation.createHTMLDocument(""),
               cachedDocument.body.innerHTML = xhr.responseText, // ensure domains are the same, otherwise we'll have issues appending the
               // element in IE 11
-              cachedDocument.domain !== document.domain && (cachedDocument.domain = document.domain), 
+              cachedDocument.domain !== document.domain && (cachedDocument.domain = document.domain),
               xhr._cachedTarget = {}), // clear the xhr embeds list and embed each item
               xhr._embeds.splice(0).map(function(item) {
                   // get the cached target
                   var target = xhr._cachedTarget[item.id];
                   // ensure the cached target
-                  target || (target = xhr._cachedTarget[item.id] = cachedDocument.getElementById(item.id)), 
+                  target || (target = xhr._cachedTarget[item.id] = cachedDocument.getElementById(item.id)),
                   // embed the target into the svg
                   embed(item.parent, item.svg, target, use);
               });
@@ -71,7 +65,7 @@
           var index = 0; index < uses.length; ) {
               // get the current <use>
               var use = uses[index], parent = use.parentNode, svg = getSVGAncestor(parent), src = use.getAttribute("xlink:href") || use.getAttribute("href");
-              if (!src && opts.attributeName && (src = use.getAttribute(opts.attributeName)), 
+              if (!src && opts.attributeName && (src = use.getAttribute(opts.attributeName)),
               svg && src) {
                   if (polyfill) {
                       if (!opts.validate || opts.validate(src, svg, use)) {
@@ -84,7 +78,7 @@
                               // get the cached xhr request
                               var xhr = requests[url];
                               // ensure the xhr request exists
-                              xhr || (xhr = requests[url] = new XMLHttpRequest(), xhr.open("GET", url), xhr.send(), 
+                              xhr || (xhr = requests[url] = new XMLHttpRequest(), xhr.open("GET", url), xhr.send(),
                               xhr._embeds = []), // add the svg and id as an item to the xhr embeds list
                               xhr._embeds.push({
                                   parent: parent,
