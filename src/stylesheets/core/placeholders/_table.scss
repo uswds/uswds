@@ -5,11 +5,18 @@ $table-text-color: get-color-token-from-bg(
   $context: "Table text",
 );
 
-$table-header-color: get-color-token-from-bg(
+$table-header-text-color: get-color-token-from-bg(
   $bg-color: $theme-table-header-background-color,
   $preferred-text-token: $theme-text-reverse-color,
   $fallback-text-token: $theme-table-header-text-color,
-  $context: "Table header",
+  $context: "Table header text",
+);
+
+$table-stripe-text-color: get-color-token-from-bg(
+  $bg-color: $theme-table-stripe-background-color,
+  $preferred-text-token: $theme-text-reverse-color,
+  $fallback-text-token: $theme-table-stripe-text-color,
+  $context: "Table stripe text",
 );
 
 %usa-table {
@@ -34,7 +41,7 @@ $table-header-color: get-color-token-from-bg(
     th,
     td {
       background-color: color($theme-table-header-background-color);
-      color: color($table-header-color);
+      color: color($table-header-text-color);
     }
   }
   tbody {
@@ -111,20 +118,20 @@ $table-header-color: get-color-token-from-bg(
       fill: color($theme-table-unsorted-icon-color);
     }
     &:hover .usa-icon > g.unsorted {
-      fill: color($theme-table-sorted-icon-color);
+      fill: color($table-text-color);
     }
   }
 
   @mixin table-button-sorted-ascending-styles {
     @include table-button-default-styles;
     .usa-icon > g.ascending {
-      fill: color($theme-table-sorted-icon-color);
+      fill: color($table-text-color);
     }
   }
   @mixin table-button-sorted-descending-styles {
     @include table-button-default-styles;
     .usa-icon > g.descending {
-      fill: color($theme-table-sorted-icon-color);
+      fill: color($table-text-color);
     }
   }
 
@@ -187,7 +194,7 @@ $table-header-color: get-color-token-from-bg(
       td,
       th {
         background-color: color($theme-table-stripe-background-color);
-        color: color($theme-table-stripe-text-color);
+        color: color($table-stripe-text-color);
         &[data-sort-active] {
           background-color: color($theme-table-sorted-stripe-background-color);
         }
@@ -256,7 +263,7 @@ $table-header-color: get-color-token-from-bg(
         $theme-heading-line-height
       );
       background-color: color($theme-table-header-background-color);
-      color: color($table-header-color);
+      color: color($table-header-text-color);
       font-weight: fw("bold");
       padding: units(1.5) units(2);
       &:before {
