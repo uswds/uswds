@@ -1,3 +1,5 @@
+$pagination-context: "Pagination";
+
 // Pagination
 // ---------------------------------
 .usa-pagination {
@@ -89,7 +91,7 @@
 }
 
 .usa-pagination__link--current {
-  @include set-text-and-bg($theme-color-primary, $important: true);
+  @include set-text-and-bg($theme-color-primary, $important: true, $context: $pagination-context);
   border-color: color("primary-darker");
 
   &:hover,
@@ -97,7 +99,8 @@
   &:active {
     @include set-text-and-bg(
       "primary-darker",
-      $important: true
+      $important: true,
+      $context: $pagination-context
     );
   }
 }
