@@ -49,7 +49,8 @@ variants:
   - name: forced action
     context:
       id: "example-modal-3"
-      modifier: "usa-modal--lg"
+      modifier:
+      forced: true
       describedby: "modal-3-description"
       trigger:
         label: Open modal with forced action

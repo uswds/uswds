@@ -7,7 +7,7 @@
 <div class="margin-y-3">
   <a href="#{{ id }}" class="usa-button" aria-controls="{{ id }}" data-open-modal>{{ trigger.label }}</a>
 
-  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.label }}" aria-describedby="{{ describedby }}">
+  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.label }}" aria-describedby="{{ describedby }}"{% if forced %} data-force-action{% endif -%}>
     <div class="usa-modal__content">
       <div class="usa-modal__main">
         {% if header.label %}
@@ -32,6 +32,7 @@
         </div>
         {% endif %}
       </div>
+      {%- if not forced -%}
       <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
         {% if close_button.label %}
           {{ close_button.label }}
@@ -39,6 +40,7 @@
           {{ close_icon | safe }}
         {% endif %}
       </button>
+      {%- endif -%}
     </div>
   </div>
 </div>
