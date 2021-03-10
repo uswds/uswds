@@ -152,7 +152,7 @@ $table-sorted-stripe-text-color: color(
       fill: color($theme-table-unsorted-icon-color);
     }
     &:hover .usa-icon > g.unsorted {
-      fill: $table-text-color;
+      fill: $table-sorted-header-text-color;
     }
   }
 
@@ -195,13 +195,14 @@ $table-sorted-stripe-text-color: color(
   }
 
   thead {
-    th[data-sort-active] {
+    th[aria-sort] {
       background-color: color($theme-table-sorted-header-background-color);
       color: $table-sorted-header-text-color;
     }
   }
 
-  td[data-sort-active] {
+  td[data-sort-active],
+  th[data-sort-active] {
     background-color: color($theme-table-sorted-background-color);
     color: $table-sorted-text-color;
   }
@@ -286,6 +287,11 @@ $table-sorted-stripe-text-color: color(
 
       &[aria-sort] {
         color: $table-sorted-header-text-color;
+      }
+    }
+    th[data-sortable]:not([aria-sort]) {
+      .usa-table__header__button:hover .usa-icon > g.unsorted {
+        fill: $table-text-color;
       }
     }
   }
