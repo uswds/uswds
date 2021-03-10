@@ -11,7 +11,9 @@
   text-align: left;
 
   &:hover,
-  &:active {
+  &.usa-button--hover,
+  &:active,
+  &.usa-button--active {
     @include no-knockout-font-smoothing;
     background-color: transparent;
     box-shadow: none;
