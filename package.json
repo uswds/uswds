@@ -88,7 +88,6 @@
     "del": "^6.0.0",
     "domready": "^1.0.8",
     "elem-dataset": "^2.0.0",
-    "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
@@ -131,6 +130,7 @@
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.2.1",
+    "mq-polyfill": "^1.1.8",
     "node-notifier": "^9.0.0",
     "normalize.css": "^8.0.1",
     "nswatch": "^0.2.0",
