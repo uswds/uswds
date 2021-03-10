@@ -112,8 +112,8 @@
 }
 
 // Prevents JS not recognizing as part of close button.
-.usa-modal-wrapper *[data-close-modal] > .usa-icon,
-.usa-modal-wrapper *[data-close-modal] > .usa-icon use {
+.usa-modal-wrapper [data-close-modal] > .usa-icon,
+.usa-modal-wrapper [data-close-modal] > .usa-icon use {
   pointer-events: none !important;
 }
 
