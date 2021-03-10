@@ -3,7 +3,7 @@ status: ready
 preview: "@uswds-framed"
 
 context:
-  id: "modal-1"
+  id: "example-modal-1"
   modifier: ""
   describedby: "modal-1-description"
   trigger:
@@ -29,7 +29,7 @@ context:
 variants:
   - name: large modal
     context:
-      id: "modal-2"
+      id: "example-modal-2"
       modifier: "usa-modal--lg"
       describedby: "modal-2-description"
       trigger:
@@ -48,7 +48,7 @@ variants:
           label: "Go back"
   - name: forced action
     context:
-      id: "modal-3"
+      id: "example-modal-3"
       modifier: "usa-modal--lg"
       describedby: "modal-3-description"
       trigger:
