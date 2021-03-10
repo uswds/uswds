@@ -1,9 +1,23 @@
+$table-text-color: get-color-token-from-bg(
+  $bg-color: $theme-body-background-color,
+  $preferred-text-token: $theme-text-reverse-color,
+  $fallback-text-token: $theme-table-text-color,
+  $context: "Table text",
+);
+
+$table-header-color: get-color-token-from-bg(
+  $bg-color: $theme-table-header-background-color,
+  $preferred-text-token: $theme-text-reverse-color,
+  $fallback-text-token: $theme-table-header-text-color,
+  $context: "Table header",
+);
+
 %usa-table {
   @include border-box-sizing;
   @include typeset;
   border-collapse: collapse;
   border-spacing: 0;
-  color: color($theme-table-text-color);
+  color: color($table-text-color);
   margin: units(2.5) 0;
   text-align: left;
 
@@ -20,7 +34,7 @@
     th,
     td {
       background-color: color($theme-table-header-background-color);
-      color: color($theme-table-header-text-color);
+      color: color($table-header-color);
     }
   }
   tbody {
@@ -30,8 +44,8 @@
   }
   th,
   td {
-    @include u-border(1px, $theme-table-border-color);
-    background-color: color("white");
+    @include u-border(1px, $table-text-color);
+    background-color: color($theme-body-background-color);
     font-weight: fw("normal");
     padding: units(1) units(2);
   }
@@ -195,7 +209,7 @@
   }
 
   tr {
-    @include u-border-bottom(0.5, $theme-table-border-color);
+    @include u-border-bottom(0.5, $table-text-color);
     border-top-width: 0;
     display: block;
     width: 100%;
@@ -213,7 +227,7 @@
     &:first-child {
       th:first-child,
       td:first-child {
-        @include u-border-top(0.5, $theme-table-border-color);
+        @include u-border-top(0.5, $table-text-color);
       }
     }
   }
@@ -242,7 +256,7 @@
         $theme-heading-line-height
       );
       background-color: color($theme-table-header-background-color);
-      color: color($theme-table-header-text-color);
+      color: color($table-header-color);
       font-weight: fw("bold");
       padding: units(1.5) units(2);
       &:before {
