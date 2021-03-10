@@ -33,7 +33,7 @@
     visibility: visible;
     opacity: opacity(100);
     position: fixed;
-    z-index: z-index($theme-modal-z-index);
+    z-index: z-index("top");
   }
 }
 
@@ -79,8 +79,8 @@
 }
 
 .usa-modal {
+  @include typeset;
   @include u-radius($theme-modal-border-radius);
-  @include u-shadow($theme-modal-box-shadow);
   background: white;
   display: inline-block;
   margin: units(2.5) auto;
@@ -105,11 +105,6 @@
 .usa-modal__main {
   margin: 0 auto;
   padding: units(1) units(4) units(4);
-}
-
-.usa-modal__header {
-  display: flex;
-  width: 100%;
 }
 
 // Prevents JS not recognizing as part of close button.
