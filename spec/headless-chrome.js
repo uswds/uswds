@@ -42,6 +42,8 @@ const SKIP_COMPONENTS = [
   "layout--header-empty",
   "layout--federal-employee-sign-in",
   "layout--value-props",
+  "layout--404",
+  "layout--404-inner",
   "header",
   "fonts"
 ];
