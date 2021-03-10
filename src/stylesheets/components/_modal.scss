@@ -84,10 +84,11 @@
   background: white;
   display: inline-block;
   margin: units(2.5) auto;
-  max-width: $theme-modal-default-max-width;
+  max-width: units($theme-modal-default-max-width);
   position: relative;
   text-align: left;
   vertical-align: middle;
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -154,14 +155,14 @@
 
 // Variants
 .usa-modal--lg {
-  max-width: $theme-modal-lg-max-width;
+  max-width: units($theme-modal-lg-max-width);
   width: 100%;
 
   .usa-modal__main {
     padding-bottom: units(8);
     padding-top: units(2.5);
     width: 100%;
-    max-width: $theme-modal-lg-content-max-width;
+    max-width: units($theme-modal-lg-content-max-width);
   }
 
   .usa-modal__heading {

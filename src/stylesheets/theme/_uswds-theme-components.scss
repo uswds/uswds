@@ -110,9 +110,9 @@ $theme-identifier-secondary-link-color: "base-light";
 // Modal
 $theme-modal-border-radius: "lg";
 $theme-modal-box-shadow: 5;
-$theme-modal-default-max-width: 500px;
-$theme-modal-lg-content-max-width: 630px;
-$theme-modal-lg-max-width: 800px;
+$theme-modal-default-max-width: "mobile-lg";
+$theme-modal-lg-content-max-width: "tablet";
+$theme-modal-lg-max-width: "tablet-lg";
 $theme-modal-z-index: 500;
 
 // Process List
