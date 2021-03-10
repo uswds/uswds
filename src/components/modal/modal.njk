@@ -1,84 +1,44 @@
-<div class="margin-y-3">
-  <a href="#modal-1" class="usa-button" aria-controls="modal-1" data-open-modal>Open default modal</a>
+{% set close_icon %}
+  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ close_button.icon_type | default("close") }}"></use>
+  </svg>
+{% endset %}
 
-  <div class="usa-modal" id="modal-1" aria-labelledby="modal-1-heading" aria-describedby="modal-1-description">
+<div class="margin-y-3">
+  <a href="#{{ id }}" class="usa-button" aria-controls="{{ id }}" data-open-modal>{{ trigger.label }}</a>
+
+  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.label }}" aria-describedby="{{ describedby }}">
     <div class="usa-modal__content">
       <div class="usa-modal__main">
-        <h2 class="usa-modal__heading" id="modal-1-heading">Are you sure you want to continue?</h2>
+        {% if header.label %}
+        <h2 class="usa-modal__heading" id="{{ header.id }}">
+          {{ header.label }}
+        </h2>
+        {% endif %}
+        {% if description.label %}
         <div class="usa-prose">
-          <p id="modal-1-description">You have unsaved changes that will be lost.</p>
+          {{ description.label | safe }}
         </div>
+        {% endif %}
+        {% if footer %}
         <div class="usa-modal__footer">
           <ul class="usa-button-group">
-            <li class="usa-button-group__item">
-              <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
-            </li>
-            <li class="usa-button-group__item">
-              <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
-            </li>
+            {% for action in footer %}
+              <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>
+                {{ action.label }}
+              </button>
+            {% endfor %}
           </ul>
         </div>
+        {% endif %}
       </div>
-      <button class="usa-button usa-modal__close" aria-label="Close this window"  data-close-modal>
-        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-          <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
-        </svg>
+      <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
+        {% if close_button.label %}
+          {{ close_button.label }}
+        {% else %}
+          {{ close_icon | safe }}
+        {% endif %}
       </button>
-    </div>
-  </div>
-</div>
-
-
-<div class="margin-y-3">
-  <a href="#modal-2" class="usa-button" aria-controls="modal-2" data-open-modal>Open large modal</a>
-  <div class="usa-modal usa-modal--lg" id="modal-2" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description">
-    <div class="usa-modal__content">
-      <div class="usa-modal__main">
-        <h2 class="usa-modal__heading" id="modal-2-heading">Are you sure you want to continue?</h2>
-        <div class="usa-prose">
-          <p id="modal-2-description">You have unsaved changes that will be lost.</p>
-        </div>
-        <div class="usa-modal__footer">
-          <ul class="usa-button-group">
-            <li class="usa-button-group__item">
-              <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
-            </li>
-            <li class="usa-button-group__item">
-              <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <button class="usa-button usa-modal__close" aria-label="Close this window"  data-close-modal>
-        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-          <use xlink:href="{{ uswds.path }}/img/sprite.svg#close"></use>
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="margin-y-3">
-  <a href="#modal-3" class="usa-button" aria-controls="modal-3" data-open-modal>Open modal with forced action</a>
-  <div class="usa-modal" id="modal-3" aria-labelledby="modal-3-title" aria-describedby="modal-3-description" data-force-action>
-    <div class="usa-modal__content">
-      <div class="usa-modal__main">
-        <h2 class="usa-modal__heading" id="modal-3-title">Your session will end soon.</h2>
-        <div class="usa-prose">
-          <p id="modal-3-description">You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.</p>
-        </div>
-
-        <div class="usa-modal__footer">
-        <ul class="usa-button-group">
-          <li class="usa-button-group__item">
-            <button type="button" class="usa-button" data-close-modal>Yes, stay signed in</button>
-          </li>
-          <li class="usa-button-group__item">
-            <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Sign out</button>
-          </li>
-        </ul>
-        </div>
-      </div>
     </div>
   </div>
 </div>
