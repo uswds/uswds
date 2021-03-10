@@ -51,7 +51,7 @@ describe("accordion behavior", () => {
       });
 
       it('toggles button aria-expanded="true"', () => {
-        assert.equal(button.getAttribute(EXPANDED), "true");
+        assert.strictEqual(button.getAttribute(EXPANDED), "true");
       });
 
       it('toggles content "hidden" off', () => {
@@ -66,7 +66,7 @@ describe("accordion behavior", () => {
       });
 
       it('toggles button aria-expanded="false"', () => {
-        assert.equal(button.getAttribute(EXPANDED), "false");
+        assert.strictEqual(button.getAttribute(EXPANDED), "false");
       });
 
       it('toggles content "hidden" on', () => {
@@ -81,10 +81,10 @@ describe("accordion behavior", () => {
       const target = document.getElementById(second.getAttribute(CONTROLS));
       second.click();
       // first button and section should be collapsed
-      assert.equal(button.getAttribute(EXPANDED), "false");
+      assert.strictEqual(button.getAttribute(EXPANDED), "false");
       assert(content.hasAttribute(HIDDEN));
       // second should be expanded
-      assert.equal(second.getAttribute(EXPANDED), "true");
+      assert.strictEqual(second.getAttribute(EXPANDED), "true");
       assert(target.getAttribute(HIDDEN) !== true);
     });
 
@@ -95,10 +95,10 @@ describe("accordion behavior", () => {
       second.click();
       button.click();
 
-      assert.equal(button.getAttribute(EXPANDED), "true");
+      assert.strictEqual(button.getAttribute(EXPANDED), "true");
       assert(content.getAttribute(HIDDEN) !== true);
       // second should be expanded
-      assert.equal(second.getAttribute(EXPANDED), "true");
+      assert.strictEqual(second.getAttribute(EXPANDED), "true");
       assert(content.getAttribute(HIDDEN) !== true);
     });
   });

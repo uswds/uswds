@@ -9,7 +9,7 @@ const INPUT_SELECTOR = "[data-validation-element]";
 const VALIDATORS = "[data-validator]";
 const CHECKED_CLASS = "usa-checklist__item--checked";
 
-const keyup = el => {
+const keyup = (el) => {
   el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 };
 
@@ -36,20 +36,20 @@ describe("validator component", () => {
     it("adds ." + CHECKED_CLASS + " for all successful validations", () => {
       validated.value = "GreatPassword1";
       keyup(validated);
-      validators.forEach(checkbox => {
-        assert.equal(checkbox.classList.contains(CHECKED_CLASS), true);
+      validators.forEach((checkbox) => {
+        assert.strictEqual(checkbox.classList.contains(CHECKED_CLASS), true);
       });
     });
 
     it("removes ." + CHECKED_CLASS + " for failed validations", () => {
       validated.value = "GreatPassword";
       keyup(validated);
-      validators.forEach(checkbox => {
+      validators.forEach((checkbox) => {
         const checked = checkbox.classList.contains(CHECKED_CLASS);
         if (checkbox.getAttribute("data-validator") === "numerical") {
-          assert.equal(checked, false);
+          assert.strictEqual(checked, false);
         } else {
-          assert.equal(checked, true);
+          assert.strictEqual(checked, true);
         }
       });
     });
