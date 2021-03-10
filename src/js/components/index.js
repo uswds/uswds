@@ -14,6 +14,7 @@ const validator = require("./validator");
 const datePicker = require("./date-picker");
 const dateRangePicker = require("./date-range-picker");
 const timePicker = require("./time-picker");
+const table = require("./table");
 
 module.exports = {
   accordion,
@@ -29,6 +30,7 @@ module.exports = {
   password,
   search,
   skipnav,
+  table,
   timePicker,
   tooltip,
   validator,

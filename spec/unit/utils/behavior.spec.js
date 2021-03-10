@@ -11,8 +11,8 @@ describe("behavior", () => {
 
   it("has on() and off() methods", () => {
     const behavior = Behavior({});
-    assert.equal(typeof behavior.on, "function");
-    assert.equal(typeof behavior.off, "function");
+    assert.strictEqual(typeof behavior.on, "function");
+    assert.strictEqual(typeof behavior.off, "function");
   });
 
   describe("behavior.on()", () => {
@@ -20,7 +20,7 @@ describe("behavior", () => {
       const behavior = Behavior({
         init() {
           done();
-        }
+        },
       });
       behavior.on();
     });
@@ -28,9 +28,9 @@ describe("behavior", () => {
     it("passes document.body if no target is provided", () => {
       const behavior = Behavior({
         init(target) {
-          assert.equal(target, document.body);
+          assert.strictEqual(target, document.body);
           done();
-        }
+        },
       });
       behavior.on();
     });
@@ -39,9 +39,9 @@ describe("behavior", () => {
       const el = document.createElement("div");
       const behavior = Behavior({
         init(target) {
-          assert.equal(target, el);
+          assert.strictEqual(target, el);
           done();
-        }
+        },
       });
       behavior.on(el);
     });
@@ -52,7 +52,7 @@ describe("behavior", () => {
       const behavior = Behavior({
         teardown() {
           done();
-        }
+        },
       });
       behavior.off();
     });
@@ -60,9 +60,9 @@ describe("behavior", () => {
     it("passes document.body if no target is provided", () => {
       const behavior = Behavior({
         teardown(target) {
-          assert.equal(target, document.body);
+          assert.strictEqual(target, document.body);
           done();
-        }
+        },
       });
       behavior.off();
     });
@@ -71,9 +71,9 @@ describe("behavior", () => {
       const el = document.createElement("div");
       const behavior = Behavior({
         teardown(target) {
-          assert.equal(target, el);
+          assert.strictEqual(target, el);
           done();
-        }
+        },
       });
       behavior.off(el);
     });

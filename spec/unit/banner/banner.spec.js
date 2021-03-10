@@ -31,23 +31,23 @@ describe("banner", () => {
   });
 
   it("initializes closed", () => {
-    assert.equal(header.classList.contains(EXPANDED_CLASS), false);
-    assert.equal(button.getAttribute(EXPANDED), "false");
+    assert.strictEqual(header.classList.contains(EXPANDED_CLASS), false);
+    assert.strictEqual(button.getAttribute(EXPANDED), "false");
     assert(content.hasAttribute(HIDDEN));
   });
 
   it("opens when you click the button", () => {
     button.click();
-    assert.equal(header.classList.contains(EXPANDED_CLASS), true);
-    assert.equal(button.getAttribute(EXPANDED), "true");
+    assert.strictEqual(header.classList.contains(EXPANDED_CLASS), true);
+    assert.strictEqual(button.getAttribute(EXPANDED), "true");
     assert(content.getAttribute(HIDDEN) !== true);
   });
 
   it("closes when you click the button again", () => {
     button.click();
     button.click();
-    assert.equal(header.classList.contains(EXPANDED_CLASS), false);
-    assert.equal(button.getAttribute(EXPANDED), "false");
+    assert.strictEqual(header.classList.contains(EXPANDED_CLASS), false);
+    assert.strictEqual(button.getAttribute(EXPANDED), "false");
     assert(content.hasAttribute(HIDDEN));
   });
 });
