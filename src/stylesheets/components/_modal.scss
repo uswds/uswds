@@ -131,6 +131,10 @@
     color: color("ink");
   }
 
+  &:not([disabled]):focus {
+    outline-offset: 0;
+  }
+
   .usa-icon {
     height: units(4);
     margin: units(2px) units(2px) 0 0;
