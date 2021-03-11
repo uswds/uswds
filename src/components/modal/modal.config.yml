@@ -22,7 +22,7 @@ context:
       class: "usa-button usa-button--unstyled padding-105 text-center"
       text: Go back
   close_button:
-    aria_text: "Close this window"
+    aria_label: "Close this window"
     text:
     icon_type: close
 
