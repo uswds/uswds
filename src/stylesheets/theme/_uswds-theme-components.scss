@@ -100,8 +100,9 @@ $theme-header-min-width: "desktop";
 $theme-hero-image: "#{$theme-image-path}/hero.png";
 
 // Icon List
-$theme-icon-list-font-family: "ui";
-$theme-icon-list-font-size: "sm";
+$theme-icon-list-title-font-family: "heading";
+$theme-icon-list-font-family: "body";
+$theme-icon-list-font-size: default;
 
 // Identifier
 $theme-identifier-background-color: "base-darkest";

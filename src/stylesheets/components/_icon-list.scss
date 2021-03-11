@@ -9,6 +9,12 @@ $icon-list-icon-padding-left-factor: 0.4;
 // Fine tune the title top padding given a line height of lh-2
 $icon-list-title-padding-top: 0.2em;
 
+$icon-list-font-size: if(
+  $theme-icon-list-font-size == "default",
+  $theme-body-font-size,
+  $theme-icon-list-font-size
+);
+
 $icon-list-font-sizes: (
   "xs": $theme-type-scale-xs,
   "sm": $theme-type-scale-sm,
@@ -19,23 +25,20 @@ $icon-list-font-sizes: (
   "3xl": $theme-type-scale-3xl,
 );
 
-$type-scale: font-size(
-  $theme-icon-list-font-family,
-  $theme-icon-list-font-size
-);
+$type-scale: font-size($theme-icon-list-font-family, $icon-list-font-size);
 
 // Get fixed size for icon, based on non-normalized size token
 $this-system-token: if(
-  map-has-key($icon-list-font-sizes, $theme-icon-list-font-size),
-  map-get($icon-list-font-sizes, $theme-icon-list-font-size),
-  map-get($system-type-scale, $theme-icon-list-font-size)
+  map-has-key($icon-list-font-sizes, $icon-list-font-size),
+  map-get($icon-list-font-sizes, $icon-list-font-size),
+  map-get($system-type-scale, $icon-list-font-size)
 );
 $this-icon-size-px: map-get($system-type-scale, $this-system-token);
 $icon-size: px-to-rem($this-icon-size-px);
 
 @include override-prose {
   .usa-icon-list {
-    @include typeset($theme-icon-list-font-family, $theme-icon-list-font-size);
+    @include typeset($theme-icon-list-font-family, $icon-list-font-size);
     @include unstyled-list;
     @include u-measure(5);
   }
@@ -79,7 +82,7 @@ $icon-size: px-to-rem($this-icon-size-px);
 }
 
 // Don't resize any block-level element inside content
-.usa-icon-list[class*="usa-icon-list--size-"] {
+.usa-icon-list__content {
   > p,
   > h2,
   > h3,
@@ -130,7 +133,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
 
             .usa-icon-list__title {
-              font-size: size("heading", $token);
+              font-size: size($theme-icon-list-title-font-family, $token);
             }
           }
         }
@@ -141,8 +144,8 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
 
 .usa-icon-list__title {
   @include typeset(
-    "heading",
-    $theme-body-font-size,
+    $theme-icon-list-title-font-family,
+    $icon-list-font-size,
     $theme-heading-line-height
   );
   margin-bottom: units(0);
