@@ -12,8 +12,8 @@ context:
     label: Are you sure you want to continue?
     id: "modal-1-heading"
   description:
-    label: |
-      <p id="modal-1-description">You have unsaved changes that will be lost.</p>
+    id: "modal-1-description"
+    text: You have unsaved changes that will be lost.
   footer:
     - action:
       class: "usa-button"
@@ -38,8 +38,8 @@ variants:
         label: Are you sure you want to continue?
         id: "modal-2-heading"
       description:
-        label: |
-          <p id="modal-2-description">You have unsaved changes that will be lost.</p>
+        id: "modal-2-description"
+        text: You have unsaved changes that will be lost.
       footer:
         - action:
           label: "Continue without saving"
@@ -58,8 +58,9 @@ variants:
         label: Your session will end soon.
         id: "modal-3-heading"
       description:
-        label: |
-          <p id="modal-3-description">You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.</p>
+        id: "modal-3-description"
+        text: You have unsaved changes that will be lost.
+        label: You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.
       footer:
         - action:
           label: "Yes, stay signed in"

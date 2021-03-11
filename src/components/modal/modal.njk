@@ -14,12 +14,12 @@
           {{ header.label }}
         </h2>
         {% endif -%}
-        {% if description.label -%}
+        {% if description.text -%}
         <div class="usa-prose">
-          {{ description.label | safe -}}
+          <p id="{{ description.id }}">{{ description.text }}</p>
         </div>
-        {% endif -%}
-        {% if footer -%}
+        {%- endif -%}
+        {%- if footer -%}
         <div class="usa-modal__footer">
           <ul class="usa-button-group">
             {% for action in footer -%}
@@ -29,7 +29,7 @@
             {% endfor -%}
           </ul>
         </div>
-        {% endif -%}
+        {%- endif %}
       </div>
       {%- if not forced -%}
       <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
