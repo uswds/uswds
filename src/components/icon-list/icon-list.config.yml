@@ -22,6 +22,7 @@ variants:
   - name: simple
     label: Simple content
     context:
+      color: primary
       items:
         - icon:
             name: thumb_up_alt
@@ -74,7 +75,7 @@ variants:
   - name: custom-size
     label: Custom size
     context:
-      iconSize: lg
+      size: lg
       items:
         - icon:
             name: help
@@ -94,7 +95,7 @@ variants:
   - name: custom-size-rich
     label: Custom size with rich content
     context:
-      iconSize: lg
+      size: lg
       items:
         - icon:
             name: attach_money
