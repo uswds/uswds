@@ -6,31 +6,42 @@ $icon-list-icon-size-factor: 1.5;
 $icon-list-icon-margin-top: -1.5%;
 // Fine tune the space between the icon and content with this factor
 $icon-list-icon-padding-left-factor: 0.4;
-// Fine tune the title top padding given a line height of 2
+// Fine tune the title top padding given a line height of lh-2
 $icon-list-title-padding-top: 0.2em;
 
 $icon-list-font-sizes: (
-  "xs" $theme-type-scale-xs,
-  "sm" $theme-type-scale-sm,
-  "md" $theme-type-scale-md,
-  "lg" $theme-type-scale-lg,
-  "xl" $theme-type-scale-xl,
-  "2xl" $theme-type-scale-2xl,
-  "3xl" $theme-type-scale-3xl
+  "xs": $theme-type-scale-xs,
+  "sm": $theme-type-scale-sm,
+  "md": $theme-type-scale-md,
+  "lg": $theme-type-scale-lg,
+  "xl": $theme-type-scale-xl,
+  "2xl": $theme-type-scale-2xl,
+  "3xl": $theme-type-scale-3xl,
 );
 
-$type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
+$type-scale: font-size(
+  $theme-icon-list-font-family,
+  $theme-icon-list-font-size
+);
+
+// Get fixed size for icon, based on non-normalized size token
+$this-system-token: if(
+  map-has-key($icon-list-font-sizes, $theme-icon-list-font-size),
+  map-get($icon-list-font-sizes, $theme-icon-list-font-size),
+  map-get($system-type-scale, $theme-icon-list-font-size)
+);
+$this-icon-size-px: map-get($system-type-scale, $this-system-token);
+$icon-size: px-to-rem($this-icon-size-px);
 
 @include override-prose {
   .usa-icon-list {
-    @include typeset($theme-icon-list-font-family);
+    @include typeset($theme-icon-list-font-family, $theme-icon-list-font-size);
     @include unstyled-list;
     @include u-measure(5);
   }
 
   .usa-icon-list__item {
     display: flex;
-    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     position: relative;
 
     & + .usa-icon-list__item {
@@ -58,11 +69,12 @@ $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 .usa-icon-list__icon {
   .usa-icon {
     // Set the height and width of the icon based on the size variant and factor
+    // Doesn't use u-square() because of non-token size
     display: block;
-    height: $type-scale * $icon-list-icon-size-factor;
+    height: $icon-size * $icon-list-icon-size-factor;
     margin-top: $icon-list-icon-margin-top;
     position: relative;
-    width: $type-scale * $icon-list-icon-size-factor;
+    width: $icon-size * $icon-list-icon-size-factor;
   }
 }
 
