@@ -23,7 +23,9 @@
         <div class="usa-modal__footer">
           <ul class="usa-button-group">
             {% for action in footer -%}
-              <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
+              <li class="usa-button-group__item">
+                <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
+              </li>
             {% endfor -%}
           </ul>
         </div>
