@@ -78,6 +78,21 @@ $icon-size: px-to-rem($this-icon-size-px);
   }
 }
 
+// Don't resize any block-level element inside content
+.usa-icon-list[class*="usa-icon-list--size-"] {
+  > p,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6,
+  > ul,
+  > ol,
+  > div {
+    font-size: initial;
+  }
+}
+
 // Generate responsive variants
 // Create a map for looping that includes a default or no-breakpoint version
 $this-null: (
@@ -104,7 +119,6 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             .usa-icon {
               // Set the height and width of the icon based on the size variant and factor
               height: $this-type-scale * $icon-list-icon-size-factor;
-              margin-top: $icon-list-icon-margin-top;
               width: $this-type-scale * $icon-list-icon-size-factor;
             }
           }
@@ -114,19 +128,6 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             font-size: size("body", $token);
             // Calculate the space between the icon and content based on the size variant and factor
             padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
-
-            // But don't resize any block-level element inside content
-            > p,
-            > h2,
-            > h3,
-            > h4,
-            > h5,
-            > h6,
-            > ul,
-            > ol,
-            > div {
-              font-size: initial;
-            }
 
             .usa-icon-list__title {
               font-size: size("heading", $token);
