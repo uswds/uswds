@@ -123,8 +123,8 @@
     "usa-icons/#{$filename-base}.svg"
   );
 
-  $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
-    #{$width} #{$height};
+  $mask-props: url("#{$path}/#{$filename-base}.svg") no-repeat center / #{$width}
+    #{$height};
   $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / #{$width} #{$height};
 
   // Default background shorthand for browsers that don't support mask or supports.
