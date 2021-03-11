@@ -18,20 +18,18 @@
         <div class="usa-prose">
           <p id="{{ description.id }}">{{ description.text }}</p>
         </div>
-        {%- endif -%}
-        {%- if footer -%}
+        {% endif -%}
+        {% if footer -%}
         <div class="usa-modal__footer">
           <ul class="usa-button-group">
             {% for action in footer -%}
-              <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>
-                {{ action.text }}
-              </button>
+              <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
             {% endfor -%}
           </ul>
         </div>
         {%- endif %}
       </div>
-      {%- if not forced -%}
+      {% if not forced -%}
       <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
         {% if close_button.text -%}
           {{ close_button.text }}
@@ -39,7 +37,7 @@
           {{ close_icon | safe }}
         {% endif -%}
       </button>
-      {%- endif -%}
+      {% endif -%}
     </div>
   </div>
 </div>
