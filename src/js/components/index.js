@@ -5,6 +5,7 @@ const comboBox = require("./combo-box");
 const fileInput = require("./file-input");
 const footer = require("./footer");
 const inputPrefixSuffix = require("./input-prefix-suffix");
+const modal = require("./modal");
 const navigation = require("./navigation");
 const password = require("./password");
 const search = require("./search");
@@ -26,6 +27,7 @@ module.exports = {
   fileInput,
   footer,
   inputPrefixSuffix,
+  modal,
   navigation,
   password,
   search,

@@ -1,0 +1,177 @@
+.usa-js-no-click {
+  pointer-events: none;
+  user-select: none;
+
+  .usa-modal,
+  .usa-modal * {
+    pointer-events: auto;
+    user-select: text;
+  }
+}
+
+// Prevents propagation issue in Safari an opener
+// has a child element, and when clicked, prevents
+// intended action
+[data-open-modal] * {
+  pointer-events: none;
+}
+
+.usa-modal-wrapper {
+  text-align: center;
+  transition: opacity $project-easing;
+
+  // Using visibility: hidden instead of display: none because
+  // of iOS VoiceOver issue:
+  // https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
+  &.is-hidden {
+    visibility: hidden;
+    opacity: opacity(0);
+    position: fixed;
+  }
+
+  &.is-visible {
+    visibility: visible;
+    opacity: opacity(100);
+    position: fixed;
+    z-index: z-index("top");
+  }
+}
+
+.usa-modal-overlay {
+  background: color("black-transparent-70");
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: units(3);
+  position: fixed;
+  scroll-behavior: smooth;
+  top: 0;
+  width: 100%;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &[data-force-action="true"] {
+    pointer-events: none;
+
+    * {
+      pointer-events: auto;
+    }
+  }
+}
+
+// Prevents modals from flickering
+// Still allows content to be accessed
+.usa-js-loading {
+  .usa-modal-wrapper {
+    @include add-sr-only;
+  }
+
+  .usa-modal-wrapper:target {
+    position: static;
+  }
+}
+
+.usa-modal {
+  @include typeset;
+  @include u-radius($theme-modal-border-radius);
+  background: white;
+  @include set-text-from-bg("white");
+  display: inline-block;
+  margin: units(2.5) auto;
+  max-width: units($theme-modal-default-max-width);
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.usa-modal__content {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: units(4);
+  width: 100%;
+}
+
+.usa-modal__main {
+  margin: 0 auto;
+  padding: units(1) units(4) units(4);
+}
+
+// Prevents JS not recognizing as part of close button.
+.usa-modal-wrapper [data-close-modal] > .usa-icon,
+.usa-modal-wrapper [data-close-modal] > .usa-icon use {
+  pointer-events: none !important;
+}
+
+.usa-modal__close {
+  align-items: center;
+  align-self: flex-end;
+  background-color: transparent;
+  color: color("base");
+  display: flex;
+  flex-shrink: 0;
+  font-size: size("ui", "2xs");
+  margin: units(-4) 0 0 auto;
+  padding: units(0.5) units(0.5);
+  width: auto;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    color: color("ink");
+  }
+
+  &:not([disabled]):focus {
+    outline-offset: 0;
+  }
+
+  .usa-icon {
+    height: units(4);
+    margin: units(2px) units(2px) 0 0;
+    width: units(4);
+  }
+}
+
+.usa-modal__heading {
+  @include u-font("heading", "lg");
+  line-height: line-height("heading", 3);
+  margin-top: 0;
+}
+
+.usa-modal__footer {
+  margin-top: units(3);
+}
+
+// Variants
+.usa-modal--lg {
+  max-width: units($theme-modal-lg-max-width);
+  width: 100%;
+
+  .usa-modal__main {
+    padding-bottom: units(8);
+    padding-top: units(2.5);
+    width: 100%;
+    max-width: units($theme-modal-lg-content-max-width);
+  }
+
+  .usa-modal__heading {
+    @include at-media("tablet") {
+      @include u-font("heading", "xl");
+    }
+  }
+}
+
+.usa-js-modal--active {
+  overflow: hidden;
+}

@@ -107,6 +107,12 @@ $theme-identifier-max-width: "desktop" !default;
 $theme-identifier-primary-link-color: default !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
+// Modal
+$theme-modal-border-radius: "lg" !default;
+$theme-modal-default-max-width: "mobile-lg" !default;
+$theme-modal-lg-content-max-width: "tablet" !default;
+$theme-modal-lg-max-width: "tablet-lg" !default;
+
 // Process List
 $theme-process-list-counter-background-color: "white" !default;
 $theme-process-list-counter-border-color: "ink" !default;

@@ -3,6 +3,7 @@ const select = require("../utils/select");
 const toggle = require("../utils/toggle");
 const FocusTrap = require("../utils/focus-trap");
 const accordion = require("./accordion");
+const ScrollBarWidth = require("../utils/scrollbar-width");
 
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
@@ -24,6 +25,9 @@ let navigation;
 let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+const SCROLLBAR_WIDTH = ScrollBarWidth();
+const INITIAL_PADDING = window.getComputedStyle(document.body).getPropertyValue('padding-right');
+const TEMPORARY_PADDING = parseInt(INITIAL_PADDING.replace(/px/,""), 10) + parseInt(SCROLLBAR_WIDTH.replace(/px/,""), 10) + "px";
 
 const toggleNav = (active) => {
   const { body } = document;
@@ -39,6 +43,8 @@ const toggleNav = (active) => {
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
+  
+  body.style.paddingRight = body.style.paddingRight === TEMPORARY_PADDING ? INITIAL_PADDING : TEMPORARY_PADDING;
 
   if (safeActive && closeButton) {
     // The mobile nav was just activated, so focus on the close button,
