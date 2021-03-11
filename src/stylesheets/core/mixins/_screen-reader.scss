@@ -6,9 +6,7 @@
 }
 
 @mixin add-sr-only {
-  position: absolute;
-  left: -999em;
-  right: auto;
+  @include sr-only;
 }
 
 // This "negates" the sr-only helper; useful if

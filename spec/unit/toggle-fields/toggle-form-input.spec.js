@@ -30,21 +30,21 @@ describe("toggleFormInput", () => {
   });
 
   it("defaults to masked", () => {
-    assert.equal(password.type, "password");
-    assert.equal(maskControl.textContent, SHOW_TEXT);
+    assert.strictEqual(password.type, "password");
+    assert.strictEqual(maskControl.textContent, SHOW_TEXT);
   });
 
   it("switches type of inputs from password to text when true", () => {
     toggleFormInput(maskControl);
-    assert.equal(password.type, "text");
-    assert.equal(confirmPassword.type, "text");
+    assert.strictEqual(password.type, "text");
+    assert.strictEqual(confirmPassword.type, "text");
   });
 
   it("changes text of mask control element to match show/hide text", () => {
     toggleFormInput(maskControl);
-    assert.equal(maskControl.textContent, HIDE_TEXT);
+    assert.strictEqual(maskControl.textContent, HIDE_TEXT);
 
     toggleFormInput(maskControl);
-    assert.equal(maskControl.textContent, SHOW_TEXT);
+    assert.strictEqual(maskControl.textContent, SHOW_TEXT);
   });
 });
