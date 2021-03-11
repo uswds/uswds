@@ -6,39 +6,38 @@
 
 <div class="margin-y-3">
   <a href="#{{ id }}" class="usa-button" aria-controls="{{ id }}" data-open-modal>{{ trigger.label }}</a>
-
   <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.id }}" aria-describedby="{{ describedby }}"{% if forced %} data-force-action{% endif -%}>
     <div class="usa-modal__content">
       <div class="usa-modal__main">
-        {% if header.label %}
+        {% if header.label -%}
         <h2 class="usa-modal__heading" id="{{ header.id }}">
           {{ header.label }}
         </h2>
-        {% endif %}
-        {% if description.label %}
+        {% endif -%}
+        {% if description.label -%}
         <div class="usa-prose">
-          {{ description.label | safe }}
+          {{ description.label | safe -}}
         </div>
-        {% endif %}
-        {% if footer %}
+        {% endif -%}
+        {% if footer -%}
         <div class="usa-modal__footer">
           <ul class="usa-button-group">
-            {% for action in footer %}
+            {% for action in footer -%}
               <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>
                 {{ action.label }}
               </button>
-            {% endfor %}
+            {% endfor -%}
           </ul>
         </div>
-        {% endif %}
+        {% endif -%}
       </div>
       {%- if not forced -%}
       <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
-        {% if close_button.label %}
+        {% if close_button.label -%}
           {{ close_button.label }}
-        {% else %}
+        {% else -%}
           {{ close_icon | safe }}
-        {% endif %}
+        {% endif -%}
       </button>
       {%- endif -%}
     </div>
