@@ -7,9 +7,9 @@ context:
   modifier: ""
   describedby: "modal-1-description"
   trigger:
-    label: Open default modal
+    text: Open default modal
   header:
-    label: Are you sure you want to continue?
+    text: Are you sure you want to continue?
     id: "modal-1-heading"
   description:
     id: "modal-1-description"
@@ -17,13 +17,13 @@ context:
   footer:
     - action:
       class: "usa-button"
-      label: Continue without saving
+      text: Continue without saving
     - action:
       class: "usa-button usa-button--unstyled padding-105 text-center"
-      label: Go back
+      text: Go back
   close_button:
-    aria_label: "Close this window"
-    label:
+    aria_text: "Close this window"
+    text:
     icon_type: close
 
 variants:
@@ -33,19 +33,19 @@ variants:
       modifier: "usa-modal--lg"
       describedby: "modal-2-description"
       trigger:
-        label: Open large modal
+        text: Open large modal
       header:
-        label: Are you sure you want to continue?
+        text: Are you sure you want to continue?
         id: "modal-2-heading"
       description:
         id: "modal-2-description"
         text: You have unsaved changes that will be lost.
       footer:
         - action:
-          label: "Continue without saving"
+          text: "Continue without saving"
         - action:
           class: "usa-button usa-button--unstyled padding-105 text-center"
-          label: "Go back"
+          text: "Go back"
   - name: forced action
     context:
       id: "example-modal-3"
@@ -53,17 +53,16 @@ variants:
       forced: true
       describedby: "modal-3-description"
       trigger:
-        label: Open modal with forced action
+        text: Open modal with forced action
       header:
-        label: Your session will end soon.
+        text: Your session will end soon.
         id: "modal-3-heading"
       description:
         id: "modal-3-description"
-        text: You have unsaved changes that will be lost.
-        label: You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.
+        text: You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.
       footer:
         - action:
-          label: "Yes, stay signed in"
+          text: "Yes, stay signed in"
         - action:
           class: "usa-button usa-button--unstyled padding-105 text-center"
-          label: "Sign out"
+          text: "Sign out"
