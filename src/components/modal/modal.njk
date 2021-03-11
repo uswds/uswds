@@ -7,7 +7,7 @@
 <div class="margin-y-3">
   <a href="#{{ id }}" class="usa-button" aria-controls="{{ id }}" data-open-modal>{{ trigger.label }}</a>
 
-  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.label }}" aria-describedby="{{ describedby }}"{% if forced %} data-force-action{% endif -%}>
+  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.id }}" aria-describedby="{{ describedby }}"{% if forced %} data-force-action{% endif -%}>
     <div class="usa-modal__content">
       <div class="usa-modal__main">
         {% if header.label %}
