@@ -19,18 +19,18 @@ $icon-list-font-sizes: (
   "3xl" $theme-type-scale-3xl
 );
 
-$type-scale: font-size("body", $theme-body-font-size);
+$type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 
 @include override-prose {
   .usa-icon-list {
-    @include typeset;
+    @include typeset($theme-icon-list-font-family);
     @include unstyled-list;
     @include u-measure(5);
   }
 
   .usa-icon-list__item {
     display: flex;
-    font-size: size("body", $theme-icon-list-font-size);
+    font-size: size($theme-icon-list-font-family, $theme-icon-list-font-size);
     position: relative;
 
     & + .usa-icon-list__item {
