@@ -82,6 +82,7 @@
   @include typeset;
   @include u-radius($theme-modal-border-radius);
   background: white;
+  color: color($theme-text-color);
   display: inline-block;
   margin: units(2.5) auto;
   max-width: units($theme-modal-default-max-width);
