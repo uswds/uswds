@@ -21,4 +21,9 @@
     box-shadow: none;
     text-decoration: underline;
   }
+
+  &:disabled,
+  &.usa-button--disabled {
+    color: color("disabled");
+  }
 }
