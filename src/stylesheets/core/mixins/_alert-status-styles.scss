@@ -13,9 +13,8 @@
   color: color($banner-text-color-token);
 
   .usa-alert__body {
-    padding-left: calc(
-      #{units($theme-alert-icon-size)} + (2 * #{$alert-icon-optical-padding})
-    );
+    padding-left: units($theme-alert-icon-size) +
+      (2 * $alert-icon-optical-padding);
   }
 
   .usa-link {

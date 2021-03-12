@@ -1,8 +1,7 @@
 $alert-slim-icon-size: units(3);
-$alert-icon-optical-factor: calc(#{units($theme-alert-icon-size)} / 6);
-$alert-icon-optical-padding: calc(
-  #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
-);
+$alert-icon-optical-factor: units($theme-alert-icon-size) / 6;
+$alert-icon-optical-padding: units($theme-alert-padding-x) -
+  $alert-icon-optical-factor;
 
 @mixin add-alert-icon($name, $color, $bgcolor) {
   $this-icon-object: map-merge(
@@ -115,8 +114,7 @@ $alert-padding-left: units($theme-alert-bar-width);
 
 .usa-alert--validation {
   background-size: units(3);
-  background-position: $alert-padding-left
-    calc(#{units($theme-alert-padding-x)} - #{units(2px)});
+  background-position: $alert-padding-left units($theme-alert-padding-x);
 
   .usa-alert__body {
     padding-left: units(5);
