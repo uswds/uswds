@@ -25,45 +25,45 @@ context:
 
 variants:
   - name: default
-
-  - name: compare
+  - name: one-level
     context:
-      sidenavs:
-        - title: Single level
-          links:
-            - text: Current page
-              current: true
-            - text: Parent link
-            - text: Parent link
-
-        - title: Two levels
-          links:
-            - text: Parent link
-            - text: Current page
-              current: true
-              links:
-                - text: Child link
-                - text: Child link
-                - text: Child link
-                - text: Child link
-                - text: Child link
-                  current: true
-            - text: Parent link
-
-        - title: Three levels
-          links:
-            - text: Parent link
-            - text: Current page
-              current: true
-              links:
-                - text: Child link
-                - text: Child link
-                  links:
-                    - text: Grandchild link
-                    - text: Grandchild link
-                    - text: Grandchild link
-                      current: true
-                - text: Child link
-                - text: Child link
-                - text: Child link
-            - text: Parent link
+      sidenav:
+        links:
+          - text: Current page
+            current: true
+          - text: Parent link
+          - text: Parent link
+  - name: two-level
+    context:
+      sidenav:
+        links:
+          - text: Parent link
+          - text: Current page
+            current: true
+            links:
+              - text: Child link
+              - text: Child link
+              - text: Child link
+              - text: Child link
+              - text: Child link
+                current: true
+          - text: Parent link
+  - name: three-level
+    context:
+      sidenav:
+        links:
+          - text: Parent link
+          - text: Current page
+            current: true
+            links:
+              - text: Child link
+              - text: Child link
+                links:
+                  - text: Grandchild link
+                  - text: Grandchild link
+                  - text: Grandchild link
+                    current: true
+              - text: Child link
+              - text: Child link
+              - text: Child link
+          - text: Parent link
