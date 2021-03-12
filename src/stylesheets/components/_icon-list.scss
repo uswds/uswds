@@ -7,15 +7,9 @@ $icon-list-icon-margin-top: -1.5%;
 // Fine tune the space between the icon and content with this factor
 $icon-list-icon-padding-left-factor: 0.4;
 // Fine tune the title top padding given a line height of lh-2
-$icon-list-title-padding-top: 0.2em;
+$icon-list-title-padding-top: 0.425ex;
 
-$icon-list-font-size: if(
-  $theme-icon-list-font-size == "default",
-  $theme-body-font-size,
-  $theme-icon-list-font-size
-);
-
-$icon-list-font-sizes: (
+$theme-body-font-sizes: (
   "xs": $theme-type-scale-xs,
   "sm": $theme-type-scale-sm,
   "md": $theme-type-scale-md,
@@ -25,20 +19,20 @@ $icon-list-font-sizes: (
   "3xl": $theme-type-scale-3xl,
 );
 
-$type-scale: font-size($theme-icon-list-font-family, $icon-list-font-size);
+$type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 
 // Get fixed size for icon, based on non-normalized size token
 $this-system-token: if(
-  map-has-key($icon-list-font-sizes, $icon-list-font-size),
-  map-get($icon-list-font-sizes, $icon-list-font-size),
-  map-get($system-type-scale, $icon-list-font-size)
+  map-has-key($theme-body-font-sizes, $theme-body-font-size),
+  map-get($theme-body-font-sizes, $theme-body-font-size),
+  $theme-body-font-size
 );
 $this-icon-size-px: map-get($system-type-scale, $this-system-token);
 $icon-size: px-to-rem($this-icon-size-px);
 
 @include override-prose {
   .usa-icon-list {
-    @include typeset($theme-icon-list-font-family, $icon-list-font-size);
+    @include typeset($theme-icon-list-font-family, $theme-body-font-size);
     @include unstyled-list;
     @include u-measure(5);
   }
@@ -75,7 +69,7 @@ $icon-size: px-to-rem($this-icon-size-px);
     // Doesn't use u-square() because of non-token size
     display: block;
     height: $icon-size * $icon-list-icon-size-factor;
-    margin-top: $icon-list-icon-margin-top;
+    // margin-top: $icon-list-icon-margin-top;
     position: relative;
     width: $icon-size * $icon-list-icon-size-factor;
   }
@@ -84,16 +78,15 @@ $icon-size: px-to-rem($this-icon-size-px);
 // Don't resize any block-level element inside content
 .usa-icon-list__content {
   > p,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > h6,
   > ul,
-  > ol,
-  > div {
-    font-size: initial;
+  > ol {
+    @include u-font($theme-icon-list-font-family, $theme-body-font-size);
+    @include u-measure(5);
   }
+}
+
+.usa-icon-list[class*="usa-icon-list--size-"] {
+  @include u-measure("none");
 }
 
 // Generate responsive variants
@@ -103,7 +96,7 @@ $this-null: (
 );
 $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
 @each $mq-key, $mq-value in $icon-list-breakpoints {
-  @each $token, $val in $icon-list-font-sizes {
+  @each $token, $val in $theme-body-font-sizes {
     // Set the prefix
     // An empty string if "none"
     $prefix: false;
@@ -115,7 +108,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
       $prefix: "#{$mq-key}\\:";
     }
     @if $prefix {
-      $this-type-scale: font-size("body", $token);
+      $this-type-scale: font-size($theme-icon-list-font-family, $token);
       @include at-media($mq-key) {
         .#{$prefix}usa-icon-list--size-#{$token} {
           .usa-icon-list__icon {
@@ -127,13 +120,14 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
           }
 
           .usa-icon-list__content {
+            @include u-measure(5);
             // Resize simple (un-marked up) content
-            font-size: size("body", $token);
+            font-size: size($theme-icon-list-font-family, $token);
             // Calculate the space between the icon and content based on the size variant and factor
             padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
 
             .usa-icon-list__title {
-              font-size: size($theme-icon-list-title-font-family, $token);
+              @include u-font($theme-icon-list-title-font-family, $token);
             }
           }
         }
@@ -145,8 +139,8 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
 .usa-icon-list__title {
   @include typeset(
     $theme-icon-list-title-font-family,
-    $icon-list-font-size,
-    $theme-heading-line-height
+    $theme-body-font-size,
+    2
   );
   margin-bottom: units(0);
   padding-top: $icon-list-title-padding-top;
