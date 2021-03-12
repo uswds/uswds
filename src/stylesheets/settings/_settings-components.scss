@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.10.1
+USWDS 2.10.2
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -111,6 +111,12 @@ $theme-identifier-max-width: "desktop" !default;
 $theme-identifier-primary-link-color: default !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
+// Modal
+$theme-modal-border-radius: "lg" !default;
+$theme-modal-default-max-width: "mobile-lg" !default;
+$theme-modal-lg-content-max-width: "tablet" !default;
+$theme-modal-lg-max-width: "tablet-lg" !default;
+
 // Process List
 $theme-process-list-counter-background-color: "white" !default;
 $theme-process-list-counter-border-color: "ink" !default;
@@ -172,12 +178,17 @@ $theme-summary-box-link-color: default !default;
 $theme-summary-box-text-color: default !default;
 
 // Table
-$theme-table-border-color: "ink" !default;
+$theme-table-border-color: default !default;
 $theme-table-header-background-color: "base-lighter" !default;
-$theme-table-header-text-color: "ink" !default;
+$theme-table-header-text-color: default !default;
 $theme-table-stripe-background-color: "base-lightest" !default;
-$theme-table-stripe-text-color: "ink" !default;
-$theme-table-text-color: "ink" !default;
+$theme-table-stripe-text-color: default !default;
+$theme-table-text-color: default !default;
+$theme-table-sorted-header-background-color: "accent-cool-light" !default;
+$theme-table-sorted-background-color: "accent-cool-lighter" !default;
+$theme-table-sorted-stripe-background-color: "blue-cool-10v" !default;
+$theme-table-sorted-icon-color: default !default;
+$theme-table-unsorted-icon-color: "base" !default;
 
 // Tooltips
 $theme-tooltip-background-color: "ink" !default;

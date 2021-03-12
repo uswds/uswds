@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.10.1
+USWDS 2.10.2
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -111,6 +111,12 @@ $theme-identifier-max-width: "desktop";
 $theme-identifier-primary-link-color: default;
 $theme-identifier-secondary-link-color: "base-light";
 
+// Modal
+$theme-modal-border-radius: "lg";
+$theme-modal-default-max-width: "mobile-lg";
+$theme-modal-lg-content-max-width: "tablet";
+$theme-modal-lg-max-width: "tablet-lg";
+
 // Process List
 $theme-process-list-counter-background-color: "white";
 $theme-process-list-counter-border-color: "ink";
@@ -172,12 +178,17 @@ $theme-summary-box-link-color: default;
 $theme-summary-box-text-color: default;
 
 // Table
-$theme-table-border-color: "ink";
+$theme-table-border-color: default;
 $theme-table-header-background-color: "base-lighter";
-$theme-table-header-text-color: "ink";
+$theme-table-header-text-color: default;
 $theme-table-stripe-background-color: "base-lightest";
-$theme-table-stripe-text-color: "ink";
-$theme-table-text-color: "ink";
+$theme-table-stripe-text-color: default;
+$theme-table-text-color: default;
+$theme-table-sorted-header-background-color: "accent-cool-light";
+$theme-table-sorted-background-color: "accent-cool-lighter";
+$theme-table-sorted-stripe-background-color: "blue-cool-10v";
+$theme-table-sorted-icon-color: default;
+$theme-table-unsorted-icon-color: "base";
 
 // Tooltips
 $theme-tooltip-background-color: "ink";

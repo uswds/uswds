@@ -9,7 +9,7 @@
   <div class="usa-section">
     <div class="grid-container">
       {% render '@breadcrumb--metadata' %}
-      <div class="grid-row grid-gap">
+      <div class="grid-row grid-gap margin-top-4">
         <div class="desktop:grid-col-3 usa-layout-docs__sidenav">
           {% render '@sidenav', {sidenav: sidenav} %}
         </div>
@@ -18,6 +18,10 @@
           <p class="usa-intro">{{ page.lead | safe }}</p>
           <p class="usa-content">
             {{ page.body | safe }}
+
+            {% render '@modal' %}
+            {% render '@modal--large-modal' %}
+            {% render '@modal--forced-action' %}
 
             <ul>
             {% for list in page.lists %}
