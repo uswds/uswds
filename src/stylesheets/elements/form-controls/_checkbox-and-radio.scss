@@ -15,6 +15,21 @@ $radio-icon-checked: map-merge(
   )
 );
 
+$checkbox-icon: map-merge(
+  $radio-icon,
+  (
+    "name": "usa-icons/check_box_outline_blank",
+  )
+);
+
+$checkbox-icon-checked: map-merge(
+  $checkbox-icon,
+  (
+    "name": "usa-icons/check_box",
+    "color": "primary",
+  )
+);
+
 @include override-prose {
   .usa-input-list {
     @include add-list-reset;
@@ -53,14 +68,10 @@ $radio-icon-checked: map-merge(
   position: relative;
 }
 
-.usa-checkbox__label::before {
-  background: color("white");
-  content: " ";
-  display: inline-block;
-  left: units($theme-input-select-border-width);
-  position: relative;
-  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
-  white-space: pre;
+.usa-checkbox__label {
+  @include place-icon($checkbox-icon, "before", 1, "middle", "white");
+  display: flex;
+  align-items: center;
 }
 
 .usa-radio__label {
@@ -69,39 +80,12 @@ $radio-icon-checked: map-merge(
   align-items: center;
 }
 
-.usa-checkbox__label::before {
-  @include u-square($theme-input-select-size);
-  border-radius: radius($theme-checkbox-border-radius);
-}
-
-.usa-checkbox__label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
-  line-height: units($theme-input-select-size);
-  margin-right: units($input-select-margin-right);
-  text-indent: 0;
-}
-
-.usa-checkbox__input:checked + .usa-checkbox__label::before {
-  background-color: color("primary");
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary");
+.usa-checkbox__input:checked + .usa-checkbox__label {
+  @include place-icon($checkbox-icon-checked, "before", 1, "middle", "white");
 }
 
 .usa-radio__input:checked + .usa-radio__label {
   @include place-icon($radio-icon-checked, "before", 1, "middle", "white");
-}
-
-.usa-checkbox__input:checked + .usa-checkbox__label::before,
-.usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
-  @include add-background-svg("correct8");
-  background-position: center center;
-  background-size: units(1.5) auto;
-
-  @media print {
-    background-image: none;
-    background-color: color("white");
-    content: url("#{$theme-image-path}/checkbox-check-print.svg");
-    text-indent: 0;
-  }
 }
 
 .usa-radio__input:focus + .usa-radio__label::before {
@@ -120,8 +104,7 @@ $radio-icon-checked: map-merge(
 
 .usa-checkbox__input:disabled + .usa-checkbox__label::before,
 .usa-radio__input:disabled + .usa-radio__label::before {
-  background: color("disabled-light");
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
+  background-color: color("disabled-light");
   cursor: not-allowed;
 }
 
