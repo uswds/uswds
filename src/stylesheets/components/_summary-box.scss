@@ -25,11 +25,6 @@ $summary-box-context: "Summary Box";
   }
 }
 
-.usa-summary-box__body {
-  display: table-cell;
-  vertical-align: top;
-}
-
 .usa-summary-box__heading {
   @include typeset($theme-summary-box-font-family, "lg", 2);
   margin-top: 0;
