@@ -15,7 +15,7 @@ describe("date picker component year selection", () => {
   let input;
   let button;
 
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -40,7 +40,7 @@ describe("date picker component year selection", () => {
   });
 
   it("should show year of 2020 as focused", () => {
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2020",
       "focuses correct year"
@@ -48,7 +48,7 @@ describe("date picker component year selection", () => {
   });
 
   it("should show year of 2020 as selected", () => {
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--selected").dataset.value,
       "2020",
       "selects correct year"
@@ -58,7 +58,7 @@ describe("date picker component year selection", () => {
   it("should navigate back three years when pressing up", () => {
     EVENTS.keydownArrowUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2017",
       "focuses correct year"
@@ -68,7 +68,7 @@ describe("date picker component year selection", () => {
   it("should navigate ahead three years when pressing down", () => {
     EVENTS.keydownArrowDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2023",
       "focuses correct year"
@@ -78,7 +78,7 @@ describe("date picker component year selection", () => {
   it("should navigate back one year when pressing left", () => {
     EVENTS.keydownArrowLeft();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2019",
       "focuses correct year"
@@ -88,7 +88,7 @@ describe("date picker component year selection", () => {
   it("should navigate ahead one year when pressing right", () => {
     EVENTS.keydownArrowRight();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2021",
       "focuses correct year"
@@ -98,7 +98,7 @@ describe("date picker component year selection", () => {
   it("should navigate to the beginning of the year row when pressing home", () => {
     EVENTS.keydownHome();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2019",
       "focuses correct year"
@@ -108,7 +108,7 @@ describe("date picker component year selection", () => {
   it("should navigate to the end of the year row when pressing end", () => {
     EVENTS.keydownEnd();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2021",
       "focuses correct year"
@@ -118,7 +118,7 @@ describe("date picker component year selection", () => {
   it("should navigate back 12 years when pressing page up", () => {
     EVENTS.keydownPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2008",
       "focuses correct year"
@@ -128,7 +128,7 @@ describe("date picker component year selection", () => {
   it("should navigate forward 12 years when pressing page down", () => {
     EVENTS.keydownPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2032",
       "focuses correct year"
@@ -142,7 +142,7 @@ describe("date picker component year selection", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
       "2022",
       "focuses correct year"
