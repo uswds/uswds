@@ -24,22 +24,18 @@ variants:
       items:
         - icon:
             name: thumb_up_alt
-            color: violet
             utilities:
           content: No processing lines
         - icon:
             name: thumb_up_alt
-            color: violet
             utilities:
           content: Access to expedited entry benefits in other countries
         - icon:
             name: thumb_up_alt
-            color: violet
             utilities:
           content: Available at major U.S. airports
         - icon:
             name: thumb_up_alt
-            color: violet
             utilities:
           content: Reduced wait times
 
