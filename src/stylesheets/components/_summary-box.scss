@@ -33,9 +33,6 @@ $summary-box-context: "Summary Box";
   @include typeset($theme-summary-box-font-family, "lg", 2);
   margin-top: 0;
   margin-bottom: units(1);
-  @include at-media-max("mobile-lg") {
-    word-wrap: break-word;
-  }
 }
 
 .usa-summary-box__text {
