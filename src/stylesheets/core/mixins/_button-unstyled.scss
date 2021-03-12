@@ -13,7 +13,9 @@
   &:hover,
   &.usa-button--hover,
   &:active,
-  &.usa-button--active {
+  &.usa-button--active,
+  &:disabled,
+  &.usa-button--disabled {
     @include no-knockout-font-smoothing;
     background-color: transparent;
     box-shadow: none;
