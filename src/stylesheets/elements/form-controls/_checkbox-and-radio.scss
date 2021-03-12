@@ -1,3 +1,20 @@
+$radio-icon: (
+  "name": "usa-icons/radio_button_unchecked",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 4,
+  "color": "ink",
+  "color-variant": "white",
+);
+
+$radio-icon-checked: map-merge(
+  $radio-icon,
+  (
+    "name": "usa-icons/radio_button_checked",
+    "color": "primary",
+  )
+);
+
 @include override-prose {
   .usa-input-list {
     @include add-list-reset;
@@ -11,6 +28,7 @@
   }
 }
 
+.usa-checkbox__input,
 .usa-checkbox__input,
 .usa-radio__input {
   // The actual input element is only visible to screen readers, because
@@ -31,14 +49,11 @@
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");
-  margin-top: units(1.5);
-  padding-left: units($input-select-margin-right + $theme-input-select-size);
+  margin-top: units(1);
   position: relative;
-  text-indent: units(-$input-select-margin-right - $theme-input-select-size);
 }
 
-.usa-checkbox__label::before,
-.usa-radio__label::before {
+.usa-checkbox__label::before {
   background: color("white");
   content: " ";
   display: inline-block;
@@ -48,39 +63,31 @@
   white-space: pre;
 }
 
+.usa-radio__label {
+  @include place-icon($radio-icon, "before", 1, "middle", "white");
+  display: flex;
+  align-items: center;
+}
+
 .usa-checkbox__label::before {
   @include u-square($theme-input-select-size);
   border-radius: radius($theme-checkbox-border-radius);
 }
 
-.usa-radio__label::before {
-  @include u-circle($theme-input-select-size);
-}
-
-.usa-checkbox__label::before,
-.usa-radio__label::before {
+.usa-checkbox__label::before {
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   line-height: units($theme-input-select-size);
   margin-right: units($input-select-margin-right);
   text-indent: 0;
 }
 
-.usa-checkbox__input:checked + .usa-checkbox__label::before,
-.usa-radio__input:checked + .usa-radio__label::before {
+.usa-checkbox__input:checked + .usa-checkbox__label::before {
   background-color: color("primary");
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary");
 }
 
-.usa-radio__input:checked + .usa-radio__label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary"),
-    inset 0 0 0 units($theme-input-select-border-width) color("white");
-
-  @media print {
-    box-shadow: inset 0 0 0 units($theme-input-select-border-width)
-        color("white"),
-      inset 0 0 0 units(2) color("primary"),
-      0 0 0 units($theme-input-select-border-width) color("primary");
-  }
+.usa-radio__input:checked + .usa-radio__label {
+  @include place-icon($radio-icon-checked, "before", 1, "middle", "white");
 }
 
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
