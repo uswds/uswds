@@ -26,4 +26,12 @@
   &.usa-button--disabled {
     color: color("disabled");
   }
+
+  &.usa-button--hover {
+    color: color($theme-link-hover-color);
+  }
+
+  &.usa-button--active {
+    color: color($theme-link-active-color);
+  }
 }
