@@ -96,20 +96,21 @@ $this-null: (
 );
 $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
 @each $mq-key, $mq-value in $icon-list-breakpoints {
-  @each $token, $val in $theme-body-font-sizes {
-    // Set the prefix
-    // An empty string if "none"
-    $prefix: false;
-    @if $mq-key == "none" {
-      $prefix: "";
-    }
-    // Or the standard prefix if the breakpoint is output
-    @else if map-get($theme-utility-breakpoints, $mq-key) {
-      $prefix: "#{$mq-key}\\:";
-    }
-    @if $prefix {
-      $this-type-scale: font-size($theme-icon-list-font-family, $token);
-      @include at-media($mq-key) {
+  // Set the prefix
+  // An empty string if "none"
+  $prefix: false;
+  @if $mq-key == "none" {
+    $prefix: "";
+  }
+  // Or the standard prefix if the breakpoint is output
+  @else if map-get($theme-utility-breakpoints, $mq-key) {
+    $prefix: "#{$mq-key}\\:";
+  }
+
+  @include at-media($mq-key) {
+    @each $token, $val in $theme-body-font-sizes {
+      @if $prefix {
+        $this-type-scale: font-size($theme-icon-list-font-family, $token);
         .#{$prefix}usa-icon-list--size-#{$token} {
           .usa-icon-list__icon {
             .usa-icon {
@@ -124,7 +125,8 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
             // Resize simple (un-marked up) content
             font-size: size($theme-icon-list-font-family, $token);
             // Calculate the space between the icon and content based on the size variant and factor
-            padding-left: $this-type-scale * $icon-list-icon-padding-left-factor;
+            padding-left: $this-type-scale *
+              $icon-list-icon-padding-left-factor;
 
             .usa-icon-list__title {
               @include u-font($theme-icon-list-title-font-family, $token);
