@@ -51,6 +51,10 @@ getComponents.then((handles) => {
     });
     describe(`looking for violations`, () => {
       handles.forEach((handle) => {
+        // our handle returns as a path so we need to clean up
+        const component = handle.replace(/.*(?=usa)/, '');
+        const componentName = component.replace(/(\.).*/, '');
+
         before(async () => {
           await createChromeDevtoolsProtocol().then((client) => {
             cdp = client;
@@ -60,11 +64,7 @@ getComponents.then((handles) => {
         });
         after("shutdown chrome devtools protocol", () => cdp.close());
         // test cases
-        const regex = /(usa).*.\//g;
-
-        const componentName = handle.match(regex);
-
-        describe(`testing ${componentName[0]}`, () => {
+        describe(`testing ${componentName}`, () => {
           it("has no a11y errors", () => axeTester.run({ cdp, warn: false }));
           it("passes without warnings", () =>
             axeTester.run({ cdp, warn: true }));
