@@ -3,7 +3,7 @@ $radio-icon: (
   "svg-height": 40,
   "svg-width": 40,
   "height": 4,
-  "color": "ink",
+  "color": "base",
   "color-variant": "white",
 );
 
@@ -43,6 +43,16 @@ $checkbox-icon-checked: map-merge(
   }
 }
 
+.usa-checkbox,
+.usa-radio {
+  margin-top: units(1);
+}
+
+.usa-checkbox + .usa-checkbox,
+.usa-radio + .usa-radio {
+  margin-top: units(2px);
+}
+
 .usa-checkbox__input,
 .usa-checkbox__input,
 .usa-radio__input {
@@ -64,28 +74,27 @@ $checkbox-icon-checked: map-merge(
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");
-  margin-top: units(0.5);
   position: relative;
 }
 
 .usa-checkbox__label {
-  @include place-icon($checkbox-icon, "before", 1, "middle", "white");
+  @include place-icon($checkbox-icon, "before", 0.5, "middle", "white");
   display: flex;
   align-items: center;
 }
 
 .usa-radio__label {
-  @include place-icon($radio-icon, "before", 1, "middle", "white");
+  @include place-icon($radio-icon, "before", 0.5, "middle", "white");
   display: flex;
   align-items: center;
 }
 
 .usa-checkbox__input:checked + .usa-checkbox__label {
-  @include place-icon($checkbox-icon-checked, "before", 1, "middle", "white");
+  @include place-icon($checkbox-icon-checked, "before", 0.5, "middle", "white");
 }
 
 .usa-radio__input:checked + .usa-radio__label {
-  @include place-icon($radio-icon-checked, "before", 1, "middle", "white");
+  @include place-icon($radio-icon-checked, "before", 0.5, "middle", "white");
 }
 
 .usa-radio__input:focus + .usa-radio__label::before {
@@ -111,11 +120,19 @@ $checkbox-icon-checked: map-merge(
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
+  align-items: flex-start;
   border: units($theme-input-tile-border-width) solid
     color($theme-input-tile-border-color);
   border-radius: radius($theme-input-tile-border-radius);
+  flex-direction: column;
   margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);
+  &:before {
+    position: absolute;
+    left: units(0.5);
+    // Magic number for balanced spacing
+    top: units(1) - px-to-rem(1px);
+  }
 }
 
 .usa-checkbox__input--tile:checked + .usa-checkbox__label,
