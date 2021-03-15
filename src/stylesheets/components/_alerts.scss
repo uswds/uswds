@@ -122,11 +122,6 @@ $alert-padding-left: units($theme-alert-bar-width);
 }
 
 .usa-alert--validation {
-  &:before {
-    background-position: 0 units(1);
-    mask-position: 0 units(1);
-  }
-
   .usa-checklist {
     margin-top: units(2);
   }
