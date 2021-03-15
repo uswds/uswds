@@ -26,7 +26,7 @@ $alert-icon-optical-padding: units($theme-alert-padding-x) -
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
     display: block;
-    height: units(7);
+    height: (2 * units($theme-alert-padding-y)) + units(3);
     // padding - optical spacing value
     left: $alert-icon-optical-padding;
     position: absolute;
