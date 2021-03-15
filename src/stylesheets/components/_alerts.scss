@@ -14,18 +14,17 @@ $alert-icon-optical-padding: units($theme-alert-padding-x) -
   );
   &:before {
     @include add-color-icon($this-icon-object, $bgcolor);
-    // Position centered in the alert
-    bottom: 0;
     content: "";
     display: block;
+    height: units(7);
     // padding - optical spacing value
     left: $alert-icon-optical-padding;
     position: absolute;
-    height: auto;
     top: 0;
   }
   &.usa-alert--slim:before {
     background-size: $alert-slim-icon-size;
+    height: units(5);
     width: $alert-slim-icon-size;
     @supports (mask: url("")) {
       mask-size: $alert-slim-icon-size;
