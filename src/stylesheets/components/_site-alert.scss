@@ -40,7 +40,6 @@ $alert-icons: (
   .usa-site-alert--#{$name} {
     $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
     @include set-text-and-bg($bgcolor);
-    background-color: yellow;
 
     .usa-alert {
       @include alert-status-styles($name, $icon);
@@ -64,10 +63,15 @@ $alert-icons: (
 
 .usa-site-alert--no-icon {
   .usa-alert {
-    background-image: none;
+    &:before {
+      display: none;
+    }
 
     .usa-alert__body {
-      padding-left: 0;
+      padding-left: units($theme-site-margins-mobile-width);
+      @include at-media($theme-site-margins-breakpoint) {
+        padding-left: units($theme-site-margins-width);
+      }
     }
   }
 }
@@ -84,13 +88,5 @@ $alert-icons: (
       padding-left: units($theme-site-margins-width) + $alert-slim-icon-size +
         units(1.5);
     }
-  }
-}
-
-.usa-site-alert--no-heading {
-  .usa-alert {
-    background-position-y: calc(
-      #{units($theme-alert-padding-x)} - #{units(0.5)}
-    );
   }
 }
