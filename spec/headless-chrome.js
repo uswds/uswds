@@ -10,7 +10,7 @@ class Device {
       {
         deviceScaleFactor: 1,
         mobile: false,
-        fitWindow: false
+        fitWindow: false,
       },
       metrics
     );
@@ -42,19 +42,18 @@ const SKIP_COMPONENTS = [
   "layout--header-empty",
   "layout--federal-employee-sign-in",
   "layout--value-props",
-  "header",
-  "fonts"
+  "icons",
 ];
 
 const DEVICES = [
   new Device("small-desktop", {
     width: 412,
-    height: 732
+    height: 732,
   }),
   new Device("large-desktop", {
     width: 1280,
-    height: 732
-  })
+    height: 732,
+  }),
 ];
 
 fractalLoad.then(() => {
@@ -78,7 +77,7 @@ fractalLoad.then(() => {
       );
     }
 
-    handles.forEach(handle => {
+    handles.forEach((handle) => {
       let cdp;
 
       describe(`"${handle}"`, () => {
@@ -90,7 +89,7 @@ fractalLoad.then(() => {
         before("init chrome devtools protocol", () => {
           return chromeFractalTester
             .createChromeDevtoolsProtocol()
-            .then(client => {
+            .then((client) => {
               cdp = client;
             });
         });
@@ -104,14 +103,14 @@ fractalLoad.then(() => {
 
         after("shutdown chrome devtools protocol", () => cdp.close());
 
-        DEVICES.forEach(device => {
+        DEVICES.forEach((device) => {
           describe(`on ${device.description}`, () => {
             before("set device metrics", () =>
               cdp.Emulation.setDeviceMetricsOverride(device.metrics)
             );
 
-            it('has no aXe violations', () => axeTester.run({ cdp }));
-            it('shows aXe warnings', () => axeTester.run({ cdp, warn: true }));
+            it("has no aXe violations", () => axeTester.run({ cdp }));
+            it("shows aXe warnings", () => axeTester.run({ cdp, warn: true }));
 
             if (process.env.ENABLE_SCREENSHOTS) {
               const vrt = new VisualRegressionTester({ handle, device });
