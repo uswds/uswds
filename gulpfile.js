@@ -83,6 +83,7 @@ function serve(done) {
     server: ["./build/"],
     notify: false,
     open: false,
+    port: 3333,
   });
   done();
 }

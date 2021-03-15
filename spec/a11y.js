@@ -18,7 +18,7 @@ function launchChrome() {
     .then((newChrome) => {
       chrome = newChrome;
       chromeHost = chrome.host;
-      serverUrl = "http://localhost:3000/";
+      serverUrl = "http://localhost:3333/";
     });
 }
 
