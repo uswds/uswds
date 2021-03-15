@@ -12,11 +12,6 @@
   border-left-color: color($name);
   color: color($banner-text-color-token);
 
-  .usa-alert__body {
-    padding-left: units($theme-alert-icon-size) +
-      (2 * $alert-icon-optical-padding);
-  }
-
   .usa-link {
     @include set-link-from-bg(
       $bgcolor,
