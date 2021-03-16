@@ -3,6 +3,16 @@ $alert-icon-optical-factor: units($theme-alert-icon-size) / 6;
 $alert-icon-optical-padding: units($theme-alert-padding-x) -
   $alert-icon-optical-factor;
 
+@mixin add-slim-alert-icon {
+  &:before {
+    background-size: $alert-slim-icon-size;
+    height: units(5);
+    width: $alert-slim-icon-size;
+    @supports (mask: url("")) {
+      mask-size: $alert-slim-icon-size;
+    }
+  }
+}
 @mixin add-alert-icon($name, $color, $bgcolor) {
   $this-icon-object: map-merge(
     $icon-object,
@@ -14,22 +24,16 @@ $alert-icon-optical-padding: units($theme-alert-padding-x) -
   );
   &:before {
     @include add-color-icon($this-icon-object, $bgcolor);
-    // Position centered in the alert
-    bottom: 0;
     content: "";
     display: block;
+    height: (2 * units($theme-alert-padding-y)) + units(3);
     // padding - optical spacing value
     left: $alert-icon-optical-padding;
     position: absolute;
-    height: auto;
     top: 0;
   }
-  &.usa-alert--slim:before {
-    background-size: $alert-slim-icon-size;
-    width: $alert-slim-icon-size;
-    @supports (mask: url("")) {
-      mask-size: $alert-slim-icon-size;
-    }
+  &.usa-alert--slim {
+    @include add-slim-alert-icon;
   }
 }
 
@@ -80,14 +84,19 @@ $alert-padding-left: units($theme-alert-bar-width);
   }
 }
 
+.usa-alert__body {
+  @include u-padding-x($theme-alert-padding-x);
+}
+
 @each $name, $icon in $alert-icons {
   .usa-alert--#{$name} {
     @include alert-status-styles($name, $icon);
-  }
-}
 
-.usa-alert__body {
-  @include u-padding-x($theme-alert-padding-x);
+    .usa-alert__body {
+      padding-left: units($theme-alert-icon-size) +
+        (2 * $alert-icon-optical-padding);
+    }
+  }
 }
 
 .usa-alert__heading {
@@ -113,11 +122,6 @@ $alert-padding-left: units($theme-alert-bar-width);
 }
 
 .usa-alert--validation {
-  &:before {
-    background-position: 0 units(1);
-    mask-position: 0 units(1);
-  }
-
   .usa-checklist {
     margin-top: units(2);
   }
