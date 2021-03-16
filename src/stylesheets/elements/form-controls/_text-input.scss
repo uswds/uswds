@@ -55,17 +55,3 @@
     @include u-square(3);
   }
 }
-
-.usa-input-prefix {
-  padding-right: 0;
-  .usa-icon {
-    margin-right: units(1);
-  }
-}
-
-.usa-input-suffix {
-  padding-left: 0;
-  .usa-icon {
-    margin-left: units(1);
-  }
-}
