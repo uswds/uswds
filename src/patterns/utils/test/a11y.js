@@ -66,7 +66,7 @@ getComponents.then((handles) => {
     before(async () => {
       await launchChrome();
     });
-    describe(`looking for violations`, () => {
+    describe("looking for violations", () => {
       handles.forEach((handle) => {
         // our handle returns as a path so we need to clean up
         const component = handle.replace(/.*(?=usa)/, '');
