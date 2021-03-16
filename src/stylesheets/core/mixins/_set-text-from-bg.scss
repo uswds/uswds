@@ -3,12 +3,10 @@
   $preferred-text-color: "default",
   $fallback-text-color: "default",
   $wcag-target: "AA",
-  $important: null,
-  $context: false
+  $context: false,
+  $important: null
 ) {
-  @if $important {
-    $important: " !important";
-  }
+  $important: if($important, " !important", null);
   $accessible-color-token: get-color-token-from-bg(
     $bg-color,
     $preferred-text-color,
@@ -24,18 +22,17 @@
   $preferred-text-color: "default",
   $fallback-text-color: "default",
   $wcag-target: "AA",
-  $important: null,
-  $context: false
+  $context: false,
+  $important: null
 ) {
-  @if $important {
-    $important: " !important";
-  }
+  $important: if($important, " !important", null);
   @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
     $wcag-target,
-    $context
+    $context,
+    $important: $important
   );
   $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
   background-color: color($bg-color) #{$important};
