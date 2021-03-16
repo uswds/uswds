@@ -26,6 +26,10 @@
     @include focus-outline();
   }
 
+  &--error {
+    @include u-border($theme-input-state-border-width, "error-dark");
+  }
+
   input {
     border: 0;
     height: 100%;
