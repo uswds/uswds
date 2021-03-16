@@ -11,7 +11,7 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return gulp.src("src/patterns/components/**/*.spec.js").pipe(mocha(mochaConfig));
+    return gulp.src("src/**/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   // run accessiblity.
