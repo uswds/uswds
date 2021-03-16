@@ -13,6 +13,7 @@ const run = require("gulp-run-command").default;
 // Check out the ./gulp-tasks directory for more.
 const {
   unitTests,
+  sassTests,
   a11y,
   cover,
 } = require("./config/gulp/test");
@@ -92,9 +93,14 @@ exports.a11y = series(serve, a11y, exitServer);
 
 exports.cover = cover;
 
+exports.sassTests = sassTests;
+
+exports.unitTests = unitTests;
+
 exports.test = series(
   lintJS,
   lintSass,
+  sassTests,
   unitTests,
   serve,
   a11y,
@@ -135,7 +141,7 @@ function watchFiles() {
 
   // Watch all my unit tests and run if a file changes.
   watch(
-    "./src/**/**/*.spec.js",
+    "./src/**/*.spec.js",
     series(unitTests, (done) => done())
   );
 }
