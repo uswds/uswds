@@ -20,21 +20,6 @@ $pagination-context: "Pagination";
 
 // Shared styles
 // ---------------------------------
-%pagination-button-styles {
-  background-color: color($theme-pagination-background-color);
-  border-color: color($theme-pagination-border-color);
-  border-style: solid;
-  border-radius: radius($theme-pagination-border-radius);
-  border-width: units($theme-pagination-border-width);
-  display: inline-flex;
-  justify-content: center;
-  padding: units($theme-pagination-padding);
-
-  // Takes up all available width in pagination nav.
-  @include at-media($theme-pagination-breakpoint) {
-    width: 100%;
-  }
-}
 
 // Only display Previous/Next on mobile
 .usa-pagination__label,
@@ -75,24 +60,47 @@ $pagination-context: "Pagination";
 }
 
 .usa-pagination__link {
-  @extend %pagination-button-styles;
+  @include set-text-and-bg(
+    $theme-pagination-background-color,
+    $theme-pagination-pager-color,
+    $context: $pagination-context,
+    $important: true
+  );
   align-items: center;
-  color: color($theme-pagination-pager-color) !important;
+  border-color: color($theme-pagination-border-color);
+  border-radius: radius($theme-pagination-border-radius);
+  border-style: solid;
+  border-width: units($theme-pagination-border-width);
+  display: inline-flex;
+  justify-content: center;
+  padding: units($theme-pagination-padding);
   text-decoration: none;
+
+  // Takes up all available width in pagination nav.
+  @include at-media($theme-pagination-breakpoint) {
+    width: 100%;
+  }
 
   &[disabled] {
     color: color("base-light") !important;
     pointer-events: none;
   }
 
-  &:hover {
-    color: color("primary") !important;
+  &:hover,
+  &:focus {
+    color: color($theme-link-color);
   }
 }
 
 .usa-pagination__link--current {
-  @include set-text-and-bg($theme-color-primary, $important: true, $context: $pagination-context);
-  border-color: color("primary-darker");
+  @include set-text-and-bg(
+    $theme-color-primary,
+    $theme-link-reverse-color,
+    $theme-link-color,
+    $context: $pagination-context,
+    $important: true,
+  );
+  border-color: color($theme-pagination-border-color);
 
   &:hover,
   &:focus,
