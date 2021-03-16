@@ -88,7 +88,12 @@ $pagination-context: "Pagination";
 
   &:hover,
   &:focus {
-    color: color($theme-link-color);
+    @include set-text-from-bg(
+      $theme-pagination-background-color,
+      $theme-link-color,
+      $context: $pagination-context,
+      $important: true
+    )
   }
 }
 
