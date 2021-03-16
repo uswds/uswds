@@ -1,8 +1,8 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const pkg = require("../../package.json");
-const { distCssPath, runGulp } = require("./util");
+const pkg = require("../../../../package.json");
+const { distCssPath } = require("../../utils/test/util");
 
 before(() => {
   setTimeout(() => runGulp("sass"), 20000);
