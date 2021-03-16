@@ -8,6 +8,9 @@ let chromeHost;
 let serverUrl;
 let cdp;
 
+/**
+ * start our headless chrome instance
+ */
 function launchChrome() {
   console.log("launching headless chrome");
   return chromeLauncher
@@ -22,6 +25,9 @@ function launchChrome() {
     });
 }
 
+/**
+ * binds host and port to init chrome dev tools protocol
+ */
 function createChromeDevtoolsProtocol() {
   return CDP({
     host: chromeHost,
@@ -29,6 +35,11 @@ function createChromeDevtoolsProtocol() {
   });
 }
 
+/**
+ * load a page in headless chrome
+ * @param {client} object - resolves from createChromeDevtoolsProtocol()
+ * @param {url} string - our component path
+ */
 async function loadPage(client, url) {
   const { Network, Page } = client;
   await Network.enable();
@@ -37,11 +48,17 @@ async function loadPage(client, url) {
   await Page.loadEventFired();
 }
 
+/**
+ * load a page in headless chrome
+ * @param {c} object - chrome dev tools protocol
+ * @param {h} string - the path of our componetn we wish to handle
+ */
 function loadPatternLabPreview(c, h) {
   const url = `${serverUrl}${h}`;
   return loadPage(c, url);
 }
 
+// let's get our componets first
 getComponents.then((handles) => {
   describe("a11y tests", function () {
     this.timeout(20000);
