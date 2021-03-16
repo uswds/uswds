@@ -18,7 +18,9 @@
   @extend %block-input-general;
   @extend %block-input-styles;
   align-items: center;
+  background-color: color("white");
   display: flex;
+  overflow: hidden;
   padding: 0;
 
   &.is-focused {
