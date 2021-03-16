@@ -19,9 +19,8 @@
   @extend %block-input-styles;
   align-items: center;
   background-color: color("white");
-  display: inline-flex;
+  display: flex;
   padding: 0;
-  width: auto;
 
   &.is-focused {
     @include focus-outline();
