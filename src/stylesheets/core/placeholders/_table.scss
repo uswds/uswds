@@ -152,7 +152,7 @@ $table-sorted-stripe-text-color: color(
       fill: color($theme-table-unsorted-icon-color);
     }
     &:hover .usa-icon > g.unsorted {
-      fill: $table-sorted-header-text-color;
+      fill: $table-header-text-color;
     }
   }
 
