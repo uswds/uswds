@@ -62,12 +62,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.11.0/uswds-2.11.0.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.11.1/uswds-2.11.1.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.11.0/
+   uswds-2.11.1/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -98,7 +98,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.11.0/
+   │   ├── uswds-2.11.1/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -118,11 +118,11 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.11.0/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.11.0/css/uswds.min.css" />
+       <script src="assets/uswds-2.11.1/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.11.1/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.11.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.11.1/js/uswds.min.js"></script>
      </body>
    </html>
    ```
