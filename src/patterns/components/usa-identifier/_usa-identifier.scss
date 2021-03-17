@@ -16,6 +16,7 @@ $identifier-links-gap: 4 !default;
 
 @mixin identifier-secondary-link {
   @include set-link-from-bg(
+    $theme-identifier-background-color,
     $theme-identifier-secondary-link-color,
     $context: $identifier-context
   );
@@ -61,7 +62,7 @@ $identifier-links-gap: 4 !default;
   height: units($identifier-logo-height);
   display: block;
 
-  &+.usa-identifier__logo {
+  & + .usa-identifier__logo {
     margin-left: units(1);
   }
 }
@@ -106,7 +107,6 @@ $identifier-links-gap: 4 !default;
   @include at-media("tablet") {
     @include u-padding-y($identifier-section-margin-y-small);
   }
-
   @include at-media("desktop") {
     @include u-font-size($theme-identifier-font-family, "xs");
   }
