@@ -92,10 +92,6 @@ icons:
       meta: "done complete"
     - name: checkroom
       meta: "coathanger"
-    - name: chevron_left
-      meta: "arrow back angle direction"
-    - name: chevron_right
-      meta: "arrow forward angle direction"
     - name: clean_hands
       meta: "sanitize wash soap"
     - name: clothes
