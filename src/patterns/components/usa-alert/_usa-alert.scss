@@ -94,6 +94,8 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
 
 .usa-alert--validation {
   background-size: units(3);
+  background-position: $alert-padding-left
+    calc(#{units($theme-alert-padding-x)} - #{units(2px)});
 
   .usa-alert__body {
     padding-left: units(5);
