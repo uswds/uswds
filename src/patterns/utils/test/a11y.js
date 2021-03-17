@@ -1,5 +1,5 @@
-const chromeLauncher = require("chrome-launcher");
-const CDP = require("chrome-remote-interface");
+const chromeLauncher = require("chrome-launcher");// eslint-disable-line import/no-extraneous-dependencies
+const CDP = require("chrome-remote-interface");// eslint-disable-line import/no-extraneous-dependencies
 const axeTester = require("./axe-tester");
 const { getComponents } = require("./patternlab-utils");
 
@@ -12,7 +12,7 @@ let cdp;
  * start our headless chrome instance
  */
 function launchChrome() {
-  console.log("launching headless chrome");
+  console.log("launching headless chrome"); // eslint-disable-line no-console
   return chromeLauncher
     .launch({
       chromeFlags: ["--disable-gpu", "--headless"],
@@ -60,7 +60,7 @@ function loadPatternLabPreview(c, h) {
 
 // let's get our componets first
 getComponents.then((handles) => {
-  describe("a11y tests", function () {
+  describe("a11y tests", function setupTester() {
     this.timeout(20000);
 
     before(async () => {
@@ -69,8 +69,8 @@ getComponents.then((handles) => {
     describe("looking for violations", () => {
       handles.forEach((handle) => {
         // our handle returns as a path so we need to clean up
-        const component = handle.replace(/.*(?=usa)/, '');
-        const componentName = component.replace(/(\.).*/, '');
+        const component = handle.replace(/.*(?=usa)/, "");
+        const componentName = component.replace(/(\.).*/, "");
 
         before(async () => {
           await createChromeDevtoolsProtocol().then((client) => {
