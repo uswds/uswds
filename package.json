@@ -43,7 +43,6 @@
     "release": "gulp release",
     "postinstall": "npx patch-package",
     "federalist": "npm install && npx gulp",
-    "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "gulp watch",
     "test": "snyk test && gulp typecheck && gulp test",
     "test:ci": "gulp typecheck && gulp test",
