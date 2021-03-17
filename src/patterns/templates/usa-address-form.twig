@@ -7,8 +7,7 @@
     <label class="usa-label" for="mailing-address-1">
       Street address <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
     </label>
-    <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text">
-
+    <input class="usa-input" id="mailing-address-1" name="mailing-address-1" type="text" required>
     <div class="grid-row grid-gap">
       <div class="mobile-lg:grid-col-8">
         <label class="usa-label" for="apt-suite-other">Unit type</label>
@@ -51,7 +50,7 @@
     </div>
 
     <label class="usa-label" for="city">City <abbr title="required" class="usa-hint usa-hint--required">*</abbr></label>
-    <input class="usa-input" id="city" name="city" type="text">
+    <input class="usa-input" id="city" name="city" type="text" required>
 
     <label class="usa-label" for="state">State <abbr title="required" class="usa-hint usa-hint--required">*</abbr></label>
     <div class="usa-combo-box">
@@ -124,6 +123,6 @@
     </div>
 
     <label class="usa-label" for="zip">ZIP code <abbr title="required" class="usa-hint usa-hint--required">*</abbr></label>
-    <input class="usa-input usa-input--medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?">
+    <input class="usa-input usa-input--medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?" required>
   </fieldset>
 </form>
