@@ -171,6 +171,12 @@ $font-stack-helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial",
 $font-stack-monospace: "Bitstream Vera Sans Mono", "Consolas", "Courier",
   monospace;
 
+$system-font-stacks: (
+  "mono": $font-stack-monospace,
+  "sans": $font-stack-system,
+  "serif": $font-stack-georgia,
+);
+
 /*
 ----------------------------------------
 Typeface

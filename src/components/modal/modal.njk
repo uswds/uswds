@@ -1,0 +1,45 @@
+{% set close_icon %}
+  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="{{ uswds.path }}/img/sprite.svg#{{ close_button.icon_type | default("close") }}"></use>
+  </svg>
+{% endset %}
+
+<div class="margin-y-3">
+  <a href="#{{ id }}" class="usa-button" aria-controls="{{ id }}" data-open-modal>{{ trigger.text }}</a>
+  <div class="usa-modal {{ modifier }}" id="{{ id }}" aria-labelledby="{{ header.id }}" aria-describedby="{{ describedby }}"{% if forced %} data-force-action{% endif -%}>
+    <div class="usa-modal__content">
+      <div class="usa-modal__main">
+        {% if header.text -%}
+        <h2 class="usa-modal__heading" id="{{ header.id }}">
+          {{ header.text }}
+        </h2>
+        {% endif -%}
+        {% if description.text -%}
+        <div class="usa-prose">
+          <p id="{{ description.id }}">{{ description.text }}</p>
+        </div>
+        {% endif -%}
+        {% if footer -%}
+        <div class="usa-modal__footer">
+          <ul class="usa-button-group">
+            {% for action in footer -%}
+              <li class="usa-button-group__item">
+                <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
+              </li>
+            {% endfor -%}
+          </ul>
+        </div>
+        {%- endif %}
+      </div>
+      {% if not forced -%}
+      <button class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
+        {% if close_button.text -%}
+          {{ close_button.text }}
+        {% else -%}
+          {{ close_icon | safe }}
+        {% endif -%}
+      </button>
+      {% endif -%}
+    </div>
+  </div>
+</div>

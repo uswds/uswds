@@ -20,34 +20,31 @@
     max-width: none;
   }
 
-  .usa-input--2xs {
-    max-width: 4ex;
-  }
-
-  .usa-input--xs {
-    max-width: 7ex;
-  }
-
-  .usa-input--small,
-  .usa-input--sm {
-    max-width: 10ex;
-  }
-
-  .usa-input--medium,
-  .usa-input--md {
-    max-width: 20ex;
-  }
-
-  .usa-input--lg {
-    max-width: 30ex;
-  }
-
-  .usa-input--xl {
-    max-width: 40ex;
-  }
-
-  .usa-input--2xl {
-    max-width: 50ex;
+  .usa-input,
+  .usa-input-group {
+    &--2xs {
+      max-width: 5ex;
+    }
+    &--xs {
+      max-width: 9ex;
+    }
+    &--sm,
+    &--small {
+      max-width: 13ex;
+    }
+    &--md,
+    &--medium {
+      max-width: 20ex;
+    }
+    &--lg {
+      max-width: 30ex;
+    }
+    &--xl {
+      max-width: 40ex;
+    }
+    &--2xl {
+      max-width: 50ex;
+    }
   }
 
   .usa-button {
