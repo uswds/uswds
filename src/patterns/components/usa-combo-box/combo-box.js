@@ -154,8 +154,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
-  const selectParent = comboBoxEl.parentElement;
-  const selectLabel = selectParent.querySelector("label");
+  const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
