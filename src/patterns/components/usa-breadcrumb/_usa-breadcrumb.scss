@@ -7,17 +7,20 @@ $breadcrumb-context: "Breadcrumb";
 $gap-inline-spacer: -0.25em;
 
 $breadcrumb-gap: 1.5;
-$breadcrumb-icon-height: 1.35ex;
-$breadcrumb-icon-spacing: calc(#{units($breadcrumb-gap)} + #{$gap-inline-spacer});
+$breadcrumb-icon-height: 2.5ex;
+$breadcrumb-icon-display-height: 2ex;
+$breadcrumb-icon-spacing: 0;
 
-$icon-breadcrumb-separator: ("name": "angle-arrow-right",
-  "svg-height": 64,
+$icon-breadcrumb-separator: (
+  "name": "usa-icons/navigate_next",
+  "svg-height": 40,
   "svg-width": 40,
   "height": $breadcrumb-icon-height,
   "color": $theme-breadcrumb-separator-color,
 );
 
-$icon-breadcrumb-back: ("name": "arrow-left",
+$icon-breadcrumb-back: (
+  "name": "arrow-left",
   "svg-height": 64,
   "svg-width": 64,
   "height": $breadcrumb-icon-height,
@@ -141,8 +144,12 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
 
     // Style overrides for separator using non-token values
     &:not(:last-child)::after {
+      // Magic number to center icon
+      bottom: -0.2em;
       margin-left: $breadcrumb-icon-spacing;
       margin-right: $breadcrumb-icon-spacing;
+      height: $breadcrumb-icon-display-height;
+      position: relative;
     }
   }
 }
