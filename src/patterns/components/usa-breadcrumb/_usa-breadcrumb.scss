@@ -55,12 +55,6 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
     @include u-padding-top($theme-breadcrumb-padding-top);
   }
 
-  &.usa-breadcrumb--wrap {
-    @include at-media($theme-breadcrumb-min-width) {
-      @include u-line-height($theme-breadcrumb-font-family, 4);
-    }
-  }
-
   &:not(.usa-breadcrumb--wrap) {
     .usa-breadcrumb__list {
       @include at-media($theme-breadcrumb-min-width) {
@@ -167,5 +161,16 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
 
   span {
     @include u-text("underline");
+  }
+}
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Breadcrumb wrap
+.usa-breadcrumb--wrap {
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-line-height($theme-breadcrumb-font-family, 4);
   }
 }
