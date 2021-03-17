@@ -16,11 +16,13 @@
     max-width: none;
   }
 
-  .usa-input--small {
+  .usa-input--small,
+  .usa-input--sm {
     max-width: units(8);
   }
 
-  .usa-input--medium {
+  .usa-input--medium,
+  .usa-input--md {
     max-width: units(15);
   }
 
