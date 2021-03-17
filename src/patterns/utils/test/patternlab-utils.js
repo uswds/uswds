@@ -13,7 +13,7 @@ async function getComponents() {
       files.forEach((file, index) => {
         directories.push(file);
         if (index === files.length - 1) {
-          console.log("getting components");
+          console.log("getting components");// eslint-disable-line no-console
           resolve(directories);
         }
       });
@@ -21,7 +21,7 @@ async function getComponents() {
   });
 
   const buildComponentPaths = new Promise((resolve) => {
-    console.log("resolving component paths");
+    console.log("resolving component paths");// eslint-disable-line no-console
     const components = [];
     getDirectories.then((directories) => {
       directories.map((file, index) => {
@@ -51,7 +51,7 @@ async function getComponents() {
 async function loadPatternLab() {
   const promise = new Promise((resolve) => {
     if (fs.existsSync(PL_BUILD_DIR)) {
-      console.log("patterns already built");
+      console.log("patterns already built");// eslint-disable-line no-console
       setTimeout(() => resolve(), 2000);
     } else {
       resolve(styleguide());
@@ -59,7 +59,7 @@ async function loadPatternLab() {
   });
 
   const ready = await promise; // wait until the promise resolves (*)
-  console.log("patternlab is ready.."); // "done!"
+  console.log("patternlab is ready.."); // eslint-disable-line no-console
 
   return ready;
 }
