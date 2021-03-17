@@ -9,7 +9,7 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return gulp.src("src/**/*.spec.js").pipe(mocha(mochaConfig));
+    return gulp.src("src/patterns/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
@@ -24,6 +24,8 @@ module.exports = {
   },
 
   cover() {
-    return gulp.src("src/**/*.spec.js").pipe(mocha(mochaConfig, { nyc: true }));
+    return gulp
+      .src("src/patterns/**/*.spec.js")
+      .pipe(mocha(mochaConfig, { nyc: true }));
   },
 };
