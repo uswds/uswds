@@ -40,6 +40,15 @@ $input-select-margin-right: 1.5;
   padding: 0;
 }
 
+.usa-form-group {
+  margin-top: units(3);
+
+  // Let form-group handle top margin
+  .usa-label:first-child {
+    margin-top: 0;
+  }
+}
+
 .usa-form-group--error {
   @include u-border-left(0.5, "error-dark");
   margin-top: units(4);
