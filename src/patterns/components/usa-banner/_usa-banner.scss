@@ -18,10 +18,11 @@ $banner-icon-chevron: ("name": "chevron",
 $banner-icon-chevron-up: map-merge($banner-icon-chevron,
   ("rotate": 180deg,
   ));
-$banner-icon-close: ("name": "close-alt",
+$banner-icon-close: (
+  "name": "usa-icons/close",
   "svg-height": 40,
   "svg-width": 40,
-  "height": $theme-icon-image-size,
+  "height": 3,
   "color": "blue-60v",
   "color-variant": "white",
   "container-height": $size-touch-target,
