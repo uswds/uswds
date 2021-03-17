@@ -141,7 +141,7 @@ function watchFiles() {
 
   // Watch all my unit tests and run if a file changes.
   watch(
-    "./src/**/*.spec.js",
+    "./src/patterns/**/*.spec.js",
     series(unitTests, (done) => done())
   );
 }
