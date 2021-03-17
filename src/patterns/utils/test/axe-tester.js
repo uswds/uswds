@@ -1,6 +1,6 @@
 const fs = require("fs");
 const assert = require("assert");
-const colors = require('ansi-colors');
+const colors = require('ansi-colors'); // eslint-disable-line import/no-extraneous-dependencies
 
 const AXE_JS = fs.readFileSync('node_modules/axe-core/axe.js');
 
