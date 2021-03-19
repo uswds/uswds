@@ -11,7 +11,7 @@ const rename = require('gulp-rename');
 module.exports = {
 
   // Copy vendor sass to library
-  copyVendor: function() {
+  copyVendor() {
     return src('./node_modules/normalize.css/normalize.css')
       .pipe(filter("**/normalize.css", { restore: true }))
       .pipe(rename("_normalize.scss"))
@@ -19,28 +19,28 @@ module.exports = {
   },
 
   // Copy Sass to dist folder
-  copySass: function() {
+  copySass() {
     return src('src/patterns/**/**/*.scss')
       .pipe(dest('dist/scss'));
   },
 
   // Copy Images to dist folder
-  copyImages: function() {
+  copyImages() {
     return src(['src/img/**/*'])
       .pipe(dest('dist/img'));
   },
 
   // Copy Fonts to dist folder
-  copyFonts: function() {
+  copyFonts() {
     return src('src/fonts/**/*')
       .pipe(dest('dist/fonts'));
   },
 
   // Copy Styleguide to dist folder
-  copyStyleguide: function() {
+  copyStyleguide() {
     return src('src/styleguide/**/*.css')
       .pipe(
-        rename(function(path) {
+        rename((path) => {
           path.dirname = '';
           return path;
         })
