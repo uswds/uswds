@@ -162,8 +162,8 @@ $nav-link-arrow-icon-size: 2;
       &:hover {
         @include at-media($theme-header-min-width) {
           @include add-background-svg(
-            "usa-icons-bg/expand_more--blue-warm-70v"
-          );
+              "usa-icons-bg/expand_more--blue-warm-70v"
+            );
         }
       }
     }
@@ -342,7 +342,7 @@ $nav-link-arrow-icon-size: 2;
     width: units(3);
   }
 
-  +* {
+  + * {
     clear: both;
   }
 }

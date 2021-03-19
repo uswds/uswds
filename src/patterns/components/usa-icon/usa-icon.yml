@@ -64,6 +64,8 @@ icons:
       meta: "bag emergency kit"
     - name: bathtub
       meta: "bathe shower hygiene"
+    - name: bedding
+      meta: "blanket"
     - name: bookmark
       meta: ""
     - name: bug_report
@@ -74,6 +76,8 @@ icons:
       meta: "date"
     - name: campaign
       meta: "bullhorn"
+    - name: camping
+      meta: "tent shelter"
     - name: cancel
       meta: "x close"
     - name: chat
@@ -90,6 +94,8 @@ icons:
       meta: "coathanger"
     - name: clean_hands
       meta: "sanitize wash soap"
+    - name: clothes
+      meta: "shirt sweater clothing"
     - name: close
       meta: "x"
     - name: closed_caption
@@ -104,6 +110,8 @@ icons:
       meta: ""
     - name: construction
       meta: "tool"
+    - name: construction_worker
+      meta: "maintenance"
     - name: contact_page
       meta: ""
     - name: content_copy
@@ -182,6 +190,8 @@ icons:
       meta: "social media"
     - name: flight
       meta: "airplane jet"
+    - name: flooding
+      meta: "water weather flood"
     - name: folder
       meta: ""
     - name: folder_open
@@ -212,10 +222,16 @@ icons:
       meta: "clock"
     - name: home
       meta: "house"
+    - name: hospital
+      meta: "emergency doctor help"
     - name: hotel
       meta: "motel lodging"
     - name: hourglass_empty
       meta: ""
+    - name: hurricane
+      meta: "weather storm"
+    - name: identification
+      meta: "id card document"
     - name: image
       meta: "photo picture"
     - name: info
@@ -310,6 +326,10 @@ icons:
       meta: "chevron arrow left direction"
     - name: navigate_next
       meta: "chevron arrow right direction"
+    - name: navigate_far_before
+      meta: "chevron double arrow left direction"
+    - name: navigate_far_next
+      meta: "chevron double arrow right direction"
     - name: near_me
       meta: "location compass proximity"
     - name: notifications
@@ -342,6 +362,8 @@ icons:
       meta: "save"
     - name: radio_button_unchecked
       meta: "circle check box"
+    - name: rain
+      meta: "weather water storm"
     - name: reduce_capacity
       meta: "occupancy"
     - name: remove_red_eye
@@ -358,6 +380,8 @@ icons:
       meta: "barrier"
     - name: sanitizer
       meta: "hand clean"
+    - name: severe_weather
+      meta: "storm"
     - name: save_alt
       meta: "arrow"
     - name: schedule
@@ -390,10 +414,14 @@ icons:
       meta: ""
     - name: shopping_basket
       meta: "cart purchase"
+    - name: snow
+      meta: "storm weather winter emergency blizzard"
     - name: soap
       meta: "sanitize safety hand wash"
     - name: social_distance
       meta: ""
+    - name: sort_arrow
+      meta: "direction up down"
     - name: spellcheck
       meta: "edit"
     - name: star
@@ -422,6 +450,8 @@ icons:
       meta: "switch"
     - name: topic
       meta: "folder"
+    - name: tornado
+      meta: "storm weather wind emergency"
     - name: translate
       meta: ""
     - name: trending_down
