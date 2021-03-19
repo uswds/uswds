@@ -13,7 +13,7 @@
 
 .usa-section--dark {
   background-color: color("primary-darker");
-  color: color("white");
+  color: color($theme-text-reverse-color);
 
   h1,
   h2,
@@ -25,7 +25,7 @@
   }
 
   p {
-    color: color("white");
+    color: color($theme-text-reverse-color);
   }
 
   a {
