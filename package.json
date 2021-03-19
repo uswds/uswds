@@ -97,8 +97,6 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.10",
-    "@frctl/fractal": "^1.5.4",
-    "@frctl/nunjucks": "^2.0.8",
     "@pattern-lab/cli": "^5.14.0",
     "@pattern-lab/core": "^5.14.0",
     "@pattern-lab/engine-twig": "^5.14.0",
