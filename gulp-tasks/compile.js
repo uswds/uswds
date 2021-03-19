@@ -1,7 +1,7 @@
-'use strict';
+/* eslint-disable arrow-body-style */
 
 // Include gulp
-const { src, dest } = require('gulp');
+const { src, dest } = require("gulp");
 
 // Include Our Plugins
 const autoprefixer = require("autoprefixer");
@@ -9,42 +9,44 @@ const browserify = require("browserify");
 const buffer = require("vinyl-buffer");
 const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
-const pkg = require("../package.json");
 const postcss = require("gulp-postcss");
-const rename = require('gulp-rename');
+const rename = require("gulp-rename");
 const replace = require("gulp-replace");
-const sass = require('gulp-sass');
+const sass = require("gulp-sass");
 const source = require("vinyl-source-stream");
-const sourcemaps = require('gulp-sourcemaps');
-const svgSprite = require('gulp-svg-sprite');
+const sourcemaps = require("gulp-sourcemaps");
+const svgSprite = require("gulp-svg-sprite");
 const uglify = require("gulp-uglify");
+const pkg = require("../package.json");
 
 // Initialize Plugins
 const pluginsProcess = [discardComments(), autoprefixer()];
 const pluginsMinify = [csso({ forceMediaMerge: false })];
 
 // Set sass compiler to use Dart Sass
-sass.compiler = require('sass');
+sass.compiler = require("sass");
 
 // More complex configuration example
 const svgConfig = {
   shape: {
-    dimension: { // Set maximum dimensions
+    dimension: {
+      // Set maximum dimensions
       maxWidth: 24,
-      maxHeight: 24
+      maxHeight: 24,
     },
     id: {
-      separator: "-"
+      separator: "-",
     },
-    spacing: { // Add padding
-      padding: 0
-    }
+    spacing: {
+      // Add padding
+      padding: 0,
+    },
   },
   mode: {
     symbol: {
-      sprite: "../sprite.svg"
-    }
-  }
+      sprite: "../sprite.svg",
+    },
+  },
 };
 
 /**
@@ -55,35 +57,35 @@ const svgConfig = {
 function handleError(err) {
   // eslint-disable-next-line no-console
   console.error(err.toString());
-  this.emit('end');
+  this.emit("end");
 }
 
 // Export our tasks.
 module.exports = {
-
   // Compile Sass.
-  compileSass: function() {
-    return src('src/patterns/stylesheets/uswds.scss')
+  compileSass() {
+    return src("src/patterns/stylesheets/uswds.scss")
       .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(sass.sync({ outputStyle: 'expanded' }).on('error', handleError))
+      .pipe(sass.sync({ outputStyle: "expanded" }).on("error", handleError))
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
-      .pipe(dest('dist/css'))
+      .pipe(dest("dist/css"))
       .pipe(postcss(pluginsMinify))
-      .pipe(rename({ suffix: '.min' }))
+      .pipe(rename({ suffix: ".min" }))
       .pipe(sourcemaps.write("."))
-      .pipe(dest('dist/css'));
+      .pipe(dest("dist/css"));
   },
 
   // Compile Sprite.
-  compileSprite: function() {
-    return src('src/img/usa-icons/**/*.svg')
-      .pipe(svgSprite(svgConfig)).on('error', handleError)
-      .pipe(dest('src/img'))
+  compileSprite() {
+    return src("src/img/usa-icons/**/*.svg")
+      .pipe(svgSprite(svgConfig))
+      .on("error", handleError)
+      .pipe(dest("src/img"));
   },
 
   // Compile JavaScript.
-  compileJS: function(done) {
+  compileJS(done) {
     const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
     const defaultStreams = entryPoints.map((entry) => {
@@ -122,5 +124,5 @@ module.exports = {
 
     done();
     return streams;
-  }
+  },
 };
