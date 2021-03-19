@@ -15,9 +15,12 @@ $banner-icon-chevron: ("name": "chevron",
   "color-variant": "white",
   "color-hover": $banner-icon-hover,
 );
-$banner-icon-chevron-up: map-merge($banner-icon-chevron,
-  ("rotate": 180deg,
-  ));
+$banner-icon-chevron-up: map-merge(
+  $banner-icon-chevron,
+  (
+    "rotate": 180deg,
+  )
+);
 $banner-icon-close: (
   "name": "usa-icons/close",
   "svg-height": 40,

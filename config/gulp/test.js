@@ -2,26 +2,30 @@ const gulp = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
 const mochaConfig = {
-  config: "spec/.mocharc.json",
+  config: "src/patterns/utils/test/.mocharc.json",
 };
 
-gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha(mochaConfig)));
+// Export our tasks.
+module.exports = {
+  // run unit test.
+  unitTests() {
+    return gulp.src("src/patterns/**/*.spec.js").pipe(mocha(mochaConfig));
+  },
 
-gulp.task("regression", () =>
-  gulp.src("spec/headless-chrome.js").pipe(mocha(mochaConfig))
-);
+  sassTests() {
+    return gulp
+      .src("src/patterns/stylesheets/test/sass-spec.js")
+      .pipe(mocha());
+  },
 
-gulp.task("cover", () =>
-  gulp.src("spec/unit/**/*.spec.js").pipe(
-    mocha(
-      mochaConfig,
-      Object.assign({
-        nyc: true,
-      })
-    )
-  )
-);
+  // run accessiblity.
+  a11y() {
+    return gulp.src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
+  },
 
-gulp.task("test:watch", () => {
-  gulp.watch(["spec/**/*.spec.js", "src/js/**/*.js"], gulp.series("test"));
-});
+  cover() {
+    return gulp
+      .src("src/patterns/**/*.spec.js")
+      .pipe(mocha(mochaConfig, { nyc: true }));
+  },
+};

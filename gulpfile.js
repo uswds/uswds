@@ -1,7 +1,5 @@
 // Old gulp tasks
 // Patch these in until ported into new syntax
-// test, regression: nope, not yet...
-// require("./config/gulp/test");
 // typecheck
 require("./config/gulp/javascript");
 
@@ -13,6 +11,12 @@ const run = require("gulp-run-command").default;
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
+const {
+  unitTests,
+  sassTests,
+  a11y,
+  cover,
+} = require("./config/gulp/test");
 const {
   cleanCSS,
   cleanFonts,
@@ -65,6 +69,10 @@ async function buildPL() {
   return run("npm run pl:build")();
 }
 
+async function exitServer() {
+  return server.exit()
+}
+
 /**
  * Start browsersync server.
  * @param {function} done callback function.
@@ -76,9 +84,28 @@ function serve(done) {
     server: ["./build/"],
     notify: false,
     open: false,
+    port: 3333,
   });
   done();
 }
+
+exports.a11y = series(serve, a11y, exitServer);
+
+exports.cover = cover;
+
+exports.sassTests = sassTests;
+
+exports.unitTests = unitTests;
+
+exports.test = series(
+  lintJS,
+  lintSass,
+  sassTests,
+  unitTests,
+  serve,
+  a11y,
+  exitServer
+);
 
 /**
  * Watch Sass and JS files.
@@ -111,6 +138,12 @@ function watchFiles() {
       done();
     })
   );
+
+  // Watch all my unit tests and run if a file changes.
+  watch(
+    "./src/patterns/**/*.spec.js",
+    series(series(unitTests, sassTests), (done) => done())
+  );
 }
 
 // Build task for Pattern Lab.
@@ -124,6 +157,7 @@ exports.watch = series(
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(rebuildPL, serve, watchFiles)
 );
+
 
 // Default Task
 exports.default = series(
