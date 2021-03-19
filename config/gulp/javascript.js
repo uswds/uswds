@@ -81,7 +81,7 @@ gulp.task("eslint", (done) => {
   }
 
   return gulp
-    .src(["src/patterns/**/**/*.js", "spec/**/*.js"])
+    .src(["src/patterns/**/**/*.js"])
     .pipe(
       eslint({
         fix: true,

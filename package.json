@@ -1,16 +1,34 @@
 {
   "name": "uswds",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
   },
+  "keywords": [
+    "ui",
+    "uswds",
+    "components",
+    "library",
+    "open source",
+    "united states",
+    "usa",
+    "u.s.",
+    "government",
+    "websites"
+  ],
+  "module": "./dist/js/uswds.min.js",
+  "exports": {
+    "import": "./dist/js/uswds.min.js",
+    "default": "./dist/js/uswds.min.js"
+  },
+  "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/patterns/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "src/stylesheets/uswds.scss",
   "mocha": {
-    "config": "spec/.mocharc.json"
+    "config": "src/patterns/utils/test/.mocharc.json"
   },
   "scripts": {
     "build": "gulp",
@@ -25,14 +43,13 @@
     "release": "gulp release",
     "postinstall": "npx patch-package",
     "federalist": "npm install && npx gulp",
-    "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "gulp watch",
-    "test": "snyk test && gulp lintJS && gulp typecheck && gulp lintSass && gulp test && gulp regression",
-    "test:ci": "gulp lintJS && gulp typecheck && gulp lintSass && gulp test && gulp regression",
+    "test": "snyk test && gulp typecheck && gulp test",
+    "test:ci": "gulp typecheck && gulp test",
+    "test:a11y": "gulp a11y",
     "test:ci:temp": "gulp typecheck && gulp lintJS && gulp lintSass",
-    "test:unit": "gulp test",
-    "test:visual": "node ./spec/visual-regression-tester.js test",
-    "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
+    "test:sass": "gulp sassTests",
+    "test:unit": "gulp unitTests",
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
@@ -70,6 +87,7 @@
     "del": "^6.0.0",
     "domready": "^1.0.8",
     "elem-dataset": "^2.0.0",
+    "express": "^4.17.1",
     "gulp-run-command": "0.0.10",
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
@@ -84,6 +102,7 @@
     "@pattern-lab/engine-twig": "^5.14.0",
     "@pattern-lab/uikit-workshop": "^5.14.0",
     "@types/node": "^14.14.13",
+    "ansi-colors": "^4.1.1",
     "autoprefixer": "^10.1.0",
     "axe-core": "^4.1.1",
     "babelify": "^10.0.0",
@@ -127,6 +146,7 @@
     "prettier": "^2.2.0",
     "resemblejs": "^3.2.5",
     "sass": "^1.29.0",
+    "sass-true": "^6.0.1",
     "sinon": "^9.2.2",
     "snyk": "^1.439.1",
     "stylelint": "^13.8.0",

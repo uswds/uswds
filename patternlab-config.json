@@ -73,7 +73,7 @@
   "starterkitSubDir": "dist",
   "styleGuideExcludes": [
     "compare",
-    "test"
+    "test-patterns"
   ],
   "theme": {
     "color": "light",

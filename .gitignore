@@ -21,10 +21,6 @@ dependencyGraph.json
 # ignore gulp-generated vendor files
 src/stylesheets/lib
 
-# ignore saved screenshots
-spec/screenshots/*.png
-spec/screenshots/metadata.js
-
 # ignore sass cache
 .sass-cache/
 
