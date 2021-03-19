@@ -18,12 +18,12 @@ $alert-icons: (
   background-color: color("base-lightest");
 
   .usa-alert {
-    @include grid-container($theme-site-alert-max-width);
     @include site-alert-icon-margin;
+    @include u-margin-x("auto");
+    @include u-maxw($theme-site-alert-max-width);
 
-    &::before {
-      display: none;
-    }
+    // Don't show the left bar
+    border-left: none;
 
     > .usa-list,
     .usa-alert__body > .usa-list {
