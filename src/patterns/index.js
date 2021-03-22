@@ -9,6 +9,7 @@ const navigation = require("./components/usa-sidenav/navigation");
 const password = require("./components/_usa-password/password");
 const search = require("./components/usa-search/search");
 const skipnav = require("./components/usa-skipnav/skipnav");
+const table = require("./components/usa-table/table");
 const tooltip = require("./components/usa-tooltip/tooltip");
 const validator = require("./components/usa-validation/validator");
 const datePicker = require("./components/usa-date-picker/date-picker");
@@ -29,6 +30,7 @@ module.exports = {
   password,
   search,
   skipnav,
+  table,
   timePicker,
   tooltip,
   validator,
