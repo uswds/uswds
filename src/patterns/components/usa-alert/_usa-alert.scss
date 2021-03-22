@@ -88,16 +88,6 @@ $alert-padding-left: units($theme-alert-bar-width);
   }
 }
 
-.usa-alert__icon {
-  display: table-cell;
-  padding-right: units($theme-alert-bar-width);
-}
-
-.usa-alert__body {
-  display: table-cell;
-  vertical-align: top;
-}
-
 .usa-alert__heading {
   @include typeset($theme-alert-font-family, "lg", 1);
   margin-top: 0;
