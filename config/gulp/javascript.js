@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+
 const buffer = require("vinyl-buffer");
 const browserify = require("browserify");
 const childProcess = require("child_process");
