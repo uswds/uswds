@@ -4,6 +4,7 @@ const characterCount = require("./components/usa-character-count/character-count
 const comboBox = require("./components/usa-combo-box/combo-box");
 const fileInput = require("./components/usa-file-input/file-input");
 const footer = require("./components/usa-footer/footer");
+const modal = require("./components/usa-modal/modal");
 const navigation = require("./components/usa-sidenav/navigation");
 const password = require("./components/_usa-password/password");
 const search = require("./components/usa-search/search");
@@ -23,6 +24,7 @@ module.exports = {
   dateRangePicker,
   fileInput,
   footer,
+  modal,
   navigation,
   password,
   search,
