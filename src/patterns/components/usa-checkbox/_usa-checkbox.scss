@@ -38,7 +38,7 @@ $input-select-margin-right: 1.5;
     background: color("white");
     border-radius: radius($theme-checkbox-border-radius);
     box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
-    content: "\a0";
+    content: " ";
     display: inline-block;
     left: units($theme-input-select-border-width);
     line-height: units($theme-input-select-size);
@@ -46,6 +46,7 @@ $input-select-margin-right: 1.5;
     position: relative;
     text-indent: 0;
     vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+    white-space: pre;
   }
 }
 
