@@ -123,8 +123,8 @@
     "usa-icons/#{$filename-base}.svg"
   );
 
-  $mask-props: url("#{$path}/#{$filename-base}.svg") no-repeat center / #{$width}
-    #{$height};
+  $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
+    #{$width} #{$height};
   $image-props: url("#{$path}/usa-icons-bg/#{$filename-ie11}") no-repeat center /
     #{$width} #{$height};
 
