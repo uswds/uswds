@@ -7,19 +7,14 @@
     $context: "Alert (#{$name})"
   );
 
-  @include add-alert-icon($icon, $banner-text-color-token);
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   background-color: color($bgcolor);
+  border-left-color: color($name);
   color: color($banner-text-color-token);
-
-  &::before {
-    background-color: color($name);
-  }
 
   .usa-alert__body {
     padding-left: calc(
-      #{$alert-icon-optical-padding} - #{units($theme-alert-bar-width)} + #{units(
-          $theme-alert-icon-size
-        )} + #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
+      #{units($theme-alert-icon-size)} + (2 * #{$alert-icon-optical-padding})
     );
   }
 
@@ -33,10 +28,12 @@
   }
 
   &.usa-alert--no-icon {
-    background-image: none;
+    &:before {
+      display: none;
+    }
 
     .usa-alert__body {
-      padding-left: 0;
+      padding-left: units($theme-alert-padding-x);
     }
   }
 }
