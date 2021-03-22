@@ -1,6 +1,10 @@
 .usa-prose {
   @include typeset($theme-prose-font-family);
+
   & > {
-    @include usa-content-styles;
+    @include usa-paragraph-style;
+    @include usa-headings-styles;
+    @include usa-list-styles;
+    @include usa-table-styles;
   }
 }

@@ -38,7 +38,7 @@ describe("combo box component - subsequent selection", () => {
     EVENTS.click(input);
 
     assert.ok(!list.hidden, "should show the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       select.options.length - 1,
       "should have all of the initial select items in the list except placeholder empty items"
@@ -52,7 +52,7 @@ describe("combo box component - subsequent selection", () => {
       ),
       "should style the focused item in the list"
     );
-    assert.equal(
+    assert.strictEqual(
       highlightedOption.textContent,
       "Blackberry",
       "should be the previously selected item"
@@ -61,7 +61,7 @@ describe("combo box component - subsequent selection", () => {
 
   it("should display the filtered list when the input is dirty (characters inputted)", () => {
     EVENTS.click(input);
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       select.options.length - 1,
       "should have all of the initial select items in the list except placeholder empty items"
@@ -74,7 +74,7 @@ describe("combo box component - subsequent selection", () => {
       !root.classList.contains("usa-combo-box--pristine"),
       "pristine class is removed after input"
     );
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       1,
       "should only show the filtered items"
@@ -93,27 +93,31 @@ describe("combo box component - subsequent selection", () => {
   });
 
   it("should clear the input when the clear button is clicked", () => {
-    assert.equal(select.value, "blackberry");
-    assert.equal(input.value, "Blackberry");
+    assert.strictEqual(select.value, "blackberry");
+    assert.strictEqual(input.value, "Blackberry");
 
     EVENTS.click(root.querySelector(".usa-combo-box__clear-input"));
 
-    assert.equal(select.value, "", "should clear the value on the select");
-    assert.equal(input.value, "", "should clear the value on the input");
-    assert.equal(document.activeElement, input, "should focus the input");
+    assert.strictEqual(
+      select.value,
+      "",
+      "should clear the value on the select"
+    );
+    assert.strictEqual(input.value, "", "should clear the value on the input");
+    assert.strictEqual(document.activeElement, input, "should focus the input");
   });
 
   it("should update the filter and begin filtering once a pristine input value is changed", () => {
     input.value = "go";
     EVENTS.click(input);
     EVENTS.keydownEnter(input);
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Blackberry",
       "should set that item to the input value"
     );
     EVENTS.click(input);
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       select.options.length - 1,
       "should have all of the initial select items in the list except placeholder empty items"
@@ -122,7 +126,7 @@ describe("combo box component - subsequent selection", () => {
     input.value = "Fig";
     EVENTS.input(input);
 
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       1,
       "should only show the filtered items"

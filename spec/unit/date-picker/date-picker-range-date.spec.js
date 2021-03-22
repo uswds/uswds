@@ -14,7 +14,7 @@ describe("date picker component with range date", () => {
   let root;
   let input;
   let button;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -38,7 +38,7 @@ describe("date picker component with range date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--range-date").dataset
         .value,
       "2020-05-22",
@@ -51,7 +51,7 @@ describe("date picker component with range date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--range-date"),
       null,
       "the range date is not present"
@@ -63,35 +63,35 @@ describe("date picker component with range date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="22"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       false,
       "should not show the range date as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="23"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       true,
       "shows date within range as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="24"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       true,
       "shows date within range as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="25"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       false,
       "should not show the current calendar date as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="26"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
@@ -105,14 +105,14 @@ describe("date picker component with range date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="22"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       false,
       "should not show the range date as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="21"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
@@ -120,28 +120,28 @@ describe("date picker component with range date", () => {
       "shows date within range as within range"
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="20"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       true,
       "shows date within range as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="19"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       true,
       "shows date within range as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="18"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),
       false,
       "should not show the current calendar date as within range"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(
         '.usa-date-picker__calendar__date[data-day="17"]'
       ).classList.contains("usa-date-picker__calendar__date--within-range"),

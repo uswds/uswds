@@ -20,8 +20,8 @@ const BUTTON_SELECTOR = ".usa-footer__primary-link";
  * @param {number} width
  * @return {Promise}
  */
-const resizeTo = width =>
-  new Promise(resolve => {
+const resizeTo = (width) =>
+  new Promise((resolve) => {
     if (width !== window.innerWidth) {
       window.innerWidth = width;
       window.dispatchEvent(new window.Event("resize"));
@@ -30,7 +30,7 @@ const resizeTo = width =>
   });
 
 const assertHidden = (el, hidden) => {
-  assert.equal(
+  assert.strictEqual(
     el.classList.contains(HIDDEN),
     hidden,
     `not hidden: ${el.nodeName} (${el.className})`
