@@ -1,5 +1,5 @@
 $alert-slim-icon-size: units(3);
-$alert-icon-optical-factor: calc(#{units($theme-alert-icon-size)} / 5);
+$alert-icon-optical-factor: calc(#{units($theme-alert-icon-size)} / 6);
 $alert-icon-optical-padding: calc(
   #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
 );
