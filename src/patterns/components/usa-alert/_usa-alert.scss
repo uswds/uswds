@@ -1,3 +1,31 @@
+$alert-icon-optical-factor: calc(#{units($theme-alert-icon-size)} / 5);
+$alert-icon-optical-padding: calc(
+  #{units($theme-alert-padding-x)} + #{units($theme-alert-bar-width)} - #{$alert-icon-optical-factor}
+);
+
+@mixin add-alert-icon($name, $color) {
+  $this-icon-object: map-merge(
+    $icon-object,
+    (
+      "name": "usa-icons/#{$name}",
+      "color": $color,
+      "height": $theme-alert-icon-size,
+    )
+  );
+  &:after {
+    @include add-color-icon($this-icon-object, "base-lightest");
+    // Position centered in the alert
+    bottom: 0;
+    content: "";
+    display: block;
+    // bar + padding - optical spacing value
+    left: $alert-icon-optical-padding;
+    position: absolute;
+    height: auto;
+    top: 0;
+  }
+}
+
 // Alert variables ---------- //
 
 $alert-icons: (
@@ -8,12 +36,24 @@ $alert-icons: (
   emergency: "error",
 );
 
-$alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
+$icon-object: (
+  "name": "usa-icons/ICON_NAME",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $theme-icon-image-size,
+  "color": "ink",
+);
+
+$alert-padding-left: units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-  background-color: color("base-lightest");
+  @include set-text-and-bg(
+    "base-lightest",
+    $theme-alert-text-color,
+    $theme-alert-text-reverse-color
+  );
   background-position: $alert-padding-left units($theme-alert-padding-x - 1);
   background-repeat: no-repeat;
   background-size: units($theme-alert-icon-size);
@@ -28,7 +68,7 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
   }
 
   // TODO: why is this not simply a border?
-  &::before {
+  &:before {
     background-color: color("base-light");
     content: "";
     height: 100%;
@@ -103,5 +143,20 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
 
   .usa-checklist {
     margin-top: units(2);
+  }
+}
+
+.usa-alert--emergency {
+  &:after {
+    // this one has no bar
+    left: calc(
+      #{units($theme-alert-padding-x)} - #{$alert-icon-optical-factor}
+    );
+  }
+  .usa-alert__body {
+    padding-left: calc(
+      (2 * #{units($theme-alert-padding-x)}) + #{units($theme-alert-icon-size)} -
+        (2 * #{$alert-icon-optical-factor}) - #{units($theme-alert-bar-width)}
+    );
   }
 }
