@@ -34,7 +34,7 @@ describe("combo box component with filter attribute", () => {
     EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       2,
       "should filter the item by the string starting with the option"

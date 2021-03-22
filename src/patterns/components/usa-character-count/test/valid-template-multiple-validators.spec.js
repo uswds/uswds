@@ -39,7 +39,7 @@ describe('character count component with multiple validators', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, 'Constraints not satisfied');
+    assert.strictEqual(input.validationMessage, 'Constraints not satisfied');
   });
 
   it('assert that input constraint validation does not overwrite a custom message', () => {
@@ -48,7 +48,7 @@ describe('character count component with multiple validators', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, 'There is an error');
+    assert.strictEqual(input.validationMessage, 'There is an error');
   });
 
   it('should not affect the validation message when a custom error message is already present', () => {
@@ -57,7 +57,7 @@ describe('character count component with multiple validators', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, 'There is an error');
+    assert.strictEqual(input.validationMessage, 'There is an error');
   });
 
   it('should not affect the validation message when the input is already invalid', () => {
@@ -65,7 +65,7 @@ describe('character count component with multiple validators', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, 'Constraints not satisfied');
+    assert.strictEqual(input.validationMessage, 'Constraints not satisfied');
   });
 
   it('should clear the validation message when input is only invalid by character count validation', () => {
@@ -73,12 +73,12 @@ describe('character count component with multiple validators', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, CharacterCount.VALIDATION_MESSAGE);
+    assert.strictEqual(input.validationMessage, CharacterCount.VALIDATION_MESSAGE);
 
     input.value = 'abcde';
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, '');
+    assert.strictEqual(input.validationMessage, '');
   });
 });

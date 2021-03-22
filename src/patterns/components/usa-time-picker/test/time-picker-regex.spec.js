@@ -13,13 +13,13 @@ describe("time picker regex", () => {
   };
 
   const ok = (inputQuery, testValue) =>
-    assert.equal(
+    assert.strictEqual(
       test(inputQuery, testValue),
       true,
       `${inputQuery} should find ${testValue}`
     );
   const notOk = (inputQuery, testValue) =>
-    assert.equal(
+    assert.strictEqual(
       test(inputQuery, testValue),
       false,
       `${inputQuery} should not find ${testValue}`

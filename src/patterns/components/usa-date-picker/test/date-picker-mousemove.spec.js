@@ -35,7 +35,7 @@ describe("date picker component mouse move selection", () => {
     root.dataset.maxDate = "2020-06-24";
     input.value = "6/20/2020";
     EVENTS.click(button);
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "focuses correct date"
@@ -47,7 +47,7 @@ describe("date picker component mouse move selection", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "does not focus disabled day"
@@ -59,7 +59,7 @@ describe("date picker component mouse move selection", () => {
     root.dataset.maxDate = "2020-06-24";
     input.value = "6/20/2020";
     EVENTS.click(button);
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "focuses correct date"
@@ -71,7 +71,7 @@ describe("date picker component mouse move selection", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-19",
       "focuses correct date"
@@ -84,7 +84,7 @@ describe("date picker component mouse move selection", () => {
     input.value = "6/20/2020";
     EVENTS.click(button);
     getCalendarEl().dataset.wouldDisappearOnRerender = "true";
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "focuses correct date"
@@ -96,12 +96,12 @@ describe("date picker component mouse move selection", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl().dataset.wouldDisappearOnRerender,
       "true",
       "calendar did not rerender"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "focuses correct date"

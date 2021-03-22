@@ -34,13 +34,13 @@ describe("date picker component - disabled initialization", () => {
   it("should not display the calendar when the button is clicked as it is disabled", () => {
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, true, "the calendar is hidden");
+    assert.strictEqual(getCalendarEl().hidden, true, "the calendar is hidden");
   });
 
   it("should display the calendar when the button is clicked once the component is enabled", () => {
     DatePicker.enable(root);
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "the calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "the calendar is shown");
   });
 });

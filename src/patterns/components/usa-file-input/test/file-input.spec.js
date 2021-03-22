@@ -39,25 +39,25 @@ describe("file input component builds successfully", () => {
   });
 
   it("instructions are created", () => {
-    assert.equal(
+    assert.strictEqual(
       instructions.getAttribute("class"),
       "usa-file-input__instructions"
     );
   });
 
   it("target ui is created", () => {
-    assert.equal(dropZone.getAttribute("class"), "usa-file-input__target");
+    assert.strictEqual(dropZone.getAttribute("class"), "usa-file-input__target");
   });
 
   it("input gets new class", () => {
-    assert.equal(inputEl.getAttribute("class"), "usa-file-input__input");
+    assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
   });
 
   it("box is created", () => {
-    assert.equal(box.getAttribute("class"), "usa-file-input__box");
+    assert.strictEqual(box.getAttribute("class"), "usa-file-input__box");
   });
 
   it('pluralizes "files" if there is a "multiple" attribute', () => {
-    assert.equal(dragText.innerHTML, "Drag files here or ");
+    assert.strictEqual(dragText.innerHTML, "Drag files here or ");
   });
 });

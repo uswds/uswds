@@ -45,11 +45,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation back a year to a month that is partially disabled due to a minimum date being set", () => {
     input.value = "05/15/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -59,14 +59,14 @@ describe("date picker component with min date and max date", () => {
   it("should disable back buttons when displaying the minimum month", () => {
     input.value = "05/30/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__previous-month").disabled,
       true,
       "the previous month button is disabled"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
       true,
       "the previous year button is disabled"
@@ -75,7 +75,7 @@ describe("date picker component with min date and max date", () => {
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-30",
       "focuses correct date"
@@ -85,14 +85,14 @@ describe("date picker component with min date and max date", () => {
   it("should disable forward buttons when displaying the maximum month", () => {
     input.value = "06/01/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__next-month").disabled,
       true,
       "the next month button is disabled"
     );
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__next-year").disabled,
       true,
       "the next year button is disabled"
@@ -101,7 +101,7 @@ describe("date picker component with min date and max date", () => {
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-01",
       "focuses correct date"
@@ -111,11 +111,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation back a year to a month that is less than a year from the minimum date being set and cap at that minimum date", () => {
     input.value = "04/15/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -125,11 +125,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation back a month to a month that is partially disabled due to a minimum date being set", () => {
     input.value = "06/15/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -139,9 +139,9 @@ describe("date picker component with min date and max date", () => {
   it("should not allow navigation back a month to a month that is fully disabled due to a minimum date being set", () => {
     input.value = "05/30/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
       true,
       "the button is disabled"
@@ -149,7 +149,7 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-30",
       "focuses correct date"
@@ -159,11 +159,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation forward a year to a month that is partially disabled due to a maximum date being set", () => {
     input.value = "06/25/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -173,11 +173,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation forward a year to a month that is less than a year from the maximum date and cap at that maximum date", () => {
     input.value = "07/25/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -187,11 +187,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow navigation forward a month to a month that is partially disabled due to a maximum date being set", () => {
     input.value = "05/25/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -201,11 +201,11 @@ describe("date picker component with min date and max date", () => {
   it("should not allow navigation forward a month to a month that is fully disabled due to a maximum date being set", () => {
     input.value = "06/17/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-17",
       "focuses correct date"
@@ -227,7 +227,7 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -272,7 +272,7 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -315,7 +315,7 @@ describe("date picker component with min date and max date", () => {
       getCalendarEl('.usa-date-picker__calendar__year[data-value="2020"]')
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -339,7 +339,7 @@ describe("date picker component with min date and max date", () => {
       getCalendarEl('.usa-date-picker__calendar__year[data-value="2021"]')
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -391,7 +391,7 @@ describe("date picker component with min date and max date", () => {
   it("should allow selection of a date that is the minimum date", () => {
     input.value = "05/25/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
       getCalendarEl().querySelector(
@@ -399,13 +399,13 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(input.value, "05/22/2020", "The value has been filled in");
+    assert.strictEqual(input.value, "05/22/2020", "The value has been filled in");
   });
 
   it("should allow selection of a date that is the maximum date", () => {
     input.value = "06/15/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
       getCalendarEl().querySelector(
@@ -413,13 +413,13 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(input.value, "06/20/2020", "The value has been filled in");
+    assert.strictEqual(input.value, "06/20/2020", "The value has been filled in");
   });
 
   it("should not allow selection of a date that is before the minimum date", () => {
     input.value = "05/25/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
       getCalendarEl().querySelector(
@@ -427,13 +427,13 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
   });
 
   it("should not allow selection of a date that is after the maximum date", () => {
     input.value = "06/15/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
       getCalendarEl().querySelector(
@@ -441,17 +441,17 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
   });
 
   it("should allow keyboard navigation to move back one day to a date that is the minimum date", () => {
     input.value = "05/23/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowLeft();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -461,11 +461,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one week to a date that is the minimum date", () => {
     input.value = "05/29/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -475,11 +475,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one month to a date that is the minimum date", () => {
     input.value = "06/22/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -489,11 +489,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one year to a date that is the minimum date", () => {
     input.value = "05/22/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -503,11 +503,11 @@ describe("date picker component with min date and max date", () => {
   it("should not allow keyboard navigation to move back one day to a date that is before the minimum date", () => {
     input.value = "05/22/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowLeft();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -517,11 +517,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move to the start of the week to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "05/23/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownHome();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -531,11 +531,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one week to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "05/28/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -545,11 +545,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one month to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "06/21/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -559,11 +559,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move back one year to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "05/21/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -573,11 +573,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one day to a date that is the maximum date", () => {
     input.value = "06/19/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowRight();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -587,11 +587,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one week to a date that is the maximum date", () => {
     input.value = "06/13/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -601,11 +601,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one month to a date that is the maximum date", () => {
     input.value = "05/20/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -615,11 +615,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one year to a date that is the maximum date", () => {
     input.value = "06/20/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -629,11 +629,11 @@ describe("date picker component with min date and max date", () => {
   it("should not allow keyboard navigation to move forward one day to a date that is after the maximum date", () => {
     input.value = "06/20/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowRight();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -644,11 +644,11 @@ describe("date picker component with min date and max date", () => {
     root.dataset.maxDate = "2021-06-21";
     input.value = "06/20/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownEnd();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-21",
       "focuses correct date"
@@ -658,11 +658,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one week to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "06/14/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -672,11 +672,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one month to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "05/21/2021";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -686,11 +686,11 @@ describe("date picker component with min date and max date", () => {
   it("should allow keyboard navigation to move forward one year to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "06/21/2020";
     EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -702,7 +702,7 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+    assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
   });
 
   it("should show a date that is the maximum date as valid", () => {
@@ -710,7 +710,7 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(input.validationMessage, "");
+    assert.strictEqual(input.validationMessage, "");
   });
 
   it("should show a date that is before the minimum date as invalid", () => {
@@ -718,7 +718,7 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+    assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
   });
 
   it("should show a date that is the minimum date as valid", () => {
@@ -726,7 +726,7 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(input.validationMessage, "");
+    assert.strictEqual(input.validationMessage, "");
   });
 
   it("should throw when minDate is larger than maxDate", () => {
@@ -736,15 +736,15 @@ describe("date picker component with min date and max date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(error, expectedError, "caught the error");
+    assert.strictEqual(error, expectedError, "caught the error");
   });
 
   it("should open the calendar on the min date when the input date is before the min date", () => {
     input.value = "04/15/2020";
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -755,8 +755,8 @@ describe("date picker component with min date and max date", () => {
     input.value = "04/15/2023";
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2021-06-20",
       "focuses correct date"
@@ -768,8 +768,8 @@ describe("date picker component with min date and max date", () => {
     root.dataset.maxDate = "2020-02-14";
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-02-14",
       "focuses correct date"
@@ -781,7 +781,7 @@ describe("date picker component with min date and max date", () => {
     root.dataset.maxDate = "2020-02-14";
     input.value = "01/20/2020";
     EVENTS.click(button);
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-01-20",
       "focuses correct date"
@@ -790,7 +790,7 @@ describe("date picker component with min date and max date", () => {
     input.value = "6/20/2020";
     EVENTS.input(input);
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-02-14",
       "focuses correct date"

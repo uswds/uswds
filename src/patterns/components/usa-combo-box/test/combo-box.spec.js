@@ -40,37 +40,37 @@ describe("combo box component", () => {
     );
     assert.ok(list, "adds an list element");
     assert.ok(list.hidden, "the list is hidden");
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("id"),
       "",
       "transfers id attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("id"),
       "fruit",
       "transfers id attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("required"),
       null,
       "transfers required attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("required"),
       "",
       "transfers required attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("name"),
       "fruit",
       "should not transfer name attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("name"),
       null,
       "should not transfer name attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       list.getAttribute("role"),
       "listbox",
       "the list should have a role of `listbox`"
@@ -79,7 +79,7 @@ describe("combo box component", () => {
       select.getAttribute("aria-hidden"),
       "the select should be hidden from screen readers"
     );
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("tabindex"),
       "-1",
       "the select should be hidden from keyboard navigation"
@@ -88,15 +88,15 @@ describe("combo box component", () => {
       select.classList.contains("usa-combo-box__select"),
       "add the class for the select element"
     );
-    assert.equal(select.value, "", "the select value should be empty");
-    assert.equal(input.value, "", "the input should be empty");
+    assert.strictEqual(select.value, "", "the select value should be empty");
+    assert.strictEqual(input.value, "", "the input should be empty");
   });
 
   it("should show the list by clicking the input", () => {
     EVENTS.click(input);
 
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       select.options.length - 1,
       "should have all of the initial select items in the list except placeholder empty items"
@@ -130,34 +130,34 @@ describe("combo box component", () => {
     let len = list.children.length;
     EVENTS.click(input);
 
-    assert.equal(
+    assert.strictEqual(
       list.children[i].getAttribute("aria-selected"),
       "false",
       `item ${i} should not be shown as selected`
     );
-    assert.equal(
+    assert.strictEqual(
       list.children[i].getAttribute("tabindex"),
       "0",
       `item ${i} should be available with tab from keyboard navigation`
     );
-    assert.equal(
+    assert.strictEqual(
       list.children[i].getAttribute("role"),
       "option",
       `item ${i} should have a role of 'option'`
     );
 
     for (i = 1; i < len; i += 1) {
-      assert.equal(
+      assert.strictEqual(
         list.children[i].getAttribute("aria-selected"),
         "false",
         `item ${i} should not be shown as selected`
       );
-      assert.equal(
+      assert.strictEqual(
         list.children[i].getAttribute("tabindex"),
         "-1",
         `item ${i} should be hidden from keyboard navigation`
       );
-      assert.equal(
+      assert.strictEqual(
         list.children[i].getAttribute("role"),
         "option",
         `item ${i} should have a role of 'option'`
@@ -178,12 +178,12 @@ describe("combo box component", () => {
     EVENTS.click(input);
     EVENTS.click(list.children[0]);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "apple",
       "should set that item to the select option"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Apple",
       "should set that item to the input value"
@@ -197,7 +197,7 @@ describe("combo box component", () => {
     EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       43,
       "should filter the item by the string being present in the option"
@@ -213,8 +213,8 @@ describe("combo box component", () => {
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "apricot");
-    assert.equal(input.value, "Apricot");
+    assert.strictEqual(select.value, "apricot");
+    assert.strictEqual(input.value, "Apricot");
   });
 
   it("should reset input values when an incomplete item is submitted through enter", () => {
@@ -226,8 +226,8 @@ describe("combo box component", () => {
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "cantaloupe");
-    assert.equal(
+    assert.strictEqual(select.value, "cantaloupe");
+    assert.strictEqual(
       input.value,
       "Cantaloupe",
       "should reset the value on the input"
@@ -257,12 +257,12 @@ describe("combo box component", () => {
     EVENTS.keydownEscape(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "cherry",
       "should not change the value of the select"
     );
-    assert.equal(input.value, "Cherry", "should reset the value in the input");
+    assert.strictEqual(input.value, "Cherry", "should reset the value in the input");
   });
 
   it("should reset the input value when a complete selection is left on blur from the input element", () => {
@@ -274,8 +274,8 @@ describe("combo box component", () => {
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(select.value, "coconut");
-    assert.equal(input.value, "Coconut");
+    assert.strictEqual(select.value, "coconut");
+    assert.strictEqual(input.value, "Coconut");
   });
 
   it("should set the input value when a complete selection is submitted by pressing enter", () => {
@@ -287,12 +287,12 @@ describe("combo box component", () => {
     EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "grape",
       "should set that item to the select option"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Grape",
       "should set that item to the input value"
@@ -305,8 +305,8 @@ describe("combo box component", () => {
     EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(list.children.length, 1, "should show no results list item");
-    assert.equal(
+    assert.strictEqual(list.children.length, 1, "should show no results list item");
+    assert.strictEqual(
       list.children[0].textContent,
       "No results found",
       "should show the no results list item"
@@ -325,7 +325,7 @@ describe("combo box component", () => {
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       2,
       "should filter the item by the string being present in the option"
@@ -337,7 +337,7 @@ describe("combo box component", () => {
       focusedOption.classList.contains("usa-combo-box__list-option--focused"),
       "should style the focused item in the list"
     );
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Grape",
       "should focus the first item in the list"
@@ -350,7 +350,7 @@ describe("combo box component", () => {
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blackberry",
       "should focus the first item in the list"
@@ -358,12 +358,12 @@ describe("combo box component", () => {
 
     EVENTS.keydownEnter(focusedOption);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "blackberry",
       "select the first item in the list"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Blackberry",
       "should set the value in the input"
@@ -376,7 +376,7 @@ describe("combo box component", () => {
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blackberry",
       "should focus the first item in the list"
@@ -384,12 +384,12 @@ describe("combo box component", () => {
 
     EVENTS.keydownTab(focusedOption);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "blackberry",
       "select the first item in the list"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Blackberry",
       "should set the value in the input"
@@ -401,7 +401,7 @@ describe("combo box component", () => {
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blackberry",
       "should focus the first item in the list"
@@ -409,8 +409,8 @@ describe("combo box component", () => {
 
     EVENTS.focusout(focusedOption);
 
-    assert.equal(select.value, "");
-    assert.equal(input.value, "", "should reset the value in the input");
+    assert.strictEqual(select.value, "");
+    assert.strictEqual(input.value, "", "should reset the value in the input");
   });
 
   it("should focus the last item in the list when pressing down many times from the input", () => {
@@ -418,7 +418,7 @@ describe("combo box component", () => {
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       2,
       "should filter the item by the string being present in the option"
@@ -432,7 +432,7 @@ describe("combo box component", () => {
       focusedOption.classList.contains("usa-combo-box__list-option--focused"),
       "should style the focused item in the list"
     );
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Plantain",
       "should focus the last item in the list"
@@ -450,7 +450,7 @@ describe("combo box component", () => {
     );
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blackberry",
       "should focus the first item in the list"
@@ -458,12 +458,12 @@ describe("combo box component", () => {
     EVENTS.keydownEscape(focusedOption);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "pineapple",
       "should not change the value of the select"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Pineapple",
       "should reset the value in the input"
@@ -475,14 +475,14 @@ describe("combo box component", () => {
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       2,
       "should filter the item by the string being present in the option"
     );
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blackberry",
       "should focus the first item in the list"
@@ -490,6 +490,6 @@ describe("combo box component", () => {
     EVENTS.keydownArrowUp(focusedOption);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(document.activeElement, input, "should focus the input");
+    assert.strictEqual(document.activeElement, input, "should focus the input");
   });
 });
