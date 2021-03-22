@@ -8,7 +8,7 @@ $alert-icon-optical-padding: calc(
   $this-icon-object: map-merge(
     $icon-object,
     (
-      "name": "usa-icons/#{$name}",
+      "name": $name,
       "color": $color,
       "height": $theme-alert-icon-size,
     )
@@ -45,7 +45,7 @@ $alert-icons: (
 );
 
 $icon-object: (
-  "name": "usa-icons/ICON_NAME",
+  "name": "ICON_NAME",
   "svg-height": 40,
   "svg-width": 40,
   "height": $theme-icon-image-size,

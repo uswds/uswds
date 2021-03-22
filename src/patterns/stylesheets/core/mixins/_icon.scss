@@ -116,17 +116,17 @@
     map-get($icon-object, "path"),
     $theme-image-path
   );
-  $ie11-variant: get-color-token-from-bg($contrast-bg, $color-variant, "black");
-  $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
+  $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
   $filename-ie11: if(
-    $filename-ie11-variant,
-    "#{$filename-base}-#{$filename-ie11-variant}.svg",
+    $ie11-variant == "white",
+    "#{$filename-base}--white.svg",
     "#{$filename-base}.svg"
   );
 
-  $mask-props: url("#{$path}/#{$filename-base}.svg") no-repeat center / #{$width}
-    #{$height};
-  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / #{$width} #{$height};
+  $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
+    #{$width} #{$height};
+  $image-props: url("#{$path}/usa-icons-bg/#{$filename-ie11}") no-repeat center /
+    #{$width} #{$height};
 
   // Default background shorthand for browsers that don't support mask or supports.
   background: $image-props;
