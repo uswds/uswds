@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.10.2",
+  "version": "2.11.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -98,9 +98,9 @@
   "devDependencies": {
     "@babel/preset-env": "^7.12.10",
     "@pattern-lab/cli": "^5.14.0",
-    "@pattern-lab/core": "^5.14.0",
+    "@pattern-lab/core": "^5.14.1",
     "@pattern-lab/engine-twig": "^5.14.0",
-    "@pattern-lab/uikit-workshop": "^5.14.0",
+    "@pattern-lab/uikit-workshop": "^5.14.1",
     "@types/node": "^14.14.13",
     "ansi-colors": "^4.1.1",
     "autoprefixer": "^10.1.0",
