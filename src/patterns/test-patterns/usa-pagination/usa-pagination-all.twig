@@ -1,0 +1,127 @@
+<section class="usa-section grid-container">
+  <h1>Few pages</h1>
+
+  <h2>First selected</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination few test 1',
+      pagination: {
+        items: 3,
+        current: 1
+      }
+    }
+    only
+  %}
+
+  <hr>
+
+  <h2>In between</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination few test 2',
+      pagination: {
+        items: 3,
+        current: 2
+      }
+    }
+    only
+  %}
+
+  <hr>
+
+  <h2>Last selected</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination few test 4',
+      pagination: {
+        items: 3,
+        current: 3
+      }
+    }
+    only
+  %}
+</section>
+<section class="usa-section grid-container">
+  <h1>A lot of pages</h1>
+
+  <h2>First selected</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination many test 1',
+      pagination: {
+        items: 50,
+        current: 1
+      }
+    }
+    only
+  %}
+
+  <hr>
+
+  <h2>In between</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination many test 2',
+      pagination: {
+        items: 50,
+        current: 2
+      }
+    }
+    only
+  %}
+
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination many test 3',
+      pagination: {
+        items: 50,
+        current: 22
+      }
+    }
+    only
+  %}
+
+  <hr>
+
+  <h2>Last selected</h2>
+  {% include './components/usa-pagination/usa-pagination.twig' with
+    {
+      aria_label: 'pagination many test 4',
+      pagination: {
+        items: 50,
+        current: 48
+      }
+    }
+    only
+  %}
+</section>
+
+<div class="usa-section usa-section--light">
+  <div class="grid-container">
+    {% include './components/usa-pagination/usa-pagination.twig' with
+      {
+        aria_label: 'pagination light section test',
+        pagination: {
+          items: 24,
+          current: 10
+        }
+      }
+      only
+    %}
+  </div>
+</div>
+
+<div class="usa-section usa-section--dark">
+  <div class="grid-container">
+    {% include './components/usa-pagination/usa-pagination.twig' with
+      {
+        aria_label: 'pagination dark section test',
+        pagination: {
+          items: 24,
+          current: 10
+        }
+      }
+      only
+    %}
+  </div>
+</div>

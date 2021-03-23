@@ -1,0 +1,20 @@
+{% macro paginationLink(item, current_item) %}
+  {% set is_current = item != current_item %}
+
+  {% if is_current %}
+    <a
+      href="{{ placeholder_link }}"
+      class="usa-pagination__link"
+      aria-label="Page {{ item }}">
+      {{ item }}
+    </a>
+  {% else %}
+    <a
+      href="{{ placeholder_link }}"
+      class="usa-pagination__link usa-pagination__link--current"
+      aria-label="Current page, page {{ item }}"
+      aria-current="page">
+      {{ item }}
+    </a>
+  {% endif %}
+{% endmacro %}
