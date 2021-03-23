@@ -42,7 +42,7 @@
     "preversion": "npm test",
     "release": "gulp release",
     "postinstall": "npx patch-package",
-    "federalist": "npm install && npx gulp",
+    "federalist": "npm install && npx patch-package && npx gulp",
     "start": "gulp watch",
     "test": "snyk test && gulp typecheck && gulp test",
     "test:ci": "gulp typecheck && gulp test",
