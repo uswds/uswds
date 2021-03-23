@@ -9,7 +9,8 @@ $summary-box-context: "Summary Box";
     $context: $summary-box-context
   );
   @include u-radius($theme-summary-box-border-radius);
-  border: $theme-summary-box-border-width color($theme-summary-box-border-color) solid;
+  border: $theme-summary-box-border-width color($theme-summary-box-border-color)
+    solid;
   padding: units(3);
   position: relative;
 
@@ -22,11 +23,6 @@ $summary-box-context: "Summary Box";
   * + & {
     margin-top: units(2);
   }
-}
-
-.usa-summary-box__body {
-  display: table-cell;
-  vertical-align: top;
 }
 
 .usa-summary-box__heading {
@@ -59,7 +55,6 @@ $summary-box-context: "Summary Box";
     &:visited {
       color: color(nth($link-tokens, 1));
     }
-
     &:hover {
       color: color(nth($link-tokens, 2));
     }
