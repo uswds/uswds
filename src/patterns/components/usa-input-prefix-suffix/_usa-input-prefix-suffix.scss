@@ -3,11 +3,16 @@
   @extend %block-input-general;
   @extend %block-input-styles;
   align-items: center;
+  background-color: color("white");
   display: flex;
   padding: 0;
 
   &.is-focused {
     @include focus-outline();
+  }
+
+  &--error {
+    @include u-border($theme-input-state-border-width, "error-dark");
   }
 
   input {
@@ -32,15 +37,6 @@
   white-space: nowrap;
 
   .usa-icon {
-    height: units(3);
-    width: units(3);
+    @include u-square(3);
   }
-}
-
-.usa-input-prefix {
-  padding-right: 0;
-}
-
-.usa-input-suffix {
-  padding-left: 0;
 }
