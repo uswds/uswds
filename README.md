@@ -443,7 +443,7 @@ We're using `engine-twig`, which uses Twing, to get rid of the PHP dependency. T
 
 **Key differences**
 
-Namespacing not supported - Use relative paths.
+**Namespacing not supported - Use relative paths.**
 
 ```twig
 ❌ {% include "@components/usa-card/usa-card.twig" %}
@@ -451,7 +451,7 @@ Namespacing not supported - Use relative paths.
 ✔ {% include "./components/usa-card/usa-card.twig" %}
 ```
 
-Generated variants with YML *
+**Generated variants with YML***
 ```
 ✔ usa-button-group.twig
 ❕ usa-button-group~segmented.yml  // Requires patch
@@ -459,7 +459,7 @@ Generated variants with YML *
 
 *Works with patch [`31931c7`](https://github.com/uswds/uswds/commit/31931c7ee1ecf31c54981c1691a047157d458bfb).
 
-HTML in YML renders as string
+**HTML in YML renders as string**
 ```yml
 # Given
 items:
@@ -484,10 +484,22 @@ Workarounds available with `autoescape false` and `|raw` filter.
 {{ domain.text|raw }}
 ```
 
-Global variables don't work as expected
+**Global variables don't work as expected**
+
 Setting a variable like `img_path` in `src/styleguide/data/data.yml` renders as empty string in some templates, for example in `usa-nav__primary.twig`.
 
 Just be aware when using macro's and ensure you have a proper fallback value.
+
+**Importing macros**
+There are two ways to import macros, this one works more reliably.
+
+```twig
+{% from "./components/usa-pagination/_usa-pagination-link.twig" import paginationLink %}
+```
+
+**Switch statements not supported**
+
+Use `if` instead.
 
 ## Long-term support of v1.x
 
