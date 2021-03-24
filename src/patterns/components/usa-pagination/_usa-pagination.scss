@@ -41,7 +41,11 @@ $pagination-context: "Pagination";
 }
 
 .usa-pagination__link {
-  @include typeset-link;
+  @include set-link-from-bg(
+    $theme-pagination-background-color,
+    $theme-link-color,
+    $pagination-context
+  );
   display: inline-flex;
   text-decoration: none;
 }
@@ -62,10 +66,15 @@ $pagination-context: "Pagination";
   justify-content: center;
   padding: units($theme-pagination-padding);
   text-decoration: none;
+  width: 100%;
 
-  // Takes up all available width in pagination nav.
-  @include at-media($theme-pagination-breakpoint) {
-    width: 100%;
+  &:hover,
+  &:focus {
+    @include set-text-and-bg("primary", $context: $pagination-context);
+  }
+
+  &:active {
+    @include set-text-and-bg("primary-dark", $context: $pagination-context);
   }
 
   &[disabled] {
