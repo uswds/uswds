@@ -4,14 +4,8 @@ $pagination-context: "Pagination";
 // ---------------------------------
 .usa-pagination {
   @include u-margin-y($theme-pagination-margin-y);
-  align-items: center;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-
-  @include at-media($theme-pagination-breakpoint) {
-    gap: units(2);
-  }
 }
 
 .usa-pagination .usa-icon {
@@ -22,21 +16,15 @@ $pagination-context: "Pagination";
 // Shared styles
 // ---------------------------------
 
-
 // Pagination nav
 // ---------------------------------
 .usa-pagination__list {
   @include add-list-reset;
   align-items: center;
-  display: none;
-  margin-right: auto;
-  width: 100%;
-
-  @include at-media($theme-pagination-breakpoint) {
-    display: flex;
-    flex-flow: row nowrap;
-    width: auto;
-  }
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: auto;
 }
 
 // Pagination nav items
@@ -52,18 +40,24 @@ $pagination-context: "Pagination";
   }
 }
 
+.usa-pagination__link {
+  @include typeset-link;
+  display: inline-flex;
+  text-decoration: none;
+}
+
 .usa-pagination__button {
-  @include set-text-and-bg(
-    $theme-pagination-background-color,
-    $theme-pagination-pager-color,
-    $context: $pagination-context,
-    $important: true
+  @include set-link-from-bg(
+    $theme-pagination-button-background-color,
+    $theme-link-color,
+    $context: $pagination-context
   );
   align-items: center;
-  border-color: color($theme-pagination-border-color);
-  border-radius: radius($theme-pagination-border-radius);
+  background-color: color($theme-pagination-button-background-color);
+  border-color: color($theme-pagination-button-border-color);
+  border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
-  border-width: units($theme-pagination-border-width);
+  border-width: units($theme-pagination-button-border-width);
   display: inline-flex;
   justify-content: center;
   padding: units($theme-pagination-padding);
@@ -78,36 +72,21 @@ $pagination-context: "Pagination";
     color: color("base-light") !important;
     pointer-events: none;
   }
-
-  &:hover,
-  &:focus {
-    @include set-text-from-bg(
-      $theme-pagination-background-color,
-      $theme-link-color,
-      $context: $pagination-context,
-      $important: true
-    )
-  }
 }
 
 .usa-pagination .usa-current {
   @include set-text-and-bg(
-    $theme-color-primary,
-    $theme-link-reverse-color,
+    $theme-pagination-current-background-color,
+    "white",
     $theme-link-color,
-    $context: $pagination-context,
-    $important: true,
+    $context: $pagination-context
   );
-  border-color: color($theme-pagination-border-color);
+  border-color: color($theme-pagination-button-border-color);
 
   &:hover,
   &:focus,
   &:active {
-    @include set-text-and-bg(
-      "primary-darker",
-      $important: true,
-      $context: $pagination-context
-    );
+    @include set-text-and-bg("primary-darker", $context: $pagination-context);
   }
 }
 
@@ -116,16 +95,6 @@ $pagination-context: "Pagination";
   padding: units($theme-pagination-padding);
 }
 
-
 // ---------------------------------
 // Variants
 // ---------------------------------
-.usa-pagination--centered {
-  @include at-media($theme-pagination-breakpoint) {
-
-    .usa-pagination__list {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-}
