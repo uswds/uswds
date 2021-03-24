@@ -48,6 +48,11 @@ $pagination-context: "Pagination";
   );
   display: inline-flex;
   text-decoration: none;
+
+  &[disabled] {
+    color: color("base-light") !important;
+    pointer-events: none;
+  }
 }
 
 .usa-pagination__button {
@@ -75,11 +80,6 @@ $pagination-context: "Pagination";
 
   &:active {
     @include set-text-and-bg("primary-dark", $context: $pagination-context);
-  }
-
-  &[disabled] {
-    color: color("base-light") !important;
-    pointer-events: none;
   }
 }
 
