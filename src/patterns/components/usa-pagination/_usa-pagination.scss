@@ -7,6 +7,7 @@ $pagination-context: "Pagination";
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 
   @include at-media($theme-pagination-breakpoint) {
     gap: units(2);
@@ -21,14 +22,6 @@ $pagination-context: "Pagination";
 // Shared styles
 // ---------------------------------
 
-// Only display Previous/Next on mobile
-.usa-pagination__label,
-.usa-pagination__item,
-.usa-pagination__view-all {
-  @include at-media-max($theme-pagination-breakpoint) {
-    display: none;
-  }
-}
 
 // Pagination nav
 // ---------------------------------
@@ -59,7 +52,7 @@ $pagination-context: "Pagination";
   }
 }
 
-.usa-pagination__link {
+.usa-pagination__button {
   @include set-text-and-bg(
     $theme-pagination-background-color,
     $theme-pagination-pager-color,
@@ -97,7 +90,7 @@ $pagination-context: "Pagination";
   }
 }
 
-.usa-pagination__link--current {
+.usa-pagination .usa-current {
   @include set-text-and-bg(
     $theme-color-primary,
     $theme-link-reverse-color,
@@ -123,40 +116,6 @@ $pagination-context: "Pagination";
   padding: units($theme-pagination-padding);
 }
 
-.usa-pagination__previous-page,
-.usa-pagination__next-page {
-  width: 100%;
-
-  .usa-pagination__button-text {
-    display: none;
-  }
-
-  @include at-media-max($theme-pagination-breakpoint) {
-    flex: 1 1 50%;
-
-    .usa-pagination__button-text {
-      display: block;
-    }
-  }
-
-  @include at-media($theme-pagination-breakpoint) {
-    width: auto;
-  }
-}
-
-.usa-pagination__previous-page {
-  @include at-media-max($theme-pagination-breakpoint) {
-    margin-right: units(1.5);
-  }
-}
-
-
-// View All link
-// ---------------------------------
-.usa-pagination__view-all {
-  margin-left: units(1);
-  text-decoration: none;
-}
 
 // ---------------------------------
 // Variants

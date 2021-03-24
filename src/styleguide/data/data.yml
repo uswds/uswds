@@ -5,6 +5,8 @@ bodyClass: 'body'
 modifier: ''
 extra_attributes: ''
 img_path: '../../img'
+sprite_path: '../../img/sprite.svg'
+placeholder_link: "javascript:void(0);"
 states:
   - hover
   - active

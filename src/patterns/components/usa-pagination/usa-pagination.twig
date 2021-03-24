@@ -1,4 +1,4 @@
-{% from "./components/usa-pagination/_usa-pagination-link.twig" import paginationLink %}
+{% from "./components/usa-pagination/_usa-pagination-button.twig" import paginationButton %}
 
 {# TODO - Create macro #}
 {% set sprite_path = img_path + "/sprite.svg" %}
@@ -13,7 +13,7 @@
 
 {% set
   pager_ranges = {
-    'default': range(pagination.current - 1, pagination.current + 2),
+    'default': range(pagination.current - 1, pagination.current + 1),
     'last_item': pagination.items,
     'first_three': range(2, 5),
     'last_three': range(pagination.items - 3, pagination.items),
@@ -24,8 +24,23 @@
 <nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier | default('') }}">
 
   <ul class="usa-pagination__list">
+
+    {# Previous page #}
+    <li class="usa-pagination__item usa-pagination__arrow">
+      <a
+        href="{{ placeholder_link }}"
+        class="usa-pagination__link usa-pagination__previous-page"
+        aria-label="Previous page"
+        {{ pagination.current == 1 ? 'disabled' }}>
+        <svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="{{ sprite_path }}#navigate_before"></use>
+        </svg>
+        <span class="usa-pagination__button-text">Previous</span>
+      </a>
+    </li>
+
     <li class="usa-pagination__item usa-pagination__page-no">
-      {{ paginationLink(1, pagination.current) }}
+      {{ paginationButton(1, pagination.current) }}
     </li>
 
     {# Page numbers #}
@@ -33,14 +48,14 @@
       {# List all of them if less than 4 #}
       {% for item in pager_ranges.all  %}
         <li class="usa-pagination__item usa-pagination__page-no">
-          {{ paginationLink(item, pagination.current) }}
+          {{ paginationButton(item, pagination.current) }}
         </li>
       {% endfor %}
     {% elseif pagination.current <= 4 and pagination.items >= 4 %}
       {# Show first three only #}
       {% for item in pager_ranges.first_three  %}
         <li class="usa-pagination__item usa-pagination__page-no">
-          {{ paginationLink(item, pagination.current) }}
+          {{ paginationButton(item, pagination.current) }}
         </li>
       {% endfor %}
 
@@ -52,7 +67,7 @@
       {# Show last three #}
       {% for item in pager_ranges.last_three %}
         <li class="usa-pagination__item usa-pagination__page-no">
-          {{ paginationLink(item, pagination.current) }}
+          {{ paginationButton(item, pagination.current) }}
         </li>
       {% endfor %}
     {% else %}
@@ -61,7 +76,7 @@
       {# Default - Current -1, Current, Current + 1 #}
       {% for item in pager_ranges.default %}
         <li class="usa-pagination__item usa-pagination__page-no">
-          {{ paginationLink(item, pagination.current) }}
+          {{ paginationButton(item, pagination.current) }}
         </li>
       {% endfor %}
 
@@ -69,34 +84,22 @@
     {% endif %}
 
     <li class="usa-pagination__item usa-pagination__page-no">
-      {# {{ paginationLink(pager_ranges.last_item, pagination.current) }} #}
+      {{ paginationButton(pager_ranges.last_item, pagination.current) }}
     </li>
+
+    <li class="usa-pagination__item usa-pagination__arrow">
+      {# Next page #}
+      <a
+        href="{{ placeholder_link }}"
+        class="usa-pagination__link usa-pagination__next-page"
+        aria-label="Next page"
+        {{ pagination.items == pagination.current ? 'disabled' }}>
+        <span class="usa-pagination__button-text">Next</span>
+        <svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="{{ sprite_path }}#navigate_next"></use>
+        </svg>
+      </a>
+    </li>
+
   </ul>
-
-  {# Previous page #}
-  <a
-    href="{{ placeholder_link }}"
-    class="usa-pagination__link usa-pagination__previous-page"
-    aria-label="Previous page"
-    {{ pagination.current == 1 ? 'disabled' }}>
-    <svg class="usa-icon" aria-hidden="true" role="img">
-      <use xlink:href="{{ sprite_path }}#navigate_before"></use>
-    </svg>
-    <span class="usa-pagination__button-text">Previous</span>
-  </a>
-
-  {# Next page #}
-  <a
-    href="{{ placeholder_link }}"
-    class="usa-pagination__link usa-pagination__next-page"
-    aria-label="Next page"
-    {{ pagination.items == pagination.current ? 'disabled' }}>
-    <span class="usa-pagination__button-text">Next</span>
-    <svg class="usa-icon" aria-hidden="true" role="img">
-      <use xlink:href="{{ sprite_path }}#navigate_next"></use>
-    </svg>
-  </a>
-  <a href="{{ placeholder_link }}" class="usa-pagination__view-all usa-link" aria-label="View all pages">
-    View all results
-  </a>
 </nav>
