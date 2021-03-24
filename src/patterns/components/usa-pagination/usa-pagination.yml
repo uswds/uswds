@@ -5,3 +5,9 @@ aria_label: "pagination"
 pagination:
   items: 24
   current: 10
+  previous:
+    label: "Previous"
+    aria_label: "Previous page"
+  next:
+    label: "Next"
+    aria_label: "Next page"

@@ -1,8 +1,5 @@
 {% from "./components/usa-pagination/_usa-pagination-button.twig" import paginationButton %}
 
-{# TODO - Create macro #}
-{% set sprite_path = img_path + "/sprite.svg" %}
-
 {% set ellipsis %}
 <li class="usa-pagination__item" role="presentation">
   <span class="usa-pagination__ellipsis">
@@ -30,12 +27,14 @@
       <a
         href="{{ placeholder_link }}"
         class="usa-pagination__link usa-pagination__previous-page"
-        aria-label="Previous page"
+        aria-label="{{ pagination.previous.aria_label }}"
         {{ pagination.current == 1 ? 'disabled' }}>
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_before"></use>
         </svg>
-        <span class="usa-pagination__button-text">Previous</span>
+        <span class="usa-pagination__link-text">
+          {{ pagination.previous.label }}
+        </span>
       </a>
     </li>
 
@@ -92,9 +91,11 @@
       <a
         href="{{ placeholder_link }}"
         class="usa-pagination__link usa-pagination__next-page"
-        aria-label="Next page"
+        aria-label="{{ pagination.next.aria_label }}"
         {{ pagination.items == pagination.current ? 'disabled' }}>
-        <span class="usa-pagination__button-text">Next</span>
+        <span class="usa-pagination__link-text">
+          {{ pagination.next.label }}
+        </span>
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_next"></use>
         </svg>
