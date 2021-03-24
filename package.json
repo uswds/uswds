@@ -35,7 +35,7 @@
     "clean": "gulp clean",
     "compile": "gulp compile",
     "cover": "nyc --reporter=lcov --config config/nycrc.yml gulp cover",
-    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
+    "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/system-tokens'",
     "lint": "gulp lint",
     "mocha": "mocha",
     "prepare": "gulp",
