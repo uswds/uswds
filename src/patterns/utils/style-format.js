@@ -1,9 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const handlebars = require("handlebars");
-const helpers = require("handlebars-helpers");
-
-const { trimLeft } = helpers.string();
 
 const colorListTemplate = `'{{meta.name}}': (
   {{#each props as |prop|}}
@@ -22,10 +19,11 @@ const colorMap = `\${{global.category}}: (
 {{/each}}
 );`;
 
-handlebars.registerHelper("toNumber", function (item, options) {
+handlebars.registerHelper("toNumber", (item) => {
   const maybeNumber = Number(item);
   let output;
 
+  // eslint-disable-next-line no-restricted-globals
   if (isNaN(maybeNumber)) output = item;
 
   output = maybeNumber;
@@ -44,8 +42,7 @@ handlebars.registerPartial("colorList", colorListTemplate);
 
 const colorMapTemplate = handlebars.compile(colorMap);
 
-const format = (options) => {
-  return new Promise((resolve, reject) => {
+const format = (options) => new Promise((resolve) => {
     fs.readFile(options.file, (err, buffer) => {
       if (err) {
         throw new Error(err);
@@ -66,7 +63,6 @@ const format = (options) => {
       resolve(output);
     });
   });
-};
 
 const generateFilename = (filePath) =>
   `_${path.basename(filePath).split(".")[0]}.scss`;
@@ -80,7 +76,8 @@ const writeSassFile = (sass) => {
   fs.writeFileSync(resolvePath(finalOutput), data);
 };
 
-const argv = require("yargs").argv;
+const { argv } = require("yargs");
+
 const ARGS = {
   FILE: "file",
   OUTPUT: "output",
@@ -89,7 +86,6 @@ const ARGS = {
 
 const rawFilePath = argv[ARGS.FILE];
 const rawOutputPath = argv[ARGS.OUTPUT];
-const template = argv[ARGS.TEMPLATE] || colorMapTemplate;
 
 if (!rawFilePath || !rawOutputPath) {
   throw new Error(
@@ -111,8 +107,7 @@ if (isDirectory(rawFilePath)) {
         });
       })
     )
-      .then((values) => values.forEach(writeSassFile))
-      .catch((err) => console.log(err));
+    .then((values) => values.forEach(writeSassFile));
   });
 } else {
   format({
