@@ -52,7 +52,7 @@
     "test:unit": "gulp unitTests",
     "version": "gulp build release",
     "watch": "gulp watch",
-    "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
+    "prettier:scss": "npx prettier --write ./src/patterns/**/**/*.scss",
     "pl:build": "patternlab build --config ./patternlab-config.json",
     "pl:help": "patternlab --help",
     "pl:version": "patternlab --version"

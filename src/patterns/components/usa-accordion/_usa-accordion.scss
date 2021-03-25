@@ -1,5 +1,6 @@
 // Variables
-$accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
+$accordion-border: units($theme-accordion-border-width) solid
+  color($theme-accordion-border-color);
 
 // Accordion Styles
 @mixin accordion-list-styles {
