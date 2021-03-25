@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const handlebars = require("handlebars");
 
-const colorListTemplate = `'{{meta.name}}': (
+const colorListTemplate = `"{{meta.name}}": (
   {{#each props as |prop|}}
   {{#isObject prop.value}}
   {{> colorList meta=prop props=prop.value }}
@@ -17,7 +17,8 @@ const colorMap = `\${{global.category}}: (
 {{#each props as |prop|}}
   {{> colorList meta=prop props=prop.value }}
 {{/each}}
-);`;
+);
+`;
 
 handlebars.registerHelper("toNumber", (item) => {
   const maybeNumber = Number(item);
@@ -31,7 +32,7 @@ handlebars.registerHelper("toNumber", (item) => {
   return output;
 });
 
-handlebars.registerHelper("isObject", function (item, options) {
+handlebars.registerHelper("isObject", (item, options) => {
   if (typeof item === "object") {
     return options.fn(this);
   }
