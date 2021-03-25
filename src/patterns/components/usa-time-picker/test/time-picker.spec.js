@@ -41,39 +41,39 @@ describe("time picker component", () => {
     );
     assert.ok(list, "adds an list element");
     assert.ok(list.hidden, "the list is hidden");
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("id"),
       "",
       "transfers id attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("id"),
       "appointment-time",
       "transfers id attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("required"),
       null,
       "transfers required attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("required"),
       "",
       "transfers required attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       select.getAttribute("name"),
       "appointment-time",
       "should not transfer name attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       input.getAttribute("name"),
       null,
       "should not transfer name attribute to combo box"
     );
 
-    assert.equal(select.value, "", "the select value should be empty");
-    assert.equal(input.value, "", "the input should be empty");
+    assert.strictEqual(select.value, "", "the select value should be empty");
+    assert.strictEqual(input.value, "", "the input should be empty");
   });
 
   it("should focus the first item found in the list from the query when pressing down from the input", () => {
@@ -84,7 +84,7 @@ describe("time picker component", () => {
 
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "4:00pm",
       "should focus the last item in the list"
@@ -99,7 +99,7 @@ describe("time picker component", () => {
 
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "1:00pm",
       "should focus the last item in the list"

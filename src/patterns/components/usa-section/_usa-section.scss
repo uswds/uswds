@@ -21,6 +21,8 @@
   h4,
   h5,
   h6 {
+    // TODO: This should use a theme-able color,
+    // and should probably default to white
     color: color("accent-cool");
   }
 

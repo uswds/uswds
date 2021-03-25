@@ -7,7 +7,7 @@ const TEMPLATE = fs.readFileSync(__dirname + "/select.template.html");
 
 const assertArrayWithLength = (array, length) => {
   assert(Array.isArray(array), "not an array: " + typeof array);
-  assert.equal(array.length, length);
+  assert.strictEqual(array.length, length);
 };
 
 describe("select", function() {

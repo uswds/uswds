@@ -52,12 +52,12 @@ describe("combo box component change event dispatch", () => {
     EVENTS.click(input);
     EVENTS.click(list.children[0]);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "apple",
       "should set that item to being the select option"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Apple",
       "should set that item to being the input value"
@@ -81,8 +81,8 @@ describe("combo box component change event dispatch", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(select.value, "apple");
-    assert.equal(input.value, "Apple", "should reset the value on the input");
+    assert.strictEqual(select.value, "apple");
+    assert.strictEqual(input.value, "Apple", "should reset the value on the input");
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -98,12 +98,12 @@ describe("combo box component change event dispatch", () => {
 
     EVENTS.keydownEscape(input);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "apple",
       "should not change the value of the select"
     );
-    assert.equal(input.value, "Apple", "should reset the value in the input");
+    assert.strictEqual(input.value, "Apple", "should reset the value in the input");
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -119,12 +119,12 @@ describe("combo box component change event dispatch", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "fig",
       "should set that item to being the select option"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Fig",
       "should set that item to being the input value"
@@ -140,15 +140,15 @@ describe("combo box component change event dispatch", () => {
     EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Lemon",
       "should focus the first item in the list"
     );
     EVENTS.keydownEnter(focusedOption);
 
-    assert.equal(select.value, "lemon", "select the first item in the list");
-    assert.equal(input.value, "Lemon", "should set the value in the input");
+    assert.strictEqual(select.value, "lemon", "select the first item in the list");
+    assert.strictEqual(input.value, "Lemon", "should set the value in the input");
     assert.ok(selectChangeSpy.called, "should have dispatched a change event");
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
@@ -164,7 +164,7 @@ describe("combo box component change event dispatch", () => {
     );
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Honeydew melon",
       "should focus the first item in the list"
@@ -172,12 +172,12 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keydownEscape(focusedOption);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(
+    assert.strictEqual(
       select.value,
       "grapefruit",
       "should not change the value of the select"
     );
-    assert.equal(
+    assert.strictEqual(
       input.value,
       "Grapefruit",
       "should reset the value in the input"

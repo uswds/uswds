@@ -39,7 +39,7 @@ describe('character count component', () => {
   });
 
   it('adds initial message for the character count component', () => {
-    assert.equal(message.innerHTML, '20 characters allowed');
+    assert.strictEqual(message.innerHTML, '20 characters allowed');
   });
 
   it('informs the user how many more characters they are allowed', () => {
@@ -47,7 +47,7 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(message.innerHTML, '19 characters left');
+    assert.strictEqual(message.innerHTML, '19 characters left');
   });
 
   it('informs the user they are allowed a single character', () => {
@@ -55,7 +55,7 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(message.innerHTML, '1 character left');
+    assert.strictEqual(message.innerHTML, '1 character left');
   });
 
   it('informs the user they are over the limit by a single character', () => {
@@ -63,7 +63,7 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(message.innerHTML, '1 character over limit');
+    assert.strictEqual(message.innerHTML, '1 character over limit');
   });
 
   it('informs the user how many characters they will need to remove', () => {
@@ -71,7 +71,7 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(message.innerHTML, '5 characters over limit');
+    assert.strictEqual(message.innerHTML, '5 characters over limit');
   });
 
   it('should show the component and input as valid when the input is under the limit', () => {
@@ -79,8 +79,8 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(input.validationMessage, '');
-    assert.equal(
+    assert.strictEqual(input.validationMessage, '');
+    assert.strictEqual(
       message.classList.contains(MESSAGE_INVALID_CLASS),
       false,
     );
@@ -91,11 +91,11 @@ describe('character count component', () => {
 
     EVENTS.input(input);
 
-    assert.equal(
+    assert.strictEqual(
       input.validationMessage,
       VALIDATION_MESSAGE,
     );
-    assert.equal(
+    assert.strictEqual(
       message.classList.contains(MESSAGE_INVALID_CLASS),
       true,
     );

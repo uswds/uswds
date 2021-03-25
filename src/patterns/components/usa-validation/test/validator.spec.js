@@ -37,7 +37,7 @@ describe("validator component", () => {
       validated.value = "GreatPassword1";
       keyup(validated);
       validators.forEach(checkbox => {
-        assert.equal(checkbox.classList.contains(CHECKED_CLASS), true);
+        assert.strictEqual(checkbox.classList.contains(CHECKED_CLASS), true);
       });
     });
 
@@ -47,9 +47,9 @@ describe("validator component", () => {
       validators.forEach(checkbox => {
         const checked = checkbox.classList.contains(CHECKED_CLASS);
         if (checkbox.getAttribute("data-validator") === "numerical") {
-          assert.equal(checked, false);
+          assert.strictEqual(checked, false);
         } else {
-          assert.equal(checked, true);
+          assert.strictEqual(checked, true);
         }
       });
     });

@@ -33,6 +33,14 @@ $ns-grid: ns("grid");
 
 /*
 ----------------------------------------
+Separator
+----------------------------------------
+*/
+
+$separator: $theme-prefix-separator;
+
+/*
+----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -655,7 +663,7 @@ $project-aspect-ratios: (
 Easing
 ----------------------------------------
 */
-$project-easing: 0.2s ease-in-out;
+$project-easing: 0.15s ease-in-out;
 
 /*
 ----------------------------------------

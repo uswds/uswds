@@ -7,10 +7,11 @@ $banner-icon-colors: get-link-tokens-from-bg(
 );
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
-$banner-icon-chevron: ("name": "chevron",
-  "svg-height": 39,
-  "svg-width": 64,
-  "height": 0.8ex,
+$banner-icon-chevron: (
+  "name": "expand_more",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 2,
   "color": $banner-icon-color,
   "color-variant": "white",
   "color-hover": $banner-icon-hover,
@@ -18,11 +19,11 @@ $banner-icon-chevron: ("name": "chevron",
 $banner-icon-chevron-up: map-merge(
   $banner-icon-chevron,
   (
-    "rotate": 180deg,
+    "name": "expand_less",
   )
 );
 $banner-icon-close: (
-  "name": "usa-icons/close",
+  "name": "close",
   "svg-height": 40,
   "svg-width": 40,
   "height": 3,
@@ -96,7 +97,6 @@ $banner-icon-close: (
 
   height: $icon-height;
   width: $icon-height * $lock-aspect;
-
   path {
     fill: currentColor;
   }
@@ -134,9 +134,10 @@ $banner-icon-close: (
 }
 
 .usa-banner__header-action {
-  @include place-icon($banner-icon-chevron,
+  @include place-icon(
+    $banner-icon-chevron,
     "after",
-    2px,
+    0,
     middle,
     $theme-banner-background-color
   );
@@ -220,9 +221,10 @@ $banner-icon-close: (
   }
 
   @include at-media("tablet") {
-    @include place-icon($banner-icon-chevron,
+    @include place-icon(
+      $banner-icon-chevron,
       "after",
-      2px,
+      "2px",
       middle,
       $theme-banner-background-color
     );
@@ -235,6 +237,10 @@ $banner-icon-close: (
     display: inline;
     margin-left: units(1);
     position: relative;
+
+    &:after {
+      position: absolute;
+    }
 
     &:hover {
       // Underline added to inner text instead.
@@ -250,14 +256,15 @@ $banner-icon-close: (
     background-image: none;
 
     @include at-media-max("tablet") {
-      @include place-icon($banner-icon-close,
+      @include place-icon(
+        $banner-icon-close,
         "after",
         0,
         middle,
         "base-lighter"
       );
 
-      &::before {
+      &:before {
         @include u-pin("y");
         @include u-pin("right");
         background-color: color("base-lighter");
@@ -266,22 +273,27 @@ $banner-icon-close: (
         height: units($size-touch-target);
         width: units($size-touch-target);
       }
-
-      &::after {
+      &:after {
         @include u-pin("y");
         @include u-pin("right");
       }
     }
 
     @include at-media("tablet") {
-      @include place-icon($banner-icon-chevron-up,
+      @include place-icon(
+        $banner-icon-chevron-up,
         "after",
-        2px,
+        "2px",
         middle,
-        $theme-banner-background-color);
+        $theme-banner-background-color
+      );
       height: auto;
       padding: units(0);
       position: relative;
+
+      &:after {
+        position: absolute;
+      }
     }
   }
 }

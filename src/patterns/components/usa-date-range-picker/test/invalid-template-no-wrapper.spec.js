@@ -44,13 +44,13 @@ describe("Date range picker button without wrapping element", () => {
     expectedError = "Element is missing outer .usa-date-range-picker";
     rangeStartInputEl.value = "12/12/2020";
     EVENTS.input(rangeStartInputEl);
-    assert.equal(error, expectedError, "caught the error");
+    assert.strictEqual(error, expectedError, "caught the error");
   });
 
   it('should throw an error when the range end value is changed without a wrapping "usa-date-range-picker"', () => {
     expectedError = "Element is missing outer .usa-date-range-picker";
     rangeEndInputEl.value = "12/12/2020";
     EVENTS.input(rangeEndInputEl);
-    assert.equal(error, expectedError, "caught the error");
+    assert.strictEqual(error, expectedError, "caught the error");
   });
 });

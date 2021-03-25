@@ -3,8 +3,12 @@
  */
 
 @mixin card-inner-radius {
-  border-top-left-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
-  border-top-right-radius: calc(#{radius($theme-card-border-radius)} - #{units($theme-card-border-width)});
+  border-top-left-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
+  border-top-right-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
 }
 
 @include override-prose {
@@ -29,14 +33,18 @@
     @include u-maxw("none"); // override prose scope
 
     &:last-child {
-      @include u-margin-bottom($theme-card-margin-bottom + 1); // override prose scope
+      @include u-margin-bottom(
+        $theme-card-margin-bottom + 1
+      ); // override prose scope
     }
 
     @include at-media("tablet") {
       @include u-margin-bottom($theme-card-margin-bottom);
 
       &:last-child {
-        @include u-margin-bottom($theme-card-margin-bottom); // override prose scope
+        @include u-margin-bottom(
+          $theme-card-margin-bottom
+        ); // override prose scope
       }
     }
   }
@@ -44,8 +52,8 @@
 
 .usa-card__container {
   @include border-box-sizing;
+  @include set-text-and-bg("white");
   @include typeset;
-  @include u-bg("white");
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-display("flex");
   @include u-height("full");
@@ -55,7 +63,7 @@
   @include u-radius($theme-card-border-radius);
 }
 
-.usa-card:not(.usa-card--flag) .usa-card__container> :only-child {
+.usa-card:not(.usa-card--flag) .usa-card__container > :only-child {
   @include u-padding($theme-card-padding-perimeter);
 }
 
@@ -149,7 +157,6 @@
 
 .usa-card__header,
 .usa-card__body {
-
   // strip spacing from first and last content
   > :last-child {
     @include u-padding-bottom(0);
@@ -180,7 +187,7 @@
 
 .usa-card__header--exdent,
 .usa-card__footer--exdent {
-  >* {
+  > * {
     @include u-padding-x($theme-card-border-width);
   }
 }
@@ -236,104 +243,104 @@
 
     .usa-card__img {
       @include u-radius(0);
-      border-top-left-radius: calc(#{radius($theme-card-border-radius)} - #{units(
- $theme-card-border-width)
+      border-top-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
+      border-bottom-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
     }
 
-    );
-    border-bottom-left-radius: calc(#{radius($theme-card-border-radius)} - #{units(
- $theme-card-border-width)
-  }
+    .usa-card__header,
+    .usa-card__body,
+    .usa-card__footer {
+      @include u-margin-left($theme-card-flag-image-width);
+    }
 
-  );
-}
+    .usa-card__media--exdent {
+      @include u-margin-left(-$theme-card-border-width);
+      @include u-margin-right(0);
+      @include u-margin-y(-$theme-card-border-width);
 
-.usa-card__header,
-.usa-card__body,
-.usa-card__footer {
-  @include u-margin-left($theme-card-flag-image-width);
-}
+      .usa-card__img {
+        @include u-radius-left($theme-card-border-radius);
+      }
+    }
 
-.usa-card__media--exdent {
-  @include u-margin-left(-$theme-card-border-width);
-  @include u-margin-right(0);
-  @include u-margin-y(-$theme-card-border-width);
+    .usa-card__media--inset {
+      @include u-padding-right(0);
+      @include u-padding-bottom($theme-card-padding-perimeter);
 
-  .usa-card__img {
-    @include u-radius-left($theme-card-border-radius);
-  }
-}
+      .usa-card__img {
+        @include u-radius(0);
+      }
+    }
 
-.usa-card__media--inset {
-  @include u-padding-right(0);
-  @include u-padding-bottom($theme-card-padding-perimeter);
+    &.usa-card--header-first {
+      .usa-card__header {
+        @include u-padding-bottom($theme-card-padding-y / 2);
+      }
 
-  .usa-card__img {
-    @include u-radius(0);
-  }
-}
+      .usa-card__body {
+        @include u-padding-top($theme-card-padding-y / 2);
+      }
 
-&.usa-card--header-first {
-  .usa-card__header {
-    @include u-padding-bottom($theme-card-padding-y / 2);
-  }
+      .usa-card__media--inset {
+        @include u-padding-top($theme-card-padding-perimeter);
+      }
+    }
 
-  .usa-card__body {
-    @include u-padding-top($theme-card-padding-y / 2);
-  }
+    &.usa-card--media-right {
+      .usa-card__media {
+        @include u-left("auto");
+        @include u-right(0);
+      }
 
-  .usa-card__media--inset {
-    @include u-padding-top($theme-card-padding-perimeter);
-  }
-}
+      .usa-card__media--inset {
+        @include u-padding-left(0);
+        @include u-padding-right($theme-card-padding-perimeter);
 
-&.usa-card--media-right {
-  .usa-card__media {
-    @include u-left("auto");
-    @include u-right(0);
-  }
+        .usa-card__img {
+          @include u-radius(0);
+        }
+      }
 
-  .usa-card__media--inset {
-    @include u-padding-left(0);
-    @include u-padding-right($theme-card-padding-perimeter);
+      .usa-card__img {
+        @include u-radius(0);
+        border-top-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+        border-bottom-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+      }
 
-    .usa-card__img {
-      @include u-radius(0);
+      .usa-card__header,
+      .usa-card__body,
+      .usa-card__footer {
+        @include u-margin-left(0);
+        @include u-margin-right($theme-card-flag-image-width);
+      }
+
+      .usa-card__media--exdent {
+        @include u-margin-right(-$theme-card-border-width);
+        @include u-margin-left(0);
+
+        .usa-card__img {
+          @include u-radius(0);
+          @include u-radius-right($theme-card-border-radius);
+        }
+      }
     }
   }
-
-  .usa-card__img {
-    @include u-radius(0);
-    border-top-right-radius: calc(#{radius($theme-card-border-radius)} - #{units(
- $theme-card-border-width)
-  }
-
-  );
-  border-bottom-right-radius: calc(#{radius($theme-card-border-radius)} - #{units(
- $theme-card-border-width)
-}
-
-);
-}
-
-.usa-card__header,
-.usa-card__body,
-.usa-card__footer {
-  @include u-margin-left(0);
-  @include u-margin-right($theme-card-flag-image-width);
-}
-
-.usa-card__media--exdent {
-  @include u-margin-right(-$theme-card-border-width);
-  @include u-margin-left(0);
-
-  .usa-card__img {
-    @include u-radius(0);
-    @include u-radius-right($theme-card-border-radius);
-  }
-}
-}
-}
 }
 
 .usa-card:not(.usa-card--flag).usa-card__media--set-aspect {

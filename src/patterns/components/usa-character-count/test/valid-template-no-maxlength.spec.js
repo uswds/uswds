@@ -37,7 +37,7 @@ describe('character count component without maxlength', () => {
   });
 
   it('should not update an initial message for the character count component', () => {
-    assert.equal(message.innerHTML, '');
+    assert.strictEqual(message.innerHTML, '');
   });
 
   it('should not inform the user of remaining characters when typing', () => {
@@ -45,6 +45,6 @@ describe('character count component without maxlength', () => {
 
     EVENTS.input(input);
 
-    assert.equal(message.innerHTML, '');
+    assert.strictEqual(message.innerHTML, '');
   });
 });

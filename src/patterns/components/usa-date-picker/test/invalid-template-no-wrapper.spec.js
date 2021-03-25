@@ -34,6 +34,6 @@ describe("Date picker button without wrapping element", () => {
   it('should throw an error when a toggle button is clicked without a wrapping "usa-date-picker"', () => {
     expectedError = "Element is missing outer .usa-date-picker";
     EVENTS.click(button);
-    assert.equal(error, expectedError, "caught the error");
+    assert.strictEqual(error, expectedError, "caught the error");
   });
 });

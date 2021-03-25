@@ -1,5 +1,4 @@
 ---
-heading: 'Segmented'
 modifier: 'usa-button-group--segmented'
 items:
   - '<button class="usa-button">Map</button>'

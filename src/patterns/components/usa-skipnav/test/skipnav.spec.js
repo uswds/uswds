@@ -27,20 +27,20 @@ describe("skip nav link", () => {
 
   it('skipnav link sets tabindex="0" when clicked', () => {
     skipLink.click();
-    assert.equal(main.getAttribute("tabindex"), "0");
+    assert.strictEqual(main.getAttribute("tabindex"), "0");
   });
 
   it('skipnav link sets tabindex="-1" when blurred', () => {
     skipLink.click();
-    assert.equal(main.getAttribute("tabindex"), "0");
+    assert.strictEqual(main.getAttribute("tabindex"), "0");
 
     main.focus(); // XXX jsdom doesn't do this for us
     main.blur();
-    assert.equal(main.getAttribute("tabindex"), "-1");
+    assert.strictEqual(main.getAttribute("tabindex"), "-1");
   });
 
   it('return to top link sets tabindex="0" when clicked', () => {
     topLink.click();
-    assert.equal(main.getAttribute("tabindex"), "0");
+    assert.strictEqual(main.getAttribute("tabindex"), "0");
   });
 });

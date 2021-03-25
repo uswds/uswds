@@ -1,7 +1,10 @@
+$date-picker-max-width: "mobile";
+
 // Date Picker
 .usa-date-picker__wrapper {
   display: none;
   position: relative;
+  max-width: units($theme-input-max-width);
 
   &:focus {
     outline: 0;
@@ -61,8 +64,10 @@
 // Date Picker - Calendar View
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
-  left: 0;
+  left: auto;
+  max-width: units($date-picker-max-width);
   position: absolute;
+  right: 0;
   width: 100%;
   z-index: z-index(100);
 }

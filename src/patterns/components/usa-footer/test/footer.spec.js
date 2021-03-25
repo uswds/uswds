@@ -30,7 +30,7 @@ const resizeTo = width =>
   });
 
 const assertHidden = (el, hidden) => {
-  assert.equal(
+  assert.strictEqual(
     el.classList.contains(HIDDEN),
     hidden,
     `not hidden: ${el.nodeName} (${el.className})`

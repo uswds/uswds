@@ -38,8 +38,8 @@ describe("date picker component with default date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-06-20",
       "focuses correct date"
@@ -51,8 +51,8 @@ describe("date picker component with default date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
@@ -64,8 +64,8 @@ describe("date picker component with default date", () => {
 
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"
