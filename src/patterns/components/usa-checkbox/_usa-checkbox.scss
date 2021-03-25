@@ -5,7 +5,10 @@ $input-select-margin-right: 1.5;
     @include add-list-reset;
 
     li {
-      line-height: line-height($theme-form-font-family, $theme-input-line-height);
+      line-height: line-height(
+        $theme-form-font-family,
+        $theme-input-line-height
+      );
     }
   }
 }
@@ -82,7 +85,8 @@ $input-select-margin-right: 1.5;
 
 // Checkboxes with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label {
-  border: units($theme-input-tile-border-width) solid color($theme-input-tile-border-color);
+  border: units($theme-input-tile-border-width) solid
+    color($theme-input-tile-border-color);
   border-radius: radius($theme-input-tile-border-radius);
   margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);

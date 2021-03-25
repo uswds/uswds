@@ -29,7 +29,10 @@ $icon-breadcrumb-back: (
 );
 
 // Set default value for custom mixin exdent-icon()
-$breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-get($icon-breadcrumb-back, "svg-height"));
+$breadcrumb-back-icon-aspect: (
+  map-get($icon-breadcrumb-back, "svg-width"),
+  map-get($icon-breadcrumb-back, "svg-height")
+);
 
 // Defines spacing so back icon is optically placed
 @mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
@@ -89,11 +92,13 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
       .usa-breadcrumb__link {
         @include button-unstyled;
         @include exdent-icon;
-        @include place-icon($icon-breadcrumb-back,
+        @include place-icon(
+          $icon-breadcrumb-back,
           "before",
           0,
           baseline,
-          $theme-breadcrumb-background-color);
+          $theme-breadcrumb-background-color
+        );
 
         // Override link colors from button-unstyled()
         @include set-link-from-bg(
@@ -119,7 +124,6 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
         &:active {
           @include u-text("no-underline");
         }
-
         span {
           @include u-text("underline");
         }
@@ -137,11 +141,13 @@ $breadcrumb-back-icon-aspect: (map-get($icon-breadcrumb-back, "svg-width"), map-
 
     // Breadcrumb separator ›
     &:not(:last-child) {
-      @include place-icon($icon-breadcrumb-separator,
+      @include place-icon(
+        $icon-breadcrumb-separator,
         "after",
         0,
         baseline,
-        $theme-breadcrumb-background-color);
+        $theme-breadcrumb-background-color
+      );
     }
 
     // Style overrides for separator using non-token values
