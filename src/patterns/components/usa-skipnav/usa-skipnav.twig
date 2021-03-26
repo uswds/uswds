@@ -1,5 +1,8 @@
 <section class="usa-skipnav__container">
-  <a class="usa-skipnav usa-focus" href="#main-content">Skip to main content</a>
+  {% include "./components/usa-skipnav/_usa-skipnav-link.twig" with {
+    focus: true,
+    href: "#main-content"
+  } %}
 
   <main id="main-content" class="margin-top-9">
     <h1>Skipnav</h1>
