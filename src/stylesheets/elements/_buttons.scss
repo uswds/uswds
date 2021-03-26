@@ -200,7 +200,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse:disabled {
   background-color: color("transparent");
-  pointer-events: none;
 
   &:hover,
   &.usa-button--hover,
