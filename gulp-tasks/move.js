@@ -1,5 +1,3 @@
-'use strict';
-
 // Include gulp
 const { src, dest } = require('gulp');
 
@@ -13,7 +11,7 @@ module.exports = {
   moveFonts() {
     return src('src/fonts/**/*', { base: './' })
       .pipe(
-        rename(function(path) {
+        rename((path) => {
           path.dirname = '';
           return path;
         })
@@ -25,7 +23,7 @@ module.exports = {
   movePatternCSS() {
     return src(['./src/styleguide/**/*.css'], { base: './' })
       .pipe(
-        rename(function(path) {
+        rename((path) => {
           path.dirname = '';
           return path;
         })
