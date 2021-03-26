@@ -40,11 +40,23 @@ $pagination-context: "Pagination";
   }
 }
 
+.usa-pagination__previous-page {
+  @include at-media($theme-pagination-breakpoint) {
+    margin-right: units(5);
+  }
+}
+
+.usa-pagination__next-page {
+  @include at-media($theme-pagination-breakpoint) {
+    margin-left: units(5);
+  }
+}
+
 .usa-pagination__link {
   @include set-link-from-bg(
     $theme-pagination-background-color,
-    $theme-link-color,
-    $pagination-context
+    $important: true,
+    $context: $pagination-context
   );
   display: inline-flex;
   text-decoration: none;
@@ -53,16 +65,25 @@ $pagination-context: "Pagination";
     color: color("base-light") !important;
     pointer-events: none;
   }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: color($theme-link-color);
+  }
 }
 
 .usa-pagination__button {
-  @include set-link-from-bg(
+  @include set-text-and-bg(
     $theme-pagination-button-background-color,
     $theme-link-color,
+    $important: true,
     $context: $pagination-context
   );
   align-items: center;
-  background-color: color($theme-pagination-button-background-color);
   border-color: color($theme-pagination-button-border-color);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
@@ -76,10 +97,12 @@ $pagination-context: "Pagination";
   &:hover,
   &:focus {
     @include set-text-and-bg("primary", $context: $pagination-context);
+    border-color: color("primary");
   }
 
   &:active {
     @include set-text-and-bg("primary-dark", $context: $pagination-context);
+    border-color: color("primary-dark");
   }
 }
 
@@ -88,20 +111,31 @@ $pagination-context: "Pagination";
     $theme-pagination-current-background-color,
     "white",
     $theme-link-color,
+    $important: true,
     $context: $pagination-context
   );
-  border-color: color($theme-pagination-button-border-color);
+  border-color: color($theme-pagination-current-background-color);
 
   &:hover,
   &:focus,
   &:active {
-    @include set-text-and-bg("primary-darker", $context: $pagination-context);
+    @include set-text-and-bg(
+      "primary-darker",
+      $important: true,
+      $context: $pagination-context
+    );
+    border-color: color("primary-darker");
   }
 }
 
 .usa-pagination__ellipsis {
+  display: none;
   user-select: none;
   padding: units($theme-pagination-padding);
+
+  @include at-media($theme-pagination-breakpoint) {
+    display: inherit;
+  }
 }
 
 // ---------------------------------
