@@ -29,13 +29,13 @@
       <a
         href="{{ placeholder_link }}"
         class="usa-pagination__link usa-pagination__previous-page"
-        aria-label="{{ pagination.previous.aria_label }}"
+        aria-label="{{ pagination.previous.aria_label|default("Previous page") }}"
         {{ pagination.current == 1 ? 'disabled' }}>
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_before"></use>
         </svg>
         <span class="usa-pagination__link-text">
-          {{ pagination.previous.label }}
+          {{ pagination.previous.label|default("Previous") }}
         </span>
       </a>
     </li>
@@ -93,10 +93,10 @@
       <a
         href="{{ placeholder_link }}"
         class="usa-pagination__link usa-pagination__next-page"
-        aria-label="{{ pagination.next.aria_label }}"
+        aria-label="{{ pagination.next.aria_label|default("Next page") }}"
         {{ pagination.items == pagination.current ? 'disabled' }}>
         <span class="usa-pagination__link-text">
-          {{ pagination.next.label }}
+          {{ pagination.next.label|default("Next") }}
         </span>
         <svg class="usa-icon" aria-hidden="true" role="img">
           <use xlink:href="{{ sprite_path }}#navigate_next"></use>

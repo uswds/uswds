@@ -1,14 +1,14 @@
 <section aria-label="{{ section_label }} search component">
   <form class="usa-search {{ modifier }}" {% if search_js %} js-search-form{% endif %}" role="search">
-    <label class="usa-sr-only" for="{{ id }}">{{ search_label }}</label>
+    <label class="usa-sr-only" for="{{ id }}">{{ search_label|default("Search") }}</label>
     <input class="usa-input" id="{{ id }}" type="search" name="search">
     {% if modifier != 'usa-search--small' %}
       <button class="usa-button" type="submit">
-        <span class="usa-search__submit-text">{{ button_text }}</span>
+        <span class="usa-search__submit-text">{{ button_text|default("Search") }}</span>
       </button>
     {% else %}
       <button class="usa-button" type="submit">
-        <span class="usa-sr-only">{{ button_text }}</span>
+        <span class="usa-sr-only">{{ button_text|default("Search") }}</span>
       </button>
     {% endif %}
   </form>
