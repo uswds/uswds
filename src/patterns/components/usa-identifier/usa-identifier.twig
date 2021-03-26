@@ -30,20 +30,22 @@
       <div class="usa-identifier__identity" aria-label="{{ masthead.description }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
-          {{ masthead.content }} <a href="{{ masthead.parent.url }}">{{ masthead.parent.name|e }}</a>
+          {{ masthead.content }} <a href="{{ masthead.parent.url|default(placeholder_link) }}">{{ masthead.parent.name|e }}</a>
           {% if masthead.agency.url %}
             {{ (lang == "es") ? "y" : "and" }}
           {% endif %}
           {% if masthead.agency.name or masthead.agency.shortname %}
             {{ (lang == "en") ? "the" : ""}}
           {%- endif %}
-            <a href="{{ masthead.agency.url }}">
+          {% if mashead.agency.url %}
+            <a href="{{ masthead.agency.url|default(placeholder_link) }}">
               {% if masthead.agency.name -%}
               {{ masthead.agency.name|e }}
               {% else %}
               {{ masthead.agency.shortname|e }}
               {%- endif -%}
             </a>
+          {% endif %}
           {% if masthead.taxpayer_disclaimer.display %}
           . {{ masthead.taxpayer_disclaimer.content }}
           {%- endif -%}
