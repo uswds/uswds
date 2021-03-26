@@ -8,7 +8,7 @@
     'last_item': pagination.items,
     'first_seven': range(2, 9),
     'last_seven': range(pagination.items - 7, pagination.items),
-    'all': range(2, pagination.items - 1)
+    'all': range(1, pagination.items)
   }
 %}
 
@@ -51,7 +51,7 @@
 
     {% elseif (pagination.current >= pagination.items - 7) %}
       {# Show last seven #}
-      {% for item in pager_rseven %}
+      {% for item in pager_ranges.last_seven %}
         <li class="usa-pagination__item usa-pagination__page-no">
           {{ paginationButton(item, pagination.current) }}
         </li>
