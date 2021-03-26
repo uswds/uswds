@@ -1,0 +1,107 @@
+{# Workaround to component data not being inherited #}
+{% set defaults = {
+  usa_banner: {
+    banner: {
+      id: "gov-banner-default",
+      text: "An official website of the United States government",
+      action: "Here’s how you know",
+    },
+    domain: {
+      heading: "Official websites use .gov",
+      text: "A <strong>.gov</strong> website belongs to an official government organization in the United States."
+    },
+    https: {
+      heading: "Secure .gov websites use HTTPS",
+      pretext: "A <strong>lock</strong>",
+      posttext: "or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites."
+    }
+  },
+  usa_header: {
+    modifier: '',
+    title: 'Basic header',
+    items: [
+      {
+        label: "Current section",
+        current: true,
+        id: "basic-nav-section-one",
+        subnav: [
+          {label: "Navigation link"},
+          {label: "Navigation link"},
+          {label: "Navigation link"},
+          {label: "Navigation link"},
+        ]
+      },
+      {
+        label: "Section",
+        id: "basic-nav-section-two",
+        subnav: [
+          {label: "Navigation link"},
+          {label: "Navigation link"},
+          {label: "Navigation link"},
+        ]
+      },
+      {
+        label: "Simple link",
+      }
+    ],
+  },
+  usa_identifier: {
+    domain: "domain.gov",
+    lang: "en",
+    masthead: {
+      aria_label: "Agency identifier",
+      description: "Agency description",
+      content: "An official website of the"
+    },
+    parent: {
+      name: "<Parent agency>",
+      shortname: "<Parent shortname>",
+      url: "javascript:void(0)",
+      logo: "../../img/circle-gray-20.svg"
+    },
+    taxpayer_disclaimer: {
+      content: "Produced and published at taxpayer expense.",
+      display: false
+    },
+    required_links: {
+      aria_label: "Important links",
+      links: [
+        {
+          label: "About",
+          url: "javascript:void(0)",
+          include_shortname: true
+        },
+        {label: "Accessibility support"},
+        {label: "FOIA requests"},
+        {label: "No FEAR Act data"},
+        {label: "Office of the Inspector General"},
+        {label: "Performance reports"},
+        {label: "Privacy policy"}
+      ]
+    },
+    usagov: {
+      aria_label: "U.S. government information and services",
+      description: "Looking for U.S. government information and services?",
+      link: {
+        label: "Visit USA.gov",
+        url: "https://www.usa.gov/"
+      },
+      display: true
+    }
+
+  }
+}%}
+
+
+{% include "./components/usa-skipnav/_usa-skipnav-link.twig" %}
+
+{% include "./components/usa-banner/usa-banner.twig" with defaults.usa_banner %}
+
+{% include "./components/usa-header/usa-header.twig" with defaults.usa_header %}
+
+<main id="main-content">
+  {% block content %}{% endblock %}
+</main>
+
+{% include "./components/usa-footer/usa-footer--slim/usa-footer--slim.twig" %}
+{% include "./components/usa-identifier/usa-identifier.twig" with defaults.usa_identifier %}
