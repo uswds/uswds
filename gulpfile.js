@@ -8,6 +8,7 @@ require("./config/gulp/javascript");
 // Include gulp helpers.
 const { series, parallel, watch } = require("gulp");
 const run = require("gulp-run-command").default;
+const server = require("browser-sync").create();
 
 // Include Our tasks.
 //
@@ -40,7 +41,6 @@ const {
 } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
-const server = require("browser-sync").create();
 
 // Clean all directories.
 exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
