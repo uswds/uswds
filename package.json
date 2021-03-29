@@ -120,6 +120,7 @@
     "gulp-changed": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.3.0",
+    "gulp-dart-scss": "^1.1.0",
     "gulp-eslint": "^6.0.0",
     "gulp-filter": "^6.0.0",
     "gulp-postcss": "^9.0.0",
