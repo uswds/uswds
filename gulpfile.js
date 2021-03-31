@@ -18,7 +18,7 @@ const {
   sassTests,
   a11y,
   cover,
-} = require("./config/gulp/test");
+} = require("./gulp-tasks/test");
 const {
   cleanCSS,
   cleanFonts,
