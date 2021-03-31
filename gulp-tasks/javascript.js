@@ -10,8 +10,8 @@ const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
-const dutil = require("../config/gulp/doc-util");
-const cFlags = require("../config/gulp/cflags");
+const dutil = require("./utils/doc-util");
+const cFlags = require("./utils/cflags");
 
 const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
