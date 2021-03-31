@@ -10,6 +10,7 @@ const run = require("gulp-run-command").default;
 // Check out the ./gulp-tasks directory for more.
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { svgSprite } = require("./gulp-tasks/svg-sprite");
+const { fonts } = require("./gulp-tasks/fonts");
 const {
   compileJavascript,
   typeCheck,
@@ -159,6 +160,7 @@ exports.test = series(
 
 // building
 exports.svgSprite = svgSprite;
+exports.fonts = fonts;
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
