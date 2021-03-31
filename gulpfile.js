@@ -1,8 +1,3 @@
-// Old gulp tasks
-// Patch these in until ported into new syntax
-// typecheck
-// require("./config/gulp/javascript");
-
 // Todo: convert release tasks.
 
 // Include gulp helpers.
@@ -13,7 +8,8 @@ const run = require("gulp-run-command").default;
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
-// typecheck
+const { noCleanup, noTest } = require("./gulp-tasks/flags");
+const { svgSprite } = require("./gulp-tasks/svg-sprite");
 const {
   compileJavascript,
   typeCheck,
@@ -48,27 +44,6 @@ const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const server = require("browser-sync").create();
 
-// Clean all directories.
-exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
-
-// Lint Sass
-exports.lintSass = parallel(lintSass);
-
-// Lint JavaScript
-exports.lintJS = parallel(lintJS);
-
-// Lint Sass and JavaScript
-exports.lint = parallel(lintSass, lintJS);
-
-// Compile Our Sass and JS
-exports.compile = parallel(
-  compileSass,
-  compileJS,
-  compileSprite,
-  moveFonts,
-  movePatternCSS
-);
-
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
 }
@@ -96,25 +71,6 @@ function serve(done) {
   });
   done();
 }
-
-exports.a11y = series(serve, a11y, exitServer);
-
-exports.cover = cover;
-
-exports.sassTests = sassTests;
-
-exports.unitTests = unitTests;
-
-exports.test = series(
-  typeCheck,
-  lintJS,
-  lintSass,
-  sassTests,
-  unitTests,
-  serve,
-  a11y,
-  exitServer
-);
 
 /**
  * Watch Sass and JS files.
@@ -154,6 +110,55 @@ function watchFiles() {
     series(series(unitTests, sassTests), (done) => done())
   );
 }
+// exports
+
+// flags
+exports.noTest = noTest;
+exports.noCleanup = noCleanup;
+
+// Clean all directories.
+exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
+
+// Lint Sass
+exports.lintSass = parallel(lintSass);
+
+// Lint JavaScript
+exports.lintJS = parallel(lintJS);
+
+// Lint Sass and JavaScript
+exports.lint = parallel(lintSass, lintJS);
+
+// Compile Our Sass and JS
+exports.compile = parallel(
+  compileSass,
+  compileJS,
+  compileSprite,
+  moveFonts,
+  movePatternCSS
+);
+
+// tests
+exports.a11y = series(serve, a11y, exitServer);
+
+exports.cover = cover;
+
+exports.sassTests = sassTests;
+
+exports.unitTests = unitTests;
+
+exports.test = series(
+  typeCheck,
+  lintJS,
+  lintSass,
+  sassTests,
+  unitTests,
+  serve,
+  a11y,
+  exitServer
+);
+
+// building
+exports.svgSprite = svgSprite;
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
@@ -166,7 +171,6 @@ exports.watch = series(
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(rebuildPL, serve, watchFiles)
 );
-
 
 // Default Task
 exports.default = series(
