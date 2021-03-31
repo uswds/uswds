@@ -1,7 +1,7 @@
 // Old gulp tasks
 // Patch these in until ported into new syntax
 // typecheck
-require("./config/gulp/javascript");
+// require("./config/gulp/javascript");
 
 // Todo: convert release tasks.
 
@@ -13,6 +13,12 @@ const run = require("gulp-run-command").default;
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
+// typecheck
+const {
+  compileJavascript,
+  typeCheck,
+  eslint,
+} = require("./gulp-tasks/javascript");
 const {
   unitTests,
   sassTests,
@@ -100,6 +106,7 @@ exports.sassTests = sassTests;
 exports.unitTests = unitTests;
 
 exports.test = series(
+  typeCheck,
   lintJS,
   lintSass,
   sassTests,
