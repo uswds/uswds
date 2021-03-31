@@ -1,5 +1,3 @@
-'use strict';
-
 // Include Our Plugins
 const del = require('del');
 
@@ -7,27 +5,27 @@ const del = require('del');
 module.exports = {
 
   // Clean CSS files.
-  cleanCSS: function() {
+  cleanCSS() {
     return del(['./dist/css/*'], { force: true });
   },
 
   // Clean Fonts files.
-  cleanFonts: function() {
+  cleanFonts() {
     return del(['./dist/fonts/*'], { force: true });
   },
 
   // Clean Images files.
-  cleanImages: function() {
+  cleanImages() {
     return del(['./dist/img/*'], { force: true });
   },
 
   // Clean JS files.
-  cleanJS: function() {
+  cleanJS() {
     return del(['./dist/js/*'], { force: true });
   },
 
    // Clean Sass files.
-   cleanSass: function() {
+  cleanSass() {
     return del(['./dist/scss/*'], { force: true });
   }
 };

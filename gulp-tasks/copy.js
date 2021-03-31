@@ -1,13 +1,7 @@
-'use strict';
-
-// Include gulp
 const { src, dest } = require('gulp');
-
-// Include Our Plugins
 const filter = require("gulp-filter");
 const rename = require('gulp-rename');
 
-// Export our tasks.
 module.exports = {
 
   // Copy vendor sass to library

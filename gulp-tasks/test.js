@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const { src } = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
 const mochaConfig = {
@@ -9,23 +9,21 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return gulp.src("src/patterns/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("src/patterns/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
-    return gulp
-      .src("src/patterns/stylesheets/test/sass-spec.js")
+    return src("src/patterns/stylesheets/test/sass-spec.js")
       .pipe(mocha());
   },
 
   // run accessiblity.
   a11y() {
-    return gulp.src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
+    return src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
   },
 
   cover() {
-    return gulp
-      .src("src/patterns/**/*.spec.js")
+    return src("src/patterns/**/*.spec.js")
       .pipe(mocha(mochaConfig, { nyc: true }));
   },
 };

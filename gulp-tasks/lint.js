@@ -1,17 +1,10 @@
-'use strict';
-
-// Include gulp
 const { src } = require('gulp');
-
-// Include Our Plugins
 const gulpStylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 
-// Export our tasks.
 module.exports = {
-
   // Lint Sass based on .stylelintrc.yml config.
-  lintSass: function () {
+  lintSass () {
     return src(['./src/patterns/stylesheets/**/*.scss'])
       .pipe(
         gulpStylelint({
@@ -26,7 +19,7 @@ module.exports = {
   },
 
   // Lint JavaScript based on .eslintrc config.
-  lintJS: function() {
+  lintJS () {
     return src(['src/patterns/**/**/*.js'])
       .pipe(eslint({ fix: true }))
       .pipe(eslint.format())

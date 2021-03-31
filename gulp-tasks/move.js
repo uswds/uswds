@@ -1,12 +1,6 @@
-'use strict';
-
-// Include gulp
 const { src, dest } = require('gulp');
-
-// Include Our Plugins
 const rename = require('gulp-rename');
 
-// Export our tasks.
 module.exports = {
 
   // Move any fonts to where Pattern Lab is looking for them.

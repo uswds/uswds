@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-const gulp = require("gulp");
+const { src, dest, series } = require("gulp");
 const del = require("del");
 const svgSprite = require("gulp-svg-sprite");
 const rename = require("gulp-rename");
@@ -27,27 +27,23 @@ const config = {
   },
 };
 
-async function buildSprite(done) {
-  return (
-  gulp
-    .src(`${svgPath}/usa-icons/**/*.svg`)
+function buildSprite(done) {
+  return src(`${svgPath}/usa-icons/**/*.svg`)
     .pipe(svgSprite(config))
     // eslint-disable-next-line no-console
     .on("error", (error) => console.error("There was an error", error))
-    .pipe(gulp.dest(`${svgPath}`))
+    .pipe(dest(`${svgPath}`))
     .on("end", () => done())
-  );
 };
 
-const renameSprite = () => {
-  gulp
-    .src(`${svgPath}/symbol/svg/sprite.symbol.svg`)
+function renameSprite() {
+  return src(`${svgPath}/symbol/svg/sprite.symbol.svg`)
     .pipe(rename(`${svgPath}/sprite.svg`))
-    .pipe(gulp.dest(`./`));
+    .pipe(dest(`./`));
 };
 
-const cleanSprite = () => {
-  del(`${svgPath}/symbol`)
+function cleanSprite() {
+  return del(`${svgPath}/symbol`)
 };
 
-exports.svgSprite = gulp.series(buildSprite, renameSprite, cleanSprite)
+exports.svgSprite = series(buildSprite, renameSprite, cleanSprite)
