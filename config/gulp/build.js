@@ -1,7 +1,7 @@
 const gulp = require("gulp");
 const del = require("del");
-const dutil = require("./doc-util");
-const cFlags = require("./cflags");
+const dutil = require("../../gulp-tasks/utils/doc-util");
+const cFlags = require("../../gulp-tasks/utils/cflags");
 
 gulp.task("clean-dist", (done) => {
   if (!cFlags.cleanup) {
