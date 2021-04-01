@@ -1,10 +1,14 @@
 /* eslint-disable arrow-body-style */
+const path = require("path");
+
+const ROOT_DIR = path.join(__dirname, "../");
+
 const { src, dest, series } = require("gulp");
 const del = require("del");
 const svgSprite = require("gulp-svg-sprite");
 const rename = require("gulp-rename");
 
-const svgPath = "../src/img";
+const svgPath = path.join(ROOT_DIR, "src/img");
 
 // More complex configuration example
 const config = {
