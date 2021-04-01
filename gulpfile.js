@@ -11,6 +11,13 @@ const run = require("gulp-run-command").default;
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { svgSprite } = require("./gulp-tasks/svg-sprite");
 const { fonts } = require("./gulp-tasks/fonts");
+const { images } = require("./gulp-tasks/images");
+const {
+  stylelint,
+  copyVendorSass,
+  copyDistSass,
+  sass,
+} = require("./gulp-tasks/sass");
 const {
   compileJavascript,
   typeCheck,
@@ -161,6 +168,8 @@ exports.test = series(
 // building
 exports.svgSprite = svgSprite;
 exports.fonts = fonts;
+exports.images = images;
+exports.sass = series(stylelint, copyVendorSass, copyDistSass, sass);
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
