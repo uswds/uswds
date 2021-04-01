@@ -1,9 +1,5 @@
 /* eslint-disable arrow-body-style */
-
-// Include gulp
 const { src, dest } = require("gulp");
-
-// Include Our Plugins
 const autoprefixer = require("autoprefixer");
 const browserify = require("browserify");
 const buffer = require("vinyl-buffer");
