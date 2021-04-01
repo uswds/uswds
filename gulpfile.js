@@ -52,6 +52,7 @@ const {
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const { build } = require("./gulp-tasks/build");
+const { release } = require("./gulp-tasks/release")
 
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
@@ -172,6 +173,7 @@ exports.fonts = fonts;
 exports.images = images;
 exports.sass = series(stylelint, copyVendorSass, copyDistSass, sass);
 exports.build = build;
+exports.release = release;
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
