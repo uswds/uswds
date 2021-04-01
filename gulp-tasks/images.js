@@ -1,5 +1,5 @@
 const {src, dest} = require("gulp");
-const dutil = require("./doc-util");
+const dutil = require("./utils/doc-util");
 
 module.exports = {
   images() {
