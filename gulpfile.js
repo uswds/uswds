@@ -10,7 +10,7 @@ const server = require("browser-sync").create();
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
-const { svgSprite } = require("./gulp-tasks/svg-sprite");
+const { buildSprite } = require("./gulp-tasks/svg-sprite");
 const { fonts } = require("./gulp-tasks/fonts");
 const { images } = require("./gulp-tasks/images");
 const {
@@ -167,7 +167,7 @@ exports.test = series(
 );
 
 // building
-exports.svgSprite = svgSprite;
+exports.buildSprite = buildSprite;
 exports.fonts = fonts;
 exports.images = images;
 exports.sass = series(stylelint, copyVendorSass, copyDistSass, sass);

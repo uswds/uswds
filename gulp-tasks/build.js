@@ -2,7 +2,7 @@ const { src, dest, series, parallel } = require("gulp");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const cFlags = require("./utils/cflags");
-const { svgSprite } = require("./svg-sprite");
+const { buildSprite } = require("./svg-sprite");
 const { copyDistSass, sass } = require("./sass");
 const { compileJavascript } = require("./javascript");
 const { fonts } = require("./fonts");
@@ -39,7 +39,7 @@ exports.build = series(
     done();
   },
   cleanDist,
-  svgSprite,
+  buildSprite,
   docs,
   parallel(sass, compileJavascript, images, fonts),
   copyDistSass
