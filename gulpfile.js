@@ -3,6 +3,7 @@
 // Include gulp helpers.
 const { series, parallel, watch } = require("gulp");
 const run = require("gulp-run-command").default;
+const server = require("browser-sync").create();
 
 // Include Our tasks.
 //
@@ -50,7 +51,7 @@ const {
 } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
-const server = require("browser-sync").create();
+const { build } = require("./gulp-tasks/build");
 
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
@@ -170,6 +171,7 @@ exports.svgSprite = svgSprite;
 exports.fonts = fonts;
 exports.images = images;
 exports.sass = series(stylelint, copyVendorSass, copyDistSass, sass);
+exports.build = build;
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
