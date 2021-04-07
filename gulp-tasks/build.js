@@ -4,7 +4,7 @@ const dutil = require("./utils/doc-util");
 const cFlags = require("./utils/cflags");
 const { buildSprite } = require("./svg-sprite");
 const { copyDistSass, sass } = require("./sass");
-const { compileJavascript } = require("./javascript");
+const { compileJS } = require("./javascript");
 const { fonts } = require("./fonts");
 const { images } = require("./images");
 
@@ -41,6 +41,6 @@ exports.build = series(
   cleanDist,
   buildSprite,
   docs,
-  parallel(sass, compileJavascript, images, fonts),
+  parallel(sass, compileJS, images, fonts),
   copyDistSass
 );
