@@ -16,7 +16,7 @@ const cFlags = require("./utils/cflags");
 const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
 module.exports = {
-  compileJavascript(done) {
+  compileJS(done) {
     dutil.logMessage("javascript", "Compiling JavaScript");
 
     const defaultStreams = entryPoints.map((entry) => {
