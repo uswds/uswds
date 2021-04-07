@@ -19,17 +19,8 @@ const {
   copyDistSass,
   sass,
 } = require("./gulp-tasks/sass");
-const {
-  compileJavascript,
-  typeCheck,
-  eslint,
-} = require("./gulp-tasks/javascript");
-const {
-  unitTests,
-  sassTests,
-  a11y,
-  cover,
-} = require("./gulp-tasks/test");
+const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
+const { unitTests, sassTests, a11y, cover } = require("./gulp-tasks/test");
 const {
   cleanCSS,
   cleanFonts,
@@ -37,11 +28,6 @@ const {
   cleanJS,
   cleanSass,
 } = require("./gulp-tasks/clean");
-const {
-  compileSass,
-  compileJS,
-  compileSprite,
-} = require("./gulp-tasks/compile");
 const {
   copyVendor,
   copySass,
@@ -52,8 +38,13 @@ const {
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const { build } = require("./gulp-tasks/build");
-const { release } = require("./gulp-tasks/release")
+const { release } = require("./gulp-tasks/release");
 
+
+// our cache doesn't clear in patternlab like you would expect
+// https://github.com/pattern-lab/patternlab-node/wiki/Incremental-Builds#possible-issues
+// so we rebuild with the patternlab cli, which seems to be working
+// for the time being
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
 }
@@ -62,8 +53,10 @@ async function buildPL() {
   return run("npm run pl:build")();
 }
 
+// giving us a way to exit the server when needed
+// see a11y
 async function exitServer() {
-  return server.exit()
+  return server.exit();
 }
 
 /**
@@ -90,7 +83,7 @@ function watchFiles() {
   // Watch all my sass files and compile sass if a file changes.
   watch(
     "./src/patterns/**/**/*.scss",
-    series(parallel(lintSass, compileSass), (done) => {
+    series(parallel(lintSass, sass), (done) => {
       server.reload("*.css");
       done();
     })
@@ -120,7 +113,11 @@ function watchFiles() {
     series(series(unitTests, sassTests), (done) => done())
   );
 }
-// exports
+
+
+/**
+ * Declare our exports
+ */
 
 // flags
 exports.noTest = noTest;
@@ -140,9 +137,9 @@ exports.lint = parallel(lintSass, lintJS);
 
 // Compile Our Sass and JS
 exports.compile = parallel(
-  compileSass,
+  sass,
   compileJS,
-  compileSprite,
+  buildSprite,
   moveFonts,
   movePatternCSS
 );
@@ -156,6 +153,7 @@ exports.sassTests = sassTests;
 
 exports.unitTests = unitTests;
 
+// run all our required tests
 exports.test = series(
   typeCheck,
   lintJS,
@@ -182,7 +180,7 @@ exports.styleguide = buildPL;
 exports.watch = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
   parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
+  parallel(lintSass, sass, lintJS, compileJS, buildSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(rebuildPL, serve, watchFiles)
 );
@@ -191,7 +189,7 @@ exports.watch = series(
 exports.default = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
   parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
+  parallel(lintSass, sass, lintJS, compileJS, buildSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   buildPL
 );
