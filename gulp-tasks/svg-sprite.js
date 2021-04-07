@@ -4,6 +4,17 @@ const svgSprite = require("gulp-svg-sprite");
 
 const svgPath = "../src/img";
 
+/**
+ * Error handler function so we can see when errors happen.
+ * @param {object} err error that was thrown
+ * @returns {undefined}
+ */
+function handleError(err) {
+  // eslint-disable-next-line no-console
+  console.error(err.toString());
+  this.emit("end");
+}
+
 // More complex configuration example
 const config = {
   shape: {
@@ -27,11 +38,12 @@ const config = {
 
 module.exports = {
   buildSprite(done) {
-    return src(`${svgPath}/usa-icons/**/*.svg`)
-      .pipe(svgSprite(config))
-      // eslint-disable-next-line no-console
-      .on("error", (error) => console.error("There was an error", error))
-      .pipe(dest(`${svgPath}`))
-      .on("end", () => done())
+    return (
+      src(`${svgPath}/usa-icons/**/*.svg`)
+        .pipe(svgSprite(config))
+        .on("error", handleError)
+        .pipe(dest(`${svgPath}`))
+        .on("end", () => done())
+    );
   }
 }
