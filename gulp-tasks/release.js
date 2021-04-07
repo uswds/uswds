@@ -78,27 +78,14 @@ function zipArchives(done) {
   zip.on("close", (code) => {
     if (code === 0) {
       createHash(`dist/${dutil.dirName}.zip`);
+      const stats = fs.statSync(`./dist/${dutil.dirName}.zip`);
+      const fileSizeInBytes = stats.size;
+      const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+      dutil.logMessage("zip size", `${fileSizeInMegabytes} M`);
       done();
     }
   });
 };
-
-// gulp.task(
-//   task,
-//   gulp.series(
-//     (done) => {
-//       dutil.logMessage(
-//         "release",
-//         `Creating a zip archive at dist/${dutil.dirName}.zip`
-//       );
-//       done();
-//     },
-//     "build",
-//     "make-tmp-directory",
-//     "zip-archives",
-//     "clean-tmp-directory"
-//   )
-// );
 
 exports.release = series(
   (done) => {
