@@ -6,7 +6,6 @@ const fs = require('fs');
 const dutil = require("./utils/doc-util");
 const { build } = require("./build")
 
-// const task = "release";
 const hash = crypto.createHash('sha256');
 
 // Create a hash from the compiled ZIP users can compare and verify
