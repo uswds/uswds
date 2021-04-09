@@ -125,10 +125,10 @@ exports.noCleanup = noCleanup;
 exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
 
 // Lint Sass
-exports.lintSass = parallel(lintSass);
+exports.lintSass = lintSass;
 
 // Lint JavaScript
-exports.lintJS = parallel(lintJS);
+exports.lintJS = lintJS;
 
 // Lint Sass and JavaScript
 exports.lint = parallel(lintSass, lintJS);
