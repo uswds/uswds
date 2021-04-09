@@ -177,7 +177,7 @@ exports.styleguide = buildPL;
 // Watch task that runs a browsersync server.
 exports.watch = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
-  parallel(copyVendor),
+  copyVendor,
   parallel(lintSass, sass, lintJS, compileJS, buildSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   series(rebuildPL, serve, watchFiles)
