@@ -4,7 +4,7 @@
 
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the design system code itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
+This repository is for the design system code itself. We maintain [another repository for the documentation and website [github.com]](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 ## Contents
 
@@ -37,20 +37,20 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Background
 
-USWDS components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.usds.gov/) and [18F](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](docs/WHO_IS_USING_USWDS.md).
+USWDS components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service [usds.gov]](https://www.usds.gov/) and [18F [gsa.gov]](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service [gsa.gov]](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post [gsa.gov]](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](docs/WHO_IS_USING_USWDS.md).
 
 ## Recent updates
 
-Information about the most recent release of the design system can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+Information about the most recent release of the design system can always be found in the [release history [github.com]](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
 
 ## Getting started
 
 We’re glad you’d like to use the design system — here’s how you can get started:
 
 - Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
-  - [Design files of all the assets included in the design system are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
+  - [Design files of all the assets included in the design system are available for download [github.com]](https://github.com/uswds/uswds-assets/archive/master.zip).
 - Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
-  - [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
+  - [CSS, JavaScript, image, and font files of all the assets on this site are available for download [github.com]](https://github.com/uswds/uswds/releases/latest).
 
 ## Using the design system
 
@@ -62,7 +62,7 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.11.1/uswds-2.11.1.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file [github.com]](https://github.com/uswds/uswds/releases/download/v2.11.1/uswds-2.11.1.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
@@ -133,13 +133,13 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 ### Install using npm
 
-`npm` is a package manager for Node-based projects. USWDS maintains a [`uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
+`npm` is a package manager for Node-based projects. USWDS maintains a [`uswds` package [npmjs.com]](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
-   - Node v12.13.0 (current LTS), [Installation guides](https://nodejs.org/en/download/)
+   - Node v12.13.0 (current LTS), [Installation guides [nodejs.org]](https://nodejs.org/en/download/)
 
-   **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
+   **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial [teamtreehouse.com]](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
 2. Make sure you have installed it correctly:
 
@@ -174,13 +174,13 @@ node_modules/uswds/
 
 If you want to take full advantage of USWDS custom settings and add build new styles and components with the USWDS toolset, you'll need a way to access the assets in the USWDS package and compile custom CSS from the USWDS source files.
 
-USWDS uses the task manager [Gulp](http://gulpjs.com/) as a way to add USWDS assets to a project and compile our CSS from the package source. Gulp is a useful and powerful tool, but it can be difficult to set up if you are new to it.
+USWDS uses the task manager [Gulp [gulpjs.com]](http://gulpjs.com/) as a way to add USWDS assets to a project and compile our CSS from the package source. Gulp is a useful and powerful tool, but it can be difficult to set up if you are new to it.
 
-The [`uswds-gulp` repo](https://github.com/uswds/uswds-gulp) is made for developers new to Gulp or those who just want a simple setup to get started quickly. The repo contains files and instructions for installing Gulp 4.0 in your project, initializing USWDS, and compiling CSS from the source files.
+The [`uswds-gulp` repo [github.com]](https://github.com/uswds/uswds-gulp) is made for developers new to Gulp or those who just want a simple setup to get started quickly. The repo contains files and instructions for installing Gulp 4.0 in your project, initializing USWDS, and compiling CSS from the source files.
 
 #### Sass and theme settings
 
-The design system is customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The critical files you'll need in your project are those in `dist/scss/theme`:
+The design system is customizable using the power of [Sass (Syntactically Awesome Style Sheets) [sass-lang.com]](http://sass-lang.com/). The critical files you'll need in your project are those in `dist/scss/theme`:
 
 ```
 scss
@@ -222,13 +222,13 @@ scss
 @import "uswds-theme-custom-styles";
 ```
 
-**Technical note:** The `@import 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/uswds/dist/scss`. The gulpfile in [`uswds-gulp`](https://github.com/uswds/uswds-gulp) is set up to do this automatically, using `gulp-sass` and `includePaths`.
+**Technical note:** The `@import 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/uswds/dist/scss`. The gulpfile in [`uswds-gulp` [github.com]](https://github.com/uswds/uswds-gulp) is set up to do this automatically, using `gulp-sass` and `includePaths`.
 
 #### Sass compilation requirements
 
-The design system requires **autoprefixing** to work properly. This is included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
+The design system requires **autoprefixing** to work properly. This is included in the [`uswds-gulp` [github.com]](https://github.com/uswds/uswds-gulp) package.
 
-**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
+**Autoprefixing** uses a service like [gulp-autoprefixer [github.com]](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
 
 ```
 > 2%
@@ -237,9 +237,9 @@ IE 11
 not dead
 ```
 
-> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We stopped sorting media queries with [csso](https://github.com/css/csso) in USWDS 2.5.1 because it wasn't outputting as expected. While both the minified and unminified CSS files are modestly larger as a result: `268 KB` unsorted vs. `259 KB` sorted, our testing indicates that once the files are compressed server side with gzip, the unsorted CSS is actually smaller: `36 KB` unsorted and gzipped vs. `38 KB` sorted and gzipped. As a result, we recommend that teams do not use media query sorting at this time.
+> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We stopped sorting media queries with [csso [github.com]](https://github.com/css/csso) in USWDS 2.5.1 because it wasn't outputting as expected. While both the minified and unminified CSS files are modestly larger as a result: `268 KB` unsorted vs. `259 KB` sorted, our testing indicates that once the files are compressed server side with gzip, the unsorted CSS is actually smaller: `36 KB` unsorted and gzipped vs. `38 KB` sorted and gzipped. As a result, we recommend that teams do not use media query sorting at this time.
 
-We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+We recommend using a **minifier** like [csso [github.com]](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
 #### JavaScript
 
@@ -247,17 +247,17 @@ We recommend using a **minifier** like [csso](https://github.com/css/csso) to co
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations [github.com]](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 ## CSS architecture
 
-- The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
-- The CSS organization and naming conventions follow **[18F’s Front End Guide](https://frontend.18f.gov/css/)**.
-- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Front End Guide](https://frontend.18f.gov/css/formatting/)**.
+- The CSS foundation of this site is built with the **[Sass [sass-lang.com]](https://sass-lang.com)** preprocessor language.
+- The CSS organization and naming conventions follow **[18F’s Front End Guide [18f.gov]](https://frontend.18f.gov/css/)**.
+- We format our code with [Prettier [prettier.io]](https://prettier.io/), per the formatting section of the **[18F Front End Guide [18f.gov]](https://frontend.18f.gov/css/formatting/)**.
 - CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
-- Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
+- Uses a **[BEM [getbem.com]](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
 - Uses **modular CSS** for scalable, modular, and flexible code.
 - Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 - Hard-coded magic numbers are avoided.
@@ -265,7 +265,7 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 - **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
-[18F’s CSS Front End Guide](https://frontend.18f.gov/css/)
+[18F’s CSS Front End Guide [18f.gov]](https://frontend.18f.gov/css/)
 
 ## JS customization
 
@@ -414,22 +414,22 @@ $theme-image-path:  '../img';
 ## Where things live
 
 - **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
-- **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
+- **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file [github.com]](https://github.com/uswds/uswds/releases/latest).
 - **JS** is located in: `src/js (/components, /utils)`.
 - **Fonts** are located in: `dist/fonts`.
 - **Images** and icons are located in: `dist/img`.
 
 ## Browser support
 
-We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (2.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 2.0 supports the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
+We’ve designed the design system to support older and newer browsers through [progressive enhancement [wikipedia.org]](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (2.0) follows the [2% rule [gov.uk]](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 2.0 supports the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
+The design system also meets the [WCAG 2.0 AA accessibility guidelines [w3.org]](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act [section508.gov]](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
 
 ## Fractal
 
-We're using [Fractal](http://fractal.build) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
+We're using [Fractal [fractal.build]](http://fractal.build) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
 
 ```sh
 npm start
@@ -445,7 +445,7 @@ npm run watch
 
 ### Template compatibility
 
-Many of our Fractal view templates are compatible with [Nunjucks](https://mozilla.github.io/nunjucks/) (for JavaScript/Node), [Jinja](http://jinja.pocoo.org/docs/2.9/) (Python), and [Twig](https://twig.sensiolabs.org/) (PHP) out of the box. Components that reference other components use a Fractal-specific `{% render %}` tag that will either need to be implemented in other environments or replaced with the appropriate `{% include %}` tags.
+Many of our Fractal view templates are compatible with [Nunjucks [github.io]](https://mozilla.github.io/nunjucks/) (for JavaScript/Node), [Jinja [pocoo.org]](http://jinja.pocoo.org/docs/2.9/) (Python), and [Twig [sensiolabs.org]](https://twig.sensiolabs.org/) (PHP) out of the box. Components that reference other components use a Fractal-specific `{% render %}` tag that will either need to be implemented in other environments or replaced with the appropriate `{% include %}` tags.
 
 ## Long-term support of v1.x
 
@@ -455,7 +455,7 @@ Many of our Fractal view templates are compatible with [Nunjucks](https://mozill
 
 Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
 
-[https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
+[https://github.com/uswds/uswds/issues [github.com]](https://github.com/uswds/uswds/issues).
 
 You can also email us directly at uswds@gsa.gov.
 
@@ -463,26 +463,26 @@ You can also email us directly at uswds@gsa.gov.
 
 For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the design system style guide website for development.
 
-If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
+If you would like to learn more about our workflow process, check out the [Workflow [github.com]](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary [github.com]](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue [github.com]](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
 
 ## Reuse of open-source style guides
 
 Much of the guidance in USWDS leans on open source designs, code, and patterns from other civic and government organizations, including:
 
-- Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
-- U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
-- Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
-- UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
-- Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
-- Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
+- Consumer Financial Protection Bureau’s [Design Manual] [github.io](https://cfpb.github.io/design-manual/)
+- U.S. Patent and Trademark Office’s [Design Patterns [github.io]](http://uspto.github.io/designpatterns/)
+- Healthcare.gov [Style Guide [healthcare.gov]](http://styleguide.healthcare.gov/)
+- UK’s Government Digital Service’s [UI Elements [herokuapp.com]](http://govuk-elements.herokuapp.com/)
+- Code for America’s Chime [Styleguide [github.com]](https://github.com/chimecms/chime-starter)
+- Pivotal Labs [Component Library [cfapps.io]](http://styleguide.cfapps.io/)
 
 ## Licenses and attribution
 
 A few parts of this project are not in the public domain. Attribution and licensing information for those parts are described in detail in [LICENSE.md](LICENSE.md).
 
-The rest of this project is in the worldwide public domain, released under the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+The rest of this project is in the worldwide public domain, released under the [CC0 1.0 Universal public domain dedication [creativecommons.org]](https://creativecommons.org/publicdomain/zero/1.0/).
 
 ## Contributing
 
