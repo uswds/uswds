@@ -34,7 +34,6 @@ const {
   copyStyleguide,
 } = require("./gulp-tasks/copy");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
-const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
 const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
 
@@ -132,15 +131,6 @@ exports.lintJS = lintJS;
 
 // Lint Sass and JavaScript
 exports.lint = parallel(lintSass, lintJS);
-
-// Compile Our Sass and JS
-exports.compile = parallel(
-  sass,
-  compileJS,
-  buildSprite,
-  moveFonts,
-  movePatternCSS
-);
 
 // tests
 exports.a11y = series(serve, a11y, exitServer);
