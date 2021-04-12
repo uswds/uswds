@@ -13,7 +13,7 @@
 
 .usa-section--dark {
   background-color: color("primary-darker");
-  color: color("white");
+  color: color($theme-text-reverse-color);
 
   h1,
   h2,
@@ -21,11 +21,13 @@
   h4,
   h5,
   h6 {
+    // TODO: This should use a theme-able color,
+    // and should probably default to white
     color: color("accent-cool");
   }
 
   p {
-    color: color("white");
+    color: color($theme-text-reverse-color);
   }
 
   a {

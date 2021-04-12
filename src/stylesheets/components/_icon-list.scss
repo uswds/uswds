@@ -1,0 +1,167 @@
+// Variables
+
+// Size icons based on the theme-type-scale-[size] number and this factor
+$icon-list-icon-size-factor: 1.5;
+// Center the icon to the title text, works for all size variants
+$icon-list-icon-margin-top: -1.5%;
+// Fine tune the space between the icon and content with this factor
+$icon-list-icon-padding-left-factor: 0.4;
+// Fine tune the title top padding given a line height of lh-2
+$icon-list-title-padding-top: 0.425ex;
+
+$theme-body-font-sizes: (
+  "xs": $theme-type-scale-xs,
+  "sm": $theme-type-scale-sm,
+  "md": $theme-type-scale-md,
+  "lg": $theme-type-scale-lg,
+  "xl": $theme-type-scale-xl,
+  "2xl": $theme-type-scale-2xl,
+  "3xl": $theme-type-scale-3xl,
+);
+
+$type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
+
+// Get fixed size for icon, based on non-normalized size token
+$this-system-token: if(
+  map-has-key($theme-body-font-sizes, $theme-body-font-size),
+  map-get($theme-body-font-sizes, $theme-body-font-size),
+  $theme-body-font-size
+);
+$this-icon-size-px: map-get($system-type-scale, $this-system-token);
+$icon-size: px-to-rem($this-icon-size-px);
+
+@include override-prose {
+  .usa-icon-list {
+    @include typeset($theme-icon-list-font-family, $theme-body-font-size);
+    @include unstyled-list;
+    @include u-measure(5);
+  }
+
+  .usa-icon-list__item {
+    display: flex;
+    position: relative;
+
+    & + .usa-icon-list__item {
+      padding-top: units(1.5);
+    }
+  }
+}
+
+// Allow setting icon color on the icon-list element
+.usa-icon-list {
+  @each $color, $grades in $all-project-colors {
+    @each $grade, $value in $grades {
+      @if $value {
+        $prefix: if($grade != "default", #{$color}-#{$grade}, #{$color});
+        &--#{$prefix} {
+          .usa-icon-list__icon {
+            color: color($prefix);
+          }
+        }
+      }
+    }
+  }
+}
+
+.usa-icon-list__icon {
+  .usa-icon {
+    // Set the height and width of the icon based on the size variant and factor
+    // Doesn't use u-square() because of non-token size
+    display: block;
+    height: $icon-size * $icon-list-icon-size-factor;
+    // margin-top: $icon-list-icon-margin-top;
+    position: relative;
+    width: $icon-size * $icon-list-icon-size-factor;
+  }
+}
+
+// Don't resize any block-level element inside content
+.usa-icon-list__content {
+  > p,
+  > ul,
+  > ol {
+    @include u-font($theme-icon-list-font-family, $theme-body-font-size);
+    @include u-measure(5);
+  }
+}
+
+.usa-icon-list[class*="usa-icon-list--size-"] {
+  @include u-measure("none");
+}
+
+// Generate responsive variants
+// Create a map for looping that includes a default or no-breakpoint version
+$this-null: (
+  "none": null,
+);
+$icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
+@each $mq-key, $mq-value in $icon-list-breakpoints {
+  // Set the prefix
+  // An empty string if "none"
+  $prefix: false;
+  @if $mq-key == "none" {
+    $prefix: "";
+  }
+  // Or the standard prefix if the breakpoint is output
+  @else if map-get($theme-utility-breakpoints, $mq-key) {
+    $prefix: "#{$mq-key}#{$separator}";
+  }
+
+  @include at-media($mq-key) {
+    @each $token, $val in $theme-body-font-sizes {
+      @if $prefix {
+        $this-type-scale: font-size($theme-icon-list-font-family, $token);
+        .#{$prefix}usa-icon-list--size-#{$token} {
+          .usa-icon-list__icon {
+            .usa-icon {
+              // Set the height and width of the icon based on the size variant and factor
+              height: $this-type-scale * $icon-list-icon-size-factor;
+              width: $this-type-scale * $icon-list-icon-size-factor;
+            }
+          }
+
+          .usa-icon-list__content {
+            @include u-measure(5);
+            // Resize simple (un-marked up) content
+            font-size: size($theme-icon-list-font-family, $token);
+            // Calculate the space between the icon and content based on the size variant and factor
+            padding-left: $this-type-scale *
+              $icon-list-icon-padding-left-factor;
+
+            .usa-icon-list__title {
+              @include u-font($theme-icon-list-title-font-family, $token);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.usa-icon-list__title {
+  @include typeset(
+    $theme-icon-list-title-font-family,
+    $theme-body-font-size,
+    2
+  );
+  margin-bottom: units(0);
+  padding-top: $icon-list-title-padding-top;
+  & + * {
+    margin-top: units(1);
+  }
+}
+
+.usa-icon-list__content {
+  font-size: $type-scale;
+  padding-left: $type-scale * $icon-list-icon-padding-left-factor;
+  > *:first-child {
+    margin-top: 0;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  ul li {
+    list-style-type: disc;
+  }
+}

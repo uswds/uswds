@@ -14,7 +14,7 @@ describe("date picker component with default date", () => {
   let root;
   let input;
   let button;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -34,14 +34,14 @@ describe("date picker component with default date", () => {
   });
 
   it("should set the input date of the calendar", () => {
-    assert.equal(input.value, "05/22/2020", "updates the calendar value");
+    assert.strictEqual(input.value, "05/22/2020", "updates the calendar value");
   });
 
   it("should display the selected date when the calendar is opened", () => {
     EVENTS.click(button);
 
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.equal(
+    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "2020-05-22",
       "focuses correct date"

@@ -626,18 +626,22 @@ role-based font token.
     @if map-has-key($this-typeface-data, "system-font") {
       $output-display-name: false;
     }
-    // If there's a custom stack, use it and output the display name
+    // If there's a custom stack, use it and output the display name...
     @if map-get($this-font-map, "custom-stack") {
       $this-stack: map-get($this-font-map, "custom-stack");
       $output-display-name: true;
     }
-    // Otherwise, just get the token's default stack
-    @else {
+    // If the token has an existing stack, use that...
+    @else if map-deep-get($all-typeface-tokens, $this-font-token, "stack") {
       $this-stack: map-deep-get(
         $all-typeface-tokens,
         $this-font-token,
         "stack"
       );
+    }
+    // Otherwise, get the type token's default stack.
+    @else {
+      $this-stack: map-get($system-font-stacks, $type-token);
     }
     // If the typeface has no display name (system fonts), don't output the display name
     @if map-get($this-typeface-data, "display-name") == null {
