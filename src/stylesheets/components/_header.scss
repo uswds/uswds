@@ -125,7 +125,7 @@ $z-index-overlay: 400;
   @include u-pin("all");
   position: fixed;
   background: color("black");
-  opacity: opacity(0);
+  opacity: opacity(70);
   transition: opacity $project-easing;
   visibility: hidden;
   z-index: z-index($z-index-overlay);
