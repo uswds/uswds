@@ -122,6 +122,9 @@ variants:
     label: No Logos
     context:
       masthead:
+        label:
+          content:
+            en: Agency identifier (no logos)
         parent:
           logo: false
   - name: no-logos-lang-es
@@ -129,12 +132,18 @@ variants:
     context:
       lang: es
       masthead:
-        parent:
+       label:
+        content:
+          es: Identificador de la agencia (no logos)
+       parent:
           logo: false
   - name: multiple-logos
     label: Multiple Logos
     context:
       masthead:
+        label:
+          content:
+            en: Agency identifier (multiple logos)
         agency:
           name:
             en: <Other agency>
@@ -147,6 +156,9 @@ variants:
     context:
       lang: es
       masthead:
+       label:
+        content:
+          es: Identificador de la agencia (multiple logos)
         agency:
           name:
             es: <Other agency>
@@ -158,6 +170,9 @@ variants:
     label: Taxpayer disclaimer
     context:
       masthead:
+        label:
+          content:
+            en: Agency identifier (taxpayer disclaimer)
         taxpayer_disclaimer:
           display: true
   - name: taxpayer-disclaimer-lang-es
@@ -165,5 +180,8 @@ variants:
     context:
       lang: es
       masthead:
+       label:
+        content:
+          es: Identificador de la agencia (taxpayer disclaimer)
         taxpayer_disclaimer:
           display: true
