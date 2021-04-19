@@ -1,0 +1,68 @@
+label: Modal
+status: ready
+preview: "@uswds-framed"
+
+context:
+  id: "example-modal-1"
+  modifier: ""
+  describedby: "modal-1-description"
+  trigger:
+    text: Open default modal
+  header:
+    text: Are you sure you want to continue?
+    id: "modal-1-heading"
+  description:
+    id: "modal-1-description"
+    text: You have unsaved changes that will be lost.
+  footer:
+    - action:
+      class: "usa-button"
+      text: Continue without saving
+    - action:
+      class: "usa-button usa-button--unstyled padding-105 text-center"
+      text: Go back
+  close_button:
+    aria_label: "Close this window"
+    text:
+    icon_type: close
+
+variants:
+  - name: large modal
+    context:
+      id: "example-modal-2"
+      modifier: "usa-modal--lg"
+      describedby: "modal-2-description"
+      trigger:
+        text: Open large modal
+      header:
+        text: Are you sure you want to continue?
+        id: "modal-2-heading"
+      description:
+        id: "modal-2-description"
+        text: You have unsaved changes that will be lost.
+      footer:
+        - action:
+          text: "Continue without saving"
+        - action:
+          class: "usa-button usa-button--unstyled padding-105 text-center"
+          text: "Go back"
+  - name: forced action
+    context:
+      id: "example-modal-3"
+      modifier:
+      forced: true
+      describedby: "modal-3-description"
+      trigger:
+        text: Open modal with forced action
+      header:
+        text: Your session will end soon.
+        id: "modal-3-heading"
+      description:
+        id: "modal-3-description"
+        text: You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.
+      footer:
+        - action:
+          text: "Yes, stay signed in"
+        - action:
+          class: "usa-button usa-button--unstyled padding-105 text-center"
+          text: "Sign out"

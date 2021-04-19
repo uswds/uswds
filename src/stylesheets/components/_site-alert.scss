@@ -5,11 +5,12 @@ $alert-icons: (
   emergency: "error",
 );
 
-@mixin site-alert-icon-margin {
-  background-position-x: units($theme-site-margins-mobile-width);
-
-  @include at-media($theme-site-margins-breakpoint) {
-    background-position-x: units($theme-site-margins-width);
+@mixin site-alert-margins {
+  &:before {
+    left: units($theme-site-margins-mobile-width);
+    @include at-media($theme-site-margins-breakpoint) {
+      left: units($theme-site-margins-width);
+    }
   }
 }
 
@@ -18,12 +19,11 @@ $alert-icons: (
   background-color: color("base-lightest");
 
   .usa-alert {
-    @include grid-container($theme-site-alert-max-width);
-    @include site-alert-icon-margin;
+    @include u-margin-x("auto");
+    @include u-maxw($theme-site-alert-max-width);
 
-    &::before {
-      display: none;
-    }
+    // Don't show the left bar
+    border-left: none;
 
     > .usa-list,
     .usa-alert__body > .usa-list {
@@ -32,11 +32,7 @@ $alert-icons: (
   }
 
   .usa-alert__body {
-    display: block;
-
-    @include at-media("tablet") {
-      position: relative;
-    }
+    @include add-responsive-site-margins;
   }
 }
 
@@ -47,31 +43,50 @@ $alert-icons: (
 
     .usa-alert {
       @include alert-status-styles($name, $icon);
+      @include site-alert-margins;
+    }
+
+    .usa-alert__body {
+      padding-right: units($theme-site-margins-mobile-width);
+      padding-left: units($theme-site-margins-mobile-width) +
+        units($theme-alert-icon-size) +
+        units(1.5);
+
+      @include at-media($theme-site-margins-breakpoint) {
+        padding-right: units($theme-site-margins-width);
+        padding-left: units($theme-site-margins-width) +
+          units($theme-alert-icon-size) + units(1.5);
+      }
     }
   }
 }
 
 .usa-site-alert--no-icon {
   .usa-alert {
-    background-image: none;
+    &:before {
+      display: none;
+    }
 
     .usa-alert__body {
-      padding-left: 0;
+      padding-left: units($theme-site-margins-mobile-width);
+      @include at-media($theme-site-margins-breakpoint) {
+        padding-left: units($theme-site-margins-width);
+      }
     }
   }
 }
 
 .usa-site-alert--slim {
   .usa-alert {
-    @include alert-slim-styles;
-    @include site-alert-icon-margin;
+    @include add-slim-alert-icon;
+    @include u-padding-y(1);
   }
-}
-
-.usa-site-alert--no-heading {
-  .usa-alert {
-    background-position-y: calc(
-      #{units($theme-alert-padding-x)} - #{units(0.5)}
-    );
+  .usa-alert__body {
+    padding-left: units($theme-site-margins-mobile-width) +
+      $alert-slim-icon-size + units(1.5);
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: units($theme-site-margins-width) + $alert-slim-icon-size +
+        units(1.5);
+    }
   }
 }
