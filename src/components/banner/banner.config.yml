@@ -39,7 +39,7 @@ variants:
   - name: dot-mil
     context:
       banner:
-        aria_label: "Official government website (2)"
+        aria_label: "Official government website_"
       domain:
         tld: ".mil"
         text: |
@@ -49,7 +49,7 @@ variants:
       banner:
         text: "Un sitio oficial del Gobierno de Estados Unidos"
         action: "Así es como usted puede verificarlo"
-        aria_label: "Un sitio oficial del Gobierno de Estados Unidos (2)"
+        aria_label: "Un sitio oficial del Gobierno de Estados Unidos_"
       domain:
         tld: ".mil"
         heading: |
