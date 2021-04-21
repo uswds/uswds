@@ -176,6 +176,7 @@
 
 // Exdent
 .usa-card__header--exdent,
+.usa-card__body--exdent,
 .usa-card__media--exdent,
 .usa-card__footer--exdent {
   @include u-margin-x(-$theme-card-border-width);
