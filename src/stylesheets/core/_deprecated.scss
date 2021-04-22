@@ -24,6 +24,9 @@ $theme-megamenu-logo-text-width: $theme-header-logo-text-width;
 // Deprecated in 2.0.2
 $theme-title-font-size: $theme-display-font-size;
 
+// Deprecated in 2.11.0
+$theme-site-max-width: $theme-grid-container-max-width;
+
 @mixin title {
   @include display;
 }
