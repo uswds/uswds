@@ -197,7 +197,6 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
-  console.log(e)
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
 
@@ -315,20 +314,23 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
           allFilesAllowed =
             file.name.indexOf(fileType) > 0 ||
             file.type.includes(fileType.replace(/\*/g, ""));
-          if (allFilesAllowed) break;
+          if (allFilesAllowed) {
+            TYPE_IS_VALID = true;
+            break
+          };
         }
       } else break;
     }
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
-      TYPE_IS_VALID = false;
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.innerHTML = `This is not a valid file type.`;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
+      TYPE_IS_VALID = false;
       e.preventDefault();
       e.stopPropagation();
     }
