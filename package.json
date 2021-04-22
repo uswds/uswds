@@ -41,7 +41,6 @@
     "prepare": "gulp",
     "preversion": "npm test",
     "release": "gulp release",
-    "postinstall": "npx patch-package",
     "federalist": "npm install && npx patch-package && npx gulp",
     "start": "gulp watch",
     "test": "snyk test && gulp typecheck && gulp test",
