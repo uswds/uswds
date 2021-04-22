@@ -362,8 +362,7 @@ const fileInput = behavior(
 
         dropTarget.addEventListener(
           "drop",
-          function handleDrop(e) {
-            preventInvalidFiles(e, fileInputEl, instructions, dropTarget);
+          function handleDrop() {
             this.classList.remove(DRAG_CLASS);
           },
           false
