@@ -1,0 +1,14 @@
+---
+modifier: ""
+placeholder_link: "javascript:void(0);"
+aria_label: "pagination"
+pagination:
+  infinite: true
+  items: 24
+  current: 10
+  previous:
+    label: "Anterior"
+    aria_label: "Página anterior"
+  next:
+    label: "Siguiente"
+    aria_label: "Página siguiente"
