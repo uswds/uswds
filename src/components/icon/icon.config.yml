@@ -370,8 +370,6 @@ context:
         meta: "weather water storm"
       - name: reduce_capacity
         meta: "occupancy"
-      - name: remove_red_eye
-        meta: "visibility"
       - name: remove
         meta: "minus collapse"
       - name: report
@@ -442,7 +440,7 @@ context:
         meta: ""
       - name: text_fields
         meta: "edit"
-      - name: thumb_down_off_alt
+      - name: thumb_down_alt
         meta: "rate review"
       - name: thumb_up_alt
         meta: "rate review"
@@ -479,9 +477,9 @@ context:
       - name: verified_user
         meta: "check"
       - name: visibility
-        meta: "eye"
+        meta: "eye remove_red-eye"
       - name: visibility_off
-        meta: "eye"
+        meta: "eye hidden masked"
       - name: volume_off
         meta: "speaker"
       - name: warning

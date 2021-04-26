@@ -1,4 +1,3 @@
-const debounce = require("lodash.debounce");
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const { CLICK } = require("../events");
@@ -11,7 +10,6 @@ const BUTTON = `${NAV} .${PREFIX}-footer__primary-link`;
 const COLLAPSIBLE = `.${PREFIX}-footer__primary-content--collapsible`;
 
 const HIDE_MAX_WIDTH = 480;
-const DEBOUNCE_RATE = 180;
 
 function showPanel() {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
@@ -30,14 +28,10 @@ function showPanel() {
   }
 }
 
-let lastInnerWidth;
+const toggleHidden = (isHidden) =>
+  select(COLLAPSIBLE).forEach((list) => list.classList.toggle(HIDDEN, isHidden));
 
-const resize = debounce(() => {
-  if (lastInnerWidth === window.innerWidth) return;
-  lastInnerWidth = window.innerWidth;
-  const hidden = window.innerWidth < HIDE_MAX_WIDTH;
-  select(COLLAPSIBLE).forEach((list) => list.classList.toggle(HIDDEN, hidden));
-}, DEBOUNCE_RATE);
+const resize = (event) => toggleHidden(event.matches);
 
 module.exports = behavior(
   {
@@ -48,15 +42,15 @@ module.exports = behavior(
   {
     // export for use elsewhere
     HIDE_MAX_WIDTH,
-    DEBOUNCE_RATE,
 
     init() {
-      resize();
-      window.addEventListener("resize", resize);
+      toggleHidden(window.innerWidth < HIDE_MAX_WIDTH);
+      this.mediaQueryList = window.matchMedia(`(max-width: ${HIDE_MAX_WIDTH}px)`);
+      this.mediaQueryList.addListener(resize);
     },
 
     teardown() {
-      window.removeEventListener("resize", resize);
+      this.mediaQueryList.removeListener(resize);
     },
   }
 );
