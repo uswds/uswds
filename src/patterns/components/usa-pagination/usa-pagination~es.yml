@@ -1,7 +1,7 @@
 ---
 modifier: ""
 placeholder_link: "javascript:void(0);"
-aria_label: "pagination"
+aria_label: "paginatión"
 pagination:
   items: 24
   current: 10
