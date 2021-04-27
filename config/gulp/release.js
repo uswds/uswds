@@ -1,9 +1,9 @@
 const del = require("del");
 const spawn = require("cross-spawn");
 const gulp = require("gulp");
-const dutil = require("./doc-util");
 const crypto = require('crypto');
 const fs = require('fs');
+const dutil = require("./doc-util");
 
 const task = "release";
 const hash = crypto.createHash('sha256');

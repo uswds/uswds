@@ -1,6 +1,6 @@
 const assert = require("assert");
 const {
-  generateDynamicRegExp
+  generateDynamicRegExp,
 } = require("../../../src/js/components/combo-box");
 const { FILTER_DATASET } = require("../../../src/js/components/time-picker");
 
@@ -13,13 +13,13 @@ describe("time picker regex", () => {
   };
 
   const ok = (inputQuery, testValue) =>
-    assert.equal(
+    assert.strictEqual(
       test(inputQuery, testValue),
       true,
       `${inputQuery} should find ${testValue}`
     );
   const notOk = (inputQuery, testValue) =>
-    assert.equal(
+    assert.strictEqual(
       test(inputQuery, testValue),
       false,
       `${inputQuery} should not find ${testValue}`
