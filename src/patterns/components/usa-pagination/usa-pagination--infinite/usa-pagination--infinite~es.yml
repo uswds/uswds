@@ -1,7 +1,7 @@
 ---
 modifier: ""
 placeholder_link: "javascript:void(0);"
-aria_label: "paginatión"
+aria_label: "paginación"
 pagination:
   infinite: true
   items: 24
