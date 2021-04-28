@@ -1,104 +1,24 @@
-{% from "pagination/_pagination-link.njk" import paginationLink %}
+{% from "pagination/_pagination-button.njk" import paginationButton %}
+{% from "pagination/_pagination-arrow.njk" import paginationArrow %}
 
 
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
-{% set ellipsis %}
-<li class="usa-pagination__item" role="presentation">
-  <span class="usa-pagination__ellipsis">
-    …
-  </span>
-</li>
-{% endset %}
-
-{% set
-  pager_ranges = {
-    'default': range(pagination.current - 1, pagination.current + 2),
-    'last_item': pagination.items,
-    'first_three': range(2, 5),
-    'last_three': range(pagination.items - 3, pagination.items),
-    'all': range(2, pagination.items)
-  }
-%}
-
-<nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier | default('') }}">
-
+<nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier }}">
   <ul class="usa-pagination__list">
-    <li class="usa-pagination__item usa-pagination__page-no">
-      {{ paginationLink(1, pagination.current) }}
-    </li>
+    {% block pagination_content %}
+      {# Previous page #}
+      {{ paginationArrow('previous', pagination) }}
 
-    {# Page numbers #}
-    {% switch true %}
-      {% case pagination.items <= 4 %}
-        {# List all of them if less than 4 #}
-        {% for item in pager_ranges.all  %}
-          <li class="usa-pagination__item usa-pagination__page-no">
-            {{ paginationLink(item, pagination.current) }}
-          </li>
-        {% endfor %}
-      {% case pagination.current <= 4 and pagination.items >= 4 %}
-        {# Show first three only #}
-        {% for item in pager_ranges.first_three  %}
-          <li class="usa-pagination__item usa-pagination__page-no">
-            {{ paginationLink(item, pagination.current) }}
-          </li>
-        {% endfor %}
+      {% if not pagination.infinite %}
+        {% include "pagination/_pagination-numbers--default.njk" %}
+      {% else %}
+        {% include "pagination/_pagination-numbers--infinite.njk" %}
+      {% endif %}
 
-        {{ ellipsis | safe }}
-
-      {% case (pagination.current >= pagination.items - 3) %}
-        {{ ellipsis | safe }}
-
-        {# Show last three #}
-        {% for item in pager_ranges.last_three %}
-          <li class="usa-pagination__item usa-pagination__page-no">
-            {{ paginationLink(item, pagination.current) }}
-          </li>
-        {% endfor %}
-      {% default %}
-        {{ ellipsis | safe }}
-
-        {# Default - Current -1, Current, Current + 1 #}
-        {% for item in pager_ranges.default %}
-          <li class="usa-pagination__item usa-pagination__page-no">
-            {{ paginationLink(item, pagination.current) }}
-          </li>
-        {% endfor %}
-
-        {{ ellipsis | safe }}
-    {% endswitch %}
-
-    <li class="usa-pagination__item usa-pagination__page-no">
-      {{ paginationLink(pager_ranges.last_item, pagination.current) }}
-    </li>
+      {# Next page #}
+      {{ paginationArrow('next', pagination) }}
+    {% endblock %}
   </ul>
-
-  {# Previous page #}
-  <a
-    href="{{ placeholder_link }}"
-    class="usa-pagination__link usa-pagination__previous-page"
-    aria-label="Previous page"
-    {{ 'disabled' if pagination.current == 1 }}>
-    <svg class="usa-icon" aria-hidden="true" role="img">
-      <use xlink:href="{{ sprite_path }}#navigate_before"></use>
-    </svg>
-    <span class="usa-pagination__button-text">Previous</span>
-  </a>
-
-  {# Next page #}
-  <a
-    href="{{ placeholder_link }}"
-    class="usa-pagination__link usa-pagination__next-page"
-    aria-label="Next page"
-    {{ 'disabled' if pagination.items == pagination.current }}>
-    <span class="usa-pagination__button-text">Next</span>
-    <svg class="usa-icon" aria-hidden="true" role="img">
-      <use xlink:href="{{ sprite_path }}#navigate_next"></use>
-    </svg>
-  </a>
-  <a href="{{ placeholder_link }}" class="usa-pagination__view-all usa-link" aria-label="View all pages">
-    View all results
-  </a>
 </nav>

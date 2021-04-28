@@ -4,15 +4,53 @@ order: -1
 preview: "@uswds-framed"
 
 context:
-  placeholder_link: "javascript:void(0);"
+  lang: en
+  placeholder_link: javascript:void(0);
   modifier: ''
-  aria_label: 'pagination'
+  aria_label: Pagination
   pagination:
+    infinite: false
     items: 24
     current: 10
-
+    previous:
+      label: Previous
+      aria_label: Previous page
+    next:
+      label: Next
+      aria_label: Next page
 
 variants:
-  - name: Centered
+  - name: infinite
+    label: Infinite
     context:
-      modifier: usa-pagination--centered
+      modifier: usa-pagination--infinite
+      pagination:
+        items: 24
+        current: 10
+        infinite: true
+  - name: lang-es
+    label: Spanish
+    context:
+      lang: en
+      aria_label: Paginación
+      pagination:
+        previous:
+          label: Anterior
+          aria_label: Página anterior
+        next:
+          label: Siguiente
+          aria_label: Next page
+  - name: lang-es-infinite
+    label: Infinite (Spanish)
+    context:
+      lang: es
+      modifier: usa-pagination--infinite
+      aria_label: Paginación
+      pagination:
+        infinite: true
+        previous:
+          label: Anterior
+          aria_label: Página anterior
+        next:
+          label: Siguiente
+          aria_label: Página siguiente

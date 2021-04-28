@@ -1,0 +1,68 @@
+{% from "pagination/_pagination-button.njk" import paginationButton %}
+
+{% set
+  pager_ranges = {
+    'default': range(pagination.current - 1, pagination.current + 2),
+    'last_item': pagination.items,
+    'first_three': range(2, 5),
+    'last_three': range(pagination.items - 3, pagination.items),
+    'all': range(2, pagination.items)
+  }
+%}
+
+{% set ellipsis %}
+  <li class="usa-pagination__item usa-pagination__ellipsis" role="presentation">
+    <span>
+      …
+    </span>
+  </li>
+{% endset %}
+
+<li class="usa-pagination__item usa-pagination__page-no">
+  {{ paginationButton(1, pagination.current) }}
+</li>
+
+{# Page numbers #}
+{% switch true %}
+  {% case pagination.items <= 4 %}
+    {# List all of them if less than 4 #}
+    {% for item in pager_ranges.all  %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+  {% case pagination.current <= 4 and pagination.items >= 4 %}
+    {# Show first three only #}
+    {% for item in pager_ranges.first_three  %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+
+    {{ ellipsis | safe }}
+
+  {% case (pagination.current >= pagination.items - 3) %}
+    {{ ellipsis | safe }}
+
+    {# Show last three #}
+    {% for item in pager_ranges.last_three %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+  {% default %}
+    {{ ellipsis | safe }}
+
+    {# Default - Current -1, Current, Current + 1 #}
+    {% for item in pager_ranges.default %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+
+    {{ ellipsis | safe }}
+{% endswitch %}
+
+<li class="usa-pagination__item usa-pagination__page-no">
+  {{ paginationButton(pager_ranges.last_item, pagination.current) }}
+</li>

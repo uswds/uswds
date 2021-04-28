@@ -1,0 +1,44 @@
+{% from "pagination/_pagination-button.njk" import paginationButton %}
+
+{% set
+  pager_ranges = {
+    'default': range(pagination.current - 3, pagination.current + 4),
+    'last_item': pagination.items,
+    'first_seven': range(1, 8),
+    'last_seven': range(pagination.items - 6, pagination.items + 1),
+    'all': range(1, pagination.items)
+  }
+%}
+
+{# Page numbers #}
+{% switch true %}
+  {% case pagination.items <= 7 %}
+    {# List all of them if less than 7 #}
+    {% for item in pager_ranges.all  %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+  {% case pagination.current <= 7 and pagination.items >= 7 %}
+    {# Show first seven only #}
+    {% for item in pager_ranges.first_seven  %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+
+  {% case (pagination.current >= pagination.items - 7) %}
+    {# Show last seven #}
+    {% for item in pager_ranges.last_seven %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+  {% default %}
+    {# Default - Current -1, Current, Current + 1 #}
+    {% for item in pager_ranges.default %}
+      <li class="usa-pagination__item usa-pagination__page-no">
+        {{ paginationButton(item, pagination.current) }}
+      </li>
+    {% endfor %}
+{% endswitch %}
