@@ -40,7 +40,7 @@ variants:
         next:
           label: Siguiente
           aria_label: Página siguiente
-  - name: lang-es-infinite
+  - name: infinite-lang-es
     label: Infinite (Spanish)
     context:
       lang: es
