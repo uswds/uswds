@@ -39,7 +39,7 @@ variants:
           aria_label: Página anterior
         next:
           label: Siguiente
-          aria_label: Next page
+          aria_label: Página siguiente
   - name: lang-es-infinite
     label: Infinite (Spanish)
     context:
