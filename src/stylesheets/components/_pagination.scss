@@ -4,6 +4,7 @@ $pagination-context: "Pagination";
 // ---------------------------------
 .usa-pagination {
   @include u-margin-y($theme-pagination-margin-y);
+  @include typeset($theme-pagination-font-family);
   display: flex;
   justify-content: center;
 }
