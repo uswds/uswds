@@ -32,6 +32,7 @@ $pagination-context: "Pagination";
 .usa-pagination__item {
   @include u-text("tabular");
   line-height: 1;
+  justify-content: center;
   margin-left: units($theme-pagination-margin-x);
   margin-right: units($theme-pagination-margin-x);
   min-width: $theme-pagination-min-width;
@@ -59,6 +60,7 @@ $pagination-context: "Pagination";
     $important: true,
     $context: $pagination-context
   );
+  align-items: center;
   display: inline-flex;
   text-decoration: none;
 
@@ -130,6 +132,7 @@ $pagination-context: "Pagination";
 }
 
 .usa-pagination__ellipsis {
+  align-self: stretch;
   display: none;
   user-select: none;
   padding: units($theme-pagination-padding);
