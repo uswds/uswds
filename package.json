@@ -52,7 +52,8 @@
     "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
-    "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss"
+    "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
+    "prettier:templates": "npx prettier --write './build/components/render/*.html'"
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",
