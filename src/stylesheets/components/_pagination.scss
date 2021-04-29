@@ -29,8 +29,10 @@ $pagination-context: "Pagination";
 }
 
 // Pagination nav items
+// 1. Prevents chromium browsers from adding additional vertical whitespace
 .usa-pagination__item {
   @include u-text("tabular");
+  display: inline-flex; // 1
   line-height: 1;
   justify-content: center;
   margin-left: units($theme-pagination-margin-x);
