@@ -22,6 +22,7 @@ context:
 variants:
   - name: infinite
     label: Infinite
+    modifier: 'usa-pagination--infinite'
     context:
       modifier: usa-pagination--infinite
       pagination:
@@ -42,6 +43,7 @@ variants:
           aria_label: Página siguiente
   - name: infinite-lang-es
     label: Infinite (Spanish)
+    modifier: 'usa-pagination--infinite'
     context:
       lang: es
       modifier: usa-pagination--infinite
