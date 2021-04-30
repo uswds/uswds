@@ -31,7 +31,6 @@ const AXE_OPTIONS = {
     'skip-link': { enabled: false },
     // Not all examples will need an h1, ex: links.
     'page-has-heading-one': { enabled: false },
-    selector: '*:not(.axe-exclude)',
   },
 };
 
