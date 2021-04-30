@@ -10,7 +10,7 @@ const AXE_CONTEXT = JSON.stringify({
     // iframes with data: URIs. The content of these iframes is just for
     // non-USWDS example content anyways, so just skip them to speed things
     // up.
-    ['iframe[src^="data:"]', '.axe-exclude'],
+    ['iframe[src^="data:"]'],
   ],
 });
 
@@ -31,6 +31,7 @@ const AXE_OPTIONS = {
     'skip-link': { enabled: false },
     // Not all examples will need an h1, ex: links.
     'page-has-heading-one': { enabled: false },
+    selector: '*:not([class="axe-exclude"])',
   },
 };
 
