@@ -127,6 +127,7 @@
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
+  background-color: color($theme-input-tile-background-color);
   border: units($theme-input-tile-border-width) solid
     color($theme-input-tile-border-color);
   border-radius: radius($theme-input-tile-border-radius);
