@@ -22,6 +22,7 @@ $palettes-default: (
   "palette-color-default":
     map-collect(
       $tokens-color-basic,
+      $tokens-color-basic-state,
       $tokens-color-grayscale,
       $tokens-color-theme
     ),

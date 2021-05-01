@@ -633,6 +633,11 @@ $tokens-color-basic: (
   "white-transparent": false,
 );
 
+$tokens-color-basic-state: (
+  "error": $theme-color-error,
+  "success": $theme-color-success,
+);
+
 //red-cool
 $color-red-cool-5: get-system-color("red-cool", 5);
 $color-red-cool-10: get-system-color("red-cool", 10);
