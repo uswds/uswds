@@ -1,9 +1,9 @@
-<button class="usa-nav__close"><img src="{{ uswds.path }}/img/usa-icons/close.svg" role="img" alt="close"></button>
+<button class="usa-nav__close" type="button"><img src="{{ uswds.path }}/img/usa-icons/close.svg" role="img" alt="close"></button>
 <ul class="usa-nav__primary usa-accordion">
   {%- for link in nav.links -%}
   <li class="usa-nav__primary-item">
     {% if link.links -%}
-    <button class="usa-accordion__button usa-nav__link{% if link.is_current %}  usa-current{% endif %}" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}"><span>{{ link.text }}</span></button>
+    <button class="usa-accordion__button usa-nav__link{% if link.is_current %}  usa-current{% endif %}" type="button" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}"><span>{{ link.text }}</span></button>
     <{% if nav.mega %}div{% else %}ul{% endif %} id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav__submenu{% if nav.mega %} usa-megamenu{% endif %}">
       {%- if nav.id_prefix == "basic-" or nav.id_prefix == "extended-" -%}
         {%- for child in link.links -%}
