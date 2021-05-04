@@ -1,5 +1,6 @@
 .usa-link {
   @include typeset-link;
+  display: inline-flex;
 }
 
 // External link consider 'effortless style approach':
@@ -9,13 +10,15 @@
 .usa-link--external {
   @include external-link(
     usa-icons-bg/launch--blue-60v,
-    usa-icons-bg/launch--blue-70v
+    usa-icons-bg/launch--blue-70v,
+    $order: 2
   );
 
   &.usa-link--alt {
     @include external-link(
       usa-icons-bg/launch--gray-5,
-      usa-icons-bg/launch--white
+      usa-icons-bg/launch--white,
+      $order: 2
     );
   }
 }
@@ -23,10 +26,17 @@
 .usa-link--authenticated {
   @include external-link(
     usa-icons-bg/lock--blue-60v,
-    usa-icons-bg/lock--blue-70v
+    usa-icons-bg/lock--blue-70v,
+    $order: 3,
+    $position: "before"
   );
 
   &.usa-link--alt {
-    @include external-link(usa-icons-bg/lock--gray-5, usa-icons-bg/lock--white);
+    @include external-link(
+      usa-icons-bg/lock--gray-5,
+      usa-icons-bg/lock--white,
+      $order: 3,
+      $position: "before"
+    );
   }
 }

@@ -1,21 +1,28 @@
 @mixin external-link(
   $external-link,
   $external-link-hover,
-  $image-path: $theme-image-path
+  $image-path: $theme-image-path,
+  $order: 1,
+  $position: "after"
 ) {
-  &::after {
+  &::#{$position} {
     $icon-size: 0.65em;
     background-image: url("#{$image-path}/#{$external-link}.svg");
     background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 100%;
     content: "";
-    display: inline;
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    position: relative;
+    bottom: -0.3ex;
     margin-left: units(2px);
     padding-left: $icon-size;
+    order: $order;
   }
 
-  &:hover::after {
+  &:hover::#{$position} {
     @include add-background-svg("#{$external-link-hover}", $image-path);
   }
 }
