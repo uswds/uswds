@@ -1,6 +1,16 @@
+{% set logo_link_attrs = {
+  'href': header.link.href | default('/'),
+  'title': header.link.title | default('Home'),
+  'aria-label': header.link.label | default('Home')
+} %}
+
 <div class="usa-navbar">
   <div class="usa-logo" id="{{ header.primary.id_prefix }}logo">
-    <em class="usa-logo__text"><a href="{{ header.link.href | default('/') }}" title="{{ header.link.title | default('Home') }}" aria-label="{{ header.link.label | default('Home') }}">{{ header.title | safe | default(site.title) }}</a></em>
+    <em class="usa-logo__text">
+      <a href="{{ logo_link_attrs.href }}" title="{{ logo_link_attrs.title }}" aria-label="{{ logo_link_attrs['aria-label'] }}">
+        {{ header.title | default(site.title) }}
+      </a>
+    </em>
   </div>
-  <button class="usa-menu-btn">Menu</button>
+  <button class="usa-menu-btn">{{ menu_btn.text | default('Menu') }}</button>
 </div>
