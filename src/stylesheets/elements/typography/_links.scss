@@ -19,3 +19,14 @@
     );
   }
 }
+
+.usa-link--authenticated {
+  @include external-link(
+    usa-icons-bg/lock--blue-60v,
+    usa-icons-bg/lock--blue-70v
+  );
+
+  &.usa-link--alt {
+    @include external-link(usa-icons-bg/lock--gray-5, usa-icons-bg/lock--white);
+  }
+}
