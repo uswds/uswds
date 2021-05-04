@@ -7,11 +7,11 @@ context:
     aria_label: Footer navigation
     footer_nav:
       nav_items:
-        - Primary link
-        - Primary link
-        - Primary link
-        - Primary link
-        - Primary link
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
   secondary_section:
     brand:
       logo: logo-img.png
@@ -37,27 +37,27 @@ variants:
       primary_section:
         footer_nav:
           nav_items:
-            - primary_link: Primary link
+            - primary_link: <Primary link>
               secondary_links:
-                - Secondary link
-                - Secondary link
-                - Secondary link that's a bit longer than most of the others
-                - Secondary link
-            - primary_link: Primary link
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link that's a bit longer than most of the others>
+                - <Secondary link>
+            - primary_link: <Primary link>
               secondary_links:
-                - Secondary link
-                - Secondary link that's pretty long
-                - Secondary link
-                - Secondary link
-            - primary_link: Primary link
+                - <Secondary link>
+                - <Secondary link that's pretty long>
+                - <Secondary link>
+                - <Secondary link>
+            - primary_link: <Primary link>
               secondary_links:
-                - Secondary link
-                - Secondary link
-                - Secondary link
-                - Secondary link
-            - primary_link: Primary link
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+            - primary_link: <Primary link>
               secondary_links:
-                - Secondary link
-                - Secondary link
-                - Secondary link
-                - Secondary link
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
