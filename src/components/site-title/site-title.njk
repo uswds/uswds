@@ -8,7 +8,7 @@
   <div class="usa-logo" id="{{ header.primary.id_prefix }}logo">
     <em class="usa-logo__text">
       <a href="{{ logo_link_attrs.href }}" title="{{ logo_link_attrs.title }}" aria-label="{{ logo_link_attrs['aria-label'] }}">
-        {{ header.title | default(site.title) }}
+        {{ header.title | default(site.title) | safe }}
       </a>
     </em>
   </div>
