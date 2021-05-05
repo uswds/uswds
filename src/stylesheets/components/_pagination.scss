@@ -148,6 +148,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   display: inherit;
   user-select: none;
   padding: units($theme-pagination-padding);
+  opacity: 0.5;
 }
 
 // ---------------------------------
