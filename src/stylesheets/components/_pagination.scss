@@ -1,4 +1,8 @@
 $pagination-context: "Pagination";
+$pagination-margin-x: 0.5 !default;
+$pagination-margin-y: 2 !default;
+$pagination-margin-min-width: 4.5ch !default;
+$pagination-margin-padding: 1 !default;
 
 $pagination-current-color: get-color-token-from-bg();
 $pagination-link-tokens: get-link-tokens-from-bg(
@@ -14,7 +18,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 // Pagination
 // ---------------------------------
 .usa-pagination {
-  @include u-margin-y($theme-pagination-margin-y);
+  @include u-margin-y($pagination-margin-y);
   @include typeset($theme-pagination-font-family);
   display: flex;
   justify-content: center;
@@ -47,9 +51,9 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   display: inline-flex; // 1
   line-height: 1;
   justify-content: center;
-  margin-left: units($theme-pagination-margin-x);
-  margin-right: units($theme-pagination-margin-x);
-  min-width: $theme-pagination-min-width;
+  margin-left: units($pagination-margin-x);
+  margin-right: units($pagination-margin-x);
+  min-width: $pagination-margin-min-width;
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
@@ -109,7 +113,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   color: color($pagination-link-token);
   display: inline-flex;
   justify-content: center;
-  padding: units($theme-pagination-padding);
+  padding: units($pagination-margin-padding);
   text-decoration: none;
   width: 100%;
 
@@ -145,7 +149,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   align-self: stretch;
   display: inherit;
   user-select: none;
-  padding: units($theme-pagination-padding);
+  padding: units($pagination-margin-padding);
   opacity: 0.5;
 }
 
