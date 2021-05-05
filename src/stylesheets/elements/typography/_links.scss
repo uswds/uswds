@@ -1,6 +1,5 @@
 .usa-link {
   @include typeset-link;
-  display: inline-flex;
 }
 
 // External link consider 'effortless style approach':
@@ -30,6 +29,8 @@
     $order: 3,
     $position: "before"
   );
+  display: inline-flex;
+  align-items: baseline;
 
   &.usa-link--alt {
     @include external-link(
@@ -38,5 +39,14 @@
       $order: 3,
       $position: "before"
     );
+  }
+}
+
+.usa-link__meta {
+  text-decoration: none;
+  line-height: 1;
+
+  a:hover & {
+    border-color: color("primary-dark");
   }
 }
