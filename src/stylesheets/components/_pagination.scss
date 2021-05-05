@@ -20,6 +20,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   justify-content: center;
 }
 
+// TODO: Pull out magic number into vars? Could this better?
 .usa-pagination .usa-icon {
   height: px-to-rem(18px);
   width: px-to-rem(18px);
@@ -52,6 +53,15 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
+  }
+}
+
+// Don't show previous and next at mobile.
+// Functionality exists with page buttons.
+.usa-pagination__arrow {
+  display: none;
+  @include at-media($theme-pagination-breakpoint) {
+    display: inherit;
   }
 }
 
@@ -134,13 +144,9 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__ellipsis {
   align-self: stretch;
-  display: none;
+  display: inherit;
   user-select: none;
   padding: units($theme-pagination-padding);
-
-  @include at-media($theme-pagination-breakpoint) {
-    display: inherit;
-  }
 }
 
 // ---------------------------------
