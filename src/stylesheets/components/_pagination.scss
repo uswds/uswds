@@ -139,6 +139,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
       $context: $pagination-context
     );
     border-color: transparent;
+    text-decoration: none;
   }
 }
 
