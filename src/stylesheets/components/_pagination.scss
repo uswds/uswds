@@ -1,5 +1,16 @@
 $pagination-context: "Pagination";
 
+$pagination-current-color: get-color-token-from-bg();
+$pagination-link-tokens: get-link-tokens-from-bg(
+  $theme-pagination-background-color,
+  $theme-link-reverse-color,
+  $theme-link-color,
+  $context: $pagination-context
+);
+
+$pagination-link-token: nth($pagination-link-tokens, 1);
+$pagination-hover-token: nth($pagination-link-tokens, 2);
+
 // Pagination
 // ---------------------------------
 .usa-pagination {
@@ -57,42 +68,35 @@ $pagination-context: "Pagination";
 }
 
 .usa-pagination__link {
-  @include set-link-from-bg(
-    $theme-pagination-background-color,
-    $important: true,
-    $context: $pagination-context
-  );
   align-items: center;
+  color: color($pagination-link-token);
   display: inline-flex;
   text-decoration: none;
 
   &[disabled] {
-    color: color("base-light") !important;
+    opacity: 0.4 !important;
     pointer-events: none;
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
+    color: color($pagination-hover-token);
     text-decoration: underline;
   }
 
   &:visited {
-    color: color($theme-link-color);
+    color: color($pagination-link-token);
   }
 }
 
 .usa-pagination__button {
-  @include set-text-and-bg(
-    $theme-pagination-button-background-color,
-    $theme-link-color,
-    $important: true,
-    $context: $pagination-context
-  );
   align-items: center;
-  border-color: color($theme-pagination-button-border-color);
+  border-color: color($pagination-link-token);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
   border-width: units($theme-pagination-button-border-width);
+  color: color($pagination-link-token);
   display: inline-flex;
   justify-content: center;
   padding: units($theme-pagination-padding);
@@ -100,36 +104,30 @@ $pagination-context: "Pagination";
   width: 100%;
 
   &:hover,
-  &:focus {
-    @include set-text-and-bg("primary", $context: $pagination-context);
-    border-color: color("primary");
-  }
-
+  &:focus,
   &:active {
-    @include set-text-and-bg("primary-dark", $context: $pagination-context);
-    border-color: color("primary-dark");
+    color: color($pagination-hover-token);
+    border-color: color($pagination-hover-token);
   }
 }
 
 .usa-pagination .usa-current {
   @include set-text-and-bg(
-    $theme-pagination-current-background-color,
-    "white",
-    $theme-link-color,
+    $pagination-current-color,
     $important: true,
     $context: $pagination-context
   );
-  border-color: color($theme-pagination-current-background-color);
+  border-color: transparent;
 
   &:hover,
   &:focus,
   &:active {
     @include set-text-and-bg(
-      "primary-darker",
+      $pagination-current-color,
       $important: true,
       $context: $pagination-context
     );
-    border-color: color("primary-darker");
+    border-color: transparent;
   }
 }
 
