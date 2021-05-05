@@ -123,22 +123,20 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 }
 
 .usa-pagination .usa-current {
-  @include set-text-and-bg(
-    $pagination-current-color,
-    $important: true,
-    $context: $pagination-context
+  $text-color: if(
+    $theme-pagination-background-color == "default",
+    $theme-body-background-color,
+    $theme-pagination-background-color
   );
+  background-color: color($pagination-current-color);
   border-color: transparent;
+  color: color($text-color);
 
   &:hover,
   &:focus,
   &:active {
-    @include set-text-and-bg(
-      $pagination-current-color,
-      $important: true,
-      $context: $pagination-context
-    );
-    border-color: transparent;
+    background-color: color($pagination-current-color);
+    color: color($text-color);
     text-decoration: none;
   }
 }
