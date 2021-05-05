@@ -1,6 +1,10 @@
 label: Headers
 status: ready
 
+context:
+  nav:
+    aria_label: Primary navigation
+
 variants:
   - name: default
     label: Compare
