@@ -108,6 +108,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   &:active {
     color: color($pagination-hover-token);
     border-color: color($pagination-hover-token);
+    text-decoration: underline;
   }
 }
 
