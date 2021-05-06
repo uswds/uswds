@@ -1,6 +1,6 @@
 {%
   set search_attrs = {
-    'input_modifier': 'search-field-' ~ input_modifier if input_modifier else 'search-field',
+    'input_modifier': (id_prefix if id_prefix) ~ 'search-field-' ~ (input_modifier if input_modifier else 'search-field'),
     'button_class': 'usa-search__submit-text' if modifier !== 'usa-search--small' else 'usa-sr-only',
     'search_class': 'usa-search' ~ (' ' ~ modifier if modifier) ~ (' js-search-form' if search_js)
   }
