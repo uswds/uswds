@@ -58,9 +58,16 @@
   {%- endfor -%}
 </ul>
 {%- if nav.search -%}
+  {%
+    set search_opts = {
+      search_header: true,
+      id_prefix: nav.id_prefix
+    }
+  %}
+
   {% if lang !== "en" %}
-    {% render '@search--small-lang-es', { search_header: true }, true %}
+    {% render '@search--small-lang-es', search_opts, true %}
   {% else %}
-    {% render '@search--small', { search_header: true }, true %}
+    {% render '@search--small', search_opts, true %}
   {% endif %}
 {%- endif -%}

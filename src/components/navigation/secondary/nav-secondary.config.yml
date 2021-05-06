@@ -3,6 +3,7 @@ preview: "@uswds-header"
 status: ready
 
 context:
+  lang: en
   nav:
     search: true
     links:
@@ -12,6 +13,7 @@ context:
 variants:
   - name: lang-es
     context:
+      lang: es
       nav:
         links:
           - text: Enlace secundario
