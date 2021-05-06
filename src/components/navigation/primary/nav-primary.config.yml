@@ -3,6 +3,7 @@ preview: "@uswds-header"
 status: ready
 
 context:
+  lang: en
   nav:
     search: false
     links:
@@ -38,33 +39,35 @@ context:
 variants:
   - name: lang-es
     context:
-      search: "@search--lang-es"
-      links:
-        - text: Sección actual
-          is_current: true
-          id: nav-seccion-uno
-          links: &subnav_links
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-              is_current: false
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-            - text: <Enlace de navegación>
-              href: "#"
-        - text: Section
-          id: nav-seccion-dos
-          links: *subnav_links
-        - text: Enlace simple
-          href: "javascript:void(0)"
+      lang: es
+      nav:
+        search: false
+        links:
+          - text: Sección actual
+            is_current: true
+            id: nav-seccion-uno
+            links: &subnav_links
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+                is_current: false
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+              - text: <Enlace de navegación>
+                href: "#"
+          - text: Sección
+            id: nav-seccion-dos
+            links: *subnav_links
+          - text: Enlace simple
+            href: "javascript:void(0)"
