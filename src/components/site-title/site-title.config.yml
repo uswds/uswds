@@ -8,3 +8,11 @@ context:
     href: "javascript:void(0)"
   menu_btn:
     text: Menu
+
+variants:
+  - name: lang-es
+    context:
+      header:
+        title: <Título de proyecto>
+      menu_btn:
+        text: Menú
