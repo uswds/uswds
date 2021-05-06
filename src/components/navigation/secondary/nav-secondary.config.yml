@@ -8,3 +8,11 @@ context:
     links:
       - text: Secondary link
       - text: Another secondary link
+
+variants:
+  - name: lang-es
+    context:
+      nav:
+        links:
+          - text: Enlace secundario
+          - text: Otro enlace secundario
