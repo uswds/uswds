@@ -2,7 +2,7 @@ label: Identifier
 status: ready
 context:
   lang: en
-  domain: domain.gov
+  domain: <domain.gov>
   masthead:
     label:
       content:
