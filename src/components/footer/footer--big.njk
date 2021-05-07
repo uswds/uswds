@@ -1,5 +1,11 @@
 {% set logo_img =  uswds.path + '/img/' + secondary_section.brand.logo %}
 
+{% set contact_info = {
+  'heading': secondary_section.contact_links.heading | e,
+  'phone':  secondary_section.contact_links.address.phone | e ,
+  'email': secondary_section.contact_links.address.email | e
+} %}
+
 <footer class="usa-footer usa-footer--big">
   <div class="grid-container usa-footer__return-to-top">
     <a href="#">{{ top_link }}</a>
@@ -14,12 +20,14 @@
                 <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
                   <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
                     <h4 class="usa-footer__primary-link">
-                      {{ section.primary_link }}
+                      {{ section.primary_link | e }}
                     </h4>
                     <ul class="usa-list usa-list--unstyled">
                       {% for secondary_link in section.secondary_links %}
                         <li class="usa-footer__secondary-link">
-                          <a href="javascript:void(0);">{{ secondary_link }}</a>
+                          <a href="javascript:void(0);">
+                            {{ secondary_link | e }}
+                          </a>
                         </li>
                       {% endfor %}
                     </ul>
@@ -66,18 +74,18 @@
             {% endfor %}
           </div>
           <h3 class="usa-footer__contact-heading">
-            {{ secondary_section.contact_links.heading }}
+            {{ contact_info.heading }}
           </h3>
           <address class="usa-footer__address">
             <div class="usa-footer__contact-info grid-row grid-gap">
               <div class="grid-col-auto">
                 <a href="tel:1-800-555-5555">
-                  {{ secondary_section.contact_links.address.phone }}
+                  {{ contact_info.phone }}
                 </a>
               </div>
               <div class="grid-col-auto">
-                <a href="mailto:{{ secondary_section.contact_links.address.email }}">
-                  {{ secondary_section.contact_links.address.email }}
+                <a href="mailto:{{ contact_info.email }}">
+                  {{ contact_info.email }}
                 </a>
               </div>
             </div>

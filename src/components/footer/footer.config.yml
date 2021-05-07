@@ -23,10 +23,10 @@ context:
         - YouTube
         - Instagram
         - RSS
-      heading: Agency Contact Center
+      heading: <Agency Contact Center>
       address:
-        phone: (800) CALL-GOVT
-        email: info@agency.gov
+        phone: <(800) 555-GOVT>
+        email: <info@agency.gov>
 
 variants:
   - name: default

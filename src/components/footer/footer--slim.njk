@@ -1,5 +1,11 @@
 {% set logo_img =  uswds.path + '/img/' + secondary_section.brand.logo %}
 
+{% set contact_info = {
+  'heading': secondary_section.contact_links.heading | e,
+  'phone':  secondary_section.contact_links.address.phone | e ,
+  'email': secondary_section.contact_links.address.email | e
+} %}
+
 <footer class="usa-footer usa-footer--slim">
   <div class="grid-container usa-footer__return-to-top">
     <a href="#">{{ top_link }}</a>
@@ -12,7 +18,7 @@
             {% for link in primary_section.footer_nav.nav_items %}
               <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
                 <a class="usa-footer__primary-link" href="javascript:void(0);">
-                  {{ link }}
+                  {{ link | e }}
                 </a>
               </li>
             {% endfor %}
@@ -25,14 +31,14 @@
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
                 <a href="tel:1-800-555-5555">
-                  {{ secondary_section.contact_links.address.phone }}
+                  {{ contact_info.phone }}
                 </a>
               </div>
             </div>
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
-                <a href="mailto:{{ secondary_section.contact_links.address.email }}">
-                  {{ secondary_section.contact_links.address.email }}
+                <a href="mailto:{{ contact_info.email }}">
+                  {{ contact_info.email }}
                 </a>
               </div>
             </div>
@@ -49,7 +55,7 @@
         </div>
         <div class="grid-col-auto">
           <p class="usa-footer__logo-heading">
-            {{ secondary_section.contact_links.heading }}
+            {{ contact_info.heading }}
           </p>
         </div>
       </div>
