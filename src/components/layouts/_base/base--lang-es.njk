@@ -33,7 +33,7 @@
     {% endblock %}
 
     {% block footer -%}
-      {% render '@footer' %}
+      {% render '@footer', { top_link: "Subir" }, true %}
     {% endblock %}
     {% block identifier -%}
       {% render '@identifier--lang-es' %}
