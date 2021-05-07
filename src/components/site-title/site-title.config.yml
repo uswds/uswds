@@ -12,7 +12,5 @@ context:
 variants:
   - name: lang-es
     context:
-      header:
-        title: <Título de proyecto>
       menu_btn:
         text: Menú
