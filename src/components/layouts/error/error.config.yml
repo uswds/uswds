@@ -15,7 +15,7 @@ context:
     text: "For immediate assistance:"
     actions:
       - <a href="javascript:void();" class="usa-link">Start a live chat with us</a>
-      - Call <a href="javascript:void();" class="usa-link">(555) 555-5555</a>
+      - Call <a href="javascript:void();" class="usa-link">(555) 555-GOVT</a>
   error_code: <strong>Error code:</strong> 404
 
 
@@ -36,7 +36,7 @@ variants:
         text: "Para ayuda inmediata:"
         actions:
           - <a href="javascript:void();" class="usa-link">Chatee con nosotros</a>
-          - Llámenos al <a href="javascript:void();" class="usa-link">(555) 555-5555</a>
+          - Llámenos al <a href="javascript:void();" class="usa-link">(555) 555-GOVT</a>
       error_code: <strong>Código de error:</strong> 404
 
 
