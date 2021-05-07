@@ -7,14 +7,10 @@ context:
   nav:
     search: true
     links:
-      - text: Secondary link
-      - text: Another secondary link
+      - text: <Secondary link>
+      - text: <Another secondary link>
 
 variants:
   - name: lang-es
     context:
       lang: es
-      nav:
-        links:
-          - text: Enlace secundario
-          - text: Otro enlace secundario
