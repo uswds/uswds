@@ -5,6 +5,7 @@ context:
   banner:
     text: "An official website of the United States government"
     action: "Here’s how you know"
+    aria_label: "Official government website"
   domain:
     tld: ".gov"
     heading: |
@@ -23,6 +24,7 @@ variants:
       banner:
         text: "Un sitio oficial del Gobierno de Estados Unidos"
         action: "Así es como usted puede verificarlo"
+        aria_label: "Un sitio oficial de Gobierno"
       domain:
         tld: ".gov"
         heading: |
@@ -45,6 +47,7 @@ variants:
       banner:
         text: "Un sitio oficial del Gobierno de Estados Unidos"
         action: "Así es como usted puede verificarlo"
+        aria_label: "Un sitio oficial de Gobierno"
       domain:
         tld: ".mil"
         heading: |
