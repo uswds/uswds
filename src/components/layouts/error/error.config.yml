@@ -7,7 +7,7 @@ context:
   intro: |
     We’re sorry, we can’t find the page you're looking for. It might have been removed, changed its name, or is otherwise unavailable.
   instructions: |-
-    <p>If you typed the URL directly, check your spelling and capitalization. Our URLs look like this: <strong>designsystem.digital.gov/example-one</strong>.</p><p>Visit our homepage for helpful tools and resources, or contact us and we’ll point you in the right direction.</p>
+    <p>If you typed the URL directly, check your spelling and capitalization. Our URLs look like this: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visit our homepage for helpful tools and resources, or contact us and we’ll point you in the right direction.</p>
   actions:
     primary: Visit homepage
     secondary: Contact Us
@@ -28,7 +28,7 @@ variants:
       intro: |
         Lo sentimos, pero no podemos encontrar la página que busca.  Es posible que haya sido eliminada, cambiado de nombre o no esté disponible por ahora.
       instructions: |-
-        <p>Si escribió el URL a mano, verifique su ortografía y el uso de mayúsculas.  Nuestros URLs aparecen así: <strong>designsystem.digital.gov/example-one</strong>.</p><p>Visite nuestra página principal para encontrar herramientas y recursos útiles o contáctenos y lo ayudaremos a encontrar lo que busca.</p>
+        <p>Si escribió el URL a mano, verifique su ortografía y el uso de mayúsculas.  Nuestros URLs aparecen así: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visite nuestra página principal para encontrar herramientas y recursos útiles o contáctenos y lo ayudaremos a encontrar lo que busca.</p>
       actions:
         primary: Visite la página principal
         secondary: Contáctenos
