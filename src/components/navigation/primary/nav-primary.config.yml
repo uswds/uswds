@@ -6,8 +6,10 @@ context:
   lang: en
   nav:
     search: false
+    close:
+      label: Close
     links:
-      - text: Current section
+      - text: <Current section>
         is_current: true
         id: nav-section-one
         links: &subnav_links
@@ -30,10 +32,10 @@ context:
             href: "#"
           - text: <Navigation link>
             href: "#"
-      - text: Section
+      - text: <Section>
         id: nav-section-two
         links: *subnav_links
-      - text: Simple link
+      - text: <Simple link>
         href: "javascript:void(0)"
 
 variants:
@@ -41,33 +43,5 @@ variants:
     context:
       lang: es
       nav:
-        search: false
-        links:
-          - text: Sección actual
-            is_current: true
-            id: nav-seccion-uno
-            links: &subnav_links
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-                is_current: false
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-              - text: <Enlace de navegación>
-                href: "#"
-          - text: Sección
-            id: nav-seccion-dos
-            links: *subnav_links
-          - text: Enlace simple
-            href: "javascript:void(0)"
+        close:
+          label: Cerrar
