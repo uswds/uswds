@@ -6,9 +6,15 @@ const fs = require("fs");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 
-// mock file
+// allows us to create mock files
 function MockFile() {}
-
+/**
+ *
+ * @param {String} name
+ * @param {Number} size
+ * @param {String} mimeType
+ * @returns Blob "file" w/ size, type, name, and lastModified
+ */
 MockFile.prototype.create = (name, size, mimeType) => {
   name = name || "mock.txt"; // eslint-disable-line no-param-reassign
   size = size || 1024; // eslint-disable-line no-param-reassign
@@ -30,6 +36,11 @@ MockFile.prototype.create = (name, size, mimeType) => {
   return blob;
 };
 
+/**
+ *
+ * @param  {...any} files
+ * @returns FileList Type with passed files
+ */
 function makeFileList(...files) {
   const impl = jsdomFileList.createImpl(window);
   const ret = Object.assign([...files], {
@@ -100,35 +111,10 @@ describe("file input component should respond to file type on change", () => {
   });
 
   it("mock file should not be allowed", () => {
-    // inputEl.click();
-    // eslint-disable-next-line no-return-assign
-    inputEl.addEventListener("change", (event) => {
-      event.preventDefault();
-      console.log("in the event");
-      inputEl.files = fileList;
-      inputEl.files = event.target.files;
-      // addFileList(inputEl, "src/img/social-icons/rss25.png");
-    });
+    // add to our elements FileList
+    inputEl.files = fileList;
     const e = new Event("change");
     inputEl.dispatchEvent(e);
-
-    console.log(inputEl.files);
-    const [addedfile] = inputEl.files;
-    console.log(addedfile);
-    console.log(
-      "\nlastModified",
-      addedfile.lastModified,
-      "\nname",
-      addedfile.name,
-      "\nsize",
-      addedfile.size,
-      "\ntype",
-      addedfile.type,
-      "\n"
-    );
-    const [classes] = inputEl.classList;
-    console.log(classes);
-    // then check DOM reaction
-    assert.strictEqual(inputEl.classList.contains(INVALID_FILE_CLASS), true);
+    assert.strictEqual(dropZone.classList.contains(INVALID_FILE_CLASS), true);
   });
 });
