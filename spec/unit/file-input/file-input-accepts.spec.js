@@ -13,15 +13,12 @@ function MockFile() {}
  * @param {String} name
  * @param {Number} size
  * @param {String} mimeType
- * @returns Blob "file" w/ size, type, name, and lastModified
+ * @returns {Object} Blob "file" w/ size, type, name, and lastModified
  */
 MockFile.prototype.create = (name, size, mimeType) => {
-  name = name || "mock.txt"; // eslint-disable-line no-param-reassign
-  size = size || 1024; // eslint-disable-line no-param-reassign
-  mimeType = mimeType || "plain/txt"; // eslint-disable-line no-param-reassign
-
   function range(count) {
     let output = "";
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < count; i++) {
       // eslint-disable-line no-plusplus
       output += "a";
@@ -37,9 +34,9 @@ MockFile.prototype.create = (name, size, mimeType) => {
 };
 
 /**
- *
+ * Leverages JSdom library to instatiate a FileList
  * @param  {...any} files
- * @returns FileList Type with passed files
+ * @returns {Object} of FileList Type
  */
 function makeFileList(...files) {
   const impl = jsdomFileList.createImpl(window);
