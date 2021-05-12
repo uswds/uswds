@@ -11,7 +11,7 @@
   {%- endfor -%}
 {%- endmacro -%}
 
-<nav aria-label="Secondary navigation">
+<nav aria-label="{{ sidenav.aria }}">
   <ul class="usa-sidenav">
     {{ nav_list(sidenav.links, 'usa-sidenav__sublist') }}
   </ul>
