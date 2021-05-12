@@ -4,6 +4,6 @@
 }
 
 @mixin no-knockout-font-smoothing {
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-font-smoothing: inherit;
 }
