@@ -118,6 +118,12 @@
   cursor: not-allowed;
 }
 
+.usa-radio__input:checked:disabled + .usa-radio__label::before {
+  background: color("disabled-dark");
+  box-shadow: 0 0 0 2px color("disabled-dark"),
+    inset 0 0 0 2px color("disabled-light");
+}
+
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
@@ -132,6 +138,12 @@
 .usa-radio__input--tile:checked + .usa-radio__label {
   background-color: color($theme-input-tile-background-color-selected);
   border-color: color($theme-input-tile-border-color-selected);
+}
+
+.usa-checkbox__input--tile:disabled:checked + .usa-checkbox__label,
+.usa-radio__input--tile:disabled:checked + .usa-radio__label {
+  background-color: color("disabled-light");
+  border-color: color($theme-input-tile-border-color);
 }
 
 .usa-checkbox__label-description,
