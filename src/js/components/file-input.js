@@ -88,7 +88,7 @@ const enable = (el) => {
 /**
  *
  * @param {String} s special characters
- * @returns {string} replaces specefied values
+ * @returns {String} replaces specefied values
  */
 const replaceName = (s) => {
   const c = s.charCodeAt(0);
@@ -99,8 +99,8 @@ const replaceName = (s) => {
 
 /**
  * Creates an ID name for each file that strips all invalid characters.
- * @param {string} name - name of the file added to file input (searchvalue)
- * @returns {string} same characters as the name with invalid chars removed (newvalue)
+ * @param {String} name - name of the file added to file input (searchvalue)
+ * @returns {String} same characters as the name with invalid chars removed (newvalue)
  */
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
