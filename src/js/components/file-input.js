@@ -86,18 +86,23 @@ const enable = (el) => {
 };
 
 /**
- * Creates an ID name for each file that strips all invalid characters.
- * @param {string} name - name of the file added to file input
- * @returns {string} same characters as the name with invalid chars removed
+ *
+ * @param {String} s special characters
+ * @returns {string} replaces specefied values
  */
-const makeSafeForID = (name) => {
-  return name.replace(/[^a-z0-9]/g, function replaceName(s) {
-    const c = s.charCodeAt(0);
-    if (c === 32) return "-";
-    if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
-    return `__${("000", c.toString(16)).slice(-4)}`;
-  });
-};
+const replaceName = (s) => {
+  const c = s.charCodeAt(0);
+  if (c === 32) return "-";
+  if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
+  return `__${("000", c.toString(16)).slice(-4)}`;
+}
+
+/**
+ * Creates an ID name for each file that strips all invalid characters.
+ * @param {string} name - name of the file added to file input (searchvalue)
+ * @returns {string} same characters as the name with invalid chars removed (newvalue)
+ */
+const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
 /**
  * Builds full file input comonent
@@ -166,6 +171,14 @@ const removeOldPreviews = (dropTarget, instructions) => {
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
 
+  /**
+   * finds the parent of the passed node and removes the child
+   * @param {HTMLElement} node
+   */
+  const removeImages = (node) => {
+    node.parentNode.removeChild(node)
+  }
+
   // Remove the heading above the previews
   if (currentPreviewHeading) {
     currentPreviewHeading.outerHTML = "";
@@ -182,9 +195,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    Array.prototype.forEach.call(filePreviews, function removeImages(node) {
-      node.parentNode.removeChild(node);
-    });
+    Array.prototype.forEach.call(filePreviews, removeImages);
   }
 };
 
