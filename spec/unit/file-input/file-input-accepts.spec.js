@@ -1,8 +1,8 @@
 const assert = require("assert");
+const fs = require("fs");
 const jsdomUtils = require("jsdom/lib/jsdom/living/generated/utils");
 const jsdomFileList = require("jsdom/lib/jsdom/living/generated/FileList");
 const fileInput = require("../../../src/js/components/file-input");
-const fs = require("fs");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 
