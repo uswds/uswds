@@ -298,6 +298,25 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   const acceptedFilesAttr = fileInputEl.getAttribute("accept");
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
+  /**
+   * We can probably move away from this once IE11 support stops, and replace
+   * with a simple es `.includes`
+   * check if element is in array
+   * check if 1 or more alphabets are in string
+   * if element is present return the position value and -1 otherwise
+   * @param {Object} file
+   * @param {String} value
+   * @returns {Boolean}
+   */
+  const isIncluded = (file, value) => {
+    let returnValue = false;
+    const pos = file.indexOf(value);
+    if (pos >= 0) {
+      returnValue = true;
+    }
+    return returnValue;
+  };
+
   // Runs if only specific files are accepted
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
@@ -305,7 +324,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
-    const scannedFiles = e.target.files || e.dataTransfer.files
+    const scannedFiles = e.target.files || e.dataTransfer.files;
     for (let i = 0; i < scannedFiles.length; i += 1) {
       const file = scannedFiles[i];
       if (allFilesAllowed) {
@@ -313,11 +332,11 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
           const fileType = acceptedFiles[j];
           allFilesAllowed =
             file.name.indexOf(fileType) > 0 ||
-            file.type.indexOf(fileType.replace(/\*/g, ""));
+            isIncluded(file.type, fileType.replace(/\*/g, ""));
           if (allFilesAllowed) {
             TYPE_IS_VALID = true;
-            break
-          };
+            break;
+          }
         }
       } else break;
     }
