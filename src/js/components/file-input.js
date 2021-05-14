@@ -356,6 +356,21 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   }
 };
 
+/**
+ * 1. passes through gate for preventing invalid files
+ * 2. handles updates if file is valid
+ * @param {event} event
+ * @param {HTMLElement} element
+ * @param {HTMLElement} instructionsEl
+ * @param {HTMLElement} target
+ */
+const handleUpload = (event, element, instructionsEl, dropTargetEl) => {
+  preventInvalidFiles(event, element, instructionsEl, dropTargetEl);
+  if (TYPE_IS_VALID === true) {
+    handleChange(event, element, instructionsEl, dropTargetEl);
+  }
+};
+
 const fileInput = behavior(
   {},
   {
@@ -389,12 +404,7 @@ const fileInput = behavior(
 
         fileInputEl.addEventListener(
           "change",
-          function handleUpload(e) {
-            preventInvalidFiles(e, fileInputEl, instructions, dropTarget);
-            if (TYPE_IS_VALID === true) {
-              handleChange(e, fileInputEl, instructions, dropTarget);
-            }
-          },
+          (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
           false
         );
       });
