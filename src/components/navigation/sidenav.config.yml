@@ -28,7 +28,7 @@ variants:
   - name: one-level
     context:
       sidenav:
-        aria: Secondary navigation_
+        aria: Secondary navigation,
         links:
           - text: Current page
             current: true
@@ -37,7 +37,7 @@ variants:
   - name: two-level
     context:
       sidenav:
-        aria: Secondary navigation__
+        aria: Secondary navigation,,
         links:
           - text: Parent link
           - text: Current page
@@ -53,7 +53,7 @@ variants:
   - name: three-level
     context:
       sidenav:
-        aria: Secondary navigation___
+        aria: Secondary navigation,,,
         links:
           - text: Parent link
           - text: Current page
