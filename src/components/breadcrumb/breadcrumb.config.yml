@@ -2,11 +2,11 @@ label: Breadcrumb
 status: ready
 preview: "@uswds-content"
 context:
-  variantARIA: Default breadcrumb
+  variantARIA: Breadcrumbs,,
   variantClass: usa-breadcrumb--wrap
 
 variants:
   - name: wrap
     context:
-      variantARIA: Wrapping breadcumb
+      variantARIA: Breadcrumbs,,,
       variantClass: usa-breadcrumb--wrap
