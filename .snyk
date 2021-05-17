@@ -4,6 +4,6 @@ version: v1.19.0
 ignore:
   SNYK-JS-GLOBPARENT-1016905:
     - del > globby > fast-glob > glob-parent:
-        reason: None given
-        expires: '2021-04-02T06:38:47.102Z'
+        reason: No direct upgrade or patch.
+        expires: '2021-05-19T20:56:10.239Z'
 patch: {}
