@@ -1,7 +1,7 @@
 {%- macro nav_list(links, subclass) -%}
   {%- for item in links -%}
   <li class="usa-sidenav__item">
-    <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>{{ item.text }}</a>
+    <a href="{{ item.href | default("javascript:void(0);") }}"{% if item.current %} class="usa-current"{% endif %}>{{ item.text }}</a>
     {%- if item.links -%}
     <ul class="{{ subclass }}">
       {{ nav_list(item.links, subclass) }}
