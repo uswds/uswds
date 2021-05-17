@@ -11,7 +11,7 @@ variants:
     label: Info
     context:
       siteAlert:
-        aria: Site alert_
+        aria: Site alert,
         classes: "usa-site-alert--info"
       alert:
         title: Short alert message
@@ -21,7 +21,7 @@ variants:
     label: Emergency
     context:
       siteAlert:
-        aria: Site alert__
+        aria: Site alert,,
         classes: "usa-site-alert--emergency"
       alert:
         title: Emergency alert message
@@ -31,7 +31,7 @@ variants:
     label: Emergency with List
     context:
       siteAlert:
-        aria: Site alert___
+        aria: Site alert,,,
         classes: "usa-site-alert--emergency"
       alert:
         title: Emergency alert message
@@ -47,19 +47,19 @@ variants:
     label: No header
     context:
       siteAlert:
-        aria: Site alert____
+        aria: Site alert,,,,
         classes: "usa-site-alert--emergency usa-site-alert--no-heading"
 
   - name: no-icon
     label: No icon
     context:
       siteAlert:
-        aria: Site alert_____
+        aria: Site alert,,,,,
         classes: "usa-site-alert--emergency usa-site-alert--no-icon"
 
   - name: slim
     label: Slim
     context:
       siteAlert:
-        aria: Site alert______
+        aria: Site alert,,,,,,
         classes: "usa-site-alert--emergency usa-site-alert--slim"
