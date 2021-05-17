@@ -3,7 +3,7 @@ status: ready
 preview: "@uswds-content"
 context:
   variantARIA: Breadcrumbs,,
-  variantClass: usa-breadcrumb--wrap
+  variantClass: 
 
 variants:
   - name: wrap
