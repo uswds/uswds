@@ -6,8 +6,8 @@ context:
   masthead:
     label:
       content:
-        en: Agency identifier_
-        es: Identificador de la agencia_
+        en: Agency identifier,
+        es: Identificador de la agencia,
     description:
       label:
         content:
@@ -43,8 +43,8 @@ context:
   required_links:
     label:
       content:
-        en: Important links_
-        es: Enlaces importantes_
+        en: Important links,
+        es: Enlaces importantes,
     links:
       about:
         content:
@@ -98,8 +98,8 @@ context:
   usagov:
     label:
       content:
-        en: U.S. government information and services_
-        es: Información y servicios del Gobierno de EE. UU._
+        en: U.S. government information and services,
+        es: Información y servicios del Gobierno de EE. UU.,
     description:
       content:
         en: Looking for U.S. government information and services?
@@ -124,17 +124,17 @@ variants:
       masthead:
         label:
           content:
-            en: Agency identifier__
+            en: Agency identifier,,
         parent:
           logo: false
       usagov:
         label:
           content:
-            en: U.S. government information and services__
+            en: U.S. government information and services,,
       required_links:
         label:
           content:
-            en: Important links__
+            en: Important links,,
   - name: no-logos-lang-es
     label: No Logos (Spanish)
     context:
@@ -142,24 +142,24 @@ variants:
       masthead:
        label:
         content:
-          es: Identificador de la agencia__
+          es: Identificador de la agencia,,
        parent:
           logo: false
       usagov:
         label:
           content:
-            es: Información y servicios del Gobierno de EE. UU.__
+            es: Información y servicios del Gobierno de EE. UU.,,
       required_links:
         label:
           content:
-            es: Enlaces importantes__
+            es: Enlaces importantes,,
   - name: multiple-logos
     label: Multiple Logos
     context:
       masthead:
         label:
           content:
-            en: Agency identifier___
+            en: Agency identifier,,,
         agency:
           name:
             en: <Other agency>
@@ -170,11 +170,11 @@ variants:
       usagov:
         label:
           content:
-            en: U.S. government information and services___
+            en: U.S. government information and services,,,
       required_links:
         label:
           content:
-            en: Important links___
+            en: Important links,,,
   - name: multiple-logos-lang-es
     label: Multiple Logos (Spanish)
     context:
@@ -182,7 +182,7 @@ variants:
       masthead:
        label:
         content:
-          es: Identificador de la agencia___
+          es: Identificador de la agencia,,,
         agency:
           name:
             es: <Other agency>
@@ -193,28 +193,28 @@ variants:
       usagov:
         label:
           content:
-            es: Información y servicios del Gobierno de EE. UU.___
+            es: Información y servicios del Gobierno de EE. UU.,,,
       required_links:
         label:
           content:
-            es: Enlaces importantes___
+            es: Enlaces importantes,,,
   - name: taxpayer-disclaimer
     label: Taxpayer disclaimer
     context:
       masthead:
         label:
           content:
-            en: Agency identifier____
+            en: Agency identifier,,,,
         taxpayer_disclaimer:
           display: true
       usagov:
         label:
           content:
-            en: U.S. government information and services____
+            en: U.S. government information and services,,,,
       required_links:
         label:
           content:
-            en: Important links____
+            en: Important links,,,,
   - name: taxpayer-disclaimer-lang-es
     label: Taxpayer disclaimer (Spanish)
     context:
@@ -222,14 +222,14 @@ variants:
       masthead:
        label:
         content:
-          es: Identificador de la agencia____
+          es: Identificador de la agencia,,,,
         taxpayer_disclaimer:
           display: true
       usagov:
         label:
           content:
-            es: Información y servicios del Gobierno de EE. UU.____
+            es: Información y servicios del Gobierno de EE. UU.,,,,
       required_links:
         label:
           content:
-            es: Enlaces importantes____
+            es: Enlaces importantes,,,,
