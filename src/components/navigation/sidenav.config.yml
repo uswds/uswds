@@ -4,6 +4,7 @@ preview: "@uswds-framed"
 
 context:
   sidenav:
+    aria: Secondary navigation
     links: &default_links
       - text: Parent link
       - text: Current page
