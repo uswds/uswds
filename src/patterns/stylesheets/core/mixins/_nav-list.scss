@@ -19,15 +19,21 @@ $sidenav-level-4-inset: 8;
   }
 
   a:not(.usa-button) {
-    color: color("base-dark");
     display: block;
     padding: units(1) units($sidenav-level-1-inset);
     text-decoration: none;
 
     &:hover {
       background-color: color("base-lightest");
-      color: color("primary");
       text-decoration: none;
+    }
+  }
+
+  a:not(.usa-button):not(.usa-current) {
+    color: color("base-dark");
+
+    &:hover {
+      color: color("primary");
     }
 
     &:focus {
