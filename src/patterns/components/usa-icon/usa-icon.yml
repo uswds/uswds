@@ -436,7 +436,7 @@ icons:
       meta: ""
     - name: text_fields
       meta: "edit"
-    - name: thumb_down_off_alt
+    - name: thumb_down_alt
       meta: "rate review"
     - name: thumb_up_alt
       meta: "rate review"
