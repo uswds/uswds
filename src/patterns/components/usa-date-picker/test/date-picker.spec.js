@@ -117,8 +117,16 @@ describe("date picker component", () => {
       )
     );
 
-    assert.strictEqual(input.value, "01/10/2020", "The value has been filled in");
-    assert.strictEqual(input, document.activeElement, "The focus is on the input");
+    assert.strictEqual(
+      input.value,
+      "01/10/2020",
+      "The value has been filled in"
+    );
+    assert.strictEqual(
+      input,
+      document.activeElement,
+      "The focus is on the input"
+    );
     assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
     assert.ok(
       inputChangeSpy.called,

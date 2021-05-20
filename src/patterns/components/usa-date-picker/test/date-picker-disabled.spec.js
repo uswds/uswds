@@ -13,7 +13,7 @@ describe("date picker component - disabled initialization", () => {
 
   let root;
   let button;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );

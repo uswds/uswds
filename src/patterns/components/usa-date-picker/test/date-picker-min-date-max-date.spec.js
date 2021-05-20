@@ -18,7 +18,7 @@ describe("date picker component with min date and max date", () => {
   let button;
   let error;
   let expectedError;
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -30,7 +30,7 @@ describe("date picker component with min date and max date", () => {
     input = root.querySelector(".usa-date-picker__external-input");
     button = root.querySelector(".usa-date-picker__button");
     expectedError = "";
-    window.onerror = message => {
+    window.onerror = (message) => {
       error = message;
       return error === expectedError;
     };
@@ -399,7 +399,11 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.strictEqual(input.value, "05/22/2020", "The value has been filled in");
+    assert.strictEqual(
+      input.value,
+      "05/22/2020",
+      "The value has been filled in"
+    );
   });
 
   it("should allow selection of a date that is the maximum date", () => {
@@ -413,7 +417,11 @@ describe("date picker component with min date and max date", () => {
       )
     );
 
-    assert.strictEqual(input.value, "06/20/2020", "The value has been filled in");
+    assert.strictEqual(
+      input.value,
+      "06/20/2020",
+      "The value has been filled in"
+    );
   });
 
   it("should not allow selection of a date that is before the minimum date", () => {
