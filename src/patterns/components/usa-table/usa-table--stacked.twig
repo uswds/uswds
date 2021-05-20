@@ -1,5 +1,5 @@
 <div class="width-mobile">
-  <table class="usa-table {{ modifier }}">
+  <table class="usa-table {{ modifier|default('usa-table--stacked') }}">
     {% if caption %}
       <caption>{{ caption }}</caption>
     {% endif %}
