@@ -95,7 +95,6 @@ $sidenav-level-4-inset: 8;
 
   // level 4+
   & & & a:not(.usa-button) {
-    content: "foobar";
     padding-left: units($sidenav-level-4-inset);
   }
 }
