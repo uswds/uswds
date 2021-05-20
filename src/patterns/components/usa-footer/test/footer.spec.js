@@ -39,6 +39,16 @@ describe("big footer accordion", () => {
     matchMediaPolyfill(window);
   });
 
+  beforeEach(() => {
+    body.innerHTML = TEMPLATE;
+
+    lists = document.querySelectorAll(PRIMARY_CONTENT_SELECTOR);
+    buttons = document.querySelectorAll(BUTTON_SELECTOR);
+
+    window.innerWidth = 1024;
+    behavior.on(body);
+  });
+
   afterEach(() => {
     body.innerHTML = "";
     behavior.off(body);
@@ -55,15 +65,14 @@ describe("big footer accordion", () => {
 
   it("collapses then expands again on larger screens", () => {
     resizeTo(400);
-    buttons[0].click();
+    resizeTo(1024);
     assertHidden(lists[0], false);
   });
 
   it("opens panel when clicked", () => {
-    return resizeTo(400).then(() => {
-      buttons[0].click();
-      assertHidden(lists[0], false);
-    });
+    resizeTo(400);
+    buttons[0].click();
+    assertHidden(lists[0], false);
   });
 
   it("does not open panels when clicked on larger screens", () => {
