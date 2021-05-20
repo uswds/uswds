@@ -1,11 +1,11 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
+const { default: matchMediaPolyfill } = require("mq-polyfill");
 const behavior = require("../footer");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
-const { DEBOUNCE_RATE } = behavior;
 const HIDDEN = "hidden";
 const PRIMARY_CONTENT_SELECTOR =
   ".usa-footer--big .usa-footer__primary-content--collapsible";
@@ -24,9 +24,8 @@ const resizeTo = width =>
   new Promise(resolve => {
     if (width !== window.innerWidth) {
       window.innerWidth = width;
-      window.dispatchEvent(new CustomEvent("resize"));
+      window.dispatchEvent(new window.Event("resize"));
     }
-    setTimeout(resolve, DEBOUNCE_RATE + 10);
   });
 
 const assertHidden = (el, hidden) => {
@@ -42,14 +41,8 @@ describe("big footer accordion", () => {
   let buttons;
   let lists;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-
-    lists = document.querySelectorAll(PRIMARY_CONTENT_SELECTOR);
-    buttons = document.querySelectorAll(BUTTON_SELECTOR);
-
-    window.innerWidth = 1024;
-    behavior.on(body);
+  before(() => {
+    matchMediaPolyfill(window);
   });
 
   afterEach(() => {
