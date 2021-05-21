@@ -31,10 +31,16 @@ context:
 variants:
   - name: default
     label: Default
+  - name: slim
+    label: Slim
+    context:
+      primary_section:
+        aria_label: Footer navigation,
   - name: big
     label: Big
     context:
       primary_section:
+        aria_label: Footer navigation,,
         footer_nav:
           nav_items:
             - primary_link: <Primary link>
