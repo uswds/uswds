@@ -18,14 +18,17 @@ const createHash = (file) => {
   const dir = './security';
   const hex = hash.digest('hex');
   const fileName = `${dir}/${dutil.dirName}-zip-hash.txt`;
-  const fileContents = hex;
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
 
-  fs.writeFile(fileName, fileContents, (error) => {
-    if (error) return dutil.logError(`Error writing hash: ${error}`);
+  fs.writeFile(fileName, hex, (error) => {
+    if (error) {
+      return dutil.logError(`Error writing hash: ${error}`);
+    }
+
+    return dutil.logMessage('createHash', `Created sha256sum hash: ${hex}`);
   });
 };
 
@@ -80,7 +83,7 @@ function zipArchives(done) {
       const stats = fs.statSync(`./dist/${dutil.dirName}.zip`);
       const fileSizeInBytes = stats.size;
       const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-      dutil.logMessage("zip size", `${fileSizeInMegabytes} M`);
+      dutil.logMessage("zip size", `${fileSizeInMegabytes.toFixed(2)} M`);
       done();
     }
   });
