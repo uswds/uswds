@@ -10,7 +10,7 @@ const hash = crypto.createHash('sha256');
 
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
-const createHash = (file) => {
+function createHash(file) {
   dutil.logMessage('createHash', 'Generating sha256sum hash from ZIP file.');
 
   const fileBuffer = fs.readFileSync(file);
@@ -30,7 +30,14 @@ const createHash = (file) => {
 
     return dutil.logMessage('createHash', `Created sha256sum hash: ${hex}`);
   });
-};
+}
+
+function getFilesize(file) {
+  const stats = fs.statSync(`${file}`);
+  const fileSizeInBytes = stats.size;
+  const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+  return dutil.logMessage("zip size", `${fileSizeInMegabytes.toFixed(2)} M`);
+}
 
 function makeTmpDirectory() {
   dutil.logMessage(
@@ -80,10 +87,7 @@ function zipArchives(done) {
   zip.on("close", (code) => {
     if (code === 0) {
       createHash(`dist/${dutil.dirName}.zip`);
-      const stats = fs.statSync(`./dist/${dutil.dirName}.zip`);
-      const fileSizeInBytes = stats.size;
-      const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-      dutil.logMessage("zip size", `${fileSizeInMegabytes.toFixed(2)} M`);
+      getFilesize(`./dist/${dutil.dirName}.zip`);
       done();
     }
   });
