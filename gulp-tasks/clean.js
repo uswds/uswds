@@ -1,3 +1,7 @@
+/**
+ * Clean tasks - Clean compiled dist directories.
+ */
+
 // Include Our Plugins
 const del = require('del');
 
