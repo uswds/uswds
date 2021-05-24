@@ -1,0 +1,14 @@
+<div class="padding-2 maxw-desktop">
+  {% for color in state_colors %}
+    <div class="grid-row flex-align-center">
+      <div class="tablet:grid-col-2">
+        <div>
+          {{ color }}
+        </div>
+      </div>
+      <div class="tablet:grid-col-10">
+        <div class="bg-{{ color }} util-test padding-205"></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

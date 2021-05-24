@@ -23,7 +23,8 @@ $palettes-default: (
     map-collect(
       $tokens-color-basic,
       $tokens-color-grayscale,
-      $tokens-color-theme
+      $tokens-color-theme,
+      $tokens-color-state
     ),
   "palette-cursor-default": get-standard-values(cursor),
   "palette-display-default": get-standard-values(display),

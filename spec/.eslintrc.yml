@@ -1,4 +1,6 @@
-extends: airbnb-base
+extends:
+  - airbnb-base
+  - prettier
 plugins:
   - import
 env:
