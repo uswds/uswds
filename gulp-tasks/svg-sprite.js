@@ -1,19 +1,11 @@
 /* eslint-disable arrow-body-style */
-const { src, dest } = require("gulp");
+const { src, dest, series } = require("gulp");
 const svgSprite = require("gulp-svg-sprite");
+const rename = require("gulp-rename");
+const del = require("del");
+const { logError } = require('./utils/doc-util');
 
-const svgPath = "../src/img";
-
-/**
- * Error handler function so we can see when errors happen.
- * @param {object} err error that was thrown
- * @returns {undefined}
- */
-function handleError(err) {
-  // eslint-disable-next-line no-console
-  console.error(err.toString());
-  this.emit("end");
-}
+const svgPath = "src/img";
 
 // More complex configuration example
 const config = {
@@ -36,14 +28,28 @@ const config = {
   },
 };
 
-module.exports = {
-  buildSprite(done) {
-    return (
-      src(`${svgPath}/usa-icons/**/*.svg`)
-        .pipe(svgSprite(config))
-        .on("error", handleError)
-        .pipe(dest(`${svgPath}`))
-        .on("end", () => done())
-    );
-  }
+function buildSprite(done) {
+  return (
+    src(`${svgPath}/usa-icons/*.svg`)
+      .pipe(svgSprite(config))
+      .on("error", logError)
+      .pipe(dest(`${svgPath}`))
+      .on("end", () => done())
+  );
 }
+
+function renameSprite() {
+  return src(`${svgPath}/symbol/svg/sprite.symbol.svg`)
+    .pipe(rename(`${svgPath}/sprite.svg`))
+    .pipe(dest(`./`));
+}
+
+function cleanSprite() {
+  return del(`${svgPath}/symbol`);
+}
+
+exports.buildSprite = series(
+  buildSprite,
+  renameSprite,
+  cleanSprite
+)
