@@ -4,6 +4,7 @@ preview: "@uswds-framed"
 
 context:
   sidenav:
+    aria: Secondary navigation
     links: &default_links
       - text: Parent link
       - text: Current page
@@ -28,6 +29,7 @@ variants:
   - name: one-level
     context:
       sidenav:
+        aria: Secondary navigation,
         links:
           - text: Current page
             current: true
@@ -36,6 +38,7 @@ variants:
   - name: two-level
     context:
       sidenav:
+        aria: Secondary navigation,,
         links:
           - text: Parent link
           - text: Current page
@@ -51,6 +54,7 @@ variants:
   - name: three-level
     context:
       sidenav:
+        aria: Secondary navigation,,,
         links:
           - text: Parent link
           - text: Current page
