@@ -1,4 +1,4 @@
-const { src, dest, series, parallel } = require("gulp");
+const { series, parallel } = require("gulp");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const cFlags = require("./utils/cflags");
