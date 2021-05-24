@@ -1,17 +1,15 @@
 /* eslint-disable arrow-body-style */
 
+const { dest } = require("gulp");
 const buffer = require("vinyl-buffer");
 const browserify = require("browserify");
 const childProcess = require("child_process");
-const eslint = require("gulp-eslint");
-const gulp = require("gulp");
 const log = require("fancy-log");
 const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 const dutil = require("./utils/doc-util");
-const cFlags = require("./utils/cflags");
 
 const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
 
@@ -36,7 +34,7 @@ module.exports = {
         .pipe(source(`${BASENAME}.js`)) // XXX why is this necessary?
         .pipe(buffer())
         .pipe(rename({ basename: BASENAME }))
-        .pipe(gulp.dest("dist/js"));
+        .pipe(dest("dist/js"));
     });
 
     streams.map((stream) => {
@@ -50,7 +48,7 @@ module.exports = {
           })
         )
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist/js"));
+        .pipe(dest("dist/js"));
     });
 
     done();
@@ -71,22 +69,5 @@ module.exports = {
           }
         });
     });
-  },
-
-  eslint(done) {
-    if (!cFlags.test) {
-      dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-      return done();
-    }
-
-    return gulp
-      .src(["src/patterns/**/**/*.js"])
-      .pipe(
-        eslint({
-          fix: true,
-        })
-      )
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
-  },
+  }
 };

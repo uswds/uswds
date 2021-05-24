@@ -3,6 +3,7 @@ const { formatters } = require("stylelint");
 const gulpStylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 const dutil = require('./utils/doc-util');
+const cFlags = require("./utils/cflags");
 
 const IGNORE_STRING = "This file is ignored";
 
@@ -44,8 +45,17 @@ module.exports = {
 
   // Lint JavaScript based on .eslintrc config.
   lintJS () {
-    return src(['src/patterns/**/**/*.js'])
-      .pipe(eslint({ fix: true }))
+    if (!cFlags.test) {
+      dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
+      return done();
+    }
+
+    return src(["src/patterns/**/**/*.js"])
+      .pipe(
+        eslint({
+          fix: true,
+        })
+      )
       .pipe(eslint.format())
       .pipe(eslint.failAfterError());
   }
