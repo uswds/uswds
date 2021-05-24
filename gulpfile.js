@@ -9,7 +9,6 @@ const server = require("browser-sync").create();
 // Check out the ./gulp-tasks directory for more.
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { buildSprite } = require("./gulp-tasks/svg-sprite");
-const { images } = require("./gulp-tasks/images");
 const {
   copyVendorSass,
   copyDistSass,
@@ -153,7 +152,7 @@ exports.test = series(
 
 // building
 exports.buildSprite = buildSprite;
-exports.images = images;
+exports.copyImages = copyImages;
 exports.sass = series(lintSass, copyVendorSass, copyDistSass, sass);
 exports.build = build;
 exports.release = release;

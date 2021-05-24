@@ -1,6 +1,7 @@
 const { src, dest } = require('gulp');
 const filter = require("gulp-filter");
 const rename = require('gulp-rename');
+const dutil = require("./utils/doc-util");
 
 module.exports = {
 
@@ -20,6 +21,7 @@ module.exports = {
 
   // Copy Images to dist folder
   copyImages() {
+    dutil.logMessage("images", "Copying Images");
     return src(['src/img/**/*'])
       .pipe(dest('dist/img'));
   },

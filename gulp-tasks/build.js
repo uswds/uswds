@@ -5,8 +5,7 @@ const cFlags = require("./utils/cflags");
 const { buildSprite } = require("./svg-sprite");
 const { copyDistSass, sass } = require("./sass");
 const { compileJS } = require("./javascript");
-const { copyFonts } = require("./copy");
-const { images } = require("./images");
+const { copyFonts, copyImages } = require("./copy");
 
 function cleanDist(done) {
   if (!cFlags.cleanup) {
@@ -41,6 +40,6 @@ exports.build = series(
   cleanDist,
   buildSprite,
   docs,
-  parallel(sass, compileJS, images, copyFonts),
+  parallel(sass, compileJS, copyImages, copyFonts),
   copyDistSass
 );
