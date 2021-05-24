@@ -28,9 +28,7 @@ module.exports = {
       .pipe(normalizeCssFilter)
       .pipe(rename("_normalize.scss"))
       .pipe(changed(destination))
-      .on("error", (error) => {
-        dutil.logError("copyVendorSass", error);
-      })
+      .on("error", (error) => dutil.logError("copyVendorSass", error))
       .pipe(dest(destination));
 
     return stream;
