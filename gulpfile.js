@@ -12,7 +12,6 @@ const { buildSprite } = require("./gulp-tasks/svg-sprite");
 const { fonts } = require("./gulp-tasks/fonts");
 const { images } = require("./gulp-tasks/images");
 const {
-  stylelint,
   copyVendorSass,
   copyDistSass,
   sass,
@@ -157,7 +156,7 @@ exports.test = series(
 exports.buildSprite = buildSprite;
 exports.fonts = fonts;
 exports.images = images;
-exports.sass = series(stylelint, copyVendorSass, copyDistSass, sass);
+exports.sass = series(lintSass, copyVendorSass, copyDistSass, sass);
 exports.build = build;
 exports.release = release;
 
