@@ -5,7 +5,7 @@ const cFlags = require("./utils/cflags");
 const { buildSprite } = require("./svg-sprite");
 const { copyDistSass, sass } = require("./sass");
 const { compileJS } = require("./javascript");
-const { copyFonts, copyImages } = require("./copy");
+const { copyDocs, copyFonts, copyImages } = require("./copy");
 
 function cleanDist(done) {
   if (!cFlags.cleanup) {
@@ -20,17 +20,6 @@ function cleanDist(done) {
   return del("dist");
 }
 
-function docs(done) {
-  dutil.logMessage("docs", "Copying documentation dist dir");
-
-  const stream = src(["README.md", "LICENSE.md", "CONTRIBUTING.md"]).pipe(
-    dest("dist")
-  );
-
-  done();
-  return stream;
-}
-
 exports.build = series(
   (done) => {
     dutil.logIntroduction();
@@ -39,7 +28,7 @@ exports.build = series(
   },
   cleanDist,
   buildSprite,
-  docs,
+  copyDocs,
   parallel(sass, compileJS, copyImages, copyFonts),
   copyDistSass
 );

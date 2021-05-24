@@ -5,6 +5,14 @@ const dutil = require("./utils/doc-util");
 
 module.exports = {
 
+  // Copy documentation
+  copyDocs() {
+    const docs = ["README.md", "LICENSE.md", "CONTRIBUTING.md"];
+
+    dutil.logMessage("docs", "Copying documentation dist dir");
+    return src(docs).pipe(dest("dist"));
+  },
+
   // Copy vendor sass to library
   copyVendor() {
     return src('./node_modules/normalize.css/normalize.css')
