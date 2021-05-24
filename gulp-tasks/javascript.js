@@ -4,7 +4,6 @@ const { dest } = require("gulp");
 const buffer = require("vinyl-buffer");
 const browserify = require("browserify");
 const childProcess = require("child_process");
-const log = require("fancy-log");
 const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
@@ -40,7 +39,7 @@ module.exports = {
     streams.map((stream) => {
       return stream
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .on("error", log)
+        .on("error", dutil.logError)
         .pipe(uglify())
         .pipe(
           rename({
