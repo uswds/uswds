@@ -3,7 +3,9 @@
  */
 
 // Include Our Plugins
+const cFlags = require("./utils/cflags");
 const del = require('del');
+const dutil = require("./utils/doc-util");
 
 // Export our tasks.
 module.exports = {
@@ -31,5 +33,19 @@ module.exports = {
    // Clean Sass files.
   cleanSass() {
     return del(['./dist/scss/*'], { force: true });
+  },
+
+  // Clean generated Dist directory.
+  cleanDist(done) {
+    if (!cFlags.cleanup) {
+      dutil.logMessage(
+        "clean-dist",
+        "Skipping cleaning up the distribution directories."
+      );
+      return done();
+    }
+    dutil.logMessage("clean-dist", "Removing distribution directories.");
+
+    return del("dist");
   }
 };
