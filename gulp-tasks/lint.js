@@ -26,19 +26,19 @@ function ignoreStylelintIgnoreWarnings(lintResults) {
 module.exports = {
   // Lint Sass based on .stylelintrc.json config.
   lintSass () {
+    const stylelintOptions = {
+      failAfterError: true,
+      reporters: [
+        {
+          formatter: ignoreStylelintIgnoreWarnings,
+          console: true,
+        },
+      ],
+      syntax: "scss",
+    };
+
     return src("./src/patterns/stylesheets/**/*.scss")
-    .pipe(
-      gulpStylelint({
-        failAfterError: true,
-        reporters: [
-          {
-            formatter: ignoreStylelintIgnoreWarnings,
-            console: true,
-          },
-        ],
-        syntax: "scss",
-      })
-    )
+    .pipe(gulpStylelint(stylelintOptions))
     .on("error", dutil.logError);
   },
 
