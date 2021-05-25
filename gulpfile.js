@@ -14,7 +14,7 @@ const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
 const { watch } = require("./gulp-tasks/watch");
 const { serve, buildPL, exitServer } = require("./gulp-tasks/serve");
-const { copyVendorSass, sass} = require("./gulp-tasks/sass");
+const { compileSass } = require("./gulp-tasks/sass");
 const {
   cleanCSS,
   cleanFonts,
@@ -74,7 +74,8 @@ exports.test = series(
 // building
 exports.buildSprite = buildSprite;
 exports.copyImages = copyImages;
-exports.sass = series(lintSass, copyVendorSass, copySass, sass);
+exports.copySass = copySass;
+exports.sass = series(lintSass, copyVendor, copySass, compileSass);
 exports.build = build;
 exports.release = release;
 
@@ -88,7 +89,7 @@ exports.watch = watch;
 exports.default = series(
   parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
   parallel(copyVendor),
-  parallel(lintSass, sass, lintJS, compileJS, buildSprite),
+  parallel(lintSass, compileSass, lintJS, compileJS, buildSprite),
   parallel(copyFonts, copyImages, copySass, copyStyleguide),
   buildPL
 );

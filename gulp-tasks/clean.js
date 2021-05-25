@@ -3,8 +3,8 @@
  */
 
 // Include Our Plugins
-const cFlags = require("./utils/cflags");
 const del = require('del');
+const cFlags = require("./utils/cflags");
 const dutil = require("./utils/doc-util");
 
 // Export our tasks.

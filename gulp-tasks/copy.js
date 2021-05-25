@@ -42,7 +42,8 @@ module.exports = {
       .pipe(dest('dist/fonts'));
   },
 
-  // Copy Styleguide to dist folder
+  // Copy Styleguide to dist folder.
+  // Specific to pattern library.
   copyStyleguide() {
     return src('src/styleguide/**/*.css')
       .pipe(
