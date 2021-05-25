@@ -61,10 +61,7 @@ exports.test = series(
 
 // building
 exports.buildSprite = buildSprite;
-exports.copyImages = copyImages;
-exports.copySass = copySass;
-exports.sass = series(lintSass, copyVendor, copySass, compileSass);
-exports.build = build;
+exports.sass = series(lintSass, copyVendor, compileSass);
 exports.buildJS = compileJS;
 exports.release = release;
 
