@@ -1,7 +1,5 @@
 // Include gulp helpers.
-const { series, parallel, watch } = require("gulp");
-const run = require("gulp-run-command").default;
-const server = require("browser-sync").create();
+const { series, parallel } = require("gulp");
 
 // Include Our tasks.
 //
@@ -9,13 +7,14 @@ const server = require("browser-sync").create();
 // Check out the ./gulp-tasks directory for more.
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { buildSprite } = require("./gulp-tasks/svg-sprite");
-const {
-  copyVendorSass,
-  copyDistSass,
-  sass,
-} = require("./gulp-tasks/sass");
 const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
 const { unitTests, sassTests, a11y, cover } = require("./gulp-tasks/test");
+const { lintSass, lintJS } = require("./gulp-tasks/lint");
+const { build } = require("./gulp-tasks/build");
+const { release } = require("./gulp-tasks/release");
+const { watch } = require("./gulp-tasks/watch");
+const { serve, buildPL, exitServer } = require("./gulp-tasks/serve");
+const { copyVendorSass, sass} = require("./gulp-tasks/sass");
 const {
   cleanCSS,
   cleanFonts,
@@ -30,84 +29,6 @@ const {
   copyFonts,
   copyStyleguide,
 } = require("./gulp-tasks/copy");
-const { lintSass, lintJS } = require("./gulp-tasks/lint");
-const { build } = require("./gulp-tasks/build");
-const { release } = require("./gulp-tasks/release");
-
-
-// our cache doesn't clear in patternlab like you would expect
-// https://github.com/pattern-lab/patternlab-node/wiki/Incremental-Builds#possible-issues
-// so we rebuild with the patternlab cli, which seems to be working
-// for the time being
-async function rebuildPL() {
-  return run("npm run pl:build --pattern")();
-}
-
-async function buildPL() {
-  return run("npm run pl:build")();
-}
-
-// giving us a way to exit the server when needed
-// see a11y
-async function exitServer() {
-  return server.exit();
-}
-
-/**
- * Start browsersync server.
- * @param {function} done callback function.
- * @returns {undefined}
- */
-function serve(done) {
-  // See https://browsersync.io/docs/options for more options.
-  server.init({
-    server: ["./build/"],
-    notify: false,
-    open: false,
-    port: 3333,
-  });
-  done();
-}
-
-/**
- * Watch Sass and JS files.
- * @returns {undefined}
- */
-function watchFiles() {
-  // Watch all my sass files and compile sass if a file changes.
-  watch(
-    "./src/patterns/**/**/*.scss",
-    series(parallel(lintSass, sass), (done) => {
-      server.reload("*.css");
-      done();
-    })
-  );
-
-  // Watch all my JS files and compile if a file changes.
-  watch(
-    "./src/patterns/**/**/*.js",
-    series(parallel(lintJS, compileJS), (done) => {
-      server.reload("*.js");
-      done();
-    })
-  );
-
-  // Watch all my patterns and compile if a file changes.
-  watch(
-    "./src/patterns/**/**/*{.twig,.yml}",
-    series(rebuildPL, (done) => {
-      server.reload("*.html");
-      done();
-    })
-  );
-
-  // Watch all my unit tests and run if a file changes.
-  watch(
-    "./src/patterns/**/*.spec.js",
-    series(series(unitTests, sassTests), (done) => done())
-  );
-}
-
 
 /**
  * Declare our exports
@@ -153,7 +74,7 @@ exports.test = series(
 // building
 exports.buildSprite = buildSprite;
 exports.copyImages = copyImages;
-exports.sass = series(lintSass, copyVendorSass, copyDistSass, sass);
+exports.sass = series(lintSass, copyVendorSass, copySass, sass);
 exports.build = build;
 exports.release = release;
 
