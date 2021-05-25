@@ -1,6 +1,7 @@
 const { src, dest } = require('gulp');
 const filter = require("gulp-filter");
 const rename = require('gulp-rename');
+const changed = require("gulp-changed");
 const dutil = require("./utils/doc-util");
 
 module.exports = {
@@ -15,10 +16,13 @@ module.exports = {
 
   // Copy vendor sass to library
   copyVendor() {
+    const vendorSass = "src/patterns/stylesheets/lib";
+
     return src('./node_modules/normalize.css/normalize.css')
+      .pipe(changed(vendorSass))
       .pipe(filter("**/normalize.css", { restore: true }))
       .pipe(rename("_normalize.scss"))
-      .pipe(dest('src/patterns/stylesheets/lib'));
+      .pipe(dest(vendorSass));
   },
 
   // Copy Sass to dist folder
