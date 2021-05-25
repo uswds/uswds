@@ -1,4 +1,3 @@
-const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
 const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
@@ -32,12 +31,6 @@ module.exports = {
       .pipe(dest(destination));
 
     return stream;
-  },
-
-  copyDistSass() {
-    dutil.logMessage("copyDistSass", "Copying all Sass to dist dir");
-
-    return src("src/patterns/stylesheets/**/*.scss").pipe(dest("dist/scss"));
   },
 
   sass() {

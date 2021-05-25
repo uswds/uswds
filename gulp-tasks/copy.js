@@ -23,6 +23,8 @@ module.exports = {
 
   // Copy Sass to dist folder
   copySass() {
+    dutil.logMessage("copyDistSass", "Copying all Sass to dist dir");
+
     return src('src/patterns/**/**/*.scss')
       .pipe(dest('dist/scss'));
   },
@@ -51,5 +53,4 @@ module.exports = {
       )
       .pipe(dest('dist/css'));
   }
-
 };

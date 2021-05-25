@@ -1,9 +1,9 @@
 const { series, parallel } = require("gulp");
 const dutil = require("./utils/doc-util");
 const { buildSprite } = require("./svg-sprite");
-const { copyDistSass, sass } = require("./sass");
+const { sass } = require("./sass");
 const { compileJS } = require("./javascript");
-const { copyDocs, copyFonts, copyImages } = require("./copy");
+const { copyDocs, copyFonts, copyImages, copySass } = require("./copy");
 const { cleanDist } = require("./clean");
 
 exports.build = series(
@@ -16,5 +16,5 @@ exports.build = series(
   buildSprite,
   copyDocs,
   parallel(sass, compileJS, copyImages, copyFonts),
-  copyDistSass
+  copySass
 );
