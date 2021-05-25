@@ -19,8 +19,12 @@
   ],
   "module": "./dist/js/uswds.min.js",
   "exports": {
-    "import": "./dist/js/uswds.min.js",
-    "default": "./dist/js/uswds.min.js"
+    ".": {
+      "import": "./dist/js/uswds.min.js",
+      "default": "./dist/js/uswds.min.js"
+    },
+    "./src/js/components": "./src/js/components/index.js",
+    "./src/js/components/*": "./src/js/components/*.js"
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
