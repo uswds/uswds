@@ -32,8 +32,6 @@
   },
   "scripts": {
     "build": "gulp",
-    "clean": "gulp clean",
-    "compile": "gulp compile",
     "cover": "nyc --reporter=lcov gulp cover",
     "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/system-tokens'",
     "lint": "gulp lint",
@@ -47,7 +45,6 @@
     "test": "snyk test && gulp test",
     "test:ci": "gulp test",
     "test:a11y": "gulp a11y",
-    "test:ci:temp": "gulp test",
     "test:sass": "gulp sassTests",
     "test:unit": "gulp unitTests",
     "version": "gulp build release",

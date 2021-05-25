@@ -17,7 +17,6 @@ module.exports = {
       .pipe(mocha());
   },
 
-  // run accessiblity.
   a11y() {
     return src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
   },
