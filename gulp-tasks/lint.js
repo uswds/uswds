@@ -44,7 +44,7 @@ module.exports = {
   },
 
   // Lint JavaScript based on .eslintrc config.
-  lintJS () {
+  lintJS (done) {
     if (!cFlags.test) {
       dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
       return done();
