@@ -15,20 +15,8 @@ const { release } = require("./gulp-tasks/release");
 const { watch } = require("./gulp-tasks/watch");
 const { serve, buildPL, exitServer } = require("./gulp-tasks/serve");
 const { compileSass } = require("./gulp-tasks/sass");
-const {
-  cleanCSS,
-  cleanFonts,
-  cleanImages,
-  cleanJS,
-  cleanSass,
-} = require("./gulp-tasks/clean");
-const {
-  copyVendor,
-  copySass,
-  copyImages,
-  copyFonts,
-  copyStyleguide,
-} = require("./gulp-tasks/copy");
+const { copyVendor, copySass, copyImages } = require("./gulp-tasks/copy");
+const { cleanDist } = require("./gulp-tasks/clean");
 
 /**
  * Declare our exports
@@ -39,7 +27,7 @@ exports.noTest = noTest;
 exports.noCleanup = noCleanup;
 
 // Clean all directories.
-exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
+exports.cleanDist = cleanDist;
 
 // Lint Sass
 exports.lintSass = lintSass;
@@ -77,6 +65,7 @@ exports.copyImages = copyImages;
 exports.copySass = copySass;
 exports.sass = series(lintSass, copyVendor, copySass, compileSass);
 exports.build = build;
+exports.buildJS = compileJS;
 exports.release = release;
 
 // Build task for Pattern Lab.
@@ -86,10 +75,4 @@ exports.styleguide = buildPL;
 exports.watch = watch;
 
 // Default Task
-exports.default = series(
-  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
-  parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS, buildSprite),
-  parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  buildPL
-);
+exports.default = build;
