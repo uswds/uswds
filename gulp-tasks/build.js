@@ -6,6 +6,15 @@ const { compileJS } = require("./javascript");
 const { copyDocs, copyFonts, copyImages, copySass } = require("./copy");
 const { cleanDist } = require("./clean");
 
+/**
+ * Generates the dist directory that gets zipped on release.
+  .
+  ├── * Delete `dist/` directory
+  ├── * Create SVG spritesheet
+  ├── * Copy markdown docs
+  ├── * Compile sass and js
+  └── * Copy sass, copy images, and fonts to `dist/`
+ */
 exports.build = series(
   (done) => {
     dutil.logIntroduction();
@@ -15,6 +24,6 @@ exports.build = series(
   cleanDist,
   buildSprite,
   copyDocs,
-  parallel(compileSass, compileJS, copyImages, copyFonts),
-  copySass
+  parallel(compileSass, compileJS),
+  parallel(copyImages, copyFonts, copySass)
 );

@@ -8,10 +8,11 @@ const serverOptions = {
   port: 3333,
 }
 
-// our cache doesn't clear in patternlab like you would expect
-// https://github.com/pattern-lab/patternlab-node/wiki/Incremental-Builds#possible-issues
-// so we rebuild with the patternlab cli, which seems to be working
-// for the time being
+/**
+ * ! Cache doesn't clear in patternlab like you would expect
+ * https://github.com/pattern-lab/patternlab-node/wiki/Incremental-Builds#possible-issues
+ * So we rebuild with the patternlab cli, which seems to be working for now
+ */
 async function rebuildPL() {
   return run("npm run pl:build --pattern")();
 }
@@ -20,8 +21,9 @@ async function buildPL() {
   return run("npm run pl:build")();
 }
 
-// giving us a way to exit the server when needed
-// see a11y
+/**
+ * Used in a11y task in `test.js` to exit server.
+ */
 async function exitServer() {
   return server.exit();
 }

@@ -5,6 +5,7 @@ const { compileSass } = require("./sass");
 const { compileJS } = require("./javascript");
 const { build } = require("./build");
 const  { copyCSSToPL } = require("./copy");
+const dutil = require('./utils/doc-util');
 const { serve, server, buildPL, rebuildPL } = require("./serve");
 
 
@@ -19,6 +20,7 @@ function watchFiles() {
       parallel(lintSass, compileSass),
       copyCSSToPL,
       (done) => {
+        dutil.logMessage("Reloading browser.");
         server.reload("*.css");
         done();
       }
@@ -31,6 +33,7 @@ function watchFiles() {
     series(
       parallel(lintJS, compileJS),
       (done) => {
+        dutil.logMessage("Reloading browser.");
         server.reload("*.js");
         done();
       }
@@ -40,10 +43,14 @@ function watchFiles() {
   // Watch all my patterns and compile if a file changes.
   watch(
     "./src/patterns/**/**/*{.twig,.yml}",
-    series(rebuildPL, (done) => {
-      server.reload("*.html");
-      done();
-    })
+    series(
+      rebuildPL,
+      (done) => {
+        dutil.logMessage("Reloading browser.");
+        server.reload("*.html");
+        done();
+      }
+    )
   );
 
   // Watch all my unit tests and run if a file changes.
