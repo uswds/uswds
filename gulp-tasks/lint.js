@@ -1,4 +1,4 @@
-const { src } = require('gulp');
+const { src, lastRun } = require('gulp');
 const { formatters } = require("stylelint");
 const gulpStylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
@@ -24,39 +24,44 @@ function ignoreStylelintIgnoreWarnings(lintResults) {
   );
 }
 
-module.exports = {
-  // Lint Sass based on .stylelintrc.json config.
-  lintSass () {
-    const stylelintOptions = {
-      failAfterError: true,
-      reporters: [
-        {
-          formatter: ignoreStylelintIgnoreWarnings,
-          console: true,
-        },
-      ],
-      syntax: "scss",
-    };
+// Lint Sass based on .stylelintrc.json config.
+function lintSass() {
+  const stylelintOptions = {
+    failAfterError: true,
+    reporters: [
+      {
+        formatter: ignoreStylelintIgnoreWarnings,
+        console: true,
+      },
+    ],
+    syntax: "scss",
+  };
 
-    return src("./src/patterns/stylesheets/**/*.scss")
-    .pipe(gulpStylelint(stylelintOptions))
-    .on("error", dutil.logError);
-  },
+  return src(
+    "./src/patterns/stylesheets/**/*.scss",
+    { since: lastRun(lintSass) }
+  )
+  .pipe(gulpStylelint(stylelintOptions))
+  .on("error", dutil.logError);
+}
 
-  // Lint JavaScript based on .eslintrc config.
-  lintJS (done) {
-    if (!cFlags.test) {
-      dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-      return done();
-    }
-
-    return src(["src/patterns/**/**/*.js"])
-      .pipe(
-        eslint({
-          fix: true,
-        })
-      )
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
+function lintJS(done) {
+  if (!cFlags.test) {
+    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
+    return done();
   }
+
+  return src(["src/patterns/**/**/*.js"])
+    .pipe(
+      eslint({
+        fix: true,
+      })
+    )
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+}
+
+module.exports = {
+  lintSass,
+  lintJS
 };
