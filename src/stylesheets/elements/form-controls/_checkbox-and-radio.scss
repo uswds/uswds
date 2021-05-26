@@ -1,3 +1,18 @@
+$input-tile-text-color: get-color-token-from-bg($theme-input-background-color);
+$input-tile-bg-color: if(
+  $theme-input-background-color == "default",
+  $theme-body-background-color,
+  $theme-input-background-color
+);
+$input-active-color: nth(get-link-tokens-from-bg($theme-input-background-color), 1);
+$input-disabled-alpha: -0.7;
+$input-disabled-alpha--strong: -0.5;
+$input-disabled-alpha--weak: -0.8;
+$input-border-alpha: -0.0;
+$color-input-disabled: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha);
+$color-input-disabled--strong: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha--strong);
+$color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha--weak);
+
 @include override-prose {
   .usa-input-list {
     @include add-list-reset;
@@ -39,7 +54,7 @@
 
 .usa-checkbox__label::before,
 .usa-radio__label::before {
-  background: color("white");
+  background: color($input-tile-bg-color);
   content: " ";
   display: inline-block;
   left: units($theme-input-select-border-width);
@@ -59,7 +74,7 @@
 
 .usa-checkbox__label::before,
 .usa-radio__label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
+  box-shadow: 0 0 0 units($theme-input-select-border-width) adjust-color(color($input-tile-text-color), $alpha: $input-border-alpha);
   line-height: units($theme-input-select-size);
   margin-right: units($input-select-margin-right);
   text-indent: 0;
@@ -67,13 +82,13 @@
 
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
 .usa-radio__input:checked + .usa-radio__label::before {
-  background-color: color("primary");
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary");
+  background-color: color($input-active-color);
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color($input-active-color);
 }
 
 .usa-radio__input:checked + .usa-radio__label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary"),
-    inset 0 0 0 units($theme-input-select-border-width) color("white");
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color($input-active-color),
+    inset 0 0 0 units($theme-input-select-border-width) color($input-tile-bg-color);
 
   @media print {
     box-shadow: inset 0 0 0 units($theme-input-select-border-width)
@@ -103,7 +118,7 @@
 
 .usa-checkbox__input:disabled + .usa-checkbox__label,
 .usa-radio__input:disabled + .usa-radio__label {
-  color: color("disabled");
+  color: $color-input-disabled;
   cursor: not-allowed;
 }
 
@@ -113,38 +128,39 @@
 
 .usa-checkbox__input:disabled + .usa-checkbox__label::before,
 .usa-radio__input:disabled + .usa-radio__label::before {
-  background: color("disabled-light");
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
+  background: color($input-tile-bg-color);
+  box-shadow: 0 0 0 units($theme-input-select-border-width) $color-input-disabled;
   cursor: not-allowed;
 }
 
 .usa-radio__input:checked:disabled + .usa-radio__label::before {
-  background: color("disabled-dark");
-  box-shadow: 0 0 0 2px color("disabled-dark"),
-    inset 0 0 0 2px color("disabled-light");
+  background: $color-input-disabled--weak;
+  box-shadow: 0 0 0 2px $color-input-disabled,
+    inset 0 0 0 2px color($input-tile-bg-color);
 }
 
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
-  @include set-text-and-bg($theme-input-tile-background-color);
+  background-color: color($input-tile-bg-color);
   border: units($theme-input-tile-border-width) solid
-    color($theme-input-tile-border-color);
+    $color-input-disabled;
   border-radius: radius($theme-input-tile-border-radius);
+  color: color($input-tile-text-color);
   margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);
 }
 
 .usa-checkbox__input--tile:checked + .usa-checkbox__label,
 .usa-radio__input--tile:checked + .usa-radio__label {
-  @include set-text-and-bg($theme-input-tile-background-color-selected);
-  border-color: color($theme-input-tile-border-color-selected);
+  background-color: adjust-color(color($input-active-color), $alpha: -0.9);
+  border-color: color($input-active-color);
 }
 
 .usa-checkbox__input--tile:disabled:checked + .usa-checkbox__label,
 .usa-radio__input--tile:disabled:checked + .usa-radio__label {
-  background-color: color("disabled-light");
-  border-color: color($theme-input-tile-border-color);
+  background-color: $color-input-disabled;
+  border-color: $color-input-disabled--strong;
 }
 
 .usa-checkbox__label-description,
