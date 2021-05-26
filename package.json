@@ -85,10 +85,8 @@
     "domready": "^1.0.8",
     "elem-dataset": "^2.0.0",
     "express": "^4.17.1",
-    "gulp-run-command": "0.0.10",
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
-    "patch-package": "^6.2.2",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
   },
@@ -140,7 +138,6 @@
     "postcss-csso": "^5.0.0",
     "postcss-discard-comments": "^4.0.2",
     "prettier": "^2.2.0",
-    "resemblejs": "^3.2.5",
     "sass": "^1.29.0",
     "sass-true": "^6.0.1",
     "sinon": "^9.2.2",
