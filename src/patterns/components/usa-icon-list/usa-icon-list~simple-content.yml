@@ -1,0 +1,19 @@
+---
+color: primary
+items:
+  - icon:
+      name: thumb_up_alt
+      color:
+    content: No processing lines
+  - icon:
+      name: thumb_up_alt
+      color:
+    content: Access to expedited entry benefits in other countries
+  - icon:
+      name: thumb_up_alt
+      color:
+    content: Available at major U.S. airports
+  - icon:
+      name: thumb_up_alt
+      color:
+    content: Reduced wait times

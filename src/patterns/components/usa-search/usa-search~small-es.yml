@@ -1,5 +1,5 @@
 ---
-section_label: 'Default (Spanish)'
+section_label: 'Default (Spanish) search component'
 modifier: 'usa-search--small'
 search_js: false
 id: 'search-field-es-small'
