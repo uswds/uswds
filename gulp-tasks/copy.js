@@ -33,6 +33,17 @@ module.exports = {
       .pipe(dest('dist/scss'));
   },
 
+  /**
+   * Todo: remove once issue below is resolved
+   * Patternlab doesn't move CSS from `dist/` to `build/`.
+   * Alternative is run `rebuildPL` task, but that takes 11s on average
+   * https://github.com/pattern-lab/patternlab-node/issues/1310
+   */
+  copyCSSToPL() {
+    return src("dist/css/**.*")
+      .pipe(dest("build/css"))
+  },
+
   // Copy Images to dist folder
   copyImages() {
     dutil.logMessage("images", "Copying Images");
