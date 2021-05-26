@@ -19,8 +19,12 @@
   ],
   "module": "./dist/js/uswds.min.js",
   "exports": {
-    "import": "./dist/js/uswds.min.js",
-    "default": "./dist/js/uswds.min.js"
+    ".": {
+      "import": "./dist/js/uswds.min.js",
+      "default": "./dist/js/uswds.min.js"
+    },
+    "./src/js/components": "./src/js/components/index.js",
+    "./src/js/components/*": "./src/js/components/*.js"
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
@@ -94,7 +98,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.13.15",
-    "@frctl/fractal": "^1.5.6",
+    "@frctl/fractal": "^1.5.8",
     "@frctl/nunjucks": "^2.0.10",
     "@types/node": "^14.14.43",
     "ansi-colors": "^4.1.1",
@@ -114,12 +118,12 @@
     "gulp-changed": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.3.0",
+    "gulp-dart-scss": "^1.1.0",
     "gulp-eslint": "^6.0.0",
     "gulp-filter": "^6.0.0",
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.1",
-    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-spawn-mocha": "^6.0.0",
     "gulp-stylelint": "^13.0.0",

@@ -1,0 +1,73 @@
+{% macro primaryLink(href, class, is_current, text) %}
+  {% set link_classes = class ~ ('usa-current' if is_current) %}
+  <a href="{{ href }}" {% if link_classes %}class="{{ link_classes }}"{% endif %}>
+    {% if class %}
+      <span>{{ text }}</span>
+    {% else %}
+      {{ text }}
+    {% endif %}
+  </a>
+{% endmacro %}
+
+<button class="usa-nav__close">
+  <img src="{{ uswds.path }}/img/usa-icons/close.svg" role="img" alt="{{ nav.close.label }}">
+</button>
+<ul class="usa-nav__primary usa-accordion">
+  {%- for link in nav.links -%}
+  <li class="usa-nav__primary-item">
+    {% if link.links -%}
+      {% set nav_id = nav.id_prefix ~ link.id %}
+
+      <button
+        class="usa-accordion__button usa-nav__link{% if link.is_current %} usa-current{% endif %}"
+        aria-expanded="false"
+        aria-controls="{{ nav_id }}">
+        <span>{{ link.text }}</span>
+      </button>
+      {% if not nav.mega %}
+        <ul id="{{ nav_id }}" class="usa-nav__submenu">
+          {%- for child in link.links -%}
+            {%- if loop.index < 4 -%}
+              <li class="usa-nav__submenu-item">
+                {{ primaryLink(child.href, '', child.is_current, child.text) }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {% else %}
+        <div id="{{ nav_id }}" class="usa-nav__submenu usa-megamenu">
+          <div class="grid-row grid-gap-4">
+            {%- for group in link.links | batch(3) -%}
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  {%- for child in group -%}
+                    <li class="usa-nav__submenu-item">
+                      {{ primaryLink(child.href, '', child.is_current, child.text) }}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {% endif %}
+    {%- else -%}
+      {{ primaryLink(link.href, 'usa-nav__link', link.is_current, link.text) }}
+    {% endif -%}
+  </li>
+  {%- endfor -%}
+</ul>
+{%- if nav.search -%}
+  {%
+    set search_opts = {
+      search_header: true,
+      id_prefix: nav.id_prefix
+    }
+  %}
+
+  {% if lang == "es" %}
+    {% render '@search--small-lang-es', search_opts, true %}
+  {% else %}
+    {% render '@search--small', search_opts, true %}
+  {% endif %}
+{%- endif -%}

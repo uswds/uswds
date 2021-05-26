@@ -8,32 +8,35 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Contents
 
-- [Background](#background)
-- [Recent updates](#recent-updates)
-- [Getting started](#getting-started)
-- [Using the design system](#using-the-design-system)
-  - [Download and install](#download-and-install)
-  - [Install using `npm`](#install-using-npm)
-    - [Using the USWDS package](#using-the-uswds-package)
-    - [Sass and theme settings](#sass-and-theme-settings)
-    - [Sass compilation requirements](#sass-compilation-requirements)
-    - [JavaScript](#javascript)
-  - [Use another framework or package manager](#use-another-framework-or-package-manager)
-- [CSS architecture](#css-architecture)
-- [JS customization](#js-customization)
-- [Customization, theming, and tokens](#customization-theming-and-tokens)
-  - [Using tokens in theme settings](#using-tokens-in-theme-settings)
-  - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
-  - [Main variables that can be customized](#main-variables-that-can-be-customized)
-- [Where things live](#where-things-live)
-- [Browser support](#browser-support)
-- [Accessibility](#accessibility)
-- [Fractal](#fractal)
-  - [Template compatibility](#template-compatibility)
-- [Need installation help?](#need-installation-help)
-- [Contributing to the code base](#contributing-to-the-code-base)
-- [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
-- [Licenses and attribution](#licenses-and-attribution)
+- [United States Web Design System](#united-states-web-design-system)
+  - [Contents](#contents)
+  - [Background](#background)
+  - [Recent updates](#recent-updates)
+  - [Getting started](#getting-started)
+  - [Using the design system](#using-the-design-system)
+    - [Download and install](#download-and-install)
+    - [Install using npm](#install-using-npm)
+      - [Using the USWDS package](#using-the-uswds-package)
+      - [Sass and theme settings](#sass-and-theme-settings)
+      - [Sass compilation requirements](#sass-compilation-requirements)
+      - [JavaScript](#javascript)
+    - [Use another framework or package manager](#use-another-framework-or-package-manager)
+  - [CSS architecture](#css-architecture)
+  - [JS customization](#js-customization)
+  - [Customization, theming, and tokens](#customization-theming-and-tokens)
+    - [Using tokens in theme settings](#using-tokens-in-theme-settings)
+    - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
+  - [Where things live](#where-things-live)
+  - [Browser support](#browser-support)
+  - [Accessibility](#accessibility)
+  - [Fractal](#fractal)
+    - [Template compatibility](#template-compatibility)
+  - [Long-term support of v1.x](#long-term-support-of-v1x)
+  - [Need installation help?](#need-installation-help)
+  - [Contributing to the code base](#contributing-to-the-code-base)
+  - [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+  - [Licenses and attribution](#licenses-and-attribution)
+  - [Contributing](#contributing)
 
 ## Background
 
@@ -247,7 +250,7 @@ We recommend using a **minifier** like [csso](https://github.com/css/csso) to co
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download-and-install). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
@@ -304,7 +307,9 @@ function App() {
 
   useEffect(() => {
     // initialize
-    characterCount.on(ref); // default ref is document.body, if you want to use default you do not have to pass arguments
+    characterCount.on(ref);
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
     accordion.on();
 
     // remove event listeners when component un-mounts.
@@ -321,7 +326,9 @@ Angular example:
 ```js
 export class App implements OnInit {
   constructor() {
-    this.ref = document.body; // default ref is document.body, if you want to use default you do not have to pass arguments
+    this.ref = document.body;
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
   }
 
   ngOnInit() {
@@ -337,6 +344,8 @@ export class App implements OnInit {
   }
 }
 ```
+
+> Those using **Webpack 5** can take advantage of the updated exports field which allows declaration for requests like `import "uswds"` or `import accordion from "uswds/src/js/components/accordion"`
 
 ## Customization, theming, and tokens
 

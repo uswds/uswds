@@ -162,7 +162,7 @@ $input-checkmark: if(
     $color-input-disabled;
   border-radius: radius($theme-input-tile-border-radius);
   color: color($input-text-color);
-  margin: units(1) 0;
+  margin-top: units(1);
   padding: units(1.5) units(2) units(1.5) units(5);
 }
 
