@@ -13,7 +13,7 @@ const { cleanDist } = require("./clean");
   ├── * Create SVG spritesheet
   ├── * Copy markdown docs
   ├── * Compile sass and js
-  └── * Copy sass, copy images, and fonts to `dist/`
+  └── * Copy sass, images, and fonts to `dist/`
  */
 exports.build = series(
   (done) => {
