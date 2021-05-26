@@ -1,5 +1,5 @@
-$input-tile-text-color: get-color-token-from-bg($theme-input-background-color);
-$input-tile-bg-color: if(
+$input-text-color: get-color-token-from-bg($theme-input-background-color);
+$input-bg-color: if(
   $theme-input-background-color == "default",
   $theme-body-background-color,
   $theme-input-background-color
@@ -9,9 +9,21 @@ $input-disabled-alpha: -0.7;
 $input-disabled-alpha--strong: -0.5;
 $input-disabled-alpha--weak: -0.8;
 $input-border-alpha: -0.0;
-$color-input-disabled: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha);
-$color-input-disabled--strong: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha--strong);
-$color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha: $input-disabled-alpha--weak);
+$color-input-disabled: adjust-color(color($input-text-color), $alpha: $input-disabled-alpha);
+$color-input-disabled--strong: adjust-color(color($input-text-color), $alpha: $input-disabled-alpha--strong);
+$color-input-disabled--weak: adjust-color(color($input-text-color), $alpha: $input-disabled-alpha--weak);
+
+$input-darkmode: if(
+  lightness(color($input-bg-color)) < 50%,
+  true,
+  false
+);
+
+$input-checkmark: if(
+  $input-darkmode,
+  "correct8-alt",
+  "correct8"
+);
 
 @include override-prose {
   .usa-input-list {
@@ -54,7 +66,7 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
 
 .usa-checkbox__label::before,
 .usa-radio__label::before {
-  background: color($input-tile-bg-color);
+  background: color($input-bg-color);
   content: " ";
   display: inline-block;
   left: units($theme-input-select-border-width);
@@ -74,7 +86,7 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
 
 .usa-checkbox__label::before,
 .usa-radio__label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) adjust-color(color($input-tile-text-color), $alpha: $input-border-alpha);
+  box-shadow: 0 0 0 units($theme-input-select-border-width) adjust-color(color($input-text-color), $alpha: $input-border-alpha);
   line-height: units($theme-input-select-size);
   margin-right: units($input-select-margin-right);
   text-indent: 0;
@@ -88,7 +100,7 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
 
 .usa-radio__input:checked + .usa-radio__label::before {
   box-shadow: 0 0 0 units($theme-input-select-border-width) color($input-active-color),
-    inset 0 0 0 units($theme-input-select-border-width) color($input-tile-bg-color);
+    inset 0 0 0 units($theme-input-select-border-width) color($input-bg-color);
 
   @media print {
     box-shadow: inset 0 0 0 units($theme-input-select-border-width)
@@ -98,9 +110,15 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
   }
 }
 
+.usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
+  background-color: $color-input-disabled;
+
+  @media print {}
+}
+
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
 .usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
-  @include add-background-svg("correct8");
+  @include add-background-svg($input-checkmark);
   background-position: center center;
   background-size: units(1.5) auto;
 
@@ -112,6 +130,7 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
   }
 }
 
+.usa-checkbox__input:focus + .usa-checkbox__label::before,
 .usa-radio__input:focus + .usa-radio__label::before {
   @include focus-outline(null, null, null, 0.5);
 }
@@ -122,31 +141,27 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
   cursor: not-allowed;
 }
 
-.usa-checkbox__input:focus + .usa-checkbox__label::before {
-  @include focus-outline;
-}
-
 .usa-checkbox__input:disabled + .usa-checkbox__label::before,
 .usa-radio__input:disabled + .usa-radio__label::before {
-  background: color($input-tile-bg-color);
+  background-color: color($input-bg-color);
   box-shadow: 0 0 0 units($theme-input-select-border-width) $color-input-disabled;
   cursor: not-allowed;
 }
 
 .usa-radio__input:checked:disabled + .usa-radio__label::before {
-  background: $color-input-disabled--weak;
+  background-color: $color-input-disabled--weak;
   box-shadow: 0 0 0 2px $color-input-disabled,
-    inset 0 0 0 2px color($input-tile-bg-color);
+    inset 0 0 0 2px color($input-bg-color);
 }
 
 // Checkboxes and radios with tap-friendly targets
 .usa-checkbox__input--tile + .usa-checkbox__label,
 .usa-radio__input--tile + .usa-radio__label {
-  background-color: color($input-tile-bg-color);
+  background-color: color($input-bg-color);
   border: units($theme-input-tile-border-width) solid
     $color-input-disabled;
   border-radius: radius($theme-input-tile-border-radius);
-  color: color($input-tile-text-color);
+  color: color($input-text-color);
   margin: units(1) 0;
   padding: units(1.5) units(2) units(1.5) units(5);
 }
@@ -159,8 +174,8 @@ $color-input-disabled--weak: adjust-color(color($input-tile-text-color), $alpha:
 
 .usa-checkbox__input--tile:disabled:checked + .usa-checkbox__label,
 .usa-radio__input--tile:disabled:checked + .usa-radio__label {
-  background-color: $color-input-disabled;
-  border-color: $color-input-disabled--strong;
+  background-color: color($input-bg-color);
+  border-color: $color-input-disabled;
 }
 
 .usa-checkbox__label-description,
