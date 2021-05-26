@@ -36,7 +36,7 @@
     "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/system-tokens'",
     "lint": "gulp lint",
     "mocha": "mocha",
-    "prepare": "npx patch-package && gulp",
+    "prepare": "npx gulp",
     "preversion": "npm test",
     "release": "gulp release",
     "federalist": "npm install && npx gulp",
