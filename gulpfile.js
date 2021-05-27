@@ -62,13 +62,15 @@ exports.test = series(
 /**
  * *Build tasks*
  * buildSprite: Generate new spritesheet based on SVGs in `src/img/usa-icons/`.
- * sass: Lint, copy normalize, and compile sass.
+ * buildSass: Lint, copy normalize, and compile sass.
  * buildJS: Lint, copy normalize, and compile sass.
  * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
 exports.buildSprite = buildSprite;
-exports.sass = series(lintSass, copyVendor, compileSass);
+exports.buildSass = series(lintSass, copyVendor, compileSass);
 exports.buildJS = series(typeCheck, lintJS, compileJS);
+exports.buildUSWDS = build;
+exports.buildComponents = buildPL;
 exports.release = release;
 
 // Build task for Pattern Lab.
@@ -82,4 +84,4 @@ exports.styleguide = buildPL;
 exports.watch = watch;
 
 // Default Task
-exports.default = build;
+exports.default = series(build, buildPL);
