@@ -132,7 +132,6 @@
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.2.1",
-    "node-notifier": "^9.0.0",
     "normalize.css": "^8.0.1",
     "nyc": "^15.1.0",
     "postcss": "^8.2.1",
