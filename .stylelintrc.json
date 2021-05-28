@@ -1,9 +1,0 @@
-{
-  "extends": ["stylelint-config-recommended-scss"],
-  "rules": {
-    "unit-no-unknown": null,
-    "no-descending-specificity": null,
-    "no-duplicate-selectors": null
-  },
-  "ignoreFiles": "./src/stylesheets/lib/**/*"
-}
