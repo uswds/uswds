@@ -58,8 +58,7 @@
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
-    "resolve-id-refs": "^0.1.0",
-    "yargs": "^12.0.2"
+    "resolve-id-refs": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -115,6 +114,7 @@
     "stylelint-scss": "^3.19.0",
     "typescript": "^2.4.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "yargs": "^17.0.1"
   }
 }
