@@ -877,7 +877,7 @@ const enhanceDatePicker = (el) => {
     "usa-sr-only",
     DATE_PICKER_INTERNAL_INPUT_CLASS
   );
-  internalInputEl.id = "";
+  internalInputEl.removeAttribute("id");
   internalInputEl.required = false;
 
   datePickerEl.appendChild(calendarWrapper);
