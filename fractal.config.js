@@ -10,7 +10,9 @@ const context = {
   },
   uswds: {
     path: "../../dist"
-  }
+  },
+  // eslint-disable-next-line no-script-url
+  placeholderLink: "javascript:void()"
 };
 
 fractal.set("project.title", `U.S. Web Design System (v${pkg.version})`);
