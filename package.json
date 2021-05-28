@@ -59,8 +59,6 @@
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0",
-    "stylelint": "^13.13.1",
-    "typescript": "^2.4.1",
     "yargs": "^12.0.2"
   },
   "devDependencies": {
@@ -76,7 +74,6 @@
     "chrome-launcher": "^0.14.0",
     "chrome-remote-interface": "^0.25.6",
     "cross-spawn": "^2.1.5",
-    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
@@ -87,7 +84,7 @@
     "gulp-cli": "^2.2.0",
     "gulp-eslint": "^5.0.0",
     "gulp-filter": "^3.0.1",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
@@ -105,6 +102,7 @@
     "normalize.css": "^3.0.3",
     "nyc": "^14.1.1",
     "postcss": "^8.3.0",
+    "postcss-csso": "^5.0.1",
     "postcss-discard-comments": "^4.0.2",
     "prettier": "^1.19.1",
     "resemblejs": "^3.2.5",
@@ -112,8 +110,10 @@
     "should": "^11.2.1",
     "sinon": "^2.3.8",
     "snyk": "^1.605.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.19.0",
+    "typescript": "^2.4.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }

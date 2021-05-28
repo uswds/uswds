@@ -1,6 +1,6 @@
 const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
+const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
@@ -92,7 +92,7 @@ gulp.task(
     ];
     const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
-      cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
+      csso({ forceMediaMerge: false })
     ];
 
     return gulp
