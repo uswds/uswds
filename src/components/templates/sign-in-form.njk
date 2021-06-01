@@ -2,13 +2,13 @@
   <fieldset class="usa-fieldset">
     <legend class="usa-legend usa-legend--large">{{ form.legend }}</legend>
     {# Email #}
-    <label class="usa-label" for="{{ form.email.id }}">
+    <label class="usa-label" for="{{ form.email.input.id }}">
       {{ form.email.label }}
     </label>
     <input
       class="usa-input"
-      id="{{ form.email.id }}"
-      name="{{ form.email.id }}"
+      id="{{ form.email.input.id }}"
+      name="{{ form.email.input.id }}"
       type="{{ form.email.input.type }}"
       autocapitalize="off"
       autocorrect="off"
