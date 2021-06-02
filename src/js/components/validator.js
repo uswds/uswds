@@ -20,5 +20,5 @@ const validator = behavior({
 
 module.exports = assign(
   el => validator.on(el),
-  validator
+  validator,
 );

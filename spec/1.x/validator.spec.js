@@ -1,7 +1,7 @@
 const $ = require('jquery');
 const fs = require('fs');
 const path = require('path');
-const validator = require('../../src/js/components/validator.js');
+const validator = require('../../src/js/components/validator');
 
 const template = fs.readFileSync(
   path.join(__dirname, '../unit/validator/template.html'),
