@@ -116,5 +116,5 @@ navigation = behavior({
  */
 module.exports = assign(
   el => navigation.on(el),
-  navigation
+  navigation,
 );
