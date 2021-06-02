@@ -69,7 +69,6 @@
     "babelify": "^10.0.0",
     "bourbon": "4.2.7",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
-    "chalk": "^2.0.1",
     "chrome-launcher": "^0.14.0",
     "chrome-remote-interface": "^0.25.6",
     "cross-spawn": "^2.1.5",
