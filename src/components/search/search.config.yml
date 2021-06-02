@@ -5,6 +5,8 @@ context:
   modifier: ''
   text: "Search"
   input_modifier: ''
+  search_header: false
+  search_js: false
 
 variants:
   - name: big
