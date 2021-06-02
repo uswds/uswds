@@ -28,6 +28,7 @@ variants:
   - name: lang-es
     label: Default (Spanish)
     context:
+      lang: es
       title: Ingrese a su cuenta
       form:
         legend: Acceda a su cuenta
@@ -56,6 +57,7 @@ variants:
   - name: lang-es-multiple
     label: Multiple (Spanish)
     context:
+      lang: es
       title: Ingrese a su cuenta
       description: Usted puede acceder a su cuenta con una de las opciones siguientes.
       multiple:
