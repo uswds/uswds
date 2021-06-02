@@ -12,7 +12,7 @@
 
 @mixin checkbox-and-radio-colors(
   $bg-color: $theme-input-background-color,
-  $checked-color: "default"
+  $selected-color: "default"
 ) {
   $input-text-color: get-color-token-from-bg($bg-color);
   $input-bg-color: if(
@@ -21,7 +21,7 @@
     $bg-color
   );
   $input-active-color: nth(
-    get-link-tokens-from-bg($bg-color, $preferred-link-token: $checked-color),
+    get-link-tokens-from-bg($bg-color, $preferred-link-token: $selected-color),
     1
   );
   $input-disabled-alpha: -0.7;
