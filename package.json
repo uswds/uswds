@@ -21,8 +21,8 @@
     "preversion": "npm test",
     "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
-    "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && gulp test",
-    "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && gulp test",
+    "test": "snyk test && gulp eslint && gulp typecheck && gulp test",
+    "test:ci": "gulp eslint && gulp typecheck && gulp test",
     "test:unit": "gulp test",
     "version": "gulp build release"
   },
