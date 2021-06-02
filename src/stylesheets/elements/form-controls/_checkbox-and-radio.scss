@@ -10,14 +10,20 @@
   }
 }
 
-@mixin checkbox-and-radio-colors($bg-color: $theme-input-background-color) {
+@mixin checkbox-and-radio-colors(
+  $bg-color: $theme-input-background-color,
+  $checked-color: "default"
+) {
   $input-text-color: get-color-token-from-bg($bg-color);
   $input-bg-color: if(
     $bg-color == "default",
     $theme-body-background-color,
     $bg-color
   );
-  $input-active-color: nth(get-link-tokens-from-bg($bg-color), 1);
+  $input-active-color: nth(
+    get-link-tokens-from-bg($bg-color, $preferred-link-token: $checked-color),
+    1
+  );
   $input-disabled-alpha: -0.7;
   $input-disabled-alpha--strong: -0.5;
   $input-disabled-alpha--weak: -0.8;
@@ -235,9 +241,12 @@
   text-indent: 0;
 }
 
+// Test code for scoped custom colors
+/*
 .checkbox-tests {
   @include set-text-and-bg("green-80");
-  @include checkbox-and-radio-colors("green-80");
+  @include checkbox-and-radio-colors("green-80", "green-warm-10v");
   padding: units(2);
   border-radius: radius("md");
 }
+*/
