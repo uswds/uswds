@@ -2,7 +2,8 @@ label: Create account
 handle: layout--create-account
 
 context:
-  tagline: A tagline that explains the benefit of creating an account.
+  # Must match value-props.config.yml:7
+  tagline: <A tagline that explains the benefit of creating an account.>
   form:
     title: Create account
     legend: Get started with an account.

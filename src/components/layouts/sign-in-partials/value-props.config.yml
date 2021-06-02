@@ -4,16 +4,16 @@ hidden: true
 
 context:
   value_props:
-    tagline: A tagline that explains the benefit of creating an account.
+    tagline: <A tagline that explains the benefit of creating an account.>
     description: |-
-      Here’s space for a longer description to introduce 3-5 easily scannable bullet points. Note that on mobile, this text block will bump below the Create Account form.
+      <Here’s space for a longer description to introduce 3-5 easily scannable bullet points. Note that on mobile, this text block will bump below the Create Account form.>
     values:
       - img: circle-gray-20.svg
         description: |-
-          <strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.
+          <<strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.>
       - img: circle-gray-20.svg
         description: |-
-          <strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.
+          <<strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.>
       - img: circle-gray-20.svg
         description: |-
-          <strong>Value proposition 3:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.
+          <<strong>Value proposition 3:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.>
