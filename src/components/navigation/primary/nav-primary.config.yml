@@ -1,0 +1,47 @@
+label: Primary (header)
+preview: "@uswds-header"
+status: ready
+
+context:
+  lang: en
+  nav:
+    search: false
+    close:
+      label: Close
+    links:
+      - text: <Current section>
+        is_current: true
+        id: nav-section-one
+        links: &subnav_links
+          - text: <Navigation link>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+            is_current: false
+          - text: <Navigation link>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+          - text: <A very long navigation link that goes onto two lines>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+          - text: <Navigation link>
+            href: "#"
+      - text: <Section>
+        id: nav-section-two
+        links: *subnav_links
+      - text: <Simple link>
+        href: "javascript:void(0)"
+
+variants:
+  - name: lang-es
+    context:
+      lang: es
+      nav:
+        close:
+          label: Cerrar

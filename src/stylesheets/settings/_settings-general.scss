@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.10.1
+USWDS 2.11.2
 ----------------------------------------
 GENERAL SETTINGS
 ----------------------------------------
@@ -57,6 +57,22 @@ $theme-namespace: (
     output: false,
   ),
 ) !default;
+
+/*
+----------------------------------------
+Prefix separator
+----------------------------------------
+Set the character the separates
+responsive and state prefixes from the
+main class name.
+
+The default (":") needs to be preceded
+by two backslashes to be properly
+escaped.
+----------------------------------------
+*/
+
+$theme-prefix-separator: "\\:" !default;
 
 /*
 ----------------------------------------

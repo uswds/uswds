@@ -26,6 +26,6 @@ describe("file input: single file input", () => {
   });
 
   it('uses singular "file" if there is not a "multiple" attribute', () => {
-    assert.equal(dragText.innerHTML, "Drag file here or ");
+    assert.strictEqual(dragText.innerHTML, "Drag file here or ");
   });
 });

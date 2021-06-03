@@ -111,9 +111,9 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 
   &.usa-button--inverse {
-    $button-inverse-color: "base-lighter";
-    $button-inverse-hover-color: "base-lightest";
-    $button-inverse-active-color: "white";
+    $button-inverse-color: $theme-link-reverse-color;
+    $button-inverse-hover-color: $theme-link-reverse-hover-color;
+    $button-inverse-active-color: $theme-link-reverse-active-color;
 
     box-shadow: $button-stroke color("base-lighter");
     color: color($button-inverse-color);
@@ -200,7 +200,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse:disabled {
   background-color: color("transparent");
-  pointer-events: none;
 
   &:hover,
   &.usa-button--hover,

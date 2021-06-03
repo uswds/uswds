@@ -1,0 +1,8 @@
+{% set base_suffix = '--lang-' + lang if lang !== "en" %}
+{% set base_layout = 'layouts/_base/base' + base_suffix + '.njk' %}
+
+{% extends base_layout %}
+
+{% block body %}
+  {% include 'layouts/error/_error-inner.njk' %}
+{% endblock %}

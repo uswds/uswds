@@ -16,23 +16,21 @@ $triangle-size: 5px;
   }
 }
 
-.usa-tooltip__body {
+.usa-tooltip__body,
+.usa-tooltip__body--top {
   transition: opacity 0.08s ease-in-out;
   background-color: color($theme-tooltip-background-color);
   border-radius: radius($theme-button-border-radius);
-  bottom: 0;
   color: color($theme-tooltip-font-color);
   display: none;
   font-size: size("ui", $theme-tooltip-font-size);
   padding: units(1);
-  position: absolute;
   pointer-events: none;
-  left: 0;
-  opacity: 0;
-  transform: translateX(-50%);
   width: auto;
   white-space: pre;
   z-index: 100000;
+  position: absolute;
+  /* positioning is completed with JS */
 
   &:after {
     content: "";
@@ -53,6 +51,8 @@ $triangle-size: 5px;
 .usa-tooltip__body--wrap {
   width: 100%;
   white-space: normal;
+  text-align: center;
+  min-width: calc(100vw / 2);
 }
 
 .usa-tooltip__body.is-set {
@@ -64,9 +64,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--bottom {
-  bottom: auto;
-  top: 0;
-
   &:after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
@@ -78,9 +75,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--right {
-  top: auto;
-  transform: translateX(0);
-
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
@@ -95,11 +89,6 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--left {
-  top: auto;
-  left: 0;
-  right: auto;
-  transform: translateX(0);
-
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
