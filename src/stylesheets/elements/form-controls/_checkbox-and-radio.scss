@@ -43,8 +43,14 @@
   $input-darkmode: if(lightness(color($input-bg-color)) < 50%, true, false);
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
 
+  .usa-checkbox,
+  .usa-radio {
+    background: color($input-bg-color);
+  }
+
   .usa-checkbox__label,
   .usa-radio__label {
+    color: color($input-text-color);
     &::before {
       background: color($input-bg-color);
       box-shadow: 0 0 0 units($theme-input-select-border-width)
