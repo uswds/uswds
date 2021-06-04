@@ -2,43 +2,54 @@
 
 {% set
   pager_ranges = {
-    'default': range(pagination.current - 3, pagination.current + 4),
-    'last_item': pagination.items,
-    'first_seven': range(1, 8),
-    'last_seven': range(pagination.items - 6, pagination.items + 1),
-    'all': range(1, pagination.items)
+    'first_five': range(1, 6),
+    'last_five': range(pagination.items - 4, pagination.items + 1),
+    'all': range(1, pagination.items + 1)
   }
 %}
 
 {# Page numbers #}
 {% switch true %}
+  {# If less than 7 #}
+  {#
+    Examples:
+      *1*,
+      *1*, 2, 3, 4, 5, 6 , 7
+  #}
   {% case pagination.items <= 7 %}
-    {# List all of them if less than 7 #}
-    {% for item in pager_ranges.all  %}
+    {% for item in pager_ranges.all %}
       <li class="usa-pagination__item usa-pagination__page-no">
         {{ paginationButton(item, pagination.current) }}
       </li>
     {% endfor %}
+  {# Current item is under 7, but there are more than 7 items #}
+  {# Example: 1, 2, *3*, 4, 5 … 8 #}
   {% case pagination.current <= 7 and pagination.items >= 7 %}
-    {# Show first seven only #}
-    {% for item in pager_ranges.first_seven  %}
+    {% for item in pager_ranges.first_five  %}
       <li class="usa-pagination__item usa-pagination__page-no">
         {{ paginationButton(item, pagination.current) }}
       </li>
     {% endfor %}
 
-  {% case (pagination.current >= pagination.items - 7) %}
-    {# Show last seven #}
-    {% for item in pager_ranges.last_seven %}
+    {{ ellipsis | safe }}
+
+    <li class="usa-pagination__item usa-pagination__page-no">
+      {{ paginationButton(pagination.items, pagination.current) }}
+    </li>
+  {# Current item is one of the last 5 items #}
+  {# Example: 1 … 4, 5, *6*, 7, 8 #}
+  {% case pagination.current >= pagination.items - 4 %}
+    <li class="usa-pagination__item usa-pagination__page-no">
+      {{ paginationButton(1, pagination.current) }}
+    </li>
+
+    {{ ellipsis | safe }}
+
+    {% for item in pager_ranges.last_five %}
       <li class="usa-pagination__item usa-pagination__page-no">
         {{ paginationButton(item, pagination.current) }}
       </li>
     {% endfor %}
   {% default %}
-    {# Default - Current -1, Current, Current + 1 #}
-    {% for item in pager_ranges.default %}
-      <li class="usa-pagination__item usa-pagination__page-no">
-        {{ paginationButton(item, pagination.current) }}
-      </li>
-    {% endfor %}
 {% endswitch %}
+
