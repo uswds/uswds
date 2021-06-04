@@ -859,7 +859,6 @@ const enhanceDatePicker = (el) => {
   const externalInputEl = internalInputEl.cloneNode();
   externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
   externalInputEl.type = "text";
-  externalInputEl.name = "";
 
   calendarWrapper.appendChild(externalInputEl);
   calendarWrapper.insertAdjacentHTML(
@@ -878,6 +877,7 @@ const enhanceDatePicker = (el) => {
     DATE_PICKER_INTERNAL_INPUT_CLASS
   );
   internalInputEl.removeAttribute("id");
+  internalInputEl.removeAttribute("name");
   internalInputEl.required = false;
 
   datePickerEl.appendChild(calendarWrapper);
@@ -1008,10 +1008,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     return `<button
       type="button"
       tabindex="${tabindex}"
-      class="${classes.join(" ")}" 
-      data-day="${day}" 
-      data-month="${month + 1}" 
-      data-year="${year}" 
+      class="${classes.join(" ")}"
+      data-day="${day}"
+      data-month="${month + 1}"
+      data-year="${year}"
       data-value="${formattedDate}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
       aria-selected="${isSelected ? "true" : "false"}"
@@ -1042,7 +1042,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="${CALENDAR_ROW_CLASS}">
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
@@ -1050,7 +1050,7 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
@@ -1058,17 +1058,17 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month"
           >${monthLabel}</button>
-          <button 
+          <button
             type="button"
             class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
           >${focusedYear}</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
@@ -1076,7 +1076,7 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
@@ -1331,10 +1331,10 @@ const displayMonthSelection = (el, monthToDisplay) => {
       classes.push(CALENDAR_MONTH_SELECTED_CLASS);
     }
 
-    return `<button 
+    return `<button
         type="button"
         tabindex="${tabindex}"
-        class="${classes.join(" ")}" 
+        class="${classes.join(" ")}"
         data-value="${index}"
         data-label="${month}"
         aria-selected="${isSelected ? "true" : "false"}"
@@ -1439,10 +1439,10 @@ const displayYearSelection = (el, yearToDisplay) => {
     }
 
     years.push(
-      `<button 
+      `<button
         type="button"
         tabindex="${tabindex}"
-        class="${classes.join(" ")}" 
+        class="${classes.join(" ")}"
         data-value="${yearIndex}"
         aria-selected="${isSelected ? "true" : "false"}"
         ${isDisabled ? `disabled="disabled"` : ""}
@@ -1461,7 +1461,7 @@ const displayYearSelection = (el, yearToDisplay) => {
             <td>
               <button
                 type="button"
-                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
+                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"
                 aria-label="Navigate back ${YEAR_CHUNK} years"
                 ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
               >&nbsp;</button>
@@ -1476,7 +1476,7 @@ const displayYearSelection = (el, yearToDisplay) => {
             <td>
               <button
                 type="button"
-                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
+                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}"
                 aria-label="Navigate forward ${YEAR_CHUNK} years"
                 ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
               >&nbsp;</button>
