@@ -44,6 +44,7 @@ const SKIP_COMPONENTS = [
   "layout--value-props",
   "layout--404",
   "layout--404-inner",
+  "password",
   "icon",
 ];
 

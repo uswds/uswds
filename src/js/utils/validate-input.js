@@ -1,13 +1,10 @@
-const dataset = require("elem-dataset");
-
 const { prefix: PREFIX } = require("../config");
 
 const CHECKED = "aria-checked";
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 
 module.exports = function validate(el) {
-  const data = dataset(el);
-  const id = data.validationElement;
+  const id = el.dataset.validationElement;
   const checkList =
     id.charAt(0) === "#"
       ? document.querySelector(id)
@@ -17,7 +14,7 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
-  Object.entries(data).forEach(([key, value]) => {
+  Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
       const validatorName = key.substr("validate".length).toLowerCase();
       const validatorPattern = new RegExp(value);
