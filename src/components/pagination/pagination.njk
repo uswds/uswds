@@ -5,6 +5,14 @@
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
+{% set ellipsis %}
+  <li class="usa-pagination__item usa-pagination__ellipsis" role="presentation">
+    <span>
+      …
+    </span>
+  </li>
+{% endset %}
+
 <nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier }}">
   <ul class="usa-pagination__list">
     {% block pagination_content %}
