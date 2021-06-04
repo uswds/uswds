@@ -1,0 +1,62 @@
+label: Create account
+handle: layout--create-account
+
+context:
+  # Must match value-props.config.yml:7
+  tagline: <A tagline that explains the benefit of creating an account.>
+  form:
+    title: Create account
+    legend: Get started with an account.
+    hint: |-
+      <abbr title="required" class="usa-hint usa-hint--required">*</abbr> indicates a required field.
+    email:
+      label: Email address
+    password:
+      label: Create password
+      toggle:
+        aria_controls: password-create-account password-create-account-confirm
+        text:
+          show: Show password
+          hide: Hide password
+      confirmation:
+        label: Re-type password
+    terms:
+      label: |-
+        I agree to the <a href="javascript:void();">terms and conditions</a>.
+    submit: Create account
+  existing_user:
+    label: Already have an account?
+    cta: Sign in
+
+variants:
+  - name: lang-es
+    label: Spanish
+    context:
+      lang: es
+      form:
+        title: Cree una cuenta
+        legend: Comience con su cuenta
+        hint: |-
+          <abbr title="required" class="usa-hint usa-hint--required">*</abbr> indica un campo obligatorio.
+        email:
+          label: Su email
+        password:
+          label: Cree una contraseña
+          toggle:
+            text:
+              show: Muestre la contraseña
+              hide: Esconda la contraseña
+          confirmation:
+            label: Reescriba la contraseña
+        terms:
+          label: |-
+            Estoy de acuerdo con los <a href="javascript:void();">términos y condiciones de uso</a>.
+        submit: Cree su cuenta
+      existing_user:
+        label: ¿Ya tiene una cuenta?
+        cta: Ingrese a su cuenta.
+      max:
+        title: ¿Es usted un empleado federal?
+        description: Si es un empleado federal [u otro tipo de usuario secundario], por favor use [Single Sign On (SSO) secundario].
+        cta:
+          label: Inicie SSO secundario
