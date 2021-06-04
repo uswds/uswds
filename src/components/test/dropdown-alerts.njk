@@ -1,0 +1,40 @@
+<main class="grid-container">
+  <h1>Testing alerts on dropdown menus - <small><a href="https://github.com/uswds/uswds/issues/4192">issue #4192</a></small></h1>
+  <p class="measure-3">
+    The bottom of drop down menu text gets cutoff 
+  </p>
+  <div class="grid-row grid-gap-6 margin-top-4">
+    <div class="tablet:grid-col-6">
+      <h2>Current</h2>
+      <!-- Dropdown w/ error -->
+      
+      <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="input-error">Dropdown error</label>
+        <span class="usa-error-message" id="select-input-error-message" role="alert">Helpful error message</span>
+        <select class="usa-select usa-input--error" id="select-error" name="select-error" type="options"
+          aria-describedby="input-error-message">
+            <option value>- Select -</option>
+              <option value="value1">Option A</option>
+              <option value="value2">Option B</option>
+              <option value="value3">Option C</option>
+        </select>
+      </div>
+
+      <h2>Proposed</h2>
+      <p>Adjust padding to prevent text from being cut off</a></p>
+      <!-- Text w/ error -->
+           <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="input-error">Dropdown error</label>
+        <span class="usa-error-message" id="select-input-error-message" role="alert">Helpful error message</span>
+        <select class="usa-select usa-input--error" id="select-error-fix" name="select-error" type="options"
+          aria-describedby="input-error-message">
+            <option value>- Select -</option>
+              <option value="value1">Option A</option>
+              <option value="value2">Option B</option>
+              <option value="value3">Option C</option>
+        </select>
+      </div>
+      </div>
+    </div>
+  </div>
+</main>
