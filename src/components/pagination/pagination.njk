@@ -9,7 +9,10 @@
   <ul class="usa-pagination__list">
     {% block pagination_content %}
       {# Previous page #}
-      {{ paginationArrow('previous', pagination) }}
+      {# Don't show `Previous` button if on first page #}
+      {% if pagination.current > 1 %}
+        {{ paginationArrow('previous', pagination) }}
+      {% endif %}
 
       {% if not pagination.infinite %}
         {% include "pagination/_pagination-numbers--default.njk" %}
@@ -18,7 +21,10 @@
       {% endif %}
 
       {# Next page #}
-      {{ paginationArrow('next', pagination) }}
+      {# Don't show `next` button if on last page #}
+      {% if pagination.current != pagination.items %}
+        {{ paginationArrow('next', pagination) }}
+      {% endif %}
     {% endblock %}
   </ul>
 </nav>
