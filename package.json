@@ -91,7 +91,6 @@
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
     "domready": "^1.0.8",
-    "elem-dataset": "^2.0.0",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
