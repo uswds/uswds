@@ -248,9 +248,11 @@
 }
 
 // Test code for scoped custom colors
+/*
 .checkbox-tests {
   @include set-text-and-bg("green-80");
   @include checkbox-and-radio-colors("green-80", "green-warm-10v");
   padding: units(2);
   border-radius: radius("md");
 }
+*/
