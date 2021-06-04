@@ -3,11 +3,6 @@
 #}
 {% macro paginationArrow(direction, pagination) %}
 
-  {% set is_disabled =
-    (direction == "previous" and pagination.current == 1) or
-    (direction == "next" and pagination.current == pagination.items)
-  %}
-
   {% set link_attrs = {
     'href': 'javascript:void(0);',
     'class': 'usa-pagination__link usa-pagination__'  + direction + '-page',
@@ -19,10 +14,6 @@
       href="{{ link_attrs.href }}"
       class="{{ link_attrs.class }}"
       aria-label="{{ link_attrs.aria_label }}"
-      {% if is_disabled %}
-        disabled
-        aria-disabled="true"
-      {% endif %}
     >
       {% if direction == 'previous' %}
         <svg class="usa-icon" aria-hidden="true" role="img">
