@@ -2,13 +2,15 @@
 
 ### Copyright ownership of Works created by U.S. federal employees
 
-This repository contains both the original icon design for Material icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Material icons.
+This repository contains both the original design for Google Material Icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Material Icons.
+
+This repository also contains both original designs for Source Sans Pro, Merriweather, and Font Awesome (the “Font Software”, as defined in Section 1 of the SIL Open Font License, version 1.1) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Source Sans Pro, Merriweather, Public Sans, and Font Awesome respectively.
 
 As a work of the United States Government, the software modifications made by GSA are not subject to copyright within the United States. Additionally, GSA waives copyright and related rights in its software modifications worldwide through the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/).
 
-The Work (as defined in the Apache 2.0 License) remains subject to copyright under the Apache 2.0 License.
+The Work (as defined in the Apache 2.0 License) and Font Software (as defined in the SIL Open Font License, Version 1.1) remains subject to copyright under the respective open source license. The section below lists which works are subject to particular open source licenses.
 
-This Modified Version collected in `src/img/sprite.svg` contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
+This Modified Version packaged as `dist/img/sprite.svg` contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
 
 ### Files licensed under the SIL Open Font License, Version 1.1
 
@@ -24,13 +26,11 @@ Icon files in `src/img` and `src/img/social-icons` are from [Font Awesome](http:
 
 The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-The Google Material icons in `src/img/usa-icons` and `src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Google Material Icons in `src/img/usa-icons` and `src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 
-The files in `src/stylesheets/lib` are from:
-
-- [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+The files in `src/stylesheets/lib` are from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
 #### Full license text for the MIT licensed files:
 
