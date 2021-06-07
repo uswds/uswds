@@ -29,7 +29,7 @@
       </li>
     {% endfor %}
 
-    {{ ellipsis | safe }}
+    {{ overflow | safe }}
 
   {# When user is close to the end of dataset #}
   {# Example: 1 … 4, *5*, 6, 7, 8 #}
@@ -38,7 +38,7 @@
       {{ paginationButton(1, pagination.current) }}
     </li>
 
-    {{ ellipsis | safe }}
+    {{ overflow | safe }}
 
     {% for item in pager_ranges.last_five %}
       <li class="usa-pagination__item usa-pagination__page-no">
@@ -53,7 +53,7 @@
       {{ paginationButton(1, pagination.current) }}
     </li>
 
-    {{ ellipsis | safe }}
+    {{ overflow | safe }}
 
     {% for item in pager_ranges.default %}
       <li class="usa-pagination__item usa-pagination__page-no">
@@ -61,7 +61,7 @@
       </li>
     {% endfor %}
 
-    {{ ellipsis | safe }}
+    {{ overflow | safe }}
 {% endswitch %}
 
 <li class="usa-pagination__item usa-pagination__page-no">
