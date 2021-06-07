@@ -872,10 +872,8 @@ const enhanceDatePicker = (el) => {
 
   internalInputEl.setAttribute("aria-hidden", "true");
   internalInputEl.setAttribute("tabindex", "-1");
-  internalInputEl.classList.add(
-    "usa-sr-only",
-    DATE_PICKER_INTERNAL_INPUT_CLASS
-  );
+  internalInputEl.style.display = "none";
+  internalInputEl.classList.add(DATE_PICKER_INTERNAL_INPUT_CLASS);
   internalInputEl.removeAttribute("id");
   internalInputEl.removeAttribute("name");
   internalInputEl.required = false;
