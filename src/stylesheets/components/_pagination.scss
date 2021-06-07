@@ -1,8 +1,8 @@
 $pagination-context: "Pagination";
 $pagination-margin-x: 0.5 !default;
 $pagination-margin-y: 2 !default;
-$pagination-margin-min-width: 4.5ch !default;
-$pagination-margin-padding: 1 !default;
+$pagination-margin-padding: 0.5 !default;
+$pagination-target-size: 5 !default;
 
 $pagination-current-color: get-color-token-from-bg();
 $pagination-link-tokens: get-link-tokens-from-bg(
@@ -48,11 +48,12 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 // 1. Prevents chromium browsers from adding additional vertical whitespace
 .usa-pagination__item {
   display: inline-flex; // 1
-  line-height: 1;
+  height: units($pagination-target-size);
   justify-content: center;
+  line-height: 1;
   margin-left: units($pagination-margin-x);
   margin-right: units($pagination-margin-x);
-  min-width: $pagination-margin-min-width;
+  min-width: units($pagination-target-size);
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
