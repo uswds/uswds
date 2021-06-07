@@ -1,7 +1,7 @@
 $pagination-context: "Pagination";
 $pagination-margin-x: 0.5 !default;
 $pagination-margin-y: 2 !default;
-$pagination-margin-padding: 0.5 !default;
+$pagination-margin-padding: 1 !default;
 $pagination-target-size: 5 !default;
 
 $pagination-current-color: get-color-token-from-bg();
