@@ -144,7 +144,8 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   }
 }
 
-.usa-pagination__ellipsis {
+.usa-pagination__overflow {
+  align-items: center;
   align-self: stretch;
   display: inherit;
   user-select: none;
