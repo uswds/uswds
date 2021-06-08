@@ -1,61 +1,27 @@
 <main id="main-content">
   <div class="usa-section grid-container">
     <h1>Search results</h1>
-    <p>18 total results for <em>Tokens</em></p>
+    <p>{{ results | length }} total results for <em>Tokens</em></p>
     <ul class="add-list-reset" aria-label="Search results">
-      <li class="padding-y-2">
-        <h2 class="margin-y-0">
-          <a href="https://designsystem.digital.gov/design-tokens/" class="usa-link">Design tokens</a>
-        </h2>
-        <div class="margin-top-05 text-base-dark">
-          <span class="usa-sr-only">Result url</span>
-          designsystem.digital.gov/design-tokens/
-        </div>
-        <p>
-          Tokens can, themselves, be expressed as variables. And this is how most USWDS theme settings work. For instance, the following is an example of theme...
-        </p>
-      </li>
-      <li class="padding-y-2">
-        <h2 class="margin-y-0">
-          <a href="https://designsystem.digital.gov/design-tokens/color/theme-tokens/" class="usa-link">Theme color tokens</a>
-        </h2>
-        <div class="margin-top-05 text-base-dark">
-          <span class="usa-sr-only">Result url</span>
-          designsystem.digital.gov/design-tokens/color/theme-tokens/
-        </div>
-        <p>
-          USWDS theme color tokens are divided into five high-level role-based color families: base, primary, secondary, accent-warm, and accent-cool. Base is a...
-        </p>
-      </li>
-      <li class="padding-y-2">
-        <h2 class="margin-y-0">
-          <a href="https://designsystem.digital.gov/design-tokens/color/system-tokens/" class="usa-link">System color tokens</a>
-        </h2>
-        <div class="margin-top-05 text-base-dark">
-          <span class="usa-sr-only">Result url</span>
-          designsystem.digital.gov/design-tokens/color/system-tokens/
-        </div>
-        <p>
-          USWDS system color tokens are the complete palette of color tokens from which any project can build a theme palette.
-        </p>
-      </li>
-      <li class="padding-y-2">
-        <h2 class="margin-y-0">
-          <a href="https://designsystem.digital.gov/design-tokens/color/state-tokens/" class="usa-link">State color tokens</a>
-        </h2>
-        <div class="margin-top-05 text-base-dark">
-          <span class="usa-sr-only">Result url</span>
-          designsystem.digital.gov/design-tokens/color/state-tokens/
-        </div>
-        <p>
-          Design tokens. State color tokens. USWDS state colors tokens provide flexible, accessible, customizable colors for warning, error, and other states...
-        </p>
-      </li>
+      {% for result in results %}
+        <li class="padding-y-1">
+          <h2 class="margin-y-0">
+            <a href="https://designsystem.digital.gov/{{ result.url }}" class="usa-link text-no-underline">{{ result.title }}</a>
+          </h2>
+          <div class="margin-top-05 text-base-dark">
+            <span class="usa-sr-only">Result url</span>
+            designsystem.digital.gov/{{ result.url }}
+          </div>
+          <p class="margin-top-1">
+            {{ result.description }}
+          </p>
+        </li>
+      {% endfor %}
     </ul>
     {% render '@pagination',
       {
         pagination: {
-          items: 4,
+          items: 8,
           current: 1
         }
       },
