@@ -1,5 +1,8 @@
-const server = require("browser-sync").create();
+const server = require("browser-sync");
 const run = require("gulp-run-command").default;
+const dutil = require("./utils/doc-util");
+
+server.create("USWDS Server");
 
 const serverOptions = {
   server: ["./build/"],
@@ -25,17 +28,29 @@ async function buildPL() {
  * Used in a11y task in `test.js` to exit server.
  */
 async function exitServer() {
+  dutil.logMessage("exitServer", "Exiting server");
   return server.exit();
 }
 
+function serve(done) {
+  dutil.logMessage("serve", "Starting server");
+
+  // See https://browsersync.io/docs/options for more options.
+  server
+    .init(serverOptions, () => {
+      if (server.has("USWDS Server")) {
+        dutil.logMessage("serve", "Server already running, exiting")
+        exitServer();
+      }
+    });
+
+  done();
+}
+
 module.exports = {
-  serve(done) {
-    // See https://browsersync.io/docs/options for more options.
-    server.init(serverOptions);
-    done();
-  },
+  serve,
   server,
   buildPL,
   rebuildPL,
-  exitServer
+  exitServer,
 }

@@ -1,9 +1,14 @@
-const { src } = require("gulp");
+const { src, series } = require("gulp");
 const mocha = require("gulp-spawn-mocha");
+const { serve, exitServer } = require("./serve");
 
 const mochaConfig = {
   config: "src/patterns/utils/test/.mocharc.json",
 };
+
+function a11yTests() {
+  return src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
+}
 
 // Export our tasks.
 module.exports = {
@@ -17,9 +22,8 @@ module.exports = {
       .pipe(mocha());
   },
 
-  a11y() {
-    return src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
-  },
+  // Run tests if server instance exists. If not: start one, run test, and exit.
+  a11y: series(serve, a11yTests),
 
   cover() {
     return src("src/patterns/**/*.spec.js")

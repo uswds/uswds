@@ -13,7 +13,7 @@ const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
 const { watch } = require("./gulp-tasks/watch");
-const { serve, buildPL, exitServer } = require("./gulp-tasks/serve");
+const { buildPL } = require("./gulp-tasks/serve");
 const { compileSass } = require("./gulp-tasks/sass");
 const { copyVendor } = require("./gulp-tasks/copy");
 const { cleanDist } = require("./gulp-tasks/clean");
@@ -44,7 +44,9 @@ exports.lint = parallel(lintSass, lintJS);
  * unitTests: Component unit tests.
  * test: Run all tests.
  */
-exports.a11y = series(serve, a11y, exitServer);
+
+
+exports.a11y = a11y;
 exports.cover = cover;
 exports.sassTests = sassTests;
 exports.unitTests = unitTests;
@@ -54,9 +56,7 @@ exports.test = series(
   lintSass,
   sassTests,
   unitTests,
-  serve,
   a11y,
-  exitServer
 );
 
 /**
