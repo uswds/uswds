@@ -24,6 +24,7 @@ variants:
     label: Infinite
     context:
       modifier: usa-pagination--infinite
+      aria_label: Pagination,
       pagination:
         items: 24
         current: 10
@@ -45,7 +46,7 @@ variants:
     context:
       lang: es
       modifier: usa-pagination--infinite
-      aria_label: Paginación
+      aria_label: Paginación,
       pagination:
         infinite: true
         previous:
