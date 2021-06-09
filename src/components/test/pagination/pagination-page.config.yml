@@ -1,6 +1,10 @@
 label: Pagination page
 
 context:
+  pagination:
+    items: 12
+    current: 1
+    # infinite: true
   results:
     - title: Design tokens
       url: design-tokens
