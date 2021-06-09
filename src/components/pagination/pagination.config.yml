@@ -9,15 +9,16 @@ context:
   modifier: ''
   aria_label: Pagination
   pagination:
+    page_label: Page
     infinite: false
     items: 24
     current: 10
     previous:
       label: Previous
-      aria_label: Previous page
     next:
       label: Next
-      aria_label: Next page
+    last_item:
+      label: Last page,
 
 variants:
   - name: infinite
@@ -35,12 +36,13 @@ variants:
       lang: en
       aria_label: Paginación
       pagination:
+        page_label: Página
         previous:
           label: Anterior
-          aria_label: Página anterior
         next:
           label: Siguiente
-          aria_label: Página siguiente
+        last_item:
+          label: Última página,
   - name: infinite-lang-es
     label: Infinite (Spanish)
     context:
@@ -48,10 +50,11 @@ variants:
       modifier: usa-pagination--infinite
       aria_label: Paginación,
       pagination:
+        page_label: Página
         infinite: true
         previous:
           label: Anterior
-          aria_label: Página anterior
         next:
           label: Siguiente
-          aria_label: Página siguiente
+        last_item:
+          label: Última página,
