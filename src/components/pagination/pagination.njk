@@ -1,6 +1,7 @@
 {% from "pagination/_pagination-button.njk" import paginationButton %}
 {% from "pagination/_pagination-arrow.njk" import paginationArrow %}
 
+{% set modifier = 'usa-pagination--infinite' if pagination.infinite %}
 
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
