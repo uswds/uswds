@@ -15,18 +15,14 @@
   {# List all items if less than 7 #}
   {% case pagination.items <= 7 %}
     {% for item in pager_ranges.all  %}
-      <li class="usa-pagination__item usa-pagination__page-no">
-        {{ paginationButton(item, pagination.current) }}
-      </li>
+      {{ paginationButton(item, pagination.current) }}
     {% endfor %}
   {# User is at the start of a long dataset #}
   {# Example: 1, 2, 3, *4*, 5 … 8 #}
   {# Doesn't apply when user gets to 5 of 8 #}
   {% case pagination.current <= 5 and pagination.items >= 7 %}
     {% for item in pager_ranges.first_five  %}
-      <li class="usa-pagination__item usa-pagination__page-no">
-        {{ paginationButton(item, pagination.current) }}
-      </li>
+      {{ paginationButton(item, pagination.current) }}
     {% endfor %}
 
     {{ overflow | safe }}
@@ -34,36 +30,26 @@
   {# When user is close to the end of dataset #}
   {# Example: 1 … 4, *5*, 6, 7, 8 #}
   {% case pagination.current >= pagination.items - 3 %}
-    <li class="usa-pagination__item usa-pagination__page-no">
-      {{ paginationButton(1, pagination.current) }}
-    </li>
+    {{ paginationButton(1, pagination.current) }}
 
     {{ overflow | safe }}
 
     {% for item in pager_ranges.last_five %}
-      <li class="usa-pagination__item usa-pagination__page-no">
-        {{ paginationButton(item, pagination.current) }}
-      </li>
+      {{ paginationButton(item, pagination.current) }}
     {% endfor %}
   {# Default case: Current - 1, Current, Current + 1 #}
   {# Example: 1 … 21, *22*, 23 … 50 #}
   {# Example: 1 … 4, *5*, 6 … 9 #}
   {% default %}
-    <li class="usa-pagination__item usa-pagination__page-no">
-      {{ paginationButton(1, pagination.current) }}
-    </li>
+    {{ paginationButton(1, pagination.current) }}
 
     {{ overflow | safe }}
 
     {% for item in pager_ranges.default %}
-      <li class="usa-pagination__item usa-pagination__page-no">
-        {{ paginationButton(item, pagination.current) }}
-      </li>
+      {{ paginationButton(item, pagination.current) }}
     {% endfor %}
 
     {{ overflow | safe }}
 {% endswitch %}
 
-<li class="usa-pagination__item usa-pagination__page-no">
-  {{ paginationButton(pager_ranges.last_item, pagination.current) }}
-</li>
+{{ paginationButton(pager_ranges.last_item, pagination.current) }}

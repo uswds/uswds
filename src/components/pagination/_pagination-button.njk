@@ -1,17 +1,21 @@
 {% macro paginationButton(item, current_item) %}
-  {% set is_current = item !== current_item %}
+  {% set is_current = item === current_item %}
 
-  {% if is_current %}
-    <a
-      href="javascript:void(0);"
-      class="usa-pagination__button"
-      aria-label="Page {{ item }}">
-      {{ item }}
-    </a>
-  {% else %}
-    <span
-      class="usa-pagination__button usa-current">
-      {{ item }}
-    </span>
-  {% endif %}
+  <li class="usa-pagination__item usa-pagination__page-no" {% if is_current %}
+    aria-current="page"
+  {% endif %}>
+    {% if is_current %}
+      <span
+        class="usa-pagination__button usa-current">
+        {{ item }}
+      </span>
+    {% else %}
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button"
+        aria-label="Page {{ item }}">
+        {{ item }}
+      </a>
+    {% endif %}
+  </li>
 {% endmacro %}
