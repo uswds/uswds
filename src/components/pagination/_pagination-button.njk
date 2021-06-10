@@ -1,5 +1,5 @@
 {% macro paginationButton(item, pager_opts) %}
-  {% set is_current = item === current_item %}
+  {% set is_current = item === pager_opts.current %}
   {% set is_last = item === pager_opts.total %}
   {% set labels = pager_opts.aria_labels %}
 
