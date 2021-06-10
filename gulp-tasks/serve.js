@@ -36,11 +36,13 @@ function serve(done) {
   dutil.logMessage("serve", "Starting server");
 
   // See https://browsersync.io/docs/options for more options.
+
   server
     .init(serverOptions, () => {
-      if (server.has("USWDS Server")) {
-        dutil.logMessage("serve", "Server already running, exiting")
-        exitServer();
+      if (server.active) {
+        server.exit();
+      } else {
+        done();
       }
     });
 

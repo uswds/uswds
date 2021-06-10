@@ -1,6 +1,6 @@
 const { src, series } = require("gulp");
 const mocha = require("gulp-spawn-mocha");
-const { serve, exitServer } = require("./serve");
+const { serve } = require("./serve");
 
 const mochaConfig = {
   config: "src/patterns/utils/test/.mocharc.json",
