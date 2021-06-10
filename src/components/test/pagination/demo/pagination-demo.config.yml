@@ -1,5 +1,4 @@
 label: Pagination demo
-preview: "@uswds-framed"
 
 context:
   pagination_navs:
