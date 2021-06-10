@@ -18,7 +18,7 @@
 
 <main>
   <div class="grid-container">
-    {% for pager in pagination_navs %}
+    {% for pager in pagination_sections %}
       <div class="usa-section">
         <h1>
           {{ pager.pagination.current }} of {{ pager.pagination.items }}
@@ -33,6 +33,13 @@
           },
           merge=true
         %}
+
+        {% if pager.description %}
+          <p class="font-body-md text-center measure-4
+">
+            {{ pager.description | safe }}
+          </p>
+        {% endif %}
       </div>
     {% endfor %}
   </div>
