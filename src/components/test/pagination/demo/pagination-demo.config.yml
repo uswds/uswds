@@ -1,0 +1,29 @@
+label: Pagination demo
+preview: "@uswds-framed"
+
+context:
+  pagination_navs:
+    - pagination:
+        items: 7
+        current: 1
+    - pagination:
+        items: 7
+        current: 2
+    - pagination:
+        items: 7
+        current: 7
+    - pagination:
+        items: 12
+        current: 6
+    - pagination:
+        infinite: true
+        items: 12
+        current: 1
+    - pagination:
+        infinite: true
+        items: 12
+        current: 6
+    - pagination:
+        infinite: true
+        items: 12
+        current: 12

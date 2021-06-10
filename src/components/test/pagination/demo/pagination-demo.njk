@@ -1,0 +1,24 @@
+<main>
+  {% for pager in pagination_navs %}
+
+    {% if not loop.first %}
+      <hr class="margin-y-9 border-0 bg-base-lighter height-2px" />
+    {% endif %}
+
+    <div class="usa-section">
+      <h1>
+        {{ pager.pagination.current }} of {{ pager.pagination.items }}
+        {% if pager.pagination.infinite %}
+          <small>(unbounded)</small>
+        {% endif %}
+      </h1>
+      {% render '@pagination',
+        {
+          aria_label: 'pagination example ' + loop.index,
+          pagination: pager.pagination
+        },
+        merge=true
+      %}
+    </div>
+  {% endfor %}
+</main>
