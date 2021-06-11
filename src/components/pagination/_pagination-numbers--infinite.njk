@@ -3,8 +3,6 @@
 {% set
   pager_ranges = {
     'default': range(pagination.current - 2, pagination.current + 3),
-    'first_five': range(1, pagination.current + 2),
-    'last_five': range(pagination.current - 2, pagination.items + 1),
     'first_seven': range(1, 8)
   }
 %}
