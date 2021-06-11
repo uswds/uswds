@@ -43,16 +43,16 @@ context:
         items: 12
         current: 2
       description: |-
-        When we have more than 12 pages we try to show as many as possible.
+        Previous link appears when going beyond the first page.
     - pagination:
         infinite: true
         items: 12
         current: 6
       description: |-
-        Beyond the first five show the first page, overflow, current page, the two before, and the two after.
+        Beyond the first five show the first page, overflow, two before current, current page, the two after, and the overflow.
     - pagination:
         infinite: true
         items: 24
         current: 12
       description: |-
-        Beyond the first five show the first page, overflow, current page, the two before, and the two after.
+        Similar behavior as before when progressing through additional pages.
