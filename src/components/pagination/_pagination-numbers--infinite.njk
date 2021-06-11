@@ -3,7 +3,7 @@
 {% set
   pager_ranges = {
     'default': range(pagination.current - 2, pagination.current + 3),
-    'first_seven': range(1, 8)
+    'first_set': range(1, 7)
   }
 %}
 
@@ -26,7 +26,7 @@
       *1*, 2, 3, 4, 5, 6 , 7
   #}
   {% case pagination.items <= 7 or pagination.current <= 5 %}
-    {% for item in pager_ranges.first_seven %}
+    {% for item in pager_ranges.first_set %}
       {{ paginationButton(item, pager_button_opts) }}
     {% endfor %}
   {% default %}
@@ -39,5 +39,7 @@
     {% for item in pager_ranges.default %}
       {{ paginationButton(item, pager_button_opts) }}
     {% endfor %}
+
 {% endswitch %}
 
+{{ overflow | safe }}
