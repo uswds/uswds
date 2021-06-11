@@ -31,7 +31,7 @@
   {# User is at the start of a long dataset #}
   {# Example: 1, 2, 3, *4*, 5 … 8 #}
   {# Doesn't apply when user gets to 5 of 8 #}
-  {% case pagination.current <= 5 and pagination.items >= 7 %}
+  {% case pagination.current <= 4 and pagination.items >= 7 %}
     {% for item in pager_ranges.first_five  %}
       {{ paginationButton(item, pager_button_opts) }}
     {% endfor %}
