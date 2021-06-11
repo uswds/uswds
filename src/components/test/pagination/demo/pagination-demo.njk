@@ -9,7 +9,7 @@
   .usa-section {
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    min-height: 100vh;
     scroll-snap-align: start;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,10 @@
     {% for pager in pagination_sections %}
       <div class="usa-section">
         <h1>
-          {{ pager.pagination.current }} of {{ pager.pagination.items }}
+          {{ pager.pagination.current }}
+          {% if not pager.pagination.infinite %}
+            of {{ pager.pagination.items }}
+          {% endif %}
           {% if pager.pagination.infinite %}
             <small>(unbounded)</small>
           {% endif %}
