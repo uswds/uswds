@@ -3,9 +3,9 @@
 {% set
   pager_ranges = {
     'default': range(pagination.current - 2, pagination.current + 3),
-    'first_five': range(1, 6),
-    'last_five': range(pagination.items - 4, pagination.items + 1),
-    'all': range(1, pagination.items + 1)
+    'first_five': range(1, pagination.current + 2),
+    'last_five': range(pagination.current - 2, pagination.items + 1),
+    'first_seven': range(1, 8)
   }
 %}
 
@@ -27,28 +27,8 @@
       *1*,
       *1*, 2, 3, 4, 5, 6 , 7
   #}
-  {% case pagination.items <= 7 %}
-    {% for item in pager_ranges.all %}
-      {{ paginationButton(item, pager_button_opts) }}
-    {% endfor %}
-  {# Current item is at the start of dataset, but there are more than 7 items #}
-  {# Example: 1, 2, *3*, 4, 5 … 8 #}
-  {% case pagination.current <= 5 and pagination.items >= 7 %}
-    {% for item in pager_ranges.first_five  %}
-      {{ paginationButton(item, pager_button_opts) }}
-    {% endfor %}
-
-    {{ overflow | safe }}
-
-    {{ paginationButton(pagination.items, pager_button_opts) }}
-  {# Current item is one of the last 5 items #}
-  {# Example: 1 … 4, 5, *6*, 7, 8 #}
-  {% case pagination.current >= pagination.items - 4 %}
-    {{ paginationButton(1, pager_button_opts) }}
-
-    {{ overflow | safe }}
-
-    {% for item in pager_ranges.last_five %}
+  {% case pagination.items <= 7 or pagination.current <= 5 %}
+    {% for item in pager_ranges.first_seven %}
       {{ paginationButton(item, pager_button_opts) }}
     {% endfor %}
   {% default %}
