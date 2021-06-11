@@ -32,6 +32,18 @@ context:
         infinite: true
         items: 12
         current: 2
+    - pagination:
+        infinite: true
+        items: 12
+        current: 3
+    - pagination:
+        infinite: true
+        items: 12
+        current: 4
+    - pagination:
+        infinite: true
+        items: 12
+        current: 5
       description: |-
         When we have more than 12 pages we try to show as many as possible.
     - pagination:
