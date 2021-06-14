@@ -2,6 +2,7 @@ const server = require("browser-sync").create("USWDS");
 const run = require("gulp-run-command").default;
 const dutil = require("./utils/doc-util");
 
+// See https://browsersync.io/docs/options for more options.
 const serverOptions = {
   server: ["./build/"],
   notify: false,
@@ -9,7 +10,7 @@ const serverOptions = {
   ui: false,
   logPrefix: "USWDS Server",
   logConnections: true,
-  tunnel: "headless-tunnel"
+  port: 3333
 }
 
 /**
@@ -36,7 +37,6 @@ async function exitServer() {
 function serve(done) {
   dutil.logMessage("serve", "Starting server");
 
-  // See https://browsersync.io/docs/options for more options.
   server.init(serverOptions);
 
   done();

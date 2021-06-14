@@ -21,7 +21,8 @@ function launchChrome() {
     .then((newChrome) => {
       chrome = newChrome;
       chromeHost = chrome.host;
-      serverUrl = "https://headless-tunnel.loca.lt/";
+      // Todo: make this dynamic
+      serverUrl = 'http://localhost:3333/';
     });
 }
 
