@@ -6,7 +6,7 @@ orbs:
 references:
   container: &container
     docker:
-      - image: circleci/node:8.10-browsers
+      - image: circleci/node:12.18.4-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
 
@@ -59,10 +59,10 @@ jobs:
           name: Build the USWDS package
           command: npm run release
       - run:
-          name: Publish to NPM
+          name: Publish to NPM with `v1` tag
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
-            npm publish
+            npm publish --tag v1
       - snyk/scan:
           organization: uswds
 

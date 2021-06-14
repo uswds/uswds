@@ -31,7 +31,7 @@ const toggleSearch = (button, active) => {
   /* eslint-disable no-param-reassign */
   button.hidden = active;
   form.hidden = !active;
-  /* eslint-enable*/
+  /* eslint-enable */
 
   if (!active) {
     return;
@@ -96,5 +96,5 @@ const search = behavior({
 
 module.exports = assign(
   el => search.on(el),
-  search
+  search,
 );
