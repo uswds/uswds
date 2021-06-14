@@ -22,7 +22,10 @@ module.exports = {
       .pipe(mocha());
   },
 
-  // Run tests if server instance exists. If not: start one, run test, and exit.
+  /**
+   * ! Browsersync instances should be closed before running this.
+   * Starts up a browsersync instance at localhost:3333, runs tests, and closes server.
+   */
   a11y: series(serve, a11yTests, exitServer),
 
   cover() {
