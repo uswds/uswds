@@ -1,6 +1,6 @@
 const { src, series } = require("gulp");
 const mocha = require("gulp-spawn-mocha");
-const { serve } = require("./serve");
+const { serve, exitServer } = require("./serve");
 
 const mochaConfig = {
   config: "src/patterns/utils/test/.mocharc.json",
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   // Run tests if server instance exists. If not: start one, run test, and exit.
-  a11y: series(serve, a11yTests),
+  a11y: series(serve, a11yTests, exitServer),
 
   cover() {
     return src("src/patterns/**/*.spec.js")
