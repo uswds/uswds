@@ -3,8 +3,7 @@ const run = require("gulp-run-command").default;
 const dutil = require("./utils/doc-util");
 
 const serverOptions = {
-  server: "uswds",
-  files: ["./build/"],
+  server: ["./build/"],
   notify: false,
   open: false,
   ui: false,
