@@ -12,7 +12,7 @@ const discardComments = require("postcss-discard-comments");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
 const replace = require("gulp-replace");
-const sass = require("gulp-sass");
+const sass = require("gulp-dart-scss");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const svgSprite = require("gulp-svg-sprite");
@@ -22,9 +22,6 @@ const pkg = require("../package.json");
 // Initialize Plugins
 const pluginsProcess = [discardComments(), autoprefixer()];
 const pluginsMinify = [csso({ forceMediaMerge: false })];
-
-// Set sass compiler to use Dart Sass
-sass.compiler = require("sass");
 
 // More complex configuration example
 const svgConfig = {
@@ -66,7 +63,7 @@ module.exports = {
   compileSass() {
     return src("src/patterns/stylesheets/uswds.scss")
       .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(sass.sync({ outputStyle: "expanded" }).on("error", handleError))
+      .pipe(sass({ outputStyle: "expanded" }).on("error", handleError))
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
       .pipe(dest("dist/css"))
