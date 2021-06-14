@@ -62,7 +62,7 @@ jobs:
           name: Publish to NPM with `v1` tag
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
-            npm publish --tag v1
+            npm publish --tag uswds-1.x
       - snyk/scan:
           organization: uswds
 
