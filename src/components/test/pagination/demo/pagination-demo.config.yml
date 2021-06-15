@@ -49,7 +49,7 @@ context:
         items: 12
         current: 6
       description: |-
-        Beyond the first five show the first page, overflow, two before current, current page, the two after, and the overflow.
+        Beyond the first five show the first page, overflow, before current, current page, the two after, and the overflow.
     - pagination:
         infinite: true
         items: 24
