@@ -6,7 +6,7 @@ context:
         items: 3
         current: 1
       description: |-
-        The maximum number of pages are less than 7.
+        The maximum number of pages are less than 7. Fill as many of the 7 available slots.
     - pagination:
         items: 3
         current: 2
@@ -21,23 +21,23 @@ context:
         items: 12
         current: 1
       description: |-
-        First five pages, overflow, last page, and next link shown at the start of a bigger dataset.
+        First five pages, an overflow, and last page for pages beyond the 7 available slots.
     - pagination:
         items: 12
         current: 6
       description: |-
-        On pages with more than 7 total items we show the first, current, its immediate siblings, and the last page in the middle of the dataset.
+        Beyond the first five we show the first, current, its immediate siblings, and the last page.
     - pagination:
         items: 12
         current: 11
       description: |-
-        Show the last 5 towards the end of the larger dataset. With an overflow in 2nd slot for the items in between.
+        At the end of the larger dataset show the last 5. With an overflow in 2nd slot for the items in between.
     - pagination:
         infinite: true
         items: 12
         current: 1
       description: |-
-        Pagination for unbounded datasets is similar, but always tries to show as many pages as possible.
+        Pagination for unbounded datasets is similar, but has an overflow element on the last page to indicate more items.
     - pagination:
         infinite: true
         items: 12
