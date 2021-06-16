@@ -10,7 +10,7 @@ context:
   aria_label: Pagination
   pagination:
     page_label: Page
-    infinite: false
+    unbounded: false
     items: 24
     current: 10
     previous:
@@ -24,12 +24,12 @@ variants:
   - name: unbounded
     label: Unbounded
     context:
-      modifier: usa-pagination--infinite
+      modifier: usa-pagination--unbounded
       aria_label: Pagination,
       pagination:
         items: 24
         current: 10
-        infinite: true
+        unbounded: true
   - name: lang-es
     label: Spanish
     context:
@@ -47,11 +47,11 @@ variants:
     label: Unbounded (Spanish)
     context:
       lang: es
-      modifier: usa-pagination--infinite
+      modifier: usa-pagination--unbounded
       aria_label: Paginación,
       pagination:
         page_label: Página
-        infinite: true
+        unbounded: true
         previous:
           label: Anterior
         next:
