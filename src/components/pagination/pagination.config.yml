@@ -21,8 +21,8 @@ context:
       label: Last page,
 
 variants:
-  - name: infinite
-    label: Infinite
+  - name: unbounded
+    label: Unbounded
     context:
       modifier: usa-pagination--infinite
       aria_label: Pagination,
@@ -43,8 +43,8 @@ variants:
           label: Siguiente
         last_item:
           label: Última página,
-  - name: infinite-lang-es
-    label: Infinite (Spanish)
+  - name: unbounded-lang-es
+    label: Unbounded (Spanish)
     context:
       lang: es
       modifier: usa-pagination--infinite
