@@ -1,0 +1,57 @@
+label: Pagination
+status: ready
+preview: "@uswds-framed"
+
+context:
+  lang: en
+  placeholder_link: javascript:void(0);
+  modifier: ''
+  aria_label: Pagination
+  pagination:
+    page_label: Page
+    unbounded: false
+    items: 24
+    current: 10
+    previous:
+      label: Previous
+    next:
+      label: Next
+    last_item:
+      label: Last page,
+
+variants:
+  - name: unbounded
+    label: Unbounded
+    context:
+      aria_label: Pagination,
+      pagination:
+        items: 24
+        current: 10
+        unbounded: true
+  - name: lang-es
+    label: Spanish
+    context:
+      lang: en
+      aria_label: Paginación
+      pagination:
+        page_label: Página
+        previous:
+          label: Anterior
+        next:
+          label: Siguiente
+        last_item:
+          label: Última página,
+  - name: unbounded-lang-es
+    label: Unbounded (Spanish)
+    context:
+      lang: es
+      aria_label: Paginación,
+      pagination:
+        page_label: Página
+        unbounded: true
+        previous:
+          label: Anterior
+        next:
+          label: Siguiente
+        last_item:
+          label: Última página,
