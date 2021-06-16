@@ -1,171 +1,87 @@
-// Old gulp tasks
-// Patch these in until ported into new syntax
-// typecheck
-require("./config/gulp/javascript");
-
-// Todo: convert release tasks.
-
 // Include gulp helpers.
-const { series, parallel, watch } = require("gulp");
-const run = require("gulp-run-command").default;
+const { series, parallel } = require("gulp");
 
 // Include Our tasks.
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./gulp-tasks directory for more.
-const {
-  unitTests,
-  sassTests,
-  a11y,
-  cover,
-} = require("./config/gulp/test");
-const {
-  cleanCSS,
-  cleanFonts,
-  cleanImages,
-  cleanJS,
-  cleanSass,
-} = require("./gulp-tasks/clean");
-const {
-  compileSass,
-  compileJS,
-  compileSprite,
-} = require("./gulp-tasks/compile");
-const {
-  copyVendor,
-  copySass,
-  copyImages,
-  copyFonts,
-  copyStyleguide,
-} = require("./gulp-tasks/copy");
+const { noCleanup, noTest } = require("./gulp-tasks/flags");
+const { buildSprite } = require("./gulp-tasks/svg-sprite");
+const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
+const { unitTests, sassTests, a11y, cover } = require("./gulp-tasks/test");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
-const { moveFonts, movePatternCSS } = require("./gulp-tasks/move");
-const server = require("browser-sync").create();
-
-// Clean all directories.
-exports.clean = parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass);
-
-// Lint Sass
-exports.lintSass = parallel(lintSass);
-
-// Lint JavaScript
-exports.lintJS = parallel(lintJS);
-
-// Lint Sass and JavaScript
-exports.lint = parallel(lintSass, lintJS);
-
-// Compile Our Sass and JS
-exports.compile = parallel(
-  compileSass,
-  compileJS,
-  compileSprite,
-  moveFonts,
-  movePatternCSS
-);
-
-async function rebuildPL() {
-  return run("npm run pl:build --pattern")();
-}
-
-async function buildPL() {
-  return run("npm run pl:build")();
-}
-
-async function exitServer() {
-  return server.exit()
-}
+const { build } = require("./gulp-tasks/build");
+const { release } = require("./gulp-tasks/release");
+const { watch } = require("./gulp-tasks/watch");
+const { buildPL } = require("./gulp-tasks/serve");
+const { compileSass } = require("./gulp-tasks/sass");
+const { copyVendor } = require("./gulp-tasks/copy");
+const { cleanDist } = require("./gulp-tasks/clean");
 
 /**
- * Start browsersync server.
- * @param {function} done callback function.
- * @returns {undefined}
+ * *Flags*
  */
-function serve(done) {
-  // See https://browsersync.io/docs/options for more options.
-  server.init({
-    server: ["./build/"],
-    notify: false,
-    open: false,
-    port: 3333,
-  });
-  done();
-}
+exports.noTest = noTest;
+exports.noCleanup = noCleanup;
 
-exports.a11y = series(serve, a11y, exitServer);
+/**
+ * *Clean tasks*
+ */
+exports.cleanDist = cleanDist;
 
+/**
+ * *Lint tasks*
+ */
+exports.lintSass = lintSass;
+exports.lintJS = lintJS;
+exports.lint = parallel(lintSass, lintJS);
+
+/**
+ * *Test tasks*
+ * a11y: Accessibility tests; starts server, runs axe tests, and closes server.
+ * cover: Similar to unit tests.
+ * sassTests: Sass unit tests.
+ * unitTests: Component unit tests.
+ * test: Run all tests.
+ */
+
+
+exports.a11y = a11y;
 exports.cover = cover;
-
 exports.sassTests = sassTests;
-
 exports.unitTests = unitTests;
-
 exports.test = series(
+  typeCheck,
   lintJS,
   lintSass,
   sassTests,
   unitTests,
-  serve,
   a11y,
-  exitServer
 );
 
 /**
- * Watch Sass and JS files.
- * @returns {undefined}
+ * *Build tasks*
+ * buildSprite: Generate new spritesheet based on SVGs in `src/img/usa-icons/`.
+ * buildSass: Lint, copy normalize, and compile sass.
+ * buildJS: Lint, copy normalize, and compile sass.
+ * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
-function watchFiles() {
-  // Watch all my sass files and compile sass if a file changes.
-  watch(
-    "./src/patterns/**/**/*.scss",
-    series(parallel(lintSass, compileSass), (done) => {
-      server.reload("*.css");
-      done();
-    })
-  );
-
-  // Watch all my JS files and compile if a file changes.
-  watch(
-    "./src/patterns/**/**/*.js",
-    series(parallel(lintJS, compileJS), (done) => {
-      server.reload("*.js");
-      done();
-    })
-  );
-
-  // Watch all my patterns and compile if a file changes.
-  watch(
-    "./src/patterns/**/**/*{.twig,.yml}",
-    series(rebuildPL, (done) => {
-      server.reload("*.html");
-      done();
-    })
-  );
-
-  // Watch all my unit tests and run if a file changes.
-  watch(
-    "./src/patterns/**/*.spec.js",
-    series(series(unitTests, sassTests), (done) => done())
-  );
-}
+exports.buildSprite = buildSprite;
+exports.buildSass = series(lintSass, copyVendor, compileSass);
+exports.buildJS = series(typeCheck, lintJS, compileJS);
+exports.buildUSWDS = build;
+exports.buildComponents = buildPL;
+exports.release = release;
 
 // Build task for Pattern Lab.
 exports.styleguide = buildPL;
 
-// Watch task that runs a browsersync server.
-exports.watch = series(
-  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
-  parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
-  parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  series(rebuildPL, serve, watchFiles)
-);
-
+/**
+ * *Watch task*
+ * Builds USWDS and component library, creates local server, and watches
+ * for changes in scss, js, twig, yml, and unit tests.
+ */
+exports.watch = watch;
 
 // Default Task
-exports.default = series(
-  parallel(cleanCSS, cleanFonts, cleanImages, cleanJS, cleanSass),
-  parallel(copyVendor),
-  parallel(lintSass, compileSass, lintJS, compileJS, compileSprite),
-  parallel(copyFonts, copyImages, copySass, copyStyleguide),
-  buildPL
-);
+exports.default = series(build, buildPL);

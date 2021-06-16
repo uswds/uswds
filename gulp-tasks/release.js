@@ -1,51 +1,61 @@
 const del = require("del");
 const spawn = require("cross-spawn");
-const gulp = require("gulp");
+const { src, dest, series } = require("gulp");
 const crypto = require('crypto');
 const fs = require('fs');
-const dutil = require("./doc-util");
+const dutil = require("./utils/doc-util");
+const { build } = require("./build")
 
-const task = "release";
 const hash = crypto.createHash('sha256');
 
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
-const createHash = (file) => {
+function createHash(file) {
   dutil.logMessage('createHash', 'Generating sha256sum hash from ZIP file.');
 
-  let file_buffer = fs.readFileSync(file);
-  hash.update(file_buffer);
+  const fileBuffer = fs.readFileSync(file);
+  hash.update(fileBuffer);
   const dir = './security';
   const hex = hash.digest('hex');
   const fileName = `${dir}/${dutil.dirName}-zip-hash.txt`;
-  const fileContents = hex;
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
 
-  fs.writeFile(fileName, fileContents, (error) => {
-    if (error) return dutil.logError(`Error writing hash: ${error}`);
-  });
-};
+  fs.writeFile(fileName, hex, (error) => {
+    if (error) {
+      return dutil.logError(`Error writing hash: ${error}`);
+    }
 
-gulp.task("make-tmp-directory", () => {
+    return dutil.logMessage('createHash', `Created sha256sum hash: ${hex}`);
+  });
+}
+
+function getFilesize(file) {
+  const stats = fs.statSync(`${file}`);
+  const fileSizeInBytes = stats.size;
+  const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+  return dutil.logMessage("zip size", `${fileSizeInMegabytes.toFixed(2)} M`);
+}
+
+function makeTmpDirectory() {
   dutil.logMessage(
     "make-tmp-directory",
     "Creating temporary release directory."
   );
-  return gulp.src("dist/**/*").pipe(gulp.dest(dutil.dirName));
-});
+  return src("dist/**/*").pipe(dest(dutil.dirName));
+};
 
-gulp.task("clean-tmp-directory", () => {
+function cleanTmpDirectory() {
   dutil.logMessage(
     "clean-tmp-directory",
     "Deleting temporary release directory."
   );
   return del(dutil.dirName);
-});
+};
 
-gulp.task("zip-archives", (done) => {
+function zipArchives(done) {
   const zip = spawn("zip", [
     "--log-info",
     "-r",
@@ -77,24 +87,22 @@ gulp.task("zip-archives", (done) => {
   zip.on("close", (code) => {
     if (code === 0) {
       createHash(`dist/${dutil.dirName}.zip`);
+      getFilesize(`./dist/${dutil.dirName}.zip`);
       done();
     }
   });
-});
+};
 
-gulp.task(
-  task,
-  gulp.series(
-    (done) => {
-      dutil.logMessage(
-        task,
-        `Creating a zip archive at dist/${dutil.dirName}.zip`
-      );
-      done();
-    },
-    "build",
-    "make-tmp-directory",
-    "zip-archives",
-    "clean-tmp-directory"
-  )
+exports.release = series(
+  (done) => {
+    dutil.logMessage(
+      "release",
+      `Creating a zip archive at dist/${dutil.dirName}.zip`
+    );
+    done();
+  },
+  build,
+  makeTmpDirectory,
+  zipArchives,
+  cleanTmpDirectory
 );
