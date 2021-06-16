@@ -1,0 +1,37 @@
+{% from "pagination/_pagination-button.njk" import paginationButton %}
+{% from "pagination/_pagination-arrow.njk" import paginationArrow %}
+
+{# TODO - Create macro #}
+{% set sprite_path = uswds.path + "/img/sprite.svg" %}
+
+{% set overflow %}
+  <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+    <span>
+      …
+    </span>
+  </li>
+{% endset %}
+
+<nav aria-label="{{ aria_label }}" class="usa-pagination {{ modifier }}">
+  <ul class="usa-pagination__list">
+    {% block pagination_content %}
+      {# Previous page #}
+      {# Don't show `Previous` button if on first page #}
+      {% if pagination.current > 1 %}
+        {{ paginationArrow('previous', pagination) }}
+      {% endif %}
+
+      {% if not pagination.unbounded %}
+        {% include "pagination/_pagination-numbers--default.njk" %}
+      {% else %}
+        {% include "pagination/_pagination-numbers--unbounded.njk" %}
+      {% endif %}
+
+      {# Next page #}
+      {# Don't show `next` button if on last page #}
+      {% if pagination.current != pagination.items %}
+        {{ paginationArrow('next', pagination) }}
+      {% endif %}
+    {% endblock %}
+  </ul>
+</nav>

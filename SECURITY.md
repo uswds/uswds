@@ -15,7 +15,7 @@ We include a security and vulnerability report with every USWDS release, and rel
 We encourage you to verify the security and status of the USWDS package:
 
 1. **Check the vulnerability badge.** Confirm the vulnerability badge in the [USWDS Github code repository](https://github.com/uswds/uswds) says there are `0` vulnerabilities.
-1. **Download the package via npm.** We recommend using the [npm package](https://designsystem.digital.gov/documentation/developers/#install-using-npm) instead of the [zip file](https://designsystem.digital.gov/documentation/developers/#download), whenever possible. Using npm makes it easier to stay up-to-date and use the latest USWDS version as a project dependency, and is a secure and reliable way to download USWDS source code.
+1. **Download the package via npm.** We recommend using the [npm package](https://designsystem.digital.gov/documentation/developers/#install-using-npm) instead of the [zip file](https://designsystem.digital.gov/documentation/developers/#download-and-install), whenever possible. Using npm makes it easier to stay up-to-date and use the latest USWDS version as a project dependency, and is a secure and reliable way to download USWDS source code.
 
 ## Report a security issue
 

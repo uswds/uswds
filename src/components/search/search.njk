@@ -1,19 +1,25 @@
-{# Match input with its label — prevents duplicate IDs #}
 {%
-  set input_mod = 'search-field-' + input_modifier if input_modifier else 'search-field'
+  set search_attrs = {
+    'input_modifier': (id_prefix if id_prefix) ~ 'search-field-' ~ (input_modifier if input_modifier else 'search-field'),
+    'button_class': 'usa-search__submit-text' if modifier !== 'usa-search--small' else 'usa-sr-only',
+    'search_class': 'usa-search' ~ (' ' ~ modifier if modifier) ~ (' js-search-form' if search_js)
+  }
 %}
 
-{# `usa-search__submit-text` is the default, but small variation requires a different class #}
-{%
-  set button_class = 'usa-search__submit-text' if modifier !== 'usa-search--small' else 'usa-sr-only'
-%}
-
-<section aria-label="{{ label }} search component">
-  <form class="usa-search {{ modifier | default('') }}" role="search">
-    <label class="usa-sr-only" for="{{ input_mod }}">{{ text }}</label>
-    <input class="usa-input" id="{{ input_mod }}" type="search" name="search">
+{% if not search_header %}
+  <section aria-label="{{ label }} search component">
+{% endif %}
+  <form class="{{ search_attrs.search_class }}" role="search">
+    {# Match input with its label — prevents duplicate IDs #}
+    <label class="usa-sr-only" for="{{ search_attrs.input_modifier }}">
+      {{ text }}
+    </label>
+    <input class="usa-input" id="{{ search_attrs.input_modifier }}" type="search" name="search">
     <button class="usa-button" type="submit">
-      <span class="{{ button_class }}">{{ text }}</span>
+      {# `usa-search__submit-text` is the default, but small variation requires a different class #}
+      <span class="{{ search_attrs.button_class }}">{{ text }}</span>
     </button>
   </form>
-</section>
+{% if not search_header %}
+  </section>
+{% endif %}

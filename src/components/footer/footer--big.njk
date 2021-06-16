@@ -1,57 +1,39 @@
+{% set logo_img =  uswds.path + '/img/' + secondary_section.brand.logo %}
+
+{% set contact_info = {
+  'heading': secondary_section.contact_links.heading | e,
+  'phone':  secondary_section.contact_links.address.phone | e ,
+  'email': secondary_section.contact_links.address.email | e
+} %}
+
 <footer class="usa-footer usa-footer--big">
   <div class="grid-container usa-footer__return-to-top">
-    <a href="#">Return to top</a>
+    <a href="#">{{ top_link }}</a>
   </div>
   <div class="usa-footer__primary-section">
     <div class="grid-container">
       <div class="grid-row grid-gap">
         <div class="tablet:grid-col-8">
-          <nav class="usa-footer__nav" aria-label="Footer navigation">
+          <nav class="usa-footer__nav" aria-label="{{ primary_section.aria_label }}">
             <div class="grid-row grid-gap-4">
-              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
-                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-                  <h4 class="usa-footer__primary-link">Topic</h4>
-                  <ul class="usa-list usa-list--unstyled">
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link that's a bit longer than most of the others</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                  </ul>
-                </section>
-              </div>
-              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
-                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-                  <h4 class="usa-footer__primary-link">Topic</h4>
-                  <ul class="usa-list usa-list--unstyled">
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link that's pretty long</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                  </ul>
-                </section>
-              </div>
-              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
-                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-                  <h4 class="usa-footer__primary-link">Topic</h4>
-                  <ul class="usa-list usa-list--unstyled">
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                  </ul>
-                </section>
-              </div>
-              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
-                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-                  <h4 class="usa-footer__primary-link">Topic</h4>
-                  <ul class="usa-list usa-list--unstyled">
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                    <li class="usa-footer__secondary-link"><a href="javascript:void(0);">Secondary link</a></li>
-                  </ul>
-                </section>
-              </div>
+              {% for section in primary_section.footer_nav.nav_items %}
+                <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                  <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                    <h4 class="usa-footer__primary-link">
+                      {{ section.primary_link | e }}
+                    </h4>
+                    <ul class="usa-list usa-list--unstyled">
+                      {% for secondary_link in section.secondary_links %}
+                        <li class="usa-footer__secondary-link">
+                          <a href="javascript:void(0);">
+                            {{ secondary_link | e }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </section>
+                </div>
+              {% endfor %}
             </div>
           </nav>
         </div>
@@ -73,48 +55,38 @@
       <div class="grid-row grid-gap">
         <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
           <div class="mobile-lg:grid-col-auto">
-            <img class="usa-footer__logo-img" src="{{ uswds.path }}/img/logo-img.png" alt="">
+            <img class="usa-footer__logo-img" src="{{ logo_img }}" alt="">
           </div>
           <div class="mobile-lg:grid-col-auto">
-            <p class="usa-footer__logo-heading">Name of Agency</p>
+            <p class="usa-footer__logo-heading">
+              {{ secondary_section.brand.agency_name }}
+            </p>
           </div>
         </div>
         <div class="usa-footer__contact-links mobile-lg:grid-col-6">
           <div class="usa-footer__social-links grid-row grid-gap-1">
-            <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--facebook" href="javascript:void(0);">
-                <span>Facebook</span>
-              </a>
-            </div>
-            <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--twitter" href="javascript:void(0);">
-                <span>Twitter</span>
-              </a>
-            </div>
-            <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--youtube" href="javascript:void(0);">
-                <span>YouTube</span>
-              </a>
-            </div>
-            <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--instagram" href="javascript:void(0);">
-                <span>Instagram</span>
-              </a>
-            </div>
-            <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--rss" href="javascript:void(0);">
-                <span>RSS</span>
-              </a>
-            </div>
+            {% for item in secondary_section.contact_links.social_nav %}
+              <div class="grid-col-auto">
+                <a class="usa-social-link usa-social-link--{{ item | lower }}" href="javascript:void(0);">
+                  <span>{{ item }}</span>
+                </a>
+              </div>
+            {% endfor %}
           </div>
-          <h3 class="usa-footer__contact-heading">Agency Contact Center</h3>
+          <h3 class="usa-footer__contact-heading">
+            {{ contact_info.heading }}
+          </h3>
           <address class="usa-footer__address">
             <div class="usa-footer__contact-info grid-row grid-gap">
               <div class="grid-col-auto">
-                <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+                <a href="tel:1-800-555-5555">
+                  {{ contact_info.phone }}
+                </a>
               </div>
               <div class="grid-col-auto">
-                <a href="mailto:info@agency.gov">info@agency.gov</a>
+                <a href="mailto:{{ contact_info.email }}">
+                  {{ contact_info.email }}
+                </a>
               </div>
             </div>
           </address>

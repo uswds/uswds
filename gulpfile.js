@@ -9,10 +9,10 @@ require("./config/gulp/build");
 require("./config/gulp/release");
 require("./config/gulp/test");
 
-var gulp = require("gulp");
-var dutil = require("./config/gulp/doc-util");
+const gulp = require("gulp");
+const dutil = require("./config/gulp/doc-util");
 
-gulp.task("default", function(done) {
+gulp.task("default", (done) => {
   dutil.logIntroduction();
 
   dutil.logHelp(
@@ -78,8 +78,8 @@ gulp.task("default", function(done) {
   done();
 });
 
-gulp.task("watch", function() {
+gulp.task("watch", () => {
   gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
-    gulp.watch("src/js/**/*.js", gulp.series("javascript"));
+  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
   return;
 });

@@ -1,8 +1,69 @@
 label: Footer
 status: ready
 
+context:
+  top_link: Return to top
+  primary_section:
+    aria_label: Footer navigation
+    footer_nav:
+      nav_items:
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
+        - <Primary link>
+  secondary_section:
+    brand:
+      logo: logo-img.png
+      agency_name: <Name of Agency>
+    contact_links:
+      social_nav:
+        - Facebook
+        - Twitter
+        - YouTube
+        - Instagram
+        - RSS
+      heading: <Agency Contact Center>
+      address:
+        phone: <(800) 555-GOVT>
+        email: <info@agency.gov>
+
 variants:
   - name: default
     label: Default
-
-context: {}
+  - name: slim
+    label: Slim
+    context:
+      primary_section:
+        aria_label: Footer navigation,
+  - name: big
+    label: Big
+    context:
+      primary_section:
+        aria_label: Footer navigation,,
+        footer_nav:
+          nav_items:
+            - primary_link: <Primary link>
+              secondary_links:
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link that's a bit longer than most of the others>
+                - <Secondary link>
+            - primary_link: <Primary link>
+              secondary_links:
+                - <Secondary link>
+                - <Secondary link that's pretty long>
+                - <Secondary link>
+                - <Secondary link>
+            - primary_link: <Primary link>
+              secondary_links:
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+            - primary_link: <Primary link>
+              secondary_links:
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>
+                - <Secondary link>

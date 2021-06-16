@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.11.2
+USWDS 2.12.0
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -80,16 +80,14 @@ $theme-footer-max-width: "desktop" !default;
 // Form and input
 $theme-checkbox-border-radius: "sm" !default;
 $theme-form-font-family: "ui" !default;
+$theme-input-background-color: default !default;
 $theme-input-line-height: 3 !default;
 $theme-input-max-width: "mobile-lg" !default;
 $theme-input-select-border-width: 2px !default;
 $theme-input-select-size: 2.5 !default;
 $theme-input-state-border-width: 0.5 !default;
-$theme-input-tile-background-color-selected: "primary-lighter" !default;
 $theme-input-tile-border-radius: "md" !default;
 $theme-input-tile-border-width: 2px !default;
-$theme-input-tile-border-color: "base-lighter" !default;
-$theme-input-tile-border-color-selected: "primary-light" !default;
 
 // Header
 $theme-header-font-family: "ui" !default;
@@ -117,6 +115,13 @@ $theme-modal-border-radius: "lg" !default;
 $theme-modal-default-max-width: "mobile-lg" !default;
 $theme-modal-lg-content-max-width: "tablet" !default;
 $theme-modal-lg-max-width: "tablet-lg" !default;
+
+// Pagination
+$theme-pagination-background-color: "default" !default;
+$theme-pagination-breakpoint: "tablet" !default;
+$theme-pagination-button-border-radius: "md" !default;
+$theme-pagination-button-border-width: 1px !default;
+$theme-pagination-font-family: "ui" !default;
 
 // Process List
 $theme-process-list-counter-background-color: "white" !default;

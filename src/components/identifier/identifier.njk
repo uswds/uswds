@@ -40,7 +40,7 @@
       </div>
       {%- endif -%}
       <div class="usa-identifier__identity" aria-label="{{ masthead.description.label.content[lang] }}">
-        <p class="usa-identifier__identity-domain">{{ domain }}</p>
+        <p class="usa-identifier__identity-domain">{{ domain | e }}</p>
         <p class="usa-identifier__identity-disclaimer">
           {{- masthead.text.content[lang] }} <a href="{{ masthead.parent.url[lang] }}">{{ masthead.parent.name[lang] }}</a>
           {%- if masthead.agency.url[lang] %}

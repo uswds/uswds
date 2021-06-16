@@ -1,24 +1,27 @@
+{% set logo_img =  uswds.path + '/img/' + secondary_section.brand.logo %}
+
+{% set contact_info = {
+  'heading': secondary_section.contact_links.heading | e,
+  'phone':  secondary_section.contact_links.address.phone | e ,
+  'email': secondary_section.contact_links.address.email | e
+} %}
+
 <footer class="usa-footer usa-footer--slim">
   <div class="grid-container usa-footer__return-to-top">
-    <a href="#">Return to top</a>
+    <a href="#">{{ top_link }}</a>
   </div>
   <div class="usa-footer__primary-section">
     <div class="usa-footer__primary-container grid-row">
       <div class="mobile-lg:grid-col-8">
-        <nav class="usa-footer__nav" aria-label="Footer navigation">
+        <nav class="usa-footer__nav" aria-label="{{ primary_section.aria_label }}">
           <ul class="grid-row grid-gap">
-            <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-            </li>
-            <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-            </li>
-            <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-            </li>
-            <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-            </li>
+            {% for link in primary_section.footer_nav.nav_items %}
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+                <a class="usa-footer__primary-link" href="javascript:void(0);">
+                  {{ link | e }}
+                </a>
+              </li>
+            {% endfor %}
           </ul>
         </nav>
       </div>
@@ -27,12 +30,16 @@
           <div class="grid-row grid-gap">
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
-                <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+                <a href="tel:1-800-555-5555">
+                  {{ contact_info.phone }}
+                </a>
               </div>
             </div>
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
-                <a href="mailto:info@agency.gov">info@agency.gov</a>
+                <a href="mailto:{{ contact_info.email }}">
+                  {{ contact_info.email }}
+                </a>
               </div>
             </div>
           </div>
@@ -44,10 +51,12 @@
     <div class="grid-container">
       <div class="usa-footer__logo grid-row grid-gap-2">
         <div class="grid-col-auto">
-          <img class="usa-footer__logo-img" src="{{ uswds.path }}/img/logo-img.png" alt="">
+          <img class="usa-footer__logo-img" src="{{ logo_img }}" alt="">
         </div>
         <div class="grid-col-auto">
-          <p class="usa-footer__logo-heading">Name of Agency</p>
+          <p class="usa-footer__logo-heading">
+            {{ contact_info.heading }}
+          </p>
         </div>
       </div>
     </div>
