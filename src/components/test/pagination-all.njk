@@ -190,37 +190,7 @@
 <section class="usa-section grid-container">
   <h1>Unbounded sets</h1>
 
-  <h2>Single</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination single page test',
-      pagination: {
-        unbounded: true,
-        items: 1,
-        current: 1
-      }
-    },
-    merge=true
-  %}
-
-  <hr>
-
-  <h2>4 total</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination four items test',
-      pagination: {
-        unbounded: true,
-        items: 4,
-        current: 1
-      }
-    },
-    merge=true
-  %}
-
-  <hr>
-
-  <h2>1 of 7</h2>
+  <h2>1</h2>
   {% render '@pagination',
     {
       aria_label: 'unbounded pagination one of seven test',
@@ -233,74 +203,7 @@
     merge=true
   %}
 
-  <h2>5 of 7</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination five of seven test',
-      pagination: {
-        unbounded: true,
-        items: 7,
-        current: 5
-      }
-    },
-    merge=true
-  %}
-
-  <h2>6 of 8</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination six of eight test',
-      pagination: {
-        unbounded: true,
-        items: 8,
-        current: 6
-      }
-    },
-    merge=true
-  %}
-
-  <h2>5 of 8</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination five of eight test',
-      pagination: {
-        unbounded: true,
-        items: 8,
-        current: 5
-      }
-    },
-    merge=true
-  %}
-
-  <h2>6 of 8</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination six of eight test',
-      pagination: {
-        unbounded: true,
-        items: 8,
-        current: 6
-      }
-    },
-    merge=true
-  %}
-
-  <hr>
-
-  <h2>1 of 9</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination one of nine test',
-      pagination: {
-        unbounded: true,
-        items: 9,
-        current: 1
-      }
-    },
-    merge=true
-  %}
-
-  <h2>2 of 9</h2>
+  <h2>2</h2>
   {% render '@pagination',
     {
       aria_label: 'unbounded pagination two of nine test',
@@ -313,7 +216,7 @@
     merge=true
   %}
 
-  <h2>4 of 9</h2>
+  <h2>4</h2>
   {% render '@pagination',
     {
       aria_label: 'unbounded pagination four of nine test',
@@ -326,7 +229,7 @@
     merge=true
   %}
 
-  <h2>5 of 9</h2>
+  <h2>5</h2>
   {% render '@pagination',
     {
       aria_label: 'unbounded pagination five of nine test',
@@ -339,7 +242,7 @@
     merge=true
   %}
 
-  <h2>6 of 9</h2>
+  <h2>6</h2>
   {% render '@pagination',
     {
       aria_label: 'unbounded pagination six of nine test',
@@ -352,44 +255,4 @@
     merge=true
   %}
 
-  <h2>7 of 9</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination seven of nine test',
-      pagination: {
-        unbounded: true,
-        items: 9,
-        current: 7
-      }
-    },
-    merge=true
-  %}
-
-  <h2>8 of 9</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination eight of nine test',
-      pagination: {
-        unbounded: true,
-        items: 9,
-        current: 8
-      }
-    },
-    merge=true
-  %}
-
-  <hr>
-
-  <h2>10 of 10</h2>
-  {% render '@pagination',
-    {
-      aria_label: 'unbounded pagination eight of ten test',
-      pagination: {
-        unbounded: true,
-        items: 10,
-        current: 10
-      }
-    },
-    merge=true
-  %}
 </section>
