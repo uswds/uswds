@@ -1,8 +1,6 @@
 {% from "pagination/_pagination-button.njk" import paginationButton %}
 {% from "pagination/_pagination-arrow.njk" import paginationArrow %}
 
-{% set modifier = 'usa-pagination--infinite' if pagination.infinite %}
-
 {# TODO - Create macro #}
 {% set sprite_path = uswds.path + "/img/sprite.svg" %}
 
@@ -23,10 +21,10 @@
         {{ paginationArrow('previous', pagination) }}
       {% endif %}
 
-      {% if not pagination.infinite %}
+      {% if not pagination.unbounded %}
         {% include "pagination/_pagination-numbers--default.njk" %}
       {% else %}
-        {% include "pagination/_pagination-numbers--infinite.njk" %}
+        {% include "pagination/_pagination-numbers--unbounded.njk" %}
       {% endif %}
 
       {# Next page #}

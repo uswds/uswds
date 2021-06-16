@@ -1,4 +1,5 @@
 label: Pagination
+status: ready
 preview: "@uswds-framed"
 
 context:
@@ -8,7 +9,7 @@ context:
   aria_label: Pagination
   pagination:
     page_label: Page
-    infinite: false
+    unbounded: false
     items: 24
     current: 10
     previous:
@@ -19,15 +20,14 @@ context:
       label: Last page,
 
 variants:
-  - name: infinite
-    label: Infinite
+  - name: unbounded
+    label: Unbounded
     context:
-      modifier: usa-pagination--infinite
       aria_label: Pagination,
       pagination:
         items: 24
         current: 10
-        infinite: true
+        unbounded: true
   - name: lang-es
     label: Spanish
     context:
@@ -41,15 +41,14 @@ variants:
           label: Siguiente
         last_item:
           label: Última página,
-  - name: infinite-lang-es
-    label: Infinite (Spanish)
+  - name: unbounded-lang-es
+    label: Unbounded (Spanish)
     context:
       lang: es
-      modifier: usa-pagination--infinite
       aria_label: Paginación,
       pagination:
         page_label: Página
-        infinite: true
+        unbounded: true
         previous:
           label: Anterior
         next:
