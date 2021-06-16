@@ -24,7 +24,6 @@ variants:
   - name: unbounded
     label: Unbounded
     context:
-      modifier: usa-pagination--unbounded
       aria_label: Pagination,
       pagination:
         items: 24
@@ -47,7 +46,6 @@ variants:
     label: Unbounded (Spanish)
     context:
       lang: es
-      modifier: usa-pagination--unbounded
       aria_label: Paginación,
       pagination:
         page_label: Página
