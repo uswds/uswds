@@ -1,6 +1,5 @@
 label: Pagination
-status: wip
-order: -1
+status: ready
 preview: "@uswds-framed"
 
 context:
