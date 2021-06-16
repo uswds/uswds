@@ -4,7 +4,9 @@ $pagination-margin-y: 2 !default;
 $pagination-margin-padding: 1 !default;
 $pagination-target-size: 5 !default;
 
-$pagination-current-color: get-color-token-from-bg($theme-pagination-background-color);
+$pagination-current-color: get-color-token-from-bg(
+  $theme-pagination-background-color
+);
 $pagination-link-tokens: get-link-tokens-from-bg(
   $theme-pagination-background-color,
   $theme-link-reverse-color,
@@ -71,13 +73,13 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__previous-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-right: units(5);
+    margin-right: units($pagination-target-size / 2);
   }
 }
 
 .usa-pagination__next-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-left: units(5);
+    margin-left: units($pagination-target-size / 2);
   }
 }
 
