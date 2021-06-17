@@ -23,10 +23,10 @@
       <div class="usa-section">
         <h1>
           {{ pager.pagination.current }}
-          {% if not pager.pagination.infinite %}
+          {% if not pager.pagination.unbounded %}
             of {{ pager.pagination.items }}
           {% endif %}
-          {% if pager.pagination.infinite %}
+          {% if pager.pagination.unbounded %}
             <small>(unbounded)</small>
           {% endif %}
         </h1>

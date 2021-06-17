@@ -33,25 +33,25 @@ context:
       description: |-
         At the end of the larger dataset show the last 5. With an overflow in 2nd slot for the items in between.
     - pagination:
-        infinite: true
+        unbounded: true
         items: 12
         current: 1
       description: |-
         Pagination for unbounded datasets is similar, but has an overflow element on the last page to indicate more items.
     - pagination:
-        infinite: true
+        unbounded: true
         items: 12
         current: 2
       description: |-
         Previous link appears when going beyond the first page.
     - pagination:
-        infinite: true
+        unbounded: true
         items: 12
         current: 6
       description: |-
         Beyond the first five show the first page, overflow, before current, current page, the two after, and the overflow.
     - pagination:
-        infinite: true
+        unbounded: true
         items: 24
         current: 12
       description: |-
