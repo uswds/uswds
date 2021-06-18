@@ -53,7 +53,8 @@
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-display("flex");
   @include u-height("full");
-  @include u-flex("column");
+  @include u-flex("row");
+  align-items: center;
   @include u-margin-x($theme-card-gap / 2);
   @include u-position("relative");
   @include u-radius($theme-card-border-radius);
@@ -95,7 +96,6 @@
 
 .usa-card__img {
   @include card-inner-radius;
-  @include u-bg("base-lightest");
   @include u-position("relative");
   overflow: hidden;
 
@@ -233,9 +233,8 @@
     .usa-card__media {
       @include u-display("flex");
       @include u-overflow("hidden");
-      @include u-pin-y;
-      @include u-pin-left;
-      @include u-position("absolute");
+      align-self: stretch;
+      @include u-bg("base-lightest");
       @include u-width($theme-card-flag-image-width);
     }
     .usa-card__img {
@@ -250,12 +249,6 @@
             $theme-card-border-width
           )}
       );
-    }
-
-    .usa-card__header,
-    .usa-card__body,
-    .usa-card__footer {
-      @include u-margin-left($theme-card-flag-image-width);
     }
 
     .usa-card__media--exdent {
@@ -291,8 +284,7 @@
 
     &.usa-card--media-right {
       .usa-card__media {
-        @include u-left("auto");
-        @include u-right(0);
+        @include u-order(2);
       }
 
       .usa-card__media--inset {
@@ -322,7 +314,6 @@
       .usa-card__body,
       .usa-card__footer {
         @include u-margin-left(0);
-        @include u-margin-right($theme-card-flag-image-width);
       }
 
       .usa-card__media--exdent {
