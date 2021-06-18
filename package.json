@@ -132,6 +132,7 @@
     "jsdom": "^16.6.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.4.0",
+    "mq-polyfill": "^1.1.8",
     "normalize.css": "^8.0.1",
     "nyc": "^15.1.0",
     "postcss": "^8.3.5",
