@@ -1,7 +1,8 @@
 (() => {
-  document.documentElement.classList.add("usa-js-loading");
+  const loadingClass = "usa-js-loading";
+  document.documentElement.classList.add(loadingClass);
   function revertClass() {
-    document.documentElement.classList.remove("usa-js-loading");
+    document.documentElement.classList.remove(loadingClass);
   }
 
   const fallback = setTimeout(revertClass, 8000);
