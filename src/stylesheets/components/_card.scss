@@ -289,7 +289,7 @@
     }
 
     &.usa-card--media-right {
-      .usa-card__media {
+      .usa-card__container-left {
         @include u-order(2);
       }
 
