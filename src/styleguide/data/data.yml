@@ -1,10 +1,12 @@
 ---
-title: 'Pattern Lab'
+title: 'USWDS component library'
 htmlClass: 'pl'
 bodyClass: 'body'
 modifier: ''
 extra_attributes: ''
+uswds_path: '../..'
 img_path: '../../img'
+contentID: "#main-content"
 states:
   - hover
   - active
