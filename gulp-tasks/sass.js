@@ -25,7 +25,7 @@ module.exports = {
         sass({
             outputStyle: "expanded",
           })
-          .on("error", () => sass.logError)
+          .on("error", () => dutil.logError)
       )
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
