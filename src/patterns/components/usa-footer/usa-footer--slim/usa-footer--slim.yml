@@ -1,5 +1,5 @@
 ---
-modifier: ''
+modifier: 'usa-footer--slim'
 footer:
   return_to_top: 'Return to top'
   primary_section:

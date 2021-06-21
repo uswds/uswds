@@ -13,7 +13,7 @@ states:
   - focus
   - disabled
 agency_contact_info:
-  name: Name of Agency
-  title: Agency Contact Center
-  phone_no: "(800)-CALL-GOVT"
-  email: info@agency.gov
+  name: <Name of Agency>
+  title: <Agency Contact Center>
+  phone_no: "<(800)-555-GOVT>"
+  email: <info@agency.gov>

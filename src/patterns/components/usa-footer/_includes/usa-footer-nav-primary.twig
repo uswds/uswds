@@ -1,3 +1,7 @@
+{#
+  Used in footer default and slim variants due to similarity in markup.
+#}
+
 {# Set default footer list classes, override layout if slim variation.  #}
 {% set list_classes = (modifier != 'usa-footer--slim'
   ? 'mobile-lg:grid-col-4'
@@ -5,12 +9,12 @@
   ~ ' desktop:grid-col-auto usa-footer__primary-content'
 %}
 
-<nav class="usa-footer__nav" aria-label="Footer navigation">
+<nav class="usa-footer__nav" aria-label="{{ aria_label }}">
   <ul class="grid-row grid-gap">
-    {% for i in 0..4 %}
+    {% for link in links %}
       <li class="{{ list_classes }}">
         <a class="usa-footer__primary-link" href="javascript:void(0);">
-          Primary link
+          {{ link.label }}
         </a>
       </li>
     {% endfor %}
