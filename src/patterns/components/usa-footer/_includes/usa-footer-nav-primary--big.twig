@@ -1,4 +1,4 @@
-<nav class="usa-footer__nav" aria-label="{{ aria_label }}">
+<nav class="usa-footer__nav" aria-label="{{ aria_label | default('Footer navigation') }}">
   <div class="grid-row grid-gap-4">
     {% for link in links %}
       <div class="mobile-lg:grid-col-6 desktop:grid-col-3">

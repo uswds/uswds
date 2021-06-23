@@ -1,6 +1,6 @@
 <footer class="usa-footer {% if modifier %} {{- modifier -}} {% endif %}">
   <div class="grid-container usa-footer__return-to-top">
-    <a href="#">{{ footer.return_to_top }}</a>
+    <a href="#">{{ footer.return_to_top | default('Return to top') }}</a>
   </div>
   <div class="usa-footer__primary-section">
     {% block primary %}
