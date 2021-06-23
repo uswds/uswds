@@ -3,6 +3,7 @@ banner:
   id: "gov-banner-lang-es"
   text: "Un sitio oficial del Gobierno de Estados Unidos"
   action: "Así es como usted puede verificarlo"
+  aria_label: "Un sitio oficial del Gobierno de Estados Unidos"
 domain:
   heading: |-
     Los sitios web oficiales usan .gov
