@@ -24,7 +24,7 @@ $theme-title-font-size: $theme-display-font-size !default;
 $theme-navigation-width: $theme-header-min-width !default;
 $theme-megamenu-logo-text-width: $theme-header-logo-text-width !default;
 
-// Deprecated in 2.11.2
+// Deprecated in 2.11.0
 $theme-site-max-width: $theme-grid-container-max-width !default;
 
 @mixin title {
@@ -34,3 +34,8 @@ $theme-site-max-width: $theme-grid-container-max-width !default;
 @mixin typeset-title {
   @include typeset-display;
 }
+
+// Deprecated in 2.12.0
+$theme-input-tile-background-color-selected: "primary-lighter" !default;
+$theme-input-tile-border-color: "base-lighter" !default;
+$theme-input-tile-border-color-selected: "primary-lighter" !default;

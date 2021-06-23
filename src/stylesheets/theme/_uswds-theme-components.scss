@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.11.2
+USWDS 2.12.0
 ----------------------------------------
 COMPONENT SETTINGS
 ----------------------------------------
@@ -115,6 +115,13 @@ $theme-modal-border-radius: "lg";
 $theme-modal-default-max-width: "mobile-lg";
 $theme-modal-lg-content-max-width: "tablet";
 $theme-modal-lg-max-width: "tablet-lg";
+
+// Pagination
+$theme-pagination-background-color: "default";
+$theme-pagination-breakpoint: "tablet";
+$theme-pagination-button-border-radius: "md";
+$theme-pagination-button-border-width: 1px;
+$theme-pagination-font-family: "ui";
 
 // Process List
 $theme-process-list-counter-background-color: "white";
