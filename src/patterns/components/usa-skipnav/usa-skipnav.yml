@@ -1,5 +1,5 @@
 ---
 modifier: ''
-title: Skip to main content
+label: Skip to main content
 href: "#main-content"
 focus: true
