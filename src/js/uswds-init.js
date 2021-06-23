@@ -1,11 +1,15 @@
-(() => {
-  const loadingClass = "usa-js-loading";
+
+/* eslint-disable no-var */
+(function uswdsInit () {
+  var loadingClass = "usa-js-loading";
+  var fallback;
+
   document.documentElement.classList.add(loadingClass);
   function revertClass() {
     document.documentElement.classList.remove(loadingClass);
   }
 
-  const fallback = setTimeout(revertClass, 8000);
+  fallback = setTimeout(revertClass, 8000);
 
   function verifyLoaded() {
     if (window.uswdsPresent) {
@@ -16,4 +20,4 @@
   }
 
   document.addEventListener("load", verifyLoaded, true);
-})();
+}());
