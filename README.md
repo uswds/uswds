@@ -247,7 +247,7 @@ We recommend using a **minifier** like [csso](https://github.com/css/csso) to co
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download-and-install). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
@@ -451,13 +451,15 @@ Namespacing not supported - Use relative paths.
 ✔ {% include "./components/usa-card/usa-card.twig" %}
 ```
 
-Generated variants with YML *
+~~Generated variants with YML *~~
 ```
 ✔ usa-button-group.twig
-❕ usa-button-group~segmented.yml  // Requires patch
+❕ usa-button-group~segmented.yml
 ```
 
-*Works with patch [`31931c7`](https://github.com/uswds/uswds/commit/31931c7ee1ecf31c54981c1691a047157d458bfb).
+~~*Works with patch [`31931c7`](https://github.com/uswds/uswds/commit/31931c7ee1ecf31c54981c1691a047157d458bfb).~~
+
+Fixed in @pattern-lab/engine-twig@5.14.3
 
 HTML in YML renders as string
 ```yml
