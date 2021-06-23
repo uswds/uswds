@@ -9,7 +9,6 @@ const rename = require("gulp-rename");
 const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
-const babel = require("gulp-babel");
 const merge = require("merge-stream");
 const dutil = require("./doc-util");
 const cFlags = require("./cflags");
@@ -23,14 +22,16 @@ gulp.task(task, () => {
     [dutil.pkg.name]: browserify({
       entries: ["src/js/start.js"],
       debug: true,
+    }).transform("babelify", {
+      global: true,
+      presets: ["@babel/preset-env"],
     })
       .bundle()
-      .pipe(source(`${dutil.pkg.name}.js`)) // XXX why is this necessary?
+      .pipe(source(`${dutil.pkg.name}.js`))
       .pipe(buffer()),
     "uswds-init": gulp.src("src/js/uswds-init.js"),
   }).map(([basename, stream]) =>
     stream
-      .pipe(babel({ presets: ["@babel/preset-env"] }))
       .pipe(rename({ basename }))
       .pipe(gulp.dest("dist/js"))
       .pipe(sourcemaps.init({ loadMaps: true }))
