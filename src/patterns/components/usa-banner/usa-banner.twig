@@ -29,13 +29,14 @@
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img class="usa-banner__icon usa-media-block__img" src="{{ img_path }}/icon-dot-gov.svg" role="img" alt="" aria-hidden="true">
           <div class="usa-media-block__body">
-            <p><strong>{{ domain.heading }}</strong><br/>{{ domain.text|raw }}</p>
+            {# Will cause error without trim because it doesn't know what to do with new lines #}
+            <p><strong>{{ domain.heading }}</strong><br/>{{ domain.text | trim | raw }}</p>
           </div>
         </div>
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img class="usa-banner__icon usa-media-block__img" src="{{ img_path }}/icon-https.svg" role="img" alt="" aria-hidden="true">
           <div class="usa-media-block__body">
-            <p><strong>{{ https.heading }}</strong><br/>{{ https.pretext|raw }} ({{ lock }}) {{ https.posttext|raw }}</p>
+            <p><strong>{{ https.heading }}</strong><br/>{{ https.pretext | trim | raw }} ({{ lock }}) {{ https.posttext | trim | raw }}</p>
           </div>
         </div>
       </div>
