@@ -14,6 +14,7 @@ cards:
     classes_override: 'tablet:grid-col-6'
     header_first: false
     media: false
+    body_overrides: 'usa-card__body--exdent text-white bg-primary padding-y-3'
     content: |-
       In the winter of '49 or may be it was the spring of '50 I don't recollect exactly, somehow, though what makes me think it was one or the other is because I remember the big flume wasn't finished when he first came to the camp:
       <ol class="usa-list">

@@ -6,6 +6,7 @@ cards:
     classes_override: ''
     header_first: false
     media: false
+    body_overrides:
     content: |-
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
@@ -15,7 +16,7 @@ cards:
     header_first: false
     media: false
     content: |-
-      Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, 
+      Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes,
       nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.
     cta_text: ''
   - title: Cities have the capability of providing something for everybody
