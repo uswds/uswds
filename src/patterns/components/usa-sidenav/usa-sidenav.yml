@@ -1,5 +1,6 @@
 ---
 modifier: ''
+aria_label: 'Secondary navigation'
 items:
   - label: Current page
     href: javascript:void(0);

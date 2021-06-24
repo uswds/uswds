@@ -1,6 +1,7 @@
 ---
 modifier: 'usa-site-alert--emergency'
 title: 'Emergency alert message'
+aria_label: 'Site alert,,'
 text: ''
 list: |-
   <ul class="usa-list">

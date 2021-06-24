@@ -3,7 +3,7 @@ modifier: ''
 domain: domain.gov
 lang: en
 masthead:
-  aria_label: Agency identifier
+  aria_label: Agency identifier,
   description: Agency description
   content: An official website of the
   parent:
@@ -20,7 +20,7 @@ masthead:
     content: Produced and published at taxpayer expense.
     display: false
 required_links:
-  aria_label: Important links
+  aria_label: Important links,
   links:
     - label: About
       url: javascript:void(0)
@@ -32,7 +32,7 @@ required_links:
     - label: Performance reports
     - label: Privacy policy
 usagov:
-  aria_label: U.S. government information and services
+  aria_label: U.S. government information and services,
   description: Looking for U.S. government information and services?
   link:
     label: Visit USA.gov
