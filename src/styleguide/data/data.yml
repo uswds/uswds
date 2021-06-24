@@ -6,7 +6,8 @@ modifier: ''
 extra_attributes: ''
 uswds_path: '../..'
 img_path: '../../img'
-contentID: "#main-content"
+contentID: '#main-content'
+placeholder_link: 'javascript:void(0);'
 states:
   - hover
   - active
