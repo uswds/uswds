@@ -42,7 +42,10 @@ function lintSass() {
     { since: lastRun(lintSass) }
   )
   .pipe(gulpStylelint(stylelintOptions))
-  .on("error", dutil.logError);
+  .on('error', function handleError(error) {
+    dutil.logError(error);
+    this.emit('end');
+  });
 }
 
 function lintJS(done) {
