@@ -1,4 +1,6 @@
 // Helpers
+$input-select-margin-right: 1.5;
+
 %block-input-general {
   @include border-box-sizing;
   @include typeset(
