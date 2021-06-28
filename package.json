@@ -83,7 +83,6 @@
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
     "domready": "^1.0.8",
-    "elem-dataset": "^2.0.0",
     "express": "^4.17.1",
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
