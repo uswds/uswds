@@ -22,7 +22,9 @@
   <div class="usa-prose">
     <p>{{ settings[lang].description }}</p>
     <p>
-      <a class="{{ settings[lang].cta.type | default(button_defaults) }}" href="{{ placholder_link }}">
+      <a
+        class="{{ settings[lang].cta.type | default(button_defaults) }}"
+        href="{{ placholder_link }}">
         {{ settings[lang].cta.label }}
       </a>
     </p>
