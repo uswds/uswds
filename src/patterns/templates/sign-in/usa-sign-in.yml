@@ -1,0 +1,8 @@
+lang: 'en'
+title: Sign in
+form:
+  legend: Access your account
+create_account:
+  label: Don't have an account?
+  cta:
+    label: Create your account now

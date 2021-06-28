@@ -1,0 +1,5 @@
+{% embed "./templates/base/_base.twig" with { 'lang': lang } %}
+  {% block body %}
+    {% include "./templates/create-account/_usa-create-account-inner.twig" %}
+  {% endblock %}
+{% endembed %}

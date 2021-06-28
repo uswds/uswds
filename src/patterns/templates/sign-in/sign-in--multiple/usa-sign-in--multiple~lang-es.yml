@@ -1,0 +1,11 @@
+lang: 'es'
+title: 'Ingrese a su cuenta'
+description: Usted puede acceder a su cuenta con una de las opciones siguientes.
+multiple:
+  - label: Ingrese con Login.gov
+  - label: Ingrese con <Legacy system 1>
+  - label: Ingrese con <Legacy system 1>
+create_account:
+  description: 'Si todavía no tiene una cuenta, regístrese aquí:'
+  cta:
+    label: Cree una cuenta en Login.gov
