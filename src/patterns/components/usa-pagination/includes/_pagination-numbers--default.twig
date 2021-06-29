@@ -1,18 +1,10 @@
 {% from "./components/usa-pagination/includes/_pagination-button.twig" import paginationButton %}
 
-{# {% set pager_ranges = {
-    'default': range(pagination.current - 1, pagination.current + 2),
-    'last_item': pagination.items,
-    'first_five': range(1, 5),
-    'last_five': range(pagination.items - 5, pagination.items),
-  }
-%} #}
-
 {% set pager_ranges = {
-    'default': range(1, 5),
+    'default': range(pagination.current - 1, pagination.current + 1),
     'last_item': pagination.items,
     'first_five': range(1, 5),
-    'last_five': range(1, 5),
+    'last_five': range(pagination.items - 4, pagination.items),
   }
 %}
 
@@ -20,17 +12,17 @@
   'current': pagination.current,
   'total': pagination.items,
   'aria_labels': {
-    'page_label': pagination.page_label | default('Page'),
-    'previous': pagination.previous.label | default('Previous'),
-    'next': pagination.next.label | default('Next'),
-    'last': pagination.last_item.label  | default('Last page,')
+    'page_label': pagination.page_label,
+    'previous': pagination.previous.label,
+    'next': pagination.next.label,
+    'last': pagination.last_item.label
     }
 } %}
 
 {# Page numbers #}
 {# List all items if less than 7 #}
 {% if pagination.items <= 7 %}
-  {% for item in pagination.items  %}
+  {% for item in 1..pagination.items  %}
     {{ paginationButton(item, pager_button_opts) }}
   {% endfor %}
 {# User is at the start of a long dataset #}
@@ -42,6 +34,8 @@
   {% endfor %}
 
   {{ overflow | trim | raw }}
+
+  {{ paginationButton(pager_ranges.last_item, pager_button_opts) }}
 
 {# When user is close to the end of dataset #}
 {# Example: 1 … 4, *5*, 6, 7, 8 #}
@@ -66,6 +60,7 @@
   {% endfor %}
 
   {{ overflow | trim | raw }}
+
+  {{ paginationButton(pager_ranges.last_item, pager_button_opts) }}
 {% endif %}
 
-{{ paginationButton(pager_ranges.last_item, pager_button_opts) }}

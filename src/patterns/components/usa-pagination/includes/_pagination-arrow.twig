@@ -4,8 +4,8 @@
 {% macro paginationArrow(direction, pagination) %}
 
   {% set link_attrs = {
-    'class': 'usa-pagination__link usa-pagination__'  + direction + '-page',
-    'aria_label': pagination[direction]['label'] + ' ' + pagination.page_label | lower
+    'class': 'usa-pagination__link usa-pagination__'  ~ direction ~ '-page',
+    'aria_label': pagination[direction]['label'] ~ ' ' ~ pagination.page_label | lower
   } %}
 
   <li class="usa-pagination__item usa-pagination__arrow">
