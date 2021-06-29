@@ -16,7 +16,8 @@
     >
       {% if direction is same as('previous') %}
         <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="../../dist/img/sprite.svg#navigate_before"></use>
+          {# Global variable not applying #}
+          <use xlink:href="../../img/sprite.svg#navigate_before"></use>
         </svg>
       {% endif %}
       <span class="usa-pagination__link-text">
@@ -24,7 +25,8 @@
       </span>
       {% if direction is same as('next') %}
         <svg class="usa-icon" aria-hidden="true" role="img">
-          <use xlink:href="../../dist/img/sprite.svg#navigate_next"></use>
+          {# Global variable not applying #}
+          <use xlink:href="../../img/sprite.svg#navigate_next"></use>
         </svg>
       {% endif %}
     </a>
