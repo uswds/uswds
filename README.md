@@ -491,8 +491,10 @@ Workarounds available with `autoescape false` and `|raw` filter.
 ```
 
 ```twig
-{{ domain.text|raw }}
+{{ domain.text | trim | raw }}
 ```
+
+> ⚠ When using the `|raw` filter make sure you use it like so `| trim | raw`. Otherwise you'll get errors due to the whitespace.
 
 Global variables don't work as expected
 Setting a variable like `img_path` in `src/styleguide/data/data.yml` renders as empty string in some templates, for example in `usa-nav__primary.twig`.
