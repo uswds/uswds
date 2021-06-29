@@ -10,8 +10,8 @@ const AXE_CONTEXT = JSON.stringify({
     // iframes with data: URIs. The content of these iframes is just for
     // non-USWDS example content anyways, so just skip them to speed things
     // up.
-    ['iframe[src^="data:"]']
-  ]
+    ['iframe[src^="data:"]'],
+  ],
 });
 
 const AXE_OPTIONS = {

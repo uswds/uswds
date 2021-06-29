@@ -1,0 +1,45 @@
+{% from "pagination/_pagination-button.njk" import paginationButton %}
+
+{% set
+  pager_ranges = {
+    'default': range(pagination.current - 1, pagination.current + 3),
+    'first_set': range(1, 7)
+  }
+%}
+
+{% set pager_button_opts = {
+  'current': pagination.current,
+  'aria_labels': {
+    'page_label': pagination.page_label,
+    'previous': pagination.previous.label,
+    'next': pagination.next.label,
+    'last': pagination.last_item.label
+    }
+} %}
+
+{# Page numbers #}
+{% switch true %}
+  {# If less than 7 #}
+  {#
+    Examples:
+      *1*,
+      *1*, 2, 3, 4, 5, 6 , 7
+  #}
+  {% case pagination.items <= 7 or pagination.current <= 5 %}
+    {% for item in pager_ranges.first_set %}
+      {{ paginationButton(item, pager_button_opts) }}
+    {% endfor %}
+  {% default %}
+    {# First item #}
+    {# Example: 1 … 9 *10* 11 … 24 #}
+    {{ paginationButton(1, pager_button_opts) }}
+
+    {{ overflow | safe }}
+
+    {% for item in pager_ranges.default %}
+      {{ paginationButton(item, pager_button_opts) }}
+    {% endfor %}
+
+{% endswitch %}
+
+{{ overflow | safe }}

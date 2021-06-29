@@ -1,7 +1,5 @@
-"use strict";
-const pkg = require("./package.json");
-const path = require("path");
 const fractal = require("@frctl/fractal").create();
+const pkg = require("./package.json");
 
 const context = {
   package: {
@@ -10,12 +8,14 @@ const context = {
   },
   uswds: {
     path: "../../dist"
-  }
+  },
+  // eslint-disable-next-line no-script-url
+  placeholderLink: "javascript:void()"
 };
 
 fractal.set("project.title", `U.S. Web Design System (v${pkg.version})`);
 
-const components = fractal.components;
+const { components } = fractal;
 components.set("ext", ".njk");
 components.set("path", "src/components");
 components.set("default.preview", "@uswds");
@@ -32,7 +32,7 @@ components.engine(
   })
 );
 
-const web = fractal.web;
+const { web } = fractal;
 
 web.theme(
   require("@frctl/mandelbrot")({
