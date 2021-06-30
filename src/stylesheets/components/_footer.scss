@@ -205,29 +205,13 @@
   @include u-square($size-touch-target);
   background-color: color("black-transparent-10");
   display: inline-block;
+  padding: units(0.5);
 }
 
 .usa-social-link__icon {
-  $background-height: units(4); // Height of icon within hit area.
-  background-position: center center;
-  background-size: auto $background-height;
-  display: inline-block;
-  height: inherit;
-  width: inherit;
-}
-
-$social-networks: (
-  "facebook": "usa-icons/facebook",
-  "twitter": "usa-icons/twitter",
-  "youtube": "usa-icons/youtube",
-  "instagram": "usa-icons/instagram",
-  "rss": "usa-icons/rss_feed",
-);
-
-@each $network, $icon in $social-networks {
-  .usa-social-link__icon--#{$network} {
-    @include add-background-svg(#{$icon});
-  }
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .usa-footer__address {

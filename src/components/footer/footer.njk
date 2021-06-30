@@ -42,7 +42,10 @@
             {% for item in secondary_section.contact_links.social_nav %}
               <div class="grid-col-auto">
                 <a class="usa-social-link" href="javascript:void(0);">
-                  <span class="usa-social-link__icon usa-social-link__icon--{{ item | lower }}" role="img" aria-label="{{ item }}"></span>
+                  <img class="usa-social-link__icon"
+                    src="{{ uswds.path }}/img/usa-icons/{% if item.icon %}{{ item.icon }}{% else %}{{ item.name | lower }}{% endif %}.svg"
+                    alt="{{ item.name }}"
+                  />
                 </a>
               </div>
             {% endfor %}
