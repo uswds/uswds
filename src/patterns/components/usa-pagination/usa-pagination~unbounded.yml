@@ -1,3 +1,4 @@
 ---
+aria_label: Pagination,
 pagination:
   unbounded: true
