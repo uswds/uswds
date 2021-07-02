@@ -854,7 +854,6 @@ const enhanceDatePicker = (el) => {
 
   const calendarWrapper = document.createElement("div");
   calendarWrapper.classList.add(DATE_PICKER_WRAPPER_CLASS);
-  calendarWrapper.tabIndex = "-1";
 
   const externalInputEl = internalInputEl.cloneNode();
   externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
