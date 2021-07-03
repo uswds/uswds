@@ -87,6 +87,91 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 }
 
+.usa-button--info {
+  @include set-text-and-bg("info", $context: $button-context);
+
+  &:visited {
+    @include set-text-and-bg("info", $context: $button-context);
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("info-dark", $context: $button-context);
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("info-darker", $context: $button-context);
+  }
+}
+
+.usa-button--error {
+  @include set-text-and-bg("error", $context: $button-context);
+
+  &:visited {
+    @include set-text-and-bg("error", $context: $button-context);
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("error-dark", $context: $button-context);
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("error-darker", $context: $button-context);
+  }
+}
+
+.usa-button--warning {
+  @include set-text-and-bg("warning", $context: $button-context);
+
+  &:visited {
+    @include set-text-and-bg("warning", $context: $button-context);
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("warning-dark", $context: $button-context);
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("warning-darker", $context: $button-context);
+  }
+}
+
+.usa-button--success {
+  @include set-text-and-bg("success", $context: $button-context);
+
+  &:visited {
+    @include set-text-and-bg("success", $context: $button-context);
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("success-dark", $context: $button-context);
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("success-darker", $context: $button-context);
+  }
+}
+
+$button-states: (
+  secondary,
+  accent-cool,
+  accent-warm,
+  base,
+  info,
+  error,
+  warning,
+  success,
+);
+
+
+
 .usa-button--outline {
   background-color: color("transparent");
   box-shadow: $button-stroke color("primary");
@@ -154,7 +239,38 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
       }
     }
   }
+
+
+  @each $color in $button-states {
+    &.usa-button--#{$color} {
+      color: color($color);
+    box-shadow: $button-stroke color($color);
+    background-color: color("transparent");
+
+
+    &:visited {
+      color: color($color);
+      box-shadow: $button-stroke currentColor;
+      }
+
+    &:hover,
+    &.usa-button--hover {
+      background-color: color("transparent");
+      box-shadow: $button-stroke color(#{$color}-dark);
+      color: color(#{$color}-dark);
+     }
+  
+    &:active,
+    &.usa-button--active {
+      background-color: color("transparent");
+      box-shadow: $button-stroke color(#{$color}-darker);
+      color: color(#{$color}-darker);
+      }
+
+    }
+  }
 }
+
 
 .usa-button--base {
   @include set-text-and-bg("base", $context: $button-context);
