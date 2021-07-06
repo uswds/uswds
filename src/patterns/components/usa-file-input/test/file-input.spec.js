@@ -46,7 +46,10 @@ describe("file input component builds successfully", () => {
   });
 
   it("target ui is created", () => {
-    assert.strictEqual(dropZone.getAttribute("class"), "usa-file-input__target");
+    assert.strictEqual(
+      dropZone.getAttribute("class"),
+      "usa-file-input__target"
+    );
   });
 
   it("input gets new class", () => {

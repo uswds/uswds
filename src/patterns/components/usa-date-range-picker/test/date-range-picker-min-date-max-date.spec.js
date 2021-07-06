@@ -148,7 +148,11 @@ describe("date range picker component with min date and max date", () => {
       "has the default max date"
     );
     assert.strictEqual(rangeStart.dataset.rangeDate, "", "has no range date");
-    assert.strictEqual(rangeStart.dataset.defaultDate, "", "has no default date");
+    assert.strictEqual(
+      rangeStart.dataset.defaultDate,
+      "",
+      "has no default date"
+    );
   });
 
   it("should update the range start date picker properties to have a max date and range date when the range end date picker has an updated valid value", () => {
@@ -194,6 +198,10 @@ describe("date range picker component with min date and max date", () => {
       "has the default max date"
     );
     assert.strictEqual(rangeStart.dataset.rangeDate, "", "has no range date");
-    assert.strictEqual(rangeStart.dataset.defaultDate, "", "has no default date");
+    assert.strictEqual(
+      rangeStart.dataset.defaultDate,
+      "",
+      "has no default date"
+    );
   });
 });
