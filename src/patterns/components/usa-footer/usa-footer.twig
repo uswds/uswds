@@ -1,10 +1,10 @@
 <footer class="usa-footer {% if modifier %} {{- modifier -}} {% endif %}">
   <div class="grid-container usa-footer__return-to-top">
-    <a href="#">Return to top</a>
+    <a href="#">{{ footer.return_to_top | default('Return to top') }}</a>
   </div>
   <div class="usa-footer__primary-section">
     {% block primary %}
-      {% include "./components/usa-footer/_usa-footer-nav-primary.twig" %}
+      {% include "./components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
     {% endblock %}
   </div>
   <div class="usa-footer__secondary-section">
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="usa-footer__contact-links mobile-lg:grid-col-6">
-            {% include "./components/usa-footer/_usa-social-nav.twig" %}
+            {% include "./components/usa-footer/_includes/usa-social-nav.twig" %}
 
             <h3 class="usa-footer__contact-heading">
               {{ agency_contact_info.title }}

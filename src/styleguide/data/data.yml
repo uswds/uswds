@@ -1,17 +1,20 @@
 ---
-title: 'Pattern Lab'
+title: 'USWDS component library'
 htmlClass: 'pl'
 bodyClass: 'body'
 modifier: ''
 extra_attributes: ''
+uswds_path: '../..'
 img_path: '../../img'
+contentID: '#main-content'
+placeholder_link: 'javascript:void(0);'
 states:
   - hover
   - active
   - focus
   - disabled
 agency_contact_info:
-  name: Name of Agency
-  title: Agency Contact Center
-  phone_no: "(800)-CALL-GOVT"
-  email: info@agency.gov
+  name: <Name of Agency>
+  title: <Agency Contact Center>
+  phone_no: "<(800)-555-GOVT>"
+  email: <info@agency.gov>

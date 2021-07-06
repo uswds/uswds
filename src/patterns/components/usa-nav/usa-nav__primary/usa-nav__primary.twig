@@ -1,19 +1,19 @@
 {# TODO: Clean this up. #}
 {% import _self as menus %}
 
-{{ menus.menu_links(items, 0, megamenu) }}
+<button class="usa-nav__close">
+  <img src="../../img/usa-icons/close.svg" role="img" alt="{{ nav.close.label }}">
+</button>
+
+{{ menus.menu_links(nav.items, 0, nav.megamenu) }}
 
 {% macro menu_links(items, menu_level, megamenu, button_id) %}
+
   {% import _self as menus %}
 
   {% if items %}
-
     {# 1st level #}
     {% if menu_level == 0 %}
-      {# TODO: Create a button icon component #}
-      <button class="usa-nav__close">
-        <img src="{{ img_path|default('../../img/usa-icons') }}/close.svg" role="img" alt="close">
-      </button>
       <ul class="usa-nav__primary usa-accordion">
     {# 2nd level subnavs that aren't megamenu #}
     {% elseif menu_level > 0 and not megamenu %}

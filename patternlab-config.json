@@ -3,6 +3,7 @@
   "cleanPublic": true,
   "defaultPattern": "all",
   "defaultShowPatternInfo": false,
+  "disableDeprecationWarningForHiddenPatterns": true,
   "ishControlsHide": {
     "s": false,
     "m": false,

@@ -1,5 +1,17 @@
 ## A few parts of this project are not in the public domain
 
+### Copyright ownership of Works created by U.S. federal employees
+
+This repository contains both the original design for Google Material Icons (the “Work”, as defined in Section 1 of the Apache 2.0 License) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Material Icons.
+
+This repository also contains both original designs for Source Sans Pro, Merriweather, and Font Awesome (the “Font Software”, as defined in Section 1 of the SIL Open Font License, version 1.1) and modifications made by the General Services Administration (GSA). This repository combines the Work and these GSA modifications, which is a “Modified Version” of Source Sans Pro, Merriweather, Public Sans, and Font Awesome respectively.
+
+As a work of the United States Government, the software modifications made by GSA are not subject to copyright within the United States. Additionally, GSA waives copyright and related rights in its software modifications worldwide through the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/).
+
+The Work (as defined in the Apache 2.0 License) and Font Software (as defined in the SIL Open Font License, Version 1.1) remains subject to copyright under the respective open source license. The section below lists which works are subject to particular open source licenses.
+
+This Modified Version packaged as `dist/img/sprite.svg` contains both design elements under the Apache 2.0 License and design modifications by GSA released as CC0. It is a “joint work” made of the icon set and modifications combined into a single work.
+
 ### Files licensed under the SIL Open Font License, Version 1.1
 
 The Source Sans Pro font files in `src/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
@@ -8,19 +20,17 @@ The Merriweather font files in `src/fonts/merriweather` are the version 2.001 fi
 
 The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
 
-The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
+Icon files in `src/img` and `src/img/social-icons` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
 
 ### Files licensed under the Apache 2.0 License
 
 The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-The Google Material icons in `src/img/usa-icons` and `src/img/usa-icons-unused` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Google Material Icons in `src/img/usa-icons` and `src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 
-The files in `src/stylesheets/lib` are from:
-
-- [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+The files in `src/stylesheets/lib` are from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
 #### Full license text for the MIT licensed files:
 
@@ -44,13 +54,13 @@ Additionally, we waive copyright and related rights in the work worldwide throug
 
 This is a human-readable summary of the [Legal Code (read the full text)](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 
-#### No Copyright
+#### No copyright
 
 The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
 You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
 
-#### Other Information
+#### Other information
 
 In no way are the patent or trademark rights of any person affected by CC0, nor are the rights that other persons may have in the work or in how the work is used, such as publicity or privacy rights.
 
@@ -59,3 +69,7 @@ Unless expressly stated otherwise, the person who associated a work with this de
 ### Contributions to this project
 
 As stated in [CONTRIBUTING](CONTRIBUTING.md), all contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+
+### Trademark
+
+GSA owns, reserves, and retains all rights, title, and interest in all trademarks owned by GSA. The User does not acquire any right or interest of any kind in any GSA trademark because of their use of the Modified Version or any of the modifications made to the Work by GSA.

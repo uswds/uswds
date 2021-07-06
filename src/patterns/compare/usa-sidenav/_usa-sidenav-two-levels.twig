@@ -1,4 +1,5 @@
 {% set two_levels = {
+  'aria_label': 'Secondary navigation,',
   'items': [
     {
       'label': 'Parent link'
@@ -24,5 +25,4 @@
   ]
 } %}
 
-<h4 class="padding-bottom-2">Two levels</h4>
 {% include "./components/usa-sidenav/usa-sidenav.twig" with two_levels %}

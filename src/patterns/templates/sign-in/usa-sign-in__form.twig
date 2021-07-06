@@ -1,0 +1,113 @@
+{% set settings = {
+  'en': {
+    'legend': 'Access your account',
+    'email': {
+      'label': 'Email address',
+      'input': {
+        'id': 'email',
+        'type': 'email'
+      }
+    },
+    'password': {
+      'label': 'Password',
+      'input': {
+        'id': 'password-sign-in',
+      },
+      'toggle': {
+        'title': 'Show password',
+        'aria_controls': 'password-sign-in',
+        'text': {
+          'show': 'Show password',
+          'hide': 'Hide password'
+        }
+      },
+    },
+    'submit': {
+      'label': 'Sign in',
+    },
+    'recovery': {
+      'title': 'Forgot password',
+      'label': 'Forgot password?'
+    }
+  },
+  'es': {
+    'legend': 'Acceda a su cuenta',
+    'email': {
+      'label': 'Su email',
+      'input': {
+        'id': 'email',
+        'type': 'email'
+      }
+    },
+    'password': {
+      'label': 'Contraseña',
+      'input': {
+        'id': 'password-sign-in',
+      },
+      'toggle': {
+        'title': 'Muestre la contraseña',
+        'aria_controls': 'password-sign-in',
+        'text': {
+          'show': 'Muestre la contraseña',
+          'hide': 'Esconda la contraseña'
+        }
+      },
+    },
+    'submit': {
+      'label': 'Ingrese',
+    },
+    'recovery': {
+      'title': '¿No recuerda su contraseña?',
+      'label': '¿No recuerda su contraseña?'
+    }
+  }
+} %}
+
+
+{# Defaults to english for standalone partial #}
+{% set lang = lang ? lang : 'en' %}
+
+<form class="usa-form">
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend usa-legend--large">{{ settings[lang].legend }}</legend>
+    {# Email #}
+    <label class="usa-label" for="{{ settings[lang].email.input.id }}">
+      {{ settings[lang].email.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ settings[lang].email.input.id }}"
+      name="{{ settings[lang].email.input.id }}"
+      type="{{ settings[lang].email.input.type }}"
+      autocapitalize="off"
+      autocorrect="off"
+      required
+    >
+    {# /Email #}
+    {# Password #}
+    <label class="usa-label" for="{{ settings[lang].password.input.id }}">
+      {{ settings[lang].password.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ settings[lang].password.input.id }}"
+      name="password"
+      type="password"
+      required
+    >
+    {% include "./components/_usa-password/usa-password.twig" with {
+      toggle: settings[lang].password.toggle
+    } %}
+    {# /Password #}
+    <input class="usa-button" type="submit" value="{{ settings[lang].submit.label }}">
+    {# Forgot password #}
+    <p>
+      <a
+        href="{{ placeholder_link }}"
+        title="{{ settings[lang].recovery.title }}">
+        {{ settings[lang].recovery.label }}
+      </a>
+    </p>
+    {# /Forgot password #}
+  </fieldset>
+</form>

@@ -3,8 +3,10 @@
   $preferred-text-color: "default",
   $fallback-text-color: "default",
   $wcag-target: "AA",
-  $context: false
+  $context: false,
+  $important: null
 ) {
+  $important: if($important, " !important", null);
   $accessible-color-token: get-color-token-from-bg(
     $bg-color,
     $preferred-text-color,
@@ -12,7 +14,7 @@
     $wcag-target,
     $context
   );
-  color: color($accessible-color-token);
+  color: color($accessible-color-token) #{$important};
 }
 
 @mixin set-text-and-bg(
@@ -20,15 +22,18 @@
   $preferred-text-color: "default",
   $fallback-text-color: "default",
   $wcag-target: "AA",
-  $context: false
+  $context: false,
+  $important: null
 ) {
+  $important: if($important, " !important", null);
   @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
     $wcag-target,
-    $context
+    $context,
+    $important: $important
   );
   $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
-  background-color: color($bg-color);
+  background-color: color($bg-color) #{$important};
 }

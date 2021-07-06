@@ -26,9 +26,9 @@
           </div>
         {% endif %}
 
-        <div class="usa-card__body">
+        <div class="usa-card__body {{ card.body_overrides }}">
           {% if card.content %}
-            <p>{{ card.content }}</p>
+            <p>{{ card.content | raw }}</p>
           {% endif %}
         </div>
         <div class="usa-card__footer">

@@ -80,16 +80,14 @@ $theme-footer-max-width: "desktop";
 // Form and input
 $theme-checkbox-border-radius: "sm";
 $theme-form-font-family: "ui";
+$theme-input-background-color: default;
 $theme-input-line-height: 3;
 $theme-input-max-width: "mobile-lg";
 $theme-input-select-border-width: 2px;
 $theme-input-select-size: 2.5;
 $theme-input-state-border-width: 0.5;
-$theme-input-tile-background-color-selected: "primary-lighter";
 $theme-input-tile-border-radius: "md";
 $theme-input-tile-border-width: 2px;
-$theme-input-tile-border-color: "base-lighter";
-$theme-input-tile-border-color-selected: "primary-light";
 
 // Header
 $theme-header-font-family: "ui";
@@ -117,6 +115,13 @@ $theme-modal-border-radius: "lg";
 $theme-modal-default-max-width: "mobile-lg";
 $theme-modal-lg-content-max-width: "tablet";
 $theme-modal-lg-max-width: "tablet-lg";
+
+// Pagination
+$theme-pagination-background-color: "default";
+$theme-pagination-breakpoint: "tablet";
+$theme-pagination-button-border-radius: "md";
+$theme-pagination-button-border-width: 1px;
+$theme-pagination-font-family: "ui";
 
 // Process List
 $theme-process-list-counter-background-color: "white";
