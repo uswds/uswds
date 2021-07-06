@@ -1,4 +1,3 @@
-
 /* eslint-disable no-var */
 (function uswdsInit () {
   var loadingClass = "usa-js-loading";
