@@ -1,0 +1,15 @@
+{% set inner_template = '_sign-in-multiple-inner.njk' if multiple else '_sign-in-inner.njk' %}
+
+{% if lang == "es" %}
+  {% extends 'layouts/_base/base--lang-es.njk' %}
+{% else %}
+  {% extends 'layouts/_base/base.njk' %}
+{% endif %}
+
+{% block header %}
+  {% render '@layout--header-empty' %}
+{% endblock %}
+
+{% block body %}
+  {% include 'layouts/sign-in/' + inner_template %}
+{% endblock %}

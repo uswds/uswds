@@ -1,4 +1,4 @@
-{% extends 'layouts/_base.njk' %}
+{% extends 'layouts/_base/base.njk' %}
 
 {% block body %}
 
@@ -16,7 +16,7 @@
         <main class="desktop:grid-col-9 usa-layout-docs__main usa-prose usa-layout-docs" id="main-content">
           <h1>{{ page.title }}</h1>
           <p class="usa-intro">{{ page.lead | safe }}</p>
-          <p class="usa-content">
+          <div class="usa-content">
             {{ page.body | safe }}
 
             {% render '@modal' %}
@@ -34,7 +34,7 @@
               <li>{{ list }}</li>
             {% endfor %}
             </ol>
-          </p>
+          </div>
 
           {% for spec in inner %}
           <section id="{{ spec.id }}" class="margin-top-4">

@@ -1,0 +1,73 @@
+label: Side navigation
+status: ready
+preview: "@uswds-framed"
+
+context:
+  sidenav:
+    aria: Secondary navigation
+    links: &default_links
+      - text: Parent link
+      - text: Current page
+        current: true
+        links:
+          - text: Child link
+          - text: Child link
+            current: true
+            links:
+              - text: Grandchild link
+              - text: Grandchild link
+              - text: Grandchild link
+                current: true
+              - text: Grandchild link
+          - text: Child link
+          - text: Child link
+          - text: Child link
+      - text: Parent link
+
+variants:
+  - name: default
+  - name: one-level
+    context:
+      sidenav:
+        aria: Secondary navigation,
+        links:
+          - text: Current page
+            current: true
+          - text: Parent link
+          - text: Parent link
+  - name: two-level
+    context:
+      sidenav:
+        aria: Secondary navigation,,
+        links:
+          - text: Parent link
+          - text: Current page
+            current: true
+            links:
+              - text: Child link
+              - text: Child link
+              - text: Child link
+              - text: Child link
+              - text: Child link
+                current: true
+          - text: Parent link
+  - name: three-level
+    context:
+      sidenav:
+        aria: Secondary navigation,,,
+        links:
+          - text: Parent link
+          - text: Current page
+            current: true
+            links:
+              - text: Child link
+              - text: Child link
+                links:
+                  - text: Grandchild link
+                  - text: Grandchild link
+                  - text: Grandchild link
+                    current: true
+              - text: Child link
+              - text: Child link
+              - text: Child link
+          - text: Parent link

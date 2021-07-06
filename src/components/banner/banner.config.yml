@@ -5,6 +5,7 @@ context:
   banner:
     text: "An official website of the United States government"
     action: "Here’s how you know"
+    aria_label: "Official government website"
   domain:
     tld: ".gov"
     heading: |
@@ -23,6 +24,7 @@ variants:
       banner:
         text: "Un sitio oficial del Gobierno de Estados Unidos"
         action: "Así es como usted puede verificarlo"
+        aria_label: "Un sitio oficial del Gobierno de Estados Unidos"
       domain:
         tld: ".gov"
         heading: |
@@ -36,6 +38,8 @@ variants:
           Un <strong>candado</strong> ($LOCK_IMG) o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web $TLD.  Comparta información sensible sólo en sitios web oficiales y seguros.
   - name: dot-mil
     context:
+      banner:
+        aria_label: "Official government website,"
       domain:
         tld: ".mil"
         text: |
@@ -45,6 +49,7 @@ variants:
       banner:
         text: "Un sitio oficial del Gobierno de Estados Unidos"
         action: "Así es como usted puede verificarlo"
+        aria_label: "Un sitio oficial del Gobierno de Estados Unidos,"
       domain:
         tld: ".mil"
         heading: |

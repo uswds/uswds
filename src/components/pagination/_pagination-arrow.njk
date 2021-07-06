@@ -1,0 +1,33 @@
+{#
+  The full pagination data object is passed so we can access current state, aria labels, and text labels.
+#}
+{% macro paginationArrow(direction, pagination) %}
+
+  {% set link_attrs = {
+    'href': 'javascript:void(0);',
+    'class': 'usa-pagination__link usa-pagination__'  + direction + '-page',
+    'aria_label': pagination[direction]['label'] + ' ' + pagination.page_label | lower
+  } %}
+
+  <li class="usa-pagination__item usa-pagination__arrow">
+    <a
+      href="{{ link_attrs.href }}"
+      class="{{ link_attrs.class }}"
+      aria-label="{{ link_attrs.aria_label }}"
+    >
+      {% if direction == 'previous' %}
+        <svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="../../dist/img/sprite.svg#navigate_before"></use>
+        </svg>
+      {% endif %}
+      <span class="usa-pagination__link-text">
+        {{ pagination[direction]['label'] }}
+      </span>
+      {% if direction == 'next' %}
+        <svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="../../dist/img/sprite.svg#navigate_next"></use>
+        </svg>
+      {% endif %}
+    </a>
+  </li>
+{% endmacro %}
