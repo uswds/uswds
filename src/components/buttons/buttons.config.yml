@@ -31,7 +31,7 @@ variants:
       category: alternate
       label: Accent warm buttons
       classes: "usa-button--accent-warm"
-  
+
   - name: accent-warm-outline
     context:
       category: alternate
@@ -61,18 +61,6 @@ variants:
       category: outline-inverse
       label: outline inverse buttons
       classes: "usa-button--outline usa-button--inverse"
-
-  - name: big
-    context:
-      category: "big"
-      label: Big button
-      classes: "usa-button--big"
-
-  - name: big-outline
-    context:
-      category: alternate
-      label: Secondary buttons
-      classes: "usa-button--big usa-button--outline"
 
   - name: info
     context:
@@ -121,3 +109,27 @@ variants:
       category: alternate
       label: Secondary buttons
       classes: "usa-button--success usa-button--outline"
+
+  - name: emergency
+    context:
+      category: "emergency"
+      label: Emergency button
+      classes: "usa-button--emergency"
+
+  - name: emergency-outline
+    context:
+      category: "emergency-outline"
+      label: Emergency button
+      classes: "usa-button--emergency usa-button--outline"
+
+  - name: big
+    context:
+      category: "big"
+      label: Big button
+      classes: "usa-button--big"
+
+  - name: big-outline
+    context:
+      category: alternate
+      label: Secondary buttons
+      classes: "usa-button--big usa-button--outline"
