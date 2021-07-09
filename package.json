@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.11.2",
+  "version": "2.14.0-beta.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -130,7 +130,7 @@
     "handlebars-helpers": "^0.10.0",
     "jsdom": "^16.6.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^8.4.0",
+    "mocha": "^6.2.0",
     "mq-polyfill": "^1.1.8",
     "normalize.css": "^8.0.1",
     "nyc": "^15.1.0",
