@@ -1,3 +1,0 @@
-nyc:
-  root: src/js
-  exclude: []

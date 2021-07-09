@@ -1,0 +1,8 @@
+lang: 'es'
+title: Ingrese a su cuenta
+form:
+  legend: Acceda a su cuenta
+create_account:
+  label: ¿No tiene una cuenta?
+  cta:
+    label: Cree su cuenta ahora

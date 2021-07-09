@@ -1,0 +1,9 @@
+extends:
+  - airbnb-base
+  - prettier
+plugins:
+  - import
+env:
+  node: true
+  es6: true
+  mocha: true

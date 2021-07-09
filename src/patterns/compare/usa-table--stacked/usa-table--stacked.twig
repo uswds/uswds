@@ -1,0 +1,37 @@
+{% set stacked_borderless = {
+  'modifier': 'usa-table--stacked usa-table--borderless',
+  'caption': 'Stacked borderless table (when on a <span class="text-no-wrap">mobile-width</span> screen)'
+} %}
+
+{% set stacked_bordered_header = {
+  'modifier': 'usa-table--stacked-header',
+  'caption': 'Stacked bordered table with headers (when on a mobile-width screen)'
+} %}
+
+{% set stacked_borderless_header = {
+  'modifier': 'usa-table--stacked-header usa-table--borderless',
+  'caption': 'Stacked borderless table with headers (when on a mobile-width screen)'
+
+} %}
+
+<div class="table-example-container">
+  {% include "./components/usa-table/usa-table--stacked.twig" with {
+    'caption': 'Stacked bordered table (when on a mobile-width screen)'
+  } %}
+
+  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_borderless %}
+
+  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_bordered_header %}
+
+  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_borderless_header %}
+</div>
+
+<style scoped>
+  .table-example-container {
+    display: flex;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+</style>

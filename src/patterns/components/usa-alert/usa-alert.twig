@@ -1,8 +1,12 @@
 <div class="usa-alert {{ modifier }}" {% if role %}role="{{ role }}"{% endif %}>
   <div class="usa-alert__body">
     {%- if title %}
-      <h3 class="usa-alert__heading">{{ title }}</h3>
+      <h4 class="usa-alert__heading">{{ title }}</h4>
     {%- endif %}
-    <p class="usa-alert__text">{{ text }}</p>
+    <p class="usa-alert__text">
+      {% autoescape false %}
+        {{ text }}
+      {% endautoescape %}
+    </p>
   </div>
 </div>

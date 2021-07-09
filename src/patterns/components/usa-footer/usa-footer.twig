@@ -1,10 +1,10 @@
 <footer class="usa-footer {% if modifier %} {{- modifier -}} {% endif %}">
   <div class="grid-container usa-footer__return-to-top">
-    <a href="#">Return to top</a>
+    <a href="#">{{ footer.return_to_top | default('Return to top') }}</a>
   </div>
   <div class="usa-footer__primary-section">
     {% block primary %}
-      {% include "@components/usa-footer/_usa-footer-nav-primary.twig" %}
+      {% include "./components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
     {% endblock %}
   </div>
   <div class="usa-footer__secondary-section">
@@ -13,16 +13,16 @@
         <div class="grid-row grid-gap">
           <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
             <div class="mobile-lg:grid-col-auto">
-              <img class="usa-footer__logo-img" src="{{ uswds.path }}/img/logo-img.png" alt="">
+              <img class="usa-footer__logo-img" src="{{ img_path }}/logo-img.png" alt="">
             </div>
             <div class="mobile-lg:grid-col-auto">
-              <h3 class="usa-footer__logo-heading">
+              <p class="usa-footer__logo-heading">
                 {{ agency_contact_info.name }}
-              </h3>
+              </p>
             </div>
           </div>
           <div class="usa-footer__contact-links mobile-lg:grid-col-6">
-            {% include "@components/usa-footer/_usa-social-nav.twig" %}
+            {% include "./components/usa-footer/_includes/usa-social-nav.twig" %}
 
             <h3 class="usa-footer__contact-heading">
               {{ agency_contact_info.title }}

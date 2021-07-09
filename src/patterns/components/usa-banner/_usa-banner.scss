@@ -1,22 +1,32 @@
+$banner-context: "Banner";
 $banner-guidance-measure: 3;
-$banner-icon-colors: get-link-tokens-from-bg($theme-banner-background-color, $theme-banner-link-color);
+$banner-icon-colors: get-link-tokens-from-bg(
+  $theme-banner-background-color,
+  $theme-banner-link-color,
+  $context: $banner-context
+);
 $banner-icon-color: nth($banner-icon-colors, 1);
 $banner-icon-hover: nth($banner-icon-colors, 2);
-$banner-icon-chevron: ("name": "chevron",
-  "svg-height": 39,
-  "svg-width": 64,
-  "height": 0.8ex,
+$banner-icon-chevron: (
+  "name": "expand_more",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 2,
   "color": $banner-icon-color,
   "color-variant": "white",
   "color-hover": $banner-icon-hover,
 );
-$banner-icon-chevron-up: map-merge($banner-icon-chevron,
-  ("rotate": 180deg,
-  ));
-$banner-icon-close: ("name": "close-alt",
+$banner-icon-chevron-up: map-merge(
+  $banner-icon-chevron,
+  (
+    "name": "expand_less",
+  )
+);
+$banner-icon-close: (
+  "name": "close",
   "svg-height": 40,
   "svg-width": 40,
-  "height": $theme-icon-image-size,
+  "height": 3,
   "color": "blue-60v",
   "color-variant": "white",
   "container-height": $size-touch-target,
@@ -40,7 +50,10 @@ $banner-icon-close: ("name": "close-alt",
 
 .usa-banner__header,
 .usa-banner__content {
-  @include set-text-from-bg($theme-banner-background-color);
+  @include set-text-from-bg(
+    $theme-banner-background-color,
+    $context: $banner-context
+  );
 }
 
 .usa-banner__content {
@@ -84,7 +97,6 @@ $banner-icon-close: ("name": "close-alt",
 
   height: $icon-height;
   width: $icon-height * $lock-aspect;
-
   path {
     fill: currentColor;
   }
@@ -122,13 +134,18 @@ $banner-icon-close: ("name": "close-alt",
 }
 
 .usa-banner__header-action {
-  @include place-icon($banner-icon-chevron,
+  @include place-icon(
+    $banner-icon-chevron,
     "after",
-    2px,
+    0,
     middle,
-    $theme-banner-background-color);
-  @include set-link-from-bg($theme-banner-background-color,
-    $theme-banner-link-color);
+    $theme-banner-background-color
+  );
+  @include set-link-from-bg(
+    $theme-banner-background-color,
+    $theme-banner-link-color,
+    $context: $banner-context
+  );
 
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
@@ -185,8 +202,11 @@ $banner-icon-close: ("name": "close-alt",
   @include u-pin("left");
   @include u-pin("y");
   @include u-text("primary", underline, baseline);
-  @include set-link-from-bg($theme-banner-background-color,
-    $theme-banner-link-color);
+  @include set-link-from-bg(
+    $theme-banner-background-color,
+    $theme-banner-link-color,
+    $context: $banner-context
+  );
   display: block;
   font-size: font-size($theme-banner-font-family, 1);
   height: auto;
@@ -201,17 +221,26 @@ $banner-icon-close: ("name": "close-alt",
   }
 
   @include at-media("tablet") {
-    @include place-icon($banner-icon-chevron,
+    @include place-icon(
+      $banner-icon-chevron,
       "after",
-      2px,
+      "2px",
       middle,
-      $theme-banner-background-color);
-    @include set-link-from-bg($theme-banner-background-color,
-      $theme-banner-link-color);
+      $theme-banner-background-color
+    );
+    @include set-link-from-bg(
+      $theme-banner-background-color,
+      $theme-banner-link-color,
+      $context: $banner-context
+    );
     @include u-pin("none");
     display: inline;
     margin-left: units(1);
     position: relative;
+
+    &:after {
+      position: absolute;
+    }
 
     &:hover {
       // Underline added to inner text instead.
@@ -227,14 +256,15 @@ $banner-icon-close: ("name": "close-alt",
     background-image: none;
 
     @include at-media-max("tablet") {
-      @include place-icon($banner-icon-close,
+      @include place-icon(
+        $banner-icon-close,
         "after",
         0,
         middle,
         "base-lighter"
       );
 
-      &::before {
+      &:before {
         @include u-pin("y");
         @include u-pin("right");
         background-color: color("base-lighter");
@@ -243,22 +273,27 @@ $banner-icon-close: ("name": "close-alt",
         height: units($size-touch-target);
         width: units($size-touch-target);
       }
-
-      &::after {
+      &:after {
         @include u-pin("y");
         @include u-pin("right");
       }
     }
 
     @include at-media("tablet") {
-      @include place-icon($banner-icon-chevron-up,
+      @include place-icon(
+        $banner-icon-chevron-up,
         "after",
-        2px,
+        "2px",
         middle,
-        $theme-banner-background-color);
+        $theme-banner-background-color
+      );
       height: auto;
       padding: units(0);
       position: relative;
+
+      &:after {
+        position: absolute;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-section_label: 'Search'
+section_label: 'Search component'
 modifier: ''
 search_js: false
 id: 'search-field'

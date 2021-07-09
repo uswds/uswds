@@ -1,8 +1,3 @@
-<section class="usa-skipnav__container">
-  <a class="usa-skipnav usa-focus" href="#main-content">Skip to main content</a>
-
-  <main id="main-content" class="margin-top-9">
-    <h1>Skipnav</h1>
-    <p>Skipnav's allow users who navigate with their keyboard to jump straight to content.</p>
-  </main>
-</section>
+<a class="usa-skipnav {{ focus ? "usa-focus" }}" href="{{ href | default(contentID) }}">
+  {{ label | default("Skip to main content") }}
+</a>

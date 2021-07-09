@@ -21,7 +21,7 @@ loop
   $important: if($utilities-use-important, " !important", null);
   $this-mq: null;
 
-  .#{$media-prefix}#{$pseudoclass}\:#{ns("utility")}#{$selector}:#{$pseudoclass} {
+  .#{$media-prefix}#{$pseudoclass}#{$separator}#{ns("utility")}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -63,7 +63,7 @@ future version of Sass' warning.
   $value-is-map: if(type-of($val-props) == "map", true, false);
 
   @if $media-key {
-    $media-prefix: #{$media-key}\:;
+    $media-prefix: #{$media-key}#{$separator};
   }
 
   .#{$media-prefix}#{ns("utility")}#{$selector} {

@@ -33,6 +33,14 @@ $ns-grid: ns("grid");
 
 /*
 ----------------------------------------
+Separator
+----------------------------------------
+*/
+
+$separator: $theme-prefix-separator;
+
+/*
+----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -406,7 +414,7 @@ $assignments-theme-color: (
   "base-dark": $theme-color-base-dark,
   "base-darker": $theme-color-base-darker,
   "base-darkest": $theme-color-base-darkest,
-  "ink": $theme-color-base-darkest,
+  "ink": $theme-color-base-ink,
   "primary-lightest": $theme-color-primary-lightest,
   "primary-lighter": $theme-color-primary-lighter,
   "primary-light": $theme-color-primary-light,
@@ -557,6 +565,18 @@ $color-palette-grayscale: $system-color-gray;
 
 /*
 ----------------------------------------
+System magic numbers for color contrast
+----------------------------------------
+*/
+
+$system-wcag-magic-numbers: (
+  "AA": 50,
+  "AAA": 70,
+  "AA-large": 40,
+);
+
+/*
+----------------------------------------
 Build the project type scale map
 ----------------------------------------
 */
@@ -625,6 +645,7 @@ $grid-global: "";
 Aspect Ratios
 ----------------------------------------
 */
+
 $project-aspect-ratios: (
   "9x16": 177.77778%,
   "16x9": 56.25%,
@@ -642,4 +663,18 @@ $project-aspect-ratios: (
 Easing
 ----------------------------------------
 */
-$project-easing: 0.2s ease-in-out;
+$project-easing: 0.15s ease-in-out;
+
+/*
+----------------------------------------
+Project defaults
+----------------------------------------
+*/
+
+$project-defaults: (
+  "bg-color": $theme-body-background-color,
+  "preferred-text-token": $theme-text-reverse-color,
+  "fallback-text-token": $theme-text-color,
+  "preferred-link-token": $theme-link-reverse-color,
+  "fallback-link-token": $theme-link-color,
+);

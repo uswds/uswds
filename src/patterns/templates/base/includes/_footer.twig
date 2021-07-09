@@ -1,0 +1,25 @@
+{% set defaults = {
+  'footer': {
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'}
+        ]
+      }
+    }
+  }
+} %}
+
+{% set settings = {
+  'en': defaults,
+  'es': defaults|merge({
+    'footer': {
+      'return_to_top': 'Subir'
+    }
+  })
+} %}
+
+{% include "./components/usa-footer/usa-footer.twig" with settings[lang] %}

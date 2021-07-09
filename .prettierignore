@@ -1,5 +1,3 @@
-*.html
-*.njk
 *.woff*
 *.svg
 *.ttf
@@ -8,3 +6,4 @@
 *.gif
 *.md
 *.twig
+src/patterns/stylesheets/lib/

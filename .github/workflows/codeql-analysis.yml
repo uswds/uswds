@@ -5,22 +5,22 @@ on:
     branches:
       [
         develop,
-        master,
+        main,
         v1-develop,
         v1-master,
-        v2.10-beta--develop,
-        v2.10-beta--main,
+        library--develop,
+        library--main,
       ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
       [
         develop,
-        master,
+        main,
         v1-develop,
         v1-master,
-        v2.10-beta--develop,
-        v2.10-beta--main,
+        library--develop,
+        library--main,
       ]
   schedule:
     - cron: "0 21 * * 1"

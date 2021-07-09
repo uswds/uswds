@@ -72,8 +72,6 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__calendar-date {
-  @include u-radius("sm");
-  border: 1px solid color("primary");
   text-decoration: none;
 }
 
@@ -91,11 +89,14 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__calendar-date-month {
+  @include u-radius-top("sm");
   background-color: color("primary");
   color: color("white");
 }
 
 .usa-collection__calendar-date-day {
+  @include u-radius-bottom("sm");
+  border: 1px solid color("primary");
   color: color("primary");
 }
 

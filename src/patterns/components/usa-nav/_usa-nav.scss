@@ -9,7 +9,7 @@
 $nav-link-color: "base-dark";
 $sliding-panel-width: "card-lg";
 $nav-link-accordion-icon-size: 2.5;
-$nav-link-arrow-icon-size: 1;
+$nav-link-arrow-icon-size: 2;
 
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
@@ -66,7 +66,6 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav__primary {
-
   // Until the $theme-header-width,
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-header-min-width) {
@@ -92,7 +91,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   // just level 1 nav items...
-  >.usa-nav__primary-item {
+  > .usa-nav__primary-item {
     line-height: line-height($theme-navigation-font-family, 2);
 
     @include at-media($theme-header-min-width) {
@@ -101,7 +100,7 @@ $nav-link-arrow-icon-size: 1;
     }
 
     // ...and their direct links
-    >a {
+    > a {
       @include at-media($theme-header-min-width) {
         @include primary-nav-link;
         color: color($nav-link-color);
@@ -154,14 +153,16 @@ $nav-link-arrow-icon-size: 1;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("angle-arrow-down");
+        @include add-background-svg("usa-icons/expand_more");
         background-size: units($nav-link-arrow-icon-size);
-        background-position: right units(2) top $button-vertical-offset;
+        background-position: right units(1.5) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-header-min-width) {
-          @include add-background-svg("angle-arrow-down-primary");
+          @include add-background-svg(
+            "usa-icons-bg/expand_more--blue-warm-70v"
+          );
         }
       }
     }
@@ -173,11 +174,11 @@ $nav-link-arrow-icon-size: 1;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("angle-arrow-up-white");
+        @include add-background-svg("usa-icons-bg/expand_less--white");
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color("primary-darker");
-        background-position: right units(2) top $button-vertical-offset;
+        background-position: right units(1.5) top $button-vertical-offset;
         color: color("white");
       }
     }
@@ -200,11 +201,14 @@ $nav-link-arrow-icon-size: 1;
   margin-top: units(2);
 
   @include at-media($theme-header-min-width) {
-    // Note: Previius calc() couldn't work. don't hardcode rem vals
+    @include u-flex("column", "align-end");
     bottom: units(8); // XXX magic number
+    display: flex;
     font-size: font-size($theme-navigation-font-family, "2xs");
     margin-top: units(1);
-    min-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
+    min-width: calc(
+      #{$theme-search-min-width} + #{units($theme-button-small-width)}
+    );
     position: absolute;
     right: units($theme-site-margins-width);
   }
@@ -237,7 +241,7 @@ $nav-link-arrow-icon-size: 1;
       display: inline;
       padding-left: units(0.5);
 
-      &+.usa-nav__secondary-item::before {
+      & + .usa-nav__secondary-item::before {
         color: color("base-lighter");
         content: "|";
         padding-right: units(0.5);
@@ -281,7 +285,7 @@ $nav-link-arrow-icon-size: 1;
 
   .usa-nav__submenu-item {
     @include at-media($theme-header-min-width) {
-      &+* {
+      & + * {
         margin-top: units(1.5);
       }
 
@@ -336,10 +340,10 @@ $nav-link-arrow-icon-size: 1;
   }
 
   img {
-    width: units(1.5);
+    width: units(3);
   }
 
-  +* {
+  + * {
     clear: both;
   }
 }

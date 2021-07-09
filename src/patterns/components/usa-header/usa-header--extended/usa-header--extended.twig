@@ -1,11 +1,10 @@
 <div class="usa-overlay"></div>
 <header class="usa-header {{ modifier }}">
-  {% include "@components/usa-site-title/usa-site-title.twig" %}
-
-  <nav aria-label="Primary navigation" class="usa-nav">
+  {% include "./components/usa-header/_includes/usa-navbar.twig" %}
+  <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
     <div class="usa-nav__inner">
-      {% include "@components/usa-nav/usa-nav__primary/usa-nav__primary.twig" %}
-      {% include "@components/usa-nav/usa-nav__secondary/usa-nav__secondary.twig" with { search: true } %}
+      {% include "./components/usa-nav/usa-nav__primary/usa-nav__primary.twig" %}
+      {% include "./components/usa-nav/usa-nav__secondary/usa-nav__secondary.twig" with { search: true } %}
     </div>
   </nav>
 </header>

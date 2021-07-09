@@ -1,9 +1,16 @@
+$summary-box-context: "Summary Box";
+
 .usa-summary-box {
   @include typeset($theme-summary-box-font-family);
   @include border-box-sizing;
-  @include set-text-and-bg($theme-summary-box-background-color, $theme-summary-box-text-color);
+  @include set-text-and-bg(
+    $theme-summary-box-background-color,
+    $theme-summary-box-text-color,
+    $context: $summary-box-context
+  );
   @include u-radius($theme-summary-box-border-radius);
-  border: $theme-summary-box-border-width color($theme-summary-box-border-color) solid;
+  border: $theme-summary-box-border-width color($theme-summary-box-border-color)
+    solid;
   padding: units(3);
   position: relative;
 
@@ -16,11 +23,6 @@
   * + & {
     margin-top: units(2);
   }
-}
-
-.usa-summary-box__body {
-  display: table-cell;
-  vertical-align: top;
 }
 
 .usa-summary-box__heading {
@@ -39,15 +41,20 @@
 }
 
 .usa-summary-box__link {
-  @include set-link-from-bg($theme-summary-box-background-color, $theme-summary-box-link-color);
-
+  @include set-link-from-bg(
+    $theme-summary-box-background-color,
+    $theme-summary-box-link-color,
+    $context: $summary-box-context
+  );
   &[href^="#"] {
-    $link-tokens: get-link-tokens-from-bg($theme-summary-box-background-color, $theme-summary-box-link-color);
-
+    $link-tokens: get-link-tokens-from-bg(
+      $theme-summary-box-background-color,
+      $theme-summary-box-link-color,
+      $context: $summary-box-context
+    );
     &:visited {
       color: color(nth($link-tokens, 1));
     }
-
     &:hover {
       color: color(nth($link-tokens, 2));
     }

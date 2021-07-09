@@ -1,4 +1,4 @@
-<section class="usa-site-alert {{ modifier }}" aria-label="Site alert">
+<section class="usa-site-alert {{ modifier }}" aria-label="{{ aria_label }}">
   <div class="usa-alert">
     <div class="usa-alert__body">
       {%- if title %}
@@ -6,11 +6,11 @@
       {%- endif %}
 
       {%- if list %}
-        {{ list }}
+        {{ list|raw }}
       {%- endif %}
 
       {%- if text %}
-        <p class="usa-alert__text">{{ text }}</p>
+        <p class="usa-alert__text">{{ text|raw }}</p>
       {%- endif %}
     </div>
   </div>
