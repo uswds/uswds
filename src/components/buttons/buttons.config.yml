@@ -110,18 +110,6 @@ variants:
       label: Secondary buttons
       classes: "usa-button--success usa-button--outline"
 
-  - name: emergency
-    context:
-      category: "emergency"
-      label: Emergency button
-      classes: "usa-button--emergency"
-
-  - name: emergency-outline
-    context:
-      category: "emergency-outline"
-      label: Emergency button
-      classes: "usa-button--emergency usa-button--outline"
-
   - name: big
     context:
       category: "big"
