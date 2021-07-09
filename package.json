@@ -3,8 +3,7 @@
   "version": "2.14.0-beta.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
-    "node": ">= 14",
-    "npm": "~6.14"
+    "node": ">= 4"
   },
   "keywords": [
     "ui",
