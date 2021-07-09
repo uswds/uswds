@@ -2,6 +2,9 @@
 
 $button-context: "Button";
 $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
+$button-inverse-color: $theme-link-reverse-color;
+$button-inverse-hover-color: $theme-link-reverse-hover-color;
+$button-inverse-active-color: $theme-link-reverse-active-color;
 
 // Buttons
 
@@ -79,30 +82,16 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 }
 
-.usa-button.usa-button--outline {
+.usa-button--outline {
   @extend %usa-button-outline-primary;
-
-  &.usa-button--unstyled {
-    box-shadow: none;
-    color: color("primary");
-  }
 }
 
-.usa-button--outline.usa-button--inverse {
-  $button-inverse-color: $theme-link-reverse-color;
-  $button-inverse-hover-color: $theme-link-reverse-hover-color;
-  $button-inverse-active-color: $theme-link-reverse-active-color;
-
+.usa-button--inverse {
   @include button-outline(
     $button-inverse-color,
     $button-inverse-hover-color,
     $button-inverse-active-color
   );
-
-  &.usa-button--unstyled {
-    color: color($button-inverse-color);
-    box-shadow: none;
-  }
 }
 
 .usa-button--big {
@@ -143,4 +132,26 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 .usa-button--unstyled {
   @include button-unstyled;
+
+  &.usa-button--outline {
+    @include button-unstyled;
+  }
+
+  &.usa-button--outline.usa-button--inverse {
+    color: color($button-inverse-color);
+
+    &:visited {
+      color: color($button-inverse-color);
+    }
+
+    &:hover,
+    &.usa-button--hover {
+      color: color($button-inverse-hover-color);
+    }
+
+    &:active,
+    &.usa-button--active {
+      color: color($button-inverse-active-color);
+    }
+  }
 }
