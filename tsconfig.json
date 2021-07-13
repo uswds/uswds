@@ -8,7 +8,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "lib": ["es6", "DOM"],
-    "types": ["node"]
+    "types": ["node"],
+    "experimentalDecorators": true,
   },
-  "include": ["src/js/utils/select.js"]
+  "include": ["src/js/utils/select.js", "src/stories/**/*"]
 }

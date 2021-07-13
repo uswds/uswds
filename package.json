@@ -57,7 +57,9 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
-    "prettier:templates": "npx prettier --write './build/components/render/*.html'"
+    "prettier:templates": "npx prettier --write './build/components/render/*.html'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",
@@ -92,18 +94,26 @@
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
     "domready": "^1.0.8",
+    "lit-element": "^2.5.1",
+    "lit-html": "^1.4.1",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
     "@frctl/fractal": "^1.5.8",
     "@frctl/nunjucks": "^2.0.10",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/web-components": "^6.3.4",
     "@types/node": "^14.17.3",
     "ansi-colors": "^4.1.1",
     "autoprefixer": "^10.2.5",
     "axe-core": "^4.2.0",
+    "babel-loader": "^8.2.2",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "chrome-launcher": "^0.14.0",
