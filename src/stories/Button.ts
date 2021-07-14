@@ -36,10 +36,12 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
   const buttonMode = mode ? `usa-button--${mode}` : null
   const buttonSize = size ? `usa-button--${size}` : null
   const buttonAccent = accent ? `usa-button--${accent}` : null
-  const buttonVariant = variant ? variant.map((v) => `usa-button--${v}`).join(' ') : false
+  const buttonVariant = variant ? variant.map((v) => `usa-button--${v}`).join(' ') : null
 
   const handleButtonVariants = () => {
-    return [buttonMode, buttonSize, buttonAccent, buttonVariant].join('')
+    const VariantList = [buttonMode, buttonSize, buttonAccent, buttonVariant]
+    const ClassList:string = VariantList.indexOf(null) === -1 ? 'usa-button' : ['usa-button', VariantList.filter((v) => v !== null)].join(' ')
+    return ClassList
   }
 
   const includeWrapper = variant?.includes('outline') && variant?.includes('inverse') ? true : false
@@ -54,13 +56,12 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
   }
 
   return html`
-    ${ buttonVariant
-        && buttonVariant.includes(`usa-button--outline usa-button--inverse`)
+    ${ includeWrapper
         ? html`
         <div class=${classMap(wrapperClasses)} style=${includeWrapper && styleMap(wrapperStyles)}>
           <button
             type="button"
-            class="usa-button ${handleButtonVariants()}"
+            class=${handleButtonVariants()}
             @click=${onClick}
           >
             ${label}
@@ -69,7 +70,7 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
         : html`
         <button
           type="button"
-          class="usa-button ${handleButtonVariants()}"
+          class=${handleButtonVariants()}
           @click=${onClick}
         >
           ${label}

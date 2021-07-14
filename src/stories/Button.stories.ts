@@ -3,7 +3,6 @@ import Button, { ButtonProps } from './Button';
 
 export default {
   title: 'Example/Button',
-  component: "usa-button", // how to get this from lit-html
   argTypes: {
     onClick: { action: 'onClick' },
   },
