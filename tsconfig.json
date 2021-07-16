@@ -7,9 +7,12 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "lib": ["es6", "DOM"],
+    "lib": ["es2020", "DOM"],
     "types": ["node"],
     "experimentalDecorators": true,
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
   },
   "include": ["src/js/utils/select.js", "src/stories/**/*"]
 }

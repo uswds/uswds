@@ -94,6 +94,7 @@
     "classlist-polyfill": "^1.0.3",
     "del": "^6.0.0",
     "domready": "^1.0.8",
+    "lit": "^2.0.0-rc.2",
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",
     "object-assign": "^4.1.1",
