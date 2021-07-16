@@ -40,7 +40,8 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
 
   const handleButtonVariants = () => {
     const VariantList = [buttonMode, buttonSize, buttonAccent, buttonVariant]
-    const ClassList:string = VariantList.indexOf(null) === -1 ? 'usa-button' : ['usa-button', VariantList.filter((v) => v !== null)].join(' ')
+    const ClassList:string = VariantList.indexOf(null) === -1 ? 'usa-button'
+      : ['usa-button', VariantList.filter((v) => v !== null)].join(' ')
     return ClassList
   }
 
@@ -58,7 +59,9 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
   return html`
     ${ includeWrapper
         ? html`
-        <div class=${classMap(wrapperClasses)} style=${includeWrapper && styleMap(wrapperStyles)}>
+        <div
+          class=${classMap(wrapperClasses)}
+          style=${includeWrapper && styleMap(wrapperStyles)}>
           <button
             type="button"
             class=${handleButtonVariants()}
@@ -80,52 +83,3 @@ const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) =>
 };
 
 export default Button //TODO: need to convert to lit-element
-
-// .usa-button--secondary
-
-// Button uses secondary color.
-
-// .usa-button--accent-cool
-
-// Button uses accent-cool color.
-
-// .usa-button--accent-warm
-
-// Button uses accent-warm color.
-
-// .usa-button--base
-
-// Button uses base color.
-
-// .usa-button--outline
-
-// Transparent button with a color stroke.
-
-// .usa-button--inverse
-
-// Light color button for dark backgrounds.
-
-// .usa-button--big
-
-// A bigger button.
-
-// .usa-button--unstyled
-
-// A button that looks like a link.
-
-// {%- if (classes == 'usa-button--outline usa-button--inverse') -%}
-// <div class="bg-base-darkest padding-1" style="max-width: fit-content">
-// {% endif -%}
-
-// <button class="usa-button {{ classes }}">Default</button>
-// {% if (category != 'disabled') and (category != 'big') -%}
-// <button class="usa-button {{ classes }} usa-button--hover">Hover</button>
-// <button class="usa-button {{ classes }} usa-button--active">Active</button>
-// <button class="usa-button {{ classes }} usa-focus">Focus</button>
-// <button class="usa-button {{ classes }}" disabled>Disabled</button>
-// {%- endif -%}
-// <button class="usa-button {{ classes }} usa-button--unstyled">Unstyled button</button>
-
-// {%- if (classes == 'usa-button--outline usa-button--inverse') %}
-// </div>
-// {%- endif %}

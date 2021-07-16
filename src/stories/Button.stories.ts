@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/web-components';
 import Button, { ButtonProps } from './Button';
 
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   argTypes: {
     onClick: { action: 'onClick' },
   },
@@ -10,29 +10,29 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => Button({...args, label: 'Button'});
 
-export const Primary = Template.bind({});
+export const Primary: Story<ButtonProps> = Template.bind({});
 
-export const Secondary = Template.bind({});
+export const Secondary: Story<ButtonProps> = Template.bind({});
 Secondary.args = {
   mode: 'secondary',
 };
 
-export const Big = Template.bind({});
+export const Big: Story<ButtonProps> = Template.bind({});
 Big.args = {
   size: 'big',
 };
 
-export const Cool = Template.bind({});
+export const Cool: Story<ButtonProps> = Template.bind({});
 Cool.args = {
   accent: 'cool',
 };
 
-export const Variant = Template.bind({});
+export const Variant: Story<ButtonProps> = Template.bind({});
 Variant.args = {
   variant: ['base'],
 };
 
-export const Exception = Template.bind({});
+export const Exception: Story<ButtonProps> = Template.bind({});
 Exception.args = {
-  variant: ['outline', 'inverse'],
+  variant: ['outline', 'inverse'], // TODO: not type safe...
 };
