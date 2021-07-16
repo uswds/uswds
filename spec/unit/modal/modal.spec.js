@@ -89,7 +89,7 @@ describe("Modal window", () => {
     });
 
     it("makes all other page content invisible to screen readers", () => {
-      const activeContent = document.querySelectorAll('body > :not([aria-hidden])');
+      const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
       assert.strictEqual(activeContent.length, 1);
       assert.strictEqual(activeContent[0], modalWrapper);
     });
@@ -118,10 +118,10 @@ describe("Modal window", () => {
 
     it("restores other page content screen reader visibility", () => {
       closeButton.click();
-      const activeContent = document.querySelectorAll('body > :not([aria-hidden])');
-      const staysHidden = document.getElementById('stays-hidden');
+      const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
+      const staysHidden = document.getElementById("stays-hidden");
       assert.strictEqual(activeContent.length, 4);
-      assert.strictEqual(staysHidden.hasAttribute('aria-hidden'), true);
+      assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
     });
   });
 });
