@@ -2,7 +2,6 @@ import { html } from 'lit-html'
 import {classMap} from 'lit-html/directives/class-map.js';
 import {styleMap} from 'lit-html/directives/style-map.js';
 import './button.css'
-import '../../dist/css/uswds.min.css';
 
 export interface ButtonProps {
   /**
