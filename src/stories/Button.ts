@@ -2,6 +2,7 @@ import { html } from 'lit-html'
 import {classMap} from 'lit-html/directives/class-map.js';
 import {styleMap} from 'lit-html/directives/style-map.js';
 import './button.css'
+import '../../dist/css/uswds.min.css';
 
 export interface ButtonProps {
   /**
@@ -35,7 +36,7 @@ export interface ButtonProps {
 const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) => {
   const buttonMode = mode ? `usa-button--${mode}` : null
   const buttonSize = size ? `usa-button--${size}` : null
-  const buttonAccent = accent ? `usa-button--${accent}` : null
+  const buttonAccent = accent ? `usa-button--accent-${accent}` : null
   const buttonVariant = variant ? variant.map((v) => `usa-button--${v}`).join(' ') : null
 
   const handleButtonVariants = () => {
