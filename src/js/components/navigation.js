@@ -1,3 +1,4 @@
+const keymap = require("receptor/keymap");
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const toggle = require("../utils/toggle");
@@ -26,8 +27,13 @@ let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
-const INITIAL_PADDING = window.getComputedStyle(document.body).getPropertyValue('padding-right');
-const TEMPORARY_PADDING = parseInt(INITIAL_PADDING.replace(/px/,""), 10) + parseInt(SCROLLBAR_WIDTH.replace(/px/,""), 10) + "px";
+const INITIAL_PADDING = window
+  .getComputedStyle(document.body)
+  .getPropertyValue("padding-right");
+const TEMPORARY_PADDING = `${
+  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
+  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+}px`;
 
 const toggleNav = (active) => {
   const { body } = document;
@@ -43,8 +49,11 @@ const toggleNav = (active) => {
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
-  
-  body.style.paddingRight = body.style.paddingRight === TEMPORARY_PADDING ? INITIAL_PADDING : TEMPORARY_PADDING;
+
+  body.style.paddingRight =
+    body.style.paddingRight === TEMPORARY_PADDING
+      ? INITIAL_PADDING
+      : TEMPORARY_PADDING;
 
   if (safeActive && closeButton) {
     // The mobile nav was just activated, so focus on the close button,
@@ -79,6 +88,10 @@ const resize = () => {
 
 const onMenuClose = () => navigation.toggleNav.call(navigation, false);
 const hideActiveNavDropdown = () => {
+  if (!navActive) {
+    return;
+  }
+
   toggle(navActive, false);
   navActive = null;
 };
@@ -88,14 +101,12 @@ navigation = behavior(
     [CLICK]: {
       [NAV_CONTROL]() {
         // If another nav is open, close it
-        if (navActive && navActive !== this) {
+        if (navActive !== this) {
           hideActiveNavDropdown();
         }
         // store a reference to the last clicked nav link element, so we
         // can hide the dropdown if another element on the page is clicked
-        if (navActive) {
-          hideActiveNavDropdown();
-        } else {
+        if (!navActive) {
           navActive = this;
           toggle(navActive, true);
         }
@@ -103,11 +114,7 @@ navigation = behavior(
         // Do this so the event handler on the body doesn't fire
         return false;
       },
-      [BODY]() {
-        if (navActive) {
-          hideActiveNavDropdown();
-        }
-      },
+      [BODY]: hideActiveNavDropdown,
       [OPENERS]: toggleNav,
       [CLOSERS]: toggleNav,
       [NAV_LINKS]() {
@@ -128,6 +135,9 @@ navigation = behavior(
           navigation.toggleNav.call(navigation, false);
         }
       },
+    },
+    keydown: {
+      [BODY]: keymap({ Escape: hideActiveNavDropdown }),
     },
   },
   {

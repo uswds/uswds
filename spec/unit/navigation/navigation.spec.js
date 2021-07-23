@@ -7,6 +7,13 @@ const accordion = require("../../../src/js/components/accordion");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 
+const escKey = (el) => {
+  el.dispatchEvent(new KeyboardEvent("keydown", {
+    key: "Escape",
+    bubbles: true
+  }));
+};
+
 describe("navigation toggle", () => {
   const { body } = document;
 
@@ -76,6 +83,12 @@ describe("navigation toggle", () => {
     menuButton.click();
     navLink.click();
     assert.strictEqual(isVisible(nav), false);
+  });
+
+  it("hides the nav when the Escape key is hit", () => {
+    menuButton.click();
+    escKey(body);
+    assert.strictEqual(isVisible(nav), false)
   });
 
   it("focuses the close button when the menu button is clicked", () => {
