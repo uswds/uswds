@@ -1,8 +1,8 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
-
+import Styles from './_button.scss'
 
 @customElement('usa-button')
 export class ButtonComponent extends LitElement {
@@ -35,7 +35,11 @@ export class ButtonComponent extends LitElement {
   /**
    * Optional click handler
    */
-  @property({type: Function}) onClick?: () => void
+  @property() onClick?: () => void
+
+static get styles() {
+		return [Styles];
+  }
 
   render() { // Defines a template to be "rendered" as part of the component.
     const buttonMode = this.mode ? `usa-button--${this.mode}` : null
@@ -68,8 +72,8 @@ export class ButtonComponent extends LitElement {
           ? html`
           <div
             class=${classMap(wrapperClasses)}
-            style=${includeWrapper && styleMap(wrapperStyles)}>
-            <button
+            .style=${includeWrapper && styleMap(wrapperStyles)}>
+              <button
               type="button"
               class=${handleButtonVariants()}
               @click=${this.onClick}

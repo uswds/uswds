@@ -1,26 +1,33 @@
 import { Story, Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import ButtonComponent from './usa-button';
+import { ButtonComponent } from './usa-button';
+import './usa-button';
 
 export default {
   title: 'Components/ButtonComponent',
   component: 'usa-button',
+  args: {
+    label: "Button"
+  },
   argTypes: {
     onClick: { action: 'onClick' },
   },
 } as Meta;
 
-const Template: Story<ButtonComponent> = ({mode, onClick, variant, label='Button'}) =>
+
+const Template: Story<ButtonComponent> = ({ variant, mode, label, onClick}) =>
   html`<usa-button
-    .variant=${ifDefined(variant)}
-    .mode=${ifDefined(mode)}
-    @click=${onClick}>${ifDefined(label)}</usa-button>`;
+    .label=${label}
+    .variant=${variant}
+    .mode=${mode}
+    @click=${onClick}/>`;
 
 export const Primary: Story<ButtonComponent> = Template.bind({});
-
-export const Secondary: Story<ButtonComponent> = Template.bind({});
-Secondary.args = {
-  mode: 'secondary',
+Primary.args = {
+  accent: 'cool',
 };
 
+export const Variant: Story<ButtonComponent> = () =>
+  html`<usa-button
+    .label=${"Variant Example"}
+    .mode=${'secondary'} />`
