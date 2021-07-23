@@ -13,6 +13,15 @@
     "target": "es2020",
     "module": "es2020",
     "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
   },
-  "include": ["src/js/utils/select.js", "src/stories/**/*"]
+  "exclude": [
+      "node_modules",
+    ],
+  "include": [
+      "src/stories/**/*",
+      "node_modules/lit-scss-loader/types.d.ts"
+    ],
 }
