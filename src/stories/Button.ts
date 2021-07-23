@@ -34,7 +34,7 @@ export interface ButtonProps {
 const Button = ({ mode, size, accent, variant, label, onClick }: ButtonProps) => {
   const buttonMode = mode ? `usa-button--${mode}` : null
   const buttonSize = size ? `usa-button--${size}` : null
-  const buttonAccent = accent ? `usa-button--${accent}` : null
+  const buttonAccent = accent ? `usa-button--accent-${accent}` : null
   const buttonVariant = variant ? variant.map((v) => `usa-button--${v}`).join(' ') : null
 
   const handleButtonVariants = () => {
