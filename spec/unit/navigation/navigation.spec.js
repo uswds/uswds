@@ -7,11 +7,23 @@ const accordion = require("../../../src/js/components/accordion");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 
-const escKey = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keydown", {
-    key: "Escape",
-    bubbles: true
-  }));
+const EVENTS = {
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+  focusOut(el) {
+    const focusOutEvent = new Event("focusout", {
+      bubbles: true,
+      cancelable: true
+    });
+
+    el.dispatchEvent(focusOutEvent);
+  }
 };
 
 describe("navigation toggle", () => {
@@ -87,8 +99,8 @@ describe("navigation toggle", () => {
 
   it("hides the nav when the Escape key is hit", () => {
     menuButton.click();
-    escKey(body);
-    assert.strictEqual(isVisible(nav), false)
+    EVENTS.escape(body);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   it("focuses the close button when the menu button is clicked", () => {
@@ -125,6 +137,13 @@ describe("navigation toggle", () => {
     accordionButton.click();
     navLink.click();
     assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when focus leaves nav", () => {
+    menuButton.click();
+    navLink.click();
+    EVENTS.focusOut(navLink);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   describe("off()", () => {

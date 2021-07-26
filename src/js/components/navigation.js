@@ -13,6 +13,7 @@ const BODY = "body";
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
 const NAV_CONTROL = `button.${PREFIX}-nav__link`;
+const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
@@ -139,6 +140,15 @@ navigation = behavior(
     keydown: {
       [BODY]: keymap({ Escape: hideActiveNavDropdown }),
     },
+    focusout: {
+      [NAV_PRIMARY](event) {
+        const nav = event.target.closest(NAV_PRIMARY);
+
+        if (!nav.contains(event.relatedTarget)) {
+          hideActiveNavDropdown();
+        }
+      }
+    }
   },
   {
     init(root) {
