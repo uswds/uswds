@@ -138,7 +138,7 @@ navigation = behavior(
       },
     },
     keydown: {
-      [BODY]: keymap({ Escape: hideActiveNavDropdown }),
+      [NAV_PRIMARY]: keymap({ Escape: hideActiveNavDropdown }),
     },
     focusout: {
       [NAV_PRIMARY](event) {
