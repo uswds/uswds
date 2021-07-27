@@ -97,12 +97,6 @@ describe("navigation toggle", () => {
     assert.strictEqual(isVisible(nav), false);
   });
 
-  it("hides the nav when the Escape key is hit", () => {
-    menuButton.click();
-    EVENTS.escape(body);
-    assert.strictEqual(isVisible(nav), false);
-  });
-
   it("focuses the close button when the menu button is clicked", () => {
     menuButton.click();
     assert.strictEqual(document.activeElement, closeButton);
@@ -136,6 +130,12 @@ describe("navigation toggle", () => {
   it("collapses accordions when a nav link is clicked", () => {
     accordionButton.click();
     navLink.click();
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when the Escape key is hit", () => {
+    accordionButton.click();
+    EVENTS.escape(accordionButton);
     assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
   });
 
