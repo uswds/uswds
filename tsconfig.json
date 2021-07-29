@@ -7,8 +7,22 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "lib": ["es6", "DOM"],
-    "types": ["node"]
+    "lib": ["es2020", "DOM"],
+    "types": ["node"],
+    "experimentalDecorators": true,
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
   },
-  "include": ["src/js/utils/select.js"]
+  "exclude": [
+      "node_modules",
+    ],
+  "include": [
+      "src/stories/**/*",
+      "node_modules/lit-scss-loader/types.d.ts",
+      // "src/stories/usa-button.ts"
+  ],
 }
