@@ -4,15 +4,16 @@
   $image-path: $theme-image-path
 ) {
   &::after {
-    $icon-size: 0.65em;
+    $external-link-size: 1.75ex;
     background-image: url("#{$image-path}/#{$external-link}.svg");
-    background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 100%;
     content: "";
-    display: inline;
+    display: inline-block;
+    height: $external-link-size;
     margin-left: units(2px);
-    padding-left: $icon-size;
+    vertical-align: middle;
+    width: $external-link-size;
   }
 
   &:hover::after {
