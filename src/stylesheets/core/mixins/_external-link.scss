@@ -12,10 +12,10 @@
     height: $external-link-size;
     margin-left: units(2px);
     // Use following inline styling to prevent icon splitting over line breaks
-    display: inline;
-    vertical-align: middle;
-    padding-left: $external-link-size;
     background-position: center;
+    display: inline;
+    padding-left: $external-link-size;
+    vertical-align: middle;
   }
 
   &:hover::after {
