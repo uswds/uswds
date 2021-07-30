@@ -9,11 +9,13 @@
     background-repeat: no-repeat;
     background-size: 100%;
     content: "";
-    display: inline-block;
     height: $external-link-size;
     margin-left: units(2px);
+    // Use following inline styling to prevent icon splitting over line breaks
+    display: inline;
     vertical-align: middle;
-    width: $external-link-size;
+    padding-left: $external-link-size;
+    background-position: center;
   }
 
   &:hover::after {
