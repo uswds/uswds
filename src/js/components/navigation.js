@@ -11,9 +11,10 @@ const { prefix: PREFIX } = require("../config");
 
 const BODY = "body";
 const NAV = `.${PREFIX}-nav`;
-const NAV_LINKS = `${NAV} a`;
-const NAV_CONTROL = `button.${PREFIX}-nav__link`;
 const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
+const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
+const NAV_CONTROL = `button.${PREFIX}-nav__link`;
+const NAV_LINKS = `${NAV} a`;
 const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
@@ -88,6 +89,7 @@ const resize = () => {
 };
 
 const onMenuClose = () => navigation.toggleNav.call(navigation, false);
+
 const hideActiveNavDropdown = () => {
   if (!navActive) {
     return;
@@ -96,6 +98,20 @@ const hideActiveNavDropdown = () => {
   toggle(navActive, false);
   navActive = null;
 };
+
+const focusNavButton = (event) => {
+  const parentNavItem = event.target.closest(NAV_PRIMARY_ITEM);
+
+  // Only shift focus if within dropdown
+  if (!event.target.matches(NAV_CONTROL)) {
+    parentNavItem.querySelector(NAV_CONTROL).focus();
+  }
+}
+
+const handleEscape = (event) => {
+  hideActiveNavDropdown();
+  focusNavButton(event);
+}
 
 navigation = behavior(
   {
@@ -138,7 +154,7 @@ navigation = behavior(
       },
     },
     keydown: {
-      [NAV_PRIMARY]: keymap({ Escape: hideActiveNavDropdown }),
+      [NAV_PRIMARY]: keymap({ Escape: handleEscape }),
     },
     focusout: {
       [NAV_PRIMARY](event) {
