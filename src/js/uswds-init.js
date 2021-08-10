@@ -1,35 +1,23 @@
-const docElem = window.document.documentElement;
-const loadingClass = "usa-js-loading";
+/* eslint-disable no-var */
+(function uswdsInit () {
+  "use strict";
+  var loadingClass = "usa-js-loading";
+  var fallback;
 
-function addLoadingClass() {
-  docElem.className += ` ${loadingClass}`;
-}
+  document.documentElement.classList.add(loadingClass);
+  function revertClass() {
+    document.documentElement.classList.remove(loadingClass);
+  }
 
-function revertClass() {
-  docElem.className = docElem.className.replace(loadingClass, "");
-}
+  fallback = setTimeout(revertClass, 8000);
 
-// Based on https://www.filamentgroup.com/lab/enhancing-optimistically.html
-if ("querySelector" in window.document && "addEventListener" in window) {
-  addLoadingClass();
+  function verifyLoaded() {
+    if (window.uswdsPresent) {
+      clearTimeout(fallback);
+      revertClass();
+      document.removeEventListener("load", verifyLoaded, true);
+    }
+  }
 
-  const fallback = setTimeout(revertClass, 8000);
-  let timeout = 100;
-
-  const poll = () => {
-    setTimeout(() => {
-      timeout += 1;
-      if (typeof uswdsPresent !== "undefined") {
-        // USWDS library loaded
-        clearTimeout(fallback);
-        setTimeout(revertClass, 100);
-      } else if (timeout > 0) {
-        poll();
-      } else {
-        // USWDS library failed to load
-      }
-    }, 100);
-  };
-
-  poll();
-}
+  document.addEventListener("load", verifyLoaded, true);
+}());

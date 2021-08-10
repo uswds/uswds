@@ -854,12 +854,10 @@ const enhanceDatePicker = (el) => {
 
   const calendarWrapper = document.createElement("div");
   calendarWrapper.classList.add(DATE_PICKER_WRAPPER_CLASS);
-  calendarWrapper.tabIndex = "-1";
 
   const externalInputEl = internalInputEl.cloneNode();
   externalInputEl.classList.add(DATE_PICKER_EXTERNAL_INPUT_CLASS);
   externalInputEl.type = "text";
-  externalInputEl.name = "";
 
   calendarWrapper.appendChild(externalInputEl);
   calendarWrapper.insertAdjacentHTML(
@@ -873,11 +871,10 @@ const enhanceDatePicker = (el) => {
 
   internalInputEl.setAttribute("aria-hidden", "true");
   internalInputEl.setAttribute("tabindex", "-1");
-  internalInputEl.classList.add(
-    "usa-sr-only",
-    DATE_PICKER_INTERNAL_INPUT_CLASS
-  );
-  internalInputEl.id = "";
+  internalInputEl.style.display = "none";
+  internalInputEl.classList.add(DATE_PICKER_INTERNAL_INPUT_CLASS);
+  internalInputEl.removeAttribute("id");
+  internalInputEl.removeAttribute("name");
   internalInputEl.required = false;
 
   datePickerEl.appendChild(calendarWrapper);
@@ -1008,10 +1005,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     return `<button
       type="button"
       tabindex="${tabindex}"
-      class="${classes.join(" ")}" 
-      data-day="${day}" 
-      data-month="${month + 1}" 
-      data-year="${year}" 
+      class="${classes.join(" ")}"
+      data-day="${day}"
+      data-month="${month + 1}"
+      data-year="${year}"
       data-value="${formattedDate}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
       aria-selected="${isSelected ? "true" : "false"}"
@@ -1042,7 +1039,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="${CALENDAR_ROW_CLASS}">
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
@@ -1050,7 +1047,7 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
@@ -1058,17 +1055,17 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month"
           >${monthLabel}</button>
-          <button 
+          <button
             type="button"
             class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
           >${focusedYear}</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
@@ -1076,7 +1073,7 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
-          <button 
+          <button
             type="button"
             class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
@@ -1331,10 +1328,10 @@ const displayMonthSelection = (el, monthToDisplay) => {
       classes.push(CALENDAR_MONTH_SELECTED_CLASS);
     }
 
-    return `<button 
+    return `<button
         type="button"
         tabindex="${tabindex}"
-        class="${classes.join(" ")}" 
+        class="${classes.join(" ")}"
         data-value="${index}"
         data-label="${month}"
         aria-selected="${isSelected ? "true" : "false"}"
@@ -1439,10 +1436,10 @@ const displayYearSelection = (el, yearToDisplay) => {
     }
 
     years.push(
-      `<button 
+      `<button
         type="button"
         tabindex="${tabindex}"
-        class="${classes.join(" ")}" 
+        class="${classes.join(" ")}"
         data-value="${yearIndex}"
         aria-selected="${isSelected ? "true" : "false"}"
         ${isDisabled ? `disabled="disabled"` : ""}
@@ -1461,7 +1458,7 @@ const displayYearSelection = (el, yearToDisplay) => {
             <td>
               <button
                 type="button"
-                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
+                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"
                 aria-label="Navigate back ${YEAR_CHUNK} years"
                 ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
               >&nbsp;</button>
@@ -1476,7 +1473,7 @@ const displayYearSelection = (el, yearToDisplay) => {
             <td>
               <button
                 type="button"
-                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
+                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}"
                 aria-label="Navigate forward ${YEAR_CHUNK} years"
                 ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
               >&nbsp;</button>
@@ -1688,12 +1685,12 @@ const handleShiftPageDownFromDate = adjustCalendar((date) => addYears(date, 1));
 const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
 
 /**
- * display the calendar for the mousemove date.
+ * display the calendar for the mouseover date.
  *
- * @param {MouseEvent} event The mousemove event
+ * @param {MouseEvent} event The mouseover event
  * @param {HTMLButtonElement} dateEl A date element within the date picker component
  */
-const handleMousemoveFromDate = (dateEl) => {
+const handleMouseoverFromDate = (dateEl) => {
   if (dateEl.disabled) return;
 
   const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
@@ -1805,10 +1802,10 @@ const handlePageUpFromMonth = adjustMonthSelectionScreen(() => 0);
 /**
  * update the focus on a month when the mouse moves.
  *
- * @param {MouseEvent} event The mousemove event
+ * @param {MouseEvent} event The mouseover event
  * @param {HTMLButtonElement} monthEl A month element within the date picker component
  */
-const handleMousemoveFromMonth = (monthEl) => {
+const handleMouseoverFromMonth = (monthEl) => {
   if (monthEl.disabled) return;
   if (monthEl.classList.contains(CALENDAR_MONTH_FOCUSED_CLASS)) return;
 
@@ -1919,10 +1916,10 @@ const handlePageDownFromYear = adjustYearSelectionScreen(
 /**
  * update the focus on a year when the mouse moves.
  *
- * @param {MouseEvent} event The mousemove event
+ * @param {MouseEvent} event The mouseover event
  * @param {HTMLButtonElement} dateEl A year element within the date picker component
  */
-const handleMousemoveFromYear = (yearEl) => {
+const handleMouseoverFromYear = (yearEl) => {
   if (yearEl.disabled) return;
   if (yearEl.classList.contains(CALENDAR_YEAR_FOCUSED_CLASS)) return;
 
@@ -2134,15 +2131,15 @@ const datePickerEvents = {
 };
 
 if (!isIosDevice()) {
-  datePickerEvents.mousemove = {
+  datePickerEvents.mouseover = {
     [CALENDAR_DATE_CURRENT_MONTH]() {
-      handleMousemoveFromDate(this);
+      handleMouseoverFromDate(this);
     },
     [CALENDAR_MONTH]() {
-      handleMousemoveFromMonth(this);
+      handleMouseoverFromMonth(this);
     },
     [CALENDAR_YEAR]() {
-      handleMousemoveFromYear(this);
+      handleMouseoverFromYear(this);
     },
   };
 }

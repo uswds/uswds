@@ -2,20 +2,22 @@ $collection-thumb-width: 10;
 $collection-thumb-width-mobile: 8;
 $collection-thumb-margin: 2;
 
-.usa-collection {
-  @include typeset($theme-collection-font-family, "sm", 3);
-  @extend %usa-list;
-  @include u-padding-left(0);
-}
+@include override-prose {
+  .usa-collection {
+    @include typeset($theme-collection-font-family, "sm", 3);
+    @extend %usa-list;
+    @include u-padding-left(0);
+  }
 
-.usa-collection__item {
-  @extend %usa-list-item;
-  @include unstyled-list;
-  @include u-align-items("align-start");
-  @include u-border-top(1px);
-  @include u-display("flex");
-  @include u-margin-y(2);
-  @include u-padding-top(2);
+  .usa-collection__item {
+    @extend %usa-list-item;
+    @include unstyled-list;
+    @include u-align-items("align-start");
+    @include u-border-top(1px);
+    @include u-display("flex");
+    @include u-margin-y(2);
+    @include u-padding-top(2);
+  }
 }
 
 .usa-collection__img,
@@ -70,8 +72,6 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__calendar-date {
-  @include u-radius("sm");
-  border: 1px solid color("primary");
   text-decoration: none;
 }
 
@@ -89,11 +89,14 @@ $collection-thumb-margin: 2;
 }
 
 .usa-collection__calendar-date-month {
+  @include u-radius-top("sm");
   background-color: color("primary");
   color: color("white");
 }
 
 .usa-collection__calendar-date-day {
+  @include u-radius-bottom("sm");
+  border: 1px solid color("primary");
   color: color("primary");
 }
 

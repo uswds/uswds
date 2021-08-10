@@ -9,7 +9,7 @@ const MAINCONTENT = "main-content";
 function setTabindex() {
   // NB: we know because of the selector we're delegating to below that the
   // href already begins with '#'
-  const id = this.getAttribute("href");
+  const id = encodeURI(this.getAttribute("href"));
   const target = document.getElementById(
     id === "#" ? MAINCONTENT : id.slice(1)
   );

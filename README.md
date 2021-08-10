@@ -8,32 +8,35 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Contents
 
-- [Background](#background)
-- [Recent updates](#recent-updates)
-- [Getting started](#getting-started)
-- [Using the design system](#using-the-design-system)
-  - [Download](#download)
-  - [Install using `npm`](#install-using-npm)
-    - [Using the USWDS package](#using-the-uswds-package)
-    - [Sass and theme settings](#sass-and-theme-settings)
-    - [Sass compilation requirements](#sass-compilation-requirements)
-    - [JavaScript](#javascript)
-  - [Use another framework or package manager](#use-another-framework-or-package-manager)
-- [CSS architecture](#css-architecture)
-- [JS customization](#js-customization)
-- [Customization, theming, and tokens](#customization-theming-and-tokens)
-  - [Using tokens in theme settings](#using-tokens-in-theme-settings)
-  - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
-  - [Main variables that can be customized](#main-variables-that-can-be-customized)
-- [Where things live](#where-things-live)
-- [Browser support](#browser-support)
-- [Accessibility](#accessibility)
-- [Fractal](#fractal)
-  - [Template compatibility](#template-compatibility)
-- [Need installation help?](#need-installation-help)
-- [Contributing to the code base](#contributing-to-the-code-base)
-- [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
-- [Licenses and attribution](#licenses-and-attribution)
+- [United States Web Design System](#united-states-web-design-system)
+  - [Contents](#contents)
+  - [Background](#background)
+  - [Recent updates](#recent-updates)
+  - [Getting started](#getting-started)
+  - [Using the design system](#using-the-design-system)
+    - [Download and install](#download-and-install)
+    - [Install using npm](#install-using-npm)
+      - [Using the USWDS package](#using-the-uswds-package)
+      - [Sass and theme settings](#sass-and-theme-settings)
+      - [Sass compilation requirements](#sass-compilation-requirements)
+      - [JavaScript](#javascript)
+    - [Use another framework or package manager](#use-another-framework-or-package-manager)
+  - [CSS architecture](#css-architecture)
+  - [JS customization](#js-customization)
+  - [Customization, theming, and tokens](#customization-theming-and-tokens)
+    - [Using tokens in theme settings](#using-tokens-in-theme-settings)
+    - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
+  - [Where things live](#where-things-live)
+  - [Browser support](#browser-support)
+  - [Accessibility](#accessibility)
+  - [Fractal](#fractal)
+    - [Template compatibility](#template-compatibility)
+  - [Long-term support of v1.x](#long-term-support-of-v1x)
+  - [Need installation help?](#need-installation-help)
+  - [Contributing to the code base](#contributing-to-the-code-base)
+  - [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+  - [Licenses and attribution](#licenses-and-attribution)
+  - [Contributing](#contributing)
 
 ## Background
 
@@ -56,18 +59,18 @@ We’re glad you’d like to use the design system — here’s how you can get 
 
 How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the design system](#download)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download-and-install)** if you are not familiar with `npm` and package management.
 
 - **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
 ### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.9.0/uswds-2.9.0.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.12.0/uswds-2.12.0.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.9.0/
+   uswds-2.12.0/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -98,7 +101,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.9.0/
+   │   ├── uswds-2.12.0/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -118,11 +121,11 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.9.0/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.9.0/css/uswds.min.css" />
+       <script src="assets/uswds-2.12.0/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.12.0/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.9.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.12.0/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -247,7 +250,7 @@ We recommend using a **minifier** like [csso](https://github.com/css/csso) to co
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download-and-install). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
@@ -304,7 +307,9 @@ function App() {
 
   useEffect(() => {
     // initialize
-    characterCount.on(ref); // default ref is document.body, if you want to use default you do not have to pass arguments
+    characterCount.on(ref);
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
     accordion.on();
 
     // remove event listeners when component un-mounts.
@@ -321,7 +326,9 @@ Angular example:
 ```js
 export class App implements OnInit {
   constructor() {
-    this.ref = document.body; // default ref is document.body, if you want to use default you do not have to pass arguments
+    this.ref = document.body;
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
   }
 
   ngOnInit() {
@@ -337,6 +344,8 @@ export class App implements OnInit {
   }
 }
 ```
+
+> Those using **Webpack 5** can take advantage of the updated exports field which allows declaration for requests like `import "uswds"` or `import accordion from "uswds/src/js/components/accordion"`
 
 ## Customization, theming, and tokens
 

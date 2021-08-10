@@ -39,12 +39,12 @@ describe("combo box component with disable filtering attribute", () => {
       ".usa-combo-box__list-option--focused"
     );
     assert.ok(!list.hidden, "should show the option list");
-    assert.equal(
+    assert.strictEqual(
       list.children.length,
       select.options.length - 1,
       "should have all of the initial select items in the list except placeholder empty items"
     );
-    assert.equal(
+    assert.strictEqual(
       focusedOption.textContent,
       "Blood orange",
       "should be the first found item"

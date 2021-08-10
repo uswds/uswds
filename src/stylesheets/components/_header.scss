@@ -124,14 +124,14 @@ $z-index-overlay: 400;
 .usa-overlay {
   @include u-pin("all");
   position: fixed;
-  background: color("black");
+  background: color("black-transparent-70");
   opacity: opacity(0);
   transition: opacity $project-easing;
   visibility: hidden;
   z-index: z-index($z-index-overlay);
 
   &.is-visible {
-    opacity: opacity(20);
+    opacity: opacity(100);
     visibility: visible;
   }
 }
@@ -288,7 +288,8 @@ $z-index-overlay: 400;
 
 // [uswds-init.js] Offscreen content while js is loading
 html.usa-js-loading {
-  .usa-nav__submenu {
+  .usa-nav__submenu,
+  .usa-nav__submenu.usa-megamenu {
     @include add-sr-only;
   }
 }

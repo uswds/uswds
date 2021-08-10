@@ -154,7 +154,9 @@ const enhanceComboBox = (_comboBoxEl) => {
   }
 
   const selectId = selectEl.id;
+  const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
+  const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
   const defaultValue = comboBoxEl.dataset.defaultValue;
@@ -176,6 +178,19 @@ const enhanceComboBox = (_comboBoxEl) => {
     }
   }
 
+  /**
+   * Throw error if combobox is missing a label or label is missing
+   * `for` attribute. Otherwise, set the ID to match the <ul> aria-labelledby
+   */
+  if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
+    throw new Error(
+      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`
+    );
+  } else {
+    selectLabel.setAttribute("id", listIdLabel);
+  }
+
+  selectLabel.setAttribute("id", listIdLabel);
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only", SELECT_CLASS);
@@ -218,6 +233,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
+        aria-labelledby="${listIdLabel}"
         hidden>
       </ul>`,
       `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
@@ -656,12 +672,12 @@ const handleUpFromListOption = (event) => {
 };
 
 /**
- * Select list option on the mousemove event.
+ * Select list option on the mouseover event.
  *
- * @param {MouseEvent} event The mousemove event
+ * @param {MouseEvent} event The mouseover event
  * @param {HTMLLIElement} listOptionEl An element within the combo box component
  */
-const handleMousemove = (listOptionEl) => {
+const handleMouseover = (listOptionEl) => {
   const isCurrentlyFocused = listOptionEl.classList.contains(
     LIST_OPTION_FOCUSED_CLASS
   );
@@ -757,9 +773,9 @@ const comboBox = behavior(
         displayList(this);
       },
     },
-    mousemove: {
+    mouseover: {
       [LIST_OPTION]() {
-        handleMousemove(this);
+        handleMouseover(this);
       },
     },
   },

@@ -15,7 +15,7 @@ describe("date picker component month selection", () => {
   let input;
   let button;
 
-  const getCalendarEl = query =>
+  const getCalendarEl = (query) =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
     );
@@ -40,7 +40,7 @@ describe("date picker component month selection", () => {
   });
 
   it("should show month of June as focused", () => {
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "June",
       "focuses correct month"
@@ -48,7 +48,7 @@ describe("date picker component month selection", () => {
   });
 
   it("should show month of June as selected", () => {
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--selected").dataset
         .label,
       "June",
@@ -59,7 +59,7 @@ describe("date picker component month selection", () => {
   it("should navigate back three months when pressing up", () => {
     EVENTS.keydownArrowUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "March",
       "focuses correct month"
@@ -69,7 +69,7 @@ describe("date picker component month selection", () => {
   it("should navigate ahead three months when pressing down", () => {
     EVENTS.keydownArrowDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "September",
       "focuses correct month"
@@ -79,7 +79,7 @@ describe("date picker component month selection", () => {
   it("should navigate back one month when pressing left", () => {
     EVENTS.keydownArrowLeft();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "May",
       "focuses correct month"
@@ -89,7 +89,7 @@ describe("date picker component month selection", () => {
   it("should navigate ahead one month when pressing right", () => {
     EVENTS.keydownArrowRight();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "July",
       "focuses correct month"
@@ -99,7 +99,7 @@ describe("date picker component month selection", () => {
   it("should navigate to the beginning of the month row when pressing home", () => {
     EVENTS.keydownHome();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "April",
       "focuses correct month"
@@ -109,7 +109,7 @@ describe("date picker component month selection", () => {
   it("should navigate to the end of the month row when pressing end", () => {
     EVENTS.keydownEnd();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "June",
       "focuses correct month"
@@ -119,7 +119,7 @@ describe("date picker component month selection", () => {
   it("should navigate to January when pressing page up", () => {
     EVENTS.keydownPageUp();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "January",
       "focuses correct month"
@@ -129,7 +129,7 @@ describe("date picker component month selection", () => {
   it("should navigate to December when pressing page down", () => {
     EVENTS.keydownPageDown();
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "December",
       "focuses correct month"
@@ -137,13 +137,13 @@ describe("date picker component month selection", () => {
   });
 
   it("should update the focus when moving over a non-selected valid month", () => {
-    EVENTS.mousemove(
+    EVENTS.mouseover(
       getCalendarEl().querySelector(
         '.usa-date-picker__calendar__month[data-label="October"]'
       )
     );
 
-    assert.equal(
+    assert.strictEqual(
       getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
       "October",
       "focuses correct month"

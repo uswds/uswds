@@ -1,0 +1,22 @@
+<div class="usa-nav__secondary">
+  <ul class="usa-nav__secondary-links">
+    {%- for link in nav.links -%}
+    <li class="usa-nav__secondary-item">
+      <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>{{ link.text }}</a>
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- if nav.search -%}
+    {% set search_opts = {
+      search_header: true,
+      search_js: false,
+      id_prefix: nav.id_prefix
+    } %}
+
+    {% if lang == "es" %}
+      {% render '@search--small-lang-es', search_opts, true %}
+    {% else %}
+      {% render '@search--small', search_opts, true %}
+    {% endif %}
+  {%- endif -%}
+</div>

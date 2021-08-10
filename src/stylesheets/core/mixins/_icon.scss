@@ -116,15 +116,16 @@
     map-get($icon-object, "path"),
     $theme-image-path
   );
-  $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, "black");
-  $filename-ie11-variant: if($ie11-variant == "black", null, $ie11-variant);
-  $filename: if(
-    $filename-ie11-variant,
-    "#{$filename-base}-#{$filename-ie11-variant}.svg",
-    "#{$filename-base}.svg"
+  $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
+  $filename-ie11: if(
+    $ie11-variant == "white",
+    "usa-icons-bg/#{$filename-base}--white.svg",
+    "usa-icons/#{$filename-base}.svg"
   );
 
-  $image-props: url("#{$path}/#{$filename}") no-repeat center / #{$width} #{$height};
+  $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
+    #{$width} #{$height};
+  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / #{$width} #{$height};
 
   // Default background shorthand for browsers that don't support mask or supports.
   background: $image-props;
@@ -135,11 +136,11 @@
     transform: rotate($rotate);
   }
 
-  // Mask supportered styles
+  // Mask supported styles
   @supports (mask: url("")) {
     background: none;
     background-color: color($color);
-    mask: $image-props;
+    mask: $mask-props;
     @if $color-hover {
       &:hover {
         background-color: color($color-hover);

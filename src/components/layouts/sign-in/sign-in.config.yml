@@ -1,0 +1,76 @@
+label: Sign in
+
+context:
+  multiple: false
+  title: Sign in
+  form:
+    legend: Access your account
+  create_account:
+    label: Don’t have an account?
+    cta:
+      label: Create your account now
+
+variants:
+  - name: multiple
+    label: Multiple
+    context:
+      title: Sign in to your account
+      tagline: A tagline that explains the benefit of creating an account.
+      description: You can access your account by signing in with one of the options below.
+      multiple:
+        - label: Sign in with Login.gov
+        - label: Sign in with <Legacy system 1>
+        - label: Sign in with <Legacy system 2>
+      create_account:
+        description: 'If you don’t have an account already, sign up here:'
+        cta:
+          label: Create Login.gov account
+  - name: lang-es
+    label: Default (Spanish)
+    context:
+      lang: es
+      title: Ingrese a su cuenta
+      form:
+        legend: Acceda a su cuenta
+        email:
+          label: Su email
+        password:
+          label: Contraseña
+          toggle:
+            text:
+              show: Muestre la contraseña
+              hide: Esconda la contraseña
+        recovery:
+          title: ¿No recuerda su contraseña?
+          label: ¿No recuerda su contraseña?
+        submit:
+          label: Ingrese
+      create_account:
+        label: ¿No tiene una cuenta?
+        cta:
+          label: Cree su cuenta ahora
+      max:
+        title: ¿Es usted un empleado federal?
+        description: Si es un empleado federal [u otro tipo de usuario secundario], por favor use [Single Sign On (SSO) secundario].
+        cta:
+          label: Inicie SSO secundario
+  - name: lang-es-multiple
+    label: Multiple (Spanish)
+    context:
+      lang: es
+      title: Ingrese a su cuenta
+      description: Usted puede acceder a su cuenta con una de las opciones siguientes.
+      multiple:
+        - label: Ingrese con Login.gov
+        - label: Ingrese con <Legacy system 1>
+        - label: Ingrese con <Legacy system 2>
+      create_account:
+        label: ¿No tiene una cuenta?
+        description: 'Si todavía no tiene una cuenta, regístrese aquí:'
+        cta:
+          label: Cree una cuenta en Login.gov
+      max:
+        title: ¿Es usted un empleado federal?
+        description: Si es un empleado federal [u otro tipo de usuario secundario], por favor use [Single Sign On (SSO) secundario].
+        cta:
+          label: Inicie SSO secundario

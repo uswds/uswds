@@ -137,7 +137,7 @@
 
 .usa-footer__secondary-section {
   @include u-padding-y(2.5);
-  background-color: color("base-lighter");
+  @include set-text-and-bg("base-lighter");
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
@@ -162,6 +162,7 @@
 
 .usa-footer__logo-heading {
   @include typeset($theme-footer-font-family, $theme-h3-font-size, 1);
+  @include u-font-weight("bold");
   @include u-margin-y(1);
 }
 
@@ -201,7 +202,7 @@
 }
 
 .usa-social-link {
-  $background-height: units(3); // Height of icon within hit area.
+  $background-height: units(4); // Height of icon within hit area.
   @include u-square($size-touch-target);
   background-position: center center;
   background-size: auto $background-height;
@@ -214,19 +215,23 @@
 }
 
 .usa-social-link--facebook {
-  @include add-background-svg("social-icons/facebook25");
+  @include add-background-svg("usa-icons/facebook");
 }
 
 .usa-social-link--twitter {
-  @include add-background-svg("social-icons/twitter16");
+  @include add-background-svg("usa-icons/twitter");
 }
 
 .usa-social-link--youtube {
-  @include add-background-svg("social-icons/youtube15");
+  @include add-background-svg("usa-icons/youtube");
+}
+
+.usa-social-link--instagram {
+  @include add-background-svg("usa-icons/instagram");
 }
 
 .usa-social-link--rss {
-  @include add-background-svg("social-icons/rss25");
+  @include add-background-svg("usa-icons/rss_feed");
 }
 
 .usa-footer__address {
@@ -311,15 +316,15 @@
 
       // Arrow for collapsible content.
       &::before {
-        @include add-background-svg("arrow-down");
+        @include add-background-svg("usa-icons/expand_more");
+        @include u-square(2.5);
         align-items: center;
         background-size: contain;
         content: "";
         display: inline-flex;
-        height: units(1.5);
         justify-content: center;
-        margin-right: units(1);
-        width: units(1.5);
+        margin-right: units(0.5);
+        margin-left: units(-0.5);
       }
 
       @include at-media("mobile-lg") {
@@ -336,7 +341,7 @@
 
       .usa-footer__primary-link {
         &::before {
-          @include add-background-svg("arrow-right");
+          @include add-background-svg("usa-icons/navigate_next");
         }
 
         @include at-media("mobile-lg") {
