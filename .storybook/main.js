@@ -19,10 +19,11 @@ module.exports = {
     config.module.rules.push({
         "test": /\.s(c|a)ss$/,
         "use": [
-        "lit-scss-loader",
-        "extract-loader",
-        "css-loader",
-        "sass-loader"],
+          "lit-scss-loader",
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       });
     return config;
   },

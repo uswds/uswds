@@ -1,3 +1,4 @@
+
 import { Story, Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { ButtonComponent } from './usa-button';
@@ -17,6 +18,7 @@ export default {
 
 const Template: Story<ButtonComponent> = ({ variant, mode, label, onClick}) =>
   html`<usa-button
+    type="submit"
     .label=${label}
     .variant=${variant}
     .mode=${mode}
@@ -30,4 +32,5 @@ Primary.args = {
 export const Variant: Story<ButtonComponent> = () =>
   html`<usa-button
     .label=${"Variant Example"}
-    .mode=${'secondary'} />`
+    .mode=${'secondary'}
+    .variant=${[ 'outline', 'inverse']} />`
