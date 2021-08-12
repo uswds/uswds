@@ -507,13 +507,10 @@ describe("combo box component", () => {
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < list.children.length; i++) {
-      assert.strictEqual(
-        list.children[i].children.innerHTML,
-        undefined,
-        "should not contain child HTML"
-      );
-    }
+    Array.from(list.children).forEach((listItem) => {
+      Array.from(listItem.children).forEach((childNode) => {
+        assert.strictEqual(childNode, Node.TEXT_NODE);
+      });
+    });
   });
 });
