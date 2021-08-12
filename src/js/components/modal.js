@@ -65,7 +65,7 @@ function toggleModal(event) {
 
   // if there is no modal we return early
   if (!targetModal) {
-    return
+    return false
   }
 
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
