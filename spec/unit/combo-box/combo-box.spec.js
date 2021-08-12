@@ -506,10 +506,9 @@ describe("combo box component", () => {
 
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
-
     Array.from(list.children).forEach((listItem) => {
-      Array.from(listItem.children).forEach((childNode) => {
-        assert.strictEqual(childNode, Node.TEXT_NODE);
+      Array.from(listItem.childNodes).forEach((childNode) => {
+        assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
       });
     });
   });
