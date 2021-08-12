@@ -135,10 +135,8 @@ describe("navigation toggle", () => {
 
   it("collapses dropdowns when the Escape key is hit", () => {
     accordionButton.click();
-    setTimeout(() => {
-      EVENTS.escape(accordionButton);
-      assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
-    }, 100)
+    EVENTS.escape(accordionButton);
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
   });
 
   it("collapses dropdowns when focus leaves nav", () => {
