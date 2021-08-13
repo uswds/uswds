@@ -212,11 +212,12 @@
 
 .usa-checkbox__label,
 .usa-radio__label {
+  @extend %block-input-general;
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");
   margin-top: units(1.5);
-  padding-left: units($input-select-margin-right + $theme-input-select-size);
+  padding-left: units($input-select-margin-right) + units($theme-input-select-size);
   position: relative;
 
   &:before {
