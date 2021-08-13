@@ -34,9 +34,9 @@ const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
 const TEMPORARY_PADDING =
-  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
-  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10) +
-  "px";
+  `${parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
+  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+  }px`;
 
 /**
  *  Is bound to escape key, closes modal when
@@ -108,7 +108,6 @@ function toggleModal(event) {
     }
   }
 
-  // Active class shares same as navigation
   body.classList.toggle(ACTIVE_CLASS, safeActive);
   targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
   targetModal.classList.toggle(HIDDEN_CLASS, !safeActive);
