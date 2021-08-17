@@ -127,7 +127,7 @@ describe("combo box component", () => {
 
   it("should set up the list items for accessibility", () => {
     let i = 0;
-    let len = list.children.length;
+    const len = list.children.length;
     EVENTS.click(input);
 
     assert.strictEqual(
@@ -199,7 +199,7 @@ describe("combo box component", () => {
     assert.ok(!list.hidden, "should display the option list");
     assert.strictEqual(
       list.children.length,
-      43,
+      44,
       "should filter the item by the string being present in the option"
     );
   });
@@ -499,5 +499,17 @@ describe("combo box component", () => {
 
     assert.ok(list.hidden, "should hide the option list");
     assert.strictEqual(document.activeElement, input, "should focus the input");
+  });
+
+  it("should not allow for innerHTML of child elements ", () => {
+    input.value = "apricot";
+
+    EVENTS.input(input);
+    assert.ok(!list.hidden, "should display the option list");
+    Array.from(list.children).forEach((listItem) => {
+      Array.from(listItem.childNodes).forEach((childNode) => {
+        assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+      });
+    });
   });
 });
