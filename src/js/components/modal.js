@@ -62,6 +62,12 @@ function toggleModal(event) {
   const targetModal = safeActive
     ? document.getElementById(modalId)
     : document.querySelector(".usa-modal-wrapper.is-visible");
+
+  // if there is no modal we return early
+  if (!targetModal) {
+    return false
+  }
+
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(".usa-modal");
