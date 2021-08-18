@@ -404,17 +404,19 @@ const displayList = (el) => {
         tabindex = "0";
       }
 
-      return `<li
-          aria-selected="false"
-          aria-setsize="${options.length}"
-          aria-posinset="${index + 1}"
-          aria-selected="${ariaSelected}"
-          id="${optionId}"
-          class="${classes.join(" ")}"
-          tabindex="${tabindex}"
-          role="option"
-          data-value="${option.value}"
-        >${option.text}</li>`;
+      const li = document.createElement("li");
+
+      li.setAttribute("aria-setsize", options.length)
+      li.setAttribute("aria-posinset", index + 1)
+      li.setAttribute("aria-selected", ariaSelected)
+      li.setAttribute("id", optionId)
+      li.setAttribute("class", classes.join(" "))
+      li.setAttribute("tabindex", tabindex)
+      li.setAttribute("role", "option")
+      li.setAttribute("data-value", option.value)
+      li.textContent = option.text
+
+      return li.outerHTML;
     })
     .join("");
 
@@ -672,12 +674,12 @@ const handleUpFromListOption = (event) => {
 };
 
 /**
- * Select list option on the mousemove event.
+ * Select list option on the mouseover event.
  *
- * @param {MouseEvent} event The mousemove event
+ * @param {MouseEvent} event The mouseover event
  * @param {HTMLLIElement} listOptionEl An element within the combo box component
  */
-const handleMousemove = (listOptionEl) => {
+const handleMouseover = (listOptionEl) => {
   const isCurrentlyFocused = listOptionEl.classList.contains(
     LIST_OPTION_FOCUSED_CLASS
   );
@@ -773,9 +775,9 @@ const comboBox = behavior(
         displayList(this);
       },
     },
-    mousemove: {
+    mouseover: {
       [LIST_OPTION]() {
-        handleMousemove(this);
+        handleMouseover(this);
       },
     },
   },
