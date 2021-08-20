@@ -54,9 +54,7 @@
     "pl:help": "patternlab --help",
     "pl:version": "patternlab --version",
     "start:storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
