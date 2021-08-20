@@ -38,7 +38,7 @@ function lintSass() {
   };
 
   return src(
-    "./src/patterns/stylesheets/**/*.scss",
+    "./src/stylesheets/**/*.scss",
     { since: lastRun(lintSass) }
   )
   .pipe(gulpStylelint(stylelintOptions))
@@ -54,7 +54,7 @@ function lintJS(done) {
     return done();
   }
 
-  return src(["src/patterns/**/**/*.js"])
+  return src(["src/**/**/*.js"])
     .pipe(
       eslint({
         fix: true,

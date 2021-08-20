@@ -35,7 +35,7 @@
   "paths": {
     "source": {
       "root": "./src/",
-      "patterns": "./src/patterns/",
+      "patterns": "./src/",
       "data": "./src/styleguide/data/",
       "meta": "./src/styleguide/meta/",
       "annotations": "./src/styleguide/annotations/",
@@ -54,7 +54,7 @@
     },
     "public": {
       "root": "./build/",
-      "patterns": "./build/patterns/",
+      "patterns": "./build/",
       "data": "./build/styleguide/data/",
       "annotations": "./build/annotations/",
       "styleguide": "./build/styleguide/",
@@ -111,14 +111,14 @@
           "id": "components",
           "recursive": true,
           "paths": [
-            "./src/patterns/components"
+            "./src/components"
           ]
         },
         {
           "id": "compare",
           "recursive": true,
           "paths": [
-            "./src/patterns/compare"
+            "./src/compare"
           ]
         }
       ]

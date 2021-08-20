@@ -1,7 +1,7 @@
 const assert = require("assert");
+const fs = require("fs");
 const banner = require("../banner");
 const accordion = require("../../usa-accordion/accordion");
-const fs = require("fs");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = "aria-expanded";

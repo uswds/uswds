@@ -3,22 +3,22 @@ const mocha = require("gulp-spawn-mocha");
 const { serve, exitServer } = require("./serve");
 
 const mochaConfig = {
-  config: "src/patterns/utils/test/.mocharc.json",
+  config: "src/utils/test/.mocharc.json",
 };
 
 function a11yTests() {
-  return src("src/patterns/utils/test/a11y.js").pipe(mocha(mochaConfig));
+  return src("src/utils/test/a11y.js").pipe(mocha(mochaConfig));
 }
 
 // Export our tasks.
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("src/patterns/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("src/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
-    return src("src/patterns/stylesheets/test/sass-spec.js")
+    return src("src/stylesheets/test/sass-spec.js")
       .pipe(mocha());
   },
 
@@ -29,7 +29,7 @@ module.exports = {
   a11y: series(serve, a11yTests, exitServer),
 
   cover() {
-    return src("src/patterns/**/*.spec.js")
+    return src("src/**/*.spec.js")
       .pipe(mocha(mochaConfig, { nyc: true }));
   },
 };

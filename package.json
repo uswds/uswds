@@ -24,16 +24,16 @@
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "src/patterns/start.js",
+  "jsnext:main": "src/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "src/stylesheets/uswds.scss",
   "mocha": {
-    "config": "src/patterns/utils/test/.mocharc.json"
+    "config": "src/utils/test/.mocharc.json"
   },
   "scripts": {
     "build": "gulp",
     "cover": "nyc --reporter=lcov gulp cover",
-    "format-tokens": "node ./src/patterns/utils/style-format.js --file './src/patterns/data/colors' --output './src/patterns/stylesheets/core/system-tokens'",
+    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "lint": "gulp lint",
     "mocha": "mocha",
     "prepare": "npx gulp",
@@ -48,8 +48,8 @@
     "test:unit": "gulp unitTests",
     "version": "gulp build release",
     "watch": "gulp watch",
-    "prettier:scss": "npx prettier --write './src/patterns/**/**/*.scss'",
-    "prettier:templates": "npx prettier --write './build/patterns/!(test*)/**/*.markup-only.html'",
+    "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
+    "prettier:templates": "npx prettier --write './build/!(test*)/**/*.markup-only.html'",
     "pl:build": "patternlab build --config ./patternlab-config.json",
     "pl:help": "patternlab --help",
     "pl:version": "patternlab --version"

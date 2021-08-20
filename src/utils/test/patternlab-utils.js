@@ -4,7 +4,7 @@ const path = require("path");
 const ROOT_DIR = path.join(__dirname, "../../../../");
 const PL_BUILD_DIR = path.join(ROOT_DIR, "build");
 const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
-const { styleguide } = require("../../../../gulpfile");
+const { styleguide } = require("../../../gulpfile");
 
 async function getComponents() {
   const getDirectories = new Promise((resolve) => {
@@ -29,7 +29,7 @@ async function getComponents() {
         fs.readdir(builtComponentDir, (err, dir) => {
           dir.forEach((component) => {
             if (component.includes(".rendered.html")) {
-              const c = file + "/" + component;
+              const c = `${file  }/${  component}`;
               components.push(c);
             }
             if (index === directories.length - 1) {
@@ -42,9 +42,7 @@ async function getComponents() {
     });
   });
 
-  const paths = await Promise.resolve(buildComponentPaths).then((values) => {
-    return values
-  });
+  const paths = await Promise.resolve(buildComponentPaths).then((values) => values);
   return paths;
 }
 

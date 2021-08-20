@@ -91,7 +91,7 @@ Chrome v59 or higher (v60 if you're on Windows).
 
 If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
 substituting the actual path to the spec. Only javascript files can be executed by the `mocha` runner,
-and only those js files in the `src/patterns/` directory ending with a `.spec.js`.
+and only those js files in the `src/` directory ending with a `.spec.js`.
 
 Alternatively, you can add an `.only` to a `describe` or `it` block (i.e. `describe.only('my spec')`)
 and run the `npm run test` command. Keep in mind that this will also run linters and aXe accessibility tests.
@@ -120,7 +120,7 @@ This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/fronten
 
 ### Code coverage
 
-We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](src/patterns/**/*.spec.js). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
+We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](src/**/*.spec.js). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
 
 1. Each pull request creates a new coverage report on [Code Climate](https://codeclimate.com/).
 1. Code Climate then posts a status message back to GitHub that lists the coverage percentage on that branch, and the difference between that number and the one last reported on our default branch.
