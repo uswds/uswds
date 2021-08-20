@@ -1,7 +1,7 @@
 {
   "require": [
     "jsdom-global/register",
-    "src/patterns/utils/test/delayed-root-suite"
+    "src/utils/test/delayed-root-suite"
   ],
   "delay": true,
   "exit": true,

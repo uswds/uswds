@@ -4,7 +4,7 @@ const path = require("path");
 const fileInput = require("../file-input");
 
 const RENDER =
-  "../../../../../build/patterns/components-usa-file-input-usa-file-input/";
+  "../../../../build/components-usa-file-input-usa-file-input/";
 const TEMPLATE = fs.readFileSync(
   path.join(
     __dirname,
