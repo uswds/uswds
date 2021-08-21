@@ -23,12 +23,14 @@ const Template: Story<ButtonComponent> = ({ variant, mode, label, onClick}) =>
     .mode=${mode}
     @click=${onClick}/>`;
 
-export const Primary: Story<ButtonComponent> = Template.bind({});
+export const Primary: Story<ButtonComponent> = Template.bind({})
 Primary.args = {
   accent: 'cool',
 };
 
-export const Variant: Story<ButtonComponent> = () =>
-  html`<usa-button
-    .label=${"Variant Example"}
-    .mode=${'secondary'} />`
+export const Variant: Story<ButtonComponent> = Template.bind({})
+Variant.args = {
+  label: 'Variant Example',
+  mode: 'secondary',
+  variant: ['outline', 'inverse']
+};
