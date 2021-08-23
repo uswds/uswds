@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   "core": {
     "builder": "webpack5",
@@ -16,7 +18,8 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
 
     // Make whatever fine-grained changes you need
-    config.module.rules.push({
+    config.module.rules.push(
+      {
         "test": /\.s(c|a)ss$/,
         "use": [{
           loader: 'lit-scss-loader',
@@ -26,7 +29,13 @@ module.exports = {
           },
           "sass-loader",
         ],
-      });
+      },
+      {
+        test: /.(jpe?g|png|svg)$/,
+        loader: "url-loader",
+        include: path.join(__dirname, "src/img")
+      },
+      );
     return config;
   },
 }
