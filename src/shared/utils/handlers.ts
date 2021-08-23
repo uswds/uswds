@@ -21,3 +21,5 @@ export const handleClasses = (variantClassArray:Array<any>, baseClassList:String
 
   return ClassList
 }
+
+export default handleClasses

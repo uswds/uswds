@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="WIP | USWDS Web Components" />
+
+# WIP | USWDS Web Components
+
+
+| File or folder      | Description                                                |
+| ------------------- | ---------------------------------------------------------- |
+| `src/components`    | everything needed for rendering the components             |
+| `src/doc-stories`   | Documentation Stories that sit above our components.       |
+| `src/shared`        | Constants, content, machines, hooks, styles, utils etc     |
+| `src/tsconfig`      | configure our environment for compiling Typescript         |
+| `tsconfig`          | configure our environment for compiling Typescript         |
+| `.storybook/main.js`| configuration and webpack extension for our storybook app  |
+| `.storybook/preview.js`| template for preview components                         |
+
+## Getting Started
+
+Get our packages.
+
+```shell
+npm install
+```
+
+Build and serve development environment.
+
+```shell
+npm run storybook
+```
+
+## Coding Standards
+
+We use a combination of linting and best practices to guide code consistency.
+
+### Our linters include
+
+[![js-standard-style](https://img.shields.io/badge/code%20style%20JS-standard-brightgreen.svg)](http://standardjs.com)
+[![prettier/recommended](https://img.shields.io/badge/code%20format/prettier-%20recomended-brightgreen.svg)](https://github.com/prettier/eslint-plugin-prettier)
+<!-- TODO + MORE -->
+
+### **Standards outside linting**
+
+We also carry the following working agreements that may fall outside of the linting.
+
+---
+
+#### **1. Avoid functionality in lithtml**
+
+If you have this...
+
+```js
+html`<Foo @click={​​​​​​​​function () {​​​​​​​​ alert("1337") }​​​​​​​​}​​​​​​​​ />`
+```
+
+We prefer this
+
+```js
+html`<Foo @click={​​​​​​​​handleAlert}​​​​​​​​ />`
+```
+
+#### **2. Avoid inline styles**
+
+If you have this...
+
+```js
+html`<Foo style={{ width: 100% }} />`
+```
+
+We prefer this
+
+```js
+html`<Foo class="full-width" />` />
+```
+
+#### **4. Styles**
+
+We use [Sass](https://sass-lang.com/) and [Sass Modules](https://css-tricks.com/introducing-sass-modules/)
+
+
+#### **5. Code Documentation**
+
+<!-- TODO -->
+We use [JSDoc](https://jsdoc.app/) for documenting JavaScript
+
+```sh
+npm jsdocs
+```
+
+<!-- TODO -->
+#### **5. Testing**
+
+We use [Jest](https://jestjs.io/) for snapshot regression testing
+We use [Mocha](https://mochajs.org/) and [JSDOM](https://github.com/jsdom/jsdom) for Unit/DOM testing
+
+```sh
+npm run test
+```
+
+**### **6. Components**
+
+We build each of our components with `spec`, `scss`, and `ts` files
+
+```
+|-usa-component-name
+  |-usa-component-name.jsx
+  |-_usa-component-name.scss
+  |-usa-component-name.spec.js
+```
+
+<!-- TODO -->
+To generate a component with these files based on a name space,
+you can use [plop](https://github.com/plopjs/plop)
+
+`cd` to root of application
+
+```sh
+npm generate
+```

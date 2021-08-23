@@ -2,12 +2,12 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { handleClasses } from './utils';
-import ButtonStyles from '../stylesheets/components/_usa-button.scss'
+import handleClasses from '../../shared/utils/handlers';
+import ButtonStyles from './_usa-button.scss'
 
 @customElement('usa-button')
 export class ButtonComponent extends LitElement {
-    /**
+  /**
    * Is this the principal call to action on the page?
    */
   @property({type: String})
@@ -54,8 +54,7 @@ export class ButtonComponent extends LitElement {
       this.variant ? this.variant.map((v) => `usa-button--${v}`).join(' ') : null
     ], 'usa-button')
 
-    const includeWrapper = this.variant?.includes('outline')
-      && this.variant?.includes('inverse') ? true : false
+    const includeWrapper = this.variant?.includes('outline' && 'inverse') ? true : false
 
     const wrapperClasses = {
       'bg-base-darkest': includeWrapper,
