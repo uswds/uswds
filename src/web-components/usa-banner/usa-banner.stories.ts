@@ -10,13 +10,16 @@ export default {
 
 
 const Template: Story<BannerComponent> = ({ language, domain }) =>
-  html`<usa-banner .language=${language} .domain=${domain} />`;
+  html`<usa-banner
+    .language=${language}
+    .domain=${domain}
+    />`;
 
 export const Primary: Story<BannerComponent> = Template.bind({})
 Primary.args = {};
 
-export const Mill: Story<BannerComponent> = Template.bind({})
-Mill.args = {
+export const Mil: Story<BannerComponent> = Template.bind({})
+Mil.args = {
   domain: 'mil'
 }
 

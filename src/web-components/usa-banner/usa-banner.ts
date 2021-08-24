@@ -1,8 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
-import '../../js/components/banner'
 import handleClasses from '../../shared/utils/handlers';
 import { prefix as PREFIX } from '../../shared/const/config.js'
 import { Lock, LockHTTPS, LockGov, Flag } from './assets/images';
@@ -14,6 +12,11 @@ const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;
 
 @customElement('usa-banner')
 export class BannerComponent extends LitElement {
+  expanded: boolean;
+  headerClassList: string | String;
+  domain: string;
+  language: string;
+  content: any;
 
   static get properties() {
     return {
@@ -26,8 +29,10 @@ export class BannerComponent extends LitElement {
   }
 
   constructor () {
-    super()
-    this.expanded = false;
+    super();
+    this.expanded = false
+    this.domain = ''
+    this.language = ''
     this.headerClassList = handleClasses([
       this.expanded ? EXPANDED_CLASS : null,
     ], HEADER)
@@ -121,8 +126,9 @@ export class BannerComponent extends LitElement {
     <section class="usa-banner" aria-label=${this.content.banner.aria_label}>
       <div class="usa-accordion">
         ${header()}
-      <div class="usa-banner__content usa-accordion__content" id=${this.content.banner.id} ?hidden=${!this.expanded}>
-        ${guidance()}
+        <div class="usa-banner__this.content usa-accordion__this.content" id=${this.content.banner.id} ?hidden=${!this.expanded}>
+          ${guidance()}
+        </div>
       </div>
     </section>
     `
