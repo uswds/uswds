@@ -16,9 +16,12 @@ module.exports = {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-
-    // Make whatever fine-grained changes you need
     config.module.rules.push(
+      {
+        "test": /\.ya?ml$/,
+        "type": 'json',
+        "use": 'yaml-loader'
+      },
       {
         "test": /\.s(c|a)ss$/,
         "use": [{
@@ -35,7 +38,7 @@ module.exports = {
         loader: "url-loader",
         include: path.join(__dirname, "src/img")
       },
-      );
+    );
     return config;
   },
 }

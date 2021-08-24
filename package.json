@@ -150,6 +150,7 @@
     "url-loader": "^4.1.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
+    "yaml-loader": "^0.6.0",
     "yargs": "^16.0.3"
   }
 }
