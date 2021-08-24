@@ -22,10 +22,10 @@ module.exports = {
     // ? https://storybook.js.org/docs/react/configure/webpack#using-your-existing-config
     config.module.rules.push(
        {
-        "test": /\\.s(c|a)ss$/,
+        "test": /\.s(c|a)ss$/,
         "oneOf": [
           {
-            "resourceQuery": /wc/, // foo.scss?ts
+            "resourceQuery": /wc/, // foo.scss?wc
             "use": [{
               loader: 'lit-scss-loader',
                 options: {
@@ -36,16 +36,10 @@ module.exports = {
             ],
           },
           {
-            "resourceQuery": / /,
             "use": ['style-loader', 'css-loader', 'sass-loader'],
             "include": path.resolve(__dirname, '../'),
           }
         ],
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: path.resolve(__dirname, '../'),
       },
       {
         test: /.(jpe?g|png|svg)$/,
