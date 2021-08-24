@@ -1,6 +1,9 @@
 const path = require("path");
 
 module.exports = {
+  "core": {
+    "builder": "webpack5"
+  },
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
@@ -9,9 +12,6 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  "core": {
-    "builder": "webpack5"
-  },
   "webpackFinal": async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
@@ -21,6 +21,27 @@ module.exports = {
     // TODO: Create a custom webpack.config.js if this gets too long
     // ? https://storybook.js.org/docs/react/configure/webpack#using-your-existing-config
     config.module.rules.push(
+       {
+        "test": /\\.s(c|a)ss$/,
+        "oneOf": [
+          {
+            "resourceQuery": /wc/, // foo.scss?ts
+            "use": [{
+              loader: 'lit-scss-loader',
+                options: {
+                  minify: true,
+                },
+              },
+              "sass-loader",
+            ],
+          },
+          {
+            "resourceQuery": / /,
+            "use": ['style-loader', 'css-loader', 'sass-loader'],
+            "include": path.resolve(__dirname, '../'),
+          }
+        ],
+      },
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -37,9 +58,9 @@ module.exports = {
       },
       {
         test: /\.ya?ml$/,
-        type: 'json', // Required by Webpack v4
+        type: 'json',
         use: 'yaml-loader'
-      }
+      },
     );
 
     // Return the altered config

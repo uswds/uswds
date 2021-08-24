@@ -7,8 +7,26 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "lib": ["es6", "DOM"],
-    "types": ["node"]
+    "lib": ["es2020", "DOM"],
+    "types": ["node"],
+    "experimentalDecorators": true,
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false
   },
-  "include": ["src/utils/select.js"]
+  "exclude": [
+      "node_modules"
+    ],
+  "include": [
+    "src/components/**/*.ts",
+    "node_modules/lit-scss-loader/types.d.ts",
+    "./types.d.ts",
+    "src/shared/utils/handlers.ts"
+  ],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
 }
