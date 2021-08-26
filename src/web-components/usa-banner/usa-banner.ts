@@ -69,7 +69,9 @@ export class BannerComponent extends LitElement {
         aria-controls="gov-banner-default"
         @click=${(e: Event) => this._toggleExpanded(e)}
       >
-        <span class="usa-banner__button-text">${this.content.banner.action}</span>
+        <span class="usa-banner__button-text">
+          ${this.content.banner.action}
+        </span>
       </button>
     </div>
   </header>
@@ -126,7 +128,11 @@ export class BannerComponent extends LitElement {
     <section class="usa-banner" aria-label=${this.content.banner.aria_label}>
       <div class="usa-accordion">
         ${header()}
-        <div class="usa-banner__this.content usa-accordion__this.content" id=${this.content.banner.id} ?hidden=${!this.expanded}>
+        <div
+          class="usa-banner__content usa-accordion__content"
+          id=${this.content.banner.id}
+          ?hidden=${!this.expanded}
+          >
           ${guidance()}
         </div>
       </div>
