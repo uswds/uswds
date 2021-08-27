@@ -1,5 +1,26 @@
 const path = require("path");
 const TerserPlugin = require('terser-webpack-plugin');
+const {
+  createJoinFunction,
+  createJoinImplementation,
+  asGenerator,
+  defaultJoinGenerator,
+} = require('resolve-url-loader');
+
+const themeDirectory = path.resolve('src/img');
+
+// call default generator then append any additional paths
+const pathGenerator = asGenerator(
+  (item, ...rest) => [
+    ...defaultJoinGenerator(item, ...rest),
+    item.isAbsolute ? null : themeDirectory,
+  ]
+);
+
+const joinSassAssets = createJoinFunction(
+  'joinSassAssets',
+  createJoinImplementation(pathGenerator),
+);
 
 module.exports = {
   "core": {
@@ -17,7 +38,7 @@ module.exports = {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-    config.output.publicPath = 'auto',
+    config.output.publicPath = '/',
     config.optimization.minimize = true,
     config.optimization.minimizer = [
       new TerserPlugin({
@@ -43,38 +64,47 @@ module.exports = {
               minify: true,
             },
           },
-          // "extract-loader", // TODO: get working
-          // "css-loader",
-          // {
-          //   loader: "css-loader",
-          //   options: {
-          //     esModule: false,
-          //   },
-          // },
+          "extract-loader",
           {
-            loader: 'postcss-sass-loader',
+            loader: "css-loader",
             options: {
-              ident: 'postcss',
+              url: true,
+              esModule: false,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
               sourceMap: true,
-              plugins: (loader) => [
-                require('postcss-import')({ root: loader.resourcePath }),
-                require('postcss-preset-env')(), // includes autoprefixer
-              ]
+              postcssOptions: (loaderContext) => {
+                return {
+                  plugins: [
+                    ['postcss-import', { root: loaderContext.resourcePath }],
+                    "postcss-preset-env",
+                  ],
+                }
+              }
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              join: joinSassAssets
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
             }
           },
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        type: "asset/resource",
-        include: path.join(__dirname, "../src")
+      test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
+      type: 'javascript/auto',
+      use: 'url-loader'
       },
-      // {
-      //   test: /.(jpe?g|png|svg)$/,
-      //   loader: "url-loader",
-      //   type: "javascript/auto",
-      //   include: path.join(__dirname, "src/img")
-      // },
     );
     return config;
   },
