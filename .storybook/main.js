@@ -1,5 +1,5 @@
 const path = require("path");
-const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
   createJoinFunction,
   createJoinImplementation,
@@ -7,14 +7,18 @@ const {
   defaultJoinGenerator,
 } = require('resolve-url-loader');
 
-const themeDirectory = path.resolve('src/img');
+const imageDirectory = path.resolve('src/img');
+const fontsDirectory = path.resolve('src/fonts');
 
 // call default generator then append any additional paths
 const pathGenerator = asGenerator(
   (item, ...rest) => [
     ...defaultJoinGenerator(item, ...rest),
-    item.isAbsolute ? null : themeDirectory,
-  ]
+    item.isAbsolute ? null
+      : /\.(png|svg|jpg|jpeg|gif)$/.test(item.uri) ? imageDirectory
+      : /\.(woff|woff2|eot|ttf|otf)$/.test(item.uri) ? fontsDirectory
+      : null
+    ]
 );
 
 const joinSassAssets = createJoinFunction(
@@ -38,18 +42,16 @@ module.exports = {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-    config.output.publicPath = '/',
-    config.optimization.minimize = true,
-    config.optimization.minimizer = [
-      new TerserPlugin({
-        terserOptions: {
-          format: {
-            comments: false,
+    config.plugins.push( // currently only way I fond to get custom fonts loaded
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, '../src/fonts'),
+            to: 'src/fonts'
           },
-        },
-        extractComments: false,
-      }),
-    ],
+        ]}
+      ),
+    );
     config.module.rules.push(
       {
         "test": /\.ya?ml$/,
@@ -68,7 +70,6 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              url: true,
               esModule: false,
             },
           },
@@ -89,7 +90,8 @@ module.exports = {
           {
             loader: 'resolve-url-loader',
             options: {
-              join: joinSassAssets
+              join: joinSassAssets,
+              debug: true
             }
           },
           {
@@ -99,12 +101,20 @@ module.exports = {
             }
           },
         ],
+        include: path.resolve(__dirname, '../src')
       },
       {
-      test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
-      type: 'javascript/auto',
-      use: 'url-loader'
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'javascript/auto',
+        use: 'file-loader',
+        include: path.resolve(__dirname, '../src/img')
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: 'file-loader',
+        type: 'asset/resource',
+        include: path.resolve(__dirname, '../src/fonts')
+      }
     );
     return config;
   },
