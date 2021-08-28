@@ -98,7 +98,6 @@
     "browserify": "^16.5.2",
     "chrome-launcher": "^0.13.4",
     "chrome-remote-interface": "^0.28.2",
-    "copy-webpack-plugin": "^9.0.1",
     "cross-spawn": "^7.0.3",
     "css-loader": "^6.2.0",
     "eslint": "^7.9.0",

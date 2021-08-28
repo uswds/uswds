@@ -104,7 +104,7 @@ export class BannerComponent extends LitElement {
         />
         <div class="usa-media-block__body">
           <p>
-            ${this.content.https.heading}
+            <strong>${this.content.https.heading}</strong>
             <br />
             ${unsafeHTML(this.content.https.pretext)} (
             <span class="icon-lock">

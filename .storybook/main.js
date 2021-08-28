@@ -1,5 +1,4 @@
 const path = require("path");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
   createJoinFunction,
   createJoinImplementation,
@@ -42,16 +41,6 @@ module.exports = {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-    config.plugins.push( // currently only way I fond to get custom fonts loaded
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: path.resolve(__dirname, '../src/fonts'),
-            to: 'src/fonts'
-          },
-        ]}
-      ),
-    );
     config.module.rules.push(
       {
         "test": /\.ya?ml$/,
@@ -91,7 +80,7 @@ module.exports = {
             loader: 'resolve-url-loader',
             options: {
               join: joinSassAssets,
-              debug: true
+              // debug: true
             }
           },
           {
@@ -106,13 +95,23 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'javascript/auto',
-        use: 'file-loader',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
         include: path.resolve(__dirname, '../src/img')
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: 'file-loader',
-        type: 'asset/resource',
+        type: 'javascript/auto',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
         include: path.resolve(__dirname, '../src/fonts')
       }
     );
