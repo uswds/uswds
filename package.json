@@ -169,6 +169,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "webpack": "^5.51.1",
+    "yaml-loader": "^0.6.0",
     "yargs": "^16.1.1"
   }
 }
