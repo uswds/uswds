@@ -100,6 +100,7 @@
     "chrome-remote-interface": "^0.28.2",
     "cross-spawn": "^7.0.3",
     "css-loader": "^6.2.0",
+    "csso-webpack-plugin": "^2.0.0-beta.3",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
