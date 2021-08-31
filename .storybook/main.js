@@ -49,16 +49,13 @@ module.exports = {
       },
       {
         "test": /\.s(c|a)ss$/i,
-        "use": [{
-          loader: 'lit-scss-loader',
-            options: {
-              minify: true,
-            },
-          },
+        "use": [
+          "lit-scss-loader",
           "extract-loader",
           {
             loader: "css-loader",
             options: {
+              sourceMap: true,
               esModule: false,
             },
           },
@@ -69,8 +66,10 @@ module.exports = {
               postcssOptions: (loaderContext) => {
                 return {
                   plugins: [
-                    ['postcss-import', { root: loaderContext.resourcePath }],
+                    ["postcss-import", { root: loaderContext.resourcePath }],
+                    ["postcss-discard-comments", { removeAll: true}],
                     "postcss-preset-env",
+                    ["postcss-csso", { forceMediaMerge: false, comments: false }]
                   ],
                 }
               }
@@ -80,7 +79,6 @@ module.exports = {
             loader: 'resolve-url-loader',
             options: {
               join: joinSassAssets,
-              // debug: true
             }
           },
           {
