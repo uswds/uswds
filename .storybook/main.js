@@ -1,48 +1,118 @@
 const path = require("path");
+const {
+  createJoinFunction,
+  createJoinImplementation,
+  asGenerator,
+  defaultJoinGenerator,
+} = require('resolve-url-loader');
+
+const imageDirectory = path.resolve('src/img');
+const fontsDirectory = path.resolve('src/fonts');
+
+// call default generator then append any additional paths
+const pathGenerator = asGenerator(
+  (item, ...rest) => [
+    ...defaultJoinGenerator(item, ...rest),
+    item.isAbsolute ? null
+      : /\.(png|svg|jpg|jpeg|gif)$/.test(item.uri) ? imageDirectory
+      : /\.(woff|woff2|eot|ttf|otf)$/.test(item.uri) ? fontsDirectory
+      : null
+    ]
+);
+
+const joinSassAssets = createJoinFunction(
+  'joinSassAssets',
+  createJoinImplementation(pathGenerator),
+);
 
 module.exports = {
+  "core": {
+    "builder": "webpack5",
+  },
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
   ],
-  "core": {
-    "builder": "webpack5"
-  },
-  "webpackFinal": async (config, { configType }) => {
+  webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-
-    // Make whatever fine-grained changes you need
-    // TODO: Create a custom webpack.config.js if this gets too long
-    // ? https://storybook.js.org/docs/react/configure/webpack#using-your-existing-config
     config.module.rules.push(
       {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: path.resolve(__dirname, '../'),
+        "test": /\.ya?ml$/,
+        "type": 'json',
+        "use": 'yaml-loader'
       },
       {
-        test: /.(jpe?g|png|svg)$/,
-        loader: "url-loader",
-        include: path.join(__dirname, "src/img")
+        "test": /\.s(c|a)ss$/i,
+        "use": [
+          "lit-scss-loader",
+          "extract-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              esModule: false,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              postcssOptions: (loaderContext) => {
+                return {
+                  plugins: [
+                    ["postcss-import", { root: loaderContext.resourcePath }],
+                    ["postcss-discard-comments", { removeAll: true}],
+                    "postcss-preset-env",
+                    ["postcss-csso", { forceMediaMerge: false, comments: false }]
+                  ],
+                }
+              }
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              join: joinSassAssets,
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+        ],
+        include: path.resolve(__dirname, '../src')
       },
       {
-        test: /\.twig$/,
-        loader: "twig-loader",
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'javascript/auto',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
+        include: path.resolve(__dirname, '../src/img')
       },
       {
-        test: /\.ya?ml$/,
-        type: 'json', // Required by Webpack v4
-        use: 'yaml-loader'
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'javascript/auto',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
+        include: path.resolve(__dirname, '../src/fonts')
       }
     );
-
-    // Return the altered config
     return config;
-  }
+  },
 }
