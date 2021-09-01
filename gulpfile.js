@@ -84,4 +84,4 @@ exports.styleguide = buildPL;
 exports.watch = watch;
 
 // Default Task
-exports.default = series(build, buildPL);
+exports.default = this.buildUSWDS;
