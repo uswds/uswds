@@ -18,6 +18,9 @@ patternlab/
 build/
 dependencyGraph.json
 
+# ignore compiled storybook directory
+storybook-static/
+
 # ignore gulp-generated vendor files
 src/stylesheets/lib
 
