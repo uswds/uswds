@@ -106,7 +106,6 @@ const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
 const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
-
 /**
  * Builds full file input comonent
  * @param {HTMLElement} fileInputEl - original file input on page
