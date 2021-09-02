@@ -48,23 +48,50 @@ module.exports = {
       },
       {
         test: /\.s(c|a)ss$/i,
-        "oneOf": [
+        use: [
           {
-            "resourceQuery": /wc/, // foo.scss?wc
-            "use": [{
-              loader: 'lit-scss-loader',
-                options: {
-                  minify: true,
-                },
-              },
-              "sass-loader",
-            ],
+            loader: "style-loader",
           },
           {
-            "use": ['style-loader', 'css-loader', 'sass-loader'],
-            "include": path.resolve(__dirname, '../'),
-          }
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              esModule: false,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              postcssOptions: (loaderContext) => {
+                return {
+                  plugins: [
+                    ["postcss-import", { root: loaderContext.resourcePath }],
+                    ["postcss-discard-comments", { removeAll: true }],
+                    "postcss-preset-env",
+                    [
+                      "postcss-csso",
+                      { forceMediaMerge: false, comments: false },
+                    ],
+                  ],
+                };
+              },
+            },
+          },
+          {
+            loader: "resolve-url-loader",
+            options: {
+              join: joinSassAssets,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
+        include: path.resolve(__dirname, "../src"),
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
