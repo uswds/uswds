@@ -21,8 +21,8 @@ describe("combo box component change event dispatch", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
     select = root.querySelector(".usa-combo-box__select");
     list = root.querySelector(".usa-combo-box__list");
@@ -36,8 +36,8 @@ describe("combo box component change event dispatch", () => {
   afterEach(() => {
     input.removeEventListener("change", inputChangeSpy);
     select.removeEventListener("change", selectChangeSpy);
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("enhances a select element into a combo box component", () => {

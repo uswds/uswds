@@ -15,14 +15,14 @@ describe("combo box component with placeholder attribute", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
   });
 
   afterEach(() => {
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("enhances a select element into a combo box component", () => {

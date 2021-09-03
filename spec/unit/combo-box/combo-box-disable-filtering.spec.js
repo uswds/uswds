@@ -18,16 +18,16 @@ describe("combo box component with disable filtering attribute", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
     list = root.querySelector(".usa-combo-box__list");
     select = root.querySelector(".usa-combo-box__select");
   });
 
   afterEach(() => {
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("should display the full list and focus the first found item", () => {

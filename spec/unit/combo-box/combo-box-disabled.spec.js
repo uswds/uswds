@@ -19,8 +19,8 @@ describe("combo box component - disabled enhancement", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
     select = root.querySelector(".usa-combo-box__select");
     toggle = root.querySelector(".usa-combo-box__toggle-list");
@@ -28,8 +28,8 @@ describe("combo box component - disabled enhancement", () => {
   });
 
   afterEach(() => {
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("enhances a select element into a combo box component", () => {

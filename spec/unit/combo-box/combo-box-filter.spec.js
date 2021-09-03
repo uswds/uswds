@@ -17,15 +17,15 @@ describe("combo box component with filter attribute", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
     list = root.querySelector(".usa-combo-box__list");
   });
 
   afterEach(() => {
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("should display and filter the option list after a character is typed", () => {

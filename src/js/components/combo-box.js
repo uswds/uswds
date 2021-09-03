@@ -1,5 +1,5 @@
 const keymap = require("receptor/keymap");
-const select = require("../utils/select");
+const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
@@ -783,7 +783,7 @@ const comboBox = behavior(
   },
   {
     init(root) {
-      select(COMBO_BOX, root).forEach((comboBoxEl) => {
+      selectOrMatches(COMBO_BOX, root).forEach((comboBoxEl) => {
         enhanceComboBox(comboBoxEl);
       });
     },

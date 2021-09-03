@@ -18,16 +18,16 @@ describe("combo box component - subsequent selection", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    ComboBox.on();
     root = body.querySelector(".usa-combo-box");
+    ComboBox.on(root);
     input = root.querySelector(".usa-combo-box__input");
     select = root.querySelector(".usa-combo-box__select");
     list = root.querySelector(".usa-combo-box__list");
   });
 
   afterEach(() => {
+    ComboBox.off(root);
     body.textContent = "";
-    ComboBox.off(body);
   });
 
   it("should display the full list and focus the selected item when the input is pristine (after fresh selection)", () => {
