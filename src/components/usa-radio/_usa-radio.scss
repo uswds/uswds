@@ -39,7 +39,8 @@
       padding: units(1.5) units(2) units(1.5) units(5);
 
       &:before {
-        left: units(5) - units($input-select-margin-right) - units($theme-input-select-size);
+        left: units(5) - units($input-select-margin-right) -
+          units($theme-input-select-size);
       }
     }
   }
@@ -62,7 +63,8 @@
   display: inherit;
   font-weight: font-weight("normal");
   margin-top: units(1.5);
-  padding-left: units($input-select-margin-right) + units($theme-input-select-size);
+  padding-left: units($input-select-margin-right) +
+    units($theme-input-select-size);
   position: relative;
   text-indent: units(-$input-select-margin-right - $theme-input-select-size);
 
@@ -72,10 +74,10 @@
     left: 0;
     margin-left: units($theme-input-select-border-width);
     margin-top: (
-      line-height($theme-form-font-family, $theme-input-line-height) *
-      font-size($theme-form-font-family, $theme-body-font-size) -
-      units($theme-input-select-size)
-    ) / 2;
+        line-height($theme-form-font-family, $theme-input-line-height) *
+          font-size($theme-form-font-family, $theme-body-font-size) -
+          units($theme-input-select-size)
+      ) / 2;
     position: absolute;
   }
 }
