@@ -3,6 +3,7 @@ extends:
   - prettier
 plugins:
   - import
+  - no-unsanitized
 env:
   node: true
   browser: true
@@ -11,3 +12,5 @@ rules:
   import/no-extraneous-dependencies:
     - error
     - devDependencies: true
+  no-unsanitized/method: error
+  no-unsanitized/property: error
