@@ -159,8 +159,8 @@ const enhanceComboBox = (_comboBoxEl) => {
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
-  const defaultValue = comboBoxEl.dataset.defaultValue;
-  const placeholder = comboBoxEl.dataset.placeholder;
+  const {defaultValue} = comboBoxEl.dataset;
+  const {placeholder} = comboBoxEl.dataset;
   let selectedOption;
 
   if (placeholder) {
@@ -312,9 +312,7 @@ const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
  * @param {object} extras An object of regular expressions to replace and filter the query
  */
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
-  const escapeRegExp = (text) => {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-  };
+  const escapeRegExp = (text) => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 
   let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
@@ -332,7 +330,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
     return escapeRegExp(query);
   });
 
-  find = "^(?:" + find + ")$";
+  find = `^(?:${  find  })$`;
 
   return new RegExp(find, "i");
 };
@@ -434,9 +432,9 @@ const displayList = (el) => {
   let itemToFocus;
 
   if (isPristine && selectedItemId) {
-    itemToFocus = listEl.querySelector("#" + selectedItemId);
+    itemToFocus = listEl.querySelector(`#${  selectedItemId}`);
   } else if (disableFiltering && firstFoundId) {
-    itemToFocus = listEl.querySelector("#" + firstFoundId);
+    itemToFocus = listEl.querySelector(`#${  firstFoundId}`);
   }
 
   if (itemToFocus) {
@@ -585,7 +583,7 @@ const handleDownFromInput = (event) => {
     displayList(comboBoxEl);
   }
 
-  let nextOptionEl =
+  const nextOptionEl =
     listEl.querySelector(LIST_OPTION_FOCUSED) ||
     listEl.querySelector(LIST_OPTION);
 
