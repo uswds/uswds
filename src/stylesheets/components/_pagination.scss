@@ -73,13 +73,13 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__previous-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-right: units($pagination-target-size / 2);
+    margin-right: units(divide($pagination-target-size, 2));
   }
 }
 
 .usa-pagination__next-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-left: units($pagination-target-size / 2);
+    margin-left: units(divide($pagination-target-size, 2));
   }
 }
 
