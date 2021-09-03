@@ -385,9 +385,7 @@ const max = (dateA, dateB) => {
  * @param {Date} dateB date to compare
  * @returns {boolean} are dates in the same year
  */
-const isSameYear = (dateA, dateB) => {
-  return dateA && dateB && dateA.getFullYear() === dateB.getFullYear();
-};
+const isSameYear = (dateA, dateB) => dateA && dateB && dateA.getFullYear() === dateB.getFullYear();
 
 /**
  * Check if dates are the in the same month
@@ -396,9 +394,7 @@ const isSameYear = (dateA, dateB) => {
  * @param {Date} dateB date to compare
  * @returns {boolean} are dates in the same month
  */
-const isSameMonth = (dateA, dateB) => {
-  return isSameYear(dateA, dateB) && dateA.getMonth() === dateB.getMonth();
-};
+const isSameMonth = (dateA, dateB) => isSameYear(dateA, dateB) && dateA.getMonth() === dateB.getMonth();
 
 /**
  * Check if dates are the same date
@@ -407,9 +403,7 @@ const isSameMonth = (dateA, dateB) => {
  * @param {Date} dateA the date to compare
  * @returns {boolean} are dates the same date
  */
-const isSameDay = (dateA, dateB) => {
-  return isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
-};
+const isSameDay = (dateA, dateB) => isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
 
 /**
  * return a new date within minimum and maximum date
@@ -450,11 +444,9 @@ const isDateWithinMinAndMax = (date, minDate, maxDate) =>
  * @param {Date} maxDate maximum date to allow
  * @return {boolean} is the month outside min or max dates
  */
-const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => {
-  return (
+const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => (
     lastDayOfMonth(date) < minDate || (maxDate && startOfMonth(date) > maxDate)
   );
-};
 
 /**
  * Check if dates year is invalid.
@@ -464,12 +456,10 @@ const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => {
  * @param {Date} maxDate maximum date to allow
  * @return {boolean} is the month outside min or max dates
  */
-const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => {
-  return (
+const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => (
     lastDayOfMonth(setMonth(date, 11)) < minDate ||
     (maxDate && startOfMonth(setMonth(date, 0)) > maxDate)
   );
-};
 
 /**
  * Parse a date with format M-D-YY
@@ -491,7 +481,7 @@ const parseDateString = (
   let parsed;
 
   if (dateString) {
-    let monthStr, dayStr, yearStr;
+    let monthStr; let dayStr; let yearStr;
 
     if (dateFormat === DEFAULT_EXTERNAL_DATE_FORMAT) {
       [monthStr, dayStr, yearStr] = dateString.split("/");
@@ -554,9 +544,7 @@ const parseDateString = (
  * @returns {string} the formatted date string
  */
 const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
-  const padZeros = (value, length) => {
-    return `0000${value}`.slice(-length);
-  };
+  const padZeros = (value, length) => `0000${value}`.slice(-length);
 
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -826,7 +814,7 @@ const setCalendarValue = (el, dateString) => {
  */
 const enhanceDatePicker = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
-  const defaultValue = datePickerEl.dataset.defaultValue;
+  const {defaultValue} = datePickerEl.dataset;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
 
@@ -1597,8 +1585,7 @@ const handleEscapeFromCalendar = (event) => {
  *
  * @param {function} adjustDateFn function that returns the adjusted date
  */
-const adjustCalendar = (adjustDateFn) => {
-  return (event) => {
+const adjustCalendar = (adjustDateFn) => (event) => {
     const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
       event.target
     );
@@ -1612,7 +1599,6 @@ const adjustCalendar = (adjustDateFn) => {
     }
     event.preventDefault();
   };
-};
 
 /**
  * Navigate back one week and display the calendar.
@@ -1714,8 +1700,7 @@ const handleMouseoverFromDate = (dateEl) => {
  *
  * @param {function} adjustMonthFn function that returns the adjusted month
  */
-const adjustMonthSelectionScreen = (adjustMonthFn) => {
-  return (event) => {
+const adjustMonthSelectionScreen = (adjustMonthFn) => (event) => {
     const monthEl = event.target;
     const selectedMonth = parseInt(monthEl.dataset.value, 10);
     const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
@@ -1737,7 +1722,6 @@ const adjustMonthSelectionScreen = (adjustMonthFn) => {
     }
     event.preventDefault();
   };
-};
 
 /**
  * Navigate back three months and display the month selection screen.
@@ -1824,8 +1808,7 @@ const handleMouseoverFromMonth = (monthEl) => {
  *
  * @param {function} adjustYearFn function that returns the adjusted year
  */
-const adjustYearSelectionScreen = (adjustYearFn) => {
-  return (event) => {
+const adjustYearSelectionScreen = (adjustYearFn) => (event) => {
     const yearEl = event.target;
     const selectedYear = parseInt(yearEl.dataset.value, 10);
     const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
@@ -1847,7 +1830,6 @@ const adjustYearSelectionScreen = (adjustYearFn) => {
     }
     event.preventDefault();
   };
-};
 
 /**
  * Navigate back three years and display the year selection screen.

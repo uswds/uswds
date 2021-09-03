@@ -138,11 +138,11 @@ const enhanceDateRangePicker = (el) => {
     dateRangePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
   }
 
-  const minDate = dateRangePickerEl.dataset.minDate;
+  const {minDate} = dateRangePickerEl.dataset;
   rangeStart.dataset.minDate = minDate;
   rangeEnd.dataset.minDate = minDate;
 
-  const maxDate = dateRangePickerEl.dataset.maxDate;
+  const {maxDate} = dateRangePickerEl.dataset;
   if (maxDate) {
     rangeStart.dataset.maxDate = maxDate;
     rangeEnd.dataset.maxDate = maxDate;
