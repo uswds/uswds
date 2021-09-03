@@ -4,15 +4,18 @@
   $image-path: $theme-image-path
 ) {
   &::after {
-    $icon-size: 0.65em;
+    $external-link-size: 1.75ex;
     background-image: url("#{$image-path}/#{$external-link}.svg");
-    background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 100%;
     content: "";
-    display: inline;
+    height: $external-link-size;
     margin-left: units(2px);
-    padding-left: $icon-size;
+    // Use following inline styling to prevent icon splitting over line breaks
+    background-position: center;
+    display: inline;
+    padding-left: $external-link-size;
+    vertical-align: middle;
   }
 
   &:hover::after {
