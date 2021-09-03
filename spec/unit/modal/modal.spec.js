@@ -20,19 +20,23 @@ describe("Modal window", () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    modal.on();
+    modalWindow = body.querySelector(".usa-modal");
+    modal.on(modalWindow);
     closeButton = body.querySelector("#close-button");
     modalWrapper = body.querySelector(".usa-modal-wrapper");
-    modalWindow = body.querySelector(".usa-modal");
     overlay = body.querySelector(".usa-modal-overlay");
     openButton1 = body.querySelector("#open-button1");
     openButton2 = body.querySelector("#open-button2");
+    modal.on(openButton1);
+    modal.on(openButton2);
   });
 
   afterEach(() => {
+    modal.off(modalWindow);
+    modal.off(openButton1);
+    modal.off(openButton2);
     body.innerHTML = "";
     body.className = "";
-    modal.off();
   });
 
   describe("Builds the modal HTML", () => {
