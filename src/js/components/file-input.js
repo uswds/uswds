@@ -104,6 +104,7 @@ const replaceName = (s) => {
  */
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
+// Creates a unique ID based on upload time. Here we devide by 1000 and use mathfloor to get rid of the milliseconds.
 const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
@@ -236,7 +237,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
       const imageId = createUniqueID(makeSafeForID(fileName));
-      console.log(imageId);
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
