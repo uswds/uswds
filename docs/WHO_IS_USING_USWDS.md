@@ -134,6 +134,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [U.S. Army Medical Center of Excellence (MEDCoE)](https://medcoe.army.mil)
 - [U.S. Data Federation](http://federation.data.gov/)
 - [U.S. Department of Agriculture (USDA)](https://www.usda.gov/)
+- [U.S. Department of Justice - Civil Rights Division](https://civilrights.justice.gov/)
 - [U.S. Department of Labor](https://www.dol.gov/)
 - [U.S. Department of the Treasury](https://treasury.gov)
 - [U.S. Department of Veterans Affairs](https://va.gov)
