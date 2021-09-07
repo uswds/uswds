@@ -104,7 +104,7 @@ const replaceName = (s) => {
  */
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
-// Creates a unique ID based on upload time. Here we devide by 1000 and use mathfloor to get rid of the milliseconds.
+// Takes a generated safe ID and creates a unique ID.
 const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
@@ -225,7 +225,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
       const imageId = createUniqueID(makeSafeForID(fileName));
-      console.log(imageId);
       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
 
       instructions.insertAdjacentHTML(
