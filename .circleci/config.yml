@@ -24,6 +24,7 @@ jobs:
           keys:
             - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install
+      - run: npx playwright install
       - save_cache:
           paths:
             - node_modules
