@@ -1,5 +1,5 @@
 // Tooltips
-const select = require("../utils/select");
+const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const isElementInViewport = require("../utils/is-in-viewport");
@@ -359,7 +359,7 @@ const tooltip = behavior(
   {},
   {
     init(root) {
-      select(TOOLTIP, root).forEach((tooltipTrigger) => {
+      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
         const {
           tooltipBody,
           position,
