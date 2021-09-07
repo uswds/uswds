@@ -8,46 +8,55 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-disable-filtering.template.html")
 );
 
-describe("combo box component with disable filtering attribute", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+];
 
-  let root;
-  let input;
-  let list;
-  let select;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`Combo box initialized at ${name}`, () => {
+    describe("combo box component with disable filtering attribute", () => {
+      const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    root = body.querySelector(".usa-combo-box");
-    ComboBox.on(root);
-    input = root.querySelector(".usa-combo-box__input");
-    list = root.querySelector(".usa-combo-box__list");
-    select = root.querySelector(".usa-combo-box__select");
-  });
+      let root;
+      let input;
+      let list;
+      let select;
 
-  afterEach(() => {
-    ComboBox.off(root);
-    body.textContent = "";
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        root = containerSelector();
+        ComboBox.on(root);
+        input = root.querySelector(".usa-combo-box__input");
+        list = root.querySelector(".usa-combo-box__list");
+        select = root.querySelector(".usa-combo-box__select");
+      });
 
-  it("should display the full list and focus the first found item", () => {
-    input.value = "oo";
+      afterEach(() => {
+        ComboBox.off(root);
+        body.textContent = "";
+      });
 
-    EVENTS.input(input);
+      it("should display the full list and focus the first found item", () => {
+        input.value = "oo";
 
-    const focusedOption = list.querySelector(
-      ".usa-combo-box__list-option--focused"
-    );
-    assert.ok(!list.hidden, "should show the option list");
-    assert.strictEqual(
-      list.children.length,
-      select.options.length - 1,
-      "should have all of the initial select items in the list except placeholder empty items"
-    );
-    assert.strictEqual(
-      focusedOption.textContent,
-      "Blood orange",
-      "should be the first found item"
-    );
+        EVENTS.input(input);
+
+        const focusedOption = list.querySelector(
+          ".usa-combo-box__list-option--focused"
+        );
+        assert.ok(!list.hidden, "should show the option list");
+        assert.strictEqual(
+          list.children.length,
+          select.options.length - 1,
+          "should have all of the initial select items in the list except placeholder empty items"
+        );
+        assert.strictEqual(
+          focusedOption.textContent,
+          "Blood orange",
+          "should be the first found item"
+        );
+      });
+    });
   });
 });
