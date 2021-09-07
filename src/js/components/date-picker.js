@@ -1,6 +1,7 @@
 const keymap = require("receptor/keymap");
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
+const selectOrMatches = require("../utils/select-or-matches");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 const activeElement = require("../utils/active-element");
@@ -2146,7 +2147,7 @@ if (!isIosDevice()) {
 
 const datePicker = behavior(datePickerEvents, {
   init(root) {
-    select(DATE_PICKER, root).forEach((datePickerEl) => {
+    selectOrMatches(DATE_PICKER, root).forEach((datePickerEl) => {
       enhanceDatePicker(datePickerEl);
     });
   },
