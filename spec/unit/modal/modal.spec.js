@@ -11,11 +11,11 @@ const openButton1Selector = () => document.querySelector("#open-button1");
 const openButton2Selector = () => document.querySelector("#open-button2");
 
 const tests = [
-  { name: "document.body", selectors: [bodySelector] },
-  { name: "modal", selectors: [modalWindowSelector, openButton1Selector, openButton2Selector] }
+  { name: "document.body", selector: bodySelector },
+  { name: "modal", selector: modalWindowSelector }
 ];
 
-tests.forEach(({name, selectors: containerSelectors}) => {
+tests.forEach(({name, selector: containerSelector}) => {
   describe(`Modal window initialized at ${name}`, () => {
     const { body } = document;
 
@@ -30,7 +30,7 @@ tests.forEach(({name, selectors: containerSelectors}) => {
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
-      containerSelectors.forEach((selector) => modal.on(selector()));
+      modal.on(containerSelector());
       modalWindow = modalWindowSelector();
       closeButton = body.querySelector("#close-button");
       modalWrapper = body.querySelector(".usa-modal-wrapper");
@@ -40,7 +40,7 @@ tests.forEach(({name, selectors: containerSelectors}) => {
     });
 
     afterEach(() => {
-      containerSelectors.forEach((selector) => modal.off(selector()));
+      modal.off(containerSelector());
       body.innerHTML = "";
       body.className = "";
     });
