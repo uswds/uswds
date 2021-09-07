@@ -3,7 +3,9 @@ const fs = require("fs");
 const Table = require("../table");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
-const STYLES = fs.readFileSync(`${__dirname}/../../../../../dist/css/uswds.min.css`);
+const STYLES = fs.readFileSync(
+  `${__dirname}/../../../../dist/css/uswds.min.css`
+);
 
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
@@ -24,9 +26,7 @@ describe("Sortable Table", () => {
   let ariaLive;
 
   function getCellValuesByColumn(index) {
-    return Array.from(tbody.querySelectorAll("tr")).map((row) => {
-      return row.children[index].innerHTML;
-    });
+    return Array.from(tbody.querySelectorAll("tr")).map((row) => row.children[index].innerHTML);
   }
 
   beforeEach(() => {
@@ -135,9 +135,8 @@ describe("Sortable Table", () => {
 
   describe("Non-sortable column header", () => {
     it("does not have a sort button", () => {
-      const unsortableHeaderButton = unsortableHeader.querySelector(
-        sortButtonEl
-      );
+      const unsortableHeaderButton =
+        unsortableHeader.querySelector(sortButtonEl);
       assert.strictEqual(unsortableHeaderButton, null);
     });
   });
