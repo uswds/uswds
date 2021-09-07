@@ -1,17 +1,8 @@
 const assert = require("assert");
 const fs = require("fs");
-const path = require("path");
 const fileInput = require("../file-input");
 
-const RENDER =
-  "../../../../build/components-usa-file-input-usa-file-input-multiple/";
-const TEMPLATE = fs.readFileSync(
-  path.join(
-    __dirname,
-    RENDER,
-    "components-usa-file-input-usa-file-input-multiple.rendered.html"
-  )
-);
+const TEMPLATE = fs.readFileSync(`${__dirname}/file-input-multiple.template.html`);
 
 describe("file input component builds successfully", () => {
   const { body } = document;
