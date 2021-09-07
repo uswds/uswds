@@ -1,4 +1,5 @@
 const select = require("../utils/select");
+const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 
@@ -386,7 +387,7 @@ const fileInput = behavior(
   {},
   {
     init(root) {
-      select(DROPZONE, root).forEach((fileInputEl) => {
+      selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
         const { instructions, dropTarget } = buildFileInput(fileInputEl);
 
         dropTarget.addEventListener(
