@@ -40,7 +40,7 @@
     "preversion": "npm test",
     "release": "gulp release",
     "federalist": "npm install && npm run build:storybook",
-    "start": "gulp watch",
+    "start": "npm run start:storybook",
     "test": "snyk test && gulp test",
     "test:ci": "gulp test && npm run test:a11y",
     "test:a11y": "build-storybook && axe-storybook",
