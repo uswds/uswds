@@ -10,6 +10,6 @@
   @include external-link();
 
   &.usa-link--alt {
-    @include external-link("base-darker");
+    @include external-link($contrast-bg: "base-darker");
   }
 }
