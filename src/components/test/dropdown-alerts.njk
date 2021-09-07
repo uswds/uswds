@@ -1,17 +1,17 @@
 <main class="grid-container">
   <h1>Testing alerts on dropdown menus  - <small><a href="https://github.com/uswds/uswds/issues/4192">issue #4192</a></small></h1>
   <p class="measure-3">
-    The bottom of drop down menu text gets cutoff 
+    The bottom of drop down menu text gets cutoff
   </p>
   <div class="grid-row grid-gap-6 padding-3">
     <div class="tablet:grid-col-6">
       <h2>Dropdown</h2>
       <!-- Dropdown w/ error -->
-      
+
       <div class="usa-form-group usa-form-group--error">
-        <label class="usa-label usa-label--error" for="input-error">Dropdown error</label>
+        <label class="usa-label usa-label--error" for="select-error">Dropdown error</label>
         <span class="usa-error-message" id="select-input-error-message" role="alert">Helpful error message</span>
-        <select class="usa-select usa-input--error" id="select-error" name="select-error" type="options" aria-describedby="input-error-message">
+        <select class="usa-select usa-input--error" id="select-error" name="select-error" type="options" aria-describedby="select-input-error-message">
           <option value>- Select -</option>
           <option value="value1">Option A</option>
           <option value="value2">Option B</option>
@@ -22,13 +22,14 @@
       <h2>Other Input</h2>
       <div class="usa-form-group usa-form-group--error">
         <label class="usa-label usa-label--error" for="input-error-2">Text input error</label>
-        <span class="usa-error-message" id="input-error-message-2">Helpful error message</span>
+        <span class="usa-error-message" id="input-error-message-2">Helpful error message,</span>
         <input class="usa-input usa-input--error" id="input-error-2" name="input-error-2" type="text" aria-describedby="input-error-message-2">
       </div>
 
       <div class="usa-form-group usa-form-group--error">
-        <span class="usa-error-message" id="input-error-message-2">Helpful error message</span>
-        <textarea class="usa-textarea usa-input--error" id="input-type-textarea" name="input-type-textarea"></textarea>
+        <label for="input-type-textarea" class="usa-label usa-label--error">Textarea input</label>
+        <span class="usa-error-message" id="input-error-message-3" role="alert">Helpful error message</span>
+        <textarea class="usa-textarea usa-input--error" id="input-type-textarea" name="input-type-textarea" aria-describedby="input-error-message-3"></textarea>
       </div>
     </div>
   </div>
