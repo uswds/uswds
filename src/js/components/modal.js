@@ -184,6 +184,18 @@ const setUpModal = (baseComponent) => {
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
 
+  // Create placeholder where modal is for cleanup
+  const originalLocationPlaceHolder = document.createElement("div");
+  originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
+  originalLocationPlaceHolder.style.display = "none";
+  originalLocationPlaceHolder.setAttribute('aria-hidden', 'true');
+  for (let attributeIndex = 0; attributeIndex < modalContent.attributes.length; attributeIndex += 1) {
+    const attribute = modalContent.attributes[attributeIndex];
+    originalLocationPlaceHolder.setAttribute(`data-original-${attribute.name}`, attribute.value);
+  }
+
+  modalContent.after(originalLocationPlaceHolder);
+
   // Rebuild the modal element
   modalContent.parentNode.insertBefore(modalWrapper, modalContent);
   modalWrapper.appendChild(modalContent);
@@ -229,6 +241,30 @@ const setUpModal = (baseComponent) => {
   document.body.appendChild(modalWrapper);
 };
 
+const cleanUpModal = (baseComponent) => {
+  const modalContent = baseComponent;
+  const modalWrapper = modalContent.parentElement.parentElement;
+  const modalID = modalWrapper.getAttribute("id");
+
+  const originalLocationPlaceHolder = document.querySelector(`[data-placeholder-for="${modalID}"]`);
+  if(originalLocationPlaceHolder)
+  {
+    for (let attributeIndex = 0; attributeIndex < originalLocationPlaceHolder.attributes.length; attributeIndex += 1) {
+      const attribute = originalLocationPlaceHolder.attributes[attributeIndex];
+      if(attribute.name.startsWith('data-original-')) 
+      {
+        // data-original- is 14 long
+        modalContent.setAttribute(attribute.name.substr(14), attribute.value);
+      }
+    }
+  
+    originalLocationPlaceHolder.after(modalContent);
+    originalLocationPlaceHolder.parentElement.removeChild(originalLocationPlaceHolder);
+  }
+
+  modalWrapper.parentElement.removeChild(modalWrapper);
+};
+
 modal = {
   init(root) {
     selectOrMatches(MODAL, root).forEach((modalWindow) => {
@@ -241,9 +277,7 @@ modal = {
         // VoiceOver on Safari
         if (item.nodeName === "A") {
           item.setAttribute("role", "button");
-          item.addEventListener("click", (e) => {
-            e.preventDefault();
-          });
+          item.addEventListener("click", (e) => e.preventDefault());
         }
 
         // Can uncomment when aria-haspopup="dialog" is supported
@@ -258,8 +292,8 @@ modal = {
   },
   teardown(root) {
     selectOrMatches(MODAL, root).forEach((modalWindow) => {
-      const wrapper = modalWindow.parentElement.parentElement;
-      const modalId = wrapper.id;
+      cleanUpModal(modalWindow);
+      const modalId = modalWindow.id;
 
       document.querySelectorAll(`[aria-controls="${modalId}"]`)
         .forEach((item) => item.removeEventListener("click", toggleModal));
