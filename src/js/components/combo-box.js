@@ -1,6 +1,7 @@
 const keymap = require("receptor/keymap");
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
+const Sanitizer = require('../utils/sanitizer');
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
@@ -164,7 +165,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   let selectedOption;
 
   if (placeholder) {
-    additionalAttributes.push(`placeholder="${placeholder}"`);
+    additionalAttributes.push({ placeholder });
   }
 
   if (defaultValue) {
@@ -200,49 +201,57 @@ const enhanceComboBox = (_comboBoxEl) => {
   ["required", "aria-label", "aria-labelledby"].forEach((name) => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
-      additionalAttributes.push(`${name}="${value}"`);
+      additionalAttributes.push({[name]:value});
       selectEl.removeAttribute(name);
     }
   });
 
-  comboBoxEl.insertAdjacentHTML(
-    "beforeend",
-    [
-      `<input
-        aria-owns="${listId}"
-        aria-autocomplete="list"
-        aria-describedby="${assistiveHintID}"
-        aria-expanded="false"
-        autocapitalize="off"
-        autocomplete="off"
-        id="${selectId}"
-        class="${INPUT_CLASS}"
-        type="text"
-        role="combobox"
-        ${additionalAttributes.join(" ")}
-      >`,
-      `<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-        <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
-      </span>`,
-      `<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
-      `<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-        <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
-      </span>`,
-      `<ul
-        tabindex="-1"
-        id="${listId}"
-        class="${LIST_CLASS}"
-        role="listbox"
-        aria-labelledby="${listIdLabel}"
-        hidden>
-      </ul>`,
-      `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
-      `<span id="${assistiveHintID}" class="usa-sr-only">
-        When autocomplete results are available use up and down arrows to review and enter to select.
-        Touch device users, explore by touch or with swipe gestures.
-      </span>`,
-    ].join("")
-  );
+    // sanitize doesn't like functions in template literals
+    const input = document.createElement('input');
+    input.setAttribute("aria-owns", listId)
+    input.setAttribute("aria-autocomplete", "list")
+    input.setAttribute("aria-describedby", assistiveHintID)
+    input.setAttribute("aria-expanded", "false")
+    input.setAttribute("autocapitalize", "off")
+    input.setAttribute("autocomplete", selectId)
+    input.setAttribute("class", INPUT_CLASS)
+    input.setAttribute("type", "text")
+    input.setAttribute("role", "combobox")
+    additionalAttributes.forEach(attr =>
+      Object.keys(attr)
+        .forEach((key) => {
+          const value = Sanitizer.escapeHTML`${attr[key]}`
+          input.setAttribute(key, value)
+        }))
+
+    // we've sanitized above
+    // eslint-disable-next-line no-unsanitized/method
+    comboBoxEl.insertAdjacentHTML(
+      "beforeend",
+      [
+        input.outerHTML,
+        Sanitizer.escapeHTML`<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+          <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
+        </span>`,
+        Sanitizer.escapeHTML`<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
+        Sanitizer.escapeHTML`<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+          <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
+        </span>`,
+        Sanitizer.escapeHTML`<ul
+          tabindex="-1"
+          id="${listId}"
+          class="${LIST_CLASS}"
+          role="listbox"
+          aria-labelledby="${listIdLabel}"
+          hidden>
+        </ul>`,
+        Sanitizer.escapeHTML`<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
+        Sanitizer.escapeHTML`<span id="${assistiveHintID}" class="usa-sr-only">
+          When autocomplete results are available use up and down arrows to review and enter to select.
+          Touch device users, explore by touch or with swipe gestures.
+        </span>`
+    ].join(" ")
+    );
 
   if (selectedOption) {
     const { inputEl } = getComboBoxContext(comboBoxEl);
@@ -418,14 +427,17 @@ const displayList = (el) => {
     })
     .join("");
 
-  const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
+  const noResults = Sanitizer.escapeHTML`<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
 
   listEl.hidden = false;
+
+  // we've sanitized above
+  // eslint-disable-next-line no-unsanitized/property
   listEl.innerHTML = numOptions ? optionHtml : noResults;
 
   inputEl.setAttribute("aria-expanded", "true");
 
-  statusEl.innerHTML = numOptions
+  statusEl.textContent = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : "No results.";
 
