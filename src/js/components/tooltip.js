@@ -349,7 +349,7 @@ const setUpAttributes = (tooltipTrigger) => {
   tooltipBody.setAttribute("aria-hidden", "true");
 
   // place the text in the tooltip
-  tooltipBody.innerHTML = tooltipContent;
+  tooltipBody.textContent = tooltipContent;
 
   return { tooltipBody, position, tooltipContent, wrapper };
 };
