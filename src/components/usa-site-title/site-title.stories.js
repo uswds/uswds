@@ -1,11 +1,11 @@
-import component from "./usa-site-title.twig";
+import Component from "./usa-site-title.twig";
 import Data from "./usa-site-title.yml";
 
 export default {
   title: "Components/Site Title"
 }
 
-const Template = (args) => component(args);
+const Template = (args) => Component(args);
 
 export const Default = Template.bind(Data);
 Default.args = Data;
