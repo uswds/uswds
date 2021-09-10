@@ -1,14 +1,23 @@
+{% set base_label = "Search" %}
+{% set base_id = "search-field" %}
+
 <section aria-label="{{ section_label }}">
   <form class="usa-search {{ modifier }} {% if search_js %}js-search-form{% endif %}" role="search">
-    <label class="usa-sr-only" for="{{ id }}">{{ search_label }}</label>
+    <label class="usa-sr-only" for="{{ id|default(base_id) }}">
+      {{ search_label|default(base_label) }}
+    </label>
     <input class="usa-input" id="{{ id }}" type="search" name="search">
     {% if modifier != 'usa-search--small' %}
       <button class="usa-button" type="submit">
-        <span class="usa-search__submit-text">{{ button_text }}</span>
+        <span class="usa-search__submit-text">
+          {{ button_text|default(base_label) }}
+        </span>
       </button>
     {% else %}
       <button class="usa-button" type="submit">
-        <span class="usa-sr-only">{{ button_text }}</span>
+        <span class="usa-sr-only">
+          {{ button_text|default(base_label) }}
+        </span>
       </button>
     {% endif %}
   </form>
