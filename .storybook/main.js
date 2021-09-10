@@ -48,7 +48,7 @@ module.exports = {
       },
       {
         test: /\.twig$/,
-        use: "twig-loader",
+        use: "twigjs-loader",
       },
       {
         test: /\.s(c|a)ss$/i,
