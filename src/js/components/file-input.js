@@ -1,4 +1,3 @@
-const select = require("../utils/select");
 const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
