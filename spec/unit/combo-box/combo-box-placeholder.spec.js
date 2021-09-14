@@ -7,30 +7,39 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-placeholder.template.html")
 );
 
-describe("combo box component with placeholder attribute", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+];
 
-  let root;
-  let input;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`Combo box initialized at ${name}`, () => {
+    describe("combo box component with placeholder attribute", () => {
+      const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    ComboBox.on();
-    root = body.querySelector(".usa-combo-box");
-    input = root.querySelector(".usa-combo-box__input");
-  });
+      let root;
+      let input;
 
-  afterEach(() => {
-    body.textContent = "";
-    ComboBox.off(body);
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        root = containerSelector();
+        ComboBox.on(root);
+        input = root.querySelector(".usa-combo-box__input");
+      });
 
-  it("enhances a select element into a combo box component", () => {
-    assert.ok(input, "adds an input element");
-    assert.strictEqual(
-      input.placeholder,
-      "Select one...",
-      "transfers placeholder attribute from combo box"
-    );
+      afterEach(() => {
+        ComboBox.off(root);
+        body.textContent = "";
+      });
+
+      it("enhances a select element into a combo box component", () => {
+        assert.ok(input, "adds an input element");
+        assert.strictEqual(
+          input.placeholder,
+          "Select one...",
+          "transfers placeholder attribute from combo box"
+        );
+      });
+    });
   });
 });

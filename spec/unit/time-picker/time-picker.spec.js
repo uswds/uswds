@@ -9,100 +9,108 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/time-picker.template.html")
 );
 
-describe("time picker component", () => {
-  const { body } = document;
+const timePickerSelector = () => document.querySelector(".usa-time-picker");
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "time picker", selector: timePickerSelector }
+];
 
-  let root;
-  let input;
-  let select;
-  let list;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`time picker component initialized at ${name}`, () => {
+    const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    TimePicker.on();
-    ComboBox.on();
-    root = body.querySelector(".usa-combo-box");
-    input = root.querySelector(".usa-combo-box__input");
-    select = root.querySelector(".usa-combo-box__select");
-    list = root.querySelector(".usa-combo-box__list");
-  });
+    let root;
+    let input;
+    let select;
+    let list;
 
-  afterEach(() => {
-    body.textContent = "";
-    ComboBox.off(body);
-    TimePicker.off(body);
-  });
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
+      TimePicker.on(containerSelector());
+      ComboBox.on(containerSelector());
+      root = body.querySelector(".usa-combo-box");
+      input = root.querySelector(".usa-combo-box__input");
+      select = root.querySelector(".usa-combo-box__select");
+      list = root.querySelector(".usa-combo-box__list");
+    });
 
-  it("enhances a select element into a combo box component", () => {
-    assert.ok(input, "adds an input element");
-    assert.ok(
-      select.classList.contains("usa-sr-only"),
-      "hides the select element from view"
-    );
-    assert.ok(list, "adds an list element");
-    assert.ok(list.hidden, "the list is hidden");
-    assert.strictEqual(
-      select.getAttribute("id"),
-      "",
-      "transfers id attribute to combo box"
-    );
-    assert.strictEqual(
-      input.getAttribute("id"),
-      "appointment-time",
-      "transfers id attribute to combo box"
-    );
-    assert.strictEqual(
-      select.getAttribute("required"),
-      null,
-      "transfers required attribute to combo box"
-    );
-    assert.strictEqual(
-      input.getAttribute("required"),
-      "",
-      "transfers required attribute to combo box"
-    );
-    assert.strictEqual(
-      select.getAttribute("name"),
-      "appointment-time",
-      "should not transfer name attribute to combo box"
-    );
-    assert.strictEqual(
-      input.getAttribute("name"),
-      null,
-      "should not transfer name attribute to combo box"
-    );
+    afterEach(() => {
+      ComboBox.off(containerSelector());
+      TimePicker.off(containerSelector());
+      body.textContent = "";
+    });
 
-    assert.strictEqual(select.value, "", "the select value should be empty");
-    assert.strictEqual(input.value, "", "the input should be empty");
-  });
+    it("enhances a select element into a combo box component", () => {
+      assert.ok(input, "adds an input element");
+      assert.ok(
+        select.classList.contains("usa-sr-only"),
+        "hides the select element from view"
+      );
+      assert.ok(list, "adds an list element");
+      assert.ok(list.hidden, "the list is hidden");
+      assert.strictEqual(
+        select.getAttribute("id"),
+        "",
+        "transfers id attribute to combo box"
+      );
+      assert.strictEqual(
+        input.getAttribute("id"),
+        "appointment-time",
+        "transfers id attribute to combo box"
+      );
+      assert.strictEqual(
+        select.getAttribute("required"),
+        null,
+        "transfers required attribute to combo box"
+      );
+      assert.strictEqual(
+        input.getAttribute("required"),
+        "",
+        "transfers required attribute to combo box"
+      );
+      assert.strictEqual(
+        select.getAttribute("name"),
+        "appointment-time",
+        "should not transfer name attribute to combo box"
+      );
+      assert.strictEqual(
+        input.getAttribute("name"),
+        null,
+        "should not transfer name attribute to combo box"
+      );
 
-  it("should focus the first item found in the list from the query when pressing down from the input", () => {
-    input.value = "4p";
+      assert.strictEqual(select.value, "", "the select value should be empty");
+      assert.strictEqual(input.value, "", "the input should be empty");
+    });
 
-    EVENTS.input(input);
-    assert.ok(!list.hidden, "should display the option list");
+    it("should focus the first item found in the list from the query when pressing down from the input", () => {
+      input.value = "4p";
 
-    EVENTS.keydownArrowDown(input);
-    const focusedOption = document.activeElement;
-    assert.strictEqual(
-      focusedOption.textContent,
-      "4:00pm",
-      "should focus the last item in the list"
-    );
-  });
+      EVENTS.input(input);
+      assert.ok(!list.hidden, "should display the option list");
 
-  it("should focus the first complete hour found in the list from the query when pressing down from the input", () => {
-    input.value = "1p";
+      EVENTS.keydownArrowDown(input);
+      const focusedOption = document.activeElement;
+      assert.strictEqual(
+        focusedOption.textContent,
+        "4:00pm",
+        "should focus the last item in the list"
+      );
+    });
 
-    EVENTS.input(input);
-    assert.ok(!list.hidden, "should display the option list");
+    it("should focus the first complete hour found in the list from the query when pressing down from the input", () => {
+      input.value = "1p";
 
-    EVENTS.keydownArrowDown(input);
-    const focusedOption = document.activeElement;
-    assert.strictEqual(
-      focusedOption.textContent,
-      "1:00pm",
-      "should focus the last item in the list"
-    );
+      EVENTS.input(input);
+      assert.ok(!list.hidden, "should display the option list");
+
+      EVENTS.keydownArrowDown(input);
+      const focusedOption = document.activeElement;
+      assert.strictEqual(
+        focusedOption.textContent,
+        "1:00pm",
+        "should focus the last item in the list"
+      );
+    });
   });
 });

@@ -17,73 +17,81 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
-describe("character count component with multiple validators", () => {
-  const { body } = document;
+const characterCountSelector = () => document.querySelector('.usa-character-count');
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "character count", selector: characterCountSelector }
+];
 
-  let root;
-  let input;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`character count component with multiple validators initialized at ${name}`, () => {
+    const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    CharacterCount.on();
+    let root;
+    let input;
 
-    root = body.querySelector(".usa-character-count");
-    input = root.querySelector(".usa-character-count__field");
-  });
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
+      CharacterCount.on(containerSelector());
 
-  afterEach(() => {
-    body.textContent = "";
-    CharacterCount.off(body);
-  });
+      root = characterCountSelector();
+      input = root.querySelector(".usa-character-count__field");
+    });
 
-  it("assert that input constraint validation adds a validation message", () => {
-    input.value = "abcd5";
+    afterEach(() => {
+      CharacterCount.off(containerSelector());
+      body.textContent = "";
+    });
 
-    EVENTS.input(input);
+    it("assert that input constraint validation adds a validation message", () => {
+      input.value = "abcd5";
 
-    assert.strictEqual(input.validationMessage, "Constraints not satisfied");
-  });
+      EVENTS.input(input);
 
-  it("assert that input constraint validation does not overwrite a custom message", () => {
-    input.setCustomValidity("There is an error");
-    input.value = "abcd5";
+      assert.strictEqual(input.validationMessage, "Constraints not satisfied");
+    });
 
-    EVENTS.input(input);
+    it("assert that input constraint validation does not overwrite a custom message", () => {
+      input.setCustomValidity("There is an error");
+      input.value = "abcd5";
 
-    assert.strictEqual(input.validationMessage, "There is an error");
-  });
+      EVENTS.input(input);
 
-  it("should not affect the validation message when a custom error message is already present", () => {
-    input.setCustomValidity("There is an error");
-    input.value = "abcdef";
+      assert.strictEqual(input.validationMessage, "There is an error");
+    });
 
-    EVENTS.input(input);
+    it("should not affect the validation message when a custom error message is already present", () => {
+      input.setCustomValidity("There is an error");
+      input.value = "abcdef";
 
-    assert.strictEqual(input.validationMessage, "There is an error");
-  });
+      EVENTS.input(input);
 
-  it("should not affect the validation message when the input is already invalid", () => {
-    input.value = "abcde5";
+      assert.strictEqual(input.validationMessage, "There is an error");
+    });
 
-    EVENTS.input(input);
+    it("should not affect the validation message when the input is already invalid", () => {
+      input.value = "abcde5";
 
-    assert.strictEqual(input.validationMessage, "Constraints not satisfied");
-  });
+      EVENTS.input(input);
 
-  it("should clear the validation message when input is only invalid by character count validation", () => {
-    input.value = "abcdef";
+      assert.strictEqual(input.validationMessage, "Constraints not satisfied");
+    });
 
-    EVENTS.input(input);
+    it("should clear the validation message when input is only invalid by character count validation", () => {
+      input.value = "abcdef";
 
-    assert.strictEqual(
-      input.validationMessage,
-      CharacterCount.VALIDATION_MESSAGE
-    );
+      EVENTS.input(input);
 
-    input.value = "abcde";
+      assert.strictEqual(
+        input.validationMessage,
+        CharacterCount.VALIDATION_MESSAGE
+      );
 
-    EVENTS.input(input);
+      input.value = "abcde";
 
-    assert.strictEqual(input.validationMessage, "");
+      EVENTS.input(input);
+
+      assert.strictEqual(input.validationMessage, "");
+    });
   });
 });

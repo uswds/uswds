@@ -168,8 +168,8 @@ navigation = behavior(
   },
   {
     init(root) {
-      const trapContainer = root.querySelector(NAV);
-
+      const trapContainer = root.matches(NAV) ? root : root.querySelector(NAV);
+      
       if (trapContainer) {
         navigation.focusTrap = FocusTrap(trapContainer, {
           Escape: onMenuClose,
