@@ -1,8 +1,8 @@
 ---
 modifier: 'usa-nav__primary'
+megamenu: false
 nav:
   aria_label: 'Primary navigation'
-  megamenu: false
   close:
     label: Close
   items:

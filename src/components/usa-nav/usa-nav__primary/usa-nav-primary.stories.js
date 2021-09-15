@@ -16,9 +16,7 @@ Default.args = Data;
 
 export const Megamenu = Template.bind({});
 Megamenu.args = {
-  nav: {
-  ...Data.nav,
-    megamenu: true
-  }
+  ...Data,
+  megamenu: true
 };
 
