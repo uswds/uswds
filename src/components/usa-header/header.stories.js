@@ -23,9 +23,7 @@ const Template = (args) => Component(args);
 const ExtendedTemplate = (args) => ComponentExtended(args);
 
 export const Default = Template.bind({});
-Default.args = {
-  ...usaHeaderData,
-};
+Default.args = usaHeaderData;
 
 export const Megamenu = Template.bind({});
 Megamenu.args = usaHeaderMegamenuData;
