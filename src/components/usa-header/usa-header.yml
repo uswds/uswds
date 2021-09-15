@@ -1,5 +1,5 @@
 ---
-modifier: ''
+modifier: 'usa-header--basic'
 title: 'Basic header'
 # Navigation settings
 nav:
@@ -24,12 +24,4 @@ nav:
         - label: <Navigation link>
         - label: <Navigation link>
     - label: <Simple link>
-search:
-  component: './components/usa-search/usa-search.twig'
-  settings:
-    modifier: 'usa-search--small'
-    search_js: false
-    id: 'search-field'
-    search_label: 'Search'
-    button_text: 'Search'
 
