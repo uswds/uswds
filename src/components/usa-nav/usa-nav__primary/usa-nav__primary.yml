@@ -1,7 +1,8 @@
 ---
 modifier: 'usa-nav__primary'
 nav:
-  megamenu: true
+  aria_label: 'Primary navigation'
+  megamenu: false
   close:
     label: Close
   items:
@@ -10,18 +11,18 @@ nav:
       current: true
       id: nav-section-three
       subnav: &subnav_links
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
-      - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
+        - label: <Nested section>
     - label: <Section>
       href: javascript:void(0);
       id: nav-section-four
