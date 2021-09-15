@@ -1,7 +1,9 @@
 {% set base_label = "Search" %}
 {% set base_id = "search-field" %}
 
-<section aria-label="{{ section_label }}">
+{% if not search_js %}
+  <section aria-label="{{ section_label }}">
+{% endif %}
   <form class="usa-search {{ modifier }} {% if search_js %}js-search-form{% endif %}" role="search">
     <label class="usa-sr-only" for="{{ id|default(base_id) }}">
       {{ search_label|default(base_label) }}
@@ -21,4 +23,6 @@
       </button>
     {% endif %}
   </form>
-</section>
+{% if not search_js %}
+  </section>
+{% endif %}
