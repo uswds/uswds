@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-  <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="2" d="M0 13.0332964L13.0332964 0M13.0332964 13.0332964L0 0" transform="translate(1 1)"/>
-</svg>
+<svg aria-labelledby="close-white-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" style="enable-background:new 0 0 15 15" xml:space="preserve" width="64" height="64"><title id="close-white-alt">Close</title><path stroke="#fff" fill="none" stroke-linecap="round" stroke-width="2" d="M0 13.033 13.033 0m0 13.033L0 0" transform="translate(1 1)" style="stroke:#fff;fill:none"/></svg>
