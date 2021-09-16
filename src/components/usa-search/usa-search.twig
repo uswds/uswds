@@ -1,11 +1,12 @@
 {% set base_label = "Search" %}
-{% set base_id = "search-field" %}
+{% set id = id|default("search-field") %}
+{% set section_label = section_label|default("Search component") %}
 
 {% if not search_js %}
   <section aria-label="{{ section_label }}">
 {% endif %}
   <form class="usa-search {{ modifier }} {% if search_js %}js-search-form{% endif %}" role="search">
-    <label class="usa-sr-only" for="{{ id|default(base_id) }}">
+    <label class="usa-sr-only" for="{{ id }}">
       {{ search_label|default(base_label) }}
     </label>
     <input class="usa-input" id="{{ id }}" type="search" name="search">
