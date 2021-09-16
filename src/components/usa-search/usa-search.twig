@@ -1,4 +1,4 @@
-{% set base_label = "Search" %}
+{% set base_label = search_label|default("Search") %}
 {% set id = id|default("search-field") %}
 {% set section_label = section_label|default("Search component") %}
 
@@ -7,7 +7,7 @@
 {% endif %}
   <form class="usa-search {{ modifier }} {% if search_js %}js-search-form{% endif %}" role="search">
     <label class="usa-sr-only" for="{{ id }}">
-      {{ search_label|default(base_label) }}
+      {{ base_label }}
     </label>
     <input class="usa-input" id="{{ id }}" type="search" name="search">
     {% if modifier != 'usa-search--small' %}
