@@ -13,6 +13,11 @@
   padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
 }
 
+.usa-input--success {
+  @include u-border($theme-input-state-border-width, "success-dark");
+  padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+}
+
 // Input prefixes / suffixes
 
 .usa-input-group {
