@@ -388,11 +388,8 @@ the desired final units (currently rem)
 
 @function spacing-multiple($unit) {
   @return 1rem * divide(
-    divide(
-      $system-spacing-grid-base * $unit,
-      $root-font-size-equiv
-    ),
-    1px
+    $system-spacing-grid-base * $unit,
+    $root-font-size-equiv
   );
 }
 
