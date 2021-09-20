@@ -224,33 +224,34 @@ const enhanceComboBox = (_comboBoxEl) => {
           input.setAttribute(key, value)
         }))
 
-    // we've sanitized above
-    // eslint-disable-next-line no-unsanitized/method
-    comboBoxEl.insertAdjacentHTML(
+    comboBoxEl.insertAdjacentElement(
       "beforeend",
-      [
-        input.outerHTML,
-        Sanitizer.escapeHTML`<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-          <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
-        </span>`,
-        Sanitizer.escapeHTML`<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
-        Sanitizer.escapeHTML`<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-          <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
-        </span>`,
-        Sanitizer.escapeHTML`<ul
-          tabindex="-1"
-          id="${listId}"
-          class="${LIST_CLASS}"
-          role="listbox"
-          aria-labelledby="${listIdLabel}"
-          hidden>
-        </ul>`,
-        Sanitizer.escapeHTML`<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
-        Sanitizer.escapeHTML`<span id="${assistiveHintID}" class="usa-sr-only">
-          When autocomplete results are available use up and down arrows to review and enter to select.
-          Touch device users, explore by touch or with swipe gestures.
-        </span>`
-    ].join(" ")
+      input
+    );
+
+    comboBoxEl.insertAdjacentHTML(
+    "beforeend",
+    Sanitizer.escapeHTML`
+    <span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+        <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
+      </span>
+      <span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>
+      <span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+        <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
+      </span>
+      <ul
+        tabindex="-1"
+        id="${listId}"
+        class="${LIST_CLASS}"
+        role="listbox"
+        aria-labelledby="${listIdLabel}"
+        hidden>
+      </ul>
+      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>
+      <span id="${assistiveHintID}" class="usa-sr-only">
+        When autocomplete results are available use up and down arrows to review and enter to select.
+        Touch device users, explore by touch or with swipe gestures.
+      </span>`
     );
 
   if (selectedOption) {
