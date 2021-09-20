@@ -24,6 +24,47 @@ General-purpose functions
 
 /*
 ----------------------------------------
+divide()
+----------------------------------------
+Divides one number by another, to a
+specified precision.
+----------------------------------------
+*/
+
+@function divide($dividend, $divisor, $precision: 10, $depth: 0) {
+  @if ($dividend < 0 and $divisor < 0) {
+    $dividend: -1 * $dividend;
+    $divisor: -1 * $divisor;
+  }
+
+  @if ($dividend < 0) {
+    @return -1 * divide(-1 * $dividend, $divisor, $precision, $depth);
+  }
+
+  @if ($divisor < 0) {
+    @return -1 * divide($dividend, $divisor * -1, $precision, $depth);
+  }
+
+  $result: if(unit($dividend) == unit($divisor), 0, $dividend * 0);
+  @while $dividend - $divisor >= 0 {
+    $result: $result + 1;
+    $dividend: $dividend - $divisor;
+  }
+
+  @if $dividend > 0 and $depth < $precision {
+    $result: $result + .1 * divide(
+      $dividend * 10,
+      $divisor,
+      $precision,
+      $depth + 1
+    );
+  }
+
+  @return $result;
+}
+
+/*
+----------------------------------------
 uswds-error()
 ----------------------------------------
 Allow the system to pass an error as text
@@ -922,47 +963,6 @@ functions and mixins.
   }
 
   @return $value;
-}
-
-/*
-----------------------------------------
-divide()
-----------------------------------------
-Divides one number by another, to a
-specified precision.
-----------------------------------------
-*/
-
-@function divide($dividend, $divisor, $precision: 10, $depth: 0) {
-  @if ($dividend < 0 and $divisor < 0) {
-    $dividend: -1 * $dividend;
-    $divisor: -1 * $divisor;
-  }
-
-  @if ($dividend < 0) {
-    @return -1 * divide(-1 * $dividend, $divisor, $precision, $depth);
-  }
-
-  @if ($divisor < 0) {
-    @return -1 * divide($dividend, $divisor * -1, $precision, $depth);
-  }
-
-  $result: if(unit($dividend) == unit($divisor), 0, $dividend * 0);
-  @while $dividend - $divisor >= 0 {
-    $result: $result + 1;
-    $dividend: $dividend - $divisor;
-  }
-
-  @if $dividend > 0 and $depth < $precision {
-    $result: $result + .1 * divide(
-      $dividend * 10,
-      $divisor,
-      $precision,
-      $depth + 1
-    );
-  }
-
-  @return $result;
 }
 
 /*
