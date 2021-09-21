@@ -5,6 +5,7 @@ const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 const activeElement = require("../utils/active-element");
 const isIosDevice = require("../utils/is-ios-device");
+const Sanitizer = require('../utils/sanitizer');
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
@@ -850,11 +851,10 @@ const enhanceDatePicker = (el) => {
   calendarWrapper.appendChild(externalInputEl);
   calendarWrapper.insertAdjacentHTML(
     "beforeend",
-    [
-      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>`,
-      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
-    ].join("")
+    Sanitizer.escapeHTML`
+    <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>
+    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
+    <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
 
   internalInputEl.setAttribute("aria-hidden", "true");
@@ -990,18 +990,22 @@ const renderCalendar = (el, _dateToDisplay) => {
     const monthStr = MONTH_LABELS[month];
     const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
 
-    return `<button
-      type="button"
-      tabindex="${tabindex}"
-      class="${classes.join(" ")}"
-      data-day="${day}"
-      data-month="${month + 1}"
-      data-year="${year}"
-      data-value="${formattedDate}"
-      aria-label="${day} ${monthStr} ${year} ${dayStr}"
-      aria-selected="${isSelected ? "true" : "false"}"
-      ${isDisabled ? `disabled="disabled"` : ""}
-    >${day}</button>`;
+    const btn =  document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("tabindex", tabindex);
+    btn.setAttribute("class", classes.join(" "));
+    btn.setAttribute("data-day", day);
+    btn.setAttribute("data-month", month + 1);
+    btn.setAttribute("data-year", year);
+    btn.setAttribute("data-value", formattedDate);
+    btn.setAttribute("aria-label", Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`);
+    btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isDisabled === true) {
+      btn.disabled = true;
+    }
+    btn.textContent = day;
+
+    return btn.outerHTML;
   };
 
   // set date to first rendered day
@@ -1018,6 +1022,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
+  // const datesHtml = listToGridHtml(element, number);
   const datesHtml = listToGridHtml(days, 7);
 
   const newCalendar = calendarEl.cloneNode();
@@ -1316,15 +1321,19 @@ const displayMonthSelection = (el, monthToDisplay) => {
       classes.push(CALENDAR_MONTH_SELECTED_CLASS);
     }
 
-    return `<button
-        type="button"
-        tabindex="${tabindex}"
-        class="${classes.join(" ")}"
-        data-value="${index}"
-        data-label="${month}"
-        aria-selected="${isSelected ? "true" : "false"}"
-        ${isDisabled ? `disabled="disabled"` : ""}
-      >${month}</button>`;
+    const btn =  document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("tabindex", tabindex);
+    btn.setAttribute("class", classes.join(" "));
+    btn.setAttribute("data-value", index);
+    btn.setAttribute("data-label", month);
+    btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isDisabled === true) {
+      btn.disabled = true;
+    }
+    btn.textContent = month;
+
+    return btn.outerHTML;
   });
 
   const monthsHtml = `<div tabindex="-1" class="${CALENDAR_MONTH_PICKER_CLASS}">
