@@ -142,7 +142,7 @@ const buildFileInput = (fileInputEl) => {
 
   // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
-    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files there or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
     instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
