@@ -51,13 +51,15 @@ specified precision.
     $dividend: $dividend - $divisor;
   }
 
-  @if $dividend > 0 and $depth < $precision {
-    $result: $result + .1 * divide(
-      $dividend * 10,
-      $divisor,
-      $precision,
-      $depth + 1
-    );
+  @if $dividend > 0 {
+    @if $depth < $precision {
+      $result: $result + divide($dividend * 10, $divisor, $precision, $depth + 1) * .1;
+    } @else if $depth == $precision {
+      $next-depth: divide($dividend * 10, $divisor, $precision, $depth + 1);
+      @if $next-depth >= 5 {
+        $result: $result + 1;
+      }
+    }
   }
 
   @return $result;
