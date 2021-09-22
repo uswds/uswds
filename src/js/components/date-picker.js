@@ -574,12 +574,24 @@ const listToGridHtml = (htmlArray, rowSize) => {
   let i = 0;
   while (i < htmlArray.length) {
     row = [];
+
+    const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
-      row.push(`<td>${htmlArray[i]}</td>`);
+      const td = document.createElement("td");
+      td.insertAdjacentElement("beforeend", htmlArray[i])
+      row.push(td);
       i += 1;
     }
-    grid.push(`<tr>${row.join("")}</tr>`);
+
+    console.log(row)
+    row.forEach(element => {
+      tr.insertAdjacentElement("beforeend", element)
+    })
+
+    grid.push(tr.outerHTML);
   }
+
+  console.log(grid)
 
   return grid.join("");
 };
@@ -1005,7 +1017,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
     btn.textContent = day;
 
-    return btn.outerHTML;
+    return btn;
   };
 
   // set date to first rendered day
