@@ -1,3 +1,4 @@
+const select = require("../utils/select");
 const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
@@ -418,6 +419,13 @@ const fileInput = behavior(
           (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
           false
         );
+      });
+    },
+    teardown(root) {
+      selectOrMatches(INPUT, root).forEach((fileInputEl) => {
+        const fileInputTopElement = fileInputEl.parentElement.parentElement;
+        fileInputTopElement.parentElement.replaceChild(fileInputEl, fileInputTopElement)
+        fileInputEl.className = DROPZONE_CLASS;
       });
     },
     getFileInputContext,
