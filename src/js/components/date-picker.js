@@ -1042,7 +1042,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
-  const datesHtml = listToGridHtml(days, 7);
+  const datesGrid = listToGridHtml(days, 7);
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.dataset.value = currentFormattedDate;
@@ -1118,18 +1118,16 @@ const renderCalendar = (el, _dateToDisplay) => {
 
     Object.keys(daysOfWeek).forEach(key => {
       const th = document.createElement("th");
-      th.setAttribute("class", CALENDAR_TABLE_CLASS);
+      th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
       th.setAttribute("scope", "presentation");
       th.setAttribute("aria-label", key);
       th.textContent = daysOfWeek[key];
       tableHeadRow.insertAdjacentElement("beforeend", th);
     });
 
-    const tableBody = createTableBody(datesHtml);
+    const tableBody = createTableBody(datesGrid);
     table.insertAdjacentElement("beforeend", tableBody);
     newCalendar.insertAdjacentElement("beforeend", table)
-
-
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
@@ -1372,19 +1370,24 @@ const displayMonthSelection = (el, monthToDisplay) => {
     }
     btn.textContent = month;
 
-    return btn.outerHTML;
+    return btn;
   });
 
-  const monthsHtml = `<div tabindex="-1" class="${CALENDAR_MONTH_PICKER_CLASS}">
-    <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
-      <tbody>
-        ${listToGridHtml(months, 3)}
-      </tbody>
-    </table>
-  </div>`;
+    const monthsHtml = document.createElement("div");
+    monthsHtml.setAttribute("tabindex", "-1");
+    monthsHtml.setAttribute("class", CALENDAR_MONTH_PICKER_CLASS);
+
+    const table = document.createElement("table")
+    table.setAttribute("class", CALENDAR_TABLE_CLASS);
+    table.setAttribute("role", "presentation");
+
+    const monthsGrid = listToGridHtml(months, 3);
+    const tableBody = createTableBody(monthsGrid);
+    table.insertAdjacentElement("beforeend", tableBody);
+    monthsHtml.insertAdjacentElement("beforeend", table);
 
   const newCalendar = calendarEl.cloneNode();
-  newCalendar.innerHTML = monthsHtml;
+  newCalendar.insertAdjacentElement("beforeend", monthsHtml);
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
   statusEl.textContent = "Select a month.";
