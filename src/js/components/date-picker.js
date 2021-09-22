@@ -583,18 +583,26 @@ const listToGridHtml = (htmlArray, rowSize) => {
       i += 1;
     }
 
-    console.log(row)
     row.forEach(element => {
       tr.insertAdjacentElement("beforeend", element)
     })
 
-    grid.push(tr.outerHTML);
+    grid.push(tr);
   }
 
-  console.log(grid)
+  // console.log("grid", grid)
 
-  return grid.join("");
+  return grid;
 };
+
+const createTableBody = grid => {
+    const tableBody = document.createElement("tbody");
+    grid.forEach(element => {
+      tableBody.insertAdjacentElement("beforeend", element)
+    })
+
+    return tableBody
+}
 
 /**
  * set the value of the element and dispatch a change event
@@ -1034,14 +1042,14 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
-  // const datesHtml = listToGridHtml(element, number);
   const datesHtml = listToGridHtml(days, 7);
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.dataset.value = currentFormattedDate;
   newCalendar.style.top = `${datePickerEl.offsetHeight}px`;
   newCalendar.hidden = false;
-  newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
+  newCalendar.innerHTML = Sanitizer.escapeHTML`
+    <div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="${CALENDAR_ROW_CLASS}">
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button
@@ -1086,23 +1094,42 @@ const renderCalendar = (el, _dateToDisplay) => {
           >&nbsp;</button>
         </div>
       </div>
-      <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
-        <thead>
-          <tr>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Sunday">S</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Monday">M</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Tuesday">T</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Wednesday">W</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Thursday">Th</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Friday">F</th>
-            <th class="${CALENDAR_DAY_OF_WEEK_CLASS}" scope="col" aria-label="Saturday">S</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${datesHtml}
-        </tbody>
-      </table>
-    </div>`;
+    </div>
+    `;
+
+    const table = document.createElement("table")
+    table.setAttribute("class", CALENDAR_TABLE_CLASS);
+    table.setAttribute("role", "presentation");
+
+    const tableHead = document.createElement("thead")
+    table.insertAdjacentElement("beforeend", tableHead)
+    const tableHeadRow = document.createElement("tr")
+    tableHead.insertAdjacentElement("beforeend", tableHeadRow)
+
+    const daysOfWeek = {
+      "Sunday": "S",
+      "Monday": "M",
+      "Tuesday": "T",
+      "Wednesday": "W",
+      "Thursday": "Th",
+      "Friday": "Fr",
+      "Saturday": "S"
+    }
+
+    Object.keys(daysOfWeek).forEach(key => {
+      const th = document.createElement("th");
+      th.setAttribute("class", CALENDAR_TABLE_CLASS);
+      th.setAttribute("scope", "presentation");
+      th.setAttribute("aria-label", key);
+      th.textContent = daysOfWeek[key];
+      tableHeadRow.insertAdjacentElement("beforeend", th);
+    });
+
+    const tableBody = createTableBody(datesHtml);
+    table.insertAdjacentElement("beforeend", tableBody);
+    newCalendar.insertAdjacentElement("beforeend", table)
+
+
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
