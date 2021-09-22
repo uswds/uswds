@@ -424,7 +424,7 @@ const fileInput = behavior(
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
         fileInputTopElement.parentElement.replaceChild(fileInputEl, fileInputTopElement);
-        fileInputEl.className = DROPZONE_CLASS;
+        fileInputEl.setAttribute('class', DROPZONE_CLASS);
       });
     },
     getFileInputContext,
