@@ -8,7 +8,7 @@ const { series, parallel } = require("gulp");
 const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { buildSprite } = require("./gulp-tasks/svg-sprite");
 const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
-const { unitTests, sassTests, a11y, cover } = require("./gulp-tasks/test");
+const { unitTests, sassTests, cover } = require("./gulp-tasks/test");
 const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
@@ -38,7 +38,6 @@ exports.lint = parallel(lintSass, lintJS);
 
 /**
  * *Test tasks*
- * a11y: Accessibility tests; starts server, runs axe tests, and closes server.
  * cover: Similar to unit tests.
  * sassTests: Sass unit tests.
  * unitTests: Component unit tests.
@@ -46,7 +45,6 @@ exports.lint = parallel(lintSass, lintJS);
  */
 
 
-exports.a11y = a11y;
 exports.cover = cover;
 exports.sassTests = sassTests;
 exports.unitTests = unitTests;
@@ -56,7 +54,6 @@ exports.test = series(
   lintSass,
   sassTests,
   unitTests,
-  a11y,
 );
 
 /**
@@ -84,4 +81,4 @@ exports.styleguide = buildPL;
 exports.watch = watch;
 
 // Default Task
-exports.default = series(build, buildPL);
+exports.default = this.buildUSWDS;

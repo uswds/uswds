@@ -3,7 +3,7 @@ const dutil = require("./utils/doc-util");
 const { buildSprite } = require("./svg-sprite");
 const { compileSass } = require("./sass");
 const { compileJS } = require("./javascript");
-const { copyDocs, copyFonts, copyImages, copySass } = require("./copy");
+const { copyDocs, copyFonts, copyImages, copySass, copyVendor } = require("./copy");
 const { cleanDist } = require("./clean");
 
 /**
@@ -23,6 +23,7 @@ exports.build = series(
   },
   cleanDist,
   buildSprite,
+  copyVendor,
   copyDocs,
   parallel(compileSass, compileJS),
   parallel(copyImages, copyFonts, copySass)

@@ -10,7 +10,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 const dutil = require("./utils/doc-util");
 
-const entryPoints = ["src/patterns/start.js", "src/patterns/uswds-init.js"];
+const entryPoints = ["src/start.js", "src/uswds-init.js"];
 
 module.exports = {
   compileJS(done) {

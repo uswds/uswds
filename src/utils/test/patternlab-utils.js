@@ -1,10 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT_DIR = path.join(__dirname, "../../../../");
+const ROOT_DIR = path.join(__dirname, "../../../");
 const PL_BUILD_DIR = path.join(ROOT_DIR, "build");
-const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/patterns/");
-const { styleguide } = require("../../../../gulpfile");
+const PL_BUILD_PATTERNS_DIR = path.join(ROOT_DIR, "build/");
+const { styleguide } = require("../../../gulpfile");
 
 async function getComponents() {
   const getDirectories = new Promise((resolve) => {
@@ -27,24 +27,26 @@ async function getComponents() {
       directories.map((file, index) => {
         const builtComponentDir = PL_BUILD_PATTERNS_DIR + file;
         fs.readdir(builtComponentDir, (err, dir) => {
-          dir.forEach((component) => {
-            if (component.includes(".rendered.html")) {
-              const c = file + "/" + component;
-              components.push(c);
+          // eslint-disable-next-line no-restricted-syntax
+          for (const component in dir) {
+            if (component) {
+              if (component.includes(".rendered.html")) {
+                const c = `${file  }/${  component}`;
+                components.push(c);
+              }
+              if (index === directories.length - 1) {
+                resolve(components);
+              }
+
             }
-            if (index === directories.length - 1) {
-              resolve(components);
-            }
-          });
+          }
         });
         return true;
       });
     });
   });
 
-  const paths = await Promise.resolve(buildComponentPaths).then((values) => {
-    return values
-  });
+  const paths = await Promise.resolve(buildComponentPaths).then((values) => values);
   return paths;
 }
 
