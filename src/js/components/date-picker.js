@@ -590,8 +590,6 @@ const listToGridHtml = (htmlArray, rowSize) => {
     grid.push(tr);
   }
 
-  // console.log("grid", grid)
-
   return grid;
 };
 
@@ -1474,56 +1472,104 @@ const displayYearSelection = (el, yearToDisplay) => {
       classes.push(CALENDAR_YEAR_SELECTED_CLASS);
     }
 
-    years.push(
-      `<button
-        type="button"
-        tabindex="${tabindex}"
-        class="${classes.join(" ")}"
-        data-value="${yearIndex}"
-        aria-selected="${isSelected ? "true" : "false"}"
-        ${isDisabled ? `disabled="disabled"` : ""}
-      >${yearIndex}</button>`
-    );
+    const btn =  document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("tabindex", tabindex);
+    btn.setAttribute("class", classes.join(" "));
+    btn.setAttribute("data-value", yearIndex);
+    btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isDisabled === true) {
+      btn.disabled = true;
+    }
+    btn.textContent = yearIndex;
+
+    years.push(btn);
     yearIndex += 1;
   }
 
-  const yearsHtml = listToGridHtml(years, 3);
-
   const newCalendar = calendarEl.cloneNode();
-  newCalendar.innerHTML = `<div tabindex="-1" class="${CALENDAR_YEAR_PICKER_CLASS}">
-    <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
-        <tbody>
-          <tr>
-            <td>
-              <button
-                type="button"
-                class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"
-                aria-label="Navigate back ${YEAR_CHUNK} years"
-                ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
-              >&nbsp;</button>
-            </td>
-            <td colspan="3">
-              <table class="${CALENDAR_TABLE_CLASS}" role="presentation">
-                <tbody>
-                  ${yearsHtml}
-                </tbody>
-              </table>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}"
-                aria-label="Navigate forward ${YEAR_CHUNK} years"
-                ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
-              >&nbsp;</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>`;
+
+  // create the years calendar wrapper
+  const yearsCalendarWrapper = document.createElement("div")
+  yearsCalendarWrapper.setAttribute("tabindex", "-1");
+  yearsCalendarWrapper.setAttribute("class", CALENDAR_YEAR_PICKER_CLASS);
+
+  // create table parent
+  const yearsTableParent = document.createElement("table");
+  yearsTableParent.setAttribute("role", "presentation");
+  yearsTableParent.setAttribute("class", CALENDAR_TABLE_CLASS);
+
+  // create table body and table row
+  const yearsHTMLTableBody = document.createElement("tbody");
+  const yearsHTMLTableBodyRow = document.createElement("tr");
+
+
+  // create previous button
+  const previousYearsBtn =  document.createElement("button");
+  previousYearsBtn.setAttribute("type", "button");
+  previousYearsBtn.setAttribute("class", CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS);
+  previousYearsBtn.setAttribute("aria-label", `Navigate back ${YEAR_CHUNK} years`);
+  if (prevYearChunkDisabled === true) {
+    previousYearsBtn.disabled = true;
+  }
+  previousYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`
+
+  // create next button
+  const nextYearsBtn =  document.createElement("button");
+  nextYearsBtn.setAttribute("type", "button");
+  nextYearsBtn.setAttribute("class", CALENDAR_NEXT_YEAR_CHUNK_CLASS);
+  nextYearsBtn.setAttribute("aria-label", `Navigate forward ${YEAR_CHUNK} years`);
+  if (nextYearChunkDisabled === true) {
+    nextYearsBtn.disabled = true;
+  }
+  nextYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`
+
+  // create the actual years table
+  const yearsTable = document.createElement("table")
+  yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
+  yearsTable.setAttribute("role", "presentation");
+
+  // create the years child table
+  const yearsGrid = listToGridHtml(years, 3);
+  const yearsTableBody = createTableBody(yearsGrid);
+
+  // append the grid to the years child table
+  yearsTable.insertAdjacentElement("beforeend", yearsTableBody);
+
+  // create the prev button td and append the prev button
+  const yearsHTMLTableBodyDetailPrev = document.createElement("td");
+  yearsHTMLTableBodyDetailPrev.insertAdjacentElement("beforeend", previousYearsBtn);
+
+  // create the years td and append the years child table
+  const yearsHTMLTableBodyYearsDetail = document.createElement("td");
+  yearsHTMLTableBodyYearsDetail.setAttribute("colspan", "3");
+  yearsHTMLTableBodyYearsDetail.insertAdjacentElement("beforeend", yearsTable)
+
+  // create the next button td and append the next button
+  const yearsHTMLTableBodyDetailNext = document.createElement("td")
+  yearsHTMLTableBodyDetailNext.insertAdjacentElement("beforeend", nextYearsBtn)
+
+  // append the three td to the years child table row
+  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyDetailPrev)
+  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyYearsDetail)
+  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyDetailNext)
+
+  // append the table row to the years child table body
+  yearsHTMLTableBody.insertAdjacentElement("beforeend", yearsHTMLTableBodyRow)
+
+  // append the years table body to the years parent table
+  yearsTableParent.insertAdjacentElement("beforeend", yearsHTMLTableBody)
+
+  // append the parent table to the calendar wrapper
+  yearsCalendarWrapper.insertAdjacentElement("beforeend", yearsTableParent)
+
+  // append the years calnder to the new calendar
+  newCalendar.insertAdjacentElement("beforeend", yearsCalendarWrapper)
+
+  // replace calendar
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  statusEl.textContent = `Showing years ${yearToChunk} to ${
+  statusEl.textContent = Sanitizer.escapeHTML`Showing years ${yearToChunk} to ${
     yearToChunk + YEAR_CHUNK - 1
   }. Select a year.`;
 
