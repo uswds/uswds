@@ -9,7 +9,7 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("src/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("src/components/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
