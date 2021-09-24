@@ -2139,9 +2139,10 @@ const datePickerEvents = {
       PageUp: handlePageUpFromDate,
       "Shift+PageDown": handleShiftPageDownFromDate,
       "Shift+PageUp": handleShiftPageUpFromDate,
+      Tab: datePickerTabEventHandler.tabAhead, // ?
     }),
     [CALENDAR_DATE_PICKER]: keymap({
-      Tab: datePickerTabEventHandler.tabAhead,
+      // Tab: datePickerTabEventHandler.tabAhead, // ?
       "Shift+Tab": datePickerTabEventHandler.tabBack,
     }),
     [CALENDAR_MONTH]: keymap({
