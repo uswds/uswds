@@ -425,17 +425,23 @@ const displayList = (el) => {
       li.setAttribute("data-value", option.value)
       li.textContent = option.text
 
-      return li.outerHTML;
-    })
-    .join("");
+      return li;
+    });
 
-  const noResults = Sanitizer.escapeHTML`<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
+  const noResults = document.createElement("li");
+  noResults.setAttribute("class", `${LIST_OPTION_CLASS}--no-results`);
+  noResults.textContent = "No results found";
 
   listEl.hidden = false;
 
-  // we've sanitized above
-  // eslint-disable-next-line no-unsanitized/property
-  listEl.innerHTML = numOptions ? optionHtml : noResults;
+  if (numOptions) {
+    console.log(optionHtml)
+    optionHtml.forEach(item => {
+      listEl.insertAdjacentElement("beforeend", item)
+    })
+  } else {
+    listEl.insertAdjacentElement("beforeend", noResults)
+  }
 
   inputEl.setAttribute("aria-expanded", "true");
 
