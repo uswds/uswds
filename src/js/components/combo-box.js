@@ -389,7 +389,6 @@ const displayList = (el) => {
       if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
         firstFoundId = optionId;
       }
-
       options.push(optionEl);
     }
   }
@@ -435,11 +434,12 @@ const displayList = (el) => {
   listEl.hidden = false;
 
   if (numOptions) {
-    console.log(optionHtml)
-    optionHtml.forEach(item => {
+    listEl.innerHTML = ""
+    optionHtml.forEach(item =>
       listEl.insertAdjacentElement("beforeend", item)
-    })
+    )
   } else {
+    listEl.innerHTML = ""
     listEl.insertAdjacentElement("beforeend", noResults)
   }
 
@@ -452,9 +452,9 @@ const displayList = (el) => {
   let itemToFocus;
 
   if (isPristine && selectedItemId) {
-    itemToFocus = listEl.querySelector(`#${  selectedItemId}`);
+    itemToFocus = listEl.querySelector(`#${selectedItemId}`);
   } else if (disableFiltering && firstFoundId) {
-    itemToFocus = listEl.querySelector(`#${  firstFoundId}`);
+    itemToFocus = listEl.querySelector(`#${firstFoundId}`);
   }
 
   if (itemToFocus) {
