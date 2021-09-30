@@ -214,7 +214,7 @@ const enhanceComboBox = (_comboBoxEl) => {
     input.setAttribute("aria-describedby", assistiveHintID)
     input.setAttribute("aria-expanded", "false")
     input.setAttribute("autocapitalize", "off")
-    input.setAttribute("autocomplete", selectId)
+    input.setAttribute("autocomplete", "off")
     input.setAttribute("class", INPUT_CLASS)
     input.setAttribute("type", "text")
     input.setAttribute("role", "combobox")
