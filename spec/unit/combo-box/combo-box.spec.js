@@ -16,6 +16,7 @@ describe("combo box component", () => {
   let select;
   let list;
   let toggle;
+  let status;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -24,6 +25,7 @@ describe("combo box component", () => {
     input = root.querySelector(".usa-combo-box__input");
     toggle = root.querySelector(".usa-combo-box__toggle-list");
     select = root.querySelector(".usa-combo-box__select");
+    status = root.querySelector(".usa-combo-box__status");
     list = root.querySelector(".usa-combo-box__list");
   });
 
@@ -314,11 +316,18 @@ describe("combo box component", () => {
       1,
       "should show no results list item"
     );
-    assert.strictEqual(
-      list.children[0].textContent,
-      "No results found",
-      "should show the no results list item"
-    );
+  });
+
+  it("status should not allow innerHTML", () => {
+    input.value = "Ap";
+    EVENTS.input(input);
+
+    assert.ok(!list.hidden, "should display the option list");
+    assert.ok(status.innerHTML, "9 results available.");
+
+    Array.from(status.childNodes).forEach((childNode) => {
+      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+    });
   });
 
   it("should show the list when pressing down from an empty input", () => {
