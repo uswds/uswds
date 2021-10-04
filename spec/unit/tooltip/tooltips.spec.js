@@ -48,7 +48,6 @@ describe("tooltips", () => {
   });
 
   it("should not allow for innerHTML of child elements ", () => {
-
     // override the template
     body.innerHTML = `<button class="usa-button usa-tooltip" title="Apricot &lt;img src='' onerror=alert('ouch')&gt;">Button</button>`;
     tooltip.on();

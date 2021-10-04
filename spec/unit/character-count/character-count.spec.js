@@ -99,7 +99,7 @@ describe("character count component", () => {
 
   it("should not allow for innerHTML of child elements ", () => {
     Array.from(message.childNodes).forEach((childNode) => {
-        assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
-      });
+      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+    });
   });
 });
