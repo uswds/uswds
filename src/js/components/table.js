@@ -2,7 +2,7 @@ const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
-const Sanitizer = require('../utils/sanitizer');
+const Sanitizer = require("../utils/sanitizer");
 
 const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";
@@ -48,12 +48,10 @@ const compareFunction = (index, isAscending) => (thisRow, nextRow) => {
     return value1 - value2;
   }
   // Otherwise, compare alphabetically based on current user locale
-  return value1
-    .toString()
-    .localeCompare(value2, navigator.language, {
-      numeric: true,
-      ignorePunctuation: true,
-    });
+  return value1.toString().localeCompare(value2, navigator.language, {
+    numeric: true,
+    ignorePunctuation: true,
+  });
 };
 
 /**

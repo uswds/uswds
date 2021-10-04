@@ -70,7 +70,6 @@ const updateCountMessage = (inputEl) => {
   messageEl.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
   messageEl.textContent = newMessage;
 
-
   if (isOverLimit && !inputEl.validationMessage) {
     inputEl.setCustomValidity(VALIDATION_MESSAGE);
   }

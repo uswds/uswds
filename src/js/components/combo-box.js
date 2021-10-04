@@ -1,7 +1,7 @@
 const keymap = require("receptor/keymap");
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
-const Sanitizer = require('../utils/sanitizer');
+const Sanitizer = require("../utils/sanitizer");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
@@ -160,8 +160,8 @@ const enhanceComboBox = (_comboBoxEl) => {
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
-  const {defaultValue} = comboBoxEl.dataset;
-  const {placeholder} = comboBoxEl.dataset;
+  const { defaultValue } = comboBoxEl.dataset;
+  const { placeholder } = comboBoxEl.dataset;
   let selectedOption;
 
   if (placeholder) {
@@ -201,36 +201,33 @@ const enhanceComboBox = (_comboBoxEl) => {
   ["required", "aria-label", "aria-labelledby"].forEach((name) => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
-      additionalAttributes.push({[name]:value});
+      additionalAttributes.push({ [name]: value });
       selectEl.removeAttribute(name);
     }
   });
 
-    // sanitize doesn't like functions in template literals
-    const input = document.createElement('input');
-    input.setAttribute("id", selectId)
-    input.setAttribute("aria-owns", listId)
-    input.setAttribute("aria-autocomplete", "list")
-    input.setAttribute("aria-describedby", assistiveHintID)
-    input.setAttribute("aria-expanded", "false")
-    input.setAttribute("autocapitalize", "off")
-    input.setAttribute("autocomplete", "off")
-    input.setAttribute("class", INPUT_CLASS)
-    input.setAttribute("type", "text")
-    input.setAttribute("role", "combobox")
-    additionalAttributes.forEach(attr =>
-      Object.keys(attr)
-        .forEach((key) => {
-          const value = Sanitizer.escapeHTML`${attr[key]}`
-          input.setAttribute(key, value)
-        }))
+  // sanitize doesn't like functions in template literals
+  const input = document.createElement("input");
+  input.setAttribute("id", selectId);
+  input.setAttribute("aria-owns", listId);
+  input.setAttribute("aria-autocomplete", "list");
+  input.setAttribute("aria-describedby", assistiveHintID);
+  input.setAttribute("aria-expanded", "false");
+  input.setAttribute("autocapitalize", "off");
+  input.setAttribute("autocomplete", "off");
+  input.setAttribute("class", INPUT_CLASS);
+  input.setAttribute("type", "text");
+  input.setAttribute("role", "combobox");
+  additionalAttributes.forEach((attr) =>
+    Object.keys(attr).forEach((key) => {
+      const value = Sanitizer.escapeHTML`${attr[key]}`;
+      input.setAttribute(key, value);
+    })
+  );
 
-    comboBoxEl.insertAdjacentElement(
-      "beforeend",
-      input
-    );
+  comboBoxEl.insertAdjacentElement("beforeend", input);
 
-    comboBoxEl.insertAdjacentHTML(
+  comboBoxEl.insertAdjacentHTML(
     "beforeend",
     Sanitizer.escapeHTML`
     <span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
@@ -253,7 +250,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
       </span>`
-    );
+  );
 
   if (selectedOption) {
     const { inputEl } = getComboBoxContext(comboBoxEl);
@@ -323,7 +320,8 @@ const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
  * @param {object} extras An object of regular expressions to replace and filter the query
  */
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
-  const escapeRegExp = (text) => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  const escapeRegExp = (text) =>
+    text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 
   let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
@@ -341,7 +339,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
     return escapeRegExp(query);
   });
 
-  find = `^(?:${  find  })$`;
+  find = `^(?:${find})$`;
 
   return new RegExp(find, "i");
 };
@@ -394,38 +392,37 @@ const displayList = (el) => {
   }
 
   const numOptions = options.length;
-  const optionHtml = options
-    .map((option, index) => {
-      const optionId = `${listOptionBaseId}${index}`;
-      const classes = [LIST_OPTION_CLASS];
-      let tabindex = "-1";
-      let ariaSelected = "false";
+  const optionHtml = options.map((option, index) => {
+    const optionId = `${listOptionBaseId}${index}`;
+    const classes = [LIST_OPTION_CLASS];
+    let tabindex = "-1";
+    let ariaSelected = "false";
 
-      if (optionId === selectedItemId) {
-        classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
-        tabindex = "0";
-        ariaSelected = "true";
-      }
+    if (optionId === selectedItemId) {
+      classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
+      tabindex = "0";
+      ariaSelected = "true";
+    }
 
-      if (!selectedItemId && index === 0) {
-        classes.push(LIST_OPTION_FOCUSED_CLASS);
-        tabindex = "0";
-      }
+    if (!selectedItemId && index === 0) {
+      classes.push(LIST_OPTION_FOCUSED_CLASS);
+      tabindex = "0";
+    }
 
-      const li = document.createElement("li");
+    const li = document.createElement("li");
 
-      li.setAttribute("aria-setsize", options.length)
-      li.setAttribute("aria-posinset", index + 1)
-      li.setAttribute("aria-selected", ariaSelected)
-      li.setAttribute("id", optionId)
-      li.setAttribute("class", classes.join(" "))
-      li.setAttribute("tabindex", tabindex)
-      li.setAttribute("role", "option")
-      li.setAttribute("data-value", option.value)
-      li.textContent = option.text
+    li.setAttribute("aria-setsize", options.length);
+    li.setAttribute("aria-posinset", index + 1);
+    li.setAttribute("aria-selected", ariaSelected);
+    li.setAttribute("id", optionId);
+    li.setAttribute("class", classes.join(" "));
+    li.setAttribute("tabindex", tabindex);
+    li.setAttribute("role", "option");
+    li.setAttribute("data-value", option.value);
+    li.textContent = option.text;
 
-      return li;
-    });
+    return li;
+  });
 
   const noResults = document.createElement("li");
   noResults.setAttribute("class", `${LIST_OPTION_CLASS}--no-results`);
@@ -434,13 +431,13 @@ const displayList = (el) => {
   listEl.hidden = false;
 
   if (numOptions) {
-    listEl.innerHTML = ""
-    optionHtml.forEach(item =>
+    listEl.innerHTML = "";
+    optionHtml.forEach((item) =>
       listEl.insertAdjacentElement("beforeend", item)
-    )
+    );
   } else {
-    listEl.innerHTML = ""
-    listEl.insertAdjacentElement("beforeend", noResults)
+    listEl.innerHTML = "";
+    listEl.insertAdjacentElement("beforeend", noResults);
   }
 
   inputEl.setAttribute("aria-expanded", "true");
@@ -506,9 +503,8 @@ const selectItem = (listOptionEl) => {
  * @param {HTMLButtonElement} clearButtonEl The clear input button
  */
 const clearInput = (clearButtonEl) => {
-  const { comboBoxEl, listEl, selectEl, inputEl } = getComboBoxContext(
-    clearButtonEl
-  );
+  const { comboBoxEl, listEl, selectEl, inputEl } =
+    getComboBoxContext(clearButtonEl);
   const listShown = !listEl.hidden;
 
   if (selectEl.value) changeElementValue(selectEl);

@@ -5,7 +5,7 @@ const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 const activeElement = require("../utils/active-element");
 const isIosDevice = require("../utils/is-ios-device");
-const Sanitizer = require('../utils/sanitizer');
+const Sanitizer = require("../utils/sanitizer");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
@@ -386,7 +386,8 @@ const max = (dateA, dateB) => {
  * @param {Date} dateB date to compare
  * @returns {boolean} are dates in the same year
  */
-const isSameYear = (dateA, dateB) => dateA && dateB && dateA.getFullYear() === dateB.getFullYear();
+const isSameYear = (dateA, dateB) =>
+  dateA && dateB && dateA.getFullYear() === dateB.getFullYear();
 
 /**
  * Check if dates are the in the same month
@@ -395,7 +396,8 @@ const isSameYear = (dateA, dateB) => dateA && dateB && dateA.getFullYear() === d
  * @param {Date} dateB date to compare
  * @returns {boolean} are dates in the same month
  */
-const isSameMonth = (dateA, dateB) => isSameYear(dateA, dateB) && dateA.getMonth() === dateB.getMonth();
+const isSameMonth = (dateA, dateB) =>
+  isSameYear(dateA, dateB) && dateA.getMonth() === dateB.getMonth();
 
 /**
  * Check if dates are the same date
@@ -404,7 +406,8 @@ const isSameMonth = (dateA, dateB) => isSameYear(dateA, dateB) && dateA.getMonth
  * @param {Date} dateA the date to compare
  * @returns {boolean} are dates the same date
  */
-const isSameDay = (dateA, dateB) => isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
+const isSameDay = (dateA, dateB) =>
+  isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
 
 /**
  * return a new date within minimum and maximum date
@@ -445,9 +448,8 @@ const isDateWithinMinAndMax = (date, minDate, maxDate) =>
  * @param {Date} maxDate maximum date to allow
  * @return {boolean} is the month outside min or max dates
  */
-const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => (
-    lastDayOfMonth(date) < minDate || (maxDate && startOfMonth(date) > maxDate)
-  );
+const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) =>
+  lastDayOfMonth(date) < minDate || (maxDate && startOfMonth(date) > maxDate);
 
 /**
  * Check if dates year is invalid.
@@ -457,10 +459,9 @@ const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => (
  * @param {Date} maxDate maximum date to allow
  * @return {boolean} is the month outside min or max dates
  */
-const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => (
-    lastDayOfMonth(setMonth(date, 11)) < minDate ||
-    (maxDate && startOfMonth(setMonth(date, 0)) > maxDate)
-  );
+const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
+  lastDayOfMonth(setMonth(date, 11)) < minDate ||
+  (maxDate && startOfMonth(setMonth(date, 0)) > maxDate);
 
 /**
  * Parse a date with format M-D-YY
@@ -482,7 +483,9 @@ const parseDateString = (
   let parsed;
 
   if (dateString) {
-    let monthStr; let dayStr; let yearStr;
+    let monthStr;
+    let dayStr;
+    let yearStr;
 
     if (dateFormat === DEFAULT_EXTERNAL_DATE_FORMAT) {
       [monthStr, dayStr, yearStr] = dateString.split("/");
@@ -578,14 +581,14 @@ const listToGridHtml = (htmlArray, rowSize) => {
     const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
       const td = document.createElement("td");
-      td.insertAdjacentElement("beforeend", htmlArray[i])
+      td.insertAdjacentElement("beforeend", htmlArray[i]);
       row.push(td);
       i += 1;
     }
 
-    row.forEach(element => {
-      tr.insertAdjacentElement("beforeend", element)
-    })
+    row.forEach((element) => {
+      tr.insertAdjacentElement("beforeend", element);
+    });
 
     grid.push(tr);
   }
@@ -593,14 +596,14 @@ const listToGridHtml = (htmlArray, rowSize) => {
   return grid;
 };
 
-const createTableBody = grid => {
-    const tableBody = document.createElement("tbody");
-    grid.forEach(element => {
-      tableBody.insertAdjacentElement("beforeend", element)
-    })
+const createTableBody = (grid) => {
+  const tableBody = document.createElement("tbody");
+  grid.forEach((element) => {
+    tableBody.insertAdjacentElement("beforeend", element);
+  });
 
-    return tableBody
-}
+  return tableBody;
+};
 
 /**
  * set the value of the element and dispatch a change event
@@ -813,11 +816,8 @@ const setCalendarValue = (el, dateString) => {
   if (parsedDate) {
     const formattedDate = formatDate(parsedDate, DEFAULT_EXTERNAL_DATE_FORMAT);
 
-    const {
-      datePickerEl,
-      internalInputEl,
-      externalInputEl,
-    } = getDatePickerContext(el);
+    const { datePickerEl, internalInputEl, externalInputEl } =
+      getDatePickerContext(el);
 
     changeElementValue(internalInputEl, dateString);
     changeElementValue(externalInputEl, formattedDate);
@@ -833,7 +833,7 @@ const setCalendarValue = (el, dateString) => {
  */
 const enhanceDatePicker = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
-  const {defaultValue} = datePickerEl.dataset;
+  const { defaultValue } = datePickerEl.dataset;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
 
@@ -1008,7 +1008,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const monthStr = MONTH_LABELS[month];
     const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
 
-    const btn =  document.createElement("button");
+    const btn = document.createElement("button");
     btn.setAttribute("type", "button");
     btn.setAttribute("tabindex", tabindex);
     btn.setAttribute("class", classes.join(" "));
@@ -1016,7 +1016,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-month", month + 1);
     btn.setAttribute("data-year", year);
     btn.setAttribute("data-value", formattedDate);
-    btn.setAttribute("aria-label", Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`);
+    btn.setAttribute(
+      "aria-label",
+      Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`
+    );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isDisabled === true) {
       btn.disabled = true;
@@ -1095,37 +1098,37 @@ const renderCalendar = (el, _dateToDisplay) => {
     </div>
     `;
 
-    const table = document.createElement("table")
-    table.setAttribute("class", CALENDAR_TABLE_CLASS);
-    table.setAttribute("role", "presentation");
+  const table = document.createElement("table");
+  table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.setAttribute("role", "presentation");
 
-    const tableHead = document.createElement("thead")
-    table.insertAdjacentElement("beforeend", tableHead)
-    const tableHeadRow = document.createElement("tr")
-    tableHead.insertAdjacentElement("beforeend", tableHeadRow)
+  const tableHead = document.createElement("thead");
+  table.insertAdjacentElement("beforeend", tableHead);
+  const tableHeadRow = document.createElement("tr");
+  tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
-    const daysOfWeek = {
-      "Sunday": "S",
-      "Monday": "M",
-      "Tuesday": "T",
-      "Wednesday": "W",
-      "Thursday": "Th",
-      "Friday": "Fr",
-      "Saturday": "S"
-    }
+  const daysOfWeek = {
+    Sunday: "S",
+    Monday: "M",
+    Tuesday: "T",
+    Wednesday: "W",
+    Thursday: "Th",
+    Friday: "Fr",
+    Saturday: "S",
+  };
 
-    Object.keys(daysOfWeek).forEach(key => {
-      const th = document.createElement("th");
-      th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
-      th.setAttribute("scope", "presentation");
-      th.setAttribute("aria-label", key);
-      th.textContent = daysOfWeek[key];
-      tableHeadRow.insertAdjacentElement("beforeend", th);
-    });
+  Object.keys(daysOfWeek).forEach((key) => {
+    const th = document.createElement("th");
+    th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
+    th.setAttribute("scope", "presentation");
+    th.setAttribute("aria-label", key);
+    th.textContent = daysOfWeek[key];
+    tableHeadRow.insertAdjacentElement("beforeend", th);
+  });
 
-    const tableBody = createTableBody(datesGrid);
-    table.insertAdjacentElement("beforeend", tableBody);
-    newCalendar.insertAdjacentElement("beforeend", table)
+  const tableBody = createTableBody(datesGrid);
+  table.insertAdjacentElement("beforeend", tableBody);
+  newCalendar.insertAdjacentElement("beforeend", table);
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
@@ -1161,9 +1164,8 @@ const renderCalendar = (el, _dateToDisplay) => {
  */
 const displayPreviousYear = (_buttonEl) => {
   if (_buttonEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    _buttonEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(_buttonEl);
   let date = subYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
@@ -1182,9 +1184,8 @@ const displayPreviousYear = (_buttonEl) => {
  */
 const displayPreviousMonth = (_buttonEl) => {
   if (_buttonEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    _buttonEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(_buttonEl);
   let date = subMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
@@ -1203,9 +1204,8 @@ const displayPreviousMonth = (_buttonEl) => {
  */
 const displayNextMonth = (_buttonEl) => {
   if (_buttonEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    _buttonEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(_buttonEl);
   let date = addMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
@@ -1224,9 +1224,8 @@ const displayNextMonth = (_buttonEl) => {
  */
 const displayNextYear = (_buttonEl) => {
   if (_buttonEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    _buttonEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(_buttonEl);
   let date = addYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
   const newCalendar = renderCalendar(calendarEl, date);
@@ -1259,9 +1258,8 @@ const hideCalendar = (el) => {
 const selectDate = (calendarDateEl) => {
   if (calendarDateEl.disabled) return;
 
-  const { datePickerEl, externalInputEl } = getDatePickerContext(
-    calendarDateEl
-  );
+  const { datePickerEl, externalInputEl } =
+    getDatePickerContext(calendarDateEl);
 
   setCalendarValue(calendarDateEl, calendarDateEl.dataset.value);
   hideCalendar(datePickerEl);
@@ -1276,13 +1274,8 @@ const selectDate = (calendarDateEl) => {
  */
 const toggleCalendar = (el) => {
   if (el.disabled) return;
-  const {
-    calendarEl,
-    inputDate,
-    minDate,
-    maxDate,
-    defaultDate,
-  } = getDatePickerContext(el);
+  const { calendarEl, inputDate, minDate, maxDate, defaultDate } =
+    getDatePickerContext(el);
 
   if (calendarEl.hidden) {
     const dateToDisplay = keepDateBetweenMinAndMax(
@@ -1322,13 +1315,8 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const {
-    calendarEl,
-    statusEl,
-    calendarDate,
-    minDate,
-    maxDate,
-  } = getDatePickerContext(el);
+  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
   const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
@@ -1356,7 +1344,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
       classes.push(CALENDAR_MONTH_SELECTED_CLASS);
     }
 
-    const btn =  document.createElement("button");
+    const btn = document.createElement("button");
     btn.setAttribute("type", "button");
     btn.setAttribute("tabindex", tabindex);
     btn.setAttribute("class", classes.join(" "));
@@ -1371,18 +1359,18 @@ const displayMonthSelection = (el, monthToDisplay) => {
     return btn;
   });
 
-    const monthsHtml = document.createElement("div");
-    monthsHtml.setAttribute("tabindex", "-1");
-    monthsHtml.setAttribute("class", CALENDAR_MONTH_PICKER_CLASS);
+  const monthsHtml = document.createElement("div");
+  monthsHtml.setAttribute("tabindex", "-1");
+  monthsHtml.setAttribute("class", CALENDAR_MONTH_PICKER_CLASS);
 
-    const table = document.createElement("table")
-    table.setAttribute("class", CALENDAR_TABLE_CLASS);
-    table.setAttribute("role", "presentation");
+  const table = document.createElement("table");
+  table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.setAttribute("role", "presentation");
 
-    const monthsGrid = listToGridHtml(months, 3);
-    const tableBody = createTableBody(monthsGrid);
-    table.insertAdjacentElement("beforeend", tableBody);
-    monthsHtml.insertAdjacentElement("beforeend", table);
+  const monthsGrid = listToGridHtml(months, 3);
+  const tableBody = createTableBody(monthsGrid);
+  table.insertAdjacentElement("beforeend", tableBody);
+  monthsHtml.insertAdjacentElement("beforeend", table);
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.insertAdjacentElement("beforeend", monthsHtml);
@@ -1400,9 +1388,8 @@ const displayMonthSelection = (el, monthToDisplay) => {
  */
 const selectMonth = (monthEl) => {
   if (monthEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    monthEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(monthEl);
   const selectedMonth = parseInt(monthEl.dataset.value, 10);
   let date = setMonth(calendarDate, selectedMonth);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
@@ -1422,13 +1409,8 @@ const selectMonth = (monthEl) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayYearSelection = (el, yearToDisplay) => {
-  const {
-    calendarEl,
-    statusEl,
-    calendarDate,
-    minDate,
-    maxDate,
-  } = getDatePickerContext(el);
+  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(el);
 
   const selectedYear = calendarDate.getFullYear();
   const focusedYear = yearToDisplay == null ? selectedYear : yearToDisplay;
@@ -1472,7 +1454,7 @@ const displayYearSelection = (el, yearToDisplay) => {
       classes.push(CALENDAR_YEAR_SELECTED_CLASS);
     }
 
-    const btn =  document.createElement("button");
+    const btn = document.createElement("button");
     btn.setAttribute("type", "button");
     btn.setAttribute("tabindex", tabindex);
     btn.setAttribute("class", classes.join(" "));
@@ -1490,7 +1472,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   const newCalendar = calendarEl.cloneNode();
 
   // create the years calendar wrapper
-  const yearsCalendarWrapper = document.createElement("div")
+  const yearsCalendarWrapper = document.createElement("div");
   yearsCalendarWrapper.setAttribute("tabindex", "-1");
   yearsCalendarWrapper.setAttribute("class", CALENDAR_YEAR_PICKER_CLASS);
 
@@ -1503,29 +1485,34 @@ const displayYearSelection = (el, yearToDisplay) => {
   const yearsHTMLTableBody = document.createElement("tbody");
   const yearsHTMLTableBodyRow = document.createElement("tr");
 
-
   // create previous button
-  const previousYearsBtn =  document.createElement("button");
+  const previousYearsBtn = document.createElement("button");
   previousYearsBtn.setAttribute("type", "button");
   previousYearsBtn.setAttribute("class", CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS);
-  previousYearsBtn.setAttribute("aria-label", `Navigate back ${YEAR_CHUNK} years`);
+  previousYearsBtn.setAttribute(
+    "aria-label",
+    `Navigate back ${YEAR_CHUNK} years`
+  );
   if (prevYearChunkDisabled === true) {
     previousYearsBtn.disabled = true;
   }
-  previousYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`
+  previousYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`;
 
   // create next button
-  const nextYearsBtn =  document.createElement("button");
+  const nextYearsBtn = document.createElement("button");
   nextYearsBtn.setAttribute("type", "button");
   nextYearsBtn.setAttribute("class", CALENDAR_NEXT_YEAR_CHUNK_CLASS);
-  nextYearsBtn.setAttribute("aria-label", `Navigate forward ${YEAR_CHUNK} years`);
+  nextYearsBtn.setAttribute(
+    "aria-label",
+    `Navigate forward ${YEAR_CHUNK} years`
+  );
   if (nextYearChunkDisabled === true) {
     nextYearsBtn.disabled = true;
   }
-  nextYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`
+  nextYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`;
 
   // create the actual years table
-  const yearsTable = document.createElement("table")
+  const yearsTable = document.createElement("table");
   yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
   yearsTable.setAttribute("role", "presentation");
 
@@ -1538,33 +1525,45 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   // create the prev button td and append the prev button
   const yearsHTMLTableBodyDetailPrev = document.createElement("td");
-  yearsHTMLTableBodyDetailPrev.insertAdjacentElement("beforeend", previousYearsBtn);
+  yearsHTMLTableBodyDetailPrev.insertAdjacentElement(
+    "beforeend",
+    previousYearsBtn
+  );
 
   // create the years td and append the years child table
   const yearsHTMLTableBodyYearsDetail = document.createElement("td");
   yearsHTMLTableBodyYearsDetail.setAttribute("colspan", "3");
-  yearsHTMLTableBodyYearsDetail.insertAdjacentElement("beforeend", yearsTable)
+  yearsHTMLTableBodyYearsDetail.insertAdjacentElement("beforeend", yearsTable);
 
   // create the next button td and append the next button
-  const yearsHTMLTableBodyDetailNext = document.createElement("td")
-  yearsHTMLTableBodyDetailNext.insertAdjacentElement("beforeend", nextYearsBtn)
+  const yearsHTMLTableBodyDetailNext = document.createElement("td");
+  yearsHTMLTableBodyDetailNext.insertAdjacentElement("beforeend", nextYearsBtn);
 
   // append the three td to the years child table row
-  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyDetailPrev)
-  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyYearsDetail)
-  yearsHTMLTableBodyRow.insertAdjacentElement("beforeend", yearsHTMLTableBodyDetailNext)
+  yearsHTMLTableBodyRow.insertAdjacentElement(
+    "beforeend",
+    yearsHTMLTableBodyDetailPrev
+  );
+  yearsHTMLTableBodyRow.insertAdjacentElement(
+    "beforeend",
+    yearsHTMLTableBodyYearsDetail
+  );
+  yearsHTMLTableBodyRow.insertAdjacentElement(
+    "beforeend",
+    yearsHTMLTableBodyDetailNext
+  );
 
   // append the table row to the years child table body
-  yearsHTMLTableBody.insertAdjacentElement("beforeend", yearsHTMLTableBodyRow)
+  yearsHTMLTableBody.insertAdjacentElement("beforeend", yearsHTMLTableBodyRow);
 
   // append the years table body to the years parent table
-  yearsTableParent.insertAdjacentElement("beforeend", yearsHTMLTableBody)
+  yearsTableParent.insertAdjacentElement("beforeend", yearsHTMLTableBody);
 
   // append the parent table to the calendar wrapper
-  yearsCalendarWrapper.insertAdjacentElement("beforeend", yearsTableParent)
+  yearsCalendarWrapper.insertAdjacentElement("beforeend", yearsTableParent);
 
-  // append the years calnder to the new calendar
-  newCalendar.insertAdjacentElement("beforeend", yearsCalendarWrapper)
+  // append the years calender to the new calendar
+  newCalendar.insertAdjacentElement("beforeend", yearsCalendarWrapper);
 
   // replace calendar
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
@@ -1584,9 +1583,8 @@ const displayYearSelection = (el, yearToDisplay) => {
 const displayPreviousYearChunk = (el) => {
   if (el.disabled) return;
 
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    el
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(el);
   const yearEl = calendarEl.querySelector(CALENDAR_YEAR_FOCUSED);
   const selectedYear = parseInt(yearEl.textContent, 10);
 
@@ -1615,9 +1613,8 @@ const displayPreviousYearChunk = (el) => {
 const displayNextYearChunk = (el) => {
   if (el.disabled) return;
 
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    el
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(el);
   const yearEl = calendarEl.querySelector(CALENDAR_YEAR_FOCUSED);
   const selectedYear = parseInt(yearEl.textContent, 10);
 
@@ -1645,9 +1642,8 @@ const displayNextYearChunk = (el) => {
  */
 const selectYear = (yearEl) => {
   if (yearEl.disabled) return;
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    yearEl
-  );
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(yearEl);
   const selectedYear = parseInt(yearEl.innerHTML, 10);
   let date = setYear(calendarDate, selectedYear);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
@@ -1683,19 +1679,19 @@ const handleEscapeFromCalendar = (event) => {
  * @param {function} adjustDateFn function that returns the adjusted date
  */
 const adjustCalendar = (adjustDateFn) => (event) => {
-    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-      event.target
-    );
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
 
-    const date = adjustDateFn(calendarDate);
+  const date = adjustDateFn(calendarDate);
 
-    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-    if (!isSameDay(calendarDate, cappedDate)) {
-      const newCalendar = renderCalendar(calendarEl, cappedDate);
-      newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
-    }
-    event.preventDefault();
-  };
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  }
+  event.preventDefault();
+};
 
 /**
  * Navigate back one week and display the calendar.
@@ -1798,27 +1794,26 @@ const handleMouseoverFromDate = (dateEl) => {
  * @param {function} adjustMonthFn function that returns the adjusted month
  */
 const adjustMonthSelectionScreen = (adjustMonthFn) => (event) => {
-    const monthEl = event.target;
-    const selectedMonth = parseInt(monthEl.dataset.value, 10);
-    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-      monthEl
+  const monthEl = event.target;
+  const selectedMonth = parseInt(monthEl.dataset.value, 10);
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(monthEl);
+  const currentDate = setMonth(calendarDate, selectedMonth);
+
+  let adjustedMonth = adjustMonthFn(selectedMonth);
+  adjustedMonth = Math.max(0, Math.min(11, adjustedMonth));
+
+  const date = setMonth(calendarDate, adjustedMonth);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameMonth(currentDate, cappedDate)) {
+    const newCalendar = displayMonthSelection(
+      calendarEl,
+      cappedDate.getMonth()
     );
-    const currentDate = setMonth(calendarDate, selectedMonth);
-
-    let adjustedMonth = adjustMonthFn(selectedMonth);
-    adjustedMonth = Math.max(0, Math.min(11, adjustedMonth));
-
-    const date = setMonth(calendarDate, adjustedMonth);
-    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-    if (!isSameMonth(currentDate, cappedDate)) {
-      const newCalendar = displayMonthSelection(
-        calendarEl,
-        cappedDate.getMonth()
-      );
-      newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
-    }
-    event.preventDefault();
-  };
+    newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
+  }
+  event.preventDefault();
+};
 
 /**
  * Navigate back three months and display the month selection screen.
@@ -1906,27 +1901,26 @@ const handleMouseoverFromMonth = (monthEl) => {
  * @param {function} adjustYearFn function that returns the adjusted year
  */
 const adjustYearSelectionScreen = (adjustYearFn) => (event) => {
-    const yearEl = event.target;
-    const selectedYear = parseInt(yearEl.dataset.value, 10);
-    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-      yearEl
+  const yearEl = event.target;
+  const selectedYear = parseInt(yearEl.dataset.value, 10);
+  const { calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(yearEl);
+  const currentDate = setYear(calendarDate, selectedYear);
+
+  let adjustedYear = adjustYearFn(selectedYear);
+  adjustedYear = Math.max(0, adjustedYear);
+
+  const date = setYear(calendarDate, adjustedYear);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameYear(currentDate, cappedDate)) {
+    const newCalendar = displayYearSelection(
+      calendarEl,
+      cappedDate.getFullYear()
     );
-    const currentDate = setYear(calendarDate, selectedYear);
-
-    let adjustedYear = adjustYearFn(selectedYear);
-    adjustedYear = Math.max(0, adjustedYear);
-
-    const date = setYear(calendarDate, adjustedYear);
-    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
-    if (!isSameYear(currentDate, cappedDate)) {
-      const newCalendar = displayYearSelection(
-        calendarEl,
-        cappedDate.getFullYear()
-      );
-      newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
-    }
-    event.preventDefault();
-  };
+    newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
+  }
+  event.preventDefault();
+};
 
 /**
  * Navigate back three years and display the year selection screen.
