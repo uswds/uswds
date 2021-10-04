@@ -5,7 +5,7 @@ function fakeEl(rect) {
   return {
     getBoundingClientRect() {
       return rect;
-    }
+    },
   };
 }
 

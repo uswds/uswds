@@ -6,11 +6,11 @@ const EVENTS = {};
  * send a click event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.click = el => {
+EVENTS.click = (el) => {
   const evt = new MouseEvent("click", {
     view: el.ownerDocument.defaultView,
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -19,10 +19,10 @@ EVENTS.click = el => {
  * send a focusout event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.focusout = el => {
+EVENTS.focusout = (el) => {
   const evt = new Event("focusout", {
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -32,11 +32,11 @@ EVENTS.focusout = el => {
  * @param {HTMLElement} el the element to sent the event to
  * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
  */
-EVENTS.keydownEnter = el => {
+EVENTS.keydownEnter = (el) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     key: "Enter",
-    keyCode: 13
+    keyCode: 13,
   });
   const preventDefaultSpy = sinon.spy(evt, "preventDefault");
   el.dispatchEvent(evt);
@@ -47,11 +47,11 @@ EVENTS.keydownEnter = el => {
  * send a keydown Escape event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.keydownEscape = el => {
+EVENTS.keydownEscape = (el) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     key: "Escape",
-    keyCode: 27
+    keyCode: 27,
   });
   el.dispatchEvent(evt);
 };
@@ -60,10 +60,10 @@ EVENTS.keydownEscape = el => {
  * send a keydown Tab event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.keydownTab = el => {
+EVENTS.keydownTab = (el) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "Tab"
+    key: "Tab",
   });
   el.dispatchEvent(evt);
 };
@@ -72,10 +72,10 @@ EVENTS.keydownTab = el => {
  * send a keydown ArrowDown event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.keydownArrowDown = el => {
+EVENTS.keydownArrowDown = (el) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowDown"
+    key: "ArrowDown",
   });
   el.dispatchEvent(evt);
 };
@@ -84,10 +84,10 @@ EVENTS.keydownArrowDown = el => {
  * send a keydown ArrowUp event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.keydownArrowUp = el => {
+EVENTS.keydownArrowUp = (el) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowUp"
+    key: "ArrowUp",
   });
   el.dispatchEvent(evt);
 };
@@ -96,7 +96,7 @@ EVENTS.keydownArrowUp = el => {
  * send an input event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = el => {
+EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 

@@ -1,7 +1,7 @@
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
-const Sanitizer = require('../utils/sanitizer');
+const Sanitizer = require("../utils/sanitizer");
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
@@ -89,14 +89,14 @@ const enable = (el) => {
 /**
  *
  * @param {String} s special characters
- * @returns {String} replaces specefied values
+ * @returns {String} replaces specified values
  */
 const replaceName = (s) => {
   const c = s.charCodeAt(0);
   if (c === 32) return "-";
   if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
   return `__${("000", c.toString(16)).slice(-4)}`;
-}
+};
 
 /**
  * Creates an ID name for each file that strips all invalid characters.
@@ -106,7 +106,7 @@ const replaceName = (s) => {
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
 /**
- * Builds full file input comonent
+ * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
  * @returns {HTMLElement|HTMLElement} - Instructions, target area div
  */
@@ -177,8 +177,8 @@ const removeOldPreviews = (dropTarget, instructions) => {
    * @param {HTMLElement} node
    */
   const removeImages = (node) => {
-    node.parentNode.removeChild(node)
-  }
+    node.parentNode.removeChild(node);
+  };
 
   // Remove the heading above the previews
   if (currentPreviewHeading) {

@@ -47,8 +47,7 @@ describe("tooltips", () => {
     assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
   });
 
-   it("should not allow for innerHTML of child elements ", () => {
-
+  it("should not allow for innerHTML of child elements ", () => {
     // override the template
     body.innerHTML = `<button class="usa-button usa-tooltip" title="Apricot &lt;img src='' onerror=alert('ouch')&gt;">Button</button>`;
     tooltip.on();
@@ -59,8 +58,8 @@ describe("tooltips", () => {
     // confirm we are not on the original template
     assert.notStrictEqual(tooltipBody.innerHTML, "This is a tooltip");
 
-     Array.from(tooltipBody.childNodes).forEach((childNode) => {
-        assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
-      });
+    Array.from(tooltipBody.childNodes).forEach((childNode) => {
+      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+    });
   });
 });
