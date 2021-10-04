@@ -521,4 +521,8 @@ describe("combo box component", () => {
       });
     });
   });
+
+  it("should have attribute type of string", () => {
+    assert.strictEqual(typeof(input.getAttribute("aria-label")), 'string')
+  });
 });
