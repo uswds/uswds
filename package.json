@@ -42,8 +42,8 @@
     "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "federalist": "npm install && gulp build && fractal build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
-    "pre-commit": "lint-staged",
     "mocha": "mocha",
+    "precommit": "lint-staged --allow-empty",
     "prepare": "gulp build",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -61,7 +61,11 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
+    "prettier:js": "npx prettier --write ./src/js/**/*.js",
     "prettier:templates": "npx prettier --write './build/components/render/*.html'"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,scss,html}": ["npx prettier --write", "npx eslint --fix", "git add"]
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",
