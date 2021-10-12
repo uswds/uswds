@@ -69,7 +69,6 @@
       "npx prettier --write",
       "npx eslint",
       "npx stylelint",
-      "npm run gulp typecheck",
       "git add"
     ]
   },
