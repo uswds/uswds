@@ -52,7 +52,7 @@
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "npm run build && fractal start --sync & npm run watch",
-    "test": "snyk test && fractal build && gulp test && gulp regression && npm run test:sass",
+    "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression && npm run test:sass",
     "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && fractal build && gulp test && gulp regression",
     "test:sass": "mocha spec/unit/sass/sass-spec.js",
     "test:unit": "gulp test",
@@ -65,7 +65,7 @@
     "prettier:templates": "npx prettier --write './build/components/render/*.html'"
   },
   "lint-staged": {
-    "./src/**/*.{js,scss,html}": [
+    "./src/**/*.{js,scss}": [
       "npx prettier --write",
       "npx eslint",
       "npx stylelint",
