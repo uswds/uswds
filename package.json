@@ -68,8 +68,7 @@
     "./src/**/*.{js,scss,html}": [
       "npx prettier --write",
       "npx eslint",
-      "npx gulp stylelint",
-      "npx gulp typecheck",
+      "npx stylelint",
       "git add"
     ]
   },
