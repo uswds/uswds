@@ -17,7 +17,9 @@ const MULTISELECTABLE = "aria-multiselectable";
  * @return {array<HTMLButtonElement>}
  */
 const getAccordionButtons = (accordion) => {
-  const buttons = select(BUTTON, accordion)
+  const buttons =
+
+  select(BUTTON, accordion);
 
   return buttons.filter((button) => button.closest(ACCORDION) === accordion);
 };
