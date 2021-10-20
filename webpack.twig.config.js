@@ -40,7 +40,7 @@ module.exports = {
           {
             loader: 'twig-html-loader',
             options: {
-              data: fs.readFile(dataFile, 'utf8', json => json),
+              data: JSON.parse(fs.readFileSync(`${dataFile}`, 'utf-8')),
             },
           },
         ],
