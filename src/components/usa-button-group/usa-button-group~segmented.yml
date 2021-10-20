@@ -1,6 +1,0 @@
----
-modifier: 'usa-button-group--segmented'
-items:
-  - '<button class="usa-button">Map</button>'
-  - '<button class="usa-button usa-button--outline">Satellite</button>'
-  - '<button class="usa-button usa-button--outline">Hybrid</button>'
