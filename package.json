@@ -180,7 +180,6 @@
     "vinyl-source-stream": "^2.0.0",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.1",
-    "yaml-loader": "^0.6.0",
     "yargs": "^17.2.1"
   }
 }

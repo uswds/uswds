@@ -43,11 +43,6 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
     config.module.rules.push(
       {
-        test: /\.ya?ml$/,
-        type: "json",
-        use: "yaml-loader",
-      },
-      {
         test: /\.twig$/,
         use: "twig-loader",
       },
