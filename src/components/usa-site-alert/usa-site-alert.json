@@ -1,0 +1,6 @@
+{
+  "modifier": "",
+  "title": "Short alert message",
+  "aria_label": "Site alert",
+  "text": "Additional context and followup information including <a class=\"usa-link\" href=\"javascript:void(0);\">a link</a>."
+}
