@@ -28,7 +28,7 @@
                 </label>
                 <input class="usa-input" id="password-create-account" name="password" type="password" required>
 
-                {% include "./components/_usa-password/usa-password.twig" with { 'toggle': form.password.toggle } %}
+                {% include "@components/_usa-password/usa-password.twig" with { 'toggle': form.password.toggle } %}
 
                 <label class="usa-label" for="password-create-account-confirm">
                   {{ form.password.confirmation.label }}

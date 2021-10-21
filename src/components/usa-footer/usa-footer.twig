@@ -4,7 +4,7 @@
   </div>
   <div class="usa-footer__primary-section">
     {% block primary %}
-      {% include "./components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
+      {% include "@components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
     {% endblock %}
   </div>
   <div class="usa-footer__secondary-section">
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="usa-footer__contact-links mobile-lg:grid-col-6">
-            {% include "./components/usa-footer/_includes/usa-social-nav.twig" %}
+            {% include "@components/usa-footer/_includes/usa-social-nav.twig" %}
 
             <h3 class="usa-footer__contact-heading">
               {{ agency_contact_info.title }}

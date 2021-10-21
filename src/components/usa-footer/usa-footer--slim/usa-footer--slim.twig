@@ -1,10 +1,10 @@
-{% embed './components/usa-footer/usa-footer.twig' with {
+{% embed '@components/usa-footer/usa-footer.twig' with {
   'modifier': modifier
 } %}
   {% block primary %}
     <div class="usa-footer__primary-container grid-row">
       <div class="mobile-lg:grid-col-8">
-        {% include "./components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
+        {% include "@components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
       </div>
       <div class="mobile-lg:grid-col-4">
         <address class="usa-footer__address">
