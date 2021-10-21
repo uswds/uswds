@@ -1,28 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// const ext = '.twig';
-// const twigFiles = [];
-// const componentsDir = path.join(__dirname, './src/components/')
-
-// const twigFiles = fs.readdir(componentsDir, (_err, dir) =>
-//     dir.map( dirName => {
-//       console.log(dirName)
-//       const componentsFiles = `${componentsDir}${dirName}/`
-//       return fs.readdir(
-//           componentsFiles, (_err2, files) => files.map(file => path.extname(file).toLowerCase() === ext
-//           ? file
-//           : null
-//         )
-//       )
-//     }
-//   )
-// );
-
 // filter out anything that starts with an underscore or is not a twig file
 function walk(dir, ext) {
-  console.log(`${ext}`)
   let results = [];
   const list = fs.readdirSync(dir);
   list.forEach(file => {
@@ -46,18 +26,42 @@ function walk(dir, ext) {
 }
 
 const files = walk('./src/components', '.twig');
-const data = walk('./src/components', '.json');
+const allData = walk('./src/components', '.json');
 
-console.log(files, data)
+const htmlPlugins = allData.map(
+  d => {
+    const output = d.substr(0, d.lastIndexOf('.'));
+    // const regex = /^(.*[\\/])/
+    const template = files.filter(file => file.includes(output.substr(0, output.lastIndexOf('/'))));
+    console.log("template", template[0])
+    console.log("data", d)
+    // const template = files.filter(name)
+    // Create new HTMLWebpackPlugin with options
+    return new HtmlWebpackPlugin({
+      inject: false,
+      filename: d.replace('/src/components', '').replace('.json', '.html'),
+      template: path.resolve(__dirname, template.length > 0 ? template[0] : {}),
+      templateParameters: JSON.parse(fs.readFileSync(`${d}`, 'utf-8')),
+      hash: true,
+    })
+  }
+);
+
+console.log(path.resolve(__dirname, './src/components'))
+
 
 // TODO: for each data set, create an html file based on its closest relative twig template
 
-const file = './src/components/usa-banner/usa-banner.twig';
-const dataFile = './src/components/usa-banner/content/usa-banner.json';
-
 module.exports = {
   mode: 'production',
-  entry: file,
+  stats: {
+    entrypoints: false,
+    children: false,
+  },
+  context: path.resolve(__dirname, './html-templates'),
+  entry: {
+    main: './main.js',
+  },
   output: {
     path: path.resolve(__dirname, './html-templates'),
   },
@@ -65,23 +69,14 @@ module.exports = {
     rules: [
       {
         test: /\.twig$/,
-        use: [
-          'raw-loader',
-          {
-            loader: 'twig-html-loader',
-            options: {
-              data: JSON.parse(fs.readFileSync(`${dataFile}`, 'utf-8')),
-            },
+        use: "twigjs-loader",
+        resolve: {
+          alias: {
+            '@components': path.resolve(__dirname, './src/components')
           },
-        ],
-      }
-    ]
+        },
+      },
+    ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      inject: false,
-      filename: file.replace('.twig', '.html'),
-      template: path.resolve(__dirname, file),
-    })
-  ],
+  plugins: [].concat(htmlPlugins),
 }
