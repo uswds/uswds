@@ -10,16 +10,16 @@
             "label": "Topic",
             "secondary_nav": [
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link that's a bit longer than most of the others>"
+                "label": "[Secondary link that's a bit longer than most of the others]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               }
             ]
           },
@@ -27,16 +27,16 @@
             "label": "Topic",
             "secondary_nav": [
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link that's pretty long>"
+                "label": "[Secondary link that's pretty long]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               }
             ]
           },
@@ -44,16 +44,16 @@
             "label": "Topic",
             "secondary_nav": [
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               }
             ]
           },
@@ -61,16 +61,16 @@
             "label": "Topic",
             "secondary_nav": [
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               },
               {
-                "label": "<Secondary link>"
+                "label": "[Secondary link]"
               }
             ]
           }
