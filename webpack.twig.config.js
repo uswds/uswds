@@ -1,6 +1,35 @@
 const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// syncronously check if a file exists
+function checkFileExistsSync(filepath){
+  let flag = true;
+  try{
+    fs.accessSync(filepath, fs.constants.F_OK);
+  }catch(e){
+    flag = false;
+  }
+  return flag && filepath;
+}
+
+// builds the file object for html page gen
+function buildFileObj(file){
+  const name = file.replace('/src/components', '').replace('.twig', '.html')
+  const templateFile = file.replace('.html', '.twig')
+  const dataFile = templateFile.replace('.twig', '.json')
+  const data = checkFileExistsSync(dataFile)
+    ? JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
+    : {}
+
+  const fileObj = {
+    filename: name,
+    template: templateFile,
+    templateParameters: data,
+  }
+  return fileObj
+}
+
 // filter out anything that starts with an underscore or is not a twig file
 function walk(dir, ext) {
   let results = [];
@@ -19,35 +48,21 @@ function walk(dir, ext) {
       path.basename(file).indexOf('_') !== 0
     ) {
       /* Is a file */
-      results.push(file);
+      results.push(buildFileObj(file));
     }
   });
   return results;
 }
 
 const files = walk('./src/components', '.twig');
-const allData = walk('./src/components', '.json');
 
-const htmlPlugins = allData.map(
-  d => {
-    const output = d.substr(0, d.lastIndexOf('.'));
-    // const regex = /^(.*[\\/])/
-    const template = files.filter(file => file.includes(output.substr(0, output.lastIndexOf('/'))));
-    console.log("template", template[0])
-    console.log("data", d)
-    // const template = files.filter(name)
-    // Create new HTMLWebpackPlugin with options
-    return new HtmlWebpackPlugin({
+const htmlPlugins = files.map( file =>
+  new HtmlWebpackPlugin({
       inject: false,
-      filename: d.replace('/src/components', '').replace('.json', '.html'),
-      template: path.resolve(__dirname, template.length > 0 ? template[0] : {}),
-      templateParameters: JSON.parse(fs.readFileSync(`${d}`, 'utf-8')),
-      hash: true,
-    })
-  }
-);
-
-console.log(path.resolve(__dirname, './src/components'))
+      filename: file.filename,
+      template: file.template,
+      templateParameters: file.templateParameters,
+    }))
 
 
 // TODO: for each data set, create an html file based on its closest relative twig template
@@ -58,9 +73,8 @@ module.exports = {
     entrypoints: false,
     children: false,
   },
-  context: path.resolve(__dirname, './html-templates'),
   entry: {
-    main: './main.js',
+    main: './html-templates/main.js',
   },
   output: {
     path: path.resolve(__dirname, './html-templates'),

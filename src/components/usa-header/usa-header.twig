@@ -5,7 +5,7 @@
     {% if nav %}
       <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
         {% include "@components/usa-nav/usa-nav__primary/usa-nav__primary.twig" %}
-        {% include search.component with search.settings %}
+        {% include "@components/usa-search/usa-search.twig" with search.settings %}
       </nav>
     {% endif %}
   </div>
