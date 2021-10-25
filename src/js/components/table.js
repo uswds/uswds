@@ -2,27 +2,13 @@ const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
+const Sanitizer = require("../utils/sanitizer");
 
 const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
-
-const ICON_SOURCE = `
-  <svg class="${PREFIX}-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g class="descending" fill="transparent">
-      <path d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z" />
-    </g>
-    <g class="ascending" fill="transparent">
-      <path transform="rotate(180, 12, 12)" d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z" />
-    </g>
-    <g class="unsorted" fill="transparent">
-      <polygon points="15.17 15 13 17.17 13 6.83 15.17 9 16.58 7.59 12 3 7.41 7.59 8.83 9 11 6.83 11 17.17 8.83 15 7.42 16.41 12 21 16.59 16.41 15.17 15"/>
-    </g>
-  </svg>
-`;
-
 const SORT_BUTTON_CLASS = `${PREFIX}-table__header__button`;
 const SORT_BUTTON = `.${SORT_BUTTON_CLASS}`;
 const SORTABLE_HEADER = `th[data-sortable]`;
@@ -62,12 +48,10 @@ const compareFunction = (index, isAscending) => (thisRow, nextRow) => {
     return value1 - value2;
   }
   // Otherwise, compare alphabetically based on current user locale
-  return value1
-    .toString()
-    .localeCompare(value2, navigator.language, {
-      numeric: true,
-      ignorePunctuation: true,
-    });
+  return value1.toString().localeCompare(value2, navigator.language, {
+    numeric: true,
+    ignorePunctuation: true,
+  });
 };
 
 /**
@@ -213,7 +197,20 @@ const createHeaderButton = (header) => {
   const buttonEl = document.createElement("button");
   buttonEl.setAttribute("tabindex", "0");
   buttonEl.classList.add(SORT_BUTTON_CLASS);
-  buttonEl.innerHTML = `${ICON_SOURCE}`;
+  // ICON_SOURCE
+  buttonEl.innerHTML = Sanitizer.escapeHTML`
+  <svg class="${PREFIX}-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g class="descending" fill="transparent">
+      <path d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z" />
+    </g>
+    <g class="ascending" fill="transparent">
+      <path transform="rotate(180, 12, 12)" d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z" />
+    </g>
+    <g class="unsorted" fill="transparent">
+      <polygon points="15.17 15 13 17.17 13 6.83 15.17 9 16.58 7.59 12 3 7.41 7.59 8.83 9 11 6.83 11 17.17 8.83 15 7.42 16.41 12 21 16.59 16.41 15.17 15"/>
+    </g>
+  </svg>
+  `;
   header.appendChild(buttonEl);
   updateSortLabel(header);
 };

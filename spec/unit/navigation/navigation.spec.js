@@ -11,7 +11,7 @@ const EVENTS = {
   escape(el) {
     const escapeKeyEvent = new KeyboardEvent("keydown", {
       key: "Escape",
-      bubbles: true
+      bubbles: true,
     });
 
     el.dispatchEvent(escapeKeyEvent);
@@ -19,11 +19,11 @@ const EVENTS = {
   focusOut(el) {
     const focusOutEvent = new Event("focusout", {
       bubbles: true,
-      cancelable: true
+      cancelable: true,
     });
 
     el.dispatchEvent(focusOutEvent);
-  }
+  },
 };
 
 describe("navigation toggle", () => {

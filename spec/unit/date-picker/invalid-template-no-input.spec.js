@@ -21,7 +21,7 @@ describe("Date picker without input", () => {
 
   it('should throw an error when date picker is activated without a wrapping "usa-date-picker"', () => {
     assert.throws(() => DatePicker.on(), {
-      message: ".usa-date-picker is missing inner input"
+      message: ".usa-date-picker is missing inner input",
     });
   });
 });
