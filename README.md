@@ -8,32 +8,35 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Contents
 
-- [Background](#background)
-- [Recent updates](#recent-updates)
-- [Getting started](#getting-started)
-- [Using the design system](#using-the-design-system)
-  - [Download](#download)
-  - [Install using `npm`](#install-using-npm)
-    - [Using the USWDS package](#using-the-uswds-package)
-    - [Sass and theme settings](#sass-and-theme-settings)
-    - [Sass compilation requirements](#sass-compilation-requirements)
-    - [JavaScript](#javascript)
-  - [Use another framework or package manager](#use-another-framework-or-package-manager)
-- [CSS architecture](#css-architecture)
-- [JS customization](#js-customization)
-- [Customization, theming, and tokens](#customization-theming-and-tokens)
-  - [Using tokens in theme settings](#using-tokens-in-theme-settings)
-  - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
-  - [Main variables that can be customized](#main-variables-that-can-be-customized)
-- [Where things live](#where-things-live)
-- [Browser support](#browser-support)
-- [Accessibility](#accessibility)
-- [Fractal](#fractal)
-  - [Template compatibility](#template-compatibility)
-- [Need installation help?](#need-installation-help)
-- [Contributing to the code base](#contributing-to-the-code-base)
-- [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
-- [Licenses and attribution](#licenses-and-attribution)
+- [United States Web Design System](#united-states-web-design-system)
+  - [Contents](#contents)
+  - [Background](#background)
+  - [Recent updates](#recent-updates)
+  - [Getting started](#getting-started)
+  - [Using the design system](#using-the-design-system)
+    - [Download and install](#download-and-install)
+    - [Install using npm](#install-using-npm)
+      - [Using the USWDS package](#using-the-uswds-package)
+      - [Sass and theme settings](#sass-and-theme-settings)
+      - [Sass compilation requirements](#sass-compilation-requirements)
+      - [JavaScript](#javascript)
+    - [Use another framework or package manager](#use-another-framework-or-package-manager)
+  - [CSS architecture](#css-architecture)
+  - [JS customization](#js-customization)
+  - [Customization, theming, and tokens](#customization-theming-and-tokens)
+    - [Using tokens in theme settings](#using-tokens-in-theme-settings)
+    - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
+  - [Where things live](#where-things-live)
+  - [Browser support](#browser-support)
+  - [Accessibility](#accessibility)
+  - [Fractal](#fractal)
+    - [Template compatibility](#template-compatibility)
+  - [Long-term support of v1.x](#long-term-support-of-v1x)
+  - [Need installation help?](#need-installation-help)
+  - [Contributing to the code base](#contributing-to-the-code-base)
+  - [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+  - [Licenses and attribution](#licenses-and-attribution)
+  - [Contributing](#contributing)
 
 ## Background
 
@@ -56,18 +59,18 @@ We’re glad you’d like to use the design system — here’s how you can get 
 
 How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the design system](#download)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download-and-install)** if you are not familiar with `npm` and package management.
 
 - **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
-### Download
+### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.9.0/uswds-2.9.0.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.12.1/uswds-2.12.1.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.9.0/
+   uswds-2.12.1/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -75,6 +78,9 @@ How you implement the design system depends on the needs of your project and you
    ├── fonts/
    ├── img/
    ├── js/
+   │   ├── uswds-init.js
+   │   ├── uswds-init.min.js
+   │   ├── uswds-init.min.js.map
    │   ├── uswds.min.js.map
    │   ├── uswds.min.js
    │   └── uswds.js
@@ -82,12 +88,20 @@ How you implement the design system depends on the needs of your project and you
 
    ```
 
+   The three files critical to any USWDS project are the **stylesheet**, the **library**, and the **intializer**. Any project requires both the stylesheet and library to function properly.
+
+   **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. Reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document.
+
+   **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document.
+
+   **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag.
+
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.9.0/
+   │   ├── uswds-2.12.1/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -96,7 +110,7 @@ How you implement the design system depends on the needs of your project and you
 
    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
+3. Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. We also provide Sass (.scss) files in the zip package which you should use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
 
    Here is an example of how to reference these assets in your `index.html` file:
 
@@ -107,10 +121,11 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <link rel="stylesheet" href="assets/uswds-2.9.0/css/uswds.min.css" />
+       <script src="assets/uswds-2.12.1/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.12.1/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.9.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.12.1/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -235,7 +250,7 @@ We recommend using a **minifier** like [csso](https://github.com/css/csso) to co
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download-and-install). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
@@ -259,13 +274,13 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 
 **Unfortunately, customizing the JavaScript for the USWDS currently requires NodeJS and a module bundler like Browserify or Webpack. We apologize for this inconvenience, and are working to resolve it in a future release of the design system.**
 
-The JavaScript for the USWDS is separated into components in the same manner as the visual interface which is all initialized with event handlers when the DOM is ready. These components are accessible as CommonJS modules that can be required in other JavaScript files which then must be built for the browser. The components are currently not accessible in the global browser scope, but can be extended to be included by requiring `components` and setting it to a global scope:
+USWDS JavaScript is separated into components (just as with the CSS and HTML) and initialized with event handlers when the DOM is ready. These components are accessible as CommonJS modules that can be required in other JavaScript files, then built for the browser. The components are not accessible in the global browser scope, but can be extended to be included by requiring `components` and setting it to a global scope:
 
 ```js
 window.uswds = require("./components");
 ```
 
-Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion__button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
+Each component has a standardized interface that can be used to extend it further. The components store a HTML class (like `.usa-accordion__button[aria-controls]`) used to link HTML elements with the JavaScript component. When a component is initialized, it searches through the current HTML DOM to find all elements that match the class and initializes the component JavaScript for those elements. The primary methods for each component include:
 
 - `on`: Initialize a component's JavaScript behavior by passing the root element, such as `window.document`.
 - `off`: The opposite of `on`, de-initializes a component, removing any JavaScript event handlers on the component.
@@ -273,7 +288,64 @@ Each component has a standardized interface that can be used to extend it furthe
 - `show`: Shows a whole, hidden component.
 - `toggle`: Toggles the visibility of a component on and off based on the previous state.
 
-Some components have additional methods for manipulating specific aspects of them based on what they are and what they do. These can be found in the component's JS file.
+Some components have additional methods based on that component's functionality. Any additional methods are found in that component's JavaScript file.
+
+**If you’re using a modern framework like React or Angular you can import components and initialize them in your library's DOM ready lifecycle event.**
+
+Importing a modular component.
+
+```js
+import USWDS from "../node_modules/uswds/src/js/components";
+const { characterCount, accordion } = USWDS; // deconstruct your components here
+```
+
+React hooks example:
+
+```js
+function App() {
+  const ref = document.body;
+
+  useEffect(() => {
+    // initialize
+    characterCount.on(ref);
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
+    accordion.on();
+
+    // remove event listeners when component un-mounts.
+    return () => {
+      characterCount.off();
+      accordion.off();
+    };
+  });
+}
+```
+
+Angular example:
+
+```js
+export class App implements OnInit {
+  constructor() {
+    this.ref = document.body;
+    // default ref is document.body, if you want to use
+    // default you do not have to pass arguments
+  }
+
+  ngOnInit() {
+    // initialize
+    characterCount.on(this.ref);
+    accordion.on();
+  }
+
+  // remove event listeners when component un-mounts.
+  ngOnDestroy() {
+    characterCount.off();
+    accordion.off();
+  }
+}
+```
+
+> Those using **Webpack 5** can take advantage of the updated exports field which allows declaration for requests like `import "uswds"` or `import accordion from "uswds/src/js/components/accordion"`
 
 ## Customization, theming, and tokens
 

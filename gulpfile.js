@@ -4,14 +4,15 @@ require("./config/gulp/sass");
 require("./config/gulp/javascript");
 require("./config/gulp/images");
 require("./config/gulp/fonts");
+require("./config/gulp/svg-sprite");
 require("./config/gulp/build");
 require("./config/gulp/release");
 require("./config/gulp/test");
 
-var gulp = require("gulp");
-var dutil = require("./config/gulp/doc-util");
+const gulp = require("gulp");
+const dutil = require("./config/gulp/doc-util");
 
-gulp.task("default", function(done) {
+gulp.task("default", (done) => {
   dutil.logIntroduction();
 
   dutil.logHelp(
@@ -69,11 +70,16 @@ gulp.task("default", function(done) {
     "This task will run `gulp test` and run this repository's unit tests."
   );
 
+  dutil.logCommand(
+    "gulp svg-sprite",
+    "This task will compile all the svg files in the usa-icons directory into an svg sprite."
+  );
+
   done();
 });
 
-gulp.task("watch", function() {
+gulp.task("watch", () => {
   gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
-    gulp.watch("src/js/**/*.js", gulp.series("javascript"));
+  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
   return;
 });

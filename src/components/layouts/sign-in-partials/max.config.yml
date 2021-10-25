@@ -1,0 +1,11 @@
+label: Login
+handle: layout--federal-employee-sign-in
+hidden: true
+
+context:
+  max:
+    title: Are you a federal employee?
+    description: If you are a federal employee or [other secondary user], please use [secondary Single Sign On (SSO)].
+    cta:
+      type: usa-button usa-button--outline
+      label: Launch secondary SSO

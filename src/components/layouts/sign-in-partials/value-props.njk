@@ -1,0 +1,20 @@
+<h2 class="display-none desktop:display-block">{{ value_props.tagline }}</h2>
+<div class="usa-prose">
+  <p>{{ value_props.description }}</p>
+  <section class="usa-graphic-list">
+    <div class="usa-graphic-list__row">
+      {% for value in value_props.values %}
+        <div class="usa-media-block margin-y-2">
+          <img
+            class="usa-media-block__img height-7 width-7"
+            src="{{ uswds.path }}/img/{{ value.img }}"
+            alt=""
+          >
+          <div class="usa-media-block__body">
+            <p>{{ value.description | safe }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>

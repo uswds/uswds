@@ -1,0 +1,7 @@
+label: Login
+handle: layout--header-empty
+hidden: true
+
+context:
+  header:
+    title: <Project title>

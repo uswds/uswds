@@ -1,0 +1,95 @@
+label: Headers
+status: ready
+
+context:
+  nav:
+    aria_label: Primary navigation
+
+variants:
+  - name: default
+    label: Compare
+    status: null
+  - name: basic
+    label: Basic header
+    context:
+      header:
+        primary:
+          search: true
+          search_header: true
+          id_prefix: basic-
+  - name: basic-mega
+    label: Basic with mega-menu
+    context:
+      header:
+        primary:
+          search: true
+          search_header: true
+          id_prefix: basic-mega-
+          mega: true
+  - name: extended
+    label: Extended header
+    context:
+      header:
+        primary:
+          search: false
+          id_prefix: extended-
+        secondary:
+          search: true
+          search_header: true
+          id_prefix: extended-
+  - name: extended-mega
+    label: Extended with mega-menu
+    context:
+      header:
+        primary:
+          search: false
+          id_prefix: extended-mega-
+          mega: true
+        secondary:
+          search: true
+          search_header: true
+          id_prefix: extended-mega-
+  - name: basic-lang-es
+    label: Basic header (Spanish)
+    context:
+      lang: es
+      header:
+        primary:
+          search: true
+          search_header: true
+          id_prefix: basico-
+  - name: basic-mega-lang-es
+    label: Basic with mega-menu (Spanish)
+    context:
+      lang: es
+      header:
+        primary:
+          search: true
+          search_header: true
+          id_prefix: basico-mega-
+          mega: true
+  - name: extended-lang-es
+    label: Extended header (Spanish)
+    context:
+      lang: es
+      header:
+        primary:
+          search: false
+          id_prefix: extendido-
+        secondary:
+          search: true
+          search_header: true
+          id_prefix: extendido-
+  - name: extended-mega-lang-es
+    label: Extended header with mega-menu (Spanish)
+    context:
+      lang: es
+      header:
+        primary:
+          search: false
+          id_prefix: extendido-mega-
+          mega: true
+        secondary:
+          search: true
+          search_header: true
+          id_prefix: extendedido-mega-

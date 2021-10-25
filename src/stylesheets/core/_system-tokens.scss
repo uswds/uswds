@@ -171,6 +171,12 @@ $font-stack-helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial",
 $font-stack-monospace: "Bitstream Vera Sans Mono", "Consolas", "Courier",
   monospace;
 
+$system-font-stacks: (
+  "mono": $font-stack-monospace,
+  "sans": $font-stack-system,
+  "serif": $font-stack-georgia,
+);
+
 /*
 ----------------------------------------
 Typeface
@@ -415,54 +421,89 @@ Luminance ranges
 ----------------------------------------
 */
 
-$system-luminance-grade-ranges: (
-  0: (
-    1,
-    1,
-  ),
-  5: (
-    0.85,
-    0.93,
-  ),
-  10: (
-    0.75,
-    0.82,
-  ),
-  20: (
-    0.5,
-    0.65,
-  ),
-  30: (
-    0.35,
-    0.45,
-  ),
-  40: (
-    0.25,
-    0.3,
-  ),
-  50: (
-    0.175,
-    0.183,
-  ),
-  60: (
-    0.1,
-    0.125,
-  ),
-  70: (
-    0.05,
-    0.07,
-  ),
-  80: (
-    0.02,
-    0.04,
+$system-color-grades: (
+  100: (
+    "min": 0,
+    "max": 0,
   ),
   90: (
-    0.005,
-    0.015,
+    "min": 0.005,
+    "max": 0.015,
   ),
-  100: (
-    0,
-    0,
+  80: (
+    "min": 0.02,
+    "max": 0.04,
+  ),
+  70: (
+    "min": 0.05,
+    "max": 0.07,
+  ),
+  60: (
+    "min": 0.1,
+    "max": 0.125,
+  ),
+  50: (
+    "min": 0.175,
+    "max": 0.183,
+  ),
+  40: (
+    "min": 0.25,
+    "max": 0.3,
+  ),
+  30: (
+    "min": 0.35,
+    "max": 0.45,
+  ),
+  20: (
+    "min": 0.5,
+    "max": 0.65,
+  ),
+  10: (
+    "min": 0.75,
+    "max": 0.82,
+  ),
+  5: (
+    "min": 0.85,
+    "max": 0.93,
+  ),
+  0: (
+    "min": 1,
+    "max": 1,
+  ),
+);
+
+$theme-color-grades: (
+  "lightest": (
+    "min": 5,
+    "max": 10,
+  ),
+  "lighter": (
+    "min": 10,
+    "max": 20,
+  ),
+  "light": (
+    "min": 30,
+    "max": 40,
+  ),
+  "root": (
+    "min": 50,
+    "max": 50,
+    "vivid": (
+      "min": 30,
+      "max": 50,
+    ),
+  ),
+  "dark": (
+    "min": 60,
+    "max": 60,
+  ),
+  "darker": (
+    "min": 70,
+    "max": 80,
+  ),
+  "darkest": (
+    "min": 90,
+    "max": 90,
   ),
 );
 

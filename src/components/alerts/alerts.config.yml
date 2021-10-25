@@ -1,0 +1,65 @@
+label: Alerts
+status: ready
+preview: "@uswds-framed"
+context:
+  alert:
+    content: 'Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
+
+variants:
+  - name: info
+    label: Info
+    context:
+      alert:
+        classes: "usa-alert--info"
+        title: Informative status
+
+  - name: success
+    label: Success
+    context:
+      alert:
+        classes: "usa-alert--success"
+        title: Success status
+
+  - name: warning
+    label: Warning
+    context:
+      alert:
+        classes: "usa-alert--warning"
+        title: Warning status
+
+  - name: error
+    label: Error
+    context:
+      alert:
+        classes: "usa-alert--error"
+        title: Error status
+        role: "alert"
+
+  - name: emergency
+    label: Emergency
+    context:
+      alert:
+        classes: "usa-alert--emergency"
+        title: Emergency status
+        role: "alert"
+
+  - name: no-header
+    label: No header
+    context:
+      alert:
+        classes: "usa-alert--info usa-alert--no-heading"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+
+  - name: no-icon
+    label: No icon
+    context:
+      alert:
+        classes: "usa-alert--info usa-alert--no-icon"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+
+  - name: slim
+    label: Slim
+    context:
+      alert:
+        classes: "usa-alert--info usa-alert--slim"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."

@@ -1,3 +1,4 @@
+$identifier-context: "Identifier";
 $identifier-logo-height: 6;
 $identifier-section-margin-y: 2;
 $identifier-section-margin-y-small: 1;
@@ -5,10 +6,19 @@ $identifier-link-gap: 1.5;
 $identifier-link-gap-desktop: 1;
 $identifier-links-gap: 4 !default;
 
+@mixin identifier-primary-link {
+  @include set-link-from-bg(
+    $theme-identifier-background-color,
+    $theme-identifier-primary-link-color,
+    $context: $identifier-context
+  );
+}
+
 @mixin identifier-secondary-link {
   @include set-link-from-bg(
     $theme-identifier-background-color,
-    $theme-identifier-secondary-link-color
+    $theme-identifier-secondary-link-color,
+    $context: $identifier-context
   );
 }
 
@@ -17,7 +27,10 @@ $identifier-links-gap: 4 !default;
 // =====================================
 .usa-identifier {
   @include typeset($theme-identifier-font-family, "sm", 3);
-  @include set-text-and-bg($theme-identifier-background-color);
+  @include set-text-and-bg(
+    $theme-identifier-background-color,
+    $context: $identifier-context
+  );
   padding-bottom: units(2);
 }
 
@@ -75,14 +88,18 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__identity-domain {
-  @include u-text("light", $theme-identifier-identity-domain-color);
+  @include set-text-from-bg(
+    $theme-identifier-background-color,
+    $theme-identifier-identity-domain-color,
+    $context: $identifier-context
+  );
 }
 
 .usa-identifier__identity-disclaimer {
   @include u-text("bold");
 
   a {
-    @include set-link-from-bg($theme-identifier-background-color);
+    @include identifier-primary-link;
   }
 }
 
@@ -129,7 +146,7 @@ $identifier-links-gap: 4 !default;
 }
 
 .usa-identifier__section--usagov a {
-  @include set-link-from-bg($theme-identifier-background-color);
+  @include identifier-primary-link;
   @include u-text("bold");
   display: inline-block;
   margin-top: units(1);

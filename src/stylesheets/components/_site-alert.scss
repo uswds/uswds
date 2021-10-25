@@ -1,0 +1,92 @@
+// Alert variables ---------- //
+
+$alert-icons: (
+  info: "info",
+  emergency: "error",
+);
+
+@mixin site-alert-margins {
+  &:before {
+    left: units($theme-site-margins-mobile-width);
+    @include at-media($theme-site-margins-breakpoint) {
+      left: units($theme-site-margins-width);
+    }
+  }
+}
+
+.usa-site-alert {
+  position: relative;
+  background-color: color("base-lightest");
+
+  .usa-alert {
+    @include u-margin-x("auto");
+    @include u-maxw($theme-site-alert-max-width);
+
+    // Don't show the left bar
+    border-left: none;
+
+    > .usa-list,
+    .usa-alert__body > .usa-list {
+      padding-left: 2ch;
+    }
+  }
+
+  .usa-alert__body {
+    @include add-responsive-site-margins;
+  }
+}
+
+@each $name, $icon in $alert-icons {
+  .usa-site-alert--#{$name} {
+    $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+    @include set-text-and-bg($bgcolor);
+
+    .usa-alert {
+      @include alert-status-styles($name, $icon);
+      @include site-alert-margins;
+    }
+
+    .usa-alert__body {
+      padding-right: units($theme-site-margins-mobile-width);
+      padding-left: units($theme-site-margins-mobile-width) +
+        units($theme-alert-icon-size) +
+        units(1.5);
+
+      @include at-media($theme-site-margins-breakpoint) {
+        padding-right: units($theme-site-margins-width);
+        padding-left: units($theme-site-margins-width) +
+          units($theme-alert-icon-size) + units(1.5);
+      }
+    }
+  }
+}
+
+.usa-site-alert--no-icon {
+  .usa-alert {
+    &:before {
+      display: none;
+    }
+
+    .usa-alert__body {
+      padding-left: units($theme-site-margins-mobile-width);
+      @include at-media($theme-site-margins-breakpoint) {
+        padding-left: units($theme-site-margins-width);
+      }
+    }
+  }
+}
+
+.usa-site-alert--slim {
+  .usa-alert {
+    @include add-slim-alert-icon;
+    @include u-padding-y(1);
+  }
+  .usa-alert__body {
+    padding-left: units($theme-site-margins-mobile-width) +
+      $alert-slim-icon-size + units(1.5);
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: units($theme-site-margins-width) + $alert-slim-icon-size +
+        units(1.5);
+    }
+  }
+}

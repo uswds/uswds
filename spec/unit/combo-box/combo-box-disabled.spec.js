@@ -34,12 +34,12 @@ describe("combo box component - disabled enhancement", () => {
 
   it("enhances a select element into a combo box component", () => {
     assert.ok(input, "adds an input element");
-    assert.equal(
+    assert.strictEqual(
       input.disabled,
       true,
       "transfers disabled attribute to combo box"
     );
-    assert.equal(
+    assert.strictEqual(
       select.disabled,
       false,
       "removes disabled attribute from select"

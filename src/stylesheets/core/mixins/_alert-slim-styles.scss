@@ -1,0 +1,6 @@
+@mixin alert-slim-styles {
+  @include u-padding-y(1);
+  .usa-alert__body {
+    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
+  }
+}

@@ -1,11 +1,13 @@
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
+const Sanitizer = require("../utils/sanitizer");
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
 const INPUT_CLASS = `${PREFIX}-file-input__input`;
 const TARGET_CLASS = `${PREFIX}-file-input__target`;
+const INPUT = `.${INPUT_CLASS}`;
 const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
@@ -27,22 +29,87 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
+let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
+
 /**
- * Creates an ID name for each file that strips all invalid characters.
- * @param {string} name - name of the file added to file input
- * @returns {string} same characters as the name with invalide chars removed
+ * The properties and elements within the file input.
+ * @typedef {Object} FileInputContext
+ * @property {HTMLDivElement} dropZoneEl
+ * @property {HTMLInputElement} inputEl
  */
-const makeSafeForID = (name) => {
-  return name.replace(/[^a-z0-9]/g, function replaceName(s) {
-    const c = s.charCodeAt(0);
-    if (c === 32) return "-";
-    if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
-    return `__${("000", c.toString(16)).slice(-4)}`;
-  });
+
+/**
+ * Get an object of the properties and elements belonging directly to the given
+ * file input component.
+ *
+ * @param {HTMLElement} el the element within the file input
+ * @returns {FileInputContext} elements
+ */
+const getFileInputContext = (el) => {
+  const dropZoneEl = el.closest(DROPZONE);
+
+  if (!dropZoneEl) {
+    throw new Error(`Element is missing outer ${DROPZONE}`);
+  }
+
+  const inputEl = dropZoneEl.querySelector(INPUT);
+
+  return {
+    dropZoneEl,
+    inputEl,
+  };
 };
 
 /**
- * Builds full file input comonent
+ * Disable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const disable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = true;
+  dropZoneEl.classList.add(DISABLED_CLASS);
+  dropZoneEl.setAttribute("aria-disabled", "true");
+};
+
+/**
+ * Enable the file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const enable = (el) => {
+  const { dropZoneEl, inputEl } = getFileInputContext(el);
+
+  inputEl.disabled = false;
+  dropZoneEl.classList.remove(DISABLED_CLASS);
+  dropZoneEl.removeAttribute("aria-disabled");
+};
+
+/**
+ *
+ * @param {String} s special characters
+ * @returns {String} replaces specified values
+ */
+const replaceName = (s) => {
+  const c = s.charCodeAt(0);
+  if (c === 32) return "-";
+  if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
+  return `__${("000", c.toString(16)).slice(-4)}`;
+};
+
+/**
+ * Creates an ID name for each file that strips all invalid characters.
+ * @param {String} name - name of the file added to file input (searchvalue)
+ * @returns {String} same characters as the name with invalid chars removed (newvalue)
+ */
+const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
+
+// Takes a generated safe ID and creates a unique ID.
+const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
+
+/**
+ * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
  * @returns {HTMLElement|HTMLElement} - Instructions, target area div
  */
@@ -73,15 +140,14 @@ const buildFileInput = (fileInputEl) => {
 
   // Disabled styling
   if (disabled) {
-    fileInputParent.classList.add(DISABLED_CLASS);
-    fileInputParent.setAttribute("aria-disabled", "true");
+    disable(fileInputEl);
   }
 
-  // Sets instruction test based on whether or not multipe files are accepted
+  // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
-    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
-    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
@@ -98,7 +164,7 @@ const buildFileInput = (fileInputEl) => {
 /**
  * Removes image previews, we want to start with a clean list every time files are added to the file input
  * @param {HTMLElement} dropTarget - target area div that encases the input
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
@@ -108,6 +174,14 @@ const removeOldPreviews = (dropTarget, instructions) => {
   const currentErrorMessage = dropTarget.querySelector(
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
+
+  /**
+   * finds the parent of the passed node and removes the child
+   * @param {HTMLElement} node
+   */
+  const removeImages = (node) => {
+    node.parentNode.removeChild(node);
+  };
 
   // Remove the heading above the previews
   if (currentPreviewHeading) {
@@ -125,53 +199,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    Array.prototype.forEach.call(filePreviews, function removeImages(node) {
-      node.parentNode.removeChild(node);
-    });
-  }
-};
-
-/**
- * When using an Accept attribute, invalid files will be hidden from
- * file browser, but they can still be dragged to the input. This
- * function prevents them from being dragged and removes error states
- * when correct files are added.
- * @param {event} e
- * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
- * @param {HTMLElement} dropTarget - target area div that encases the input
- */
-const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
-  const acceptedFiles = fileInputEl.getAttribute("accept");
-  dropTarget.classList.remove(INVALID_FILE_CLASS);
-
-  // Runs if only specific files are accepted
-  if (acceptedFiles) {
-    const errorMessage = document.createElement("div");
-
-    // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
-    let allFilesAllowed = true;
-    for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
-      const file = e.dataTransfer.files[i];
-      if (allFilesAllowed) {
-        allFilesAllowed = file.name.indexOf(acceptedFiles);
-        if (allFilesAllowed < 0) {
-          break;
-        }
-      }
-    }
-
-    // If dragged files are not accepted, this removes them from the value of the input and creates and error state
-    if (allFilesAllowed < 0) {
-      removeOldPreviews(dropTarget, instructions);
-      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
-      dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.innerHTML = `This is not a valid file type.`;
-      errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
-      dropTarget.classList.add(INVALID_FILE_CLASS);
-      e.preventDefault();
-      e.stopPropagation();
-    }
+    Array.prototype.forEach.call(filePreviews, removeImages);
   }
 };
 
@@ -180,7 +208,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
  * and removes old ones.
  * @param {event} e
  * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to infrom users to drag or select files
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
@@ -197,18 +225,19 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = makeSafeForID(fileName);
-      const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
+      const imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
-        `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`
+        Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
+          <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
+        <div>`
       );
     };
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = makeSafeForID(fileName);
+      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
@@ -258,7 +287,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
     } else if (i >= 1) {
       dropTarget.insertBefore(filePreviewsHeading, instructions);
-      filePreviewsHeading.innerHTML = `${
+      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
       } files selected <span class="usa-file-input__choose">Change files</span>`;
     }
@@ -268,6 +297,94 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       instructions.classList.add(HIDDEN_CLASS);
       filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
     }
+  }
+};
+
+/**
+ * When using an Accept attribute, invalid files will be hidden from
+ * file browser, but they can still be dragged to the input. This
+ * function prevents them from being dragged and removes error states
+ * when correct files are added.
+ * @param {event} e
+ * @param {HTMLElement} fileInputEl - file input element
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
+ * @param {HTMLElement} dropTarget - target area div that encases the input
+ */
+const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
+  const acceptedFilesAttr = fileInputEl.getAttribute("accept");
+  dropTarget.classList.remove(INVALID_FILE_CLASS);
+
+  /**
+   * We can probably move away from this once IE11 support stops, and replace
+   * with a simple es `.includes`
+   * check if element is in array
+   * check if 1 or more alphabets are in string
+   * if element is present return the position value and -1 otherwise
+   * @param {Object} file
+   * @param {String} value
+   * @returns {Boolean}
+   */
+  const isIncluded = (file, value) => {
+    let returnValue = false;
+    const pos = file.indexOf(value);
+    if (pos >= 0) {
+      returnValue = true;
+    }
+    return returnValue;
+  };
+
+  // Runs if only specific files are accepted
+  if (acceptedFilesAttr) {
+    const acceptedFiles = acceptedFilesAttr.split(",");
+    const errorMessage = document.createElement("div");
+
+    // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
+    let allFilesAllowed = true;
+    const scannedFiles = e.target.files || e.dataTransfer.files;
+    for (let i = 0; i < scannedFiles.length; i += 1) {
+      const file = scannedFiles[i];
+      if (allFilesAllowed) {
+        for (let j = 0; j < acceptedFiles.length; j += 1) {
+          const fileType = acceptedFiles[j];
+          allFilesAllowed =
+            file.name.indexOf(fileType) > 0 ||
+            isIncluded(file.type, fileType.replace(/\*/g, ""));
+          if (allFilesAllowed) {
+            TYPE_IS_VALID = true;
+            break;
+          }
+        }
+      } else break;
+    }
+
+    // If dragged files are not accepted, this removes them from the value of the input and creates and error state
+    if (!allFilesAllowed) {
+      removeOldPreviews(dropTarget, instructions);
+      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      dropTarget.insertBefore(errorMessage, fileInputEl);
+      errorMessage.textContent =
+        fileInputEl.dataset.errormessage || `This is not a valid file type.`
+      errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
+      dropTarget.classList.add(INVALID_FILE_CLASS);
+      TYPE_IS_VALID = false;
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
+};
+
+/**
+ * 1. passes through gate for preventing invalid files
+ * 2. handles updates if file is valid
+ * @param {event} event
+ * @param {HTMLElement} element
+ * @param {HTMLElement} instructionsEl
+ * @param {HTMLElement} target
+ */
+const handleUpload = (event, element, instructionsEl, dropTargetEl) => {
+  preventInvalidFiles(event, element, instructionsEl, dropTargetEl);
+  if (TYPE_IS_VALID === true) {
+    handleChange(event, element, instructionsEl, dropTargetEl);
   }
 };
 
@@ -296,19 +413,22 @@ const fileInput = behavior(
 
         dropTarget.addEventListener(
           "drop",
-          function handleDrop(e) {
-            preventInvalidFiles(e, fileInputEl, instructions, dropTarget);
+          function handleDrop() {
             this.classList.remove(DRAG_CLASS);
           },
           false
         );
 
-        // eslint-disable-next-line no-param-reassign
-        fileInputEl.onchange = (e) => {
-          handleChange(e, fileInputEl, instructions, dropTarget);
-        };
+        fileInputEl.addEventListener(
+          "change",
+          (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
+          false
+        );
       });
     },
+    getFileInputContext,
+    disable,
+    enable,
   }
 );
 

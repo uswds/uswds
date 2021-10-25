@@ -1,0 +1,56 @@
+<main class="grid-container">
+  <h1>Testing alerts on inputs - <small><a href="https://github.com/uswds/uswds/issues/3788">issue #3788</a></small></h1>
+  <p class="measure-3">
+    Alerts on form inputs aren't being read on voiceover. These are tests with current problem and possible solution. Originally tested on Voiceover Safari Version 14.0 (15610.1.28.1.9, 15610)
+  </p>
+  <div class="grid-row grid-gap-6 margin-top-4">
+    <div class="tablet:grid-col-6">
+      <h2>Current</h2>
+      <!-- Text w/ error -->
+      <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="input-error">Text input error</label>
+        <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
+        <input class="usa-input usa-input--error" id="input-error" name="input-error" type="text"
+          aria-describedby="input-error-message">
+      </div>
+
+      <!-- File input w/ error -->
+      <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="file-input-error">Input has an error</label>
+        <span class="usa-hint" id="file-input-error-hint">Select any valid file</span>
+        <span class="usa-error-message" id="file-input-error-alert" role="alert">Display a helpful error message</span>
+        <input id="file-input-error" class="usa-file-input" type="file" name="file-input-error"
+          aria-describedby="file-input-error-hint">
+      </div>
+    </div>
+    <div class="tablet:grid-col-6">
+      <h2>Proposed</h2>
+      <p>Removing role attribute from spans in alert. Gov.uk does something like this in their <a href="https://design-system.service.gov.uk/components/file-upload/error/index.html">file input →</a></p>
+      <!-- Text w/ error -->
+      <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="input-error-2">Text input error</label>
+        <span class="usa-error-message" id="input-error-message-2">Helpful error message</span>
+        <input class="usa-input usa-input--error" id="input-error-2" name="input-error-2" type="text"
+          aria-describedby="input-error-message-2">
+      </div>
+
+      <!-- File input w/ error -->
+      <div class="usa-form-group usa-form-group--error">
+        <label class="usa-label usa-label--error" for="file-input-error-2">
+          Input has an error
+        </label>
+        <span class="usa-hint" id="file-input-error-hint-2">
+          Select any valid file
+        </span>
+        <span class="usa-error-message" id="file-input-error-alert-2">
+          Display a helpful error message
+        </span>
+        <input id="file-input-error-2" class="usa-file-input" type="file" name="file-input-error-2"
+          aria-describedby="file-input-error-alert-2 file-input-error-hint-2" />
+        <p>
+          Here we removed the role and updated the aria-describedby attribute.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>

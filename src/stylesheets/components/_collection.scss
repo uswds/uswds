@@ -1,0 +1,108 @@
+$collection-thumb-width: 10;
+$collection-thumb-width-mobile: 8;
+$collection-thumb-margin: 2;
+
+@include override-prose {
+  .usa-collection {
+    @include typeset($theme-collection-font-family, "sm", 3);
+    @extend %usa-list;
+    @include u-padding-left(0);
+  }
+
+  .usa-collection__item {
+    @extend %usa-list-item;
+    @include unstyled-list;
+    @include u-align-items("align-start");
+    @include u-border-top(1px);
+    @include u-display("flex");
+    @include u-margin-y(2);
+    @include u-padding-top(2);
+  }
+}
+
+.usa-collection__img,
+.usa-collection__calendar-date {
+  @include media-block-img;
+  width: units($collection-thumb-width-mobile);
+  margin-right: units($collection-thumb-margin);
+
+  @include at-media("tablet") {
+    width: units($collection-thumb-width);
+  }
+}
+
+.usa-collection__body {
+  @include u-flex(1);
+}
+
+.usa-collection__heading {
+  @include typeset($theme-collection-header-typeset);
+  @include u-margin-bottom(0);
+  @include u-margin-top(0);
+}
+
+.usa-collection__description {
+  @include u-margin-y(1);
+}
+
+.usa-collection__meta {
+  @include unstyled-list;
+  @include u-margin-top(0.5);
+}
+
+.usa-collection__meta-item {
+  @include u-margin-top(0.5);
+  @include typeset("ui", "2xs", 3);
+  display: block;
+  margin-right: units(1);
+
+  &.usa-tag {
+    @include u-bg("base-lighter");
+    @include u-line-height("ui", 1);
+    @include u-padding-y(0.5);
+    @include u-text("ink");
+    display: inline-block;
+    margin-top: units(0.5);
+
+    &--new {
+      @include u-bg("accent-warm-dark");
+      @include u-text("white");
+    }
+  }
+}
+
+.usa-collection__calendar-date {
+  text-decoration: none;
+}
+
+.usa-collection__calendar-date-month,
+.usa-collection__calendar-date-day {
+  @include u-font("ui", 6);
+  display: block;
+  font-weight: fw("bold");
+  padding: units(0.5);
+  text-align: center;
+
+  @include at-media("tablet") {
+    padding: units(1);
+  }
+}
+
+.usa-collection__calendar-date-month {
+  @include u-radius-top("sm");
+  background-color: color("primary");
+  color: color("white");
+}
+
+.usa-collection__calendar-date-day {
+  @include u-radius-bottom("sm");
+  border: 1px solid color("primary");
+  color: color("primary");
+}
+
+.usa-collection--condensed {
+  .usa-collection__item {
+    @include u-margin-y(1);
+    @include u-padding-top(1);
+  }
+}

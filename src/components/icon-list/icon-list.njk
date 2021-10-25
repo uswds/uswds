@@ -1,0 +1,14 @@
+<ul class="usa-icon-list{% if color %} usa-icon-list--{{ color }}{% endif %}{% if size %} usa-icon-list--size-{{ size }}{% endif %}">
+  {%- for item in items -%}
+  <li class="usa-icon-list__item">
+    <div class="usa-icon-list__icon{% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
+      <svg class="usa-icon{% if item.icon.utilities %} {{ item.icon.utilities }}{% endif %}" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#{{ item.icon.name }}"></use>
+      </svg>
+    </div>
+    <div class="usa-icon-list__content">
+      {{ item.content | safe }}
+    </div>
+  </li>
+  {%- endfor -%}
+</ul>

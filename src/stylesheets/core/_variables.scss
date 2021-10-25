@@ -33,6 +33,14 @@ $ns-grid: ns("grid");
 
 /*
 ----------------------------------------
+Separator
+----------------------------------------
+*/
+
+$separator: $theme-prefix-separator;
+
+/*
+----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -378,6 +386,10 @@ $project-state-colors: (
     "default": color($theme-color-disabled, set-theme),
     "dark": color($theme-color-disabled-dark, set-theme),
   ),
+  "emergency": (
+    "default": color($theme-color-emergency, set-theme),
+    "dark": color($theme-color-emergency-dark, set-theme),
+  ),
 );
 
 $all-project-colors: map-collect($project-colors, $project-state-colors);
@@ -402,7 +414,7 @@ $assignments-theme-color: (
   "base-dark": $theme-color-base-dark,
   "base-darker": $theme-color-base-darker,
   "base-darkest": $theme-color-base-darkest,
-  "ink": $theme-color-base-darkest,
+  "ink": $theme-color-base-ink,
   "primary-lightest": $theme-color-primary-lightest,
   "primary-lighter": $theme-color-primary-lighter,
   "primary-light": $theme-color-primary-light,
@@ -456,6 +468,8 @@ $assignments-theme-color: (
   "disabled-light": $theme-color-disabled-light,
   "disabled": $theme-color-disabled,
   "disabled-dark": $theme-color-disabled-dark,
+  "emergency": $theme-color-emergency,
+  "emergency-dark": $theme-color-emergency-dark,
 );
 
 $tokens-color-theme: (
@@ -532,6 +546,8 @@ $tokens-color-state: (
   "disabled-light": color($theme-color-disabled-light, set-theme, no-warn),
   "disabled": color($theme-color-disabled, set-theme, no-warn),
   "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn),
+  "emergency": color($theme-color-emergency, set-theme, no-warn),
+  "emergency-dark": color($theme-color-emergency-dark, set-theme, no-warn),
 );
 
 $project-color-shortcodes: map-collect(
@@ -546,6 +562,18 @@ $all-color-shortcodes: map-collect(
 );
 
 $color-palette-grayscale: $system-color-gray;
+
+/*
+----------------------------------------
+System magic numbers for color contrast
+----------------------------------------
+*/
+
+$system-wcag-magic-numbers: (
+  "AA": 50,
+  "AAA": 70,
+  "AA-large": 40,
+);
 
 /*
 ----------------------------------------
@@ -575,6 +603,7 @@ Border-radius
 
 $project-border-radius: (
   0: 0,
+  "none": 0,
   "sm": units($theme-border-radius-sm),
   "md": units($theme-border-radius-md),
   "lg": units($theme-border-radius-lg),
@@ -616,6 +645,7 @@ $grid-global: "";
 Aspect Ratios
 ----------------------------------------
 */
+
 $project-aspect-ratios: (
   "9x16": 177.77778%,
   "16x9": 56.25%,
@@ -633,4 +663,18 @@ $project-aspect-ratios: (
 Easing
 ----------------------------------------
 */
-$project-easing: 0.2s ease-in-out;
+$project-easing: 0.15s ease-in-out;
+
+/*
+----------------------------------------
+Project defaults
+----------------------------------------
+*/
+
+$project-defaults: (
+  "bg-color": $theme-body-background-color,
+  "preferred-text-token": $theme-text-reverse-color,
+  "fallback-text-token": $theme-text-color,
+  "preferred-link-token": $theme-link-reverse-color,
+  "fallback-link-token": $theme-link-color,
+);

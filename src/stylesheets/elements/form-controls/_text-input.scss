@@ -11,3 +11,47 @@
 .usa-input--error {
   @include u-border($theme-input-state-border-width, "error-dark");
 }
+
+// Input prefixes / suffixes
+
+.usa-input-group {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  align-items: center;
+  background-color: color("white");
+  display: flex;
+  padding: 0;
+
+  &.is-focused {
+    @include focus-outline();
+  }
+
+  &--error {
+    @include u-border($theme-input-state-border-width, "error-dark");
+  }
+
+  input {
+    border: 0;
+    height: 100%;
+    margin-top: 0;
+    min-width: 0;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.usa-input-prefix,
+.usa-input-suffix {
+  color: color("base");
+  line-height: 0;
+  padding: 0 units(1);
+  user-select: none;
+  white-space: nowrap;
+
+  .usa-icon {
+    @include u-square(3);
+  }
+}

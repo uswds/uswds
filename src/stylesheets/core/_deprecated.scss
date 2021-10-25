@@ -17,12 +17,15 @@
     major version.
 */
 
-// Deprecated in 2.2.0
-$theme-navigation-width: $theme-header-min-width;
-$theme-megamenu-logo-text-width: $theme-header-logo-text-width;
-
 // Deprecated in 2.0.2
-$theme-title-font-size: $theme-display-font-size;
+$theme-title-font-size: $theme-display-font-size !default;
+
+// Deprecated in 2.2.0
+$theme-navigation-width: $theme-header-min-width !default;
+$theme-megamenu-logo-text-width: $theme-header-logo-text-width !default;
+
+// Deprecated in 2.11.0
+$theme-site-max-width: $theme-grid-container-max-width !default;
 
 @mixin title {
   @include display;
@@ -31,3 +34,8 @@ $theme-title-font-size: $theme-display-font-size;
 @mixin typeset-title {
   @include typeset-display;
 }
+
+// Deprecated in 2.12.0
+$theme-input-tile-background-color-selected: "primary-lighter" !default;
+$theme-input-tile-border-color: "base-lighter" !default;
+$theme-input-tile-border-color-selected: "primary-lighter" !default;

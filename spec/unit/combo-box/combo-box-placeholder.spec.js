@@ -27,7 +27,7 @@ describe("combo box component with placeholder attribute", () => {
 
   it("enhances a select element into a combo box component", () => {
     assert.ok(input, "adds an input element");
-    assert.equal(
+    assert.strictEqual(
       input.placeholder,
       "Select one...",
       "transfers placeholder attribute from combo box"
