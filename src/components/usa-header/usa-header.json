@@ -50,7 +50,6 @@
     ]
   },
   "search": {
-    "component": "@components/usa-search/usa-search.twig",
     "settings": {
       "modifier": "usa-search--small",
       "search_js": false,
