@@ -14,13 +14,44 @@ function checkFileExistsSync(filepath){
 }
 
 // builds the file object for html page gen
-function buildFileObj(file){
-  const name = file.replace('/src/components', '').replace('.twig', '.html')
+function buildFileObj(dir, file, f){
+
   const templateFile = file.replace('.html', '.twig')
-  const dataFile = templateFile.replace('.twig', '.json')
+  const dataFile = `${dir}/${f}`
+
+  const name = !f
+    ? file.replace('/src/components', '').replace('.twig', '.html')
+    : `${dir.replace('/src/components', '')}/${f.replace('.json', '.html')}`
+
+  function buildModifierData(d) {
+    const regexDashes = /--([\s\S]*)$/
+    const regexTilda = /~([\s\S]*)$/
+    let modifiedData;
+
+    if (d.indexOf('--') > -1) {
+      const rootDataFile = d.replace(regexDashes, '.json')
+      modifiedData = Object.assign(
+          JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
+          JSON.parse(fs.readFileSync(d, 'utf-8'))
+        )
+      }
+
+    if (d.indexOf('~') > -1) {
+      const rootDataFile = d.replace(regexTilda, '.json')
+      modifiedData = Object.assign(
+          JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
+          JSON.parse(fs.readFileSync(d, 'utf-8'))
+        )
+      }
+
+      // console.log(d, modifiedData)
+      return modifiedData || JSON.parse(fs.readFileSync(d, 'utf-8'))
+    }
+
   const data = checkFileExistsSync(dataFile)
-    ? JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
+    ? buildModifierData(dataFile)
     : {}
+  // console.log(data)
 
   const fileObj = {
     filename: name,
@@ -48,13 +79,25 @@ function walk(dir, ext) {
       path.basename(file).indexOf('_') !== 0
     ) {
       /* Is a file */
-      results.push(buildFileObj(file));
+      // in each directory, we need to build modifers
+
+      const allData = fs.readdirSync(dir).filter( f => f.indexOf('.json') > -1)
+
+      if (allData.length > 0) {
+        allData.forEach((d) => {
+          results.push(buildFileObj(dir, file, d));
+        })
+      } else {
+        results.push(buildFileObj(dir, file))
+      }
     }
   });
   return results;
 }
 
 const files = walk('./src/components', '.twig');
+
+// console.log('files', files)
 
 const htmlPlugins = files.map( file =>
   new HtmlWebpackPlugin({
@@ -69,10 +112,6 @@ const htmlPlugins = files.map( file =>
 
 module.exports = {
   mode: 'production',
-  stats: {
-    entrypoints: false,
-    children: false,
-  },
   entry: {
     main: './html-templates/main.js',
   },

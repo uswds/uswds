@@ -52,7 +52,7 @@
     "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:html": "webpack build --config ./webpack.twig.config.js --stats-children"
+    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
   },
   "repository": {
     "type": "git",
