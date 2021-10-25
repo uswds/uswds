@@ -44,14 +44,12 @@ function buildFileObj(dir, file, f){
         )
       }
 
-      // console.log(d, modifiedData)
       return modifiedData || JSON.parse(fs.readFileSync(d, 'utf-8'))
     }
 
   const data = checkFileExistsSync(dataFile)
     ? buildModifierData(dataFile)
     : {}
-  // console.log(data)
 
   const fileObj = {
     filename: name,
@@ -80,7 +78,6 @@ function walk(dir, ext) {
     ) {
       /* Is a file */
       // in each directory, we need to build modifers
-
       const allData = fs.readdirSync(dir).filter( f => f.indexOf('.json') > -1)
 
       if (allData.length > 0) {
@@ -97,8 +94,6 @@ function walk(dir, ext) {
 
 const files = walk('./src/components', '.twig');
 
-// console.log('files', files)
-
 const htmlPlugins = files.map( file =>
   new HtmlWebpackPlugin({
       inject: false,
@@ -106,9 +101,6 @@ const htmlPlugins = files.map( file =>
       template: file.template,
       templateParameters: file.templateParameters,
     }))
-
-
-// TODO: for each data set, create an html file based on its closest relative twig template
 
 module.exports = {
   mode: 'production',
