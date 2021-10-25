@@ -14,41 +14,41 @@ function checkFileExistsSync(filepath){
 }
 
 // builds the file object for html page gen
-function buildFileObj(dir, file, f){
+function buildFileObj(dir, file, dataFile){
 
   const templateFile = file.replace('.html', '.twig')
-  const dataFile = `${dir}/${f}`
+  const dataFilePath = `${dir}/${dataFile}`
 
-  const name = !f
+  const name = !dataFile
     ? file.replace('/src/components', '').replace('.twig', '.html')
-    : `${dir.replace('/src/components', '')}/${f.replace('.json', '.html')}`
+    : `${dir.replace('/src/components', '')}/${dataFile.replace('.json', '.html')}`
 
-  function buildModifierData(d) {
+  function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
     const regexTilda = /~([\s\S]*)$/
     let modifiedData;
 
-    if (d.indexOf('--') > -1) {
-      const rootDataFile = d.replace(regexDashes, '.json')
+    if (dataSource.indexOf('--') > -1) {
+      const rootDataFile = dataSource.replace(regexDashes, '.json')
       modifiedData = Object.assign(
           JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
-          JSON.parse(fs.readFileSync(d, 'utf-8'))
+          JSON.parse(fs.readFileSync(dataSource, 'utf-8'))
         )
       }
 
-    if (d.indexOf('~') > -1) {
-      const rootDataFile = d.replace(regexTilda, '.json')
+    if (dataSource.indexOf('~') > -1) {
+      const rootDataFile = dataSource.replace(regexTilda, '.json')
       modifiedData = Object.assign(
           JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
-          JSON.parse(fs.readFileSync(d, 'utf-8'))
+          JSON.parse(fs.readFileSync(dataSource, 'utf-8'))
         )
       }
 
-      return modifiedData || JSON.parse(fs.readFileSync(d, 'utf-8'))
+      return modifiedData || JSON.parse(fs.readFileSync(dataSource, 'utf-8'))
     }
 
-  const data = checkFileExistsSync(dataFile)
-    ? buildModifierData(dataFile)
+  const data = checkFileExistsSync(dataFilePath)
+    ? buildModifierData(dataFilePath)
     : {}
 
   const fileObj = {
