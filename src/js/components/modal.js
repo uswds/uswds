@@ -33,10 +33,10 @@ const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
-const TEMPORARY_PADDING =
+const TEMPORARY_PADDING = `${
   parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
-  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10) +
-  "px";
+  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+}px`;
 
 /**
  *  Is bound to escape key, closes modal when
@@ -62,6 +62,12 @@ function toggleModal(event) {
   const targetModal = safeActive
     ? document.getElementById(modalId)
     : document.querySelector(".usa-modal-wrapper.is-visible");
+
+  // if there is no modal we return early
+  if (!targetModal) {
+    return false;
+  }
+
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(".usa-modal");
@@ -96,19 +102,18 @@ function toggleModal(event) {
     // is inside the modal and not a close button or
     // element inside a close button
     if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
-      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
-          clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
+      if (
+        clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
+        clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
       ) {
         // do nothing. move on.
-      }
-      else {
+      } else {
         event.stopPropagation();
         return false;
       }
     }
   }
 
-  // Active class shares same as navigation
   body.classList.toggle(ACTIVE_CLASS, safeActive);
   targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
   targetModal.classList.toggle(HIDDEN_CLASS, !safeActive);

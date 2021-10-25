@@ -16,7 +16,7 @@ describe("Modal window", () => {
   let openButton2;
   let overlay;
 
-  const isVisible = el => el.classList.contains("is-visible");
+  const isVisible = (el) => el.classList.contains("is-visible");
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -36,8 +36,7 @@ describe("Modal window", () => {
   });
 
   describe("Builds the modal HTML", () => {
-
-    it('creates new parent elements', () => {
+    it("creates new parent elements", () => {
       assert.ok(modalWindow, "creates inner div");
       assert.ok(overlay, "creates the overlay");
       assert.ok(modalWrapper, "creates the outer div");
@@ -47,32 +46,35 @@ describe("Modal window", () => {
       assert.strictEqual(modalWrapper.getAttribute("role"), "dialog");
     });
 
-    it('moves aria-lableledby, aria-describedby, and id to the parent', () => {
+    it("moves aria-labelledby, aria-describedby, and id to the parent", () => {
       assert.strictEqual(modalWindow.hasAttribute("aria-describedby"), false);
       assert.strictEqual(modalWindow.hasAttribute("aria-labelledby"), false);
       assert.strictEqual(modalWindow.hasAttribute("id"), false);
       assert.strictEqual(modalWrapper.hasAttribute("aria-describedby"), true);
       assert.strictEqual(modalWrapper.hasAttribute("aria-labelledby"), true);
       assert.strictEqual(modalWrapper.getAttribute("id"), "modal");
-    })
+    });
 
     it('sets tabindex="-1" to the modal window', () => {
       assert.strictEqual(modalWindow.getAttribute("tabindex"), "-1");
     });
 
-    it('moves the modal to the bottom of the DOM', () => {
-      assert.strictEqual(body.lastElementChild.classList.contains("usa-modal-wrapper"), true);
+    it("moves the modal to the bottom of the DOM", () => {
+      assert.strictEqual(
+        body.lastElementChild.classList.contains("usa-modal-wrapper"),
+        true
+      );
     });
 
     it('adds role="button" to any <a> opener, but not <button>', () => {
       assert.strictEqual(openButton1.getAttribute("role"), "button");
       assert.strictEqual(openButton2.hasAttribute("role"), false);
-    })
+    });
 
-    it('adds aria-controls to each opener', () => {
+    it("adds aria-controls to each opener", () => {
       assert.strictEqual(openButton1.getAttribute("aria-controls"), "modal");
       assert.strictEqual(openButton2.getAttribute("aria-controls"), "modal");
-    })
+    });
   });
 
   describe("When opened", () => {
@@ -89,14 +91,16 @@ describe("Modal window", () => {
     });
 
     it("makes all other page content invisible to screen readers", () => {
-      const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
+      const activeContent = document.querySelectorAll(
+        "body > :not([aria-hidden])"
+      );
+
       assert.strictEqual(activeContent.length, 1);
       assert.strictEqual(activeContent[0], modalWrapper);
     });
   });
 
   describe("When closing", () => {
-
     beforeEach(() => {
       openButton2.click();
     });
@@ -118,7 +122,9 @@ describe("Modal window", () => {
 
     it("restores other page content screen reader visibility", () => {
       closeButton.click();
-      const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
+      const activeContent = document.querySelectorAll(
+        "body > :not([aria-hidden])"
+      );
       const staysHidden = document.getElementById("stays-hidden");
       assert.strictEqual(activeContent.length, 4);
       assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
