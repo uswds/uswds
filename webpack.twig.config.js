@@ -20,8 +20,8 @@ function buildFileObj(dir, file, dataFile){
   const dataFilePath = `${dir}/${dataFile}`
 
   const name = !dataFile
-    ? file.replace('/src/components', '').replace('.twig', '.html')
-    : `${dir.replace('/src/components', '')}/${dataFile.replace('.json', '.html')}`
+    ? file.replace('/src', '').replace('.twig', '.html')
+    : `${dir.replace('/src', '')}/${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
@@ -92,7 +92,9 @@ function walk(dir, ext) {
   return results;
 }
 
-const files = walk('./src/components', '.twig');
+const components = walk('./src/components', '.twig');
+const templates = walk('./src/templates', '.twig');
+const files = components.concat(templates)
 
 const htmlPlugins = files.map( file =>
   new HtmlWebpackPlugin({
@@ -117,7 +119,8 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, './src/components')
+            '@components': path.resolve(__dirname, './src/components'),
+            '@templates': path.resolve(__dirname, './src/templates')
           },
         },
       },

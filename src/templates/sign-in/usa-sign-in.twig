@@ -1,5 +1,5 @@
-{% embed "./templates/base/_base.twig" with { 'lang': lang } %}
+{% embed "@templates/base/_base.twig" with { 'lang': lang } %}
   {% block body %}
-    {% include "./templates/sign-in/includes/_usa-sign-in-inner.twig" %}
+    {% include "@templates/sign-in/includes/_usa-sign-in-inner.twig" %}
   {% endblock %}
 {% endembed %}
