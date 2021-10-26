@@ -44,7 +44,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.twig$/,
-        use: "twig-loader",
+        use: "twigjs-loader",
       },
       {
         test: /\.s(c|a)ss$/i,
