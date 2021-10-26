@@ -15,10 +15,8 @@ function checkFileExistsSync(filepath){
 
 // builds the file object for html page gen
 function buildFileObj(dir, file, dataFile){
-
   const templateFile = file.replace('.html', '.twig')
   const dataFilePath = `${dir}/${dataFile}`
-
   const name = !dataFile
     ? file.replace('/src', '').replace('.twig', '.html')
     : dir.indexOf('content') > -1
