@@ -1,0 +1,320 @@
+$banner-context: "Banner";
+$banner-guidance-measure: 3;
+$banner-icon-colors: get-link-tokens-from-bg(
+  $theme-banner-background-color,
+  $theme-banner-link-color,
+  $context: $banner-context
+);
+$banner-icon-color: nth($banner-icon-colors, 1);
+$banner-icon-hover: nth($banner-icon-colors, 2);
+$banner-icon-chevron: (
+  "name": "expand_more",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 2,
+  "color": $banner-icon-color,
+  "color-variant": "white",
+  "color-hover": $banner-icon-hover,
+);
+$banner-icon-chevron-up: map-merge(
+  $banner-icon-chevron,
+  (
+    "name": "expand_less",
+  )
+);
+$banner-icon-close: (
+  "name": "close",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": 3,
+  "color": "blue-60v",
+  "color-variant": "white",
+  "container-height": $size-touch-target,
+  "container-width": $size-touch-target,
+);
+
+.usa-banner {
+  @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
+  background-color: color($theme-banner-background-color);
+
+  @include at-media("tablet") {
+    font-size: font-size($theme-banner-font-family, "3xs");
+    padding-bottom: units(0);
+  }
+
+  .usa-accordion {
+    @include typeset($theme-banner-font-family);
+  }
+}
+
+.usa-banner__header,
+.usa-banner__content {
+  @include set-text-from-bg(
+    $theme-banner-background-color,
+    $context: $banner-context
+  );
+}
+
+.usa-banner__content {
+  @include grid-container($theme-banner-max-width);
+  @include add-responsive-site-margins;
+  background-color: color("transparent");
+  font-size: font-size($theme-banner-font-family, 4);
+  overflow: hidden;
+  padding-bottom: units(2);
+  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-top: units(0.5);
+  width: 100%;
+
+  @include at-media("tablet") {
+    @include u-padding-y(3);
+  }
+
+  p {
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.usa-banner__guidance {
+  @include u-display("flex");
+  @include u-flex("align-start");
+  @include u-measure($banner-guidance-measure);
+  padding-top: units(2);
+
+  @include at-media("tablet") {
+    padding-top: units(0);
+  }
+}
+
+.usa-banner__lock-image {
+  $lock-h: 64; // unitless height of svg
+  $lock-w: 52; // unitless width of svg
+  $lock-aspect: $lock-w / $lock-h;
+  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
+
+  height: $icon-height;
+  width: $icon-height * $lock-aspect;
+  path {
+    fill: currentColor;
+  }
+}
+
+.usa-banner__inner {
+  @include add-responsive-site-margins;
+  @include grid-container($theme-banner-max-width);
+  @include grid-row;
+  @include u-flex("align-start");
+  padding-right: units(0);
+
+  @include at-media("tablet") {
+    @include u-flex("align-center");
+  }
+}
+
+.usa-banner__header {
+  @include u-padding-y(1);
+  font-size: font-size($theme-banner-font-family, 1);
+  font-weight: font-weight("normal");
+  min-height: units($size-touch-target);
+  position: relative;
+
+  @include at-media("tablet") {
+    @include u-padding-y(0.5);
+    min-height: 0;
+  }
+}
+
+.usa-banner__header-text {
+  @include u-margin-y(0);
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 2);
+}
+
+.usa-banner__header-action {
+  @include place-icon(
+    $banner-icon-chevron,
+    "after",
+    0,
+    middle,
+    $theme-banner-background-color
+  );
+  @include set-link-from-bg(
+    $theme-banner-background-color,
+    $theme-banner-link-color,
+    $context: $banner-context
+  );
+
+  line-height: line-height($theme-banner-font-family, 2);
+  margin-bottom: units(0);
+  margin-top: units(2px);
+  text-decoration: underline;
+
+  .usa-banner__header--expanded & {
+    display: none;
+  }
+
+  @include at-media("tablet") {
+    display: none;
+  }
+}
+
+.usa-banner__header-flag {
+  @include u-float("left");
+  margin-right: units(1);
+  width: units(2);
+
+  @include at-media("tablet") {
+    margin-right: units(1);
+    padding-top: units(0);
+  }
+}
+
+.usa-banner__header--expanded {
+  padding-right: units($size-touch-target + 1);
+
+  @include at-media("tablet") {
+    background-color: transparent;
+    display: block;
+    font-size: font-size($theme-banner-font-family, 1);
+    font-weight: font-weight("normal");
+    min-height: units(0);
+    padding-right: units(0);
+  }
+
+  .usa-banner__inner {
+    margin-left: units(0);
+
+    @include at-media("tablet") {
+      margin-left: units(auto);
+    }
+  }
+
+  .usa-banner__header-action {
+    display: none;
+  }
+}
+
+.usa-banner__button {
+  @include button-unstyled;
+  @include u-pin("left");
+  @include u-pin("y");
+  @include u-text("primary", underline, baseline);
+  @include set-link-from-bg(
+    $theme-banner-background-color,
+    $theme-banner-link-color,
+    $context: $banner-context
+  );
+  display: block;
+  font-size: font-size($theme-banner-font-family, 1);
+  height: auto;
+  line-height: line-height($theme-banner-font-family, 2);
+  padding-top: units(0);
+  padding-left: units(0);
+  text-decoration: none;
+  width: auto;
+
+  @include at-media-max("tablet") {
+    width: 100%;
+  }
+
+  @include at-media("tablet") {
+    @include place-icon(
+      $banner-icon-chevron,
+      "after",
+      "2px",
+      middle,
+      $theme-banner-background-color
+    );
+    @include set-link-from-bg(
+      $theme-banner-background-color,
+      $theme-banner-link-color,
+      $context: $banner-context
+    );
+    @include u-pin("none");
+    display: inline;
+    margin-left: units(1);
+    position: relative;
+
+    &:after {
+      position: absolute;
+    }
+
+    &:hover {
+      // Underline added to inner text instead.
+      text-decoration: none;
+    }
+  }
+
+  &[aria-expanded="false"] {
+    background-image: none;
+  }
+
+  &[aria-expanded="true"] {
+    background-image: none;
+
+    @include at-media-max("tablet") {
+      @include place-icon(
+        $banner-icon-close,
+        "after",
+        0,
+        middle,
+        "base-lighter"
+      );
+
+      &:before {
+        @include u-pin("y");
+        @include u-pin("right");
+        background-color: color("base-lighter");
+        content: "";
+        display: block;
+        height: units($size-touch-target);
+        width: units($size-touch-target);
+      }
+      &:after {
+        @include u-pin("y");
+        @include u-pin("right");
+      }
+    }
+
+    @include at-media("tablet") {
+      @include place-icon(
+        $banner-icon-chevron-up,
+        "after",
+        "2px",
+        middle,
+        $theme-banner-background-color
+      );
+      height: auto;
+      padding: units(0);
+      position: relative;
+
+      &:after {
+        position: absolute;
+      }
+    }
+  }
+}
+
+.usa-banner__button-text {
+  @include add-sr-only;
+  text-decoration: underline;
+
+  @include at-media("tablet") {
+    @include add-no-sr-only;
+    display: inline;
+  }
+}
+
+.usa-banner__icon {
+  width: units(5);
+}
+
+// [uswds-init.js] Offscreen content while js is loading
+.usa-js-loading {
+  .usa-banner__content {
+    @include add-sr-only;
+  }
+}
