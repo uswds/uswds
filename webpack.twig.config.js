@@ -21,7 +21,8 @@ function buildFileObj(dir, file, dataFile){
 
   const name = !dataFile
     ? file.replace('/src', '').replace('.twig', '.html')
-    : `${dir.replace('/src', '')}/${dataFile.replace('.json', '.html')}`
+    : dir.indexOf('content') > -1 && `${dir.replace('/src', '').replace('/content', '')}/${dataFile.replace('.json', '.html')}`
+      || `${dir.replace('/src', '')}/${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
@@ -63,6 +64,7 @@ function buildFileObj(dir, file, dataFile){
 function walk(dir, ext) {
   let results = [];
   const list = fs.readdirSync(dir);
+
   list.forEach(file => {
     // eslint-disable-next-line no-param-reassign
     file = `${dir}/${file}`;
@@ -78,14 +80,16 @@ function walk(dir, ext) {
     ) {
       /* Is a file */
       // in each directory, we need to build modifers
-      const allData = fs.readdirSync(dir).filter( f => f.indexOf('.json') > -1)
+      // if a directory contains a content directory we update dir here
+      const dataDir = list.indexOf('content') > -1 ? `${dir}/content/` : dir
+      const allData = fs.readdirSync(dataDir).filter( f => f.indexOf('.json') > -1)
 
       if (allData.length > 0) {
         allData.forEach((d) => {
-          results.push(buildFileObj(dir, file, d));
+          results.push(buildFileObj(dataDir, file, d));
         })
       } else {
-        results.push(buildFileObj(dir, file))
+        results.push(buildFileObj(dataDir, file))
       }
     }
   });
