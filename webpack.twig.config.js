@@ -21,7 +21,8 @@ function buildFileObj(dir, file, dataFile){
 
   const name = !dataFile
     ? file.replace('/src', '').replace('.twig', '.html')
-    : dir.indexOf('content') > -1 && `${dir.replace('/src', '').replace('/content', '')}/${dataFile.replace('.json', '.html')}`
+    : dir.indexOf('content') > -1
+      && `${dir.replace('/src', '').replace('/content', '')}/${dataFile.replace('.json', '.html')}`
       || `${dir.replace('/src', '')}/${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
@@ -81,6 +82,8 @@ function walk(dir, ext) {
       /* Is a file */
       // in each directory, we need to build modifers
       // if a directory contains a content directory we update dir here
+      // once we are done migrating components, we should update since we won't
+      // have as many use cases
       const dataDir = list.indexOf('content') > -1 ? `${dir}/content/` : dir
       const allData = fs.readdirSync(dataDir).filter( f => f.indexOf('.json') > -1)
 
@@ -100,7 +103,7 @@ const components = walk('./src/components', '.twig');
 const templates = walk('./src/templates', '.twig');
 const files = components.concat(templates)
 
-const htmlPlugins = files.map( file =>
+const htmlPlugins = files.map(file =>
   new HtmlWebpackPlugin({
       inject: false,
       filename: file.filename,
