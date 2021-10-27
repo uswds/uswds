@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('lodash.merge');
+
 
 // syncronously check if a file exists
 function checkFileExistsSync(filepath){
@@ -30,7 +32,7 @@ function buildFileObj(dir, file, dataFile){
 
     if (dataSource.indexOf('--') > -1) {
       const rootDataFile = dataSource.replace(regexDashes, '.json')
-      modifiedData = Object.assign(
+      modifiedData = merge(
           JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
           JSON.parse(fs.readFileSync(dataSource, 'utf-8'))
         )
@@ -38,7 +40,8 @@ function buildFileObj(dir, file, dataFile){
 
     if (dataSource.indexOf('~') > -1) {
       const rootDataFile = dataSource.replace(regexTilda, '.json')
-      modifiedData = Object.assign(
+
+      modifiedData = merge(
           JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
           JSON.parse(fs.readFileSync(dataSource, 'utf-8'))
         )
@@ -97,7 +100,7 @@ function walk(dir, ext) {
   return results;
 }
 
-const components = walk('./src/components', '.twig');
+const components = walk('./src/components/usa-pagination', '.twig');
 const templates = walk('./src/templates', '.twig');
 const files = components.concat(templates)
 
