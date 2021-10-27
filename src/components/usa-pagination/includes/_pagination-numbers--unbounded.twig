@@ -28,11 +28,11 @@
   {# Example: 1 … 9 *10* 11 … 24 #}
   {{ paginationButton(1, pager_button_opts) }}
 
-  {{ overflow | trim | raw }}
+  {{ overflow | trim }}
 
   {% for item in pager_ranges.default %}
     {{ paginationButton(item, pager_button_opts) }}
   {% endfor %}
 {% endif %}
 
-{{ overflow | trim | raw }}
+{{ overflow | trim }}
