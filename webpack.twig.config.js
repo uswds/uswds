@@ -102,7 +102,14 @@ function walk(dir, ext) {
 
 const components = walk('./src/components/usa-pagination', '.twig');
 const templates = walk('./src/templates', '.twig');
-const files = components.concat(templates)
+const testPattnerns = walk('./src/test-patterns', '.twig');
+const compare = walk('./src/compare', '.twig');
+const files = [].concat(
+    components,
+    templates,
+    testPattnerns,
+    compare
+  )
 
 const htmlPlugins = files.map(file =>
   new HtmlWebpackPlugin({
@@ -128,7 +135,8 @@ module.exports = {
         resolve: {
           alias: {
             '@components': path.resolve(__dirname, './src/components'),
-            '@templates': path.resolve(__dirname, './src/templates')
+            '@templates': path.resolve(__dirname, './src/templates'),
+            '@compare': path.resolve(__dirname, './src/compare')
           },
         },
       },
