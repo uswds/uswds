@@ -12,6 +12,7 @@ coverage/
 
 # ignore the generated dist directory
 dist/
+html-templates/
 
 # ignore the Pattern Lab directory
 patternlab/
