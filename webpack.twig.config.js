@@ -3,6 +3,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('lodash.merge');
 
+const outputDir = path.resolve(__dirname, './html-templates');
+const entryFile = path.resolve(__dirname, `${outputDir}/main.js`);
+
+if (!fs.existsSync(outputDir)){
+  fs.mkdirSync(outputDir)
+  fs.writeFile(entryFile, "", (err) => {
+    if (err) throw err
+  });
+}
 
 // syncronously check if a file exists
 function checkFileExistsSync(filepath){
@@ -100,7 +109,7 @@ function walk(dir, ext) {
   return results;
 }
 
-const components = walk('./src/components/usa-pagination', '.twig');
+const components = walk('./src/components', '.twig');
 const templates = walk('./src/templates', '.twig');
 const testPattnerns = walk('./src/test-patterns', '.twig');
 const compare = walk('./src/compare', '.twig');
@@ -122,10 +131,10 @@ const htmlPlugins = files.map(file =>
 module.exports = {
   mode: 'production',
   entry: {
-    main: './html-templates/main.js',
+    main: entryFile,
   },
   output: {
-    path: path.resolve(__dirname, './html-templates'),
+    path: outputDir,
   },
   module: {
     rules: [
