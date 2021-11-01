@@ -135,9 +135,8 @@ describe("Sortable Table", () => {
 
   describe("Non-sortable column header", () => {
     it("does not have a sort button", () => {
-      const unsortableHeaderButton = unsortableHeader.querySelector(
-        sortButtonEl
-      );
+      const unsortableHeaderButton =
+        unsortableHeader.querySelector(sortButtonEl);
       assert.strictEqual(unsortableHeaderButton, null);
     });
   });
