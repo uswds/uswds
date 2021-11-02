@@ -6,7 +6,7 @@ const fileInput = require("./file-input");
 const footer = require("./footer");
 const navigation = require("./navigation");
 const password = require("./password");
-const roleButton = require("./role-button");
+const button = require("./button");
 const search = require("./search");
 const skipnav = require("./skipnav");
 const tooltip = require("./tooltip");
@@ -18,6 +18,7 @@ const timePicker = require("./time-picker");
 module.exports = {
   accordion,
   banner,
+  button,
   characterCount,
   comboBox,
   datePicker,
@@ -26,7 +27,6 @@ module.exports = {
   footer,
   navigation,
   password,
-  roleButton,
   search,
   skipnav,
   timePicker,
