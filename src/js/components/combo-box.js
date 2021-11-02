@@ -1,6 +1,7 @@
 const keymap = require("receptor/keymap");
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
+const Sanitizer = require("../utils/sanitizer");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
@@ -159,12 +160,12 @@ const enhanceComboBox = (_comboBoxEl) => {
   const listIdLabel = `${selectId}-label`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
-  const defaultValue = comboBoxEl.dataset.defaultValue;
-  const placeholder = comboBoxEl.dataset.placeholder;
+  const { defaultValue } = comboBoxEl.dataset;
+  const { placeholder } = comboBoxEl.dataset;
   let selectedOption;
 
   if (placeholder) {
-    additionalAttributes.push(`placeholder="${placeholder}"`);
+    additionalAttributes.push({ placeholder });
   }
 
   if (defaultValue) {
@@ -200,48 +201,55 @@ const enhanceComboBox = (_comboBoxEl) => {
   ["required", "aria-label", "aria-labelledby"].forEach((name) => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
-      additionalAttributes.push(`${name}="${value}"`);
+      additionalAttributes.push({ [name]: value });
       selectEl.removeAttribute(name);
     }
   });
 
+  // sanitize doesn't like functions in template literals
+  const input = document.createElement("input");
+  input.setAttribute("id", selectId);
+  input.setAttribute("aria-owns", listId);
+  input.setAttribute("aria-autocomplete", "list");
+  input.setAttribute("aria-describedby", assistiveHintID);
+  input.setAttribute("aria-expanded", "false");
+  input.setAttribute("autocapitalize", "off");
+  input.setAttribute("autocomplete", "off");
+  input.setAttribute("class", INPUT_CLASS);
+  input.setAttribute("type", "text");
+  input.setAttribute("role", "combobox");
+  additionalAttributes.forEach((attr) =>
+    Object.keys(attr).forEach((key) => {
+      const value = Sanitizer.escapeHTML`${attr[key]}`;
+      input.setAttribute(key, value);
+    })
+  );
+
+  comboBoxEl.insertAdjacentElement("beforeend", input);
+
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
-    [
-      `<input
-        aria-owns="${listId}"
-        aria-autocomplete="list"
-        aria-describedby="${assistiveHintID}"
-        aria-expanded="false"
-        autocapitalize="off"
-        autocomplete="off"
-        id="${selectId}"
-        class="${INPUT_CLASS}"
-        type="text"
-        role="combobox"
-        ${additionalAttributes.join(" ")}
-      >`,
-      `<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+    Sanitizer.escapeHTML`
+    <span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
         <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
-      </span>`,
-      `<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
-      `<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+      </span>
+      <span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>
+      <span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
         <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
-      </span>`,
-      `<ul
+      </span>
+      <ul
         tabindex="-1"
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
         aria-labelledby="${listIdLabel}"
         hidden>
-      </ul>`,
-      `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
-      `<span id="${assistiveHintID}" class="usa-sr-only">
+      </ul>
+      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>
+      <span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
-      </span>`,
-    ].join("")
+      </span>`
   );
 
   if (selectedOption) {
@@ -312,9 +320,8 @@ const highlightOption = (el, nextEl, { skipFocus, preventScroll } = {}) => {
  * @param {object} extras An object of regular expressions to replace and filter the query
  */
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
-  const escapeRegExp = (text) => {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-  };
+  const escapeRegExp = (text) =>
+    text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 
   let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
@@ -332,7 +339,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
     return escapeRegExp(query);
   });
 
-  find = "^(?:" + find + ")$";
+  find = `^(?:${find})$`;
 
   return new RegExp(find, "i");
 };
@@ -380,63 +387,71 @@ const displayList = (el) => {
       if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
         firstFoundId = optionId;
       }
-
       options.push(optionEl);
     }
   }
 
   const numOptions = options.length;
-  const optionHtml = options
-    .map((option, index) => {
-      const optionId = `${listOptionBaseId}${index}`;
-      const classes = [LIST_OPTION_CLASS];
-      let tabindex = "-1";
-      let ariaSelected = "false";
+  const optionHtml = options.map((option, index) => {
+    const optionId = `${listOptionBaseId}${index}`;
+    const classes = [LIST_OPTION_CLASS];
+    let tabindex = "-1";
+    let ariaSelected = "false";
 
-      if (optionId === selectedItemId) {
-        classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
-        tabindex = "0";
-        ariaSelected = "true";
-      }
+    if (optionId === selectedItemId) {
+      classes.push(LIST_OPTION_SELECTED_CLASS, LIST_OPTION_FOCUSED_CLASS);
+      tabindex = "0";
+      ariaSelected = "true";
+    }
 
-      if (!selectedItemId && index === 0) {
-        classes.push(LIST_OPTION_FOCUSED_CLASS);
-        tabindex = "0";
-      }
+    if (!selectedItemId && index === 0) {
+      classes.push(LIST_OPTION_FOCUSED_CLASS);
+      tabindex = "0";
+    }
 
-      const li = document.createElement("li");
+    const li = document.createElement("li");
 
-      li.setAttribute("aria-setsize", options.length)
-      li.setAttribute("aria-posinset", index + 1)
-      li.setAttribute("aria-selected", ariaSelected)
-      li.setAttribute("id", optionId)
-      li.setAttribute("class", classes.join(" "))
-      li.setAttribute("tabindex", tabindex)
-      li.setAttribute("role", "option")
-      li.setAttribute("data-value", option.value)
-      li.textContent = option.text
+    li.setAttribute("aria-setsize", options.length);
+    li.setAttribute("aria-posinset", index + 1);
+    li.setAttribute("aria-selected", ariaSelected);
+    li.setAttribute("id", optionId);
+    li.setAttribute("class", classes.join(" "));
+    li.setAttribute("tabindex", tabindex);
+    li.setAttribute("role", "option");
+    li.setAttribute("data-value", option.value);
+    li.textContent = option.text;
 
-      return li.outerHTML;
-    })
-    .join("");
+    return li;
+  });
 
-  const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
+  const noResults = document.createElement("li");
+  noResults.setAttribute("class", `${LIST_OPTION_CLASS}--no-results`);
+  noResults.textContent = "No results found";
 
   listEl.hidden = false;
-  listEl.innerHTML = numOptions ? optionHtml : noResults;
+
+  if (numOptions) {
+    listEl.innerHTML = "";
+    optionHtml.forEach((item) =>
+      listEl.insertAdjacentElement("beforeend", item)
+    );
+  } else {
+    listEl.innerHTML = "";
+    listEl.insertAdjacentElement("beforeend", noResults);
+  }
 
   inputEl.setAttribute("aria-expanded", "true");
 
-  statusEl.innerHTML = numOptions
+  statusEl.textContent = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : "No results.";
 
   let itemToFocus;
 
   if (isPristine && selectedItemId) {
-    itemToFocus = listEl.querySelector("#" + selectedItemId);
+    itemToFocus = listEl.querySelector(`#${selectedItemId}`);
   } else if (disableFiltering && firstFoundId) {
-    itemToFocus = listEl.querySelector("#" + firstFoundId);
+    itemToFocus = listEl.querySelector(`#${firstFoundId}`);
   }
 
   if (itemToFocus) {
@@ -488,9 +503,8 @@ const selectItem = (listOptionEl) => {
  * @param {HTMLButtonElement} clearButtonEl The clear input button
  */
 const clearInput = (clearButtonEl) => {
-  const { comboBoxEl, listEl, selectEl, inputEl } = getComboBoxContext(
-    clearButtonEl
-  );
+  const { comboBoxEl, listEl, selectEl, inputEl } =
+    getComboBoxContext(clearButtonEl);
   const listShown = !listEl.hidden;
 
   if (selectEl.value) changeElementValue(selectEl);
@@ -585,7 +599,7 @@ const handleDownFromInput = (event) => {
     displayList(comboBoxEl);
   }
 
-  let nextOptionEl =
+  const nextOptionEl =
     listEl.querySelector(LIST_OPTION_FOCUSED) ||
     listEl.querySelector(LIST_OPTION);
 
