@@ -28,9 +28,11 @@ function checkFileExistsSync(filepath){
 function buildFileObj(dir, file, dataFile){
   const templateFile = file
   const dataFilePath = `${dir}/${dataFile}`
+  const captureDirectory = /(?<=\/src\/)(\w+)/g
+  const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
-    ? file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')
-    : dataFile.replace('.json', '.html')
+    ? `${outDir[0]}/${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
+    : `${outDir[0]}/${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
