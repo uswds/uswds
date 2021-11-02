@@ -8,7 +8,7 @@ references:
     docker:
       - image: cimg/node:16.13.0-browsers
         environment:
-          CHROME_PATH: /bin/chromium
+          CHROME_PATH: $(which google-chrome-stable)
 
   restore_deps: &restore_deps
     restore_cache:
