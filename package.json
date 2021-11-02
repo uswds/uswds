@@ -65,9 +65,13 @@
     "prettier:templates": "npx prettier --write './build/components/render/*.html'"
   },
   "lint-staged": {
-    "./src/**/*.{js,scss}": [
+    "./src/**/*.js": [
       "npx prettier --write",
       "npx eslint",
+      "git add"
+    ],
+    "./src/**/*.scss": [
+      "npx prettier --write",
       "npx stylelint",
       "git add"
     ]
