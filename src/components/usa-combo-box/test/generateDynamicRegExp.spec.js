@@ -1,7 +1,5 @@
 const assert = require("assert");
-const {
-  generateDynamicRegExp
-} = require("../combo-box");
+const { generateDynamicRegExp } = require("../combo-box");
 
 describe("generateDynamicRegExp function", () => {
   it("allows for static string", () => {
@@ -18,7 +16,7 @@ describe("generateDynamicRegExp function", () => {
 
   it("allows for string replacement with filter", () => {
     const regex = generateDynamicRegExp("something{{ filter }}", " Else", {
-      filter: "([LS]+)"
+      filter: "([LS]+)",
     });
     assert.ok(regex.test("somethingLS"));
     assert.strictEqual(regex.test("something"), false);

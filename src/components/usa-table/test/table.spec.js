@@ -26,7 +26,9 @@ describe("Sortable Table", () => {
   let ariaLive;
 
   function getCellValuesByColumn(index) {
-    return Array.from(tbody.querySelectorAll("tr")).map((row) => row.children[index].innerHTML);
+    return Array.from(tbody.querySelectorAll("tr")).map(
+      (row) => row.children[index].innerHTML
+    );
   }
 
   beforeEach(() => {

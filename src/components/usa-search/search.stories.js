@@ -11,7 +11,7 @@ import {
 export default {
   title: "Components/Search",
   args: {
-    search_js: false
+    search_js: false,
   },
 };
 

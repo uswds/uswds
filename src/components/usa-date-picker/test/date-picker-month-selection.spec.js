@@ -16,9 +16,7 @@ describe("date picker component month selection", () => {
   let button;
 
   const getCalendarEl = (query) =>
-    root.querySelector(
-      `.usa-date-picker__calendar${  query ? ` ${query}` : ""}`
-    );
+    root.querySelector(`.usa-date-picker__calendar${query ? ` ${query}` : ""}`);
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;

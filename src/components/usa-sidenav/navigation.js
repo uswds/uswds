@@ -106,12 +106,12 @@ const focusNavButton = (event) => {
   if (!event.target.matches(NAV_CONTROL)) {
     parentNavItem.querySelector(NAV_CONTROL).focus();
   }
-}
+};
 
 const handleEscape = (event) => {
   hideActiveNavDropdown();
   focusNavButton(event);
-}
+};
 
 navigation = behavior(
   {
@@ -163,8 +163,8 @@ navigation = behavior(
         if (!nav.contains(event.relatedTarget)) {
           hideActiveNavDropdown();
         }
-      }
-    }
+      },
+    },
   },
   {
     init(root) {

@@ -16,12 +16,12 @@
       for (
         // clone the target
         var clone = document.importNode
-          ? document.importNode(target, !0)
-          : target.cloneNode(!0),
-        g = document.createElementNS(
-          svg.namespaceURI || "http://www.w3.org/2000/svg",
-          "g"
-        );
+            ? document.importNode(target, !0)
+            : target.cloneNode(!0),
+          g = document.createElementNS(
+            svg.namespaceURI || "http://www.w3.org/2000/svg",
+            "g"
+          );
         clone.childNodes.length;
 
       ) {
@@ -48,22 +48,20 @@
         var cachedDocument = xhr._cachedDocument;
         // ensure the cached html document based on the xhr response
         cachedDocument ||
-          ((cachedDocument = xhr._cachedDocument = document.implementation.createHTMLDocument(
-            ""
-          )),
-            (cachedDocument.body.innerHTML = xhr.responseText), // ensure domains are the same, otherwise we'll have issues appending the
-            // element in IE 11
-            cachedDocument.domain !== document.domain &&
+          ((cachedDocument = xhr._cachedDocument =
+            document.implementation.createHTMLDocument("")),
+          (cachedDocument.body.innerHTML = xhr.responseText), // ensure domains are the same, otherwise we'll have issues appending the
+          // element in IE 11
+          cachedDocument.domain !== document.domain &&
             (cachedDocument.domain = document.domain),
-            (xhr._cachedTarget = {})), // clear the xhr embeds list and embed each item
+          (xhr._cachedTarget = {})), // clear the xhr embeds list and embed each item
           xhr._embeds.splice(0).map(function (item) {
             // get the cached target
             var target = xhr._cachedTarget[item.id];
             // ensure the cached target
             target ||
-              (target = xhr._cachedTarget[
-                item.id
-              ] = cachedDocument.getElementById(item.id)),
+              (target = xhr._cachedTarget[item.id] =
+                cachedDocument.getElementById(item.id)),
               // embed the target into the svg
               embed(item.parent, item.svg, target, use);
           });
@@ -100,7 +98,7 @@
           (!src &&
             opts.attributeName &&
             (src = use.getAttribute(opts.attributeName)),
-            svg && src)
+          svg && src)
         ) {
           if (polyfill) {
             if (!opts.validate || opts.validate(src, svg, use)) {
@@ -117,9 +115,9 @@
                 // ensure the xhr request exists
                 xhr ||
                   ((xhr = requests[url] = new XMLHttpRequest()),
-                    xhr.open("GET", url),
-                    xhr.send(),
-                    (xhr._embeds = [])), // add the svg and id as an item to the xhr embeds list
+                  xhr.open("GET", url),
+                  xhr.send(),
+                  (xhr._embeds = [])), // add the svg and id as an item to the xhr embeds list
                   xhr._embeds.push({
                     parent: parent,
                     svg: svg,
@@ -154,9 +152,9 @@
       "polyfill" in opts
         ? opts.polyfill
         : newerIEUA.test(navigator.userAgent) ||
-        (navigator.userAgent.match(olderEdgeUA) || [])[1] < 10547 ||
-        (navigator.userAgent.match(webkitUA) || [])[1] < 537 ||
-        (edgeUA.test(navigator.userAgent) && inIframe);
+          (navigator.userAgent.match(olderEdgeUA) || [])[1] < 10547 ||
+          (navigator.userAgent.match(webkitUA) || [])[1] < 537 ||
+          (edgeUA.test(navigator.userAgent) && inIframe);
     // create xhr requests object
     var requests = {},
       requestAnimationFrame = window.requestAnimationFrame || setTimeout,
@@ -170,7 +168,7 @@
       var svg = node;
       "svg" !== svg.nodeName.toLowerCase() && (svg = svg.parentNode);
 
-    ) { }
+    ) {}
     return svg;
   }
   return svg4everybody;

@@ -2,7 +2,9 @@ const assert = require("assert");
 const fs = require("fs");
 const fileInput = require("../file-input");
 
-const TEMPLATE = fs.readFileSync(`${__dirname}/file-input-single.template.html`);
+const TEMPLATE = fs.readFileSync(
+  `${__dirname}/file-input-single.template.html`
+);
 
 describe("file input: single file input", () => {
   const { body } = document;
