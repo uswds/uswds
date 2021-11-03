@@ -1,12 +1,12 @@
 ---
-modifier: 'usa-header--megamenu'
+modifier: 'usa-header--basic usa-header--megamenu'
 title: 'Basic with mega-menu'
 # Navigation settings
+megamenu: true
 nav:
   menu:
     label: 'Menu'
   aria_label: Primary navigation
-  megamenu: true
   items:
     - label: <Current section>
       current: true

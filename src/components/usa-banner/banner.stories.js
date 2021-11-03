@@ -1,8 +1,8 @@
 import "../../stylesheets/uswds.scss";
-import flagIcon from "../../img/us_flag_small.png";
-import dotGovIcon from "../../img/icon-dot-gov.svg";
-import httpsIcon from "../../img/icon-https.svg";
-import component from "./usa-banner.twig";
+import FlagIcon from "../../img/us_flag_small.png";
+import DotGovIcon from "../../img/icon-dot-gov.svg";
+import HttpsIcon from "../../img/icon-https.svg";
+import Component from "./usa-banner.twig";
 import {
   DefaultContent,
   DefaultContentLangEs,
@@ -12,9 +12,9 @@ import {
 
 const defaults = {
   images: {
-    flagIcon,
-    dotGovIcon,
-    httpsIcon,
+    flagIcon: FlagIcon,
+    dotGovIcon: DotGovIcon,
+    httpsIcon: HttpsIcon,
   },
   ...DefaultContent,
 };
@@ -42,7 +42,7 @@ export default {
 };
 
 const Template = (banner, domain, https, ...args) =>
-  component(banner, domain, https, ...args);
+  Component(banner, domain, https, ...args);
 
 export const Default = Template.bind({});
 Default.args = defaults;

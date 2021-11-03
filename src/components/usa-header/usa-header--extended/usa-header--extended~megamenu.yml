@@ -1,11 +1,12 @@
 ---
+modifier: 'usa-header--extended'
 title: 'Extended header with mega-menu'
 # Nav options
+megamenu: true
 nav:
   menu:
     label: 'Menu'
   aria_label: Primary navigation
-  megamenu: true
   items:
     - label: <Current section>
       current: true
