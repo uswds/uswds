@@ -105,6 +105,9 @@ const replaceName = (s) => {
  */
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
+// Takes a generated safe ID and creates a unique ID.
+const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
+
 /**
  * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
@@ -222,7 +225,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = makeSafeForID(fileName);
+      const imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
@@ -234,7 +237,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = makeSafeForID(fileName);
+      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
