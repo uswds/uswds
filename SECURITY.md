@@ -2,7 +2,7 @@
 
 ## Our security policies and procedures
 
-We follow GSA's [IT security policy](https://www.gsa.gov/directive/gsa-information-technology-%28it%29-security-policy) to ensure the confidentiality, integrity, and availability of USWDS.
+We follow GSA's [IT security policy](https://www.gsa.gov/policy-regulations/policy/information-integrity-and-access/gsa-it-security-policies) to ensure the confidentiality, integrity, and availability of USWDS.
 
 We use [Snyk](https://snyk.io) to find, fix, and prevent vulnerabilities in USWDS dependencies. We run Snyk checks locally during development and automatically on all pull requests.
 
