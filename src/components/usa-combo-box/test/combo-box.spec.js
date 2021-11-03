@@ -16,6 +16,7 @@ describe("combo box component", () => {
   let select;
   let list;
   let toggle;
+  let status;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -24,6 +25,7 @@ describe("combo box component", () => {
     input = root.querySelector(".usa-combo-box__input");
     toggle = root.querySelector(".usa-combo-box__toggle-list");
     select = root.querySelector(".usa-combo-box__select");
+    status = root.querySelector(".usa-combo-box__status");
     list = root.querySelector(".usa-combo-box__list");
   });
 
@@ -262,7 +264,11 @@ describe("combo box component", () => {
       "cherry",
       "should not change the value of the select"
     );
-    assert.strictEqual(input.value, "Cherry", "should reset the value in the input");
+    assert.strictEqual(
+      input.value,
+      "Cherry",
+      "should reset the value in the input"
+    );
   });
 
   it("should reset the input value when a complete selection is left on blur from the input element", () => {
@@ -305,12 +311,23 @@ describe("combo box component", () => {
     EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
-    assert.strictEqual(list.children.length, 1, "should show no results list item");
     assert.strictEqual(
-      list.children[0].textContent,
-      "No results found",
-      "should show the no results list item"
+      list.children.length,
+      1,
+      "should show no results list item"
     );
+  });
+
+  it("status should not allow innerHTML", () => {
+    input.value = "Ap";
+    EVENTS.input(input);
+
+    assert.ok(!list.hidden, "should display the option list");
+    assert.ok(status.innerHTML, "9 results available.");
+
+    Array.from(status.childNodes).forEach((childNode) => {
+      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+    });
   });
 
   it("should show the list when pressing down from an empty input", () => {
@@ -503,5 +520,9 @@ describe("combo box component", () => {
         assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
       });
     });
+  });
+
+  it("should have attribute type of string", () => {
+    assert.strictEqual(typeof input.getAttribute("aria-label"), "string");
   });
 });

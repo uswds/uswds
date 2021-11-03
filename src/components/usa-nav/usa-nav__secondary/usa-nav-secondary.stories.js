@@ -10,10 +10,8 @@ const Template = (args) => Component(args);
 export const Default = Template.bind({});
 Default.args = Data;
 
-
 export const SearchIncluded = Template.bind({});
 SearchIncluded.args = {
   ...Data,
   search: true,
 };
-

@@ -29,7 +29,9 @@ function showPanel() {
 }
 
 const toggleHidden = (isHidden) =>
-  select(COLLAPSIBLE).forEach((list) => list.classList.toggle(HIDDEN, isHidden));
+  select(COLLAPSIBLE).forEach((list) =>
+    list.classList.toggle(HIDDEN, isHidden)
+  );
 
 const resize = (event) => toggleHidden(event.matches);
 
@@ -45,7 +47,9 @@ module.exports = behavior(
 
     init() {
       toggleHidden(window.innerWidth < HIDE_MAX_WIDTH);
-      this.mediaQueryList = window.matchMedia(`(max-width: ${HIDE_MAX_WIDTH}px)`);
+      this.mediaQueryList = window.matchMedia(
+        `(max-width: ${HIDE_MAX_WIDTH}px)`
+      );
       this.mediaQueryList.addListener(resize);
     },
 

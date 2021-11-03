@@ -82,7 +82,11 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keydownEnter(input);
 
     assert.strictEqual(select.value, "apple");
-    assert.strictEqual(input.value, "Apple", "should reset the value on the input");
+    assert.strictEqual(
+      input.value,
+      "Apple",
+      "should reset the value on the input"
+    );
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -103,7 +107,11 @@ describe("combo box component change event dispatch", () => {
       "apple",
       "should not change the value of the select"
     );
-    assert.strictEqual(input.value, "Apple", "should reset the value in the input");
+    assert.strictEqual(
+      input.value,
+      "Apple",
+      "should reset the value in the input"
+    );
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
@@ -147,8 +155,16 @@ describe("combo box component change event dispatch", () => {
     );
     EVENTS.keydownEnter(focusedOption);
 
-    assert.strictEqual(select.value, "lemon", "select the first item in the list");
-    assert.strictEqual(input.value, "Lemon", "should set the value in the input");
+    assert.strictEqual(
+      select.value,
+      "lemon",
+      "select the first item in the list"
+    );
+    assert.strictEqual(
+      input.value,
+      "Lemon",
+      "should set the value in the input"
+    );
     assert.ok(selectChangeSpy.called, "should have dispatched a change event");
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });

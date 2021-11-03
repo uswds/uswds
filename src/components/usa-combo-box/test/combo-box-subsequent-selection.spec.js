@@ -98,7 +98,11 @@ describe("combo box component - subsequent selection", () => {
 
     EVENTS.click(root.querySelector(".usa-combo-box__clear-input"));
 
-    assert.strictEqual(select.value, "", "should clear the value on the select");
+    assert.strictEqual(
+      select.value,
+      "",
+      "should clear the value on the select"
+    );
     assert.strictEqual(input.value, "", "should clear the value on the input");
     assert.strictEqual(document.activeElement, input, "should focus the input");
   });

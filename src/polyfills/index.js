@@ -8,4 +8,3 @@ require("./number-is-nan");
 require("./custom-event");
 // polyfills svg4everybody
 require("./svg4everybody");
-

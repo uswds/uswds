@@ -7,7 +7,8 @@ const behavior = require("../footer");
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
 const HIDDEN = "hidden";
-const PRIMARY_CONTENT_SELECTOR = ".usa-footer--big .usa-footer__primary-content--collapsible";
+const PRIMARY_CONTENT_SELECTOR =
+  ".usa-footer--big .usa-footer__primary-content--collapsible";
 const BUTTON_SELECTOR = ".usa-footer__primary-link";
 
 /**
@@ -26,7 +27,7 @@ const assertHidden = (el, hidden) => {
   assert.strictEqual(
     el.classList.contains(HIDDEN),
     hidden,
-    `not hidden: ${el.nodeName} (${el.className})`,
+    `not hidden: ${el.nodeName} (${el.className})`
   );
 };
 

@@ -13,10 +13,10 @@ export default {
   args: {
     // Default search settings - Alternatively override in `usa-header.yml`
     search: {
-    ...SmallSearchContent,
-    search_js: true,
+      ...SmallSearchContent,
+      search_js: true,
     },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
@@ -39,4 +39,3 @@ ExtendedMegamenu.args = {
   ...usaHeaderExtendedMegamenuData,
   ...usaNavSecondaryData,
 };
-
