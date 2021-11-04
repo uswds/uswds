@@ -1,5 +1,5 @@
 import Component from "./usa-nav__primary.twig";
-import Data from "./usa-nav__primary.yml";
+import Data from "./usa-nav__primary.json";
 import CloseIcon from "../../../img/usa-icons/close.svg";
 
 export default {
