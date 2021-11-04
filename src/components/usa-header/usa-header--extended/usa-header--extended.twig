@@ -1,0 +1,15 @@
+{% extends "@components/usa-header/usa-header.twig" %}
+
+{% set modifier = modifier|default('usa-header--extended') %}
+
+{% block nav_content %}
+  {% include "@components/usa-header/_includes/usa-navbar.twig" %}
+  {% if nav %}
+    <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
+      <div class="usa-nav__inner">
+        {% include "@components/usa-nav/usa-nav__primary/usa-nav__primary.twig" %}
+        {% include "@components/usa-nav/usa-nav__secondary/usa-nav__secondary.twig" with { search: true } %}
+      </div>
+    </nav>
+  {% endif %}
+{% endblock %}

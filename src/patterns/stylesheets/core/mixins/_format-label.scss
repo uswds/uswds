@@ -1,5 +1,0 @@
-@mixin format-label {
-  & + [class$="__label"] {
-    @content;
-  }
-}

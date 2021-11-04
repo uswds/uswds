@@ -1,0 +1,23 @@
+$external-link-size: 1.75ex;
+
+$icon-object: (
+  "name": "launch",
+  "color": currentColor,
+  "height": $external-link-size,
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+@mixin external-link($contrast-bg: "default") {
+  &::after {
+    @include add-color-icon($icon-object, $contrast-bg);
+    content: "";
+    height: $external-link-size;
+    margin-left: units(2px);
+    // Use following inline styling to prevent icon splitting over line breaks
+    background-position: center;
+    display: inline;
+    padding-left: $external-link-size;
+    vertical-align: middle;
+  }
+}

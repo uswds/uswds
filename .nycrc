@@ -1,6 +1,6 @@
 {
   "all": true,
-  "include": ["src/patterns/components/**/*.js"],
+  "include": ["src/components/**/*.js"],
   "exclude": [
     "**/*.spec.js",
     "**/test/**"

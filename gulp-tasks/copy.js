@@ -16,7 +16,7 @@ module.exports = {
 
   // Copy vendor sass to library
   copyVendor() {
-    const vendorSass = "src/patterns/stylesheets/lib";
+    const vendorSass = "src/stylesheets/lib";
 
     return src('./node_modules/normalize.css/normalize.css')
       .pipe(changed(vendorSass))
@@ -29,7 +29,7 @@ module.exports = {
   copySass() {
     dutil.logMessage("copyDistSass", "Copying all Sass to dist dir");
 
-    return src('src/patterns/**/**/*.scss')
+    return src('src/**/**/*.scss')
       .pipe(dest('dist/scss'));
   },
 

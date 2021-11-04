@@ -1,5 +1,0 @@
-@mixin format-input {
-  & + [class$="__label"]::before {
-    @content;
-  }
-}

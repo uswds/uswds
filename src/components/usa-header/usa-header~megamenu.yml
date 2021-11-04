@@ -1,0 +1,30 @@
+---
+modifier: 'usa-header--basic usa-header--megamenu'
+title: 'Basic with mega-menu'
+# Navigation settings
+megamenu: true
+nav:
+  menu:
+    label: 'Menu'
+  aria_label: Primary navigation
+  items:
+    - label: <Current section>
+      current: true
+      id: basic-mega-nav-section-one
+      subnav: &subnav
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <A very long navigation link that goes onto two lines>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+        - label: <Navigation link>
+    - label: <Section>
+      id: basic-mega-nav-section-two
+      subnav: *subnav
+    - label: <Simple link>

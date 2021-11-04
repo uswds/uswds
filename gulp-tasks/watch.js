@@ -15,7 +15,7 @@ const { serve, server, buildPL, rebuildPL } = require("./serve");
 function watchFiles() {
   // Watch all my sass files and compile sass if a file changes.
   watch(
-    "./src/patterns/**/**/*.scss",
+    "./src/**/**/*.scss",
     series(
       parallel(lintSass, compileSass),
       copyCSSToPL,
@@ -29,7 +29,7 @@ function watchFiles() {
 
   // Watch all my JS files and compile if a file changes.
   watch(
-    "./src/patterns/**/**/*.js",
+    "./src/**/**/*.js",
     series(
       parallel(lintJS, compileJS),
       (done) => {
@@ -40,9 +40,9 @@ function watchFiles() {
     )
   );
 
-  // Watch all my patterns and compile if a file changes.
+  // Watch all my and compile if a file changes.
   watch(
-    "./src/patterns/**/**/*{.twig,.yml}",
+    "./src/**/**/*{.twig,.yml}",
     series(
       rebuildPL,
       (done) => {
@@ -55,7 +55,7 @@ function watchFiles() {
 
   // Watch all my unit tests and run if a file changes.
   watch(
-    "./src/patterns/**/*.spec.js",
+    "./src/**/*.spec.js",
     series(
       series(unitTests, sassTests),
       (done) => done())

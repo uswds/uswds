@@ -1,0 +1,5 @@
+---
+section_label: 'Small search component'
+modifier: 'usa-search--small'
+id: 'search-field-en-small'
+search_label: Search

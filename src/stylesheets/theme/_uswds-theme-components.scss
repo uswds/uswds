@@ -1,0 +1,202 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.12.2
+----------------------------------------
+COMPONENT SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://designsystem.digital.gov/design-tokens
+----------------------------------------
+*/
+
+// Accordion
+$theme-accordion-border-width: 0.5;
+$theme-accordion-border-color: "base-lightest";
+$theme-accordion-font-family: "body";
+
+// Alert
+$theme-alert-bar-width: 1;
+$theme-alert-font-family: "ui";
+$theme-alert-icon-size: 4;
+$theme-alert-padding-x: 2.5;
+$theme-alert-padding-y: 2;
+$theme-alert-text-color: default;
+$theme-alert-text-reverse-color: default;
+$theme-alert-link-color: default;
+$theme-alert-link-reverse-color: default;
+
+// Banner
+$theme-banner-background-color: "base-lightest";
+$theme-banner-font-family: "ui";
+$theme-banner-link-color: default;
+$theme-banner-max-width: "desktop";
+
+// Breadcrumb
+$theme-breadcrumb-background-color: "default";
+$theme-breadcrumb-font-size: "sm";
+$theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-link-color: default;
+$theme-breadcrumb-min-width: "mobile-lg";
+$theme-breadcrumb-padding-bottom: 2;
+$theme-breadcrumb-padding-top: 2;
+$theme-breadcrumb-padding-x: 0;
+$theme-breadcrumb-separator-color: "base";
+
+// Button
+$theme-button-font-family: "ui";
+$theme-button-border-radius: "md";
+$theme-button-small-width: 6;
+$theme-button-stroke-width: 2px;
+
+// Card
+$theme-card-border-color: "base-lighter";
+$theme-card-border-radius: "lg";
+$theme-card-border-width: 2px;
+$theme-card-gap: 2;
+$theme-card-flag-min-width: "tablet";
+$theme-card-flag-image-width: "card-lg";
+$theme-card-font-family: "body";
+$theme-card-header-typeset: "heading", "lg", 2;
+$theme-card-margin-bottom: 4;
+$theme-card-padding-perimeter: 3;
+$theme-card-padding-y: 2;
+
+// Collection
+$theme-collection-font-family: "ui";
+$theme-collection-header-typeset: "ui", "md", 3;
+
+// Footer
+$theme-footer-font-family: "body";
+$theme-footer-max-width: "desktop";
+
+// Form and input
+$theme-checkbox-border-radius: "sm";
+$theme-form-font-family: "ui";
+$theme-input-background-color: default;
+$theme-input-line-height: 3;
+$theme-input-max-width: "mobile-lg";
+$theme-input-select-border-width: 2px;
+$theme-input-select-size: 2.5;
+$theme-input-state-border-width: 0.5;
+$theme-input-tile-border-radius: "md";
+$theme-input-tile-border-width: 2px;
+
+// Header
+$theme-header-font-family: "ui";
+$theme-header-logo-text-width: 33%;
+$theme-header-max-width: "desktop";
+$theme-header-min-width: "desktop";
+
+// Hero
+$theme-hero-image: "#{$theme-image-path}/hero.png";
+
+// Icon List
+$theme-icon-list-font-family: "body";
+$theme-icon-list-title-font-family: "heading";
+
+// Identifier
+$theme-identifier-background-color: "base-darkest";
+$theme-identifier-font-family: "ui";
+$theme-identifier-identity-domain-color: "base-light";
+$theme-identifier-max-width: "desktop";
+$theme-identifier-primary-link-color: default;
+$theme-identifier-secondary-link-color: "base-light";
+
+// Modal
+$theme-modal-border-radius: "lg";
+$theme-modal-default-max-width: "mobile-lg";
+$theme-modal-lg-content-max-width: "tablet";
+$theme-modal-lg-max-width: "tablet-lg";
+
+// Pagination
+$theme-pagination-background-color: "default";
+$theme-pagination-breakpoint: "tablet";
+$theme-pagination-button-border-radius: "md";
+$theme-pagination-button-border-width: 1px;
+$theme-pagination-font-family: "ui";
+
+// Process List
+$theme-process-list-counter-background-color: "white";
+$theme-process-list-counter-border-color: "ink";
+$theme-process-list-counter-border-width: 0.5;
+$theme-process-list-counter-font-family: "ui";
+$theme-process-list-counter-font-size: "lg";
+$theme-process-list-counter-gap-color: "white";
+$theme-process-list-counter-gap-width: 0.5;
+$theme-process-list-counter-size: 5;
+$theme-process-list-counter-text-color: "ink";
+$theme-process-list-connector-color: "primary-lighter";
+$theme-process-list-connector-width: 1;
+$theme-process-list-font-family: "ui";
+$theme-process-list-font-size: "sm";
+$theme-process-list-heading-color: "ink";
+$theme-process-list-heading-font-family: "ui";
+$theme-process-list-heading-font-size: "lg";
+
+// Navigation
+$theme-navigation-font-family: "ui";
+$theme-megamenu-columns: 3;
+
+// Search
+$theme-search-font-family: "ui";
+$theme-search-min-width: 27ch;
+
+// Sidenav
+$theme-sidenav-current-border-width: 0.5;
+$theme-sidenav-font-family: "ui";
+
+// Site Alert
+$theme-site-alert-max-width: "desktop";
+
+// Step indicator
+$step-indicator-background-color: "white";
+$theme-step-indicator-counter-gap: 0.5;
+$theme-step-indicator-counter-border-width: 0.5;
+$theme-step-indicator-font-family: "ui";
+$theme-step-indicator-heading-color: "ink";
+$theme-step-indicator-heading-font-family: "ui";
+$theme-step-indicator-heading-font-size: "lg";
+$theme-step-indicator-heading-font-size-small: "md";
+$theme-step-indicator-label-font-size: "sm";
+$theme-step-indicator-min-width: "tablet";
+$theme-step-indicator-segment-color-pending: "base-lighter";
+$theme-step-indicator-segment-color-complete: "primary-darker";
+$theme-step-indicator-segment-color-current: "primary";
+$theme-step-indicator-segment-gap: 2px;
+$theme-step-indicator-segment-height: 1;
+$theme-step-indicator-text-pending-color: "base-dark";
+
+// Summary box
+$theme-summary-box-background-color: "info-lighter";
+$theme-summary-box-border-color: "info-light";
+$theme-summary-box-border-width: 1px;
+$theme-summary-box-border-radius: "md";
+$theme-summary-box-font-family: "ui";
+$theme-summary-box-link-color: default;
+$theme-summary-box-text-color: default;
+
+// Table
+$theme-table-border-color: default;
+$theme-table-header-background-color: "base-lighter";
+$theme-table-header-text-color: default;
+$theme-table-stripe-background-color: "base-lightest";
+$theme-table-stripe-text-color: default;
+$theme-table-text-color: default;
+$theme-table-sorted-header-background-color: "accent-cool-light";
+$theme-table-sorted-background-color: "accent-cool-lighter";
+$theme-table-sorted-stripe-background-color: "blue-cool-10v";
+$theme-table-sorted-icon-color: default;
+$theme-table-unsorted-icon-color: "base";
+
+// Tooltips
+$theme-tooltip-background-color: "ink";
+$theme-tooltip-font-color: "base-lightest";
+$theme-tooltip-font-size: "xs";

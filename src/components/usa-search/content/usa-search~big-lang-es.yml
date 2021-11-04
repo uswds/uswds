@@ -1,0 +1,5 @@
+---
+section_label: 'Big (Spanish) search component'
+modifier: 'usa-search--big'
+id: 'search-field-es-big'
+search_label: Buscar
