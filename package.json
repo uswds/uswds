@@ -147,7 +147,7 @@
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",
     "lit-scss-loader": "^1.1.0",
-    "mocha": "^9.1.2",
+    "mocha": "^6.2.0",
     "mq-polyfill": "^1.1.8",
     "normalize.css": "^8.0.1",
     "nyc": "^15.1.0",
