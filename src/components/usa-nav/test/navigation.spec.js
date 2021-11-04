@@ -7,6 +7,25 @@ const accordion = require("../../usa-accordion/accordion");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 
+const EVENTS = {
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+  focusOut(el) {
+    const focusOutEvent = new Event("focusout", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    el.dispatchEvent(focusOutEvent);
+  },
+};
+
 describe("navigation toggle", () => {
   const { body } = document;
 
@@ -19,7 +38,7 @@ describe("navigation toggle", () => {
   let accordionButton;
   let navLink;
 
-  const isVisible = el => el.classList.contains("is-visible");
+  const isVisible = (el) => el.classList.contains("is-visible");
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -112,6 +131,19 @@ describe("navigation toggle", () => {
     accordionButton.click();
     navLink.click();
     assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when the Escape key is hit", () => {
+    accordionButton.click();
+    EVENTS.escape(accordionButton);
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when focus leaves nav", () => {
+    menuButton.click();
+    navLink.click();
+    EVENTS.focusOut(navLink);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   describe("off()", () => {

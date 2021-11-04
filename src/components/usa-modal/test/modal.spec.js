@@ -46,7 +46,7 @@ describe("Modal window", () => {
       assert.strictEqual(modalWrapper.getAttribute("role"), "dialog");
     });
 
-    it("moves aria-lableledby, aria-describedby, and id to the parent", () => {
+    it("moves aria-labelledby, aria-describedby, and id to the parent", () => {
       assert.strictEqual(modalWindow.hasAttribute("aria-describedby"), false);
       assert.strictEqual(modalWindow.hasAttribute("aria-labelledby"), false);
       assert.strictEqual(modalWindow.hasAttribute("id"), false);
@@ -89,6 +89,15 @@ describe("Modal window", () => {
     it("focuses the modal window when opened", () => {
       assert.strictEqual(document.activeElement, modalWindow);
     });
+
+    it("makes all other page content invisible to screen readers", () => {
+      const activeContent = document.querySelectorAll(
+        "body > :not([aria-hidden])"
+      );
+
+      assert.strictEqual(activeContent.length, 1);
+      assert.strictEqual(activeContent[0], modalWrapper);
+    });
   });
 
   describe("When closing", () => {
@@ -109,6 +118,16 @@ describe("Modal window", () => {
     it("sends focus to the element that opened it", () => {
       closeButton.click();
       assert.strictEqual(document.activeElement, openButton2);
+    });
+
+    it("restores other page content screen reader visibility", () => {
+      closeButton.click();
+      const activeContent = document.querySelectorAll(
+        "body > :not([aria-hidden])"
+      );
+      const staysHidden = document.getElementById("stays-hidden");
+      assert.strictEqual(activeContent.length, 4);
+      assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
     });
   });
 });

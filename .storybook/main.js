@@ -45,6 +45,11 @@ module.exports = {
       {
         test: /\.twig$/,
         use: "twigjs-loader",
+        resolve: {
+          alias: {
+            '@components': path.resolve(__dirname, '../src/components')
+          }
+        }
       },
       {
         test: /\.s(c|a)ss$/i,
@@ -116,6 +121,7 @@ module.exports = {
         include: path.resolve(__dirname, "../src/fonts"),
       }
     );
+
     return config;
   },
 };

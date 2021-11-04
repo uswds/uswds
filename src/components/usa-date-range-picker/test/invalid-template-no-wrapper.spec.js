@@ -27,7 +27,7 @@ describe("Date range picker button without wrapping element", () => {
       ".usa-date-range-picker__range-end .usa-date-picker__external-input"
     );
     expectedError = "";
-    window.onerror = message => {
+    window.onerror = (message) => {
       error = message;
       return error === expectedError;
     };

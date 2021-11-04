@@ -43,7 +43,8 @@ handlebars.registerPartial("colorList", colorListTemplate);
 
 const colorMapTemplate = handlebars.compile(colorMap);
 
-const format = (options) => new Promise((resolve) => {
+const format = (options) =>
+  new Promise((resolve) => {
     fs.readFile(options.file, (err, buffer) => {
       if (err) {
         throw new Error(err);
@@ -107,8 +108,7 @@ if (isDirectory(rawFilePath)) {
           template: colorMapTemplate,
         });
       })
-    )
-    .then((values) => values.forEach(writeSassFile));
+    ).then((values) => values.forEach(writeSassFile));
   });
 } else {
   format({
