@@ -67,13 +67,11 @@
   "lint-staged": {
     "./src/**/*.js": [
       "npx prettier --write",
-      "npx eslint",
-      "git add"
+      "npx eslint"
     ],
     "./src/**/*.scss": [
       "npx prettier --write",
-      "npx stylelint",
-      "git add"
+      "npx stylelint"
     ]
   },
   "watch": {
