@@ -23,6 +23,7 @@ tests.forEach(({name, selector: containerSelector}) => {
       let select;
       let list;
       let toggle;
+      let status;
 
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
@@ -31,6 +32,7 @@ tests.forEach(({name, selector: containerSelector}) => {
         input = root.querySelector(".usa-combo-box__input");
         toggle = root.querySelector(".usa-combo-box__toggle-list");
         select = root.querySelector(".usa-combo-box__select");
+        status = root.querySelector(".usa-combo-box__status");
         list = root.querySelector(".usa-combo-box__list");
       });
 
@@ -328,6 +330,18 @@ tests.forEach(({name, selector: containerSelector}) => {
         );
       });
 
+      it("status should not allow innerHTML", () => {
+        input.value = "Ap";
+        EVENTS.input(input);
+
+        assert.ok(!list.hidden, "should display the option list");
+        assert.ok(status.innerHTML, "9 results available.");
+
+        Array.from(status.childNodes).forEach((childNode) => {
+          assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+        });
+      });
+
       it("should show the list when pressing down from an empty input", () => {
         assert.ok(list.hidden, "the option list is hidden");
 
@@ -520,5 +534,9 @@ tests.forEach(({name, selector: containerSelector}) => {
         });
       });
     });
+  });
+
+  it("should have attribute type of string", () => {
+    assert.strictEqual(typeof(input.getAttribute("aria-label")), 'string')
   });
 });

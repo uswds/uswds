@@ -1,9 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const assert = require('assert');
-const CharacterCount = require('../../../src/js/components/character-count');
+const fs = require("fs");
+const path = require("path");
+const assert = require("assert");
+const CharacterCount = require("../../../src/js/components/character-count");
 
-const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(path.join(__dirname, '/invalid-template-no-wrapper.template.html'));
+const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(
+  path.join(__dirname, "/invalid-template-no-wrapper.template.html")
+);
 
 const tests = [
   { name: "document.body", selector: () => document.body },

@@ -1,6 +1,7 @@
 const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
+const Sanitizer = require("../utils/sanitizer");
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
@@ -88,14 +89,14 @@ const enable = (el) => {
 /**
  *
  * @param {String} s special characters
- * @returns {String} replaces specefied values
+ * @returns {String} replaces specified values
  */
 const replaceName = (s) => {
   const c = s.charCodeAt(0);
   if (c === 32) return "-";
   if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
   return `__${("000", c.toString(16)).slice(-4)}`;
-}
+};
 
 /**
  * Creates an ID name for each file that strips all invalid characters.
@@ -104,8 +105,11 @@ const replaceName = (s) => {
  */
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
+// Takes a generated safe ID and creates a unique ID.
+const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
+
 /**
- * Builds full file input comonent
+ * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
  * @returns {HTMLElement|HTMLElement} - Instructions, target area div
  */
@@ -141,9 +145,9 @@ const buildFileInput = (fileInputEl) => {
 
   // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
-    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
-    instructions.innerHTML = `<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
@@ -176,8 +180,8 @@ const removeOldPreviews = (dropTarget, instructions) => {
    * @param {HTMLElement} node
    */
   const removeImages = (node) => {
-    node.parentNode.removeChild(node)
-  }
+    node.parentNode.removeChild(node);
+  };
 
   // Remove the heading above the previews
   if (currentPreviewHeading) {
@@ -221,18 +225,19 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = makeSafeForID(fileName);
-      const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>`;
+      const imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
-        `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`
+        Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
+          <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
+        <div>`
       );
     };
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = makeSafeForID(fileName);
+      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
@@ -282,7 +287,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
     } else if (i >= 1) {
       dropTarget.insertBefore(filePreviewsHeading, instructions);
-      filePreviewsHeading.innerHTML = `${
+      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
       } files selected <span class="usa-file-input__choose">Change files</span>`;
     }
@@ -357,7 +362,8 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.innerHTML = `This is not a valid file type.`;
+      errorMessage.textContent =
+        fileInputEl.dataset.errormessage || `This is not a valid file type.`
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;

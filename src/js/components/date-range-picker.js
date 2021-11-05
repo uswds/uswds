@@ -62,11 +62,8 @@ const getDateRangePickerContext = (el) => {
  * @param {HTMLElement} el an element within the date range picker
  */
 const handleRangeStartUpdate = (el) => {
-  const {
-    dateRangePickerEl,
-    rangeStartEl,
-    rangeEndEl,
-  } = getDateRangePickerContext(el);
+  const { dateRangePickerEl, rangeStartEl, rangeEndEl } =
+    getDateRangePickerContext(el);
   const { internalInputEl } = getDatePickerContext(rangeStartEl);
   const updatedDate = internalInputEl.value;
 
@@ -89,11 +86,8 @@ const handleRangeStartUpdate = (el) => {
  * @param {HTMLElement} el an element within the date range picker
  */
 const handleRangeEndUpdate = (el) => {
-  const {
-    dateRangePickerEl,
-    rangeStartEl,
-    rangeEndEl,
-  } = getDateRangePickerContext(el);
+  const { dateRangePickerEl, rangeStartEl, rangeEndEl } =
+    getDateRangePickerContext(el);
   const { internalInputEl } = getDatePickerContext(rangeEndEl);
   const updatedDate = internalInputEl.value;
 
@@ -139,11 +133,11 @@ const enhanceDateRangePicker = (el) => {
     dateRangePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
   }
 
-  const minDate = dateRangePickerEl.dataset.minDate;
+  const { minDate } = dateRangePickerEl.dataset;
   rangeStart.dataset.minDate = minDate;
   rangeEnd.dataset.minDate = minDate;
 
-  const maxDate = dateRangePickerEl.dataset.maxDate;
+  const { maxDate } = dateRangePickerEl.dataset;
   if (maxDate) {
     rangeStart.dataset.maxDate = maxDate;
     rangeEnd.dataset.maxDate = maxDate;

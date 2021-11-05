@@ -31,10 +31,10 @@ const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
-const TEMPORARY_PADDING =
-  `${parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
+const TEMPORARY_PADDING = `${
+  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
   parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
-  }px`;
+}px`;
 
 /**
  *  Is bound to escape key, closes modal when
@@ -63,7 +63,7 @@ function toggleModal(event) {
 
   // if there is no modal we return early
   if (!targetModal) {
-    return false
+    return false;
   }
 
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
@@ -100,12 +100,12 @@ function toggleModal(event) {
     // is inside the modal and not a close button or
     // element inside a close button
     if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
-      if (clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
-          clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
+      if (
+        clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
+        clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
       ) {
         // do nothing. move on.
-      }
-      else {
+      } else {
         event.stopPropagation();
         return false;
       }

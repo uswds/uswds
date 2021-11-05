@@ -69,9 +69,7 @@ const transformTimePicker = (el) => {
     }
   );
 
-  const padZeros = (value, length) => {
-    return `0000${value}`.slice(-length);
-  };
+  const padZeros = (value, length) => `0000${value}`.slice(-length);
 
   const getTimeContext = (minutes) => {
     const minute = minutes % 60;

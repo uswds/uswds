@@ -104,4 +104,10 @@ tests.forEach(({name, selector: containerSelector}) => {
       assert.strictEqual(message.classList.contains(MESSAGE_INVALID_CLASS), true);
     });
   });
+
+  it("should not allow for innerHTML of child elements ", () => {
+    Array.from(message.childNodes).forEach((childNode) => {
+      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+    });
+  });
 });

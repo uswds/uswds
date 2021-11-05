@@ -25,7 +25,7 @@ describe("Date range picker without inputs", () => {
   it('should throw an error when a toggle button is clicked without a wrapping "usa-date-picker"', () => {
     assert.throws(() => DateRangePicker.on(), {
       message:
-        ".usa-date-range-picker is missing inner two '.usa-date-picker' elements"
+        ".usa-date-range-picker is missing inner two '.usa-date-picker' elements",
     });
   });
 });

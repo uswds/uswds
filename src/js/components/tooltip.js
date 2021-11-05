@@ -131,8 +131,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
 
     setPositionClass("top");
     e.style.left = `50%`; // center the element
-    e.style.top = `-${TRIANGLE_SIZE}px`; // consider the psuedo element
-    // apply our margins based on the offest
+    e.style.top = `-${TRIANGLE_SIZE}px`; // consider the pseudo element
+    // apply our margins based on the offset
     e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`;
   };
 
@@ -297,7 +297,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
  * Removes all the properties to show and position the tooltip,
  * and resets the tooltip position to the original intention
  * in case the window is resized or the element is moved through
- * DOM maniulation.
+ * DOM manipulation.
  * @param {HTMLElement} tooltipBody - The body of the tooltip
  */
 const hideToolTip = (tooltipBody) => {
@@ -349,7 +349,7 @@ const setUpAttributes = (tooltipTrigger) => {
   tooltipBody.setAttribute("aria-hidden", "true");
 
   // place the text in the tooltip
-  tooltipBody.innerHTML = tooltipContent;
+  tooltipBody.textContent = tooltipContent;
 
   return { tooltipBody, position, tooltipContent, wrapper };
 };
@@ -375,7 +375,7 @@ const tooltip = behavior(
           });
 
           // Keydown here prevents tooltips from being read twice by
-          // screen reader. also allows excape key to close it
+          // screen reader. Also allows escape key to close it
           // (along with any other.)
           addListenerMulti(tooltipTrigger, "mouseleave blur keydown", () => {
             hideToolTip(tooltipBody);

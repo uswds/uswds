@@ -139,7 +139,7 @@
   // Mask supported styles
   @supports (mask: url("")) {
     background: none;
-    background-color: color($color);
+    background-color: if($color == currentColor, $color, color($color));
     mask: $mask-props;
     @if $color-hover {
       &:hover {
