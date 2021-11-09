@@ -47,7 +47,9 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, '../src/components')
+            '@components': path.resolve(__dirname, '../src/components'),
+            '@templates': path.resolve(__dirname, '../src/templates'),
+            '@compare': path.resolve(__dirname, '../src/compare')
           }
         }
       },
