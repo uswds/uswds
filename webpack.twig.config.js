@@ -31,8 +31,8 @@ function buildFileObj(dir, file, dataFile){
   const captureDirectory = /(?<=\/src\/)(\w+)/g
   const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
-    ? `${outDir[0]}/${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
-    : `${outDir[0]}/${dataFile.replace('.json', '.html')}`
+    ? `${outDir[0]}-${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
+    : `${outDir[0]}-${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
@@ -111,9 +111,11 @@ function walk(dir, ext) {
 
 const components = walk('./src/components', '.twig');
 const templates = walk('./src/templates', '.twig');
+const compare = walk('./src/compare', '.twig');
 const files = [].concat(
     components,
-    templates
+    templates,
+    compare
   )
 
 const htmlPlugins = files.map(file =>
