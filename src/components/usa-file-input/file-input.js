@@ -1,4 +1,4 @@
-const selectOrMatches = require("../utils/select-or-matches");
+const selectOrMatches = require("../../utils/select-or-matches");
 const behavior = require("../../utils/behavior");
 const Sanitizer = require("../../utils/sanitizer");
 const { prefix: PREFIX } = require("../../config");
