@@ -8,67 +8,75 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker-default-date.template.html")
 );
 
-describe("date picker component with default date", () => {
-  const { body } = document;
+const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "date picker", selector: datePickerSelector }
+];
 
-  let root;
-  let input;
-  let button;
-  const getCalendarEl = (query) =>
-    root.querySelector(
-      ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
-    );
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`date picker component with default date initialized at ${name}`, () => {
+    const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    DatePicker.on();
-    root = body.querySelector(".usa-date-picker");
-    input = root.querySelector(".usa-date-picker__external-input");
-    button = root.querySelector(".usa-date-picker__button");
-  });
+    let root;
+    let input;
+    let button;
+    const getCalendarEl = (query) =>
+      root.querySelector(
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+      );
 
-  afterEach(() => {
-    window.onerror = null;
-    body.textContent = "";
-    DatePicker.off(body);
-  });
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
+      DatePicker.on(containerSelector());
+      root = datePickerSelector();
+      input = root.querySelector(".usa-date-picker__external-input");
+      button = root.querySelector(".usa-date-picker__button");
+    });
 
-  it("should display the input date when an input date is present", () => {
-    input.value = "06/20/2020";
+    afterEach(() => {
+      DatePicker.off(containerSelector());
+      window.onerror = null;
+      body.textContent = "";
+    });
 
-    EVENTS.click(button);
+    it("should display the input date when an input date is present", () => {
+      input.value = "06/20/2020";
 
-    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.strictEqual(
-      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "2020-06-20",
-      "focuses correct date"
-    );
-  });
+      EVENTS.click(button);
 
-  it("should display the default date when the input date is empty", () => {
-    input.value = "";
+      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+        "2020-06-20",
+        "focuses correct date"
+      );
+    });
 
-    EVENTS.click(button);
+    it("should display the default date when the input date is empty", () => {
+      input.value = "";
 
-    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.strictEqual(
-      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "2020-05-22",
-      "focuses correct date"
-    );
-  });
+      EVENTS.click(button);
 
-  it("should display the default date when the input date is invalid", () => {
-    input.value = "";
+      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+        "2020-05-22",
+        "focuses correct date"
+      );
+    });
 
-    EVENTS.click(button);
+    it("should display the default date when the input date is invalid", () => {
+      input.value = "";
 
-    assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.strictEqual(
-      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "2020-05-22",
-      "focuses correct date"
-    );
+      EVENTS.click(button);
+
+      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+        "2020-05-22",
+        "focuses correct date"
+      );
+    });
   });
 });

@@ -8,36 +8,45 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-filter.template.html")
 );
 
-describe("combo box component with filter attribute", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+];
 
-  let root;
-  let input;
-  let list;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`Combo box initialized at ${name}`, () => {
+    describe("combo box component with filter attribute", () => {
+      const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    ComboBox.on();
-    root = body.querySelector(".usa-combo-box");
-    input = root.querySelector(".usa-combo-box__input");
-    list = root.querySelector(".usa-combo-box__list");
-  });
+      let root;
+      let input;
+      let list;
 
-  afterEach(() => {
-    body.textContent = "";
-    ComboBox.off(body);
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        root = containerSelector();
+        ComboBox.on(root);
+        input = root.querySelector(".usa-combo-box__input");
+        list = root.querySelector(".usa-combo-box__list");
+      });
 
-  it("should display and filter the option list after a character is typed", () => {
-    input.value = "st";
+      afterEach(() => {
+        ComboBox.off(root);
+        body.textContent = "";
+      });
 
-    EVENTS.input(input);
+      it("should display and filter the option list after a character is typed", () => {
+        input.value = "st";
 
-    assert.ok(!list.hidden, "should display the option list");
-    assert.strictEqual(
-      list.children.length,
-      2,
-      "should filter the item by the string starting with the option"
-    );
+        EVENTS.input(input);
+
+        assert.ok(!list.hidden, "should display the option list");
+        assert.strictEqual(
+          list.children.length,
+          2,
+          "should filter the item by the string starting with the option"
+        );
+      });
+    });
   });
 });

@@ -1,4 +1,4 @@
-const select = require("../../utils/select");
+const selectOrMatches = require("../utils/select-or-matches");
 const behavior = require("../../utils/behavior");
 const Sanitizer = require("../../utils/sanitizer");
 const { prefix: PREFIX } = require("../../config");
@@ -392,7 +392,7 @@ const fileInput = behavior(
   {},
   {
     init(root) {
-      select(DROPZONE, root).forEach((fileInputEl) => {
+      selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
         const { instructions, dropTarget } = buildFileInput(fileInputEl);
 
         dropTarget.addEventListener(
@@ -424,6 +424,14 @@ const fileInput = behavior(
           (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
           false
         );
+      });
+    },
+    teardown(root) {
+      selectOrMatches(INPUT, root).forEach((fileInputEl) => {
+        const fileInputTopElement = fileInputEl.parentElement.parentElement;
+        fileInputTopElement.parentElement.replaceChild(fileInputEl, fileInputTopElement);
+        // eslint-disable-next-line no-param-reassign
+        fileInputEl.className = DROPZONE_CLASS;
       });
     },
     getFileInputContext,

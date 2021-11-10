@@ -13,44 +13,50 @@ const keyup = (el) => {
   el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 };
 
-describe("validator component", () => {
-  const { body } = document;
-  let validated;
-  let validators;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "input", selector: () => document.querySelector(INPUT_SELECTOR) }
+];
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`validator component initialized at ${name}`, () => {
+    const { body } = document;
+    let validated;
+    let validators;
 
-    validated = document.querySelector(INPUT_SELECTOR);
-    validators = Array.from(document.querySelectorAll(VALIDATORS));
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
 
-    validator.on(body);
-  });
+      validated = document.querySelector(INPUT_SELECTOR);
+      validators = Array.from(document.querySelectorAll(VALIDATORS));
 
-  afterEach(() => {
-    body.textContent = "";
-    validator.off(body);
-  });
-
-  describe("validation state", () => {
-    it("adds ." + CHECKED_CLASS + " for all successful validations", () => {
-      validated.value = "GreatPassword1";
-      keyup(validated);
-      validators.forEach((checkbox) => {
-        assert.strictEqual(checkbox.classList.contains(CHECKED_CLASS), true);
-      });
+      validator.on(containerSelector());
     });
 
-    it("removes ." + CHECKED_CLASS + " for failed validations", () => {
-      validated.value = "GreatPassword";
-      keyup(validated);
-      validators.forEach((checkbox) => {
-        const checked = checkbox.classList.contains(CHECKED_CLASS);
-        if (checkbox.getAttribute("data-validator") === "numerical") {
-          assert.strictEqual(checked, false);
-        } else {
-          assert.strictEqual(checked, true);
-        }
+    afterEach(() => {
+      validator.off(containerSelector());
+      body.textContent = "";
+    });
+
+    describe("validation state", () => {
+      it("adds ." + CHECKED_CLASS + " for all successful validations", () => {
+        validated.value = "GreatPassword1";
+        keyup(validated);
+        validators.forEach((checkbox) => {
+          assert.strictEqual(checkbox.classList.contains(CHECKED_CLASS), true);
+        });
+      });
+
+      it("removes ." + CHECKED_CLASS + " for failed validations", () => {
+        validated.value = "GreatPassword";
+        keyup(validated);
+        validators.forEach((checkbox) => {
+          const checked = checkbox.classList.contains(CHECKED_CLASS);
+          if (checkbox.getAttribute("data-validator") === "numerical") {
+            assert.strictEqual(checked, false);
+          } else {
+            assert.strictEqual(checked, true);
+          }
       });
     });
   });

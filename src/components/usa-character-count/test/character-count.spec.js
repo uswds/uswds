@@ -19,87 +19,95 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
-describe("character count component", () => {
-  const { body } = document;
+const characterCountSelector = () => document.querySelector('.usa-character-count');
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "character count", selector: characterCountSelector }
+];
 
-  let root;
-  let input;
-  let message;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`character count component initialized at ${name}`, () => {
+    const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    CharacterCount.on();
+    let root;
+    let input;
+    let message;
 
-    root = body.querySelector(".usa-character-count");
-    input = root.querySelector(".usa-character-count__field");
-    message = root.querySelector(".usa-character-count__message");
-  });
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
+      CharacterCount.on(containerSelector());
 
-  afterEach(() => {
-    body.textContent = "";
-    CharacterCount.off(body);
-  });
+      root = characterCountSelector();
+      input = root.querySelector(".usa-character-count__field");
+      message = root.querySelector(".usa-character-count__message");
+    });
 
-  it("adds initial message for the character count component", () => {
-    assert.strictEqual(message.innerHTML, "20 characters allowed");
-  });
+    afterEach(() => {
+      CharacterCount.off(containerSelector());
+      body.textContent = "";
+    });
 
-  it("informs the user how many more characters they are allowed", () => {
-    input.value = "1";
+    it("adds initial message for the character count component", () => {
+      assert.strictEqual(message.innerHTML, "20 characters allowed");
+    });
 
-    EVENTS.input(input);
+    it("informs the user how many more characters they are allowed", () => {
+      input.value = "1";
 
-    assert.strictEqual(message.innerHTML, "19 characters left");
-  });
+      EVENTS.input(input);
 
-  it("informs the user they are allowed a single character", () => {
-    input.value = "1234567890123456789";
+      assert.strictEqual(message.innerHTML, "19 characters left");
+    });
 
-    EVENTS.input(input);
+    it("informs the user they are allowed a single character", () => {
+      input.value = "1234567890123456789";
 
-    assert.strictEqual(message.innerHTML, "1 character left");
-  });
+      EVENTS.input(input);
 
-  it("informs the user they are over the limit by a single character", () => {
-    input.value = "123456789012345678901";
+      assert.strictEqual(message.innerHTML, "1 character left");
+    });
 
-    EVENTS.input(input);
+    it("informs the user they are over the limit by a single character", () => {
+      input.value = "123456789012345678901";
 
-    assert.strictEqual(message.innerHTML, "1 character over limit");
-  });
+      EVENTS.input(input);
 
-  it("informs the user how many characters they will need to remove", () => {
-    input.value = "1234567890123456789012345";
+      assert.strictEqual(message.innerHTML, "1 character over limit");
+    });
 
-    EVENTS.input(input);
+    it("informs the user how many characters they will need to remove", () => {
+      input.value = "1234567890123456789012345";
 
-    assert.strictEqual(message.innerHTML, "5 characters over limit");
-  });
+      EVENTS.input(input);
 
-  it("should show the component and input as valid when the input is under the limit", () => {
-    input.value = "1";
+      assert.strictEqual(message.innerHTML, "5 characters over limit");
+    });
 
-    EVENTS.input(input);
+    it("should show the component and input as valid when the input is under the limit", () => {
+      input.value = "1";
 
-    assert.strictEqual(input.validationMessage, "");
-    assert.strictEqual(
-      message.classList.contains(MESSAGE_INVALID_CLASS),
-      false
-    );
-  });
+      EVENTS.input(input);
 
-  it("should show the component and input as invalid when the input is over the limit", () => {
-    input.value = "123456789012345678901";
+      assert.strictEqual(input.validationMessage, "");
+      assert.strictEqual(
+        message.classList.contains(MESSAGE_INVALID_CLASS),
+        false
+      );
+    });
 
-    EVENTS.input(input);
+    it("should show the component and input as invalid when the input is over the limit", () => {
+      input.value = "123456789012345678901";
 
-    assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
-    assert.strictEqual(message.classList.contains(MESSAGE_INVALID_CLASS), true);
-  });
+      EVENTS.input(input);
 
-  it("should not allow for innerHTML of child elements ", () => {
-    Array.from(message.childNodes).forEach((childNode) => {
-      assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+      assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
+      assert.strictEqual(message.classList.contains(MESSAGE_INVALID_CLASS), true);
+    });
+
+    it("should not allow for innerHTML of child elements ", () => {
+      Array.from(message.childNodes).forEach((childNode) => {
+        assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+      });
     });
   });
 });
