@@ -2,13 +2,12 @@ const assert = require("assert");
 const fs = require("fs");
 const jsdomUtils = require("jsdom/lib/jsdom/living/generated/utils");
 const jsdomFileList = require("jsdom/lib/jsdom/living/generated/FileList");
-const fileInput = require("../file-input");
+const fileInput = require("../../../src/js/components/file-input");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 
 // allows us to create mock files
 function MockFile() {}
-
 /**
  *
  * @param {String} name
@@ -50,69 +49,82 @@ function makeFileList(...files) {
   return ret;
 }
 
-describe("file input component should respond to file type on change", () => {
-  const { body } = document;
-  const INVALID_FILE_CLASS = "has-invalid-file";
-  const size = 1024 * 1024 * 2;
-  const mock = new MockFile();
-  const file = mock.create("pic.jpg", size, "image/jpeg");
-  const fileList = makeFileList(file);
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "file input", selector: () => document.querySelector('.usa-file-input') }
+];
 
-  let dropZone;
-  let instructions;
-  let inputEl;
-  let dragText;
-  let box;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`File input initialized at ${name}`, () => {
+    describe("file input component should respond to file type on change", () => {
+      const { body } = document;
+      const INVALID_FILE_CLASS = "has-invalid-file";
+      const size = 1024 * 1024 * 2;
+      const mock = new MockFile();
+      const file = mock.create("pic.jpg", size, "image/jpeg");
+      const fileList = makeFileList(file);
 
-  before(() => {
-    body.innerHTML = TEMPLATE;
-    fileInput.on();
-    dropZone = body.querySelector(".usa-file-input__target");
-    instructions = body.querySelector(".usa-file-input__instructions");
-    inputEl = document.getElementById("file-input-specific");
-    box = body.querySelector(".usa-file-input__box");
-    dragText = body.querySelector(".usa-file-input__drag-text");
-    fileInput.on(body);
-  });
+      let dropZone;
+      let instructions;
+      let inputEl;
+      let dragText;
+      let box;
 
-  it("instructions are created", () => {
-    assert.strictEqual(
-      instructions.getAttribute("class"),
-      "usa-file-input__instructions"
-    );
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        fileInput.on(containerSelector());
+        dropZone = body.querySelector(".usa-file-input__target");
+        instructions = body.querySelector(".usa-file-input__instructions");
+        inputEl = document.getElementById("file-input-specific");
+        box = body.querySelector(".usa-file-input__box");
+        dragText = body.querySelector(".usa-file-input__drag-text");
+      });
 
-  it("target ui is created", () => {
-    assert.strictEqual(
-      dropZone.getAttribute("class"),
-      "usa-file-input__target"
-    );
-  });
+      afterEach(() => {
+        fileInput.off(containerSelector());
+        body.innerHTML = "";
+      });
 
-  it("input gets new class", () => {
-    assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
-  });
+      it("instructions are created", () => {
+        assert.strictEqual(
+          instructions.getAttribute("class"),
+          "usa-file-input__instructions"
+        );
+      });
 
-  it("box is created", () => {
-    assert.strictEqual(box.getAttribute("class"), "usa-file-input__box");
-  });
+      it("target ui is created", () => {
+        assert.strictEqual(
+          dropZone.getAttribute("class"),
+          "usa-file-input__target"
+        );
+      });
 
-  it('pluralizes "files" if there is a "multiple" attribute', () => {
-    assert.strictEqual(dragText.innerHTML, "Drag files here or ");
-  });
+      it("input gets new class", () => {
+        assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
+      });
 
-  it("mock file should be defined with specific values", () => {
-    assert(file);
-    assert.strictEqual(file.name, "pic.jpg");
-    assert.strictEqual(file.size, size);
-    assert.strictEqual(file.type, "image/jpeg");
-  });
+      it("box is created", () => {
+        assert.strictEqual(box.getAttribute("class"), "usa-file-input__box");
+      });
 
-  it("mock file should not be allowed", () => {
-    // add to our elements FileList
-    inputEl.files = fileList;
-    const e = new Event("change");
-    inputEl.dispatchEvent(e);
-    assert.strictEqual(dropZone.classList.contains(INVALID_FILE_CLASS), true);
+      it('pluralizes "files" if there is a "multiple" attribute', () => {
+        assert.strictEqual(dragText.innerHTML, "Drag files here or ");
+      });
+
+      it("mock file should be defined with specific values", () => {
+        assert(file);
+        assert.strictEqual(file.name, "pic.jpg");
+        assert.strictEqual(file.size, size);
+        assert.strictEqual(file.type, "image/jpeg");
+      });
+
+      it("mock file should not be allowed", () => {
+        // add to our elements FileList
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+        assert.strictEqual(dropZone.classList.contains(INVALID_FILE_CLASS), true);
+      });
+    });
   });
 });
