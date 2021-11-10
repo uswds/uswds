@@ -8,5 +8,5 @@ plugins:
 exclude_patterns:
   - config/**/*.js
   - dist/**/*.js
-  - spec/**/*
+  - src/**/*.spec.js
   - src/js/vendor/**/*.js

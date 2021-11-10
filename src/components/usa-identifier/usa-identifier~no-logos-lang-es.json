@@ -1,0 +1,63 @@
+{
+  "modifier": "",
+  "domain": "domain.gov",
+  "lang": "es",
+  "masthead": {
+    "aria_label": "Identificador de la agencia,,",
+    "description": "Descripción de la agencia",
+    "content": "Un sitio web oficial de",
+    "parent": {
+      "name": "<Parent agency>",
+      "shortname": "<Parent shortname>",
+      "url": "javascript:void(0)",
+      "logo": null
+    },
+    "agency": {
+      "name": null,
+      "shortname": null,
+      "url": null,
+      "logo": null
+    },
+    "taxpayer_disclaimer": {
+      "content": "Producido y publicado con dinero de los contribuyentes de impuestos.",
+      "display": false
+    }
+  },
+  "required_links": {
+    "aria_label": "Enlaces importantes,,",
+    "links": [
+      {
+        "label": "Acerca de",
+        "url": "javascript:void(0)",
+        "include_shortname": true
+      },
+      {
+        "label": "Soporte de accesibilidad"
+      },
+      {
+        "label": "Solicitud a través de FOIA"
+      },
+      {
+        "label": "Datos de la ley No FEAR"
+      },
+      {
+        "label": "Oficina del Inspector General"
+      },
+      {
+        "label": "Informes de desempeño"
+      },
+      {
+        "label": "Política de privacidad"
+      }
+    ]
+  },
+  "usagov": {
+    "aria_label": "Información y servicios del Gobierno de EE. UU.,,",
+    "description": "¿Necesita información y servicios del Gobierno?",
+    "link": {
+      "label": "Visite USA.gov en Español",
+      "url": "https://www.usa.gov/espanol/"
+    },
+    "display": true
+  }
+}

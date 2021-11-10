@@ -1,17 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 const handlebars = require("handlebars");
-const helpers = require("handlebars-helpers");
 
-const { trimLeft } = helpers.string();
-
-const colorListTemplate = `'{{meta.name}}': (
+const colorListTemplate = `"{{meta.name}}": (
   {{#each props as |prop|}}
   {{#isObject prop.value}}
   {{> colorList meta=prop props=prop.value }}
   {{else}}
   {{toNumber prop.name}}: {{prop.value}},
-  {{/isObject}}  
+  {{/isObject}}
   {{~/each}}
 ),
 `;
@@ -20,12 +17,14 @@ const colorMap = `\${{global.category}}: (
 {{#each props as |prop|}}
   {{> colorList meta=prop props=prop.value }}
 {{/each}}
-);`;
+);
+`;
 
-handlebars.registerHelper("toNumber", function (item, options) {
+handlebars.registerHelper("toNumber", (item) => {
   const maybeNumber = Number(item);
   let output;
 
+  // eslint-disable-next-line no-restricted-globals
   if (isNaN(maybeNumber)) output = item;
 
   output = maybeNumber;
@@ -33,7 +32,7 @@ handlebars.registerHelper("toNumber", function (item, options) {
   return output;
 });
 
-handlebars.registerHelper("isObject", function (item, options) {
+handlebars.registerHelper("isObject", (item, options) => {
   if (typeof item === "object") {
     return options.fn(this);
   }
@@ -44,8 +43,8 @@ handlebars.registerPartial("colorList", colorListTemplate);
 
 const colorMapTemplate = handlebars.compile(colorMap);
 
-const format = (options) => {
-  return new Promise((resolve, reject) => {
+const format = (options) =>
+  new Promise((resolve) => {
     fs.readFile(options.file, (err, buffer) => {
       if (err) {
         throw new Error(err);
@@ -66,7 +65,6 @@ const format = (options) => {
       resolve(output);
     });
   });
-};
 
 const generateFilename = (filePath) =>
   `_${path.basename(filePath).split(".")[0]}.scss`;
@@ -80,7 +78,8 @@ const writeSassFile = (sass) => {
   fs.writeFileSync(resolvePath(finalOutput), data);
 };
 
-const argv = require("yargs").argv;
+const { argv } = require("yargs");
+
 const ARGS = {
   FILE: "file",
   OUTPUT: "output",
@@ -89,7 +88,6 @@ const ARGS = {
 
 const rawFilePath = argv[ARGS.FILE];
 const rawOutputPath = argv[ARGS.OUTPUT];
-const template = argv[ARGS.TEMPLATE] || colorMapTemplate;
 
 if (!rawFilePath || !rawOutputPath) {
   throw new Error(
@@ -110,9 +108,7 @@ if (isDirectory(rawFilePath)) {
           template: colorMapTemplate,
         });
       })
-    )
-      .then((values) => values.forEach(writeSassFile))
-      .catch((err) => console.log(err));
+    ).then((values) => values.forEach(writeSassFile));
   });
 } else {
   format({

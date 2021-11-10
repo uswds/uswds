@@ -1,0 +1,12 @@
+// Core
+// -------------------------------------
+@import "../core/functions";
+@import "../core/system-tokens";
+@import "../core/variables";
+@import "../core/properties";
+@import "../core/mixins/all";
+@import "../core/placeholders/all";
+
+// deprecated import needs to be last
+@import "../core/deprecated";
+@import "../core/notifications";

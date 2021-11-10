@@ -4,6 +4,131 @@ version: v1.19.0
 ignore:
   SNYK-JS-GLOBPARENT-1016905:
     - del > globby > fast-glob > glob-parent:
-        reason: No direct upgrade or patch.
-        expires: '2021-05-19T20:56:10.239Z'
+        reason: No available patch or upgrade.
+        expires: '2021-03-31T17:53:45.553Z'
+    - '@pattern-lab/core > @pattern-lab/live-server > chokidar > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
+    - '@pattern-lab/uikit-workshop > webpack > watchpack > chokidar > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
+    - '@pattern-lab/core > chokidar > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
+    - '@pattern-lab/core > chokidar > anymatch > micromatch > parse-glob > glob-base > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+    - '@pattern-lab/uikit-workshop > copy-webpack-plugin > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+    - '@pattern-lab/uikit-workshop > webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+    - '@pattern-lab/uikit-workshop > critical > postcss-image-inliner > asset-resolver > globby > fast-glob > glob-parent':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+    - browser-sync > chokidar > glob-parent:
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
+  SNYK-JS-ENGINEIO-1056749:
+    - browser-sync > socket.io > engine.io:
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.414Z'
+  SNYK-JS-LOCUTUS-1009836:
+    - '@pattern-lab/engine-twig > twing > locutus':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+  SNYK-JS-MARKDOWNIT-459438:
+    - '@pattern-lab/core > markdown-it':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.415Z'
+  SNYK-JS-MERGE-1040469:
+    - '@pattern-lab/engine-twig > twing > merge':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODEFETCH-674311:
+    - '@pattern-lab/core > node-fetch':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-1059081:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available.
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-535498:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-535500:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-535502:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540956:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540958:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540964:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540978:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540980:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540990:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540992:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540994:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540996:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-540998:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-541000:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-NODESASS-541002:
+    - '@pattern-lab/uikit-workshop > node-sass':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  SNYK-JS-YARGSPARSER-560381:
+    - '@pattern-lab/uikit-workshop > critical > meow > yargs-parser':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+    - '@pattern-lab/uikit-workshop > critical > filter-css > meow > yargs-parser':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+    - '@pattern-lab/uikit-workshop > critical > inline-critical > meow > yargs-parser':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+    - '@pattern-lab/uikit-workshop > critical > postcss-image-inliner > asset-resolver > meow > yargs-parser':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
+  'npm:braces:20180219':
+    - '@pattern-lab/core > chokidar > anymatch > micromatch > braces':
+        reason: No patch available
+        expires: '2021-03-11T17:49:21.416Z'
 patch: {}

@@ -12,16 +12,18 @@ coverage/
 
 # ignore the generated dist directory
 dist/
+html-templates/
 
-# ignore the Fractal build directory
+# ignore the Pattern Lab directory
+patternlab/
 build/
+dependencyGraph.json
+
+# ignore compiled storybook directory
+storybook-static/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib
-
-# ignore saved screenshots
-spec/screenshots/*.png
-spec/screenshots/metadata.js
 
 # ignore sass cache
 .sass-cache/

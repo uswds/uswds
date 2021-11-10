@@ -10,5 +10,5 @@
     "lib": ["es6", "DOM"],
     "types": ["node"]
   },
-  "include": ["src/js/utils/select.js"]
+  "include": ["src/utils/select.js"]
 }

@@ -1,85 +1,79 @@
-// Bring in individual Gulp configurations
-require("./config/gulp/flags");
-require("./config/gulp/sass");
-require("./config/gulp/javascript");
-require("./config/gulp/images");
-require("./config/gulp/fonts");
-require("./config/gulp/svg-sprite");
-require("./config/gulp/build");
-require("./config/gulp/release");
-require("./config/gulp/test");
+// Include gulp helpers.
+const { series, parallel } = require("gulp");
 
-const gulp = require("gulp");
-const dutil = require("./config/gulp/doc-util");
+// Include Our tasks.
+//
+// Each task is broken apart to it's own node module.
+// Check out the ./gulp-tasks directory for more.
+const { noCleanup, noTest } = require("./gulp-tasks/flags");
+const { buildSprite } = require("./gulp-tasks/svg-sprite");
+const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
+const { unitTests, sassTests, cover } = require("./gulp-tasks/test");
+const { lintSass, lintJS } = require("./gulp-tasks/lint");
+const { build } = require("./gulp-tasks/build");
+const { release } = require("./gulp-tasks/release");
+const { watch } = require("./gulp-tasks/watch");
+const { compileSass } = require("./gulp-tasks/sass");
+const { copyVendor } = require("./gulp-tasks/copy");
+const { cleanDist } = require("./gulp-tasks/clean");
 
-gulp.task("default", (done) => {
-  dutil.logIntroduction();
+/**
+ * *Flags*
+ */
+exports.noTest = noTest;
+exports.noCleanup = noCleanup;
 
-  dutil.logHelp(
-    "gulp",
-    "This task will output the currently supported automation tasks. (e.g. This help message.)"
-  );
+/**
+ * *Clean tasks*
+ */
+exports.cleanDist = cleanDist;
 
-  dutil.logHelp(
-    "gulp no-cleanup [ task-name ]",
-    "Prefixing tasks with `no-cleanup ` will not remove the distribution directories."
-  );
+/**
+ * *Lint tasks*
+ */
+exports.lintSass = lintSass;
+exports.lintJS = lintJS;
+exports.lint = parallel(lintSass, lintJS);
 
-  dutil.logHelp(
-    "gulp no-test [ task-name ]",
-    "Prefixing tasks with `no-test` will disable testing and linting for all supported tasks."
-  );
+/**
+ * *Test tasks*
+ * cover: Similar to unit tests.
+ * sassTests: Sass unit tests.
+ * unitTests: Component unit tests.
+ * test: Run all tests.
+ */
 
-  dutil.logCommand(
-    "gulp clean-dist",
-    "This task will remove the distribution directories."
-  );
 
-  dutil.logHelp(
-    "gulp build",
-    "This task is an alias for running `gulp sass javascript images fonts` and is the recommended task to build all assets."
-  );
+exports.cover = cover;
+exports.sassTests = sassTests;
+exports.unitTests = unitTests;
+exports.test = series(
+  typeCheck,
+  lintJS,
+  lintSass,
+  sassTests,
+  unitTests,
+);
 
-  dutil.logCommand(
-    "gulp sass",
-    "This task will compile all the Sass files into distribution directories."
-  );
+/**
+ * *Build tasks*
+ * buildSprite: Generate new spritesheet based on SVGs in `src/img/usa-icons/`.
+ * buildSass: Lint, copy normalize, and compile sass.
+ * buildJS: Lint, copy normalize, and compile sass.
+ * release: Builds USWDS and returns a zip with sha256 hash and filesize.
+ */
+exports.buildSprite = buildSprite;
+exports.buildSass = series(lintSass, copyVendor, compileSass);
+exports.buildJS = series(typeCheck, lintJS, compileJS);
+exports.buildUSWDS = build;
+exports.release = release;
 
-  dutil.logCommand(
-    "gulp javascript",
-    "This task will compile all the JavaScript files into distribution directories."
-  );
+/**
+ * *Watch task*
+ * Builds USWDS and component library, creates local server, and watches
+ * for changes in scss, js, twig, yml, and unit tests.
+ */
+exports.watch = watch;
 
-  dutil.logCommand(
-    "gulp images",
-    "This task will copy all the image files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp fonts",
-    "This task will copy all the font files into distribution directories."
-  );
-
-  dutil.logCommand(
-    "gulp release",
-    "This task will run `gulp build` and prepare a release directory."
-  );
-
-  dutil.logCommand(
-    "gulp test",
-    "This task will run `gulp test` and run this repository's unit tests."
-  );
-
-  dutil.logCommand(
-    "gulp svg-sprite",
-    "This task will compile all the svg files in the usa-icons directory into an svg sprite."
-  );
-
-  done();
-});
-
-gulp.task("watch", () => {
-  gulp.watch("src/stylesheets/**/*.scss", gulp.series("sass")),
-  gulp.watch("src/js/**/*.js", gulp.series("javascript"));
-  return;
-});
+// Default Task
+exports.default = this.buildUSWDS;

@@ -1,0 +1,54 @@
+{% embed "@templates/usa-base/_base.twig" with { 'lang': lang } %}
+  {% block body %}
+    <div class="usa-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <main class="" id="main-content">
+            <div class="usa-prose">
+              <!-- This template can be used for most types of error pages -->
+              <!-- Remove these comments when you build your error pages -->
+
+              <!-- Describe the error in the main heading -->
+              <h1>{{ title }}</h1>
+
+              <!-- Explain what caused the error in the lead text -->
+              <p class="usa-intro">{{ intro }}</p>
+
+              <!-- Provide instructions how the user can address or fix the error -->
+              {{ instructions | raw }}
+
+              <!-- Use buttons for main actions user can take, such as visiting the homepage or a contact page -->
+              <div class="margin-y-5">
+                <ul class="usa-button-group">
+                  <li class="usa-button-group__item">
+                    <a href="javascript:void();" class="usa-button">
+                      {{ actions.primary }}
+                    </a>
+                  </li>
+                  <li class="usa-button-group__item">
+                    <button class="usa-button usa-button--outline" type="button">
+                      {{ actions.secondary }}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- List additional support channels -->
+              <p>{{ additional_support.text }}</p>
+              <ul>
+                {% for action in additional_support.actions %}
+                  <li>
+                    {{ action | raw }}
+                  </li>
+                {% endfor %}
+              </ul>
+
+              <!-- Error code if appropriate -->
+              <p class="text-base">{{ error_code | raw }}</p>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}

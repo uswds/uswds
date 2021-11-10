@@ -1,0 +1,8 @@
+{
+  "all": true,
+  "include": ["src/components/**/*.js"],
+  "exclude": [
+    "**/*.spec.js",
+    "**/test/**"
+  ]
+}

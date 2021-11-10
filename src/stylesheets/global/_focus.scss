@@ -1,3 +1,5 @@
+@import "../helpers/usa-focus";
+
 // Apply :focus behavior to focusable elements only (For IE 11)
 input,
 select,
@@ -17,8 +19,4 @@ iframe,
   &:focus {
     @include focus-outline;
   }
-}
-
-.usa-focus {
-  @include focus-outline;
 }

@@ -1,0 +1,18 @@
+<section class="usa-site-alert {{ modifier }}" aria-label="{{ aria_label }}">
+  <div class="usa-alert">
+    <div class="usa-alert__body">
+      {%- if title %}
+        <h3 class="usa-alert__heading">{{ title }}</h3>
+      {%- endif %}
+
+      {%- if list %}
+        {{ list|raw }}
+      {%- endif %}
+
+      {%- if text %}
+        <p class="usa-alert__text">{{ text|raw }}</p>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+

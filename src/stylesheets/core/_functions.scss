@@ -211,7 +211,6 @@ to-map()
 ----------------------------------------
 Convert a single value to a USWDS
 value map.
-
 Candidate for deprecation if we remove
 isReadable
 ----------------------------------------
@@ -233,7 +232,6 @@ base-to-map()
 ----------------------------------------
 Convert a single base to a USWDS
 value map.
-
 Candidate for deprecation if we remove
 isReadable
 ----------------------------------------
@@ -815,7 +813,6 @@ number-to-token()
 ----------------------------------------
 Converts an integer or numeric value
 into a system value
-
 Ex: 0.5   --> '05'
     -1px  --> 'neg-1px'
 ----------------------------------------
@@ -838,7 +835,6 @@ columns()
 outputs a grid-col number based on
 the number of desired columns in the
 12-column grid
-
 Ex: columns(2) --> 6
     grid-col(columns(2))
 ----------------------------------------
@@ -864,7 +860,6 @@ get-uswds-value()
 ----------------------------------------
 Finds and outputs a value from the
 USWDS standard values.
-
 Used to build other standard utility
 functions and mixins.
 ----------------------------------------
@@ -931,7 +926,6 @@ pow()
 ----------------------------------------
 Raises a unitless number to the power
 of another unitless number
-
 Includes helper functions
 ----------------------------------------
 */
@@ -1101,10 +1095,8 @@ decompose-color-token()
 ----------------------------------------
 Convert a color token into into a list
 of form [family], [grade], [variant]
-
 Vivid variants return "vivid" as the
 variant.
-
 If neither grade nor variant exists,
 returns 'false'
 ----------------------------------------
@@ -1174,7 +1166,6 @@ test-colors()
 Check to see if all system colors
 fall between the proper relative
 luminance range for their grade.
-
 Has a couple quirks, as the luminance()
 function returns slightly different
 results than expected.
@@ -1824,10 +1815,8 @@ magic-number()
 ----------------------------------------
 Returns the magic number of two color
 grades. Takes numbers or color tokens.
-
 magic-number(50, 10)
 return: 40
-
 magic-number("red-50", "red-10")
 return: 40
 ----------------------------------------
@@ -1854,7 +1843,6 @@ get-default()
 ----------------------------------------
 Returns the default value from a map
 of project defaults
-
 get-default("bg-color")
 > $theme-body-background-color
 ----------------------------------------
@@ -1872,9 +1860,7 @@ get-color-token-from-bg()
 Returns an accessible foreground color
 token, given a background, preferred
 color, fallback color, and WCAG target
-
 returns: color-token
-
 get-color-token-from-bg(
   "black",
   "red-60",
@@ -1946,30 +1932,25 @@ get-link-tokens-from-bg()
 ----------------------------------------
 Get accessible link colors for a given
 background color
-
 returns: link-token, hover-token
-
 get-link-tokens-from-bg(
   "black",
   "red-60",
   "red-10",
   "AA")
 > "red-10", "red-5"
-
 get-link-tokens-from-bg(
   "black",
   "red-60v",
   "red-10v",
   "AA-large")
 > "red-60v", "red-50v"
-
 get-link-tokens-from-bg(
   "black",
   "red-5v",
   "red-60v",
   "AA")
 > "red-5v", "white"
-
 get-link-tokens-from-bg(
   "black",
   "white",
@@ -2067,7 +2048,6 @@ get-link-tokens-from-bg(
 color-token-type()
 ----------------------------------------
 Returns the type of a color token.
-
 Returns: "system" | "theme"
 ----------------------------------------
 */
@@ -2088,15 +2068,11 @@ Returns: "system" | "theme"
 color-token-family()
 ----------------------------------------
 Returns the family of a color token.
-
 Returns: color-family
-
 color-token-family("accent-warm-vivid")
 > "accent-warm"
-
 color-token-family("red-50v")
 > "red"
-
 color-token-variant(("red", 50, "vivid"))
 > "red"
 ----------------------------------------
@@ -2117,21 +2093,15 @@ color-token-variant(("red", 50, "vivid"))
 color-token-grade()
 ----------------------------------------
 Returns the grade of a USWDS color token.
-
 Returns: color-grade
-
 color-token-grade("accent-warm")
 > "root"
-
 color-token-grade("accent-warm-vivid")
 > "root"
-
 color-token-grade("accent-warm-darker")
 > "darker"
-
 color-token-grade("red-50v")
 > 50
-
 color-token-variant(("red", 50, "vivid"))
 > 50
 ----------------------------------------
@@ -2152,18 +2122,13 @@ color-token-variant(("red", 50, "vivid"))
 color-token-variant()
 ----------------------------------------
 Returns the variant of color token.
-
 Returns: "vivid" | false
-
 color-token-variant("accent-warm")
 > false
-
 color-token-variant("accent-warm-vivid")
 > "vivid"
-
 color-token-variant("red-50v")
 > "vivid"
-
 color-token-variant(("red", 50, "vivid"))
 > "vivid"
 ----------------------------------------
@@ -2185,36 +2150,25 @@ next-token()
 ----------------------------------------
 Returns next "darker" or "lighter" color
 token of the same token type and variant.
-
 Returns: color-token | false
-
 next-token("accent-warm", "lighter")
 > "accent-warm-light"
-
 next-token("gray-10", "lighter")
 > "gray-5"
-
 next-token("gray-5", "lighter")
 > "white"
-
 next-token("white", "lighter")
 > false
-
 next-token("red-50v", "darker")
 > "red-60v"
-
 next-token("red-50", "darker")
 > "red-60"
-
 next-token("red-80v", "darker")
 > "red-90"
-
 next-token("red-90", "darker")
 > "black"
-
 next-token("white", "darker")
 > "gray-5"
-
 next-token("black", "lighter")
 > "gray-90"
 ----------------------------------------
@@ -2328,11 +2282,9 @@ wcag-magic-number()
 ----------------------------------------
 Returns the magic number of a specific
 wcag grade:
-
 "AA"
 "AA-Large"
 "AAA"
-
 wcag-magic-number("AA")
 > 50
 ----------------------------------------
@@ -2349,12 +2301,9 @@ is-accessible-magic-number()
 ----------------------------------------
 Returns whether two grades achieve
 specified target color contrast
-
 Returns: true | false
-
 is-accessible-magic-number(10, 50, "AA")
 > false
-
 is-accessible-magic-number(10, 60, "AA")
 > true
 ----------------------------------------
