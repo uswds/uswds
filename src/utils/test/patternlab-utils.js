@@ -13,7 +13,7 @@ async function getComponents() {
       files.forEach((file, index) => {
         directories.push(file);
         if (index === files.length - 1) {
-          console.log("getting components");// eslint-disable-line no-console
+          console.log("getting components"); // eslint-disable-line no-console
           resolve(directories);
         }
       });
@@ -21,7 +21,7 @@ async function getComponents() {
   });
 
   const buildComponentPaths = new Promise((resolve) => {
-    console.log("resolving component paths");// eslint-disable-line no-console
+    console.log("resolving component paths"); // eslint-disable-line no-console
     const components = [];
     getDirectories.then((directories) => {
       directories.map((file, index) => {
@@ -31,13 +31,12 @@ async function getComponents() {
           for (const component in dir) {
             if (component) {
               if (component.includes(".rendered.html")) {
-                const c = `${file  }/${  component}`;
+                const c = `${file}/${component}`;
                 components.push(c);
               }
               if (index === directories.length - 1) {
                 resolve(components);
               }
-
             }
           }
         });
@@ -46,14 +45,16 @@ async function getComponents() {
     });
   });
 
-  const paths = await Promise.resolve(buildComponentPaths).then((values) => values);
+  const paths = await Promise.resolve(buildComponentPaths).then(
+    (values) => values
+  );
   return paths;
 }
 
 async function loadPatternLab() {
   const promise = new Promise((resolve) => {
     if (fs.existsSync(PL_BUILD_DIR)) {
-      console.log("patterns already built");// eslint-disable-line no-console
+      console.log("patterns already built"); // eslint-disable-line no-console
       setTimeout(() => resolve(), 2000);
     } else {
       resolve(styleguide());

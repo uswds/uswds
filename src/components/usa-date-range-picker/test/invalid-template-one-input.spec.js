@@ -25,7 +25,7 @@ describe("Date range picker without second date picker", () => {
   it('should throw an error when a date range picker without two "usa-date-picker" elements', () => {
     assert.throws(() => DateRangePicker.on(), {
       message:
-        ".usa-date-range-picker is missing second '.usa-date-picker' element"
+        ".usa-date-range-picker is missing second '.usa-date-picker' element",
     });
   });
 });

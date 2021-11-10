@@ -5,6 +5,7 @@ const merge = require('lodash.merge');
 
 const outputDir = path.resolve(__dirname, './html-templates');
 const entryFile = path.resolve(__dirname, `${outputDir}/main.js`);
+const contentDir = "content"
 
 if (!fs.existsSync(outputDir)){
   fs.mkdirSync(outputDir)
@@ -31,8 +32,8 @@ function buildFileObj(dir, file, dataFile){
   const captureDirectory = /(?<=\/src\/)(\w+)/g
   const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
-    ? `${outDir[0]}/${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
-    : `${outDir[0]}/${dataFile.replace('.json', '.html')}`
+    ? `${outDir[0]}-${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
+    : `${outDir[0]}-${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
@@ -94,7 +95,7 @@ function walk(dir, ext) {
       // if a directory contains a content directory we update dir here
       // once we are done migrating components, we should update since we won't
       // have as many use cases
-      const dataDir = list.indexOf('content') > -1 ? `${dir}/content/` : dir
+      const dataDir = list.indexOf(contentDir) > -1 ? `${dir}/${contentDir}/` : dir
       const allData = fs.readdirSync(dataDir).filter( f => f.indexOf('.json') > -1)
 
       if (allData.length > 0) {
@@ -111,9 +112,11 @@ function walk(dir, ext) {
 
 const components = walk('./src/components', '.twig');
 const templates = walk('./src/templates', '.twig');
+const compare = walk('./src/compare', '.twig');
 const files = [].concat(
     components,
-    templates
+    templates,
+    compare
   )
 
 const htmlPlugins = files.map(file =>
