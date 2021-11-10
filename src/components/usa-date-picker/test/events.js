@@ -9,7 +9,7 @@ const EVENTS = {};
 EVENTS.input = (el = document.activeElement) => {
   const evt = new KeyboardEvent("input", {
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -22,7 +22,7 @@ EVENTS.click = (el = document.activeElement) => {
   const evt = new MouseEvent("click", {
     view: el.ownerDocument.defaultView,
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -34,7 +34,7 @@ EVENTS.click = (el = document.activeElement) => {
 EVENTS.focusout = (el = document.activeElement) => {
   const evt = new Event("focusout", {
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -48,7 +48,7 @@ EVENTS.keydownEnter = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     keyCode: 13,
-    key: "Enter"
+    key: "Enter",
   });
   const preventDefaultSpy = sinon.spy(evt, "preventDefault");
   el.dispatchEvent(evt);
@@ -64,7 +64,7 @@ EVENTS.keyupEnter = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keyup", {
     bubbles: true,
     keyCode: 13,
-    key: "Enter"
+    key: "Enter",
   });
   const preventDefaultSpy = sinon.spy(evt, "preventDefault");
   el.dispatchEvent(evt);
@@ -78,7 +78,7 @@ EVENTS.keyupEnter = (el = document.activeElement) => {
 EVENTS.keydownEscape = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "Escape"
+    key: "Escape",
   });
   el.dispatchEvent(evt);
 };
@@ -91,7 +91,7 @@ EVENTS.keydownSpace = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     keyCode: 32,
-    key: " "
+    key: " ",
   });
   el.dispatchEvent(evt);
 };
@@ -103,7 +103,7 @@ EVENTS.keydownSpace = (el = document.activeElement) => {
 EVENTS.keydownArrowDown = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowDown"
+    key: "ArrowDown",
   });
   el.dispatchEvent(evt);
 };
@@ -115,7 +115,7 @@ EVENTS.keydownArrowDown = (el = document.activeElement) => {
 EVENTS.keydownArrowUp = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowUp"
+    key: "ArrowUp",
   });
   el.dispatchEvent(evt);
 };
@@ -127,7 +127,7 @@ EVENTS.keydownArrowUp = (el = document.activeElement) => {
 EVENTS.keydownArrowLeft = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowLeft"
+    key: "ArrowLeft",
   });
   el.dispatchEvent(evt);
 };
@@ -139,7 +139,7 @@ EVENTS.keydownArrowLeft = (el = document.activeElement) => {
 EVENTS.keydownArrowRight = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "ArrowRight"
+    key: "ArrowRight",
   });
   el.dispatchEvent(evt);
 };
@@ -151,7 +151,7 @@ EVENTS.keydownArrowRight = (el = document.activeElement) => {
 EVENTS.keydownHome = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "Home"
+    key: "Home",
   });
   el.dispatchEvent(evt);
 };
@@ -163,7 +163,7 @@ EVENTS.keydownHome = (el = document.activeElement) => {
 EVENTS.keydownEnd = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "End"
+    key: "End",
   });
   el.dispatchEvent(evt);
 };
@@ -175,7 +175,7 @@ EVENTS.keydownEnd = (el = document.activeElement) => {
 EVENTS.keydownPageUp = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "PageUp"
+    key: "PageUp",
   });
   el.dispatchEvent(evt);
 };
@@ -187,7 +187,7 @@ EVENTS.keydownPageUp = (el = document.activeElement) => {
 EVENTS.keydownPageDown = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
-    key: "PageDown"
+    key: "PageDown",
   });
   el.dispatchEvent(evt);
 };
@@ -200,7 +200,7 @@ EVENTS.keydownShiftPageUp = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     key: "PageUp",
-    shiftKey: true
+    shiftKey: true,
   });
   el.dispatchEvent(evt);
 };
@@ -213,20 +213,20 @@ EVENTS.keydownShiftPageDown = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     key: "PageDown",
-    shiftKey: true
+    shiftKey: true,
   });
   el.dispatchEvent(evt);
 };
 
 /**
- * send a mousemove event
+ * send a mouseover event
  * @param {HTMLElement} el the element to sent the event to
  *
  */
-EVENTS.mousemove = el => {
-  const evt = new MouseEvent("mousemove", {
+EVENTS.mouseover = (el) => {
+  const evt = new MouseEvent("mouseover", {
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
   el.dispatchEvent(evt);
 };
@@ -239,7 +239,7 @@ EVENTS.keydownTab = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
     key: "Tab",
-    keyCode: 9
+    keyCode: 9,
   });
   el.dispatchEvent(evt);
 };
@@ -253,7 +253,7 @@ EVENTS.keydownShiftTab = (el = document.activeElement) => {
     bubbles: true,
     key: "Tab",
     keyCode: 9,
-    shiftKey: true
+    shiftKey: true,
   });
   el.dispatchEvent(evt);
 };

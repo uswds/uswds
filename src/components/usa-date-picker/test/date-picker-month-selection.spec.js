@@ -16,9 +16,7 @@ describe("date picker component month selection", () => {
   let button;
 
   const getCalendarEl = (query) =>
-    root.querySelector(
-      ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
-    );
+    root.querySelector(`.usa-date-picker__calendar${query ? ` ${query}` : ""}`);
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -137,7 +135,7 @@ describe("date picker component month selection", () => {
   });
 
   it("should update the focus when moving over a non-selected valid month", () => {
-    EVENTS.mousemove(
+    EVENTS.mouseover(
       getCalendarEl().querySelector(
         '.usa-date-picker__calendar__month[data-label="October"]'
       )
