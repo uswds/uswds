@@ -24,13 +24,13 @@ $input-select-margin-right: 1.5;
   width: 100%;
 
   &.usa-input--error {
-  @include u-border($theme-input-state-border-width, "error-dark");
-  padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+    @include u-border($theme-input-state-border-width, "error-dark");
+    padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
   }
 
   &.usa-input--success {
-  @include u-border($theme-input-state-border-width, "success");
-  padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+    @include u-border($theme-input-state-border-width, "success");
+    padding: calc(#{units(1)} - #{units($theme-input-state-border-width)});
   }
 }
 
