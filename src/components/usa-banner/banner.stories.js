@@ -1,7 +1,4 @@
 import "../../stylesheets/uswds.scss";
-import flagIcon from "../../img/us_flag_small.png";
-import dotGovIcon from "../../img/icon-dot-gov.svg";
-import httpsIcon from "../../img/icon-https.svg";
 import component from "./usa-banner.twig";
 import {
   DefaultContent,
@@ -10,14 +7,7 @@ import {
   MilContentLangEs,
 } from "./content";
 
-const defaults = {
-  images: {
-    flagIcon,
-    dotGovIcon,
-    httpsIcon,
-  },
-  ...DefaultContent,
-};
+const defaults = DefaultContent;
 
 export default {
   title: "Components/Banner",

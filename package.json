@@ -50,8 +50,8 @@
     "watch": "gulp watch",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
     "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
-    "start:storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook",
+    "start:storybook": "start-storybook -p 6006 -s ./dist",
+    "build:storybook": "build-storybook -s ./dist",
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
   },
   "repository": {
