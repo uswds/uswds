@@ -1,21 +1,23 @@
-@mixin external-link(
-  $external-link,
-  $external-link-hover,
-  $image-path: $theme-image-path
-) {
-  &::after {
-    $icon-size: 0.65em;
-    background-image: url("#{$image-path}/#{$external-link}.svg");
-    background-position: 50% 60%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: "";
-    display: inline;
-    margin-left: units(2px);
-    padding-left: $icon-size;
-  }
+$external-link-size: 1.75ex;
 
-  &:hover::after {
-    @include add-background-svg("#{$external-link-hover}", $image-path);
+$icon-object: (
+  "name": "launch",
+  "color": currentColor,
+  "height": $external-link-size,
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+@mixin external-link($contrast-bg: "default") {
+  &::after {
+    @include add-color-icon($icon-object, $contrast-bg);
+    content: "";
+    height: $external-link-size;
+    margin-left: units(2px);
+    // Use following inline styling to prevent icon splitting over line breaks
+    background-position: center;
+    display: inline;
+    padding-left: $external-link-size;
+    vertical-align: middle;
   }
 }
