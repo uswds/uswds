@@ -51,7 +51,6 @@ Information about the most recent release of the design system can always be fou
 We’re glad you’d like to use the design system — here’s how you can get started:
 
 - Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
-  - [Design files of all the assets included in the design system are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
 - Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
   - [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
