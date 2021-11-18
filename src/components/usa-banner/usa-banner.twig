@@ -13,7 +13,7 @@
     <header class="usa-banner__header">
       <div class="usa-banner__inner">
         <div class="grid-col-auto">
-          <img class="usa-banner__header-flag" src="img/us_flag_small.png" alt="U.S. flag">
+          <img class="usa-banner__header-flag" src="./img/us_flag_small.png" alt="U.S. flag">
         </div>
         <div class="grid-col-fill tablet:grid-col-auto">
           <p class="usa-banner__header-text">{{ banner.text }}</p>
@@ -27,14 +27,14 @@
     <div class="usa-banner__content usa-accordion__content" id="{{ banner.id }}">
       <div class="grid-row grid-gap-lg">
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img class="usa-banner__icon usa-media-block__img" src="img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true">
+          <img class="usa-banner__icon usa-media-block__img" src="./img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true">
           <div class="usa-media-block__body">
             {# Will cause error without trim because it doesn't know what to do with new lines #}
             <p><strong>{{ domain.heading }}</strong><br/>{{ domain.text | trim | raw }}</p>
           </div>
         </div>
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img class="usa-banner__icon usa-media-block__img" src="img/icon-https.svg" role="img" alt="" aria-hidden="true">
+          <img class="usa-banner__icon usa-media-block__img" src="./img/icon-https.svg" role="img" alt="" aria-hidden="true">
           <div class="usa-media-block__body">
             <p><strong>{{ https.heading }}</strong><br/>{{ https.pretext | trim | raw }} ({{ lock }}) {{ https.posttext | trim | raw }}</p>
           </div>
