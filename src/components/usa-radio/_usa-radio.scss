@@ -66,7 +66,6 @@
   padding-left: units($input-select-margin-right) +
     units($theme-input-select-size);
   position: relative;
-  text-indent: units(-$input-select-margin-right - $theme-input-select-size);
 
   &:before {
     content: " ";

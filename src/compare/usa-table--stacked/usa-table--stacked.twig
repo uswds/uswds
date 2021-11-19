@@ -15,15 +15,15 @@
 } %}
 
 <div class="table-example-container">
-  {% include "./components/usa-table/usa-table--stacked.twig" with {
+  {% include "@components/usa-table/usa-table--stacked/usa-table--stacked.twig" with {
     'caption': 'Stacked bordered table (when on a mobile-width screen)'
   } %}
 
-  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_borderless %}
+  {% include "@components/usa-table/usa-table--stacked/usa-table--stacked.twig" with stacked_borderless %}
 
-  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_bordered_header %}
+  {% include "@components/usa-table/usa-table--stacked/usa-table--stacked.twig" with stacked_bordered_header %}
 
-  {% include "./components/usa-table/usa-table--stacked.twig" with stacked_borderless_header %}
+  {% include "@components/usa-table/usa-table--stacked/usa-table--stacked.twig" with stacked_borderless_header %}
 </div>
 
 <style scoped>

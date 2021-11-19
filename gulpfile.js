@@ -13,7 +13,6 @@ const { lintSass, lintJS } = require("./gulp-tasks/lint");
 const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
 const { watch } = require("./gulp-tasks/watch");
-const { buildPL } = require("./gulp-tasks/serve");
 const { compileSass } = require("./gulp-tasks/sass");
 const { copyVendor } = require("./gulp-tasks/copy");
 const { cleanDist } = require("./gulp-tasks/clean");
@@ -67,11 +66,7 @@ exports.buildSprite = buildSprite;
 exports.buildSass = series(lintSass, copyVendor, compileSass);
 exports.buildJS = series(typeCheck, lintJS, compileJS);
 exports.buildUSWDS = build;
-exports.buildComponents = buildPL;
 exports.release = release;
-
-// Build task for Pattern Lab.
-exports.styleguide = buildPL;
 
 /**
  * *Watch task*

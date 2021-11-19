@@ -1,12 +1,8 @@
 import Component from "./usa-nav__primary.twig";
-import Data from "./usa-nav__primary.yml";
-import CloseIcon from "../../../img/usa-icons/close.svg";
+import Data from "./usa-nav__primary.json";
 
 export default {
   title: "Components/Navigation/Primary",
-  args: {
-    CloseIcon,
-  },
 };
 
 const Template = (args) => Component(args);
