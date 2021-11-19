@@ -14,10 +14,8 @@ coverage/
 dist/
 html-templates/
 
-# ignore the Pattern Lab directory
-patternlab/
+# ignore the build directory
 build/
-dependencyGraph.json
 
 # ignore compiled storybook directory
 storybook-static/
