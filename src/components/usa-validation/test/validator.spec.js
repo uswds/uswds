@@ -57,6 +57,7 @@ tests.forEach(({name, selector: containerSelector}) => {
           } else {
             assert.strictEqual(checked, true);
           }
+        });
       });
     });
   });
