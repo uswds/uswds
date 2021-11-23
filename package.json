@@ -45,7 +45,7 @@
     "mocha": "mocha",
     "precommit": "lint-staged --allow-empty",
     "prepare": "gulp build",
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "preversion": "npm test",
