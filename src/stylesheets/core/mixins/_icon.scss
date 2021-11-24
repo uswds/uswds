@@ -141,6 +141,10 @@
     background: none;
     background-color: if($color == currentColor, $color, color($color));
     mask: $mask-props;
+    // added to work in Chrome/webkit
+    -webkit-mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     @if $color-hover {
       &:hover {
         background-color: color($color-hover);
