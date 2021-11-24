@@ -129,7 +129,7 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
-
+ 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
@@ -279,6 +279,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     if (fileNames[i]) {
       reader.readAsDataURL(fileNames[i]);
+      fileInputEl.setAttribute("aria-label", "You have selected the file " + fileName);
     }
 
     // Adds heading above file previews, pluralizes if there are multiple
