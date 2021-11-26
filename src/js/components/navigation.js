@@ -27,6 +27,7 @@ const VISIBLE_CLASS = "is-visible";
 let navigation;
 let navActive;
 
+const menuButton = document.querySelector(OPENERS);
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
@@ -50,7 +51,6 @@ const toggleNav = (active) => {
   navigation.focusTrap.update(safeActive);
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
-  const menuButton = body.querySelector(OPENERS);
 
   body.style.paddingRight =
     body.style.paddingRight === TEMPORARY_PADDING
@@ -88,7 +88,10 @@ const resize = () => {
   }
 };
 
-const onMenuClose = () => navigation.toggleNav.call(navigation, false);
+const onMenuClose = () => {
+  navigation.toggleNav.call(navigation, false);
+  menuButton.focus();
+};
 
 const hideActiveNavDropdown = () => {
   if (!navActive) {
@@ -157,6 +160,13 @@ navigation = behavior(
       [NAV_PRIMARY]: keymap({ Escape: handleEscape }),
     },
     focusout: {
+      [NAV](event) {
+        // Close entire navigation if focus leaves,
+        // for example focusing on address bar on mobile.
+        if (!event.relatedTarget) {
+          navigation.toggleNav.call(navigation, false);
+        }
+      },
       [NAV_PRIMARY](event) {
         const nav = event.target.closest(NAV_PRIMARY);
 
