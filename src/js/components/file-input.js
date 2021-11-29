@@ -217,14 +217,14 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const filePreviewsHeading = document.createElement("div");
   let   fileStore = [];
 
-  // And enocurage screenreader to read out aria on any state change
+  // Enocurage screenreader to read out aria on any state change
   fileInputEl.setAttribute("aria-live", "polite");
-
-  // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions);
- 
   // Then set aria-label to reflect empty fileList
   fileInputEl.setAttribute("aria-label", "");
+  // Then get rid of existing previews
+  removeOldPreviews(dropTarget, instructions);
+ 
+
 
   // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
