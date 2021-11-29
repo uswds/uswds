@@ -211,22 +211,25 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
+
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
+  let   fileStore = [];
+
+  // And enocurage screenreader to read out aria on any state change
+  fileInputEl.setAttribute("aria-live", "polite");
 
   // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
+ 
   // Then set aria-label to reflect empty fileList
-  fileInputEl.setAttribute("aria-label", "No files selected");
-  // And enocurage screenreader to read out aria on any state change
-  fileInputEl.setAttribute("aria-live", "polite");
+  fileInputEl.setAttribute("aria-label", "");
 
   // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
-    let   fileStore = [];
 
     //help screenreaders read out the selected content
     //Push selected file names into the array
