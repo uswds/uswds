@@ -129,7 +129,7 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
- 
+
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
@@ -201,8 +201,6 @@ const removeOldPreviews = (dropTarget, instructions) => {
     }
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
-
-  
 };
 
 /**
@@ -216,20 +214,30 @@ const removeOldPreviews = (dropTarget, instructions) => {
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
-  let   fileStore = [];
 
   // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
-
-  //set aria-label to assume no file selected
+  // Then set aria-label to reflect empty fileList
   fileInputEl.setAttribute("aria-label", "No files selected");
-  //enocurage screenreader to read out aria-label on state change
+  // And enocurage screenreader to read out aria on any state change
   fileInputEl.setAttribute("aria-live", "polite");
-  
+
   // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
+    let   fileStore = [];
+
+    //help screenreaders read out the selected content
+    //Push selected file names into the array
+    fileStore.push(' ' + fileName);
+
+    //read out the file name array with the the appropriate aria-label, options based on file count
+    if (i === 0) {
+      fileInputEl.setAttribute("aria-label", "You have selected the file:" + fileName);
+    } else if (i >= 1) {
+      fileInputEl.setAttribute("aria-label", "You have selected " + fileNames.length + " files:" + fileStore);
+    } 
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
@@ -241,24 +249,12 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
           <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
         <div>`
       );
-
-      //help screenreaders read out the selected content
-      //Build array with the selected file names
-      fileStore.push(' ' + fileName);
-
-      //add the appropriate aria-label based on item count
-      if (i === 0) {
-        fileInputEl.setAttribute("aria-label", "You have selected the file:" + fileName);
-      } else if (i >= 1) {
-        fileInputEl.setAttribute("aria-label", "You have selected " + fileNames.length + " files:" + fileStore);
-      } 
     };
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
       const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
-
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
           "onerror",
@@ -300,8 +296,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     if (fileNames[i]) {
       reader.readAsDataURL(fileNames[i]);
     }
-    
-    
 
     // Adds heading above file previews, pluralizes if there are multiple
     if (i === 0) {
@@ -311,7 +305,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       dropTarget.insertBefore(filePreviewsHeading, instructions);
       filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
-      } files selected <span class="usa-file-input__choose" >Change files</span>`;
+      } files selected <span class="usa-file-input__choose">Change files</span>`;
     }
 
     // Hides null state content and sets preview heading class
