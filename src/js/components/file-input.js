@@ -220,8 +220,12 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
-  
 
+  //set aria-label to assume no file selected
+  fileInputEl.setAttribute("aria-label", "No files selected");
+  //enocurage screenreader to read out aria-label on state change
+  fileInputEl.setAttribute("aria-live", "polite");
+  
   // Iterates through files list and creates previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
@@ -238,12 +242,15 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
         <div>`
       );
 
+      //help screenreaders read out the selected content
+      //Build array with the selected file names
       fileStore.push(' ' + fileName);
 
+      //add the appropriate aria-label based on item count
       if (i === 0) {
-        fileInputEl.setAttribute("aria-label", "You have selected the file:" + fileStore);
+        fileInputEl.setAttribute("aria-label", "You have selected the file:" + fileName);
       } else if (i >= 1) {
-        fileInputEl.setAttribute("aria-label", "You have selected the files:" + fileStore);
+        fileInputEl.setAttribute("aria-label", "You have selected " + fileNames.length + " files:" + fileStore);
       } 
     };
 
