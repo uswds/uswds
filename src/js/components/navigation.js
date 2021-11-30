@@ -15,17 +15,21 @@ const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
 const NAV_CONTROL = `button.${PREFIX}-nav__link`;
 const NAV_LINKS = `${NAV} a`;
+const NON_NAV_HIDDEN_ATTRIBUTE = `data-nav-hidden`;
 const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(", ");
+const NON_NAV_ELEMENTS = `body > *:not(.usa-header):not([aria-hidden])`;
+const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
 
 let navigation;
 let navActive;
+let nonNavElements;
 
 const menuButton = document.querySelector(OPENERS);
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
@@ -37,6 +41,38 @@ const TEMPORARY_PADDING = `${
   parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
   parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
 }px`;
+
+const hideNonNavItems = () => {
+  nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
+
+  nonNavElements.forEach((nonNavElement) => {
+    nonNavElement.setAttribute("aria-hidden", true);
+    nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+  });
+}
+
+const showNonNavItems = () => {
+  nonNavElements = document.querySelectorAll(NON_NAV_HIDDEN);
+
+  if (!nonNavElements) {
+    return;
+  }
+
+  // Remove aria-hidden from non-header elements
+  nonNavElements.forEach((nonNavElement) => {
+    nonNavElement.removeAttribute("aria-hidden");
+    nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
+  });
+}
+
+// Toggle all non-header elements #3527.
+const toggleNonNavItems = (active) => {
+  if (active) {
+    hideNonNavItems();
+  } else {
+    showNonNavItems();
+  }
+}
 
 const toggleNav = (active) => {
   const { body } = document;
@@ -58,8 +94,8 @@ const toggleNav = (active) => {
       : TEMPORARY_PADDING;
 
   if (safeActive && closeButton) {
-    // The mobile nav was just activated, so focus on the close button,
-    // which is just before all the nav elements in the tab order.
+    // The mobile nav was just activated. Focus on the close button, which is
+    // just before all the nav elements in the tab order.
     closeButton.focus();
   } else if (
     !safeActive &&
@@ -73,6 +109,8 @@ const toggleNav = (active) => {
     // if they triggered the mobile nav by mistake).
     menuButton.focus();
   }
+
+  toggleNonNavItems(safeActive);
 
   return safeActive;
 };
