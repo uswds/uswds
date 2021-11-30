@@ -219,17 +219,18 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   // Encourage screenreader to read out aria change immediately following upload status change
   fileInputEl.setAttribute("aria-live", "polite");
-  // Then set aria-label to assume empty fileList.
-  // This is helpful in case is able to clear selection by cancelling 
+  // Then set aria-label to assume empty fileList. This is helpful in case user is able to clear selection by cancelling task
   fileInputEl.setAttribute("aria-label", "No file selected");
   // Then get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
 
-  // Iterates through files list and creates previews; creates name 
+  // Iterates through files list and:
+  // 1. Adds selected file list names to aria-label
+  // 2. Creates previews
+  
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
-
     //accessibility - help screenreaders read out names the selected files
     //Push updated file names into the store array
     fileStore.push(' ' + fileName);
