@@ -31,7 +31,6 @@ let navigation;
 let navActive;
 let nonNavElements;
 
-const menuButton = document.querySelector(OPENERS);
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
@@ -87,6 +86,7 @@ const toggleNav = (active) => {
   navigation.focusTrap.update(safeActive);
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
+  const menuButton = document.querySelector(OPENERS);
 
   body.style.paddingRight =
     body.style.paddingRight === TEMPORARY_PADDING
@@ -126,10 +126,7 @@ const resize = () => {
   }
 };
 
-const onMenuClose = () => {
-  navigation.toggleNav.call(navigation, false);
-  // menuButton.focus();
-};
+const onMenuClose = () => navigation.toggleNav.call(navigation, false);
 
 const hideActiveNavDropdown = () => {
   if (!navActive) {
