@@ -217,27 +217,26 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const filePreviewsHeading = document.createElement("div");
   let   fileStore = [];
 
-  // Enocurage screenreader to read out aria on any state change
+  // Encourage screenreader to read out aria change immediately following upload status change
   fileInputEl.setAttribute("aria-live", "polite");
-  // Then set aria-label to reflect empty fileList
-  fileInputEl.setAttribute("aria-label", "");
+  // Then set aria-label to assume empty fileList.
+  // This is helpful in case is able to clear selection by cancelling 
+  fileInputEl.setAttribute("aria-label", "No file selected");
   // Then get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
- 
 
-
-  // Iterates through files list and creates previews
+  // Iterates through files list and creates previews; creates name 
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
 
-    //help screenreaders read out the selected content
-    //Push selected file names into the array
+    //accessibility - help screenreaders read out names the selected files
+    //Push updated file names into the store array
     fileStore.push(' ' + fileName);
 
-    //read out the file name array with the the appropriate aria-label, options based on file count
+    //read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
-      fileInputEl.setAttribute("aria-label", "You have selected the file:" + fileName);
+      fileInputEl.setAttribute("aria-label", "You have selected the file: " + fileName);
     } else if (i >= 1) {
       fileInputEl.setAttribute("aria-label", "You have selected " + fileNames.length + " files:" + fileStore);
     } 
