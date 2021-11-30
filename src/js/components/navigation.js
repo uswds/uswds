@@ -93,6 +93,8 @@ const toggleNav = (active) => {
       ? INITIAL_PADDING
       : TEMPORARY_PADDING;
 
+  toggleNonNavItems(safeActive);
+
   if (safeActive && closeButton) {
     // The mobile nav was just activated. Focus on the close button, which is
     // just before all the nav elements in the tab order.
@@ -110,8 +112,6 @@ const toggleNav = (active) => {
     menuButton.focus();
   }
 
-  toggleNonNavItems(safeActive);
-
   return safeActive;
 };
 
@@ -128,7 +128,7 @@ const resize = () => {
 
 const onMenuClose = () => {
   navigation.toggleNav.call(navigation, false);
-  menuButton.focus();
+  // menuButton.focus();
 };
 
 const hideActiveNavDropdown = () => {
@@ -198,13 +198,6 @@ navigation = behavior(
       [NAV_PRIMARY]: keymap({ Escape: handleEscape }),
     },
     focusout: {
-      [NAV](event) {
-        // Close entire navigation if focus leaves,
-        // for example focusing on address bar on mobile.
-        if (!event.relatedTarget) {
-          navigation.toggleNav.call(navigation, false);
-        }
-      },
       [NAV_PRIMARY](event) {
         const nav = event.target.closest(NAV_PRIMARY);
 
