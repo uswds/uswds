@@ -221,19 +221,19 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const filePreviewsHeading = document.createElement("div");
   const fileStore = [];
 
-  // Then get rid of existing previews
+  // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
 
-  // Iterates through files list and:
-  // 1. Adds selected file list names to aria-label
-  // 2. Creates previews
+  // Then, iterate through files list and:
+  // 1. Add selected file list names to aria-label
+  // 2. Create previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
-    // Help screenreaders read out names of the selected files
+
     // Push updated file names into the store array
     fileStore.push(fileName);
-
+    
     // read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
       fileInputEl.setAttribute("aria-label", `You have selected the file: ${fileName}`);
