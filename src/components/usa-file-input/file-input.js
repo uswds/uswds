@@ -129,6 +129,8 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
+  // Encourage screenreader to read out aria changes immediately following upload status change
+  fileInputEl.setAttribute("aria-live", "polite");
 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
@@ -143,11 +145,13 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // Sets instruction test based on whether or not multiple files are accepted
+  // Sets instruction test and aria-label based on whether or not multiple files are accepted
   if (acceptsMultiple) {
     instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    fileInputEl.setAttribute("aria-label", "No files selected");
   } else {
     instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    fileInputEl.setAttribute("aria-label", "No file selected");
   }
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
@@ -215,31 +219,26 @@ const removeOldPreviews = (dropTarget, instructions) => {
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
-  let   fileStore = [];
+  const fileStore = [];
 
-  // Encourage screenreader to read out aria change immediately following upload status change
-  fileInputEl.setAttribute("aria-live", "polite");
-  // Then set aria-label to assume empty fileList. This is helpful in case user is able to clear selection by cancelling task
-  fileInputEl.setAttribute("aria-label", "No file selected");
   // Then get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
 
   // Iterates through files list and:
   // 1. Adds selected file list names to aria-label
   // 2. Creates previews
-  
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
-    //accessibility - help screenreaders read out names the selected files
-    //Push updated file names into the store array
-    fileStore.push(' ' + fileName);
+    // Help screenreaders read out names of the selected files
+    // Push updated file names into the store array
+    fileStore.push(fileName);
 
-    //read out the store array via aria-label, wording options vary based on file count
+    // read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
-      fileInputEl.setAttribute("aria-label", "You have selected the file: " + fileName);
+      fileInputEl.setAttribute("aria-label", `You have selected the file: ${fileName}`);
     } else if (i >= 1) {
-      fileInputEl.setAttribute("aria-label", "You have selected " + fileNames.length + " files:" + fileStore);
+      fileInputEl.setAttribute("aria-label", `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`);
     } 
 
     // Starts with a loading image while preview is created
