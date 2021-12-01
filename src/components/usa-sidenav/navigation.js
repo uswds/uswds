@@ -10,6 +10,7 @@ const { CLICK } = require("../../events");
 const { prefix: PREFIX } = require("../../config");
 
 const BODY = "body";
+const HEADER = `.${PREFIX}-header`;
 const NAV = `.${PREFIX}-nav`;
 const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
@@ -21,7 +22,7 @@ const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(", ");
-const NON_NAV_ELEMENTS = `body > *:not(.usa-header):not([aria-hidden])`;
+const NON_NAV_ELEMENTS = `body > *:not(${HEADER}):not([aria-hidden])`;
 const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
@@ -48,7 +49,7 @@ const hideNonNavItems = () => {
     nonNavElement.setAttribute("aria-hidden", true);
     nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
   });
-}
+};
 
 const showNonNavItems = () => {
   nonNavElements = document.querySelectorAll(NON_NAV_HIDDEN);
@@ -62,7 +63,7 @@ const showNonNavItems = () => {
     nonNavElement.removeAttribute("aria-hidden");
     nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
   });
-}
+};
 
 // Toggle all non-header elements #3527.
 const toggleNonNavItems = (active) => {
@@ -71,7 +72,7 @@ const toggleNonNavItems = (active) => {
   } else {
     showNonNavItems();
   }
-}
+};
 
 const toggleNav = (active) => {
   const { body } = document;
