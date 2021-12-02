@@ -48,6 +48,7 @@ const hideNonNavItems = () => {
   nonNavElements.forEach((nonNavElement) => {
     nonNavElement.setAttribute("aria-hidden", true);
     nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+    nonNavElement.setAttribute("tabindex", "-1");
   });
 };
 
@@ -62,6 +63,7 @@ const showNonNavItems = () => {
   nonNavElements.forEach((nonNavElement) => {
     nonNavElement.removeAttribute("aria-hidden");
     nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
+    nonNavElement.removeAttribute("tabindex");
   });
 };
 
