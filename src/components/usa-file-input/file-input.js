@@ -106,7 +106,8 @@ const replaceName = (s) => {
 const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 
 // Takes a generated safe ID and creates a unique ID.
-const createUniqueID = (name) => `${name}-${Math.floor(Date.now().toString() / 1000)}`;
+const createUniqueID = (name) =>
+  `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
  * Builds full file input component
@@ -120,6 +121,7 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
+  let defaultAriaLabel;
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -147,11 +149,15 @@ const buildFileInput = (fileInputEl) => {
 
   // Sets instruction test and aria-label based on whether or not multiple files are accepted
   if (acceptsMultiple) {
+    defaultAriaLabel = "No files selected";
     instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
-    fileInputEl.setAttribute("aria-label", "No files selected");
+    fileInputEl.setAttribute("aria-label", defaultAriaLabel);
+    fileInputEl.setAttribute("data-default-aria-label", defaultAriaLabel);
   } else {
+    defaultAriaLabel = "No file selected";
     instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
-    fileInputEl.setAttribute("aria-label", "No file selected");
+    fileInputEl.setAttribute("aria-label", defaultAriaLabel);
+    fileInputEl.setAttribute("data-default-aria-label", defaultAriaLabel);
   }
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
@@ -170,8 +176,9 @@ const buildFileInput = (fileInputEl) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
-const removeOldPreviews = (dropTarget, instructions) => {
+const removeOldPreviews = (dropTarget, instructions, inputAriaLabel) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const fileInputElement = dropTarget.querySelector(INPUT);
   const currentPreviewHeading = dropTarget.querySelector(
     `.${PREVIEW_HEADING_CLASS}`
   );
@@ -203,6 +210,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
+    fileInputElement.setAttribute("aria-label", inputAriaLabel);
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
 };
@@ -219,10 +227,11 @@ const removeOldPreviews = (dropTarget, instructions) => {
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
+  const inputAriaLabel = fileInputEl.dataset.defaultAriaLabel;
   const fileStore = [];
 
   // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions);
+  removeOldPreviews(dropTarget, instructions, inputAriaLabel);
 
   // Then, iterate through files list and:
   // 1. Add selected file list names to aria-label
@@ -233,13 +242,19 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Push updated file names into the store array
     fileStore.push(fileName);
-    
+
     // read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
-      fileInputEl.setAttribute("aria-label", `You have selected the file: ${fileName}`);
+      fileInputEl.setAttribute(
+        "aria-label",
+        `You have selected the file: ${fileName}`
+      );
     } else if (i >= 1) {
-      fileInputEl.setAttribute("aria-label", `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`);
-    } 
+      fileInputEl.setAttribute(
+        "aria-label",
+        `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`
+      );
+    }
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
@@ -381,7 +396,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`
+        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
