@@ -18,16 +18,22 @@ $sidenav-level-4-inset: 8;
     }
   }
 
-  a {
-    color: color("base-dark");
+  a:not(.usa-button) {
     display: block;
     padding: units(1) units($sidenav-level-1-inset);
     text-decoration: none;
 
     &:hover {
       background-color: color("base-lightest");
-      color: color("primary");
       text-decoration: none;
+    }
+  }
+
+  a:not(.usa-button):not(.usa-current) {
+    color: color("base-dark");
+
+    &:hover {
+      color: color($theme-link-color);
     }
 
     &:focus {
@@ -38,19 +44,19 @@ $sidenav-level-4-inset: 8;
   .usa-current {
     @include add-bar(
       $theme-sidenav-current-border-width,
-      "primary",
+      $theme-link-color,
       "left",
       "pill",
       0.5,
       0.5
     );
-    color: color("primary");
+    color: color($theme-link-color);
     font-weight: font-weight("bold");
 
     @include at-media("tablet") {
       @include add-bar(
         $theme-sidenav-current-border-width,
-        "primary",
+        $theme-link-color,
         "left",
         "pill",
         0,
@@ -78,18 +84,17 @@ $sidenav-level-4-inset: 8;
   }
 
   // level 2+
-  a {
+  a:not(.usa-button) {
     padding-left: units($sidenav-level-2-inset);
   }
 
   // level 3+
-  & & a {
+  & & a:not(.usa-button) {
     padding-left: units($sidenav-level-3-inset);
   }
 
   // level 4+
-  & & & a {
-    content: "foobar";
+  & & & a:not(.usa-button) {
     padding-left: units($sidenav-level-4-inset);
   }
 }

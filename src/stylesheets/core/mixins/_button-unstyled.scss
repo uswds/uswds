@@ -11,10 +11,39 @@
   text-align: left;
 
   &:hover,
-  &:active {
+  &.usa-button--hover,
+  &:disabled:hover,
+  &:disabled.usa-button--hover,
+  &.usa-button--disabled:hover,
+  &.usa-button--disabled.usa-button--hover,
+  &:active,
+  &.usa-button--active,
+  &:disabled:active,
+  &:disabled.usa-button--active,
+  &.usa-button--disabled:active,
+  &.usa-button--disabled.usa-button--active,
+  &:disabled:focus,
+  &:disabled.usa-focus,
+  &.usa-button--disabled:focus,
+  &.usa-button--disabled.usa-focus,
+  &:disabled,
+  &.usa-button--disabled {
     @include no-knockout-font-smoothing;
     background-color: transparent;
     box-shadow: none;
     text-decoration: underline;
+  }
+
+  &:disabled,
+  &.usa-button--disabled {
+    color: color("disabled");
+  }
+
+  &.usa-button--hover {
+    color: color($theme-link-hover-color);
+  }
+
+  &.usa-button--active {
+    color: color($theme-link-active-color);
   }
 }

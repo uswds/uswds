@@ -8,8 +8,8 @@
 
 $nav-link-color: "base-dark";
 $sliding-panel-width: "card-lg";
-$nav-link-accordion-icon-size: 1.5;
-$nav-link-arrow-icon-size: 1;
+$nav-link-accordion-icon-size: 2.5;
+$nav-link-arrow-icon-size: 2;
 
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
@@ -146,35 +146,37 @@ $nav-link-arrow-icon-size: 1;
 
     &[aria-expanded="false"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("plus-alt");
+      @include add-background-svg("usa-icons/add");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("angle-arrow-down");
+        @include add-background-svg("usa-icons/expand_more");
         background-size: units($nav-link-arrow-icon-size);
-        background-position: right units(2) top $button-vertical-offset;
+        background-position: right units(1.5) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-header-min-width) {
-          @include add-background-svg("angle-arrow-down-primary");
+          @include add-background-svg(
+            "usa-icons-bg/expand_more--blue-warm-70v"
+          );
         }
       }
     }
 
     &[aria-expanded="true"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("minus-alt");
+      @include add-background-svg("usa-icons/remove");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("angle-arrow-up-white");
+        @include add-background-svg("usa-icons-bg/expand_less--white");
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color("primary-darker");
-        background-position: right units(2) top $button-vertical-offset;
+        background-position: right units(1.5) top $button-vertical-offset;
         color: color("white");
       }
     }
@@ -197,8 +199,9 @@ $nav-link-arrow-icon-size: 1;
   margin-top: units(2);
 
   @include at-media($theme-header-min-width) {
-    // Note: Previius calc() couldn't work. don't hardcode rem vals
+    @include u-flex("column", "align-end");
     bottom: units(8); // XXX magic number
+    display: flex;
     font-size: font-size($theme-navigation-font-family, "2xs");
     margin-top: units(1);
     min-width: calc(
@@ -335,7 +338,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   img {
-    width: units(1.5);
+    width: units(3);
   }
 
   + * {

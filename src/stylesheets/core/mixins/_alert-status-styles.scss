@@ -1,0 +1,33 @@
+@mixin alert-status-styles($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  background-color: color($bgcolor);
+  border-left-color: color($name);
+  color: color($banner-text-color-token);
+
+  .usa-link {
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
+  }
+
+  &.usa-alert--no-icon {
+    &:before {
+      display: none;
+    }
+
+    .usa-alert__body {
+      padding-left: units($theme-alert-padding-x);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{% if lang == "es" %}
+  {% extends 'layouts/_base/base--lang-es.njk' %}
+{% else %}
+  {% extends 'layouts/_base/base.njk' %}
+{% endif %}
+
+{% block header %}
+  {% render '@layout--header-empty' %}
+{% endblock %}
+
+{% block body %}
+  {% include 'layouts/create-account/_create-account-inner.njk' %}
+{% endblock %}
+

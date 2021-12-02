@@ -16,11 +16,11 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg("minus");
+  @include add-background-svg("usa-icons/remove");
 
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
-  background-size: units(2);
+  background-size: units(3);
   color: color("ink");
   cursor: pointer;
   display: inline-block;
@@ -39,8 +39,8 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg("plus");
-  background-size: units(2);
+  @include add-background-svg("usa-icons/add");
+  background-size: units(3);
 }
 
 @mixin accordion-nested-list {

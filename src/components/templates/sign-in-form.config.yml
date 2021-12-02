@@ -1,0 +1,28 @@
+label: Sign-in form
+preview: "@uswds-framed"
+status: ready
+
+context:
+  form:
+    legend: Access your account
+    email:
+      label: Email address
+      input:
+        id: email
+        type: email
+    password:
+      label: Password
+      input:
+        id: password-sign-in
+      toggle:
+        title: Show password
+        aria_controls: password-sign-in
+        text:
+          show: Show password
+          hide: Hide password
+    submit:
+      label: Sign in
+    recovery:
+      title: Forgot password
+      label: Forgot password?
+

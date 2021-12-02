@@ -1,0 +1,10 @@
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--extended">
+  {%- render '@site-title', {header: header}, true -%}
+  <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
+    <div class="usa-nav__inner">
+      {%- render '@nav-primary', {nav: header.primary}, true -%}
+      {%- render '@nav-secondary', {nav: header.secondary, id_prefix: header.primary.id_prefix}, true -%}
+    </div>
+  </nav>
+</header>

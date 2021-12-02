@@ -2,7 +2,6 @@
   @include add-knockout-font-smoothing;
   background-color: color("disabled");
   color: color("white");
-  pointer-events: none;
 
   &:hover,
   &.usa-button--hover,

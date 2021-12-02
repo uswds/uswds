@@ -1,0 +1,40 @@
+<form class="usa-form">
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend usa-legend--large">{{ form.legend }}</legend>
+    {# Email #}
+    <label class="usa-label" for="{{ form.email.input.id }}">
+      {{ form.email.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ form.email.input.id }}"
+      name="{{ form.email.input.id }}"
+      type="{{ form.email.input.type }}"
+      autocapitalize="off"
+      autocorrect="off"
+      required
+    >
+    {# /Email #}
+    {# Password #}
+    <label class="usa-label" for="{{ form.password.input.id }}">
+      {{ form.password.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ form.password.input.id }}"
+      name="password"
+      type="password"
+      required
+    >
+    {% render '@password', { toggle: form.password.toggle }, true %}
+    {# /Password #}
+    <input class="usa-button" type="submit" value="{{ form.submit.label }}">
+    {# Forgot password #}
+    <p>
+      <a href="javascript:void(0);" title="{{ form.recovery.title }}">
+        {{ form.recovery.label }}
+      </a>
+    </p>
+    {# /Forgot password #}
+  </fieldset>
+</form>

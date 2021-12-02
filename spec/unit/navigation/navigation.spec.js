@@ -7,6 +7,25 @@ const accordion = require("../../../src/js/components/accordion");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 
+const EVENTS = {
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+  focusOut(el) {
+    const focusOutEvent = new Event("focusout", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    el.dispatchEvent(focusOutEvent);
+  },
+};
+
 describe("navigation toggle", () => {
   const { body } = document;
 
@@ -19,7 +38,7 @@ describe("navigation toggle", () => {
   let accordionButton;
   let navLink;
 
-  const isVisible = el => el.classList.contains("is-visible");
+  const isVisible = (el) => el.classList.contains("is-visible");
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -47,98 +66,111 @@ describe("navigation toggle", () => {
     const navMenu = body.querySelector("#basic-nav-section-one");
 
     navControl.click();
-    assert.equal(navMenu.getAttribute("hidden"), null);
+    assert.strictEqual(navMenu.getAttribute("hidden"), null);
     body.click();
-    assert.equal(navMenu.hasAttribute("hidden"), true);
+    assert.strictEqual(navMenu.hasAttribute("hidden"), true);
   });
 
   it("shows the nav when the menu button is clicked", () => {
     menuButton.click();
-    assert.equal(isVisible(nav), true);
-    assert.equal(isVisible(overlay), true);
+    assert.strictEqual(isVisible(nav), true);
+    assert.strictEqual(isVisible(overlay), true);
   });
 
   it("hides the nav when the close button is clicked", () => {
     menuButton.click();
     closeButton.click();
-    assert.equal(isVisible(nav), false);
-    assert.equal(isVisible(overlay), false);
+    assert.strictEqual(isVisible(nav), false);
+    assert.strictEqual(isVisible(overlay), false);
   });
 
   it("hides the nav when the overlay is clicked", () => {
     menuButton.click();
     overlay.click();
-    assert.equal(isVisible(nav), false);
-    assert.equal(isVisible(overlay), false);
+    assert.strictEqual(isVisible(nav), false);
+    assert.strictEqual(isVisible(overlay), false);
   });
 
   it("hides the nav when a nav link is clicked", () => {
     menuButton.click();
     navLink.click();
-    assert.equal(isVisible(nav), false);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   it("focuses the close button when the menu button is clicked", () => {
     menuButton.click();
-    assert.equal(document.activeElement, closeButton);
+    assert.strictEqual(document.activeElement, closeButton);
   });
 
   it("focuses the menu button when the close button is clicked", () => {
     menuButton.click();
     closeButton.click();
-    assert.equal(document.activeElement, menuButton);
+    assert.strictEqual(document.activeElement, menuButton);
   });
 
   it("collapses nav if needed on window resize", () => {
     menuButton.click();
     sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 0 });
     window.dispatchEvent(new CustomEvent("resize"));
-    assert.equal(isVisible(nav), false);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   it("does not collapse nav if not needed on window resize", () => {
     menuButton.click();
     sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 100 });
     window.dispatchEvent(new CustomEvent("resize"));
-    assert.equal(isVisible(nav), true);
+    assert.strictEqual(isVisible(nav), true);
   });
 
   it("does not show the nav when a nav link is clicked", () => {
     navLink.click();
-    assert.equal(isVisible(nav), false);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   it("collapses accordions when a nav link is clicked", () => {
     accordionButton.click();
     navLink.click();
-    assert.equal(accordionButton.getAttribute("aria-expanded"), "false");
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when the Escape key is hit", () => {
+    accordionButton.click();
+    EVENTS.escape(accordionButton);
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
+  });
+
+  it("collapses dropdowns when focus leaves nav", () => {
+    menuButton.click();
+    navLink.click();
+    EVENTS.focusOut(navLink);
+    assert.strictEqual(isVisible(nav), false);
   });
 
   describe("off()", () => {
     it("removes event listeners", () => {
-      assert.equal(isVisible(nav), false);
-      assert.equal(isVisible(overlay), false);
+      assert.strictEqual(isVisible(nav), false);
+      assert.strictEqual(isVisible(overlay), false);
 
       // remove event listeners, then click the button,
       // and confirm that the nav is still hidden
       navigation.off();
       menuButton.click();
-      assert.equal(isVisible(nav), false);
-      assert.equal(isVisible(overlay), false);
+      assert.strictEqual(isVisible(nav), false);
+      assert.strictEqual(isVisible(overlay), false);
 
       // next, re-enable the event listeners, click the button,
       // and confirm that the nav is visible again
       navigation.on();
       menuButton.click();
-      assert.equal(isVisible(nav), true);
-      assert.equal(isVisible(overlay), true);
+      assert.strictEqual(isVisible(nav), true);
+      assert.strictEqual(isVisible(overlay), true);
 
       // again, remove the event listeners, click the close button,
       // and confirm that everything is still visible
       navigation.off();
       closeButton.click();
-      assert.equal(isVisible(nav), true);
-      assert.equal(isVisible(overlay), true);
+      assert.strictEqual(isVisible(nav), true);
+      assert.strictEqual(isVisible(overlay), true);
     });
   });
 });

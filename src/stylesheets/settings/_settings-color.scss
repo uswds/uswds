@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.9.0
+USWDS 2.12.2
 ----------------------------------------
 COLOR SETTINGS
 ----------------------------------------
@@ -105,8 +105,8 @@ $theme-color-success-family: "green-cool" !default;
 $theme-color-success-lighter: "green-cool-5" !default;
 $theme-color-success-light: "green-cool-20v" !default;
 $theme-color-success: "green-cool-40v" !default;
-$theme-color-success-dark: "green-cool-50" !default;
-$theme-color-success-darker: "green-cool-60" !default;
+$theme-color-success-dark: "green-cool-50v" !default;
+$theme-color-success-darker: "green-cool-60v" !default;
 
 // Info colors
 $theme-color-info-family: "cyan" !default;
@@ -122,11 +122,22 @@ $theme-color-disabled-light: "gray-10" !default;
 $theme-color-disabled: "gray-20" !default;
 $theme-color-disabled-dark: "gray-30" !default;
 
+// Emergency colors
+$theme-color-emergency: "red-warm-60v" !default;
+$theme-color-emergency-dark: "red-warm-80" !default;
+
 /*
 ----------------------------------------
 General colors
 ----------------------------------------
 */
+
+// Body
+$theme-body-background-color: "white" !default;
+
+// Text
+$theme-text-color: "ink" !default;
+$theme-text-reverse-color: "white" !default;
 
 // Links
 $theme-link-color: "primary" !default;

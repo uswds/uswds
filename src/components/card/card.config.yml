@@ -1,64 +1,8 @@
 label: Card
 preview: "@uswds-content"
+status: ready
 
 variants:
-  - name: compare
-    label: Compare
-    context:
-      cards:
-        - name: default
-          title: Card
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-              Excepturi nobis dolores molestias! Quas quisquam a officia eos.
-        - name: raised
-          title: Card with media
-          media: true
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-              Excepturi nobis dolores molestias! Quas quisquam a officia eos.
-        - name: media
-          title: Media and header first
-          classes: "usa-card--header-first"
-          media: true
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-        - name: media_inset
-          title: Inset media
-          classes: "usa-card--header-first"
-          media: true
-          media_classes: "usa-card__media--inset"
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-        - name: media_exdent
-          title: Exdent media
-          classes: "usa-card--header-first"
-          media: true
-          media_classes: "usa-card__media--exdent"
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-        - name: flag
-          classes: "usa-card--flag"
-          title: Flag default
-          media: true
-          media_classes: ""
-          image_classes: ""
-          flag: true
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        - name: flag-right
-          classes: "usa-card--flag usa-card--media-right"
-          title: Flag media on right
-          media: true
-          flag: true
-          content:
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
   - name: default
     label: Default
     context:
@@ -132,14 +76,14 @@ variants:
     context:
       cards:
         - title: Default flag
-          classes: "usa-card--flag tablet:grid-col-6"
+          classes: "usa-card--flag desktop:grid-col-6"
           media: true
           media_classes: ""
           image_classes: ""
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
         - title: Flag media right inset
-          classes: "usa-card--flag usa-card--media-right tablet:grid-col-6"
+          classes: "usa-card--flag usa-card--media-right desktop:grid-col-6"
           media: true
           media_classes: "usa-card__media--inset"
           image_classes: ""

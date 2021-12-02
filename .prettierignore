@@ -1,4 +1,3 @@
-*.html
 *.njk
 *.woff*
 *.svg
@@ -6,3 +5,4 @@
 *.png
 *.ico
 *.gif
+*.md
