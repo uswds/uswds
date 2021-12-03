@@ -1,20 +1,20 @@
-const behavior = require('../utils/behavior');
 const keymap = require("receptor/keymap");
-const USA_BUTTON = `a[class*="usa-button"]`;
+const behavior = require('../utils/behavior');
+const BUTTONS = `a[class*="usa-button"]`;
 
-const toggleUSABtn = function toggleUSABtn(event) {
+const toggleButton = (event) => {
   event.preventDefault();
   event.target.click();
 };
 
-const usaButton = behavior(
+const button = behavior(
   {
     keydown: {
-      [USA_BUTTON]: keymap({
-        " ": toggleUSABtn
+      [ANCHOR_BUTTON]: keymap({
+        " ": toggleButtonn
       })
     }
   }
 );
 
-module.exports = usaButton;
+module.exports = anchorButton;
