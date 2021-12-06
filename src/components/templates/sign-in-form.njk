@@ -1,9 +1,13 @@
 <form class="usa-form">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend usa-legend--large">{{ form.legend }}</legend>
+    <p>
+      Required fields are marked with an asterisk (<abbr title="required" class="usa-hint usa-hint--required">*</abbr>).
+    </p>
     {# Email #}
     <label class="usa-label" for="{{ form.email.input.id }}">
       {{ form.email.label }}
+      <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
     </label>
     <input
       class="usa-input"
@@ -18,6 +22,7 @@
     {# Password #}
     <label class="usa-label" for="{{ form.password.input.id }}">
       {{ form.password.label }}
+      <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
     </label>
     <input
       class="usa-input"
