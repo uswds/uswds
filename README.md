@@ -44,8 +44,8 @@ Information about the most recent release of the design system can always be fou
 
 We’re glad you’d like to use the design system — here’s how you can get started:
 
-- Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
-- Developers: [Follow the guidance on our website to get started with npm (recommended)] (NEW LINK). [Follow the instructions in this README to get started without npm.](#using-the-design-system)
+- Designers: Check out our [Getting started for designers information](https://designsystem.digital.gov/documentation/getting-started-for-designers/).
+- Developers: Follow the guidance on our website to [get started with `npm` (recommended)](https://designsystem.digital.gov/documentation/getting-started-for-developers/). Follow the instructions in this README to [get started without `npm`.](#using-the-design-system)
   - [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
 ## Using the design system
@@ -54,11 +54,11 @@ How you implement the design system depends on the needs of your project and you
 
 - **[Download the design system](#download-and-install-without-npm)** if you are not familiar with `npm` and package management.
 
-- **[Use the design system `npm` package](NEW LINK)** if you are familiar with using `npm` and package management.
+- **[Use the design system `npm` package](https://designsystem.digital.gov/documentation/getting-started-for-developers/)** if you are familiar with using `npm` and package management.
 
 If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
-### Download and install without npm
+### Download and install without `npm`
 If you’re using a framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.12.2/uswds-2.12.2.zip) from the latest USWDS release and open that file.
