@@ -1,7 +1,6 @@
 {%
   set search_attrs = {
     'input_modifier': (id_prefix if id_prefix) ~ 'search-field-' ~ (input_modifier if input_modifier else 'search-field'),
-    'button_class': 'usa-search__submit-text' if modifier !== 'usa-search--small' else 'usa-sr-only',
     'search_class': 'usa-search' ~ (' ' ~ modifier if modifier) ~ (' js-search-form' if search_js)
   }
 %}
@@ -16,8 +15,14 @@
     </label>
     <input class="usa-input" id="{{ search_attrs.input_modifier }}" type="search" name="search">
     <button class="usa-button" type="submit">
-      {# `usa-search__submit-text` is the default, but small variation requires a different class #}
-      <span class="{{ search_attrs.button_class }}">{{ text }}</span>
+      {% if modifier !== 'usa-search--small' %}
+        <span class="usa-search__submit-text">{{ text }}</span>
+      {% endif %}
+      <img
+          src="{{ uswds.path }}/img/usa-icons-bg/search--white.svg"
+          class="usa-search__submit-icon"
+          alt="{{ text }}"
+      >
     </button>
   </form>
 {% if not search_header %}
