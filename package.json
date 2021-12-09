@@ -43,7 +43,11 @@
     "federalist": "npm install && gulp build && fractal build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
     "mocha": "mocha",
+    "precommit": "lint-staged --allow-empty",
     "prepare": "gulp build",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
@@ -57,7 +61,18 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
+    "prettier:js": "npx prettier --write ./src/js/**/*.js",
     "prettier:templates": "npx prettier --write './build/components/render/*.html'"
+  },
+  "lint-staged": {
+    "./src/**/*.js": [
+      "npx prettier --write",
+      "npx eslint"
+    ],
+    "./src/**/*.scss": [
+      "npx prettier --write",
+      "npx stylelint"
+    ]
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",
@@ -132,8 +147,10 @@
     "gulp-uglify": "^3.0.2",
     "handlebars": "^4.7.7",
     "handlebars-helpers": "^0.10.0",
+    "husky": "^7.0.0",
     "jsdom": "^17.0.0",
     "jsdom-global": "^3.0.2",
+    "lint-staged": "^11.2.3",
     "merge-stream": "^2.0.0",
     "mocha": "^6.2.0",
     "mq-polyfill": "^1.1.8",
@@ -141,6 +158,7 @@
     "normalize.css": "^8.0.1",
     "nswatch": "^0.2.0",
     "nyc": "^15.1.0",
+    "pinst": "^2.1.6",
     "postcss": "^8.3.11",
     "postcss-csso": "^5.0.1",
     "postcss-discard-comments": "^5.0.1",
