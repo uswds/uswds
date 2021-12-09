@@ -313,9 +313,9 @@ We’ve designed the design system to support older and newer browsers through [
 The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/).
 
 We use the following tools to ensure USWDS is accessible:
-- ANDI (https://www.ssa.gov/accessibility/andi/help/install.html).
-- Axe core (https://www.deque.com/axe/).
-- Axe dev tools (https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
+- [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).
+- [Axe core](https://www.deque.com/axe/).
+- [Axe dev tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
 
 We’re happy to answer questions about accessibility — email us for more information.
 
