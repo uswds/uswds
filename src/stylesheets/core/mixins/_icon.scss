@@ -74,7 +74,7 @@
   $filename-base: map-get($icon-object, "name");
   $svg-height: map-get($icon-object, "svg-height");
   $svg-width: map-get($icon-object, "svg-width");
-  $aspect: $svg-width / $svg-height;
+  $aspect: divide($svg-width, $svg-height);
   $height: if(
     unitless(map-get($icon-object, "height")),
     units(map-get($icon-object, "height")),
