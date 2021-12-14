@@ -62,7 +62,7 @@
   [type="submit"],
   .usa-search__submit {
     @include u-padding-x(1.5);
-    width: units($theme-button-small-width);
+    min-width: units($theme-button-small-width);
   }
 
   .usa-search__submit-icon {
