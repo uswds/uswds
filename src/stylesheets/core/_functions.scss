@@ -236,18 +236,6 @@ Remove a value from a list
 
 /*
 ----------------------------------------
-strunquote()
-----------------------------------------
-Unquote a string
-----------------------------------------
-*/
-
-@function strunquote($value) {
-  @return $value;
-}
-
-/*
-----------------------------------------
 to-map()
 ----------------------------------------
 Convert a single value to a USWDS
@@ -688,7 +676,7 @@ role-based font token.
       $this-stack: map-get($system-font-stacks, $type-token);
     }
     // If the typeface has no display name (system fonts), don't output the display name
-    @if map-get($this-typeface-data, "display-name") == null {
+    @if not map-get($this-typeface-data, "display-name") {
       $output-display-name: false;
     }
     @if not $output-display-name {
