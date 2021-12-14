@@ -375,7 +375,6 @@ $expand-less-icon: map-merge(
     @include add-list-reset;
     background-color: color("primary-darker");
     width: units("card-lg");
-    padding: units(2);
     position: absolute;
     z-index: z-index(400);
   }
