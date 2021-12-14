@@ -89,7 +89,6 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
-    "@18f/identity-stylelint-config": "^1.0.0",
     "classlist-polyfill": "^1.0.3",
     "domready": "^1.0.8",
     "object-assign": "^4.1.1",
@@ -97,6 +96,7 @@
     "resolve-id-refs": "^0.1.0"
   },
   "devDependencies": {
+    "@18f/identity-stylelint-config": "^1.0.0",
     "@babel/preset-env": "^7.15.8",
     "@frctl/fractal": "^1.5.11",
     "@frctl/nunjucks": "^2.0.13",
