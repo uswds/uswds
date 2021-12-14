@@ -386,19 +386,15 @@ $expand-less-icon: map-merge(
 
   .usa-nav__submenu-item {
     @include at-media($theme-header-min-width) {
-      & + * {
-        margin-top: units(1.5);
-      }
-
       a {
         color: color("white");
-        padding: 0;
         line-height: line-height($theme-navigation-font-family, 3);
+        display: block;
+        padding: units(2);
 
         &:hover {
-          background-color: transparent;
+          background-color: color(primary);
           color: color("white");
-          padding: 0;
           text-decoration: underline;
         }
       }
