@@ -243,10 +243,6 @@ Unquote a string
 */
 
 @function strunquote($value) {
-  @if type-of($value) == "string" {
-    $value: unquote($value);
-  }
-
   @return $value;
 }
 

@@ -31,7 +31,7 @@ loop
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
-    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+    #{$ext-prop}: unquote("#{$ext-value}#{$important}");
   }
 }
 
