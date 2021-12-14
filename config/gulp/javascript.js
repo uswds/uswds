@@ -2,7 +2,6 @@
 const buffer = require("vinyl-buffer");
 const browserify = require("browserify");
 const childProcess = require("child_process");
-const eslint = require("gulp-eslint");
 const gulp = require("gulp");
 const log = require("fancy-log");
 const rename = require("gulp-rename");
@@ -66,20 +65,3 @@ gulp.task(
         });
     })
 );
-
-gulp.task("eslint", (done) => {
-  if (!cFlags.test) {
-    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-    return done();
-  }
-
-  return gulp
-    .src(["src/js/**/*.js", "spec/**/*.js"])
-    .pipe(
-      eslint({
-        fix: true,
-      })
-    )
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});

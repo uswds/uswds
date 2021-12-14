@@ -2,7 +2,6 @@
 // See https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
 
 @mixin add-background-svg($image-name, $image-path: $theme-image-path) {
-  $image-name: unquote($image-name);
   background-image: url("#{$image-path}/#{$image-name}.svg"),
     linear-gradient(transparent, transparent);
   background-repeat: no-repeat;

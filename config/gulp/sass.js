@@ -4,7 +4,7 @@ const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
-const gulpStylelint = require("gulp-stylelint");
+const stylelint = require("stylelint");
 const postcss = require("gulp-postcss");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
@@ -19,6 +19,9 @@ const task = "sass";
 const normalizeCssFilter = filter("**/normalize.css", { restore: true });
 
 const IGNORE_STRING = "This file is ignored";
+
+const PROJECT_SASS_SRC = "src/stylesheets";
+
 const ignoreStylelintIgnoreWarnings = (lintResults) =>
   formatters.string(
     lintResults.reduce((memo, result) => {
@@ -35,23 +38,14 @@ const ignoreStylelintIgnoreWarnings = (lintResults) =>
     }, [])
   );
 
-gulp.task("stylelint", () =>
-  gulp
-    .src("./src/stylesheets/**/*.scss")
-    .pipe(
-      gulpStylelint({
-        failAfterError: true,
-        reporters: [
-          {
-            formatter: ignoreStylelintIgnoreWarnings,
-            console: true,
-          },
-        ],
-        syntax: "scss",
-      })
-    )
-    .on("error", dutil.logError)
-);
+gulp.task('stylelint', async function (callback) {
+  const { errored, output } = await stylelint.lint({
+    files: [`${PROJECT_SASS_SRC}/**/*.scss`, `!${PROJECT_SASS_SRC}/uswds/**/*.scss`],
+    formatter: 'string',
+  });
+
+  callback(errored ? new Error(output) : null);
+});
 
 gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");

@@ -76,7 +76,7 @@ $date-picker-max-width: "mobile";
 }
 
 // Date Picker - Table
-
+/* stylelint-disable selector-class-pattern */
 .usa-date-picker__calendar__table {
   border-spacing: 0;
   border-collapse: collapse;
@@ -328,3 +328,4 @@ $date-picker-max-width: "mobile";
     }
   }
 }
+/* stylelint-enable selector-class-pattern */
