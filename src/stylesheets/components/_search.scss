@@ -1,10 +1,3 @@
-// TODO: abstract and integrate
-@mixin search-icon {
-  @include add-background-svg("usa-icons-bg/search--white");
-  background-position: center center;
-  background-size: units(3);
-}
-
 .usa-search {
   @include border-box-sizing;
   @include clearfix;
@@ -21,7 +14,6 @@
   }
 
   [type="submit"] {
-    @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     height: units(4);
@@ -31,8 +23,13 @@
 
     @include at-media("mobile-lg") {
       @include u-padding-x(2);
-      background-image: none;
       width: auto;
+    }
+  }
+
+  &__submit-icon {
+    @include at-media("mobile-lg") {
+      display: none;
     }
   }
 }
@@ -62,10 +59,13 @@
 .usa-search--small {
   [type="submit"],
   .usa-search__submit {
-    @include at-media("mobile-lg") {
-      @include search-icon;
-      width: units($theme-button-small-width);
-    }
+    @include u-padding-x(1.5);
+    min-width: units($theme-button-small-width);
+  }
+
+  .usa-search__submit-icon {
+    @include u-square(3);
+    display: block;
   }
 }
 
@@ -90,9 +90,9 @@ input[type="search"] {
 }
 
 .usa-search__submit-text {
-  @include sr-only;
+  display: none;
 
   @include at-media("mobile-lg") {
-    @include not-sr-only;
+    display: block;
   }
 }

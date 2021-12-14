@@ -205,7 +205,8 @@
       @media print {
         background-image: none;
         background-color: color("white");
-        content: url("#{$theme-image-path}/checkbox-check-print.svg");
+        content: "\2714";
+        text-align: center;
       }
     }
   }
@@ -227,11 +228,12 @@
     display: block;
     left: 0;
     margin-left: units($theme-input-select-border-width);
-    margin-top: (
-        line-height($theme-form-font-family, $theme-input-line-height) *
-          font-size($theme-form-font-family, $theme-body-font-size) -
-          units($theme-input-select-size)
-      ) / 2;
+    margin-top: divide(
+      line-height($theme-form-font-family, $theme-input-line-height) *
+        font-size($theme-form-font-family, $theme-body-font-size) -
+        units($theme-input-select-size),
+      2
+    );
     position: absolute;
   }
 }

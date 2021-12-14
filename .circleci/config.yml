@@ -6,9 +6,9 @@ orbs:
 references:
   container: &container
     docker:
-      - image: circleci/node:12.18.4-browsers
+      - image: circleci/node:16.13.0-browsers
         environment:
-          CHROME_PATH: /usr/bin/google-chrome
+          CHROME_PATH: $(which google-chrome-stable)
 
   restore_deps: &restore_deps
     restore_cache:
