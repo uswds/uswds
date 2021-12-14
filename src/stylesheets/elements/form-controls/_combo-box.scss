@@ -33,10 +33,12 @@ button.usa-combo-box__clear-input {
   }
 }
 
+/* stylelint-disable selector-class-pattern */
 .usa-combo-box__toggle-list__wrapper:focus,
 .usa-combo-box__clear-input__wrapper:focus {
   outline: 0;
 }
+/* stylelint-enable selector-class-pattern */
 
 .usa-combo-box__toggle-list,
 .usa-combo-box__clear-input {
