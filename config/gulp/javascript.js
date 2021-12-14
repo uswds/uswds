@@ -66,20 +66,3 @@ gulp.task(
         });
     })
 );
-
-gulp.task("eslint", (done) => {
-  if (!cFlags.test) {
-    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-    return done();
-  }
-
-  return gulp
-    .src(["src/js/**/*.js", "spec/**/*.js"])
-    .pipe(
-      eslint({
-        fix: true,
-      })
-    )
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
