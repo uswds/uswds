@@ -1,11 +1,11 @@
-const { src, lastRun } = require('gulp');
+const { src } = require("gulp");
 const { formatters } = require("stylelint");
-const gulpStylelint = require('gulp-stylelint');
-const eslint = require('gulp-eslint');
-const dutil = require('./utils/doc-util');
+const stylelint = require("stylelint");
+const dutil = require("./utils/doc-util");
 const cFlags = require("./utils/cflags");
 
 const IGNORE_STRING = "This file is ignored";
+const PROJECT_SASS_SRC = "src/stylesheets";
 
 function ignoreStylelintIgnoreWarnings(lintResults) {
   return formatters.string(
@@ -24,28 +24,16 @@ function ignoreStylelintIgnoreWarnings(lintResults) {
   );
 }
 
-// Lint Sass based on .stylelintrc.json config.
-function lintSass() {
-  const stylelintOptions = {
-    failAfterError: true,
-    reporters: [
-      {
-        formatter: ignoreStylelintIgnoreWarnings,
-        console: true,
-      },
+async function lintSass(callback) {
+  const { errored, output } = await stylelint.lint({
+    files: [
+      `${PROJECT_SASS_SRC}/**/*.scss`,
+      `!${PROJECT_SASS_SRC}/uswds/**/*.scss`,
     ],
-    syntax: "scss",
-  };
-
-  return src(
-    "./src/stylesheets/**/*.scss",
-    { since: lastRun(lintSass) }
-  )
-  .pipe(gulpStylelint(stylelintOptions))
-  .on('error', function handleError(error) {
-    dutil.logError(error);
-    this.emit('end');
+    formatter: "string",
   });
+
+  callback(errored ? new Error(output) : null);
 }
 
 function lintJS(done) {
@@ -66,5 +54,5 @@ function lintJS(done) {
 
 module.exports = {
   lintSass,
-  lintJS
+  lintJS,
 };
