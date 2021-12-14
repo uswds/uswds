@@ -2,7 +2,6 @@
 const buffer = require("vinyl-buffer");
 const browserify = require("browserify");
 const childProcess = require("child_process");
-const eslint = require("gulp-eslint");
 const gulp = require("gulp");
 const log = require("fancy-log");
 const rename = require("gulp-rename");
