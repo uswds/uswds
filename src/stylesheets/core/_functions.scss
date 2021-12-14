@@ -53,7 +53,9 @@ specified precision.
 
   @if $dividend > 0 {
     @if $depth < $precision {
-      $result: $result + divide($dividend * 10, $divisor, $precision, $depth + 1) * .1;
+      $result: $result +
+        divide($dividend * 10, $divisor, $precision, $depth + 1) *
+        0.1;
     } @else if $depth == $precision {
       $next-digit: divide($dividend * 10, $divisor, $precision, $depth + 1);
       @if $next-digit >= 5 {
@@ -430,10 +432,8 @@ the desired final units (currently rem)
 */
 
 @function spacing-multiple($unit) {
-  @return 1rem * divide(
-    $system-spacing-grid-base * $unit,
-    $root-font-size-equiv
-  );
+  @return 1rem *
+    divide($system-spacing-grid-base * $unit, $root-font-size-equiv);
 }
 
 /*
@@ -539,7 +539,10 @@ to a set target
     @return false;
   }
 
-  $this-scale: divide($system-base-cap-height * strip-unit($scale), $cap-height);
+  $this-scale: divide(
+    $system-base-cap-height * strip-unit($scale),
+    $cap-height
+  );
 
   @return px-to-rem($this-scale);
 }
@@ -614,7 +617,10 @@ a family and a line-height scale unit
 
   $this-cap: map-get($project-cap-heights, $family);
   $this-line-height: map-get($system-line-height, $scale);
-  $normalized-line-height: divide($this-line-height, divide($system-base-cap-height, $this-cap));
+  $normalized-line-height: divide(
+    $this-line-height,
+    divide($system-base-cap-height, $this-cap)
+  );
   $normalized-line-height: divide(round($normalized-line-height * 10), 10);
 
   @return $normalized-line-height;
