@@ -48,6 +48,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:disabled {
     @include button-disabled;
+    pointer-events: none;
   }
 }
 
