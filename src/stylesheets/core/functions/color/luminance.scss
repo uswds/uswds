@@ -12,40 +12,17 @@ Returns the luminance of `$color` as a float (between 0 and 1)
 */
 
 @use "sass:color";
+@use "sass:list";
 @use "sass:map";
 @use "sass:math";
 
 @use "../math/pow" as *;
+@use "../../variables/luminance-values" as *;
 
 @function luminance($color) {
-  $colors: (
-    "red": color.red($color),
-    "green": color.green($color),
-    "blue": color.blue($color),
-  );
+  $lum: (list.nth($luminance-values, red($color) + 1) * 0.2126) +
+    (list.nth($luminance-values, green($color) + 1) * 0.7152) +
+    (list.nth($luminance-values, blue($color) + 1) * 0.0722);
 
-  @each $name, $value in $colors {
-    $adjusted: 0;
-    $value: math.div($value, 256);
-
-    @if $value < 0.03928 {
-      $value: math.div($value, 12.92);
-    } @else {
-      $value: math.div(($value + 0.055), 1.055);
-      $value: pow($value, 2.4);
-    }
-
-    $colors: map.merge(
-      $colors,
-      (
-        $name: $value,
-      )
-    );
-  }
-
-  $lum: (map.get($colors, "red") * 0.2126) +
-    (map.get($colors, "green") * 0.7152) + (map.get($colors, "blue") * 0.0722);
-  $lum: math.div((math.round($lum * 1000)), 1000);
-
-  @return $lum;
+  @return math.div(math.round($lum * 1000), 1000);
 }
