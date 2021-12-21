@@ -45,6 +45,10 @@ specified precision.
     @return -1 * divide($dividend, $divisor * -1, $precision, $depth);
   }
 
+  @if ($divisor == 0) {
+    @error 'Illegal division by zero';
+  }
+
   $result: if(unit($dividend) == unit($divisor), 0, $dividend * 0);
   @while $dividend - $divisor >= 0 {
     $result: $result + 1;
