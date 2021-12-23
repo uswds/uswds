@@ -1,0 +1,23 @@
+/*
+----------------------------------------
+px-to-rem()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
+
+@use "root";
+@use "sass:math";
+
+@function px-to-rem($pixels) {
+  @if not $pixels {
+    @return false;
+  }
+  $px-to-rem: ($pixels / root.$root-font-size-equiv) * 1rem;
+  $px-to-rem: math.round($px-to-rem * 100) / 100;
+
+  @return $px-to-rem;
+}
+
+// @debug px-to-rem(16px);
+// @return 1rem
