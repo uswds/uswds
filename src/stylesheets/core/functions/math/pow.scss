@@ -1,3 +1,6 @@
+// @TODO candidate for removal because of built-in math.pow()
+// https://sass-lang.com/documentation/modules/math#pow
+
 @use "sass:math";
 @use "sass:meta";
 
