@@ -1,0 +1,230 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../../functions/general/smart-quote" as *;
+@use "../../functions/output/get-uswds-value" as *;
+@use "../../functions/font/normalize-type-scale" as *;
+@use "../../variables/project-cap-heights" as *;
+@use "../../variables/type-scale" as *;
+@use "../../properties" as *;
+
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map.has-key($all-border-radius, $value) {
+    @return map.get($all-border-radius, $value);
+  } @else {
+    @error '`#{$value}` is not a valid border radius token. '
+      + 'Valid tokens: #{map.keys($all-border-radius)}';
+  }
+}
+
+/*
+----------------------------------------
+font-weight()
+fw()
+----------------------------------------
+Get a font-weight value from the
+system font-weight
+----------------------------------------
+*/
+
+@function font-weight($value) {
+  @return get-uswds-value("font-weight", $value);
+}
+
+@function fw($value) {
+  @return font-weight($value);
+}
+
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+
+@function feature($value) {
+  @return get-uswds-value("feature", $value);
+}
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @return get-uswds-value("flex", $value);
+}
+
+/*
+----------------------------------------
+font-family()
+family()
+----------------------------------------
+Get a font-family stack from a
+role-based or type-based font family
+----------------------------------------
+*/
+
+@function font-family($value) {
+  @return get-uswds-value("font-family", $value);
+}
+
+@function ff($value) {
+  @return font-family($value);
+}
+
+@function family($value) {
+  @return font-family($value);
+}
+
+/*
+----------------------------------------
+letter-spacing()
+ls()
+----------------------------------------
+Get a letter-spacing value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function letter-spacing($value) {
+  $lh-map: map.get($system-properties, "letter-spacing");
+  $fn-map: map.get($lh-map, function);
+  @if map.has-key($fn-map, $value) {
+    @return map.get($fn-map, $value);
+  }
+  @if meta.type-of($value) == "number" {
+    @error '`#{$value}` is a not a valid letter-spacing token. '
+      + 'Valid letter-spacing tokens: #{map.keys($fn-map)}';
+  }
+  @return get-uswds-value("letter-spacing", $value);
+}
+
+@function ls($value) {
+  @return letter-spacing($value);
+}
+
+/*
+----------------------------------------
+measure()
+----------------------------------------
+Gets a valid USWDS reading line length
+----------------------------------------
+*/
+
+@function measure($value) {
+  @return get-uswds-value("measure", $value);
+}
+
+/*
+----------------------------------------
+opacity()
+----------------------------------------
+Get an opacity from the system
+opacities
+----------------------------------------
+*/
+
+@function opacity($value) {
+  @return get-uswds-value("opacity", $value);
+}
+
+/*
+----------------------------------------
+order()
+----------------------------------------
+Get an order value from the
+system orders
+----------------------------------------
+*/
+
+@function order($value) {
+  @return get-uswds-value("order", $value);
+}
+
+/*
+----------------------------------------
+radius()
+----------------------------------------
+Get a border-radius value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function radius($value) {
+  @return get-uswds-value("border-radius", $value);
+}
+
+/*
+----------------------------------------
+font-size()
+----------------------------------------
+Get type scale value from a [family] and
+[scale]
+----------------------------------------
+*/
+
+@function font-size($family, $scale, $force: false) {
+  $our-family: smart-quote($family);
+  $our-scale: smart-quote($scale);
+
+  @if not(map.has-key($project-cap-heights, $our-family)) {
+    @error '#{$our-family} is not a valid font family token. '
+      + 'Valid tokens: #{map.keys($project-cap-heights)}';
+  }
+  @if not(map.get($all-type-scale, $our-scale)) {
+    @error '`#{$our-scale}` is not a valid font scale token. '
+      + 'Valid token: #{map.keys($all-type-scale)}';
+  }
+
+  $this-cap: map.get($project-cap-heights, $our-family);
+  $this-scale: map.get($all-type-scale, $our-scale);
+
+  @if not $force {
+    @if not($this-scale and $this-cap) {
+      @error 'The scale `#{$our-scale}` is disabled '
+        + 'in your project\'s theme settings. '
+        + 'Set its value to `true` to use this family.';
+    }
+  }
+
+  @return normalize-type-scale($this-cap, $this-scale);
+}
+
+@function fs($family, $scale) {
+  @return font-size($family, $scale);
+}
+
+@function size($family, $scale) {
+  @return font-size($family, $scale);
+}
+
+/*
+----------------------------------------
+z-index()
+z()
+----------------------------------------
+Get a z-index value from the
+system z-index
+----------------------------------------
+*/
+
+@function z-index($value) {
+  @return get-uswds-value(z-index, $value);
+}
+
+@function z($value) {
+  @return z-index($value);
+}
