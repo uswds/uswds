@@ -20,7 +20,7 @@ $u-color: (
     modifiers: null,
     values:
       map-collect(
-        $tokens-color-required,
+        $tokens-color-global,
         get-palettes($color-palettes),
         get-palettes($global-color-palettes),
         $color-manual-values
