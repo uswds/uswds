@@ -6,6 +6,7 @@ Get the cap height of a valid typeface
 ----------------------------------------
 */
 
+@use "sass:map";
 @use "../../tokens";
 @use "validate-typeface-token" as *;
 
@@ -15,8 +16,8 @@ Get the cap height of a valid typeface
   }
 
   $typeface-token: validate-typeface-token($typeface-token);
-  $token-data: map-get(tokens.$all-typeface-tokens, $typeface-token);
-  @return map-get($token-data, "cap-height");
+  $token-data: map.get(tokens.$all-typeface-tokens, $typeface-token);
+  @return map.get($token-data, "cap-height");
 }
 
 // @debug cap-height("public-sans");

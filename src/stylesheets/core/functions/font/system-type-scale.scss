@@ -18,8 +18,7 @@ Get a value from the system type scale
   }
 
   @if not(map.has-key(font.$system-type-scale, $scale)) {
-    @error '`#{$scale}` is not a valid type scale token. '
-      + 'Valid tokens: #{map.keys($system-type-scale)}';
+    @return general.error-not-token($scale, "type scale", $system-type-scale);
   }
 
   @return map.get(font.$system-type-scale, $scale);

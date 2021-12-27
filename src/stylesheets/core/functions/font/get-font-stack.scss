@@ -31,7 +31,7 @@ role-based font token.
     );
     $this-name: map.get($this-typeface-data, "display-name");
     // If it's a system typeface, don't output the display name
-    @if map-has-key($this-typeface-data, "system-font") {
+    @if map.has-key($this-typeface-data, "system-font") {
       $output-display-name: false;
       // @debug "it's a system font";
     }
