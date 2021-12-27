@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:list";
 @use "../../functions/general";
 
@@ -24,7 +25,7 @@ Ex: columns(2) --> 6
   @if 12 % $number != 0 {
     @error '`#{$number}` must be a divisor of 12.';
   }
-  $columns: 12 / $number;
+  $columns: math.div(12, $number);
   @return $columns;
 }
 

@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:map";
 @use "sass:meta";
 @use "../../functions/general";
@@ -11,7 +12,7 @@
   }
 
   $numeric-eq: map.get(vars.$spacing-to-value, $gap-size);
-  $numeric-eq-half: meta.inspect($numeric-eq / 2);
+  $numeric-eq-half: meta.inspect(math.div($numeric-eq, 2));
 
   @if not map.has-key(vars.$spacing-to-token, $numeric-eq-half) {
     @error '`#{$gap-size}` is not a valid USWDS gap size token. '
