@@ -8,8 +8,10 @@ queries
 ----------------------------------------
 */
 
+@use "sass:math";
+
 @function rem-to-user-em($grid-in-rem) {
-  $rem-to-user-em: ($grid-in-rem / 1rem) * 1em;
+  $rem-to-user-em: (math.div($grid-in-rem, 1rem)) * 1em;
 
   @return $rem-to-user-em;
 }

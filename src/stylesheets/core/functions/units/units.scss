@@ -10,6 +10,7 @@ the desired final units (currently rem)
 @use "sass:map";
 @use "sass:meta";
 @use "sass:string";
+@use "../../functions/general/error-not-token.scss";
 @use "../../functions/output/number-to-token" as *;
 @use "../../variables/project-spacing" as vars;
 
@@ -21,9 +22,7 @@ the desired final units (currently rem)
   );
 
   @if not(map.has-key(vars.$project-spacing-standard, $converted)) {
-    @error '`#{$value}` is not a valid spacing unit token. '
-      + 'Valid spacing unit tokens: '
-      + '#{map.keys(vars.$project-spacing-standard)}';
+    @return error-not-token($value, "spacing unit", vars.$project-spacing-standard);
   }
 
   @return map.get(vars.$project-spacing-standard, $converted);

@@ -6,11 +6,12 @@ Converts a value in rem to a value in px
 ----------------------------------------
 */
 
+@use "sass:math";
 @use "root";
 
 @function rem-to-px($value-in-rem) {
   @if unit($value-in-rem) == "rem" {
-    $rem-to-px: ($value-in-rem / 1rem) * root.$root-font-size-equiv;
+    $rem-to-px: (math.div($value-in-rem, 1rem)) * root.$root-font-size-equiv;
     @return $rem-to-px;
   }
   @if unit($value-in-rem) != "px" {
