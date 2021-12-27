@@ -1,3 +1,6 @@
+@use "../../../core/functions/general/map-collect.scss" as *;
+@use "../../../core/tokens/color" as *;
+
 $tokens-color-violet-warm-light: (
   "violet-warm-5": $color-violet-warm-5,
   "violet-warm-10": $color-violet-warm-10,

@@ -1,3 +1,8 @@
+@use "../../../core/functions/general/map-collect.scss" as *;
+@use "../../../core/functions/general/map-collect.scss" as *;
+@use "../../../core/tokens/color" as *;
+@use "../../../core/tokens/color" as *;
+
 $tokens-color-gold-light: (
   "gold-5": $color-gold-5,
   "gold-10": $color-gold-10,
