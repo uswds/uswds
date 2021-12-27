@@ -66,7 +66,7 @@ Derive a color from a color shortcode
     }
   }
 
-  @return error-not-token($value, "color");
+  @return general.error-not-token($value, "color");
 }
 
 // @debug color("orange-80v");
