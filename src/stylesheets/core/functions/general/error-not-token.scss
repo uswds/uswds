@@ -1,6 +1,3 @@
-@use "sass:map";
-@use "error" as *;
-
 /*
 ----------------------------------------
 error-not-token()
@@ -8,6 +5,10 @@ error-not-token()
 Returns a common not-a-token error.
 ----------------------------------------
 */
+
+@use "sass:map";
+@use "error" as *;
+
 @function error-not-token($token, $type, $valid-token-map: false) {
   $valid-token-message: if(
     $valid-token-map,

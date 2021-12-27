@@ -6,7 +6,7 @@
 str-split()
 ----------------------------------------
 Split a string at a given separator
-and convert into a lisrt of substrings
+and convert into a list of substrings
 ----------------------------------------
 */
 
@@ -23,3 +23,6 @@ and convert into a lisrt of substrings
 
   @return $split-arr;
 }
+
+// @debug str-split("1, 2, 3, 4, 5", ",");
+// @return "1" " 2" " 3" " 4" " 5";

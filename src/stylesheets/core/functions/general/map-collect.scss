@@ -20,13 +20,11 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
   @return $collection;
 }
 
-/*
-@debug map-collect(
-  (
-    "foo": bar
-  ),
-  (
-    "baz": qux
-  )
-);
-*/
+// @debug map-collect(
+//   (
+//     "foo": bar,
+//   ),
+//   (
+//     "baz": qux,
+//   )
+// );

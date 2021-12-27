@@ -35,4 +35,6 @@ Leaves bools as is
 }
 
 // @debug smart-quote(foo);
+// @return foo;
 // @debug smart-quote("3xs");
+// @debug 3xs;

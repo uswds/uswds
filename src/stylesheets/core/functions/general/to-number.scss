@@ -1,8 +1,3 @@
-@use "sass:meta";
-@use "sass:map";
-@use "sass:string";
-@use "sass:list";
-
 /*
 ----------------------------------------
 to-number()
@@ -13,6 +8,11 @@ Casts a string into a number
 @return {Number}
 ----------------------------------------
 */
+
+@use "sass:meta";
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
 
 @function to-number($value) {
   @if meta.type-of($value) == "number" {
@@ -53,7 +53,7 @@ Casts a string into a number
       $result: $result * 10 + map.get($numbers, $character);
     } @else {
       $digits: $digits * 10;
-      $result: $result + map.get($numbers, $character) / $digits;
+      $result: $result + math.div(map.get($numbers, $character), $digits);
     }
   }
 

@@ -14,10 +14,11 @@ Remove the unit of a length
 
 @function strip-unit($number) {
   @if meta.type-of($number) == "number" and not math.is-unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, ($number * 0 + 1));
   }
 
   @return $number;
 }
 
 // @debug strip-unit(10px);
+// @return 10;

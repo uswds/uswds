@@ -19,14 +19,12 @@ map-deep-get()
   @return $map;
 }
 
-/*
-@debug map-deep-get(
-  (
-    "foo": (
-      "bar": baz
-    )
-  ),
-  foo,
-  bar
-);
-*/
+// @debug map-deep-get(
+//   (
+//     "foo": (
+//       "bar": baz
+//     )
+//   ),
+//   foo,
+//   bar
+// );

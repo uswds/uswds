@@ -10,15 +10,19 @@ isReadable
 ----------------------------------------
 */
 
-@function base-to-map($values) {
-  $l: length($values);
+@use "sass:list";
+@use "remove" as *;
+@use "strunquote" as *;
 
-  @if $l == 1 or nth($values, $l) != isReadable {
+@function base-to-map($values) {
+  $l: list.length($values);
+
+  @if $l == 1 or list.nth($values, $l) != isReadable {
     @return (slug: $values, isReadable: true);
   } @else {
     $values: remove($values, isReadable);
 
-    @return (slug: unquote(nth($values, 1)), isReadable: true);
+    @return (slug: unquote(list.nth($values, 1)), isReadable: true);
   }
 }
 
