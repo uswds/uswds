@@ -2,6 +2,7 @@
 @use "sass:map";
 @use "sass:math";
 @use "../../functions/general/smart-quote" as *;
+@use "../../functions/general/error-not-token" as *;
 @use "../../functions/general/unpack" as *;
 @use "../../tokens/font/line-height" as *;
 @use "../../tokens/font/base-cap-height" as *;
@@ -19,13 +20,11 @@
   $scale: smart-quote(nth($props, 2));
 
   @if not map.has-key($project-cap-heights, $family) {
-    @error '#{$family} is not a valid font family token. '
-      + 'Valid tokens: #{map.keys($project-cap-heights)}';
+    @return error-not-token($family, "font family", $project-cap-heights);
   }
 
   @if not map.get($system-line-height, $scale) {
-    @error '`#{$scale}` is not a valid line-height token. '
-      + 'Valid tokens: #{map.keys($system-line-height)}';
+    @return error-not-token($scale, "line-height", $system-line-height);
   }
 
   @if not map.get($project-cap-heights, $family) {
@@ -34,9 +33,9 @@
 
   $this-cap: map.get($project-cap-heights, $family);
   $this-line-height: map.get($system-line-height, $scale);
-  $normalized-line-height: $this-line-height /
-    ($system-base-cap-height / $this-cap);
-  $normalized-line-height: math.round($normalized-line-height * 10) / 10;
+  $normalized-line-height: math.div($this-line-height,
+    (math.div($system-base-cap-height, $this-cap)));
+  $normalized-line-height: math.div(math.round($normalized-line-height * 10), 10);
 
   @return $normalized-line-height;
 }
@@ -46,8 +45,10 @@
 }
 
 // @debug lh("sans", 2);
-// @return 1.2;
-// @debug lh("serif", 2);
 // @return 1.1;
+// @debug lh("serif", 2);
+// @return 1.2;
 // @debug lh("heading", 2);
 // @return 1.2;
+// @debug #{lh("not-sans", 2)};
+// @return  'not-sans' is not a valid USWDS font family token.
