@@ -8,6 +8,13 @@ utilities
 ----------------------------------------
 */
 
+
+@use "../../core/functions/general/map-collect" as *;
+@use "../../core/functions/utilities/utility-font" as *;
+@use "../../core/variables/project-font-weights" as *;
+@use "../../core/functions/font/get-font-stack" as *;
+@use "../../core/variables/project-font-types" as *;
+
 $palettes-font-misc: (
   "palette-font-family": (
     ui: get-font-stack("ui"),

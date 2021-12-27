@@ -8,6 +8,10 @@ in utilities
 ----------------------------------------
 */
 
+@use "sass:map";
+@use "../../core/tokens/units" as *;
+@use "../../core/functions/general/map-collect" as *;
+
 $tokens-units-ch-positive: (
   "05ch": ".5ch",
   "1ch": "1ch",
