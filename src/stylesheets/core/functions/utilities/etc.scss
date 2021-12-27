@@ -1,8 +1,10 @@
 @use "sass:map";
 @use "sass:meta";
 @use "../../functions/general/smart-quote" as *;
+@use "../../functions/general/error-not-token" as *;
 @use "../../functions/output/get-uswds-value" as *;
 @use "../../functions/font/normalize-type-scale" as *;
+@use "../../variables/border-radius" as *;
 @use "../../variables/project-cap-heights" as *;
 @use "../../variables/type-scale" as *;
 @use "../../properties" as *;
@@ -20,10 +22,12 @@ border-radii
   @if map.has-key($all-border-radius, $value) {
     @return map.get($all-border-radius, $value);
   } @else {
-    @error '`#{$value}` is not a valid border radius token. '
-      + 'Valid tokens: #{map.keys($all-border-radius)}';
+    @return error-not-token($value, "border radius", $all-border-radius);
   }
 }
+
+// @debug #{border-radius(2)};
+// @return 1rem;
 
 /*
 ----------------------------------------
@@ -36,12 +40,15 @@ system font-weight
 */
 
 @function font-weight($value) {
-  @return get-uswds-value("font-weight", $value);
+  @return get-uswds-value(font-weight, $value);
 }
 
 @function fw($value) {
   @return font-weight($value);
 }
+
+// @debug #{font-weight("light")};
+// @return 300;
 
 /*
 ----------------------------------------
@@ -52,8 +59,11 @@ Gets a valid USWDS font feature setting
 */
 
 @function feature($value) {
-  @return get-uswds-value("feature", $value);
+  @return get-uswds-value(font-feature-settings, $value);
 }
+
+// @debug #{feature("tabular")};
+// @return "tnum" 1, "kern" 1;
 
 /*
 ----------------------------------------
@@ -64,8 +74,11 @@ Gets a valid USWDS flex value
 */
 
 @function flex($value) {
-  @return get-uswds-value("flex", $value);
+  @return get-uswds-value(flex, $value);
 }
+
+// @debug #{flex(11)};
+// @return 11 1 0%;
 
 /*
 ----------------------------------------
@@ -78,7 +91,7 @@ role-based or type-based font family
 */
 
 @function font-family($value) {
-  @return get-uswds-value("font-family", $value);
+  @return get-uswds-value(font-family, $value);
 }
 
 @function ff($value) {
@@ -88,6 +101,9 @@ role-based or type-based font family
 @function family($value) {
   @return font-family($value);
 }
+
+// @debug #{font-family("sans")};
+// @return Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif
 
 /*
 ----------------------------------------
@@ -116,6 +132,9 @@ system letter-spacing
   @return letter-spacing($value);
 }
 
+// @debug #{letter-spacing("ls-3")};
+// @return 0.15em;
+
 /*
 ----------------------------------------
 measure()
@@ -125,8 +144,11 @@ Gets a valid USWDS reading line length
 */
 
 @function measure($value) {
-  @return get-uswds-value("measure", $value);
+  @return get-uswds-value(measure, $value);
 }
+
+// @debug #{measure(2)};
+// @return 60ex;
 
 /*
 ----------------------------------------
@@ -138,8 +160,11 @@ opacities
 */
 
 @function opacity($value) {
-  @return get-uswds-value("opacity", $value);
+  @return get-uswds-value(opacity, $value);
 }
+
+// @debug #{opacity(30)};
+// @return 0.3;
 
 /*
 ----------------------------------------
@@ -151,8 +176,11 @@ system orders
 */
 
 @function order($value) {
-  @return get-uswds-value("order", $value);
+  @return get-uswds-value(order, $value);
 }
+
+// @debug #{order(last)};
+// @return 999;
 
 /*
 ----------------------------------------
@@ -164,8 +192,11 @@ system letter-spacing
 */
 
 @function radius($value) {
-  @return get-uswds-value("border-radius", $value);
+  @return get-uswds-value(border-radius, $value);
 }
+
+// @debug #{radius(lg)};
+// @return 0.5rem;
 
 /*
 ----------------------------------------
@@ -181,12 +212,10 @@ Get type scale value from a [family] and
   $our-scale: smart-quote($scale);
 
   @if not(map.has-key($project-cap-heights, $our-family)) {
-    @error '#{$our-family} is not a valid font family token. '
-      + 'Valid tokens: #{map.keys($project-cap-heights)}';
+    @return error-not-token($our-family, "font family", $project-cap-heights);
   }
   @if not(map.get($all-type-scale, $our-scale)) {
-    @error '`#{$our-scale}` is not a valid font scale token. '
-      + 'Valid token: #{map.keys($all-type-scale)}';
+    @return error-not-token($our-scale, "font scale", $all-type-scale);
   }
 
   $this-cap: map.get($project-cap-heights, $our-family);
@@ -211,6 +240,12 @@ Get type scale value from a [family] and
   @return font-size($family, $scale);
 }
 
+// @debug #{font-size("serif", "3xs")};
+// @return  0.79rem;
+
+// @debug #{font-size("serif", "4xs")};
+// @return 4xs is not a valid USWDS font scale token
+
 /*
 ----------------------------------------
 z-index()
@@ -228,3 +263,6 @@ system z-index
 @function z($value) {
   @return z-index($value);
 }
+
+// @debug #{z("top")};
+// @return 99999;
