@@ -8,16 +8,18 @@ namespace is set to output
 */
 
 @use "../../settings";
-@use "../general";
+@use "../../functions/general/map-deep-get" as *;
+@use "../../functions/general/smart-quote" as *;
+
 
 @function ns($type) {
-  $type: general.smart-quote($type);
+  $type: smart-quote($type);
 
-  @if not general.map-deep-get(settings.$theme-namespace, $type, output) {
+  @if not map-deep-get(settings.$theme-namespace, $type, output) {
     @return "";
   }
 
-  @return general.map-deep-get(settings.$theme-namespace, $type, namespace);
+  @return map-deep-get(settings.$theme-namespace, $type, namespace);
 }
 
 // @debug ns("grid");
