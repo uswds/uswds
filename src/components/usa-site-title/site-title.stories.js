@@ -7,5 +7,5 @@ export default {
 
 const Template = (args) => Component(args);
 
-export const Default = Template.bind({});
-Default.args = Data;
+export const SiteTitle = Template.bind({});
+SiteTitle.args = Data;

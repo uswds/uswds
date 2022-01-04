@@ -14,8 +14,8 @@ export default {
 
 const Template = (args) => Component(args);
 
-export const Default = Template.bind({});
-Default.args = Data;
+export const Info = Template.bind({});
+Info.args = Data;
 
 export const big = Template.bind({});
 big.args = bigData;
