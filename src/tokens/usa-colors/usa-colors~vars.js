@@ -1,10 +1,9 @@
 import theme from "../../data/theme-vars.json";
 import * as data from "../../data/colors"
 
-// create list of system colors
+// create lists for system and theme colors
 
 // pull the color family props from each color json file
-
 const Blue = data.Blue.props[0];
 const BlueCool = data.BlueCool.props[0];
 const BlueWarm = data.BlueWarm.props[0];
@@ -61,12 +60,12 @@ const arrFamily = [
 // then push items to the system color list
 export const SystemColorList = {};
 arrFamily.forEach(family => {
-  for (let i = 0; i < family.value.length; i += 1) {
+  for (let sc = 0; sc < family.value.length; sc += 1) {
     // collect color family name
     const colorFamily = family.name;
 
     // collect color grade for each family item
-    const colorValues = family.value[i];
+    const colorValues = family.value[sc];
     const colorGrade = colorValues.name;
 
     // assign color name (example name format: 'blue-5')
@@ -77,9 +76,9 @@ arrFamily.forEach(family => {
 
     // if color is 'vivid' type, loop through its nested values and add items to object list
     if (colorGrade === "vivid") {
-      for (let j = 0; j < 10; j += 1) {
+      for (let v = 0; v < 10; v += 1) {
         // collect color grade for each vivid family item
-        const colorValuesVivid = family.value[i].value[j];
+        const colorValuesVivid = family.value[sc].value[v];
         const colorGradeVivid = colorValuesVivid.name;
 
         // assign color name (example token name format: 'blue-5v')
@@ -100,7 +99,8 @@ arrFamily.forEach(family => {
   };
 });
 
-// Create list of theme colors and values
+// loop through the system tokens json file to gather each color value and grade
+// then push items to the theme color list
 const ThemeColorPalette = theme.themeColorPalette;
 export const ThemeColorList = {};
 
