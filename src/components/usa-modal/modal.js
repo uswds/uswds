@@ -1,9 +1,7 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
+const selectOrMatches = require("../../utils/select-or-matches");
 const FocusTrap = require("../../utils/focus-trap");
 const ScrollBarWidth = require("../../utils/scrollbar-width");
 
-const { CLICK } = require("../../events");
 const { prefix: PREFIX } = require("../../config");
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
@@ -177,7 +175,7 @@ function toggleModal(event) {
  *
  * @param {HTMLElement} baseComponent the modal html in the DOM
  */
-const setUpAttributes = (baseComponent) => {
+const setUpModal = (baseComponent) => {
   const modalContent = baseComponent;
   const modalWrapper = document.createElement("div");
   const overlayDiv = document.createElement("div");
@@ -187,6 +185,17 @@ const setUpAttributes = (baseComponent) => {
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
     ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
     : false;
+  // Create placeholder where modal is for cleanup
+  const originalLocationPlaceHolder = document.createElement("div");
+  originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
+  originalLocationPlaceHolder.style.display = "none";
+  originalLocationPlaceHolder.setAttribute('aria-hidden', 'true');
+  for (let attributeIndex = 0; attributeIndex < modalContent.attributes.length; attributeIndex += 1) {
+    const attribute = modalContent.attributes[attributeIndex];
+    originalLocationPlaceHolder.setAttribute(`data-original-${attribute.name}`, attribute.value);
+  }
+
+  modalContent.after(originalLocationPlaceHolder);
 
   // Rebuild the modal element
   modalContent.parentNode.insertBefore(modalWrapper, modalContent);
@@ -223,7 +232,7 @@ const setUpAttributes = (baseComponent) => {
 
   // Add aria-controls
   const modalClosers = modalWrapper.querySelectorAll(CLOSERS);
-  select(modalClosers).forEach((el) => {
+  modalClosers.forEach((el) => {
     el.setAttribute("aria-controls", modalID);
   });
 
@@ -233,27 +242,43 @@ const setUpAttributes = (baseComponent) => {
   document.body.appendChild(modalWrapper);
 };
 
-modal = behavior(
-  {
-    [CLICK]: {
-      [OPENERS]: toggleModal,
-      [CLOSERS]: toggleModal,
-    },
-  },
-  {
-    init(root) {
-      select(MODAL, root).forEach((modalWindow) => {
-        setUpAttributes(modalWindow);
-      });
+const cleanUpModal = (baseComponent) => {
+  const modalContent = baseComponent;
+  const modalWrapper = modalContent.parentElement.parentElement;
+  const modalID = modalWrapper.getAttribute("id");
 
-      select(OPENERS, root).forEach((item) => {
+  const originalLocationPlaceHolder = document.querySelector(`[data-placeholder-for="${modalID}"]`);
+  if(originalLocationPlaceHolder)
+  {
+    for (let attributeIndex = 0; attributeIndex < originalLocationPlaceHolder.attributes.length; attributeIndex += 1) {
+      const attribute = originalLocationPlaceHolder.attributes[attributeIndex];
+      if(attribute.name.startsWith('data-original-'))
+      {
+        // data-original- is 14 long
+        modalContent.setAttribute(attribute.name.substr(14), attribute.value);
+      }
+    }
+
+    originalLocationPlaceHolder.after(modalContent);
+    originalLocationPlaceHolder.parentElement.removeChild(originalLocationPlaceHolder);
+  }
+
+  modalWrapper.parentElement.removeChild(modalWrapper);
+};
+
+modal = {
+  init(root) {
+    selectOrMatches(MODAL, root).forEach((modalWindow) => {
+      const modalId = modalWindow.id;
+      setUpModal(modalWindow);
+
+      // this will query all openers and closers including the overlay
+      document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
         // Turn anchor links into buttons because of
         // VoiceOver on Safari
         if (item.nodeName === "A") {
           item.setAttribute("role", "button");
-          item.addEventListener("click", (e) => {
-            e.preventDefault();
-          });
+          item.addEventListener("click", (e) => e.preventDefault());
         }
 
         // Can uncomment when aria-haspopup="dialog" is supported
@@ -261,11 +286,28 @@ modal = behavior(
         // Most screen readers support aria-haspopup, but might announce
         // as opening a menu if "dialog" is not supported.
         // item.setAttribute("aria-haspopup", "dialog");
+
+        item.addEventListener("click", toggleModal);
       });
-    },
-    focusTrap: null,
-    toggleModal,
+    });
+  },
+  teardown(root) {
+    selectOrMatches(MODAL, root).forEach((modalWindow) => {
+      cleanUpModal(modalWindow);
+      const modalId = modalWindow.id;
+
+      document.querySelectorAll(`[aria-controls="${modalId}"]`)
+        .forEach((item) => item.removeEventListener("click", toggleModal));
+    });
+  },
+  focusTrap: null,
+  toggleModal,
+  on(root) {
+    this.init(root);
+  },
+  off(root) {
+    this.teardown(root);
   }
-);
+};
 
 module.exports = modal;

@@ -9,7 +9,6 @@ const SORTED = "aria-sort";
 const ASCENDING = "ascending";
 const DESCENDING = "descending";
 const SORT_OVERRIDE = "data-sort-value";
-
 const SORT_BUTTON_CLASS = `${PREFIX}-table__header__button`;
 const SORT_BUTTON = `.${SORT_BUTTON_CLASS}`;
 const SORTABLE_HEADER = `th[data-sortable]`;

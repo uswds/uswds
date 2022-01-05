@@ -6,54 +6,62 @@ const TEMPLATE = fs.readFileSync(
   `${__dirname}/file-input-multiple.template.html`
 );
 
-describe("file input component builds successfully", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "file input", selector: () => document.querySelector('.usa-file-input') }
+];
 
-  let dropZone;
-  let instructions;
-  let inputEl;
-  let dragText;
-  let box;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`File input initialized at ${name}`, () => {
+    describe("file input component builds successfully", () => {
+      const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    fileInput.on();
-    dropZone = body.querySelector(".usa-file-input__target");
-    instructions = body.querySelector(".usa-file-input__instructions");
-    inputEl = body.querySelector(".usa-file-input__input");
-    box = body.querySelector(".usa-file-input__box");
-    dragText = body.querySelector(".usa-file-input__drag-text");
-    fileInput.on(body);
-  });
+      let dropZone;
+      let instructions;
+      let inputEl;
+      let dragText;
+      let box;
 
-  afterEach(() => {
-    body.innerHTML = "";
-    fileInput.off(body);
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        fileInput.on(containerSelector());
+        dropZone = body.querySelector(".usa-file-input__target");
+        instructions = body.querySelector(".usa-file-input__instructions");
+        inputEl = body.querySelector(".usa-file-input__input");
+        box = body.querySelector(".usa-file-input__box");
+        dragText = body.querySelector(".usa-file-input__drag-text");
+      });
 
-  it("instructions are created", () => {
-    assert.strictEqual(
-      instructions.getAttribute("class"),
-      "usa-file-input__instructions"
-    );
-  });
+      afterEach(() => {
+        fileInput.off(containerSelector());
+        body.innerHTML = "";
+      });
 
-  it("target ui is created", () => {
-    assert.strictEqual(
-      dropZone.getAttribute("class"),
-      "usa-file-input__target"
-    );
-  });
+      it("instructions are created", () => {
+        assert.strictEqual(
+          instructions.getAttribute("class"),
+          "usa-file-input__instructions"
+        );
+      });
 
-  it("input gets new class", () => {
-    assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
-  });
+      it("target ui is created", () => {
+        assert.strictEqual(
+          dropZone.getAttribute("class"),
+          "usa-file-input__target"
+        );
+      });
 
-  it("box is created", () => {
-    assert.strictEqual(box.getAttribute("class"), "usa-file-input__box");
-  });
+      it("input gets new class", () => {
+        assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
+      });
 
-  it('pluralizes "files" if there is a "multiple" attribute', () => {
-    assert.strictEqual(dragText.innerHTML, "Drag files here or ");
+      it("box is created", () => {
+        assert.strictEqual(box.getAttribute("class"), "usa-file-input__box");
+      });
+
+      it('pluralizes "files" if there is a "multiple" attribute', () => {
+        assert.strictEqual(dragText.innerHTML, "Drag files here or ");
+      });
+    });
   });
 });

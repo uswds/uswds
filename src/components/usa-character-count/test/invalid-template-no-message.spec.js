@@ -7,19 +7,25 @@ const INVALID_TEMPLATE_NO_MESSAGE = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-message.template.html")
 );
 
-describe("character count component without message", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "character count", selector: () => document.querySelector('.usa-character-count') }
+];
 
-  afterEach(() => {
-    body.textContent = "";
-    CharacterCount.off(body);
-  });
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`character count component without message initialized at ${name}`, () => {
+    const { body } = document;
 
-  it("should throw an error when a character count component is created with no message element", () => {
-    body.innerHTML = INVALID_TEMPLATE_NO_MESSAGE;
-    assert.throws(() => CharacterCount.on(), {
-      message:
-        ".usa-character-count is missing inner .usa-character-count__message",
+    afterEach(() => {
+      CharacterCount.off(containerSelector());
+      body.textContent = "";
+    });
+
+    it('should throw an error when a character count component is created with no message element', () => {
+      body.innerHTML = INVALID_TEMPLATE_NO_MESSAGE;
+      assert.throws(() => CharacterCount.on(containerSelector()), {
+        message: '.usa-character-count is missing inner .usa-character-count__message',
+      });
     });
   });
 });

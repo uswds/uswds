@@ -1,5 +1,6 @@
 const behavior = require("../../utils/behavior");
 const select = require("../../utils/select");
+const selectOrMatches = require("../../utils/select-or-matches");
 const { prefix: PREFIX } = require("../../config");
 const {
   getDatePickerContext,
@@ -159,7 +160,7 @@ const dateRangePicker = behavior(
   },
   {
     init(root) {
-      select(DATE_RANGE_PICKER, root).forEach((dateRangePickerEl) => {
+      selectOrMatches(DATE_RANGE_PICKER, root).forEach((dateRangePickerEl) => {
         enhanceDateRangePicker(dateRangePickerEl);
       });
     },
