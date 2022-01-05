@@ -1,0 +1,102 @@
+<section class="usa-prose margin-top-2">
+  <h1>
+    {{ token_type }} color tokens
+  </h1>
+  <p class="usa-intro">
+    USWDS organizes its colors tokens into theme tokens, state tokens, and
+    system tokens.
+  </p>
+  <p>
+    Preview {{ token_type }} color tokens by selecting a color value from the controls below:
+  </p>
+</section>
+
+{% if token_type == "system" %}
+  {% if system_colors %}
+    <section class="usa-prose margin-top-2">
+      <h3>
+        {{ system_colors }}
+      </h3>
+    </section>
+    <section class="usa-section margin-top-2" id="color-demo"></section>
+  {% endif %}
+
+  {% if swatches %}
+  <section class="display-flex flex-wrap margin-top-2" >
+    {% for key, value in swatches %}
+       <div class="swatch--system margin-top-2">
+        <div style="height: 15ex; background-color: {{ value }}"></div>
+        <p>{{ key }} <br/>{{ value }}</p>
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+{% endif %}
+
+{% if token_type == "theme" %}
+  {% if theme_colors %}
+    <section class="usa-prose margin-top-2">
+      <h3>{{ theme_colors }}</h3>
+    </section>
+    <section class="usa-section margin-top-2  bg-{{ theme_colors }}" id="theme-demo"></section>
+  {% endif %}
+
+  {% if swatches %}
+    <section class="display-flex flex-wrap margin-top-2">
+      {% for item in swatches %}
+        <div style="width: calc(100%/7);" class="margin-top-2">
+          <div style="height: 15ex;"class="bg-{{ item }}" ></div>
+          <p>{{ item }}</p>
+        </div>
+      {% endfor %}
+    </section>
+  {% endif %}
+{% endif %}
+
+<style>
+  #color-demo,
+  #theme-demo { 
+    height: 50vh; 
+    width: 100%; 
+  }
+
+  #color-demo {
+    background-color: {{ system_colors }};
+  }
+
+  .swatch--system > p,
+  .swatch--theme > p{
+    text-transform: capitalize;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .swatch--system > p{
+      font-size: .875rem;
+      text-transform: capitalize;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .swatch--system {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 760px){
+    .swatch--system {
+      width: calc(100%/2);
+    }
+  }
+
+  @media screen and (min-width: 760px) and (max-width: 1200px) {
+    .swatch--system {
+      width: calc(100%/3);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .swatch--system {
+      width: calc(100%/6);
+    }
+  }
+</style>
