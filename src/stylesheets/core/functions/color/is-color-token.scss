@@ -1,0 +1,19 @@
+/*
+----------------------------------------
+is-color-token()
+----------------------------------------
+Returns whether a given string is a
+USWDS color token.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../../tokens/color/shortcodes-color-all" as *;
+
+@function is-color-token($token) {
+  $is-color-token: if(map.has-key($all-color-shortcodes, $token), true, false);
+  @return $is-color-token;
+}
+
+// @debug is-color-token("red-warm-50");
+// @return true

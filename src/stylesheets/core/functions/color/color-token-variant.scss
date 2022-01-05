@@ -1,0 +1,26 @@
+/*
+----------------------------------------
+color-token-variant()
+----------------------------------------
+Returns the variant of color token.
+Returns: "vivid" | false
+color-token-variant("accent-warm")
+> false
+color-token-variant("accent-warm-vivid")
+> "vivid"
+color-token-variant("red-50v")
+> "vivid"
+color-token-variant(("red", 50, "vivid"))
+> "vivid"
+----------------------------------------
+*/
+
+@function color-token-variant($color-token) {
+  $split: if(
+    type-of($color-token) == "list",
+    $color-token,
+    decompose-color-token($color-token)
+  );
+  $variant: nth($split, 3);
+  @return $variant;
+}

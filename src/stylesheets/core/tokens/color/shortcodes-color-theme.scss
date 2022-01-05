@@ -1,66 +1,68 @@
 @use "../../settings";
-@use "../../functions/color/set-theme-color" as *;
 
 $tokens-color-theme: (
-  "base-lightest": set-theme-color(settings.$theme-color-base-lightest, no-warn),
-  "base-lighter": set-theme-color(settings.$theme-color-base-lighter, no-warn),
-  "base-light": set-theme-color(settings.$theme-color-base-light, no-warn),
-  "base": set-theme-color(settings.$theme-color-base, no-warn),
-  "base-dark": set-theme-color(settings.$theme-color-base-dark, no-warn),
-  "base-darker": set-theme-color(settings.$theme-color-base-darker, no-warn),
-  "base-darkest": set-theme-color(settings.$theme-color-base-darkest, no-warn),
-  "ink": set-theme-color(settings.$theme-color-base-ink, no-warn),
+  "base-lightest":
+    color(settings.$theme-color-base-lightest, set-theme, no-warn),
+  "base-lighter": color(settings.$theme-color-base-lighter, set-theme, no-warn),
+  "base-light": color(settings.$theme-color-base-light, set-theme, no-warn),
+  "base": color(settings.$theme-color-base, set-theme, no-warn),
+  "base-dark": color(settings.$theme-color-base-dark, set-theme, no-warn),
+  "base-darker": color(settings.$theme-color-base-darker, set-theme, no-warn),
+  "base-darkest": color(settings.$theme-color-base-darkest, set-theme, no-warn),
+  "ink": color(settings.$theme-color-base-ink, set-theme, no-warn),
   "primary-lightest":
-    set-theme-color(settings.$theme-color-primary-lightest, no-warn),
+    color(settings.$theme-color-primary-lightest, set-theme, no-warn),
   "primary-lighter":
-    set-theme-color(settings.$theme-color-primary-lighter, no-warn),
-  "primary-light": set-theme-color(settings.$theme-color-primary-light, no-warn),
-  "primary": set-theme-color(settings.$theme-color-primary, no-warn),
-  "primary-vivid": set-theme-color(settings.$theme-color-primary-vivid, no-warn),
-  "primary-dark": set-theme-color(settings.$theme-color-primary-dark, no-warn),
+    color(settings.$theme-color-primary-lighter, set-theme, no-warn),
+  "primary-light":
+    color(settings.$theme-color-primary-light, set-theme, no-warn),
+  "primary": color(settings.$theme-color-primary, set-theme, no-warn),
+  "primary-vivid":
+    color(settings.$theme-color-primary-vivid, set-theme, no-warn),
+  "primary-dark": color(settings.$theme-color-primary-dark, set-theme, no-warn),
   "primary-darker":
-    set-theme-color(settings.$theme-color-primary-darker, no-warn),
+    color(settings.$theme-color-primary-darker, set-theme, no-warn),
   "primary-darkest":
-    set-theme-color(settings.$theme-color-primary-darkest, no-warn),
+    color(settings.$theme-color-primary-darkest, set-theme, no-warn),
   "secondary-lightest":
-    set-theme-color(settings.$theme-color-secondary-lightest, no-warn),
+    color(settings.$theme-color-secondary-lightest, set-theme, no-warn),
   "secondary-lighter":
-    set-theme-color(settings.$theme-color-secondary-lighter, no-warn),
+    color(settings.$theme-color-secondary-lighter, set-theme, no-warn),
   "secondary-light":
-    set-theme-color(settings.$theme-color-secondary-light, no-warn),
-  "secondary": set-theme-color(settings.$theme-color-secondary, no-warn),
+    color(settings.$theme-color-secondary-light, set-theme, no-warn),
+  "secondary": color(settings.$theme-color-secondary, set-theme, no-warn),
   "secondary-vivid":
-    set-theme-color(settings.$theme-color-secondary-vivid, no-warn),
+    color(settings.$theme-color-secondary-vivid, set-theme, no-warn),
   "secondary-dark":
-    set-theme-color(settings.$theme-color-secondary-dark, no-warn),
+    color(settings.$theme-color-secondary-dark, set-theme, no-warn),
   "secondary-darker":
-    set-theme-color(settings.$theme-color-secondary-darker, no-warn),
+    color(settings.$theme-color-secondary-darker, set-theme, no-warn),
   "secondary-darkest":
-    set-theme-color(settings.$theme-color-secondary-darkest, no-warn),
+    color(settings.$theme-color-secondary-darkest, set-theme, no-warn),
   "accent-warm-darkest":
-    set-theme-color(settings.$theme-color-accent-warm-darkest, no-warn),
+    color(settings.$theme-color-accent-warm-darkest, set-theme, no-warn),
   "accent-warm-darker":
-    set-theme-color(settings.$theme-color-accent-warm-darker, no-warn),
+    color(settings.$theme-color-accent-warm-darker, set-theme, no-warn),
   "accent-warm-dark":
-    set-theme-color(settings.$theme-color-accent-warm-dark, no-warn),
-  "accent-warm": set-theme-color(settings.$theme-color-accent-warm, no-warn),
+    color(settings.$theme-color-accent-warm-dark, set-theme, no-warn),
+  "accent-warm": color(settings.$theme-color-accent-warm, set-theme, no-warn),
   "accent-warm-light":
-    set-theme-color(settings.$theme-color-accent-warm-light, no-warn),
+    color(settings.$theme-color-accent-warm-light, set-theme, no-warn),
   "accent-warm-lighter":
-    set-theme-color(settings.$theme-color-accent-warm-lighter, no-warn),
+    color(settings.$theme-color-accent-warm-lighter, set-theme, no-warn),
   "accent-warm-lightest":
-    set-theme-color(settings.$theme-color-accent-warm-lightest, no-warn),
+    color(settings.$theme-color-accent-warm-lightest, set-theme, no-warn),
   "accent-cool-darkest":
-    set-theme-color(settings.$theme-color-accent-cool-darkest, no-warn),
+    color(settings.$theme-color-accent-cool-darkest, set-theme, no-warn),
   "accent-cool-darker":
-    set-theme-color(settings.$theme-color-accent-cool-darker, no-warn),
+    color(settings.$theme-color-accent-cool-darker, set-theme, no-warn),
   "accent-cool-dark":
-    set-theme-color(settings.$theme-color-accent-cool-dark, no-warn),
-  "accent-cool": set-theme-color(settings.$theme-color-accent-cool, no-warn),
+    color(settings.$theme-color-accent-cool-dark, set-theme, no-warn),
+  "accent-cool": color(settings.$theme-color-accent-cool, set-theme, no-warn),
   "accent-cool-light":
-    set-theme-color(settings.$theme-color-accent-cool-light, no-warn),
+    color(settings.$theme-color-accent-cool-light, set-theme, no-warn),
   "accent-cool-lighter":
-    set-theme-color(settings.$theme-color-accent-cool-lighter, no-warn),
+    color(settings.$theme-color-accent-cool-lighter, set-theme, no-warn),
   "accent-cool-lightest":
-    set-theme-color(settings.$theme-color-accent-cool-lightest, no-warn),
+    color(settings.$theme-color-accent-cool-lightest, set-theme, no-warn),
 );
