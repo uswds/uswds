@@ -1,6 +1,7 @@
 /*
 ----------------------------------------
 base-to-map()
+@TODO: Deprecate and delete
 ----------------------------------------
 Convert a single base to a USWDS
 value map.
@@ -26,4 +27,12 @@ isReadable
   }
 }
 
-// TODO: Deprecate and delete
+@function to-map($key, $values) {
+  $l: list.length($values);
+
+  @if $key == "noModifier" or $key == "noValue" {
+    $key: "";
+  }
+
+  @return (slug: $key, content: $values);
+}

@@ -17,7 +17,8 @@ to a set target
     @return false;
   }
 
-  $this-scale: tokens.$system-base-cap-height * math.div(general.strip-unit($scale), $cap-height) * 1px;
+  $this-scale: tokens.$system-base-cap-height *
+    math.div(general.strip-unit($scale), $cap-height) * 1px;
 
   @return units.px-to-rem($this-scale);
 }

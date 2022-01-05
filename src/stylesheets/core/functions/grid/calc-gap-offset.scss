@@ -8,7 +8,7 @@
   $gap-size: general.smart-quote($gap-size);
 
   @if not map.has-key(vars.$spacing-to-value, $gap-size) {
-    @error '`#{$gap-size}` is not a valid USWDS gap size token.';
+    @return general.error-not-token($gap-size, "gap size");
   }
 
   $numeric-eq: map.get(vars.$spacing-to-value, $gap-size);
