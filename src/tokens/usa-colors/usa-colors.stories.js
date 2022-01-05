@@ -1,19 +1,22 @@
-/* eslint-disable no-console */
 import Component from "./usa-colors.twig";
-import SystemColorList from './usa-colors~vars';
-import ThemeColorList from './usa-colors-theme~vars';
+import {
+  SystemColorList,
+  ThemeColorList,
+} from "./usa-colors~vars";
+
+console.log(ThemeColorList);
 
 export default {
   title: "Tokens/Colors",
   argTypes: {
-    system_colors: {
+    color_select_system: {
       control: { type: 'select' },
       mapping: SystemColorList,
       name: 'System color tokens',
       options: SystemColorList,
       table: { disable: true },
     },
-    theme_colors: {
+    color_select_theme: {
       control: { type: 'select' },
       name: 'Theme color tokens',
       options: ThemeColorList,
@@ -30,7 +33,7 @@ export default {
     },
     swatches: {
       table: { disable: true },
-    }
+    },
   },
   parameters: {
     layout: 'fullscreen',
@@ -39,47 +42,43 @@ export default {
 
 const Template = (args) => Component(args);
 
-export const SystemColorGrid = Template.bind({});
-SystemColorGrid.args = {
-  swatches: SystemColorList
+export const SystemColors = Template.bind({});
+SystemColors.args = {
+  swatches: SystemColorList,
 }
 
-export const ThemeColorGrid = Template.bind({});
-ThemeColorGrid.args = {
-  swatches: ThemeColorList
+export const ThemeColors = Template.bind({});
+ThemeColors.args = {
+  swatches: ThemeColorList,
 }
-ThemeColorGrid.argTypes = {
+ThemeColors.argTypes = {
   token_type: { 
     defaultValue: 'theme',
   },
 }
 
-export const SystemColorTokens = Template.bind({});
-SystemColorTokens.argTypes = {
+export const SystemColorSelect = Template.bind({});
+SystemColorSelect.argTypes = {
   token_type: { 
     defaultValue: 'system',
   },
-  system_colors: {
+  color_select_system: {
     defaultValue: 'blue-5',
     table: { disable: false },
   },
-  theme_colors: {
-    table: { disable: true },
-  }, 
 }
 
-export const ThemeColorTokens = Template.bind({});
-ThemeColorTokens.argTypes = {
+export const ThemeColorSelect = Template.bind({});
+ThemeColorSelect.argTypes = {
   token_type: { 
     defaultValue: 'theme',
   },
-  system_colors: {
-    table: { disable: true },
-  },
-  theme_colors: {
+  color_select_theme: {
+    defaultValue: 'primary',
     table: { disable: false },
   }, 
 }
+
 
 
 
