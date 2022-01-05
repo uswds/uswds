@@ -4,7 +4,7 @@
     USWDS organizes its colors tokens into theme tokens, state tokens, and
     system tokens. 
   </p>
-  <p>Preview the {{ token_type }} color names and values in the {% if swatches %}swatches below:{% endif %}{% if color_select_system or color_select_theme %}demo box by selecting a color from the dropdown in the "Controls" tab of the Storybook addons panel (to access, press the 'A' key).{% endif %}
+  <p>Preview the {{ token_type }} color names and values in the {% if swatches %}swatches below:{% endif %}{% if color_select_system or color_select_theme %}demo box by selecting a color from the dropdown in the "Controls" tab of the Storybook addons panel.</p><p><em>Note: to access the addons panel, press the 'A' key.</em>{% endif %}
 </section>
 
 {% if token_type == "system" %}
@@ -30,7 +30,7 @@
 {% if token_type == "theme" %}
   {% if color_select_theme %}
     <section class="usa-prose margin-top-2">
-      <h2>{{ color_select_theme }}</h2>
+      <p><strong>Token name: {{ color_select_theme }}</strong></p>
     </section>
     <section class="usa-section margin-top-2  bg-{{ color_select_theme }}" id="theme-demo"></section>
   {% endif %}

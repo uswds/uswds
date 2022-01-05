@@ -4,8 +4,6 @@ import {
   ThemeColorList,
 } from "./usa-colors~vars";
 
-console.log(ThemeColorList);
-
 export default {
   title: "Tokens/Colors",
   argTypes: {
@@ -18,8 +16,9 @@ export default {
     },
     color_select_theme: {
       control: { type: 'select' },
+      mapping: Object.values(ThemeColorList),
       name: 'Theme color tokens',
-      options: ThemeColorList,
+      options: Object.keys(ThemeColorList),
       table: { disable: true },
     },
     token_type: {
