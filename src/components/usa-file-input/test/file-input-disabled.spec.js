@@ -6,28 +6,36 @@ const TEMPLATE = fs.readFileSync(
   `${__dirname}/file-input-disabled.template.html`
 );
 
-describe("file input is disabled", () => {
-  const { body } = document;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "file input", selector: () => document.querySelector('.usa-file-input') }
+];
 
-  let component;
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`File input initialized at ${name}`, () => {
+    describe("file input is disabled", () => {
+      const { body } = document;
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    fileInput.on();
-    component = body.querySelector(".usa-file-input");
-    fileInput.on(body);
-  });
+      let component;
 
-  afterEach(() => {
-    body.innerHTML = "";
-    fileInput.off(body);
-  });
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        fileInput.on(containerSelector());
+        component = body.querySelector(".usa-file-input");
+      });
 
-  it("has disabled styling", () => {
-    const expectedClass = "usa-file-input--disabled";
-    assert.strictEqual(
-      component.getAttribute("class").includes(expectedClass),
-      true
-    );
+      afterEach(() => {
+        fileInput.off(containerSelector());
+        body.innerHTML = "";
+      });
+
+      it("has disabled styling", () => {
+        const expectedClass = "usa-file-input--disabled";
+        assert.strictEqual(
+          component.getAttribute("class").includes(expectedClass),
+          true
+        );
+      });
+    });
   });
 });
