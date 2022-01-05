@@ -32,7 +32,6 @@ Derive a color from a color triplet:
 @use "../general";
 @use "get-system-color" as *;
 
-
 @function advanced-color(
   $color-family: false,
   $color-grade: false,
@@ -87,9 +86,17 @@ Derive a color from a color triplet:
         + '#{map.keys(map.get($all-project-colors, $color-family))}';
     }
   } @else {
-    @return general.error-not-token($color-family, "theme family", $all-project-colors);
+    @return general.error-not-token(
+      $color-family,
+      "theme family",
+      $all-project-colors
+    );
   }
-  @return general.map-deep-get($all-project-colors, $color-family, $color-grade);
+  @return general.map-deep-get(
+    $all-project-colors,
+    $color-family,
+    $color-grade
+  );
 }
 
 // @debug advanced-color("red", 50, "vivid");

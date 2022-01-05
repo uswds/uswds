@@ -33,9 +33,14 @@
 
   $this-cap: map.get($project-cap-heights, $family);
   $this-line-height: map.get($system-line-height, $scale);
-  $normalized-line-height: math.div($this-line-height,
-    (math.div($system-base-cap-height, $this-cap)));
-  $normalized-line-height: math.div(math.round($normalized-line-height * 10), 10);
+  $normalized-line-height: math.div(
+    $this-line-height,
+    (math.div($system-base-cap-height, $this-cap))
+  );
+  $normalized-line-height: math.div(
+    math.round($normalized-line-height * 10),
+    10
+  );
 
   @return $normalized-line-height;
 }

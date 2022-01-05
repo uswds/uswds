@@ -11,7 +11,6 @@ namespace is set to output
 @use "../../functions/general/map-deep-get" as *;
 @use "../../functions/general/smart-quote" as *;
 
-
 @function ns($type) {
   $type: smart-quote($type);
 

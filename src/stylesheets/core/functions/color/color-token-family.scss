@@ -27,4 +27,3 @@ color-token-variant(("red", 50, "vivid"))
   $family: list.nth($split, 1);
   @return $family;
 }
-
