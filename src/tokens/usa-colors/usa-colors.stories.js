@@ -1,5 +1,5 @@
 import Component from "./usa-colors.twig";
-import Docs from "./usa-colors.mdx";
+import Docs from "./docs/index.mdx";
 import {
   SystemColorList,
   ThemeColorList,
