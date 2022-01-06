@@ -8,4 +8,8 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
 }
