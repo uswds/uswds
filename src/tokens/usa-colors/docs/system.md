@@ -1,4 +1,7 @@
 
+## Using color tokens
+Your context and coding style determine how you access USWDS color tokens in code.
+
 <div class="site-table-wrapper">
   <table class="usa-table--borderless site-table-responsive">
     <thead>
