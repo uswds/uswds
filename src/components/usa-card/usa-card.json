@@ -1,0 +1,31 @@
+{
+  "modifier": "",
+  "default_classes": "tablet:grid-col-4",
+  "cards": [
+    {
+      "title": "Default card",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "body_overrides": null,
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nFacilis earum tenetur quo cupiditate, eaque qui officia recusandae.",
+      "cta_text": ""
+    },
+    {
+      "title": "The economy of cities",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "content": "Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes,\nnascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.",
+      "cta_text": ""
+    },
+    {
+      "title": "Cities have the capability of providing something for everybody",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "content": "Duis hendrerit ligula eget urna malesuada malesuada. Nullam pretium purus laoreet, ornare leo in, lacinia augue. Mauris mattis laoreet leo in gravida. Nulla euismod tortor sem, id lacinia ligula semper tempus. Nam vestibulum mauris mauris, eu pharetra purus malesuada ut. Mauris ut ex pretium, dictum enim quis, consectetur velit. Curabitur at porttitor nulla, ut maximus quam.",
+      "cta_text": ""
+    }
+  ]
+}

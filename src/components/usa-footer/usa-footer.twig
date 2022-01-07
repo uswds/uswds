@@ -4,7 +4,7 @@
   </div>
   <div class="usa-footer__primary-section">
     {% block primary %}
-      {% include "./components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
+      {% include "@components/usa-footer/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
     {% endblock %}
   </div>
   <div class="usa-footer__secondary-section">
@@ -17,24 +17,24 @@
             </div>
             <div class="mobile-lg:grid-col-auto">
               <p class="usa-footer__logo-heading">
-                {{ agency_contact_info.name }}
+                {{ footer.secondary_section.agency_name }}
               </p>
             </div>
           </div>
           <div class="usa-footer__contact-links mobile-lg:grid-col-6">
-            {% include "./components/usa-footer/_includes/usa-social-nav.twig" %}
+            {% include "@components/usa-footer/_includes/usa-social-nav.twig" %}
 
             <h3 class="usa-footer__contact-heading">
-              {{ agency_contact_info.title }}
+              {{ footer.secondary_section.heading }}
             </h3>
             <address class="usa-footer__address">
               <div class="usa-footer__contact-info grid-row grid-gap">
                 <div class="grid-col-auto">
-                  {{ agency_contact_info.phone_no }}
+                  {{ footer.secondary_section.phone }}
                 </div>
                 <div class="grid-col-auto">
                   <a href="mailto:info@agency.gov">
-                    {{ agency_contact_info.email }}
+                    {{ footer.secondary_section.email }}
                   </a>
                 </div>
               </div>

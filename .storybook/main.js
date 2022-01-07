@@ -35,6 +35,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
+    "@whitespace/storybook-addon-html",
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -42,16 +43,13 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
     config.module.rules.push(
       {
-        test: /\.ya?ml$/,
-        type: "json",
-        use: "yaml-loader",
-      },
-      {
         test: /\.twig$/,
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, '../src/components')
+            '@components': path.resolve(__dirname, '../src/components'),
+            '@templates': path.resolve(__dirname, '../src/templates'),
+            '@compare': path.resolve(__dirname, '../src/compare')
           }
         }
       },

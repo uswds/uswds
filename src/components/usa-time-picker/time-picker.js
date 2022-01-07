@@ -1,5 +1,5 @@
 const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
+const selectOrMatches = require("../../utils/select-or-matches");
 const { prefix: PREFIX } = require("../../config");
 const {
   COMBO_BOX_CLASS,
@@ -125,7 +125,7 @@ const timePicker = behavior(
   {},
   {
     init(root) {
-      select(TIME_PICKER, root).forEach((timePickerEl) => {
+      selectOrMatches(TIME_PICKER, root).forEach((timePickerEl) => {
         transformTimePicker(timePickerEl);
         enhanceComboBox(timePickerEl);
       });
