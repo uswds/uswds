@@ -22,4 +22,11 @@
     color: transparent;
     text-shadow: 0 0 0 color("black");
   }
+  
+   // Necessary to show chevron in forced colors mode in modern browsers. 
+   @media (forced-colors: active) {
+    appearance: listbox; // Default <select> appearance value for modern browsers.
+    background-image: none;
+    padding-right: 0;
+  }
 }
