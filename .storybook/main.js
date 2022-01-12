@@ -30,7 +30,10 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.stories.mdx",
+    "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -47,11 +50,11 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, '../src/components'),
-            '@templates': path.resolve(__dirname, '../src/templates'),
-            '@compare': path.resolve(__dirname, '../src/compare')
-          }
-        }
+            "@components": path.resolve(__dirname, "../src/components"),
+            "@templates": path.resolve(__dirname, "../src/templates"),
+            "@compare": path.resolve(__dirname, "../src/compare"),
+          },
+        },
       },
       {
         test: /\.s(c|a)ss$/i,
