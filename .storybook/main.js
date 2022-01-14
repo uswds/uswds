@@ -40,6 +40,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "@whitespace/storybook-addon-html",
   ],
+  staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
