@@ -24,7 +24,7 @@
       "default": "./dist/js/uswds.min.js"
     },
     "./src/js/components": "./src/js/components/index.js",
-    "./src/js/components/*": "./src/js/components/*.js"
+    "./src/js/components/*": "./src/js/components/*.js",
     "./js/*": "./dist/js/*",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
