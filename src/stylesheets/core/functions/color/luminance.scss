@@ -20,9 +20,9 @@ Returns the luminance of `$color` as a float (between 0 and 1)
 @use "../../variables/luminance-values" as *;
 
 @function luminance($color) {
-  $lum: (list.nth($luminance-values, red($color) + 1) * 0.2126) +
-    (list.nth($luminance-values, green($color) + 1) * 0.7152) +
-    (list.nth($luminance-values, blue($color) + 1) * 0.0722);
+  $lum: (list.nth($luminance-color-component-values, red($color) + 1) * 0.2126) +
+    (list.nth($luminance-color-component-values, green($color) + 1) * 0.7152) +
+    (list.nth($luminance-color-component-values, blue($color) + 1) * 0.0722);
 
   @return math.div(math.round($lum * 1000), 1000);
 }
