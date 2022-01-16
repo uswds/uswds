@@ -957,125 +957,17 @@ functions and mixins.
   @return $value;
 }
 
-/*
-----------------------------------------
-pow()
-----------------------------------------
-Raises a unitless number to the power
-of another unitless number
-
-Includes helper functions
-----------------------------------------
-*/
-
-@function pow($number, $exponent) {
-  @if (round($exponent) != $exponent) {
-    @return exp($exponent * ln($number));
-  }
-
-  $value: 1;
-
-  @if $exponent > 0 {
-    @for $i from 1 through $exponent {
-      $value: $value * $number;
-    }
-  } @else if $exponent < 0 {
-    @for $i from 1 through -$exponent {
-      $value: divide($value, $number);
-    }
-  }
-
-  @return $value;
-}
-
-@function factorial($value) {
-  $result: 1;
-
-  @if $value == 0 {
-    @return $result;
-  }
-
-  @for $index from 1 through $value {
-    $result: $result * $index;
-  }
-
-  @return $result;
-}
-
-@function summation($iteratee, $input, $initial: 0, $limit: 100) {
-  $sum: 0;
-
-  @for $index from $initial to $limit {
-    $sum: $sum + call($iteratee, $input, $index);
-  }
-
-  @return $sum;
-}
-
-@function exp-maclaurin($x, $n) {
-  @return divide(pow($x, $n), factorial($n));
-}
-
-@function exp($value) {
-  @return summation(get-function("exp-maclaurin"), $value, 0, 100);
-}
-
-@function ln-maclaurin($x, $n) {
-  @return divide(pow(-1, $n + 1), $n) * (pow($x - 1, $n));
-}
-
-@function ln($value) {
-  $ten-exp: 1;
-  $ln-ten: 2.30258509;
-
-  @while ($value > pow(10, $ten-exp)) {
-    $ten-exp: $ten-exp + 1;
-  }
-
-  @return summation(
-      get-function("ln-maclaurin"),
-      divide($value, pow(10, $ten-exp)),
-      1,
-      100
-    ) + $ten-exp * $ln-ten;
-}
-
 /// Returns the luminance of `$color` as a float (between 0 and 1)
 /// 1 is pure white, 0 is pure black
 /// @param {Color} $color - Color
 /// @return {Number}
 /// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
 @function luminance($color) {
-  $colors: (
-    "red": red($color),
-    "green": green($color),
-    "blue": blue($color),
-  );
+  $lum: (nth($luminance-color-component-values, red($color) + 1) * 0.2126) +
+    (nth($luminance-color-component-values, green($color) + 1) * 0.7152) +
+    (nth($luminance-color-component-values, blue($color) + 1) * 0.0722);
 
-  @each $name, $value in $colors {
-    $adjusted: 0;
-    $value: divide($value, 256);
-
-    @if $value < 0.03928 {
-      $value: divide($value, 12.92);
-    } @else {
-      $value: divide($value + 0.055, 1.055);
-      $value: pow($value, 2.4);
-    }
-
-    $colors: map-merge(
-      $colors,
-      (
-        $name: $value,
-      )
-    );
-  }
-
-  $lum: (map-get($colors, "red") * 0.2126) +
-    (map-get($colors, "green") * 0.7152) + (map-get($colors, "blue") * 0.0722);
-  $lum: divide(round($lum * 1000), 1000);
-
-  @return $lum;
+  @return divide(round($lum * 1000), 1000);
 }
 
 /// Casts a string into a number
