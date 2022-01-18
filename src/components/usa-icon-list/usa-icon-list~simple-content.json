@@ -29,5 +29,6 @@
       },
       "content": "Reduced wait times"
     }
-  ]
+  ],
+  "img_path": "./img"
 }

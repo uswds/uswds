@@ -22,5 +22,6 @@
       },
       "content": "<h3 class=\"usa-icon-list__title\">Fill it up.</h3>\n<p>Wash full loads, whether it’s clothes or dishes. Washing multiple small loads means you’re using and heating more water, which can increase your expenses. Using cold water for clothes washing can also help lower your costs.</p>"
     }
-  ]
+  ],
+  "img_path": "./img"
 }

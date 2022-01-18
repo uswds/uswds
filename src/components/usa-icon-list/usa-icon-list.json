@@ -22,5 +22,6 @@
       },
       "content": "Avoid large gatherings"
     }
-  ]
+  ],
+  "img_path": "./img"
 }

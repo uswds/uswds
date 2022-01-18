@@ -22,5 +22,6 @@
       },
       "content": "<span class=\"text-bold\">Need.</span> Will this business fill a real need for my customers?"
     }
-  ]
+  ],
+  "img_path": "./img"
 }

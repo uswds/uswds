@@ -21,5 +21,6 @@
       },
       "content": "<h3 class=\"usa-icon-list__title\">Talk to trusted organizations about volunteering.</h3>\n<p>Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating. Organizations on the ground know what items and quantities are needed, often buy in bulk with discounts and, if possible, purchase through businesses local to the disaster, which supports economic recovery.</p>"
     }
-  ]
+  ],
+  "img_path": "./img"
 }
