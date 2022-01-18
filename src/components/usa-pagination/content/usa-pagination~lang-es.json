@@ -5,7 +5,7 @@
     "page_label": "Página",
     "unbounded": false,
     "items": 24,
-    "current": 1,
+    "current": 10,
     "previous": {
       "label": "Anterior"
     },
