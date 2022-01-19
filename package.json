@@ -30,8 +30,8 @@
     "./js/*": "./dist/js/*",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
-    "./img/*": "./dist/img*",
-    "./fonts/*": "./dist/fonts"
+    "./img/*": "./dist/img/*",
+    "./fonts/*": "./dist/fonts/*"
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
