@@ -25,6 +25,8 @@
     },
     "./src/js/components": "./src/js/components/index.js",
     "./src/js/components/*": "./src/js/components/*.js",
+    "./src/fonts/*": "./src/fonts/*",
+    "./src/img/*": "./src/img/*",
     "./js/*": "./dist/js/*",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
