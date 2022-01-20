@@ -1128,7 +1128,12 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const tableBody = createTableBody(datesGrid);
   table.insertAdjacentElement("beforeend", tableBody);
-  newCalendar.insertAdjacentElement("beforeend", table);
+
+  // Container for Years, Months, and Days
+  const datePickerCalendarContainer =
+    newCalendar.querySelector(CALENDAR_DATE_PICKER);
+
+  datePickerCalendarContainer.insertAdjacentElement("beforeend", table);
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
