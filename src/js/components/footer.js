@@ -41,9 +41,9 @@ function toggleHtmlTag(isMobile) {
 
   primaryLinks?.forEach(currentElement => {
     const currentElementClasses = currentElement.getAttribute('class');
-    const newElement = document.createElement(newElementType);
 
     // Create the new element
+    const newElement = document.createElement(newElementType);
     newElement.setAttribute('class', currentElementClasses);
     newElement.setAttribute('aria-expanded', 'false');
     newElement.classList.add('usa-footer__primary-link--button');
