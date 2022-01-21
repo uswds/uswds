@@ -76,6 +76,12 @@
     cursor: pointer;
     text-decoration: underline;
   }
+
+  // Disclosure button functionality happens at mobile widths
+  &--button {
+    width: 100%;
+    border: 0;
+  }
 }
 
 .usa-footer__secondary-link {
