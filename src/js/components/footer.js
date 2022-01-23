@@ -16,7 +16,7 @@ function showPanel() {
     const collapseEl = this.closest(COLLAPSIBLE);
     const isOpen = !collapseEl.classList.contains(HIDDEN);
     collapseEl.classList.toggle(HIDDEN, isOpen);
-    collapseEl.querySelector('.usa-footer__primary-link')?.setAttribute('aria-expanded', !isOpen);
+    collapseEl.querySelector(BUTTON)?.setAttribute('aria-expanded', !isOpen);
 
     // NB: this *should* always succeed because the button
     // selector is scoped to ".{prefix}-footer-big nav"
@@ -35,8 +35,8 @@ function showPanel() {
  * @param {Boolean} isMobile - If the footer is in mobile configuration
  */
 function toggleHtmlTag(isMobile) {
-  const footer = document.querySelector('.usa-footer');
-  const primaryLinks = footer?.querySelectorAll('.usa-footer__primary-link');
+  const footer = document.querySelector(SCOPE);
+  const primaryLinks = footer?.querySelectorAll(BUTTON);
   const newElementType = isMobile ? 'button' : 'h4';
 
   primaryLinks?.forEach(currentElement => {
@@ -45,9 +45,12 @@ function toggleHtmlTag(isMobile) {
     // Create the new element
     const newElement = document.createElement(newElementType);
     newElement.setAttribute('class', currentElementClasses);
-    newElement.setAttribute('aria-expanded', 'false');
-    newElement.classList.add('usa-footer__primary-link--button');
+    newElement.classList.toggle(`${PREFIX}-footer__primary-link--button`, isMobile);
     newElement.textContent = currentElement.textContent;
+
+    if (isMobile) {
+      newElement.setAttribute('aria-expanded', 'false');
+    }
 
     // Insert the new element and delete the old
     currentElement.after(newElement);
