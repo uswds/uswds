@@ -1,3 +1,11 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../../functions" as *;
+@use "../../properties" as *;
+@use "../../tokens/color" as *;
+
 $border-utilities: (
   "width":
     map-collect(
@@ -15,14 +23,17 @@ $border-utilities: (
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
   $has-style: false;
-  $widths: map-get($border-utilities, "width");
+  $widths: map.get($border-utilities, "width");
 
   @each $this-value in $value {
     $match: false;
-    @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
+    @if map.has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
       $this-value: smart-quote($this-value);
       @if $side == n {
@@ -36,57 +47,57 @@ $border-utilities: (
       } @else {
         border-#{$side}-color: color($this-value) #{$important};
       }
-    } @else if type-of($this-value) == "number" {
+    } @else if meta.type-of($this-value) == "number" {
       $converted-value: number-to-token($this-value);
-      @if map-has-key($widths, $converted-value) {
+      @if map.has-key($widths, $converted-value) {
         $match: true;
-        $final-value: map-get($widths, $converted-value);
+        $final-value: map.get($widths, $converted-value);
         @if $side == n {
-          border-width: unquote("#{$final-value}#{$important}");
+          border-width: string.unquote("#{$final-value}#{$important}");
         } @else if $side == x {
-          border-left-width: unquote("#{$final-value}#{$important}");
-          border-right-width: unquote("#{$final-value}#{$important}");
+          border-left-width: string.unquote("#{$final-value}#{$important}");
+          border-right-width: string.unquote("#{$final-value}#{$important}");
         } @else if $side == y {
-          border-bottom-width: unquote("#{$final-value}#{$important}");
-          border-top-width: unquote("#{$final-value}#{$important}");
+          border-bottom-width: string.unquote("#{$final-value}#{$important}");
+          border-top-width: string.unquote("#{$final-value}#{$important}");
         } @else {
-          border-#{$side}-width: unquote("#{$final-value}#{$important}");
+          border-#{$side}-width: string.unquote("#{$final-value}#{$important}");
         }
       } @else {
         @error '#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}';
       }
-    } @else if map-has-key($widths, smart-quote($this-value)) {
+    } @else if map.has-key($widths, smart-quote($this-value)) {
       $match: true;
       $this-value: smart-quote($this-value);
-      $final-value: map-get($widths, $this-value);
+      $final-value: map.get($widths, $this-value);
       @if $side == n {
-        border-width: unquote("#{$final-value}#{$important}");
+        border-width: string.unquote("#{$final-value}#{$important}");
       } @else if $side == x {
-        border-left-width: unquote("#{$final-value}#{$important}");
-        border-right-width: unquote("#{$final-value}#{$important}");
+        border-left-width: string.unquote("#{$final-value}#{$important}");
+        border-right-width: string.unquote("#{$final-value}#{$important}");
       } @else if $side == y {
-        border-bottom-width: unquote("#{$final-value}#{$important}");
-        border-top-width: unquote("#{$final-value}#{$important}");
+        border-bottom-width: string.unquote("#{$final-value}#{$important}");
+        border-top-width: string.unquote("#{$final-value}#{$important}");
       } @else {
-        border-#{$side}-width: unquote("#{$final-value}#{$important}");
+        border-#{$side}-width: string.unquote("#{$final-value}#{$important}");
       }
     } @else {
       $converted-value: smart-quote($this-value);
-      $styles: map-get($border-utilities, "style");
-      @if map-has-key($styles, $converted-value) {
+      $styles: map.get($border-utilities, "style");
+      @if map.has-key($styles, $converted-value) {
         $match: true;
         $has-style: true;
-        $final-value: map-get($styles, $converted-value);
+        $final-value: map.get($styles, $converted-value);
         @if $side == n {
-          border-style: unquote("#{$final-value}#{$important}");
+          border-style: string.unquote("#{$final-value}#{$important}");
         } @else if $side == x {
-          border-left-style: unquote("#{$final-value}#{$important}");
-          border-right-style: unquote("#{$final-value}#{$important}");
+          border-left-style: string.unquote("#{$final-value}#{$important}");
+          border-right-style: string.unquote("#{$final-value}#{$important}");
         } @else if $side == y {
-          border-bottom-style: unquote("#{$final-value}#{$important}");
-          border-top-style: unquote("#{$final-value}#{$important}");
+          border-bottom-style: string.unquote("#{$final-value}#{$important}");
+          border-top-style: string.unquote("#{$final-value}#{$important}");
         } @else {
-          border-#{$side}-style: unquote("#{$final-value}#{$important}");
+          border-#{$side}-style: string.unquote("#{$final-value}#{$important}");
         }
       } @else {
         @error '`#{$this-value}` is not a valid `border` token. '

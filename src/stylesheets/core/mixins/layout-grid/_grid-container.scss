@@ -1,9 +1,15 @@
+@use "sass:list";
+@use "../../settings" as *;
+@use "../../functions/general" as *;
+@use "../../mixins/general/add-responsive-site-margins" as *;
+@use "../../mixins/helpers/border-box-sizing.scss" as *;
+
 @mixin grid-container($props...) {
-  @if length($props) ==0 {
+  @if length($props) == 0 {
     @include u-margin-x(auto);
     @include u-maxw($theme-grid-container-max-width);
   } @else {
-    $props: nth($props, 1);
+    $props: list.nth($props, 1);
     $margin-x: append-important($props, auto);
     @include u-margin-x($margin-x);
     @include u-maxw($props);

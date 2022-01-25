@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Adds margin either l/r(x) or t/b(y)
 
 @mixin margin-n($side, $value...) {
@@ -6,6 +9,9 @@
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
     margin: get-uswds-value(margin, $value...) #{$important};
@@ -13,46 +19,64 @@
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
-    margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
+    margin-left: get-uswds-value("margin-horizontal", $value...) #{$important};
+    margin-right: get-uswds-value("margin-horizontal", $value...) #{$important};
   } @else if $side == y {
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
-    margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
+    margin-bottom: get-uswds-value("margin-vertical", $value...) #{$important};
+    margin-top: get-uswds-value("margin-vertical", $value...) #{$important};
   } @else if $side == t {
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
+    margin-top: get-uswds-value("margin-vertical", $value...) #{$important};
   } @else if $side == r {
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
+    margin-right: get-uswds-value("margin-horizontal", $value...) #{$important};
   } @else if $side == b {
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
+    margin-bottom: get-uswds-value("margin-vertical", $value...) #{$important};
   } @else if $side == l {
     $important: null;
     @if has-important($value) {
       $value: remove($value, "!important");
+      @if list.length($value) == 1 {
+        $value: de-list($value);
+      }
       $important: " !important";
     }
-    margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
+    margin-left: get-uswds-value("margin-horizontal", $value...) #{$important};
   }
 }
 
