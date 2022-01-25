@@ -1,6 +1,13 @@
 /* stylelint-disable max-nesting-depth */
 
 @use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@use "../settings" as *;
+@use "../properties" as *;
+@use "../functions" as *;
+@use "./helpers" as *;
 
 /*
 ----------------------------------------
@@ -25,7 +32,7 @@ loop
 
   .#{$media-prefix}#{$pseudoclass}#{$separator}#{ns("utility")}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: string.unquote("#{$value}#{$important}");
     }
   }
 }
@@ -33,7 +40,7 @@ loop
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map.get($declaration, $utility-type) {
-    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+    #{strunquote($ext-prop)}: string.unquote("#{strunquote($ext-value)}#{$important}");
   }
 }
 
@@ -62,7 +69,7 @@ future version of Sass' warning.
 ) {
   $important: if($utilities-use-important, " !important", null);
   $media-prefix: null;
-  $value-is-map: if(type-of($val-props) == "map", true, false);
+  $value-is-map: if(meta.type-of($val-props) == "map", true, false);
 
   @if $media-key {
     $media-prefix: #{$media-key}#{$separator};
@@ -78,7 +85,7 @@ future version of Sass' warning.
     }
 
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: string.unquote("#{$value}#{$important}");
     }
 
     @if map.has-key($utility, extend) {
@@ -195,7 +202,7 @@ through all possible variants
           // the content key or the dependency key has a null value
           // set $val-value to `false`...
 
-          @if type-of($val-value) == "map" {
+          @if meta.type-of($val-value) == "map" {
             @if not map.get($val-value, content) {
               $val-value: false;
             } @else if
@@ -214,13 +221,13 @@ through all possible variants
             // If its a map, use val-value.content.
 
             $val-slug: if(
-              type-of($val-value) == "map",
+              meta.type-of($val-value) == "map",
               map.get($val-value, "slug"),
               $val-key
             );
 
             $value: if(
-              type-of($val-value) == "map",
+              meta.type-of($val-value) == "map",
               map.get($val-value, "content"),
               $val-value
             );
@@ -241,7 +248,7 @@ through all possible variants
               $value: map.get($utility, valuePrepend) + $value;
             }
 
-            // Then unquote the entire value string.
+            // Then string.unquote the entire value string.
 
             $value: strunquote($value);
 
