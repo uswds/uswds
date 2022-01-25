@@ -12,6 +12,7 @@ theme color token
 @use "is-system-color-token" as *;
 @use "is-theme-color-token" as *;
 @use "../general/error-not-token" as *;
+@use "../../tokens/color/assignments-theme-color" as *;
 
 @function color-token-assignment($color-token) {
   @if is-system-color-token($color-token) {

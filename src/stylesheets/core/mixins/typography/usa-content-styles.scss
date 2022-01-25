@@ -2,7 +2,7 @@
 @use "./typeset" as *;
 @use "./usa-prose" as *;
 @use "./usa-list" as *;
-@use "./usa-table" as *;
+@use "./usa-table-styles" as *;
 
 @mixin usa-paragraph-style {
   p {

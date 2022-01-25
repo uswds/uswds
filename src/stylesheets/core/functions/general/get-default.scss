@@ -11,6 +11,8 @@ get-default("bg-color")
 
 @use "sass:map";
 
+@use "../../variables/project-defaults" as *;
+
 @function get-default($var) {
   $value: map.get($project-defaults, $var);
   @return $value;
