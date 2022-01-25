@@ -9,7 +9,7 @@ variable that is, itself, a list
 */
 
 @use "sass:meta";
-@use "sass:string";
+@use "sass:list";
 
 @use "../../functions/general";
 @use "../../tokens/color/system-colors" as color;
@@ -31,11 +31,11 @@ variable that is, itself, a list
   //      $color-primary-dark: get-system-color($theme-color-primary.'dark'),
 
   @if meta.type-of($color-family) == "list" {
-    @if string.length($color-family) > 2 {
-      $color-variant: string.nth($color-family, 3);
+    @if list.length($color-family) > 2 {
+      $color-variant: list.nth($color-family, 3);
     }
-    $color-grade: string.nth($color-family, 2);
-    $color-family: string.nth($color-family, 1);
+    $color-grade: list.nth($color-family, 2);
+    $color-family: list.nth($color-family, 1);
   }
 
   $color-family: general.smart-quote($color-family);

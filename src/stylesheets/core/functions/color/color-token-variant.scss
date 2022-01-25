@@ -15,12 +15,17 @@ color-token-variant(("red", 50, "vivid"))
 ----------------------------------------
 */
 
+@use "sass:meta";
+@use "sass:list";
+
+@use "./decompose-color-token" as *;
+
 @function color-token-variant($color-token) {
   $split: if(
-    type-of($color-token) == "list",
+    meta.type-of($color-token) == "list",
     $color-token,
     decompose-color-token($color-token)
   );
-  $variant: nth($split, 3);
+  $variant: list.nth($split, 3);
   @return $variant;
 }
