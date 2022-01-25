@@ -1,8 +1,9 @@
-@use "../../functions/color/get-color-token-from-bg" as *;
 @use "../../functions/utilities/color" as *;
 @use "../../functions/general/get-default" as *;
 
-@mixin set-text-from-bg(
+@use "./set-text-from-bg" as *;
+
+@mixin set-text-and-bg(
   $bg-color: "default",
   $preferred-text-color: "default",
   $fallback-text-color: "default",
@@ -11,12 +12,15 @@
   $important: null
 ) {
   $important: if($important, " !important", null);
-  $accessible-color-token: get-color-token-from-bg(
+
+  @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
     $fallback-text-color,
     $wcag-target,
-    $context
+    $context,
+    $important: $important
   );
-  color: color($accessible-color-token) #{$important};
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
+  background-color: color($bg-color) #{$important};
 }
