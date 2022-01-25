@@ -1,3 +1,7 @@
+@use "../settings" as *;
+@use "../functions" as *;
+@use "../mixins/utilities/border" as *;
+
 // Helpers
 $input-select-margin-right: 1.5;
 
