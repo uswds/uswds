@@ -1,3 +1,6 @@
+@use "../functions/utilities" as *;
+@use "../mixins/utilities/margin" as *;
+
 %usa-list {
   @include u-margin-y(1em);
   line-height: line-height($theme-body-font-family, $theme-body-line-height);
