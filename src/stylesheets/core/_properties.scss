@@ -6,6 +6,7 @@ USWDS Properties
 
 @use "sass:map";
 @use "sass:string";
+
 @use "./functions/general/map-collect" as *;
 @use "./functions/units/units" as *;
 @use "./functions/utilities/line-height" as *;

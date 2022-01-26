@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "../../functions" as *;
 @use "../../settings" as *;
-@use "../general" as *;
+@use "../general/add-background-svg" as *;
 @use "format-input" as *;
 @use "format-label" as *;
 
