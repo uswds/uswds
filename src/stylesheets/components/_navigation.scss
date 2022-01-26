@@ -167,15 +167,10 @@ $nav-link-arrow-icon-size: 2;
 
         span::after {
           @include add-color-icon($icon-object, $contrast-bg: "default");
-          background-position: center;
           content: "";
           display: inline-block;
           position: absolute;
           right: units(1.5);
-          top: 0;
-          bottom: 0;
-          height: 100%;
-
           @media (forced-colors: active) {
             background-color: ButtonText;
           }
