@@ -1,10 +1,3 @@
 // Core
 // -------------------------------------
-@forward "functions";
-@forward "tokens";
-@forward "variables";
-@forward "properties";
-@forward "mixins";
-@forward "placeholders";
-@forward "deprecated";
-@forward "notifications";
+@forward "../core";

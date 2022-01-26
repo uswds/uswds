@@ -1,7 +1,7 @@
 // Validation
 // -------------------------------------
-@import "uswds-form-controls";
-@import "usa-checklist";
-@import "usa-alert";
-@import "usa-button";
-@import "usa-form";
+@forward "uswds-form-controls";
+@forward "usa-checklist";
+@forward "usa-alert";
+@forward "usa-button";
+@forward "usa-form";
