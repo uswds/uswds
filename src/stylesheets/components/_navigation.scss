@@ -176,8 +176,8 @@ $nav-link-arrow-icon-size: 2;
           bottom: 0;
           height: 100%;
 
-          @media (-ms-high-contrast: activated) {
-            color: ButtonText;
+          @media (forced-colors: active) {
+            background-color: ButtonText;
           }
         }
 
