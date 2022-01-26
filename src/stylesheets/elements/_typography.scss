@@ -1,3 +1,8 @@
+@use "../core/settings" as *;
+@use "../core/functions" as *;
+@use "../core/mixins/general/add-kerning" as *;
+@use "../core/mixins/typography" as *;
+
 html {
   @include add-kerning;
   font-family: font-family($theme-body-font-family);
