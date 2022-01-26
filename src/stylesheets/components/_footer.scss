@@ -86,6 +86,11 @@
       // Apply negative focus offset to ensure that entire focus ring is visible
       @include focus-outline(null, null, null, "neg-05");
     }
+
+    & + .usa-list--unstyled {
+      margin-top: units(1);
+      margin-bottom: units(1);
+    }
   }
 }
 
