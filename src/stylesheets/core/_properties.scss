@@ -8,9 +8,8 @@ USWDS Properties
 @use "sass:string";
 @use "./functions/general/map-collect" as *;
 @use "./functions/units/units" as *;
-@use "./functions/utilities/lh" as *;
+@use "./functions/utilities/line-height" as *;
 // TODO: ^^^ s/b "functions/utilities/units"
-//@use "functions/utilities/lh" as *;
 
 // ? This file uses:
 // "shortcodes-color-theme";
@@ -21,7 +20,7 @@ USWDS Properties
 @use "./tokens/color" as *;
 
 @use "./tokens/units/column-gaps" as *;
-@use "./tokens/units/system-spacing" as *;
+@use "./tokens/units/spacing" as *;
 @use "./tokens/units/spacing-em" as *;
 // TODO: ^^^ 'spacing'?
 

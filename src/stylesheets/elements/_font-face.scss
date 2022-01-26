@@ -2,6 +2,7 @@
 
 @use "sass:map";
 
+@use "../core/variables/font-type-tokens" as *;
 @use "../core/mixins/general/font-face" as *;
 
 @each $font-type-token, $metadata in $project-font-type-tokens {
