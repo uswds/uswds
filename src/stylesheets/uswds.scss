@@ -2,15 +2,11 @@
 
 // Required
 // -------------------------------------
-@import "packages/uswds-required";
+@forward "core";
 
 // Global
 // -------------------------------------
-@import "packages/uswds-global";
-
-// Elements
-// -------------------------------------
-@import "packages/uswds-elements";
+@forward "packages/uswds-global";
 
 // Helpers
 // -------------------------------------
