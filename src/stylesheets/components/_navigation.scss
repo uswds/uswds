@@ -150,28 +150,53 @@ $nav-link-arrow-icon-size: 2;
       @include add-background-svg("usa-icons/add");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
+      background-image: none;
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("usa-icons/expand_more");
-        background-size: units($nav-link-arrow-icon-size);
-        background-position: right units(1.5) top $button-vertical-offset;
+        // @include add-background-svg("usa-icons/expand_more");
+        // background-size: units($nav-link-arrow-icon-size);
+        // background-position: right units(1.5) top $button-vertical-offset;
 
-        // background-image: none;
+        $icon-object: (
+          "name": "expand_more",
+          "color": currentColor,
+          "height": units($nav-link-arrow-icon-size),
+          "svg-height": 24,
+          "svg-width": 24,
+        );
+
         span::after {
-          mask-image: url(../img/usa-icons/expand_more.svg);
-          mask-repeat: no-repeat;
-          mask-size: contain;
+          @include add-color-icon($icon-object, $contrast-bg: "default");
+          background-position: center;
           content: "";
-          display: block;
-          height: 100%;
-          width: units($nav-link-arrow-icon-size);
-          background-color: rgba($color: red, $alpha: 0.5);
+          display: inline-block;
           position: absolute;
+          right: units(1.5);
           top: 0;
           bottom: 0;
-          right: units(1.5);
-          mask-position: center top $button-vertical-offset;
+          height: 100%;
+
+          @media (-ms-high-contrast: activated) {
+            color: ButtonText;
+          }
         }
+
+        // background-image: none;
+        // span:: after {
+        // mask-image: url(../img/usa-icons/expand_more.svg);
+        // mask-repeat: no-repeat;
+        // mask-size: contain;
+        // content: "";
+        // display: block;
+        // height: 100%;
+        // width: units($nav-link-arrow-icon-size);
+        // background-color: rgba($color: red, $alpha: 0.5);
+        // position: absolute;
+        // top: 0;
+        // bottom: 0;
+        // right: units(1.5);
+        // mask-position: center top $button-vertical-offset;
+        // }
       }
 
       // &:hover {
