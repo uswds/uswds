@@ -122,6 +122,7 @@ $nav-link-arrow-icon-size: 2;
     $button-vertical-offset: 53%; // XXX: Magic number
 
     @include button-unstyled;
+    position: relative; //  Anchor spans chevron pseudo element
     color: color($nav-link-color);
     font-weight: font-weight("normal");
     line-height: line-height($theme-navigation-font-family, 2);
@@ -154,15 +155,32 @@ $nav-link-arrow-icon-size: 2;
         @include add-background-svg("usa-icons/expand_more");
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(1.5) top $button-vertical-offset;
-      }
 
-      &:hover {
-        @include at-media($theme-header-min-width) {
-          @include add-background-svg(
-            "usa-icons-bg/expand_more--blue-warm-70v"
-          );
+        // background-image: none;
+        span::after {
+          mask-image: url(../img/usa-icons/expand_more.svg);
+          mask-repeat: no-repeat;
+          mask-size: contain;
+          content: "";
+          display: block;
+          height: 100%;
+          width: units($nav-link-arrow-icon-size);
+          background-color: rgba($color: red, $alpha: 0.5);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: units(1.5);
+          mask-position: center top $button-vertical-offset;
         }
       }
+
+      // &:hover {
+      //   @include at-media($theme-header-min-width) {
+      //     @include add-background-svg(
+      //       "usa-icons-bg/expand_more--blue-warm-70v"
+      //     );
+      //   }
+      // }
     }
 
     &[aria-expanded="true"] {
