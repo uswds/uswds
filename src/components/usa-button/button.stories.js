@@ -6,6 +6,7 @@ import {
   AccentWarmData,
   BaseData,
   BigData,
+  OutlineData,
   OutlineInverseData,
   SecondaryData,
   UnstyledData,
@@ -36,6 +37,9 @@ Base.args = BaseData;
 
 export const Big = Template.bind({});
 Big.args = BigData;
+
+export const Outline = Template.bind({});
+Outline.args = OutlineData;
 
 export const OutlineInverse = Template.bind({});
 OutlineInverse.args = OutlineInverseData;
