@@ -14,6 +14,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-font-weight: (
   font-weight: (
     base: "text",

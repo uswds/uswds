@@ -14,6 +14,10 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/tokens" as *;
+@use "../../core/functions" as *;
+
 $u-color: (
   color: (
     base: "text",

@@ -14,6 +14,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-letter-spacing: (
   letter-spacing: (
     base: "text",
