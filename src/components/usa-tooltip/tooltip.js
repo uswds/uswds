@@ -1,8 +1,6 @@
-// Tooltips
-const selectOrMatches = require("../../utils/select-or-matches");
-const behavior = require("../../utils/behavior");
-const { prefix: PREFIX } = require("../../config");
-const isElementInViewport = require("../../utils/is-in-viewport");
+import { selectOrMatches, behavior, config, isElementInViewport } from "../../utils";
+
+const { prefix: PREFIX } = config;
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;

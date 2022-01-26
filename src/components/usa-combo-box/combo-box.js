@@ -1,9 +1,9 @@
+import { selectOrMatches, behavior, Sanitizer, config, events } from "../../utils";
+
 const keymap = require("receptor/keymap");
-const selectOrMatches = require("../../utils/select-or-matches");
-const behavior = require("../../utils/behavior");
-const Sanitizer = require("../../utils/sanitizer");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
+
+const { prefix: PREFIX } = config;
+const { CLICK } = events;
 
 const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
 const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;

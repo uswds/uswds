@@ -1,13 +1,18 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const toggle = require("../../utils/toggle");
-const FocusTrap = require("../../utils/focus-trap");
-const accordion = require("../usa-accordion/accordion");
-const ScrollBarWidth = require("../../utils/scrollbar-width");
+import {
+  behavior,
+  select,
+  toggle,
+  FocusTrap,
+  accordion,
+  ScrollBarWidth,
+  events,
+  config
+} from '../../utils'
 
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+const keymap = require("receptor/keymap");
+
+const { CLICK } = events;
+const { prefix: PREFIX } = config;
 
 const BODY = "body";
 const NAV = `.${PREFIX}-nav`;

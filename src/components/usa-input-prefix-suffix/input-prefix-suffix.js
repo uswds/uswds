@@ -1,7 +1,7 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
+import {behavior, select, config, events} from "../../utils"
+
+const { prefix: PREFIX } = config;
+const { CLICK } = events;
 
 const CONTAINER = `.${PREFIX}-input-group`;
 const INPUT = `${CONTAINER} .${PREFIX}-input`;

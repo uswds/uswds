@@ -1,7 +1,9 @@
+import { behavior, events, config } from "../../utils";
+
 const once = require("receptor/once");
-const behavior = require("../../utils/behavior");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+
+const { CLICK } = events;
+const { prefix: PREFIX } = config;
 
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer__return-to-top [href^="#"]`;
 const MAINCONTENT = "main-content";

@@ -2,7 +2,7 @@ const selectOrMatches = require("../../utils/select-or-matches");
 const FocusTrap = require("../../utils/focus-trap");
 const ScrollBarWidth = require("../../utils/scrollbar-width");
 
-const { prefix: PREFIX } = require("../../config");
+const { prefix: PREFIX } = require("../../utils/config");
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}-overlay`;

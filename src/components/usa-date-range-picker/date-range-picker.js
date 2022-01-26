@@ -1,7 +1,6 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
+import { behavior, select, selectOrMatches, config } from "../../utils"
+
+const { prefix: PREFIX } = config;
 const {
   getDatePickerContext,
   isDateInputInvalid,

@@ -1,9 +1,6 @@
-const behavior = require("../../utils/behavior");
-const toggleFormInput = require("../../utils/toggle-form-input");
-
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
-
+import {behavior, toggleFormInput, events, config} from "../../utils"
+const { CLICK } = events;
+const { prefix: PREFIX } = config;
 const LINK = `.${PREFIX}-show-password, .${PREFIX}-show-multipassword`;
 
 function toggle(event) {

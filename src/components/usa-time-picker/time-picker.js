@@ -1,6 +1,6 @@
-const behavior = require("../../utils/behavior");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
+import {behavior, selectOrMatches, config} from '../../utils'
+
+const { prefix: PREFIX } = config;
 const {
   COMBO_BOX_CLASS,
   enhanceComboBox,

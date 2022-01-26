@@ -1,5 +1,4 @@
 import { useEffect } from '@storybook/client-api'
-import banner from './banner'
 import "../../stylesheets/uswds.scss";
 import component from "./usa-banner.twig";
 import {

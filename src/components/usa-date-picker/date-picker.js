@@ -1,13 +1,9 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
-const activeElement = require("../../utils/active-element");
-const isIosDevice = require("../../utils/is-ios-device");
-const Sanitizer = require("../../utils/sanitizer");
+import { behavior, select, selectOrMatches, config, events, activeElement, isIosDevice, Sanitizer } from "../../utils";
 
+const keymap = require("receptor/keymap");
+
+const { prefix: PREFIX } = config;
+const { CLICK } = events;
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
 const DATE_PICKER_INITIALIZED_CLASS = `${DATE_PICKER_CLASS}--initialized`;
