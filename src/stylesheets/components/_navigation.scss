@@ -150,13 +150,9 @@ $nav-link-arrow-icon-size: 2;
       @include add-background-svg("usa-icons/add");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
-      background-image: none;
+      // background-image: none;
 
       @include at-media($theme-header-min-width) {
-        // @include add-background-svg("usa-icons/expand_more");
-        // background-size: units($nav-link-arrow-icon-size);
-        // background-position: right units(1.5) top $button-vertical-offset;
-
         $icon-object: (
           "name": "expand_more",
           "color": currentColor,
