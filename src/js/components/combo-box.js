@@ -209,6 +209,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   // sanitize doesn't like functions in template literals
   const input = document.createElement("input");
   input.setAttribute("id", selectId);
+  input.setAttribute("aria-owns", listId);
   input.setAttribute("aria-controls", listId);
   input.setAttribute("aria-autocomplete", "list");
   input.setAttribute("aria-describedby", assistiveHintID);
