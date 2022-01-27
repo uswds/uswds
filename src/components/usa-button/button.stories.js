@@ -1,4 +1,5 @@
 import SystemColorList from '../../tokens/color/color~vars';
+import modifierList from './button';
 import Docs from "./docs/index.mdx";
 import Component from "./usa-button.twig";
 import {
@@ -24,17 +25,7 @@ export default {
     modifier: {
       control: { type: 'select' },
       name: 'Class modifier',
-      options: [
-        ' ', 
-        'usa-button--accent-cool', 
-        'usa-button--accent-warm', 
-        'usa-button--base',
-        'usa-button--big',
-        'usa-button--outline',
-        'usa-button--outline usa-button--inverse',
-        'usa-button--secondary',
-        'usa-button--unstyled',
-      ],
+      options: modifierList,
     },
     is_demo: {
       control: { type: 'boolean' },
@@ -92,16 +83,31 @@ StylePlayground.argTypes = {
   display_element_states: { 
     table: { disable: true },
   },
+  border_radius: {
+    control: { type: 'text' },
+    defaultValue: '.25rem',
+    name: '$theme-button-border-radius',
+  },
+  stroke_width: {
+    control: { type: 'text' },
+    defaultValue: '0',
+    name: '$theme-button-stroke-width',
+  },
+  font_family: {
+    control: { type: 'text' },
+    defaultValue: '0',
+    name: '$theme-button-font-family',
+  },
   background_color: {
     control: { type: 'select' }, 
     defaultValue: 'blue-60v',
-    name: 'Default state: background color',
+    name: 'Default/focus state: background color',
     options: SystemColorList,
   },
   text_color: {
     control: { type: 'select' }, 
     defaultValue: 'white',
-    name: 'Default state: text color',
+    name: 'Default/focus state: text color',
     options: SystemColorList,
   },
   background_color_hover: {
@@ -157,16 +163,6 @@ StylePlayground.argTypes = {
     control: { type: 'text' },
     defaultValue: '1.06rem',
     name: 'Type scale',
-  },
-  border_radius: {
-    control: { type: 'text' },
-    defaultValue: '.25rem',
-    name: 'Border radius (unit needed)',
-  },
-  stroke_width: {
-    control: { type: 'text' },
-    defaultValue: '0',
-    name: 'Stroke Width <br/> *Note: must add unit (px, %, etc). stroke available on outline variant only)',
   },
   stroke_color: {
     control: { type: 'select' },
