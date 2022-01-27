@@ -1,0 +1,9 @@
+- **Use standard buttons for actions that go a next step.**
+- **Use outline buttons for actions that happen on the current page.**
+- **Give an important action a distinctive style.** Style the button most users should click in a way that distinguishes it from other buttons on the page. Try using the `usa-button--big` variant or the most visually distinct color variant.
+- **Make sure buttons look selectable.** Use color variations to distinguish static, hover, and active states.
+- **Avoid using too many buttons on a page.**
+- **Use sentence case for button labels.**
+- **Keep button text short.** Button text should be as short as possible with action words that clearly explain what will happen when the button is selected (for example, `Download`, `View` or `Sign up`).
+- **Lead with a verb.** Make the first word of the button’s text a verb. For example, instead of `Complaint filing` label the button `File a complaint`.
+- **Icons can also be helpful.** At times, consider adding an icon to signal specific actions (`Download`, `Open in a new window`, etc).

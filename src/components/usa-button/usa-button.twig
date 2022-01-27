@@ -1,9 +1,13 @@
+{% if playground_mode %}
+<div class="playground-mode">
+{% endif %}
+
 {% if 'usa-button--outline usa-button--inverse' in modifier %}
   <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif %}
 
 {% if is_demo and 'usa-button--big' not in modifier %}
-  <button class="usa-button {{ modifier }}">Default</button>
+  <button class="usa-button {{ modifier }}">{{ text }}</button>
   <button class="usa-button {{ modifier }} usa-button--hover">Hover</button>
   <button class="usa-button {{ modifier }} usa-button--active">Active</button>
   <button class="usa-button {{ modifier }} usa-focus">Focus</button>
@@ -18,4 +22,48 @@
 
 {% if 'usa-button--outline usa-button--inverse' in modifier %}
   </div>
+{% endif %}
+
+{% if playground_mode %}
+</div>
+
+<style>
+  /*
+  styles added for storybook demonstration only
+  */
+  .playground-mode .usa-button {
+    background-color: {{ background_color }};
+    border-radius: {{ border_radius }};
+    box-shadow: inset 0 0 0 {{ stroke_width }} {{ stroke_color }};
+    color: {{ text_color }};
+    font-size: {{ font_size }};
+  }
+
+  .playground-mode .usa-button:hover,
+  .playground-mode .usa-button.usa-button--hover {
+    background-color: {{ background_color_hover }};
+    color: {{ text_color_hover }};
+  }
+
+  .playground-mode .usa-button:active,
+  .playground-mode .usa-button.usa-button--active {
+    background-color: {{ background_color_active }};
+    color: {{ text_color_active }};
+  }
+
+  .playground-mode .usa-button:disabled {
+    background-color: {{ background_color_disabled }};
+    color: {{ text_color_disabled }};
+  }
+
+  .playground-mode .usa-button.usa-button--unstyled {
+    background: none;
+    box-shadow: none;
+    color: {{ text_color_unstyled }};
+  }
+
+  .playground-mode .usa-button--outline {
+    box-shadow: inset 0 0 0 {{ stroke_width }} {{ stroke_color }};
+  }
+</style>
 {% endif %}

@@ -1,5 +1,4 @@
 import SystemColorList from '../../tokens/color/color~vars';
-import Docs from "./docs/index.mdx";
 import Component from "./usa-button.twig";
 import {
   Data,
@@ -21,8 +20,10 @@ export default {
       defaultValue: 'Default',
       name: 'Button text',
     },
+    is_demo: {
+      name: 'Show all interactive states',
+    },
     modifier: {
-      control: { type: 'select' },
       name: 'Class modifier',
       options: [
         ' ', 
@@ -35,17 +36,12 @@ export default {
         'usa-button--secondary',
         'usa-button--unstyled',
       ],
+      control: { type: 'select' },
     },
-    is_demo: {
+    display_element_states: {
+      name: 'Display all button states',
       control: { type: 'boolean' },
       defaultValue: true,
-      name: 'Display all interactive states',
-    },
-  },
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      page: Docs,
     },
   },
 };
@@ -166,7 +162,7 @@ StylePlayground.argTypes = {
   stroke_width: {
     control: { type: 'text' },
     defaultValue: '0',
-    name: 'Stroke Width <br/> *Note: must add unit (px, %, etc). stroke available on outline variant only)',
+    name: 'Stroke Width (unit needed, stroke available on outline variant only)',
   },
   stroke_color: {
     control: { type: 'select' },
