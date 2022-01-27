@@ -147,10 +147,26 @@ $nav-link-arrow-icon-size: 2;
 
     &[aria-expanded="false"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("usa-icons/add");
-      background-position: right 0 center;
-      background-size: units($nav-link-accordion-icon-size);
-      // background-image: none;
+      background-image: none;
+
+      $icon-object: (
+        "name": "add",
+        "color": currentColor,
+        "height": units($nav-link-accordion-icon-size),
+        "svg-height": 24,
+        "svg-width": 24,
+      );
+
+      span::after {
+        @include add-color-icon($icon-object, $contrast-bg: "default");
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        @media (forced-colors: active) {
+          background-color: ButtonText;
+        }
+      }
 
       @include at-media($theme-header-min-width) {
         $icon-object: (
@@ -171,47 +187,53 @@ $nav-link-arrow-icon-size: 2;
             background-color: ButtonText;
           }
         }
-
-        // background-image: none;
-        // span:: after {
-        // mask-image: url(../img/usa-icons/expand_more.svg);
-        // mask-repeat: no-repeat;
-        // mask-size: contain;
-        // content: "";
-        // display: block;
-        // height: 100%;
-        // width: units($nav-link-arrow-icon-size);
-        // background-color: rgba($color: red, $alpha: 0.5);
-        // position: absolute;
-        // top: 0;
-        // bottom: 0;
-        // right: units(1.5);
-        // mask-position: center top $button-vertical-offset;
-        // }
       }
-
-      // &:hover {
-      //   @include at-media($theme-header-min-width) {
-      //     @include add-background-svg(
-      //       "usa-icons-bg/expand_more--blue-warm-70v"
-      //     );
-      //   }
-      // }
     }
 
     &[aria-expanded="true"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("usa-icons/remove");
-      background-position: right 0 center;
-      background-size: units($nav-link-accordion-icon-size);
+      background-image: none;
+
+      $icon-object: (
+        "name": "remove",
+        "color": currentColor,
+        "height": units($nav-link-accordion-icon-size),
+        "svg-height": 24,
+        "svg-width": 24,
+      );
+
+      span::after {
+        @include add-color-icon($icon-object, $contrast-bg: "default");
+        content: "";
+        display: inline-block;
+        position: absolute;
+        @media (forced-colors: active) {
+          background-color: ButtonText;
+        }
+        right: 0;
+      }
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("usa-icons-bg/expand_less--white");
-        @include add-knockout-font-smoothing;
-        background-size: units($nav-link-arrow-icon-size);
-        background-color: color("primary-darker");
-        background-position: right units(1.5) top $button-vertical-offset;
-        color: color("white");
+        background-image: none;
+
+        $icon-object: (
+          "name": "expand_less",
+          "color": currentColor,
+          "height": units($nav-link-arrow-icon-size),
+          "svg-height": 24,
+          "svg-width": 24,
+        );
+
+        span::after {
+          @include add-color-icon($icon-object, $contrast-bg: "default");
+          content: "";
+          display: inline-block;
+          position: absolute;
+          right: units(1.5);
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
+        }
       }
     }
   }
