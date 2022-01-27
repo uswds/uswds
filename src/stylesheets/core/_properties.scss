@@ -12,12 +12,12 @@ USWDS Properties
 @use "./functions/utilities/line-height" as *;
 // TODO: ^^^ s/b "functions/utilities/units"
 
-// ? This file uses:
-// "shortcodes-color-theme";
-// "shortcodes-color-state";
-// "shortcodes-color-basic";
-// "global";
-// "system-colors";
+// ? Uses:
+// @use "./tokens/color/shortcodes-color-theme" as *;
+// @use "./tokens/color/shortcodes-color-state" as *;
+// @use "./tokens/color/shortcodes-color-basic" as *;
+// @use "./tokens/color/global" as *;
+// @use "./tokens/color/system-colors" as *;
 @use "./tokens/color" as *;
 
 @use "./tokens/units/column-gaps" as *;

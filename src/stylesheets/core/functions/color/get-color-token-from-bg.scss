@@ -1,3 +1,20 @@
+/*
+----------------------------------------
+get-color-token-from-bg()
+----------------------------------------
+Returns an accessible foreground color
+token, given a background, preferred
+color, fallback color, and WCAG target
+returns: color-token
+get-color-token-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10"
+----------------------------------------
+*/
+
 @use "sass:map";
 
 @use "../../variables/wcag-magic-numbers" as *;

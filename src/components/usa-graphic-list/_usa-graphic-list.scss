@@ -1,5 +1,6 @@
-// A collection of media block objects
+@use "../../stylesheets/core" as *;
 
+// A collection of media block objects
 .usa-graphic-list {
   @include typeset;
   @include border-box-sizing;

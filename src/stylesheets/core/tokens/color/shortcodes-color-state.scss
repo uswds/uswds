@@ -37,3 +37,5 @@ $tokens-color-state: (
   "emergency-dark":
     color(settings.$theme-color-emergency-dark, set-theme, no-warn),
 );
+
+@debug $tokens-color-state;

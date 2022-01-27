@@ -1,5 +1,6 @@
-// Alert variables ---------- //
+@use "../../stylesheets/core" as *;
 
+// Alert variables ---------- //
 $alert-icons: (
   info: "info",
   emergency: "error",
@@ -39,7 +40,7 @@ $alert-icons: (
 @each $name, $icon in $alert-icons {
   .usa-site-alert--#{$name} {
     $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-    @include set-text-and-bg($bgcolor);
+    // @include set-text-and-bg($bgcolor);
 
     .usa-alert {
       @include alert-status-styles($name, $icon);

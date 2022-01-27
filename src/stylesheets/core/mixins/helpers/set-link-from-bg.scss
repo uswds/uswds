@@ -4,6 +4,7 @@
 @use "../../settings" as *;
 @use "../../functions/color/" as *;
 @use "../../functions/utilities/color" as *;
+@use "../../functions/general" as *;
 
 @mixin set-link-from-bg(
   $bg-color: "default",

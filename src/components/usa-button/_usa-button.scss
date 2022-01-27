@@ -1,5 +1,6 @@
-// Buttons variables
+@use "../../stylesheets/core" as *;
 
+// Buttons variables
 $button-context: "Button";
 $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 

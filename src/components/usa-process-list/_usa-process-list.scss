@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "../../stylesheets/core" as *;
+
 // PROCESS LIST
 $theme-process-list-counter-content-padding: calc(
   (#{units($theme-process-list-counter-size)} / 2) - #{units(0.5)}

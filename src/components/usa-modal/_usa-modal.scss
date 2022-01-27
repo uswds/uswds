@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-js-no-click {
   pointer-events: none;
   user-select: none;

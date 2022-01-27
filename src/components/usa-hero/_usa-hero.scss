@@ -1,6 +1,8 @@
 // Hero feature
 // ==========================
 
+@use "../../stylesheets/core" as *;
+
 .usa-hero {
   @include border-box-sizing;
   @include typeset;

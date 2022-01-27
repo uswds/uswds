@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // Input prefixes / suffixes
 .usa-input-group {
   @extend %block-input-general;

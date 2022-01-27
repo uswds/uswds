@@ -63,7 +63,8 @@ exports.test = series(
  * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
 exports.buildSprite = buildSprite;
-exports.buildSass = series(lintSass, copyVendor, compileSass);
+// exports.buildSass = series(lintSass, copyVendor, compileSass);
+exports.buildSass = compileSass;
 exports.buildJS = series(typeCheck, lintJS, compileJS);
 exports.buildUSWDS = build;
 exports.release = release;

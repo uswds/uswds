@@ -1,7 +1,7 @@
 @use "../../functions/utilities/color" as *;
 @use "../../functions/general/get-default" as *;
 
-@use "./set-text-from-bg" as *;
+@use "set-text-from-bg" as *;
 
 @mixin set-text-and-bg(
   $bg-color: "default",

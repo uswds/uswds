@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-combo-box {
   max-width: units($theme-input-max-width);
   position: relative;

@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-label {
   @include typeset(
     $theme-form-font-family,
