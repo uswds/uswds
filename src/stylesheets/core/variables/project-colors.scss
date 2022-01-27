@@ -88,6 +88,10 @@ $project-state-colors: (
     "default": color(settings.$theme-color-disabled, set-theme),
     "dark": color(settings.$theme-color-disabled-dark, set-theme),
   ),
+  "emergency": (
+    "default": color(settings.$theme-color-emergency, set-theme),
+    "dark": color(settings.$theme-color-emergency-dark, set-theme),
+  ),
 );
 
 $all-project-colors: general.map-collect(
