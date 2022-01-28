@@ -11,6 +11,41 @@ $sliding-panel-width: "card-lg";
 $nav-link-accordion-icon-size: 2.5;
 $nav-link-arrow-icon-size: 2;
 
+// Maps for icon masks
+$expand-more-icon: (
+  "name": "expand_more",
+  "color": currentColor,
+  "height": units($nav-link-arrow-icon-size),
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$expand-less-icon: (
+  "name": "expand_less",
+  "color": currentColor,
+  "height": units($nav-link-arrow-icon-size),
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$add-icon: (
+  "name": "add",
+  "color": currentColor,
+  "height": units($nav-link-accordion-icon-size),
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$remove-icon: (
+  "name": "remove",
+  "color": currentColor,
+  "height": units($nav-link-accordion-icon-size),
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$contrast-bg: "default";
+
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
   from {
@@ -149,16 +184,8 @@ $nav-link-arrow-icon-size: 2;
       /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
-      $icon-object: (
-        "name": "add",
-        "color": currentColor,
-        "height": units($nav-link-accordion-icon-size),
-        "svg-height": 24,
-        "svg-width": 24,
-      );
-
       span::after {
-        @include add-color-icon($icon-object, $contrast-bg: "default");
+        @include add-color-icon($add-icon, $contrast-bg);
         content: "";
         display: inline-block;
         position: absolute;
@@ -169,16 +196,8 @@ $nav-link-arrow-icon-size: 2;
       }
 
       @include at-media($theme-header-min-width) {
-        $icon-object: (
-          "name": "expand_more",
-          "color": currentColor,
-          "height": units($nav-link-arrow-icon-size),
-          "svg-height": 24,
-          "svg-width": 24,
-        );
-
         span::after {
-          @include add-color-icon($icon-object, $contrast-bg: "default");
+          @include add-color-icon($expand-more-icon, $contrast-bg);
           content: "";
           display: inline-block;
           position: absolute;
@@ -194,38 +213,22 @@ $nav-link-arrow-icon-size: 2;
       /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
-      $icon-object: (
-        "name": "remove",
-        "color": currentColor,
-        "height": units($nav-link-accordion-icon-size),
-        "svg-height": 24,
-        "svg-width": 24,
-      );
-
       span::after {
-        @include add-color-icon($icon-object, $contrast-bg: "default");
+        @include add-color-icon($remove-icon, $contrast-bg);
         content: "";
         display: inline-block;
         position: absolute;
+        right: 0;
         @media (forced-colors: active) {
           background-color: ButtonText;
         }
-        right: 0;
       }
 
       @include at-media($theme-header-min-width) {
         background-image: none;
 
-        $icon-object: (
-          "name": "expand_less",
-          "color": currentColor,
-          "height": units($nav-link-arrow-icon-size),
-          "svg-height": 24,
-          "svg-width": 24,
-        );
-
         span::after {
-          @include add-color-icon($icon-object, $contrast-bg: "default");
+          @include add-color-icon($expand-less-icon, $contrast-bg);
           content: "";
           display: inline-block;
           position: absolute;
