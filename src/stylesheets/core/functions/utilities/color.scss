@@ -11,6 +11,7 @@ Derive a color from a color shortcode
 @use "sass:string";
 @use "../../functions/general";
 @use "../../settings/settings-color" as *;
+@use "../../settings/settings-general" as *;
 @use "../../tokens/color/shortcodes-color-system" as *;
 @use "../../tokens/color/assignments-theme-color" as *;
 
@@ -19,17 +20,26 @@ Derive a color from a color shortcode
   $value: general.unpack($value);
 
   @if map.has-key($assignments-theme-color, $value) {
-    $var: map.get($assignments-theme-color, $value);
-    $value: string.quote($var);
+    $value: map.get($assignments-theme-color, $value);
+    @if $value == false {
+      @if list.index($flags, set-theme) {
+        @return $value;
+      }
+      @error 'error: set to false';
+    }
+    @if meta.type-of($value) == string {
+      $value: string.quote($value);
+    }
   }
 
-  // Non-token colors may be passed with specific flags
+  // If it's a color, return that color
+  // Withhold warning if "no-warn" flag
+
   @if meta.type-of($value) == color {
-    // override or set-theme will allow any color
-    @if list.index($flags, override) or list.index($flags, set-theme) {
+    @if list.index($flags, "override") or list.index($flags, "set-theme") {
       // override + no-warn will skip warnings
-      @if list.index($flags, no-warn) {
-        @return $value;
+      @if list.index($flags, "no-warn") {
+        @return "no-warn"
       }
 
       @if $theme-show-compile-warnings {
@@ -48,9 +58,9 @@ Derive a color from a color shortcode
   }
 
   // Now, any value should be evaluated as a token
-  $value: general.smart-quote($value);
 
   @if map.has-key($system-color-shortcodes, $value) {
+    $value: general.smart-quote($value);
     $our-color: map.get($system-color-shortcodes, $value);
     @if $our-color == false {
       @error '`#{$value}` is a color that does not exist '
@@ -59,7 +69,9 @@ Derive a color from a color shortcode
     @return $our-color;
   }
 
-  @return general.error-not-token($value, "color");
+  @error '`#{$value}` is not a valid USWDS color token. '
+      + 'See designsystem.digital.gov/design-tokens/color '
+      + 'for more information.';
 }
 
 @debug color("orange-80v");
@@ -70,7 +82,15 @@ Derive a color from a color shortcode
 // @return #c05600;
 @debug color("info");
 // @return #00bde3
-// @debug color("primary-lightest");
+@debug color(green, set-theme);
+// @return Warning: Override: `green` is not a USWDS color token.
+//@debug color(#f00);
+// @return error: '"#f00" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
+// @debug color(orange);
+// error: '"orange" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
+// @debug color(hamburgers);
+// error: '"hamburgers" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
+@debug color("primary-lightest");
 // @return error: set to false;
-// @debug color(#f00);
-// @return error: not a valid token;
+@debug color("primary-lightest", set-theme);
+// @return false
