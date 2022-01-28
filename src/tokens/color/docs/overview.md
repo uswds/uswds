@@ -1,25 +1,3 @@
----
-permalink: /design-tokens/color/overview/
-layout: styleguide
-title: Using color
-category: Design tokens
-lead: Color is a practical and emotional tool. It conveys personality, sets a tone, attracts attention, and indicates importance.
-type: docs
-redirect_from:
-  - /components/colors/
-  - /design-tokens/color/
-  - /colors/
-subnav:
-  - text: Introduction
-    href: '#introduction'
-  - text: Accessibility
-    href: '#color-and-accessibility'
-  - text: USWDS color wheels
-    href: '#uswds-color-wheels'
-  - text: Color guidance
-    href: '#general-color-guidance'
----
-
 ## Introduction
 
 USWDS organizes its colors tokens into [theme tokens]({{ site.baseurl }}/design-tokens/color/theme-tokens/), [state tokens]({{ site.baseurl }}/design-tokens/color/state-tokens/), and [system tokens]({{ site.baseurl }}/design-tokens/color/system-tokens/). System tokens are the complete set of colors available to USWDS. Project tokens are a smaller, role-based subset customized to your project's individual identity, tone, and needs. It will use only a few color families from the broader set of 24 color families available in the system token set.

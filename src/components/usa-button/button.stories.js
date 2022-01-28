@@ -1,4 +1,4 @@
-import SystemColorList from '../../tokens/color/color~vars';
+import { SystemColorList } from "../../tokens/color/color~vars";
 import modifierList from './button';
 import Docs from "./docs/index.mdx";
 import Component from "./usa-button.twig";
@@ -85,7 +85,7 @@ StylePlayground.argTypes = {
   },
   border_radius: {
     control: { type: 'text' },
-    defaultValue: '.25rem',
+    defaultValue: 'md',
     name: '$theme-button-border-radius',
   },
   stroke_width: {

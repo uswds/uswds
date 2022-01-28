@@ -1,26 +1,32 @@
 <section class="usa-prose margin-top-2">
-  <h1>{{ token_type }} color tokens</h1>
+  <h1>
+    {{ token_type }} color tokens
+  </h1>
   <p class="usa-intro">
     USWDS organizes its colors tokens into theme tokens, state tokens, and
-    system tokens. 
+    system tokens.
   </p>
-  <p>Preview the {{ token_type }} color names and values in the {% if swatches %}swatches below:{% endif %}{% if color_select_system or color_select_theme %}demo box by selecting a color from the dropdown in the "Controls" tab of the Storybook addons panel.</p><p><em>Note: to access the addons panel, press the 'A' key.</em>{% endif %}
+  <p>
+    Preview {{ token_type }} color tokens by selecting a color value from the controls below:
+  </p>
 </section>
 
 {% if token_type == "system" %}
-  {% if color_select_system %}
-   <section class="usa-prose margin-top-2">
-      <p><strong>Color value: {{ color_select_system }}</strong></p>
+  {% if system_colors %}
+    <section class="usa-prose margin-top-2">
+      <h3>
+        {{ system_colors }}
+      </h3>
     </section>
-    <section class="usa-section margin-top-2" id="system-demo"></section>
+    <section class="usa-section margin-top-2" id="color-demo"></section>
   {% endif %}
 
   {% if swatches %}
-  <section class="display-flex flex-wrap">
+  <section class="display-flex flex-wrap margin-top-2" >
     {% for key, value in swatches %}
        <div class="swatch--system margin-top-2">
-        <div class="height-15" style="background-color: {{ value }}"></div>
-        <p>Name: {{ key }}<br/>Value: {{ value }}</p>
+        <div style="height: 15ex; background-color: {{ value }}"></div>
+        <p>{{ key }} <br/>{{ value }}</p>
       </div>
     {% endfor %}
   </section>
@@ -28,19 +34,19 @@
 {% endif %}
 
 {% if token_type == "theme" %}
-  {% if color_select_theme %}
+  {% if theme_colors %}
     <section class="usa-prose margin-top-2">
-      <p><strong>Token name: {{ color_select_theme }}</strong></p>
+      <h3>{{ theme_colors }}</h3>
     </section>
-    <section class="usa-section margin-top-2  bg-{{ color_select_theme }}" id="theme-demo"></section>
+    <section class="usa-section margin-top-2  bg-{{ theme_colors }}" id="theme-demo"></section>
   {% endif %}
 
   {% if swatches %}
-    <section class="swatch--theme display-flex flex-wrap margin-top-2 measure-6">
-      {% for key, value in swatches %}
-        <div style="width: 100%">
-          <div class="bg-{{ key }} height-10" ></div>
-          <p>Name: $theme-color-{{ key }}<br/>Value: {{ value }}</p>
+    <section class="display-flex flex-wrap margin-top-2">
+      {% for item in swatches %}
+        <div style="width: calc(100%/7);" class="margin-top-2">
+          <div style="height: 15ex;"class="bg-{{ item }}" ></div>
+          <p>{{ item }}</p>
         </div>
       {% endfor %}
     </section>
@@ -48,25 +54,30 @@
 {% endif %}
 
 <style>
-  h1::first-letter,
-  .swatch--system > p::first-letter,
-  .swatch--theme > p::first-letter {
+  h1::first-letter {
     text-transform: capitalize;
   }
 
-  #system-demo,
+  #color-demo,
   #theme-demo { 
     height: 50vh; 
     width: 100%; 
   }
 
-  #system-demo {
-    background-color: {{ color_select_system }};
+  #color-demo {
+    background-color: {{ system_colors }};
   }
 
-  .swatch--system p,
-  .swatch--theme p {
-    font-size: .875rem;
+  .swatch--system > p,
+  .swatch--theme > p{
+    text-transform: capitalize;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .swatch--system > p{
+      font-size: .875rem;
+      text-transform: capitalize;
+    }
   }
 
   @media screen and (max-width: 480px) {
@@ -87,15 +98,9 @@
     }
   }
 
-  @media screen and (min-width: 1200px) and (max-width: 1920px) {
+  @media screen and (min-width: 1200px) {
     .swatch--system {
       width: calc(100%/6);
-    }
-  }
-
-  @media screen and (min-width: 1920px) {
-    .swatch--system {
-      width: calc(100%/10);
     }
   }
 </style>
