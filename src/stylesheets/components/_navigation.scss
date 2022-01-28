@@ -12,36 +12,52 @@ $nav-link-accordion-icon-size: 2.5;
 $nav-link-arrow-icon-size: 2;
 
 // Maps for icon masks
-$expand-more-icon: (
-  "name": "expand_more",
+$place-icon: (
   "color": currentColor,
-  "height": units($nav-link-arrow-icon-size),
   "svg-height": 24,
   "svg-width": 24,
 );
 
-$expand-less-icon: (
-  "name": "expand_less",
-  "color": currentColor,
-  "height": units($nav-link-arrow-icon-size),
-  "svg-height": 24,
-  "svg-width": 24,
+$chevron-icons: map-merge(
+  $place-icon,
+  (
+    "height": units($nav-link-arrow-icon-size),
+  )
 );
 
-$add-icon: (
-  "name": "add",
-  "color": currentColor,
-  "height": units($nav-link-accordion-icon-size),
-  "svg-height": 24,
-  "svg-width": 24,
+$mobile-icons: map-merge(
+  $place-icon,
+  (
+    "height": units($nav-link-accordion-icon-size),
+  )
 );
 
-$remove-icon: (
-  "name": "remove",
-  "color": currentColor,
-  "height": units($nav-link-accordion-icon-size),
-  "svg-height": 24,
-  "svg-width": 24,
+$add-icon: map-merge(
+  $mobile-icons,
+  (
+    "name": "add",
+  )
+);
+
+$remove-icon: map-merge(
+  $mobile-icons,
+  (
+    "name": "remove",
+  )
+);
+
+$expand-more-icon: map-merge(
+  $chevron-icons,
+  (
+    "name": "expand_more",
+  )
+);
+
+$expand-less-icon: map-merge(
+  $chevron-icons,
+  (
+    "name": "expand_less",
+  )
 );
 
 $contrast-bg: "default";
