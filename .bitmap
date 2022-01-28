@@ -81,12 +81,6 @@
         "mainFile": "_usa-collection.scss",
         "rootDir": "src/components/usa-collection"
     },
-    "usa-combo-box": {
-        "scope": "",
-        "version": "",
-        "mainFile": "combo-box.js",
-        "rootDir": "src/components/usa-combo-box"
-    },
     "usa-content": {
         "scope": "",
         "version": "",
@@ -102,7 +96,7 @@
     "usa-date-picker": {
         "scope": "",
         "version": "",
-        "mainFile": "_usa-date-picker.scss",
+        "mainFile": "date-picker.js",
         "rootDir": "src/components/usa-date-picker"
     },
     "usa-date-range-picker": {
@@ -324,7 +318,7 @@
     "usa-search": {
         "scope": "",
         "version": "",
-        "mainFile": "search.js",
+        "mainFile": "index.js",
         "rootDir": "src/components/usa-search"
     },
     "usa-section": {
@@ -336,7 +330,7 @@
     "usa-sidenav": {
         "scope": "",
         "version": "",
-        "mainFile": "_usa-sidenav.scss",
+        "mainFile": "navigation.js",
         "rootDir": "src/components/usa-sidenav"
     },
     "usa-site-alert": {
@@ -348,7 +342,7 @@
     "usa-site-title": {
         "scope": "",
         "version": "",
-        "mainFile": "usa-site-title.json",
+        "mainFile": "usa-site-title.js",
         "rootDir": "src/components/usa-site-title"
     },
     "usa-skipnav": {

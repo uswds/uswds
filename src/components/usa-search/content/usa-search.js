@@ -1,4 +1,4 @@
-{
+module.exports = {
   "section_label": "Search component",
   "modifier": "",
   "search_js": false,

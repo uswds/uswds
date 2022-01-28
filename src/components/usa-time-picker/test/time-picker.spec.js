@@ -1,9 +1,11 @@
+import {testUtils} from "@uswds/usa-combo-box"
+
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
+const ComboBox = require("@uswds/usa-combo-box");
+const EVENTS = testUtils.events;
 const TimePicker = require("../time-picker");
-const ComboBox = require("../../usa-combo-box/combo-box");
-const EVENTS = require("../../usa-combo-box/test/events");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/time-picker.template.html")

@@ -1,4 +1,4 @@
-import { selectOrMatches, behavior, Sanitizer, config } from "../../utils";
+import { selectOrMatches, behavior, Sanitizer, config } from "@uswds/utils";
 
 const { prefix: PREFIX } = config;
 

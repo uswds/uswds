@@ -1,4 +1,4 @@
-import { selectOrMatches, behavior, config, isElementInViewport } from "../../utils";
+import { selectOrMatches, behavior, config, isElementInViewport } from "@uswds/utils";
 
 const { prefix: PREFIX } = config;
 

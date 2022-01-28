@@ -1,4 +1,4 @@
-{
+module.exports = {
   "modifier": "",
   "title": "Basic header",
   "nav": {

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "banner": {
     "id": "gov-banner-default",
     "text": "An official website of the United States government",
@@ -15,3 +15,4 @@
     "posttext": "or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites."
   }
 }
+

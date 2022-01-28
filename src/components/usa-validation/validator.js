@@ -1,4 +1,4 @@
-import { behavior, validate } from "../../utils";
+import { behavior, validate } from "@uswds/utils";
 
 function change() {
   validate(this);

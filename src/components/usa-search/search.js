@@ -1,4 +1,4 @@
-import { behavior, select, events } from "../../utils";
+import { behavior, select, events } from "@uswds/utils";
 
 const ignore = require("receptor/ignore");
 

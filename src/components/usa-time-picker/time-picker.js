@@ -1,10 +1,10 @@
-import {behavior, selectOrMatches, config} from '../../utils'
+import {behavior, selectOrMatches, config} from '@uswds/utils'
 
 const { prefix: PREFIX } = config;
 const {
   COMBO_BOX_CLASS,
   enhanceComboBox,
-} = require("../usa-combo-box/combo-box");
+} = require("@uswds/usa-combo-box");
 
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;

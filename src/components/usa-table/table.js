@@ -1,4 +1,4 @@
-import { select, behavior, events, config, Sanitizer } from '../../utils'
+import { select, behavior, events, config, Sanitizer } from '@uswds/utils'
 
 const { CLICK } = events;
 const { prefix: PREFIX } = config;

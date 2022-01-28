@@ -1,5 +1,4 @@
-import { useEffect } from '@storybook/client-api'
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import component from "./usa-banner.twig";
 import {
   DefaultContent,

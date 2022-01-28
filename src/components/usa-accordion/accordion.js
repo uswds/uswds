@@ -5,7 +5,7 @@ import {
   isElementInViewport,
   events,
   config
-} from '../../utils'
+} from '@uswds/utils'
 
 const { CLICK } = events;
 const { prefix: PREFIX } = config;

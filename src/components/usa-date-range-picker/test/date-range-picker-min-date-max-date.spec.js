@@ -1,8 +1,9 @@
+import {datePicker as DatePicker} from "@uswds/usa-date-picker"
+
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
 const EVENTS = require("./events");
-const DatePicker = require("../../usa-date-picker/date-picker");
 const DateRangePicker = require("../date-range-picker");
 
 const TEMPLATE = fs.readFileSync(

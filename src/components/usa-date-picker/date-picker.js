@@ -1,4 +1,4 @@
-import { behavior, select, selectOrMatches, config, events, activeElement, isIosDevice, Sanitizer } from "../../utils";
+import { behavior, select, selectOrMatches, config, events, activeElement, isIosDevice, Sanitizer } from "@uswds/utils";
 
 const keymap = require("receptor/keymap");
 

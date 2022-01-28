@@ -40,7 +40,8 @@
     "policy": {
       "dependencies": {},
       "peerDependencies": {}
-    }
+    },
+    "devFilePatterns": [".spec.js, .stories.js, .json, .twig"]
   },
   /**
    * workspace variants allow to set different subsets of configuration for components in your
@@ -58,6 +59,7 @@
        * uncomment to apply the chosen environment on all components.
        **/
       // "teambit.react/react": { }
+      "teambit.html/html": {}
     }
   }
 }

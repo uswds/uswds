@@ -1,5 +1,5 @@
 const activeElement = require("./active-element");
-const behavior = require("./behavior");
+const Behavior = require("./behavior");
 const config = require("./config");
 const events = require("./events");
 const FocusTrap = require("./focus-trap");
@@ -15,10 +15,11 @@ const toggleFieldMask = require("./toggle-field-mask");
 const toggleFormInput = require("./toggle-form-input");
 const validate = require("./validate-input");
 const whenDomReady = require("./when-dom-ready");
+const testUtils = require("./test")
 
 module.exports = {
   activeElement,
-  behavior,
+  Behavior,
   config,
   events,
   FocusTrap,
@@ -34,4 +35,5 @@ module.exports = {
   toggleFormInput,
   validate,
   whenDomReady,
+  testUtils
 };

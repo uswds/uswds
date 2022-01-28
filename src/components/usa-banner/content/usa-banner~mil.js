@@ -1,4 +1,4 @@
-{
+module.exports = {
   "bannerDetails": {
     "id": "gov-banner-dot-mil",
     "text": "An official website of the United States government",

@@ -1,6 +1,8 @@
-require("sass");
+import { testUtils } from "@uswds/utils"
+
 const path = require("path");
-const { runGulp, distScssPath, render } = require("../../utils/test/util");
+
+const { runGulp, distScssPath, render } = testUtils.utils;
 
 const includePath = path.resolve(path.join(__dirname, "../"));
 

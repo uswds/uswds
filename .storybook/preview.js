@@ -1,4 +1,4 @@
-import "../dist/js/uswds.min.js";
+import "uswds";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

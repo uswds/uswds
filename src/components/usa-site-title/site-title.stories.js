@@ -1,5 +1,5 @@
 import Component from "./usa-site-title.twig";
-import Data from "./usa-site-title.json";
+import Data from "./usa-site-title";
 
 export default {
   title: "Components/Site Title",

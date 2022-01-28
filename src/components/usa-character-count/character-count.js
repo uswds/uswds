@@ -1,4 +1,4 @@
-import {select, behavior, config} from "../../utils"
+import {select, behavior, config} from "@uswds/utils"
 
 const { prefix: PREFIX } = config;
 

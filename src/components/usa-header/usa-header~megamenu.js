@@ -1,4 +1,4 @@
-{
+module.exports = {
   "modifier": "usa-header--megamenu",
   "title": "Basic with mega-menu",
   "nav": {

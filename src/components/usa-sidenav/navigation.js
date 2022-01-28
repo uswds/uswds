@@ -7,7 +7,7 @@ import {
   ScrollBarWidth,
   events,
   config
-} from '../../utils'
+} from '@uswds/utils'
 
 const keymap = require("receptor/keymap");
 

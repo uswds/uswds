@@ -1,4 +1,4 @@
-{
+module.exports = {
   "section_label": "Default (Spanish) search component",
   "modifier": "",
   "search_js": false,

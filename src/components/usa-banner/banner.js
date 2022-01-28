@@ -1,4 +1,4 @@
-import { behavior, events, config } from "../../utils";
+import { behavior, events, config } from "@uswds/utils";
 
 const {CLICK} = events
 const { prefix: PREFIX } = config;

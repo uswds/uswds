@@ -34,7 +34,7 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "uswds/uswds-js"
+    // "uswds/uswds-js"
     // "@storybook/addon-a11y",
     // "@whitespace/storybook-addon-html",
   ],
@@ -124,6 +124,12 @@ module.exports = {
         include: path.resolve(__dirname, "../src/fonts"),
       }
     );
+
+    config.resolve.fallback = {
+      fs: false,
+      child_process: false,
+      net: false,
+    };
 
     return config;
   },
