@@ -1,0 +1,8 @@
+{   
+    "name": "$theme-border-radius",
+    "value": {
+        "sm": "2px",
+        "md": "0.5",
+        "lg": "1"
+    }
+}
