@@ -60,7 +60,11 @@ $expand-less-icon: map-merge(
   )
 );
 
+// Maps for place-icon mixin
 $contrast-bg: "default";
+$direction: "after";
+$icon-margin: "auto";
+$vertical-align: "auto";
 
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
@@ -200,26 +204,37 @@ $contrast-bg: "default";
       /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
-      span::after {
-        @include add-color-icon($add-icon, $contrast-bg);
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        @media (forced-colors: active) {
-          background-color: ButtonText;
+      span {
+        @include place-icon(
+          $add-icon,
+          $direction,
+          $icon-margin,
+          $vertical-align,
+          $contrast-bg
+        );
+        &::after {
+          position: absolute;
+          right: 0;
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
         }
       }
 
       @include at-media($theme-header-min-width) {
-        span::after {
-          @include add-color-icon($expand-more-icon, $contrast-bg);
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: units(1.5);
-          @media (forced-colors: active) {
-            background-color: ButtonText;
+        span {
+          @include place-icon(
+            $expand-more-icon,
+            $direction,
+            $icon-margin,
+            $vertical-align,
+            $contrast-bg
+          );
+          &::after {
+            right: units(1.5);
+            @media (forced-colors: active) {
+              background-color: ButtonText;
+            }
           }
         }
       }
@@ -229,28 +244,43 @@ $contrast-bg: "default";
       /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
-      span::after {
-        @include add-color-icon($remove-icon, $contrast-bg);
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        @media (forced-colors: active) {
-          background-color: ButtonText;
+      span {
+        @include place-icon(
+          $remove-icon,
+          $direction,
+          $icon-margin,
+          $vertical-align,
+          $contrast-bg
+        );
+        &::after {
+          position: absolute;
+          right: 0;
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
         }
       }
 
       @include at-media($theme-header-min-width) {
         background-image: none;
+        background-color: color("primary-darker");
+        color: color("white");
 
-        span::after {
-          @include add-color-icon($expand-less-icon, $contrast-bg);
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: units(1.5);
-          @media (forced-colors: active) {
-            background-color: ButtonText;
+        @include at-media($theme-header-min-width) {
+          span {
+            @include place-icon(
+              $expand-less-icon,
+              $direction,
+              $icon-margin,
+              $vertical-align,
+              $contrast-bg
+            );
+            &::after {
+              right: units(1.5);
+              @media (forced-colors: active) {
+                background-color: ButtonText;
+              }
+            }
           }
         }
       }
