@@ -113,6 +113,7 @@ const transformTimePicker = (el) => {
     timePickerEl.dataset[key] = FILTER_DATASET[key];
   });
   timePickerEl.dataset.disableFiltering = "true";
+  timePickerEl.dataset.defaultValue = initialInputEl.value;
 
   timePickerEl.appendChild(selectEl);
   initialInputEl.style.display = "none";
