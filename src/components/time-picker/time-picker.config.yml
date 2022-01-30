@@ -8,4 +8,4 @@ variants:
     label: Default Value
     context:
       timePicker:
-        defaultValue: "13:00"
+        defaultValue: "1:00pm"
