@@ -9,5 +9,5 @@ const Template = (args) => Component(args);
 export const TimePicker = Template.bind({});
 export const TimePickerDefaultValue = Template.bind({});
 TimePickerDefaultValue.args = {
-  defaultValue: "13:00"
+  defaultValue: "1:00pm"
 };
