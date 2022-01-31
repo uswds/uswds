@@ -1,9 +1,6 @@
 import Component from "./usa-card.twig";
 
-import Data from "./usa-card.json";
-import FlagData from "./usa-card~flag.json";
-import StandardData from "./usa-card~standard.json";
-import MediaData from "./usa-card~media.json";
+import { Data, FlagData, StandardData, MediaData } from "./content";
 
 export default {
   title: "Components/Card",

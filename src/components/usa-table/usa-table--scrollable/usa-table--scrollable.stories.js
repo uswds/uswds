@@ -1,9 +1,6 @@
 import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--scrollable.twig";
-import Data from "./usa-table--scrollable.json";
-import StripedData from "./usa-table--scrollable~striped.json";
-import CompactData from "./usa-table--scrollable~compact.json";
-import CompactStripedData from "./usa-table--scrollable~compact-striped.json";
+import { Data, StripedData, CompactData, CompactStripedData } from "./content";
 
 export default {
   title: "Components/Table/Scrollable",

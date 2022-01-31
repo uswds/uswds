@@ -1,10 +1,12 @@
 import Component from "./usa-icon-list.twig";
 
-import Data from "./usa-icon-list.json";
-import CustomRichData from "./usa-icon-list~custom-size-rich.json";
-import CustomSizeData from "./usa-icon-list~custom-size.json";
-import RichData from "./usa-icon-list~rich-content.json";
-import SimpleData from "./usa-icon-list~simple-content.json";
+import {
+  Data,
+  CustomRichData,
+  CustomSizeData,
+  RichData,
+  SimpleData,
+} from "./content";
 
 export default {
   title: "Components/Icon List",

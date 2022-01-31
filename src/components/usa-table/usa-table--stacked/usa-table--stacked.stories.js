@@ -1,9 +1,11 @@
 import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--stacked.twig";
-import Data from "./usa-table--stacked.json";
-import BorderlessData from "./usa-table--stacked~borderless.json";
-import HeaderData from "./usa-table--stacked~header.json";
-import HeaderBorderlessData from "./usa-table--stacked~header-borderless.json";
+import {
+  Data,
+  BorderlessData,
+  HeaderData,
+  HeaderBorderlessData,
+} from "./content";
 
 export default {
   title: "Components/Table/Stacked",

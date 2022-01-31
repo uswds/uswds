@@ -1,9 +1,7 @@
 import Component from "./usa-table.twig";
 import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 
-import Data from "./usa-table.json";
-import BorderlessData from "./usa-table~borderless.json";
-import StripedData from "./usa-table~striped.json";
+import { Data, BorderlessData, StripedData } from "./content";
 
 export default {
   title: "Components/Table",
