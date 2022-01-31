@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-checklist.twig";
 
 export default {

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-date-range-picker.twig";
 
 export default {

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-card.twig";
 
 import Data from "./usa-card.json";

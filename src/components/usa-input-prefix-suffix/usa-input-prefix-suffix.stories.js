@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import prefix from "./usa-input-prefix.twig";
 import suffix from "./usa-input-suffix.twig";
 

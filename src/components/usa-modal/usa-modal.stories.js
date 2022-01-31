@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-modal.twig";
 import Data from "./usa-modal.json";
 import ForcedActionData from "./usa-modal~forced-action.json";

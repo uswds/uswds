@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-media-block.twig";
 import Data from "./usa-media-block.json";
 

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-tooltip.twig";
 import UtilityComponent from "./usa-tooltip--utilities.twig";
 

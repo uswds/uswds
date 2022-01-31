@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-icon.twig";
 import IconsData from "./usa-icon.json";
 

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-skipnav.twig";
 import Data from "./usa-skipnav.json";
 

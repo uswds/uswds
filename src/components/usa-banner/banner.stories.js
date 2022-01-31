@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import component from "./usa-banner.twig";
 import {
   DefaultContent,

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-hero.twig";
 import Data from "./usa-hero.json";
 

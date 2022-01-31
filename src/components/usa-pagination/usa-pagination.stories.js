@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-pagination.twig";
 
 import { Data, UnboundedData, EsData, EsUnboundedData } from "./content";

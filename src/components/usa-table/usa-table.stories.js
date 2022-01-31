@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-table.twig";
 import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-collection.twig";
 import FancyComponent from "./usa-collection--fancy-date.twig";
 import MediaComponent from "./usa-collection--media.twig";

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-process-list.twig";
 import Tile from "./usa-process-list--custom-sizing.twig";
 import Test from "./usa-process-list--no-text.twig";

@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
 import headerData from "./usa-header.json";
@@ -33,7 +32,7 @@ Extended.args = {
   ...headerExtendedData,
   navSecondaryData: {
     ...navSecondaryData,
-    search: true
+    search: true,
   },
 };
 
@@ -42,6 +41,6 @@ ExtendedMegamenu.args = {
   ...headerExtendedMegamenuData,
   navSecondaryData: {
     ...navSecondaryData,
-    search: true
+    search: true,
   },
 };

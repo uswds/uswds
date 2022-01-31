@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-breadcrumb.twig";
 import Data from "./usa-breadcrumb.json";
 import WrapData from "./usa-breadcrumb--wrap.json";
