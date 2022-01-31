@@ -1,5 +1,5 @@
 {
   "label": "Graphic list",
   "status": "wip",
-  "img_path": "img"
+  "img_path": "./img"
 }
