@@ -1,0 +1,420 @@
+{
+  "variables": [],
+  "themeColorPalette": [
+    {
+      "name": "$theme-color-base-family",
+      "value": "gray-cool",
+      "compiledValue": "gray-cool"
+    },
+    {
+      "name": "$theme-color-base-lightest",
+      "value": "gray-5",
+      "compiledValue": "gray-5"
+    },
+    {
+      "name": "$theme-color-base-lighter",
+      "value": "gray-cool-10",
+      "compiledValue": "gray-cool-10"
+    },
+    {
+      "name": "$theme-color-base-light",
+      "value": "gray-cool-30",
+      "compiledValue": "gray-cool-30"
+    },
+    {
+      "name": "$theme-color-base",
+      "value": "gray-cool-50",
+      "compiledValue": "gray-cool-50"
+    },
+    {
+      "name": "$theme-color-base-dark",
+      "value": "gray-cool-60",
+      "compiledValue": "gray-cool-60"
+    },
+    {
+      "name": "$theme-color-base-darker",
+      "value": "gray-cool-70",
+      "compiledValue": "gray-cool-70"
+    },
+    {
+      "name": "$theme-color-base-darkest",
+      "value": "gray-90",
+      "compiledValue": "gray-90"
+    },
+    {
+      "name": "$theme-color-base-ink",
+      "value": "gray-90",
+      "compiledValue": "gray-90"
+    },
+    {
+      "name": "$theme-color-primary-family",
+      "value": "blue",
+      "compiledValue": "blue"
+    },
+    {
+      "name": "$theme-color-primary-lightest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-primary-lighter",
+      "value": "blue-10",
+      "compiledValue": "blue-10"
+    },
+    {
+      "name": "$theme-color-primary-light",
+      "value": "blue-30",
+      "compiledValue": "blue-30"
+    },
+    {
+      "name": "$theme-color-primary",
+      "value": "blue-60v",
+      "compiledValue": "blue-60v"
+    },
+    {
+      "name": "$theme-color-primary-vivid",
+      "value": "blue-warm-60v",
+      "compiledValue": "blue-warm-60v"
+    },
+    {
+      "name": "$theme-color-primary-dark",
+      "value": "blue-warm-70v",
+      "compiledValue": "blue-warm-70v"
+    },
+    {
+      "name": "$theme-color-primary-darker",
+      "value": "blue-warm-80v",
+      "compiledValue": "blue-warm-80v"
+    },
+    {
+      "name": "$theme-color-primary-darkest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-secondary-family",
+      "value": "red",
+      "compiledValue": "red"
+    },
+    {
+      "name": "$theme-color-secondary-lightest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-secondary-lighter",
+      "value": "red-cool-10",
+      "compiledValue": "red-cool-10"
+    },
+    {
+      "name": "$theme-color-secondary-light",
+      "value": "red-30",
+      "compiledValue": "red-30"
+    },
+    {
+      "name": "$theme-color-secondary",
+      "value": "red-50",
+      "compiledValue": "red-50"
+    },
+    {
+      "name": "$theme-color-secondary-vivid",
+      "value": "red-cool-50v",
+      "compiledValue": "red-cool-50v"
+    },
+    {
+      "name": "$theme-color-secondary-dark",
+      "value": "red-60v",
+      "compiledValue": "red-60v"
+    },
+    {
+      "name": "$theme-color-secondary-darker",
+      "value": "red-70v",
+      "compiledValue": "red-70v"
+    },
+    {
+      "name": "$theme-color-secondary-darkest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-accent-warm-family",
+      "value": "orange",
+      "compiledValue": "orange"
+    },
+    {
+      "name": "$theme-color-accent-warm-lightest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-accent-warm-lighter",
+      "value": "orange-10",
+      "compiledValue": "orange-10"
+    },
+    {
+      "name": "$theme-color-accent-warm-light",
+      "value": "orange-20v",
+      "compiledValue": "orange-20v"
+    },
+    {
+      "name": "$theme-color-accent-warm",
+      "value": "orange-30v",
+      "compiledValue": "orange-30v"
+    },
+    {
+      "name": "$theme-color-accent-warm-dark",
+      "value": "orange-50v",
+      "compiledValue": "orange-50v"
+    },
+    {
+      "name": "$theme-color-accent-warm-darker",
+      "value": "orange-60",
+      "compiledValue": "orange-60"
+    },
+    {
+      "name": "$theme-color-accent-warm-darkest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-accent-cool-family",
+      "value": "blue-cool",
+      "compiledValue": "blue-cool"
+    },
+    {
+      "name": "$theme-color-accent-cool-lightest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-accent-cool-lighter",
+      "value": "blue-cool-5v",
+      "compiledValue": "blue-cool-5v"
+    },
+    {
+      "name": "$theme-color-accent-cool-light",
+      "value": "blue-cool-20v",
+      "compiledValue": "blue-cool-20v"
+    },
+    {
+      "name": "$theme-color-accent-cool",
+      "value": "cyan-30v",
+      "compiledValue": "cyan-30v"
+    },
+    {
+      "name": "$theme-color-accent-cool-dark",
+      "value": "blue-cool-40v",
+      "compiledValue": "blue-cool-40v"
+    },
+    {
+      "name": "$theme-color-accent-cool-darker",
+      "value": "blue-cool-60v",
+      "compiledValue": "blue-cool-60v"
+    },
+    {
+      "name": "$theme-color-accent-cool-darkest",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-color-error-family",
+      "value": "red-warm",
+      "compiledValue": "red-warm"
+    },
+    {
+      "name": "$theme-color-error-lighter",
+      "value": "red-warm-10",
+      "compiledValue": "red-warm-10"
+    },
+    {
+      "name": "$theme-color-error-light",
+      "value": "red-warm-30v",
+      "compiledValue": "red-warm-30v"
+    },
+    {
+      "name": "$theme-color-error",
+      "value": "red-warm-50v",
+      "compiledValue": "red-warm-50v"
+    },
+    {
+      "name": "$theme-color-error-dark",
+      "value": "red-60v",
+      "compiledValue": "red-60v"
+    },
+    {
+      "name": "$theme-color-error-darker",
+      "value": "red-70",
+      "compiledValue": "red-70"
+    },
+    {
+      "name": "$theme-color-warning-family",
+      "value": "gold",
+      "compiledValue": "gold"
+    },
+    {
+      "name": "$theme-color-warning-lighter",
+      "value": "yellow-5",
+      "compiledValue": "yellow-5"
+    },
+    {
+      "name": "$theme-color-warning-light",
+      "value": "yellow-10v",
+      "compiledValue": "yellow-10v"
+    },
+    {
+      "name": "$theme-color-warning",
+      "value": "gold-20v",
+      "compiledValue": "gold-20v"
+    },
+    {
+      "name": "$theme-color-warning-dark",
+      "value": "gold-30v",
+      "compiledValue": "gold-30v"
+    },
+    {
+      "name": "$theme-color-warning-darker",
+      "value": "gold-50v",
+      "compiledValue": "gold-50v"
+    },
+    {
+      "name": "$theme-color-success-family",
+      "value": "green-cool",
+      "compiledValue": "green-cool"
+    },
+    {
+      "name": "$theme-color-success-lighter",
+      "value": "green-cool-5",
+      "compiledValue": "green-cool-5"
+    },
+    {
+      "name": "$theme-color-success-light",
+      "value": "green-cool-20v",
+      "compiledValue": "green-cool-20v"
+    },
+    {
+      "name": "$theme-color-success",
+      "value": "green-cool-40v",
+      "compiledValue": "green-cool-40v"
+    },
+    {
+      "name": "$theme-color-success-dark",
+      "value": "green-cool-50v",
+      "compiledValue": "green-cool-50v"
+    },
+    {
+      "name": "$theme-color-success-darker",
+      "value": "green-cool-60v",
+      "compiledValue": "green-cool-60v"
+    },
+    {
+      "name": "$theme-color-info-family",
+      "value": "cyan",
+      "compiledValue": "cyan"
+    },
+    {
+      "name": "$theme-color-info-lighter",
+      "value": "cyan-5",
+      "compiledValue": "cyan-5"
+    },
+    {
+      "name": "$theme-color-info-light",
+      "value": "cyan-20",
+      "compiledValue": "cyan-20"
+    },
+    {
+      "name": "$theme-color-info",
+      "value": "cyan-30v",
+      "compiledValue": "cyan-30v"
+    },
+    {
+      "name": "$theme-color-info-dark",
+      "value": "cyan-40v",
+      "compiledValue": "cyan-40v"
+    },
+    {
+      "name": "$theme-color-info-darker",
+      "value": "blue-cool-60",
+      "compiledValue": "blue-cool-60"
+    },
+    {
+      "name": "$theme-color-disabled-family",
+      "value": "gray",
+      "compiledValue": "gray"
+    },
+    {
+      "name": "$theme-color-disabled-light",
+      "value": "gray-10",
+      "compiledValue": "gray-10"
+    },
+    {
+      "name": "$theme-color-disabled",
+      "value": "gray-20",
+      "compiledValue": "gray-20"
+    },
+    {
+      "name": "$theme-color-disabled-dark",
+      "value": "gray-30",
+      "compiledValue": "gray-30"
+    },
+    {
+      "name": "$theme-color-emergency",
+      "value": "red-warm-60v",
+      "compiledValue": "red-warm-60v"
+    },
+    {
+      "name": "$theme-color-emergency-dark",
+      "value": "red-warm-80",
+      "compiledValue": "red-warm-80"
+    },
+    {
+      "name": "$theme-body-background-color",
+      "value": "white",
+      "compiledValue": "white"
+    },
+    {
+      "name": "$theme-text-color",
+      "value": "ink",
+      "compiledValue": "ink"
+    },
+    {
+      "name": "$theme-text-reverse-color",
+      "value": "white",
+      "compiledValue": "white"
+    },
+    {
+      "name": "$theme-link-color",
+      "value": "primary",
+      "compiledValue": "primary"
+    },
+    {
+      "name": "$theme-link-visited-color",
+      "value": "violet-70v",
+      "compiledValue": "violet-70v"
+    },
+    {
+      "name": "$theme-link-hover-color",
+      "value": "primary-dark",
+      "compiledValue": "primary-dark"
+    },
+    {
+      "name": "$theme-link-active-color",
+      "value": "primary-darker",
+      "compiledValue": "primary-darker"
+    },
+    {
+      "name": "$theme-link-reverse-color",
+      "value": "base-lighter",
+      "compiledValue": "base-lighter"
+    },
+    {
+      "name": "$theme-link-reverse-hover-color",
+      "value": "base-lightest",
+      "compiledValue": "base-lightest"
+    },
+    {
+      "name": "$theme-link-reverse-active-color",
+      "value": "white",
+      "compiledValue": "white"
+    }
+  ]
+}

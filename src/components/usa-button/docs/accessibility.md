@@ -1,0 +1,3 @@
+- **Buttons should display a visible focus state when users tab to them.**
+- **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don't automatically know either is a usable button.
+- **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.

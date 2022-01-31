@@ -1,0 +1,4452 @@
+{
+    "variables": [
+      {
+        "name": "$theme-accordion-border-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-accordion-border-color",
+        "value": "base-lightest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-accordion-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-bar-width",
+        "value": "1",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-icon-size",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-padding-x",
+        "value": "2.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-padding-y",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-text-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-text-reverse-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-link-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-alert-link-reverse-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-banner-background-color",
+        "value": "base-lightest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-banner-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-banner-link-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-banner-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-background-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-font-size",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-link-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-min-width",
+        "value": "mobile-lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-padding-bottom",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-padding-top",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-padding-x",
+        "value": "0",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-breadcrumb-separator-color",
+        "value": "base",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-button-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-button-border-radius",
+        "value": "md",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-button-small-width",
+        "value": "6",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-button-stroke-width",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-border-color",
+        "value": "base-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-border-radius",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-border-width",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-gap",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-flag-min-width",
+        "value": "tablet",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-flag-image-width",
+        "value": "card-lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-header-typeset",
+        "value": "\"heading\", \"lg\", 2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-margin-bottom",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-padding-perimeter",
+        "value": "3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-card-padding-y",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-collection-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-collection-header-typeset",
+        "value": "\"ui\", \"md\", 3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-footer-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-footer-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-checkbox-border-radius",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-form-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-background-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-line-height",
+        "value": "3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-max-width",
+        "value": "mobile-lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-select-border-width",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-select-size",
+        "value": "2.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-state-border-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-tile-border-radius",
+        "value": "md",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-input-tile-border-width",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-header-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-header-logo-text-width",
+        "value": "33%",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-header-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-header-min-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-hero-image",
+        "value": "#{$theme-image-path}/hero.png",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-icon-list-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-icon-list-title-font-family",
+        "value": "heading",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-background-color",
+        "value": "base-darkest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-identity-domain-color",
+        "value": "base-light",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-primary-link-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-identifier-secondary-link-color",
+        "value": "base-light",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-modal-border-radius",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-modal-default-max-width",
+        "value": "mobile-lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-modal-lg-content-max-width",
+        "value": "tablet",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-modal-lg-max-width",
+        "value": "tablet-lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-pagination-background-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-pagination-breakpoint",
+        "value": "tablet",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-pagination-button-border-radius",
+        "value": "md",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-pagination-button-border-width",
+        "value": "1px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-pagination-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-background-color",
+        "value": "white",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-border-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-border-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-font-size",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-gap-color",
+        "value": "white",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-gap-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-size",
+        "value": "5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-counter-text-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-connector-color",
+        "value": "primary-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-connector-width",
+        "value": "1",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-font-size",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-heading-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-heading-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-process-list-heading-font-size",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-navigation-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-megamenu-columns",
+        "value": "3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-search-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-search-min-width",
+        "value": "27ch",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-sidenav-current-border-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-sidenav-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-site-alert-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$step-indicator-background-color",
+        "value": "white",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-counter-gap",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-counter-border-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-heading-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-heading-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-heading-font-size",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-heading-font-size-small",
+        "value": "md",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-label-font-size",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-min-width",
+        "value": "tablet",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-segment-color-pending",
+        "value": "base-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-segment-color-complete",
+        "value": "primary-darker",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-segment-color-current",
+        "value": "primary",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-segment-gap",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-segment-height",
+        "value": "1",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-step-indicator-text-pending-color",
+        "value": "base-dark",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-background-color",
+        "value": "info-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-border-color",
+        "value": "info-light",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-border-width",
+        "value": "1px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-border-radius",
+        "value": "md",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-font-family",
+        "value": "ui",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-link-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-summary-box-text-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-border-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-header-background-color",
+        "value": "base-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-header-text-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-stripe-background-color",
+        "value": "base-lightest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-stripe-text-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-text-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-sorted-header-background-color",
+        "value": "accent-cool-light",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-sorted-background-color",
+        "value": "accent-cool-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-sorted-stripe-background-color",
+        "value": "blue-cool-10v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-sorted-icon-color",
+        "value": "default",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-table-unsorted-icon-color",
+        "value": "base",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-tooltip-background-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-tooltip-font-color",
+        "value": "base-lightest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-tooltip-font-size",
+        "value": "xs",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-image-path",
+        "value": "../img",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-show-compile-warnings",
+        "value": "true",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-show-notifications",
+        "value": "true",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-namespace",
+        "value": "( \"grid\": ( namespace: \"grid-\", output: true, ), \"utility\": ( namespace: \"u-\", output: false, ), )",
+        "mapValue": [
+          {
+            "name": "grid",
+            "value": "( namespace: \"grid-\", output: true, )",
+            "mapValue": [
+              {
+                "name": "namespace",
+                "value": "grid-"
+              },
+              {
+                "name": "output",
+                "value": "true"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "utility",
+            "value": "( namespace: \"u-\", output: false, )",
+            "mapValue": [
+              {
+                "name": "namespace",
+                "value": "u-"
+              },
+              {
+                "name": "output",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-prefix-separator",
+        "value": "\\\\:",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-layout-grid-use-important",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-global-border-box-sizing",
+        "value": "true",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-focus-color",
+        "value": "blue-40v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-focus-offset",
+        "value": "0",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-focus-style",
+        "value": "solid",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-focus-width",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-icon-image-size",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-border-radius-sm",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-border-radius-md",
+        "value": "0.5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-border-radius-lg",
+        "value": "1",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-column-gap-sm",
+        "value": "2px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-column-gap-md",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-column-gap-lg",
+        "value": "3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-column-gap-mobile",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-column-gap-desktop",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-grid-container-max-width",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-site-margins-breakpoint",
+        "value": "desktop",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-site-margins-width",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-site-margins-mobile-width",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-respect-user-font-size",
+        "value": "true",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-root-font-size",
+        "value": "10px",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-global-paragraph-styles",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-global-link-styles",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-global-content-styles",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-path",
+        "value": "../fonts",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-cond",
+        "value": "example-font-token",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-typeface-tokens",
+        "value": "( example-serif-token: ( display-name: \"Example Serif Display Name\", cap-height: 364px, ), example-sans-token: ( display-name: \"Example Sans Display Name\", cap-height: 364px, ), )",
+        "mapValue": [
+          {
+            "name": "example-serif-token",
+            "value": "( display-name: \"Example Serif Display Name\", cap-height: 364px, )",
+            "mapValue": [
+              {
+                "name": "display-name",
+                "value": "Example Serif Display Name"
+              },
+              {
+                "name": "cap-height",
+                "value": "364px"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "example-sans-token",
+            "value": "( display-name: \"Example Sans Display Name\", cap-height: 364px, )",
+            "mapValue": [
+              {
+                "name": "display-name",
+                "value": "Example Sans Display Name"
+              },
+              {
+                "name": "cap-height",
+                "value": "364px"
+              }
+            ],
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-cond",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-icon",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-lang",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-mono",
+        "value": "roboto-mono",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-sans",
+        "value": "source-sans-pro",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-serif",
+        "value": "merriweather",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-type-sans",
+        "value": "source-sans-pro",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-sans-custom-stack",
+        "value": "\"Helvetica Neue\", Helvetica, Arial, sans",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-cond-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-icon-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-lang-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-mono-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-sans-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-serif-custom-stack",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-serif-custom-src",
+        "value": "( dir: 'custom/example-serif', roman: ( 100: false, 200: false, 300: 'ExampleSerif-Light', 400: 'ExampleSerif-Normal', 500: false, 600: false, 700: 'ExampleSerif-Bold', 800: false, 900: false, ), italic: ( 100: false, 200: false, 300: 'ExampleSerif-LightItalic', 400: 'ExampleSerif-Italic', 500: false, 600: false, 700: 'ExampleSerif-BoldItalic', 800: false, 900: false, ), )",
+        "mapValue": [
+          {
+            "name": "dir",
+            "value": "'custom",
+            "compiledValue": ""
+          },
+          {
+            "name": "roman",
+            "value": "( 100: false, 200: false, 300: 'ExampleSerif-Light', 400: 'ExampleSerif-Normal', 500: false, 600: false, 700: 'ExampleSerif-Bold', 800: false, 900: false, )",
+            "compiledValue": ""
+          },
+          {
+            "name": "italic",
+            "value": "( 100: false, 200: false, 300: 'ExampleSerif-LightItalic', 400: 'ExampleSerif-Italic', 500: false, 600: false, 700: 'ExampleSerif-BoldItalic', 800: false, 900: false, )",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-cond-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-icon-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-lang-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-mono-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-sans-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-serif-custom-src",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-role-ui",
+        "value": "sans",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-role-heading",
+        "value": "serif",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-role-body",
+        "value": "sans",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-role-code",
+        "value": "mono",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-role-alt",
+        "value": "serif",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-3xs",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-2xs",
+        "value": "3",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-xs",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-sm",
+        "value": "5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-md",
+        "value": "6",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-lg",
+        "value": "9",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-xl",
+        "value": "12",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-2xl",
+        "value": "14",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-type-scale-3xl",
+        "value": "15",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-thin",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-light",
+        "value": "300",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-normal",
+        "value": "400",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-medium",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-semibold",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-bold",
+        "value": "700",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-font-weight-heavy",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-generate-all-weights",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-body-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-body-font-size",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-body-line-height",
+        "value": "5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-style-body-element",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h1-font-size",
+        "value": "2xl",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h2-font-size",
+        "value": "xl",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h3-font-size",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h4-font-size",
+        "value": "sm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h5-font-size",
+        "value": "xs",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-h6-font-size",
+        "value": "3xs",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-heading-line-height",
+        "value": "2",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-small-font-size",
+        "value": "2xs",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-display-font-size",
+        "value": "3xl",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-text-measure-narrow",
+        "value": "1",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-text-measure",
+        "value": "4",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-text-measure-wide",
+        "value": "6",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-prose-font-family",
+        "value": "body",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-lead-font-family",
+        "value": "heading",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-lead-font-size",
+        "value": "lg",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-lead-line-height",
+        "value": "6",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-lead-measure",
+        "value": "6",
+        "compiledValue": ""
+      },
+      {
+        "name": "$utilities-use-important",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$output-all-utilities",
+        "value": "true",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-utility-breakpoints",
+        "value": "( // 160px: \"card\": false, // 240px: \"card-lg\": false, // 320px: \"mobile\": false, // 480px: \"mobile-lg\": true, // 640px: \"tablet\": true, // 800px: \"tablet-lg\": false, // 1024px: \"desktop\": true, // 1200px: \"desktop-lg\": false, // 1400px: \"widescreen\": false )",
+        "mapValue": [
+          {
+            "name": "px",
+            "value": "\"card\": false",
+            "mapValue": [
+              {
+                "name": "card",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"card-lg\": false",
+            "mapValue": [
+              {
+                "name": "card-lg",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"mobile\": false",
+            "mapValue": [
+              {
+                "name": "mobile",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"mobile-lg\": true",
+            "mapValue": [
+              {
+                "name": "mobile-lg",
+                "value": "true"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"tablet\": true",
+            "mapValue": [
+              {
+                "name": "tablet",
+                "value": "true"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"tablet-lg\": false",
+            "mapValue": [
+              {
+                "name": "tablet-lg",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"desktop\": true",
+            "mapValue": [
+              {
+                "name": "desktop",
+                "value": "true"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"desktop-lg\": false",
+            "mapValue": [
+              {
+                "name": "desktop-lg",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          },
+          {
+            "name": "px",
+            "value": "\"widescreen\": false",
+            "mapValue": [
+              {
+                "name": "widescreen",
+                "value": "false"
+              }
+            ],
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$global-color-palettes",
+        "value": "(\"palette-color-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$add-aspect-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$add-list-reset-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-items-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-self-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$background-color-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-color-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-radius-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-style-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-width-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$bottom-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$box-shadow-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$circle-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$clearfix-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$color-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$cursor-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$display-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-direction-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-wrap-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$float-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-family-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-feature-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-style-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-weight-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$height-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$justify-content-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$left-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$letter-spacing-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$line-height-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-height-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-width-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$measure-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-height-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-width-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$opacity-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$order-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-color-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$overflow-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$padding-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$pin-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$position-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$right-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$square-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-align-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-color-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: true, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-indent-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-transform-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$top-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$vertical-align-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$whitespace-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$width-settings",
+        "value": "( output: true, responsive: true, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$z-index-settings",
+        "value": "( output: true, responsive: false, active: false, focus: false, hover: false, visited: false, )",
+        "mapValue": [
+          {
+            "name": "output",
+            "value": "true",
+            "compiledValue": ""
+          },
+          {
+            "name": "responsive",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "active",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "focus",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "hover",
+            "value": "false",
+            "compiledValue": ""
+          },
+          {
+            "name": "visited",
+            "value": "false",
+            "compiledValue": ""
+          }
+        ],
+        "compiledValue": ""
+      },
+      {
+        "name": "$add-aspect-palettes",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$add-aspect-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-items-palettes",
+        "value": "(\"palette-align-items-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-items-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-self-palettes",
+        "value": "(\"palette-align-self-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$align-self-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$background-color-palettes",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$background-color-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-palettes",
+        "value": "(\"palette-border-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-color-palettes",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-color-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-radius-palettes",
+        "value": "(\"palette-border-radius-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-radius-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-style-palettes",
+        "value": "(\"palette-border-style-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-style-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-width-palettes",
+        "value": "(\"palette-border-width-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$border-width-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$bottom-palettes",
+        "value": "(\"palette-bottom-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$bottom-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$box-shadow-palettes",
+        "value": "(\"palette-box-shadow-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$box-shadow-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$circle-palettes",
+        "value": "(\"palette-circle-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$circle-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$color-palettes",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$color-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$cursor-palettes",
+        "value": "(\"palette-cursor-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$cursor-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$display-palettes",
+        "value": "(\"palette-display-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$display-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-palettes",
+        "value": "(\"palette-flex-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-direction-palettes",
+        "value": "(\"palette-flex-direction-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-direction-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-wrap-palettes",
+        "value": "(\"palette-flex-wrap-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$flex-wrap-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$float-palettes",
+        "value": "(\"palette-float-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$float-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-palettes",
+        "value": "(\"palette-font-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-family-palettes",
+        "value": "(\"palette-font-family-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-family-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-feature-palettes",
+        "value": "(\"palette-font-feature-settings-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-feature-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-style-palettes",
+        "value": "(\"palette-font-style-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-style-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-weight-palettes",
+        "value": "(\"palette-font-weight-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$font-weight-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$height-palettes",
+        "value": "(\"palette-height-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$height-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$justify-content-palettes",
+        "value": "(\"palette-justify-content-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$justify-content-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$left-palettes",
+        "value": "(\"palette-left-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$left-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$letter-spacing-palettes",
+        "value": "(\"palette-letter-spacing-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$letter-spacing-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$line-height-palettes",
+        "value": "(\"palette-line-height-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$line-height-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-palettes",
+        "value": "(\"palette-margin-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-vertical-palettes",
+        "value": "(\"palette-margin-vertical-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-vertical-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-horizontal-palettes",
+        "value": "(\"palette-margin-horizontal-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$margin-horizontal-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-height-palettes",
+        "value": "(\"palette-max-height-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-height-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-width-palettes",
+        "value": "(\"palette-max-width-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$max-width-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$measure-palettes",
+        "value": "(\"palette-measure-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$measure-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-height-palettes",
+        "value": "(\"palette-min-height-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-height-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-width-palettes",
+        "value": "(\"palette-min-width-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$min-width-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$opacity-palettes",
+        "value": "(\"palette-opacity-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$opacity-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$order-palettes",
+        "value": "(\"palette-order-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$order-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-palettes",
+        "value": "(\"palette-outline-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-color-palettes",
+        "value": "(\"palette-outline-color-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$outline-color-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$overflow-palettes",
+        "value": "(\"palette-overflow-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$overflow-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$padding-palettes",
+        "value": "(\"palette-padding-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$padding-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$position-palettes",
+        "value": "(\"palette-position-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$position-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$right-palettes",
+        "value": "(\"palette-right-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$right-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$square-palettes",
+        "value": "(\"palette-square-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$square-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-align-palettes",
+        "value": "(\"palette-text-align-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-align-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-palettes",
+        "value": "(\"palette-text-decoration-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-color-palettes",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-decoration-color-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-indent-palettes",
+        "value": "(\"palette-text-indent-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-indent-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-transform-palettes",
+        "value": "(\"palette-text-transform-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$text-transform-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$top-palettes",
+        "value": "(\"palette-top-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$top-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$vertical-align-palettes",
+        "value": "(\"palette-vertical-align-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$vertical-align-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$whitespace-palettes",
+        "value": "(\"palette-white-space-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$whitespace-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$width-palettes",
+        "value": "(\"palette-width-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$width-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      },
+      {
+        "name": "$z-index-palettes",
+        "value": "(\"palette-z-index-default\")",
+        "compiledValue": ""
+      },
+      {
+        "name": "$z-index-manual-values",
+        "value": "()",
+        "compiledValue": ""
+      }
+    ],
+    "themeColorPalette": [
+      {
+        "name": "$theme-color-base-family",
+        "value": "gray-cool",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-lightest",
+        "value": "gray-5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-lighter",
+        "value": "gray-cool-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-light",
+        "value": "gray-cool-30",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base",
+        "value": "gray-cool-50",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-dark",
+        "value": "gray-cool-60",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-darker",
+        "value": "gray-cool-70",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-darkest",
+        "value": "gray-90",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-base-ink",
+        "value": "gray-90",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-family",
+        "value": "blue",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-lightest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-lighter",
+        "value": "blue-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-light",
+        "value": "blue-30",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary",
+        "value": "blue-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-vivid",
+        "value": "blue-warm-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-dark",
+        "value": "blue-warm-70v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-darker",
+        "value": "blue-warm-80v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-primary-darkest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-family",
+        "value": "red",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-lightest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-lighter",
+        "value": "red-cool-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-light",
+        "value": "red-30",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary",
+        "value": "red-50",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-vivid",
+        "value": "red-cool-50v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-dark",
+        "value": "red-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-darker",
+        "value": "red-70v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-secondary-darkest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-family",
+        "value": "orange",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-lightest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-lighter",
+        "value": "orange-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-light",
+        "value": "orange-20v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm",
+        "value": "orange-30v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-dark",
+        "value": "orange-50v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-darker",
+        "value": "orange-60",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-warm-darkest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-family",
+        "value": "blue-cool",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-lightest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-lighter",
+        "value": "blue-cool-5v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-light",
+        "value": "blue-cool-20v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool",
+        "value": "cyan-30v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-dark",
+        "value": "blue-cool-40v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-darker",
+        "value": "blue-cool-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-accent-cool-darkest",
+        "value": "false",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error-family",
+        "value": "red-warm",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error-lighter",
+        "value": "red-warm-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error-light",
+        "value": "red-warm-30v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error",
+        "value": "red-warm-50v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error-dark",
+        "value": "red-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-error-darker",
+        "value": "red-70",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning-family",
+        "value": "gold",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning-lighter",
+        "value": "yellow-5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning-light",
+        "value": "yellow-10v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning",
+        "value": "gold-20v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning-dark",
+        "value": "gold-30v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-warning-darker",
+        "value": "gold-50v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success-family",
+        "value": "green-cool",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success-lighter",
+        "value": "green-cool-5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success-light",
+        "value": "green-cool-20v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success",
+        "value": "green-cool-40v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success-dark",
+        "value": "green-cool-50v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-success-darker",
+        "value": "green-cool-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info-family",
+        "value": "cyan",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info-lighter",
+        "value": "cyan-5",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info-light",
+        "value": "cyan-20",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info",
+        "value": "cyan-30v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info-dark",
+        "value": "cyan-40v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-info-darker",
+        "value": "blue-cool-60",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-disabled-family",
+        "value": "gray",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-disabled-light",
+        "value": "gray-10",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-disabled",
+        "value": "gray-20",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-disabled-dark",
+        "value": "gray-30",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-emergency",
+        "value": "red-warm-60v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-color-emergency-dark",
+        "value": "red-warm-80",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-body-background-color",
+        "value": "white",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-text-color",
+        "value": "ink",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-text-reverse-color",
+        "value": "white",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-color",
+        "value": "primary",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-visited-color",
+        "value": "violet-70v",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-hover-color",
+        "value": "primary-dark",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-active-color",
+        "value": "primary-darker",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-reverse-color",
+        "value": "base-lighter",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-reverse-hover-color",
+        "value": "base-lightest",
+        "compiledValue": ""
+      },
+      {
+        "name": "$theme-link-reverse-active-color",
+        "value": "white",
+        "compiledValue": ""
+      }
+    ]
+  }

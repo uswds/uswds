@@ -22,6 +22,9 @@ https://designsystem.digital.gov/design-tokens/color
 Theme palette colors
 ----------------------------------------
 */
+/**
+ * @sass-export-section="themeColorPalette"
+ */
 
 // Base colors
 $theme-color-base-family: "gray-cool";
@@ -145,3 +148,4 @@ $theme-link-active-color: "primary-darker";
 $theme-link-reverse-color: "base-lighter";
 $theme-link-reverse-hover-color: "base-lightest";
 $theme-link-reverse-active-color: "white";
+//@end-sass-export-section
