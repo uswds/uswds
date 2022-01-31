@@ -1324,6 +1324,7 @@ even non-token colors
   @return $token-grade;
 }
 
+
 /*
 ----------------------------------------
 color()
@@ -1822,19 +1823,19 @@ get-color-token-from-bg(
 ) {
   $for-text: if($for, "#{$for} ", "");
   $context-text: if($context, "[#{$context}] ", "");
-  // Set defaults
+  // Set defaults 
   @if $bg-color == "default" {
-    $bg-color: get-default("bg-color");
+    $bg-color: get-default("bg-color"); //#5e9732
   }
   @if $preferred-text-token == "default" {
-    $preferred-text-token: get-default("preferred-text-token");
+    $preferred-text-token: get-default("preferred-text-token"); //$theme-text-reverse-color: "white";
   }
   @if $fallback-text-token == "default" {
-    $fallback-text-token: get-default("fallback-text-token");
+    $fallback-text-token: get-default("fallback-text-token"); //$theme-text-color "ink";
   }
-  $target-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
-  $bg-grade: calculate-grade($bg-color);
-  $our-color-tokens: ($preferred-text-token, $fallback-text-token);
+  $target-magic-number: map-get($system-wcag-magic-numbers, $wcag-target); //50
+  $bg-grade: calculate-grade($bg-color); //45
+  $our-color-tokens: ($preferred-text-token, $fallback-text-token); // (white, ink)
   $accessible-text-token: false;
   $accessible-text-grade: false;
   // Get the text color token
@@ -1844,8 +1845,8 @@ get-color-token-from-bg(
   $best-magic-number: 0;
   @each $token in $our-color-tokens {
     @if not $accessible-text-token {
-      $token-grade: calculate-grade($token);
-      $this-magic-number: magic-number($token-grade, $bg-grade);
+      $token-grade: calculate-grade($token); //white: 0, ink: 90
+      $this-magic-number: magic-number($token-grade, $bg-grade); // (0, 45) (90,45)
       @if $this-magic-number > $best-magic-number {
         $best-magic-number: $this-magic-number;
         $best-token: $token;
@@ -1867,6 +1868,7 @@ get-color-token-from-bg(
 
   @return $accessible-text-token;
 }
+
 
 /*
 ----------------------------------------
