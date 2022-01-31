@@ -7,17 +7,6 @@ import StripedData from "./usa-table~striped.json";
 
 export default {
   title: "Components/Table",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    thead: {
-      title: { control: "text" },
-    },
-    tbody: {
-      title: { control: "text" },
-    },
-  },
 };
 
 const Template = (args) => Component(args);

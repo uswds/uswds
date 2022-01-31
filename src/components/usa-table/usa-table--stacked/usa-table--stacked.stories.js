@@ -7,17 +7,6 @@ import HeaderBorderlessData from "./usa-table--stacked~header-borderless.json";
 
 export default {
   title: "Components/Table/Stacked",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    thead: {
-      title: { control: "text" },
-    },
-    tbody: {
-      title: { control: "text" },
-    },
-  },
 };
 
 const Template = (args) => Component(args);

@@ -4,11 +4,6 @@ import bigData from "./usa-tag~big.json";
 
 export default {
   title: "Components/Tags",
-  argTypes: {
-    title: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

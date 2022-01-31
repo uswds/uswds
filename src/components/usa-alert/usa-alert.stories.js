@@ -13,20 +13,6 @@ import {
 
 export default {
   title: "Components/Alert",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    role: {
-      control: "text",
-    },
-    title: {
-      control: "text",
-    },
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

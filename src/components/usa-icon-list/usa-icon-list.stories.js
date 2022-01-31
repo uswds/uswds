@@ -8,12 +8,6 @@ import SimpleData from "./usa-icon-list~simple-content.json";
 
 export default {
   title: "Components/Icon List",
-  argTypes: {
-    color: {
-      options: ["primary", "secondary", "accent-cool", "accent-warm", null],
-      control: "radio",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

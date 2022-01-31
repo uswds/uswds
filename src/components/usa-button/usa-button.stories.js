@@ -13,11 +13,6 @@ import {
 
 export default {
   title: "Components/Button",
-  argTypes: {
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

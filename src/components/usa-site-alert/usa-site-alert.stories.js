@@ -11,23 +11,6 @@ import {
 
 export default {
   title: "Components/Site Alert",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    title: {
-      control: "text",
-    },
-    aria_label: {
-      control: "text",
-    },
-    text: {
-      control: "text",
-    },
-    list: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

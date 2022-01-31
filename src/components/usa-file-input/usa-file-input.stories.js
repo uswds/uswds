@@ -10,11 +10,6 @@ import {
 
 export default {
   title: "Components/File Input",
-  argTypes: {
-    label: { control: "text" },
-    hint: { control: "text" },
-    error_message: { control: "text" },
-  },
 };
 
 const Template = (args) => Component(args);

@@ -7,11 +7,6 @@ import CompactStripedData from "./usa-table--scrollable~compact-striped.json";
 
 export default {
   title: "Components/Table/Scrollable",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

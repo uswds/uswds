@@ -4,11 +4,6 @@ import Data from "./usa-icon--sizes.json";
 
 export default {
   title: "Components/Icon Sizes",
-  argTypes: {
-    img_path: {
-      table: { disable: true },
-    },
-  },
 };
 
 const Template = (args) => Component(args);

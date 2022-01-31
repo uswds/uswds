@@ -3,19 +3,6 @@ import { Data, BorderedData, MultiData } from "./content";
 
 export default {
   title: "Components/Accordian",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    id_prefix: {
-      control: "text",
-    },
-    items: {
-      title: { control: "text" },
-      id: { control: "text" },
-      content: { control: "text" },
-    },
-  },
 };
 
 const Template = (args) => Component(args);

@@ -4,14 +4,6 @@ import WrapData from "./usa-breadcrumb--wrap.json";
 
 export default {
   title: "Components/Breadcrumb",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    aria_label: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

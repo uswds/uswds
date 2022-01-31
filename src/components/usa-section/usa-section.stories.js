@@ -5,14 +5,6 @@ import LightData from "./usa-section~light.json";
 
 export default {
   title: "Components/Section",
-  argTypes: {
-    title: {
-      control: "text",
-    },
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

@@ -13,26 +13,6 @@ import {
 
 export default {
   title: "Components/Step Indicator",
-  argTypes: {
-    modifier: {
-      control: "text",
-    },
-    currentStep: {
-      control: "number",
-    },
-    steps: {
-      // step: {
-      //   control: "text",
-      // },
-      // status: {
-      //   options: ["complete", "current", "incomplete"],
-      //   control: { type: "radio" },
-      // },
-      // label: {
-      //   control: "text",
-      // },
-    },
-  },
 };
 
 const Template = (args) => Component(args);
