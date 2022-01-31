@@ -74,7 +74,3 @@ ThemeColorSelect.argTypes = {
     table: { disable: false },
   }, 
 }
-
-
-
-
