@@ -767,11 +767,9 @@ $project-defaults: (
 
 @debug "get token from bg: " + get-color-token-from-bg(#5e9732);
 //returns white, should be ink
-@debug "get token from bg lighter: " + get-color-token-from-bg(#66A338);
-// white
-@debug "map-get($system-wcag-magic-numbers, AA): " + map-get($system-wcag-magic-numbers, AA);
+// @debug "map-get($system-wcag-magic-numbers, AA): " + map-get($system-wcag-magic-numbers, AA);
 // 50
-@debug "gray 50 text: " + get-color-token-from-bg(gray-50);
+//@debug "gray 50 text: " + get-color-token-from-bg(gray-50);
 //return white
 @debug "magic number white, green: " + magic-number(0, 40);
 //@return 45
@@ -785,7 +783,7 @@ $project-defaults: (
 // returns
 @debug "lum green: " + luminance(#5e9732);
 // returns  0.2474319013
-@debug "lum white: " + luminance(white);
+@debug "lum white: " + luminance(#fff);
 // returns  0.2474319013
 @debug "lum ink: " + luminance(#1b1b1b);
 // returns  0.2474319013
