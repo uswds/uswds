@@ -6,12 +6,7 @@ export default {
   title: "Components/Icons",
   argTypes: {
     icons: {
-      sizes: {
-        control: "text",
-      },
-      items: {
-        control: "text",
-      },
+      table: { disable: true },
     },
   },
 };

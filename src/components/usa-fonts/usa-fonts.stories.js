@@ -4,6 +4,11 @@ import Data from "./usa-fonts.json";
 
 export default {
   title: "Components/Fonts",
+  argTypes: {
+    typefaces: {
+      table: { disable: true },
+    },
+  },
 };
 
 const Template = (args) => Component(args);
