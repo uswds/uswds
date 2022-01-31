@@ -5,9 +5,6 @@ import Data from "./usa-skipnav.json";
 export default {
   title: "Components/Skipnav",
   argTypes: {
-    modifier: {
-      control: "text",
-    },
     label: {
       control: "text",
     },
