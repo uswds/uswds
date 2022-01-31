@@ -15,31 +15,30 @@ Derive a color from a color shortcode
 @use "../../tokens/color/shortcodes-color-system" as *;
 @use "../../tokens/color/assignments-theme-color" as *;
 
-
 @function color($value, $flags...) {
+  // Create lists of single items 
   $value: general.unpack($value);
 
+  // If theme color is found, prepare that value to be parsed by $system-color-shortcodes
   @if map.has-key($assignments-theme-color, $value) {
     $value: map.get($assignments-theme-color, $value);
-    @if $value == false {
-      @if list.index($flags, set-theme) {
-        @return $value;
-      }
-      @error 'error: set to false';
-    }
-    @if meta.type-of($value) == string {
-      $value: string.quote($value);
-    }
   }
 
-  // If it's a color, return that color
-  // Withhold warning if "no-warn" flag
+  // If theme or system color is found, return that value
+  @if map.has-key($system-color-shortcodes, $value) {
+    $quote: general.smart-quote($value);
+    $value: map.get($system-color-shortcodes, $value);
+    @return $value;
+  }
 
-  @if meta.type-of($value) == color {
-    @if list.index($flags, "override") or list.index($flags, "set-theme") {
+  // If color is NOT found in theme or system colors
+  // Check if there is an acceptable value that can be passed into the system with flags 
+  // Acceptable values: False and non-token css color values 
+  @if meta.type-of($value) == color or $value == false {
+    @if list.index($flags, 'override') or list.index($flags, 'set-theme') {
       // override + no-warn will skip warnings
-      @if list.index($flags, "no-warn") {
-        @return "no-warn"
+      @if list.index($flags, no-warn) {
+        @return $value;
       }
 
       @if $theme-show-compile-warnings {
@@ -50,47 +49,39 @@ Derive a color from a color shortcode
     }
   }
 
-  // False values may be passed through when setting theme colors
-  @if $value == false {
-    @if list.index($flags, set-theme) {
-      @return $value;
-    }
-  }
-
-  // Now, any value should be evaluated as a token
-
-  @if map.has-key($system-color-shortcodes, $value) {
-    $value: general.smart-quote($value);
-    $our-color: map.get($system-color-shortcodes, $value);
-    @if $our-color == false {
-      @error '`#{$value}` is a color that does not exist '
-        + 'or is set to false.';
-    }
-    @return $our-color;
-  }
-
+  // If no acceptable value found, return an error
   @error '`#{$value}` is not a valid USWDS color token. '
       + 'See designsystem.digital.gov/design-tokens/color '
       + 'for more information.';
 }
 
-@debug color("orange-80v");
+@debug color('orange-80v');
 // @return #352313;
-@debug color("primary-dark");
+@debug color('primary-dark');
 // @return #1a4480;
 @debug color($theme-color-accent-warm-dark);
 // @return #c05600;
-@debug color("info");
+@debug color('info');
 // @return #00bde3
+@debug color(orange, set-theme, no-warn);
+// @return orange 
+@debug color(#ff0, set-theme, no-warn);
+// @return #ff0 
+@debug color(rgba(0,0,0,1), set-theme, no-warn);
+// @return black
 @debug color(green, set-theme);
-// @return Warning: Override: `green` is not a USWDS color token.
+// @return green with Warning: Override: `green` is not a USWDS color token.
+@debug color(green, override);
+// @return green with Warning: Override: `green` is not a USWDS color token.
+@debug color('primary-lightest', set-theme);
+// @return false
+
+// these should result in errors
+// @debug color(green);
+// error: '"green" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
 //@debug color(#f00);
 // @return error: '"#f00" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
-// @debug color(orange);
-// error: '"orange" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
 // @debug color(hamburgers);
 // error: '"hamburgers" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
-// @debug color("primary-lightest");
+@debug color('primary-lightest');
 // @return error: set to false;
-// @debug color("primary-lightest", set-theme);
-// @return false
