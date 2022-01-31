@@ -10,8 +10,7 @@ Derive a color from a color shortcode
 @use "sass:meta";
 @use "sass:string";
 @use "../../functions/general";
-@use "../../settings/settings-color" as *;
-@use "../../settings/settings-general" as *;
+@use "../../settings" as *;
 @use "../../tokens/color/shortcodes-color-system" as *;
 @use "../../tokens/color/assignments-theme-color" as *;
 
@@ -31,9 +30,8 @@ Derive a color from a color shortcode
     @return $value;
   }
 
-  // If color is NOT found in theme or system colors
-  // Check if there is an acceptable value that can be passed into the system with flags 
-  // Acceptable values: False and non-token css color values 
+  // If not a theme or system color, check if there is an acceptable value that can be passed into the system via flags 
+  // Acceptable values: False, non-token css color values 
   @if meta.type-of($value) == color or $value == false {
     @if list.index($flags, 'override') or list.index($flags, 'set-theme') {
       // override + no-warn will skip warnings
@@ -50,9 +48,7 @@ Derive a color from a color shortcode
   }
 
   // If no acceptable value found, return an error
-  @error '`#{$value}` is not a valid USWDS color token. '
-      + 'See designsystem.digital.gov/design-tokens/color '
-      + 'for more information.';
+  @return general.error-not-token($value, "color");
 }
 
 @debug color('orange-80v');
