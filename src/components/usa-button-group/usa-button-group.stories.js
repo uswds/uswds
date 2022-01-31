@@ -4,11 +4,6 @@ import SegmentedData from "./usa-button-group~segmented.json";
 
 export default {
   title: "Components/Button Group",
-  argTypes: {
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

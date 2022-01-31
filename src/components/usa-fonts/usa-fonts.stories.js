@@ -3,11 +3,6 @@ import Data from "./usa-fonts.json";
 
 export default {
   title: "Components/Fonts",
-  argTypes: {
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

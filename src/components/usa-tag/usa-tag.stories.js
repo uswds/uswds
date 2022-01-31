@@ -5,7 +5,7 @@ import bigData from "./usa-tag~big.json";
 export default {
   title: "Components/Tags",
   argTypes: {
-    text: {
+    title: {
       control: "text",
     },
   },
