@@ -90,7 +90,7 @@ Derive a color from a color shortcode
 // error: '"orange" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
 // @debug color(hamburgers);
 // error: '"hamburgers" is not a valid USWDS color token. See designsystem.digital.gov/design-tokens/color for more information.'
-@debug color("primary-lightest");
+// @debug color("primary-lightest");
 // @return error: set to false;
-@debug color("primary-lightest", set-theme);
+// @debug color("primary-lightest", set-theme);
 // @return false
