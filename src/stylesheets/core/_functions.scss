@@ -24,6 +24,55 @@ General-purpose functions
 
 /*
 ----------------------------------------
+divide()
+----------------------------------------
+Divides one number by another, to a
+specified precision.
+----------------------------------------
+*/
+
+@function divide($dividend, $divisor, $precision: 10, $depth: 0) {
+  @if ($dividend < 0 and $divisor < 0) {
+    $dividend: -1 * $dividend;
+    $divisor: -1 * $divisor;
+  }
+
+  @if ($dividend < 0) {
+    @return -1 * divide(-1 * $dividend, $divisor, $precision, $depth);
+  }
+
+  @if ($divisor < 0) {
+    @return -1 * divide($dividend, $divisor * -1, $precision, $depth);
+  }
+
+  @if ($divisor == 0) {
+    @error 'Illegal division by zero';
+  }
+
+  $result: if(unit($dividend) == unit($divisor), 0, $dividend * 0);
+  @while $dividend - $divisor >= 0 {
+    $result: $result + 1;
+    $dividend: $dividend - $divisor;
+  }
+
+  @if $dividend > 0 {
+    @if $depth < $precision {
+      $result: $result +
+        divide($dividend * 10, $divisor, $precision, $depth + 1) *
+        0.1;
+    } @else if $depth == $precision {
+      $next-digit: divide($dividend * 10, $divisor, $precision, $depth + 1);
+      @if $next-digit >= 5 {
+        $result: $result + 1;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+/*
+----------------------------------------
 uswds-error()
 ----------------------------------------
 Allow the system to pass an error as text
@@ -92,7 +141,7 @@ Remove the unit of a length
 
 @function strip-unit($number) {
   @if type-of($number) == "number" and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return divide($number, $number * 0 + 1);
   }
 
   @return $number;
@@ -187,22 +236,6 @@ Remove a value from a list
   }
 
   @return $result;
-}
-
-/*
-----------------------------------------
-strunquote()
-----------------------------------------
-Unquote a string
-----------------------------------------
-*/
-
-@function strunquote($value) {
-  @if type-of($value) == "string" {
-    $value: unquote($value);
-  }
-
-  @return $value;
 }
 
 /*
@@ -387,10 +420,8 @@ the desired final units (currently rem)
 */
 
 @function spacing-multiple($unit) {
-  $grid-to-rem: ($system-spacing-grid-base * $unit) / $root-font-size-equiv *
-    1rem;
-
-  @return $grid-to-rem;
+  @return 1rem *
+    divide($system-spacing-grid-base * $unit, $root-font-size-equiv);
 }
 
 /*
@@ -403,7 +434,7 @@ Converts a value in rem to a value in px
 
 @function rem-to-px($value-in-rem) {
   @if unit($value-in-rem) == "rem" {
-    $rem-to-px: ($value-in-rem / 1rem) * $root-font-size-equiv;
+    $rem-to-px: divide($value-in-rem, 1rem) * $root-font-size-equiv;
     @return $rem-to-px;
   }
   @if unit($value-in-rem) != "px" {
@@ -423,7 +454,7 @@ queries
 */
 
 @function rem-to-user-em($grid-in-rem) {
-  $rem-to-user-em: ($grid-in-rem / 1rem) * 1em;
+  $rem-to-user-em: divide($grid-in-rem, 1rem) * 1em;
 
   @return $rem-to-user-em;
 }
@@ -476,8 +507,8 @@ Converts a value in px to a value in rem
   @if not $pixels {
     @return false;
   }
-  $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
-  $px-to-rem: round($px-to-rem * 100) / 100;
+  $px-to-rem: divide($pixels, $root-font-size-equiv) * 1rem;
+  $px-to-rem: divide(round($px-to-rem * 100), 100);
 
   @return $px-to-rem;
 }
@@ -496,7 +527,10 @@ to a set target
     @return false;
   }
 
-  $this-scale: $system-base-cap-height * strip-unit($scale) / $cap-height * 1px;
+  $this-scale: divide(
+    $system-base-cap-height * strip-unit($scale),
+    $cap-height
+  );
 
   @return px-to-rem($this-scale);
 }
@@ -571,9 +605,11 @@ a family and a line-height scale unit
 
   $this-cap: map-get($project-cap-heights, $family);
   $this-line-height: map-get($system-line-height, $scale);
-  $normalized-line-height: $this-line-height /
-    ($system-base-cap-height / $this-cap);
-  $normalized-line-height: round($normalized-line-height * 10) / 10;
+  $normalized-line-height: divide(
+    $this-line-height,
+    divide($system-base-cap-height, $this-cap)
+  );
+  $normalized-line-height: divide(round($normalized-line-height * 10), 10);
 
   @return $normalized-line-height;
 }
@@ -644,7 +680,7 @@ role-based font token.
       $this-stack: map-get($system-font-stacks, $type-token);
     }
     // If the typeface has no display name (system fonts), don't output the display name
-    @if map-get($this-typeface-data, "display-name") == null {
+    @if not map-get($this-typeface-data, "display-name") {
       $output-display-name: false;
     }
     @if not $output-display-name {
@@ -786,7 +822,7 @@ grid.
   }
 
   $numeric-eq: map-get($spacing-to-value, $gap-size);
-  $numeric-eq-half: inspect($numeric-eq / 2);
+  $numeric-eq-half: inspect(divide($numeric-eq, 2));
 
   @if not map-has-key($spacing-to-token, $numeric-eq-half) {
     @error '`#{$gap-size}` is not a valid USWDS gap size token. '
@@ -854,7 +890,7 @@ Ex: columns(2) --> 6
   @if 12 % $number != 0 {
     @error '`#{$number}` must be a divisor of 12.';
   }
-  $columns: 12 / $number;
+  $columns: divide(12, $number);
   @return $columns;
 }
 
@@ -925,125 +961,17 @@ functions and mixins.
   @return $value;
 }
 
-/*
-----------------------------------------
-pow()
-----------------------------------------
-Raises a unitless number to the power
-of another unitless number
-
-Includes helper functions
-----------------------------------------
-*/
-
-@function pow($number, $exponent) {
-  @if (round($exponent) != $exponent) {
-    @return exp($exponent * ln($number));
-  }
-
-  $value: 1;
-
-  @if $exponent > 0 {
-    @for $i from 1 through $exponent {
-      $value: $value * $number;
-    }
-  } @else if $exponent < 0 {
-    @for $i from 1 through -$exponent {
-      $value: $value / $number;
-    }
-  }
-
-  @return $value;
-}
-
-@function factorial($value) {
-  $result: 1;
-
-  @if $value == 0 {
-    @return $result;
-  }
-
-  @for $index from 1 through $value {
-    $result: $result * $index;
-  }
-
-  @return $result;
-}
-
-@function summation($iteratee, $input, $initial: 0, $limit: 100) {
-  $sum: 0;
-
-  @for $index from $initial to $limit {
-    $sum: $sum + call($iteratee, $input, $index);
-  }
-
-  @return $sum;
-}
-
-@function exp-maclaurin($x, $n) {
-  @return (pow($x, $n) / factorial($n));
-}
-
-@function exp($value) {
-  @return summation(get-function("exp-maclaurin"), $value, 0, 100);
-}
-
-@function ln-maclaurin($x, $n) {
-  @return (pow(-1, $n + 1) / $n) * (pow($x - 1, $n));
-}
-
-@function ln($value) {
-  $ten-exp: 1;
-  $ln-ten: 2.30258509;
-
-  @while ($value > pow(10, $ten-exp)) {
-    $ten-exp: $ten-exp + 1;
-  }
-
-  @return summation(
-      get-function("ln-maclaurin"),
-      $value / pow(10, $ten-exp),
-      1,
-      100
-    ) + $ten-exp * $ln-ten;
-}
-
 /// Returns the luminance of `$color` as a float (between 0 and 1)
 /// 1 is pure white, 0 is pure black
 /// @param {Color} $color - Color
 /// @return {Number}
 /// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
 @function luminance($color) {
-  $colors: (
-    "red": red($color),
-    "green": green($color),
-    "blue": blue($color),
-  );
+  $lum: (nth($luminance-color-component-values, red($color) + 1) * 0.2126) +
+    (nth($luminance-color-component-values, green($color) + 1) * 0.7152) +
+    (nth($luminance-color-component-values, blue($color) + 1) * 0.0722);
 
-  @each $name, $value in $colors {
-    $adjusted: 0;
-    $value: $value / 256;
-
-    @if $value < 0.03928 {
-      $value: $value / 12.92;
-    } @else {
-      $value: ($value + 0.055) / 1.055;
-      $value: pow($value, 2.4);
-    }
-
-    $colors: map-merge(
-      $colors,
-      (
-        $name: $value,
-      )
-    );
-  }
-
-  $lum: (map-get($colors, "red") * 0.2126) +
-    (map-get($colors, "green") * 0.7152) + (map-get($colors, "blue") * 0.0722);
-  $lum: round($lum * 1000) / 1000;
-
-  @return $lum;
+  @return divide(round($lum * 1000), 1000);
 }
 
 /// Casts a string into a number
@@ -1088,7 +1016,7 @@ Includes helper functions
       $result: $result * 10 + map-get($numbers, $character);
     } @else {
       $digits: $digits * 10;
-      $result: $result + map-get($numbers, $character) / $digits;
+      $result: divide($result + map-get($numbers, $character), $digits);
     }
   }
 
@@ -1373,7 +1301,7 @@ even non-token colors
         @return $this-grade;
       }
       @if ($lum > $this-grade-max) and ($lum < $next-grade-min) {
-        $custom-grade-midpoint: ($this-grade + $next-grade) / 2;
+        $custom-grade-midpoint: divide($this-grade + $next-grade, 2);
         $custom-grade: $custom-grade-midpoint;
         @return $custom-grade;
       }

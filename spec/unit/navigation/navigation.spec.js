@@ -30,6 +30,7 @@ describe("navigation toggle", () => {
   const { body } = document;
 
   let sandbox;
+  let header;
   let nav;
   let navControl;
   let overlay;
@@ -44,6 +45,7 @@ describe("navigation toggle", () => {
     body.innerHTML = TEMPLATE;
     accordion.on();
     navigation.on();
+    header = body.querySelector(".usa-header");
     nav = body.querySelector(".usa-nav");
     navControl = body.querySelector(".usa-nav__link");
     overlay = body.querySelector(".usa-overlay");
@@ -107,6 +109,15 @@ describe("navigation toggle", () => {
     closeButton.click();
     assert.strictEqual(document.activeElement, menuButton);
   });
+
+  it("makes all other page content invisible to screen readers", () => {
+    menuButton.click();
+
+    const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
+
+    assert.strictEqual(activeContent.length, 1);
+    assert.strictEqual(activeContent[0], header);
+  })
 
   it("collapses nav if needed on window resize", () => {
     menuButton.click();

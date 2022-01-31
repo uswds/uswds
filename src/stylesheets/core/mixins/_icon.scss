@@ -74,7 +74,7 @@
   $filename-base: map-get($icon-object, "name");
   $svg-height: map-get($icon-object, "svg-height");
   $svg-width: map-get($icon-object, "svg-width");
-  $aspect: $svg-width / $svg-height;
+  $aspect: divide($svg-width, $svg-height);
   $height: if(
     unitless(map-get($icon-object, "height")),
     units(map-get($icon-object, "height")),
@@ -124,8 +124,8 @@
   );
 
   $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
-    #{$width} #{$height};
-  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / #{$width} #{$height};
+    contain;
+  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / contain;
 
   // Default background shorthand for browsers that don't support mask or supports.
   background: $image-props;

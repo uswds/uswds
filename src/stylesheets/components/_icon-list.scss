@@ -52,7 +52,7 @@ $icon-size: px-to-rem($this-icon-size-px);
   @each $color, $grades in $all-project-colors {
     @each $grade, $value in $grades {
       @if $value {
-        $prefix: if($grade != "default", #{$color}-#{$grade}, #{$color});
+        $prefix: if($grade != "default", "#{$color}-#{$grade}", $color);
         &--#{$prefix} {
           .usa-icon-list__icon {
             color: color($prefix);

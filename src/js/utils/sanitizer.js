@@ -13,16 +13,10 @@
  *  https://wiki.mozilla.org/User:Fbraun/Gaia/SafeinnerHTMLRoadmap
  *
  */
-(function (root, factory) {
-  'use strict';
-  if (typeof define === 'function' && define.amd) {
-    define(factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.Sanitizer = factory();
-  }
-}(this, function () {
+
+!(function (factory) {
+  module.exports = factory();
+})(function () {
   'use strict';
 
   var Sanitizer = {
@@ -99,4 +93,4 @@
 
   return Sanitizer;
 
-}));
+});
