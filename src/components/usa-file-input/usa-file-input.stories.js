@@ -15,7 +15,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Data.args = Data;
+Default.args = Data;
 
 export const Disabled = Template.bind({});
 Disabled.args = DisabledData;
