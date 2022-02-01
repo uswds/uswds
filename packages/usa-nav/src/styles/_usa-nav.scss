@@ -392,7 +392,6 @@ $expand-less-icon: map-merge(
         padding: units(1);
 
         &:hover {
-          background-color: color(primary);
           color: color("white");
           text-decoration: underline;
         }
