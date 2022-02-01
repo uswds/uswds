@@ -10,10 +10,15 @@ import {
   NoLabelsData,
   ShortData,
 } from "./content";
+import {
+  Steps
+} from "./usa-step-indicator";
 
 export default {
   title: "Components/Step Indicator",
 };
+
+console.log(Steps);
 
 const Template = (args) => Component(args);
 
