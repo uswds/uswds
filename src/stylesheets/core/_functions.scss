@@ -1802,6 +1802,11 @@ Returns an accessible foreground color
 token, given a background, preferred
 color, fallback color, and WCAG target
 
+based on ratio calculation: 
+(L1 + 0.05) / (L2 + 0.05), whereby:
+L1 is the relative luminance of the lighter of the colors, and
+L2 is the relative luminance of the darker of the colors.
+
 returns: color-token
 
 get-color-token-from-bg(
