@@ -1324,6 +1324,7 @@ even non-token colors
   @return $token-grade;
 }
 
+
 /*
 ----------------------------------------
 color()
@@ -1846,6 +1847,60 @@ L2 is the relative luminance of the darker of the colors.
   }
 }
 
+
+/*
+----------------------------------------
+color-contrast-check()
+based on ratio calculation: 
+(L1 + 0.05) / (L2 + 0.05), whereby:
+L1 is the relative luminance of the lighter of the colors, and
+L2 is the relative luminance of the darker of the colors.
+----------------------------------------
+*/
+
+//to-do build map of contrast targets
+@function color-contrast-check(
+  $bg-color: "default",
+  $preferred-text-token: "default",
+  $fallback-text-token: "default",
+  $target-contrast: 4.5, 
+){
+  @if $bg-color == "default" {
+    $bg-color: get-default("bg-color"); //#5e9732
+  }
+  @if $preferred-text-token == "default" {
+    $preferred-text-token: get-default("preferred-text-token"); //$theme-text-reverse-color: "white";
+  }
+  @if $fallback-text-token == "default" {
+    $fallback-text-token: get-default("fallback-text-token"); //$theme-text-color "ink";
+  }
+
+  $bg-lum: luminance($bg-color) + 0.05; // .297
+  $preferred-lum: 1 + .05; // 1.05 to-do: calculate luminance with functionfrom token
+  $fallback-lum: luminance(#1b1b1b) + .05; // .061 to-do: calculate luminance from token
+
+  $our-color-tokens: (
+    "preferred" $preferred-text-token $preferred-lum, 
+    "fallback" $fallback-text-token $fallback-lum
+  );
+
+  @each $token-name, $token-color, $token-lum in $our-color-tokens {
+    //if background is darker than token
+    @if $bg-lum <= $token-lum {
+      $token-contrast: calc($token-lum / $bg-lum);
+      @if $token-contrast >= $target-contrast {
+        @return $token-color + " text token meets standards with contrast ratio of: " + $token-contrast;
+      }
+    }
+    //if background is lighter than token
+    @if $bg-lum > $token-lum {
+      $token-contrast: calc($bg-lum / $token-lum);
+      @if $token-contrast >= $target-contrast {
+        @return $token-color + " text token meets standards with a contrast ratio of: " + $token-contrast;
+      }
+    }  
+  }
+}
 
 /*
 ----------------------------------------
