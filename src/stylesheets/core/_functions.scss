@@ -1876,7 +1876,7 @@ L2 is the relative luminance of the darker of the colors.
   }
 
   $bg-lum: luminance($bg-color) + 0.05; // .297
-  $preferred-lum: 1 + .05; // 1.05 to-do: calculate luminance with functionfrom token
+  $preferred-lum: luminance(#fff) + .05; // 1.05 to-do: calculate luminance from token
   $fallback-lum: luminance(#1b1b1b) + .05; // .061 to-do: calculate luminance from token
 
   $our-color-tokens: (
@@ -1889,14 +1889,14 @@ L2 is the relative luminance of the darker of the colors.
     @if $bg-lum <= $token-lum {
       $token-contrast: calc($token-lum / $bg-lum);
       @if $token-contrast >= $target-contrast {
-        @return $token-color + " text token meets standards with contrast ratio of: " + $token-contrast;
+        @return $token-color;
       }
     }
     //if background is lighter than token
     @if $bg-lum > $token-lum {
       $token-contrast: calc($bg-lum / $token-lum);
       @if $token-contrast >= $target-contrast {
-        @return $token-color + " text token meets standards with a contrast ratio of: " + $token-contrast;
+        @return $token-color;
       }
     }  
   }
