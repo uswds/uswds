@@ -764,28 +764,3 @@ $project-defaults: (
   "preferred-link-token": $theme-link-reverse-color,
   "fallback-link-token": $theme-link-color,
 );
-
-@debug "get token from bg: " + get-color-token-from-bg(#5e9732);
-//returns white, should be ink
-// @debug "map-get($system-wcag-magic-numbers, AA): " + map-get($system-wcag-magic-numbers, AA);
-// 50
-//@debug "gray 50 text: " + get-color-token-from-bg(gray-50);
-//return white
-@debug "magic number white, green: " + magic-number(0, 40);
-//@return 45
-@debug "magic number ink, green: " + magic-number(90,40);
-// @return 45
-@debug "calculate-grade(#5e9732): " + calculate-grade(#5e9732);
-// returns 45
-@debug "calc-grade white: " + calculate-grade(#fff);
-// returns
-@debug "calc-grade ink: " + calculate-grade("ink");
-// returns
-@debug "lum green: " + luminance(#5e9732);
-// returns  0.2474319013
-@debug "lum white: " + luminance(#fff);
-// returns  0.2474319013
-@debug "lum ink: " + luminance(#1b1b1b);
-// returns  0.2474319013
-@debug "system grade : " + luminance(#5e9732);
-// returns  0.2474319013
