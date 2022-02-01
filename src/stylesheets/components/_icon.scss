@@ -19,8 +19,10 @@ $icon-inline-size-magic-number: 1em;
 
   .usa-button > &:first-child {
     float: left;
-    margin-top: -0.5 * ($icon-inline-size-magic-number - lh($theme-button-font-family, 1));
-    margin-bottom: -0.5 * ($icon-inline-size-magic-number - lh($theme-button-font-family, 1));
+    margin-top: -0.5 *
+      ($icon-inline-size-magic-number - lh($theme-button-font-family, 1));
+    margin-bottom: -0.5 *
+      ($icon-inline-size-magic-number - lh($theme-button-font-family, 1));
     margin-right: 0.25rem;
   }
 
