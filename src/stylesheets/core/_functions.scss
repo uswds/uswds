@@ -1801,6 +1801,11 @@ Returns an accessible foreground color
 token, given a background, preferred
 color, fallback color, and WCAG target
 
+based on ratio calculation: 
+(L1 + 0.05) / (L2 + 0.05), whereby:
+L1 is the relative luminance of the lighter of the colors, and
+L2 is the relative luminance of the darker of the colors.
+
 returns: color-token
 
 get-color-token-from-bg(
@@ -1822,51 +1827,52 @@ get-color-token-from-bg(
 ) {
   $for-text: if($for, "#{$for} ", "");
   $context-text: if($context, "[#{$context}] ", "");
-  // Set defaults
+  // Set defaults 
   @if $bg-color == "default" {
-    $bg-color: get-default("bg-color");
+    $bg-color: get-default("bg-color"); //#5e9732
   }
   @if $preferred-text-token == "default" {
-    $preferred-text-token: get-default("preferred-text-token");
+    $preferred-text-token: get-default("preferred-text-token"); //$theme-text-reverse-color: "white";
   }
   @if $fallback-text-token == "default" {
-    $fallback-text-token: get-default("fallback-text-token");
+    $fallback-text-token: get-default("fallback-text-token"); //$theme-text-color "ink";
   }
-  $target-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
-  $bg-grade: calculate-grade($bg-color);
-  $our-color-tokens: ($preferred-text-token, $fallback-text-token);
-  $accessible-text-token: false;
-  $accessible-text-grade: false;
-  // Get the text color token
-  // Check both text tokens.
-  // Accept a token if it has specified accessible contrast.
-  $best-token: false;
-  $best-magic-number: 0;
-  @each $token in $our-color-tokens {
-    @if not $accessible-text-token {
-      $token-grade: calculate-grade($token);
-      $this-magic-number: magic-number($token-grade, $bg-grade);
-      @if $this-magic-number > $best-magic-number {
-        $best-magic-number: $this-magic-number;
-        $best-token: $token;
-      }
-      @if is-accessible-magic-number($token-grade, $bg-grade, $wcag-target) {
-        $accessible-text-token: $token;
-        $accessible-text-grade: $token-grade;
+  $target-contrast: 4.5; //to-do create map for contrast ratios
+  $lum-bg: .247 + 0.05;
+  $lum-preferred: 1 + .05; //to-do: calculate luminance with functionfrom token
+  $lum-fallback: .010960094 + .05; //to-do: calculate luminance from token
+  $grade-bg: calculate-grade($bg-color); // 45
+  $grade-preferred: calculate-grade($preferred-text-token); //0
+  $grade-fallback: calculate-grade($fallback-text-token); //90
+  $our-color-tokens: (
+    "preferred" $grade-preferred $lum-preferred, 
+    "fallback" $grade-fallback $lum-fallback
+  );
+
+  @each $name, $grade-token, $lum-token in $our-color-tokens {
+    //if background is darker than token
+    @if $grade-bg >= $grade-token {
+      $contrast: calc($lum-token / $lum-bg);
+      @if $contrast >= $target-contrast {
+        @return $name + " text token meets standards with contrast ratio of: " + $contrast;
       }
     }
-  }
-  // If neither is accessible,
-  // warn the user and use the Preferred token
-  @if not $accessible-text-token {
-    $accessible-text-token: $best-token;
-    @if $theme-show-compile-warnings {
-      @warn "#{$context-text}Neither the specified preferred #{$for-text}color token (`#{$preferred-text-token}`) nor the fallback #{$for-text}color token (`#{$fallback-text-token}`) have #{$wcag-target} contrast on a `#{$bg-color}` background. Using `#{$best-token}`. Please check your source code and project settings.";
-    }
+    //if background is lighter than token
+    @if $grade-bg < $grade-token {
+      $contrast: calc($lum-bg / $lum-token);
+      @if $contrast >= $target-contrast {
+        @return $name + " text token meets standards with a contrast ratio of: " + $contrast;
+      }
+    }  
   }
 
-  @return $accessible-text-token;
+  @if $theme-show-compile-warnings {
+    @warn "#{$context-text}Neither the specified preferred #{$for-text}color token (`#{$preferred-text-token}`) nor the fallback #{$for-text}color token (`#{$fallback-text-token}`) have #{$wcag-target} contrast on a `#{$bg-color}` background. Using `#{$best-token}`. Please check your source code and project settings.";
+  }
 }
+
+
+
 
 /*
 ----------------------------------------
