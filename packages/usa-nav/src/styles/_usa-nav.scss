@@ -389,7 +389,7 @@ $expand-less-icon: map-merge(
         color: color("white");
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
-        padding: units(2);
+        padding: units(1);
 
         &:hover {
           background-color: color(primary);
