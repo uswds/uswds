@@ -2,14 +2,14 @@
 <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif -%}
 
-<button class="usa-button {{ classes }}">Default</button>
+<button class="usa-button {{ classes }}">{{ content_prefix | safe }}Default</button>
 {% if (category != 'disabled') and (category != 'big') -%}
-<button class="usa-button {{ classes }} usa-button--hover">Hover</button>
-<button class="usa-button {{ classes }} usa-button--active">Active</button>
-<button class="usa-button {{ classes }} usa-focus">Focus</button>
-<button class="usa-button {{ classes }}" disabled>Disabled</button>
+<button class="usa-button {{ classes }} usa-button--hover">{{ content_prefix | safe }}Hover</button>
+<button class="usa-button {{ classes }} usa-button--active">{{ content_prefix | safe }}Active</button>
+<button class="usa-button {{ classes }} usa-focus">{{ content_prefix | safe }}Focus</button>
+<button class="usa-button {{ classes }}" disabled>{{ content_prefix | safe }}Disabled</button>
 {%- endif -%}
-<button class="usa-button {{ classes }} usa-button--unstyled">Unstyled button</button>
+<button class="usa-button {{ classes }} usa-button--unstyled">{{ content_prefix | safe }}Unstyled button</button>
 
 {%- if (classes == 'usa-button--outline usa-button--inverse') %}
 </div>

@@ -2,6 +2,12 @@ label: Buttons
 status: ready
 
 variants:
+  - name: icon
+    label: Default with icon
+    context:
+      category: "icon"
+      content_prefix: "<svg class=\"usa-icon\" aria-hidden=\"true\" focusable=\"false\" role=\"img\"><use xlink:href=\"../../dist/img/sprite.svg#add_circle_outline\"></use></svg>"
+
   - name: secondary
     context:
       category: alternate
