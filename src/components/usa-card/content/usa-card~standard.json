@@ -1,6 +1,6 @@
 {
   "modifier": "",
-  "default_classes": "tablet:grid-col",
+  "default_classes": "tablet:grid-col-4",
   "cards": [
     {
       "title": "Card",
