@@ -1,5 +1,6 @@
+import { toggleFieldMask } from "@uswds/utils";
+
 const assert = require("assert");
-const toggleFieldMask = require("../toggle-field-mask");
 
 const createElement = (name, attrs) => {
   const el = document.createElement(name);

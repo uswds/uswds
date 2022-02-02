@@ -1,3 +1,5 @@
+import {config} from "./utils/config"
+
 const domready = require("domready");
 
 window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
@@ -8,8 +10,7 @@ window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has
  */
 require("./polyfills");
 
-const uswds = require("./config");
-
+const uswds = config
 const components = require("./index");
 const svg4everybody = require("./polyfills/svg4everybody");
 

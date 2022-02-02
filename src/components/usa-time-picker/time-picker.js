@@ -1,11 +1,7 @@
-const behavior = require("../../utils/behavior");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
-const {
-  COMBO_BOX_CLASS,
-  enhanceComboBox,
-} = require("../usa-combo-box/combo-box");
+import { behavior, selectOrMatches, config } from '@uswds/utils'
+import { COMBO_BOX_CLASS, enhanceComboBox } from '@uswds/usa-combo-box'
 
+const { prefix: PREFIX } = config;
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;
 const MAX_TIME = 60 * 24 - 1;

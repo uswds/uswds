@@ -1,6 +1,6 @@
-const select = require("../../utils/select");
-const behavior = require("../../utils/behavior");
-const { prefix: PREFIX } = require("../../config");
+import {select, behavior, config} from "@uswds/utils"
+
+const { prefix: PREFIX } = config;
 
 const CHARACTER_COUNT = `.${PREFIX}-character-count`;
 const INPUT = `.${PREFIX}-character-count__field`;

@@ -1,5 +1,4 @@
-const behavior = require("../../utils/behavior");
-const validate = require("../../utils/validate-input");
+import { behavior, validate } from "@uswds/utils";
 
 function change() {
   validate(this);

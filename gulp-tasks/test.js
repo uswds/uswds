@@ -8,17 +8,17 @@ const mochaConfig = {
 // Export our tasks.
 module.exports = {
   // run unit test.
-  unitTests() {
-    return src("src/components/**/*.spec.js").pipe(mocha(mochaConfig));
-  },
+  // unitTests() {
+  //   return src("src/components/**/*.spec.js").pipe(mocha(mochaConfig));
+  // },
 
   sassTests() {
-    return src("src/stylesheets/test/sass-spec.js")
+    return src("src/stylesheets/test/build.spec.js")
       .pipe(mocha());
   },
 
-  cover() {
-    return src("src/**/*.spec.js")
-      .pipe(mocha(mochaConfig, { nyc: true }));
-  },
+  // cover() {
+  //   return src("src/**/*.spec.js")
+  //     .pipe(mocha(mochaConfig, { nyc: true }));
+  // },
 };

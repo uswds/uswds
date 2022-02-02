@@ -1,7 +1,7 @@
-const behavior = require("../../utils/behavior");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+import { behavior, events, config } from "@uswds/utils";
 
+const {CLICK} = events
+const { prefix: PREFIX } = config;
 const HEADER = `.${PREFIX}-banner__header`;
 const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;
 

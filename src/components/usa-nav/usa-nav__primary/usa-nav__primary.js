@@ -1,4 +1,4 @@
-{
+module.exports = {
   "modifier": "usa-nav__primary",
   "nav": {
     "megamenu": true,

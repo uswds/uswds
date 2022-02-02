@@ -1,7 +1,7 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+import {behavior, select, events, config} from "@uswds/utils"
+
+const { CLICK } = events;
+const { prefix: PREFIX } = config;
 
 const HIDDEN = "hidden";
 const SCOPE = `.${PREFIX}-footer--big`;

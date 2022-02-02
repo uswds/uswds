@@ -1,5 +1,5 @@
 import Component from "./usa-nav__primary.twig";
-import Data from "./usa-nav__primary.json";
+import * as Data from "./usa-nav__primary";
 
 export default {
   title: "Components/Navigation/Primary",

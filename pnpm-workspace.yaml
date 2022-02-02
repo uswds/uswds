@@ -1,0 +1,5 @@
+packages:
+  # the root package.json
+  - '.'
+  # individual components
+  - 'src/components/usa-accordion'

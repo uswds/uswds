@@ -1,7 +1,6 @@
-const selectOrMatches = require("../../utils/select-or-matches");
-const behavior = require("../../utils/behavior");
-const Sanitizer = require("../../utils/sanitizer");
-const { prefix: PREFIX } = require("../../config");
+import { selectOrMatches, behavior, Sanitizer, config } from "@uswds/utils";
+
+const { prefix: PREFIX } = config;
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;

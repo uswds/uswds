@@ -1,12 +1,14 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
+import { content } from "@uswds/usa-search";
+import { navSecondaryData } from "@uswds/usa-nav/usa-nav__secondary/usa-nav__secondary";
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
-import headerData from "./usa-header.json";
-import headerMegamenuData from "./usa-header~megamenu.json";
-import headerExtendedData from "./usa-header--extended/usa-header--extended.json";
-import headerExtendedMegamenuData from "./usa-header--extended/usa-header--extended-megamenu.json";
-import navSecondaryData from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
-import { SmallContent as SmallSearchContent } from "../usa-search/content";
+import headerData from "./usa-header";
+import headerMegamenuData from "./usa-header~megamenu";
+import headerExtendedData from "./usa-header--extended/usa-header--extended";
+import headerExtendedMegamenuData from "./usa-header--extended/usa-header--extended-megamenu";
+
+const { SmallSearchContent } = content.SmallContent
 
 export default {
   title: "Components/Header",

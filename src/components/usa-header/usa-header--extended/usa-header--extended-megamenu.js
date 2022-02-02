@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "Extended header with mega-menu",
   "modifier": "usa-header--extended",
   "nav": {

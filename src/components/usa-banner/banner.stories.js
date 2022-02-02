@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import component from "./usa-banner.twig";
 import {
   DefaultContent,
@@ -11,28 +11,28 @@ const defaults = DefaultContent;
 
 export default {
   title: "Components/Banner",
-  argTypes: {
-    banner: {
-      id: { control: "text" },
-      text: { control: "text" },
-      action: { control: "text" },
-      aria_label: { control: "text" },
-    },
-    domain: {
-      header: { control: "text" },
-      text: { control: "text" },
-    },
-    https: {
-      heading: { control: "text" },
-      pretext: { control: "text" },
-      posttext: { control: "text" },
-    },
-  },
   args: defaults,
 };
 
-const Template = (banner, domain, https, ...args) =>
-  component(banner, domain, https, ...args);
+// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+//   console.info( "This page is reloaded" );
+// } else {
+//   console.info( "This page is not reloaded");
+// }
+
+const Template = (...args) => {
+  useEffect(() => {
+    // console.log(window)
+    console.log("on")
+
+    return () => {
+      console.log("off")
+      // window.location.reload()
+      // forceReRender(true)
+    };
+  })
+  return component(...args);
+}
 
 export const Default = Template.bind({});
 Default.args = defaults;

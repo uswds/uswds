@@ -1,4 +1,4 @@
-{
+module.exports = {
   "section_label": "Small search component",
   "modifier": "usa-search--small",
   "search_js": false,

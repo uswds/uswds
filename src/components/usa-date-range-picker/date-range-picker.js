@@ -1,12 +1,12 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
+import { behavior, select, selectOrMatches, config } from "@uswds/utils"
+import {datePicker} from "@uswds/usa-date-picker"
+
+const { prefix: PREFIX } = config;
 const {
   getDatePickerContext,
   isDateInputInvalid,
   updateCalendarIfVisible,
-} = require("../usa-date-picker/date-picker");
+} = datePicker;
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;

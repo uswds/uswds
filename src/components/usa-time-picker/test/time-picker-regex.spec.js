@@ -1,5 +1,6 @@
+import { generateDynamicRegExp } from "@uswds/usa-combo-box"
+
 const assert = require("assert");
-const { generateDynamicRegExp } = require("../../usa-combo-box/combo-box");
 const { FILTER_DATASET } = require("../time-picker");
 
 describe("time picker regex", () => {

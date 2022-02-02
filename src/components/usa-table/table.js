@@ -1,8 +1,7 @@
-const select = require("../../utils/select");
-const behavior = require("../../utils/behavior");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
-const Sanitizer = require("../../utils/sanitizer");
+import { select, behavior, events, config, Sanitizer } from '@uswds/utils'
+
+const { CLICK } = events;
+const { prefix: PREFIX } = config;
 
 const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";

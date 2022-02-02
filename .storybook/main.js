@@ -34,8 +34,9 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@whitespace/storybook-addon-html",
+    // "uswds/uswds-js"
+    // "@storybook/addon-a11y",
+    // "@whitespace/storybook-addon-html",
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -123,6 +124,12 @@ module.exports = {
         include: path.resolve(__dirname, "../src/fonts"),
       }
     );
+
+    config.resolve.fallback = {
+      fs: false,
+      child_process: false,
+      net: false,
+    };
 
     return config;
   },

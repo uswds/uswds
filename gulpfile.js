@@ -48,11 +48,11 @@ exports.cover = cover;
 exports.sassTests = sassTests;
 exports.unitTests = unitTests;
 exports.test = series(
-  typeCheck,
-  lintJS,
-  lintSass,
+  // typeCheck,
+  // lintJS,
+  // lintSass,
   sassTests,
-  unitTests,
+  // unitTests,
 );
 
 /**
