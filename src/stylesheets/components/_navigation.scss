@@ -287,6 +287,9 @@ $nav-link-arrow-icon-size: 2;
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
         padding: units(1);
+        &:focus {
+          outline-offset: units("neg-05");
+        }
 
         &:hover {
           color: color("white");
