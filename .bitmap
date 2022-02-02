@@ -81,6 +81,12 @@
         "mainFile": "_usa-collection.scss",
         "rootDir": "src/components/usa-collection"
     },
+    "usa-combo-box": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.js",
+        "rootDir": "src/components/usa-combo-box"
+    },
     "usa-content": {
         "scope": "",
         "version": "",

@@ -1,6 +1,6 @@
 import "@uswds/stylesheets/uswds.scss";
 import { content } from "@uswds/usa-search";
-import * as navSecondaryData from "@uswds/usa-nav/usa-nav__secondary/usa-nav__secondary";
+import { navSecondaryData } from "@uswds/usa-nav/usa-nav__secondary/usa-nav__secondary";
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
 import headerData from "./usa-header";
