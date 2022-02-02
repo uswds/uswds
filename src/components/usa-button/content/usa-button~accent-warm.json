@@ -1,4 +1,5 @@
 {
   "modifier": "usa-button--accent-warm",
-  "text": "Accent warm"
+  "text": "Accent warm",
+  "is_demo": true
 }
