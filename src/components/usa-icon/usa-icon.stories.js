@@ -14,3 +14,8 @@ const Template = (args) => Component(args);
 
 export const Icons = Template.bind({});
 Icons.args = IconsData;
+Icons.parameters = {
+  axe: {
+    skip: true
+  }
+}
