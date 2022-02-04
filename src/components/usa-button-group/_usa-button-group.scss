@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // Default styles
 .usa-button-group {
   @include u-margin-y(0);

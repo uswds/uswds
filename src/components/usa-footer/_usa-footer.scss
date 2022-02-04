@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // General footer styles
 
 .usa-footer {
@@ -139,7 +141,7 @@
 
 .usa-footer__secondary-section {
   @include u-padding-y(2.5);
-  @include set-text-and-bg("base-lighter");
+  // @include set-text-and-bg("base-lighter");
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);

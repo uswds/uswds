@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 $alert-slim-icon-size: units(3);
 $alert-icon-optical-factor: units($theme-alert-icon-size) / 6;
 $alert-icon-optical-padding: units($theme-alert-padding-x) -
@@ -60,11 +62,11 @@ $alert-padding-left: units($theme-alert-bar-width);
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-  @include set-text-and-bg(
-    "base-lightest",
-    $theme-alert-text-color,
-    $theme-alert-text-reverse-color
-  );
+  // @include set-text-and-bg(
+  //   "base-lightest",
+  //   $theme-alert-text-color,
+  //   $theme-alert-text-reverse-color
+  // );
   @include u-padding-y($theme-alert-padding-y);
   position: relative;
 

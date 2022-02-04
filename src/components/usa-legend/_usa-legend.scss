@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-legend {
   @include typeset(
     $theme-form-font-family,

@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // TODO: abstract and integrate
 @mixin search-icon {
   @include add-background-svg("usa-icons-bg/search--white");

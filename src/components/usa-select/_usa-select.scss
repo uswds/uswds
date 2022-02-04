@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-select {
   @extend %block-input-general;
   @extend %block-input-styles;

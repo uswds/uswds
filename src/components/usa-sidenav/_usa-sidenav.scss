@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-sidenav {
   @include border-box-sizing;
   @include nav-list("sidenav");

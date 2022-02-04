@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 @mixin outer-megamenu {
   @include u-pin("y");
   background-color: color("primary-darker");

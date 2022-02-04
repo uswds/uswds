@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 @mixin range-focus {
   background-color: color("white");
   box-shadow: 0 0 0 units(2px) color($theme-focus-color);

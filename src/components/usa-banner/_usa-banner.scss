@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 $banner-context: "Banner";
 $banner-guidance-measure: 3;
 $banner-icon-colors: get-link-tokens-from-bg(

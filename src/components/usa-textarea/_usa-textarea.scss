@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-textarea {
   @extend %block-input-general;
   @extend %block-input-styles;

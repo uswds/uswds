@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 $pagination-context: "Pagination";
 $pagination-margin-x: 0.5 !default;
 $pagination-margin-y: 2 !default;

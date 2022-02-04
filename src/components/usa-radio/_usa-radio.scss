@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 @include override-prose {
   .usa-input-list {
     @include add-list-reset;

@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-link {
   @include typeset-link;
 }

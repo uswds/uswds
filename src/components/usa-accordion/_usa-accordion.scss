@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // Variables
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
