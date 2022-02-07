@@ -764,5 +764,3 @@ $project-defaults: (
   "preferred-link-token": $theme-link-reverse-color,
   "fallback-link-token": $theme-link-color,
 );
-
-@debug "get token from bg: " + get-color-token-from-bg(#5e9732);
