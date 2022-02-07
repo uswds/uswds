@@ -96,7 +96,7 @@ tests.forEach(({name, selector: containerSelector}) => {
       });
 
       it('keeps multiple sections open with data-allow-multiple', () => {
-        root.setAttribute(MULTISELECTABLE, true);
+        root.setAttribute(MULTISELECTABLE, "");
 
         const second = buttons[1];
         second.click();
