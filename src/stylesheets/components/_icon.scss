@@ -9,6 +9,7 @@ $tokens-icon-sizes: (
 );
 
 $icon-inline-size-magic-number: 1em;
+$icon-min-padding: 1em * divide(2, 24);
 
 .usa-icon {
   display: inline-block;
@@ -27,8 +28,8 @@ $icon-inline-size-magic-number: 1em;
   }
 
   .usa-button:not(.usa-button--unstyled) > &:first-child {
-    margin-left: -0.5rem;
-    margin-right: 0.5rem;
+    margin-left: -1 * $icon-min-padding;
+    margin-right: #{0.5em - $icon-min-padding};
   }
 }
 
