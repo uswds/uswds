@@ -8,7 +8,7 @@ const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = "aria-expanded";
 const CONTROLS = "aria-controls";
 const HIDDEN = "hidden";
-const MULTISELECTABLE = "aria-multiselectable";
+const MULTISELECTABLE = "data-allow-multiple";
 
 const accordionSelector = () => document.querySelector('.usa-accordion');
 const tests = [
@@ -96,7 +96,7 @@ tests.forEach(({name, selector: containerSelector}) => {
       });
 
       it('keeps multiple sections open with data-allow-multiple', () => {
-        root.setAttribute(MULTISELECTABLE, "");
+        root.setAttribute(MULTISELECTABLE, true);
 
         const second = buttons[1];
         second.click();
