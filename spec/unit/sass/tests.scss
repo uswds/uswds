@@ -408,12 +408,12 @@ $this-function: "get-color-token-from-bg()";
 @include describe("[function] #{$this-function}") {
   @include it("Returns the default from light bg.") {
     $test: get-color-token-from-bg("white");
-    $expect: $theme-text-color;
+    $expect: "black";
     @include assert-equal($test, $expect);
   }
   @include it("Returns the default reverse from dark bg.") {
     $test: get-color-token-from-bg("ink");
-    $expect: $theme-text-reverse-color;
+    $expect: "white";
     @include assert-equal($test, $expect);
   }
   @include it("Returns the proper AA Large color.") {
