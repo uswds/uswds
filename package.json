@@ -24,7 +24,14 @@
       "default": "./dist/js/uswds.min.js"
     },
     "./src/js/components": "./src/js/components/index.js",
-    "./src/js/components/*": "./src/js/components/*.js"
+    "./src/js/components/*": "./src/js/components/*.js",
+    "./src/fonts/*": "./src/fonts/*",
+    "./src/img/*": "./src/img/*",
+    "./js/*": "./dist/js/*",
+    "./css/*": "./dist/css/*",
+    "./scss/*": "./dist/scss/*",
+    "./img/*": "./dist/img/*",
+    "./fonts/*": "./dist/fonts/*"
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
