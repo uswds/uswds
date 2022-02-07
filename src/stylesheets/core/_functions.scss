@@ -1814,8 +1814,8 @@ get-color-token-from-bg(
 
 @function get-color-token-from-bg(
   $bg-color: "default",
-  $preferred-text-token: "default",
-  $fallback-text-token: "default",
+  $preferred-text-token: #fff,
+  $fallback-text-token: #000,
   $wcag-target: "AA",
   $context: false,
   $for: false
