@@ -46,6 +46,13 @@ $remove-icon: map-merge(
   )
 );
 
+$close-icon: map-merge(
+  $mobile-icons,
+  (
+    "name": "close",
+  )
+);
+
 $expand-more-icon: map-merge(
   $chevron-icons,
   (
@@ -432,6 +439,20 @@ $vertical-align: "auto";
   float: right;
   margin: units(-1.5) units(-2) units(2) auto;
   text-align: center;
+
+  @include place-icon(
+    $close-icon,
+    $direction,
+    $icon-margin,
+    $vertical-align,
+    $contrast-bg
+  );
+
+  &::after {
+    @media (forced-colors: active) {
+      background-color: buttonText;
+    }
+  }
 
   &:hover {
     color: currentColor;
