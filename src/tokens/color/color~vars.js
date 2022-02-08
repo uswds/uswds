@@ -118,3 +118,5 @@ for (let tc = 0; tc < ThemeColorPalette.length; tc += 1) {
     }
   }
 }
+
+// export const ColorListAll = Object.assign(SystemColorList,ThemeColorList);
