@@ -1,5 +1,5 @@
-import { SystemColorList, ThemeColorList, ColorListAll } from "../../tokens/color/color~vars";
-import modifierList from './button';
+import { SystemColorList } from "../../tokens/color/color~vars";
+import { modifierList, borderRadius } from './button~settings';
 import Docs from "./docs/index.mdx";
 import Component from "./usa-button.twig";
 import {
@@ -13,8 +13,6 @@ import {
   SecondaryData,
   UnstyledData,
 } from "./content";
-
-console.log(ColorListAll);
 
 export default {
   title: "Components/Button",
@@ -90,12 +88,7 @@ StylePlayground.argTypes = {
     control: { type: 'select' },
     defaultValue: 'md',
     name: '$theme-button-border-radius',
-    options: {
-      "none": 0,
-      "sm": "2px",
-      "md": "4px",
-      "lg": "8px"
-    }
+    options: borderRadius,
   },
   stroke_width: {
     control: { type: 'text' },

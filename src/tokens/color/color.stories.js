@@ -34,6 +34,11 @@ export default {
       table: { disable: true },
     },
   },
+  parameters: {
+    axe: {
+      skip: true,
+    },
+  }
 };
 
 const Template = (args) => Component(args);
@@ -41,12 +46,6 @@ const Template = (args) => Component(args);
 export const SystemColors = Template.bind({});
 SystemColors.args = {
   swatches: SystemColorList,
-}
-// TODO repair axe timeout error
-SystemColors.properties = {
-  axe: {
-    skip: true,
-  },
 }
 
 export const ThemeColors = Template.bind({});

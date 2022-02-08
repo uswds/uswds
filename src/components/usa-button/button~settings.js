@@ -1,4 +1,4 @@
-const modifierList =[
+export const modifierList =[
     ' ', 
     'usa-button--accent-cool', 
     'usa-button--accent-warm', 
@@ -10,4 +10,10 @@ const modifierList =[
     'usa-button--unstyled',
   ];
   
-  export default modifierList;
+export const borderRadius = {
+  none: 0,
+  sm: "2px",
+  md: "4px",
+  lg: "8px"
+}
+
