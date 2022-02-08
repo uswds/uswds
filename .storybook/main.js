@@ -30,7 +30,10 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.stories.mdx",
+    "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     {
       name: '@storybook/addon-docs',
@@ -44,6 +47,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "@whitespace/storybook-addon-html",
   ],
+  staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
@@ -54,11 +58,11 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, '../src/components'),
-            '@templates': path.resolve(__dirname, '../src/templates'),
-            '@compare': path.resolve(__dirname, '../src/compare')
-          }
-        }
+            "@components": path.resolve(__dirname, "../src/components"),
+            "@templates": path.resolve(__dirname, "../src/templates"),
+            "@compare": path.resolve(__dirname, "../src/compare"),
+          },
+        },
       },
       {
         test: /\.s(c|a)ss$/i,
