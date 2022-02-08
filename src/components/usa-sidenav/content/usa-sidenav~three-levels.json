@@ -12,6 +12,7 @@
         },
         {
           "label": "Child link",
+          "current": true,
           "subnav": [
             {
               "label": "Grandchild link"

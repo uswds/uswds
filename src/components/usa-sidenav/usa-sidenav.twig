@@ -2,13 +2,11 @@
 
   {% import _self as sidenav %}
 
-  {% set list_item_class, current_class = 'usa-sidenav__item', 'usa-current' %}
-
   {% if items %}
     <ul class="{{ base_class }}">
     {% for item in items %}
-      <li class="{{ list_item_class }}">
-        <a href="{{ item.href|default(placeholder_link) }}" {% if item.current %}class="{{ current_class }}"{% endif %}>{{ item.label }}</a>
+      <li class="usa-sidenav__item">
+        <a href="{{ item.href|default(placeholder_link) }}" {% if item.current %}class="usa-current"{% endif %}>{{ item.label }}</a>
         {% if item.subnav %}
           {{ sidenav.sidenav_list(item.subnav, 'usa-sidenav__sublist') }}
         {% endif %}

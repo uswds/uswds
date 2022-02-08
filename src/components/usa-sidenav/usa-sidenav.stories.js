@@ -7,12 +7,17 @@ import {
 
 export default {
   title: "Components/Side Navigation",
+  argtypes: {
+    placeholder_link: {
+      defaultValue: "http://www.google.com",
+    }
+  }
 };
 
 const Template = (args) => Component(args);
 
-export const Default = Template.bind({});
-Default.args = LevelOneData;
+export const LevelOne = Template.bind({});
+LevelOne.args = LevelOneData;
 
 export const LevelTwo = Template.bind({});
 LevelTwo.args = LevelTwoData;
