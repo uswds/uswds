@@ -1,5 +1,6 @@
 import Component from "./usa-graphic-list.twig";
 import Data from "./usa-graphic-list.json";
+
 export default {
   title: "Components/Graphic List",
 };

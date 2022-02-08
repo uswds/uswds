@@ -16,6 +16,6 @@ export const Icons = Template.bind({});
 Icons.args = IconsData;
 Icons.parameters = {
   axe: {
-    skip: true
-  }
-}
+    skip: true,
+  },
+};
