@@ -69,7 +69,7 @@ $expand-less-icon: map-merge(
 
 // Maps for place-icon mixin
 $contrast-bg: "default";
-$direction: "after";
+$after: "after";
 $before: "before";
 $icon-margin: "auto";
 $vertical-align: "auto";
@@ -215,7 +215,7 @@ $vertical-align: "auto";
       span {
         @include place-icon(
           $add-icon,
-          $direction,
+          $after,
           $icon-margin,
           $vertical-align,
           $contrast-bg
@@ -233,7 +233,7 @@ $vertical-align: "auto";
         span {
           @include place-icon(
             $expand-more-icon,
-            $direction,
+            $after,
             $icon-margin,
             $vertical-align,
             $contrast-bg
@@ -255,7 +255,7 @@ $vertical-align: "auto";
       span {
         @include place-icon(
           $remove-icon,
-          $direction,
+          $after,
           $icon-margin,
           $vertical-align,
           $contrast-bg
@@ -278,7 +278,7 @@ $vertical-align: "auto";
           span {
             @include place-icon(
               $expand-less-icon,
-              $direction,
+              $after,
               $icon-margin,
               $vertical-align,
               $contrast-bg
