@@ -70,6 +70,7 @@ $expand-less-icon: map-merge(
 // Maps for place-icon mixin
 $contrast-bg: "default";
 $direction: "after";
+$before: "before";
 $icon-margin: "auto";
 $vertical-align: "auto";
 
@@ -440,17 +441,17 @@ $vertical-align: "auto";
   margin: units(-1.5) units(-2) units(2) auto;
   text-align: center;
 
-  @include place-icon(
-    $close-icon,
-    $direction,
-    $icon-margin,
-    $vertical-align,
-    $contrast-bg
-  );
-
-  &::after {
-    @media (forced-colors: active) {
+  @media (forced-colors: active) {
+    @include place-icon(
+      $close-icon,
+      $before,
+      $icon-margin,
+      $vertical-align,
+      $contrast-bg
+    );
+    &::before {
       background-color: buttonText;
+      position: absolute;
     }
   }
 
