@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "label": "Parent link"
+    },
+    {
+      "label": "Parent link",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link"
+        }
+      ]
+    },
+    {
+      "label": "Parent link"
+    }
+  ]
+}
