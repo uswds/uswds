@@ -27,6 +27,7 @@ const joinSassAssets = createJoinFunction(
 );
 
 module.exports = {
+  target: "node",
   core: {
     builder: "webpack5",
   },
@@ -129,7 +130,6 @@ module.exports = {
     config.resolve.fallback = {
       fs: false,
       child_process: false,
-      net: false,
     };
 
     return config;
