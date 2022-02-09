@@ -68,9 +68,6 @@
         background-color: color($input-active-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
           color($input-active-color);
-        @media (forced-colors: active) {
-          background-color: ButtonText;
-        }
       }
     }
     &:disabled {
@@ -133,6 +130,9 @@
             color($input-active-color),
           inset 0 0 0 units($theme-input-select-border-width)
             color($input-bg-color);
+        @media (forced-colors: active) {
+          background-color: ButtonText;
+        }
       }
     }
     &:checked:disabled {
