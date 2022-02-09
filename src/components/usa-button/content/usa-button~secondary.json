@@ -1,4 +1,5 @@
 {
   "modifier": "usa-button--secondary",
-  "text": "Secondary"
+  "text": "Secondary",
+  "is_demo": true
 }

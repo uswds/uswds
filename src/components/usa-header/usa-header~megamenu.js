@@ -97,5 +97,14 @@ module.exports = {
         "label": "<Simple link>"
       }
     ]
+  },
+  "search": {
+    "settings": {
+      "modifier": "usa-search--small",
+      "search_js": false,
+      "id": "search-field",
+      "search_label": "Search",
+      "button_text": "Search"
+    }
   }
 }

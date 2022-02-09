@@ -1,4 +1,5 @@
 {
   "modifier": "usa-button--base",
-  "text": "Base"
+  "text": "Base",
+  "is_demo": true
 }
