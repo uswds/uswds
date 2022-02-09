@@ -1,4 +1,4 @@
-import "../../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-icon--sizes.twig";
 import Data from "./usa-icon--sizes.json";
 

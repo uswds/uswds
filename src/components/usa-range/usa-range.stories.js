@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-range.twig";
 
 export default {

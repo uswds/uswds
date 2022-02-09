@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-tag.twig";
 import Data from "./usa-tag.json";
 import bigData from "./usa-tag~big.json";

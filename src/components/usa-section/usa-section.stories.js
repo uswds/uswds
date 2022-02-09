@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-section.twig";
 import Data from "./usa-section.json";
 import DarkData from "./usa-section~dark.json";
