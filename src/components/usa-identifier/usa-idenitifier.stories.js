@@ -1,13 +1,13 @@
 import Component from "./usa-identifier.twig";
-import { 
-  Data, 
+import {
+  Data,
   EsData,
   MultipleLogosData,
   EsMultipleLogosData,
   NoLogosData,
   EsNoLogosData,
   TaxpayerData,
-  EsTaxpayerData
+  EsTaxpayerData,
 } from "./content";
 
 export default {

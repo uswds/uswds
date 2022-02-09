@@ -2,11 +2,7 @@ import Medium from "./usa-footer.twig";
 import Big from "./usa-footer--big.twig";
 import Slim from "./usa-footer--slim.twig";
 
-import { 
-  Data, 
-  BigData,
-  SlimData
-} from "./content";
+import { Data, BigData, SlimData } from "./content";
 
 export default {
   title: "Components/Footer",

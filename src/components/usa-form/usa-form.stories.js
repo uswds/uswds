@@ -4,7 +4,6 @@ import FormPassword from "../../templates/usa-password-reset-form.twig";
 import FormSignIn from "../../templates/usa-sign-in/usa-sign-in-form/usa-sign-in-form.twig";
 import DataSignIn from "../../templates/usa-sign-in/usa-sign-in.json";
 
-
 export default {
   title: "Components/Forms",
 };
@@ -20,4 +19,3 @@ export const ResetPassword = PasswordTemplate.bind({});
 
 export const SignIn = SignInTemplate.bind({});
 SignIn.args = DataSignIn;
-

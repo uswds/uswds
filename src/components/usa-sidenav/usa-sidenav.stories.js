@@ -1,9 +1,5 @@
 import Component from "./usa-sidenav.twig";
-import { 
-  LevelOneData, 
-  LevelTwoData,
-  LevelThreeData 
-} from "./content";
+import { LevelOneData, LevelTwoData, LevelThreeData } from "./content";
 
 export default {
   title: "Components/Side Navigation",
