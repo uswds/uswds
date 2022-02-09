@@ -7,13 +7,6 @@ import {
 
 export default {
   title: "Components/Side Navigation",
-  argTypes: {
-    placeholder_link: {
-      control: { type: 'text' },
-      defaultValue: "javascript:void(0);",
-      name: "Placeholder link",
-    }
-  }
 };
 
 const Template = (args) => Component(args);
