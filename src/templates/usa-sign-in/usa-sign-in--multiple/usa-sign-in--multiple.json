@@ -19,5 +19,6 @@
     "cta": {
       "label": "Create Login.gov account"
     }
-  }
+  },
+  "img_path": "./img"
 }
