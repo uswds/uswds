@@ -5,7 +5,7 @@ import {
 } from "./color~vars";
 
 export default {
-  title: "Tokens/Colors",
+  title: "Design Tokens/Colors",
   argTypes: {
     color_select_system: {
       control: { type: 'select' },
