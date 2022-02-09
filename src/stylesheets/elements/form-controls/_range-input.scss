@@ -1,6 +1,9 @@
 @mixin range-focus {
   background-color: color("white");
   box-shadow: 0 0 0 units(2px) color($theme-focus-color);
+  // @media (forced-colors: active) {
+  //   outline: 2px solid transparent;
+  // }
 }
 
 @mixin range-track {
@@ -18,6 +21,9 @@
   border: none;
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   cursor: pointer;
+  @media (forced-colors: active) {
+    outline: 2px solid transparent;
+  }
 }
 
 @mixin range-ms-fill {
