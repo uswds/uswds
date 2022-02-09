@@ -12,6 +12,7 @@ even non-token colors
 @use "sass:map";
 @use "sass:list";
 @use "sass:string";
+
 @use "../../variables/luminance-grade-ranges" as *;
 @use "../general/error" as *;
 @use "../general/error-not-token" as *;

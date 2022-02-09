@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @use "../../stylesheets/core" as *;
 
 $pagination-context: "Pagination";
@@ -110,7 +112,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__button {
   align-items: center;
-  border-color: adjust-color(color($pagination-current-color), $alpha: -0.8);
+  border-color: color.adjust(color($pagination-current-color), $alpha: -0.8);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
   border-width: units($theme-pagination-button-border-width);
