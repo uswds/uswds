@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-checkbox.twig";
 import Tile from "./usa-checkbox--tile.twig";
 import Test from "./usa-checkbox--test.twig";

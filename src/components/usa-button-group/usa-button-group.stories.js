@@ -1,4 +1,4 @@
-import "../../stylesheets/uswds.scss";
+import "@uswds/stylesheets/uswds.scss";
 import Component from "./usa-button-group.twig";
 import Data from "./usa-button-group.json";
 import SegmentedData from "./usa-button-group~segmented.json";
