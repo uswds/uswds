@@ -1,11 +1,11 @@
 {
   "items": [
     {
-      "label": "Parent link"
+      "label": "Current page",
+      "current": true
     },
     {
-      "label": "Parent link",
-      "current": true
+      "label": "Parent link"
     },
     {
       "label": "Parent link"

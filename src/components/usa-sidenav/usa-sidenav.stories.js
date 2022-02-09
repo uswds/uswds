@@ -7,9 +7,11 @@ import {
 
 export default {
   title: "Components/Side Navigation",
-  argtypes: {
+  argTypes: {
     placeholder_link: {
-      defaultValue: "http://www.google.com",
+      control: { type: 'text' },
+      defaultValue: "javascript:void(0);",
+      name: "Placeholder link",
     }
   }
 };
