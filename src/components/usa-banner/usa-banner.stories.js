@@ -20,19 +20,7 @@ export default {
 //   console.info( "This page is not reloaded");
 // }
 
-const Template = (...args) => {
-  useEffect(() => {
-    // console.log(window)
-    console.log("on")
-
-    return () => {
-      console.log("off")
-      // window.location.reload()
-      // forceReRender(true)
-    };
-  })
-  return component(...args);
-}
+const Template = (...args) => component(...args)
 
 export const Default = Template.bind({});
 Default.args = defaults;
