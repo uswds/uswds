@@ -55,6 +55,10 @@
       background: color($input-bg-color);
       box-shadow: 0 0 0 units($theme-input-select-border-width)
         adjust-color(color($input-text-color), $alpha: $input-border-alpha);
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: units(2px);
+      }
     }
   }
   .usa-checkbox__input,
@@ -64,11 +68,17 @@
         background-color: color($input-active-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
           color($input-active-color);
+        @media (forced-colors: active) {
+          background-color: ButtonText;
+        }
       }
     }
     &:disabled {
       @include format-label {
         color: $color-input-disabled;
+        @media (forced-colors: active) {
+          color: GrayText;
+        }
       }
       @include format-input {
         background-color: color($input-bg-color);
@@ -90,6 +100,9 @@
             $alpha: -0.9
           );
           border-color: color($input-active-color);
+          @media (forced-colors: active) {
+            background-color: CanvasText;
+          }
         }
       }
       &:disabled:checked {
