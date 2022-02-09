@@ -1,9 +1,8 @@
 {
   "modifier": "",
   "domain": "domain.gov",
-  "lang": "en",
   "masthead": {
-    "aria_label": "Agency identifier,,,,",
+    "aria_label": "Agency identifier",
     "description": "Agency description",
     "content": "An official website of the",
     "parent": {
@@ -13,18 +12,18 @@
       "logo": "../../img/circle-gray-20.svg"
     },
     "agency": {
-      "name": null,
-      "shortname": null,
-      "url": null,
-      "logo": null
+      "name": "<Other agency>",
+      "shortname": "<Other agency shortname>",
+      "url": "javascript:void(0)",
+      "logo": "../../img/circle-gray-20.svg"
     },
     "taxpayer_disclaimer": {
       "content": "Produced and published at taxpayer expense.",
-      "display": true
+      "display": false
     }
   },
   "required_links": {
-    "aria_label": "Important links,,,,",
+    "aria_label": "Important links,,,",
     "links": [
       {
         "label": "About",
@@ -52,7 +51,7 @@
     ]
   },
   "usagov": {
-    "aria_label": "U.S. government information and services,,,,",
+    "aria_label": "U.S. government information and services,,,",
     "description": "Looking for U.S. government information and services?",
     "link": {
       "label": "Visit USA.gov",

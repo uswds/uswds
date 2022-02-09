@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "label": "Parent link"
+    },
+    {
+      "label": "Current page",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link",
+          "current": true
+        }
+      ]
+    },
+    {
+      "label": "Parent link"
+    }
+  ]
+}

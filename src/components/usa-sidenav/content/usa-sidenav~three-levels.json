@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "label": "Parent link"
+    },
+    {
+      "label": "Current page",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link",
+          "subnav": [
+            {
+              "label": "Grandchild link"
+            },
+            {
+              "label": "Grandchild link",
+              "current": true
+            },
+            {
+              "label": "Grandchild link"
+            }
+          ]
+        },
+        {
+          "label": "Child link"
+        }
+      ]
+    },
+    {
+      "label": "Parent link"
+    }
+  ]
+}

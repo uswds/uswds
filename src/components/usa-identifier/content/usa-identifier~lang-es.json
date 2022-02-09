@@ -3,7 +3,7 @@
   "domain": "domain.gov",
   "lang": "es",
   "masthead": {
-    "aria_label": "Identificador de la agencia,,,,",
+    "aria_label": "Identificador de la agencia",
     "description": "Descripción de la agencia",
     "content": "Un sitio web oficial de",
     "parent": {
@@ -20,11 +20,11 @@
     },
     "taxpayer_disclaimer": {
       "content": "Producido y publicado con dinero de los contribuyentes de impuestos.",
-      "display": true
+      "display": false
     }
   },
   "required_links": {
-    "aria_label": "Enlaces importantes,,,,",
+    "aria_label": "Enlaces importantes,",
     "links": [
       {
         "label": "Acerca de",
@@ -52,7 +52,7 @@
     ]
   },
   "usagov": {
-    "aria_label": "Información y servicios del Gobierno de EE. UU.,,,,",
+    "aria_label": "Información y servicios del Gobierno de EE. UU.,",
     "description": "¿Necesita información y servicios del Gobierno?",
     "link": {
       "label": "Visite USA.gov en Español",

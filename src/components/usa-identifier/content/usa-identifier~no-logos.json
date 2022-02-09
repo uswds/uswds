@@ -3,13 +3,14 @@
   "domain": "domain.gov",
   "lang": "en",
   "masthead": {
-    "aria_label": "Agency identifier,",
+    "aria_label": "Agency identifier",
     "description": "Agency description",
     "content": "An official website of the",
     "parent": {
       "name": "<Parent agency>",
       "shortname": "<Parent shortname>",
-      "logo": "../../img/circle-gray-20.svg"
+      "url": "javascript:void(0)",
+      "logo": null
     },
     "agency": {
       "name": null,
@@ -23,7 +24,7 @@
     }
   },
   "required_links": {
-    "aria_label": "Important links,",
+    "aria_label": "Important links,,",
     "links": [
       {
         "label": "About",
@@ -51,7 +52,7 @@
     ]
   },
   "usagov": {
-    "aria_label": "U.S. government information and services,",
+    "aria_label": "U.S. government information and services,,",
     "description": "Looking for U.S. government information and services?",
     "link": {
       "label": "Visit USA.gov",
