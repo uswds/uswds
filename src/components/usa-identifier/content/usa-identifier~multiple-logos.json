@@ -2,7 +2,7 @@
   "modifier": "",
   "domain": "domain.gov",
   "masthead": {
-    "aria_label": "Agency identifier,,,",
+    "aria_label": "Agency identifier",
     "description": "Agency description",
     "content": "An official website of the",
     "parent": {

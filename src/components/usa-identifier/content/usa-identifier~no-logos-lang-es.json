@@ -3,7 +3,7 @@
   "domain": "domain.gov",
   "lang": "es",
   "masthead": {
-    "aria_label": "Identificador de la agencia,,",
+    "aria_label": "Identificador de la agencia",
     "description": "Descripción de la agencia",
     "content": "Un sitio web oficial de",
     "parent": {
