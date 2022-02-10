@@ -1,4 +1,5 @@
 import "../dist/js/uswds.min.js";
+import { themes } from "@storybook/theming";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,4 +9,16 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: [
+        "Welcome", 
+        "Changelog", 
+        "Design Tokens", 
+        "Components", 
+        "Patterns",
+        "Templates",
+      ]
+    }
+  }
 }
