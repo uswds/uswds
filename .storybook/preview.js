@@ -11,7 +11,17 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Welcome', 'Changelog', 'Design Tokens', 'Components'],
-    },
-  },
+      order: [
+        'Welcome', 
+        'Changelog', 
+        'Design Tokens', 
+        'Layout', 
+        'Typography',
+        'Media',
+        'Navigation', 
+        'Forms', 
+        'Alerts & Announcements',
+      ]
+    }
+  }
 }

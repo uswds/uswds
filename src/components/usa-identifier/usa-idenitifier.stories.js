@@ -11,7 +11,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Identifier",
+  title: "Layout/Identifier",
 };
 
 const Template = (args) => Component(args);

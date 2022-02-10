@@ -1,7 +1,7 @@
 import Component from "./usa-input.twig";
 
 export default {
-  title: "Components/Input",
+  title: "Forms/Form Elements",
 };
 
 const Template = (args) => Component(args);

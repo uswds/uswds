@@ -1,7 +1,7 @@
 import Component from "./usa-character-count.twig";
 
 export default {
-  title: "Components/Character Count",
+  title: "Forms/Form Elements/Character Count",
 };
 
 const Template = (args) => Component(args);

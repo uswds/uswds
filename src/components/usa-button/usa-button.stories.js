@@ -15,7 +15,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Button",
+  title: "Navigation/Button",
   argTypes: {
     text: {
       control: { type: 'text' },
@@ -70,8 +70,8 @@ Secondary.args = SecondaryData;
 export const Unstyled = Template.bind({});
 Unstyled.args = UnstyledData;
 
-export const StylePlayground = Template.bind({});
-StylePlayground.argTypes = {
+export const Playground = Template.bind({});
+Playground.argTypes = {
   playground_mode: {
     control: { type: 'boolean' },
     defaultValue: 'true',

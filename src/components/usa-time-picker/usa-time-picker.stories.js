@@ -1,7 +1,7 @@
 import Component from "./usa-time-picker.twig";
 
 export default {
-  title: "Components/Time Picker",
+  title: "Forms/Form Elements/Time Picker",
 };
 
 const Template = (args) => Component(args);

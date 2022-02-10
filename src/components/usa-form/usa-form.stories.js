@@ -5,7 +5,7 @@ import FormSignIn from "../../templates/usa-sign-in/usa-sign-in-form/usa-sign-in
 import DataSignIn from "../../templates/usa-sign-in/usa-sign-in.json";
 
 export default {
-  title: "Components/Forms",
+  title: "Forms/Patterns",
 };
 
 const AddressTemplate = (args) => FormAddress(args);

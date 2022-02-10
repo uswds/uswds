@@ -1,7 +1,7 @@
 import Component from "./usa-embed-container.twig";
 
 export default {
-  title: "Components/Embed Container",
+  title: "Media/Embed Container",
 };
 
 const Template = (args) => Component(args);

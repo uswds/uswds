@@ -58,24 +58,3 @@ ThemeColors.argTypes = {
   },
 }
 
-export const SystemColorSelect = Template.bind({});
-SystemColorSelect.argTypes = {
-  token_type: { 
-    defaultValue: 'system',
-  },
-  color_select_system: {
-    defaultValue: 'blue-5',
-    table: { disable: false },
-  },
-}
-
-export const ThemeColorSelect = Template.bind({});
-ThemeColorSelect.argTypes = {
-  token_type: { 
-    defaultValue: 'theme',
-  },
-  color_select_theme: {
-    defaultValue: 'primary',
-    table: { disable: false },
-  }, 
-}

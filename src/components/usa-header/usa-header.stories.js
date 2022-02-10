@@ -11,7 +11,7 @@ import navSecondaryData from "../usa-nav/usa-nav__secondary/usa-nav__secondary.j
 import { SmallContent as SmallSearchContent } from "../usa-search/content";
 
 export default {
-  title: "Components/Header",
+  title: "Layout/Header",
   args: {
     // Default search settings - Alternatively override in `usa-header.json`
     search: {

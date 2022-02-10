@@ -9,7 +9,7 @@ import {
 const defaults = DefaultContent;
 
 export default {
-  title: "Components/Banner",
+  title: "Layout/Banner",
 };
 
 const Template = (banner, domain, https, ...args) =>

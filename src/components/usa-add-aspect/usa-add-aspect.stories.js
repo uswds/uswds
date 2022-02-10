@@ -1,7 +1,7 @@
 import Component from "./usa-add-aspect.twig";
 
 export default {
-  title: "Components/Add Aspect",
+  title: "Media/Add Aspect",
 };
 
 const Template = (args) => Component(args);

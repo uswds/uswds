@@ -1,7 +1,7 @@
 import Component from "./usa-list.twig";
 
 export default {
-  title: "Components/List",
+  title: "Typography/List",
 };
 
 const Template = (args) => Component(args);
