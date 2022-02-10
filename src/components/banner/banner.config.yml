@@ -3,7 +3,7 @@ status: ready
 
 context:
   banner:
-    text: "An official website of the United States government"
+    text: "This is a United States government website"
     action: "Here’s how you know"
     aria_label: "Official government website"
   domain:
