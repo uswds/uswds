@@ -1,14 +1,12 @@
 import Component from "./usa-docs.twig";
 
-import { LevelTwoData } from "../../components/usa-sidenav/content";
+import { DefaultContent as BannerData } from "../../components/usa-banner/content";
+import { headerData as HeaderData } from "../../components/usa-header/content";
+import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
+import { Data as FooterData } from "../../components/usa-footer/content";
 
 export default {
   title: "Templates/Documentation Page",
-  args: {
-      sidenav: {
-        ...LevelTwoData,
-      }
-  }
 };
 
-export const DocumentationPage = () => Component({ ...LevelTwoData });
+export const DocumentationPage = () => Component({ ...BannerData, ...HeaderData, ...SidenavData, ...FooterData });
