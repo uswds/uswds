@@ -1,10 +1,12 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
-import headerData from "./usa-header.json";
-import headerMegamenuData from "./usa-header~megamenu.json";
-import headerExtendedData from "./usa-header--extended/usa-header--extended.json";
-import headerExtendedMegamenuData from "./usa-header--extended/usa-header--extended-megamenu.json";
+import { headerData, headerMegamenuData } from "./content";
+
+import {
+  headerExtendedData,
+  headerExtendedMegamenuData,
+} from "./usa-header--extended";
+
 import navSecondaryData from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../usa-search/content";
 
@@ -33,7 +35,7 @@ Extended.args = {
   ...headerExtendedData,
   navSecondaryData: {
     ...navSecondaryData,
-    search: true
+    search: true,
   },
 };
 
@@ -42,6 +44,6 @@ ExtendedMegamenu.args = {
   ...headerExtendedMegamenuData,
   navSecondaryData: {
     ...navSecondaryData,
-    search: true
+    search: true,
   },
 };

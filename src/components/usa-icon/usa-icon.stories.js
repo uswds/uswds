@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-icon.twig";
 import IconsData from "./usa-icon.json";
 
@@ -17,6 +16,6 @@ export const Icons = Template.bind({});
 Icons.args = IconsData;
 Icons.parameters = {
   axe: {
-    skip: true
-  }
-}
+    skip: true,
+  },
+};

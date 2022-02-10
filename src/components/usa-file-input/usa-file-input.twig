@@ -1,11 +1,11 @@
 {% set name = "file-input" %}
-{% set aria_hint = name + "-" + id + "-hint" %}
-{% set aria_error = name + "-" + id + "-alert" %}
+{% set aria_hint =  id ~ "-hint" %}
+{% set aria_error = id ~ "-alert" %}
 
 <div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
   <label
     class="usa-label{% if error %} usa-label--error{% endif %}"
-    for="{{ name ~ "-" ~ id }}"
+    for="{{ id }}"
   >
     {{ label }}
   </label>
@@ -18,10 +18,10 @@
     </span>
   {%- endif %}
   <input
-    id="{{ name ~ "-" ~ id }}"
+    id="{{ id }}"
     class="usa-file-input"
     type="file"
-    name="{{ name ~ "-" ~ id }}"
+    name="{{ id }}"
     {% if hint or accept or multiple or disabled -%}
     {% if hint -%}aria-describedby="{{ aria_hint }}"{%- endif -%}
     {% if accept -%}accept="{{ accept }}"{%- endif -%}

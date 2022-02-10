@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-button.twig";
 import {
   Data,
@@ -14,11 +13,6 @@ import {
 
 export default {
   title: "Components/Button",
-  argTypes: {
-    text: {
-      control: "text",
-    },
-  },
 };
 
 const Template = (args) => Component(args);

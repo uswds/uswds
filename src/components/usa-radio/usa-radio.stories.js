@@ -1,4 +1,3 @@
-import "../../stylesheets/uswds.scss";
 import Component from "./usa-radio.twig";
 import Tile from "./usa-radio--tile.twig";
 
