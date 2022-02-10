@@ -1,10 +1,11 @@
-import Component from "./usa-sign-in.twig";
+import SignInForm from "./usa-sign-in.twig";
 
 import { DefaultContent as BannerData } from "../../components/usa-banner/content";
 import { headerData as HeaderData } from "../../components/usa-header/content";
 import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
 import { Data as IdentifierData } from "../../components/usa-identifier/content";
 import { Data as FooterData } from "../../components/usa-footer/content";
+import { SignInData, EsSignInData } from "./content";
 
 export default {
   title: "Templates/Sign In Page",
@@ -13,11 +14,21 @@ export default {
   },
 };
 
-export const SignInPage = () => Component({ 
-    ...BannerData, 
-    ...HeaderData, 
-    ...SidenavData, 
-    ...IdentifierData, 
-    ...FooterData, 
-  });
+export const SignInPage = () => SignInForm({ 
+  ...BannerData, 
+  ...HeaderData, 
+  ...SidenavData, 
+  ...IdentifierData, 
+  ...FooterData, 
+  ...SignInData,
+});
+
+export const SignInPageSpanish = () => SignInForm({ 
+  ...BannerData, 
+  ...HeaderData, 
+  ...SidenavData, 
+  ...IdentifierData, 
+  ...FooterData, 
+  ...EsSignInData,
+});
   
