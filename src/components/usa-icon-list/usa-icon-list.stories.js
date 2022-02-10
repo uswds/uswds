@@ -9,7 +9,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Icon List",
+  title: "Components/Content/Icon List",
 };
 
 const Template = (args) => Component(args);

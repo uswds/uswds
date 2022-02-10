@@ -2,7 +2,7 @@ import Component from "./usa-accordion.twig";
 import { Data, BorderedData, MultiData } from "./content";
 
 export default {
-  title: "Components/Accordion",
+  title: "Components/Content/Accordion",
 };
 
 const Template = (args) => Component(args);

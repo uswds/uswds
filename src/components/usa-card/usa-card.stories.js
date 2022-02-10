@@ -3,7 +3,7 @@ import Component from "./usa-card.twig";
 import { Data, FlagData, StandardData, MediaData } from "./content";
 
 export default {
-  title: "Components/Card",
+  title: "Components/Content/Card",
 };
 
 const Template = (args) => Component(args);

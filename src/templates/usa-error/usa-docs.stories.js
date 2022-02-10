@@ -8,7 +8,7 @@ import { Data as FooterData } from "../../components/usa-footer/content";
 import { Data, EsData } from "./content";
 
 export default {
-  title: "Templates/404 Error Page",
+  title: "Pages/404 Error Page",
   parameters: {
     layout: 'fullscreen',
   },

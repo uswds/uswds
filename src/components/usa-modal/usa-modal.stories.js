@@ -2,7 +2,7 @@ import Component from "./usa-modal.twig";
 import { Data, ForcedActionData, LargeData } from "./content";
 
 export default {
-  title: "Components/Modal",
+  title: "Components/Alerts/Modal",
 };
 
 const Template = (args) => Component(args);

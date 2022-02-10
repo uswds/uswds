@@ -1,7 +1,7 @@
 import Component from "./usa-validation.twig";
 
 export default {
-  title: "Components/Validation",
+  title: "Components/Form Elements/Validation",
 };
 
 const Template = (args) => Component(args);

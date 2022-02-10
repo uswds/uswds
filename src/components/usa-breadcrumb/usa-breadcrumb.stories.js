@@ -2,7 +2,7 @@ import Component from "./usa-breadcrumb.twig";
 import { Data, WrapData } from "./content";
 
 export default {
-  title: "Components/Breadcrumb",
+  title: "Components/Navigation/Breadcrumb",
 };
 
 const Template = (args) => Component(args);

@@ -8,7 +8,7 @@ import { FormData } from "./usa-create-account.json";
 
 
 export default {
-  title: "Templates/Create Account Page",
+  title: "Pages/Create Account",
   parameters: {
     layout: 'fullscreen',
   },

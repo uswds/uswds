@@ -7,7 +7,7 @@ import { Data as IdentifierData } from "../../components/usa-identifier/content"
 import { Data as FooterData } from "../../components/usa-footer/content";
 
 export default {
-  title: "Templates/Documentation Page",
+  title: "Pages/Documentation",
   parameters: {
     layout: 'fullscreen',
   },

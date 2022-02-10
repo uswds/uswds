@@ -4,7 +4,7 @@ import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 import { Data, BorderlessData, StripedData } from "./content";
 
 export default {
-  title: "Components/Table",
+  title: "Components/Data Visualization/Table",
 };
 
 const Template = (args) => Component(args);

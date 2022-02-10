@@ -3,7 +3,7 @@ import Component from "./usa-table--scrollable.twig";
 import { Data, StripedData, CompactData, CompactStripedData } from "./content";
 
 export default {
-  title: "Components/Table/Scrollable",
+  title: "Components/Data Visualization/Table/Scrollable",
 };
 
 const Template = (args) => Component(args);

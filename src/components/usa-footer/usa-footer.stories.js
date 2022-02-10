@@ -5,7 +5,7 @@ import Slim from "./usa-footer--slim.twig";
 import { Data, BigData, SlimData } from "./content";
 
 export default {
-  title: "Components/Footer",
+  title: "Components/Page Layout/Footer",
 };
 
 const Template = (args) => Medium(args);

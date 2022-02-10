@@ -3,7 +3,7 @@ import Component from "./usa-icon--sizes.twig";
 import Data from "./usa-icon--sizes.json";
 
 export default {
-  title: "Components/Icon Sizes",
+  title: "Design Tokens/Icons/Icon Sizes",
   argTypes: {
     icons: {
       table: { disable: true },

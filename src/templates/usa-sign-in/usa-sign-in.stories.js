@@ -8,7 +8,7 @@ import { Data as FooterData } from "../../components/usa-footer/content";
 import { SignInData, EsSignInData } from "./content";
 
 export default {
-  title: "Templates/Sign In Page",
+  title: "Pages/Sign In",
   parameters: {
     layout: 'fullscreen',
   },

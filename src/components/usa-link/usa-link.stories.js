@@ -1,7 +1,7 @@
 import Component from "./usa-link.twig";
 
 export default {
-  title: "Components/Link",
+  title: "Components/Navigation/Link",
 };
 
 const Template = (args) => Component(args);

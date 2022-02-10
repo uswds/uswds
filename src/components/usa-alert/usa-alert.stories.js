@@ -12,7 +12,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Alert",
+  title: "Components/Alerts/Alert",
 };
 
 const Template = (args) => Component(args);

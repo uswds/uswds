@@ -1,7 +1,7 @@
 import Component from "./usa-checklist.twig";
 
 export default {
-  title: "Components/Checklist",
+  title: "Components/Form Elements/Checklist",
 };
 
 const Template = (args) => Component(args);

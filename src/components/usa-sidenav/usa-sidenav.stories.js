@@ -2,7 +2,7 @@ import Component from "./usa-sidenav.twig";
 import { LevelOneData, LevelTwoData, LevelThreeData } from "./content";
 
 export default {
-  title: "Components/Side Navigation",
+  title: "Components/Page Layout/Side Navigation",
 };
 
 const Template = (args) => Component(args);
