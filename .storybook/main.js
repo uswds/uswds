@@ -40,9 +40,6 @@ module.exports = {
     "@storybook/addon-a11y",
     "@whitespace/storybook-addon-html",
   ],
-  features: {
-    storyStoreV7: true,
-  },
   staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -128,7 +125,7 @@ module.exports = {
           },
         },
         include: path.resolve(__dirname, "../src/fonts"),
-      },
+      }
     );
 
     return config;
