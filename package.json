@@ -43,7 +43,7 @@
     "prepare": "npx gulp",
     "preversion": "npm test",
     "release": "gulp release",
-    "federalist": "npm install && npm run build:storybook",
+    "federalist": "npm run build:storybook",
     "start": "npm run start:storybook",
     "test": "snyk test && gulp test",
     "test:ci": "gulp test && npm run test:a11y",
