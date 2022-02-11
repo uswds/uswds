@@ -1,23 +1,42 @@
-import Component from "./usa-create-account.twig";
-
-import { DefaultContent as BannerData } from "../../components/usa-banner/content";
+// Import page template elements
+import { 
+  DefaultContent as BannerData,
+  DefaultContentLangEs as EsBannerData 
+} from "../../components/usa-banner/content";
+import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
 import { headerData as HeaderData } from "../../components/usa-header/content";
-import { Data as IdentifierData } from "../../components/usa-identifier/content";
+import { 
+  Data as IdentifierData,
+  EsData as EsIdentifierData,
+ } from "../../components/usa-identifier/content";
 import { Data as FooterData } from "../../components/usa-footer/content";
-import { FormData } from "./usa-create-account.json";
 
+// Import page content
+import Component from "./usa-create-account.twig";
+import { Data, EsData } from "./content";
 
 export default {
   title: "Pages/Create Account",
+  args: {
+    ...TitleData,
+    ...HeaderData, 
+    ...FooterData,
+  },
   parameters: {
     layout: 'fullscreen',
   },
 };
 
-export const CreateAccountPage = () => Component({ 
+export const CreateAccountPage = (args) => Component({ 
+  ...args,
   ...BannerData, 
-  ...HeaderData, 
   ...IdentifierData, 
-  ...FooterData, 
-  ...FormData 
+  ...Data 
+});
+
+export const CreateAccountPageSpanish = (args) => Component({ 
+  ...args,
+  ...EsBannerData,
+  ...EsIdentifierData,
+  ...EsData 
 });

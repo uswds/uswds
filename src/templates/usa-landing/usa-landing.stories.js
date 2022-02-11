@@ -7,10 +7,10 @@ import { Data as IdentifierData } from "../../components/usa-identifier/content"
 import { Data as FooterData } from "../../components/usa-footer/content";
 
 // Import page content
-import Component from "./usa-docs.twig";
+import Component from "./usa-landing.twig";
 
 export default {
-  title: "Pages/Documentation",
+  title: "Pages/Landing",
   args: {
     ...TitleData,
     ...HeaderData, 
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const DocumentationPage = (args) => Component({ 
+export const LandingPage = (args) => Component({ 
   ...args,
   ...BannerData, 
   ...IdentifierData, 

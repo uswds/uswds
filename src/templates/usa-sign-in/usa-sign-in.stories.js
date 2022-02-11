@@ -4,6 +4,7 @@ import {
   DefaultContentLangEs as EsBannerData 
 } from "../../components/usa-banner/content";
 import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
+import { headerData as HeaderData } from "../../components/usa-header/content";
 import { 
   Data as IdentifierData,
   EsData as EsIdentifierData,
@@ -27,7 +28,8 @@ export default {
   args: {
     ...TitleData,
     ...SidenavData,
-    ...FooterData
+    ...FooterData,
+    ...HeaderData
   },
   parameters: {
     layout: 'fullscreen',
