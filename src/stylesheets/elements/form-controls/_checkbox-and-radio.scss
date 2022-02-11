@@ -98,7 +98,7 @@
           );
           border-color: color($input-active-color);
           @media (forced-colors: active) {
-            background-color: CanvasText;
+            border: ButtonText solid units("05");
           }
         }
       }
@@ -114,7 +114,13 @@
     &:checked,
     &:checked:disabled {
       @include format-input {
-        @include add-background-svg($input-checkmark);
+        @include add-background-svg("$input-checkmark");
+      }
+
+      @media (forced-colors: active) {
+        @include format-input {
+          @include add-background-svg("correct8-alt");
+        }
       }
     }
     &:checked:disabled {
@@ -220,6 +226,14 @@
         background-color: color("white");
         content: "\2714";
         text-align: center;
+      }
+
+      @media (forced-colors: active) {
+        background-color: ButtonText;
+
+        &--tile {
+          background-color: ButtonText;
+        }
       }
     }
   }
