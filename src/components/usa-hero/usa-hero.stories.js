@@ -2,7 +2,7 @@ import Component from "./usa-hero.twig";
 import Data from "./usa-hero.json";
 
 export default {
-  title: "Components/Page Layout/Hero",
+  title: "Components/Content/Hero",
 };
 
 const Template = (args) => Component(args);

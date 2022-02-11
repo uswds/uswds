@@ -8,13 +8,13 @@ import { Data as FooterData } from "../../components/usa-footer/content";
 import { Data, EsData } from "./content";
 
 export default {
-  title: "Pages/404 Error Page",
+  title: "Pages/Error",
   parameters: {
     layout: 'fullscreen',
   },
 };
 
-export const ErrorPage = () => Component({ 
+export const PageNotFound = () => Component({ 
   ...BannerData, 
   ...HeaderData, 
   ...SidenavData, 
@@ -23,7 +23,7 @@ export const ErrorPage = () => Component({
   ...Data,
 });
 
-export const ErrorPageSpanish = () => Component({ 
+export const PageNotFoundSpanish = () => Component({ 
   ...BannerData, 
   ...HeaderData, 
   ...SidenavData, 

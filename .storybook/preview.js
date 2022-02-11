@@ -16,6 +16,26 @@ export const parameters = {
         "Changelog", 
         "Design Tokens", 
         "Components", 
+          [
+            "Page Layout",
+              [
+                "Skipnav",
+                "Banner",
+                "Header", 
+                  [
+                    "Partials",
+                  ],
+                "Site Title",
+                "Side Navigation",
+                "Section",
+                "Footer",
+                "Idenitifier",
+              ],
+            "Content",
+            "Navigation",
+            "Alerts",
+            "Media",
+          ],
         "Patterns",
         "Templates",
       ]
