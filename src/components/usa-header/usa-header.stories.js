@@ -9,6 +9,7 @@ import {
 
 import navSecondaryData from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../usa-search/content";
+import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
 
 export default {
   title: "Components/Page Layout/Header",
@@ -18,6 +19,7 @@ export default {
       ...SmallSearchContent,
       search_js: true,
     },
+    ...TitleData,
   },
 };
 

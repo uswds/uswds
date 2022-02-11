@@ -5,11 +5,13 @@ import {
   DefaultContent as BannerData,
   DefaultContentLangEs as EsBannerData 
 } from "../../components/usa-banner/content";
-import TitleData from "../../components/usa-site-title/usa-site-title.json";
+import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
 import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
-import { Data as IdentifierData } from "../../components/usa-identifier/content";
+import { 
+  Data as IdentifierData,
+  EsData as EsIdentifierData,
+ } from "../../components/usa-identifier/content";
 import { Data as FooterData } from "../../components/usa-footer/content";
-
 
 import { 
   SignInData, 
@@ -25,38 +27,26 @@ export default {
   },
 };
 
-export const SignInPage = () => SignInForm({ 
+export const SignInPage = (args) => SignInForm({ 
   ...BannerData, 
-  ...TitleData, 
-  ...SidenavData, 
   ...IdentifierData, 
-  ...FooterData, 
   ...SignInData,
 });
 
-export const SignInPageSpanish = () => SignInForm({ 
+export const SignInPageSpanish = (args) => SignInForm({ 
   ...EsBannerData, 
-  ...TitleData, 
-  ...SidenavData, 
-  ...IdentifierData, 
-  ...FooterData, 
+  ...EsIdentifierData, 
   ...EsSignInData,
 });
 
-export const MultipleSignInPage = () => SignInMultipleForm({ 
+export const MultipleSignInPage = (args) => SignInMultipleForm({ 
   ...BannerData, 
-  ...TitleData, 
-  ...SidenavData, 
   ...IdentifierData, 
-  ...FooterData, 
   ...SignInMultipleData,
 });
 
-export const MultipleSignInPageSpanish = () => SignInMultipleForm({ 
+export const MultipleSignInPageSpanish = (args) => SignInMultipleForm({ 
   ...EsBannerData, 
-  ...TitleData, 
-  ...SidenavData, 
-  ...IdentifierData, 
-  ...FooterData, 
+  ...EsIdentifierData, 
   ...EsSignInMultipleData,
 });
