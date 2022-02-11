@@ -23,6 +23,7 @@ module.exports = {
         .transform("babelify", {
           global: true,
           presets: ["@babel/preset-env"],
+          compact: false,
         })
         .bundle()
         .pipe(source(`${dutil.pkg.name}.js`))
