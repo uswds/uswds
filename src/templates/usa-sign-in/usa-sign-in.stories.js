@@ -1,11 +1,16 @@
 import SignInForm from "./usa-sign-in.twig";
 import SignInMultipleForm from "./usa-sign-in--multiple.twig";
 
-import { DefaultContent as BannerData } from "../../components/usa-banner/content";
-import { headerData as HeaderData } from "../../components/usa-header/content";
+import { 
+  DefaultContent as BannerData,
+  DefaultContentLangEs as EsBannerData 
+} from "../../components/usa-banner/content";
+import TitleData from "../../components/usa-site-title/usa-site-title.json";
 import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
 import { Data as IdentifierData } from "../../components/usa-identifier/content";
 import { Data as FooterData } from "../../components/usa-footer/content";
+
+
 import { 
   SignInData, 
   EsSignInData,
@@ -22,7 +27,7 @@ export default {
 
 export const SignInPage = () => SignInForm({ 
   ...BannerData, 
-  ...HeaderData, 
+  ...TitleData, 
   ...SidenavData, 
   ...IdentifierData, 
   ...FooterData, 
@@ -30,8 +35,8 @@ export const SignInPage = () => SignInForm({
 });
 
 export const SignInPageSpanish = () => SignInForm({ 
-  ...BannerData, 
-  ...HeaderData, 
+  ...EsBannerData, 
+  ...TitleData, 
   ...SidenavData, 
   ...IdentifierData, 
   ...FooterData, 
@@ -40,7 +45,7 @@ export const SignInPageSpanish = () => SignInForm({
 
 export const MultipleSignInPage = () => SignInMultipleForm({ 
   ...BannerData, 
-  ...HeaderData, 
+  ...TitleData, 
   ...SidenavData, 
   ...IdentifierData, 
   ...FooterData, 
@@ -48,8 +53,8 @@ export const MultipleSignInPage = () => SignInMultipleForm({
 });
 
 export const MultipleSignInPageSpanish = () => SignInMultipleForm({ 
-  ...BannerData, 
-  ...HeaderData, 
+  ...EsBannerData, 
+  ...TitleData, 
   ...SidenavData, 
   ...IdentifierData, 
   ...FooterData, 

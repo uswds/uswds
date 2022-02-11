@@ -8,7 +8,7 @@ import {
   SignInData,
   EsSignInData,
   SignInMultipleData,
-  EsSignInMultData
+  EsSignInMultipleData
 } from "../../templates/usa-sign-in/content";
 
 export default {
@@ -36,4 +36,4 @@ export const SignInMultiple = SignInMultipleTemplate.bind({});
 SignInMultiple.args = SignInMultipleData ;
 
 export const SignInMultipleSpanish = SignInMultipleTemplate.bind({});
-SignInMultipleSpanish.args = EsSignInMultData ;
+SignInMultipleSpanish.args = EsSignInMultipleData ;

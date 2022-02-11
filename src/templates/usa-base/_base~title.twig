@@ -1,0 +1,15 @@
+{% set lang = lang ? lang : 'en' %}
+
+<body>
+  {% include "@components/usa-skipnav/usa-skipnav.twig" %}
+  {% include "@components/usa-banner/usa-banner.twig" %}
+  {% include "@components/usa-site-title/usa-site-title.twig" %}
+
+ <main id="main-content">
+  {% block body %}{% endblock %}
+  </main>
+
+  {% include "@components/usa-footer/usa-footer.twig" %}
+
+  {% include "@components/usa-identifier/usa-identifier.twig" %}
+</body>
