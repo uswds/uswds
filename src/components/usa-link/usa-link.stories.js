@@ -1,7 +1,7 @@
 import Component from "./usa-link.twig";
 
 export default {
-  title: "Components/Main Content/Typography/Link",
+  title: "Components/Main Content/Link",
 };
 
 const Template = (args) => Component(args);

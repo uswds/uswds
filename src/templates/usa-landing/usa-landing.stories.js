@@ -10,7 +10,7 @@ import { Data as FooterData } from "../../components/usa-footer/content";
 import Component from "./usa-landing.twig";
 
 export default {
-  title: "Patterns/Page Patterns/Landing",
+  title: "Pages/Landing",
   args: {
     ...TitleData,
     ...HeaderData, 

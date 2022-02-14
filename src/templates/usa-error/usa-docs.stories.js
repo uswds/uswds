@@ -9,7 +9,7 @@ import { Data as FooterData } from "../../components/usa-footer/content";
 import { Data, EsData } from "./content";
 
 export default {
-  title: "Patterns/Page Patterns/Error",
+  title: "Pages/Error",
   parameters: {
     layout: 'fullscreen',
   },

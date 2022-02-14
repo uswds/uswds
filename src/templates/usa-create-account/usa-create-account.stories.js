@@ -16,7 +16,7 @@ import Component from "./usa-create-account.twig";
 import { Data, EsData } from "./content";
 
 export default {
-  title: "Patterns/Page Patterns/Create Account",
+  title: "Pages/Create Account",
   args: {
     ...TitleData,
     ...HeaderData, 

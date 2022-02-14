@@ -24,7 +24,7 @@ import {
 
 
 export default {
-  title: "Patterns/Page Patterns/Sign In",
+  title: "Pages/Sign In",
   args: {
     ...TitleData,
     ...SidenavData,

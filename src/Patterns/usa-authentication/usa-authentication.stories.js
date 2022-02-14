@@ -1,4 +1,3 @@
-import FormPassword from "./usa-password-reset-form.twig";
 import FormSignIn from "../../templates/usa-sign-in/usa-sign-in-form.twig";
 import FormSignInMultiple from "../../templates/usa-sign-in/includes/_usa-sign-in-multiple-inner.twig";
 
@@ -10,14 +9,11 @@ import {
 } from "../../templates/usa-sign-in/content";
 
 export default {
-  title: "Patterns/Component Patterns/Authentication",
+  title: "Patterns/Authentication",
 };
 
-const PasswordTemplate = (args) => FormPassword(args);
 const SignInTemplate = (args) => FormSignIn(args);
 const SignInMultipleTemplate = (args) => FormSignInMultiple(args);
-
-export const ResetPassword = PasswordTemplate.bind({});
 
 export const SignIn = SignInTemplate.bind({});
 SignIn.args = SignInData;
