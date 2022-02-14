@@ -3,6 +3,34 @@
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
+// Maps for Icons
+
+$icon-object: (
+  "color": currentColor,
+  "svg-height": 24,
+  "svg-width": 24,
+  "height": units(3),
+);
+
+$add-icon: map-merge(
+  $icon-object,
+  (
+    "name": "add",
+  )
+);
+
+$remove-icon: map-merge(
+  $icon-object,
+  (
+    "name": "remove",
+  )
+);
+
+$after: "after";
+$icon-margin: "auto";
+$vertical-align: "auto";
+$contrast-bg: default;
+
 // Accordion Styles
 
 @mixin accordion-list-styles {
@@ -16,7 +44,13 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg("usa-icons/remove");
+  @include place-icon(
+    $remove-icon,
+    $after,
+    $icon-margin,
+    $vertical-align,
+    $contrast-bg
+  );
 
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
@@ -39,8 +73,17 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg("usa-icons/add");
-  background-size: units(3);
+  @include place-icon(
+    $add-icon,
+    $after,
+    $icon-margin,
+    $vertical-align,
+    $contrast-bg
+  );
+  &::after {
+    height: 100%;
+    background-color: ButtonText;
+  }
 }
 
 @mixin accordion-nested-list {
@@ -109,6 +152,23 @@ $accordion-border: units($theme-accordion-border-width) solid
 
 .usa-accordion__button {
   @include accordion-button-styles;
+
+  // Anchor for add/remove icons
+  position: relative;
+
+  &::after {
+    right: 0;
+    top: 0;
+    height: 100%;
+    content: "";
+    position: absolute;
+    margin: 0 units(2.5) 0 0;
+    background-color: ButtonText;
+  }
+
+  @media (forced-colors: active) {
+    outline: 2px solid transparent;
+  }
 }
 
 .usa-accordion__button[aria-expanded="false"] {
