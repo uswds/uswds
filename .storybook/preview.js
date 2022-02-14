@@ -12,34 +12,34 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Welcome", 
-        "Changelog", 
-        "Design Tokens", 
-        "Components", 
+        "Welcome",
+        "Changelog",
+        "Design Tokens",
+        "Components",
+        [
+          "Page Layout",
           [
-            "Page Layout",
-              [
-                "Skipnav",
-                "Banner",
-                "Site Title",
-                "Header", 
-                  [
-                    "Partials",
-                  ],
-                "Site Alert",
-                "Hero",
-                "Side Navigation",
-                "Section",
-                "Footer",
-                "Idenitifier",
-              ],
-            "Main Content",
-            "Navigation",
-            "Media",
-            "Alerts",
+            "Skipnav",
+            "Banner",
+            "Site Title",
+            "Header",
+            ["Partials"],
+            "Site Alert",
+            "Hero",
+            "Side Navigation",
+            "Section",
+            "Footer",
+            "Idenitifier",
           ],
+          "Main Content",
+          "Navigation",
+          "Media",
+          "Alerts",
+        ],
         "Patterns",
-      ]
-    }
-  }
-}
+        "Pages",
+        ["Error", "Documentation", "Landing", "Authentication"],
+      ],
+    },
+  },
+};
