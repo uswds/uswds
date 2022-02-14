@@ -1,5 +1,5 @@
 import Component from "./usa-icon.twig";
-import IconsData from "./usa-icon.json";
+import Content from "./usa-icon.json";
 
 export default {
   title: "Design Tokens/Icons",
@@ -13,7 +13,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Icons = Template.bind({});
-Icons.args = IconsData;
+Icons.args = Content;
 Icons.parameters = {
   axe: {
     skip: true,

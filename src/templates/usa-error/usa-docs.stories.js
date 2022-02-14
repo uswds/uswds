@@ -1,12 +1,11 @@
 import Component from "./usa-error.twig";
 
-import { DefaultContent as BannerData } from "../../components/usa-banner/content";
-import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
-import { headerData as HeaderData } from "../../components/usa-header/content";
-import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
-import { Data as IdentifierData } from "../../components/usa-identifier/content";
-import { Data as FooterData } from "../../components/usa-footer/content";
-import { Data, EsData } from "./content";
+import { DefaultContent as BannerContent } from "../../components/usa-banner/content";
+import TitleContent from "../../components/usa-site-title/usa-site-title.json";
+import { DefaultContent as HeaderContent } from "../../components/usa-header/content";
+import { DefaultContent as IdentifierContent } from "../../components/usa-identifier/content";
+import { DefaultContent as FooterContent } from "../../components/usa-footer/content";
+import { DefaultContent, EsContent } from "./content";
 
 export default {
   title: "Pages/Error",
@@ -14,23 +13,22 @@ export default {
     layout: "fullscreen",
   },
   args: {
-    ...BannerData,
-    ...TitleData,
-    ...HeaderData,
-    ...SidenavData,
-    ...IdentifierData,
-    ...FooterData,
+    ...BannerContent,
+    ...TitleContent,
+    ...HeaderContent,
+    ...IdentifierContent,
+    ...FooterContent,
   },
 };
 
 export const PageNotFound = (args) =>
   Component({
     ...args,
-    ...Data,
+    ...DefaultContent,
   });
 
 export const PageNotFoundSpanish = (args) =>
   Component({
     ...args,
-    ...EsData,
+    ...EsContent,
   });

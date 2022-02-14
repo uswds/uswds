@@ -1,14 +1,14 @@
 import Component from "./usa-button.twig";
 import {
-  Data,
-  AccentCoolData,
-  AccentWarmData,
-  BaseData,
-  BigData,
-  OutlineData,
-  OutlineInverseData,
-  SecondaryData,
-  UnstyledData,
+  DefaultContent,
+  AccentCoolContent,
+  AccentWarmContent,
+  BaseContent,
+  BigContent,
+  OutlineContent,
+  OutlineInverseContent,
+  SecondaryContent,
+  UnstyledContent,
 } from "./content";
 
 export default {
@@ -18,28 +18,28 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const AccentCool = Template.bind({});
-AccentCool.args = AccentCoolData;
+AccentCool.args = AccentCoolContent;
 
 export const AccentWarm = Template.bind({});
-AccentWarm.args = AccentWarmData;
+AccentWarm.args = AccentWarmContent;
 
 export const Base = Template.bind({});
-Base.args = BaseData;
+Base.args = BaseContent;
 
 export const Big = Template.bind({});
-Big.args = BigData;
+Big.args = BigContent;
 
 export const Outline = Template.bind({});
-Outline.args = OutlineData;
+Outline.args = OutlineContent;
 
 export const OutlineInverse = Template.bind({});
-OutlineInverse.args = OutlineInverseData;
+OutlineInverse.args = OutlineInverseContent;
 
 export const Secondary = Template.bind({});
-Secondary.args = SecondaryData;
+Secondary.args = SecondaryContent;
 
 export const Unstyled = Template.bind({});
-Unstyled.args = UnstyledData;
+Unstyled.args = UnstyledContent;

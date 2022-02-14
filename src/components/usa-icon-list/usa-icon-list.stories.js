@@ -1,11 +1,11 @@
 import Component from "./usa-icon-list.twig";
 
 import {
-  Data,
-  CustomRichData,
-  CustomSizeData,
-  RichData,
-  SimpleData,
+  DefaultContent,
+  CustomRichContent,
+  CustomSizeContent,
+  RichContent,
+  SimpleContent,
 } from "./content";
 
 export default {
@@ -15,16 +15,16 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const CustomRich = Template.bind({});
-CustomRich.args = CustomRichData;
+CustomRich.args = CustomRichContent;
 
 export const CustomSize = Template.bind({});
-CustomSize.args = CustomSizeData;
+CustomSize.args = CustomSizeContent;
 
 export const Rich = Template.bind({});
-Rich.args = RichData;
+Rich.args = RichContent;
 
 export const Simple = Template.bind({});
-Simple.args = SimpleData;
+Simple.args = SimpleContent;

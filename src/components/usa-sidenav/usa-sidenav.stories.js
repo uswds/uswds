@@ -1,5 +1,5 @@
 import Component from "./usa-sidenav.twig";
-import { LevelOneData, LevelTwoData, LevelThreeData } from "./content";
+import { LevelOneContent, LevelTwoContent, LevelThreeContent } from "./content";
 
 export default {
   title: "Components/Page Layout/Side Navigation",
@@ -8,10 +8,10 @@ export default {
 const Template = (args) => Component(args);
 
 export const LevelOne = Template.bind({});
-LevelOne.args = LevelOneData;
+LevelOne.args = LevelOneContent;
 
 export const LevelTwo = Template.bind({});
-LevelTwo.args = LevelTwoData;
+LevelTwo.args = LevelTwoContent;
 
 export const LevelThree = Template.bind({});
-LevelThree.args = LevelThreeData;
+LevelThree.args = LevelThreeContent;

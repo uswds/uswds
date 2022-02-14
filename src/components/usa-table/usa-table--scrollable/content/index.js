@@ -1,4 +1,4 @@
-export { default as Data } from "./usa-table--scrollable.json";
-export { default as StripedData } from "./usa-table--scrollable~striped.json";
-export { default as CompactData } from "./usa-table--scrollable~compact.json";
-export { default as CompactStripedData } from "./usa-table--scrollable~compact-striped.json";
+export { default as DefaultContent } from "./usa-table--scrollable.json";
+export { default as StripedContent } from "./usa-table--scrollable~striped.json";
+export { default as CompactContent } from "./usa-table--scrollable~compact.json";
+export { default as CompactStripedContent } from "./usa-table--scrollable~compact-striped.json";

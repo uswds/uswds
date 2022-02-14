@@ -1,5 +1,5 @@
 import Component from "./usa-site-title.twig";
-import Data from "./usa-site-title.json";
+import Content from "./usa-site-title.json";
 
 export default {
   title: "Components/Page Layout/Site Title",
@@ -8,4 +8,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const SiteTitle = Template.bind({});
-SiteTitle.args = Data;
+SiteTitle.args = Content;

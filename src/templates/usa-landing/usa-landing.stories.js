@@ -1,10 +1,9 @@
 // Import page template elements
-import { DefaultContent as BannerData } from "../../components/usa-banner/content";
-import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
-import { headerData as HeaderData } from "../../components/usa-header/content";
-import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
-import { Data as IdentifierData } from "../../components/usa-identifier/content";
-import { Data as FooterData } from "../../components/usa-footer/content";
+import { DefaultContent as BannerContent } from "../../components/usa-banner/content";
+import TitleContent from "../../components/usa-site-title/usa-site-title.json";
+import { DefaultContent as HeaderContent } from "../../components/usa-header/content";
+import { DefaultContent as IdentifierContent } from "../../components/usa-identifier/content";
+import { DefaultContent as FooterContent } from "../../components/usa-footer/content";
 
 // Import page content
 import Component from "./usa-landing.twig";
@@ -12,10 +11,11 @@ import Component from "./usa-landing.twig";
 export default {
   title: "Pages/Landing",
   args: {
-    ...TitleData,
-    ...HeaderData,
-    ...FooterData,
-    ...SidenavData,
+    ...BannerContent,
+    ...TitleContent,
+    ...HeaderContent,
+    ...IdentifierContent,
+    ...FooterContent,  
   },
   parameters: {
     layout: "fullscreen",
@@ -25,7 +25,4 @@ export default {
 export const LandingPage = (args) =>
   Component({
     ...args,
-    ...BannerData,
-    ...IdentifierData,
-    ...FooterData,
   });

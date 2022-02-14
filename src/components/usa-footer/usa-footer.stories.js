@@ -2,7 +2,7 @@ import Medium from "./usa-footer.twig";
 import Big from "./usa-footer--big.twig";
 import Slim from "./usa-footer--slim.twig";
 
-import { Data, BigData, SlimData } from "./content";
+import { DefaultContent, BigContent, SlimContent } from "./content";
 
 export default {
   title: "Components/Page Layout/Footer",
@@ -13,10 +13,10 @@ const BigTemplate = (args) => Big(args);
 const SlimTemplate = (args) => Slim(args);
 
 export const BigFooter = BigTemplate.bind({});
-BigFooter.args = BigData;
+BigFooter.args = BigContent;
 
 export const MediumFooter = Template.bind({});
-MediumFooter.args = Data;
+MediumFooter.args = DefaultContent;
 
 export const SlimFooter = SlimTemplate.bind({});
-SlimFooter.args = SlimData;
+SlimFooter.args = SlimContent;

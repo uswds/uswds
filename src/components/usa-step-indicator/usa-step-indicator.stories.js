@@ -1,14 +1,14 @@
 import Component from "./usa-step-indicator.twig";
 import {
-  Data,
-  CenterCountersSmData,
-  CenterCountersData,
-  CenterNoLabelData,
-  CenterData,
-  CountersSmData,
-  CountersData,
-  NoLabelsData,
-  ShortData,
+  DefaultContent,
+  CenterCountersSmContent,
+  CenterCountersContent,
+  CenterNoLabelContent,
+  CenterContent,
+  CountersSmContent,
+  CountersContent,
+  NoLabelsContent,
+  ShortContent,
 } from "./content";
 
 export default {
@@ -18,28 +18,28 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const CenterCountersSm = Template.bind({});
-CenterCountersSm.args = CenterCountersSmData;
+CenterCountersSm.args = CenterCountersSmContent;
 
 export const CenterCounters = Template.bind({});
-CenterCounters.args = CenterCountersData;
+CenterCounters.args = CenterCountersContent;
 
 export const CenterNoLabel = Template.bind({});
-CenterNoLabel.args = CenterNoLabelData;
+CenterNoLabel.args = CenterNoLabelContent;
 
 export const Center = Template.bind({});
-Center.args = CenterData;
+Center.args = CenterContent;
 
 export const CountersSm = Template.bind({});
-CountersSm.args = CountersSmData;
+CountersSm.args = CountersSmContent;
 
 export const Counters = Template.bind({});
-Counters.args = CountersData;
+Counters.args = CountersContent;
 
 export const NoLabels = Template.bind({});
-NoLabels.args = NoLabelsData;
+NoLabels.args = NoLabelsContent;
 
 export const Short = Template.bind({});
-Short.args = ShortData;
+Short.args = ShortContent;

@@ -1,5 +1,5 @@
 import Component from "./usa-modal.twig";
-import { Data, ForcedActionData, LargeData } from "./content";
+import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
 
 export default {
   title: "Components/Alerts/Modal",
@@ -8,10 +8,10 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Large = Template.bind({});
-Large.args = LargeData;
+Large.args = LargeContent;
 
 export const ForcedAction = Template.bind({});
-ForcedAction.args = ForcedActionData;
+ForcedAction.args = ForcedActionContent;

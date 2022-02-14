@@ -1,2 +1,2 @@
-export { default as Data } from "./usa-create-account.json";
-export { default as EsData } from "./usa-create-account~lang-es.json";
+export { default as DefaultContent } from "./usa-create-account.json";
+export { default as EsContent } from "./usa-create-account~lang-es.json";

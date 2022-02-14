@@ -1,5 +1,5 @@
 import Component from "./usa-media-block.twig";
-import Data from "./usa-media-block.json";
+import Content from "./usa-media-block.json";
 
 export default {
   title: "Components/Main Content/Media Block",
@@ -8,4 +8,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const MediaBlock = Template.bind({});
-MediaBlock.args = Data;
+MediaBlock.args = Content;

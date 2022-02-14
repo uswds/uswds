@@ -1,5 +1,5 @@
 import Component from "./usa-breadcrumb.twig";
-import { Data, WrapData } from "./content";
+import { DefaultContent, WrapContent } from "./content";
 
 export default {
   title: "Components/Page Layout/Breadcrumb",
@@ -8,7 +8,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Wrap = Template.bind({});
-Wrap.args = WrapData;
+Wrap.args = WrapContent;

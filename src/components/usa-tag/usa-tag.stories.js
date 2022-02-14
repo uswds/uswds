@@ -1,5 +1,5 @@
 import Component from "./usa-tag.twig";
-import { Data, BigData } from "./content";
+import { DefaultContent, BigContent } from "./content";
 
 export default {
   title: "Components/Main Content/Tags",
@@ -8,7 +8,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Info = Template.bind({});
-Info.args = Data;
+Info.args = DefaultContent;
 
 export const Big = Template.bind({});
-Big.args = BigData;
+Big.args = BigContent;
