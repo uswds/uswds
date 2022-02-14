@@ -1,7 +1,7 @@
 import Component from "./usa-summary-box.twig";
 
 export default {
-  title: "Components/Content/Summary Box",
+  title: "Components/Main Content/Summary Box",
 };
 
 const Template = (args) => Component(args);

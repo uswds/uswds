@@ -1,7 +1,7 @@
 import Component from "./usa-input.twig";
 
 export default {
-  title: "Components/Form Elements/Text Input",
+  title: "Components/Main Content/Form Inputs/Text Input",
 };
 
 const Template = (args) => Component(args);

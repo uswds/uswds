@@ -1,7 +1,7 @@
 import Component from "./usa-memorable-date.twig";
 
 export default {
-  title: "Components/Form Elements/Memorable Date",
+  title: "Components/Main Content/Form Inputs/Memorable Date",
 };
 
 const Template = (args) => Component(args);

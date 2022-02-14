@@ -1,7 +1,7 @@
 import Component from "./usa-range.twig";
 
 export default {
-  title: "Components/Form Elements/Range",
+  title: "Components/Main Content/Form Inputs/Range",
 };
 
 const Template = (args) => Component(args);

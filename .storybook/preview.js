@@ -31,7 +31,7 @@ export const parameters = {
                 "Footer",
                 "Idenitifier",
               ],
-            "Content",
+            "Main Content",
             "Navigation",
             "Alerts",
             "Media",

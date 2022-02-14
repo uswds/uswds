@@ -3,7 +3,7 @@ import Tile from "./usa-checkbox--tile.twig";
 import Test from "./usa-checkbox--test.twig";
 
 export default {
-  title: "Components/Form Elements/Checkbox",
+  title: "Components/Main Content/Form Inputs/Checkbox",
 };
 
 const Template = (args) => Component(args);

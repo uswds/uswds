@@ -8,7 +8,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Data Visualization/Table/Stacked",
+  title: "Components/Main Content/Table/Stacked",
 };
 
 const Template = (args) => Component(args);

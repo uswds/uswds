@@ -9,7 +9,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Form Elements/File Input",
+  title: "Components/Main Content/Form Inputs/File Input",
 };
 
 const Template = (args) => Component(args);

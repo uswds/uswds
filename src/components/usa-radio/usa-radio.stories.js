@@ -2,7 +2,7 @@ import Component from "./usa-radio.twig";
 import Tile from "./usa-radio--tile.twig";
 
 export default {
-  title: "Components/Form Elements/Radio",
+  title: "Components/Main Content/Form Inputs/Radio",
 };
 
 const Template = (args) => Component(args);
