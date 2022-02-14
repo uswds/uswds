@@ -12,25 +12,10 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Welcome",
-        "Changelog",
         "Design Tokens",
         "Components",
         [
           "Page Layout",
-          [
-            "Skipnav",
-            "Banner",
-            "Site Title",
-            "Header",
-            ["Partials"],
-            "Site Alert",
-            "Hero",
-            "Side Navigation",
-            "Section",
-            "Footer",
-            "Idenitifier",
-          ],
           "Main Content",
           "Navigation",
           "Media",
@@ -38,7 +23,6 @@ export const parameters = {
         ],
         "Patterns",
         "Pages",
-        ["Error", "Documentation", "Landing", "Authentication"],
       ],
     },
   },
