@@ -1,65 +1,68 @@
 // Import page template elements
-import { 
+import {
   DefaultContent as BannerData,
-  DefaultContentLangEs as EsBannerData 
+  DefaultContentLangEs as EsBannerData,
 } from "../../components/usa-banner/content";
 import * as TitleData from "../../components/usa-site-title/usa-site-title.json";
 import { headerData as HeaderData } from "../../components/usa-header/content";
-import { 
+import {
   Data as IdentifierData,
   EsData as EsIdentifierData,
- } from "../../components/usa-identifier/content";
+} from "../../components/usa-identifier/content";
 import { LevelTwoData as SidenavData } from "../../components/usa-sidenav/content";
 import { Data as FooterData } from "../../components/usa-footer/content";
 
 // Import sign in form elements
 import SignInForm from "./usa-sign-in.twig";
 import SignInMultipleForm from "./usa-sign-in--multiple.twig";
-import { 
-  SignInData, 
+import {
+  SignInData,
   EsSignInData,
-  SignInMultipleData, 
+  SignInMultipleData,
   EsSignInMultipleData,
 } from "./content";
 
-
 export default {
-  title: "Pages/Sign In",
+  title: "Pages/Authentication/Sign In",
   args: {
     ...TitleData,
     ...SidenavData,
     ...FooterData,
-    ...HeaderData
+    ...HeaderData,
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 };
 
-export const SignInPage = (args) => SignInForm({ 
-  ...args,
-  ...BannerData, 
-  ...IdentifierData, 
-  ...SignInData,
-});
+export const SignInPage = (args) =>
+  SignInForm({
+    ...args,
+    ...BannerData,
+    ...IdentifierData,
+    ...SignInData,
+  });
 
-export const SignInPageSpanish = (args) => SignInForm({ 
-  ...args,
-  ...EsBannerData, 
-  ...EsIdentifierData, 
-  ...EsSignInData,
-});
+export const SignInPageSpanish = (args) =>
+  SignInForm({
+    ...args,
+    ...EsBannerData,
+    ...EsIdentifierData,
+    ...EsSignInData,
+  });
 
-export const MultipleSignInPage = (args) => SignInMultipleForm({ 
-  ...args,
-  ...BannerData, 
-  ...IdentifierData, 
-  ...SignInMultipleData,
-});
+export const MultipleSignInPage = (args) =>
+  SignInMultipleForm({
+    ...args,
+    ...BannerData,
+    ...IdentifierData,
+    ...SignInMultipleData,
+  });
 
-export const MultipleSignInPageSpanish = (args) => SignInMultipleForm({ 
-  ...args,
-  ...EsBannerData, 
-  ...EsIdentifierData, 
-  ...EsSignInMultipleData,
-});
+export const MultipleSignInPageSpanish = (args) =>
+  SignInMultipleForm({
+    ...args,
+    ...EsBannerData,
+    ...EsIdentifierData,
+    ...EsSignInMultipleData,
+  });

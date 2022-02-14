@@ -5,7 +5,7 @@ import {
   SignInData,
   EsSignInData,
   SignInMultipleData,
-  EsSignInMultipleData
+  EsSignInMultipleData,
 } from "../../templates/usa-sign-in/content";
 
 export default {
@@ -22,7 +22,7 @@ export const SignInSpanish = SignInTemplate.bind({});
 SignInSpanish.args = EsSignInData;
 
 export const SignInMultiple = SignInMultipleTemplate.bind({});
-SignInMultiple.args = SignInMultipleData ;
+SignInMultiple.args = SignInMultipleData;
 
 export const SignInMultipleSpanish = SignInMultipleTemplate.bind({});
-SignInMultipleSpanish.args = EsSignInMultipleData ;
+SignInMultipleSpanish.args = EsSignInMultipleData;

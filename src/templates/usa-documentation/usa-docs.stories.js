@@ -13,19 +13,19 @@ export default {
   title: "Pages/Documentation",
   args: {
     ...TitleData,
-    ...HeaderData, 
+    ...HeaderData,
     ...FooterData,
-    ...SidenavData, 
+    ...SidenavData,
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 };
 
-export const DocumentationPage = (args) => Component({ 
-  ...args,
-  ...BannerData, 
-  ...IdentifierData, 
-  ...FooterData, 
-});
-  
+export const DocumentationPage = (args) =>
+  Component({
+    ...args,
+    ...BannerData,
+    ...IdentifierData,
+    ...FooterData,
+  });

@@ -13,19 +13,19 @@ export default {
   title: "Pages/Landing",
   args: {
     ...TitleData,
-    ...HeaderData, 
+    ...HeaderData,
     ...FooterData,
-    ...SidenavData, 
+    ...SidenavData,
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 };
 
-export const LandingPage = (args) => Component({ 
-  ...args,
-  ...BannerData, 
-  ...IdentifierData, 
-  ...FooterData, 
-});
-  
+export const LandingPage = (args) =>
+  Component({
+    ...args,
+    ...BannerData,
+    ...IdentifierData,
+    ...FooterData,
+  });

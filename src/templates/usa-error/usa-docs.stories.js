@@ -11,25 +11,26 @@ import { Data, EsData } from "./content";
 export default {
   title: "Pages/Error",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   args: {
-    ...BannerData, 
+    ...BannerData,
     ...TitleData,
-    ...HeaderData, 
-    ...SidenavData, 
-    ...IdentifierData, 
-    ...FooterData, 
-  }
+    ...HeaderData,
+    ...SidenavData,
+    ...IdentifierData,
+    ...FooterData,
+  },
 };
 
-export const PageNotFound = (args) => Component({ 
-  ...args,
-  ...Data,
-});
+export const PageNotFound = (args) =>
+  Component({
+    ...args,
+    ...Data,
+  });
 
-export const PageNotFoundSpanish = (args) => Component({ 
-  ...args,
-  ...EsData,
-});
-  
+export const PageNotFoundSpanish = (args) =>
+  Component({
+    ...args,
+    ...EsData,
+  });
