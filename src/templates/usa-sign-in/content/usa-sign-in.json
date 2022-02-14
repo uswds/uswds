@@ -1,6 +1,6 @@
 {
   "lang": "en",
-  "component_title": "Sign in",
+  "title": "Sign in",
   "form": {
     "legend": "Access your account"
   },
