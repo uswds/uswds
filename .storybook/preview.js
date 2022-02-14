@@ -21,11 +21,13 @@ export const parameters = {
               [
                 "Skipnav",
                 "Banner",
+                "Site Title",
                 "Header", 
                   [
                     "Partials",
                   ],
-                "Site Title",
+                "Site Alert",
+                "Hero",
                 "Side Navigation",
                 "Section",
                 "Footer",
@@ -33,11 +35,10 @@ export const parameters = {
               ],
             "Main Content",
             "Navigation",
-            "Alerts",
             "Media",
+            "Alerts",
           ],
         "Patterns",
-        "Templates",
       ]
     }
   }

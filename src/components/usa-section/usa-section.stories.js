@@ -2,7 +2,7 @@ import Component from "./usa-section.twig";
 import { Data, DarkData, LightData } from "./content";
 
 export default {
-  title: "Components/Main Content/Section",
+  title: "Components/Page Layout/Section",
 };
 
 const Template = (args) => Component(args);

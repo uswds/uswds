@@ -3,7 +3,7 @@ import Component from "./usa-pagination.twig";
 import { Data, UnboundedData, EsData, EsUnboundedData } from "./content";
 
 export default {
-  title: "Components/Main Content/Pagination",
+  title: "Components/Page Layout/Pagination",
 };
 
 const Template = (args) => Component(args);

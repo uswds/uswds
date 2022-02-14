@@ -2,7 +2,7 @@ import FormAddress from "../../templates/usa-address-form.twig";
 import FormName from "../../templates/usa-name-form.twig";
 
 export default {
-  title: "Patterns/Forms",
+  title: "Patterns/Component Patterns/Forms",
 };
 
 const AddressTemplate = (args) => FormAddress(args);

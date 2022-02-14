@@ -10,7 +10,7 @@ import {
 } from "../../templates/usa-sign-in/content";
 
 export default {
-  title: "Patterns/Authentication",
+  title: "Patterns/Component Patterns/Authentication",
 };
 
 const PasswordTemplate = (args) => FormPassword(args);
