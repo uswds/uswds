@@ -3,9 +3,9 @@
     {% for link in links %}
       <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
         <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">
+          <p class="usa-footer__primary-link">
             {{ link.label }}
-          </a>
+          </p>
           <ul class="usa-list usa-list--unstyled">
             {% for secondary_link in link.secondary_nav %}
               <li class="usa-footer__secondary-link">
