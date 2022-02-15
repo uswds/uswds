@@ -117,7 +117,7 @@
     &:checked,
     &:checked:disabled {
       @include format-input {
-        @include add-background-svg("$input-checkmark");
+        @include add-background-svg($input-checkmark);
       }
 
       @media (forced-colors: active) {
