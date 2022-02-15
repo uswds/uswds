@@ -55,6 +55,7 @@
       background: color($input-bg-color);
       box-shadow: 0 0 0 units($theme-input-select-border-width)
         adjust-color(color($input-text-color), $alpha: $input-border-alpha);
+
       @media (forced-colors: active) {
         outline: 2px solid transparent;
         outline-offset: units(2px);
@@ -73,6 +74,7 @@
     &:disabled {
       @include format-label {
         color: $color-input-disabled;
+
         @media (forced-colors: active) {
           color: GrayText;
         }
@@ -97,6 +99,7 @@
             $alpha: -0.9
           );
           border-color: color($input-active-color);
+
           @media (forced-colors: active) {
             border: ButtonText solid units("05");
           }
@@ -136,6 +139,7 @@
             color($input-active-color),
           inset 0 0 0 units($theme-input-select-border-width)
             color($input-bg-color);
+
         @media (forced-colors: active) {
           background-color: ButtonText;
         }
