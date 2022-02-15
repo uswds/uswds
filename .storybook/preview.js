@@ -1,5 +1,4 @@
 import "../dist/js/uswds.min.js";
-import { themes } from "@storybook/theming";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
