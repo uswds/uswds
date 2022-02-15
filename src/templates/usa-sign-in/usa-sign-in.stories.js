@@ -30,9 +30,6 @@ export default {
     ...FooterContent,
     ...HeaderContent,
   },
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 export const SignInPage = (args) =>

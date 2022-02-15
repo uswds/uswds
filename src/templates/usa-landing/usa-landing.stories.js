@@ -17,9 +17,6 @@ export default {
     ...IdentifierContent,
     ...FooterContent,  
   },
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 export const LandingPage = (args) =>

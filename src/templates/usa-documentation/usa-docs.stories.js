@@ -19,9 +19,6 @@ export default {
     ...SidenavContent,
     ...IdentifierContent,
   },
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 export const DocumentationPage = (args) =>

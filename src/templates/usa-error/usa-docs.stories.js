@@ -9,9 +9,6 @@ import { DefaultContent, EsContent } from "./content";
 
 export default {
   title: "Pages/Error",
-  parameters: {
-    layout: "fullscreen",
-  },
   args: {
     ...BannerContent,
     ...TitleContent,

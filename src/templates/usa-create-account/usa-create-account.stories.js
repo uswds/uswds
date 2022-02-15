@@ -22,9 +22,6 @@ export default {
     ...HeaderContent,
     ...FooterContent,
   },
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 export const CreateAccountPage = (args) =>
