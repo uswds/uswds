@@ -5,11 +5,14 @@
     $theme-input-line-height
   );
   @include border-box-sizing;
-}
 
-.usa-form {
   @include at-media("mobile-lg") {
     max-width: units("mobile");
+  }
+
+  // Don't show dotted underline with "required" asterisk because it can cause legibility issues ad appear as an ellipsis...
+  abbr[title="required"] {
+    text-decoration: none;
   }
 
   .usa-input,

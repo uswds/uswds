@@ -4,7 +4,7 @@
     "return_to_top": "Return to top",
     "primary_section": {
       "nav": {
-        "aria_label": "Footer navigation",
+        "aria_label": "Footer navigation,,",
         "links": [
           {
             "label": "[Primary Link]",
