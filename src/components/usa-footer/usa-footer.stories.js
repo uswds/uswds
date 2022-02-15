@@ -12,11 +12,11 @@ const Template = (args) => Medium(args);
 const BigTemplate = (args) => Big(args);
 const SlimTemplate = (args) => Slim(args);
 
+export const Default = Template.bind({});
+Default.args = DefaultContent;
+
 export const BigFooter = BigTemplate.bind({});
 BigFooter.args = BigContent;
-
-export const MediumFooter = Template.bind({});
-MediumFooter.args = DefaultContent;
 
 export const SlimFooter = SlimTemplate.bind({});
 SlimFooter.args = SlimContent;
