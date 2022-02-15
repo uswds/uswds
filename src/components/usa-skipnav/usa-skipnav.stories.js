@@ -2,7 +2,7 @@ import Component from "./usa-skipnav.twig";
 import Content from "./usa-skipnav.json";
 
 export default {
-  title: "Components/Page Layout/Skipnav",
+  title: "Components/Skipnav",
 };
 
 const Template = (args) => Component(args);

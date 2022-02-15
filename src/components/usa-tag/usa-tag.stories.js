@@ -2,7 +2,7 @@ import Component from "./usa-tag.twig";
 import { DefaultContent, BigContent } from "./content";
 
 export default {
-  title: "Components/Main Content/Tags",
+  title: "Components/Tags",
 };
 
 const Template = (args) => Component(args);

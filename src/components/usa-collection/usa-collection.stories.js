@@ -4,7 +4,7 @@ import MediaComponent from "./usa-collection--media.twig";
 import HeadersComponent from "./usa-collection--only-headers.twig";
 
 export default {
-  title: "Components/Main Content/Collection",
+  title: "Components/Collection",
 };
 
 const Template = (args) => Component(args);

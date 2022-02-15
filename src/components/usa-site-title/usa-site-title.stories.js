@@ -2,7 +2,7 @@ import Component from "./usa-site-title.twig";
 import Content from "./usa-site-title.json";
 
 export default {
-  title: "Components/Page Layout/Site Title",
+  title: "Components/Site Title",
 };
 
 const Template = (args) => Component(args);

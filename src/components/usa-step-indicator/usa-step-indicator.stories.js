@@ -12,7 +12,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Main Content/Step Indicator",
+  title: "Components/Step Indicator",
 };
 
 const Template = (args) => Component(args);

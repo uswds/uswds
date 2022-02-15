@@ -2,7 +2,7 @@ import Component from "./usa-nav__primary.twig";
 import Content from "./usa-nav__primary.json";
 
 export default {
-  title: "Components/Page Layout/Header/Partials/Primary",
+  title: "Components/Header/Partials/Primary",
 };
 
 const Template = (args) => Component(args);

@@ -2,7 +2,7 @@ import prefix from "./usa-input-prefix.twig";
 import suffix from "./usa-input-suffix.twig";
 
 export default {
-  title: "Components/Main Content/Form Inputs/Input Prefix or Suffix",
+  title: "Components/Form Inputs/Input Prefix or Suffix",
 };
 
 const PrefixTemplate = (args) => prefix(args);

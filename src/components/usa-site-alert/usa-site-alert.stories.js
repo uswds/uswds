@@ -10,7 +10,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Alerts/Site Alert",
+  title: "Components/Site Alert",
 };
 
 const Template = (args) => Component(args);

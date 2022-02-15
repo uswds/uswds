@@ -12,7 +12,7 @@ import { SmallContent as SmallSearchContent } from "../usa-search/content";
 import TitleContent from "../usa-site-title/usa-site-title.json";
 
 export default {
-  title: "Components/Page Layout/Header",
+  title: "Components/Header",
   args: {
     // Default search settings - Alternatively override in `usa-header.json`
     search: {

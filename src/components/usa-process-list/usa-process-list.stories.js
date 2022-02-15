@@ -3,7 +3,7 @@ import Tile from "./usa-process-list--custom-sizing.twig";
 import Test from "./usa-process-list--no-text.twig";
 
 export default {
-  title: "Components/Main Content/Process List",
+  title: "Components/Process List",
 };
 
 const Template = (args) => Component(args);

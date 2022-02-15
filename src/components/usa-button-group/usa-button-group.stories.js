@@ -2,7 +2,7 @@ import Component from "./usa-button-group.twig";
 import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
-  title: "Components/Main Content/Button Group",
+  title: "Components/Button Group",
 };
 
 const Template = (args) => Component(args);

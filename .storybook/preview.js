@@ -14,13 +14,6 @@ export const parameters = {
       order: [
         "Design Tokens",
         "Components",
-        [
-          "Page Layout",
-          "Main Content",
-          "Navigation",
-          "Media",
-          "Alerts",
-        ],
         "Patterns",
         "Pages",
       ],

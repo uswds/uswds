@@ -4,7 +4,7 @@ import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 import { DefaultContent, BorderlessContent, StripedContent } from "./content";
 
 export default {
-  title: "Components/Main Content/Table",
+  title: "Components/Table",
 };
 
 const Template = (args) => Component(args);

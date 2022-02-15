@@ -2,7 +2,7 @@ import Component from "./usa-section.twig";
 import { DefaultContent, DarkContent, LightContent } from "./content";
 
 export default {
-  title: "Components/Page Layout/Section",
+  title: "Components/Section",
 };
 
 const Template = (args) => Component(args);
