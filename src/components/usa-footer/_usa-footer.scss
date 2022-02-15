@@ -184,6 +184,7 @@
     $theme-h3-font-size,
     $theme-heading-line-height
   );
+  @include u-font-weight("bold");
   margin-top: 0;
 
   @include at-media("mobile-lg") {

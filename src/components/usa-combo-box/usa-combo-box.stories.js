@@ -1,6 +1,6 @@
 import Component from "./usa-combo-box.twig";
 
-import Data from "./usa-combo-box.json";
+import Content from "./usa-combo-box.json";
 
 export default {
   title: "Components/Form Inputs/Combo Box",
@@ -9,4 +9,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const ComboBox = Template.bind({});
-ComboBox.args = Data;
+ComboBox.args = Content;

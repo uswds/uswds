@@ -1,5 +1,5 @@
 import Component from "./usa-graphic-list.twig";
-import Data from "./usa-graphic-list.json";
+import Content from "./usa-graphic-list.json";
 
 export default {
   title: "Components/Graphic List",
@@ -8,4 +8,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const GraphicList = Template.bind({});
-GraphicList.args = Data;
+GraphicList.args = Content;
