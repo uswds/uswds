@@ -32,5 +32,11 @@
     "title": "Forgot password",
     "label": "Forgot password?"
   },
+  "create_account": {
+    "label": "Don't have an account?",
+    "cta": {
+      "label": "Create your account now"
+    }
+  },
   "img_path": "./img"
 }

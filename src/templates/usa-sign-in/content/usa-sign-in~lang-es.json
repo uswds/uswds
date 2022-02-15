@@ -32,5 +32,11 @@
     "title": "¿No recuerda su contraseña?",
     "label": "¿No recuerda su contraseña?"
   },
+  "create_account": {
+    "label": "¿No tiene una cuenta?",
+    "cta": {
+      "label": "Cree su cuenta ahora"
+    }
+  },
   "img_path": "./img"
 }
