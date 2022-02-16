@@ -10,8 +10,9 @@
 @forward "get-link-tokens-from-bg";
 @forward "get-system-color";
 @forward "is-accessible-magic-number";
-@forward "is-system-color-token";
 @forward "is-color-token";
+@forward "is-system-color-token";
+@forward "is-theme-color-token";
 @forward "luminance";
 @forward "magic-number";
 @forward "next-token";

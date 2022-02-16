@@ -7,7 +7,7 @@ Append `!important` to a list
 */
 
 @use "sass:list";
-@use "../../functions/general/get-last" as *;
+@use "get-last" as *;
 
 @function append-important($source, $destination) {
   @if get-last($source) == "!important" {
