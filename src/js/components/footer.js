@@ -9,10 +9,13 @@ const NAV = `${SCOPE} nav`;
 const BUTTON = `${NAV} .${PREFIX}-footer__primary-link`;
 const COLLAPSIBLE = `.${PREFIX}-footer__primary-content--collapsible`;
 
-const HIDE_MAX_WIDTH = 480;
+// The minimum viewport width at which collapsable sections are
+// always displayed. At exactly SHOW_MIN_WIDTH pixels, it will
+// be expanded.
+const SHOW_MIN_WIDTH = 480;
 
 function showPanel() {
-  if (window.innerWidth < HIDE_MAX_WIDTH) {
+  if (window.innerWidth < SHOW_MIN_WIDTH) {
     const collapseEl = this.closest(COLLAPSIBLE);
     collapseEl.classList.toggle(HIDDEN);
 
@@ -33,7 +36,7 @@ const toggleHidden = (isHidden) =>
     list.classList.toggle(HIDDEN, isHidden)
   );
 
-const resize = (event) => toggleHidden(event.matches);
+const resize = (event) => toggleHidden(!event.matches);
 
 module.exports = behavior(
   {
@@ -43,12 +46,14 @@ module.exports = behavior(
   },
   {
     // export for use elsewhere
-    HIDE_MAX_WIDTH,
+    // Max width to hide at is 1 pixel underneath the
+    // min width to show.
+    HIDE_MAX_WIDTH: SHOW_MIN_WIDTH - 1,
 
     init() {
-      toggleHidden(window.innerWidth < HIDE_MAX_WIDTH);
+      toggleHidden(window.innerWidth < SHOW_MIN_WIDTH);
       this.mediaQueryList = window.matchMedia(
-        `(max-width: ${HIDE_MAX_WIDTH}px)`
+        `(min-width: ${SHOW_MIN_WIDTH}px)`
       );
       this.mediaQueryList.addListener(resize);
     },
