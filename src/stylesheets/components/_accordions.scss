@@ -81,7 +81,10 @@ $contrast-bg: default;
   );
   &::after {
     height: 100%;
-    background-color: ButtonText;
+
+    @media (forced-colors: active) {
+      background-color: ButtonText;
+    }
   }
 }
 
@@ -162,7 +165,10 @@ $contrast-bg: default;
     content: "";
     position: absolute;
     margin: 0 units(2.5) 0 0;
-    background-color: ButtonText;
+
+    @media (forced-colors: active) {
+      background-color: ButtonText;
+    }
   }
 
   @media (forced-colors: active) {
