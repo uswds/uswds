@@ -18,7 +18,7 @@ Casts a string into a number
   @if meta.type-of($value) == "number" {
     @return $value;
   } @else if meta.type-of($value) != "string" {
-    $_: log("Value for `to-number` should be a number or a string.");
+    @warn "Value for `to-number` should be a number or a string.";
   }
 
   $result: 0;
