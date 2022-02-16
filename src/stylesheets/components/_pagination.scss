@@ -124,6 +124,10 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   &:active {
     color: color($pagination-hover-token);
     border-color: color($pagination-hover-token);
+
+    @media (forced-colors: active) {
+      border: 2px solid buttonText;
+    }
   }
 }
 
@@ -137,12 +141,21 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
   border-color: transparent;
   color: color($text-color);
 
+  @media (forced-colors: active) {
+    outline: 2px solid buttonText;
+    color: buttonText;
+  }
+
   &:hover,
   &:focus,
   &:active {
     background-color: color($pagination-current-color);
     color: color($text-color);
     text-decoration: none;
+
+    @media (forced-colors: active) {
+      color: buttontext;
+    }
   }
 }
 
