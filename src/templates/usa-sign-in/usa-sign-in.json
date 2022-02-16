@@ -9,5 +9,6 @@
     "cta": {
       "label": "Create your account now"
     }
-  }
+  },
+  "img_path": "./img"
 }

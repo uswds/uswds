@@ -7,7 +7,7 @@
         "aria_label": "Footer navigation,,",
         "links": [
           {
-            "label": "Topic",
+            "label": "[Primary Link]",
             "secondary_nav": [
               {
                 "label": "[Secondary link]"
@@ -24,7 +24,7 @@
             ]
           },
           {
-            "label": "Topic",
+            "label": "[Primary Link]",
             "secondary_nav": [
               {
                 "label": "[Secondary link]"
@@ -41,7 +41,7 @@
             ]
           },
           {
-            "label": "Topic",
+            "label": "[Primary Link]",
             "secondary_nav": [
               {
                 "label": "[Secondary link]"
@@ -58,7 +58,7 @@
             ]
           },
           {
-            "label": "Topic",
+            "label": "[Primary Link]",
             "secondary_nav": [
               {
                 "label": "[Secondary link]"
@@ -81,7 +81,8 @@
       "agency_name": "[Name of Agency]",
       "heading": "[Agency Contact Center]",
       "phone": "[(800) 555-GOVT]",
-      "email": "[info@agency.go]>"
+      "email": "[info@agency.go]"
     }
-  }
+  },
+  "img_path": "./img"
 }
