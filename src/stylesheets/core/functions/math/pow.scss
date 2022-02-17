@@ -86,9 +86,6 @@ Helper functions
   @return math.div(pow(-1, $n + 1), $n) * (pow($x - 1, $n));
 }
 
-/* ln()
-----------------------------------------
-*/
 @function summation($iteratee, $input, $initial: 0, $limit: 100) {
   $sum: 0;
 
@@ -97,4 +94,23 @@ Helper functions
   }
 
   @return $sum;
+}
+
+/* ln()
+----------------------------------------
+*/
+@function ln($value) {
+  $ten-exp: 1;
+  $ln-ten: 2.30258509;
+
+  @while ($value > pow(10, $ten-exp)) {
+    $ten-exp: $ten-exp + 1;
+  }
+
+  @return summation(
+      meta.get-function("ln-maclaurin"),
+      math.div($value, pow(10, $ten-exp)),
+      1,
+      100
+    ) + $ten-exp * $ln-ten;
 }
