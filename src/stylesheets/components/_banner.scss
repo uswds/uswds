@@ -238,6 +238,12 @@ $banner-icon-close: (
     margin-left: units(1);
     position: relative;
 
+    @media (forced-colors: active) {
+      &:after,
+      &:hover::after {
+        background-color: buttonText;
+      }
+    }
     &:after {
       position: absolute;
     }
@@ -277,6 +283,12 @@ $banner-icon-close: (
         @include u-pin("y");
         @include u-pin("right");
       }
+
+      @media (forced-colors: active) {
+        &::after {
+          background-color: buttonText;
+        }
+      }
     }
 
     @include at-media("tablet") {
@@ -290,6 +302,13 @@ $banner-icon-close: (
       height: auto;
       padding: units(0);
       position: relative;
+
+      @media (forced-colors: active) {
+        &:after,
+        &:hover::after {
+          background-color: buttonText;
+        }
+      }
 
       &:after {
         position: absolute;
