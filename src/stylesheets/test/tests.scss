@@ -203,16 +203,16 @@ $theme-link-reverse-active-color: "white";
     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
     @include assert-equal($test, $expect);
   }
-  // @include it("Returns an error if passed a transparent token.") {
-  //   $test: calculate-grade("black-transparent-50");
-  //   $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns an error if passed a non-token string.") {
-  //   $test: color-token-assignment("foo");
-  //   $expect: "Error: 'foo' is not a valid USWDS color token.";
-  //   @include assert-equal($test, $expect);
-  // }
+  @include it("Returns an error if passed a transparent token.") {
+    $test: calculate-grade("black-transparent-50");
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns an error if passed a non-token string.") {
+    $test: color-token-assignment("foo");
+    $expect: "Error: 'foo' is not a valid USWDS color token. ";
+    @include assert-equal($test, $expect);
+  }
 }
 
 $this-function: "decompose-color-token()";
