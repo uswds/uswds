@@ -163,7 +163,7 @@
     "prettier": "^2.4.1",
     "raw-loader": "^4.0.2",
     "resolve-url-loader": "^4.0.0",
-    "sass": "^1.42.1",
+    "sass": "^1.49.7",
     "sass-loader": "^12.1.0",
     "sass-true": "^6.0.1",
     "sinon": "^11.1.2",

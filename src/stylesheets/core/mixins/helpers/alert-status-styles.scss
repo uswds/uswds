@@ -1,7 +1,74 @@
+@use "sass:math";
+
 @use "../../settings" as *;
 @use "../../functions" as *;
+@use "../general/icon" as *;
+@use "../helpers/set-link-from-bg" as *;
+@use "../../settings" as *;
+@use "../utilities/padding" as *;
 
-@mixin alert-status-styles($name, $icon) {
+$alert-slim-icon-size: units(3);
+$alert-icon-optical-factor: math.div(units($theme-alert-icon-size), 6);
+$alert-icon-optical-padding: units($theme-alert-padding-x) -
+  $alert-icon-optical-factor;
+
+@mixin alert-slim-styles {
+  @include u-padding-y(1);
+
+  $alert-slim-icon-size: units(3);
+
+  .usa-alert__body {
+    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
+  }
+}
+
+@mixin add-slim-alert-icon($icon-size: units(3)) {
+  &:before {
+    background-size: $icon-size;
+    height: units(5);
+    width: $icon-size;
+
+    @supports (mask: url("")) {
+      mask-size: $icon-size;
+    }
+  }
+}
+
+@mixin add-alert-icon($name, $color, $bgcolor, $icon-padding: null) {
+  $icon-object: (
+    "name": "ICON_NAME",
+    "svg-height": 40,
+    "svg-width": 40,
+    "height": $theme-icon-image-size,
+    "color": "ink",
+  );
+
+  $this-icon-object: map-merge(
+    $icon-object,
+    (
+      "name": $name,
+      "color": $color,
+      "height": $theme-alert-icon-size,
+    )
+  );
+  &:before {
+    @include add-color-icon($this-icon-object, $bgcolor);
+    content: "";
+    display: block;
+    height: (2 * units($theme-alert-padding-y)) + units(3);
+    // padding - optical spacing value
+    left: $icon-padding;
+    position: absolute;
+    top: 0;
+  }
+  &.usa-alert--slim {
+    @include add-slim-alert-icon();
+  }
+}
+
+@mixin alert-status-styles($name, $icon, $icon-padding: null) {
+
+
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
@@ -10,7 +77,12 @@
     $context: "Alert (#{$name})"
   );
 
-  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  @include add-alert-icon(
+    $icon,
+    $banner-text-color-token,
+    $bgcolor,
+    $icon-padding
+  );
   background-color: color($bgcolor);
   border-left-color: color($name);
   color: color($banner-text-color-token);
