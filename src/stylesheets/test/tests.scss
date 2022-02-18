@@ -401,29 +401,29 @@ $this-function: "decompose-color-token()";
 //   }
 // }
 
-// $this-function: "color-token-grade()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns `default` from default theme token.") {
-//     $test: color-token-grade("primary");
-//     $expect: "root";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `default` from default compound theme token.") {
-//     $test: color-token-grade("accent-warm");
-//     $expect: "root";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `default` from a vivid theme token.") {
-//     $test: color-token-grade("secondary-vivid");
-//     $expect: "root";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns proper relative grade from theme token.") {
-//     $test: color-token-grade("accent-warm-dark");
-//     $expect: "dark";
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "color-token-grade()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns `default` from default theme token.") {
+    $test: color-token-grade("primary");
+    $expect: "root";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `default` from default compound theme token.") {
+    $test: color-token-grade("accent-warm");
+    $expect: "root";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `default` from a vivid theme token.") {
+    $test: color-token-grade("secondary-vivid");
+    $expect: "root";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper relative grade from theme token.") {
+    $test: color-token-grade("accent-warm-dark");
+    $expect: "dark";
+    @include assert-equal($test, $expect);
+  }
+}
 
 // $this-function: "get-color-token-from-bg()";
 // @include describe("[function] #{$this-function}") {
