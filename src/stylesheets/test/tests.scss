@@ -577,62 +577,62 @@ $this-function: "color-token-grade()";
 //   }
 // }
 
-// $this-function: "is-accessible-magic-number()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns true if AA-large magic number is 40+.") {
-//     $test: is-accessible-magic-number(0, 40, "AA-large");
-//     $expect: true;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns false if AA-large magic number is not 40+.") {
-//     $test: is-accessible-magic-number(0, 30, "AA-large");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns true if AA magic number is 50+.") {
-//     $test: is-accessible-magic-number(0, 50, "AA");
-//     $expect: true;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns false if AA magic number is not 50+.") {
-//     $test: is-accessible-magic-number(0, 40, "AA");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns true if AA magic number is 70+.") {
-//     $test: is-accessible-magic-number(0, 70, "AAA");
-//     $expect: true;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns false if AA magic number is not 70+.") {
-//     $test: is-accessible-magic-number(0, 60, "AAA");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "is-accessible-magic-number()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns true if AA-large magic number is 40+.") {
+    $test: is-accessible-magic-number(0, 40, "AA-large");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false if AA-large magic number is not 40+.") {
+    $test: is-accessible-magic-number(0, 30, "AA-large");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns true if AA magic number is 50+.") {
+    $test: is-accessible-magic-number(0, 50, "AA");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false if AA magic number is not 50+.") {
+    $test: is-accessible-magic-number(0, 40, "AA");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns true if AA magic number is 70+.") {
+    $test: is-accessible-magic-number(0, 70, "AAA");
+    $expect: true;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false if AA magic number is not 70+.") {
+    $test: is-accessible-magic-number(0, 60, "AAA");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
 
-// $this-function: "color-token-variant()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns `vivid` if it's a vivid system token.") {
-//     $test: color-token-variant("red-50v");
-//     $expect: "vivid";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `vivid` if it's a vivid theme token.") {
-//     $test: color-token-variant("primary-vivid");
-//     $expect: "vivid";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns false if it's a standard system token.") {
-//     $test: color-token-variant("red-50");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns false if it's a standard theme token.") {
-//     $test: color-token-variant("warning");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "color-token-variant()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns `vivid` if it's a vivid system token.") {
+    $test: color-token-variant("red-50v");
+    $expect: "vivid";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `vivid` if it's a vivid theme token.") {
+    $test: color-token-variant("primary-vivid");
+    $expect: "vivid";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false if it's a standard system token.") {
+    $test: color-token-variant("red-50");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns false if it's a standard theme token.") {
+    $test: color-token-variant("warning");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
 
 // Debug
