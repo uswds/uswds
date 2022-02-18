@@ -223,78 +223,78 @@ $this-function: "decompose-color-token()";
     $expect: "red-warm", 50, false;
     @include assert-equal($test, $expect);
   }
-  // @include it(
-  //   "Returns proper family, grade, and variant for vivid system color tokens."
-  // ) {
-  //   $test: decompose-color-token("red-warm-50v");
-  //   $expect: "red-warm", 50, "vivid";
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns proper family, grade, and variant for `black` tokens.") {
-  //   $test: decompose-color-token("black");
-  //   $expect: "black", 100, false;
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns proper family, grade, and variant for `white` tokens.") {
-  //   $test: decompose-color-token("white");
-  //   $expect: "white", 0, false;
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns `default` grade for default compound theme tokens.") {
-  //   $test: decompose-color-token("accent-cool");
-  //   $expect: "accent-cool", "root", false;
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns `default` grade for default theme tokens.") {
-  //   $test: decompose-color-token("base");
-  //   $expect: "base", "root", false;
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns proper values for `ink` token.") {
-  //   $test: decompose-color-token("ink");
-  //   $expect: "base", "darkest", false;
-  //   @include assert-equal($test, $expect);
-  // }
-  // @include it("Returns proper values for vivid theme tokens.") {
-  //   $test: decompose-color-token("secondary-vivid");
-  //   $expect: "secondary", "root", "vivid";
-  //   @include assert-equal($test, $expect);
-  // }
+  @include it(
+    "Returns proper family, grade, and variant for vivid system color tokens."
+  ) {
+    $test: decompose-color-token("red-warm-50v");
+    $expect: "red-warm", 50, "vivid";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper family, grade, and variant for `black` tokens.") {
+    $test: decompose-color-token("black");
+    $expect: "black", 100, false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper family, grade, and variant for `white` tokens.") {
+    $test: decompose-color-token("white");
+    $expect: "white", 0, false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `default` grade for default compound theme tokens.") {
+    $test: decompose-color-token("accent-cool");
+    $expect: "accent-cool", "root", false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `default` grade for default theme tokens.") {
+    $test: decompose-color-token("base");
+    $expect: "base", "root", false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper values for `ink` token.") {
+    $test: decompose-color-token("ink");
+    $expect: "base", "darkest", false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns proper values for vivid theme tokens.") {
+    $test: decompose-color-token("secondary-vivid");
+    $expect: "secondary", "root", "vivid";
+    @include assert-equal($test, $expect);
+  }
 }
 
-// $this-function: "color-token-type()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Identifies standard system tokens as `system`.") {
-//     $test: color-token-type("red-warm-50");
-//     $expect: "system";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Identifies the `black` token as `system`.") {
-//     $test: color-token-type("black");
-//     $expect: "system";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Identifies the `white` token as `system`.") {
-//     $test: color-token-type("white");
-//     $expect: "system";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Identifies the `transparent` token as `system`.") {
-//     $test: color-token-type("transparent");
-//     $expect: "system";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Identifies theme tokens as `theme`.") {
-//     $test: color-token-type("accent-warm-lightest");
-//     $expect: "theme";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Identifies state tokens as `theme`.") {
-//     $test: color-token-type("error-dark");
-//     $expect: "theme";
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "color-token-type()";
+@include describe("[function] #{$this-function}") {
+  @include it("Identifies standard system tokens as `system`.") {
+    $test: color-token-type("red-warm-50");
+    $expect: "system";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Identifies the `black` token as `system`.") {
+    $test: color-token-type("black");
+    $expect: "system";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Identifies the `white` token as `system`.") {
+    $test: color-token-type("white");
+    $expect: "system";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Identifies the `transparent` token as `system`.") {
+    $test: color-token-type("transparent");
+    $expect: "system";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Identifies theme tokens as `theme`.") {
+    $test: color-token-type("accent-warm-lightest");
+    $expect: "theme";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Identifies state tokens as `theme`.") {
+    $test: color-token-type("error-dark");
+    $expect: "theme";
+    @include assert-equal($test, $expect);
+  }
+}
 
 // $this-function: "next-token()";
 // @include describe("[function] #{$this-function}") {
