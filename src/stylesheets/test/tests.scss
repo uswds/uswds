@@ -3,7 +3,7 @@
 );
 
 @use "../core/settings/settings-general" with (
-  $theme-show-compile-warnings: true
+  $theme-show-compile-warnings: false
 );
 
 $custom-hex-grade-25: #dad;

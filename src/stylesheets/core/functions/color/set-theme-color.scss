@@ -50,7 +50,7 @@ or a hex value
     @return $our-color;
   }
 
-  @error '`#{$value}` is not a valid USWDS color token. '
+  @error '`#{$value}` is not a valid USWDS color token.'
       + 'See designsystem.digital.gov/design-tokens/color '
       + 'for more information.';
 }
