@@ -210,6 +210,14 @@
   &:hover {
     background-color: color("white");
   }
+
+  @media (forced-colors: active) {
+    background-color: LinkText;
+
+    &:hover {
+      background-color: Highlight;
+    }
+  }
 }
 
 .usa-social-link__icon {
