@@ -297,109 +297,109 @@ $this-function: "color-token-type()";
   }
 }
 
-// $this-function: "next-token()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns the proper darker standard system token.") {
-//     $test: next-token("red-warm-50", "darker");
-//     $expect: "red-warm-60";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper lighter standard system token.") {
-//     $test: next-token("red-warm-50", "lighter");
-//     $expect: "red-warm-40";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper darker vivid system token.") {
-//     $test: next-token("red-warm-50v", "darker");
-//     $expect: "red-warm-60v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper lighter vivid system token.") {
-//     $test: next-token("red-warm-50v", "lighter");
-//     $expect: "red-warm-40v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns a non-vivid token for grade 90.") {
-//     $test: next-token("red-warm-80v", "darker");
-//     $expect: "red-warm-90";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `black` when darker from grade 90.") {
-//     $test: next-token("red-warm-90", "darker");
-//     $expect: "black";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `white` when lighter from grade 5.") {
-//     $test: next-token("green-5v", "lighter");
-//     $expect: "white";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `white` when lighter from < grade 5.") {
-//     $test: next-token("gray-2", "lighter");
-//     $expect: "white";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns grade 5 when lighter from grade 10.") {
-//     $test: next-token("gray-10", "lighter");
-//     $expect: "gray-5";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns grade 10 when darker from grade 5.") {
-//     $test: next-token("gray-warm-5", "darker");
-//     $expect: "gray-warm-10";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns grade 10 when darker from < grade 5.") {
-//     $test: next-token("gray-warm-3", "darker");
-//     $expect: "gray-warm-10";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper darker system token.") {
-//     $test: next-token("primary-light", "darker");
-//     $expect: "primary";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `dark` when darker from theme vivid.") {
-//     $test: next-token("primary-vivid", "darker");
-//     $expect: "primary-dark";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `light` when lighter from theme vivid.") {
-//     $test: next-token("primary-vivid", "lighter");
-//     $expect: "primary-light";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `black` when darker from darkest.") {
-//     $test: next-token("primary-darkest", "darker");
-//     $expect: "black";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `white` when lighter into a false value.") {
-//     $test: next-token("accent-cool-lighter", "lighter");
-//     $expect: "white";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `white` when lighter from lightest.") {
-//     $test: next-token("primary-lightest", "lighter");
-//     $expect: "white";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `false` when darker from `transparent`.") {
-//     $test: next-token("transparent", "darker");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `false` when darker from any `-transparent` token.") {
-//     $test: next-token("black-transparent-90", "darker");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns `false` when lighter from any `-transparent` token.") {
-//     $test: next-token("white-transparent-90", "darker");
-//     $expect: false;
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "next-token()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the proper darker standard system token.") {
+    $test: next-token("red-warm-50", "darker");
+    $expect: "red-warm-60";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper lighter standard system token.") {
+    $test: next-token("red-warm-50", "lighter");
+    $expect: "red-warm-40";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper darker vivid system token.") {
+    $test: next-token("red-warm-50v", "darker");
+    $expect: "red-warm-60v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper lighter vivid system token.") {
+    $test: next-token("red-warm-50v", "lighter");
+    $expect: "red-warm-40v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a non-vivid token for grade 90.") {
+    $test: next-token("red-warm-80v", "darker");
+    $expect: "red-warm-90";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `black` when darker from grade 90.") {
+    $test: next-token("red-warm-90", "darker");
+    $expect: "black";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `white` when lighter from grade 5.") {
+    $test: next-token("green-5v", "lighter");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `white` when lighter from < grade 5.") {
+    $test: next-token("gray-2", "lighter");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns grade 5 when lighter from grade 10.") {
+    $test: next-token("gray-10", "lighter");
+    $expect: "gray-5";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns grade 10 when darker from grade 5.") {
+    $test: next-token("gray-warm-5", "darker");
+    $expect: "gray-warm-10";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns grade 10 when darker from < grade 5.") {
+    $test: next-token("gray-warm-3", "darker");
+    $expect: "gray-warm-10";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper darker system token.") {
+    $test: next-token("primary-light", "darker");
+    $expect: "primary";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `dark` when darker from theme vivid.") {
+    $test: next-token("primary-vivid", "darker");
+    $expect: "primary-dark";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `light` when lighter from theme vivid.") {
+    $test: next-token("primary-vivid", "lighter");
+    $expect: "primary-light";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `black` when darker from darkest.") {
+    $test: next-token("primary-darkest", "darker");
+    $expect: "black";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `white` when lighter into a false value.") {
+    $test: next-token("accent-cool-lighter", "lighter");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `white` when lighter from lightest.") {
+    $test: next-token("primary-lightest", "lighter");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` when darker from `transparent`.") {
+    $test: next-token("transparent", "darker");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` when darker from any `-transparent` token.") {
+    $test: next-token("black-transparent-90", "darker");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns `false` when lighter from any `-transparent` token.") {
+    $test: next-token("white-transparent-90", "darker");
+    $expect: false;
+    @include assert-equal($test, $expect);
+  }
+}
 
 $this-function: "color-token-grade()";
 @include describe("[function] #{$this-function}") {
