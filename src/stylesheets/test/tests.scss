@@ -2,6 +2,10 @@
   $_error-output-override: true
 );
 
+@use "../core/settings/settings-general" with (
+  $theme-show-compile-warnings: true
+);
+
 $custom-hex-grade-25: #dad;
 $custom-hex-grade-55: rgb(0, 124, 87);
 $custom-hex-grade-65: rgb(47, 92, 78);
@@ -9,7 +13,6 @@ $custom-hex-grade-70: rgb(0, 75, 68);
 $custom-hex-transparent: rgb(0, 0, 0, 0.2);
 
 $theme-show-notifications: false;
-$theme-show-compile-warnings: true;
 $theme-color-primary-lightest: "gray-warm-3";
 $theme-color-warning: "orange-50v";
 $theme-color-secondary: $custom-hex-grade-65;
@@ -425,158 +428,158 @@ $this-function: "color-token-grade()";
   }
 }
 
-// $this-function: "get-color-token-from-bg()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns the default from light bg.") {
-//     $test: get-color-token-from-bg("white");
-//     $expect: $theme-text-color;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the default reverse from dark bg.") {
-//     $test: get-color-token-from-bg("ink");
-//     $expect: $theme-text-reverse-color;
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper AA Large color.") {
-//     $test: get-color-token-from-bg("white", "gray-40", "gray-50", "AA-large");
-//     $expect: "gray-40";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the proper AAA color.") {
-//     $test: get-color-token-from-bg("white", "gray-50", "gray-70", "AAA");
-//     $expect: "gray-70";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "Returns custom hex theme color, calculating proper custom grade"
-//   ) {
-//     $test: get-color-token-from-bg(
-//       "gray-80",
-//       "gray-40",
-//       "accent-warm-lightest"
-//     );
-//     $expect: "accent-warm-lightest";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "[LOOK FOR WARNING] Picks the best color, if neither preferred nor fallback pass, with WARNING."
-//   ) {
-//     $test: get-color-token-from-bg(
-//       "gray-50",
-//       "gray-20",
-//       "gray-90",
-//       $context: "get-color-token-from-bg(): No accessible option (choose best)"
-//     );
-//     $expect: "gray-90";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "Passing the `transparent` token throws an error. (Hard error in non-test environment.)"
-//   ) {
-//     $test: calculate-grade("transparent");
-//     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "Passing a transparent color throws an error. (Hard error in non-test environment.)"
-//   ) {
-//     $test: calculate-grade("black-transparent-50");
-//     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "Passing a transparent custom color throws an error. (Hard error in non-test environment.)"
-//   ) {
-//     $test: calculate-grade(rgba(0, 0, 0, 0.2));
-//     $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "[LOOK FOR WARNING] Return non-accessible combination with preferred and WARNING."
-//   ) {
-//     $test: get-color-token-from-bg(
-//       "white",
-//       "accent-warm-lightest",
-//       "gray-10",
-//       $context: "get-color-token-from-bg(): Failing contrast"
-//     );
-//     $expect: "accent-warm-lightest";
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "get-color-token-from-bg()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the default from light bg.") {
+    $test: get-color-token-from-bg("white");
+    $expect: $theme-text-color;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the default reverse from dark bg.") {
+    $test: get-color-token-from-bg("ink");
+    $expect: $theme-text-reverse-color;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper AA Large color.") {
+    $test: get-color-token-from-bg("white", "gray-40", "gray-50", "AA-large");
+    $expect: "gray-40";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the proper AAA color.") {
+    $test: get-color-token-from-bg("white", "gray-50", "gray-70", "AAA");
+    $expect: "gray-70";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Returns custom hex theme color, calculating proper custom grade"
+  ) {
+    $test: get-color-token-from-bg(
+      "gray-80",
+      "gray-40",
+      "accent-warm-lightest"
+    );
+    $expect: "accent-warm-lightest";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Picks the best color, if neither preferred nor fallback pass, with WARNING."
+  ) {
+    $test: get-color-token-from-bg(
+      "gray-50",
+      "gray-20",
+      "gray-90",
+      $context: "get-color-token-from-bg(): No accessible option (choose best)"
+    );
+    $expect: "gray-90";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Passing the `transparent` token throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade("transparent");
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Passing a transparent color throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade("black-transparent-50");
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Passing a transparent custom color throws an error. (Hard error in non-test environment.)"
+  ) {
+    $test: calculate-grade(rgba(0, 0, 0, 0.2));
+    $expect: "Error: USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Return non-accessible combination with preferred and WARNING."
+  ) {
+    $test: get-color-token-from-bg(
+      "white",
+      "accent-warm-lightest",
+      "gray-10",
+      $context: "get-color-token-from-bg(): Failing contrast"
+    );
+    $expect: "accent-warm-lightest";
+    @include assert-equal($test, $expect);
+  }
+}
 
-// $this-function: "get-link-tokens-from-bg()";
-// @include describe("[function] #{$this-function}") {
-//   @include it("Returns the standard defaults from light bg.") {
-//     $test: get-link-tokens-from-bg("white", default);
-//     $expect: "primary", "primary-dark";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Returns the reverse defaults from dark bg.") {
-//     $test: get-link-tokens-from-bg("ink", default);
-//     $expect: "white", "gold-20v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Builds proper links from custom hex.") {
-//     $test: get-link-tokens-from-bg("white", "secondary-vivid");
-//     $expect: "secondary-vivid", "secondary-dark";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Builds proper preferred links from color tokens.") {
-//     $test: get-link-tokens-from-bg("white", "red-50v", "red-20v");
-//     $expect: "red-50v", "red-60v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Builds proper fallback links from color tokens.") {
-//     $test: get-link-tokens-from-bg("white", "red-20v", "red-50v");
-//     $expect: "red-50v", "red-60v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Builds proper preferred reverse links from color tokens.") {
-//     $test: get-link-tokens-from-bg("black", "red-50v", "red-20v");
-//     $expect: "red-50v", "red-40v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it("Builds proper fallback reverse links from color tokens.") {
-//     $test: get-link-tokens-from-bg("black", "red-60v", "red-50v");
-//     $expect: "red-50v", "red-40v";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "[LOOK FOR WARNING] White link has no hover possible so sets hover to white with WARNING."
-//   ) {
-//     $test: get-link-tokens-from-bg(
-//       "black",
-//       "white",
-//       $context: "get-link-tokens-from-bg(): No hover possible (white)"
-//     );
-//     $expect: "white", "white";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "[LOOK FOR WARNING] Black link has no hover possible so sets hover to black with WARNING."
-//   ) {
-//     $test: get-link-tokens-from-bg(
-//       "white",
-//       "black",
-//       $context: "get-link-tokens-from-bg(): No hover possible (black)"
-//     );
-//     $expect: "black", "black";
-//     @include assert-equal($test, $expect);
-//   }
-//   @include it(
-//     "[LOOK FOR WARNING] Return non-accessible link/hover with WARNING."
-//   ) {
-//     $test: get-link-tokens-from-bg(
-//       "white",
-//       "accent-warm-light",
-//       "gray-10",
-//       $context: "get-link-tokens-from-bg(): Failing contrast"
-//     );
-//     $expect: "accent-warm-light", "accent-warm";
-//     @include assert-equal($test, $expect);
-//   }
-// }
+$this-function: "get-link-tokens-from-bg()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the standard defaults from light bg.") {
+    $test: get-link-tokens-from-bg("white", default);
+    $expect: "primary", "primary-dark";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the reverse defaults from dark bg.") {
+    $test: get-link-tokens-from-bg("ink", default);
+    $expect: "white", "gold-20v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper links from custom hex.") {
+    $test: get-link-tokens-from-bg("white", "secondary-vivid");
+    $expect: "secondary-vivid", "secondary-dark";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper preferred links from color tokens.") {
+    $test: get-link-tokens-from-bg("white", "red-50v", "red-20v");
+    $expect: "red-50v", "red-60v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper fallback links from color tokens.") {
+    $test: get-link-tokens-from-bg("white", "red-20v", "red-50v");
+    $expect: "red-50v", "red-60v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper preferred reverse links from color tokens.") {
+    $test: get-link-tokens-from-bg("black", "red-50v", "red-20v");
+    $expect: "red-50v", "red-40v";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Builds proper fallback reverse links from color tokens.") {
+    $test: get-link-tokens-from-bg("black", "red-60v", "red-50v");
+    $expect: "red-50v", "red-40v";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] White link has no hover possible so sets hover to white with WARNING."
+  ) {
+    $test: get-link-tokens-from-bg(
+      "black",
+      "white",
+      $context: "get-link-tokens-from-bg(): No hover possible (white)"
+    );
+    $expect: "white", "white";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Black link has no hover possible so sets hover to black with WARNING."
+  ) {
+    $test: get-link-tokens-from-bg(
+      "white",
+      "black",
+      $context: "get-link-tokens-from-bg(): No hover possible (black)"
+    );
+    $expect: "black", "black";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "[LOOK FOR WARNING] Return non-accessible link/hover with WARNING."
+  ) {
+    $test: get-link-tokens-from-bg(
+      "white",
+      "accent-warm-light",
+      "gray-10",
+      $context: "get-link-tokens-from-bg(): Failing contrast"
+    );
+    $expect: "accent-warm-light", "accent-warm";
+    @include assert-equal($test, $expect);
+  }
+}
 
 $this-function: "is-accessible-magic-number()";
 @include describe("[function] #{$this-function}") {
