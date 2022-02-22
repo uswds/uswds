@@ -36,7 +36,7 @@ export const SignInPage = (args) =>
   SignInForm({
     ...args,
     banner: {
-      ...BannerContent
+      ...BannerContent,
     },
     ...IdentifierContent,
     ...DefaultContent,
@@ -66,7 +66,7 @@ export const MultipleSignInPageSpanish = (args) =>
   SignInMultipleForm({
     ...args,
     banner: {
-      ...EsBannerContent
+      ...EsBannerContent,
     },
     ...EsIdentifierContent,
     ...EsMultipleContent,

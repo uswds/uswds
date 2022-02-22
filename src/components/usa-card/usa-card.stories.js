@@ -1,6 +1,11 @@
 import Component from "./usa-card.twig";
 
-import { DefaultContent, FlagContent, StandardContent, MediaContent } from "./content";
+import {
+  DefaultContent,
+  FlagContent,
+  StandardContent,
+  MediaContent,
+} from "./content";
 
 export default {
   title: "Components/Card",

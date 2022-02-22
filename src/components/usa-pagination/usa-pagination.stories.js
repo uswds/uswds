@@ -1,6 +1,11 @@
 import Component from "./usa-pagination.twig";
 
-import { DefaultContent, UnboundedContent, EsContent, EsUnboundedContent } from "./content";
+import {
+  DefaultContent,
+  UnboundedContent,
+  EsContent,
+  EsUnboundedContent,
+} from "./content";
 
 export default {
   title: "Components/Pagination",

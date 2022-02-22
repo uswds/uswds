@@ -28,7 +28,7 @@ export const CreateAccountPage = (args) =>
   Component({
     ...args,
     banner: {
-      ...BannerContent
+      ...BannerContent,
     },
     ...IdentifierContent,
     ...DefaultContent,

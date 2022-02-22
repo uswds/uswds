@@ -25,5 +25,5 @@ export default {
 
 export const DocumentationPage = (args) =>
   Component({
-    ...args
+    ...args,
   });

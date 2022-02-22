@@ -1,6 +1,11 @@
 import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--scrollable.twig";
-import { DefaultContent, StripedContent, CompactContent, CompactStripedContent } from "./content";
+import {
+  DefaultContent,
+  StripedContent,
+  CompactContent,
+  CompactStripedContent,
+} from "./content";
 
 export default {
   title: "Components/Table/Scrollable",

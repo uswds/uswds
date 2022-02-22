@@ -35,8 +35,8 @@ export const PageNotFoundSpanish = (args) =>
   Component({
     ...args,
     banner: {
-      ...EsBannerContent
+      ...EsBannerContent,
     },
     ...EsContent,
-    ...EsIdentifierContent
+    ...EsIdentifierContent,
   });
