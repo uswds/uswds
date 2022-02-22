@@ -1,18 +1,14 @@
 {
   "name": "@gscottqueen/stylesheets",
-  "version": "1.0.10",
-  "description": "testing site index",
+  "version": "0.0.1",
+  "description": "testing stylesheets scss",
   "main": "uswds.scss",
-  "scripts": {
-    "build": "sass src/index.scss src/css/index.css"
-  },
-  "keywords": [
-    "web component"
-  ],
-  "author": "USWDS",
+  "author": "18F",
   "license": "ISC",
-  "devDependencies": {},
-  "directories": {
-    "test": "test"
+  "dependencies": {
+    "sass-true": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.20"
   }
 }
