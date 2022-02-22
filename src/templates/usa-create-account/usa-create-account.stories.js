@@ -27,7 +27,9 @@ export default {
 export const CreateAccountPage = (args) =>
   Component({
     ...args,
-    ...BannerContent,
+    banner: {
+      ...BannerContent
+    },
     ...IdentifierContent,
     ...DefaultContent,
   });
@@ -35,7 +37,9 @@ export const CreateAccountPage = (args) =>
 export const CreateAccountPageSpanish = (args) =>
   Component({
     ...args,
-    ...EsBannerContent,
+    banner: {
+      ...EsBannerContent,
+    },
     ...EsIdentifierContent,
     ...EsContent,
   });

@@ -11,11 +11,13 @@ import Component from "./usa-landing.twig";
 export default {
   title: "Pages/Landing",
   args: {
-    ...BannerContent,
+    banner: {
+      ...BannerContent,
+    },
     ...TitleContent,
     ...HeaderContent,
     ...IdentifierContent,
-    ...FooterContent,  
+    ...FooterContent,
   },
 };
 

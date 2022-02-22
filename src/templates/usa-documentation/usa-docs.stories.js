@@ -12,7 +12,9 @@ import Component from "./usa-docs.twig";
 export default {
   title: "Pages/Documentation",
   args: {
-    ...BannerContent,
+    banner: {
+      ...BannerContent,
+    },
     ...TitleContent,
     ...HeaderContent,
     ...FooterContent,
