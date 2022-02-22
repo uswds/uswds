@@ -1,4 +1,5 @@
 {
-  "title": "<Project title>",
-  "href": "javascript:void(0)"
+  "site_title": "<Project title>",
+  "href": "javascript:void(0)",
+  "id_prefix": "basic"
 }

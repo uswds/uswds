@@ -1,2 +1,2 @@
-export { default as Data } from "./usa-tag.json";
-export { default as BigData } from "./usa-tag~big.json";
+export { default as DefaultContent } from "./usa-tag.json";
+export { default as BigContent } from "./usa-tag~big.json";

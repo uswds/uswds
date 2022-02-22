@@ -1,14 +1,15 @@
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
-import { headerData, headerMegamenuData } from "./content";
+import { DefaultContent, MegamenuContent } from "./content";
 
 import {
-  headerExtendedData,
-  headerExtendedMegamenuData,
+  ExtendedContent,
+  ExtendedMegamenuContent,
 } from "./usa-header--extended";
 
-import navSecondaryData from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
+import navSecondaryContent from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../usa-search/content";
+import TitleContent from "../usa-site-title/usa-site-title.json";
 
 export default {
   title: "Components/Header",
@@ -18,6 +19,7 @@ export default {
       ...SmallSearchContent,
       search_js: true,
     },
+    ...TitleContent,
   },
 };
 
@@ -25,25 +27,25 @@ const Template = (args) => Component(args);
 const ExtendedTemplate = (args) => ComponentExtended(args);
 
 export const Default = Template.bind({});
-Default.args = headerData;
+Default.args = DefaultContent;
 
 export const Megamenu = Template.bind({});
-Megamenu.args = headerMegamenuData;
+Megamenu.args = MegamenuContent;
 
 export const Extended = ExtendedTemplate.bind({});
 Extended.args = {
-  ...headerExtendedData,
-  navSecondaryData: {
-    ...navSecondaryData,
+  ...ExtendedContent,
+  navSecondaryContent: {
+    ...navSecondaryContent,
     search: true,
   },
 };
 
 export const ExtendedMegamenu = ExtendedTemplate.bind({});
 ExtendedMegamenu.args = {
-  ...headerExtendedMegamenuData,
-  navSecondaryData: {
-    ...navSecondaryData,
+  ...ExtendedMegamenuContent,
+  navSecondaryContent: {
+    ...navSecondaryContent,
     search: true,
   },
 };

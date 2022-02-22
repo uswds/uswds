@@ -1,4 +1,4 @@
-export { default as Data } from "./usa-card.json";
-export { default as FlagData } from "./usa-card~flag.json";
-export { default as StandardData } from "./usa-card~standard.json";
-export { default as MediaData } from "./usa-card~media.json";
+export { default as DefaultContent } from "./usa-card.json";
+export { default as FlagContent } from "./usa-card~flag.json";
+export { default as StandardContent } from "./usa-card~standard.json";
+export { default as MediaContent } from "./usa-card~media.json";

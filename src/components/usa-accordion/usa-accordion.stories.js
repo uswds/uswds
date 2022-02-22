@@ -1,5 +1,5 @@
 import Component from "./usa-accordion.twig";
-import { Data, BorderedData, MultiData } from "./content";
+import { DefaultContent, BorderedContent, MultiContent } from "./content";
 
 export default {
   title: "Components/Accordion",
@@ -8,10 +8,10 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Bordered = Template.bind({});
-Bordered.args = BorderedData;
+Bordered.args = BorderedContent;
 
 export const Multiselectable = Template.bind({});
-Multiselectable.args = MultiData;
+Multiselectable.args = MultiContent;

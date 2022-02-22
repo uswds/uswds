@@ -1,6 +1,11 @@
 import Component from "./usa-card.twig";
 
-import { Data, FlagData, StandardData, MediaData } from "./content";
+import {
+  DefaultContent,
+  FlagContent,
+  StandardContent,
+  MediaContent,
+} from "./content";
 
 export default {
   title: "Components/Card",
@@ -9,13 +14,13 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Flag = Template.bind({});
-Flag.args = FlagData;
+Flag.args = FlagContent;
 
 export const Standard = Template.bind({});
-Standard.args = StandardData;
+Standard.args = StandardContent;
 
 export const Media = Template.bind({});
-Media.args = MediaData;
+Media.args = MediaContent;

@@ -1,12 +1,12 @@
 import Component from "./usa-site-alert.twig";
 import {
-  Data,
-  InfoData,
-  EmergencyData,
-  EmergencyListData,
-  EmergencyNoHeaderData,
-  EmergencyNoIconData,
-  EmergencySlimData,
+  DefaultContent,
+  InfoContent,
+  EmergencyContent,
+  EmergencyListContent,
+  EmergencyNoHeaderContent,
+  EmergencyNoIconContent,
+  EmergencySlimContent,
 } from "./content";
 
 export default {
@@ -16,22 +16,22 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Info = Template.bind({});
-Info.args = InfoData;
+Info.args = InfoContent;
 
 export const Emergency = Template.bind({});
-Emergency.args = EmergencyData;
+Emergency.args = EmergencyContent;
 
 export const EmergencyList = Template.bind({});
-EmergencyList.args = EmergencyListData;
+EmergencyList.args = EmergencyListContent;
 
 export const EmergencyNoHeader = Template.bind({});
-EmergencyNoHeader.args = EmergencyNoHeaderData;
+EmergencyNoHeader.args = EmergencyNoHeaderContent;
 
 export const EmergencyNoIcon = Template.bind({});
-EmergencyNoIcon.args = EmergencyNoIconData;
+EmergencyNoIcon.args = EmergencyNoIconContent;
 
 export const EmergencySlim = Template.bind({});
-EmergencySlim.args = EmergencySlimData;
+EmergencySlim.args = EmergencySlimContent;

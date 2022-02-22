@@ -9,7 +9,7 @@ import {
 } from "./content";
 
 export default {
-  title: "Components/Search",
+  title: "Components/Form Inputs/Search",
   args: {
     search_js: false,
   },

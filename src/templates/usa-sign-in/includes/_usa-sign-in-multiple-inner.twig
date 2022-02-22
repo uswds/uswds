@@ -7,13 +7,18 @@
             {{ tagline }}
           </h1>
           <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
-            <h1 class="margin-bottom-1">{{ title }}</h1>
+            <h1 class="margin-bottom-1">
+              {{ title }}
+            </h1>
             <div class="usa-prose">
-              <p class="margin-top-1">{{ description }}</p>
+              <p class="margin-top-1">
+                {{ description }}
+              </p>
             </div>
             {% for item in multiple %}
               <p>
-                <a href="{{ placeholder_link }}" class="usa-button usa-button--outline width-full">
+                <a href="{{ placeholder_link }}"
+                  class="usa-button usa-button--outline width-full">
                   {{ item.label }}
                 </a>
               </p>
@@ -22,9 +27,11 @@
               <p>
                 <strong>{{ create_account.label }}</strong>
               </p>
-              <p>{{ create_account.description }}</p>
               <p>
-                <a href="javascript:void()" class="usa-button width-full">
+                {{ create_account.description }}
+              </p>
+              <p>
+                <a href="{{ placeholder_link }}" class="usa-button width-full">
                   {{ create_account.cta.label }}
                 </a>
               </p>
@@ -32,8 +39,8 @@
           </div>
         </div>
         <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205">
-          {% include "@templates/usa-sign-in/includes/_value-props.twig" %}
-          {% include "@templates/usa-sign-in/includes/_max.twig" %}
+          {% include '@templates/usa-sign-in/includes/_value-props.twig' %}
+          {% include '@templates/usa-sign-in/includes/_max.twig' %}
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import Component from "./usa-hero.twig";
-import Data from "./usa-hero.json";
+import Content from "./usa-hero.json";
 
 export default {
   title: "Components/Hero",
@@ -8,4 +8,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const Hero = Template.bind({});
-Hero.args = Data;
+Hero.args = Content;

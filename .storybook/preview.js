@@ -8,4 +8,14 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+  options: {
+    storySort: {
+      order: [
+        "Design Tokens",
+        "Components",
+        "Patterns",
+        "Pages",
+      ],
+    },
+  },
+};

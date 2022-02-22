@@ -1,14 +1,14 @@
 import Component from "./usa-date-picker.twig";
-import Data from "./usa-date-picker.json";
+import Content from "./usa-date-picker.json";
 
 export default {
-  title: "Components/Date Picker",
+  title: "Components/Form Inputs/Date Picker",
 };
 
 const Template = (args) => Component(args);
 
 export const DatePicker = Template.bind({});
-DatePicker.args = Data;
+DatePicker.args = Content;
 
 export const DefaultDate = Template.bind({});
 DefaultDate.args = {

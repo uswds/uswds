@@ -3,6 +3,7 @@
   "title": "Sign in to your account",
   "tagline": "[A tagline that explains the benefit of creating an account.]",
   "description": "You can access your account by signing in with one of the options below.",
+  "placeholder_link": "javascript:void()",
   "multiple": [
     {
       "label": "Sign in with Login.gov"

@@ -1,5 +1,5 @@
 import Component from "./usa-button-group.twig";
-import { Data, SegmentedData } from "./content";
+import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
   title: "Components/Button Group",
@@ -8,7 +8,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Segmented = Template.bind({});
-Segmented.args = SegmentedData;
+Segmented.args = SegmentedContent;

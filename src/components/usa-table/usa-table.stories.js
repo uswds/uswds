@@ -1,7 +1,7 @@
 import Component from "./usa-table.twig";
 import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 
-import { Data, BorderlessData, StripedData } from "./content";
+import { DefaultContent, BorderlessContent, StripedContent } from "./content";
 
 export default {
   title: "Components/Table",
@@ -11,12 +11,12 @@ const Template = (args) => Component(args);
 const SortableTemplate = (args) => SortableComponent(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Borderless = Template.bind({});
-Borderless.args = BorderlessData;
+Borderless.args = BorderlessContent;
 
 export const Striped = Template.bind({});
-Striped.args = StripedData;
+Striped.args = StripedContent;
 
 export const Sortable = SortableTemplate.bind({});

@@ -1,6 +1,11 @@
 import Component from "./usa-pagination.twig";
 
-import { Data, UnboundedData, EsData, EsUnboundedData } from "./content";
+import {
+  DefaultContent,
+  UnboundedContent,
+  EsContent,
+  EsUnboundedContent,
+} from "./content";
 
 export default {
   title: "Components/Pagination",
@@ -9,13 +14,13 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Unbounded = Template.bind({});
-Unbounded.args = UnboundedData;
+Unbounded.args = UnboundedContent;
 
 export const Spanish = Template.bind({});
-Spanish.args = EsData;
+Spanish.args = EsContent;
 
 export const SpanishUnbounded = Template.bind({});
-SpanishUnbounded.args = EsUnboundedData;
+SpanishUnbounded.args = EsUnboundedContent;

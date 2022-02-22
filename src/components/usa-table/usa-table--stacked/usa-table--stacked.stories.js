@@ -1,10 +1,10 @@
 import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--stacked.twig";
 import {
-  Data,
-  BorderlessData,
-  HeaderData,
-  HeaderBorderlessData,
+  DefaultContent,
+  BorderlessContent,
+  HeaderContent,
+  HeaderBorderlessContent,
 } from "./content";
 
 export default {
@@ -14,13 +14,13 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Borderless = Template.bind({});
-Borderless.args = BorderlessData;
+Borderless.args = BorderlessContent;
 
 export const WithHeader = Template.bind({});
-WithHeader.args = HeaderData;
+WithHeader.args = HeaderContent;
 
 export const withHeaderBorderless = Template.bind({});
-withHeaderBorderless.args = HeaderBorderlessData;
+withHeaderBorderless.args = HeaderBorderlessContent;

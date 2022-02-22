@@ -1,13 +1,13 @@
 import Component from "./usa-identifier.twig";
 import {
-  Data,
-  EsData,
-  MultipleLogosData,
-  EsMultipleLogosData,
-  NoLogosData,
-  EsNoLogosData,
-  TaxpayerData,
-  EsTaxpayerData,
+  DefaultContent,
+  EsContent,
+  MultipleLogosContent,
+  EsMultipleLogosContent,
+  NoLogosContent,
+  EsNoLogosContent,
+  TaxpayerContent,
+  EsTaxpayerContent,
 } from "./content";
 
 export default {
@@ -17,25 +17,25 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const DefaultSpanish = Template.bind({});
-DefaultSpanish.args = EsData;
+DefaultSpanish.args = EsContent;
 
 export const MultipleParentsAndLogos = Template.bind({});
-MultipleParentsAndLogos.args = MultipleLogosData;
+MultipleParentsAndLogos.args = MultipleLogosContent;
 
 export const MultipleParentsAndLogosSpanish = Template.bind({});
-MultipleParentsAndLogosSpanish.args = EsMultipleLogosData;
+MultipleParentsAndLogosSpanish.args = EsMultipleLogosContent;
 
 export const NoLogos = Template.bind({});
-NoLogos.args = NoLogosData;
+NoLogos.args = NoLogosContent;
 
 export const NoLogosSpanish = Template.bind({});
-NoLogosSpanish.args = EsNoLogosData;
+NoLogosSpanish.args = EsNoLogosContent;
 
 export const TaxpayerDisclaimer = Template.bind({});
-TaxpayerDisclaimer.args = TaxpayerData;
+TaxpayerDisclaimer.args = TaxpayerContent;
 
 export const TaxpayerDisclaimerSpanish = Template.bind({});
-TaxpayerDisclaimerSpanish.args = EsTaxpayerData;
+TaxpayerDisclaimerSpanish.args = EsTaxpayerContent;

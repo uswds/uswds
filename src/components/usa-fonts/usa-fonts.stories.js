@@ -1,8 +1,8 @@
 import Component from "./usa-fonts.twig";
-import Data from "./usa-fonts.json";
+import Content from "./usa-fonts.json";
 
 export default {
-  title: "Components/Fonts",
+  title: "Design Tokens/Fonts",
   argTypes: {
     typefaces: {
       table: { disable: true },
@@ -13,4 +13,4 @@ export default {
 const Template = (args) => Component(args);
 
 export const Fonts = Template.bind({});
-Fonts.args = Data;
+Fonts.args = Content;

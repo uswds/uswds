@@ -1,33 +1,33 @@
 import Component from "./usa-file-input.twig";
 import {
-  Data,
-  DisabledData,
-  ErrorData,
-  MultipleData,
-  SpecificData,
-  WildcardData,
+  DefaultContent,
+  DisabledContent,
+  ErrorContent,
+  MultipleContent,
+  SpecificContent,
+  WildcardContent,
 } from "./content";
 
 export default {
-  title: "Components/File Input",
+  title: "Components/Form Inputs/File Input",
 };
 
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Disabled = Template.bind({});
-Disabled.args = DisabledData;
+Disabled.args = DisabledContent;
 
 export const Error = Template.bind({});
-Error.args = ErrorData;
+Error.args = ErrorContent;
 
 export const Multiple = Template.bind({});
-Multiple.args = MultipleData;
+Multiple.args = MultipleContent;
 
 export const Specific = Template.bind({});
-Specific.args = SpecificData;
+Specific.args = SpecificContent;
 
 export const Wildcard = Template.bind({});
-Wildcard.args = WildcardData;
+Wildcard.args = WildcardContent;

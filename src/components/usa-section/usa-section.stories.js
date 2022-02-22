@@ -1,5 +1,5 @@
 import Component from "./usa-section.twig";
-import { Data, DarkData, LightData } from "./content";
+import { DefaultContent, DarkContent, LightContent } from "./content";
 
 export default {
   title: "Components/Section",
@@ -8,10 +8,10 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = Data;
+Default.args = DefaultContent;
 
 export const Dark = Template.bind({});
-Dark.args = DarkData;
+Dark.args = DarkContent;
 
 export const Light = Template.bind({});
-Light.args = LightData;
+Light.args = LightContent;

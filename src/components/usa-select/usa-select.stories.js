@@ -1,7 +1,7 @@
 import Component from "./usa-select.twig";
 
 export default {
-  title: "Components/Select",
+  title: "Components/Form Inputs/Select",
 };
 
 const Template = (args) => Component(args);
