@@ -2,15 +2,15 @@
 
 $icon-object: (
   "color": "currentColor",
-  "svg-height": 24,
-  "svg-width": 24,
+  "svg-height": 20,
+  "svg-width": 20,
 );
 
 $chevron-next: map-merge(
   $icon-object,
   (
     "name": "navigate_next",
-    "height": units(3),
+    "height": units(2.5),
   )
 );
 
@@ -18,9 +18,13 @@ $chevron-expand-more: map-merge(
   $icon-object,
   (
     "name": "expand_more",
-    "height": units(3),
+    "height": units(2.5),
   )
 );
+
+$icon-margin: 0.5;
+$vertical-align: "auto";
+$contrast-bg: "default";
 
 // General footer styles
 .usa-footer {
@@ -329,24 +333,32 @@ $chevron-expand-more: map-merge(
       display: flex;
       justify-content: flex-start;
 
+      @media (forced-colors: active) {
+        @include place-icon(
+          $chevron-expand-more,
+          "before",
+          $icon-margin,
+          $vertical-align,
+          $contrast-bg
+        );
+
+        &::before {
+          background-color: buttonText;
+          background-image: initial !important;
+        }
+      }
+
       // Arrow for collapsible content.
       &::before {
-        // @include add-background-svg("usa-icons/expand_more");
+        @include add-background-svg("usa-icons/expand_more");
         @include u-square(2.5);
         align-items: center;
-        // background-size: contain;
+        background-size: contain;
         content: "";
         display: inline-flex;
         justify-content: center;
         margin-right: units(0.5);
         margin-left: units(-0.5);
-
-        // @media (forced-colors: active) {
-        @include add-color-icon($chevron-expand-more, $contrast-bg: default);
-        background-color: buttonText;
-        // background-image: none;
-        // position: absolute;
-        // }
       }
 
       @include at-media("mobile-lg") {
@@ -363,16 +375,24 @@ $chevron-expand-more: map-merge(
 
       .usa-footer__primary-link {
         &::before {
-          // @include add-background-svg("usa-icons/navigate_next");
-          // @media (forced-colors: active) {
-          @include add-color-icon($chevron-next, $contrast-bg: default);
-          background-color: buttonText;
-          //   background-image: none;
-          // }
+          @include add-background-svg("usa-icons/navigate_next");
         }
 
         @include at-media("mobile-lg") {
           margin: 0;
+        }
+
+        @media (forced-colors: active) {
+          @include place-icon(
+            $chevron-next,
+            "before",
+            $icon-margin,
+            $vertical-align,
+            $contrast-bg: default
+          );
+          &::before {
+            background-color: buttonText;
+          }
         }
       }
     }
