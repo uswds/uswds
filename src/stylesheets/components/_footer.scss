@@ -1,5 +1,28 @@
-// General footer styles
+// Map for high contrast mode icons
 
+$icon-object: (
+  "color": "currentColor",
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$chevron-next: map-merge(
+  $icon-object,
+  (
+    "name": "navigate_next",
+    "height": units(3),
+  )
+);
+
+$chevron-expand-more: map-merge(
+  $icon-object,
+  (
+    "name": "expand_more",
+    "height": units(3),
+  )
+);
+
+// General footer styles
 .usa-footer {
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
@@ -308,15 +331,22 @@
 
       // Arrow for collapsible content.
       &::before {
-        @include add-background-svg("usa-icons/expand_more");
+        // @include add-background-svg("usa-icons/expand_more");
         @include u-square(2.5);
         align-items: center;
-        background-size: contain;
+        // background-size: contain;
         content: "";
         display: inline-flex;
         justify-content: center;
         margin-right: units(0.5);
         margin-left: units(-0.5);
+
+        // @media (forced-colors: active) {
+        @include add-color-icon($chevron-expand-more, $contrast-bg: default);
+        background-color: buttonText;
+        // background-image: none;
+        // position: absolute;
+        // }
       }
 
       @include at-media("mobile-lg") {
@@ -333,7 +363,12 @@
 
       .usa-footer__primary-link {
         &::before {
-          @include add-background-svg("usa-icons/navigate_next");
+          // @include add-background-svg("usa-icons/navigate_next");
+          // @media (forced-colors: active) {
+          @include add-color-icon($chevron-next, $contrast-bg: default);
+          background-color: buttonText;
+          //   background-image: none;
+          // }
         }
 
         @include at-media("mobile-lg") {
