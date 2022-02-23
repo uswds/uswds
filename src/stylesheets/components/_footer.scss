@@ -313,7 +313,7 @@
 
       @include at-media("mobile-lg") {
         cursor: auto;
-        
+
         &::before {
           content: none;
         }
