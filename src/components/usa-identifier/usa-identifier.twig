@@ -59,7 +59,7 @@
       <ul class="usa-identifier__required-links-list">
         {% for link in required_links.links %}
           <li class="usa-identifier__required-links-item">
-            <a href="{{ link.url }}" class="usa-identifier__required-link">
+            <a href="{{ link.url }}" class="usa-identifier__required-link usa-link">
               {{ link.label }} {{ link.include_shortname ? masthead.parent.shortname|e }}
             </a>
           </li>
@@ -73,6 +73,6 @@
       <div class="usa-identifier__usagov-description">{{ usagov.description }}</div>
       <a href="{{ usagov.link.url }}" class="usa-link">{{ usagov.link.label }}</a>
     </div>
-  </section>
+  </section>  
   {% endif -%}
 </div>

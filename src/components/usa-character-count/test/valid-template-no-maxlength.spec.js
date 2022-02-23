@@ -17,36 +17,44 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
-describe("character count component without maxlength", () => {
-  const { body } = document;
+const characterCountSelector = () => document.querySelector('.usa-character-count');
 
-  let root;
-  let input;
-  let message;
+const tests = [
+  { name: "document.body", selector: () => document.body },
+  { name: "character count", selector: characterCountSelector }
+];
 
-  beforeEach(() => {
-    body.innerHTML = TEMPLATE;
-    CharacterCount.on();
+tests.forEach(({name, selector: containerSelector}) => {
+  describe(`character count component without maxlength initialized at ${name}`, () => {
+    const { body } = document;
 
-    root = body.querySelector(".usa-character-count");
-    input = root.querySelector(".usa-character-count__field");
-    message = root.querySelector(".usa-character-count__message");
-  });
+    let root;
+    let input;
+    let message;
 
-  afterEach(() => {
-    body.textContent = "";
-    CharacterCount.off(body);
-  });
+    beforeEach(() => {
+      body.innerHTML = TEMPLATE;
+      CharacterCount.on(containerSelector());
+      root = characterCountSelector();
+      input = root.querySelector(".usa-character-count__field");
+      message = root.querySelector(".usa-character-count__message");
+    });
 
-  it("should not update an initial message for the character count component", () => {
-    assert.strictEqual(message.innerHTML, "");
-  });
+    afterEach(() => {
+      CharacterCount.off(containerSelector());
+      body.textContent = "";
+    });
 
-  it("should not inform the user of remaining characters when typing", () => {
-    input.value = "1";
+    it("should not update an initial message for the character count component", () => {
+      assert.strictEqual(message.innerHTML, "");
+    });
 
-    EVENTS.input(input);
+    it("should not inform the user of remaining characters when typing", () => {
+      input.value = "1";
 
-    assert.strictEqual(message.innerHTML, "");
+      EVENTS.input(input);
+
+      assert.strictEqual(message.innerHTML, "");
+    });
   });
 });

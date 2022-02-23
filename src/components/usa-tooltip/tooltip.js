@@ -1,5 +1,5 @@
 // Tooltips
-const select = require("../../utils/select");
+const selectOrMatches = require("../../utils/select-or-matches");
 const behavior = require("../../utils/behavior");
 const { prefix: PREFIX } = require("../../config");
 const isElementInViewport = require("../../utils/is-in-viewport");
@@ -297,7 +297,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
  * Removes all the properties to show and position the tooltip,
  * and resets the tooltip position to the original intention
  * in case the window is resized or the element is moved through
- * DOM maniulation.
+ * DOM manipulation.
  * @param {HTMLElement} tooltipBody - The body of the tooltip
  */
 const hideToolTip = (tooltipBody) => {
@@ -359,9 +359,13 @@ const tooltip = behavior(
   {},
   {
     init(root) {
-      select(TOOLTIP, root).forEach((tooltipTrigger) => {
-        const { tooltipBody, position, tooltipContent, wrapper } =
-          setUpAttributes(tooltipTrigger);
+      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
+        const {
+          tooltipBody,
+          position,
+          tooltipContent,
+          wrapper,
+        } = setUpAttributes(tooltipTrigger);
 
         if (tooltipContent) {
           // Listeners for showing and hiding the tooltip

@@ -29,7 +29,7 @@ This repository is for the design system code itself. We maintain [another repos
   - [Where things live](#where-things-live)
   - [Browser support](#browser-support)
   - [Accessibility](#accessibility)
-  - [Fractal](#fractal)
+  - [Pattern library](#pattern-library)
     - [Template compatibility](#template-compatibility)
   - [Long-term support of v1.x](#long-term-support-of-v1x)
   - [Need installation help?](#need-installation-help)
@@ -309,7 +309,8 @@ function App() {
     // initialize
     characterCount.on(ref);
     // default ref is document.body, if you want to use
-    // default you do not have to pass arguments    accordion.on();
+    // default you do not have to pass arguments
+    accordion.on();
 
     // remove event listeners when component un-mounts.
     return () => {

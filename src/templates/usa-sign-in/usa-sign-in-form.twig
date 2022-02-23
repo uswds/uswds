@@ -1,0 +1,44 @@
+<form class="usa-form">
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend usa-legend--large">{{ form.legend }}</legend>
+    {# Email #}
+    <label class="usa-label" for="{{ email.input.id }}">
+      {{ email.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ email.input.id }}"
+      name="{{ email.input.id }}"
+      type="{{ email.input.type }}"
+      autocapitalize="off"
+      autocorrect="off"
+      required
+    >
+    {# /Email #}
+    {# Password #}
+    <label class="usa-label" for="{{ password.input.id }}">
+      {{ password.label }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ password.input.id }}"
+      name="password"
+      type="password"
+      required
+    >
+    {% include "@components/_usa-password/usa-password.twig" with {
+      toggle: password.toggle
+    } %}
+    {# /Password #}
+    <input class="usa-button" type="submit" value="{{ submit.label }}">
+    {# Forgot password #}
+    <p>
+      <a
+        href="{{ placeholder_link }}"
+        title="{{ recovery.title }}">
+        {{ recovery.label }}
+      </a>
+    </p>
+    {# /Forgot password #}
+  </fieldset>
+</form>

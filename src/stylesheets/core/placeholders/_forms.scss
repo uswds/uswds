@@ -30,8 +30,3 @@ $input-select-margin-right: 1.5;
     @include u-border($theme-input-state-border-width, "success");
   }
 }
-
-// Don't show dotted underline with "required" asterisk because it can cause legibility issues ad appear as an ellipsis...
-abbr[title="required"] {
-  text-decoration: none;
-}

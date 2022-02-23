@@ -13,9 +13,9 @@
     <li class="{{ card_classes ~ " " ~ card_overrides|join(' ') }}">
       {# @TODO Allow for overrides on Container #}
       <div class="usa-card__container">
-        <header class="usa-card__header">
+        <div class="usa-card__header">
           <h2 class="usa-card__heading">{{ card.title }}</h2>
-        </header>
+        </div>
 
         {% if card.media %}
           {% set media = card.media %}

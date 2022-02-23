@@ -38,3 +38,8 @@ $theme-site-max-width: $theme-grid-container-max-width !default;
 @mixin typeset-title {
   @include typeset-display;
 }
+
+// Deprecated in 2.12.0
+$theme-input-tile-background-color-selected: "primary-lighter" !default;
+$theme-input-tile-border-color: "base-lighter" !default;
+$theme-input-tile-border-color-selected: "primary-lighter" !default;
