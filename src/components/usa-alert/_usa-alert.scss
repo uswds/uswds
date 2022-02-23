@@ -64,11 +64,11 @@ $alert-padding-left: units($theme-alert-bar-width);
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-  // @include set-text-and-bg(
-  //   "base-lightest",
-  //   $theme-alert-text-color,
-  //   $theme-alert-text-reverse-color
-  // );
+  @include set-text-and-bg(
+    "base-lightest",
+    $theme-alert-text-color,
+    $theme-alert-text-reverse-color
+  );
   @include u-padding-y($theme-alert-padding-y);
   position: relative;
 
@@ -122,7 +122,11 @@ $alert-padding-left: units($theme-alert-bar-width);
 }
 
 .usa-alert--slim {
-  @include alert-slim-styles;
+  @include u-padding-y(1);
+
+  .usa-alert__body {
+    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
+  }
 }
 
 .usa-alert--validation {
