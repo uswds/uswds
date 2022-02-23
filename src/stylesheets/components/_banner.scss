@@ -141,6 +141,12 @@ $banner-icon-close: (
     middle,
     $theme-banner-background-color
   );
+
+  &::after {
+    @media (forced-colors: active) {
+      background-color: buttonText;
+    }
+  }
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color,
