@@ -76,11 +76,14 @@
     display: block;
     left: 0;
     margin-left: units($theme-input-select-border-width);
-    margin-top: math.div((
+    margin-top: math.div(
+      (
         line-height($theme-form-font-family, $theme-input-line-height) *
           font-size($theme-form-font-family, $theme-body-font-size) -
           units($theme-input-select-size)
-      ), 2);
+      ),
+      2
+    );
     position: absolute;
   }
 }
