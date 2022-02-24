@@ -5,6 +5,9 @@
   "main": "uswds.scss",
   "author": "18F",
   "license": "ISC",
+  "scripts" : {
+    "test": "mocha ./test/*.spec.js"
+  },
   "dependencies": {
     "sass-true": "^6.0.1"
   },
