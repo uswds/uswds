@@ -5,9 +5,10 @@
   "main": "uswds.scss",
   "author": "18F",
   "license": "ISC",
-  "scripts" : {
+  "scripts": {
     "test": "mocha ./test/*.spec.js --exit",
-    "prepublishOnly": "npm run test"
+    "packTest": "sh ./pack-test.sh",
+    "prepublishOnly": "npm run test && npm run packTest"
   },
   "dependencies": {
     "sass-true": "^6.0.1"
