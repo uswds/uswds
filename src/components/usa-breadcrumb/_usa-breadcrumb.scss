@@ -109,11 +109,11 @@ $breadcrumb-back-icon-aspect: (
 
         // Override link colors from button-unstyled()
 
-        // @include set-link-from-bg(
-        //   $theme-breadcrumb-background-color,
-        //   $theme-breadcrumb-link-color,
-        //   $context: $breadcrumb-context
-        // );
+        @include set-link-from-bg(
+          $theme-breadcrumb-background-color,
+          $theme-breadcrumb-link-color,
+          $context: $breadcrumb-context
+        );
 
         @include u-display("inline-block");
         @include u-padding-bottom($theme-breadcrumb-padding-bottom);
@@ -171,11 +171,11 @@ $breadcrumb-back-icon-aspect: (
 }
 
 .usa-breadcrumb__link {
-  // @include set-link-from-bg(
-  //   $theme-breadcrumb-background-color,
-  //   $theme-breadcrumb-link-color,
-  //   $context: $breadcrumb-context
-  // );
+  @include set-link-from-bg(
+    $theme-breadcrumb-background-color,
+    $theme-breadcrumb-link-color,
+    $context: $breadcrumb-context
+  );
   @include u-display("inline");
 
   // Prevent underline that extends beyond text
