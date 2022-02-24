@@ -2,6 +2,7 @@
 !dist/
 !src/
 
+_site/
 build/
 coverage/
 spec/
