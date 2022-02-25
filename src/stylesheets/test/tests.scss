@@ -7,6 +7,7 @@ $custom-hex-grade-70: rgb(0, 75, 68);
 $custom-hex-transparent: rgb(0, 0, 0, 0.2);
 
 $theme-show-notifications: false;
+$theme-show-compile-warnings: true;
 $theme-color-primary-lightest: "gray-warm-3";
 $theme-color-warning: "orange-50v";
 $theme-color-secondary: $custom-hex-grade-65;
@@ -23,27 +24,8 @@ $theme-link-reverse-color: "white";
 $theme-link-reverse-hover-color: "gold-20v";
 $theme-link-reverse-active-color: "white";
 
-// @use "../uswds" as * with (
-//   $theme-show-notifications: false,
-//   $theme-show-compile-warnings: true,
-//   $theme-color-primary-lightest: "gray-warm-3",
-//   $theme-color-warning: "orange-50v",
-//   $theme-color-secondary: $custom-hex-grade-65,
-//   $theme-color-secondary-vivid: $custom-hex-grade-55,
-//   $theme-color-secondary-dark: $custom-hex-grade-70,
-//   $theme-color-accent-warm-lightest: $custom-hex-grade-25,
-//   $theme-color-accent-cool-lightest: false,
-//   $theme-link-color: "primary",
-//   $theme-link-visited-color: "violet-70v",
-//   $theme-link-hover-color: "primary-dark",
-//   $theme-link-active-color: "primary-darker",
-//   $theme-link-reverse-color: "white",
-//   $theme-link-reverse-hover-color: "gold-20v",
-//   $theme-link-reverse-active-color: "white"
-// );
-
 @import "node_modules/sass-true/sass/true";
-@import "../uswds";
+@import "../uswds.scss";
 
 // is-system-color-token()
 @include describe("[function] is-system-color-token()") {
