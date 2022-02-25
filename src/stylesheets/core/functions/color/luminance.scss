@@ -45,7 +45,7 @@ Returns the luminance of `$color` as a float (between 0 and 1)
 
   $lum: (map.get($colors, "red") * 0.2126) +
     (map.get($colors, "green") * 0.7152) + (map.get($colors, "blue") * 0.0722);
-  $lum: math.div(math.round($lum * 1000), 1000);
+  $lum: math.div((math.round($lum * 1000)), 1000);
 
   @return $lum;
 }

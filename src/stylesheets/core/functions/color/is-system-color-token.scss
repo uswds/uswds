@@ -8,7 +8,7 @@ color token
 */
 
 @use "sass:map";
-@use "../../tokens/color/shortcodes-color-system.scss" as *;
+@use "../../tokens/color/shortcodes-color-system" as *;
 
 @function is-system-color-token($token) {
   @if map.has-key($system-color-shortcodes, $token) {

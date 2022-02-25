@@ -1,3 +1,5 @@
+@forward "settings";
+@forward "variables";
 @forward "defaults";
 @forward "deprecated";
 @forward "functions";
@@ -5,7 +7,5 @@
 @forward "notifications";
 @forward "placeholders";
 @forward "properties";
-@forward "settings";
 @forward "test";
 @forward "tokens";
-@forward "variables";

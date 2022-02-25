@@ -14,16 +14,13 @@ even non-token colors
 @use "sass:list";
 @use "sass:string";
 
+@use "../general";
 @use "../../variables/luminance-grade-ranges" as *;
-@use "../general/error" as *;
-@use "../general/error-not-token" as *;
-@use "../general/map-deep-get" as *;
 @use "color-token-assignment" as *;
 @use "color-token-family" as *;
 @use "color-token-grade" as *;
 @use "decompose-color-token" as *;
 @use "is-color-token" as *;
-@use "is-system-color-token" as *;
 @use "luminance" as *;
 
 @function calculate-grade($color-token) {
@@ -47,7 +44,7 @@ even non-token colors
   @if $custom-color {
     // If the color uses transparency, throw an error
     @if color.alpha($custom-color) != 1 {
-      @return uswds-error($transparency-error);
+      @return general.uswds-error($transparency-error);
     }
     $lum: luminance($custom-color);
     // Cycle through grades, knowing current AND next grade
@@ -55,12 +52,20 @@ even non-token colors
     $grade-count: list.length($our-grades);
     @for $i from 1 through $grade-count {
       $this-grade: list.nth($our-grades, $i);
-      $this-grade-min: map-deep-get($system-color-grades, $this-grade, "min");
-      $this-grade-max: map-deep-get($system-color-grades, $this-grade, "max");
+      $this-grade-min: general.map-deep-get(
+        $system-color-grades,
+        $this-grade,
+        "min"
+      );
+      $this-grade-max: general.map-deep-get(
+        $system-color-grades,
+        $this-grade,
+        "max"
+      );
       $next-grade: if($i < $grade-count, list.nth($our-grades, $i + 1), false);
       $next-grade-min: if(
         $next-grade,
-        map-deep-get($system-color-grades, $next-grade, "min"),
+        general.map-deep-get($system-color-grades, $next-grade, "min"),
         false
       );
       // If the lum fits the range, assign a USWDS grade
@@ -77,7 +82,7 @@ even non-token colors
   }
 
   @if not is-color-token($color-token-assignment) {
-    @return error-not-token($color-token-assignment, "color");
+    @return general.error-not-token($color-token-assignment, "color");
   }
 
   $system-token: $color-token-assignment;
@@ -85,7 +90,7 @@ even non-token colors
   $token-family: color-token-family($token-split);
   // If the color uses transparency, throw an error
   @if string.index($token-family, "transparent") {
-    @return uswds-error($transparency-error);
+    @return general.uswds-error($transparency-error);
   }
   // Otherwise, return token grade
   $token-grade: color-token-grade($token-split);

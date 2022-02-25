@@ -39,6 +39,7 @@ next-token("black", "lighter")
 @use "color-token-type" as *;
 @use "color-token-assignment" as *;
 @use "decompose-color-token" as *;
+@use "color-token-variant" as *;
 
 @function next-token($token, $direction) {
   $next-token: false;
