@@ -1,5 +1,3 @@
-$_error-output-override: true;
-
 $custom-hex-grade-25: #dad;
 $custom-hex-grade-55: rgb(0, 124, 87);
 $custom-hex-grade-65: rgb(47, 92, 78);
@@ -25,7 +23,10 @@ $theme-link-reverse-hover-color: "gold-20v";
 $theme-link-reverse-active-color: "white";
 
 @import "node_modules/sass-true/sass/true";
-@import "../uswds.scss";
+@import "../uswds";
+
+// Needs to be defined *after* USWDS
+$error-output-override: true;
 
 // is-system-color-token()
 @include describe("[function] is-system-color-token()") {
@@ -189,7 +190,7 @@ $theme-link-reverse-active-color: "white";
   }
   @include it("Returns an error if passed a non-token string.") {
     $test: color-token-assignment("foo");
-    $expect: "Error: 'foo' is not a valid USWDS color token.";
+    $expect: "Error: 'foo' is not a valid USWDS color token. ";
     @include assert-equal($test, $expect);
   }
 }

@@ -7,8 +7,8 @@ to test error states in unit testing
 ----------------------------------------
 */
 
-$_error-output-override: false !default;
-@function uswds-error($message, $override: $_error-output-override) {
+$error-output-override: false !default;
+@function uswds-error($message, $override: $error-output-override) {
   @if $override {
     @return "Error: #{$message}";
   }

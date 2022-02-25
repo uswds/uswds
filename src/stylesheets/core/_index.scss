@@ -1,6 +1,7 @@
 @forward "settings";
 @forward "variables";
-@forward "defaults";
+// @TODO is defaults necessary?
+// @forward "defaults";
 @forward "deprecated";
 @forward "functions";
 @forward "mixins";
