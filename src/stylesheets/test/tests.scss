@@ -1,4 +1,4 @@
-$_error-output-override: true;
+$error-output-override: true;
 
 $custom-hex-grade-25: #dad;
 $custom-hex-grade-55: rgb(0, 124, 87);
@@ -189,7 +189,7 @@ $theme-link-reverse-active-color: "white";
   }
   @include it("Returns an error if passed a non-token string.") {
     $test: color-token-assignment("foo");
-    $expect: "Error: 'foo' is not a valid USWDS color token.";
+    $expect: "Error: 'foo' is not a valid USWDS color token. ";
     @include assert-equal($test, $expect);
   }
 }
