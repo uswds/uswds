@@ -1,5 +1,6 @@
 @use "sass:map";
 
+@use "../../settings" as *;
 @use "../../variables/wcag-magic-numbers" as *;
 @use "../general/get-default" as *;
 @use "calculate-grade" as *;
