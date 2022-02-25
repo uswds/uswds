@@ -38,6 +38,8 @@ next-token("black", "lighter")
 @use "color-token-grade" as *;
 @use "color-token-type" as *;
 @use "color-token-assignment" as *;
+@use "color-token-variant" as *;
+
 @use "decompose-color-token" as *;
 
 @function next-token($token, $direction) {
