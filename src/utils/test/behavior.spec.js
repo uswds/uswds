@@ -1,6 +1,6 @@
 /* eslint-disable */
 // TODO: many of these dont test anything, use spies to ensure the methods are being called
-import { Behavior } from '@uswds/utils'
+const { Behavior } = require('../index');
 const assert = require("assert");
 
 describe("behavior", () => {

@@ -1,6 +1,6 @@
-import {config} from '.'
+const { config } = require('./index')
 
-const { prefix: PREFIX } = config;
+const { prefix: PREFIX } = { config };
 const CHECKED = "aria-checked";
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 

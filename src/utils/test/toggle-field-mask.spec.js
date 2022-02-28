@@ -1,6 +1,5 @@
-import { toggleFieldMask } from "../index";
-
 const assert = require("assert");
+const { toggleFieldMask } = require("../index");
 
 const createElement = (name, attrs) => {
   const el = document.createElement(name);

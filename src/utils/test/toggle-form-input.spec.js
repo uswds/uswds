@@ -1,9 +1,9 @@
-import { toggleFormInput } from "../index";
 
 const assert = require("assert");
 const fs = require("fs");
+const { toggleFormInput } = require("../index");
 
-const TEMPLATE = fs.readFileSync(`${__dirname}/toggle.template.html"`);
+const TEMPLATE = fs.readFileSync(`${__dirname}/toggle.template.html`);
 
 const CONTROL_SELECTOR = ".usa-show-multipassword";
 const PASSWORD_SELECTOR = "#password";
