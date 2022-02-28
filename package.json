@@ -62,6 +62,9 @@
     "type": "git",
     "url": "https://github.com/uswds/uswds.git"
   },
+  "workspaces": [
+    "./src/utils"
+  ],
   "author": "18F",
   "contributors": [
     "Shawn Allen <shawn.allen@gsa.gov>",
