@@ -1,6 +1,6 @@
 const selectOrMatches = require("../../utils/select-or-matches");
 const behavior = require("../../utils/behavior");
-const sanitizer = require("../../utils/sanitizer");
+const Sanitizer = require("../../utils/sanitizer");
 const { prefix: PREFIX } = require("../../config");
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
@@ -145,9 +145,9 @@ const buildFileInput = (fileInputEl) => {
 
   // Sets instruction test based on whether or not multiple files are accepted
   if (acceptsMultiple) {
-    instructions.innerHTML = sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   } else {
-    instructions.innerHTML = sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
+    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
   }
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
@@ -229,7 +229,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
       instructions.insertAdjacentHTML(
         "afterend",
-        sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
+        Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
           <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
         <div>`
       );
@@ -287,7 +287,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
     } else if (i >= 1) {
       dropTarget.insertBefore(filePreviewsHeading, instructions);
-      filePreviewsHeading.innerHTML = sanitizer.escapeHTML`${
+      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
       } files selected <span class="usa-file-input__choose">Change files</span>`;
     }
