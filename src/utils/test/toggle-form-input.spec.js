@@ -1,4 +1,4 @@
-import { toggleFormInput } from "@uswds/utils";
+import { toggleFormInput } from "../index";
 
 const assert = require("assert");
 const fs = require("fs");

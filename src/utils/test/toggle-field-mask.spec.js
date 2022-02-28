@@ -1,4 +1,4 @@
-import { toggleFieldMask } from "@uswds/utils";
+import { toggleFieldMask } from "../index";
 
 const assert = require("assert");
 

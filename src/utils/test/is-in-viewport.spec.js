@@ -1,4 +1,4 @@
-import { isInViewport } from '@uswds/utils'
+import { isInViewport } from '../index'
 
 const assert = require("assert");
 
