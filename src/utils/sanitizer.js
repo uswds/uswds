@@ -19,7 +19,7 @@
 })(function () {
   'use strict';
 
-  var Sanitizer = {
+  var sanitizer = {
     _entity: /[&<>"'/]/g,
 
     _entities: {
@@ -32,7 +32,7 @@
     },
 
     getEntity: function (s) {
-      return Sanitizer._entities[s];
+      return sanitizer._entities[s];
     },
 
     /**
@@ -45,8 +45,8 @@
         result += strings[i];
         if (i + 1 < arguments.length) {
           var value = arguments[i + 1] || '';
-          result += String(value).replace(Sanitizer._entity,
-            Sanitizer.getEntity);
+          result += String(value).replace(sanitizer._entity,
+            sanitizer.getEntity);
         }
       }
 
@@ -62,7 +62,7 @@
         values[_key - 1] = arguments[_key];
       }
 
-      var escaped = Sanitizer.escapeHTML.apply(Sanitizer,
+      var escaped = sanitizer.escapeHTML.apply(sanitizer,
         [strings].concat(values));
       return {
         __html: escaped,
@@ -91,6 +91,6 @@
     }
   };
 
-  return Sanitizer;
+  return sanitizer;
 
 });

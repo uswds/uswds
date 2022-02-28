@@ -1,5 +1,6 @@
-const { prefix: PREFIX } = require("../config");
+import {config} from '.'
 
+const { prefix: PREFIX } = config;
 const CHECKED = "aria-checked";
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 

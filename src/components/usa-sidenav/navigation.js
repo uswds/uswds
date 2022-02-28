@@ -2,9 +2,9 @@ const keymap = require("receptor/keymap");
 const behavior = require("../../utils/behavior");
 const select = require("../../utils/select");
 const toggle = require("../../utils/toggle");
-const FocusTrap = require("../../utils/focus-trap");
+const focusTrap = require("../../utils/focus-trap");
 const accordion = require("../usa-accordion/accordion");
-const ScrollBarWidth = require("../../utils/scrollbar-width");
+const scrollBarWidth = require("../../utils/scrollbar-width");
 
 const { CLICK } = require("../../events");
 const { prefix: PREFIX } = require("../../config");
@@ -28,7 +28,7 @@ let navigation;
 let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = scrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -171,7 +171,7 @@ navigation = behavior(
       const trapContainer = root.matches(NAV) ? root : root.querySelector(NAV);
 
       if (trapContainer) {
-        navigation.focusTrap = FocusTrap(trapContainer, {
+        navigation.focusTrap = focusTrap(trapContainer, {
           Escape: onMenuClose,
         });
       }

@@ -1,7 +1,7 @@
 const keymap = require("receptor/keymap");
 const selectOrMatches = require("../../utils/select-or-matches");
 const behavior = require("../../utils/behavior");
-const Sanitizer = require("../../utils/sanitizer");
+const sanitizer = require("../../utils/sanitizer");
 const { prefix: PREFIX } = require("../../config");
 const { CLICK } = require("../../events");
 
@@ -220,7 +220,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("role", "combobox");
   additionalAttributes.forEach((attr) =>
     Object.keys(attr).forEach((key) => {
-      const value = Sanitizer.escapeHTML`${attr[key]}`;
+      const value = sanitizer.escapeHTML`${attr[key]}`;
       input.setAttribute(key, value);
     })
   );
@@ -229,7 +229,7 @@ const enhanceComboBox = (_comboBoxEl) => {
 
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
-    Sanitizer.escapeHTML`
+    sanitizer.escapeHTML`
     <span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
         <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
       </span>

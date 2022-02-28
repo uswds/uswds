@@ -1,9 +1,9 @@
+import { toggleFormInput } from "@uswds/utils";
+
 const assert = require("assert");
 const fs = require("fs");
-const path = require("path");
-const toggleFormInput = require("../toggle-form-input");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/toggle.template.html"));
+const TEMPLATE = fs.readFileSync(`${__dirname}/toggle.template.html"`);
 
 const CONTROL_SELECTOR = ".usa-show-multipassword";
 const PASSWORD_SELECTOR = "#password";

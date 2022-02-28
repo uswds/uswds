@@ -1,6 +1,6 @@
 const selectOrMatches = require("../../utils/select-or-matches");
-const FocusTrap = require("../../utils/focus-trap");
-const ScrollBarWidth = require("../../utils/scrollbar-width");
+const focusTrap = require("../../utils/focus-trap");
+const scrollBarWidth = require("../../utils/scrollbar-width");
 
 const { prefix: PREFIX } = require("../../config");
 
@@ -27,7 +27,7 @@ const HIDDEN_CLASS = "is-hidden";
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = scrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -138,9 +138,9 @@ function toggleModal(event) {
     // Binds escape key if we're not forcing
     // the user to take an action
     if (forceUserAction) {
-      modal.focusTrap = FocusTrap(targetModal);
+      modal.focusTrap = focusTrap(targetModal);
     } else {
-      modal.focusTrap = FocusTrap(targetModal, {
+      modal.focusTrap = focusTrap(targetModal, {
         Escape: onMenuClose,
       });
     }

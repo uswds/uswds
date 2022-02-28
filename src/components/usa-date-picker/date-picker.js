@@ -6,7 +6,7 @@ const { prefix: PREFIX } = require("../../config");
 const { CLICK } = require("../../events");
 const activeElement = require("../../utils/active-element");
 const isIosDevice = require("../../utils/is-ios-device");
-const Sanitizer = require("../../utils/sanitizer");
+const sanitizer = require("../../utils/sanitizer");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
@@ -870,7 +870,7 @@ const enhanceDatePicker = (el) => {
   calendarWrapper.appendChild(externalInputEl);
   calendarWrapper.insertAdjacentHTML(
     "beforeend",
-    Sanitizer.escapeHTML`
+    sanitizer.escapeHTML`
     <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>
     <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
@@ -1019,7 +1019,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-value", formattedDate);
     btn.setAttribute(
       "aria-label",
-      Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`
+      sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isDisabled === true) {
@@ -1050,7 +1050,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   newCalendar.dataset.value = currentFormattedDate;
   newCalendar.style.top = `${datePickerEl.offsetHeight}px`;
   newCalendar.hidden = false;
-  newCalendar.innerHTML = Sanitizer.escapeHTML`
+  newCalendar.innerHTML = sanitizer.escapeHTML`
     <div tabindex="-1" class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="${CALENDAR_ROW_CLASS}">
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
@@ -1497,7 +1497,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   if (prevYearChunkDisabled === true) {
     previousYearsBtn.disabled = true;
   }
-  previousYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`;
+  previousYearsBtn.innerHTML = sanitizer.escapeHTML`&nbsp`;
 
   // create next button
   const nextYearsBtn = document.createElement("button");
@@ -1510,7 +1510,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   if (nextYearChunkDisabled === true) {
     nextYearsBtn.disabled = true;
   }
-  nextYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`;
+  nextYearsBtn.innerHTML = sanitizer.escapeHTML`&nbsp`;
 
   // create the actual years table
   const yearsTable = document.createElement("table");
@@ -1569,7 +1569,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   // replace calendar
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  statusEl.textContent = Sanitizer.escapeHTML`Showing years ${yearToChunk} to ${
+  statusEl.textContent = sanitizer.escapeHTML`Showing years ${yearToChunk} to ${
     yearToChunk + YEAR_CHUNK - 1
   }. Select a year.`;
 

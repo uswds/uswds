@@ -1,5 +1,6 @@
+import { isInViewport } from '@uswds/utils'
+
 const assert = require("assert");
-const isInViewport = require("../is-in-viewport");
 
 function fakeEl(rect) {
   return {

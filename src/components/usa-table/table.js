@@ -2,7 +2,7 @@ const select = require("../../utils/select");
 const behavior = require("../../utils/behavior");
 const { CLICK } = require("../../events");
 const { prefix: PREFIX } = require("../../config");
-const Sanitizer = require("../../utils/sanitizer");
+const sanitizer = require("../../utils/sanitizer");
 
 const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";
@@ -198,7 +198,7 @@ const createHeaderButton = (header) => {
   buttonEl.setAttribute("tabindex", "0");
   buttonEl.classList.add(SORT_BUTTON_CLASS);
   // ICON_SOURCE
-  buttonEl.innerHTML = Sanitizer.escapeHTML`
+  buttonEl.innerHTML = sanitizer.escapeHTML`
   <svg class="${PREFIX}-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g class="descending" fill="transparent">
       <path d="M17 17L15.59 15.59L12.9999 18.17V2H10.9999V18.17L8.41 15.58L7 17L11.9999 22L17 17Z" />
