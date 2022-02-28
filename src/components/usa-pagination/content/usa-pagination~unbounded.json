@@ -14,5 +14,6 @@
     "last_item": {
       "label": "Last page,"
     }
-  }
+  },
+  "img_path": "./img"
 }
