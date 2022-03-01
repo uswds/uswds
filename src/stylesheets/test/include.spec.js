@@ -1,6 +1,6 @@
 require("sass");
 const path = require("path");
-const { runGulp, distScssPath, render } = require("../../utils/test/util");
+const { runGulp, distScssPath, render } = require("./testUtils");
 
 const includePath = path.resolve(path.join(__dirname, "../"));
 
