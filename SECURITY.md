@@ -19,4 +19,4 @@ We encourage you to verify the security and status of the USWDS package:
 
 ## Report a security issue
 
-To learn more about our security practices or to report a security issue, please [email us](mailto:uswds@support.digitalgov.gov). If the issue is confirmed, we will release a patch as soon as possible.
+To learn more about our security practices or to report a security issue, please [email us](mailto:uswds@gsa.gov). If the issue is confirmed, we will release a patch as soon as possible.
