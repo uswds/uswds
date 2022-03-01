@@ -1,82 +1,58 @@
-/* eslint-disable */
-// TODO: many of these dont test anything, use spies to ensure the methods are being called
-const { Behavior } = require('../index');
+const sinon = require("sinon");
 const assert = require("assert");
+const { behavior } = require("../index");
 
 describe("behavior", () => {
   it("returns an object", () => {
-    const behavior = Behavior({});
-    assert(behavior && typeof behavior === "object");
+    const component = behavior({});
+    assert(component && typeof component === "object");
   });
 
   it("has on() and off() methods", () => {
-    const behavior = Behavior({});
-    assert.strictEqual(typeof behavior.on, "function");
-    assert.strictEqual(typeof behavior.off, "function");
+    const component = behavior({});
+    assert.strictEqual(typeof component.on, "function");
+    assert.strictEqual(typeof component.off, "function");
   });
 
   describe("behavior.on()", () => {
     it("calls init()", () => {
-      const behavior = Behavior({
-        init() {
-          done();
-        },
-      });
-      behavior.on();
+      const init = sinon.spy();
+      behavior({}, { init }).on();
+      assert(init.calledOnce);
     });
 
     it("passes document.body if no target is provided", () => {
-      const behavior = Behavior({
-        init(target) {
-          assert.strictEqual(target, document.body);
-          done();
-        },
-      });
-      behavior.on();
+      const init = sinon.spy();
+      behavior({}, { init }).on();
+      assert(init.calledWithExactly(document.body));
     });
 
     it("passes the right element if a target is provided", () => {
+      const init = sinon.spy();
       const el = document.createElement("div");
-      const behavior = Behavior({
-        init(target) {
-          assert.strictEqual(target, el);
-          done();
-        },
-      });
-      behavior.on(el);
+      behavior({}, { init }).on(el);
+      assert(init.calledWithExactly(el));
     });
   });
 
   describe("behavior.off()", () => {
     it("calls teardown()", () => {
-      const behavior = Behavior({
-        teardown() {
-          done();
-        },
-      });
-      behavior.off();
+      const teardown = sinon.spy();
+      behavior({}, { teardown }).off();
+      assert(teardown.calledOnce);
     });
 
     it("passes document.body if no target is provided", () => {
-      const behavior = Behavior({
-        teardown(target) {
-          assert.strictEqual(target, document.body);
-          done();
-        },
-      });
-      behavior.off();
+      const teardown = sinon.spy();
+      behavior({}, { teardown }).off();
+      assert(teardown.calledWithExactly(document.body));
     });
 
     it("passes the right element if a target is provided", () => {
+      const teardown = sinon.spy();
       const el = document.createElement("div");
-      const behavior = Behavior({
-        teardown(target) {
-          assert.strictEqual(target, el);
-          done();
-        },
-      });
-      behavior.off(el);
+      behavior({}, { teardown }).off(el);
+      assert(teardown.calledWithExactly(el));
     });
   });
 });
-/** eslint-enable */
