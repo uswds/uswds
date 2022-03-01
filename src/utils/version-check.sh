@@ -25,7 +25,9 @@ CURRENT_VERSION=`npm view @gscottqueen/utils version`
 
 if test "$PUBLISHED_VERSION" = "$CURRENT_VERSION"; then
   echo "No change in version skipping...";
+  exit 1
 else
   echo "Current version changing from $PUBLISHED_VERSIONE to $CURRENT_VERSION, moving to prepublish hooks...";
-  exit 1
 fi;
+
+
