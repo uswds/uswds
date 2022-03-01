@@ -1,11 +1,11 @@
 const activeElement = require("./active-element");
-const Behavior = require("./behavior");
+const behavior = require("./behavior");
 const config = require("./config");
 const events = require("./events");
 const focusTrap = require("./focus-trap");
 const isElementInViewport = require("./is-in-viewport");
 const isIosDevice = require("./is-ios-device");
-const Sanitizer = require("./sanitizer");
+const sanitizer = require("./sanitizer");
 const scrollBarWidth = require("./scrollbar-width");
 const select = require("./select");
 const selectOrMatches = require("./select-or-matches");
@@ -17,13 +17,13 @@ const whenDomReady = require("./when-dom-ready");
 
 module.exports = {
   activeElement,
-  Behavior,
+  behavior,
   config,
   events,
   focusTrap,
   isElementInViewport,
   isIosDevice,
-  Sanitizer,
+  sanitizer,
   scrollBarWidth,
   select,
   selectOrMatches,
