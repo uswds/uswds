@@ -9,7 +9,6 @@ const Sanitizer = require("./sanitizer");
 const scrollBarWidth = require("./scrollbar-width");
 const select = require("./select");
 const selectOrMatches = require("./select-or-matches");
-const styleFormat = require("./style-format");
 const toggle = require("./toggle");
 const toggleFieldMask = require("./toggle-field-mask");
 const toggleFormInput = require("./toggle-form-input");
@@ -28,7 +27,6 @@ module.exports = {
   scrollBarWidth,
   select,
   selectOrMatches,
-  styleFormat,
   toggle,
   toggleFieldMask,
   toggleFormInput,

@@ -37,7 +37,7 @@
   "scripts": {
     "build": "gulp",
     "cover": "nyc --reporter=lcov gulp cover",
-    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
+    "format-tokens": "node ./src/data/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "lint": "gulp lint",
     "mocha": "mocha",
     "prepare": "npx gulp",

@@ -11,13 +11,9 @@
     "prepublishOnly": "npm run test && npm run packTest"
   },
   "dependencies": {
-    "ansi-colors": "^4.1.1",
     "domready": "^1.0.8",
-    "handlebars": "^4.7.7",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
-    "resolve-id-refs": "^0.1.0",
-    "sass": "^1.45.2",
-    "yargs": "^17.3.1"
+    "resolve-id-refs": "^0.1.0"
   }
 }
