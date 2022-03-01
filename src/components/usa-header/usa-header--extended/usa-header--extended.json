@@ -45,5 +45,6 @@
         "label": "<Simple link>"
       }
     ]
-  }
+  },
+  "img_path": "./img"
 }
