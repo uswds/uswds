@@ -21,7 +21,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha ./test/*.spec.js --exit"
+    "test": "mocha ./test/*.spec.js --exit",
+    "prepublishOnly": "npm run test"
   },
   "devDependencies": {
     "sass-true": "^6.0.1"
