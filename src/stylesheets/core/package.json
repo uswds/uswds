@@ -16,7 +16,7 @@
   ],
   "author": "18F",
   "license": "ISC",
-  "main": "index.scss",
+  "main": "_index.scss",
   "directories": {
     "test": "test"
   },
