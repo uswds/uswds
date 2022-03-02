@@ -18,6 +18,7 @@ example:
 
 @use "../../core/settings" as *;
 @use "../../core/functions" as *;
+@use "../functions/" as *;
 
 $u-measure: (
   measure: (

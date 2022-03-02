@@ -17,6 +17,8 @@ example:
 @use "../../core/settings" as *;
 @use "../../core/functions" as *;
 @use "../../core/tokens" as *;
+@use "../functions/" as *;
+
 
 $u-border-color: (
   border-color: (
