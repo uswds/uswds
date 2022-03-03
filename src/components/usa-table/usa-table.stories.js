@@ -1,5 +1,5 @@
 import Component from "./usa-table.twig";
-import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
+import SortableComponent from "./usa-table--sortable.twig";
 
 import { DefaultContent, BorderlessContent, StripedContent } from "./content";
 

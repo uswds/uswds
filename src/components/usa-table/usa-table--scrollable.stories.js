@@ -1,10 +1,9 @@
-import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--scrollable.twig";
 import {
-  DefaultContent,
-  StripedContent,
-  CompactContent,
-  CompactStripedContent,
+  ScrollableDefaultContent,
+  ScrollableStripedContent,
+  ScrollableCompactContent,
+  ScrollableCompactStripedContent,
 } from "./content";
 
 export default {
@@ -14,13 +13,13 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = DefaultContent;
+Default.args = ScrollableDefaultContent;
 
 export const Striped = Template.bind({});
-Striped.args = StripedContent;
+Striped.args = ScrollableStripedContent;
 
 export const Compact = Template.bind({});
-Compact.args = CompactContent;
+Compact.args = ScrollableCompactContent;
 
 export const CompactStriped = Template.bind({});
-CompactStriped.args = CompactStripedContent;
+CompactStriped.args = ScrollableCompactStripedContent;
