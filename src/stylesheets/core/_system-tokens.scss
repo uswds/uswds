@@ -1697,3 +1697,23 @@ $system-color-shortcodes: (
   "white-transparent-80": $color-white-transparent-80,
   "white-transparent-90": $color-white-transparent-90,
 );
+
+$high-contrast-system-colors: (
+  "Canvas": Canvas,
+  "CanvasText": CanvasText,
+  "LinkText": LinkText,
+  "VisitedText": VisitedText,
+  "ActiveText": ActiveText,
+  "ButtonFace": ButtonFace,
+  "ButtonText": ButtonText,
+  "ButtonBorder": ButtonBorder,
+  "Field": Field,
+  "FieldText": FieldText,
+  "Highlight": Highlight,
+  "HighlightText": HighlightText,
+  "SelectedItem": SelectedItem,
+  "SelectedItemText": SelectedItemText,
+  "Mark": Mark,
+  "MarkText": MarkText,
+  "GrayText": GrayText,
+);
