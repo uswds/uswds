@@ -80,19 +80,40 @@
   &--button {
     width: 100%;
     border: 0;
-
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
 
     &:not([disabled]):focus {
       // Apply negative focus offset to ensure that entire focus ring is visible
       @include focus-outline(null, null, null, "neg-05");
     }
 
+    // Arrow for collapsible content.
+    &::before {
+      @include add-background-svg("usa-icons/expand_more");
+      @include u-square(2.5);
+      align-items: center;
+      background-size: contain;
+      content: "";
+      display: inline-flex;
+      justify-content: center;
+      margin-right: units(0.5);
+      margin-left: units(-0.5);
+    }
+
     & + .usa-list--unstyled {
       margin-top: units(1);
       margin-bottom: units(1);
+    }
+
+    &[aria-expanded="false"] {
+      &::before {
+        @include add-background-svg("usa-icons/navigate_next");
+      }
+
+      // Hide submenu when button is not expanded
+      & + .usa-list--unstyled {
+        display: none;
+      }
     }
   }
 }
@@ -313,46 +334,8 @@
   .usa-footer__primary-content--collapsible {
     .usa-footer__primary-link {
       align-items: center;
-      cursor: pointer;
       display: flex;
       justify-content: flex-start;
-
-      // Arrow for collapsible content.
-      &::before {
-        @include add-background-svg("usa-icons/expand_more");
-        @include u-square(2.5);
-        align-items: center;
-        background-size: contain;
-        content: "";
-        display: inline-flex;
-        justify-content: center;
-        margin-right: units(0.5);
-        margin-left: units(-0.5);
-      }
-
-      @include at-media("mobile-lg") {
-        cursor: auto;
-
-        &::before {
-          content: none;
-        }
-      }
-    }
-
-    &.hidden {
-      .usa-list--unstyled {
-        display: none;
-      }
-
-      .usa-footer__primary-link {
-        &::before {
-          @include add-background-svg("usa-icons/navigate_next");
-        }
-
-        @include at-media("mobile-lg") {
-          margin: 0;
-        }
-      }
     }
 
     .usa-list--unstyled {
