@@ -1,3 +1,5 @@
+@use "../core/mixins/helpers/set-text-and-bg" as *;
+
 body {
   @include set-text-and-bg($context: "Body");
   overflow-x: hidden;

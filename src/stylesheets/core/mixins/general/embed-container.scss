@@ -1,0 +1,5 @@
+@use "sass:math";
+
+@mixin embed-container($height, $width) {
+  padding-bottom: math.percentage(math.div($height, $width));
+}

@@ -1,0 +1,36 @@
+@use "../../settings";
+@use "../../functions/color/set-theme-color" as *;
+
+$tokens-color-state: (
+  "error-lighter": set-theme-color(settings.$theme-color-error-lighter, no-warn),
+  "error-light": set-theme-color(settings.$theme-color-error-light, no-warn),
+  "error": set-theme-color(settings.$theme-color-error, no-warn),
+  "error-dark": set-theme-color(settings.$theme-color-error-dark, no-warn),
+  "error-darker": set-theme-color(settings.$theme-color-error-darker, no-warn),
+  "warning-lighter":
+    set-theme-color(settings.$theme-color-warning-lighter, no-warn),
+  "warning-light": set-theme-color(settings.$theme-color-warning-light, no-warn),
+  "warning": set-theme-color(settings.$theme-color-warning, no-warn),
+  "warning-dark": set-theme-color(settings.$theme-color-warning-dark, no-warn),
+  "warning-darker":
+    set-theme-color(settings.$theme-color-warning-darker, no-warn),
+  "success-lighter":
+    set-theme-color(settings.$theme-color-success-lighter, no-warn),
+  "success-light": set-theme-color(settings.$theme-color-success-light, no-warn),
+  "success": set-theme-color(settings.$theme-color-success, no-warn),
+  "success-dark": set-theme-color(settings.$theme-color-success-dark, no-warn),
+  "success-darker":
+    set-theme-color(settings.$theme-color-success-darker, no-warn),
+  "info-lighter": set-theme-color(settings.$theme-color-info-lighter, no-warn),
+  "info-light": set-theme-color(settings.$theme-color-info-light, no-warn),
+  "info": set-theme-color(settings.$theme-color-info, no-warn),
+  "info-dark": set-theme-color(settings.$theme-color-info-dark, no-warn),
+  "info-darker": set-theme-color(settings.$theme-color-info-darker, no-warn),
+  "disabled-light":
+    set-theme-color(settings.$theme-color-disabled-light, no-warn),
+  "disabled": set-theme-color(settings.$theme-color-disabled, no-warn),
+  "disabled-dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn),
+  "emergency": set-theme-color(settings.$theme-color-emergency, no-warn),
+  "emergency-dark":
+    set-theme-color(settings.$theme-color-emergency-dark, no-warn),
+);

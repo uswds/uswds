@@ -1,0 +1,13 @@
+@use "../functions/font/get-typeface-token" as *;
+
+$project-font-cond: get-typeface-token("cond");
+$project-font-icon: get-typeface-token("icon");
+$project-font-lang: get-typeface-token("lang");
+$project-font-mono: get-typeface-token("mono");
+$project-font-sans: get-typeface-token("sans");
+$project-font-serif: get-typeface-token("serif");
+$project-font-ui: get-typeface-token("ui");
+$project-font-heading: get-typeface-token("heading");
+$project-font-body: get-typeface-token("body");
+$project-font-code: get-typeface-token("code");
+$project-font-alt: get-typeface-token("alt");

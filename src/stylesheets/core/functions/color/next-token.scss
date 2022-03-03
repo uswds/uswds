@@ -1,0 +1,156 @@
+/*
+----------------------------------------
+next-token()
+----------------------------------------
+Returns next "darker" or "lighter" color
+token of the same token type and variant.
+Returns: color-token | false
+next-token("accent-warm", "lighter")
+> "accent-warm-light"
+next-token("gray-10", "lighter")
+> "gray-5"
+next-token("gray-5", "lighter")
+> "white"
+next-token("white", "lighter")
+> false
+next-token("red-50v", "darker")
+> "red-60v"
+next-token("red-50", "darker")
+> "red-60"
+next-token("red-80v", "darker")
+> "red-90"
+next-token("red-90", "darker")
+> "black"
+next-token("white", "darker")
+> "gray-5"
+next-token("black", "lighter")
+> "gray-90"
+----------------------------------------
+*/
+
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+
+@use "../../variables/luminance-grade-ranges" as *;
+@use "../../variables/theme-color-grades" as *;
+@use "color-token-family" as *;
+@use "color-token-grade" as *;
+@use "color-token-type" as *;
+@use "color-token-assignment" as *;
+@use "decompose-color-token" as *;
+@use "color-token-variant" as *;
+
+@function next-token($token, $direction) {
+  $next-token: false;
+  $type: color-token-type($token);
+  $token-split: decompose-color-token($token);
+  // 1. System case
+  @if $type == "system" {
+    // transparent tokens return don't have a next token
+    @if $token == "transparent" {
+      @return false;
+    }
+    // black and white tokens use the gray family for next
+    $current-family: if(
+      $token == "white" or $token == "black",
+      "gray",
+      color-token-family($token-split)
+    );
+    // black- and white-transparent tokens don't have a next
+    @if string.index($current-family, "-transparent") {
+      @return false;
+    }
+    $current-grade: color-token-grade($token-split);
+    // Nothing can be darker than black or lighter than white
+    @if $direction == "darker" and $current-grade == 100 {
+      @return false;
+    }
+    @if $direction == "lighter" and $current-grade == 0 {
+      @return false;
+    }
+    // Grades under 5 should be treated as 5
+    @if $current-grade > 0 and $current-grade < 5 {
+      $current-grade: 5;
+    }
+    $system-grade-list: map.keys($system-color-grades);
+    $current-grade-index: list.index($system-grade-list, $current-grade);
+    // Note: System grades go from darkest (100) to lightest (0)
+    $next-grade: if(
+      $direction == "darker",
+      list.nth($system-grade-list, ($current-grade-index - 1)),
+      list.nth($system-grade-list, ($current-grade-index + 1))
+    );
+    $output-grade: $next-grade;
+    // Keep the same vivid variant as the parent
+    // Note: Grade 90 has no vivid variant
+    @if color-token-variant($token-split) == "vivid" and ($next-grade < 90) {
+      $output-grade: $next-grade + "v";
+    }
+    // Use black and white tokens for grades 100 and 0...
+    @if $next-grade == 100 {
+      $next-token: "black";
+    } @else if $next-grade == 0 {
+      $next-token: "white";
+      // ...Otherwise output token in expected form
+    } @else {
+      $next-token: $current-family + "-" + $output-grade;
+    }
+    // 2. Theme case
+  } @else {
+    $current-grade: color-token-grade($token-split);
+    // Vivid theme token should be considered root for ordering
+    $current-grade: if($current-grade == "vivid", "root", $current-grade);
+    $current-family: color-token-family($token-split);
+    // Ink should be considered base-darkest
+    // TODO: Should it?
+    @if $token == "ink" {
+      $current-family: "base";
+      $current-grade: "darkest";
+    }
+    // Black is darker than darkest
+    @if $direction == "darker" and $current-grade == "darkest" {
+      @return "black";
+    }
+    // White is lighter than lightest
+    @if $direction == "lighter" and $current-grade == "lightest" {
+      @return "white";
+    }
+    $theme-grade-list: map.keys($theme-color-grades);
+    $current-grade-index: list.index($theme-grade-list, $current-grade);
+    // Note: Theme grades go from `lightest` to `darkest`
+    $next-grade: if(
+      $direction == "darker",
+      list.nth($theme-grade-list, ($current-grade-index + 1)),
+      list.nth($theme-grade-list, ($current-grade-index - 1))
+    );
+    // Exclude `root` from token output
+    @if $next-grade == "root" {
+      @return $current-family;
+    } @else {
+      $next-token: $current-family + "-" + $next-grade;
+    }
+    // If the next color is set to false, use black/white instead
+    @if not color-token-assignment($next-token) {
+      @if $direction == "darker" {
+        @return "black";
+      }
+      @if $direction == "lighter" {
+        @return "white";
+      }
+    }
+  }
+  @return $next-token;
+}
+
+// @debug next-token("gray-10", "lighter");
+// @return gray-5;
+
+// @debug next-token("red-80v", "darker");
+// @return red-90;
+
+// @debug next-token("accent-warm", "lighter");
+// @return accent-warm-light;
+
+// @debug next-token("white", "lighter");
+// @return false;

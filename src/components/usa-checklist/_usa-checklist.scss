@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-checklist {
   @include add-list-reset;
   @include border-box-sizing;

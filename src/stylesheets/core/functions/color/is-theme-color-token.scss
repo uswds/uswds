@@ -1,0 +1,19 @@
+/*
+----------------------------------------
+is-theme-color-token()
+----------------------------------------
+Return whether a token is a theme
+color token
+----------------------------------------
+*/
+
+@use "sass:map";
+
+@use "../../tokens/color/shortcodes-color-project" as *;
+
+@function is-theme-color-token($token) {
+  @if map.has-key($project-color-shortcodes, $token) {
+    @return true;
+  }
+  @return false;
+}

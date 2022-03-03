@@ -1,3 +1,5 @@
+@use "../core/mixins/general/screen-reader" as *;
+
 .usa-sr-only {
   @include sr-only;
 }

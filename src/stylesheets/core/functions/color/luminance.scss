@@ -1,0 +1,51 @@
+/*
+----------------------------------------
+luminance()
+----------------------------------------
+Returns the luminance of `$color` as a float (between 0 and 1)
+1 is pure white, 0 is pure black
+
+@param {Color} $color - Color
+@return {Number}
+@link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
+----------------------------------------
+*/
+
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+
+@use "../math/pow" as *;
+
+@function luminance($color) {
+  $colors: (
+    "red": color.red($color),
+    "green": color.green($color),
+    "blue": color.blue($color),
+  );
+
+  @each $name, $value in $colors {
+    $adjusted: 0;
+    $value: math.div($value, 256);
+
+    @if $value < 0.03928 {
+      $value: math.div($value, 12.92);
+    } @else {
+      $value: math.div(($value + 0.055), 1.055);
+      $value: pow($value, 2.4);
+    }
+
+    $colors: map.merge(
+      $colors,
+      (
+        $name: $value,
+      )
+    );
+  }
+
+  $lum: (map.get($colors, "red") * 0.2126) +
+    (map.get($colors, "green") * 0.7152) + (map.get($colors, "blue") * 0.0722);
+  $lum: math.div((math.round($lum * 1000)), 1000);
+
+  @return $lum;
+}

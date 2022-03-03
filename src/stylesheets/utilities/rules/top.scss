@@ -16,6 +16,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-top: (
   top: (
     base: "top",

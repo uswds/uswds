@@ -1,0 +1,116 @@
+// @TODO candidate for removal because of built-in math.pow()
+// https://sass-lang.com/documentation/modules/math#pow
+
+@use "sass:math";
+@use "sass:meta";
+
+/*
+----------------------------------------
+pow()
+----------------------------------------
+Raises a unitless number to the power
+of another unitless number
+Includes helper functions
+----------------------------------------
+*/
+
+@function pow($number, $exponent) {
+  @if (math.round($exponent) != $exponent) {
+    @return exp($exponent * ln($number));
+  }
+
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: math.div($value, $number);
+    }
+  }
+
+  @return $value;
+}
+
+/*
+----------------------------------------
+Helper functions
+----------------------------------------
+*/
+
+/* factorial()
+----------------------------------------
+*/
+
+@function factorial($value) {
+  $result: 1;
+
+  @if $value == 0 {
+    @return $result;
+  }
+
+  @for $index from 1 through $value {
+    $result: $result * $index;
+  }
+
+  @return $result;
+}
+
+/* summation()
+----------------------------------------
+*/
+@function summation($iteratee, $input, $initial: 0, $limit: 100) {
+  $sum: 0;
+
+  @for $index from $initial to $limit {
+    $sum: $sum + meta.call($iteratee, $input, $index);
+  }
+
+  @return $sum;
+}
+
+/* exp-maclaurin()
+----------------------------------------
+*/
+@function exp-maclaurin($x, $n) {
+  @return math.div(pow($x, $n), factorial($n));
+}
+
+@function exp($value) {
+  @return summation(meta.get-function("exp-maclaurin"), $value, 0, 100);
+}
+
+@function ln-maclaurin($x, $n) {
+  @return math.div(pow(-1, $n + 1), $n) * (pow($x - 1, $n));
+}
+
+@function summation($iteratee, $input, $initial: 0, $limit: 100) {
+  $sum: 0;
+
+  @for $index from $initial to $limit {
+    $sum: $sum + meta.call($iteratee, $input, $index);
+  }
+
+  @return $sum;
+}
+
+/* ln()
+----------------------------------------
+*/
+@function ln($value) {
+  $ten-exp: 1;
+  $ln-ten: 2.30258509;
+
+  @while ($value > pow(10, $ten-exp)) {
+    $ten-exp: $ten-exp + 1;
+  }
+
+  @return summation(
+      meta.get-function("ln-maclaurin"),
+      math.div($value, pow(10, $ten-exp)),
+      1,
+      100
+    ) + $ten-exp * $ln-ten;
+}

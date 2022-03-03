@@ -1,7 +1,6 @@
 // Global
 // -------------------------------------
-@import "../lib/normalize";
-@import "../global/font-face";
-@import "../global/focus";
-@import "../global/sizing";
-@import "../global/typography";
+@forward "uswds-core";
+@forward "../lib/normalize";
+@forward "uswds-elements";
+@forward "uswds-helpers";

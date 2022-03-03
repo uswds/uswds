@@ -1,3 +1,9 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:color";
+
+@use "../../stylesheets/core" as *;
+
 $pagination-context: "Pagination";
 $pagination-margin-x: 0.5 !default;
 $pagination-margin-y: 2 !default;
@@ -7,6 +13,7 @@ $pagination-target-size: 5 !default;
 $pagination-current-color: get-color-token-from-bg(
   $theme-pagination-background-color
 );
+
 $pagination-link-tokens: get-link-tokens-from-bg(
   $theme-pagination-background-color,
   $theme-link-reverse-color,
@@ -14,8 +21,8 @@ $pagination-link-tokens: get-link-tokens-from-bg(
   $context: $pagination-context
 );
 
-$pagination-link-token: nth($pagination-link-tokens, 1);
-$pagination-hover-token: nth($pagination-link-tokens, 2);
+$pagination-link-token: list.nth($pagination-link-tokens, 1);
+$pagination-hover-token: list.nth($pagination-link-tokens, 2);
 
 // Pagination
 // ---------------------------------
@@ -73,13 +80,13 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__previous-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-right: units($pagination-target-size / 2);
+    margin-right: units(math.div($pagination-target-size, 2));
   }
 }
 
 .usa-pagination__next-page {
   @include at-media($theme-pagination-breakpoint) {
-    margin-left: units($pagination-target-size / 2);
+    margin-left: units(math.div($pagination-target-size, 2));
   }
 }
 
@@ -108,7 +115,7 @@ $pagination-hover-token: nth($pagination-link-tokens, 2);
 
 .usa-pagination__button {
   align-items: center;
-  border-color: adjust-color(color($pagination-current-color), $alpha: -0.8);
+  border-color: color.adjust(color($pagination-current-color), $alpha: -0.8);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
   border-width: units($theme-pagination-button-border-width);

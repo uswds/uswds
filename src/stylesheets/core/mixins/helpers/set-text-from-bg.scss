@@ -1,0 +1,22 @@
+@use "../../functions/color/get-color-token-from-bg" as *;
+@use "../../functions/utilities/color" as *;
+@use "../../functions/general/get-default" as *;
+
+@mixin set-text-from-bg(
+  $bg-color: "default",
+  $preferred-text-color: "default",
+  $fallback-text-color: "default",
+  $wcag-target: "AA",
+  $context: false,
+  $important: null
+) {
+  $important: if($important, " !important", null);
+  $accessible-color-token: get-color-token-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target,
+    $context
+  );
+  color: color($accessible-color-token) #{$important};
+}

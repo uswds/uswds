@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-tag {
   @include border-box-sizing;
   @include u-font("ui", "2xs");

@@ -16,6 +16,8 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+
 $add-list-reset: (
   list-reset: (
     base: "add-list",

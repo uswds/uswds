@@ -1,0 +1,77 @@
+@use "sass:math";
+
+@use "../../variables/project-alerts" as *;
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "../general/icon" as *;
+@use "../utilities/padding" as *;
+@use "../helpers/set-link-from-bg" as *;
+
+@mixin add-slim-alert-icon {
+  &:before {
+    background-size: $alert-slim-icon-size;
+    height: units(5);
+    width: $alert-slim-icon-size;
+    @supports (mask: url("")) {
+      mask-size: $alert-slim-icon-size;
+    }
+  }
+}
+
+@mixin add-alert-icon($name, $color, $bgcolor) {
+  $this-icon-object: (
+    "name": $name,
+    "color": $color,
+    "svg-height": 40,
+    "svg-width": 40,
+    "height": $theme-alert-icon-size,
+  );
+
+  &:before {
+    @include add-color-icon($this-icon-object, $bgcolor);
+    content: "";
+    display: block;
+    height: (2 * units($theme-alert-padding-y)) + units(3);
+    // padding - optical spacing value
+    left: $alert-icon-optical-padding;
+    position: absolute;
+    top: 0;
+  }
+  &.usa-alert--slim {
+    @include add-slim-alert-icon;
+  }
+}
+
+@mixin alert-status-styles($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  background-color: color($bgcolor);
+  border-left-color: color($name);
+  color: color($banner-text-color-token);
+
+  .usa-link {
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
+  }
+
+  &.usa-alert--no-icon {
+    &:before {
+      display: none;
+    }
+
+    .usa-alert__body {
+      padding-left: units($theme-alert-padding-x);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:meta";
+@use "../../functions/general";
+@use "../../variables/project-spacing" as vars;
+
+@function calc-gap-offset($gap-size) {
+  $gap-size: general.smart-quote($gap-size);
+
+  @if not map.has-key(vars.$spacing-to-value, $gap-size) {
+    @return general.error-not-token($gap-size, "gap size");
+  }
+
+  $numeric-eq: map.get(vars.$spacing-to-value, $gap-size);
+  $numeric-eq-half: meta.inspect(math.div($numeric-eq, 2));
+
+  @if not map.has-key(vars.$spacing-to-token, $numeric-eq-half) {
+    @error '`#{$gap-size}` is not a valid USWDS gap size token. '
+      + 'Column gaps need to have a standard size half their width.';
+  }
+
+  @return map.get(vars.$spacing-to-token, $numeric-eq-half);
+}
+
+// @debug calc-gap-offset("05");
+// @return 2px;

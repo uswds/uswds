@@ -1,0 +1,26 @@
+@use "../../functions/utilities/color" as *;
+@use "../../functions/general/get-default" as *;
+
+@use "./set-text-from-bg" as *;
+
+@mixin set-text-and-bg(
+  $bg-color: "default",
+  $preferred-text-color: "default",
+  $fallback-text-color: "default",
+  $wcag-target: "AA",
+  $context: false,
+  $important: null
+) {
+  $important: if($important, " !important", null);
+
+  @include set-text-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target,
+    $context,
+    $important: $important
+  );
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
+  background-color: color($bg-color) #{$important};
+}

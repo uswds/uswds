@@ -1,0 +1,29 @@
+/*
+----------------------------------------
+remove()
+----------------------------------------
+Remove a value from a list
+----------------------------------------
+*/
+@use "sass:list";
+@use "sass:meta";
+
+@function remove($list, $value, $recursive: false) {
+  $result: ();
+
+  @for $i from 1 through list.length($list) {
+    @if meta.type-of(list.nth($list, $i)) == list and $recursive {
+      $result: list.append(
+        $result,
+        remove(list.nth($list, $i), $value, $recursive)
+      );
+    } @else if list.nth($list, $i) != $value {
+      $result: list.append($result, list.nth($list, $i));
+    }
+  }
+
+  @return $result;
+}
+
+// @debug remove((1, 2, 3), 2);
+// @return 1, 3

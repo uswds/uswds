@@ -1,0 +1,21 @@
+/*
+----------------------------------------
+append-important()
+----------------------------------------
+Append `!important` to a list
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "get-last" as *;
+
+@function append-important($source, $destination) {
+  @if get-last($source) == "!important" {
+    @return list.append($destination, !important, comma);
+  }
+
+  @return $destination;
+}
+
+// @debug append-important((1, 2, !important), (3, 4));
+// @return 3, 4, !important

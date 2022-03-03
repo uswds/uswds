@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-fieldset {
   @extend %block-input-general;
   border: none;

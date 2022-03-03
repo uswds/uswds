@@ -1,3 +1,5 @@
+@use "../core/mixins/general/media-link" as *;
+
 img {
   max-width: 100%;
 }

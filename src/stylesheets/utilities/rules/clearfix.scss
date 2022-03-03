@@ -13,6 +13,8 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+
 $u-clearfix: (
   clearfix: (
     base: "clearfix::after",

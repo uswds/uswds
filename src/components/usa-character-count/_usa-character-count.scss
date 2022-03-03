@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-character-count__message {
   display: inline-block;
   padding-top: units(0.5);

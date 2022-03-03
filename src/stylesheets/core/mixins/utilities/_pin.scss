@@ -1,13 +1,21 @@
+@use "sass:list";
+@use "../../functions" as *;
+@use "./position" as *;
+
 $utility-pin-options: "all", "x", "y", "top", "bottom", "left", "right", "none";
 
 @mixin u-pin($value...) {
+  $value: unpack($value);
   $important: null;
-  $position-absolute: append-important($value, absolute);
-  $position-static: append-important($value, static);
+  $position-absolute: append-important($value, "absolute");
+  $position-static: append-important($value, "static");
   $has-position: false;
 
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
 

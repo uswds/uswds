@@ -5,13 +5,10 @@ const { src, dest } = require("gulp");
 const postcss = require("gulp-postcss");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
-const sass = require("gulp-dart-scss");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const dutil = require("./utils/doc-util");
 const pkg = require("../package.json");
-
-
-sass.compiler = require("sass");
 
 module.exports = {
   compileSass() {
@@ -23,12 +20,11 @@ module.exports = {
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
-            outputStyle: "expanded",
-          })
-          .on("error", function handleError(error) {
-            dutil.logError(error);
-            this.emit('end');
-          })
+          outputStyle: "expanded",
+        }).on("error", function handleError(error) {
+          dutil.logError(error);
+          this.emit("end");
+        })
       )
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))

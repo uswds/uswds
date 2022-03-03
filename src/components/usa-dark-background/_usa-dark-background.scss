@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-dark-background {
   @include add-knockout-font-smoothing;
   background-color: color("base-darker");

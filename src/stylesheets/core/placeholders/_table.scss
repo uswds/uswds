@@ -1,3 +1,10 @@
+@use "../settings" as *;
+@use "../functions" as *;
+@use "../mixins/general" as *;
+@use "../mixins/helpers" as *;
+@use "../mixins/utilities" as *;
+@use "../mixins/typography/typeset" as *;
+
 $table-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-body-background-color,

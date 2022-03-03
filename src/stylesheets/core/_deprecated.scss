@@ -17,6 +17,9 @@
     major version.
 */
 
+@use "./mixins" as *;
+@use "./settings" as *;
+
 // Deprecated in 2.0.2
 $theme-title-font-size: $theme-display-font-size !default;
 

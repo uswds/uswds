@@ -26,6 +26,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-font: (
   font: (
     base: "font",
