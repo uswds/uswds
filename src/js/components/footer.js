@@ -82,7 +82,7 @@ module.exports = behavior(
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
       toggleHidden(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
-        `(max-width: ${HIDE_MAX_WIDTH}px)`
+        `(max-width: ${HIDE_MAX_WIDTH - 1}px)`
       );
       this.mediaQueryList.addListener(resize);
     },
