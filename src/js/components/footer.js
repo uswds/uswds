@@ -8,9 +8,18 @@ const NAV = `${SCOPE} nav`;
 const BUTTON = `${NAV} .${PREFIX}-footer__primary-link`;
 const HIDE_MAX_WIDTH = 480;
 
+/**
+ * Expands selected footer menu panel, while collapsing others
+ */
 function showPanel() {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
     const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+    // Close all other menus
+    document.querySelectorAll(BUTTON).forEach((button) => {
+      button.setAttribute('aria-expanded', false);
+    });
+
     this.setAttribute('aria-expanded', !isOpen);
   }
 }
