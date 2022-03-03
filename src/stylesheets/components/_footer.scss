@@ -73,7 +73,6 @@
   }
 
   &:hover {
-    cursor: pointer;
     text-decoration: underline;
   }
 
@@ -81,6 +80,10 @@
   &--button {
     width: 100%;
     border: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &:not([disabled]):focus {
       // Apply negative focus offset to ensure that entire focus ring is visible
