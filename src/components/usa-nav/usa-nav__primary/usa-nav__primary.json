@@ -98,5 +98,6 @@
         "href": "javascript:void(0);"
       }
     ]
-  }
+  },
+  "img_path": "./img"
 }
