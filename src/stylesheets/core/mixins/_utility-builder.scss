@@ -249,10 +249,6 @@ through all possible variants
               $value: map.get($utility, valuePrepend) + $value;
             }
 
-            // Then string.unquote the entire value string.
-
-            $value: strunquote($value);
-
             // And we'll set the $v as $val-slug for use in
             // constructing the selector (.$b-$m-$v).
 
