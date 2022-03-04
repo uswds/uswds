@@ -23,8 +23,8 @@
       "import": "./dist/js/uswds.min.js",
       "default": "./dist/js/uswds.min.js"
     },
-    "./src/js/components": "./src/js/components/index.js",
-    "./src/js/components/*": "./src/js/components/*.js",
+    "./src/js/components": "./src/components/index.js",
+    "./src/js/components/*": "./src/components/*.js",
     "./src/fonts/*": "./src/fonts/*",
     "./src/img/*": "./src/img/*",
     "./js/*": "./dist/js/*",
