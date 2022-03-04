@@ -64,7 +64,7 @@
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
-    "prettier:templates": "npx prettier --write './build/components/render/*.html'"
+    "prettier:templates": "npx prettier --write './_site/components/render/*.html'"
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",

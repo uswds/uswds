@@ -3,7 +3,7 @@ const fileInput = require("../../../src/js/components/file-input");
 const fs = require("fs");
 const path = require("path");
 
-const RENDER = "../../../build/components/render/";
+const RENDER = "../../../_site/components/render/";
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, RENDER, "file-input--multiple.html")
 );
