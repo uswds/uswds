@@ -9,7 +9,7 @@ const { noCleanup, noTest } = require("./gulp-tasks/flags");
 const { buildSprite } = require("./gulp-tasks/svg-sprite");
 const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
 const { unitTests, sassTests, cover } = require("./gulp-tasks/test");
-const { lintSass, lintJS } = require("./gulp-tasks/lint");
+const { lintSass } = require("./gulp-tasks/lint");
 const { build } = require("./gulp-tasks/build");
 const { release } = require("./gulp-tasks/release");
 const { watch } = require("./gulp-tasks/watch");
@@ -32,8 +32,7 @@ exports.cleanDist = cleanDist;
  * *Lint tasks*
  */
 exports.lintSass = lintSass;
-exports.lintJS = lintJS;
-exports.lint = parallel(lintSass, lintJS);
+exports.lint = parallel(lintSass);
 
 /**
  * *Test tasks*
@@ -64,7 +63,7 @@ exports.test = series(
  */
 exports.buildSprite = buildSprite;
 exports.buildSass = series(lintSass, copyVendor, compileSass);
-exports.buildJS = series(typeCheck, lintJS, compileJS);
+exports.buildJS = series(typeCheck, compileJS);
 exports.buildUSWDS = build;
 exports.release = release;
 
