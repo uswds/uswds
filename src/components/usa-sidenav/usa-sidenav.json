@@ -1,19 +1,14 @@
 {
-  "modifier": "",
-  "aria_label": "Secondary navigation",
   "items": [
     {
       "label": "Current page",
-      "href": "javascript:void(0);",
       "current": true
     },
     {
-      "label": "Parent link",
-      "href": "javascript:void(0);"
+      "label": "Parent link"
     },
     {
-      "label": "Parent link",
-      "href": "javascript:void(0);"
+      "label": "Parent link"
     }
   ]
 }
