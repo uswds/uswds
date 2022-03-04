@@ -1,12 +1,9 @@
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
-import { DefaultContent, MegamenuContent } from "./content";
-
-import {
-  ExtendedContent,
-  ExtendedMegamenuContent,
-} from "./usa-header--extended";
-
+import DefaultContent from "./usa-header.json";
+import MegamenuContent from "./usa-header~megamenu.json";
+import ExtendedContent from "./usa-header--extended/usa-header--extended.json";
+import ExtendedMegamenuContent from "./usa-header--extended/usa-header--extended-megamenu.json";
 import navSecondaryContent from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../usa-search/content";
 import TitleContent from "../usa-site-title/usa-site-title.json";

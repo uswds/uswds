@@ -4,12 +4,12 @@ import {
   DefaultContentLangEs as EsBannerContent,
 } from "../../components/usa-banner/content";
 import TitleContent from "../../components/usa-site-title/usa-site-title.json";
-import { DefaultContent as HeaderContent } from "../../components/usa-header/content";
+import HeaderContent from "../../components/usa-header/usa-header.json";
 import {
   DefaultContent as IdentifierContent,
   EsContent as EsIdentifierContent,
 } from "../../components/usa-identifier/content";
-import { DefaultContent as FooterContent } from "../../components/usa-footer/content";
+import FooterContent from "../../components/usa-footer/usa-footer.json";
 import { DefaultContent, EsContent } from "./content";
 
 export default {

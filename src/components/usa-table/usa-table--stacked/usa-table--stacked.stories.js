@@ -1,11 +1,9 @@
-import "../../../stylesheets/uswds.scss";
 import Component from "./usa-table--stacked.twig";
-import {
-  DefaultContent,
-  BorderlessContent,
-  HeaderContent,
-  HeaderBorderlessContent,
-} from "./content";
+import StackedDefaultContent from "./usa-table--stacked.json";
+import StackedBorderlessContent from "./usa-table--stacked~borderless.json";
+import StackedHeaderContent from "./usa-table--stacked~header.json";
+import StackedHeaderBorderlessContent from "./usa-table--stacked~header-borderless.json";
+
 
 export default {
   title: "Components/Table/Stacked",
@@ -14,13 +12,13 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = DefaultContent;
+Default.args = StackedDefaultContent;
 
 export const Borderless = Template.bind({});
-Borderless.args = BorderlessContent;
+Borderless.args = StackedBorderlessContent;
 
 export const WithHeader = Template.bind({});
-WithHeader.args = HeaderContent;
+WithHeader.args = StackedHeaderContent;
 
 export const withHeaderBorderless = Template.bind({});
-withHeaderBorderless.args = HeaderBorderlessContent;
+withHeaderBorderless.args = StackedHeaderBorderlessContent;
