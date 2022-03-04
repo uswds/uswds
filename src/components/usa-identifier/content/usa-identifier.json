@@ -9,7 +9,7 @@
     "parent": {
       "name": "<Parent agency>",
       "shortname": "<Parent shortname>",
-      "logo": "../../img/circle-gray-20.svg"
+      "logo": "./img/circle-gray-20.svg"
     },
     "agency": {
       "name": null,

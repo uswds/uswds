@@ -106,5 +106,6 @@
       "search_label": "Search",
       "button_text": "Search"
     }
-  }
+  },
+  "img_path": "./img"
 }

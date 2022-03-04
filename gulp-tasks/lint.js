@@ -1,11 +1,10 @@
-const { src, lastRun } = require('gulp');
 const { formatters } = require("stylelint");
-const gulpStylelint = require('gulp-stylelint');
-const eslint = require('gulp-eslint');
-const dutil = require('./utils/doc-util');
-const cFlags = require("./utils/cflags");
+const childProcess = require("child_process");
+const stylelint = require("stylelint");
+const dutil = require("./utils/doc-util");
 
 const IGNORE_STRING = "This file is ignored";
+const PROJECT_SASS_SRC = "src/stylesheets";
 
 function ignoreStylelintIgnoreWarnings(lintResults) {
   return formatters.string(
@@ -24,47 +23,35 @@ function ignoreStylelintIgnoreWarnings(lintResults) {
   );
 }
 
-// Lint Sass based on .stylelintrc.json config.
-function lintSass() {
-  const stylelintOptions = {
-    failAfterError: true,
-    reporters: [
-      {
-        formatter: ignoreStylelintIgnoreWarnings,
-        console: true,
-      },
-    ],
-    syntax: "scss",
-  };
-
-  return src(
-    "./src/stylesheets/**/*.scss",
-    { since: lastRun(lintSass) }
-  )
-  .pipe(gulpStylelint(stylelintOptions))
-  .on('error', function handleError(error) {
-    dutil.logError(error);
-    this.emit('end');
+function typecheck() {
+  return new Promise((resolve, reject) => {
+    childProcess
+      .spawn("./node_modules/.bin/tsc", { stdio: "inherit" })
+      .on("error", reject)
+      .on("exit", (code) => {
+        if (code === 0) {
+          dutil.logMessage("typecheck", "TypeScript likes our code!");
+          resolve();
+        } else {
+          reject(new Error("TypeScript failed, see output for details!"));
+        }
+      });
   });
-}
+};
 
-function lintJS(done) {
-  if (!cFlags.test) {
-    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-    return done();
-  }
+async function lintSass(callback) {
+  const { errored, output } = await stylelint.lint({
+    files: [
+      `${PROJECT_SASS_SRC}/**/*.scss`,
+      `!${PROJECT_SASS_SRC}/uswds/**/*.scss`,
+    ],
+    formatter: "string",
+  });
 
-  return src(["src/**/**/*.js"])
-    .pipe(
-      eslint({
-        fix: true,
-      })
-    )
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+  callback(errored ? new Error(output) : null);
 }
 
 module.exports = {
   lintSass,
-  lintJS
+  typecheck
 };
