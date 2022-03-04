@@ -1,8 +1,5 @@
-const { src } = require("gulp");
 const { formatters } = require("stylelint");
 const stylelint = require("stylelint");
-const dutil = require("./utils/doc-util");
-const cFlags = require("./utils/cflags");
 
 const IGNORE_STRING = "This file is ignored";
 const PROJECT_SASS_SRC = "src/stylesheets";
@@ -36,23 +33,6 @@ async function lintSass(callback) {
   callback(errored ? new Error(output) : null);
 }
 
-function lintJS(done) {
-  if (!cFlags.test) {
-    dutil.logMessage("eslint", "Skipping linting of JavaScript files.");
-    return done();
-  }
-
-  return src(["src/**/**/*.js"])
-    .pipe(
-      eslint({
-        fix: true,
-      })
-    )
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
-
 module.exports = {
   lintSass,
-  lintJS,
 };
