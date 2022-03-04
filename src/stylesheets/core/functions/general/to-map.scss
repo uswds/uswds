@@ -13,7 +13,6 @@ isReadable
 
 @use "sass:list";
 @use "remove" as *;
-@use "strunquote" as *;
 
 @function base-to-map($values) {
   $l: list.length($values);

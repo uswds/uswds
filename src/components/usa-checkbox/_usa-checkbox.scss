@@ -61,8 +61,8 @@
       @media print {
         background-image: none;
         background-color: color("white");
-        content: url("#{$theme-image-path}/checkbox-check-print.svg");
-        text-indent: 0;
+        content: "\2714";
+        text-align: center;
       }
     }
   }

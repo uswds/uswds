@@ -50,7 +50,7 @@ role-based font token.
       );
     }
     // If the typeface has no display name (system fonts), don't output the display name
-    @if map.get($this-typeface-data, "display-name") == null {
+    @if not map.get($this-typeface-data, "display-name") {
       $output-display-name: false;
     }
     @if not $output-display-name {
