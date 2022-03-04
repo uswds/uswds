@@ -12,15 +12,19 @@ $icon-object: (
 );
 
 @mixin external-link($contrast-bg: "default") {
+  display: inline-block;
+  padding-right: $external-link-size;
+  position: relative;
+
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);
+    background-position: center;
     content: "";
+    // Use following inline styling to prevent icon splitting over line breaks
+    display: inline-block;
     height: $external-link-size;
     margin-left: units(2px);
-    // Use following inline styling to prevent icon splitting over line breaks
-    background-position: center;
-    display: inline;
-    padding-left: $external-link-size;
-    vertical-align: middle;
+    margin-top: 0.7ex;
+    position: absolute;
   }
 }

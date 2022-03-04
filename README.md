@@ -65,12 +65,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download and install
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.12.2/uswds-2.12.2.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.13.1/uswds-2.13.1.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.12.2/
+   uswds-2.13.1/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -101,7 +101,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.12.2/
+   │   ├── uswds-2.13.1/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -121,11 +121,11 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.12.2/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.12.2/css/uswds.min.css" />
+       <script src="assets/uswds-2.13.1/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.13.1/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.12.2/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.13.1/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -140,7 +140,7 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
-   - Node v12.13.0 (current LTS), [Installation guides](https://nodejs.org/en/download/)
+   - Node v12.13.1 (current LTS), [Installation guides](https://nodejs.org/en/download/)
 
    **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
