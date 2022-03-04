@@ -6,14 +6,7 @@ Unquote a string
 ----------------------------------------
 */
 
-@use "sass:meta";
-@use "sass:string";
-
 @function strunquote($value) {
-  @if meta.type-of($value) == "string" {
-    $value: string.unquote($value);
-  }
-
   @return $value;
 }
 
