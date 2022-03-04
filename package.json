@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-beta.3",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -24,7 +24,7 @@
       "default": "./dist/js/uswds.min.js"
     },
     "./src/js/components": "./src/components/index.js",
-    "./src/js/components/*": "./src/components/*.js",
+    "./src/js/components/*": "./src/js/components/*.js",
     "./src/fonts/*": "./src/fonts/*",
     "./src/img/*": "./src/img/*",
     "./js/*": "./dist/js/*",
