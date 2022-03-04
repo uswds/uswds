@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "../../stylesheets/core" as *;
 
 // Variables
@@ -25,11 +27,11 @@ $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 
 // Get fixed size for icon, based on non-normalized size token
 $this-system-token: if(
-  map-has-key($theme-body-font-sizes, $theme-body-font-size),
-  map-get($theme-body-font-sizes, $theme-body-font-size),
+  map.has-key($theme-body-font-sizes, $theme-body-font-size),
+  map.get($theme-body-font-sizes, $theme-body-font-size),
   $theme-body-font-size
 );
-$this-icon-size-px: map-get($system-type-scale, $this-system-token);
+$this-icon-size-px: map.get($system-type-scale, $this-system-token);
 $icon-size: px-to-rem($this-icon-size-px);
 
 @include override-prose {
@@ -105,7 +107,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
     $prefix: "";
   }
   // Or the standard prefix if the breakpoint is output
-  @else if map-get($theme-utility-breakpoints, $mq-key) {
+  @else if map.get($theme-utility-breakpoints, $mq-key) {
     $prefix: "#{$mq-key}#{$separator}";
   }
 

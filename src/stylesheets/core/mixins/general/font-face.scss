@@ -1,4 +1,6 @@
 @use "sass:map";
+@use "sass:string";
+
 @use "../../functions" as *;
 @use "../../variables" as *;
 @use "../../tokens/font" as *;
@@ -6,15 +8,15 @@
 
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
-  $file-path: unquote($file-path);
+  $file-path: string.unquote($file-path);
 
   // TODO: If $theme-use-rails-pipeline use font-url() statements
   // instead of url()
   // Dunno why I can't do this without an error...
 
   @font-face {
-    font-family: unquote($display-name);
-    font-style: unquote($font-style);
+    font-family: string.unquote($display-name);
+    font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
     src: url(#{$file-path}.woff2) format("woff2"),
@@ -38,7 +40,7 @@
           "#{$display-name}",
           "#{$theme-font-path}/#{$dir}/#{$filename}",
           #{$font-weight},
-          unquote("#{$font-style}")
+          string.unquote("#{$font-style}")
         );
       }
     }
@@ -70,7 +72,7 @@
   // set $this-src
   @if map.get($typeface-metadata, src) {
     $generate: true;
-    $this-src: map-get($typeface-metadata, src);
+    $this-src: map.get($typeface-metadata, src);
   }
 
   // If the typeface has custom src sefined, generate and override

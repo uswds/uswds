@@ -248,8 +248,8 @@ $system-properties: (
   ),
   font-feature-settings: (
     standard: (
-      "tabular": unquote('"tnum" 1, "kern" 1'),
-      "no-tabular": unquote('"kern" 1'),
+      "tabular": string.unquote('"tnum" 1, "kern" 1'),
+      "no-tabular": string.unquote('"kern" 1'),
     ),
     extended: (),
   ),
