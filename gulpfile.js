@@ -48,7 +48,6 @@ exports.sassTests = sassTests;
 exports.unitTests = unitTests;
 exports.test = series(
   typeCheck,
-  lintJS,
   lintSass,
   sassTests,
   unitTests,
