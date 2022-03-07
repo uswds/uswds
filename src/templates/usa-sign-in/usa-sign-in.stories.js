@@ -33,9 +33,7 @@ export default {
 export const SignInPage = (args) =>
   SignInForm({
     ...args,
-    banner: {
-      ...BannerContent,
-    },
+    ...BannerContent,
     ...IdentifierContent,
     ...DefaultContent,
   });
@@ -43,9 +41,7 @@ export const SignInPage = (args) =>
 export const SignInPageSpanish = (args) =>
   SignInForm({
     ...args,
-    banner: {
-      ...EsBannerContent,
-    },
+    ...EsBannerContent,
     ...EsIdentifierContent,
     ...EsContent,
   });
@@ -53,9 +49,7 @@ export const SignInPageSpanish = (args) =>
 export const MultipleSignInPage = (args) =>
   SignInMultipleForm({
     ...args,
-    banner: {
-      ...BannerContent,
-    },
+    ...BannerContent,
     ...IdentifierContent,
     ...MultipleContent,
   });
@@ -63,9 +57,7 @@ export const MultipleSignInPage = (args) =>
 export const MultipleSignInPageSpanish = (args) =>
   SignInMultipleForm({
     ...args,
-    banner: {
-      ...EsBannerContent,
-    },
+    ...EsBannerContent,
     ...EsIdentifierContent,
     ...EsMultipleContent,
   });

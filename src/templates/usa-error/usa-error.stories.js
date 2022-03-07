@@ -3,24 +3,18 @@ import {
   DefaultContent as BannerContent,
   DefaultContentLangEs as EsBannerContent,
 } from "../../components/usa-banner/content";
-import TitleContent from "../../components/usa-site-title/usa-site-title.json";
-import HeaderContent from "../../components/usa-header/usa-header.json";
 import {
   DefaultContent as IdentifierContent,
   EsContent as EsIdentifierContent,
 } from "../../components/usa-identifier/content";
 import FooterContent from "../../components/usa-footer/usa-footer.json";
-import { DefaultContent, EsContent } from "./content";
+import DefaultContent from "./usa-error.json";
+import EsContent from "./usa-error~lang-es.json";
 
 export default {
   title: "Pages/Error",
   args: {
-    banner: {
-      ...BannerContent,
-    },
-    ...TitleContent,
-    ...HeaderContent,
-    ...IdentifierContent,
+    ...BannerContent,
     ...FooterContent,
   },
 };
@@ -28,15 +22,14 @@ export default {
 export const PageNotFound = (args) =>
   Component({
     ...args,
+    ...IdentifierContent,
     ...DefaultContent,
   });
 
 export const PageNotFoundSpanish = (args) =>
   Component({
     ...args,
-    banner: {
-      ...EsBannerContent,
-    },
+    ...EsBannerContent,
+    ...EsIdentifierContent,    
     ...EsContent,
-    ...EsIdentifierContent,
   });

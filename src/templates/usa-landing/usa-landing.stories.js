@@ -9,11 +9,9 @@ import FooterContent from "../../components/usa-footer/usa-footer.json";
 import Component from "./usa-landing.twig";
 
 export default {
-  title: "Pages/Landing",
+  title: "Pages/Landing Page",
   args: {
-    banner: {
-      ...BannerContent,
-    },
+    ...BannerContent,
     ...TitleContent,
     ...HeaderContent,
     ...IdentifierContent,

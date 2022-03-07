@@ -3,8 +3,6 @@ import {
   DefaultContent as BannerContent,
   DefaultContentLangEs as EsBannerContent,
 } from "../../components/usa-banner/content";
-import TitleContent from "../../components/usa-site-title/usa-site-title.json";
-import HeaderContent from "../../components/usa-header/usa-header.json";
 import {
   DefaultContent as IdentifierContent,
   EsContent as EsIdentifierContent,
@@ -13,13 +11,12 @@ import FooterContent from "../../components/usa-footer/usa-footer.json";
 
 // Import page content
 import Component from "./usa-create-account.twig";
-import { DefaultContent, EsContent } from "./content";
+import DefaultContent from "./usa-create-account.json";
+import EsContent from "./usa-create-account~lang-es.json";
 
 export default {
   title: "Pages/Create Account",
   args: {
-    ...TitleContent,
-    ...HeaderContent,
     ...FooterContent,
   },
 };
@@ -27,9 +24,7 @@ export default {
 export const CreateAccountPage = (args) =>
   Component({
     ...args,
-    banner: {
-      ...BannerContent,
-    },
+    ...BannerContent,
     ...IdentifierContent,
     ...DefaultContent,
   });
@@ -37,9 +32,7 @@ export const CreateAccountPage = (args) =>
 export const CreateAccountPageSpanish = (args) =>
   Component({
     ...args,
-    banner: {
-      ...EsBannerContent,
-    },
+    ...EsBannerContent,
     ...EsIdentifierContent,
     ...EsContent,
   });
