@@ -29,5 +29,6 @@
   "existing_user": {
     "label": "Already have an account?",
     "cta": "Sign in"
-  }
+  },
+  "img_path": "./img"
 }
