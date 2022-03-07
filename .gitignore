@@ -15,6 +15,7 @@ dist/
 
 # ignore the Fractal build directory
 build/
+_site/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib
