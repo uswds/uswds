@@ -1,26 +1,64 @@
  {% set defaults = {
   'footer': {
-    'img_path': './img',
+    'return_to_top': 'Return to top',
     'primary_section': {
       'nav': {
         'links': [
-          {'label': '<Primary link>'},
-          {'label': '<Primary link>'},
-          {'label': '<Primary link>'},
-          {'label': '<Primary link>'}
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'}
         ]
       }
+    },
+    'secondary_section': {
+      'agency_name': '[Name of Agency]',
+      'heading': '[Agency Contact Center]',
+      'phone': '[(800) 555-GOVT]',
+      'email': '[info@agency.gov]',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
+    }
+  }
+} %}
+
+ {% set defaultsEs = {
+  'footer': {
+    'return_to_top': 'Subir',
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'},
+          {'label': '[Primary link]'}
+        ]
+      }
+    },
+    'secondary_section': {
+      'agency_name': '[Name of Agency]',
+      'heading': '[Agency Contact Center]',
+      'phone': '[(800) 555-GOVT]',
+      'email': '[info@agency.gov]',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
     }
   }
 } %}
 
 {% set settings = {
   'en': defaults,
-  'es': defaults|merge({
-    'footer': {
-      'return_to_top': 'Subir'
-    }
-  })
+  'es': defaultsEs
 } %}
 
-{% include "@components/usa-footer/usa-footer.twig" with settings[lang] %}
+{% include '@components/usa-footer/usa-footer.twig' with settings[lang] %}
