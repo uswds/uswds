@@ -6,8 +6,8 @@ const {
   defaultJoinGenerator,
 } = require("resolve-url-loader");
 
-const imageDirectory = path.resolve("src/img");
-const fontsDirectory = path.resolve("src/fonts");
+const imageDirectory = path.resolve("packages/img");
+const fontsDirectory = path.resolve("packages/fonts");
 
 // call default generator then append any additional paths
 const pathGenerator = asGenerator((item, ...rest) => [
@@ -31,8 +31,8 @@ module.exports = {
     builder: "webpack5",
   },
   stories: [
-    "../src/**/*.stories.mdx",
-    "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/**/*.stories.mdx",
+    "../packages/**/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -51,9 +51,9 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            "@components": path.resolve(__dirname, "../src/components"),
-            "@templates": path.resolve(__dirname, "../src/templates"),
-            "@compare": path.resolve(__dirname, "../src/compare"),
+            "@components": path.resolve(__dirname, "../packages/components"),
+            "@templates": path.resolve(__dirname, "../packages/templates"),
+            "@compare": path.resolve(__dirname, "../packages/compare"),
           },
         },
       },
@@ -102,7 +102,7 @@ module.exports = {
             },
           },
         ],
-        include: path.resolve(__dirname, "../src"),
+        include: path.resolve(__dirname, "../packages"),
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -113,7 +113,7 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../src/img"),
+        include: path.resolve(__dirname, "../packages/img"),
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -124,7 +124,7 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../src/fonts"),
+        include: path.resolve(__dirname, "../packages/fonts"),
       }
     );
 
