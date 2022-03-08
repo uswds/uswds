@@ -41,9 +41,7 @@ loop
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map.get($declaration, $utility-type) {
-    #{strunquote($ext-prop)}: string.unquote(
-      "#{strunquote($ext-value)}#{$important}"
-    );
+    #{$ext-prop}: string.unquote("#{$ext-value}#{$important}");
   }
 }
 
@@ -251,10 +249,6 @@ through all possible variants
               $value: map.get($utility, valuePrepend) + $value;
             }
 
-            // Then string.unquote the entire value string.
-
-            $value: strunquote($value);
-
             // And we'll set the $v as $val-slug for use in
             // constructing the selector (.$b-$m-$v).
 
@@ -271,7 +265,7 @@ through all possible variants
 
             // So, check for modifiers.
 
-            @if map.get($utility, modifiers) != null {
+            @if map.get($utility, modifiers) {
               // If there are modifiers, capture them as $our-modifiers.
 
               $our-modifiers: map.get($utility, modifiers);
@@ -309,7 +303,7 @@ through all possible variants
               {
                 // First, we can test to see if the base $b is null
 
-                @if $b == null {
+                @if not $b {
                   // If it _is_ null, the rule's selector is $v.
 
                   $selector: $v;

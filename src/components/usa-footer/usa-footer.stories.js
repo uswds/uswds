@@ -1,8 +1,10 @@
 import Medium from "./usa-footer.twig";
-import Big from "./usa-footer--big.twig";
-import Slim from "./usa-footer--slim.twig";
+import Big from "./usa-footer--big/usa-footer--big.twig";
+import Slim from "./usa-footer--slim/usa-footer--slim.twig";
 
-import { DefaultContent, BigContent, SlimContent } from "./content";
+import DefaultContent from "./usa-footer.json";
+import BigContent from "./usa-footer--big/usa-footer--big.json";
+import SlimContent from "./usa-footer--slim/usa-footer--slim.json";
 
 export default {
   title: "Components/Footer",

@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "sass:list";
+
 @use "../../functions" as *;
 @use "../../settings" as *;
 @use "../general/add-background-svg" as *;
@@ -15,7 +17,7 @@
     $theme-body-background-color,
     $bg-color
   );
-  $input-active-color: nth(
+  $input-active-color: list.nth(
     get-link-tokens-from-bg($bg-color, $preferred-link-token: $selected-color),
     1
   );

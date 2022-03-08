@@ -16,8 +16,8 @@
       + 'in the format `lh(FACE, HEIGHT)`.';
   }
 
-  $family: smart-quote(nth($props, 1));
-  $scale: smart-quote(nth($props, 2));
+  $family: smart-quote(list.nth($props, 1));
+  $scale: smart-quote(list.nth($props, 2));
 
   @if not map.has-key($project-cap-heights, $family) {
     @return error-not-token($family, "font family", $project-cap-heights);

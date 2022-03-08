@@ -10,19 +10,18 @@
       {{ base_label }}
     </label>
     <input class="usa-input" id="{{ id }}" type="search" name="search">
-    {% if modifier != 'usa-search--small' %}
-      <button class="usa-button" type="submit">
+    <button class="usa-button" type="submit">
+      {% if modifier != 'usa-search--small' %}
         <span class="usa-search__submit-text">
           {{ button_text|default(base_label) }}
         </span>
-      </button>
-    {% else %}
-      <button class="usa-button" type="submit">
-        <span class="usa-sr-only">
-          {{ button_text|default(base_label) }}
-        </span>
-      </button>
-    {% endif %}
+      {% endif %}
+      <img
+          src="./img/usa-icons-bg/search--white.svg"
+          class="usa-search__submit-icon"
+          alt="{{ button_text|default(base_label) }}"
+      >
+    </button>
   </form>
 {% if not search_js %}
   </section>

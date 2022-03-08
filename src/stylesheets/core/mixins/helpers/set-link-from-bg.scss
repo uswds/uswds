@@ -24,8 +24,8 @@
   );
 
   $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
-  $link-token: nth($link-tokens, 1);
-  $hover-token: nth($link-tokens, 2);
+  $link-token: list.nth($link-tokens, 1);
+  $hover-token: list.nth($link-tokens, 2);
 
   $visited-token: if(
     is-accessible-magic-number(
