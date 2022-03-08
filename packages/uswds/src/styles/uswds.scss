@@ -6,16 +6,16 @@
 
 // Global
 // -------------------------------------
-@forward "packages/uswds-global";
+@forward "uswds-global/src/styles";
 
 // Helpers
 // -------------------------------------
-@forward "packages/uswds-helpers";
+@forward "uswds-helpers/src/styles";
 
 // Components
 // -------------------------------------
-@forward "packages/uswds-components";
+@forward "../../../stylesheets/packages/uswds-components";
 
 // Utilities
 // -------------------------------------
-@forward "packages/uswds-utilities";
+@forward "uswds-utilities/src/styles";
