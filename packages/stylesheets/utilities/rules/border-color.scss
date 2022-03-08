@@ -14,9 +14,9 @@ example:
 ----------------------------------------
 */
 
-@use "../../core/settings" as *;
-@use "../../core/functions" as *;
-@use "../../core/tokens" as *;
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "uswds-core/src/styles/tokens" as *;
 @use "../functions/" as *;
 
 

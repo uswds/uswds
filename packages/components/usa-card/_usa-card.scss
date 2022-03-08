@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "../../stylesheets/core" as *;
+@use "uswds-core/src/styles" as *;
 
 /* TODO:
  * Add a way to change the flag breakpoint as a modifier/class?

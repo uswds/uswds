@@ -1,7 +1,7 @@
-@use "../core/settings" as *;
-@use "../core/functions" as *;
-@use "../core/mixins/general/add-kerning" as *;
-@use "../core/mixins/typography" as *;
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "uswds-core/src/styles/mixins/general/add-kerning" as *;
+@use "uswds-core/src/styles/mixins/typography" as *;
 
 html {
   @include add-kerning;

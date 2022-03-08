@@ -1,5 +1,5 @@
-@use "../../../core/functions/general/map-collect" as *;
-@use "../../../core/tokens/color" as *;
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
 
 $tokens-color-gray-lighter: (
   "gray-1": $color-gray-1,

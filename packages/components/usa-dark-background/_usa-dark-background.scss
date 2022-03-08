@@ -1,4 +1,4 @@
-@use "../../stylesheets/core" as *;
+@use "uswds-core/src/styles" as *;
 
 .usa-dark-background {
   @include add-knockout-font-smoothing;

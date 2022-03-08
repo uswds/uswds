@@ -9,8 +9,8 @@ in utilities
 */
 
 @use "sass:map";
-@use "../../core/tokens/units" as *;
-@use "../../core/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/units" as *;
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
 
 $tokens-units-ch-positive: (
   "05ch": ".5ch",

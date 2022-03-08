@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "../../stylesheets/core" as *;
+@use "uswds-core/src/styles" as *;
 
 $step-indicator-label-margin-top: 1;
 $step-indicator-margin-bottom: 4;

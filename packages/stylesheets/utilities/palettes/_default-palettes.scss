@@ -7,10 +7,10 @@ values as plugin
 ----------------------------------------
 */
 
-@use "../../core/functions/output/get-standard-values" as *;
-@use "../../core/functions/general/map-collect" as *;
-@use "../../core/tokens/color" as *;
-@use "../../core/tokens/font" as *;
+@use "uswds-core/src/styles/functions/output/get-standard-values" as *;
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+@use "uswds-core/src/styles/tokens/font" as *;
 @use "./font-palettes" as *;
 @use "./color-palettes" as *;
 

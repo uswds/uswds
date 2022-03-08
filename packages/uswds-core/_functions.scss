@@ -1,0 +1,2298 @@
+/*
+========================================
+Functions
+----------------------------------------
+*/
+
+// The following vars need to be set
+// here, before the rest of the system
+// variables are set
+
+$root-font-size: if($theme-respect-user-font-size, 100%, $theme-root-font-size);
+
+$root-font-size-equiv: if(
+  $theme-respect-user-font-size,
+  16px,
+  $theme-root-font-size
+);
+
+/*
+========================================
+General-purpose functions
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+divide()
+----------------------------------------
+Divides one number by another, to a
+specified precision.
+----------------------------------------
+*/
+
+@function divide($dividend, $divisor, $precision: 10, $depth: 0) {
+  @if ($dividend < 0 and $divisor < 0) {
+    $dividend: -1 * $dividend;
+    $divisor: -1 * $divisor;
+  }
+
+  @if ($dividend < 0) {
+    @return -1 * divide(-1 * $dividend, $divisor, $precision, $depth);
+  }
+
+  @if ($divisor < 0) {
+    @return -1 * divide($dividend, $divisor * -1, $precision, $depth);
+  }
+
+  @if ($divisor == 0) {
+    @error 'Illegal division by zero';
+  }
+
+  $result: if(unit($dividend) == unit($divisor), 0, $dividend * 0);
+  @while $dividend - $divisor >= 0 {
+    $result: $result + 1;
+    $dividend: $dividend - $divisor;
+  }
+
+  @if $dividend > 0 {
+    @if $depth < $precision {
+      $result: $result +
+        divide($dividend * 10, $divisor, $precision, $depth + 1) *
+        0.1;
+    } @else if $depth == $precision {
+      $next-digit: divide($dividend * 10, $divisor, $precision, $depth + 1);
+      @if $next-digit >= 5 {
+        $result: $result + 1;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+/*
+----------------------------------------
+uswds-error()
+----------------------------------------
+Allow the system to pass an error as text
+to test error states in unit testing
+----------------------------------------
+*/
+
+$_error-output-override: false !default;
+@function uswds-error($message, $override: $_error-output-override) {
+  @if $override {
+    @return "Error: #{$message}";
+  }
+
+  @error "#{$message}";
+}
+
+/*
+----------------------------------------
+error-not-token()
+----------------------------------------
+Returns a common not-a-token error.
+----------------------------------------
+*/
+
+@function error-not-token($token, $type, $valid-token-map: false) {
+  $valid-token-message: if(
+    $valid-token-map,
+    " Valid tokens: #{map-keys($valid-token-map)}",
+    ""
+  );
+  @return uswds-error(
+    "'#{$token}' is not a valid USWDS #{$type} token.#{$valid-token-message}"
+  );
+}
+
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/*
+----------------------------------------
+strip-unit()
+----------------------------------------
+Remove the unit of a length
+@author Hugo Giraudel
+@param {Number} $number - Number to remove unit from
+@return {Number} - Unitless number
+----------------------------------------
+*/
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return divide($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/*
+----------------------------------------
+multi-cat()
+----------------------------------------
+Concatenate two lists
+----------------------------------------
+*/
+
+@function multi-cat($list1, $list2) {
+  $this-list: ();
+
+  @each $e in $list1 {
+    @each $ee in $list2 {
+      $this-block: $e + $ee;
+      $this-list: join($this-list, $this-block);
+    }
+  }
+
+  @return $this-list;
+}
+
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
+
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+/*
+----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects `px`, `xs`, and `xl` numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@function smart-quote($value) {
+  @if type-of($value) == "string" {
+    @return quote($value);
+  }
+
+  @if type-of($value) == "number" and index(("px", "xl", "xs"), unit($value)) {
+    @return inspect($value);
+  }
+
+  @if type-of($value) == "color" {
+    @error 'Only use quoted color tokens in USWDS functions and mixins. '
+      + 'See designsystem.digital.gov/design-tokens/color '
+      + 'for more information.';
+  }
+
+  @return $value;
+}
+
+/*
+----------------------------------------
+remove()
+----------------------------------------
+Remove a value from a list
+----------------------------------------
+*/
+
+@function remove($list, $value, $recursive: false) {
+  $result: ();
+
+  @for $i from 1 through length($list) {
+    @if type-of(nth($list, $i)) == list and $recursive {
+      $result: append($result, remove(nth($list, $i), $value, $recursive));
+    } @else if nth($list, $i) != $value {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
+}
+
+/*
+----------------------------------------
+to-map()
+----------------------------------------
+Convert a single value to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@function to-map($key, $values) {
+  $l: length($values);
+
+  @if $key == "noModifier" or $key == "noValue" {
+    $key: "";
+  }
+
+  @return (slug: $key, content: $values);
+}
+
+/*
+----------------------------------------
+base-to-map()
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@function base-to-map($values) {
+  $l: length($values);
+
+  @if $l == 1 or nth($values, $l) != isReadable {
+    @return (slug: $values, isReadable: true);
+  } @else {
+    $values: remove($values, isReadable);
+
+    @return (slug: unquote(nth($values, 1)), isReadable: true);
+  }
+}
+
+/*
+----------------------------------------
+ns()
+----------------------------------------
+Add a namesspace of $type if that
+namespace is set to output
+----------------------------------------
+*/
+
+@function ns($type) {
+  $type: smart-quote($type);
+
+  @if not map-deep-get($theme-namespace, $type, output) {
+    @return "";
+  }
+
+  @return map-deep-get($theme-namespace, $type, namespace);
+}
+
+/*
+----------------------------------------
+de-list()
+----------------------------------------
+Transform a one-element list or arglist
+into that single element.
+----------------------------------------
+(1) => 1
+((1)) => (1)
+----------------------------------------
+*/
+
+@function de-list($value) {
+  $types: ("list", "arglist");
+
+  @if not index($types, type-of($value)) {
+    @return $value;
+  }
+
+  $output: if(length($value) == 1, nth($value, 1), $value);
+
+  @return $output;
+}
+
+/*
+----------------------------------------
+unpack()
+----------------------------------------
+Create lists of single items from lists
+of lists.
+----------------------------------------
+(1, (2.1, 2.2), 3) -->
+(1, 2.1, 2.2, 3)
+----------------------------------------
+*/
+
+@function unpack($value) {
+  $output: ();
+
+  @if length($value) == 0 {
+    @return $value;
+  }
+
+  @each $i in $value {
+    @if type-of($i) == "list" {
+      @each $ii in $i {
+        $output: append($output, $ii, comma);
+      }
+    } @else {
+      $output: append($output, $i, comma);
+    }
+  }
+
+  @return de-list($output);
+}
+
+/*
+----------------------------------------
+get-last()
+----------------------------------------
+Return the last item of a list,
+Return null if the value is null
+----------------------------------------
+*/
+
+@function get-last($props) {
+  $length: length($props);
+  $last: if($length == 0, null, nth($props, -1));
+
+  @return $last;
+}
+
+/*
+----------------------------------------
+has-important()
+----------------------------------------
+Check to see if `!important` is
+being passed in a mixin's props
+----------------------------------------
+*/
+
+@function has-important($props) {
+  $props: de-list($props);
+
+  @if get-last($props) == "!important" {
+    @return true;
+  }
+
+  @return false;
+}
+
+/*
+----------------------------------------
+append-important()
+----------------------------------------
+Append `!important` to a list
+----------------------------------------
+*/
+
+@function append-important($source, $destination) {
+  @if get-last($source) == "!important" {
+    @return append($destination, !important, comma);
+  }
+
+  @return $destination;
+}
+
+/*
+----------------------------------------
+spacing-multiple()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function spacing-multiple($unit) {
+  @return 1rem *
+    divide($system-spacing-grid-base * $unit, $root-font-size-equiv);
+}
+
+/*
+----------------------------------------
+rem-to-px()
+----------------------------------------
+Converts a value in rem to a value in px
+----------------------------------------
+*/
+
+@function rem-to-px($value-in-rem) {
+  @if unit($value-in-rem) == "rem" {
+    $rem-to-px: divide($value-in-rem, 1rem) * $root-font-size-equiv;
+    @return $rem-to-px;
+  }
+  @if unit($value-in-rem) != "px" {
+    @error 'This value must be in either px or rem';
+  }
+  @return $value-in-rem;
+}
+
+/*
+----------------------------------------
+rem-to-user-em()
+----------------------------------------
+Converts a value in rem to a value in
+[user-settings] em for use in media
+queries
+----------------------------------------
+*/
+
+@function rem-to-user-em($grid-in-rem) {
+  $rem-to-user-em: divide($grid-in-rem, 1rem) * 1em;
+
+  @return $rem-to-user-em;
+}
+
+/*
+----------------------------------------
+validate-typeface-token()
+----------------------------------------
+Check to see if a typeface-token exists.
+Throw an error if a passed token does
+not exist in the typeface-token map.
+----------------------------------------
+*/
+
+@function validate-typeface-token($typeface-token) {
+  @if not map-has-key($all-typeface-tokens, $typeface-token) {
+    @return error-not-token($typeface-token, "typeface", $all-typeface-tokens);
+  }
+
+  @return $typeface-token;
+}
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a valid typeface
+----------------------------------------
+*/
+
+@function cap-height($typeface-token) {
+  @if not $typeface-token {
+    @return false;
+  }
+
+  $typeface-token: validate-typeface-token($typeface-token);
+  $token-data: map-get($all-typeface-tokens, $typeface-token);
+  @return map-get($token-data, "cap-height");
+}
+
+/*
+----------------------------------------
+px-to-rem()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
+
+@function px-to-rem($pixels) {
+  @if not $pixels {
+    @return false;
+  }
+  $px-to-rem: divide($pixels, $root-font-size-equiv) * 1rem;
+  $px-to-rem: divide(round($px-to-rem * 100), 100);
+
+  @return $px-to-rem;
+}
+
+/*
+----------------------------------------
+normalize-type-scale()
+----------------------------------------
+Normalizes a specific face's optical size
+to a set target
+----------------------------------------
+*/
+
+@function normalize-type-scale($cap-height, $scale) {
+  @if not $cap-height {
+    @return false;
+  }
+
+  $this-scale: divide(
+    $system-base-cap-height * strip-unit($scale),
+    $cap-height
+  );
+
+  @return px-to-rem($this-scale);
+}
+
+/*
+----------------------------------------
+utility-font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+Not the public-facing function.
+Used for building the utilities and
+withholds certain errors.
+----------------------------------------
+*/
+
+@function utility-font($family, $scale) {
+  @if not map-has-key($project-cap-heights, $family) {
+    @return error-not-token($family, "font family", $project-cap-heights);
+  }
+
+  $quote-scale: smart-quote($scale);
+
+  @if not map-get($all-type-scale, $quote-scale) {
+    @return error-not-token($scale, "font scale", $all-type-scale);
+  }
+
+  $this-cap: map-get($project-cap-heights, $family);
+  $this-scale: map-get($all-type-scale, $quote-scale);
+
+  @if not $this-scale and $this-cap {
+    @return false;
+  }
+
+  @return normalize-type-scale($this-cap, $this-scale);
+}
+
+/*
+----------------------------------------
+line-height()
+lh()
+----------------------------------------
+Get a normalized line-height from
+a family and a line-height scale unit
+----------------------------------------
+*/
+
+@function lh($props...) {
+  $props: unpack($props);
+
+  @if not(length($props) == 2) {
+    @error 'lh() needs both a valid face and line height token '
+      + 'in the format `lh(FACE, HEIGHT)`.';
+  }
+
+  $family: smart-quote(nth($props, 1));
+  $scale: smart-quote(nth($props, 2));
+
+  @if not map-has-key($project-cap-heights, $family) {
+    @return error-not-token($family, "font family", $project-cap-heights);
+  }
+
+  @if not map-get($system-line-height, $scale) {
+    @return error-not-token($scale, "line-height", $system-line-height);
+  }
+
+  @if not map-get($project-cap-heights, $family) {
+    @return false;
+  }
+
+  $this-cap: map-get($project-cap-heights, $family);
+  $this-line-height: map-get($system-line-height, $scale);
+  $normalized-line-height: divide(
+    $this-line-height,
+    divide($system-base-cap-height, $this-cap)
+  );
+  $normalized-line-height: divide(round($normalized-line-height * 10), 10);
+
+  @return $normalized-line-height;
+}
+
+@function line-height($props...) {
+  @return lh($props...);
+}
+
+/*
+----------------------------------------
+convert-to-font-type()
+----------------------------------------
+Converts a font-role token into a
+font-type token. Leaves font-type tokens
+unchanged.
+----------------------------------------
+*/
+
+@function convert-to-font-type($token) {
+  @if map-has-key($project-font-role-tokens, $token) {
+    @return map-get($project-font-role-tokens, $token);
+  }
+
+  @return $token;
+}
+
+/*
+----------------------------------------
+get-font-stack()
+----------------------------------------
+Get a font stack from a style- or
+role-based font token.
+----------------------------------------
+*/
+
+@function get-font-stack($token) {
+  // Start by converting to a type token (sans, serif, etc)
+  $type-token: convert-to-font-type($token);
+  $output-display-name: true;
+  $this-stack: null;
+  // Get the font type metadata
+  $this-font-map: map-get($project-font-type-tokens, $type-token);
+  // Only output if the font type has an assigned typeface token
+  @if map-get($this-font-map, "typeface-token") {
+    $this-font-token: map-get($this-font-map, "typeface-token");
+    // Get the typeface metadata
+    $this-typeface-data: map-get($all-typeface-tokens, $this-font-token);
+    $this-name: map-get($this-typeface-data, "display-name");
+    // If it's a system typeface, don't output the display name
+    @if map-has-key($this-typeface-data, "system-font") {
+      $output-display-name: false;
+    }
+    // If there's a custom stack, use it and output the display name...
+    @if map-get($this-font-map, "custom-stack") {
+      $this-stack: map-get($this-font-map, "custom-stack");
+      $output-display-name: true;
+    }
+    // If the token has an existing stack, use that...
+    @else if map-deep-get($all-typeface-tokens, $this-font-token, "stack") {
+      $this-stack: map-deep-get(
+        $all-typeface-tokens,
+        $this-font-token,
+        "stack"
+      );
+    }
+    // Otherwise, get the type token's default stack.
+    @else {
+      $this-stack: map-get($system-font-stacks, $type-token);
+    }
+    // If the typeface has no display name (system fonts), don't output the display name
+    @if not map-get($this-typeface-data, "display-name") {
+      $output-display-name: false;
+    }
+    @if not $output-display-name {
+      @return #{$this-stack};
+    }
+    @return unquote("#{$this-name}, #{$this-stack}");
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
+get-typeface-token()
+----------------------------------------
+Get a typeface token from a font-type or
+font-role token.
+----------------------------------------
+*/
+
+@function get-typeface-token($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($project-font-role-tokens, $font-token) {
+    $this-token: map-get($project-font-role-tokens, $font-token);
+  }
+  @return map-deep-get(
+    $project-font-type-tokens,
+    $this-token,
+    "typeface-token"
+  );
+}
+
+/*
+----------------------------------------
+get-system-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid or a passed
+variable that is, itself, a list
+----------------------------------------
+*/
+
+@function get-system-color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false
+) {
+  // If the arg being passed to the fn
+  // is a variable defined as a list,
+  // $color-family will contain this
+  // entire list, and needs to be
+  // unpacked.
+  // ex:
+  //    in settings:
+  //      $theme-color-primary.'dark': 'blue', 70
+  //    in the theme colors map:
+  //      $color-primary-dark: get-system-color($theme-color-primary.'dark'),
+
+  @if type-of($color-family) == "list" {
+    @if length($color-family) > 2 {
+      $color-variant: nth($color-family, 3);
+    }
+    $color-grade: nth($color-family, 2);
+    $color-family: nth($color-family, 1);
+  }
+
+  $color-family: smart-quote($color-family);
+  $color-variant: smart-quote($color-variant);
+
+  // If the arg being passed to the fn
+  // is false, it should output as `false`
+  // to preserve a false value in the
+  // target map
+  // ex:
+  //    in settings:
+  //      $theme-color-primary.'darkest': false;
+  //    in the theme colors map:
+  //      'darkest': get-system-color($theme-color-primary.'darkest'),
+  //      'darkest': false, // is the desired outcome
+  // TODO: should a false-pass color function be a separate fn?
+
+  @if not $color-family {
+    @return false;
+  }
+
+  @if $color-variant {
+    $output: map-deep-get(
+      $system-colors,
+      $color-family,
+      $color-variant,
+      $color-grade
+    );
+
+    @return $output;
+  }
+
+  $output: map-deep-get($system-colors, $color-family, $color-grade);
+
+  @return $output;
+}
+
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+
+@function system-type-scale($scale) {
+  $scale: smart-quote($scale);
+
+  @if not $scale {
+    @return false;
+  }
+
+  @if not map-has-key($system-type-scale, $scale) {
+    @return error-not-token($scale, "type scale", $system-type-scale);
+  }
+
+  @return map-get($system-type-scale, $scale);
+}
+
+/*
+----------------------------------------
+calc-gap-offset()
+----------------------------------------
+Calculate a valid uswds unit that is
+half the width of a given unit, for
+calculating gap offset in the layout
+grid.
+----------------------------------------
+*/
+
+@function calc-gap-offset($gap-size) {
+  $gap-size: smart-quote($gap-size);
+
+  @if not map-has-key($spacing-to-value, $gap-size) {
+    @return error-not-token($gap-size, "gap size");
+  }
+
+  $numeric-eq: map-get($spacing-to-value, $gap-size);
+  $numeric-eq-half: inspect(divide($numeric-eq, 2));
+
+  @if not map-has-key($spacing-to-token, $numeric-eq-half) {
+    @error '`#{$gap-size}` is not a valid USWDS gap size token. '
+      + 'Column gaps need to have a standard size half their width.';
+  }
+
+  @return map-get($spacing-to-token, $numeric-eq-half);
+}
+
+/*
+----------------------------------------
+get-standard-values()
+----------------------------------------
+Gets a map of USWDS standard values
+for a property
+----------------------------------------
+*/
+
+@function get-standard-values($property) {
+  @return map-deep-get($system-properties, $property, standard);
+}
+
+/*
+----------------------------------------
+number-to-token()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+
+@function number-to-token($number) {
+  $number: inspect($number);
+
+  @if not map-has-key($number-to-value, $number) {
+    @return false;
+  }
+
+  @return map-get($number-to-value, $number);
+}
+
+/*
+----------------------------------------
+columns()
+----------------------------------------
+outputs a grid-col number based on
+the number of desired columns in the
+12-column grid
+
+Ex: columns(2) --> 6
+    grid-col(columns(2))
+----------------------------------------
+*/
+
+@function columns($number) {
+  $options: "auto", "fill";
+  $number: smart-quote($number);
+
+  @if index($options, $number) {
+    @return $number;
+  }
+  @if 12 % $number != 0 {
+    @error '`#{$number}` must be a divisor of 12.';
+  }
+  $columns: divide(12, $number);
+  @return $columns;
+}
+
+/*
+----------------------------------------
+get-uswds-value()
+----------------------------------------
+Finds and outputs a value from the
+USWDS standard values.
+
+Used to build other standard utility
+functions and mixins.
+----------------------------------------
+*/
+
+@function get-uswds-value($property, $value...) {
+  @if type-of($value) == "arglist" and nth($value, 1) == override {
+    @return nth($value, 2);
+  }
+
+  $value: nth($value, 1);
+  $converted: number-to-token($value);
+  $quoted-value: if(
+    $converted,
+    smart-quote($converted),
+    smart-quote(nth($value, 1))
+  );
+  $our-standard-values: map-deep-get($system-properties, $property, standard);
+  $our-extended-values: map-deep-get($system-properties, $property, extended);
+
+  @if map-has-key($our-standard-values, $quoted-value) {
+    $output: map-get($our-standard-values, $quoted-value);
+
+    @if not $output {
+      @if $theme-show-compile-warnings {
+        @error '`#{$value}` is set as a `false` value '
+          + 'for the #{$property} property in your project settings '
+          + 'and will not output properly. '
+          + 'Set the value of `#{$value}` in project settings.';
+      }
+    }
+
+    @return $output;
+  }
+
+  @if map-has-key($our-extended-values, $quoted-value) {
+    @if $theme-show-compile-warnings {
+      @warn '`#{$value}` is an extended USWDS `#{$property}` token. '
+        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    }
+
+    @return map-get($our-extended-values, $quoted-value);
+  }
+
+  // TODO: what are these last two cases? Evaluate.
+  @if not(type-of($value) == "number" and not unitless($value)) {
+    @return error-not-token($value, $property, $our-standard-values);
+  }
+
+  @if $theme-show-compile-warnings {
+    @warn '`#{$value}` is not a USWDS `#{$property}` token. '
+      + 'This is OK, but only components built with standard '
+      + 'tokens can be accepted back into the system. '
+      + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  }
+
+  @return $value;
+}
+
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black
+/// @param {Color} $color - Color
+/// @return {Number}
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
+@function luminance($color) {
+  $lum: (nth($luminance-color-component-values, red($color) + 1) * 0.2126) +
+    (nth($luminance-color-component-values, green($color) + 1) * 0.7152) +
+    (nth($luminance-color-component-values, blue($color) + 1) * 0.0722);
+
+  @return divide(round($lum * 1000), 1000);
+}
+
+/// Casts a string into a number
+///
+/// @param {String | Number} $value - Value to be parsed
+///
+/// @return {Number}
+///
+@function to-number($value) {
+  @if type-of($value) == "number" {
+    @return $value;
+  } @else if type-of($value) != "string" {
+    $_: log("Value for `to-number` should be a number or a string.");
+  }
+
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == "-";
+  $numbers: (
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+  );
+
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+
+    @if not(index(map-keys($numbers), $character) or $character == ".") {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
+    }
+
+    @if $character == "." {
+      $digits: 1;
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    } @else {
+      $digits: $digits * 10;
+      $result: divide($result + map-get($numbers, $character), $digits);
+    }
+  }
+
+  @return if($minus, -$result, $result);
+}
+
+/*
+----------------------------------------
+decompose-color-token()
+----------------------------------------
+Convert a color token into into a list
+of form [family], [grade], [variant]
+
+Vivid variants return "vivid" as the
+variant.
+
+If neither grade nor variant exists,
+returns 'false'
+----------------------------------------
+*/
+
+@function decompose-color-token($token) {
+  $separator: "-";
+  $family: false;
+  $grade: false;
+  $variant: false;
+  $exceptions: (
+    "black": 100,
+    "white": 0,
+  );
+  $token: if($token == "ink", "base-darkest", $token);
+  // If there's no separator, set family and grade
+  @if not str-index($token, $separator) {
+    $family: $token;
+    $grade: if(
+      map-has-key($exceptions, $family),
+      map-get($exceptions, $family),
+      "root"
+    );
+  } @else {
+    $split: str-split($token, $separator);
+    $last: nth($split, length($split));
+    // If the last string is over 3 char, it's a theme token
+    @if str-length($last) > 3 {
+      @if $last == "vivid" {
+        $variant: "vivid";
+        $grade: "root";
+      } @else if $last == "warm" or $last == "cool" {
+        $grade: "root";
+      } @else {
+        $grade: $last;
+      }
+      // Otherwise treat as system token
+    } @else {
+      // Determine if it's a vivid variant
+      @if str-index($last, "v") {
+        $variant: "vivid";
+        $grade: str-slice($last, 1, (str-index($last, "v") - 1));
+      } @else {
+        $grade: $last;
+      }
+      // Make sure the grade is a number
+      $grade: if(type-of($grade) == "string", to-number($grade), $grade);
+    }
+    // Collect compound-word families
+    $is-compound-family: false;
+    @if length($split) == 3 or index($split, "warm") or index($split, "cool") {
+      $is-compound-family: true;
+    }
+    @if $is-compound-family {
+      $family: nth($split, 1) + $separator + nth($split, 2);
+    } @else {
+      $family: nth($split, 1);
+    }
+  }
+  @return $family, $grade, $variant;
+}
+
+/*
+----------------------------------------
+test-colors()
+----------------------------------------
+Check to see if all system colors
+fall between the proper relative
+luminance range for their grade.
+
+Has a couple quirks, as the luminance()
+function returns slightly different
+results than expected.
+----------------------------------------
+*/
+
+@function test-colors($map) {
+  $exceptions: "black", "white", "transparent", "black-transparent",
+    "white-transparent";
+
+  @each $token, $value in $map {
+    $family: nth(decompose-color-token($token), 1);
+    $grade: nth(decompose-color-token($token), 2);
+    @if not $value {
+      // empty block
+    } @else if not index($exceptions, $family) {
+      $computed: calculate-grade($value);
+      @debug "Checked #{$family}-#{$grade}";
+      @if $grade <= 5 {
+        // empty block
+      } @else if $computed != $grade {
+        @warn "#{$token} (#{$value}) lum: #{luminance($value)} is not in the range #{map-get($system-color-grades, $grade)}";
+      }
+    }
+  }
+
+  @return 1;
+}
+
+/*
+----------------------------------------
+str-split()
+----------------------------------------
+Split a string at a given separator
+and convert into a lisrt of substrings
+----------------------------------------
+*/
+
+@function str-split($string, $separator) {
+  $split-arr: ();
+  $index: str-index($string, $separator);
+  @while $index != null {
+    $item: str-slice($string, 1, $index - 1);
+    $split-arr: append($split-arr, $item);
+    $string: str-slice($string, $index + 1);
+    $index: str-index($string, $separator);
+  }
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+/*
+----------------------------------------
+str-replace()
+----------------------------------------
+Replace any substring with another
+string
+----------------------------------------
+*/
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+/*
+----------------------------------------
+is-system-color-token()
+----------------------------------------
+Return whether a token is a system
+color token
+----------------------------------------
+*/
+
+@function is-system-color-token($token) {
+  @if map-has-key($system-color-shortcodes, $token) {
+    @return true;
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
+is-theme-color-token()
+----------------------------------------
+Return whether a token is a theme
+color token
+----------------------------------------
+*/
+
+@function is-theme-color-token($token) {
+  @if map-has-key($project-color-shortcodes, $token) {
+    @return true;
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
+color-token-assignment()
+----------------------------------------
+Get the system token equivalent of any
+theme color token
+----------------------------------------
+*/
+
+@function color-token-assignment($color-token) {
+  @if is-system-color-token($color-token) {
+    $system-token: $color-token;
+    @return $system-token;
+  }
+
+  @if not is-theme-color-token($color-token) {
+    @return error-not-token($color-token, "color");
+  }
+
+  $theme-token: $color-token;
+  $theme-token-assignment: map-get($assignments-theme-color, $theme-token);
+  @return $theme-token-assignment;
+}
+
+/*
+----------------------------------------
+is-color-token()
+----------------------------------------
+Returns whether a given string is a
+USWDS color token.
+----------------------------------------
+*/
+
+@function is-color-token($token) {
+  $is-color-token: if(map-has-key($all-color-shortcodes, $token), true, false);
+  @return $is-color-token;
+}
+
+/*
+----------------------------------------
+calculate-grade()
+----------------------------------------
+Derive the grade equivalent any color,
+even non-token colors
+----------------------------------------
+*/
+
+@function calculate-grade($color-token) {
+  $transparency-error: "USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+  $grade: null;
+  $lum: null;
+  $custom-color: false;
+  $color-token-assignment: false;
+
+  // Determine if the color is a custom color
+  @if type-of($color-token) == "color" {
+    $custom-color: $color-token;
+  } @else {
+    $color-token-assignment: color-token-assignment($color-token);
+    @if type-of($color-token-assignment) == "color" {
+      $custom-color: color-token-assignment($color-token);
+    }
+  }
+
+  // If it's custom, compare its rLum to USWDS grade rLum ranges
+  @if $custom-color {
+    // If the color uses transparency, throw an error
+    @if alpha($custom-color) != 1 {
+      @return uswds-error($transparency-error);
+    }
+    $lum: luminance($custom-color);
+    // Cycle through grades, knowing current AND next grade
+    $our-grades: map-keys($system-color-grades);
+    $grade-count: length($our-grades);
+    @for $i from 1 through $grade-count {
+      $this-grade: nth($our-grades, $i);
+      $this-grade-min: map-deep-get($system-color-grades, $this-grade, "min");
+      $this-grade-max: map-deep-get($system-color-grades, $this-grade, "max");
+      $next-grade: if($i < $grade-count, nth($our-grades, $i + 1), false);
+      $next-grade-min: if(
+        $next-grade,
+        map-deep-get($system-color-grades, $next-grade, "min"),
+        false
+      );
+      // If the lum fits the range, assign a USWDS grade
+      // Otherwise, set a grade midway between two USWDS grades
+      @if ($lum >= $this-grade-min) and ($lum <= $this-grade-max) {
+        @return $this-grade;
+      }
+      @if ($lum > $this-grade-max) and ($lum < $next-grade-min) {
+        $custom-grade-midpoint: divide($this-grade + $next-grade, 2);
+        $custom-grade: $custom-grade-midpoint;
+        @return $custom-grade;
+      }
+    }
+  }
+
+  @if not is-color-token($color-token-assignment) {
+    @return error-not-token($color-token-assignment, "color");
+  }
+
+  $system-token: $color-token-assignment;
+  $token-split: decompose-color-token($system-token);
+  $token-family: color-token-family($token-split);
+  // If the color uses transparency, throw an error
+  @if str-index($token-family, "transparent") {
+    @return uswds-error($transparency-error);
+  }
+  // Otherwise, return token grade
+  $token-grade: color-token-grade($token-split);
+  @return $token-grade;
+}
+
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+
+@function color($value, $flags...) {
+  $value: unpack($value);
+
+  // Non-token colors may be passed with specific flags
+  @if type-of($value) == color {
+    // override or set-theme will allow any color
+    @if index($flags, override) or index($flags, set-theme) {
+      // override + no-warn will skip warnings
+      @if index($flags, no-warn) {
+        @return $value;
+      }
+
+      @if $theme-show-compile-warnings {
+        @warn 'Override: `#{$value}` is not a USWDS color token.';
+      }
+
+      @return $value;
+    }
+  }
+
+  // False values may be passed through when setting theme colors
+  @if $value == false {
+    @if index($flags, set-theme) {
+      @return $value;
+    }
+  }
+
+  // Now, any value should be evaluated as a token
+
+  $value: smart-quote($value);
+
+  @if map-has-key($system-color-shortcodes, $value) {
+    $our-color: map-get($system-color-shortcodes, $value);
+    @if $our-color == false {
+      @error '`#{$value}` is a color that does not exist '
+        + 'or is set to false.';
+    }
+    @return $our-color;
+  }
+
+  // If we're using the theme flag, $project-color-shortcodes has not yet been set
+  @if not index($flags, set-theme) {
+    @if map-has-key($project-color-shortcodes, $value) {
+      $our-color: (map-get($project-color-shortcodes, $value));
+      @if $our-color == false {
+        @error '`#{$value}` is a color that does not exist '
+          + 'or is set to false.';
+      }
+      @return $our-color;
+    }
+  }
+
+  @return error-not-token($value, "color");
+}
+
+/*
+----------------------------------------
+advanced-color()
+----------------------------------------
+Derive a color from a color triplet:
+[family], [grade], [variant]
+----------------------------------------
+*/
+
+// color() can have a 1, 2, or 3 arguments passed to it:
+//
+// [family]
+// ex: color('primary')
+//     - the root in a theme palette family
+//
+// [family], [grade]
+// ex: color('red', 50)
+//     - a standard system color
+// ex: color('accent-warm', 'light')
+//     - a standard theme color
+// ex: color('primary', 'vivid')
+//     - in theme colors, 'vivid' is considered a grade
+//
+// [family], [grade], [vivid]
+// ex: color('red', 50, 'vivid')
+//     - a vivid system color
+//     - only system colors required three arguments
+
+@function advanced-color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false
+) {
+  // Convert any arglists into lists
+  $color-family: if(
+    type-of($color-family) == "arglist",
+    unpack($color-family),
+    $color-family
+  );
+
+  // If $color-family is a list, color() had a variable
+  // passed to it, and args need to be re-set with the
+  // values from the $color-family list:
+  @if type-of($color-family) == "list" {
+    @if length($color-family) > 2 {
+      $color-variant: nth($color-family, 3);
+    }
+    $color-grade: nth($color-family, 2);
+    $color-family: nth($color-family, 1);
+  }
+
+  // Set initial state of vars
+  $color-family: smart-quote($color-family);
+  $color-grade: smart-quote($color-grade);
+  $color-variant: smart-quote($color-variant);
+
+  // @debug '#{$color-family}: #{type-of($color-family)}, #{$color-grade}: #{type-of($color-grade)}, #{$color-variant}: #{type-of($color-variant)}' ;
+
+  // If there are no args, throw an error
+  @if not $color-family {
+    @error 'Include a color in the form [family], [grade], [vivid]';
+  }
+
+  // If the grade is a number, it's a system color
+  // ex: ('red', 50)
+  @if type-of($color-grade) == "number" {
+    @return get-system-color($color-family, $color-grade, $color-variant);
+  }
+
+  // non-number grades are associated with non-root theme colors
+  // ex: ('base', 'darker')
+  // root theme colors have no grade
+  // ex: ('base')
+  @if map-has-key($all-project-colors, $color-family) {
+    @if not
+      map-has-key(map-get($all-project-colors, $color-family), $color-grade)
+    {
+      @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
+        + 'Valid grades: '
+        + '#{map-keys(map-get($all-project-colors, $color-family))}';
+    }
+  } @else {
+    @return error-not-token($color-family, "theme family", $all-project-colors);
+  }
+  @return map-deep-get($all-project-colors, $color-family, $color-grade);
+}
+
+/*
+----------------------------------------
+units()
+----------------------------------------
+Converts a spacing unit into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function units($value) {
+  $converted: if(
+    type-of($value) == "string",
+    quote($value),
+    number-to-token($value)
+  );
+
+  @if not map-has-key($project-spacing-standard, $converted) {
+    @return error-not-token($value, "spacing unit", $project-spacing-standard);
+  }
+
+  @return map-get($project-spacing-standard, $converted);
+}
+
+/*
+----------------------------------------
+get-palettes()
+----------------------------------------
+Build a single map of plugin values
+from a list of plugin keys.
+----------------------------------------
+*/
+
+@function get-palettes($list) {
+  $our-palettes: ();
+
+  @if type-of($list) == "map" {
+    @error 'Use a list of strings as plugin values.';
+  }
+
+  @each $palette in $list {
+    @if not map-has-key($palette-registry, $palette) {
+      @error '#{$palette} isn\'t in the registry.';
+    }
+
+    $our-palettes: map-merge(
+      $our-palettes,
+      map-get($palette-registry, $palette)
+    );
+  }
+
+  @return $our-palettes;
+}
+
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map-has-key($all-border-radius, $value) {
+    @return map-get($all-border-radius, $value);
+  } @else {
+    @return error-not-token($value, "border radius", $all-border-radius);
+  }
+}
+
+/*
+----------------------------------------
+font-weight()
+fw()
+----------------------------------------
+Get a font-weight value from the
+system font-weight
+----------------------------------------
+*/
+
+@function font-weight($value) {
+  @return get-uswds-value(font-weight, $value);
+}
+
+@function fw($value) {
+  @return font-weight($value);
+}
+
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+
+@function feature($value) {
+  @return get-uswds-value(feature, $value);
+}
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @return get-uswds-value(flex, $value);
+}
+
+/*
+----------------------------------------
+font-family()
+family()
+----------------------------------------
+Get a font-family stack from a
+role-based or type-based font family
+----------------------------------------
+*/
+
+@function font-family($value) {
+  @return get-uswds-value(font-family, $value);
+}
+
+@function ff($value) {
+  @return font-family($value);
+}
+
+@function family($value) {
+  @return font-family($value);
+}
+
+/*
+----------------------------------------
+letter-spacing()
+ls()
+----------------------------------------
+Get a letter-spacing value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function letter-spacing($value) {
+  $lh-map: map-get($system-properties, letter-spacing);
+  $fn-map: map-get($lh-map, function);
+  @if map-has-key($fn-map, $value) {
+    @return map-get($fn-map, $value);
+  }
+  @if type-of($value) == "number" {
+    @error '`#{$value}` is a not a valid letter-spacing token. '
+      + 'Valid letter-spacing tokens: #{map-keys($fn-map)}';
+  }
+  @return get-uswds-value(letter-spacing, $value);
+}
+
+@function ls($value) {
+  @return letter-spacing($value);
+}
+
+/*
+----------------------------------------
+measure()
+----------------------------------------
+Gets a valid USWDS reading line length
+----------------------------------------
+*/
+
+@function measure($value) {
+  @return get-uswds-value(measure, $value);
+}
+
+/*
+----------------------------------------
+opacity()
+----------------------------------------
+Get an opacity from the system
+opacities
+----------------------------------------
+*/
+
+@function opacity($value) {
+  @return get-uswds-value(opacity, $value);
+}
+
+/*
+----------------------------------------
+order()
+----------------------------------------
+Get an order value from the
+system orders
+----------------------------------------
+*/
+
+@function order($value) {
+  @return get-uswds-value(order, $value);
+}
+
+/*
+----------------------------------------
+radius()
+----------------------------------------
+Get a border-radius value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function radius($value) {
+  @return get-uswds-value(border-radius, $value);
+}
+
+/*
+----------------------------------------
+font-size()
+----------------------------------------
+Get type scale value from a [family] and
+[scale]
+----------------------------------------
+*/
+
+@function font-size($family, $scale, $force: false) {
+  $our-family: smart-quote($family);
+  $our-scale: smart-quote($scale);
+
+  @if not map-has-key($project-cap-heights, $our-family) {
+    @return error-not-token($our-family, "font family", $project-cap-heights);
+  }
+  @if not map-get($all-type-scale, $our-scale) {
+    @return error-not-token($our-scale, "font scale", $all-type-scale);
+  }
+
+  $this-cap: map-get($project-cap-heights, $our-family);
+  $this-scale: map-get($all-type-scale, $our-scale);
+
+  @if not $force {
+    @if not($this-scale and $this-cap) {
+      @error 'The scale `#{$our-scale}` is disabled '
+        + 'in your project\'s theme settings. '
+        + 'Set its value to `true` to use this family.';
+    }
+  }
+
+  @return normalize-type-scale($this-cap, $this-scale);
+}
+
+@function fs($family, $scale) {
+  @return font-size($family, $scale);
+}
+
+@function size($family, $scale) {
+  @return font-size($family, $scale);
+}
+
+/*
+----------------------------------------
+z-index()
+z()
+----------------------------------------
+Get a z-index value from the
+system z-index
+----------------------------------------
+*/
+
+@function z-index($value) {
+  @return get-uswds-value(z-index, $value);
+}
+
+@function z($value) {
+  @return z-index($value);
+}
+
+/*
+----------------------------------------
+magic-number()
+----------------------------------------
+Returns the magic number of two color
+grades. Takes numbers or color tokens.
+
+magic-number(50, 10)
+return: 40
+
+magic-number("red-50", "red-10")
+return: 40
+----------------------------------------
+*/
+
+@function magic-number($grade-1, $grade-2) {
+  $grade-1: if(
+    type-of($grade-1) == "number",
+    $grade-1,
+    calculate-grade($grade-1)
+  );
+  $grade-2: if(
+    type-of($grade-2) == "number",
+    $grade-2,
+    calculate-grade($grade-2)
+  );
+  $magic-number: abs($grade-1 - $grade-2);
+  @return $magic-number;
+}
+
+/*
+----------------------------------------
+get-default()
+----------------------------------------
+Returns the default value from a map
+of project defaults
+
+get-default("bg-color")
+> $theme-body-background-color
+----------------------------------------
+*/
+
+@function get-default($var) {
+  $value: map-get($project-defaults, $var);
+  @return $value;
+}
+
+/*
+----------------------------------------
+get-color-token-from-bg()
+----------------------------------------
+Returns an accessible foreground color
+token, given a background, preferred
+color, fallback color, and WCAG target
+
+returns: color-token
+
+get-color-token-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10"
+----------------------------------------
+*/
+
+@function get-color-token-from-bg(
+  $bg-color: "default",
+  $preferred-text-token: "default",
+  $fallback-text-token: "default",
+  $wcag-target: "AA",
+  $context: false,
+  $for: false
+) {
+  $for-text: if($for, "#{$for} ", "");
+  $context-text: if($context, "[#{$context}] ", "");
+  // Set defaults
+  @if $bg-color == "default" {
+    $bg-color: get-default("bg-color");
+  }
+  @if $preferred-text-token == "default" {
+    $preferred-text-token: get-default("preferred-text-token");
+  }
+  @if $fallback-text-token == "default" {
+    $fallback-text-token: get-default("fallback-text-token");
+  }
+  $target-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
+  $bg-grade: calculate-grade($bg-color);
+  $our-color-tokens: ($preferred-text-token, $fallback-text-token);
+  $accessible-text-token: false;
+  $accessible-text-grade: false;
+  // Get the text color token
+  // Check both text tokens.
+  // Accept a token if it has specified accessible contrast.
+  $best-token: false;
+  $best-magic-number: 0;
+  @each $token in $our-color-tokens {
+    @if not $accessible-text-token {
+      $token-grade: calculate-grade($token);
+      $this-magic-number: magic-number($token-grade, $bg-grade);
+      @if $this-magic-number > $best-magic-number {
+        $best-magic-number: $this-magic-number;
+        $best-token: $token;
+      }
+      @if is-accessible-magic-number($token-grade, $bg-grade, $wcag-target) {
+        $accessible-text-token: $token;
+        $accessible-text-grade: $token-grade;
+      }
+    }
+  }
+  // If neither is accessible,
+  // warn the user and use the Preferred token
+  @if not $accessible-text-token {
+    $accessible-text-token: $best-token;
+    @if $theme-show-compile-warnings {
+      @warn "#{$context-text}Neither the specified preferred #{$for-text}color token (`#{$preferred-text-token}`) nor the fallback #{$for-text}color token (`#{$fallback-text-token}`) have #{$wcag-target} contrast on a `#{$bg-color}` background. Using `#{$best-token}`. Please check your source code and project settings.";
+    }
+  }
+
+  @return $accessible-text-token;
+}
+
+/*
+----------------------------------------
+get-link-tokens-from-bg()
+----------------------------------------
+Get accessible link colors for a given
+background color
+
+returns: link-token, hover-token
+
+get-link-tokens-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10", "red-5"
+
+get-link-tokens-from-bg(
+  "black",
+  "red-60v",
+  "red-10v",
+  "AA-large")
+> "red-60v", "red-50v"
+
+get-link-tokens-from-bg(
+  "black",
+  "red-5v",
+  "red-60v",
+  "AA")
+> "red-5v", "white"
+
+get-link-tokens-from-bg(
+  "black",
+  "white",
+  "red-60v",
+  "AA")
+> "white", "white"
+----------------------------------------
+*/
+
+@function get-link-tokens-from-bg(
+  $bg-color: "default",
+  $preferred-link-token: "default",
+  $fallback-link-token: "default",
+  $wcag-target: "AA",
+  $context: false
+) {
+  $context-text: if($context, "[#{$context}] ", "");
+  $is-default: false;
+  $is-default-preferred: false;
+  $is-default-fallback: false;
+  $default-reverse: false;
+  $default-standard: false;
+  @if $bg-color == "default" {
+    $bg-color: get-default("bg-color");
+  }
+  @if $preferred-link-token == "default" {
+    $preferred-link-token: get-default("preferred-link-token");
+    $default-reverse: true;
+  }
+  @if $fallback-link-token == "default" {
+    $fallback-link-token: get-default("fallback-link-token");
+    $standard-reverse: true;
+  }
+  $bg-grade: calculate-grade($bg-color);
+  $preferred-hover-token: false;
+  $default-hover-token: false;
+  $accessible-hover-token: false;
+  $accessible-link-token: get-color-token-from-bg(
+    $bg-color,
+    $preferred-link-token,
+    $fallback-link-token,
+    $wcag-target,
+    $context,
+    $for: "link"
+  );
+  $accessible-link-grade: calculate-grade($accessible-link-token);
+  // Get the hover color token
+  // If link is lighter than bg set $is-reverse to true
+  $is-reverse: if($accessible-link-grade < $bg-grade, true, false);
+  // If using defaults, set the default hover
+  // $link-kind is used for error messaging
+  $link-kind: false;
+  @if $is-reverse {
+    @if $default-reverse {
+      $default-hover-token: $theme-link-reverse-hover-color;
+      $link-kind: "default reverse";
+    }
+  } @else if $default-standard {
+    $default-hover-token: $theme-link-hover-color;
+    $link-kind: "default";
+  }
+  @if $default-hover-token {
+    $default-hover-grade: calculate-grade($default-hover-token);
+    @if is-accessible-magic-number(
+      $default-hover-grade,
+      $bg-grade,
+      $wcag-target
+    )
+    {
+      $accessible-hover-token: $default-hover-token;
+    }
+    @if not $accessible-hover-token and $theme-show-compile-warnings {
+      @warn "#{$context-text}The #{$link-kind} link hover (`#{$default-hover-token}`) does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
+    }
+  }
+  @if not $accessible-hover-token {
+    $direction: if($is-reverse, "lighter", "darker");
+    $hover-token: next-token($accessible-link-token, $direction);
+    // Use the next token, if it is valid
+    @if $hover-token {
+      $accessible-hover-token: $hover-token;
+      // Otherwise use the token itself as hover, and warn.
+    } @else {
+      $accessible-hover-token: $accessible-link-token;
+      @if $theme-show-compile-warnings {
+        @warn "#{$context-text}A `#{$accessible-hover-token}` link does not have #{$direction} hover available. Hover set to link color.";
+      }
+    }
+  }
+  @return $accessible-link-token, $accessible-hover-token;
+}
+
+/*
+----------------------------------------
+color-token-type()
+----------------------------------------
+Returns the type of a color token.
+
+Returns: "system" | "theme"
+----------------------------------------
+*/
+
+@function color-token-type($token) {
+  $type: if(is-system-color-token($token), "system", false);
+  @if not $type {
+    $type: if(is-theme-color-token($token), "theme", false);
+  }
+  @if not $type {
+    @return error-not-token($token, "color");
+  }
+  @return $type;
+}
+
+/*
+----------------------------------------
+color-token-family()
+----------------------------------------
+Returns the family of a color token.
+
+Returns: color-family
+
+color-token-family("accent-warm-vivid")
+> "accent-warm"
+
+color-token-family("red-50v")
+> "red"
+
+color-token-variant(("red", 50, "vivid"))
+> "red"
+----------------------------------------
+*/
+
+@function color-token-family($color-token) {
+  $split: if(
+    type-of($color-token) == "list",
+    $color-token,
+    decompose-color-token($color-token)
+  );
+  $family: nth($split, 1);
+  @return $family;
+}
+
+/*
+----------------------------------------
+color-token-grade()
+----------------------------------------
+Returns the grade of a USWDS color token.
+
+Returns: color-grade
+
+color-token-grade("accent-warm")
+> "root"
+
+color-token-grade("accent-warm-vivid")
+> "root"
+
+color-token-grade("accent-warm-darker")
+> "darker"
+
+color-token-grade("red-50v")
+> 50
+
+color-token-variant(("red", 50, "vivid"))
+> 50
+----------------------------------------
+*/
+
+@function color-token-grade($color-token) {
+  $split: if(
+    type-of($color-token) == "list",
+    $color-token,
+    decompose-color-token($color-token)
+  );
+  $grade: nth($split, 2);
+  @return $grade;
+}
+
+/*
+----------------------------------------
+color-token-variant()
+----------------------------------------
+Returns the variant of color token.
+
+Returns: "vivid" | false
+
+color-token-variant("accent-warm")
+> false
+
+color-token-variant("accent-warm-vivid")
+> "vivid"
+
+color-token-variant("red-50v")
+> "vivid"
+
+color-token-variant(("red", 50, "vivid"))
+> "vivid"
+----------------------------------------
+*/
+
+@function color-token-variant($color-token) {
+  $split: if(
+    type-of($color-token) == "list",
+    $color-token,
+    decompose-color-token($color-token)
+  );
+  $variant: nth($split, 3);
+  @return $variant;
+}
+
+/*
+----------------------------------------
+next-token()
+----------------------------------------
+Returns next "darker" or "lighter" color
+token of the same token type and variant.
+
+Returns: color-token | false
+
+next-token("accent-warm", "lighter")
+> "accent-warm-light"
+
+next-token("gray-10", "lighter")
+> "gray-5"
+
+next-token("gray-5", "lighter")
+> "white"
+
+next-token("white", "lighter")
+> false
+
+next-token("red-50v", "darker")
+> "red-60v"
+
+next-token("red-50", "darker")
+> "red-60"
+
+next-token("red-80v", "darker")
+> "red-90"
+
+next-token("red-90", "darker")
+> "black"
+
+next-token("white", "darker")
+> "gray-5"
+
+next-token("black", "lighter")
+> "gray-90"
+----------------------------------------
+*/
+
+@function next-token($token, $direction) {
+  $next-token: false;
+  $type: color-token-type($token);
+  $token-split: decompose-color-token($token);
+  // 1. System case
+  @if $type == "system" {
+    // transparent tokens return don't have a next token
+    @if $token == "transparent" {
+      @return false;
+    }
+    // black and white tokens use the gray family for next
+    $current-family: if(
+      $token == "white" or $token == "black",
+      "gray",
+      color-token-family($token-split)
+    );
+    // black- and white-transparent tokens don't have a next
+    @if str-index($current-family, "-transparent") {
+      @return false;
+    }
+    $current-grade: color-token-grade($token-split);
+    // Nothing can be darker than black or lighter than white
+    @if $direction == "darker" and $current-grade == 100 {
+      @return false;
+    }
+    @if $direction == "lighter" and $current-grade == 0 {
+      @return false;
+    }
+    // Grades under 5 should be treated as 5
+    @if $current-grade > 0 and $current-grade < 5 {
+      $current-grade: 5;
+    }
+    $system-grade-list: map-keys($system-color-grades);
+    $current-grade-index: index($system-grade-list, $current-grade);
+    // Note: System grades go from darkest (100) to lightest (0)
+    $next-grade: if(
+      $direction == "darker",
+      nth($system-grade-list, ($current-grade-index - 1)),
+      nth($system-grade-list, ($current-grade-index + 1))
+    );
+    $output-grade: $next-grade;
+    // Keep the same vivid variant as the parent
+    // Note: Grade 90 has no vivid variant
+    @if color-token-variant($token-split) == "vivid" and ($next-grade < 90) {
+      $output-grade: $next-grade + "v";
+    }
+    // Use black and white tokens for grades 100 and 0...
+    @if $next-grade == 100 {
+      $next-token: "black";
+    } @else if $next-grade == 0 {
+      $next-token: "white";
+      // ...Otherwise output token in expected form
+    } @else {
+      $next-token: $current-family + "-" + $output-grade;
+    }
+    // 2. Theme case
+  } @else {
+    $current-grade: color-token-grade($token-split);
+    // Vivid theme token should be considered root for ordering
+    $current-grade: if($current-grade == "vivid", "root", $current-grade);
+    $current-family: color-token-family($token-split);
+    // Ink should be considered base-darkest
+    // TODO: Should it?
+    @if $token == "ink" {
+      $current-family: "base";
+      $current-grade: "darkest";
+    }
+    // Black is darker than darkest
+    @if $direction == "darker" and $current-grade == "darkest" {
+      @return "black";
+    }
+    // White is lighter than lightest
+    @if $direction == "lighter" and $current-grade == "lightest" {
+      @return "white";
+    }
+    $theme-grade-list: map-keys($theme-color-grades);
+    $current-grade-index: index($theme-grade-list, $current-grade);
+    // Note: Theme grades go from `lightest` to `darkest`
+    $next-grade: if(
+      $direction == "darker",
+      nth($theme-grade-list, ($current-grade-index + 1)),
+      nth($theme-grade-list, ($current-grade-index - 1))
+    );
+    // Exclude `root` from token output
+    @if $next-grade == "root" {
+      @return $current-family;
+    } @else {
+      $next-token: $current-family + "-" + $next-grade;
+    }
+    // If the next color is set to false, use black/white instead
+    @if not color-token-assignment($next-token) {
+      @if $direction == "darker" {
+        @return "black";
+      }
+      @if $direction == "lighter" {
+        @return "white";
+      }
+    }
+  }
+  @return $next-token;
+}
+
+/*
+----------------------------------------
+wcag-magic-number()
+----------------------------------------
+Returns the magic number of a specific
+wcag grade:
+
+"AA"
+"AA-Large"
+"AAA"
+
+wcag-magic-number("AA")
+> 50
+----------------------------------------
+*/
+
+@function wcag-magic-number($wcag-target) {
+  $wcag-magic-number: map-get($system-wcag-magic-numbers, $wcag-target);
+  @return $wcag-magic-number;
+}
+
+/*
+----------------------------------------
+is-accessible-magic-number()
+----------------------------------------
+Returns whether two grades achieve
+specified target color contrast
+
+Returns: true | false
+
+is-accessible-magic-number(10, 50, "AA")
+> false
+
+is-accessible-magic-number(10, 60, "AA")
+> true
+----------------------------------------
+*/
+
+@function is-accessible-magic-number($grade-1, $grade-2, $wcag-target) {
+  $target-magic-number: wcag-magic-number($wcag-target);
+  $magic-number: magic-number($grade-1, $grade-2);
+  @if $magic-number >= $target-magic-number {
+    @return true;
+  }
+  @return false;
+}

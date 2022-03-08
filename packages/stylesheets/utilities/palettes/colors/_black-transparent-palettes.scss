@@ -1,4 +1,4 @@
-@use "../../../core/tokens/color" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
 
 $tokens-color-black-transparent: (
   "black-transparent-5": $color-black-transparent-5,

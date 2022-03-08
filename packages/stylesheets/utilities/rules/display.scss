@@ -14,8 +14,8 @@ example:
 ----------------------------------------
 */
 
-@use "../../core/settings" as *;
-@use "../../core/functions" as *;
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
 @use "../functions/" as *;
 
 $u-display: (

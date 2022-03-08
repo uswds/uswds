@@ -93,15 +93,15 @@ module.exports = {
             loader: "resolve-url-loader",
             options: {
               join: joinSassAssets,
-              sassOptions: {
-                includePaths: ["./packages", "./node_modules/@uswds"],
-              },
             },
           },
           {
             loader: "sass-loader",
             options: {
               sourceMap: true,
+              sassOptions: {
+                includePaths: ["./packages", "./node_modules/@uswds"],
+              },
             },
           },
         ],

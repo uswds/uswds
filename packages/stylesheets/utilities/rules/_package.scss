@@ -2,7 +2,7 @@
 // into a single map for looping.
 
 @use "../rules" as *;
-@use "../../core/functions" as *;
+@use "uswds-core/src/styles/functions" as *;
 
 $utilities-package: map-collect(
   $add-aspect,

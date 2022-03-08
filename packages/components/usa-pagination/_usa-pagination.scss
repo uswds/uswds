@@ -2,7 +2,7 @@
 @use "sass:list";
 @use "sass:color";
 
-@use "../../stylesheets/core" as *;
+@use "uswds-core/src/styles" as *;
 
 $pagination-context: "Pagination";
 $pagination-margin-x: 0.5 !default;

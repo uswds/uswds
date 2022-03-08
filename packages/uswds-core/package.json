@@ -16,12 +16,12 @@
   ],
   "author": "18F",
   "license": "ISC",
-  "main": "_index.scss",
+  "main": "src/styles/_index.scss",
   "directories": {
-    "test": "test"
+    "test": "src/test"
   },
   "scripts": {
-    "test": "mocha ./test/*.spec.js --exit",
+    "test": "mocha ./src/test/*.spec.js --exit",
     "prepublishOnly": "npm run test"
   },
   "devDependencies": {
