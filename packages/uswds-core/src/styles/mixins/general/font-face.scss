@@ -36,7 +36,7 @@
       @if $output-weight == $font-weight and $filename {
         @include at-font-face(
           "#{$display-name}",
-          "../../../packages/uswds-fonts/src/#{$dir}/#{$filename}",
+          "../../assets/fonts/#{$dir}/#{$filename}",
           #{$font-weight},
           string.unquote("#{$font-style}")
         );
