@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-table {
   @extend %usa-table;
 }

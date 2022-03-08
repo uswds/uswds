@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-content {
   p,
   ul:not(.usa-accordion):not(.usa-accordion--bordered),

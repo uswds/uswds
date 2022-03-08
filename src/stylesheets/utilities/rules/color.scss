@@ -14,13 +14,17 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/tokens" as *;
+@use "../../core/functions" as *;
+
 $u-color: (
   color: (
     base: "text",
     modifiers: null,
     values:
       map-collect(
-        $tokens-color-required,
+        $tokens-color-global,
         get-palettes($color-palettes),
         get-palettes($global-color-palettes),
         $color-manual-values

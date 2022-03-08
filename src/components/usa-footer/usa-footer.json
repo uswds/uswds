@@ -28,7 +28,15 @@
       "agency_name": "[Name of Agency]",
       "heading": "[Agency Contact Center]",
       "phone": "[(800) 555-GOVT]",
-      "email": "[info@agency.go]>"
+      "email": "[info@agency.gov]",
+      "social_nav": [
+        "Facebook",
+        "Twitter",
+        "YouTube",
+        "Instagram",
+        "RSS"
+      ]
     }
-  }
+  },
+  "img_path": "./img"
 }

@@ -1,0 +1,40 @@
+/*
+----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects `px`, `xs`, and `xl` numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:meta";
+@use "sass:math";
+@use "sass:string";
+
+@function smart-quote($value) {
+  @if meta.type-of($value) == "string" {
+    @return string.quote($value);
+  }
+
+  @if meta.type-of($value) ==
+    "number" and
+    list.index(("px", "xl", "xs"), math.unit($value))
+  {
+    @return meta.inspect($value);
+  }
+
+  @if meta.type-of($value) == "color" {
+    @error 'Only use quoted color tokens in USWDS functions and mixins. '
+      + 'See designsystem.digital.gov/design-tokens/color '
+      + 'for more information.';
+  }
+
+  @return $value;
+}
+
+// @debug smart-quote(foo);
+// @return foo;
+// @debug smart-quote("3xs");
+// @debug 3xs;

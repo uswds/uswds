@@ -5,6 +5,8 @@ utilities to reference.
 ----------------------------------------
 */
 
+@use "../core" as *;
+
 $if-important: "";
 
 @if $utilities-use-important {

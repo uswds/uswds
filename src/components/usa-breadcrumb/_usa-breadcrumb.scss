@@ -1,3 +1,9 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+
+@use "../../stylesheets/core" as *;
+
 //
 // General Settings
 // =====================================
@@ -30,13 +36,13 @@ $icon-breadcrumb-back: (
 
 // Set default value for custom mixin exdent-icon()
 $breadcrumb-back-icon-aspect: (
-  map-get($icon-breadcrumb-back, "svg-width"),
-  map-get($icon-breadcrumb-back, "svg-height")
+  map.get($icon-breadcrumb-back, "svg-width"),
+  map.get($icon-breadcrumb-back, "svg-height")
 );
 
 // Defines spacing so back icon is optically placed
 @mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
-  $aspect: nth($dim, 1) / nth($dim, 2);
+  $aspect: math.div(list.nth($dim, 1), list.nth($dim, 2));
   $icon-width: $breadcrumb-icon-display-height * $aspect;
   padding-left: calc(#{$icon-width} + #{$breadcrumb-icon-spacing});
   text-indent: calc((#{$icon-width} + #{$breadcrumb-icon-spacing}) * -1);
@@ -102,6 +108,7 @@ $breadcrumb-back-icon-aspect: (
         );
 
         // Override link colors from button-unstyled()
+
         @include set-link-from-bg(
           $theme-breadcrumb-background-color,
           $theme-breadcrumb-link-color,

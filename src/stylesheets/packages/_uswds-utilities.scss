@@ -1,7 +1,12 @@
 // Utilities
 // -------------------------------------
-@import "../utilities/utility-fonts";
-@import "../utilities/palettes/all";
-@import "../utilities/rules/all";
-@import "../utilities/rules/package";
+
+// Dependencies
+@forward "uswds-core";
+
+// Src
+@forward "../utilities/utility-fonts";
+@use "../utilities/rules/package" as *;
+@use "../core/mixins/utility-builder" as *;
+
 @include render-utilities-in($utilities-package);

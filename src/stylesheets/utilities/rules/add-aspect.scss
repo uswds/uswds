@@ -16,6 +16,8 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+
 $add-aspect: (
   add-aspect: (
     base: "add-aspect",

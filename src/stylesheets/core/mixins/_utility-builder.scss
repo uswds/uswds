@@ -1,5 +1,15 @@
 /* stylelint-disable max-nesting-depth */
 
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@use "../settings" as *;
+@use "../properties" as *;
+@use "../functions" as *;
+@use "../variables/separator" as *;
+@use "./helpers" as *;
+
 /*
 ----------------------------------------
 @render-pseudoclass
@@ -23,15 +33,15 @@ loop
 
   .#{$media-prefix}#{$pseudoclass}#{$separator}#{ns("utility")}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: string.unquote("#{$value}#{$important}");
     }
   }
 }
 
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
-  @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
-    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+  @each $ext-prop, $ext-value in map.get($declaration, $utility-type) {
+    #{$ext-prop}: string.unquote("#{$ext-value}#{$important}");
   }
 }
 
@@ -60,26 +70,26 @@ future version of Sass' warning.
 ) {
   $important: if($utilities-use-important, " !important", null);
   $media-prefix: null;
-  $value-is-map: if(type-of($val-props) == "map", true, false);
+  $value-is-map: if(meta.type-of($val-props) == "map", true, false);
 
   @if $media-key {
     $media-prefix: #{$media-key}#{$separator};
   }
 
   .#{$media-prefix}#{ns("utility")}#{$selector} {
-    @if $value-is-map and map-has-key($val-props, extend) {
+    @if $value-is-map and map.has-key($val-props, extend) {
       @include add-utility-declaration($val-props, extend, $important);
     }
 
-    @if $value-is-map and map-has-key($val-props, extends) {
-      @extend %#{map-get($val-props, extends)};
+    @if $value-is-map and map.has-key($val-props, extends) {
+      @extend %#{map.get($val-props, extends)};
     }
 
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: string.unquote("#{$value}#{$important}");
     }
 
-    @if map-has-key($utility, extend) {
+    @if map.has-key($utility, extend) {
       @include add-utility-declaration($utility, extend, $important);
     }
   }
@@ -171,7 +181,7 @@ through all possible variants
         $base-props: null;
         $modifier: null;
         $selector: null;
-        $property-default: map-get($utility, property);
+        $property-default: map.get($utility, property);
         $property: null;
         $value: null;
         $our-modifiers: ();
@@ -181,24 +191,24 @@ through all possible variants
         $val-props: ();
         $no-value: false;
 
-        $b: map-get($utility, base);
+        $b: map.get($utility, base);
 
         // Each utility rule takes a value, so let's start here
         // and begin building.
 
         // -------- For each value in utility.values ----------
 
-        @each $val-key, $val-value in map-get($utility, values) {
+        @each $val-key, $val-value in map.get($utility, values) {
           // If $val-value == null, or if $val-value is a map and
           // the content key or the dependency key has a null value
           // set $val-value to `false`...
 
-          @if type-of($val-value) == "map" {
-            @if not map-get($val-value, content) {
+          @if meta.type-of($val-value) == "map" {
+            @if not map.get($val-value, content) {
               $val-value: false;
             } @else if
-              map-has-key($val-value, dependency) and not
-              map-get($val-value, dependency)
+              map.has-key($val-value, dependency) and not
+              map.get($val-value, dependency)
             {
               $val-value: false;
             }
@@ -212,14 +222,14 @@ through all possible variants
             // If its a map, use val-value.content.
 
             $val-slug: if(
-              type-of($val-value) == "map",
-              map-get($val-value, "slug"),
+              meta.type-of($val-value) == "map",
+              map.get($val-value, "slug"),
               $val-key
             );
 
             $value: if(
-              type-of($val-value) == "map",
-              map-get($val-value, "content"),
+              meta.type-of($val-value) == "map",
+              map.get($val-value, "content"),
               $val-value
             );
 
@@ -229,19 +239,15 @@ through all possible variants
 
             // Add any appended values...
 
-            @if map-get($utility, valueAppend) {
-              $value: $value + map-get($utility, valueAppend);
+            @if map.get($utility, valueAppend) {
+              $value: $value + map.get($utility, valueAppend);
             }
 
             // ...or prepended values.
 
-            @if map-get($utility, valuePrepend) {
-              $value: map-get($utility, valuePrepend) + $value;
+            @if map.get($utility, valuePrepend) {
+              $value: map.get($utility, valuePrepend) + $value;
             }
-
-            // Then unquote the entire value string.
-
-            $value: strunquote($value);
 
             // And we'll set the $v as $val-slug for use in
             // constructing the selector (.$b-$m-$v).
@@ -259,10 +265,10 @@ through all possible variants
 
             // So, check for modifiers.
 
-            @if map-get($utility, modifiers) != null {
+            @if map.get($utility, modifiers) {
               // If there are modifiers, capture them as $our-modifiers.
 
-              $our-modifiers: map-get($utility, modifiers);
+              $our-modifiers: map.get($utility, modifiers);
             } @else {
               // If there aren't, build a dummy so we can keep
               // all our build in the same loop.
@@ -297,7 +303,7 @@ through all possible variants
               {
                 // First, we can test to see if the base $b is null
 
-                @if $b == null {
+                @if not $b {
                   // If it _is_ null, the rule's selector is $v.
 
                   $selector: $v;
@@ -358,7 +364,7 @@ through all possible variants
 
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @each $media-key, $media-value in $our-breakpoints {
-    @if map-get($theme-utility-breakpoints, $media-key) {
+    @if map.get($theme-utility-breakpoints, $media-key) {
       @include at-media($media-key) {
         @include these-utilities($utilities, $media-key);
       }

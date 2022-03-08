@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-navbar {
   @include border-box-sizing;
   height: units($size-touch-target);

@@ -1,30 +1,12 @@
+{% set social_nav = footer.secondary_section.social_nav %}
+
 <div class="usa-footer__social-links grid-row grid-gap-1">
-  <div class="grid-col-auto">
-    <a class="usa-social-link usa-social-link--facebook"
-      href="javascript:void(0);">
-      <span>Facebook</span>
-    </a>
-  </div>
-  <div class="grid-col-auto">
-    <a class="usa-social-link usa-social-link--twitter"
-      href="javascript:void(0);">
-      <span>Twitter</span>
-    </a>
-  </div>
-  <div class="grid-col-auto">
-    <a class="usa-social-link usa-social-link--youtube"
-      href="javascript:void(0);">
-      <span>YouTube</span>
-    </a>
-  </div>
-  <div class="grid-col-auto">
-    <a class="usa-social-link usa-social-link--instagram" href="javascript:void(0);">
-      <span>Instagram</span>
-    </a>
-  </div>
-  <div class="grid-col-auto">
-    <a class="usa-social-link usa-social-link--rss" href="javascript:void(0);">
-      <span>RSS</span>
-    </a>
-  </div>
+  {% for item in social_nav %}
+    <div class="grid-col-auto">
+      {% set icon = (item == "RSS" ? "rss_feed" : item) %}
+      <a class="usa-social-link" href="javascript:void(0);">
+        <img class="usa-social-link__icon" src="./img/usa-icons/{{ icon | lower }}.svg" alt="{{ item }}" />
+      </a>
+    </div>
+  {% endfor %}
 </div>

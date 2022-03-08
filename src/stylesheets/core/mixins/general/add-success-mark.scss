@@ -1,0 +1,10 @@
+@use "./add-background-svg" as *;
+@use "../../functions" as *;
+
+@mixin add-success-mark {
+  &::before {
+    @include add-background-svg("usa-icons-bg/check--blue-60v");
+    background-position: center;
+    background-size: units(3);
+  }
+}

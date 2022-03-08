@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 // Flexbox positioning to move sidenav below main content on small screens
 .usa-layout-docs__sidenav {
   order: 2;

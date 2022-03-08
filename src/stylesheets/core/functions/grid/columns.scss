@@ -1,0 +1,33 @@
+@use "sass:math";
+@use "sass:list";
+@use "../../functions/general";
+
+/*
+----------------------------------------
+columns()
+----------------------------------------
+outputs a grid-col number based on
+the number of desired columns in the
+12-column grid
+
+Ex: columns(2) --> 6
+    grid-col(columns(2))
+----------------------------------------
+*/
+
+@function columns($number) {
+  $options: "auto", "fill";
+  $number: general.smart-quote($number);
+
+  @if list.index($options, $number) {
+    @return $number;
+  }
+  @if 12 % $number != 0 {
+    @error '`#{$number}` must be a divisor of 12.';
+  }
+  $columns: math.div(12, $number);
+  @return $columns;
+}
+
+// @debug columns(2);
+// @return 6;

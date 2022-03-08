@@ -2,6 +2,7 @@
   "lang": "es",
   "title": "Ingrese a su cuenta",
   "description": "Usted puede acceder a su cuenta con una de las opciones siguientes.",
+  "placeholder_link": "javascript:void()",
   "multiple": [
     {
       "label": "Ingrese con Login.gov"
@@ -18,5 +19,6 @@
     "cta": {
       "label": "Cree una cuenta en Login.gov"
     }
-  }
+  },
+  "img_path": "./img"
 }

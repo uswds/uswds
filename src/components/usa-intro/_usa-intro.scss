@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-intro {
   @include typeset(
     $theme-lead-font-family,

@@ -8,7 +8,7 @@ const { prefix: PREFIX } = require("../../config");
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
 const EXPANDED = "aria-expanded";
-const MULTISELECTABLE = "aria-multiselectable";
+const MULTISELECTABLE = "data-allow-multiple";
 
 /**
  * Get an Array of button elements belonging directly to the given
@@ -42,7 +42,7 @@ const toggleButton = (button, expanded) => {
   safeExpanded = toggle(button, expanded);
 
   // XXX multiselectable is opt-in, to preserve legacy behavior
-  const multiselectable = accordion.getAttribute(MULTISELECTABLE) === "true";
+  const multiselectable = accordion.hasAttribute(MULTISELECTABLE);
 
   if (safeExpanded && !multiselectable) {
     getAccordionButtons(accordion).forEach((other) => {

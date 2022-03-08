@@ -1,3 +1,5 @@
+@use "../../../core/tokens/color" as *;
+
 $tokens-color-black-transparent: (
   "black-transparent-5": $color-black-transparent-5,
   "black-transparent-10": $color-black-transparent-10,

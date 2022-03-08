@@ -1,5 +1,5 @@
 // dependencies
-@import "usa-input";
+@forward "usa-input";
 
 // src
-@import "../../components/usa-input-prefix-suffix/usa-input-prefix-suffix";
+@forward "../../components/usa-input-prefix-suffix/usa-input-prefix-suffix";

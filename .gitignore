@@ -19,6 +19,7 @@ build/
 
 # ignore compiled storybook directory
 storybook-static/
+_site/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib

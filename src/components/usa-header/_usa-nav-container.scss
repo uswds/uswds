@@ -1,3 +1,5 @@
+@use "../../stylesheets/core" as *;
+
 .usa-nav-container {
   @include at-media($theme-header-min-width) {
     @include clearfix;

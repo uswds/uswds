@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../../functions/general/smart-quote" as *;
+@use "../../functions/general/error-not-token" as *;
+@use "../../functions/font/normalize-type-scale" as *;
+@use "../../variables/project-cap-heights" as *;
+@use "../../variables/type-scale" as *;
+
+/*
+----------------------------------------
+utility-font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+Not the public-facing function.
+Used for building the utilities and
+withholds certain errors.
+----------------------------------------
+*/
+
+@function utility-font($family, $scale) {
+  @if not(map.has-key($project-cap-heights, $family)) {
+    @return error-not-token($family, "font family", $project-cap-heights);
+  }
+
+  $quote-scale: smart-quote($scale);
+  @if not(map.get($all-type-scale, $quote-scale)) {
+    @return error-not-token($scale, "font scale", $all-type-scale);
+  }
+
+  $this-cap: map.get($project-cap-heights, $family);
+  $this-scale: map.get($all-type-scale, $quote-scale);
+
+  @if not $this-scale and $this-cap {
+    @return false;
+  }
+
+  @return normalize-type-scale($this-cap, $this-scale);
+}
+
+// @debug utility-font("cond", "2xs");
+// @return false;
+
+// @debug utility-font("sans", "sm");
+// @return 1.06rem;

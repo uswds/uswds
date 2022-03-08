@@ -1,3 +1,6 @@
+@use "../../../core/functions/general/map-collect" as *;
+@use "../../../core/tokens/color" as *;
+
 $tokens-color-red-light: (
   "red-5": $color-red-5,
   "red-10": $color-red-10,

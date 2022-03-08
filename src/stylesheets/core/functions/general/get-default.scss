@@ -1,0 +1,19 @@
+/*
+----------------------------------------
+get-default()
+----------------------------------------
+Returns the default value from a map
+of project defaults
+get-default("bg-color")
+> $theme-body-background-color
+----------------------------------------
+*/
+
+@use "sass:map";
+
+@use "../../variables/project-defaults" as *;
+
+@function get-default($var) {
+  $value: map.get($project-defaults, $var);
+  @return $value;
+}

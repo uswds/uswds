@@ -16,6 +16,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-justify-content: (
   justify-content: (
     base: "flex",

@@ -1,6 +1,9 @@
 // Collect all the individual utility maps
 // into a single map for looping.
 
+@use "../rules" as *;
+@use "../../core/functions" as *;
+
 $utilities-package: map-collect(
   $add-aspect,
   $add-list-reset,

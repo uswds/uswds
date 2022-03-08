@@ -17,6 +17,9 @@ example:
 ----------------------------------------
 */
 
+@use "../../core/settings" as *;
+@use "../../core/functions" as *;
+
 $u-border-radius: (
   border-radius: (
     base: "radius",

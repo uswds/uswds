@@ -932,5 +932,6 @@
         "meta": "shrink magnifying glass"
       }
     ]
-  }
+  },
+  "img_path": "./img"
 }

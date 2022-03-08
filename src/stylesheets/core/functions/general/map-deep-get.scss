@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
+@use "sass:map";
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+
+  @return $map;
+}
+
+// @debug map-deep-get(
+//   (
+//     "foo": (
+//       "bar": baz
+//     )
+//   ),
+//   foo,
+//   bar
+// );

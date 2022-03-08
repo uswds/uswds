@@ -1,3 +1,8 @@
+@use "../../functions" as *;
+@use "../../variables" as *;
+@use "../helpers" as *;
+@use "../utilities" as *;
+
 @mixin grid-row($props...) {
   $display: append-important($grid-global, flex);
   $flex: append-important($grid-global, wrap);
