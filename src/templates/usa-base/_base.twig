@@ -1,7 +1,7 @@
 {% set lang = lang ? lang : 'en' %}
 
 <body>
-  {% include "@components/usa-skipnav/usa-skipnav.twig" %}
+  {% include "@templates/usa-base/includes/_skipnav.twig" %}
   {% include "@templates/usa-base/includes/_banner.twig" %}
   {% include "@templates/usa-base/includes/_header.twig" %}
 
@@ -10,6 +10,5 @@
   {% endblock %}
 
   {% include "@templates/usa-base/includes/_footer.twig" %}
-
   {% include "@templates/usa-base/includes/_identifier.twig" %}
 </body>
