@@ -1,6 +1,6 @@
 // Global
 // -------------------------------------
-@forward "uswds-core";
-@forward "../lib/normalize";
-@forward "uswds-elements";
+@forward "uswds-core/src/styles";
+@forward "uswds-elements/lib/normalize";
+@forward "uswds-elements/src/styles";
 @forward "uswds-helpers";
