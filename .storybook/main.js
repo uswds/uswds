@@ -7,7 +7,7 @@ const {
 } = require("resolve-url-loader");
 
 const imageDirectory = path.resolve("packages/img");
-const fontsDirectory = path.resolve("packages/fonts");
+const fontsDirectory = path.resolve("packages/uswds-fonts/src");
 
 // call default generator then append any additional paths
 const pathGenerator = asGenerator((item, ...rest) => [
@@ -93,6 +93,9 @@ module.exports = {
             loader: "resolve-url-loader",
             options: {
               join: joinSassAssets,
+              sassOptions: {
+                includePaths: ["./packages", "./node_modules/@uswds"],
+              },
             },
           },
           {
@@ -124,7 +127,7 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../packages/fonts"),
+        include: path.resolve(__dirname, "../packages/uswds-fonts/src"),
       }
     );
 
