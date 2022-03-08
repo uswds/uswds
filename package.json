@@ -37,7 +37,7 @@
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/start.js",
   "style": "dist/css/uswds.min.css",
-  "sass": "src/stylesheets/uswds.scss",
+  "sass": "packages/uswds/src/styles/uswds.scss",
   "mocha": {
     "config": "src/utils/test/.mocharc.json"
   },
@@ -194,6 +194,6 @@
     "yargs": "^17.3.1"
   },
   "workspaces": [
-    "src/stylesheets/core"
+    "packages/uswds-core"
   ]
 }
