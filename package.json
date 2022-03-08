@@ -57,7 +57,7 @@
     "test:a11y": "build-storybook && axe-storybook",
     "test:sass": "gulp sassTests",
     "test:unit": "gulp unitTests",
-    "version": "gulp build release",
+    "version": "gulp release",
     "watch": "gulp watch",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
     "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
