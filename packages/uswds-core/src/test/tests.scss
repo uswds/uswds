@@ -23,7 +23,7 @@ $theme-link-reverse-hover-color: "gold-20v";
 $theme-link-reverse-active-color: "white";
 
 @import "node_modules/sass-true/sass/true";
-@import "../../uswds";
+@import "src/stylesheets/uswds";
 
 // Needs to be defined *after* USWDS
 $error-output-override: true;

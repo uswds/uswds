@@ -9,16 +9,16 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("src/components/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("packages/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
-    return src("src/stylesheets/core/test/sass.spec.js")
+    return src("packages/uswds-core/src/test/sass.spec.js")
       .pipe(mocha());
   },
 
   cover() {
-    return src("src/**/*.spec.js")
+    return src("packages/**/*.spec.js")
       .pipe(mocha(mochaConfig, { nyc: true }));
   },
 };
