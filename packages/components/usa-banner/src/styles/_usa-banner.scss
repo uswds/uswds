@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "uswds-core/src/styles" as *;
+@use "uswds-core" as *;
 
 $banner-context: "Banner";
 $banner-guidance-measure: 3;

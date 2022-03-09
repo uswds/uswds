@@ -5,7 +5,7 @@
 @use "uswds-core/src/styles/mixins/utility-builder" as *;
 
 // Src
-@forward "utility-fonts";
+@use "utility-fonts";
 @use "rules/package" as *;
 
 @include render-utilities-in($utilities-package);

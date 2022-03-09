@@ -1,4 +1,4 @@
-@use "uswds-core/src/styles" as *;
+@use "uswds-core" as *;
 
 .usa-prose {
   @include typeset($theme-prose-font-family);
