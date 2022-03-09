@@ -2,15 +2,15 @@
 import {
   DefaultContent as BannerContent,
   DefaultContentLangEs as EsBannerContent,
-} from "../../components/usa-banner/content";
-import TitleContent from "../../components/usa-site-title/usa-site-title.json";
-import HeaderContent from "../../components/usa-header/usa-header.json";
+} from "../../components/usa-banner/src/content";
+import TitleContent from "../../components/usa-site-title/src/usa-site-title.json";
+import HeaderContent from "../../components/usa-header/src/usa-header.json";
 import {
   DefaultContent as IdentifierContent,
   EsContent as EsIdentifierContent,
-} from "../../components/usa-identifier/content";
-import SidenavContent from "../../components/usa-sidenav/usa-sidenav~three-levels.json";
-import FooterContent from "../../components/usa-footer/usa-footer.json";
+} from "../../components/usa-identifier/src/content";
+import SidenavContent from "../../components/usa-sidenav/src/usa-sidenav~three-levels.json";
+import FooterContent from "../../components/usa-footer/src/usa-footer.json";
 
 // Import sign in form elements
 import SignInForm from "./usa-sign-in.twig";

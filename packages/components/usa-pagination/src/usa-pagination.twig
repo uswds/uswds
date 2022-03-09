@@ -1,5 +1,5 @@
-{% from "@components/usa-pagination/includes/_pagination-button.twig" import paginationButton %}
-{% from "@components/usa-pagination/includes/_pagination-arrow.twig" import paginationArrow %}
+{% from "@components/usa-pagination/src/includes/_pagination-button.twig" import paginationButton %}
+{% from "@components/usa-pagination/src/includes/_pagination-arrow.twig" import paginationArrow %}
 
 {% set overflow %}
   <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
@@ -19,9 +19,9 @@
       {% endif %}
 
       {% if not pagination.unbounded %}
-        {% include "@components/usa-pagination/includes/_pagination-numbers--default.twig" %}
+        {% include "@components/usa-pagination/src/includes/_pagination-numbers--default.twig" %}
       {% else %}
-        {% include "@components/usa-pagination/includes/_pagination-numbers--unbounded.twig" %}
+        {% include "@components/usa-pagination/src/includes/_pagination-numbers--unbounded.twig" %}
       {% endif %}
 
       {# Next page #}

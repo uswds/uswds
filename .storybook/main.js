@@ -7,7 +7,7 @@ const {
 } = require("resolve-url-loader");
 
 const imageDirectory = path.resolve("packages/img");
-const fontsDirectory = path.resolve("packages/uswds-core/src/assets/fonts");
+const fontsDirectory = path.resolve("packages/system/uswds-core/src/assets/fonts");
 
 // call default generator then append any additional paths
 const pathGenerator = asGenerator((item, ...rest) => [
@@ -134,7 +134,7 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../packages/uswds-core/src/assets/fonts"),
+        include: path.resolve(__dirname, "../packages/system/uswds-core/src/assets/fonts"),
       }
     );
 

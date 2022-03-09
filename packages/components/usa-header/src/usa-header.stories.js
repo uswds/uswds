@@ -4,9 +4,9 @@ import DefaultContent from "./usa-header.json";
 import MegamenuContent from "./usa-header~megamenu.json";
 import ExtendedContent from "./usa-header--extended/usa-header--extended.json";
 import ExtendedMegamenuContent from "./usa-header--extended/usa-header--extended-megamenu.json";
-import navSecondaryContent from "../usa-nav/usa-nav__secondary/usa-nav__secondary.json";
-import { SmallContent as SmallSearchContent } from "../usa-search/content";
-import TitleContent from "../usa-site-title/usa-site-title.json";
+import navSecondaryContent from "../../usa-nav/src/usa-nav__secondary/usa-nav__secondary.json";
+import { SmallContent as SmallSearchContent } from "../../usa-search/src/content";
+import TitleContent from "../../usa-site-title/src/usa-site-title.json";
 
 export default {
   title: "Components/Header",
