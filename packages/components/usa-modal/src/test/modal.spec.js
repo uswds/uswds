@@ -2,7 +2,7 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 
-const modal = require("../modal");
+const modal = require("../../modal");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 const modalWindowSelector = () => document.querySelector(".usa-modal");

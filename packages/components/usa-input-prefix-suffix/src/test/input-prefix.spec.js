@@ -1,7 +1,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const behavior = require("../input-prefix-suffix");
+const behavior = require("../../input-prefix-suffix");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 

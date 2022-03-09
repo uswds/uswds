@@ -1,7 +1,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const skipnav = require("../skipnav");
+const skipnav = require("../../skipnav");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
