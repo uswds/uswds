@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const del = require("del");
 const { logError } = require('./utils/doc-util');
 
-const svgPath = "src/img";
+const svgPath = "packages/img";
 
 // More complex configuration example
 const config = {
