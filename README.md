@@ -14,13 +14,7 @@ This repository is for the design system code itself. We maintain [another repos
   - [Recent updates](#recent-updates)
   - [Getting started](#getting-started)
   - [Using the design system](#using-the-design-system)
-    - [Download and install](#download-and-install)
-    - [Install using npm](#install-using-npm)
-      - [Using the USWDS package](#using-the-uswds-package)
-      - [Sass and theme settings](#sass-and-theme-settings)
-      - [Sass compilation requirements](#sass-compilation-requirements)
-      - [JavaScript](#javascript)
-    - [Use another framework or package manager](#use-another-framework-or-package-manager)
+    - [Download and install without npm](#download-and-install-without-npm)
   - [CSS architecture](#css-architecture)
   - [JS customization](#js-customization)
   - [Customization, theming, and tokens](#customization-theming-and-tokens)
@@ -40,30 +34,32 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Background
 
-USWDS components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.usds.gov/) and [18F](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](docs/WHO_IS_USING_USWDS.md).
+USWDS's components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.usds.gov/) and [18F](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. It is designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/), and to view websites and applications, check out our list [here](docs/WHO_IS_USING_USWDS.md).
 
 ## Recent updates
 
-Information about the most recent release of the design system can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+Information about the most recent release of the design system can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backward-incompatible changes along with a list of all changes.
 
 ## Getting started
 
 We’re glad you’d like to use the design system — here’s how you can get started:
 
-- Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
-  - [Design files of all the assets included in the design system are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
-- Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
+- Designers: Check out our [Getting started for designers information](https://designsystem.digital.gov/documentation/getting-started-for-designers/).
+- Developers: Follow the guidance on our website to [get started with `npm` (recommended)](https://designsystem.digital.gov/documentation/getting-started-for-developers/). Follow the instructions in this README to [get started without `npm`.](#using-the-design-system)
   - [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
 ## Using the design system
 
 How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the design system](#download-and-install)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download-and-install-without-npm)** if you are not familiar with `npm` and package management.
 
-- **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
+- **[Use the design system `npm` package](https://designsystem.digital.gov/documentation/getting-started-for-developers/)** if you are familiar with using `npm` and package management.
 
-### Download and install
+If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+
+### Download and install without `npm`
+If you’re using a framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.13.2/uswds-2.13.2.zip) from the latest USWDS release and open that file.
 
@@ -434,7 +430,14 @@ We’ve designed the design system to support older and newer browsers through [
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/).
+
+We use the following tools to ensure USWDS is accessible:
+- [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).
+- [Axe core](https://www.deque.com/axe/).
+- [Axe dev tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
+
+We’re happy to answer questions about accessibility — email us for more information.
 
 ## Fractal
 
