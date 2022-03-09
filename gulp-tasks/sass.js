@@ -20,6 +20,9 @@ module.exports = {
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
+          includePaths: [
+            "./packages",
+          ],
           outputStyle: "expanded",
         }).on("error", function handleError(error) {
           dutil.logError(error);
