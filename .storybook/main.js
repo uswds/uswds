@@ -100,7 +100,14 @@ module.exports = {
             options: {
               sourceMap: true,
               sassOptions: {
-                includePaths: ["./packages", "./node_modules/@uswds"],
+                includePaths: [
+                  "./packages", 
+                  "./packages/system", 
+                  "./packages/components", 
+                  "./packages/templates", 
+                  "./packages/bundles", 
+                  "./node_modules/@uswds"
+                ],
               },
             },
           },

@@ -1,0 +1,21 @@
+/*! uswds @version */
+
+// Required
+// -------------------------------------
+@forward "uswds-core/src/styles";
+
+// Global
+// -------------------------------------
+@forward "uswds-global/src/styles";
+
+// Helpers
+// -------------------------------------
+@forward "uswds-helpers/src/styles";
+
+// Components
+// -------------------------------------
+@forward "../../../../../src/stylesheets/packages/uswds-components";
+
+// Utilities
+// -------------------------------------
+@forward "uswds-utilities/src/styles";
