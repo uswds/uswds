@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
 const TimePicker = require("../time-picker");
-const ComboBox = require("../../usa-combo-box/combo-box");
-const EVENTS = require("../../usa-combo-box/test/events");
+const ComboBox = require("../../../usa-combo-box/src/combo-box");
+const EVENTS = require("../../../usa-combo-box/src/test/events");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/time-picker.template.html")

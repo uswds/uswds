@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const DatePicker = require("../../usa-date-picker/date-picker");
+const DatePicker = require("../../../usa-date-picker/src/date-picker");
 const DateRangePicker = require("../date-range-picker");
 
 const INVALID_TEMPLATE_ONE_INPUT = fs.readFileSync(

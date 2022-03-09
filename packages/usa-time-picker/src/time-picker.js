@@ -4,7 +4,7 @@ const { prefix: PREFIX } = require("../../config");
 const {
   COMBO_BOX_CLASS,
   enhanceComboBox,
-} = require("../usa-combo-box/combo-box");
+} = require("../../usa-combo-box/src/combo-box");
 
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;

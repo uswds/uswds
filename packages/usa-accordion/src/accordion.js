@@ -1,9 +1,9 @@
-const select = require("../../../utils/select");
-const behavior = require("../../../utils/behavior");
-const toggle = require("../../../utils/toggle");
-const isElementInViewport = require("../../../utils/is-in-viewport");
-const { CLICK } = require("../../../events");
-const { prefix: PREFIX } = require("../../../config");
+const select = require("../../utils/select");
+const behavior = require("../../utils/behavior");
+const toggle = require("../../utils/toggle");
+const isElementInViewport = require("../../utils/is-in-viewport");
+const { CLICK } = require("../../events");
+const { prefix: PREFIX } = require("../../config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
