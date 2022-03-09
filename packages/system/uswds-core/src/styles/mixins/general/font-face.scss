@@ -36,6 +36,7 @@
       @if $output-weight == $font-weight and $filename {
         @include at-font-face(
           "#{$display-name}",
+          // TODO: Why is this path causing problems?
           "../../assets/fonts/#{$dir}/#{$filename}",
           #{$font-weight},
           string.unquote("#{$font-style}")
