@@ -1,5 +1,5 @@
 // TODO: Why is this here and not elsewhere?
-import "../../../../bundles/uswds/_index.scss";
+import "../../../uswds/_index.scss";
 import Component from "./usa-icon--sizes.twig";
 import Content from "./usa-icon--sizes.json";
 

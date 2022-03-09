@@ -457,7 +457,7 @@ Namespacing not supported - Use relative paths.
 ```twig
 ❌ {% include "@components/usa-card/src/usa-card.twig" %}
 
-✔ {% include "./components/usa-card/src/usa-card.twig" %}
+✔ {% include "../usa-card/src/usa-card.twig" %}
 ```
 
 ~~Generated variants with YML *~~

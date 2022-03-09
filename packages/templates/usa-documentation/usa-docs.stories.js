@@ -1,10 +1,10 @@
 // Import page template elements
-import { DefaultContent as BannerContent } from "../../components/usa-banner/src/content";
-import TitleContent from "../../components/usa-site-title/src/usa-site-title.json";
-import HeaderContent from "../../components/usa-header/src/usa-header.json";
-import SidenavContent from "../../components/usa-sidenav/src/usa-sidenav~three-levels.json";
-import { DefaultContent as IdentifierContent } from "../../components/usa-identifier/src/content";
-import FooterContent from "../../components/usa-footer/src/usa-footer.json";
+import { DefaultContent as BannerContent } from "../../usa-banner/src/content";
+import TitleContent from "../../usa-site-title/src/usa-site-title.json";
+import HeaderContent from "../../usa-header/src/usa-header.json";
+import SidenavContent from "../../usa-sidenav/src/usa-sidenav~three-levels.json";
+import { DefaultContent as IdentifierContent } from "../../usa-identifier/src/content";
+import FooterContent from "../../usa-footer/src/usa-footer.json";
 
 // Import page content
 import Component from "./usa-docs.twig";

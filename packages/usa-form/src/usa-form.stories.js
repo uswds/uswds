@@ -1,13 +1,13 @@
-import FormAddress from "../../../templates/usa-address-form.twig";
-import FormName from "../../../templates/usa-name-form.twig";
-import FormPassword from "../../../templates/usa-password-reset-form.twig";
-import FormSignIn from "../../../templates/usa-sign-in/usa-sign-in-form/usa-sign-in-form.twig";
-import FormSignInMultiple from "../../../templates/usa-sign-in/includes/_usa-sign-in-multiple-inner.twig";
+import FormAddress from "../../templates/usa-address-form.twig";
+import FormName from "../../templates/usa-name-form.twig";
+import FormPassword from "../../templates/usa-password-reset-form.twig";
+import FormSignIn from "../../templates/usa-sign-in/usa-sign-in-form/usa-sign-in-form.twig";
+import FormSignInMultiple from "../../templates/usa-sign-in/includes/_usa-sign-in-multiple-inner.twig";
 
-import DefaultContent from "../../../templates/usa-sign-in/usa-sign-in.json";
-import EsContent from "../../../templates/usa-sign-in/usa-sign-in~lang-es.json";
-import MultipleContent from "../../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple.json";
-import EsMultipleContent from "../../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple~lang-es.json";
+import DefaultContent from "../../templates/usa-sign-in/usa-sign-in.json";
+import EsContent from "../../templates/usa-sign-in/usa-sign-in~lang-es.json";
+import MultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple.json";
+import EsMultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple~lang-es.json";
 
 export default {
   title: "Patterns/Forms",
