@@ -1,4 +1,5 @@
 {
+  "lang": "en",
   "tagline": "[A tagline that explains the benefit of creating an account.]",
   "form": {
     "title": "Create account",
@@ -28,5 +29,6 @@
   "existing_user": {
     "label": "Already have an account?",
     "cta": "Sign in"
-  }
+  },
+  "img_path": "./img"
 }

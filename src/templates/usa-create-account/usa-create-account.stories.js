@@ -1,45 +1,18 @@
-// Import page template elements
-import {
-  DefaultContent as BannerContent,
-  DefaultContentLangEs as EsBannerContent,
-} from "../../components/usa-banner/content";
-import TitleContent from "../../components/usa-site-title/usa-site-title.json";
-import HeaderContent from "../../components/usa-header/usa-header.json";
-import {
-  DefaultContent as IdentifierContent,
-  EsContent as EsIdentifierContent,
-} from "../../components/usa-identifier/content";
-import FooterContent from "../../components/usa-footer/usa-footer.json";
-
 // Import page content
 import Component from "./usa-create-account.twig";
-import { DefaultContent, EsContent } from "./content";
+import DefaultContent from "./usa-create-account.json";
+import EsContent from "./usa-create-account~lang-es.json";
 
 export default {
   title: "Pages/Create Account",
-  args: {
-    ...TitleContent,
-    ...HeaderContent,
-    ...FooterContent,
-  },
 };
 
-export const CreateAccountPage = (args) =>
+export const CreateAccountPage = () =>
   Component({
-    ...args,
-    banner: {
-      ...BannerContent,
-    },
-    ...IdentifierContent,
     ...DefaultContent,
   });
 
-export const CreateAccountPageSpanish = (args) =>
+export const CreateAccountPageSpanish = () =>
   Component({
-    ...args,
-    banner: {
-      ...EsBannerContent,
-    },
-    ...EsIdentifierContent,
     ...EsContent,
   });
