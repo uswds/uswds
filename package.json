@@ -35,7 +35,7 @@
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "src/start.js",
+  "jsnext:main": "packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "packages/uswds/src/styles/uswds.scss",
   "mocha": {
