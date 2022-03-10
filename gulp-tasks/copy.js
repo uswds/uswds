@@ -30,7 +30,7 @@ module.exports = {
     .pipe(
       // use only the part of the path specific to the package img dir
       rename((path) => {
-        path.dirname = path.dirname.replace(/.+?\/src\/img/gi, "");
+        path.dirname = path.dirname.replace(/[a-z-]+?\/src\/img/i, "");
         return path;
       })
     )
