@@ -22,9 +22,9 @@ exports.build = series(
     done();
   },
   cleanDist,
-  buildSprite,
   copyVendor,
   copyDocs,
-  parallel(compileSass, compileJS),
-  parallel(copyImages, copyFonts, copySass)
+  buildSprite,
+  parallel(copyImages, copyFonts, copySass),
+  parallel(compileSass, compileJS)
 );

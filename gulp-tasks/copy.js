@@ -47,13 +47,20 @@ module.exports = {
   // Copy Images to dist folder
   copyImages() {
     dutil.logMessage("images", "Copying Images");
-    return src(['src/img/**/*'])
-      .pipe(dest('dist/img'));
+    return src(['packages/**/src/img/**/*{png,jpg,gif,webp,svg}'])
+    .pipe(
+      // use only the part of the path specific to the package img dir
+      rename((path) => {
+        path.dirname = path.dirname.replace(/.+?\/src\/img/gi, "");
+        return path;
+      })
+    )
+    .pipe(dest('dist/img'));
   },
 
   // Copy Fonts to dist folder
   copyFonts() {
-    return src('src/fonts/**/*')
+    return src('packages/uswds-core/src/assets/fonts/**/*')
       .pipe(dest('dist/fonts'));
   },
 
