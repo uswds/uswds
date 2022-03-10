@@ -6,8 +6,8 @@ const {
   defaultJoinGenerator,
 } = require("resolve-url-loader");
 
-const imageDirectory = path.resolve("packages/img");
-const fontsDirectory = path.resolve("packages/uswds-core/src/assets/fonts");
+const imageDirectory = path.resolve("dist/img");
+const fontsDirectory = path.resolve("dist/fonts");
 
 // call default generator then append any additional paths
 const pathGenerator = asGenerator((item, ...rest) => [
@@ -115,10 +115,11 @@ module.exports = {
         use: {
           loader: "file-loader",
           options: {
-            name: "[path][name].[ext]",
+            name: "[name].[ext]",
+            outputPath: "../dist/img",
           },
         },
-        include: path.resolve(__dirname, "../packages/img"),
+        include: path.resolve(__dirname, "../packages"),
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
