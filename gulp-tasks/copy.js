@@ -14,17 +14,6 @@ module.exports = {
     return src(docs).pipe(dest("dist"));
   },
 
-  // Copy vendor sass to library
-  copyVendor() {
-    const vendorSass = "src/stylesheets/lib";
-
-    return src('./node_modules/normalize.css/normalize.css')
-      .pipe(changed(vendorSass))
-      .pipe(filter("**/normalize.css", { restore: true }))
-      .pipe(rename("_normalize.scss"))
-      .pipe(dest(vendorSass));
-  },
-
   // Copy Sass to dist folder
   // TODO: Do we want to copy to the scss any more?
   copySass() {
