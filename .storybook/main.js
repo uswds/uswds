@@ -53,7 +53,6 @@ module.exports = {
           alias: {
             "@components": path.resolve(__dirname, "../packages"),
             "@templates": path.resolve(__dirname, "../packages/templates"),
-            "@compare": path.resolve(__dirname, "../packages/compare"),
           },
         },
       },
@@ -102,10 +101,6 @@ module.exports = {
               sassOptions: {
                 includePaths: [
                   "./packages", 
-                  "./packages/system", 
-                  "./packages/components", 
-                  "./packages/templates", 
-                  "./packages/bundles", 
                   "./node_modules/@uswds"
                 ],
               },
