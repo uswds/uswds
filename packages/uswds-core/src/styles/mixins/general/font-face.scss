@@ -37,7 +37,7 @@
         @include at-font-face(
           "#{$display-name}",
           // TODO: Why is this path causing problems?
-          "../../assets/fonts/#{$dir}/#{$filename}",
+          "#{$theme-font-path}/#{$dir}/#{$filename}",
           #{$font-weight},
           string.unquote("#{$font-style}")
         );
