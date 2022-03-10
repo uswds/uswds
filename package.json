@@ -44,7 +44,7 @@
   "scripts": {
     "build": "gulp",
     "cover": "nyc --reporter=lcov gulp cover",
-    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/tokens/color'",
+    "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
     "lint": "eslint src/**/**/*.js",
     "mocha": "mocha",
     "prepare": "npx gulp",
