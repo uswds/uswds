@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const del = require("del");
 const { logError } = require('./utils/doc-util');
 
-const svgPath = "packages/img";
+const svgPath = "packages/usa-icon/src/img";
 
 // More complex configuration example
 const config = {
@@ -33,7 +33,7 @@ function buildSprite(done) {
     src(`${svgPath}/usa-icons/*.svg`)
       .pipe(svgSprite(config))
       .on("error", logError)
-      .pipe(dest(`${svgPath}`))
+      .pipe(dest(svgPath))
       .on("end", () => done())
   );
 }
