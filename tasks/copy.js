@@ -6,26 +6,31 @@ const dutil = require("./utils/doc-util");
 
 module.exports = {
 
-  // Copy documentation
+  // Copy documentation to /dist directory
   copyDocs() {
     const docs = ["README.md", "LICENSE.md", "CONTRIBUTING.md"];
-
-    dutil.logMessage("docs", "Copying documentation dist dir");
+    dutil.logMessage("copyDocs", "Copying documentation to /dist");
     return src(docs).pipe(dest("dist"));
   },
 
-  // Copy Sass to dist folder
+  // Copy theme settings files to /dist directory
+  copyTheme() {
+    dutil.logMessage("copyTheme", "Copying theme settings files to /dist/theme");
+    return src('packages/uswds-core/src/theme/*.scss')
+      .pipe(dest('dist/theme'));
+  },
+
+  // Copy Sass stylesheets to /dist directory
   // TODO: Do we want to copy to the scss any more?
   copySass() {
-    dutil.logMessage("copyDistSass", "Copying all Sass to dist dir");
-
+    dutil.logMessage("copySass", "Copying Sass stylesheets to /dist/scss");
     return src('src/**/**/*.scss')
       .pipe(dest('dist/scss'));
   },
 
-  // Copy Images to dist folder
+  // Copy images to /dist directory
   copyImages() {
-    dutil.logMessage("images", "Copying Images");
+    dutil.logMessage("copyImages", "Copying images to /dist/img");
     return src(['packages/**/src/img/**/*{png,jpg,gif,webp,svg}'])
     .pipe(
       // use only the part of the path specific to the package img dir
@@ -37,22 +42,10 @@ module.exports = {
     .pipe(dest('dist/img'));
   },
 
-  // Copy Fonts to dist folder
+  // Copy fonts to /dist directory
   copyFonts() {
+    dutil.logMessage("copyFonts", "Copying fonts to /dist/fonts");
     return src('packages/uswds-core/src/assets/fonts/**/*')
       .pipe(dest('dist/fonts'));
-  },
-
-  // Copy Styleguide to dist folder.
-  // Specific to pattern library.
-  copyStyleguide() {
-    return src('src/styleguide/**/*.css')
-      .pipe(
-        rename((path) => {
-          path.dirname = '';
-          return path;
-        })
-      )
-      .pipe(dest('dist/css'));
   }
 };
