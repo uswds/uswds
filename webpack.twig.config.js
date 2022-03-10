@@ -144,7 +144,6 @@ module.exports = {
           alias: {
             "@components": path.resolve(__dirname, './packages'),
             "@templates": path.resolve(__dirname, './packages/templates'),
-            "@compare": path.resolve(__dirname, './packages/compare'),
           },
         },
       },
