@@ -14,5 +14,6 @@
       "Llámenos al <a href=\"javascript:void();\" class=\"usa-link\">(555) 555-GOVT</a>"
     ]
   },
-  "error_code": "<strong>Código de error:</strong> 404"
+  "error_code": "<strong>Código de error:</strong> 404",
+  "img_path": "./img"
 }

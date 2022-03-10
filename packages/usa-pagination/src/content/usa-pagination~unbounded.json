@@ -1,5 +1,5 @@
 {
-  "aria_label": "Pagination",
+  "aria_label": "Pagination,",
   "pagination": {
     "page_label": "Page",
     "unbounded": true,

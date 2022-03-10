@@ -28,5 +28,6 @@
   "existing_user": {
     "label": "¿Ya tiene una cuenta?",
     "cta": "Ingrese a su cuenta"
-  }
+  },
+  "img_path": "./img"
 }
