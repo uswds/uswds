@@ -1,7 +1,7 @@
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const select = require("../../uswds-core/src/js/utils/select");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { CLICK } = require("../../uswds-core/src/js/events");
 
 const CONTAINER = `.${PREFIX}-input-group`;
 const INPUT = `${CONTAINER} .${PREFIX}-input`;

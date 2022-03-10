@@ -1,6 +1,6 @@
-const select = require("../../utils/select");
-const behavior = require("../../utils/behavior");
-const { prefix: PREFIX } = require("../../config");
+const select = require("../../uswds-core/src/js/utils/select");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT = `.${PREFIX}-character-count`;
 const INPUT = `.${PREFIX}-character-count__field`;

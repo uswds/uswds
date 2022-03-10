@@ -1,12 +1,12 @@
 const keymap = require("receptor/keymap");
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
-const activeElement = require("../../utils/active-element");
-const isIosDevice = require("../../utils/is-ios-device");
-const Sanitizer = require("../../utils/sanitizer");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const select = require("../../uswds-core/src/js/utils/select");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const activeElement = require("../../uswds-core/src/js/utils/active-element");
+const isIosDevice = require("../../uswds-core/src/js/utils/is-ios-device");
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;

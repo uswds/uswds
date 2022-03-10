@@ -1,5 +1,5 @@
-const behavior = require("../../utils/behavior");
-const validate = require("../../utils/validate-input");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const validate = require("../../uswds-core/src/js/utils/validate-input");
 
 function change() {
   validate(this);

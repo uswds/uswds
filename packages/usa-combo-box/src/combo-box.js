@@ -1,9 +1,9 @@
 const keymap = require("receptor/keymap");
-const selectOrMatches = require("../../utils/select-or-matches");
-const behavior = require("../../utils/behavior");
-const Sanitizer = require("../../utils/sanitizer");
-const { prefix: PREFIX } = require("../../config");
-const { CLICK } = require("../../events");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { CLICK } = require("../../uswds-core/src/js/events");
 
 const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
 const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;

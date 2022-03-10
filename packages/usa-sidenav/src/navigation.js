@@ -1,13 +1,13 @@
 const keymap = require("receptor/keymap");
-const behavior = require("../../utils/behavior");
-const select = require("../../utils/select");
-const toggle = require("../../utils/toggle");
-const FocusTrap = require("../../utils/focus-trap");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const select = require("../../uswds-core/src/js/utils/select");
+const toggle = require("../../uswds-core/src/js/utils/toggle");
+const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
 const accordion = require("../../usa-accordion/src/accordion");
-const ScrollBarWidth = require("../../utils/scrollbar-width");
+const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
 
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;

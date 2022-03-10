@@ -17,7 +17,7 @@ module.exports = {
 
     const streams = Object.entries({
       [dutil.pkg.name]: browserify({
-        entries: ["packages/start.js"],
+        entries: ["packages/uswds-core/src/js/start.js"],
         debug: true,
       })
         .transform("babelify", {
@@ -27,7 +27,7 @@ module.exports = {
         .bundle()
         .pipe(source(`${dutil.pkg.name}.js`))
         .pipe(buffer()),
-      "uswds-init": src("packages/uswds-init.js"),
+      "uswds-init": src("packages/uswds-core/src/js/uswds-init.js"),
     }).map(([basename, stream]) =>
       stream
         .pipe(rename({ basename }))

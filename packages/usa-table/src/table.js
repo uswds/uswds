@@ -1,8 +1,8 @@
-const select = require("../../utils/select");
-const behavior = require("../../utils/behavior");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
-const Sanitizer = require("../../utils/sanitizer");
+const select = require("../../uswds-core/src/js/utils/select");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const TABLE = `.${PREFIX}-table`;
 const SORTED = "aria-sort";

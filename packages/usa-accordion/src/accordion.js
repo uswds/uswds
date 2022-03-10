@@ -1,9 +1,9 @@
-const select = require("../../utils/select");
-const behavior = require("../../utils/behavior");
-const toggle = require("../../utils/toggle");
-const isElementInViewport = require("../../utils/is-in-viewport");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+const select = require("../../uswds-core/src/js/utils/select");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const toggle = require("../../uswds-core/src/js/utils/toggle");
+const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;

@@ -1,6 +1,6 @@
-const behavior = require("../../utils/behavior");
-const selectOrMatches = require("../../utils/select-or-matches");
-const { prefix: PREFIX } = require("../../config");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const {
   COMBO_BOX_CLASS,
   enhanceComboBox,

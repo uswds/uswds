@@ -1,8 +1,8 @@
-const behavior = require("../../utils/behavior");
-const toggleFormInput = require("../../utils/toggle-form-input");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const toggleFormInput = require("../../uswds-core/src/js/utils/toggle-form-input");
 
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const LINK = `.${PREFIX}-show-password, .${PREFIX}-show-multipassword`;
 

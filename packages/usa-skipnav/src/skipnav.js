@@ -1,7 +1,7 @@
 const once = require("receptor/once");
-const behavior = require("../../utils/behavior");
-const { CLICK } = require("../../events");
-const { prefix: PREFIX } = require("../../config");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const { CLICK } = require("../../uswds-core/src/js/events");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer__return-to-top [href^="#"]`;
 const MAINCONTENT = "main-content";
