@@ -14,9 +14,9 @@ const dutil = require("./utils/doc-util");
 module.exports = {
   compileJS() {
     dutil.logMessage("javascript", "Compiling JavaScript");
-
+    let packageName = dutil.pkg.name.replace("@uswds/", "");
     const streams = Object.entries({
-      [dutil.pkg.name]: browserify({
+      [packageName]: browserify({
         entries: ["packages/uswds-core/src/js/start.js"],
         debug: true,
       })
@@ -25,7 +25,7 @@ module.exports = {
           presets: ["@babel/preset-env"],
         })
         .bundle()
-        .pipe(source(`${dutil.pkg.name}.js`))
+        .pipe(source(`${packageName}.js`))
         .pipe(buffer()),
       "uswds-init": src("packages/uswds-core/src/js/uswds-init.js"),
     }).map(([basename, stream]) =>
