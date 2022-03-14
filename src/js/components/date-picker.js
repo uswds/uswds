@@ -870,7 +870,7 @@ const enhanceDatePicker = (el) => {
   calendarWrapper.insertAdjacentHTML(
     "beforeend",
     Sanitizer.escapeHTML`
-    <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar">&nbsp;</button>
+    <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar"></button>
     <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
@@ -1058,7 +1058,7 @@ const renderCalendar = (el, _dateToDisplay) => {
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
-          >&nbsp;</button>
+          ></button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button
@@ -1066,7 +1066,7 @@ const renderCalendar = (el, _dateToDisplay) => {
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
-          >&nbsp;</button>
+          ></button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
           <button
@@ -1084,7 +1084,7 @@ const renderCalendar = (el, _dateToDisplay) => {
             class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
             ${nextButtonsDisabled ? `disabled="disabled"` : ""}
-          >&nbsp;</button>
+          ></button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button
@@ -1092,7 +1092,7 @@ const renderCalendar = (el, _dateToDisplay) => {
             class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
             ${nextButtonsDisabled ? `disabled="disabled"` : ""}
-          >&nbsp;</button>
+          ></button>
         </div>
       </div>
     </div>
