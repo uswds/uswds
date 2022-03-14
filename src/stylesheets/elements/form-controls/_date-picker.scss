@@ -98,7 +98,7 @@ $navigate_far_next: map-merge(
   )
 );
 
-// $contrast-bg: default;
+$contrast-bg: default;
 
 .usa-date-picker__button {
   @extend %usa-date-picker__button;
@@ -111,7 +111,7 @@ $navigate_far_next: map-merge(
   width: 3em;
 
   @media (forced-colors: active) {
-    @include add-color-icon($calendar);
+    @include add-color-icon($calendar, $contrast-bg);
     height: auto;
     margin: 1em 0.5em 0.5em;
   }
@@ -248,7 +248,7 @@ $navigate_far_next: map-merge(
       color: color("gray-2");
 
       @media (forced-colors: active) {
-        border: Highlight 2px solid;
+        border: ActiveText 2px solid;
       }
 
       &:hover {
@@ -261,7 +261,7 @@ $navigate_far_next: map-merge(
         color: color("gray-2");
 
         @media (forced-colors: active) {
-          border: Highlight 2px solid;
+          border: ActiveText 2px solid;
         }
       }
 
@@ -292,14 +292,14 @@ $navigate_far_next: map-merge(
       background-color: color("blue-10v");
 
       @media (forced-colors: active) {
-        border: ActiveText 2px solid;
+        border: Highlight 2px solid;
       }
 
       &:hover {
         background-color: color("blue-10v");
 
         @media (forced-colors: active) {
-          border: ActiveText 2px solid;
+          border: Highlight 2px solid;
         }
       }
 
@@ -307,7 +307,7 @@ $navigate_far_next: map-merge(
         background-color: color("blue-10v");
 
         @media (forced-colors: active) {
-          border: ActiveText 2px solid;
+          border: Highlight 2px solid;
         }
       }
 
@@ -315,7 +315,7 @@ $navigate_far_next: map-merge(
         background-color: color("blue-10v");
 
         @media (forced-colors: active) {
-          background-color: ActiveText;
+          background-color: Highlight;
         }
       }
     }
