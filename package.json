@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -148,7 +148,7 @@
     "nswatch": "^0.2.0",
     "nyc": "^15.1.0",
     "postcss": "^8.3.11",
-    "postcss-csso": "^5.0.1",
+    "postcss-csso": "^6.0.0",
     "postcss-discard-comments": "^5.0.1",
     "prettier": "^2.4.1",
     "resemblejs": "^4.0.0",
