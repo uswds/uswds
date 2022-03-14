@@ -28,10 +28,18 @@ $date-picker-max-width: "mobile";
 
     &:hover {
       background-color: color("base-lighter");
+
+      @media (forced-colors: active) {
+        background-color: buttontext;
+      }
     }
 
     &:active {
       background-color: color("base-light");
+
+      @media (forced-colors: active) {
+        background-color: buttontext;
+      }
     }
   }
 }
@@ -46,6 +54,52 @@ $date-picker-max-width: "mobile";
   }
 }
 
+// Maps for high contrast mode icons
+
+$icon-object: (
+  "color": "ButtonText",
+  svg-height: 20,
+  svg-width: 20,
+  height: units(3),
+);
+
+$calendar: map-merge(
+  $icon-object,
+  (
+    "name": "calendar_today",
+  )
+);
+
+$navigate_before: map-merge(
+  $icon-object,
+  (
+    "name": "navigate_before",
+  )
+);
+
+$navigate_far_before: map-merge(
+  $icon-object,
+  (
+    "name": "navigate_far_before",
+  )
+);
+
+$navigate_next: map-merge(
+  $icon-object,
+  (
+    "name": "navigate_next",
+  )
+);
+
+$navigate_far_next: map-merge(
+  $icon-object,
+  (
+    "name": "navigate_far_next",
+  )
+);
+
+// $contrast-bg: default;
+
 .usa-date-picker__button {
   @extend %usa-date-picker__button;
   @include add-background-svg("usa-icons/calendar_today");
@@ -55,6 +109,12 @@ $date-picker-max-width: "mobile";
   background-size: units(3);
   margin-top: 0.5em;
   width: 3em;
+
+  @media (forced-colors: active) {
+    @include add-color-icon($calendar);
+    height: auto;
+    margin: 1em 0.5em 0.5em;
+  }
 }
 
 .usa-date-picker--initialized {
@@ -127,18 +187,36 @@ $date-picker-max-width: "mobile";
 
 .usa-date-picker__calendar__previous-year:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_far_before");
+
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_far_before, $contrast-bg);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__previous-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_before");
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_before, $contrast-bg);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
-  @include add-background-svg("usa-icons/navigate_far_next");
+  // @include add-background-svg("usa-icons/navigate_far_next");
+  @include add-color-icon($navigate_far_next, $contrast-bg);
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_far_next, $contrast-bg);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__next-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_next, $contrast-bg);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__day-of-week {
@@ -169,6 +247,10 @@ $date-picker-max-width: "mobile";
       background-color: color("primary-vivid");
       color: color("gray-2");
 
+      @media (forced-colors: active) {
+        border: Highlight 2px solid;
+      }
+
       &:hover {
         background-color: color("primary-vivid");
         color: color("gray-10");
@@ -177,10 +259,18 @@ $date-picker-max-width: "mobile";
       &:focus {
         background-color: color("primary-vivid");
         color: color("gray-2");
+
+        @media (forced-colors: active) {
+          border: Highlight 2px solid;
+        }
       }
 
       &:active {
         background-color: color("primary-dark");
+
+        @media (forced-colors: active) {
+          background-color: Highlight;
+        }
       }
     }
   }
@@ -201,16 +291,32 @@ $date-picker-max-width: "mobile";
     &:not([disabled]) {
       background-color: color("blue-10v");
 
+      @media (forced-colors: active) {
+        border: ActiveText 2px solid;
+      }
+
       &:hover {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          border: ActiveText 2px solid;
+        }
       }
 
       &:focus {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          border: ActiveText 2px solid;
+        }
       }
 
       &:active {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          background-color: ActiveText;
+        }
       }
     }
   }
