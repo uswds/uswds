@@ -21,8 +21,6 @@ $close: map-merge(
   )
 );
 
-$contrast-bg: default;
-
 .usa-combo-box {
   max-width: units($theme-input-max-width);
   position: relative;
@@ -41,7 +39,7 @@ $contrast-bg: default;
     display: block;
 
     @media (forced-colors: active) {
-      @include add-color-icon($close, $contrast-bg);
+      @include add-color-icon($close);
       height: 1.5rem;
       width: auto;
       top: 0.5rem;
@@ -99,7 +97,7 @@ button.usa-combo-box__clear-input {
   right: 1px;
 
   @media (forced-colors: active) {
-    @include add-color-icon($chevron-open, $contrast-bg);
+    @include add-color-icon($chevron-open);
     height: auto;
     width: auto;
   }
