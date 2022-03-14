@@ -47,6 +47,10 @@ $date-picker-max-width: "mobile";
 .usa-date-picker--active {
   .usa-date-picker__button {
     background-color: #f0f0f0;
+
+    @media (forced-colors: active) {
+      background-color: buttontext;
+    }
   }
 
   .usa-date-picker__calendar {
