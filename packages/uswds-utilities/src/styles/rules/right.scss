@@ -1,0 +1,32 @@
+/*
+========================================
+.right
+----------------------------------------
+property: right
+----------------------------------------
+usage:
+  .right-[key]
+----------------------------------------
+output:
+  right: [value];
+----------------------------------------
+example:
+  .right-n2px {
+    right: -2px; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-right: (
+  right: (
+    base: "right",
+    modifiers: null,
+    values: map-collect(get-palettes($right-palettes), $right-manual-values),
+    settings: $right-settings,
+    property: "right",
+    type: "utility",
+  ),
+);

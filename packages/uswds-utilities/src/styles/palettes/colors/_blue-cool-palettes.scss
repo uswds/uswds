@@ -1,0 +1,72 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-blue-cool-light: (
+  "blue-cool-5": $color-blue-cool-5,
+  "blue-cool-10": $color-blue-cool-10,
+  "blue-cool-20": $color-blue-cool-20,
+  "blue-cool-30": $color-blue-cool-30,
+);
+
+$tokens-color-blue-cool-medium: (
+  "blue-cool-40": $color-blue-cool-40,
+  "blue-cool-50": $color-blue-cool-50,
+  "blue-cool-60": $color-blue-cool-60,
+);
+
+$tokens-color-blue-cool-dark: (
+  "blue-cool-70": $color-blue-cool-70,
+  "blue-cool-80": $color-blue-cool-80,
+  "blue-cool-90": $color-blue-cool-90,
+);
+
+$tokens-color-blue-cool-light-vivid: (
+  "blue-cool-5v": $color-blue-cool-5v,
+  "blue-cool-10v": $color-blue-cool-10v,
+  "blue-cool-20v": $color-blue-cool-20v,
+  "blue-cool-30v": $color-blue-cool-30v,
+);
+
+$tokens-color-blue-cool-medium-vivid: (
+  "blue-cool-40v": $color-blue-cool-40v,
+  "blue-cool-50v": $color-blue-cool-50v,
+  "blue-cool-60v": $color-blue-cool-60v,
+);
+
+$tokens-color-blue-cool-dark-vivid: (
+  "blue-cool-70v": $color-blue-cool-70v,
+  "blue-cool-80v": $color-blue-cool-80v,
+  "blue-cool-90v": $color-blue-cool-90v,
+);
+
+$tokens-color-blue-cool-standard: map-collect(
+  $tokens-color-blue-cool-light,
+  $tokens-color-blue-cool-medium,
+  $tokens-color-blue-cool-dark
+);
+
+$tokens-color-blue-cool-vivid: map-collect(
+  $tokens-color-blue-cool-light-vivid,
+  $tokens-color-blue-cool-medium-vivid,
+  $tokens-color-blue-cool-dark-vivid
+);
+
+$tokens-color-blue-cool: map-collect(
+  $tokens-color-blue-cool-standard,
+  $tokens-color-blue-cool-vivid
+);
+
+$palettes-color-blue-cool: (
+  "palette-color-system-blue-cool-light": $tokens-color-blue-cool-light,
+  "palette-color-system-blue-cool-medium": $tokens-color-blue-cool-medium,
+  "palette-color-system-blue-cool-dark": $tokens-color-blue-cool-dark,
+  "palette-color-system-blue-cool-light-vivid":
+    $tokens-color-blue-cool-light-vivid,
+  "palette-color-system-blue-cool-medium-vivid":
+    $tokens-color-blue-cool-medium-vivid,
+  "palette-color-system-blue-cool-dark-vivid":
+    $tokens-color-blue-cool-dark-vivid,
+  "palette-color-system-blue-cool-standard": $tokens-color-blue-cool-standard,
+  "palette-color-system-blue-cool-vivid": $tokens-color-blue-cool-vivid,
+  "palette-color-system-blue-cool": $tokens-color-blue-cool,
+);

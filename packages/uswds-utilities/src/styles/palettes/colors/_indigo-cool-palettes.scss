@@ -1,0 +1,73 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-indigo-cool-light: (
+  "indigo-cool-5": $color-indigo-cool-5,
+  "indigo-cool-10": $color-indigo-cool-10,
+  "indigo-cool-20": $color-indigo-cool-20,
+  "indigo-cool-30": $color-indigo-cool-30,
+);
+
+$tokens-color-indigo-cool-medium: (
+  "indigo-cool-40": $color-indigo-cool-40,
+  "indigo-cool-50": $color-indigo-cool-50,
+  "indigo-cool-60": $color-indigo-cool-60,
+);
+
+$tokens-color-indigo-cool-dark: (
+  "indigo-cool-70": $color-indigo-cool-70,
+  "indigo-cool-80": $color-indigo-cool-80,
+  "indigo-cool-90": $color-indigo-cool-90,
+);
+
+$tokens-color-indigo-cool-light-vivid: (
+  "indigo-cool-5v": $color-indigo-cool-5v,
+  "indigo-cool-10v": $color-indigo-cool-10v,
+  "indigo-cool-20v": $color-indigo-cool-20v,
+  "indigo-cool-30v": $color-indigo-cool-30v,
+);
+
+$tokens-color-indigo-cool-medium-vivid: (
+  "indigo-cool-40v": $color-indigo-cool-40v,
+  "indigo-cool-50v": $color-indigo-cool-50v,
+  "indigo-cool-60v": $color-indigo-cool-60v,
+);
+
+$tokens-color-indigo-cool-dark-vivid: (
+  "indigo-cool-70v": $color-indigo-cool-70v,
+  "indigo-cool-80v": $color-indigo-cool-80v,
+  "indigo-cool-90v": $color-indigo-cool-90v,
+);
+
+$tokens-color-indigo-cool-standard: map-collect(
+  $tokens-color-indigo-cool-light,
+  $tokens-color-indigo-cool-medium,
+  $tokens-color-indigo-cool-dark
+);
+
+$tokens-color-indigo-cool-vivid: map-collect(
+  $tokens-color-indigo-cool-light-vivid,
+  $tokens-color-indigo-cool-medium-vivid,
+  $tokens-color-indigo-cool-dark-vivid
+);
+
+$tokens-color-indigo-cool: map-collect(
+  $tokens-color-indigo-cool-standard,
+  $tokens-color-indigo-cool-vivid
+);
+
+$palettes-color-indigo-cool: (
+  "palette-color-system-indigo-cool-light": $tokens-color-indigo-cool-light,
+  "palette-color-system-indigo-cool-medium": $tokens-color-indigo-cool-medium,
+  "palette-color-system-indigo-cool-dark": $tokens-color-indigo-cool-dark,
+  "palette-color-system-indigo-cool-light-vivid":
+    $tokens-color-indigo-cool-light-vivid,
+  "palette-color-system-indigo-cool-medium-vivid":
+    $tokens-color-indigo-cool-medium-vivid,
+  "palette-color-system-indigo-cool-dark-vivid":
+    $tokens-color-indigo-cool-dark-vivid,
+  "palette-color-system-indigo-cool-standard":
+    $tokens-color-indigo-cool-standard,
+  "palette-color-system-indigo-cool-vivid": $tokens-color-indigo-cool-vivid,
+  "palette-color-system-indigo-cool": $tokens-color-indigo-cool,
+);

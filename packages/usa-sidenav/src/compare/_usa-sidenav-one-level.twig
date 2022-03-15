@@ -1,0 +1,16 @@
+{% set one_level = {
+  'items': [
+    {
+      'label': 'Parent link'
+    },
+    {
+      'label': 'Parent link',
+      'current': true,
+    },
+    {
+      'label': 'Parent link'
+    },
+  ]
+} %}
+
+{% include "@components/usa-sidenav/src/usa-sidenav.twig" with one_level %}

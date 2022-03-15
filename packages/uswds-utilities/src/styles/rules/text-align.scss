@@ -1,0 +1,31 @@
+/*
+========================================
+text-align
+----------------------------------------
+usage:
+  .text-[key]
+----------------------------------------
+output:
+  align: [value];
+----------------------------------------
+example:
+  .text-left {
+    align: left; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-text-align: (
+  text-align: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($text-align-palettes), $text-align-manual-values),
+    settings: $text-align-settings,
+    property: "text-align",
+    type: "utility",
+  ),
+);

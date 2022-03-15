@@ -4,18 +4,18 @@ const { series, parallel } = require("gulp");
 // Include Our tasks.
 //
 // Each task is broken apart to it's own node module.
-// Check out the ./gulp-tasks directory for more.
-const { noCleanup, noTest } = require("./gulp-tasks/flags");
-const { buildSprite } = require("./gulp-tasks/svg-sprite");
-const { compileJS, typeCheck } = require("./gulp-tasks/javascript");
-const { unitTests, sassTests, cover } = require("./gulp-tasks/test");
-const { lintSass, typecheck } = require("./gulp-tasks/lint");
-const { build } = require("./gulp-tasks/build");
-const { release } = require("./gulp-tasks/release");
-const { watch } = require("./gulp-tasks/watch");
-const { compileSass } = require("./gulp-tasks/sass");
-const { copyVendor } = require("./gulp-tasks/copy");
-const { cleanDist } = require("./gulp-tasks/clean");
+// Check out the ./tasks directory for more.
+const { noCleanup, noTest } = require("./tasks/flags");
+const { buildSprite } = require("./tasks/svg-sprite");
+const { compileJS, typeCheck } = require("./tasks/javascript");
+const { unitTests, sassTests, cover } = require("./tasks/test");
+const { lintSass, typecheck } = require("./tasks/lint");
+const { build } = require("./tasks/build");
+const { release } = require("./tasks/release");
+const { watch } = require("./tasks/watch");
+const { compileSass } = require("./tasks/sass");
+const { copyVendor } = require("./tasks/copy");
+const { cleanDist } = require("./tasks/clean");
 
 /**
  * *Flags*
@@ -62,7 +62,7 @@ exports.test = series(
  * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
 exports.buildSprite = buildSprite;
-exports.buildSass = series(lintSass, copyVendor, compileSass);
+exports.buildSass = series(lintSass, compileSass);
 exports.buildJS = series(typeCheck, compileJS);
 exports.buildUSWDS = build;
 exports.release = release;

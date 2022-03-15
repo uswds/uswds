@@ -1,0 +1,22 @@
+@use "uswds-core/src/styles/mixins/general/focus-outline" as *;
+
+// Apply :focus behavior to focusable elements only (For IE 11)
+input,
+select,
+textarea,
+button {
+  &:not([disabled]) {
+    &:focus {
+      @include focus-outline;
+    }
+  }
+}
+
+iframe,
+[href],
+[tabindex],
+[contentEditable="true"] {
+  &:focus {
+    @include focus-outline;
+  }
+}

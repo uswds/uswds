@@ -1,0 +1,37 @@
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "uswds-core/src/styles/mixins/general/add-kerning" as *;
+@use "uswds-core/src/styles/mixins/typography" as *;
+
+html {
+  @include add-kerning;
+  font-family: font-family($theme-body-font-family);
+  font-size: $root-font-size;
+}
+
+@if $theme-style-body-element {
+  body {
+    @include typeset;
+  }
+}
+
+@if $theme-global-paragraph-styles == true {
+  @include usa-paragraph-style;
+}
+
+@if $theme-global-link-styles == true {
+  @include usa-link-style;
+}
+
+@if $theme-global-content-styles == true {
+  @include usa-content-styles;
+}
+
+// Remove user agent styles
+
+cite,
+var,
+address,
+dfn {
+  font-style: normal;
+}
