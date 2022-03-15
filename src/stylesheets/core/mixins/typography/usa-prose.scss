@@ -5,18 +5,6 @@
 @use "./headings" as *;
 @use "./typeset" as *;
 
-@mixin usa-prose-p {
-  line-height: line-height($theme-body-font-family, $theme-body-line-height);
-  margin-bottom: 0;
-  margin-top: 0;
-  max-width: measure($theme-text-measure);
-}
-
-@mixin usa-prose-heading {
-  @include u-margin-y(0);
-  clear: both;
-}
-
 @mixin usa-prose-link {
   color: color($theme-link-color);
   text-decoration: underline;
