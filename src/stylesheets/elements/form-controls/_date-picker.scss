@@ -60,7 +60,7 @@ $date-picker-max-width: "mobile";
 
 // Maps for high contrast mode icons
 
-$icon-object: (
+$icon-map: (
   "color": "ButtonText",
   svg-height: 20,
   svg-width: 20,
@@ -68,35 +68,35 @@ $icon-object: (
 );
 
 $calendar: map-merge(
-  $icon-object,
+  $icon-map,
   (
     "name": "calendar_today",
   )
 );
 
 $navigate_before: map-merge(
-  $icon-object,
+  $icon-map,
   (
     "name": "navigate_before",
   )
 );
 
 $navigate_far_before: map-merge(
-  $icon-object,
+  $icon-map,
   (
     "name": "navigate_far_before",
   )
 );
 
 $navigate_next: map-merge(
-  $icon-object,
+  $icon-map,
   (
     "name": "navigate_next",
   )
 );
 
 $navigate_far_next: map-merge(
-  $icon-object,
+  $icon-map,
   (
     "name": "navigate_far_next",
   )
