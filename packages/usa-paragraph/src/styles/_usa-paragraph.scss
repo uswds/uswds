@@ -1,0 +1,9 @@
+@use "uswds-core" as *;
+
+%usa-paragraph {
+  @include typeset-p;
+}
+
+.usa-paragraph {
+  @include typeset-p;
+}

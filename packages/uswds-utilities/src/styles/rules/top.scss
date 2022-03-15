@@ -1,0 +1,32 @@
+/*
+========================================
+.top
+----------------------------------------
+property: top
+----------------------------------------
+usage:
+  .top-[key]
+----------------------------------------
+output:
+  top: [value];
+----------------------------------------
+example:
+  .top-n2px {
+    top: -2px; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-top: (
+  top: (
+    base: "top",
+    modifiers: null,
+    values: map-collect(get-palettes($top-palettes), $top-manual-values),
+    settings: $top-settings,
+    property: "top",
+    type: "utility",
+  ),
+);

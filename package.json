@@ -1,6 +1,6 @@
 {
-  "name": "uswds",
-  "version": "3.0.0-beta.3",
+  "name": "@uswds/uswds",
+  "version": "3.0.0-beta.4",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -35,16 +35,16 @@
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "src/start.js",
+  "jsnext:main": "packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
-  "sass": "src/stylesheets/uswds.scss",
+  "sass": "packages/uswds/src/styles/uswds.scss",
   "mocha": {
     "config": "src/utils/test/.mocharc.json"
   },
   "scripts": {
     "build": "gulp",
     "cover": "nyc --reporter=lcov gulp cover",
-    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/tokens/color'",
+    "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
     "lint": "eslint src/**/**/*.js",
     "mocha": "mocha",
     "prepare": "npx gulp",
@@ -192,5 +192,8 @@
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.1",
     "yargs": "^17.3.1"
-  }
+  },
+  "workspaces": [
+    "packages/uswds-core"
+  ]
 }

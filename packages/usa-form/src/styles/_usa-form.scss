@@ -1,0 +1,78 @@
+@use "uswds-core" as *;
+
+.usa-form {
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
+  @include border-box-sizing;
+
+  @include at-media("mobile-lg") {
+    max-width: units("mobile");
+  }
+
+  // Don't show dotted underline with "required" asterisk because it can cause legibility issues ad appear as an ellipsis...
+  abbr[title="required"] {
+    text-decoration: none;
+  }
+
+  .usa-input,
+  .usa-range,
+  .usa-select,
+  .usa-textarea {
+    // max width not needed since .usa-form has one of its own
+    max-width: none;
+  }
+
+  .usa-input,
+  .usa-input-group {
+    &--2xs {
+      max-width: 5ex;
+    }
+    &--xs {
+      max-width: 9ex;
+    }
+    &--sm,
+    &--small {
+      max-width: 13ex;
+    }
+    &--md,
+    &--medium {
+      max-width: 20ex;
+    }
+    &--lg {
+      max-width: 30ex;
+    }
+    &--xl {
+      max-width: 40ex;
+    }
+    &--2xl {
+      max-width: 50ex;
+    }
+  }
+
+  .usa-button {
+    margin-top: units(1);
+
+    @include at-media("mobile-lg") {
+      margin-top: units(3);
+    }
+  }
+
+  a {
+    @include typeset-link;
+  }
+}
+
+.usa-form--large {
+  @include at-media("mobile-lg") {
+    max-width: units("mobile-lg");
+  }
+}
+
+.usa-form__note {
+  @include typeset($theme-form-font-family, "2xs", 3);
+  float: right;
+  margin: units(0.5) 0 units(2);
+}
