@@ -8,6 +8,8 @@ const { build } = require("./build")
 
 const hash = crypto.createHash('sha256');
 
+let version = dutil.dirName.replace("@uswds/", "");
+
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
 function createHash(file) {
@@ -17,7 +19,7 @@ function createHash(file) {
   hash.update(fileBuffer);
   const dir = './security';
   const hex = hash.digest('hex');
-  const fileName = `${dir}/${dutil.dirName}-zip-hash.txt`;
+  const fileName = `${dir}/${version}-zip-hash.txt`;
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
@@ -44,7 +46,7 @@ function makeTmpDirectory() {
     "make-tmp-directory",
     "Creating temporary release directory."
   );
-  return src("dist/**/*").pipe(dest(dutil.dirName));
+  return src("dist/**/*").pipe(dest(version));
 };
 
 function cleanTmpDirectory() {
@@ -52,21 +54,21 @@ function cleanTmpDirectory() {
     "clean-tmp-directory",
     "Deleting temporary release directory."
   );
-  return del(dutil.dirName);
+  return del(version);
 };
 
 function zipArchives(done) {
   const zip = spawn("zip", [
     "--log-info",
     "-r",
-    `./dist/${dutil.dirName}.zip`,
-    dutil.dirName,
+    `./dist/${version}.zip`,
+    version,
     '-x "*.DS_Store"',
   ]);
 
   dutil.logMessage(
     "zip-archives",
-    `Creating a zip archive in dist/${dutil.dirName}.zip`
+    `Creating a zip archive in dist/${version}.zip`
   );
 
   zip.stdout.on("data", (data) => {
@@ -86,8 +88,8 @@ function zipArchives(done) {
 
   zip.on("close", (code) => {
     if (code === 0) {
-      createHash(`dist/${dutil.dirName}.zip`);
-      getFilesize(`./dist/${dutil.dirName}.zip`);
+      createHash(`dist/${version}.zip`);
+      getFilesize(`./dist/${version}.zip`);
       done();
     }
   });
@@ -97,7 +99,7 @@ exports.release = series(
   (done) => {
     dutil.logMessage(
       "release",
-      `Creating a zip archive at dist/${dutil.dirName}.zip`
+      `Creating a zip archive at dist/${version}.zip`
     );
     done();
   },
