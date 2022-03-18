@@ -142,8 +142,8 @@ $banner-icon-close: (
     $theme-banner-background-color
   );
 
-  &::after {
-    @media (forced-colors: active) {
+  @media (forced-colors: active) {
+    &::after {
       background-color: buttonText;
     }
   }
@@ -245,12 +245,12 @@ $banner-icon-close: (
     position: relative;
 
     @media (forced-colors: active) {
-      &:after,
+      &::after,
       &:hover::after {
         background-color: buttonText;
       }
     }
-    &:after {
+    &::after {
       position: absolute;
     }
 
@@ -276,7 +276,7 @@ $banner-icon-close: (
         "base-lighter"
       );
 
-      &:before {
+      &::before {
         @include u-pin("y");
         @include u-pin("right");
         background-color: color("base-lighter");
@@ -285,13 +285,11 @@ $banner-icon-close: (
         height: units($size-touch-target);
         width: units($size-touch-target);
       }
-      &:after {
+      &::after {
         @include u-pin("y");
         @include u-pin("right");
-      }
 
-      @media (forced-colors: active) {
-        &::after {
+        @media (forced-colors: active) {
           background-color: buttonText;
         }
       }
@@ -310,13 +308,13 @@ $banner-icon-close: (
       position: relative;
 
       @media (forced-colors: active) {
-        &:after,
+        &::after,
         &:hover::after {
           background-color: buttonText;
         }
       }
 
-      &:after {
+      &::after {
         position: absolute;
       }
     }
