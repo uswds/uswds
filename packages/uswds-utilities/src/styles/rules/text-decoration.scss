@@ -1,0 +1,34 @@
+/*
+========================================
+text-decoration
+----------------------------------------
+usage:
+  .text-[key]
+----------------------------------------
+output:
+  text-decoration: [value]
+----------------------------------------
+example:
+  .text-no-underline {
+    text-decoration: none; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-text-decoration: (
+  text-decoration: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($text-decoration-palettes),
+        $text-decoration-manual-values
+      ),
+    settings: $text-decoration-settings,
+    property: "text-decoration",
+    type: "utility",
+  ),
+);

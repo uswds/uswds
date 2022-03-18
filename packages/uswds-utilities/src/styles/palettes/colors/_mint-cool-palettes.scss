@@ -1,0 +1,72 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-mint-cool-light: (
+  "mint-cool-5": $color-mint-cool-5,
+  "mint-cool-10": $color-mint-cool-10,
+  "mint-cool-20": $color-mint-cool-20,
+  "mint-cool-30": $color-mint-cool-30,
+);
+
+$tokens-color-mint-cool-medium: (
+  "mint-cool-40": $color-mint-cool-40,
+  "mint-cool-50": $color-mint-cool-50,
+  "mint-cool-60": $color-mint-cool-60,
+);
+
+$tokens-color-mint-cool-dark: (
+  "mint-cool-70": $color-mint-cool-70,
+  "mint-cool-80": $color-mint-cool-80,
+  "mint-cool-90": $color-mint-cool-90,
+);
+
+$tokens-color-mint-cool-light-vivid: (
+  "mint-cool-5v": $color-mint-cool-5v,
+  "mint-cool-10v": $color-mint-cool-10v,
+  "mint-cool-20v": $color-mint-cool-20v,
+  "mint-cool-30v": $color-mint-cool-30v,
+);
+
+$tokens-color-mint-cool-medium-vivid: (
+  "mint-cool-40v": $color-mint-cool-40v,
+  "mint-cool-50v": $color-mint-cool-50v,
+  "mint-cool-60v": $color-mint-cool-60v,
+);
+
+$tokens-color-mint-cool-dark-vivid: (
+  "mint-cool-70v": $color-mint-cool-70v,
+  "mint-cool-80v": $color-mint-cool-80v,
+  "mint-cool-90v": $color-mint-cool-90v,
+);
+
+$tokens-color-mint-cool-standard: map-collect(
+  $tokens-color-mint-cool-light,
+  $tokens-color-mint-cool-medium,
+  $tokens-color-mint-cool-dark
+);
+
+$tokens-color-mint-cool-vivid: map-collect(
+  $tokens-color-mint-cool-light-vivid,
+  $tokens-color-mint-cool-medium-vivid,
+  $tokens-color-mint-cool-dark-vivid
+);
+
+$tokens-color-mint-cool: map-collect(
+  $tokens-color-mint-cool-standard,
+  $tokens-color-mint-cool-vivid
+);
+
+$palettes-color-mint-cool: (
+  "palette-color-system-mint-cool-light": $tokens-color-mint-cool-light,
+  "palette-color-system-mint-cool-medium": $tokens-color-mint-cool-medium,
+  "palette-color-system-mint-cool-dark": $tokens-color-mint-cool-dark,
+  "palette-color-system-mint-cool-light-vivid":
+    $tokens-color-mint-cool-light-vivid,
+  "palette-color-system-mint-cool-medium-vivid":
+    $tokens-color-mint-cool-medium-vivid,
+  "palette-color-system-mint-cool-dark-vivid":
+    $tokens-color-mint-cool-dark-vivid,
+  "palette-color-system-mint-cool-standard": $tokens-color-mint-cool-standard,
+  "palette-color-system-mint-cool-vivid": $tokens-color-mint-cool-vivid,
+  "palette-color-system-mint-cool": $tokens-color-mint-cool,
+);

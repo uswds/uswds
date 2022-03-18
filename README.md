@@ -455,9 +455,9 @@ We're using `engine-twig`, which uses Twing, to get rid of the PHP dependency. T
 Namespacing not supported - Use relative paths.
 
 ```twig
-❌ {% include "@components/usa-card/usa-card.twig" %}
+❌ {% include "@components/usa-card/src/usa-card.twig" %}
 
-✔ {% include "./components/usa-card/usa-card.twig" %}
+✔ {% include "../usa-card/src/usa-card.twig" %}
 ```
 
 ~~Generated variants with YML *~~

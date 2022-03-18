@@ -1,0 +1,69 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-blue-light: (
+  "blue-5": $color-blue-5,
+  "blue-10": $color-blue-10,
+  "blue-20": $color-blue-20,
+  "blue-30": $color-blue-30,
+);
+
+$tokens-color-blue-medium: (
+  "blue-40": $color-blue-40,
+  "blue-50": $color-blue-50,
+  "blue-60": $color-blue-60,
+);
+
+$tokens-color-blue-dark: (
+  "blue-70": $color-blue-70,
+  "blue-80": $color-blue-80,
+  "blue-90": $color-blue-90,
+);
+
+$tokens-color-blue-light-vivid: (
+  "blue-5v": $color-blue-5v,
+  "blue-10v": $color-blue-10v,
+  "blue-20v": $color-blue-20v,
+  "blue-30v": $color-blue-30v,
+);
+
+$tokens-color-blue-medium-vivid: (
+  "blue-40v": $color-blue-40v,
+  "blue-50v": $color-blue-50v,
+  "blue-60v": $color-blue-60v,
+);
+
+$tokens-color-blue-dark-vivid: (
+  "blue-70v": $color-blue-70v,
+  "blue-80v": $color-blue-80v,
+  "blue-90v": $color-blue-90v,
+);
+
+$tokens-color-blue-standard: map-collect(
+  $tokens-color-blue-light,
+  $tokens-color-blue-medium,
+  $tokens-color-blue-dark
+);
+
+$tokens-color-blue-vivid: map-collect(
+  $tokens-color-blue-light-vivid,
+  $tokens-color-blue-medium-vivid,
+  $tokens-color-blue-dark-vivid
+);
+
+$tokens-color-blue: map-collect(
+  $tokens-color-blue-standard,
+  $tokens-color-blue-vivid
+);
+
+$palettes-color-blue: (
+  "palette-color-system-blue-light": $tokens-color-blue-light,
+  "palette-color-system-blue-medium": $tokens-color-blue-medium,
+  "palette-color-system-blue-dark": $tokens-color-blue-dark,
+  "palette-color-system-blue-light-vivid": $tokens-color-blue-light-vivid,
+  "palette-color-system-blue-medium-vivid": $tokens-color-blue-medium-vivid,
+  "palette-color-system-blue-dark-vivid": $tokens-color-blue-dark-vivid,
+  "palette-color-system-blue-standard": $tokens-color-blue-standard,
+  "palette-color-system-blue-vivid": $tokens-color-blue-vivid,
+  "palette-color-system-blue": $tokens-color-blue,
+);

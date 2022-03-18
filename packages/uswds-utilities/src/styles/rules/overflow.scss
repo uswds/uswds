@@ -1,0 +1,35 @@
+/*
+========================================
+overflow
+----------------------------------------
+usage:
+  .overflow-[modifier]
+----------------------------------------
+output:
+  overflow[-modifier]: [value] solid;
+----------------------------------------
+example:
+  .overflow-y-hidden {
+    overflow-y: hidden; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-overflow: (
+  overflow: (
+    base: "overflow",
+    modifiers: (
+      noModifier: "",
+      "y": "-y",
+      "x": "-x",
+    ),
+    values:
+      map-collect(get-palettes($overflow-palettes), $overflow-manual-values),
+    settings: $overflow-settings,
+    property: "overflow",
+    type: "utility",
+  ),
+);

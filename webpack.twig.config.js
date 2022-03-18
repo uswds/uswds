@@ -29,7 +29,7 @@ function checkFileExistsSync(filepath){
 function buildFileObj(dir, file, dataFile){
   const templateFile = file
   const dataFilePath = `${dir}/${dataFile}`
-  const captureDirectory = /(?<=\/src\/)(\w+)/g
+  const captureDirectory = /(?<=\/packages\/)(\w+)/g
   const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
     ? `${outDir[0]}-${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
@@ -110,9 +110,9 @@ function walk(dir, ext) {
   return results;
 }
 
-const components = walk('./src/components', '.twig');
-const templates = walk('./src/templates', '.twig');
-const compare = walk('./src/compare', '.twig');
+const components = walk('./packages', '.twig');
+const templates = walk('./packages/templates', '.twig');
+const compare = walk('./packages/compare', '.twig');
 const files = [].concat(
     components,
     templates,
@@ -142,9 +142,8 @@ module.exports = {
         use: "twigjs-loader",
         resolve: {
           alias: {
-            '@components': path.resolve(__dirname, './src/components'),
-            '@templates': path.resolve(__dirname, './src/templates'),
-            '@compare': path.resolve(__dirname, './src/compare')
+            "@components": path.resolve(__dirname, './packages'),
+            "@templates": path.resolve(__dirname, './packages/templates'),
           },
         },
       },

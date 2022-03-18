@@ -1,0 +1,36 @@
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+
+@use "settings" as *;
+
+/* prettier-ignore */
+$uswds-notifications:
+    "\A"
+  + "\A --------------------------------------------------------------------"
+  + "\A \2709  USWDS Notifications"
+  + "\A --------------------------------------------------------------------"
+  + "\A No notifications";
+
+/* prettier-ignore */
+$uswds-notification-disable-message:
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A These are notifications from the USWDS team, not necessarily a"
++ "\A problem with your code."
++ "\A"
++ "\A Disable notifications using `$theme-show-notifications: false`"
++ "\A in your general settings file."
++ "\A --------------------------------------------------------------------\A";
+
+@if $theme-show-notifications {
+  @warn "#{$uswds-notifications}"
+    + "#{$uswds-notification-disable-message}";
+}

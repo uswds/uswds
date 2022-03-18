@@ -1,21 +1,3 @@
 /*! uswds @version */
 
-// Required
-// -------------------------------------
-@forward "packages/uswds-core";
-
-// Global
-// -------------------------------------
-@forward "packages/uswds-global";
-
-// Helpers
-// -------------------------------------
-@forward "packages/uswds-helpers";
-
-// Components
-// -------------------------------------
-@forward "packages/uswds-components";
-
-// Utilities
-// -------------------------------------
-@forward "packages/uswds-utilities";
+@forward "../../packages/uswds";

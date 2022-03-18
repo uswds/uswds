@@ -1,0 +1,34 @@
+/*
+========================================
+letter-spacing
+----------------------------------------
+usage:
+  .text-ls-[key]
+----------------------------------------
+output:
+  letter-spacing: [value];
+----------------------------------------
+example:
+  .text-ls-2 {
+    letter-spacing: .1em; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-letter-spacing: (
+  letter-spacing: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($letter-spacing-palettes),
+        $letter-spacing-manual-values
+      ),
+    settings: $letter-spacing-settings,
+    property: "letter-spacing",
+    type: "utility",
+  ),
+);

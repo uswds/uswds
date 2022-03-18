@@ -1,0 +1,40 @@
+{% set three_levels = {
+  'aria_label': 'Secondary navigation,,',
+  'items': [
+    {
+      'label': 'Parent link'
+    },
+    {
+      'label': 'Parent link',
+      'current': true,
+      'subnav': [
+        {
+          'label': 'Child link',
+        },
+        {
+          'label': 'Child link',
+          'subnav': [
+            {
+              'label': 'Grandchild link'
+            },
+            {
+              'label': 'Grandchild link',
+              'current': true,
+            },
+            {
+              'label': 'Grandchild link'
+            },
+          ],
+        },
+        {
+          'label': 'Child link',
+        },
+      ]
+    },
+    {
+      'label': 'Parent link'
+    },
+  ]
+} %}
+
+{% include "@components/usa-sidenav/src/usa-sidenav.twig" with three_levels %}

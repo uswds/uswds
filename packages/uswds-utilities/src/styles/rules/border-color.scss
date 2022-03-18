@@ -1,0 +1,38 @@
+/*
+========================================
+background-color
+----------------------------------------
+usage:
+  .border-[color]
+----------------------------------------
+output:
+  border[-color]: [color];
+----------------------------------------
+example:
+  .border-red {
+    border-color: #be4900; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "uswds-core/src/styles/tokens" as *;
+@use "../functions/" as *;
+
+
+$u-border-color: (
+  border-color: (
+    property: "border-color",
+    base: "border",
+    modifiers: null,
+    values:
+      map-collect(
+        $tokens-color-global,
+        get-palettes($border-color-palettes),
+        get-palettes($global-color-palettes),
+        $border-color-manual-values
+      ),
+    settings: $border-color-settings,
+    type: "utility",
+  ),
+);

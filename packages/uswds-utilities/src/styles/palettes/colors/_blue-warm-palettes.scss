@@ -1,0 +1,72 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-blue-warm-light: (
+  "blue-warm-5": $color-blue-warm-5,
+  "blue-warm-10": $color-blue-warm-10,
+  "blue-warm-20": $color-blue-warm-20,
+  "blue-warm-30": $color-blue-warm-30,
+);
+
+$tokens-color-blue-warm-medium: (
+  "blue-warm-40": $color-blue-warm-40,
+  "blue-warm-50": $color-blue-warm-50,
+  "blue-warm-60": $color-blue-warm-60,
+);
+
+$tokens-color-blue-warm-dark: (
+  "blue-warm-70": $color-blue-warm-70,
+  "blue-warm-80": $color-blue-warm-80,
+  "blue-warm-90": $color-blue-warm-90,
+);
+
+$tokens-color-blue-warm-light-vivid: (
+  "blue-warm-5v": $color-blue-warm-5v,
+  "blue-warm-10v": $color-blue-warm-10v,
+  "blue-warm-20v": $color-blue-warm-20v,
+  "blue-warm-30v": $color-blue-warm-30v,
+);
+
+$tokens-color-blue-warm-medium-vivid: (
+  "blue-warm-40v": $color-blue-warm-40v,
+  "blue-warm-50v": $color-blue-warm-50v,
+  "blue-warm-60v": $color-blue-warm-60v,
+);
+
+$tokens-color-blue-warm-dark-vivid: (
+  "blue-warm-70v": $color-blue-warm-70v,
+  "blue-warm-80v": $color-blue-warm-80v,
+  "blue-warm-90v": $color-blue-warm-90v,
+);
+
+$tokens-color-blue-warm-standard: map-collect(
+  $tokens-color-blue-warm-light,
+  $tokens-color-blue-warm-medium,
+  $tokens-color-blue-warm-dark
+);
+
+$tokens-color-blue-warm-vivid: map-collect(
+  $tokens-color-blue-warm-light-vivid,
+  $tokens-color-blue-warm-medium-vivid,
+  $tokens-color-blue-warm-dark-vivid
+);
+
+$tokens-color-blue-warm: map-collect(
+  $tokens-color-blue-warm-standard,
+  $tokens-color-blue-warm-vivid
+);
+
+$palettes-color-blue-warm: (
+  "palette-color-system-blue-warm-light": $tokens-color-blue-warm-light,
+  "palette-color-system-blue-warm-medium": $tokens-color-blue-warm-medium,
+  "palette-color-system-blue-warm-dark": $tokens-color-blue-warm-dark,
+  "palette-color-system-blue-warm-light-vivid":
+    $tokens-color-blue-warm-light-vivid,
+  "palette-color-system-blue-warm-medium-vivid":
+    $tokens-color-blue-warm-medium-vivid,
+  "palette-color-system-blue-warm-dark-vivid":
+    $tokens-color-blue-warm-dark-vivid,
+  "palette-color-system-blue-warm-standard": $tokens-color-blue-warm-standard,
+  "palette-color-system-blue-warm-vivid": $tokens-color-blue-warm-vivid,
+  "palette-color-system-blue-warm": $tokens-color-blue-warm,
+);
