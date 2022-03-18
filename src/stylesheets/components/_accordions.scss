@@ -4,7 +4,7 @@ $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
 // Maps for Icons
-$icon-object: (
+$accordion-icon-defaults-object: (
   "color": currentColor,
   "svg-height": 24,
   "svg-width": 24,
@@ -12,23 +12,18 @@ $icon-object: (
 );
 
 $add-icon: map-merge(
-  $icon-object,
+  $accordion-icon-defaults-object,
   (
     "name": "add",
   )
 );
 
 $remove-icon: map-merge(
-  $icon-object,
+  $accordion-icon-defaults-object,
   (
     "name": "remove",
   )
 );
-
-$after: "after";
-$icon-margin: "auto";
-$vertical-align: "auto";
-$contrast-bg: default;
 
 // Accordion Styles
 
@@ -43,13 +38,10 @@ $contrast-bg: default;
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include place-icon(
-    $remove-icon,
-    $after,
-    $icon-margin,
-    $vertical-align,
-    $contrast-bg
-  );
+  @include place-icon($remove-icon, "after", "auto", "auto", "default");
+
+  // Anchor for add/remove icons
+  position: relative;
 
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
@@ -72,13 +64,7 @@ $contrast-bg: default;
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include place-icon(
-    $add-icon,
-    $after,
-    $icon-margin,
-    $vertical-align,
-    $contrast-bg
-  );
+  @include place-icon($add-icon, "after", "auto", "auto", "default");
   &::after {
     height: 100%;
 
@@ -155,16 +141,13 @@ $contrast-bg: default;
 .usa-accordion__button {
   @include accordion-button-styles;
 
-  // Anchor for add/remove icons
-  position: relative;
-
   &::after {
     right: 0;
     top: 0;
     height: 100%;
     content: "";
     position: absolute;
-    margin: 0 units(2.5) 0 0;
+    margin-right: units(2.5);
 
     @media (forced-colors: active) {
       background-color: ButtonText;
