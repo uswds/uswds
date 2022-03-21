@@ -6,7 +6,8 @@ $calendar-icon-defaults: (
   color: "ButtonText",
   svg-height: 20,
   svg-width: 20,
-  height: units(3),
+  height: units(5),
+  container-width: 6,
 );
 
 $calendar: map-merge(
@@ -114,8 +115,14 @@ $navigate_far_next: map-merge(
 
   @media (forced-colors: active) {
     @include add-color-icon($calendar);
-    height: auto;
-    margin: 1em 0.5em 0.5em;
+    mask-size: units(3) !important;
+    position: relative;
+
+    &:not([disabled]) {
+      &:hover {
+        background-color: Highlight;
+      }
+    }
   }
 }
 
