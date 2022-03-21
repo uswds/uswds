@@ -1,5 +1,49 @@
 $date-picker-max-width: "mobile";
 
+// Maps for high contrast mode icons
+
+$calendar-icon-defaults: (
+  color: "ButtonText",
+  svg-height: 20,
+  svg-width: 20,
+  height: units(3),
+);
+
+$calendar: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "calendar_today",
+  )
+);
+
+$navigate_before: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_before",
+  )
+);
+
+$navigate_far_before: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_far_before",
+  )
+);
+
+$navigate_next: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_next",
+  )
+);
+
+$navigate_far_next: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_far_next",
+  )
+);
+
 // Date Picker
 
 .usa-date-picker__wrapper {
@@ -58,52 +102,6 @@ $date-picker-max-width: "mobile";
   }
 }
 
-// Maps for high contrast mode icons
-
-$icon-map: (
-  "color": "ButtonText",
-  svg-height: 20,
-  svg-width: 20,
-  height: units(3),
-);
-
-$calendar: map-merge(
-  $icon-map,
-  (
-    "name": "calendar_today",
-  )
-);
-
-$navigate_before: map-merge(
-  $icon-map,
-  (
-    "name": "navigate_before",
-  )
-);
-
-$navigate_far_before: map-merge(
-  $icon-map,
-  (
-    "name": "navigate_far_before",
-  )
-);
-
-$navigate_next: map-merge(
-  $icon-map,
-  (
-    "name": "navigate_next",
-  )
-);
-
-$navigate_far_next: map-merge(
-  $icon-map,
-  (
-    "name": "navigate_far_next",
-  )
-);
-
-$contrast-bg: default;
-
 .usa-date-picker__button {
   @extend %usa-date-picker__button;
   @include add-background-svg("usa-icons/calendar_today");
@@ -115,7 +113,7 @@ $contrast-bg: default;
   width: 3em;
 
   @media (forced-colors: active) {
-    @include add-color-icon($calendar, $contrast-bg);
+    @include add-color-icon($calendar);
     height: auto;
     margin: 1em 0.5em 0.5em;
   }
@@ -193,7 +191,7 @@ $contrast-bg: default;
   @include add-background-svg("usa-icons/navigate_far_before");
 
   @media (forced-colors: active) {
-    @include add-color-icon($navigate_far_before, $contrast-bg);
+    @include add-color-icon($navigate_far_before);
     background-color: buttonText;
   }
 }
@@ -201,16 +199,15 @@ $contrast-bg: default;
 .usa-date-picker__calendar__previous-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_before");
   @media (forced-colors: active) {
-    @include add-color-icon($navigate_before, $contrast-bg);
+    @include add-color-icon($navigate_before);
     background-color: buttonText;
   }
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
-  // @include add-background-svg("usa-icons/navigate_far_next");
-  @include add-color-icon($navigate_far_next, $contrast-bg);
+  @include add-color-icon($navigate_far_next);
   @media (forced-colors: active) {
-    @include add-color-icon($navigate_far_next, $contrast-bg);
+    @include add-color-icon($navigate_far_next);
     background-color: buttonText;
   }
 }
@@ -218,7 +215,7 @@ $contrast-bg: default;
 .usa-date-picker__calendar__next-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
   @media (forced-colors: active) {
-    @include add-color-icon($navigate_next, $contrast-bg);
+    @include add-color-icon($navigate_next);
     background-color: buttonText;
   }
 }
