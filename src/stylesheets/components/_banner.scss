@@ -99,6 +99,10 @@ $banner-icon-close: (
   width: $icon-height * $lock-aspect;
   path {
     fill: currentColor;
+
+    @media (forced-colors: active) {
+      fill: canvasText;
+    }
   }
 }
 
