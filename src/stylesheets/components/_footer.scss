@@ -357,6 +357,8 @@ $chevron-expand-more: map-merge(
       }
 
       @include at-media("mobile-lg") {
+        cursor: auto;
+
         &::before {
           content: none;
         }
