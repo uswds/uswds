@@ -267,13 +267,13 @@ $banner-icon-close: (
   &[aria-expanded="false"] {
     &::before {
       content: none;
-    }  
+    }
   }
 
   &[aria-expanded="true"] {
     &::before {
       content: none;
-    }  
+    }
 
     @include at-media-max("tablet") {
       @include place-icon(
