@@ -95,6 +95,88 @@ $chevron-expand-more: map-merge(
   }
 
   &:hover {
+    text-decoration: underline;
+  }
+  
+  // Disclosure button functionality happens at mobile widths
+  &--button {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+
+    &:not([disabled]):focus {
+      // Apply negative focus offset to ensure that entire focus ring is visible
+      @include focus-outline(null, null, null, "neg-05");
+    }
+
+    // Arrow for collapsible content.
+    @include place-icon(
+      $chevron-expand-more,
+      "before",
+      0.5,
+      "auto",
+      "default"
+    );
+
+    &::before {
+      @include u-square(2.5);
+      align-items: center;
+      background-size: contain;
+      content: "";
+      display: inline-flex;
+      justify-content: center;
+      margin-right: units(0.5);
+      margin-left: units(-0.5);
+
+      @media (forced-colors: active) {
+        background-color: buttonText;
+        background-image: initial !important;
+      }
+    }
+
+    &+.usa-list--unstyled {
+      margin-top: units(1);
+      margin-bottom: units(1);
+    }
+
+    &[aria-expanded="false"] {
+      @include place-icon(
+        $chevron-next, 
+        "before", 
+        0.5, 
+        "auto", 
+        "default"
+      );
+
+      @include at-media("mobile-lg") {
+        margin: 0;
+      }
+
+      @media (forced-colors: active) {
+        &::before {
+          background-color: buttonText;
+        }
+      }
+
+      // Hide submenu when button is not expanded
+      & + .usa-list--unstyled {
+        display: none;
+      }
+    }
+  }
+}
+
+.usa-footer__primary-link {
+  @include u-padding-x($theme-site-margins-mobile-width);
+  @include u-padding-y(2);
+  @include u-text("ink", "no-underline", "bold");
+  display: block;
+
+  @include at-media("mobile-lg") {
+    @include u-padding-x(0);
+  }
+
+  &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
@@ -324,64 +406,10 @@ $chevron-expand-more: map-merge(
   .usa-footer__primary-content--collapsible {
     .usa-footer__primary-link {
       align-items: center;
-      cursor: pointer;
       display: flex;
       justify-content: flex-start;
-
-      // Arrow for collapsible content.
-      @include place-icon(
-        $chevron-expand-more,
-        "before",
-        0.5,
-        "auto",
-        "default"
-      );
-
-      &::before {
-        @include u-square(2.5);
-        align-items: center;
-        background-size: contain;
-        content: "";
-        display: inline-flex;
-        justify-content: center;
-        margin-right: units(0.5);
-        margin-left: units(-0.5);
-
-        @media (forced-colors: active) {
-          background-color: buttonText;
-          background-image: initial !important;
-        }
-      }
-
-      @include at-media("mobile-lg") {
-        cursor: auto;
-
-        &::before {
-          content: none;
-        }
-      }
     }
-
-    &.hidden {
-      .usa-list--unstyled {
-        display: none;
-      }
-
-      .usa-footer__primary-link {
-        @include at-media("mobile-lg") {
-          margin: 0;
-        }
-
-        @include place-icon($chevron-next, "before", 0.5, "auto", "default");
-
-        @media (forced-colors: active) {
-          &::before {
-            background-color: buttonText;
-          }
-        }
-      }
-    }
-
+     
     .usa-list--unstyled {
       @include u-padding-x($theme-site-margins-mobile-width);
       padding-bottom: units(2.5);
