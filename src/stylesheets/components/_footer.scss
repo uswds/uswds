@@ -97,7 +97,7 @@ $chevron-expand-more: map-merge(
   &:hover {
     text-decoration: underline;
   }
-  
+
   // Disclosure button functionality happens at mobile widths
   &--button {
     width: 100%;
@@ -110,13 +110,7 @@ $chevron-expand-more: map-merge(
     }
 
     // Arrow for collapsible content.
-    @include place-icon(
-      $chevron-expand-more,
-      "before",
-      0.5,
-      "auto",
-      "default"
-    );
+    @include place-icon($chevron-expand-more, "before", 0.5, "auto", "default");
 
     &::before {
       @include u-square(2.5);
@@ -134,19 +128,13 @@ $chevron-expand-more: map-merge(
       }
     }
 
-    &+.usa-list--unstyled {
+    & + .usa-list--unstyled {
       margin-top: units(1);
       margin-bottom: units(1);
     }
 
     &[aria-expanded="false"] {
-      @include place-icon(
-        $chevron-next, 
-        "before", 
-        0.5, 
-        "auto", 
-        "default"
-      );
+      @include place-icon($chevron-next, "before", 0.5, "auto", "default");
 
       @include at-media("mobile-lg") {
         margin: 0;
@@ -409,7 +397,7 @@ $chevron-expand-more: map-merge(
       display: flex;
       justify-content: flex-start;
     }
-     
+
     .usa-list--unstyled {
       @include u-padding-x($theme-site-margins-mobile-width);
       padding-bottom: units(2.5);
