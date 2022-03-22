@@ -93,7 +93,6 @@
   "dependencies": {
     "classlist-polyfill": "^1.0.3",
     "domready": "^1.0.8",
-    "express": "^4.17.2",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
