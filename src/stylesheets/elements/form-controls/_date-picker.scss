@@ -212,7 +212,7 @@ $navigate_far_next: map-merge(
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
-  @include add-color-icon($navigate_far_next);
+  @include add-background-svg("usa-icons/navigate_far_next");
   @media (forced-colors: active) {
     @include add-color-icon($navigate_far_next);
     background-color: buttonText;
