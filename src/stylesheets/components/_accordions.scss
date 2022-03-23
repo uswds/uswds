@@ -3,28 +3,6 @@
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
-// Maps for Icons
-$accordion-icon-defaults-object: (
-  "color": currentColor,
-  "svg-height": 24,
-  "svg-width": 24,
-  "height": units(3),
-);
-
-$add-icon: map-merge(
-  $accordion-icon-defaults-object,
-  (
-    "name": "add",
-  )
-);
-
-$remove-icon: map-merge(
-  $accordion-icon-defaults-object,
-  (
-    "name": "remove",
-  )
-);
-
 // Accordion Styles
 
 @mixin accordion-list-styles {
@@ -38,10 +16,7 @@ $remove-icon: map-merge(
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include place-icon($remove-icon, "after", "auto", "auto", "default");
-
-  // Anchor for add/remove icons
-  position: relative;
+  @include add-background-svg("usa-icons/remove");
 
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
@@ -64,14 +39,8 @@ $remove-icon: map-merge(
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include place-icon($add-icon, "after", "auto", "auto", "default");
-  &::after {
-    height: 100%;
-
-    @media (forced-colors: active) {
-      background-color: ButtonText;
-    }
-  }
+  @include add-background-svg("usa-icons/add");
+  background-size: units(3);
 }
 
 @mixin accordion-nested-list {
@@ -140,23 +109,6 @@ $remove-icon: map-merge(
 
 .usa-accordion__button {
   @include accordion-button-styles;
-
-  &::after {
-    right: 0;
-    top: 0;
-    height: 100%;
-    content: "";
-    position: absolute;
-    margin-right: units(2.5);
-
-    @media (forced-colors: active) {
-      background-color: ButtonText;
-    }
-  }
-
-  @media (forced-colors: active) {
-    outline: 2px solid transparent;
-  }
 }
 
 .usa-accordion__button[aria-expanded="false"] {
