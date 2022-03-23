@@ -94,8 +94,6 @@
     "classlist-polyfill": "^1.0.3",
     "domready": "^1.0.8",
     "express": "^4.17.2",
-    "lodash.debounce": "^4.0.7",
-    "lodash.merge": "^4.6.2",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
@@ -159,6 +157,7 @@
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",
     "lit-scss-loader": "^1.1.0",
+    "lodash.merge": "^4.6.2",
     "merge-stream": "^2.0.0",
     "mocha": "^6.2.0",
     "mq-polyfill": "^1.1.8",
