@@ -142,12 +142,11 @@ $remove-icon: map-merge(
   @include accordion-button-styles;
 
   &::before {
-    right: 0;
+    right: units(2.5);
     top: 0;
     height: 100%;
     content: "";
     position: absolute;
-    margin-right: units(2.5);
 
     @media (forced-colors: active) {
       background-color: ButtonText;
@@ -161,8 +160,4 @@ $remove-icon: map-merge(
 
 .usa-accordion__button[aria-expanded="false"] {
   @include accordion-button-unopened-styles;
-
-  &::before {
-    margin-right: units(2.5);
-  }
 }
