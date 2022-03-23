@@ -198,6 +198,10 @@ $vertical-align: "auto";
       font-weight: font-weight("bold");
     }
 
+    &::before {
+      content: none;
+    }
+
     &:hover {
       color: color("primary");
       background-color: color("base-lightest");
