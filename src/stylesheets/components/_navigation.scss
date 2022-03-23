@@ -213,7 +213,7 @@ $vertical-align: "auto";
       &::before {
         content: none;
       }
-      
+
       span {
         @include place-icon(
           $add-icon,

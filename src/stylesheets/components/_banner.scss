@@ -129,6 +129,17 @@ $banner-icon-close: (
     @include u-padding-y(0.5);
     min-height: 0;
   }
+
+  .usa-accordion__button {
+    &::before {
+      background: none;
+      mask: none;
+    }
+
+    &[aria-expanded="false"]::before {
+      content: none !important;
+    }
+  }
 }
 
 .usa-banner__header-text {
@@ -264,13 +275,7 @@ $banner-icon-close: (
     }
   }
 
-  &[aria-expanded="false"] {
-    background-image: none;
-  }
-
   &[aria-expanded="true"] {
-    background-image: none;
-
     @include at-media-max("tablet") {
       @include place-icon(
         $banner-icon-close,
