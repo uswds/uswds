@@ -160,8 +160,4 @@ $remove-icon: map-merge(
 
 .usa-accordion__button[aria-expanded="false"] {
   @include accordion-button-unopened-styles;
-
-  &::before {
-    margin-right: units(2.5);
-  }
 }
