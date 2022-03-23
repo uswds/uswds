@@ -210,8 +210,10 @@ $vertical-align: "auto";
 
     &[aria-expanded="false"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: none;
-
+      &::before {
+        content: none;
+      }
+      
       span {
         @include place-icon(
           $add-icon,
@@ -250,7 +252,9 @@ $vertical-align: "auto";
 
     &[aria-expanded="true"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: none;
+      &::before {
+        content: none;
+      }
 
       span {
         @include place-icon(
@@ -270,7 +274,6 @@ $vertical-align: "auto";
       }
 
       @include at-media($theme-header-min-width) {
-        background-image: none;
         background-color: color("primary-darker");
         color: color("white");
 
