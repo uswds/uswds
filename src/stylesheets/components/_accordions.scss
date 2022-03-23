@@ -38,7 +38,7 @@ $remove-icon: map-merge(
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include place-icon($remove-icon, "after", "auto", "auto", "default");
+  @include place-icon($remove-icon, "before", "auto", "auto", "default");
 
   // Anchor for add/remove icons
   position: relative;
@@ -64,8 +64,8 @@ $remove-icon: map-merge(
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include place-icon($add-icon, "after", "auto", "auto", "default");
-  &::after {
+  @include place-icon($add-icon, "before", "auto", "auto", "default");
+  &::before {
     height: 100%;
 
     @media (forced-colors: active) {
@@ -141,7 +141,7 @@ $remove-icon: map-merge(
 .usa-accordion__button {
   @include accordion-button-styles;
 
-  &::after {
+  &::before {
     right: 0;
     top: 0;
     height: 100%;
@@ -161,4 +161,8 @@ $remove-icon: map-merge(
 
 .usa-accordion__button[aria-expanded="false"] {
   @include accordion-button-unopened-styles;
+
+  &::before {
+    margin-right: units(2.5);
+  }
 }
