@@ -99,6 +99,10 @@ $banner-icon-close: (
   width: $icon-height * $lock-aspect;
   path {
     fill: currentColor;
+
+    @media (forced-colors: active) {
+      fill: CanvasText;
+    }
   }
 }
 
@@ -158,6 +162,12 @@ $banner-icon-close: (
 
   @include at-media("tablet") {
     display: none;
+  }
+
+  &::after {
+    @media (forced-colors: active) {
+      background-color: ButtonText;
+    }
   }
 }
 
@@ -238,8 +248,13 @@ $banner-icon-close: (
     margin-left: units(1);
     position: relative;
 
-    &:after {
+    &:after,
+    &:hover::after {
       position: absolute;
+
+      @media (forced-colors: active) {
+        background-color: ButtonText;
+      }
     }
 
     &:hover {
@@ -272,6 +287,10 @@ $banner-icon-close: (
         display: block;
         height: units($size-touch-target);
         width: units($size-touch-target);
+
+        @media (forced-colors: active) {
+          // background-color: ;
+        }
       }
       &:after {
         @include u-pin("y");
@@ -291,8 +310,13 @@ $banner-icon-close: (
       padding: units(0);
       position: relative;
 
-      &:after {
+      &:after,
+      &:hover::after {
         position: absolute;
+
+        @media (forced-colors: active) {
+          background-color: ButtonText;
+        }
       }
     }
   }
@@ -305,6 +329,10 @@ $banner-icon-close: (
   @include at-media("tablet") {
     @include add-no-sr-only;
     display: inline;
+  }
+
+  @media (forced-colors: active) {
+    color: LinkText;
   }
 }
 
