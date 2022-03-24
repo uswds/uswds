@@ -11,6 +11,62 @@ $sliding-panel-width: "card-lg";
 $nav-link-accordion-icon-size: 2.5;
 $nav-link-arrow-icon-size: 2;
 
+// Maps for icon masks
+$place-icon-defaults: (
+  "color": ButtonText,
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+$chevron-icon-defaults: map-merge(
+  $place-icon-defaults,
+  (
+    "height": units($nav-link-arrow-icon-size),
+  )
+);
+
+$mobile-icon-defaults: map-merge(
+  $place-icon-defaults,
+  (
+    "height": units($nav-link-accordion-icon-size),
+  )
+);
+
+$add-icon: map-merge(
+  $mobile-icon-defaults,
+  (
+    "name": "add",
+  )
+);
+
+$remove-icon: map-merge(
+  $mobile-icon-defaults,
+  (
+    "name": "remove",
+  )
+);
+
+$close-icon: map-merge(
+  $mobile-icon-defaults,
+  (
+    "name": "close",
+  )
+);
+
+$expand-more-icon: map-merge(
+  $chevron-icon-defaults,
+  (
+    "name": "expand_more",
+  )
+);
+
+$expand-less-icon: map-merge(
+  $chevron-icon-defaults,
+  (
+    "name": "expand_less",
+  )
+);
+
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
   from {
@@ -122,6 +178,7 @@ $nav-link-arrow-icon-size: 2;
     $button-vertical-offset: 53%; // XXX: Magic number
 
     @include button-unstyled;
+    position: relative; // Anchor spans chevron pseudo element
     color: color($nav-link-color);
     font-weight: font-weight("normal");
     line-height: line-height($theme-navigation-font-family, 2);
@@ -132,6 +189,10 @@ $nav-link-arrow-icon-size: 2;
       @include primary-nav-link;
       font-size: font-size($theme-navigation-font-family, "2xs");
       font-weight: font-weight("bold");
+    }
+
+    @media (forced-colors: active) {
+      forced-color-adjust: auto;
     }
 
     &:hover {
@@ -146,38 +207,79 @@ $nav-link-arrow-icon-size: 2;
 
     &[aria-expanded="false"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("usa-icons/add");
-      background-position: right 0 center;
-      background-size: units($nav-link-accordion-icon-size);
+      background-image: none;
+
+      span {
+        @include place-icon($add-icon, "after");
+
+        &::after {
+          position: absolute;
+          right: 0;
+
+          &:hover {
+            background-color: buttonText;
+          }
+        }
+      }
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("usa-icons/expand_more");
-        background-size: units($nav-link-arrow-icon-size);
-        background-position: right units(1.5) top $button-vertical-offset;
+        span {
+          @include place-icon($expand-more-icon, "after");
+
+          &::after {
+            right: units(1.5);
+          }
+        }
       }
 
       &:hover {
         @include at-media($theme-header-min-width) {
-          @include add-background-svg(
-            "usa-icons-bg/expand_more--blue-warm-70v"
-          );
+          // @include add-background-svg(
+          //   "usa-icons-bg/expand_more--blue-warm-70v"
+          // );
+          span::after {
+            background-color: color(blue-warm-70v);
+
+            @media (forced-colors: active) {
+              background-color: ButtonText;
+            }
+          }
         }
       }
     }
 
     &[aria-expanded="true"] {
       /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg("usa-icons/remove");
-      background-position: right 0 center;
-      background-size: units($nav-link-accordion-icon-size);
+      background-image: none;
+
+      span {
+        @include place-icon($remove-icon, "after");
+        &::after {
+          position: absolute;
+          right: 0;
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
+        }
+      }
 
       @include at-media($theme-header-min-width) {
-        @include add-background-svg("usa-icons-bg/expand_less--white");
-        @include add-knockout-font-smoothing;
-        background-size: units($nav-link-arrow-icon-size);
+        background-image: none;
         background-color: color("primary-darker");
-        background-position: right units(1.5) top $button-vertical-offset;
         color: color("white");
+
+        @include at-media($theme-header-min-width) {
+          span {
+            @include place-icon($expand-less-icon, "after");
+            &::after {
+              right: units(1.5);
+              background-color: white;
+              @media (forced-colors: active) {
+                background-color: ButtonText;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -328,6 +430,15 @@ $nav-link-arrow-icon-size: 2;
   margin: units(-1.5) units(-2) units(2) auto;
   text-align: center;
 
+  background-image: none;
+
+  @media (forced-colors: active) {
+    @include place-icon($close-icon, "before");
+    &::before {
+      background-color: buttonText;
+    }
+  }
+
   &:hover {
     color: currentColor;
     text-decoration: none;
@@ -339,6 +450,10 @@ $nav-link-arrow-icon-size: 2;
 
   img {
     width: units(3);
+
+    @media (forced-colors: active) {
+      display: none;
+    }
   }
 
   + * {
