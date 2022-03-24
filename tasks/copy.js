@@ -1,7 +1,6 @@
 const { src, dest } = require('gulp');
 const filter = require("gulp-filter");
 const rename = require('gulp-rename');
-const changed = require("gulp-changed");
 const dutil = require("./utils/doc-util");
 
 module.exports = {

@@ -69,7 +69,7 @@ exports.release = release;
 
 /**
  * *Watch task*
- * Builds USWDS and component library, creates local server, and watches
+ * Builds USWDS and component library, and watches
  * for changes in scss, js, twig, yml, and unit tests.
  */
 exports.watch = watch;

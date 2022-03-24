@@ -36,7 +36,7 @@ Here are a few guidelines to follow when submitting a pull request:
 
 The U.S. Web Design System `uswds` package (the zip download and the
 files needed to use the Design System on your project) is built primarily with
-two [Node.js] tools: [Pattern lab] and [Gulp]. Once you've cloned this
+two [Node.js] tools: [StorybookJS] and [Gulp]. Once you've cloned this
 repository, you'll need to install its dependencies:
 
 ```sh
@@ -45,19 +45,16 @@ npm install
 
 **ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
 
-To start the [Pattern lab] live reload server, run:
+To start the [StorybookJS] server, run:
 
 ```sh
 npm start
 ```
 
-Then, visit [localhost:3000](http://localhost:3000) in a web browser to
-peruse the component library. While the server is running, any changes that
-you make to the component templates or configurations will reload the page
-automatically.
+Then, visit [http://localhost:6006/](http://http://localhost:6006/) in a web browser to peruse the component library. While the server is running, any changes that you make to the component templates or configurations will reload the page automatically.
 
 If you're working on the JavaScript or CSS, you can run the "watch" task in
-another shell to automatically rebuild the distribution files that Pattern lab
+another shell to automatically rebuild the distribution files that StorybookJS
 references with:
 
 ```sh
@@ -157,7 +154,7 @@ dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
 
 [Node.js]: https://nodejs.org
-[Pattern lab]: https://patternlab.io/
+[StorybookJS]: https://storybook.js.org/
 [Gulp]: http://gulpjs.com/
 [Yarn]: https://yarnpkg.com/
 [eslint]: http://eslint.org/
