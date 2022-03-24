@@ -118,8 +118,6 @@
     "babel-loader": "^8.2.2",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
-    "chrome-launcher": "^0.15.0",
-    "chrome-remote-interface": "^0.31.0",
     "cross-spawn": "^7.0.3",
     "css-loader": "^6.2.0",
     "del": "^6.0.0",

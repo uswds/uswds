@@ -95,12 +95,6 @@ and run the `npm run test` command. Keep in mind that this will also run linters
 
 To run all of the unit tests, run `npm run test:unit`.
 
-**For non-OSX users**:
-Before running the tests, if you are developing on a machine running an operating system other than OSX,
-you'll need to export a `CHROME_PATH` environment variable that points to Chrome's binary location. This ensures `chrome-launcher`
-can find a version of Chrome for our aXe visual acceptance tests. A table of the locations of the binary
-for each OS can [be found here](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver#requirements).
-
 ### Building
 
 To build the `uswds` package in preparation for releases, run:
