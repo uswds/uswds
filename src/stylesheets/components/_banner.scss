@@ -164,8 +164,10 @@ $banner-icon-close: (
     display: none;
   }
 
-  &::after {
-    @media (forced-colors: active) {
+  @media (forced-colors: active) {
+    color: LinkText;
+
+    &::after {
       background-color: ButtonText;
     }
   }
