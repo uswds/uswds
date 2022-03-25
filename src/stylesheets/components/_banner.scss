@@ -287,10 +287,6 @@ $banner-icon-close: (
         display: block;
         height: units($size-touch-target);
         width: units($size-touch-target);
-
-        @media (forced-colors: active) {
-          // background-color: ;
-        }
       }
       &:after {
         @include u-pin("y");

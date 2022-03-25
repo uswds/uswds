@@ -234,9 +234,6 @@ $expand-less-icon: map-merge(
 
       &:hover {
         @include at-media($theme-header-min-width) {
-          // @include add-background-svg(
-          //   "usa-icons-bg/expand_more--blue-warm-70v"
-          // );
           span::after {
             background-color: color(blue-warm-70v);
 
