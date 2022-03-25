@@ -192,6 +192,10 @@ $navigate_far_next: map-merge(
   background-size: auto units(3);
   height: units(3);
   padding: 20px 10px;
+
+  @media (forced-colors: active) {
+    mask-size: units(3) !important;
+  }
 }
 
 .usa-date-picker__calendar__previous-year:not([disabled]) {
@@ -398,14 +402,39 @@ $navigate_far_next: map-merge(
   background-size: auto units(4);
   margin: auto;
   padding: 40px 0;
+
+  @media (forced-colors: active) {
+    mask-size: units(3) !important;
+  }
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_before");
+
+  @media (forced-colors: active) {
+    background-image: none;
+
+    @include place-icon($navigate-before, "after", "auto", middle, "default");
+
+    &:hover {
+      outline: 2px solid transparent;
+      background-color: transparent;
+    }
+  }
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
+  @media (forced-colors: active) {
+    background-image: none;
+
+    @include place-icon($navigate-next, "after", "auto", middle, "default");
+
+    &:hover {
+      outline: 2px solid transparent;
+      background-color: transparent;
+    }
+  }
 }
 
 .usa-date-picker__calendar__year {
