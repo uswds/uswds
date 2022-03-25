@@ -234,11 +234,8 @@ $chevron-expand-more: map-merge(
   }
 
   @media (forced-colors: active) {
-    background-color: LinkText;
-
-    &:hover {
-      background-color: Highlight;
-    }
+    background-color: lightgrey;
+    forced-color-adjust: none;
   }
 }
 
