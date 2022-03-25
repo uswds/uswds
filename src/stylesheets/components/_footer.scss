@@ -345,7 +345,7 @@ $chevron-expand-more: map-merge(
         margin-left: units(-0.5);
 
         @media (forced-colors: active) {
-          background-color: buttonText;
+          background-color: buttonText !important;
         }
       }
 
@@ -364,16 +364,9 @@ $chevron-expand-more: map-merge(
       }
 
       .usa-footer__primary-link {
+        @include place-icon($chevron-next, "before", 0.5, "auto", "default");
         @include at-media("mobile-lg") {
           margin: 0;
-        }
-
-        @include place-icon($chevron-next, "before", 0.5, "auto", "default");
-
-        @media (forced-colors: active) {
-          &::before {
-            background-color: buttonText;
-          }
         }
       }
     }
