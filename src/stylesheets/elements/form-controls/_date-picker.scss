@@ -3,11 +3,11 @@ $date-picker-max-width: "mobile";
 // Maps for high contrast mode icons
 
 $calendar-icon-defaults: (
-  color: "ButtonText",
-  svg-height: 20,
-  svg-width: 20,
-  height: units(5),
-  container-width: 6,
+  "color": "ButtonText",
+  "svg-height": 20,
+  "svg-width": 20,
+  "height": units(5),
+  "container-width": 6,
 );
 
 $calendar: map-merge(
