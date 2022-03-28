@@ -250,6 +250,7 @@ $banner-icon-close: (
 
     &::after,
     &:hover::after {
+      position: absolute;
       @media (forced-colors: active) {
         background-color: ButtonText;
       }
