@@ -112,11 +112,9 @@ function walk(dir, ext) {
 
 const components = walk('./packages', '.twig');
 const templates = walk('./packages/templates', '.twig');
-const compare = walk('./packages/**/src/compare', '.twig');
 const files = [].concat(
     components,
     templates,
-    compare
   )
 
 const htmlPlugins = files.map(file =>
