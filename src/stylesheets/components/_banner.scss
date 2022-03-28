@@ -142,7 +142,7 @@ $banner-icon-close: (
     $banner-icon-chevron,
     "after",
     0,
-    $contrast-bg: $theme-banner-background-color
+    $theme-banner-background-color
   );
   @include set-link-from-bg(
     $theme-banner-background-color,
@@ -236,7 +236,7 @@ $banner-icon-close: (
       $banner-icon-chevron,
       "after",
       "2px",
-      $contrast-bg: $theme-banner-background-color
+      $theme-banner-background-color
     );
     @include set-link-from-bg(
       $theme-banner-background-color,
