@@ -412,7 +412,7 @@ $navigate_far_next: map-merge(
   @include add-background-svg("usa-icons/navigate_before");
 
   @media (forced-colors: active) {
-    @include place-icon($navigate-before, "after", "auto", middle, "default");
+    @include place-icon($navigate-before, "after");
     background-image: none;
 
     &:hover {
@@ -425,7 +425,7 @@ $navigate_far_next: map-merge(
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
   @media (forced-colors: active) {
-    @include place-icon($navigate-next, "after", "auto", middle, "default");
+    @include place-icon($navigate-next, "after");
     background-image: none;
 
     &:hover {
