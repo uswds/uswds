@@ -1,5 +1,5 @@
 @use "../../settings" as *;
-@use "uswds-core/src/styles/functions/color/get-system-color" as *;
+@use "../../functions/color/get-system-color" as *;
 
 //red-cool
 $color-red-cool-5: get-system-color("red-cool", 5);
