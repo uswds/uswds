@@ -138,13 +138,7 @@ $banner-icon-close: (
 }
 
 .usa-banner__header-action {
-  @include place-icon(
-    $banner-icon-chevron,
-    "after",
-    0,
-    middle,
-    $theme-banner-background-color
-  );
+  @include place-icon($banner-icon-chevron, "after");
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color,
@@ -233,13 +227,7 @@ $banner-icon-close: (
   }
 
   @include at-media("tablet") {
-    @include place-icon(
-      $banner-icon-chevron,
-      "after",
-      "2px",
-      middle,
-      $theme-banner-background-color
-    );
+    @include place-icon($banner-icon-chevron, "after", "2px");
     @include set-link-from-bg(
       $theme-banner-background-color,
       $theme-banner-link-color,
@@ -252,6 +240,7 @@ $banner-icon-close: (
 
     &::after,
     &:hover::after {
+      position: absolute;
       @media (forced-colors: active) {
         background-color: ButtonText;
       }

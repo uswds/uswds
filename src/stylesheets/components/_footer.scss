@@ -326,13 +326,7 @@ $chevron-expand-more: map-merge(
       justify-content: flex-start;
 
       // Arrow for collapsible content.
-      @include place-icon(
-        $chevron-expand-more,
-        "before",
-        0.5,
-        "auto",
-        "default"
-      );
+      @include place-icon($chevron-expand-more, "before", 0.5);
 
       &::before {
         @include u-square(2.5);
@@ -364,7 +358,7 @@ $chevron-expand-more: map-merge(
       }
 
       .usa-footer__primary-link {
-        @include place-icon($chevron-next, "before", 0.5, "auto", "default");
+        @include place-icon($chevron-next, "before", 0.5);
         @include at-media("mobile-lg") {
           margin: 0;
         }
