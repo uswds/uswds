@@ -33,7 +33,7 @@ function buildFileObj(dir, file, dataFile){
   const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
     ? `${outDir[0]}-${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
-    : `${outDir[0]}-${dataFile.replace('.json', '.html')}`
+    : `${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
