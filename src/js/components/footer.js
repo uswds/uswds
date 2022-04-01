@@ -14,9 +14,10 @@ const HIDE_MAX_WIDTH = 480;
 function showPanel() {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
     const isOpen = this.getAttribute('aria-expanded') === 'true';
+    const thisFooter = this.closest(SCOPE);
 
     // Close all other menus
-    document.querySelectorAll(BUTTON).forEach((button) => {
+    thisFooter.querySelectorAll(BUTTON).forEach((button) => {
       button.setAttribute('aria-expanded', false);
     });
 
