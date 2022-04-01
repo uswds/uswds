@@ -68,7 +68,6 @@ const toggleHidden = (isHidden) =>
 
 const resize = (event) => {
   toggleHtmlTag(event.matches);
-  toggleHidden(event.matches);
 }
 
 module.exports = behavior(
@@ -83,7 +82,6 @@ module.exports = behavior(
 
     init() {
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
-      toggleHidden(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
       );
