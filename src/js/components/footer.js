@@ -49,7 +49,7 @@ function toggleHtmlTag(isMobile) {
 
       newElement.setAttribute('aria-controls', menuId);
       newElement.setAttribute('aria-expanded', 'false');
-      currentElement.nextElementSibling.setAttribute('id', );
+      currentElement.nextElementSibling.setAttribute('id', menuId);
       newElement.setAttribute('type', 'button');
     }
 
