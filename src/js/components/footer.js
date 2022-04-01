@@ -26,7 +26,8 @@ function showPanel() {
 }
 
 /**
- * Swaps the <h4> element for a <button> element (and vice-versa)
+ * Swaps the <h4> element for a <button> element (and vice-versa) and sets id
+ * of menu list
  *
  * @param {Boolean} isMobile - If the footer is in mobile configuration
  */
@@ -45,7 +46,12 @@ function toggleHtmlTag(isMobile) {
     newElement.textContent = currentElement.textContent;
 
     if (isMobile) {
+      const menuId = `${PREFIX}-footer-menu-list-${Math.floor(Math.random() * 100000)}`;
+
+      newElement.setAttribute('aria-controls', `${menuId}`);
       newElement.setAttribute('aria-expanded', 'false');
+      currentElement.nextElementSibling.setAttribute('id', menuId);
+      newElement.setAttribute('id', 'false');
     }
 
     // Insert the new element and delete the old
