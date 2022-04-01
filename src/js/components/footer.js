@@ -67,7 +67,7 @@ const toggleHidden = (isHidden) =>
   );
 
 const resize = (event) => {
-  toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
+  toggleHtmlTag(event.matches);
   toggleHidden(event.matches);
 }
 
