@@ -47,9 +47,9 @@ function toggleHtmlTag(isMobile) {
     if (isMobile) {
       const menuId = `${PREFIX}-footer-menu-list-${Math.floor(Math.random() * 100000)}`;
 
-      newElement.setAttribute('aria-controls', `${menuId}`);
+      newElement.setAttribute('aria-controls', menuId);
       newElement.setAttribute('aria-expanded', 'false');
-      currentElement.nextElementSibling.setAttribute('id', menuId);
+      currentElement.nextElementSibling.setAttribute('id', );
       newElement.setAttribute('type', 'button');
     }
 
