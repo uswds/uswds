@@ -52,6 +52,7 @@ function toggleHtmlTag(isMobile) {
       newElement.setAttribute('aria-expanded', 'false');
       currentElement.nextElementSibling.setAttribute('id', menuId);
       newElement.setAttribute('id', 'false');
+      newElement.setAttribute('type', 'button');
     }
 
     // Insert the new element and delete the old
