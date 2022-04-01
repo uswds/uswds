@@ -59,6 +59,80 @@ $table-sorted-stripe-text-color: color(
   )
 );
 
+@mixin table-stacked-styles {
+  thead {
+    display: none;
+  }
+
+  th,
+  td {
+    border-bottom-width: 0;
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: units(0.5) solid $table-text-color;
+    border-top-width: 0;
+    display: block;
+    width: 100%;
+    th:first-child,
+    td:first-child {
+      border-top-width: 0;
+    }
+    &:nth-child(odd) {
+      td,
+      th {
+        background-color: inherit;
+      }
+    }
+
+    &:first-child {
+      th:first-child,
+      td:first-child {
+        border-top: units(0.5) solid $table-text-color;
+      }
+    }
+  }
+
+  th[data-label],
+  td[data-label] {
+    padding-bottom: units(1.5);
+
+    &:before {
+      content: attr(data-label);
+      display: block;
+      font-weight: fw("bold");
+      margin: units(-1) units(-2) units(0);
+      padding: units(1.5) units(2) units(0.5);
+    }
+  }
+}
+
+@mixin table-stacked-header-styles {
+  tr {
+    td:first-child,
+    th:first-child {
+      @include typeset(
+        $theme-body-font-family,
+        $theme-h4-font-size,
+        $theme-heading-line-height
+      );
+      background-color: color($theme-table-header-background-color);
+      color: $table-header-text-color;
+      font-weight: fw("bold");
+      padding: units(1.5) units(2);
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+%usa-table--todo {
+  @include table-stacked-styles;
+}
+
 %usa-table {
   @include border-box-sizing;
   @include typeset;
@@ -215,76 +289,6 @@ $table-sorted-stripe-text-color: color(
   th[data-sort-active] {
     background-color: color($theme-table-sorted-background-color);
     color: $table-sorted-text-color;
-  }
-}
-
-@mixin table-stacked-styles {
-  thead {
-    display: none;
-  }
-
-  th,
-  td {
-    border-bottom-width: 0;
-    display: block;
-    width: 100%;
-  }
-
-  tr {
-    border-bottom: units(0.5) solid $table-text-color;
-    border-top-width: 0;
-    display: block;
-    width: 100%;
-    th:first-child,
-    td:first-child {
-      border-top-width: 0;
-    }
-    &:nth-child(odd) {
-      td,
-      th {
-        background-color: inherit;
-      }
-    }
-
-    &:first-child {
-      th:first-child,
-      td:first-child {
-        border-top: units(0.5) solid $table-text-color;
-      }
-    }
-  }
-
-  th[data-label],
-  td[data-label] {
-    padding-bottom: units(1.5);
-
-    &:before {
-      content: attr(data-label);
-      display: block;
-      font-weight: fw("bold");
-      margin: units(-1) units(-2) units(0);
-      padding: units(1.5) units(2) units(0.5);
-    }
-  }
-}
-
-@mixin table-stacked-header-styles {
-  tr {
-    td:first-child,
-    th:first-child {
-      @include typeset(
-        $theme-body-font-family,
-        $theme-h4-font-size,
-        $theme-heading-line-height
-      );
-      background-color: color($theme-table-header-background-color);
-      color: $table-header-text-color;
-      font-weight: fw("bold");
-      padding: units(1.5) units(2);
-      &:before {
-        display: none;
-      }
-    }
   }
 }
 
