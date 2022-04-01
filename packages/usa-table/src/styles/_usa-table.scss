@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 
 .usa-table {
-  @extend %usa-table--test;
+  @extend %usa-table;
 }
 
 .usa-table--borderless {
