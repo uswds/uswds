@@ -1,5 +1,4 @@
 const behavior = require("../utils/behavior");
-const select = require("../utils/select");
 const { CLICK } = require("../events");
 const { prefix: PREFIX } = require("../config");
 
@@ -33,10 +32,10 @@ function showPanel() {
  */
 function toggleHtmlTag(isMobile) {
   const footer = document.querySelector(SCOPE);
-  const primaryLinks = footer?.querySelectorAll(BUTTON);
+  const primaryLinks = footer.querySelectorAll(BUTTON);
   const newElementType = isMobile ? 'button' : 'h4';
 
-  primaryLinks?.forEach(currentElement => {
+  primaryLinks.forEach(currentElement => {
     const currentElementClasses = currentElement.getAttribute('class');
 
     // Create the new element
@@ -51,7 +50,6 @@ function toggleHtmlTag(isMobile) {
       newElement.setAttribute('aria-controls', `${menuId}`);
       newElement.setAttribute('aria-expanded', 'false');
       currentElement.nextElementSibling.setAttribute('id', menuId);
-      newElement.setAttribute('id', 'false');
       newElement.setAttribute('type', 'button');
     }
 
@@ -60,11 +58,6 @@ function toggleHtmlTag(isMobile) {
     currentElement.remove();
   });
 }
-
-const toggleHidden = (isHidden) =>
-  select(BUTTON).forEach((button) =>
-    button.setAttribute('aria-expanded', !isHidden)
-  );
 
 const resize = (event) => {
   toggleHtmlTag(event.matches);
