@@ -31,8 +31,13 @@ function showPanel() {
  * @param {Boolean} isMobile - If the footer is in mobile configuration
  */
 function toggleHtmlTag(isMobile) {
-  const footer = document.querySelector(SCOPE);
-  const primaryLinks = footer.querySelectorAll(BUTTON);
+  const bigFooter = document.querySelector(SCOPE);
+
+  if (!bigFooter) {
+    return;
+  }
+
+  const primaryLinks = bigFooter.querySelectorAll(BUTTON);
   const newElementType = isMobile ? 'button' : 'h4';
 
   primaryLinks.forEach(currentElement => {
