@@ -3,7 +3,7 @@
 @use "./usa-prose" as *;
 @use "./usa-list" as *;
 @use "./usa-table-styles" as *;
-@use "../typography/typeset.scss" as *;
+@use "../typography/typeset" as *;
 
 @mixin usa-paragraph-style {
   p {
