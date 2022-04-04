@@ -1,10 +1,10 @@
 @use "uswds-core" as *;
 
 .usa-list {
-  @extend %usa-list;
+  @include usa-list;
 
   li {
-    @extend %usa-list-item;
+    @include usa-list-item;
   }
 }
 
