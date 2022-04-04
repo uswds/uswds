@@ -1,9 +1,0 @@
-@use "../mixins/typography/typeset.scss" as *;
-
-%usa-prose-p {
-  @include typeset-p;
-}
-
-%usa-prose-heading {
-  @include typeset-heading;
-}
