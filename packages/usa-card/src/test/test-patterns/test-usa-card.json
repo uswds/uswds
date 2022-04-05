@@ -7,7 +7,6 @@
       "classes_override": "tablet:grid-col-6",
       "header_first": true,
       "media": true,
-      "body_overrides": null,
       "content": "To look at him you'd think he wan's worth a cent.",
       "cta_text": "Stick out",
       "cta_modifier": "usa-button--secondary"
@@ -28,7 +27,8 @@
       "media": true,
       "body_overrides": null,
       "content": "Duis hendrerit ligula eget urna malesuada malesuada. Nullam pretium purus laoreet, ornare leo in, lacinia augue. Mauris mattis laoreet leo in gravida. Nulla euismod tortor sem, id lacinia ligula semper tempus. Nam vestibulum mauris mauris, eu pharetra purus malesuada ut. Mauris ut ex pretium, dictum enim quis, consectetur velit. Curabitur at porttitor nulla, ut maximus quam.",
-      "cta_text": "Make some inquiries"
+      "cta_text": "Make some inquiries",
+      "cta_modifier": "usa-button--outline"
     },
     {
       "title": "My friend's friend",
@@ -39,7 +39,6 @@
         "media_classes": "flex-align-center",
         "image_classes": "circle-card margin-x-auto"
       },
-      "body_overrides": null,
       "content": "He roused up and gave me good-day. I told him a friend of mine had commissioned me to make some inquiries about a cherished companion of his boyhood named Leonidas W. Smiley.",
       "cta_text": "Give me good-day"
     },
