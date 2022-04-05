@@ -63,7 +63,7 @@ $table-sorted-stripe-text-color: color(
 @mixin table-header-unsorted-styles {
   padding-right: units(5);
   position: relative;
-  &:after {
+  &::after {
     border-bottom-color: transparent;
     border-bottom-style: solid;
     border-bottom-width: units(1px);
@@ -74,10 +74,6 @@ $table-sorted-stripe-text-color: color(
     position: absolute;
     width: 100%;
   }
-}
-
-@mixin table-header-sorted-styles {
-  background-color: color($theme-table-sorted-header-background-color);
 }
 
 @mixin table-button-default-styles {
@@ -260,15 +256,18 @@ $table-sorted-stripe-text-color: color(
       }
     }
 
+    &[aria-sort="descending"],
+    &[aria-sort="ascending"] {
+      background-color: color($theme-table-sorted-header-background-color);
+    }
+
     &[aria-sort="descending"] {
-      @include table-header-sorted-styles;
       .usa-table__header__button {
         @include table-button-sorted-descending-styles;
       }
     }
 
     &[aria-sort="ascending"] {
-      @include table-header-sorted-styles;
       .usa-table__header__button {
         @include table-button-sorted-ascending-styles;
       }
