@@ -1,5 +1,27 @@
-// General footer styles
+// Map for high contrast mode icons
 
+$chevron-icon-defaults: (
+  "color": currentColor,
+  "svg-height": 20,
+  "svg-width": 20,
+  "height": units(2.5),
+);
+
+$chevron-next: map-merge(
+  $chevron-icon-defaults,
+  (
+    "name": "navigate_next",
+  )
+);
+
+$chevron-expand-more: map-merge(
+  $chevron-icon-defaults,
+  (
+    "name": "expand_more",
+  )
+);
+
+// General footer styles
 .usa-footer {
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
@@ -78,6 +100,7 @@
 
   // Disclosure button functionality happens at mobile widths
   &--button {
+    @include place-icon($chevron-expand-more, "before", 0.5);
     width: 100%;
     border: 0;
     cursor: pointer;
@@ -89,7 +112,6 @@
 
     // Arrow for collapsible content.
     &::before {
-      @include add-background-svg("usa-icons/expand_more");
       @include u-square(2.5);
       align-items: center;
       background-size: contain;
@@ -98,6 +120,10 @@
       justify-content: center;
       margin-right: units(0.5);
       margin-left: units(-0.5);
+
+      @media (forced-colors: active) {
+        background-color: buttonText !important;
+      }
     }
 
     & + .usa-list--unstyled {
@@ -106,9 +132,7 @@
     }
 
     &[aria-expanded="false"] {
-      &::before {
-        @include add-background-svg("usa-icons/navigate_next");
-      }
+      @include place-icon($chevron-next, "before", 0.5);
 
       // Hide submenu when button is not expanded
       & + .usa-list--unstyled {
@@ -249,6 +273,11 @@
 
   &:hover {
     background-color: color("white");
+  }
+
+  @media (forced-colors: active) {
+    background-color: lightgrey;
+    forced-color-adjust: none;
   }
 }
 

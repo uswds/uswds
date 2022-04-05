@@ -1,3 +1,26 @@
+// Maps for High Contrast Mode
+
+$icon-map: (
+  color: ButtonText,
+  svg-height: 20,
+  svg-width: 20,
+  height: units(2),
+);
+
+$chevron-open: map-merge(
+  $icon-map,
+  (
+    "name": "expand_more",
+  )
+);
+
+$close: map-merge(
+  $icon-map,
+  (
+    "name": "close",
+  )
+);
+
 .usa-combo-box {
   max-width: units($theme-input-max-width);
   position: relative;
@@ -14,6 +37,13 @@
 
   .usa-combo-box__clear-input {
     display: block;
+
+    @media (forced-colors: active) {
+      @include add-color-icon($close);
+      height: 1.5rem;
+      width: auto;
+      top: 0.5rem;
+    }
   }
 }
 
@@ -65,6 +95,12 @@ button.usa-combo-box__clear-input {
   @include add-background-svg("usa-icons/expand_more");
   background-size: auto units(4);
   right: 1px;
+
+  @media (forced-colors: active) {
+    @include add-color-icon($chevron-open);
+    height: auto;
+    width: auto;
+  }
 }
 
 .usa-combo-box__input-button-separator {
@@ -77,6 +113,10 @@ button.usa-combo-box__clear-input {
   right: calc(2.5em + 2px);
   box-sizing: border-box;
   z-index: z-index(200);
+
+  @media (forced-colors: active) {
+    background-color: ButtonText;
+  }
 }
 
 .usa-combo-box__list {
