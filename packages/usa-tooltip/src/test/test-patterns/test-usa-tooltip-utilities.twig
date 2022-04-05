@@ -1,6 +1,7 @@
 {% set tooltip = {
   classes: "usa-button usa-tooltip",
-  util_classes: "width-full tablet:width-auto"
+  util_classes: "width-full tablet:width-auto",
+  img_path: "../img"
 } %}
 
 <h2>In a footer</h2>
@@ -43,7 +44,7 @@
       <div class="grid-row grid-gap">
         <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
           <div class="mobile-lg:grid-col-auto">
-            <img class="usa-footer__logo-img" src="../img/logo-img.png" alt="">
+            <img class="usa-footer__logo-img" src="{{ tooltip.img_path }}/logo-img.png" alt="">
           </div>
           <div class="mobile-lg:grid-col-auto">
             <p class="usa-footer__logo-heading">Name of Agency</p>
