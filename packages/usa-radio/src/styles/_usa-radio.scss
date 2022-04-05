@@ -2,18 +2,7 @@
 
 @use "uswds-core" as *;
 
-@include override-prose {
-  .usa-input-list {
-    @include add-list-reset;
-
-    li {
-      line-height: line-height(
-        $theme-form-font-family,
-        $theme-input-line-height
-      );
-    }
-  }
-}
+@include radio-colors;
 
 .usa-radio__input {
   // The actual input element is only visible to screen readers, because
@@ -42,13 +31,15 @@
       margin-top: units(1);
       padding: units(1.5) units(2) units(1.5) units(5);
 
-      &:before {
+      &::before {
         left: units(5) - units($input-select-margin-right) -
           units($theme-input-select-size);
       }
     }
   }
+}
 
+.usa-radio__input {
   &:checked {
     @include format-input {
       @media print {
@@ -71,17 +62,15 @@
     units($theme-input-select-size);
   position: relative;
 
-  &:before {
+  &::before {
     content: " ";
     display: block;
     left: 0;
     margin-left: units($theme-input-select-border-width);
-    margin-top: math.div(
-      (
-        line-height($theme-form-font-family, $theme-input-line-height) *
-          font-size($theme-form-font-family, $theme-body-font-size) -
-          units($theme-input-select-size)
-      ),
+    margin-top: divide(
+      line-height($theme-form-font-family, $theme-input-line-height) *
+        font-size($theme-form-font-family, $theme-body-font-size) -
+        units($theme-input-select-size),
       2
     );
     position: absolute;
@@ -97,3 +86,13 @@
   font-size: size("ui", "2xs");
   margin-top: units(1);
 }
+
+// Test code for scoped custom colors
+/*
+.checkbox-tests {
+  @include set-text-and-bg("green-80");
+  @include radio-colors("green-80", "green-warm-10v");
+  padding: units(2);
+  border-radius: radius("md");
+}
+*/

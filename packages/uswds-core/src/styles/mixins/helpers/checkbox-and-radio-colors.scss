@@ -7,9 +7,18 @@
 @use "format-input" as *;
 @use "format-label" as *;
 
-@mixin checkbox-and-radio-colors(
+@mixin checkbox-colors($args...) {
+  @include -checkbox-and-radio-colors($input-type: "checkbox", $args...);
+}
+
+@mixin radio-colors($args...) {
+  @include -checkbox-and-radio-colors($input-type: "radio", $args...);
+}
+
+@mixin -checkbox-and-radio-colors(
   $bg-color: $theme-input-background-color,
-  $selected-color: "default"
+  $selected-color: "default",
+  $input-type: null
 ) {
   $input-text-color: get-color-token-from-bg($bg-color);
   $input-bg-color: if(
@@ -44,22 +53,20 @@
   );
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
 
-  .usa-checkbox,
-  .usa-radio {
+  .usa-#{$input-type} {
     background: color($input-bg-color);
   }
 
-  .usa-checkbox__label,
-  .usa-radio__label {
+  .usa-#{$input-type}__label {
     color: color($input-text-color);
+
     &::before {
       background: color($input-bg-color);
       box-shadow: 0 0 0 units($theme-input-select-border-width)
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
     }
   }
-  .usa-checkbox__input,
-  .usa-radio__input {
+  .usa-#{$input-type}__input {
     &:checked {
       @include format-input {
         background-color: color($input-active-color);
@@ -101,33 +108,39 @@
       }
     }
   }
-  .usa-checkbox__input {
-    &:checked,
-    &:checked:disabled {
-      @include format-input {
-        @include add-background-svg($input-checkmark);
+
+  @if $input-type == "checkbox" {
+    .usa-checkbox__input {
+      &:checked,
+      &:checked:disabled {
+        @include format-input {
+          @include add-background-svg($input-checkmark);
+        }
       }
-    }
-    &:checked:disabled {
-      @include format-input {
-        background-color: $color-input-disabled;
+      &:checked:disabled {
+        @include format-input {
+          background-color: $color-input-disabled;
+        }
       }
     }
   }
-  .usa-radio__input {
-    &:checked {
-      @include format-input {
-        box-shadow: 0 0 0 units($theme-input-select-border-width)
-            color($input-active-color),
-          inset 0 0 0 units($theme-input-select-border-width)
-            color($input-bg-color);
+
+  @if $input-type == "radio" {
+    .usa-radio__input {
+      &:checked {
+        @include format-input {
+          box-shadow: 0 0 0 units($theme-input-select-border-width)
+              color($input-active-color),
+            inset 0 0 0 units($theme-input-select-border-width)
+              color($input-bg-color);
+        }
       }
-    }
-    &:checked:disabled {
-      @include format-input {
-        background-color: $color-input-disabled--weak;
-        box-shadow: 0 0 0 2px $color-input-disabled,
-          inset 0 0 0 2px color($input-bg-color);
+      &:checked:disabled {
+        @include format-input {
+          background-color: $color-input-disabled--weak;
+          box-shadow: 0 0 0 2px $color-input-disabled,
+            inset 0 0 0 2px color($input-bg-color);
+        }
       }
     }
   }
