@@ -30,7 +30,6 @@ This repository is for the design system code itself. We maintain [another repos
   - [Browser support](#browser-support)
   - [Accessibility](#accessibility)
   - [Pattern library](#pattern-library)
-    - [Template compatibility](#template-compatibility)
   - [Long-term support of v1.x](#long-term-support-of-v1x)
   - [Need installation help?](#need-installation-help)
   - [Contributing to the code base](#contributing-to-the-code-base)
