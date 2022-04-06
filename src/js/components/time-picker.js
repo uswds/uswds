@@ -104,7 +104,7 @@ const transformTimePicker = (el) => {
     const option = document.createElement("option");
     option.value = `${padZeros(hour24, 2)}:${padZeros(minute, 2)}`;
     option.text = `${hour12}:${padZeros(minute, 2)}${ampm}`;
-    if (option.text === initialInputEl.value) {
+    if (option.text === initialInputEl.dataset.defaultValue) {
       defaultValue = option.value;
     }
     selectEl.appendChild(option);
