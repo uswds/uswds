@@ -75,20 +75,15 @@ tests, you'll need [Gulp][]. Install it globally (`npm install -g
 gulp-cli`), then run:
 
 ```sh
-gulp eslint
+npm run lint // JS linting
 gulp lintSass
-gulp lintJS
 ```
 
-(Or, if you don't want to install Gulp globally, you can run `$(npm
-bin)/gulp` instead of `gulp`.)
-
-Note that running the tests also requires an installation of
-Chrome v59 or higher (v60 if you're on Windows).
+(Or, if you don't want to install Gulp globally, you can run `npx gulp` instead of `gulp`.)
 
 If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
 substituting the actual path to the spec. Only javascript files can be executed by the `mocha` runner,
-and only those js files in the `src/` directory ending with a `.spec.js`.
+and only those js files in the `packages/` directory ending with a `.spec.js`.
 
 Alternatively, you can add an `.only` to a `describe` or `it` block (i.e. `describe.only('my spec')`)
 and run the `npm run test` command. Keep in mind that this will also run linters and aXe accessibility tests.
