@@ -1,6 +1,6 @@
 const { watch, series, parallel } = require("gulp");
 const { unitTests, sassTests } = require("./test");
-const { lintSass, lintJS } = require("./lint");
+const { lintSass, typecheck } = require("./lint");
 const { compileSass } = require("./sass");
 const { compileJS } = require("./javascript");
 const { build } = require("./build");
@@ -19,7 +19,7 @@ function watchFiles() {
   watch(
     "./src/**/**/*.js",
     series(
-      parallel(lintJS, compileJS),
+      parallel(typecheck, compileJS),
     )
   );
 
