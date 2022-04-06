@@ -14,7 +14,6 @@ const { build } = require("./tasks/build");
 const { release } = require("./tasks/release");
 const { watch } = require("./tasks/watch");
 const { compileSass } = require("./tasks/sass");
-const { copyVendor } = require("./tasks/copy");
 const { cleanDist } = require("./tasks/clean");
 
 /**
