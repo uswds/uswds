@@ -7,7 +7,6 @@ import {
 } from "./content";
 import TestContent from "./test/test-patterns/test-usa-card.json";
 
-
 export default {
   title: "Components/Card",
 };
