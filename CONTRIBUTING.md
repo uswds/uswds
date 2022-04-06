@@ -51,7 +51,7 @@ To start the [StorybookJS] server, run:
 npm start
 ```
 
-Then, visit [http://localhost:6006/](http://http://localhost:6006/) in a web browser to peruse the component library. While the server is running, any changes that you make to the component templates or configurations will reload the page automatically.
+Then, visit [http://localhost:6006/](http://localhost:6006/) in a web browser to peruse the component library. While the server is running, any changes that you make to the component templates or configurations will reload the page automatically.
 
 If you're working on the JavaScript or CSS, you can run the "watch" task in
 another shell to automatically rebuild the distribution files that StorybookJS
