@@ -14,7 +14,6 @@ const { build } = require("./tasks/build");
 const { release } = require("./tasks/release");
 const { watch } = require("./tasks/watch");
 const { compileSass } = require("./tasks/sass");
-const { copyVendor } = require("./tasks/copy");
 const { cleanDist } = require("./tasks/clean");
 
 /**
@@ -69,7 +68,7 @@ exports.release = release;
 
 /**
  * *Watch task*
- * Builds USWDS and component library, creates local server, and watches
+ * Builds USWDS and component library, and watches
  * for changes in scss, js, twig, yml, and unit tests.
  */
 exports.watch = watch;
