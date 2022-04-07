@@ -134,7 +134,6 @@
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.3.0",
     "gulp-dart-scss": "^1.1.0",
-    "gulp-filter": "^7.0.0",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.3",
