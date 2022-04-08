@@ -1,8 +1,8 @@
 @use "uswds-core" as *;
 
 .usa-select {
-  @include block-input-general;
-  @include block-input-styles;
+  @extend %block-input-general;
+  @extend %block-input-styles;
   @include add-background-svg("usa-icons/unfold_more");
   appearance: none;
   background-color: color("white");

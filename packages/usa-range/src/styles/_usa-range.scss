@@ -29,8 +29,8 @@
 }
 
 .usa-range {
-  @include block-input-general;
-  @include block-input-styles;
+  @extend %block-input-general;
+  @extend %block-input-styles;
 }
 
 .usa-range {

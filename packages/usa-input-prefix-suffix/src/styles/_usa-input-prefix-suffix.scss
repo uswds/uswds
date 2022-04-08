@@ -2,8 +2,8 @@
 
 // Input prefixes / suffixes
 .usa-input-group {
-  @include block-input-general;
-  @include block-input-styles;
+  @extend %block-input-general;
+  @extend %block-input-styles;
   align-items: center;
   background-color: color("white");
   display: flex;

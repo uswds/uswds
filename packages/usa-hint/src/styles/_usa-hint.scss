@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 
 .usa-hint {
-  @include block-input-general;
+  @extend %block-input-general;
   color: color("base");
 }
 

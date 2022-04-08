@@ -69,7 +69,7 @@
 }
 
 .usa-checkbox__label {
-  @include block-input-general;
+  @extend %block-input-general;
   cursor: pointer;
   display: inherit;
   font-weight: font-weight("normal");

@@ -20,8 +20,8 @@
 }
 
 .usa-combo-box__input {
-  @include block-input-general;
-  @include block-input-styles;
+  @extend %block-input-general;
+  @extend %block-input-styles;
   appearance: none;
   margin-bottom: 0;
   max-width: none;
@@ -83,7 +83,7 @@ button.usa-combo-box__clear-input {
 }
 
 .usa-combo-box__list {
-  @include block-input-general;
+  @extend %block-input-general;
   @include u-border(1px, "base-dark");
   background-color: color("white");
   border-radius: 0;

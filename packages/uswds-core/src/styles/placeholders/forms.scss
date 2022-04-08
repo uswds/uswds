@@ -1,13 +1,11 @@
-@use "../../settings" as *;
-@use "../../functions" as *;
-@use "../utilities" as *;
-@use "../helpers" as *;
-@use "../typography" as *;
+@use "../settings" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
 
 // Helpers
 $input-select-margin-right: 1.5;
 
-@mixin block-input-general {
+%block-input-general {
   @include border-box-sizing;
   @include typeset(
     $theme-form-font-family,
@@ -16,7 +14,7 @@ $input-select-margin-right: 1.5;
   );
 }
 
-@mixin block-input-styles {
+%block-input-styles {
   @include u-border(1px, "base-dark");
   appearance: none;
   border-radius: 0;
