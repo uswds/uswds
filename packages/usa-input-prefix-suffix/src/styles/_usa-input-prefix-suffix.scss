@@ -17,6 +17,10 @@
     @include u-border($theme-input-state-border-width, "error-dark");
   }
 
+  &--success {
+    @include u-border($theme-input-state-border-width, "success");
+  }
+
   input {
     border: 0;
     height: 100%;
