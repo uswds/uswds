@@ -36,7 +36,7 @@ Here are a few guidelines to follow when submitting a pull request:
 
 The U.S. Web Design System `uswds` package (the zip download and the
 files needed to use the Design System on your project) is built primarily with
-two [Node.js] tools: [Pattern lab] and [Gulp]. Once you've cloned this
+two [Node.js] tools: [StorybookJS] and [Gulp]. Once you've cloned this
 repository, you'll need to install its dependencies:
 
 ```sh
@@ -45,19 +45,16 @@ npm install
 
 **ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
 
-To start the [Pattern lab] live reload server, run:
+To start the [StorybookJS] server, run:
 
 ```sh
 npm start
 ```
 
-Then, visit [localhost:3000](http://localhost:3000) in a web browser to
-peruse the component library. While the server is running, any changes that
-you make to the component templates or configurations will reload the page
-automatically.
+Then, visit [http://localhost:6006/](http://localhost:6006/) in a web browser to peruse the component library. While the server is running, any changes that you make to the component templates or configurations will reload the page automatically.
 
 If you're working on the JavaScript or CSS, you can run the "watch" task in
-another shell to automatically rebuild the distribution files that Pattern lab
+another shell to automatically rebuild the distribution files that StorybookJS
 references with:
 
 ```sh
@@ -78,31 +75,20 @@ tests, you'll need [Gulp][]. Install it globally (`npm install -g
 gulp-cli`), then run:
 
 ```sh
-gulp eslint
+npm run lint // JS linting
 gulp lintSass
-gulp lintJS
 ```
 
-(Or, if you don't want to install Gulp globally, you can run `$(npm
-bin)/gulp` instead of `gulp`.)
-
-Note that running the tests also requires an installation of
-Chrome v59 or higher (v60 if you're on Windows).
+(Or, if you don't want to install Gulp globally, you can run `npx gulp` instead of `gulp`.)
 
 If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
 substituting the actual path to the spec. Only javascript files can be executed by the `mocha` runner,
-and only those js files in the `src/` directory ending with a `.spec.js`.
+and only those js files in the `packages/` directory ending with a `.spec.js`.
 
 Alternatively, you can add an `.only` to a `describe` or `it` block (i.e. `describe.only('my spec')`)
 and run the `npm run test` command. Keep in mind that this will also run linters and aXe accessibility tests.
 
 To run all of the unit tests, run `npm run test:unit`.
-
-**For non-OSX users**:
-Before running the tests, if you are developing on a machine running an operating system other than OSX,
-you'll need to export a `CHROME_PATH` environment variable that points to Chrome's binary location. This ensures `chrome-launcher`
-can find a version of Chrome for our aXe visual acceptance tests. A table of the locations of the binary
-for each OS can [be found here](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver#requirements).
 
 ### Building
 
@@ -157,7 +143,7 @@ dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
 
 [Node.js]: https://nodejs.org
-[Pattern lab]: https://patternlab.io/
+[StorybookJS]: https://storybook.js.org/
 [Gulp]: http://gulpjs.com/
 [Yarn]: https://yarnpkg.com/
 [eslint]: http://eslint.org/

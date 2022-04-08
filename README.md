@@ -30,7 +30,6 @@ This repository is for the design system code itself. We maintain [another repos
   - [Browser support](#browser-support)
   - [Accessibility](#accessibility)
   - [Pattern library](#pattern-library)
-    - [Template compatibility](#template-compatibility)
   - [Long-term support of v1.x](#long-term-support-of-v1x)
   - [Need installation help?](#need-installation-help)
   - [Contributing to the code base](#contributing-to-the-code-base)
@@ -438,69 +437,13 @@ The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://
 
 ## Pattern library
 
-We're using [Pattern lab](https://patternlab.io/) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
+We're using [StorybookJS](https://storybook.js.org/) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
 
 ```sh
 npm start
 ```
 
-Then, visit [http://localhost:3000/](http://localhost:3000/) to see the design system in action. It will watch for changes in twig, scss, and JS and refresh.
-
-
-### Template compatibility
-We're using `engine-twig`, which uses Twing, to get rid of the PHP dependency. This means there are a few differences between this Twig engine and the more common PHP engine.
-
-**Key differences**
-
-Namespacing not supported - Use relative paths.
-
-```twig
-❌ {% include "@components/usa-card/src/usa-card.twig" %}
-
-✔ {% include "../usa-card/src/usa-card.twig" %}
-```
-
-~~Generated variants with YML *~~
-```
-✔ usa-button-group.twig
-❕ usa-button-group~segmented.yml
-```
-
-~~*Works with patch [`31931c7`](https://github.com/uswds/uswds/commit/31931c7ee1ecf31c54981c1691a047157d458bfb).~~
-
-Fixed in @pattern-lab/engine-twig@5.14.3
-
-HTML in YML renders as string
-```yml
-# Given
-items:
-  - '<button class="usa-button">Map</button>'
-  - '<button class="usa-button usa-button--outline">Satellite</button>'
-  - '<button class="usa-button usa-button--outline">Hybrid</button>'
-```
-
-Results in the markup being output as a string.
-
-Workarounds available with `autoescape false` and `|raw` filter.
-
-```twig
-<li class="usa-button-group__item">
-  {% autoescape false %}
-    {{ item }}
-  {% endautoescape %}
-</li>
-```
-
-```twig
-{{ domain.text | trim | raw }}
-```
-
-> ⚠ When using the `|raw` filter make sure you use it like so `| trim | raw`. Otherwise you'll get errors due to the whitespace.
-
-Global variables don't work as expected
-Setting a variable like `img_path` in `src/styleguide/data/data.yml` renders as empty string in some templates, for example in `usa-nav__primary.twig`.
-
-Just be aware when using macro's and ensure you have a proper fallback value.
+Then, visit [http://localhost:6006/](http://localhost:6006/) to see the design system in action. It will watch for changes in twig, scss, and JS and refresh.
 
 ## Long-term support of v1.x
 
