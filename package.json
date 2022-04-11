@@ -23,10 +23,10 @@
       "import": "./dist/js/uswds.min.js",
       "default": "./dist/js/uswds.min.js"
     },
-    "./src/js/components": "./src/components/index.js",
-    "./src/js/components/*": "./src/js/components/*.js",
-    "./src/fonts/*": "./src/fonts/*",
-    "./src/img/*": "./src/img/*",
+    "./src/js/components": "./packages/uswds-core/src/js/index.js",
+    "./src/js/components/*": "./packages/*.js",
+    "./src/fonts/*": "./packages/uswds-core/src/assets/fonts/*",
+    "./src/img/*": "./packages/usa-icon/src/img",
     "./js/*": "./dist/js/*",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
@@ -35,9 +35,9 @@
   },
   "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "packages/uswds-core/src/js/start.js",
+  "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
-  "sass": "packages/uswds/src/styles/uswds.scss",
+  "sass": "./src/stylesheets/uswds.scss",
   "mocha": {
     "config": "src/utils/test/.mocharc.json"
   },
