@@ -166,7 +166,7 @@ node_modules/uswds/
 │   ├── js/
 │   └── scss/
 ```
-
+ 
 **Note:** We do _not_ recommend directly editing the design system files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
 
 #### Using the USWDS package
