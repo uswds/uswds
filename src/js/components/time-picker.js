@@ -97,12 +97,16 @@ const transformTimePicker = (el) => {
     Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP)
   );
 
+  let defaultValue;
   for (let time = minTime; time <= maxTime; time += step) {
     const { minute, hour24, hour12, ampm } = getTimeContext(time);
 
     const option = document.createElement("option");
     option.value = `${padZeros(hour24, 2)}:${padZeros(minute, 2)}`;
     option.text = `${hour12}:${padZeros(minute, 2)}${ampm}`;
+    if (option.text === initialInputEl.value) {
+      defaultValue = option.value;
+    }
     selectEl.appendChild(option);
   }
 
@@ -113,6 +117,7 @@ const transformTimePicker = (el) => {
     timePickerEl.dataset[key] = FILTER_DATASET[key];
   });
   timePickerEl.dataset.disableFiltering = "true";
+  timePickerEl.dataset.defaultValue = defaultValue;
 
   timePickerEl.appendChild(selectEl);
   initialInputEl.style.display = "none";
