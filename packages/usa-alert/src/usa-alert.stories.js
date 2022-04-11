@@ -47,4 +47,3 @@ export const Warning = Template.bind({});
 Warning.args = WarningContent;
 
 export const Test = TestTemplate.bind({});
-Test.args = DefaultContent;
