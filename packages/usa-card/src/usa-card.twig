@@ -11,8 +11,7 @@
     ] %}
 
     <li class="{{ card_classes ~ " " ~ card_overrides|join(' ') }}">
-      {# @TODO Allow for overrides on Container #}
-      <div class="usa-card__container">
+      <div class="usa-card__container {{ card.container_overrides|default('') }}">
         <div class="usa-card__header">
           <h2 class="usa-card__heading">{{ card.title }}</h2>
         </div>
