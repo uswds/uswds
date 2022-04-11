@@ -1,1 +1,11 @@
 preview: "@uswds-form"
+
+variants:
+  - name: default
+    label: Default
+
+  - name: default-value
+    label: Default Value
+    context:
+      timePicker:
+        defaultValue: "1:00pm"

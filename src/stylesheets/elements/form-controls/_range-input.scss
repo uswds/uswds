@@ -18,6 +18,10 @@
   border: none;
   box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   cursor: pointer;
+
+  @media (forced-colors: active) {
+    outline: 2px solid transparent;
+  }
 }
 
 @mixin range-ms-fill {

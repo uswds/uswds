@@ -1,3 +1,12 @@
+// Map for high contrast search icon
+$search-icon: (
+  "name": "search",
+  "color": ButtonText,
+  "svg-height": 20,
+  "svg-width": 20,
+  "height": units(3),
+);
+
 .usa-search {
   @include border-box-sizing;
   @include clearfix;
@@ -25,10 +34,25 @@
       @include u-padding-x(2);
       width: auto;
     }
+
+    @media (forced-colors: active) {
+      border: 2px solid transparent;
+      @include place-icon($search-icon, "before");
+
+      &::before {
+        @include at-media("mobile-lg") {
+          content: none;
+        }
+      }
+    }
   }
 
   &__submit-icon {
     @include at-media("mobile-lg") {
+      display: none;
+    }
+
+    @media (forced-colors: active) {
       display: none;
     }
   }
@@ -57,6 +81,16 @@
 }
 
 .usa-search--small {
+  [type="submit"] {
+    @media (forced-colors: active) {
+      &::before {
+        @include at-media("mobile-lg") {
+          content: "";
+        }
+      }
+    }
+  }
+
   [type="submit"],
   .usa-search__submit {
     @include u-padding-x(1.5);
@@ -66,6 +100,10 @@
   .usa-search__submit-icon {
     @include u-square(3);
     display: block;
+
+    @media (forced-colors: active) {
+      display: none;
+    }
   }
 }
 

@@ -552,7 +552,8 @@ $tokens-color-state: (
 
 $project-color-shortcodes: map-collect(
   $tokens-color-theme,
-  $tokens-color-state
+  $tokens-color-state,
+  $high-contrast-system-colors
 );
 
 $all-color-shortcodes: map-collect(
