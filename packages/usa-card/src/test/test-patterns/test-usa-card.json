@@ -7,7 +7,7 @@
       "classes_override": "tablet:grid-col-6",
       "header_first": true,
       "media": true,
-      "container_overrides": "bg-base-lightest",
+      "container_overrides": "bg-base-lightest border-ink",
       "body_overrides": "text-white bg-primary padding-y-3",
       "content": "<p>His underjaw'd begin to stick out like the fo'castle of a steamboat, and his teeth would uncover, and shine savage like the furnaces. </p><p>And a dog might tackle him, and bully-rag him, and bite him, and throw him over his shoulder two or three times, and Andrew Jackson which was the name of the pup, Andrew Jackson would never let on but what he was satisfied.</p>",
       "cta_text": "Stick out",
@@ -33,7 +33,8 @@
     {
       "title": "My friend's friend",
       "classes_override": "usa-card--flag desktop:grid-col-6",
-      "header_first": true,
+      "container_overrides": "border-primary-vivid",
+      "header_first": false,
       "flag_direction": "right",
       "media": {
         "media_classes": "flex-align-center",
