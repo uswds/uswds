@@ -106,6 +106,7 @@
     "@18f/identity-stylelint-config": "1.0.0",
     "@babel/preset-env": "7.15.8",
     "@frctl/fractal": "1.5.11",
+    "@frctl/mandelbrot": "1.10.1",
     "@frctl/nunjucks": "2.0.13",
     "@types/node": "16.11.6",
     "ansi-colors": "4.1.1",
