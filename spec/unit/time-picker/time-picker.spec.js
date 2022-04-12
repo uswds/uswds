@@ -62,6 +62,16 @@ describe("time picker component", () => {
       "transfers required attribute to combo box"
     );
     assert.strictEqual(
+      select.value,
+      "13:00",
+      "transfers value attribute to combo box"
+    );
+    assert.strictEqual(
+      input.value,
+      "1:00pm",
+      "transfers value attribute to combo box"
+    );
+    assert.strictEqual(
       select.getAttribute("name"),
       "appointment-time",
       "should not transfer name attribute to combo box"
@@ -71,9 +81,6 @@ describe("time picker component", () => {
       null,
       "should not transfer name attribute to combo box"
     );
-
-    assert.strictEqual(select.value, "", "the select value should be empty");
-    assert.strictEqual(input.value, "", "the input should be empty");
   });
 
   it("should focus the first item found in the list from the query when pressing down from the input", () => {

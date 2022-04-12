@@ -33,6 +33,10 @@
       right: units($offset-x);
       #{unquote($side)}: units($offset-y);
     }
+
+    @media (forced-colors: active) {
+      background-color: ButtonText;
+    }
   }
 }
 
