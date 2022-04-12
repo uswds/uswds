@@ -198,7 +198,6 @@ $table-sorted-stripe-text-color: color(
   }
 }
 
-// Table variants
 @mixin usa-table {
   @include border-box-sizing;
   @include typeset;
