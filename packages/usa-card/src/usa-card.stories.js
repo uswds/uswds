@@ -2,7 +2,7 @@ import Component from "./usa-card.twig";
 
 import {
   FlagContent,
-  StandardContent,
+  DefaultContent,
   MediaContent,
 } from "./content";
 import TestContent from "./test/test-patterns/test-usa-card.json";
@@ -14,7 +14,7 @@ export default {
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
-Default.args = StandardContent;
+Default.args = DefaultContent;
 
 export const Flag = Template.bind({});
 Flag.args = FlagContent;
