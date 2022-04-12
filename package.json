@@ -27,7 +27,7 @@
     "./src/js/components/*": "./packages/*.js",
     "./src/fonts/*": "./packages/uswds-core/src/assets/fonts/*",
     "./src/img/*": "./packages/usa-icon/src/img",
-    "./js/*": "./dist/js/*",
+    "./js/*": "./packages/*.js",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
     "./img/*": "./dist/img/*",
