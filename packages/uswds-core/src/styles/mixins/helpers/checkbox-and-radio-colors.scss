@@ -64,6 +64,11 @@
       background: color($input-bg-color);
       box-shadow: 0 0 0 units($theme-input-select-border-width)
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
+
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
     }
   }
   .usa-#{$input-type}__input {
@@ -77,6 +82,10 @@
     &:disabled {
       @include format-label {
         color: $color-input-disabled;
+
+        @media (forced-colors: active) {
+          color: GrayText;
+        }
       }
       @include format-input {
         background-color: color($input-bg-color);
@@ -98,6 +107,10 @@
             $alpha: -0.9
           );
           border-color: color($input-active-color);
+
+          @media (forced-colors: active) {
+            border: ButtonText solid units("05");
+          }
         }
       }
       &:disabled:checked {
@@ -116,6 +129,12 @@
         @include format-input {
           @include add-background-svg($input-checkmark);
         }
+
+        @media (forced-colors: active) {
+          @include format-input {
+            @include add-background-svg("correct8-alt");
+          }
+        }
       }
       &:checked:disabled {
         @include format-input {
@@ -133,6 +152,10 @@
               color($input-active-color),
             inset 0 0 0 units($theme-input-select-border-width)
               color($input-bg-color);
+
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
         }
       }
       &:checked:disabled {
