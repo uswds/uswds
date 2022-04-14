@@ -19,7 +19,7 @@ example:
 @use "uswds-core/src/styles/settings" as *;
 
 $add-list-reset: (
-  list-reset: (
+  add-list-reset: (
     base: "add-list",
     modifiers: null,
     values: (
