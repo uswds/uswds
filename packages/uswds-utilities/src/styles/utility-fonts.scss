@@ -5,6 +5,7 @@ utilities to reference.
 ----------------------------------------
 */
 
+@use "sass:map";
 @use "uswds-core" as *;
 
 $if-important: "";
@@ -13,10 +14,12 @@ $if-important: "";
   $if-important: " !important";
 }
 
-@each $face, $stack in $project-font-stacks {
-  @if $stack {
-    [class*="#{ns('utility')}font-#{$face}-"] {
-      font-family: #{$stack}#{$if-important};
+@if (map-get($font-settings, "output") == true) or $output-all-utilities {
+  @each $face, $stack in $project-font-stacks {
+    @if $stack {
+      [class*="#{ns('utility')}font-#{$face}-"] {
+        font-family: #{$stack}#{$if-important};
+      }
     }
-  }
+  }  
 }
