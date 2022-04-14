@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:list";
 
 @use "uswds-core" as *;
 
@@ -9,8 +10,8 @@ $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-link-color,
   $context: $banner-context
 );
-$banner-icon-color: nth($banner-icon-colors, 1);
-$banner-icon-hover: nth($banner-icon-colors, 2);
+$banner-icon-color: list.nth($banner-icon-colors, 1);
+$banner-icon-hover: list.nth($banner-icon-colors, 2);
 $banner-icon-chevron: (
   "name": "expand_more",
   "svg-height": 40,
