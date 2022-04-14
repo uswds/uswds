@@ -1,3 +1,5 @@
+{% set password_id = password.input.id |default('password-sign-in') %}
+
 <form class="usa-form">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend usa-legend--large">{{ form.legend |default('Access your account') }}</legend>
@@ -16,18 +18,25 @@
     >
     {# /Email #}
     {# Password #}
-    <label class="usa-label" for="{{ password.input.id |default('password-sign-in') }}">
+    <label class="usa-label" for="{{ password_id }}">
       {{ password.label |default('Password')}}
     </label>
     <input
       class="usa-input"
-      id="{{ password.input.id |default('password-sign-in')}}"
+      id="{{ password_id }}"
       name="password"
       type="password"
       required
     >
     {% include "@components/_usa-password/src/usa-password.twig" with {
-      toggle: password.toggle
+      "toggle": {
+        "title": "Toggle password",
+        "aria_controls": password_id,
+        "text": {
+          "show": "Show password",
+          "hide": "Hide password"
+        }
+      }
     } %}
     {# /Password #}
     <input class="usa-button" type="submit" value="{{ submit.label |default('Sign in') }}">
