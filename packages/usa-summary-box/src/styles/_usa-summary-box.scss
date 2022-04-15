@@ -1,3 +1,5 @@
+@use "sass:list";
+
 @use "uswds-core" as *;
 
 $summary-box-context: "Summary Box";
@@ -55,10 +57,10 @@ $summary-box-context: "Summary Box";
       $context: $summary-box-context
     );
     &:visited {
-      color: color(nth($link-tokens, 1));
+      color: color(list.nth($link-tokens, 1));
     }
     &:hover {
-      color: color(nth($link-tokens, 2));
+      color: color(list.nth($link-tokens, 2));
     }
   }
 }
