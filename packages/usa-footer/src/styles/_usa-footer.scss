@@ -274,6 +274,7 @@ $-chevron-expand-more: map-merge(
   @include u-square($size-touch-target);
   background-color: color("black-transparent-10");
   display: inline-block;
+  padding: units(0.5);
 
   &:hover {
     background-color: color("white");

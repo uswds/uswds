@@ -1,4 +1,5 @@
 import Component from "./usa-pagination.twig";
+import TestComponent from "./test/test-patterns/test-pagination-all.twig";
 
 import {
   DefaultContent,
@@ -12,6 +13,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
+const TestTemplate = (args) => TestComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -24,3 +26,5 @@ Spanish.args = EsContent;
 
 export const SpanishUnbounded = Template.bind({});
 SpanishUnbounded.args = EsUnboundedContent;
+
+export const Test = TestTemplate.bind({});
