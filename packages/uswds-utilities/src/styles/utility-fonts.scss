@@ -6,6 +6,7 @@ utilities to reference.
 */
 
 @use "sass:map";
+@use "sass:list";
 @use "uswds-core" as *;
 
 $if-important: "";
@@ -14,7 +15,9 @@ $if-important: "";
   $if-important: " !important";
 }
 
-@if (map-get($font-settings, "output") == true) or $output-all-utilities {
+// Generate font rules if the `font` utility is on the uselist 
+// and its output is set to true
+@if (($output-these-utilities == "default" or list.index($output-these-utilities, "font")) and map.get($font-settings, "output") == true) {
   @each $face, $stack in $project-font-stacks {
     @if $stack {
       [class*="#{ns('utility')}font-#{$face}-"] {
