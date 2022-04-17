@@ -337,6 +337,36 @@ $system-typeface-tokens: (
       ),
     ),
   ),
+  "public-sans-latin": (
+    display-name: "Public Sans Web",
+    cap-height: 362px,
+    stack: $font-stack-system,
+    src: (
+      dir: "public-sans",
+      roman: (
+        100: "PublicSans-Latin-Thin",
+        200: "PublicSans-Latin-ExtraLight",
+        300: "PublicSans-Latin-Light",
+        400: "PublicSans-Latin-Regular",
+        500: "PublicSans-Latin-Medium",
+        600: "PublicSans-Latin-SemiBold",
+        700: "PublicSans-Latin-Bold",
+        800: "PublicSans-Latin-ExtraBold",
+        900: "PublicSans-Latin-Black",
+      ),
+      italic: (
+        100: "PublicSans-Latin-ThinItalic",
+        200: "PublicSans-Latin-ExtraLightItalic",
+        300: "PublicSans-Latin-LightItalic",
+        400: "PublicSans-Latin-Italic",
+        500: "PublicSans-Latin-MediumItalic",
+        600: "PublicSans-Latin-SemiBoldItalic",
+        700: "PublicSans-Latin-BoldItalic",
+        800: "PublicSans-Latin-ExtraBoldItalic",
+        900: "PublicSans-Latin-BlackItalic",
+      ),
+    ),
+  ),
 );
 
 $all-typeface-tokens: map-merge(
