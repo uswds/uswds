@@ -290,9 +290,14 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "../node_modules/uswds/src/js/components";
+import USWDS from "@uswds/uswds/src/js";
 const { characterCount, accordion } = USWDS; // deconstruct your components here
+
+// Alternatively
+import accordion from "@uswds/uswds/js/usa-accordion";
 ```
+
+⚠️Requires webpack 5+
 
 React hooks example:
 
@@ -339,8 +344,6 @@ export class App implements OnInit {
   }
 }
 ```
-
-> Those using **Webpack 5** can take advantage of the updated exports field which allows declaration for requests like `import "uswds"` or `import accordion from "uswds/src/js/components/accordion"`
 
 ## Customization, theming, and tokens
 

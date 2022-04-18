@@ -6,7 +6,7 @@ const {
   getDatePickerContext,
   isDateInputInvalid,
   updateCalendarIfVisible,
-} = require("../../usa-date-picker/src/date-picker");
+} = require("../../usa-date-picker/src/index");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;

@@ -1,6 +1,6 @@
 const assert = require("assert");
-const { generateDynamicRegExp } = require("../../../usa-combo-box/src/combo-box");
-const { FILTER_DATASET } = require("../time-picker");
+const { generateDynamicRegExp } = require("../../../usa-combo-box/src/index");
+const { FILTER_DATASET } = require("../index");
 
 describe("time picker regex", () => {
   const { filter, ...dataset } = FILTER_DATASET;

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const DatePicker = require("../date-picker");
+const DatePicker = require("../index");
 
 const INVALID_TEMPLATE_NO_INPUT = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-input.template.html")

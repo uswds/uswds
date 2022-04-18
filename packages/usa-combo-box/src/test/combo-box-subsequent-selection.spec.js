@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const ComboBox = require("../combo-box");
+const ComboBox = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(

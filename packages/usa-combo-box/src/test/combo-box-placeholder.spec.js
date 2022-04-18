@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const ComboBox = require("../combo-box");
+const ComboBox = require("../index");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-placeholder.template.html")

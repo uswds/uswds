@@ -3,7 +3,7 @@ const behavior = require("../../uswds-core/src/js/utils/behavior");
 const select = require("../../uswds-core/src/js/utils/select");
 const toggle = require("../../uswds-core/src/js/utils/toggle");
 const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/accordion");
+const accordion = require("../../usa-accordion/src/index");
 const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
 
 const { CLICK } = require("../../uswds-core/src/js/events");

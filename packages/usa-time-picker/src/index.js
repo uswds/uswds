@@ -4,7 +4,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const {
   COMBO_BOX_CLASS,
   enhanceComboBox,
-} = require("../../usa-combo-box/src/combo-box");
+} = require("../../usa-combo-box/src/index");
 
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;

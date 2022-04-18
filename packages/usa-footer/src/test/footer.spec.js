@@ -2,7 +2,7 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 const { default: matchMediaPolyfill } = require("mq-polyfill");
-const behavior = require("../footer");
+const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
