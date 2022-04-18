@@ -434,7 +434,7 @@ As of USWDS 3.0.0, our codebase is centered around funtional packages, typically
 
 ## Browser support
 
-We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (2.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 2.0 supports the newest versions of Chrome, Firefox, and Safari.
+We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
 
 As of USWDS 3.0.0 we no longer officially support Internet Explorer 11. We will continue to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x — when we finally drop IE11, we'll make a note in the release notes and in this docmentation.
 
