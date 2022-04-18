@@ -294,11 +294,11 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "@uswds/uswds/src/js/components";
+import USWDS from "@uswds/uswds/src/js";
 const { characterCount, accordion } = USWDS; // deconstruct your components here
 
 // Alternatively
-import accordion from "@uswds/uswds/js/usa-accordion/src/accordion";
+import accordion from "@uswds/uswds/js/usa-accordion";
 ```
 
 ⚠️Requires webpack 5+
