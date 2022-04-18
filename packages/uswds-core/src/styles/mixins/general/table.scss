@@ -1,9 +1,9 @@
-@use "../settings" as *;
-@use "../functions" as *;
-@use "../mixins/general" as *;
-@use "../mixins/helpers" as *;
-@use "../mixins/utilities" as *;
-@use "../mixins/typography/typeset" as *;
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "button-unstyled" as *;
+@use "../helpers" as *;
+@use "../utilities" as *;
+@use "../typography/typeset" as *;
 
 $table-text-color: color(
   get-color-token-from-bg(
@@ -59,162 +59,72 @@ $table-sorted-stripe-text-color: color(
   )
 );
 
-%usa-table {
-  @include border-box-sizing;
-  @include typeset;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: $table-text-color;
-  margin: units(2.5) 0;
-  text-align: left;
-
-  thead {
-    th {
-      background-clip: padding-box;
-      color: $table-header-text-color;
-      font-weight: fw("bold");
-      line-height: line-height(
-        $theme-body-font-family,
-        $theme-input-line-height
-      );
-    }
-
-    th,
-    td {
-      background-color: color($theme-table-header-background-color);
-      color: $table-header-text-color;
-    }
-  }
-  tbody {
-    th {
-      text-align: left;
-    }
-  }
-  th,
-  td {
-    background-color: color($theme-body-background-color);
-    border: 1px solid $table-text-color;
-    font-weight: fw("normal");
-    padding: units(1) units(2);
-  }
-
-  caption {
-    @include u-font("body", "xs");
-    font-weight: fw("bold");
-    margin-bottom: units(1.5);
-    text-align: left;
-  }
-
-  @mixin table-header-unsorted-styles {
-    padding-right: units(5);
-    position: relative;
-    &:after {
-      border-bottom-color: transparent;
-      border-bottom-style: solid;
-      border-bottom-width: units(1px);
-      bottom: 0;
-      content: "";
-      height: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
-  }
-
-  @mixin table-header-sorted-styles {
-    background-color: color($theme-table-sorted-header-background-color);
-  }
-
-  @mixin table-button-default-styles {
-    @include button-unstyled;
-    @include u-square(4);
-    background-position: center center;
-    background-size: units(3);
-    color: color($theme-table-unsorted-icon-color);
-    cursor: pointer;
-    display: inline-block;
-    margin: 0;
+// Shared table styles
+@mixin table-header-unsorted-styles {
+  padding-right: units(5);
+  position: relative;
+  &::after {
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: units(1px);
+    bottom: 0;
+    content: "";
+    height: 0;
+    left: 0;
     position: absolute;
-    right: 0.25rem;
-    text-align: center;
-    text-decoration: none;
-    // vertically center button within table header
-    top: 50%;
-    transform: translate(0, -50%);
-    .usa-icon {
-      @include u-square(3);
-      vertical-align: middle;
-      & > g {
-        fill: transparent;
-      }
+    width: 100%;
+  }
+}
+
+@mixin table-button-default-styles {
+  @include button-unstyled;
+  @include u-square(4);
+  background-position: center center;
+  background-size: units(3);
+  color: color($theme-table-unsorted-icon-color);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  position: absolute;
+  right: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+  // vertically center button within table header
+  top: 50%;
+  transform: translate(0, -50%);
+  .usa-icon {
+    @include u-square(3);
+    vertical-align: middle;
+    & > g {
+      fill: transparent;
     }
   }
+}
 
-  // The SVG in the sortable column button contains three icon shapes.
-  // This CSS controls which of the shapes is 'filled' when active.
+// The SVG in the sortable column button contains three icon shapes.
+// This CSS controls which of the shapes is 'filled' when active.
 
-  @mixin table-button-unsorted-styles {
-    @include table-button-default-styles;
-    .usa-icon > g.unsorted {
-      fill: color($theme-table-unsorted-icon-color);
-    }
-    &:hover .usa-icon > g.unsorted {
-      fill: $table-sorted-header-text-color;
-    }
+@mixin table-button-unsorted-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.unsorted {
+    fill: color($theme-table-unsorted-icon-color);
   }
-
-  @mixin table-button-sorted-ascending-styles {
-    @include table-button-default-styles;
-    .usa-icon > g.ascending {
-      fill: $table-sorted-header-text-color;
-    }
+  &:hover .usa-icon > g.unsorted {
+    fill: $table-sorted-header-text-color;
   }
+}
 
-  @mixin table-button-sorted-descending-styles {
-    @include table-button-default-styles;
-    .usa-icon > g.descending {
-      fill: $table-sorted-header-text-color;
-    }
+@mixin table-button-sorted-ascending-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.ascending {
+    fill: $table-sorted-header-text-color;
   }
+}
 
-  /* stylelint-disable selector-class-pattern */
-  th[data-sortable] {
-    @include table-header-unsorted-styles;
-
-    &:not([aria-sort]),
-    &[aria-sort="none"] {
-      .usa-table__header__button {
-        @include table-button-unsorted-styles;
-      }
-    }
-
-    &[aria-sort="descending"] {
-      @include table-header-sorted-styles;
-      .usa-table__header__button {
-        @include table-button-sorted-descending-styles;
-      }
-    }
-
-    &[aria-sort="ascending"] {
-      @include table-header-sorted-styles;
-      .usa-table__header__button {
-        @include table-button-sorted-ascending-styles;
-      }
-    }
-  }
-  /* stylelint-enable selector-class-pattern */
-
-  thead {
-    th[aria-sort] {
-      background-color: color($theme-table-sorted-header-background-color);
-      color: $table-sorted-header-text-color;
-    }
-  }
-
-  td[data-sort-active],
-  th[data-sort-active] {
-    background-color: color($theme-table-sorted-background-color);
-    color: $table-sorted-text-color;
+@mixin table-button-sorted-descending-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.descending {
+    fill: $table-sorted-header-text-color;
   }
 }
 
@@ -288,7 +198,98 @@ $table-sorted-stripe-text-color: color(
   }
 }
 
-%usa-table--borderless {
+@mixin usa-table {
+  @include border-box-sizing;
+  @include typeset;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: $table-text-color;
+  margin: units(2.5) 0;
+  text-align: left;
+
+  thead {
+    th {
+      background-clip: padding-box;
+      color: $table-header-text-color;
+      font-weight: fw("bold");
+      line-height: line-height(
+        $theme-body-font-family,
+        $theme-input-line-height
+      );
+    }
+
+    th,
+    td {
+      background-color: color($theme-table-header-background-color);
+      color: $table-header-text-color;
+    }
+  }
+  tbody {
+    th {
+      text-align: left;
+    }
+  }
+  th,
+  td {
+    background-color: color($theme-body-background-color);
+    border: 1px solid $table-text-color;
+    font-weight: fw("normal");
+    padding: units(1) units(2);
+  }
+
+  caption {
+    @include u-font("body", "xs");
+    font-weight: fw("bold");
+    margin-bottom: units(1.5);
+    text-align: left;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  th[data-sortable] {
+    @include table-header-unsorted-styles;
+
+    &:not([aria-sort]),
+    &[aria-sort="none"] {
+      .usa-table__header__button {
+        @include table-button-unsorted-styles;
+      }
+    }
+
+    &[aria-sort="descending"],
+    &[aria-sort="ascending"] {
+      background-color: color($theme-table-sorted-header-background-color);
+    }
+
+    &[aria-sort="descending"] {
+      .usa-table__header__button {
+        @include table-button-sorted-descending-styles;
+      }
+    }
+
+    &[aria-sort="ascending"] {
+      .usa-table__header__button {
+        @include table-button-sorted-ascending-styles;
+      }
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+
+  thead {
+    th[aria-sort] {
+      background-color: color($theme-table-sorted-header-background-color);
+      color: $table-sorted-header-text-color;
+    }
+  }
+
+  td[data-sort-active],
+  th[data-sort-active] {
+    background-color: color($theme-table-sorted-background-color);
+    color: $table-sorted-text-color;
+  }
+}
+
+
+@mixin usa-table--borderless {
   thead {
     th {
       background-color: transparent;
@@ -315,14 +316,14 @@ $table-sorted-stripe-text-color: color(
   }
 }
 
-%usa-table--compact {
+@mixin usa-table--compact {
   th,
   td {
     padding: units(0.5) units(1.5);
   }
 }
 
-%usa-table--striped {
+@mixin usa-table--striped {
   tbody {
     tr:nth-child(odd) {
       td,
@@ -338,16 +339,16 @@ $table-sorted-stripe-text-color: color(
   }
 }
 
-%usa-table--stacked {
+@mixin usa-table--stacked {
   @include table-stacked-styles;
 }
 
-%usa-table--stacked-header {
+@mixin usa-table--stacked-header {
   @include table-stacked-styles;
   @include table-stacked-header-styles;
 }
 
-%usa-table-container--scrollable {
+@mixin usa-table-container--scrollable {
   margin: units(2.5) 0;
   overflow-y: hidden;
 

@@ -25,8 +25,4 @@ $input-select-margin-right: 1.5;
   max-width: units($theme-input-max-width);
   padding: units(1);
   width: 100%;
-
-  &.usa-input--success {
-    @include u-border($theme-input-state-border-width, "success");
-  }
 }

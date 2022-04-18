@@ -23,14 +23,15 @@
           </div>
           <div class="usa-footer__contact-links mobile-lg:grid-col-6">
             {% include "@components/usa-footer/src/_includes/usa-social-nav.twig" %}
-
             <p class="usa-footer__contact-heading">
               {{ footer.secondary_section.heading }}
             </p>
             <address class="usa-footer__address">
               <div class="usa-footer__contact-info grid-row grid-gap">
                 <div class="grid-col-auto">
-                  {{ footer.secondary_section.phone }}
+                  <a href="tel:1-800-555-5555">
+                    {{ footer.secondary_section.phone }}
+                  </a>
                 </div>
                 <div class="grid-col-auto">
                   <a href="mailto:info@agency.gov">

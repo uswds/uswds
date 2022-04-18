@@ -13,11 +13,14 @@
 
 /* prettier-ignore */
 $uswds-notifications:
-    "\A"
-  + "\A --------------------------------------------------------------------"
-  + "\A \2709  USWDS Notifications"
-  + "\A --------------------------------------------------------------------"
-  + "\A No notifications";
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A \2709  USWDS Notifications"
++ "\A --------------------------------------------------------------------"
++ "\A 3.0.0"
++ "\A We deprecated the $output-all-utilities setting."
++ "\A Control utility output with $output-these-utilities."
++ "\A See designsystem.digital.com/documentation/settings for more.";
 
 /* prettier-ignore */
 $uswds-notification-disable-message:
@@ -26,8 +29,7 @@ $uswds-notification-disable-message:
 + "\A These are notifications from the USWDS team, not necessarily a"
 + "\A problem with your code."
 + "\A"
-+ "\A Disable notifications using `$theme-show-notifications: false`"
-+ "\A in your general settings file."
++ "\A Disable notifications using `$theme-show-notifications: false`."
 + "\A --------------------------------------------------------------------\A";
 
 @if $theme-show-notifications {

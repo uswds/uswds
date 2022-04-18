@@ -25,7 +25,8 @@
     "prepublishOnly": "npm run test"
   },
   "devDependencies": {
-    "sass-true": "^6.0.1"
+    "sass-true": "^6.0.1",
+    "sinon": "^13.0.1"
   },
   "repository": {
     "type": "git",

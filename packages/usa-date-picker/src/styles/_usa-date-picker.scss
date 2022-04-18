@@ -2,6 +2,51 @@
 
 $date-picker-max-width: "mobile";
 
+// Maps for high contrast mode icons
+
+$calendar-icon-defaults: (
+  "color": "ButtonText",
+  "svg-height": 20,
+  "svg-width": 20,
+  "height": units(5),
+  "container-width": 6,
+);
+
+$calendar: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "calendar_today",
+  )
+);
+
+$navigate_before: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_before",
+  )
+);
+
+$navigate_far_before: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_far_before",
+  )
+);
+
+$navigate_next: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_next",
+  )
+);
+
+$navigate_far_next: map-merge(
+  $calendar-icon-defaults,
+  (
+    "name": "navigate_far_next",
+  )
+);
+
 // Date Picker
 .usa-date-picker__wrapper {
   display: none;
@@ -28,10 +73,18 @@ $date-picker-max-width: "mobile";
 
     &:hover {
       background-color: color("base-lighter");
+
+      @media (forced-colors: active) {
+        background-color: buttontext;
+      }
     }
 
     &:active {
       background-color: color("base-light");
+
+      @media (forced-colors: active) {
+        background-color: buttontext;
+      }
     }
   }
 }
@@ -39,6 +92,10 @@ $date-picker-max-width: "mobile";
 .usa-date-picker--active {
   .usa-date-picker__button {
     background-color: #f0f0f0;
+
+    @media (forced-colors: active) {
+      background-color: buttontext;
+    }
   }
 
   .usa-date-picker__calendar {
@@ -55,6 +112,18 @@ $date-picker-max-width: "mobile";
   background-size: units(3);
   margin-top: 0.5em;
   width: 3em;
+
+  @media (forced-colors: active) {
+    @include add-color-icon($calendar);
+    mask-size: units(3) !important;
+    position: relative;
+
+    &:not([disabled]) {
+      &:hover {
+        background-color: Highlight;
+      }
+    }
+  }
 }
 
 .usa-date-picker--initialized {
@@ -120,22 +189,46 @@ $date-picker-max-width: "mobile";
   background-size: auto units(3);
   height: units(3);
   padding: 20px 10px;
+
+  @media (forced-colors: active) {
+    mask-size: units(3) !important;
+  }
 }
 
 .usa-date-picker__calendar__previous-year:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_far_before");
+
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_far_before);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__previous-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_before");
+
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_before);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_far_next");
+
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_far_next);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__next-month:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
+
+  @media (forced-colors: active) {
+    @include add-color-icon($navigate_next);
+    background-color: buttonText;
+  }
 }
 
 .usa-date-picker__calendar__day-of-week {
@@ -166,6 +259,10 @@ $date-picker-max-width: "mobile";
       background-color: color("primary-vivid");
       color: color("gray-2");
 
+      @media (forced-colors: active) {
+        border: ActiveText 2px solid;
+      }
+
       &:hover {
         background-color: color("primary-vivid");
         color: color("gray-10");
@@ -174,10 +271,18 @@ $date-picker-max-width: "mobile";
       &:focus {
         background-color: color("primary-vivid");
         color: color("gray-2");
+
+        @media (forced-colors: active) {
+          border: ActiveText 2px solid;
+        }
       }
 
       &:active {
         background-color: color("primary-dark");
+
+        @media (forced-colors: active) {
+          background-color: Highlight;
+        }
       }
     }
   }
@@ -198,16 +303,32 @@ $date-picker-max-width: "mobile";
     &:not([disabled]) {
       background-color: color("blue-10v");
 
+      @media (forced-colors: active) {
+        border: Highlight 2px solid;
+      }
+
       &:hover {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          border: Highlight 2px solid;
+        }
       }
 
       &:focus {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          border: Highlight 2px solid;
+        }
       }
 
       &:active {
         background-color: color("blue-10v");
+
+        @media (forced-colors: active) {
+          background-color: Highlight;
+        }
       }
     }
   }
@@ -279,14 +400,38 @@ $date-picker-max-width: "mobile";
   background-size: auto units(4);
   margin: auto;
   padding: 40px 0;
+
+  @media (forced-colors: active) {
+    mask-size: units(3) !important;
+  }
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_before");
+
+  @media (forced-colors: active) {
+    @include place-icon($navigate-before, "after");
+    background-image: none;
+
+    &:hover {
+      outline: 2px solid transparent;
+      background-color: transparent;
+    }
+  }
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
   @include add-background-svg("usa-icons/navigate_next");
+
+  @media (forced-colors: active) {
+    @include place-icon($navigate-next, "after");
+    background-image: none;
+
+    &:hover {
+      outline: 2px solid transparent;
+      background-color: transparent;
+    }
+  }
 }
 
 .usa-date-picker__calendar__year {

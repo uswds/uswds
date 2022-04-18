@@ -1,6 +1,7 @@
 {% set tooltip = {
   classes: "usa-button usa-tooltip",
-  util_classes: "width-full tablet:width-auto"
+  util_classes: "width-full tablet:width-auto",
+  img_path: "./img"
 } %}
 
 <h2>In a footer</h2>
@@ -43,7 +44,7 @@
       <div class="grid-row grid-gap">
         <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
           <div class="mobile-lg:grid-col-auto">
-            <img class="usa-footer__logo-img" src="{{ img_path }}/logo-img.png" alt="">
+            <img class="usa-footer__logo-img" src="{{ tooltip.img_path }}/logo-img.png" alt="">
           </div>
           <div class="mobile-lg:grid-col-auto">
             <p class="usa-footer__logo-heading">Name of Agency</p>
@@ -52,28 +53,28 @@
         <div class="usa-footer__contact-links mobile-lg:grid-col-6">
           <div class="usa-footer__social-links grid-row grid-gap-1">
             <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--facebook usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
-                <span>Facebook</span>
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/facebook.svg" alt="Facebook" />
               </a>
             </div>
             <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--twitter usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
-                <span>Twitter</span>
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/twitter.svg" alt="Twitter" />
               </a>
             </div>
             <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--youtube usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
-                <span>YouTube</span>
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/youtube.svg" alt="YouTube" />
               </a>
             </div>
             <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--instagram usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
-                <span>Instagram</span>
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/instagram.svg" alt="Instagram" />
               </a>
             </div>
             <div class="grid-col-auto">
-              <a class="usa-social-link usa-social-link--rss usa-tooltip" data-position="top" title="A longer Top tooltip that is longer than appx 320px" href="javascript:void(0);">
-                <span>RSS</span>
+              <a class="usa-social-link usa-tooltip" data-position="top" title="A longer Top tooltip that is longer than appx 320px" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/rss_feed.svg" alt="RSS Feed" />
               </a>
             </div>
           </div>
