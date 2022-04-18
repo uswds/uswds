@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.0.0-beta.4",
+  "version": "3.0.0-beta.5",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -155,7 +155,6 @@
     "mocha": "^6.2.0",
     "mq-polyfill": "^1.1.8",
     "normalize.css": "^8.0.1",
-    "nyc": "^15.1.0",
     "path": "^0.12.7",
     "postcss": "^8.3.9",
     "postcss-csso": "^6.0.0",
