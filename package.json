@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.0.0-beta.4",
+  "version": "3.0.0-beta.5",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
