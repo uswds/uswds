@@ -224,11 +224,11 @@ scss
 @forward "uswds-theme-custom-styles";
 ```
 
-**Technical note:** The `@forward 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/@uswds/uswds/packages`. The gulpfile in [`uswds-compile`](https://github.com/uswds/uswds-gulp) is set up to do this automatically, using `gulp-sass` and `includePaths`.
+**Technical note:** The `@forward 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/@uswds/uswds/packages`. The gulpfile in [`uswds-compile`](https://github.com/uswds/uswds-compile) is set up to do this automatically, using `gulp-sass` and `includePaths`.
 
 #### Sass compilation requirements
 
-The design system requires **autoprefixing** to work properly. This is included in the [`uswds-compile`](https://github.com/uswds/uswds-gulp) package.
+The design system requires **autoprefixing** to work properly. This is included in the [`uswds-compile`](https://github.com/uswds/uswds-compile) package.
 
 **Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
 
