@@ -1,6 +1,6 @@
 const assert = require("assert");
 const fs = require("fs");
-const Accordion = require("../accordion");
+const Accordion = require("../index");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 

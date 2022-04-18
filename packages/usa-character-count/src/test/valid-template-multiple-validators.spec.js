@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const CharacterCount = require("../character-count");
+const CharacterCount = require("../index");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/valid-template-multiple-validators.template.html")

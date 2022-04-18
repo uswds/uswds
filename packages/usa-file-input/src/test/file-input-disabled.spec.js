@@ -1,6 +1,6 @@
 const assert = require("assert");
 const fs = require("fs");
-const fileInput = require("../file-input");
+const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(
   `${__dirname}/file-input-disabled.template.html`

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const CharacterCount = require("../character-count");
+const CharacterCount = require("../index");
 
 const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-wrapper.template.html")

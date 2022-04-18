@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { generateDynamicRegExp } = require("../combo-box");
+const { generateDynamicRegExp } = require("../index");
 
 describe("generateDynamicRegExp function", () => {
   it("allows for static string", () => {
