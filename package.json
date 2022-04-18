@@ -26,7 +26,7 @@
     "./src/js/components": "./packages/uswds-core/src/js/index.js",
     "./src/img/*": "./dist/img/*",
     "./js": "./packages/uswds-core/src/js/index.js",
-    "./js/*": "./packages/*.js",
+    "./js/*": "./packages/*/src/index.js",
     "./css/*": "./dist/css/*",
     "./scss/*": "./packages/*/_index.scss",
     "./img/*": "./dist/img/*",
