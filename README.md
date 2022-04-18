@@ -155,7 +155,7 @@ And that’s it — you should now be able to copy our code samples into your `i
    npm install --save @uswds/uswds@latest
    ```
 
-The `@uswds/uswds` module is now installed as a dependency. You can use the compiled files found in the `node_modules/@uswds/uswds/dist/` directory or the source files in the `node_modules/@uswds/uswds/packages/`
+The `@uswds/uswds` module is now installed as a dependency. You can use the compiled files found in the `node_modules/@uswds/uswds/dist/` directory or the source files in the `node_modules/@uswds/uswds/packages/` directory.
 
 ```
 node_modules/uswds/
