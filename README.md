@@ -224,7 +224,7 @@ scss
 @forward "uswds-theme-custom-styles";
 ```
 
-**Technical note:** The `@forward 'uswds'` statement above references the `uswds` package in `node_modules/@uswds/uswds/packages`. The compile functions included in [`uswds-compile`](https://github.com/uswds/uswds-compile) automatically look for USWDS packages in the proper directories using `includePaths`.
+**Technical note:** The `@forward 'uswds'` statement above references the `uswds` package in `node_modules/@uswds/uswds/packages`. The compile functions included in [`uswds-compile`](https://github.com/uswds/uswds-compile) automatically looks for USWDS packages in the proper directory using `includePaths`.
 
 #### Sass compilation requirements
 
