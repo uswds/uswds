@@ -16,9 +16,4 @@ module.exports = {
     return src("packages/uswds-core/src/test/sass.spec.js")
       .pipe(mocha());
   },
-
-  cover() {
-    return src("packages/**/*.spec.js")
-      .pipe(mocha(mochaConfig, { nyc: true }));
-  },
 };

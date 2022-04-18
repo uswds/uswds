@@ -2,20 +2,7 @@
 
 @use "uswds-core" as *;
 
-@include override-prose {
-  .usa-input-list {
-    @include add-list-reset;
-
-    li {
-      line-height: line-height(
-        $theme-form-font-family,
-        $theme-input-line-height
-      );
-    }
-  }
-}
-
-@include checkbox-and-radio-colors;
+@include checkbox-colors;
 
 .usa-checkbox__input {
   // The actual input element is only visible to screen readers, because
@@ -44,7 +31,7 @@
       margin-top: units(1);
       padding: units(1.5) units(2) units(1.5) units(5);
 
-      &:before {
+      &::before {
         left: units(5) - units($input-select-margin-right) -
           units($theme-input-select-size);
       }
@@ -64,6 +51,14 @@
         content: "\2714";
         text-align: center;
       }
+
+      @media (forced-colors: active) {
+        background-color: ButtonText;
+
+        &--tile {
+          background-color: ButtonText;
+        }
+      }
     }
   }
 }
@@ -78,7 +73,7 @@
     units($theme-input-select-size);
   position: relative;
 
-  &:before {
+  &::before {
     content: " ";
     display: block;
     left: 0;
@@ -110,7 +105,7 @@
 /*
 .checkbox-tests {
   @include set-text-and-bg("green-80");
-  @include checkbox-and-radio-colors("green-80", "green-warm-10v");
+  @include checkbox-colors("green-80", "green-warm-10v");
   padding: units(2);
   border-radius: radius("md");
 }

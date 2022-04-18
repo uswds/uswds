@@ -142,7 +142,8 @@ $identifier-links-gap: 4 !default;
   }
 }
 
-.usa-identifier__required-link {
+.usa-identifier__required-link,
+.usa-identifier__required-link.usa-link {
   @include identifier-secondary-link;
   display: inline-block;
 }

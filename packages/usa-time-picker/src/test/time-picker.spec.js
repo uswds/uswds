@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const TimePicker = require("../time-picker");
-const ComboBox = require("../../../usa-combo-box/src/combo-box");
+const TimePicker = require("../index");
+const ComboBox = require("../../../usa-combo-box/src/index");
 const EVENTS = require("../../../usa-combo-box/src/test/events");
 
 const TEMPLATE = fs.readFileSync(
@@ -69,6 +69,16 @@ tests.forEach(({name, selector: containerSelector}) => {
         "transfers required attribute to combo box"
       );
       assert.strictEqual(
+        select.value,
+        "13:00",
+        "transfers value attribute to combo box"
+      );
+      assert.strictEqual(
+        input.value,
+        "1:00pm",
+        "transfers value attribute to combo box"
+      );
+      assert.strictEqual(
         select.getAttribute("name"),
         "appointment-time",
         "should not transfer name attribute to combo box"
@@ -78,9 +88,6 @@ tests.forEach(({name, selector: containerSelector}) => {
         null,
         "should not transfer name attribute to combo box"
       );
-
-      assert.strictEqual(select.value, "", "the select value should be empty");
-      assert.strictEqual(input.value, "", "the input should be empty");
     });
 
     it("should focus the first item found in the list from the query when pressing down from the input", () => {

@@ -1,6 +1,6 @@
 const assert = require("assert");
 const fs = require("fs");
-const Table = require("../table");
+const Table = require("../index");
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const STYLES = fs.readFileSync(
   `${__dirname}/../../../../dist/css/uswds.min.css`

@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.13.1
+USWDS 2.13.3
 ----------------------------------------
 UTILITIES SETTINGS
 ----------------------------------------
@@ -18,7 +18,7 @@ https://designsystem.digital.gov/utilities
 */
 
 $utilities-use-important: false;
-$output-all-utilities: true;
+$output-these-utilities: default;
 
 /*
 ----------------------------------------
@@ -41,7 +41,7 @@ $theme-utility-breakpoints: (
   "mobile-lg": true,
   // 640px:
   "tablet": true,
-  // 800px:
+  // 880px:
   "tablet-lg": false,
   // 1024px:
   "desktop": true,

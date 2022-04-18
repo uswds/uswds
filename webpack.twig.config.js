@@ -29,11 +29,9 @@ function checkFileExistsSync(filepath){
 function buildFileObj(dir, file, dataFile){
   const templateFile = file
   const dataFilePath = `${dir}/${dataFile}`
-  const captureDirectory = /(?<=\/packages\/)(\w+)/g
-  const outDir = templateFile.match(captureDirectory)
   const name = !dataFile
-    ? `${outDir[0]}-${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
-    : `${outDir[0]}-${dataFile.replace('.json', '.html')}`
+    ? `${file.substr(file.lastIndexOf('/') + 1).replace('.twig', '.html')}`
+    : `${dataFile.replace('.json', '.html')}`
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
@@ -112,11 +110,9 @@ function walk(dir, ext) {
 
 const components = walk('./packages', '.twig');
 const templates = walk('./packages/templates', '.twig');
-const compare = walk('./packages/compare', '.twig');
 const files = [].concat(
     components,
-    templates,
-    compare
+    templates
   )
 
 const htmlPlugins = files.map(file =>

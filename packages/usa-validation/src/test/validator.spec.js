@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const validator = require("../validator");
+const validator = require("../index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
