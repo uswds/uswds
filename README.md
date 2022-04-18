@@ -254,7 +254,7 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 ## CSS architecture
 
 - The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
-- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://engineering.18f.gov/css/)**.
+- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://engineering.18f.gov/css/#naming)**.
 - We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://engineering.18f.gov/css/formatting/)**.
 - CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
 - Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
