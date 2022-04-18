@@ -426,7 +426,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 ## Where things live
 As of USWDS 3.0.0, our codebase is centered around funtional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designssytem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
-- **Template** markup for the components is located in: `packages/[package]/src` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
+- **Template** markup for the components is located in: `packages/[package]/src/[package.twig]` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 - **Sass** compoment-specific styles are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
 - **JS** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
 - **Fonts** are located in: `dist/fonts`.
