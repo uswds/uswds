@@ -224,7 +224,7 @@ scss
 @forward "uswds-theme-custom-styles";
 ```
 
-**Technical note:** The `@forward 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/@uswds/uswds/packages`. The gulpfile in [`uswds-compile`](https://github.com/uswds/uswds-compile) is set up to do this automatically, using `gulp-sass` and `includePaths`.
+**Technical note:** The `@forward 'uswds'` statement above references the `uswds` package in `node_modules/@uswds/uswds/packages`. The compile functions included in [`uswds-compile`](https://github.com/uswds/uswds-compile) automatically look for USWDS packages in the proper directories using `includePaths`.
 
 #### Sass compilation requirements
 
