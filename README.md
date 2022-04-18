@@ -149,13 +149,13 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 3. Create a `package.json` file. You can do this manually, but an easier method is to use the `npm init` command. This command will prompt you with a few questions to create your `package.json` file.
 
-4. Add `uswds` to your project’s `package.json`:
+4. Add `@uswds/uswds` to your project’s `package.json`:
 
    ```shell
    npm install --save @uswds/uswds@latest
    ```
 
-The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the `node_modules/uswds/dist/` directory.
+The `@uswds/uswds` module is now installed as a dependency. You can use the compiled files found in the `node_modules/@uswds/uswds/dist/` directory or the source files in the `node_modules/@uswds/uswds/packages/`
 
 ```
 node_modules/uswds/
@@ -165,6 +165,23 @@ node_modules/uswds/
 │   ├── img/
 │   ├── js/
 │   └── scss/
+├── packages/
+│   ├── _usa-password/
+│   ├── templates/
+│   ├── usa-accordion/
+│   │   ├── src/
+│   │   │   ├── content/
+│   │   │   ├── styles/
+│   │   │   ├── test/
+│   │   │   ├── index.js
+│   │   │   ├── usa-accordion.stories.js
+│   │   │   └── usa-accordion.twig
+│   │   └── _index.scss_/
+│   ├── usa-add-aspect/
+│   ├── usa-alert/
+│   ├── usa-banner/
+│   ├── usa-breadcrumb/
+│   ...
 ```
 
 **Note:** We do _not_ recommend directly editing the design system files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
