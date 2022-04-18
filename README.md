@@ -192,7 +192,7 @@ If you want to take full advantage of USWDS custom settings and add build new st
 
 USWDS uses the task manager [Gulp](http://gulpjs.com/) as a way to add USWDS assets to a project and compile our CSS from the package source. Gulp is a useful and powerful tool, but it can be difficult to set up if you are new to it.
 
-The [`uswds-compile` repo](https://github.com/uswds/uswds-compile) is made for developers new to Gulp or those who just want a simple setup to compile USWDS Sass. The repo contains files and instructions for setting up the compikler, initializing USWDS, and compiling CSS from the source files.
+The [`uswds-compile` repo](https://github.com/uswds/uswds-compile) is made for developers new to Gulp or those who just want a simple setup to compile USWDS Sass. The repo contains files and instructions for setting up the compiler, initializing USWDS, and compiling CSS from the source files.
 
 #### Sass and theme settings
 
