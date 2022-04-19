@@ -227,10 +227,42 @@ scss
 **Technical note:** The `@forward 'uswds'` statement above references the `uswds` package in `node_modules/@uswds/uswds/packages`. The compile functions included in [`uswds-compile`](https://github.com/uswds/uswds-compile) automatically look for USWDS packages in the proper directory using `includePaths`.
 
 #### Sass compilation requirements
+**Sass Module syntax:** USWDS 3.0 requires a modern Sass compiler that can parse Sass Module syntax. 
 
-The design system requires **autoprefixing** to work properly. This is included in the [`uswds-compile`](https://github.com/uswds/uswds-compile) package.
+**Proper load paths:** Using USWDS 3.0 and packages requires compiling your Sass with load paths. Load paths tell your Sass compiler where to look for USWDS packages. Any compiler needs to include the following load paths:
 
-**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
+```js
+"./node_modules/@uswds",
+"./node_modules/@uswds/uswds/packages"
+```
+
+In a gulpfile, use `includePaths` in your `sass()` function.
+```js
+  sass({
+    includePaths: [
+      "./node_modules/@uswds",
+      "./node_modules/@uswds/uswds/packages",
+    ],
+    outputStyle: "expanded"
+  })
+```
+
+In webpack, include `includePaths` within the sassOptions of your Sass loader:
+
+```js
+loader: "sass-loader",
+options: {
+  sourceMap: true,
+  sassOptions: {
+    includePaths: [
+      "./node_modules/@uswds",
+      "./node_modules/@uswds/uswds/packages",
+    ],
+  },
+},
+```
+
+**Autoprefixing:** The design system requires autoprefixing to work properly. Autoprefixing uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
 
 ```
 > 2%
@@ -239,7 +271,9 @@ IE 11
 not dead
 ```
 
-We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+**Minfiers and sourcemaps:** We recommend using a minifier like [csso](https://github.com/css/csso) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+
+Using [`uswds-compile`](https://github.com/uswds/uswds-compile) includes all these requirements by default and can be a good way to build a reliable compile workflow into your project.
 
 #### JavaScript
 
