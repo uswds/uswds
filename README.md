@@ -243,7 +243,6 @@ In a gulpfile, use `includePaths` in your `sass()` function.
       "./node_modules/@uswds",
       "./node_modules/@uswds/uswds/packages",
     ],
-    outputStyle: "expanded"
   })
 ```
 
