@@ -13,6 +13,7 @@ html-templates/
 
 # ignore the build directory
 build/
+_site/
 
 # ignore compiled storybook directory
 storybook-static/
