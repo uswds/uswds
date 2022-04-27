@@ -1,6 +1,6 @@
 # United States Web Design System
 
-[![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
+[![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@uswds/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/@uswds/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/@uswds/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
 
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
@@ -8,33 +8,28 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Contents
 
-- [United States Web Design System](#united-states-web-design-system)
-  - [Contents](#contents)
-  - [Background](#background)
-  - [Recent updates](#recent-updates)
-  - [Getting started](#getting-started)
-  - [Using the design system](#using-the-design-system)
-    - [Download and install without npm](#download-and-install-without-npm)
-  - [CSS architecture](#css-architecture)
-  - [JS customization](#js-customization)
-  - [Customization, theming, and tokens](#customization-theming-and-tokens)
-    - [Using tokens in theme settings](#using-tokens-in-theme-settings)
-    - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
-  - [Where things live](#where-things-live)
-  - [Browser support](#browser-support)
-  - [Accessibility](#accessibility)
-  - [Pattern library](#pattern-library)
-  - [Long-term support of v1.x](#long-term-support-of-v1x)
-  - [Long-term support of v2.x](#long-term-support-of-v2x)
-  - [Need installation help?](#need-installation-help)
-  - [Contributing to the code base](#contributing-to-the-code-base)
-  - [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
-  - [Licenses and attribution](#licenses-and-attribution)
-  - [Contributing](#contributing)
-
-## Background
-
-USWDS's components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.usds.gov/) and [18F](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. It is designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/), and to view websites and applications, check out our list [here](docs/WHO_IS_USING_USWDS.md).
+- [Recent updates](#recent-updates)
+- [Getting started](#getting-started)
+- [What's included in USWDS](#whats-included-in-uswds)
+  - [Directory structure](#directory-structure)
+  - [Package contents](#package-contents)
+- [Installing the design system](#installing-the-design-system)
+- [Using USWDS CSS and JavaScript in your project](#using-uswds-css-and-javascript-in-your-project)
+- [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css)
+  - [Sass compilation requirements](#sass-compilation-requirements)
+  - [Sass and theme settings](#sass-and-theme-settings)
+- [JS customization](#js-customization)
+- [Style theming and tokens](#style-theming-and-tokens)
+- [CSS architecture](#css-architecture)
+- [Browser support](#browser-support)
+- [Accessibility](#accessibility)
+- [Long-term support of v1.x](#long-term-support-of-v1x)
+- [Long-term support of v2.x](#long-term-support-of-v2x)
+- [Need installation help?](#need-installation-help)
+- [Contributing to the code base](#contributing-to-the-code-base)
+- [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+- [Licenses and attribution](#licenses-and-attribution)
+- [Contributing](#contributing)
 
 ## Recent updates
 
@@ -44,102 +39,131 @@ Information about the most recent release of the design system can always be fou
 
 We’re glad you’d like to use the design system — here’s how you can get started:
 
-- Designers: Check out our [Getting started for designers information](https://designsystem.digital.gov/documentation/getting-started-for-designers/).
-- Developers: Follow the guidance on our website to [get started with `npm` (recommended)](https://designsystem.digital.gov/documentation/getting-started-for-developers/). Follow the instructions in this README to [get started without `npm`.](#using-the-design-system)
-  - [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
+- **Designers:** Check out our [Getting started for designers information](https://designsystem.digital.gov/documentation/getting-started-for-designers/).
+- **Developers:** Check out our [Getting started for developers information](https://designsystem.digital.gov/documentation/getting-started-for-developers/). If your project doesn't use npm for package mangement, follow the instructions in this README to [install the design system without npm.](#installing-the-design-system)
+- **Anyone:** Take a look at our new [USWDS Tutorial](https://github.com/uswds/uswds-tutorial). Follow the instructions in this GitHub repo to clone a sample project, install USWDS, customize it, and add USWDS components. It should take about an hour, and is a good introduction to USWDS concepts.
 
-## Using the design system
+## What's included in USWDS
+The USWDS package include compiled assets in a `dist` directory and component source files in a `packages` directory.
 
-How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
+As of USWDS 3.0.0, our codebase is centered around funtional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designsystem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
 
-- **[Download the design system](#download-and-install-without-npm)** if you are not familiar with `npm` and package management.
+- **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
+- **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
+- **JavaScript** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
+- **Sass** compoment-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
+- **Template** markup for the components is located in: `packages/[package]/src/[package.twig]` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 
-- **[Use the design system `npm` package](https://designsystem.digital.gov/documentation/getting-started-for-developers/)** if you are familiar with using `npm` and package management.
+### Directory structure
+Here's what you can expect to find inside the USWDS package: 
 
-If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+```
+[uswds package]
+├── dist/
+│   ├── css/
+│   │   ├── uswds.css
+│   │   ├── uswds.min.css
+│   │   └── uswds.min.css.map
+│   ├── fonts/
+│   │   ├── merriweather/
+│   │   ├── public-sans/
+│   │   ├── roboto-mono/
+│   │   └── source-sans-pro/
+│   ├── img/
+│   │   ├── usa-icons/
+│   │   ├── material-icons/
+│   │   ├── uswds-icons/
+│   │   ├── usa-icons-bg/
+│   │   ├── sprite.svg
+│   │   ├── [individual images]
+│   │   ...
+│   ├── js/
+│   │   ├── uswds-init.js
+│   │   ├── uswds-init.min.js
+│   │   ├── uswds-init.min.js.map
+│   │   ├── uswds.js
+│   │   ├── uswds.min.js
+│   │   └── uswds.min.js.map
+│   ├── scss/
+│   │   └── stylesheets/
+│   │       └── uswds.scss
+│   └── theme/
+│       ├── _uswds-theme.scss
+│       ├── _uswds-theme-custom-styles.scss
+│       └── styles.scss
+├── packages/
+│   ├── usa-component/
+│   │   ├── src/
+│   │   │   ├── content/
+│   │   │   ├── styles/
+│   │   │   │   ├── _index.scss
+│   │   │   │   └── component.scss
+│   │   │   ├── test/
+│   │   │   │   ├── component.spec.js
+│   │   │   │   └── template.html
+│   │   │   ├── index.js
+│   │   │   ├── usa-component.stories.js
+│   │   │   └── usa-component.twig
+│   │   └── _index.scss_/
+│   ├── usa-component/
+│   ├── usa-component/
+│   ├── uswds-bundle/
+│   ├── uswds-bundle/
+│   ...
+├── src/
+│   ├── img/
+│   ├── stylesheets/
+│   └── test/
+```
 
-### Download and install without `npm`
-If you’re using a framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
+### Package contents
+Here's what you can expect to find in each of the directories and files in the USWDS package:
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v3.0.0/uswds-3.0.0.zip) from the latest USWDS release and open that file.
+- `/dist`: Compiled or collected files
+- `/dist/css`: Precompiled CSS files with USWDS defaults
+- `/dist/fonts`: Default fonts available to the design system
+- `/dist/img`: All USWDS images collected into a single directory
+- `/dist/img/usa-icons`: All icons collected into the USWDS icon sprite (`sprite.svg`)
+- `/dist/img/material-icons`: All Material Icons
+- `/dist/img/uswds-icons`: All icons created by USWDS
+- `/dist/img/sprite.svg`: Precompiled icon sprite with default icon set
+- `/dist/js`: Precompiled JavaScript files
+- `/dist/scss/stylesheets/uswds.scss`: Backwards compatible USWDS Sass entry point
+- `/dist/scss/theme`: Example theme files
+- `/dist/scss/theme/_uswds-theme.scss`: Example theme settings file
+- `/dist/scss/theme/_uswds-theme-custom-styles.scss`: Example custom settings file
+- `/dist/scss/theme/styles.scss`: Example project Sass entry point
+- `/packages`: Source files for USWDS components and other functionality. 
+- `/packages/usa-[component]`: Each package has a name like `usa-[component]` that matches its class name in the design system, like `usa-accordion`.
+- `/packages/usa-[component]/_index.scss`: Sass entry point for the package.
+- `/packages/usa-[component]/src`: Package source files
+- `/packages/usa-[component]/src/index.js`: Package javascript
+- `/packages/usa-[component]/src/usa-component.stories.js`: Storybook setup
+- `/packages/usa-[component]/src/usa-component.twig`: Component template
+- `/packages/usa-[component]/src/index.js`: Package javascript
+- `/packages/usa-[component]/src/content`: Package tempalte content
+- `/packages/usa-[component]/src/test`: Package unit tests
+- `/packages/usa-[component]/src/styles`: Package source Sass
 
-   After extracting the zip file you should see the following file and folder structure:
+- `/packages/uswds`: The package most project include by default. This bundle includes all USWDS components and functionality.
+- `/packages/uswds-[bundle]`: Other non-component functionality is included in `uswds-`-prefixed packages. These bundles might collect common component packages (`uswds-form-controls`) or important internal functionality (`uswds-core`).
+- `/src`: Placeholders included for backwards compatibility. Most projects should avoid using the contents of this directory.
 
-   ```
-   uswds-3.0.0/
-   ├── css/
-   │   ├── uswds.min.css.map
-   │   ├── uswds.min.css
-   │   └── uswds.css
-   ├── fonts/
-   ├── img/
-   ├── js/
-   │   ├── uswds-init.js
-   │   ├── uswds-init.min.js
-   │   ├── uswds-init.min.js.map
-   │   ├── uswds.min.js.map
-   │   ├── uswds.min.js
-   │   └── uswds.js
-   ├── scss/
-   └── theme/
+## Installing the design system
+There are two ways to install the design system on a project: 
+- Installing it as a project dependency using Node and npm
+- Installing the package directly from GitHub
 
-   ```
+**We recommend using npm to make it as straightforward as possible to install the design system and update it as we release new versions.**
 
-   The three files critical to any USWDS project are the **stylesheet**, the **library**, and the **intializer**. Any project requires both the stylesheet and library to function properly.
-
-   **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. Reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document.
-
-   **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document.
-
-   **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag.
-
-2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
-
-   ```
-   example-project/
-   ├── assets/
-   │   ├── uswds-3.0.0/
-   │   ├── stylesheets/
-   │   ├── images/
-   │   └── javascript/
-   └── index.html
-   ```
-
-   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
-
-3. Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. We also provide Sass (.scss) files in the zip package which you should use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
-
-   Here is an example of how to reference these assets in your `index.html` file:
-
-   ```html
-   <!DOCTYPE html>
-   <html>
-     <head>
-       <meta charset="utf-8" />
-       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-       <title>My Example Project</title>
-       <script src="assets/uswds-3.0.0/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-3.0.0/css/uswds.min.css" />
-     </head>
-     <body>
-       <script src="assets/uswds-3.0.0/js/uswds.min.js"></script>
-     </body>
-   </html>
-   ```
-
-We offer both the CSS and the JavaScript in two versions — minified and un-minified. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. Use the un-minified files if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
-
-And that’s it — you should now be able to copy our code samples into your `index.html` and start using the design system.
-
-### Install using npm
-
-`npm` is a package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
+### Install using Node and npm
+npm is a package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files. npm packages make it easy to update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
    - Node v12.13.2 (current LTS), [Installation guides](https://nodejs.org/en/download/)
 
-   **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
+   **Note for Windows users:** If you are using Windows and are unfamiliar with Node or npm, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
 2. Make sure you have installed it correctly:
 
@@ -158,60 +182,125 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 The `@uswds/uswds` module is now installed as a dependency. You can use the compiled files found in the `node_modules/@uswds/uswds/dist/` directory or the source files in the `node_modules/@uswds/uswds/packages/` directory.
 
-```
-node_modules/uswds/
-├── dist/
-│   ├── css/
-│   ├── fonts/
-│   ├── img/
-│   ├── js/
-│   └── scss/
-├── packages/
-│   ├── _usa-password/
-│   ├── templates/
-│   ├── usa-accordion/
-│   │   ├── src/
-│   │   │   ├── content/
-│   │   │   ├── styles/
-│   │   │   ├── test/
-│   │   │   ├── index.js
-│   │   │   ├── usa-accordion.stories.js
-│   │   │   └── usa-accordion.twig
-│   │   └── _index.scss_/
-│   ├── usa-add-aspect/
-│   ├── usa-alert/
-│   ├── usa-banner/
-│   ├── usa-breadcrumb/
-│   ...
-```
-
 **Note:** We do _not_ recommend directly editing the design system files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
 
-#### Using the USWDS package
+### Install the package directly from GitHub
+If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. 
+
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.0.0/uswds.zip) directly from the latest USWDS release and uncompress that file.
+
+2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
+
+   ```
+   example-project/
+   ├── assets/
+   │   ├── uswds/
+   │   ├── stylesheets/
+   │   ├── images/
+   │   └── javascript/
+   └── index.html
+   ```
+
+   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
+
+
+## Using USWDS CSS and JavaScript in your project
+
+The three files critical to any USWDS project are the **stylesheet**, the **JavaScript**, and the **intializer**. Most projects require all of these to function properly.
+
+- **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. To start, reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document. Find this file in `uswds/dist/css`. Most projects will want to compile their own CSS from USWDS source Sass instead of using the precompiled version. For more about this, see [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css), below.
+- **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document. Find this file in `uswds/dist/js`.
+- **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag. Find this file in `uswds/dist/js`.
+
+Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. 
+
+Here is an example of how to reference these assets in your `index.html` file:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My Example Project</title>
+    <script src="assets/uswds/js/uswds-init.min.js"></script>
+    <link rel="stylesheet" href="assets/uswds/css/uswds.min.css" />
+  </head>
+  <body>
+    <script src="assets/uswds/js/uswds.min.js"></script>
+  </body>
+</html>
+```
+
+And that’s it — you should now be able to copy our code samples into your `index.html` and start using the design system.
+
+## Compiling USWDS Sass into CSS
 
 If you want to take full advantage of USWDS custom settings and add build new styles and components with the USWDS toolset, you'll need a way to access the assets in the USWDS package and compile custom CSS from the USWDS source files.
 
 USWDS uses the task manager [Gulp](http://gulpjs.com/) as a way to add USWDS assets to a project and compile our CSS from the package source. Gulp is a useful and powerful tool, but it can be difficult to set up if you are new to it.
 
-The [`uswds-compile` repo](https://github.com/uswds/uswds-compile) is made for developers new to Gulp or those who just want a simple setup to compile USWDS Sass. The repo contains files and instructions for setting up the compiler, initializing USWDS, and compiling CSS from the source files.
+The [USWDS Compile package](https://github.com/uswds/uswds-compile) is made for developers new to Gulp or those who just want a simple setup to compile USWDS Sass. The repo contains files and instructions for setting up the compiler, initializing USWDS, and compiling CSS from the source files.
 
-#### Sass and theme settings
+### Sass compilation requirements
+
+USWDS Sass needs two things to compile properly:
+- **Autoprefixing** with a specific `.browserslistrc`
+- **Sass Load Paths** that reference the `/packages` directory in the USWDS package
+
+**Note: Using a compiler package like [USWDS Compile](https://github.com/uswds/uswds-compile) is a good way to fulfill these requirements automatically.**
+
+#### Autoprefixing
+
+Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. **Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets.  We use the following autoprefixer settings via this `.browserslistrc` config:
+
+```
+> 2%
+last 2 versions
+IE 11
+not dead
+```
+
+#### Sass Load Paths
+
+USWDS 3.0 and newer require the use of [Sass Load Paths](https://sass-lang.com/documentation/at-rules/use#load-paths) to compile properly. 
+
+USWDS 3.0 load paths must include a path to the `/packages` directory in the USWDS package, typically by updating an `IncludePaths` setting to include `node_modules/@uswds/uswds/packages`.
+
+Here's how this might look in Gulp and in Webpack:
+
+##### Gulp 
+
+```js
+.pipe(
+  sass({
+    includePaths: [
+      "./node_modules/@uswds/uswds/packages",
+    ],
+  })
+```
+
+##### Webpack 
+
+```js
+loader: "sass-loader",
+options: {
+  sassOptions: {
+    includePaths: [
+      "./node_modules/@uswds/uswds/packages"
+    ],
+  },
+},
+```
+
+
+#### Other useful compiler postprocessing
+
+We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+
+### Sass and theme settings
 
 The design system is customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The critical files you'll need in your project are those in `dist/scss/theme`:
-
-```
-scss
-├── components/
-├── core/
-├── elements/
-├── lib/
-├── packages/
-├── settings/
-├── theme/
-│   ├── _uswds-theme.scss
-│   ├── _uswds-theme-custom-styles.scss
-│   ├── styles.scss
-```
 
 - `_uswds-theme.scss`: custom theme settings
 - `_uswds-theme-custom-styles.scss`: additional project CSS for customizing or adding to what USWDS provides
@@ -226,47 +315,6 @@ scss
 ```
 
 **Technical note:** The `@forward 'uswds'` statement above references the `uswds` package in `node_modules/@uswds/uswds/packages`. The compile functions included in [`uswds-compile`](https://github.com/uswds/uswds-compile) automatically look for USWDS packages in the proper directory using `includePaths`.
-
-#### Sass compilation requirements
-
-The design system requires **autoprefixing** to work properly. This is included in the [`uswds-compile`](https://github.com/uswds/uswds-compile) package.
-
-**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings via `.browserslistrc` config:
-
-```
-> 2%
-last 2 versions
-IE 11
-not dead
-```
-
-We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
-
-#### JavaScript
-
-`require('uswds')` will load all of USWDS’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
-
-### Use another framework or package manager
-
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download-and-install). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
-
-If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
-
-## CSS architecture
-
-- The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
-- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://engineering.18f.gov/css/#naming)**.
-- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://engineering.18f.gov/css/#formatting)**.
-- CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
-- Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
-- Uses **modular CSS** for scalable, modular, and flexible code.
-- Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
-- Hard-coded magic numbers are avoided.
-- Media queries are built **mobile first**.
-- **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
-
-**For more information, visit:**
-[18F’s CSS Guide](https://engineering.18f.gov/css/)
 
 ## JS customization
 
@@ -348,7 +396,7 @@ export class App implements OnInit {
 }
 ```
 
-## Customization, theming, and tokens
+## Style theming and tokens
 
 USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
@@ -425,13 +473,21 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 );
 ```
 
-## Where things live
-As of USWDS 3.0.0, our codebase is centered around funtional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designsystem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
-- **Template** markup for the components is located in: `packages/[package]/src/[package.twig]` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
-- **Sass** compoment-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
-- **JS** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
-- **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
-- **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
+## CSS architecture
+
+- The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
+- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://engineering.18f.gov/css/#naming)**.
+- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://engineering.18f.gov/css/#formatting)**.
+- CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
+- Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
+- Uses **modular CSS** for scalable, modular, and flexible code.
+- Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
+- Hard-coded magic numbers are avoided.
+- Media queries are built **mobile first**.
+- **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
+
+**For more information, visit:**
+[18F’s CSS Guide](https://engineering.18f.gov/css/)
 
 ## Browser support
 
@@ -449,16 +505,6 @@ We use the following tools to ensure USWDS is accessible:
 - [Axe dev tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
 
 We’re happy to answer questions about accessibility — email us for more information.
-
-## Pattern library
-
-We're using [StorybookJS](https://storybook.js.org/) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
-
-```sh
-npm start
-```
-
-Then, visit [http://localhost:6006/](http://localhost:6006/) to see the design system in action. It will watch for changes in twig, scss, and JS and refresh.
 
 ## Long-term support of v1.x
 
