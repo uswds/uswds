@@ -3,7 +3,6 @@
 !src/
 
 _site/
-build/
 coverage/
 .github/
 .editorconfig
