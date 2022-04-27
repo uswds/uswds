@@ -35,18 +35,22 @@ This repository is for the design system code itself. We maintain [another repos
 
 Information about the most recent release of the design system can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backward-incompatible changes along with a list of all changes.
 
+**USWDS 3.0 is our most recent major release.**
+- [Read about what's new in USWDS 3.0](https://designsystem.digital.gov/whats-new/updates/2022/04/28/introducing-uswds-3-0/)
+- [Read our USWDS 3.0 Migration Guide](https://designsystem.digital.gov/documentation/migration)
+
 ## Getting started
 
 We’re glad you’d like to use the design system — here’s how you can get started:
 
 - **Designers:** Check out our [Getting started for designers information](https://designsystem.digital.gov/documentation/getting-started-for-designers/).
-- **Developers:** Check out our [Getting started for developers information](https://designsystem.digital.gov/documentation/getting-started-for-developers/). If your project doesn't use npm for package mangement, follow the instructions in this README to [install the design system without npm.](#installing-the-design-system)
+- **Developers:** Check out our [Getting started for developers information](https://designsystem.digital.gov/documentation/getting-started-for-developers/). If your project doesn't use npm for package management, follow the instructions in this README to [install the design system without npm.](#installing-the-design-system)
 - **Anyone:** Take a look at our new [USWDS Tutorial](https://github.com/uswds/uswds-tutorial). Follow the instructions in this GitHub repo to clone a sample project, install USWDS, customize it, and add USWDS components. It should take about an hour, and is a good introduction to USWDS concepts.
 
 ## What's included in USWDS
-The USWDS package include compiled assets in a `dist` directory and component source files in a `packages` directory.
+The USWDS package includes compiled assets in a `dist` directory and component source files in a `packages` directory.
 
-As of USWDS 3.0.0, our codebase is centered around funtional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designsystem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
+As of USWDS 3.0.0, our codebase is centered around functional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designsystem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
 
 - **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
 - **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
@@ -59,6 +63,7 @@ Here's what you can expect to find inside the USWDS package:
 
 ```
 [uswds package]
+├── .storybook/
 ├── dist/
 │   ├── css/
 │   │   ├── uswds.css
@@ -114,11 +119,13 @@ Here's what you can expect to find inside the USWDS package:
 │   ├── img/
 │   ├── stylesheets/
 │   └── test/
+└── tasks/
 ```
 
 ### Package contents
 Here's what you can expect to find in each of the directories and files in the USWDS package:
 
+- `/.storybook`: Storybook configuration files (not used in USWDS projects)
 - `/dist`: Compiled or collected files
 - `/dist/css`: Precompiled CSS files with USWDS defaults
 - `/dist/fonts`: Default fonts available to the design system
@@ -141,13 +148,14 @@ Here's what you can expect to find in each of the directories and files in the U
 - `/packages/usa-[component]/src/usa-component.stories.js`: Storybook setup
 - `/packages/usa-[component]/src/usa-component.twig`: Component template
 - `/packages/usa-[component]/src/index.js`: Package javascript
-- `/packages/usa-[component]/src/content`: Package tempalte content
+- `/packages/usa-[component]/src/content`: Package template content
 - `/packages/usa-[component]/src/test`: Package unit tests
 - `/packages/usa-[component]/src/styles`: Package source Sass
 
-- `/packages/uswds`: The package most project include by default. This bundle includes all USWDS components and functionality.
+- `/packages/uswds`: The package most projects include by default. This bundle includes all USWDS components and functionality.
 - `/packages/uswds-[bundle]`: Other non-component functionality is included in `uswds-`-prefixed packages. These bundles might collect common component packages (`uswds-form-controls`) or important internal functionality (`uswds-core`).
 - `/src`: Placeholders included for backwards compatibility. Most projects should avoid using the contents of this directory.
+- `/tasks`: Internal build process files (not used in USWDS projects)
 
 ## Installing the design system
 There are two ways to install the design system on a project: 
@@ -194,10 +202,13 @@ If you’re using a framework or package manager that doesn’t support npm, you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds/
-   │   ├── stylesheets/
-   │   ├── images/
-   │   └── javascript/
+   │   ├── uswds/
+   │   │   ├── dist/
+   │   │   ├── packages/
+   │   │   └── src/
+   │   ├── stylesheets/
+   │   ├── images/
+   │   └── javascript/
    └── index.html
    ```
 
@@ -206,11 +217,11 @@ If you’re using a framework or package manager that doesn’t support npm, you
 
 ## Using USWDS CSS and JavaScript in your project
 
-The three files critical to any USWDS project are the **stylesheet**, the **JavaScript**, and the **intializer**. Most projects require all of these to function properly.
+The three files critical to any USWDS project are the **stylesheet**, the **JavaScript**, and the **initializer**. Most projects require all of these to function properly.
 
-- **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. To start, reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document. Find this file in `uswds/dist/css`. Most projects will want to compile their own CSS from USWDS source Sass instead of using the precompiled version. For more about this, see [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css), below.
-- **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document. Find this file in `uswds/dist/js`.
-- **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag. Find this file in `uswds/dist/js`.
+- **Stylesheet:** This is the compiled CSS stylesheet that describes how design system components look. To start, reference either `uswds.css` or `uswds.min.css` in the `<head>` of your document. Find this file in `/dist/css`. Most projects will want to compile their own CSS from USWDS source Sass instead of using the precompiled version. For more about this, see [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css), below.
+- **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document. Find this file in `/dist/js`.
+- **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag. Find this file in `/dist/js`.
 
 Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. 
 
@@ -223,11 +234,11 @@ Here is an example of how to reference these assets in your `index.html` file:
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>My Example Project</title>
-    <script src="assets/uswds/js/uswds-init.min.js"></script>
-    <link rel="stylesheet" href="assets/uswds/css/uswds.min.css" />
+    <script src="assets/uswds/dist/js/uswds-init.min.js"></script>
+    <link rel="stylesheet" href="assets/uswds/dist/css/uswds.min.css" />
   </head>
   <body>
-    <script src="assets/uswds/js/uswds.min.js"></script>
+    <script src="assets/uswds/dist/js/uswds.min.js"></script>
   </body>
 </html>
 ```
@@ -363,7 +374,7 @@ function App() {
     // default you do not have to pass arguments
     accordion.on();
 
-    // remove event listeners when component un-mounts.
+    // remove event listeners when the component un-mounts.
     return () => {
       characterCount.off();
       accordion.off();
@@ -388,7 +399,7 @@ export class App implements OnInit {
     accordion.on();
   }
 
-  // remove event listeners when component un-mounts.
+  // remove event listeners when the component un-mounts.
   ngOnDestroy() {
     characterCount.off();
     accordion.off();
@@ -400,7 +411,7 @@ export class App implements OnInit {
 
 USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
-Set theme settings with USWDS design tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
+Set theme settings with USWDS design tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
 Visit the [Design tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
 
@@ -449,7 +460,7 @@ Which, if `$theme-respect-user-font-size` is set to `true` would output somethin
 .usa-example {
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 64rem;
+  max-width: 64 rem;
 }
 
 @media screen and (min-width: 64em) {
@@ -493,7 +504,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
 
-As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). We will continue to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x — when we finally drop IE11, we'll make a note in the release notes and in this docmentation.
+As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). We will continue to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x — when we finally drop IE11, we'll make a note in the release notes and in this documentation.
 
 ## Accessibility
 
