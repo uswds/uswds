@@ -1,6 +1,10 @@
 .DS_store
 .*.swp
 
+# Ignore vs code directories
+*.code-workspace
+.vscode/
+
 # ignore Node-specific files and directories
 node_modules/
 npm-debug.log*
