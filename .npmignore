@@ -6,6 +6,9 @@ _site/
 build/
 coverage/
 .github/
+.circleci/
+config/
+
 .editorconfig
 .eslintrc.yml
 circle.yml
