@@ -17,6 +17,15 @@
     "government",
     "websites"
   ],
+  "files": [
+    ".storybook",
+    "dist",
+    "packages",
+    "src",
+    "tasks",
+    ".browserslistrc",
+    "gulpfile.js"
+  ],
   "module": "./dist/js/uswds.min.js",
   "exports": {
     ".": {
