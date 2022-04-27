@@ -24,6 +24,7 @@
     "src",
     "tasks",
     ".browserslistrc",
+    "CONTRIBUTING.md",
     "gulpfile.js"
   ],
   "module": "./dist/js/uswds.min.js",
