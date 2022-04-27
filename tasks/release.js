@@ -8,7 +8,7 @@ const { build } = require("./build")
 
 const hash = crypto.createHash('sha256');
 
-let version = dutil.dirName.replace("@uswds/", "");
+const version = dutil.dirName.replace("@uswds/", "");
 
 // Create a hash from the compiled ZIP users can compare and verify
 // their download is authentic.
