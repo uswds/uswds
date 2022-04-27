@@ -255,15 +255,16 @@ The [USWDS Compile package](https://github.com/uswds/uswds-compile) is made for 
 
 ### Sass compilation requirements
 
-USWDS Sass needs two things to compile properly:
-- **Autoprefixing** with a specific `.browserslistrc`
-- **Sass Load Paths** that reference the `/packages` directory in the USWDS package
+USWDS Sass needs three things to compile properly:
+- **Sass Module syntax:** USWDS requires a modern Sass compiler that can parse Sass Module syntax.
+- **Autoprefixing:** USWDS requires Autoprefixing your CSS with a specific `.browserslistrc`.
+- **Sass Load Paths:** USWDS requires Sass compilers use Load Paths that reference the `/packages` directory in the USWDS package
 
 **Note: Using a compiler package like [USWDS Compile](https://github.com/uswds/uswds-compile) is a good way to fulfill these requirements automatically.**
 
 #### Autoprefixing
 
-Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. **Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets.  We use the following autoprefixer settings via this `.browserslistrc` config:
+The design system requires autoprefixing to work properly. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. Autoprefixing services like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) automatically add vendor prefixes to CSS rules. We use the following autoprefixer settings via `.browserslistrc` config:
 
 ```
 > 2%
@@ -307,7 +308,8 @@ options: {
 
 #### Other useful compiler postprocessing
 
-We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+- **Minification:** We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS.
+- **Sourcemaps:** We recommend using a **sourcemap** tool like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to assist debugging by keeping  track of source Sass locations.
 
 ### Sass and theme settings
 
