@@ -25,7 +25,8 @@
     "tasks",
     ".browserslistrc",
     "CONTRIBUTING.md",
-    "gulpfile.js"
+    "gulpfile.js",
+    "webpack.twig.config.js"
   ],
   "module": "./dist/js/uswds.min.js",
   "exports": {
