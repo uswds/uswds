@@ -1,0 +1,27 @@
+@use "../functions/font/get-font-stack" as *;
+
+$project-font-stacks: (
+  "cond": get-font-stack("cond"),
+  "icon": get-font-stack("icon"),
+  "lang": get-font-stack("lang"),
+  "mono": get-font-stack("mono"),
+  "sans": get-font-stack("sans"),
+  "serif": get-font-stack("serif"),
+  "ui": get-font-stack("ui"),
+  "heading": get-font-stack("heading"),
+  "body": get-font-stack("body"),
+  "code": get-font-stack("code"),
+  "alt": get-font-stack("alt"),
+);
+
+$project-font-stack-cond: get-font-stack("cond");
+$project-font-stack-icon: get-font-stack("icon");
+$project-font-stack-lang: get-font-stack("lang");
+$project-font-stack-mono: get-font-stack("mono");
+$project-font-stack-sans: get-font-stack("sans");
+$project-font-stack-serif: get-font-stack("serif");
+$project-font-stack-ui: get-font-stack("ui");
+$project-font-stack-heading: get-font-stack("heading");
+$project-font-stack-body: get-font-stack("body");
+$project-font-stack-code: get-font-stack("code");
+$project-font-stack-alt: get-font-stack("alt");

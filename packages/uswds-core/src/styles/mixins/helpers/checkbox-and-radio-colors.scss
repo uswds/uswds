@@ -1,0 +1,170 @@
+@use "sass:color";
+@use "sass:list";
+
+@use "../../functions" as *;
+@use "../../settings" as *;
+@use "../general/add-background-svg" as *;
+@use "format-input" as *;
+@use "format-label" as *;
+
+@mixin checkbox-colors($args...) {
+  @include -checkbox-and-radio-colors($input-type: "checkbox", $args...);
+}
+
+@mixin radio-colors($args...) {
+  @include -checkbox-and-radio-colors($input-type: "radio", $args...);
+}
+
+@mixin -checkbox-and-radio-colors(
+  $bg-color: $theme-input-background-color,
+  $selected-color: "default",
+  $input-type: null
+) {
+  $input-text-color: get-color-token-from-bg($bg-color);
+  $input-bg-color: if(
+    $bg-color == "default",
+    $theme-body-background-color,
+    $bg-color
+  );
+  $input-active-color: list.nth(
+    get-link-tokens-from-bg($bg-color, $preferred-link-token: $selected-color),
+    1
+  );
+  $input-disabled-alpha: -0.7;
+  $input-disabled-alpha--strong: -0.5;
+  $input-disabled-alpha--weak: -0.8;
+  $input-border-alpha: -0;
+  $color-input-disabled: color.adjust(
+    color($input-text-color),
+    $alpha: $input-disabled-alpha
+  );
+  $color-input-disabled--strong: color.adjust(
+    color($input-text-color),
+    $alpha: $input-disabled-alpha--strong
+  );
+  $color-input-disabled--weak: color.adjust(
+    color($input-text-color),
+    $alpha: $input-disabled-alpha--weak
+  );
+  $input-darkmode: if(
+    color.lightness(color($input-bg-color)) < 50%,
+    true,
+    false
+  );
+  $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
+
+  .usa-#{$input-type} {
+    background: color($input-bg-color);
+  }
+
+  .usa-#{$input-type}__label {
+    color: color($input-text-color);
+
+    &::before {
+      background: color($input-bg-color);
+      box-shadow: 0 0 0 units($theme-input-select-border-width)
+        color.adjust(color($input-text-color), $alpha: $input-border-alpha);
+
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+  }
+  .usa-#{$input-type}__input {
+    &:checked {
+      @include format-input {
+        background-color: color($input-active-color);
+        box-shadow: 0 0 0 units($theme-input-select-border-width)
+          color($input-active-color);
+      }
+    }
+    &:disabled {
+      @include format-label {
+        color: $color-input-disabled;
+
+        @media (forced-colors: active) {
+          color: GrayText;
+        }
+      }
+      @include format-input {
+        background-color: color($input-bg-color);
+        box-shadow: 0 0 0 units($theme-input-select-border-width)
+          $color-input-disabled;
+      }
+    }
+    &--tile {
+      @include format-label {
+        background-color: color($input-bg-color);
+        border: units($theme-input-tile-border-width) solid
+          $color-input-disabled;
+        color: color($input-text-color);
+      }
+      &:checked {
+        @include format-label {
+          background-color: color.adjust(
+            color($input-active-color),
+            $alpha: -0.9
+          );
+          border-color: color($input-active-color);
+
+          @media (forced-colors: active) {
+            border: ButtonText solid units("05");
+          }
+        }
+      }
+      &:disabled:checked {
+        @include format-label {
+          background-color: color($input-bg-color);
+          border-color: $color-input-disabled;
+        }
+      }
+    }
+  }
+
+  @if $input-type == "checkbox" {
+    .usa-checkbox__input {
+      &:checked,
+      &:checked:disabled {
+        @include format-input {
+          @include add-background-svg($input-checkmark);
+        }
+
+        @media (forced-colors: active) {
+          @include format-input {
+            @include add-background-svg("correct8-alt");
+          }
+        }
+      }
+      &:checked:disabled {
+        @include format-input {
+          background-color: $color-input-disabled;
+        }
+      }
+    }
+  }
+
+  @if $input-type == "radio" {
+    .usa-radio__input {
+      &:checked {
+        @include format-input {
+          box-shadow: 0 0 0 units($theme-input-select-border-width)
+              color($input-active-color),
+            inset 0 0 0 units($theme-input-select-border-width)
+              color($input-bg-color);
+
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
+        }
+      }
+      &:checked:disabled {
+        @include format-input {
+          background-color: $color-input-disabled--weak;
+          box-shadow: 0 0 0 2px $color-input-disabled,
+            inset 0 0 0 2px color($input-bg-color);
+        }
+      }
+    }
+  }
+}

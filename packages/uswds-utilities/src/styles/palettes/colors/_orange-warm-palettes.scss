@@ -1,0 +1,73 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-orange-warm-light: (
+  "orange-warm-5": $color-orange-warm-5,
+  "orange-warm-10": $color-orange-warm-10,
+  "orange-warm-20": $color-orange-warm-20,
+  "orange-warm-30": $color-orange-warm-30,
+);
+
+$tokens-color-orange-warm-medium: (
+  "orange-warm-40": $color-orange-warm-40,
+  "orange-warm-50": $color-orange-warm-50,
+  "orange-warm-60": $color-orange-warm-60,
+);
+
+$tokens-color-orange-warm-dark: (
+  "orange-warm-70": $color-orange-warm-70,
+  "orange-warm-80": $color-orange-warm-80,
+  "orange-warm-90": $color-orange-warm-90,
+);
+
+$tokens-color-orange-warm-light-vivid: (
+  "orange-warm-5v": $color-orange-warm-5v,
+  "orange-warm-10v": $color-orange-warm-10v,
+  "orange-warm-20v": $color-orange-warm-20v,
+  "orange-warm-30v": $color-orange-warm-30v,
+);
+
+$tokens-color-orange-warm-medium-vivid: (
+  "orange-warm-40v": $color-orange-warm-40v,
+  "orange-warm-50v": $color-orange-warm-50v,
+  "orange-warm-60v": $color-orange-warm-60v,
+);
+
+$tokens-color-orange-warm-dark-vivid: (
+  "orange-warm-70v": $color-orange-warm-70v,
+  "orange-warm-80v": $color-orange-warm-80v,
+  "orange-warm-90v": $color-orange-warm-90v,
+);
+
+$tokens-color-orange-warm-standard: map-collect(
+  $tokens-color-orange-warm-light,
+  $tokens-color-orange-warm-medium,
+  $tokens-color-orange-warm-dark
+);
+
+$tokens-color-orange-warm-vivid: map-collect(
+  $tokens-color-orange-warm-light-vivid,
+  $tokens-color-orange-warm-medium-vivid,
+  $tokens-color-orange-warm-dark-vivid
+);
+
+$tokens-color-orange-warm: map-collect(
+  $tokens-color-orange-warm-standard,
+  $tokens-color-orange-warm-vivid
+);
+
+$palettes-color-orange-warm: (
+  "palette-color-system-orange-warm-light": $tokens-color-orange-warm-light,
+  "palette-color-system-orange-warm-medium": $tokens-color-orange-warm-medium,
+  "palette-color-system-orange-warm-dark": $tokens-color-orange-warm-dark,
+  "palette-color-system-orange-warm-light-vivid":
+    $tokens-color-orange-warm-light-vivid,
+  "palette-color-system-orange-warm-medium-vivid":
+    $tokens-color-orange-warm-medium-vivid,
+  "palette-color-system-orange-warm-dark-vivid":
+    $tokens-color-orange-warm-dark-vivid,
+  "palette-color-system-orange-warm-standard":
+    $tokens-color-orange-warm-standard,
+  "palette-color-system-orange-warm-vivid": $tokens-color-orange-warm-vivid,
+  "palette-color-system-orange-warm": $tokens-color-orange-warm,
+);

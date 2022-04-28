@@ -1,0 +1,34 @@
+$theme-color-grades: (
+  "lightest": (
+    "min": 5,
+    "max": 10,
+  ),
+  "lighter": (
+    "min": 10,
+    "max": 20,
+  ),
+  "light": (
+    "min": 30,
+    "max": 40,
+  ),
+  "root": (
+    "min": 50,
+    "max": 50,
+    "vivid": (
+      "min": 30,
+      "max": 50,
+    ),
+  ),
+  "dark": (
+    "min": 60,
+    "max": 60,
+  ),
+  "darker": (
+    "min": 70,
+    "max": 80,
+  ),
+  "darkest": (
+    "min": 90,
+    "max": 90,
+  ),
+);

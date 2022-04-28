@@ -1,0 +1,30 @@
+@use "./icon" as *;
+@use "../../functions" as *;
+
+$external-link-size: 1.75ex;
+
+$icon-object: (
+  "name": "launch",
+  "color": currentColor,
+  "height": $external-link-size,
+  "svg-height": 24,
+  "svg-width": 24,
+);
+
+@mixin external-link($contrast-bg: "default") {
+  display: inline-block;
+  padding-right: $external-link-size;
+  position: relative;
+
+  &::after {
+    @include add-color-icon($icon-object, $contrast-bg);
+    background-position: center;
+    content: "";
+    // Use following inline styling to prevent icon splitting over line breaks
+    display: inline-block;
+    height: $external-link-size;
+    margin-left: units(2px);
+    margin-top: 0.7ex;
+    position: absolute;
+  }
+}

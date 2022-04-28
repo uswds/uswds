@@ -1,0 +1,34 @@
+@use "uswds-core" as *;
+
+.usa-select {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  @include add-background-svg("usa-icons/unfold_more");
+  appearance: none;
+  background-color: color("white");
+  background-position: right units(1) center;
+  background-size: units(2.5);
+  padding-right: units(4);
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Show default webkit style on select element when autofilled to show icon
+  &:-webkit-autofill {
+    appearance: menulist;
+  }
+
+  // Remove dotted outline from select element on focus in Firefox
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 color("black");
+  }
+
+  // Necessary to show chevron in forced colors mode in modern browsers
+  @media (forced-colors: active) {
+    appearance: listbox; // Default <select> appearance value for modern browsers
+    background-image: none;
+    padding-right: 0;
+  }
+}

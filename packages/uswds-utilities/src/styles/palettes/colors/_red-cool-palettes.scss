@@ -1,0 +1,71 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-red-cool-light: (
+  "red-cool-5": $color-red-cool-5,
+  "red-cool-10": $color-red-cool-10,
+  "red-cool-20": $color-red-cool-20,
+  "red-cool-30": $color-red-cool-30,
+);
+
+$tokens-color-red-cool-medium: (
+  "red-cool-40": $color-red-cool-40,
+  "red-cool-50": $color-red-cool-50,
+  "red-cool-60": $color-red-cool-60,
+);
+
+$tokens-color-red-cool-dark: (
+  "red-cool-70": $color-red-cool-70,
+  "red-cool-80": $color-red-cool-80,
+  "red-cool-90": $color-red-cool-90,
+);
+
+$tokens-color-red-cool-light-vivid: (
+  "red-cool-5v": $color-red-cool-5v,
+  "red-cool-10v": $color-red-cool-10v,
+  "red-cool-20v": $color-red-cool-20v,
+  "red-cool-30v": $color-red-cool-30v,
+);
+
+$tokens-color-red-cool-medium-vivid: (
+  "red-cool-40v": $color-red-cool-40v,
+  "red-cool-50v": $color-red-cool-50v,
+  "red-cool-60v": $color-red-cool-60v,
+);
+
+$tokens-color-red-cool-dark-vivid: (
+  "red-cool-70v": $color-red-cool-70v,
+  "red-cool-80v": $color-red-cool-80v,
+  "red-cool-90v": $color-red-cool-90v,
+);
+
+$tokens-color-red-cool-standard: map-collect(
+  $tokens-color-red-cool-light,
+  $tokens-color-red-cool-medium,
+  $tokens-color-red-cool-dark
+);
+
+$tokens-color-red-cool-vivid: map-collect(
+  $tokens-color-red-cool-light-vivid,
+  $tokens-color-red-cool-medium-vivid,
+  $tokens-color-red-cool-dark-vivid
+);
+
+$tokens-color-red-cool: map-collect(
+  $tokens-color-red-cool-standard,
+  $tokens-color-red-cool-vivid
+);
+
+$palettes-color-red-cool: (
+  "palette-color-system-red-cool-light": $tokens-color-red-cool-light,
+  "palette-color-system-red-cool-medium": $tokens-color-red-cool-medium,
+  "palette-color-system-red-cool-dark": $tokens-color-red-cool-dark,
+  "palette-color-system-red-cool-light-vivid":
+    $tokens-color-red-cool-light-vivid,
+  "palette-color-system-red-cool-medium-vivid":
+    $tokens-color-red-cool-medium-vivid,
+  "palette-color-system-red-cool-dark-vivid": $tokens-color-red-cool-dark-vivid,
+  "palette-color-system-red-cool-standard": $tokens-color-red-cool-standard,
+  "palette-color-system-red-cool-vivid": $tokens-color-red-cool-vivid,
+  "palette-color-system-red-cool": $tokens-color-red-cool,
+);

@@ -20,13 +20,11 @@ jobs:
     <<: *container
     steps:
       - checkout
-      - run:
-          name: Install codeclimate
-          command: sudo npm install -g codeclimate-test-reporter
       - restore_cache:
           keys:
             - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install
+      - run: npx playwright install
       - save_cache:
           paths:
             - node_modules
@@ -36,16 +34,6 @@ jobs:
       - run:
           name: Run test
           command: npm run test:ci
-      - run:
-          name: Run code coverage report
-          command: npm run cover
-      - run:
-          name: Checking build
-          command: |
-            if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -le 0 ]]; then
-              ls -agolf dist/
-              codeclimate-test-reporter < coverage/lcov.info
-            fi
 
   deploy:
     <<: *container
@@ -58,13 +46,40 @@ jobs:
       - run: npm rebuild node-sass
       - run:
           name: Build the USWDS package
-          command: npm run release
+          command: npm run build
       - run:
           name: Publish to NPM
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
-            npm publish
-
+            npm publish --access public
+  deploy-alpha:
+    <<: *container
+    steps:
+      - checkout
+      - run: npm install --ignore-scripts
+      - run: npm rebuild node-sass
+      - run:
+          name: Build the USWDS package
+          command: npm run build
+      - run:
+          name: Publish to NPM with `alpha` tag
+          command: |
+            npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
+            npm publish --access public --tag alpha
+  deploy-beta:
+    <<: *container
+    steps:
+      - checkout
+      - run: npm install --ignore-scripts
+      - run: npm rebuild node-sass
+      - run:
+          name: Build the USWDS package
+          command: npm run build
+      - run:
+          name: Publish to NPM with `beta` tag
+          command: |
+            npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
+            npm publish --access public --tag beta
 workflows:
   version: 2
   circle-uswds:
@@ -76,3 +91,9 @@ workflows:
           filters:
             branches:
               only: main
+      - deploy-beta:
+          requires:
+            - build
+          filters:
+            branches:
+              only: library--main

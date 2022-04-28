@@ -1,0 +1,21 @@
+/*
+----------------------------------------
+wcag-magic-number()
+----------------------------------------
+Returns the magic number of a specific
+wcag grade:
+"AA"
+"AA-Large"
+"AAA"
+wcag-magic-number("AA")
+> 50
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../../variables/wcag-magic-numbers" as *;
+
+@function wcag-magic-number($wcag-target) {
+  $wcag-magic-number: map.get($system-wcag-magic-numbers, $wcag-target);
+  @return $wcag-magic-number;
+}

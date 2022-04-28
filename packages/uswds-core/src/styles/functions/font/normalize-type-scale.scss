@@ -1,0 +1,27 @@
+/*
+----------------------------------------
+normalize-type-scale()
+----------------------------------------
+Normalizes a specific face's optical size
+to a set target
+----------------------------------------
+*/
+
+@use "sass:math";
+@use "../../tokens";
+@use "../general";
+@use "../units";
+
+@function normalize-type-scale($cap-height, $scale) {
+  @if not $cap-height {
+    @return false;
+  }
+
+  $this-scale: tokens.$system-base-cap-height *
+    math.div(general.strip-unit($scale), $cap-height) * 1px;
+
+  @return units.px-to-rem($this-scale);
+}
+
+// @debug normalize-type-scale(362px, 16px);
+// @return 1rem

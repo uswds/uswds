@@ -1,0 +1,47 @@
+@use "sass:math";
+@use "sass:list";
+
+@use "../../settings" as *;
+@use "../../functions/general" as *;
+@use "../../functions/color/" as *;
+@use "../../functions/utilities/color" as *;
+
+@mixin set-link-from-bg(
+  $bg-color: "default",
+  $preferred-link-color: "default",
+  $fallback-link-color: "default",
+  $wcag-target: "AA",
+  $important: null,
+  $context: false
+) {
+  $important: if($important, " !important", null);
+  $link-tokens: get-link-tokens-from-bg(
+    $bg-color,
+    $preferred-link-color,
+    $fallback-link-color,
+    $wcag-target,
+    $context
+  );
+
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
+  $link-token: list.nth($link-tokens, 1);
+  $hover-token: list.nth($link-tokens, 2);
+
+  $visited-token: if(
+    is-accessible-magic-number(
+      $theme-link-visited-color,
+      $bg-color,
+      $wcag-target
+    ),
+    $theme-link-visited-color,
+    $link-token
+  );
+  color: color($link-token) #{$important};
+  &:visited {
+    color: color($visited-token) #{$important};
+  }
+  &:hover,
+  &:active {
+    color: color($hover-token) #{$important};
+  }
+}

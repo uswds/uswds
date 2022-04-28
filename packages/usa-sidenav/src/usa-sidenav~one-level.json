@@ -1,0 +1,15 @@
+{
+  "aria_label": "Side navigation,",
+  "items": [
+    {
+      "label": "Current page",
+      "current": true
+    },
+    {
+      "label": "Parent link"
+    },
+    {
+      "label": "Parent link"
+    }
+  ]
+}

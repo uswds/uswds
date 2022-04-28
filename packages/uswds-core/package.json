@@ -1,0 +1,39 @@
+{
+  "name": "@uswds/core",
+  "version": "0.0.1-alpha.0",
+  "description": "Package to get USWDS core functionality, settings, tokens, functions, and mixins",
+  "keywords": [
+    "ui",
+    "uswds",
+    "sass",
+    "open",
+    "source",
+    "united",
+    "states",
+    "usa",
+    "u.s",
+    "government"
+  ],
+  "author": "18F",
+  "license": "ISC",
+  "main": "src/styles/_index.scss",
+  "directories": {
+    "test": "src/test"
+  },
+  "scripts": {
+    "test": "mocha ./src/test/*.spec.js --exit",
+    "prepublishOnly": "npm run test"
+  },
+  "devDependencies": {
+    "sass-true": "^6.0.1",
+    "sinon": "^13.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/src/stylesheets/core/README.md"
+}

@@ -1,0 +1,15 @@
+@use "sass:list";
+@use "../../functions" as *;
+@use "./border-radius" as *;
+@use "./height" as *;
+@use "./width" as *;
+
+// Outputs a square
+@mixin u-circle($value...) {
+  $value: unpack($value);
+  $dimension: $value;
+  $radius: append-important($value, "pill");
+  @include u-height($dimension);
+  @include u-radius($radius);
+  @include u-width($dimension);
+}

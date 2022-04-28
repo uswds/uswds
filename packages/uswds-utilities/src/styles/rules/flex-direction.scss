@@ -1,0 +1,34 @@
+/*
+========================================
+flex-direction
+----------------------------------------
+usage:
+  .flex-direction-[value]
+----------------------------------------
+output:
+  flex-direction: [value]
+----------------------------------------
+example:
+  .flex-direction-row {
+    flex-direction: row; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-flex-direction: (
+  flex-direction: (
+    base: "flex",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($flex-direction-palettes),
+        $flex-direction-manual-values
+      ),
+    settings: $flex-direction-settings,
+    property: "flex-direction",
+    type: "utility",
+  ),
+);

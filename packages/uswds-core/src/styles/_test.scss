@@ -1,0 +1,8 @@
+@use "./functions/color/get-system-color" as *;
+@use "./functions/color/test-color" as *;
+@use "./tokens/color/shortcodes-color-system" as *;
+@use "./settings" as *;
+
+@if $test-system-color-tokens {
+  $color-test: test-colors($system-color-shortcodes);
+}

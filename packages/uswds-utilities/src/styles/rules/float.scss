@@ -1,0 +1,30 @@
+/*
+========================================
+float
+----------------------------------------
+usage:
+  .float-[value]
+----------------------------------------
+output:
+  float: [value];
+----------------------------------------
+example:
+  .float-left {
+    float: left; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-float: (
+  float: (
+    base: "float",
+    modifiers: null,
+    values: map-collect(get-palettes($float-palettes), $float-manual-values),
+    settings: $float-settings,
+    property: "float",
+    type: "utility",
+  ),
+);

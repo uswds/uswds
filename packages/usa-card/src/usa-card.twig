@@ -1,0 +1,42 @@
+{% set card_classes = 'usa-card ' ~ modifier|default('') %}
+{% set image_fallback = 'https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg' %}
+
+<ul class="usa-card-group">
+  {% for card in cards %}
+    {# Card overrides configure individual settings like grid classes, header placement, and direction of image for flags. #}
+    {% set card_overrides = [
+      card.classes_override|default(default_classes),
+      (card.header_first ? 'usa-card--header-first' : ''),
+      ((card.flag_direction == 'right') ? 'usa-card--media-right' : '')
+    ] %}
+
+    <li class="{{ card_classes ~ " " ~ card_overrides|join(' ') }}">
+      <div class="usa-card__container {{ card.container_overrides|default('') }}">
+        <div class="usa-card__header">
+          <h2 class="usa-card__heading">{{ card.title }}</h2>
+        </div>
+
+        {% if card.media %}
+          {% set media = card.media %}
+          <div class="usa-card__media {{ media.media_classes|default('') }}">
+            <div class="usa-card__img {{ media.image_classes|default('') }}">
+              <img src="{{ media.image_src|default(image_fallback) }}" alt="{{ media.image_alt_text|default('A placeholder image') }}">
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="usa-card__body {{ card.body_overrides }}">
+          {% if card.content %}
+            <p>{{ card.content | raw }}</p>
+          {% endif %}
+        </div>
+        <div class="usa-card__footer">
+        {% include "@components/usa-button/src/usa-button.twig" with {
+          'modifier': card.cta_modifier,
+          'text': card.cta_text|default('Visit Florida Keys')
+        } %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

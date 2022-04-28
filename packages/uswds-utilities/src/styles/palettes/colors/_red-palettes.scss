@@ -1,0 +1,69 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-red-light: (
+  "red-5": $color-red-5,
+  "red-10": $color-red-10,
+  "red-20": $color-red-20,
+  "red-30": $color-red-30,
+);
+
+$tokens-color-red-medium: (
+  "red-40": $color-red-40,
+  "red-50": $color-red-50,
+  "red-60": $color-red-60,
+);
+
+$tokens-color-red-dark: (
+  "red-70": $color-red-70,
+  "red-80": $color-red-80,
+  "red-90": $color-red-90,
+);
+
+$tokens-color-red-light-vivid: (
+  "red-5v": $color-red-5v,
+  "red-10v": $color-red-10v,
+  "red-20v": $color-red-20v,
+  "red-30v": $color-red-30v,
+);
+
+$tokens-color-red-medium-vivid: (
+  "red-40v": $color-red-40v,
+  "red-50v": $color-red-50v,
+  "red-60v": $color-red-60v,
+);
+
+$tokens-color-red-dark-vivid: (
+  "red-70v": $color-red-70v,
+  "red-80v": $color-red-80v,
+  "red-90v": $color-red-90v,
+);
+
+$tokens-color-red-standard: map-collect(
+  $tokens-color-red-light,
+  $tokens-color-red-medium,
+  $tokens-color-red-dark
+);
+
+$tokens-color-red-vivid: map-collect(
+  $tokens-color-red-light-vivid,
+  $tokens-color-red-medium-vivid,
+  $tokens-color-red-dark-vivid
+);
+
+$tokens-color-red: map-collect(
+  $tokens-color-red-standard,
+  $tokens-color-red-vivid
+);
+
+$palettes-color-red: (
+  "palette-color-system-red-light": $tokens-color-red-light,
+  "palette-color-system-red-medium": $tokens-color-red-medium,
+  "palette-color-system-red-dark": $tokens-color-red-dark,
+  "palette-color-system-red-light-vivid": $tokens-color-red-light-vivid,
+  "palette-color-system-red-medium-vivid": $tokens-color-red-medium-vivid,
+  "palette-color-system-red-dark-vivid": $tokens-color-red-dark-vivid,
+  "palette-color-system-red-standard": $tokens-color-red-standard,
+  "palette-color-system-red-vivid": $tokens-color-red-vivid,
+  "palette-color-system-red": $tokens-color-red,
+);

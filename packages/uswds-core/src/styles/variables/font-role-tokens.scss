@@ -1,0 +1,9 @@
+@use "../settings";
+
+$project-font-role-tokens: (
+  "ui": settings.$theme-font-role-ui,
+  "heading": settings.$theme-font-role-heading,
+  "body": settings.$theme-font-role-body,
+  "code": settings.$theme-font-role-code,
+  "alt": settings.$theme-font-role-alt,
+);

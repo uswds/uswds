@@ -1,0 +1,164 @@
+@use "sass:map";
+@use "../../settings";
+@use "stacks" as *;
+
+$system-typeface-tokens: (
+  "system": (
+    display-name: null,
+    cap-height: 362px,
+    stack: $font-stack-system,
+    system-font: true,
+  ),
+  "georgia": (
+    display-name: "Georgia",
+    cap-height: 346px,
+    stack: $font-stack-georgia,
+    system-font: true,
+  ),
+  "helvetica": (
+    display-name: "Helvetica Neue",
+    cap-height: 357px,
+    stack: $font-stack-helvetica,
+    system-font: true,
+  ),
+  "tahoma": (
+    display-name: "Tahoma",
+    cap-height: 363px,
+    stack: $font-stack-system,
+  ),
+  "verdana": (
+    display-name: "Verdana",
+    cap-height: 364px,
+    stack: $font-stack-system,
+  ),
+  "open-sans": (
+    display-name: "Open Sans",
+    cap-height: 357px,
+    stack: $font-stack-system,
+  ),
+  "merriweather": (
+    display-name: "Merriweather Web",
+    cap-height: 371px,
+    stack: $font-stack-georgia,
+    src: (
+      dir: "merriweather",
+      roman: (
+        100: false,
+        200: false,
+        300: "Latin-Merriweather-Light",
+        400: "Latin-Merriweather-Regular",
+        500: false,
+        600: false,
+        700: "Latin-Merriweather-Bold",
+        800: false,
+        900: "Latin-Merriweather-Black",
+      ),
+      italic: (
+        100: false,
+        200: false,
+        300: "Latin-Merriweather-LightItalic",
+        400: "Latin-Merriweather-Italic",
+        500: false,
+        600: false,
+        700: "Latin-Merriweather-BoldItalic",
+        800: false,
+        900: "Latin-Merriweather-BlackItalic",
+      ),
+    ),
+  ),
+  "roboto-mono": (
+    display-name: "Roboto Mono Web",
+    cap-height: 380px,
+    stack: $font-stack-monospace,
+    src: (
+      dir: "roboto-mono",
+      roman: (
+        100: "roboto-mono-v5-latin-100",
+        200: false,
+        300: "roboto-mono-v5-latin-300",
+        400: "roboto-mono-v5-latin-regular",
+        500: "roboto-mono-v5-latin-500",
+        600: false,
+        700: "roboto-mono-v5-latin-700",
+        800: false,
+        900: false,
+      ),
+      italic: (
+        100: "roboto-mono-v5-latin-100italic",
+        200: false,
+        300: "roboto-mono-v5-latin-300italic",
+        400: "roboto-mono-v5-latin-italic",
+        500: "roboto-mono-v5-latin-500italic",
+        600: false,
+        700: "roboto-mono-v5-latin-700italic",
+        800: false,
+        900: false,
+      ),
+    ),
+  ),
+  "source-sans-pro": (
+    display-name: "Source Sans Pro Web",
+    cap-height: 340px,
+    stack: $font-stack-helvetica,
+    src: (
+      dir: "source-sans-pro",
+      roman: (
+        100: false,
+        200: "sourcesanspro-extralight-webfont",
+        300: "sourcesanspro-light-webfont",
+        400: "sourcesanspro-regular-webfont",
+        500: false,
+        600: "sourcesanspro-semibold-webfont",
+        700: "sourcesanspro-bold-webfont",
+        800: false,
+        900: "sourcesanspro-black-webfont",
+      ),
+      italic: (
+        100: false,
+        200: "sourcesanspro-extralightitalic-webfont",
+        300: "sourcesanspro-lightitalic-webfont",
+        400: "sourcesanspro-italic-webfont",
+        500: false,
+        600: "sourcesanspro-semibolditalic-webfont",
+        700: "sourcesanspro-bolditalic-webfont",
+        800: false,
+        900: "sourcesanspro-blackitalic-webfont",
+      ),
+    ),
+  ),
+  "public-sans": (
+    display-name: "Public Sans Web",
+    cap-height: 362px,
+    stack: $font-stack-system,
+    src: (
+      dir: "public-sans",
+      roman: (
+        100: "PublicSans-Thin",
+        200: "PublicSans-ExtraLight",
+        300: "PublicSans-Light",
+        400: "PublicSans-Regular",
+        500: "PublicSans-Medium",
+        600: "PublicSans-SemiBold",
+        700: "PublicSans-Bold",
+        800: "PublicSans-ExtraBold",
+        900: "PublicSans-Black",
+      ),
+      italic: (
+        100: "PublicSans-ThinItalic",
+        200: "PublicSans-ExtraLightItalic",
+        300: "PublicSans-LightItalic",
+        400: "PublicSans-Italic",
+        500: "PublicSans-MediumItalic",
+        600: "PublicSans-SemiBoldItalic",
+        700: "PublicSans-BoldItalic",
+        800: "PublicSans-ExtraBoldItalic",
+        900: "PublicSans-BlackItalic",
+      ),
+    ),
+  ),
+);
+
+$all-typeface-tokens: map.merge(
+  $system-typeface-tokens,
+  settings.$theme-typeface-tokens
+);

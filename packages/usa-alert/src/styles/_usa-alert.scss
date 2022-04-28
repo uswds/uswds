@@ -1,0 +1,90 @@
+@use "sass:math";
+
+@use "uswds-core" as *;
+
+// Alert variables ---------- //
+$alert-icons: (
+  success: "check_circle",
+  warning: "warning",
+  error: "error",
+  info: "info",
+  emergency: "error",
+);
+
+.usa-alert {
+  @include typeset($theme-alert-font-family);
+  @include border-box-sizing;
+  @include set-text-and-bg(
+    "base-lightest",
+    $theme-alert-text-color,
+    $theme-alert-text-reverse-color
+  );
+  @include u-padding-y($theme-alert-padding-y);
+  position: relative;
+
+  * + & {
+    margin-top: units(2);
+  }
+
+  border-left: units($theme-alert-bar-width) solid color("base-light");
+
+  > .usa-list,
+  .usa-alert__body > .usa-list {
+    padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.usa-alert__body {
+  @include u-padding-x($theme-alert-padding-x);
+}
+
+@each $name, $icon in $alert-icons {
+  .usa-alert--#{$name} {
+    @include alert-status-styles($name, $icon);
+
+    .usa-alert__body {
+      padding-left: units($theme-alert-icon-size) +
+        (2 * $alert-icon-optical-padding);
+    }
+  }
+}
+
+.usa-alert__heading {
+  @include typeset($theme-alert-font-family, "lg", 1);
+  margin-top: 0;
+  margin-bottom: units(1);
+}
+
+.usa-alert__text {
+  @include u-margin-y(0);
+
+  a {
+    @include typeset-link;
+  }
+}
+
+.usa-alert__text:only-child {
+  @include u-padding-y(0);
+}
+
+.usa-alert--slim {
+  @include u-padding-y(1);
+
+  .usa-alert__body {
+    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
+  }
+}
+
+.usa-alert--validation {
+  .usa-checklist {
+    margin-top: units(2);
+  }
+}
+
+.usa-alert--emergency {
+  border-left: none;
+}

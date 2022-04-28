@@ -1,0 +1,13 @@
+@use "uswds-core" as *;
+
+.usa-content {
+  p,
+  ul:not(.usa-accordion):not(.usa-accordion--bordered),
+  ol:not(.usa-accordion):not(.usa-accordion--bordered) {
+    max-width: measure($theme-text-measure);
+  }
+}
+
+%usa-heading {
+  @include typeset-heading;
+}

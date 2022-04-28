@@ -1,0 +1,43 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-gray-cool-lighter: (
+  "gray-cool-1": $color-gray-cool-1,
+  "gray-cool-2": $color-gray-cool-2,
+  "gray-cool-3": $color-gray-cool-3,
+  "gray-cool-4": $color-gray-cool-4,
+);
+
+$tokens-color-gray-cool-light: (
+  "gray-cool-5": $color-gray-cool-5,
+  "gray-cool-10": $color-gray-cool-10,
+  "gray-cool-20": $color-gray-cool-20,
+  "gray-cool-30": $color-gray-cool-30,
+);
+
+$tokens-color-gray-cool-medium: (
+  "gray-cool-40": $color-gray-cool-40,
+  "gray-cool-50": $color-gray-cool-50,
+  "gray-cool-60": $color-gray-cool-60,
+);
+
+$tokens-color-gray-cool-dark: (
+  "gray-cool-70": $color-gray-cool-70,
+  "gray-cool-80": $color-gray-cool-80,
+  "gray-cool-90": $color-gray-cool-90,
+);
+
+$tokens-color-gray-cool: map-collect(
+  $tokens-color-gray-cool-lighter,
+  $tokens-color-gray-cool-light,
+  $tokens-color-gray-cool-medium,
+  $tokens-color-gray-cool-dark
+);
+
+$palettes-color-gray-cool: (
+  "palette-color-system-gray-cool-lighter": $tokens-color-gray-cool-lighter,
+  "palette-color-system-gray-cool-light": $tokens-color-gray-cool-light,
+  "palette-color-system-gray-cool-medium": $tokens-color-gray-cool-medium,
+  "palette-color-system-gray-cool-dark": $tokens-color-gray-cool-dark,
+  "palette-color-system-gray-cool": $tokens-color-gray-cool,
+);

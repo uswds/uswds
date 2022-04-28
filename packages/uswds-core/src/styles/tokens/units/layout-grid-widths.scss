@@ -1,0 +1,16 @@
+@use "sass:math";
+
+$system-layout-grid-widths: (
+  1: 100% * math.div(1, 12),
+  2: 100% * math.div(2, 12),
+  3: 100% * math.div(3, 12),
+  4: 100% * math.div(4, 12),
+  5: 100% * math.div(5, 12),
+  6: 100% * math.div(6, 12),
+  7: 100% * math.div(7, 12),
+  8: 100% * math.div(8, 12),
+  9: 100% * math.div(9, 12),
+  10: 100% * math.div(10, 12),
+  11: 100% * math.div(11, 12),
+  12: 100% * math.div(12, 12),
+);

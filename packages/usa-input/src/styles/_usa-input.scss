@@ -1,0 +1,14 @@
+@use "uswds-core" as *;
+
+.usa-input {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+}
+
+.usa-input--error {
+  @include u-border($theme-input-state-border-width, "error-dark");
+}
+
+.usa-input--success {
+  @include u-border($theme-input-state-border-width, "success");
+}

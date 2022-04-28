@@ -1,0 +1,63 @@
+{
+  "modifier": "",
+  "domain": "domain.gov",
+  "lang": "en",
+  "masthead": {
+    "aria_label": "Agency identifier,,",
+    "description": "Agency description",
+    "content": "An official website of the",
+    "parent": {
+      "name": "<Parent agency>",
+      "shortname": "<Parent shortname>",
+      "url": "javascript:void(0)",
+      "logo": null
+    },
+    "agency": {
+      "name": null,
+      "shortname": null,
+      "url": null,
+      "logo": null
+    },
+    "taxpayer_disclaimer": {
+      "content": "Produced and published at taxpayer expense.",
+      "display": false
+    }
+  },
+  "required_links": {
+    "aria_label": "Important links,,",
+    "links": [
+      {
+        "label": "About",
+        "url": "javascript:void(0)",
+        "include_shortname": true
+      },
+      {
+        "label": "Accessibility support"
+      },
+      {
+        "label": "FOIA requests"
+      },
+      {
+        "label": "No FEAR Act data"
+      },
+      {
+        "label": "Office of the Inspector General"
+      },
+      {
+        "label": "Performance reports"
+      },
+      {
+        "label": "Privacy policy"
+      }
+    ]
+  },
+  "usagov": {
+    "aria_label": "U.S. government information and services,,",
+    "description": "Looking for U.S. government information and services?",
+    "link": {
+      "label": "Visit USA.gov",
+      "url": "https://www.usa.gov/"
+    },
+    "display": true
+  }
+}

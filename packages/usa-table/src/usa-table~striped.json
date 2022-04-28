@@ -1,0 +1,69 @@
+{
+  "scrollable": false,
+  "modifier": "usa-table--striped",
+  "caption": "Bordered table with horizontal stripes",
+  "thead": [
+    {
+      "title": "Document title",
+      "scope": "col"
+    },
+    {
+      "title": "Description",
+      "scope": "col"
+    },
+    {
+      "title": "Year",
+      "scope": "col"
+    }
+  ],
+  "tbody": [
+    [
+      {
+        "title": "Declaration of Independence",
+        "scope": "row"
+      },
+      {
+        "title": "Statement adopted by the Continental Congress declaring independence from the British Empire."
+      },
+      {
+        "title": "1776"
+      }
+    ],
+    [
+      {
+        "title": "Bill of Rights",
+        "scope": "row"
+      },
+      {
+        "title": "The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms."
+      },
+      {
+        "title": "1791"
+      }
+    ],
+    [
+      {
+        "title": "Declaration of Sentiments",
+        "scope": "row"
+      },
+      {
+        "title": "A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens."
+      },
+      {
+        "title": "1848"
+      }
+    ],
+    [
+      {
+        "title": "Emancipation Proclamation",
+        "scope": "row"
+      },
+      {
+        "title": "An executive order granting freedom to slaves in designated southern states."
+      },
+      {
+        "title": "1863"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "file-input-error",
+  "label": "Input has an error",
+  "hint": "Select any valid file",
+  "error": true,
+  "error_message": "Display a helpful error message",
+  "accept": "",
+  "multiple": "",
+  "disabled": false
+}

@@ -14,23 +14,22 @@ This Modified Version packaged as `dist/img/sprite.svg` contains both design ele
 
 ### Files licensed under the SIL Open Font License, Version 1.1
 
-The Source Sans Pro font files in `src/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
+The Source Sans Pro font files in `packages/uswds-core/src/assets/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
 
-The Merriweather font files in `src/fonts/merriweather` are the version 2.001 files from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
+The Merriweather font files in `packages/uswds-core/src/assets/fonts/merriweather` are the version 2.001 files from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
-The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
+The Public Sans font files in `packages/uswds-core/src/assets/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
 
-Icon files in `src/img` and `src/img/social-icons` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
 
 ### Files licensed under the Apache 2.0 License
 
-The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Roboto Mono font files in `packages/uswds-core/src/assets/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-The Google Material Icons in `src/img/usa-icons` and `src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Google Material Icons in `packages/usa-icon/src/img/usa-icons` and `packages/usa-icon/src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 
-The files in `src/stylesheets/lib` are from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+The files in `packages/uswds-elements/lib` are from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
 #### Full license text for the MIT licensed files:
 

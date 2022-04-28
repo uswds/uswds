@@ -1,0 +1,362 @@
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "button-unstyled" as *;
+@use "../helpers" as *;
+@use "../utilities" as *;
+@use "../typography/typeset" as *;
+
+$table-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-body-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-text-color,
+    $context: "Table text",
+  )
+);
+
+$table-header-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-header-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-header-text-color,
+    $context: "Table header text",
+  )
+);
+
+$table-stripe-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-stripe-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-stripe-text-color,
+    $context: "Table stripe text",
+  )
+);
+
+$table-sorted-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-text-color,
+    $context: "Table sorted text",
+  )
+);
+
+$table-sorted-header-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-header-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-header-text-color,
+    $context: "Table sorted header text",
+  )
+);
+
+$table-sorted-stripe-text-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-stripe-background-color,
+    $preferred-text-token: $theme-text-reverse-color,
+    $fallback-text-token: $theme-table-stripe-text-color,
+    $context: "Table sorted stripe text",
+  )
+);
+
+// Shared table styles
+@mixin table-header-unsorted-styles {
+  padding-right: units(5);
+  position: relative;
+  &::after {
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: units(1px);
+    bottom: 0;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+@mixin table-button-default-styles {
+  @include button-unstyled;
+  @include u-square(4);
+  background-position: center center;
+  background-size: units(3);
+  color: color($theme-table-unsorted-icon-color);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  position: absolute;
+  right: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+  // vertically center button within table header
+  top: 50%;
+  transform: translate(0, -50%);
+  .usa-icon {
+    @include u-square(3);
+    vertical-align: middle;
+    & > g {
+      fill: transparent;
+    }
+  }
+}
+
+// The SVG in the sortable column button contains three icon shapes.
+// This CSS controls which of the shapes is 'filled' when active.
+
+@mixin table-button-unsorted-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.unsorted {
+    fill: color($theme-table-unsorted-icon-color);
+  }
+  &:hover .usa-icon > g.unsorted {
+    fill: $table-sorted-header-text-color;
+  }
+}
+
+@mixin table-button-sorted-ascending-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.ascending {
+    fill: $table-sorted-header-text-color;
+  }
+}
+
+@mixin table-button-sorted-descending-styles {
+  @include table-button-default-styles;
+  .usa-icon > g.descending {
+    fill: $table-sorted-header-text-color;
+  }
+}
+
+@mixin table-stacked-styles {
+  thead {
+    display: none;
+  }
+
+  th,
+  td {
+    border-bottom-width: 0;
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: units(0.5) solid $table-text-color;
+    border-top-width: 0;
+    display: block;
+    width: 100%;
+    th:first-child,
+    td:first-child {
+      border-top-width: 0;
+    }
+    &:nth-child(odd) {
+      td,
+      th {
+        background-color: inherit;
+      }
+    }
+
+    &:first-child {
+      th:first-child,
+      td:first-child {
+        border-top: units(0.5) solid $table-text-color;
+      }
+    }
+  }
+
+  th[data-label],
+  td[data-label] {
+    padding-bottom: units(1.5);
+
+    &:before {
+      content: attr(data-label);
+      display: block;
+      font-weight: fw("bold");
+      margin: units(-1) units(-2) units(0);
+      padding: units(1.5) units(2) units(0.5);
+    }
+  }
+}
+
+@mixin table-stacked-header-styles {
+  tr {
+    td:first-child,
+    th:first-child {
+      @include typeset(
+        $theme-body-font-family,
+        $theme-h4-font-size,
+        $theme-heading-line-height
+      );
+      background-color: color($theme-table-header-background-color);
+      color: $table-header-text-color;
+      font-weight: fw("bold");
+      padding: units(1.5) units(2);
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin usa-table {
+  @include border-box-sizing;
+  @include typeset;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: $table-text-color;
+  margin: units(2.5) 0;
+  text-align: left;
+
+  thead {
+    th {
+      background-clip: padding-box;
+      color: $table-header-text-color;
+      font-weight: fw("bold");
+      line-height: line-height(
+        $theme-body-font-family,
+        $theme-input-line-height
+      );
+    }
+
+    th,
+    td {
+      background-color: color($theme-table-header-background-color);
+      color: $table-header-text-color;
+    }
+  }
+  tbody {
+    th {
+      text-align: left;
+    }
+  }
+  th,
+  td {
+    background-color: color($theme-body-background-color);
+    border: 1px solid $table-text-color;
+    font-weight: fw("normal");
+    padding: units(1) units(2);
+  }
+
+  caption {
+    @include u-font("body", "xs");
+    font-weight: fw("bold");
+    margin-bottom: units(1.5);
+    text-align: left;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  th[data-sortable] {
+    @include table-header-unsorted-styles;
+
+    &:not([aria-sort]),
+    &[aria-sort="none"] {
+      .usa-table__header__button {
+        @include table-button-unsorted-styles;
+      }
+    }
+
+    &[aria-sort="descending"],
+    &[aria-sort="ascending"] {
+      background-color: color($theme-table-sorted-header-background-color);
+    }
+
+    &[aria-sort="descending"] {
+      .usa-table__header__button {
+        @include table-button-sorted-descending-styles;
+      }
+    }
+
+    &[aria-sort="ascending"] {
+      .usa-table__header__button {
+        @include table-button-sorted-ascending-styles;
+      }
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+
+  thead {
+    th[aria-sort] {
+      background-color: color($theme-table-sorted-header-background-color);
+      color: $table-sorted-header-text-color;
+    }
+  }
+
+  td[data-sort-active],
+  th[data-sort-active] {
+    background-color: color($theme-table-sorted-background-color);
+    color: $table-sorted-text-color;
+  }
+}
+
+
+@mixin usa-table--borderless {
+  thead {
+    th {
+      background-color: transparent;
+      border-top: 0;
+      color: $table-text-color;
+
+      &[aria-sort] {
+        color: $table-sorted-header-text-color;
+      }
+    }
+    /* stylelint-disable selector-class-pattern */
+    th[data-sortable]:not([aria-sort]) {
+      .usa-table__header__button:hover .usa-icon > g.unsorted {
+        fill: $table-text-color;
+      }
+    }
+    /* stylelint-enable selector-class-pattern */
+  }
+
+  th,
+  td {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+@mixin usa-table--compact {
+  th,
+  td {
+    padding: units(0.5) units(1.5);
+  }
+}
+
+@mixin usa-table--striped {
+  tbody {
+    tr:nth-child(odd) {
+      td,
+      th {
+        background-color: color($theme-table-stripe-background-color);
+        color: $table-stripe-text-color;
+        &[data-sort-active] {
+          background-color: color($theme-table-sorted-stripe-background-color);
+          color: $table-sorted-stripe-text-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin usa-table--stacked {
+  @include table-stacked-styles;
+}
+
+@mixin usa-table--stacked-header {
+  @include table-stacked-styles;
+  @include table-stacked-header-styles;
+}
+
+@mixin usa-table-container--scrollable {
+  margin: units(2.5) 0;
+  overflow-y: hidden;
+
+  .usa-table {
+    margin: 0;
+  }
+
+  td {
+    white-space: nowrap;
+  }
+}
