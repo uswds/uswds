@@ -1,0 +1,10 @@
+@use "../../mixins/helpers" as *;
+@use "../../mixins/utilities" as *;
+@use "../../settings" as *;
+
+@mixin add-responsive-site-margins {
+  @include u-padding-x($theme-site-margins-mobile-width);
+  @include at-media($theme-site-margins-breakpoint) {
+    @include u-padding-x($theme-site-margins-width);
+  }
+}

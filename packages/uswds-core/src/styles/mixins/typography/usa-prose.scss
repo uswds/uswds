@@ -1,0 +1,62 @@
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "../general/focus-outline" as *;
+@use "../utilities" as *;
+@use "./headings" as *;
+@use "./typeset" as *;
+
+@mixin usa-prose-link {
+  color: color($theme-link-color);
+  text-decoration: underline;
+
+  &:hover {
+    color: color($theme-link-hover-color);
+  }
+
+  &:active {
+    color: color($theme-link-active-color);
+  }
+
+  &:focus {
+    @include focus-outline;
+  }
+
+  &:visited {
+    color: color($theme-link-visited-color);
+  }
+}
+
+@mixin usa-prose-display {
+  @include usa-prose-heading;
+  @include display;
+}
+
+@mixin usa-prose-h1 {
+  @include usa-prose-heading;
+  @include h1;
+}
+
+@mixin usa-prose-h2 {
+  @include usa-prose-heading;
+  @include h2;
+}
+
+@mixin usa-prose-h3 {
+  @include usa-prose-heading;
+  @include h3;
+}
+
+@mixin usa-prose-h4 {
+  @include usa-prose-heading;
+  @include h4;
+}
+
+@mixin usa-prose-h5 {
+  @include usa-prose-heading;
+  @include h5;
+}
+
+@mixin usa-prose-h6 {
+  @include usa-prose-heading;
+  @include h6;
+}

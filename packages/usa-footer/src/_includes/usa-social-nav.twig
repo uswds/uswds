@@ -1,0 +1,12 @@
+{% set social_nav = footer.secondary_section.social_nav %}
+
+<div class="usa-footer__social-links grid-row grid-gap-1">
+  {% for item in social_nav %}
+    <div class="grid-col-auto">
+      {% set icon = (item == "RSS" ? "rss_feed" : item) %}
+      <a class="usa-social-link" href="javascript:void(0);">
+        <img class="usa-social-link__icon" src="./img/usa-icons/{{ icon | lower }}.svg" alt="{{ item }}" />
+      </a>
+    </div>
+  {% endfor %}
+</div>

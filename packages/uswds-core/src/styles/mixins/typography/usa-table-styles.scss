@@ -1,0 +1,39 @@
+@use "../general/table" as *;
+@use "../helpers/at-media" as *;
+
+@mixin usa-table-styles {
+  table {
+    @include usa-table;
+  }
+  .usa-table--borderless {
+    @include usa-table--borderless;
+  }
+  .usa-table--compact {
+    @include usa-table--compact;
+  }
+  .usa-table--striped {
+    @include usa-table--striped;
+  }
+  .usa-table--stacked {
+    @include at-media-max("mobile-lg") {
+      @include table-stacked-styles;
+    }
+  }
+  .usa-table--stacked-header {
+    @include at-media-max("mobile-lg") {
+      @include table-stacked-styles;
+      @include table-stacked-header-styles;
+    }
+  }
+  .width-mobile {
+    .usa-table--stacked {
+      @include usa-table--stacked;
+    }
+    .usa-table--stacked-header {
+      @include usa-table--stacked-header;
+    }
+  }
+  .usa-table-container--scrollable {
+    @include usa-table-container--scrollable;
+  }
+}

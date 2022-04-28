@@ -1,0 +1,27 @@
+{
+  "size": "lg",
+  "items": [
+    {
+      "icon": {
+        "name": "help",
+        "color": "blue"
+      },
+      "content": "<span class=\"text-bold\">Timing.</span> Is now the right time to start a business?"
+    },
+    {
+      "icon": {
+        "name": "help",
+        "color": "blue"
+      },
+      "content": "<span class=\"text-bold\">Funding.</span> Do I have enough money to launch a business?"
+    },
+    {
+      "icon": {
+        "name": "help",
+        "color": "blue"
+      },
+      "content": "<span class=\"text-bold\">Need.</span> Will this business fill a real need for my customers?"
+    }
+  ],
+  "img_path": "./img"
+}

@@ -1,0 +1,5 @@
+@use "uswds-core/src/styles/mixins/general/screen-reader" as *;
+
+.usa-sr-only {
+  @include sr-only;
+}

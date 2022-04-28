@@ -1,0 +1,7 @@
+{% import "./_primary-menu-macro.twig" as menus %}
+
+<button class="usa-nav__close">
+  <img src="{{ img_path }}/usa-icons/close.svg" role="img" alt="{{ nav.close.label }}">
+</button>
+
+{{ menus.menu_links(nav.items, 0, megamenu) }}

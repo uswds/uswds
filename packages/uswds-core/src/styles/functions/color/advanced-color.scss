@@ -1,0 +1,103 @@
+/*
+----------------------------------------
+advanced-color()
+----------------------------------------
+Derive a color from a color triplet:
+[family], [grade], [variant]
+----------------------------------------
+*/
+
+// color() can have a 1, 2, or 3 arguments passed to it:
+//
+// [family]
+// ex: color('primary')
+//     - the default in a theme palette family
+//
+// [family], [grade]
+// ex: color('red', 50)
+//     - a standard system color
+// ex: color('accent-warm', 'light')
+//     - a standard theme color
+// ex: color('primary', 'vivid')
+//     - in theme colors, 'vivid' is considered a grade
+//
+// [family], [grade], [vivid]
+// ex: color('red', 50, 'vivid')
+//     - a vivid system color
+//     - only system colors required three arguments
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:map";
+@use "../general";
+@use "get-system-color" as *;
+
+@function advanced-color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false
+) {
+  // Convert any arglists into lists
+  $color-family: if(
+    meta.type-of($color-family) == "arglist",
+    general.unpack($color-family),
+    $color-family
+  );
+
+  // If $color-family is a list, color() had a variable
+  // passed to it, and args need to be re-set with the
+  // values from the $color-family list:
+  @if meta.type-of($color-family) == "list" {
+    @if list.length($color-family) > 2 {
+      $color-variant: list.nth($color-family, 3);
+    }
+    $color-grade: list.nth($color-family, 2);
+    $color-family: list.nth($color-family, 1);
+  }
+
+  // Set initial state of vars
+  $color-family: general.smart-quote($color-family);
+  $color-grade: general.smart-quote($color-grade);
+  $color-variant: general.smart-quote($color-variant);
+
+  // @debug '#{$color-family}: #{meta.type-of($color-family)}, #{$color-grade}: #{meta.type-of($color-grade)}, #{$color-variant}: #{meta.type-of($color-variant)}' ;
+
+  // If there are no args, throw an error
+  @if not $color-family {
+    @error 'Include a color in the form [family], [grade], [vivid]';
+  }
+
+  // If the grade is a number, it's a system color
+  // ex: ('red', 50)
+  @if meta.type-of($color-grade) == "number" {
+    @return get-system-color($color-family, $color-grade, $color-variant);
+  }
+
+  // non-number grades are associated with non-default theme colors
+  // ex: ('base', 'darker')
+  // default theme colors have no grade
+  // ex: ('base')
+  @if map.has-key($all-project-colors, $color-family) {
+    @if not
+      map.has-key(map.get($all-project-colors, $color-family), $color-grade)
+    {
+      @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
+        + 'Valid grades: '
+        + '#{map.keys(map.get($all-project-colors, $color-family))}';
+    }
+  } @else {
+    @return general.error-not-token(
+      $color-family,
+      "theme family",
+      $all-project-colors
+    );
+  }
+  @return general.map-deep-get(
+    $all-project-colors,
+    $color-family,
+    $color-grade
+  );
+}
+
+// @debug advanced-color("red", 50, "vivid");
+// @return #e52207;

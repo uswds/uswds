@@ -1,0 +1,79 @@
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../../settings" as *;
+@use "../../functions/general";
+@use "../../tokens/color/shortcodes-color-all" as *;
+
+@function color($value, $flags...) {
+  $value: general.unpack($value);
+
+  // Non-token colors may be passed with specific flags
+  @if meta.type-of($value) == color {
+    // override or set-theme will allow any color
+    @if list.index($flags, override) or list.index($flags, set-theme) {
+      // override + no-warn will skip warnings
+      @if list.index($flags, no-warn) {
+        @return $value;
+      }
+
+      @if $theme-show-compile-warnings {
+        @warn 'Override: `#{$value}` is not a USWDS color token.';
+      }
+
+      @return $value;
+    }
+  }
+
+  // False values may be passed through when setting theme colors
+  @if $value == false {
+    @if list.index($flags, set-theme) {
+      @return $value;
+    }
+  }
+
+  // Now, any value should be evaluated as a token
+
+  $value: general.smart-quote($value);
+
+  @if map.has-key($all-color-shortcodes, $value) {
+    $our-color: map.get($all-color-shortcodes, $value);
+    @if $our-color == false {
+      @error '`#{$value}` is a color that does not exist '
+        + 'or is set to false.';
+    }
+    @return $our-color;
+  }
+
+  // If we're using the theme flag, $project-color-shortcodes has not yet been set
+  @if not list.index($flags, set-theme) {
+    @if map.has-key($project-color-shortcodes, $value) {
+      $our-color: (map.get($project-color-shortcodes, $value));
+      @if $our-color == false {
+        @error '`#{$value}` is a color that does not exist '
+          + 'or is set to false.';
+      }
+      @return $our-color;
+    }
+  }
+
+  @return general.error-not-token($value, "color");
+}
+
+// @debug color("orange-80v");
+// @return #352313;
+// @debug color("primary-dark");
+// @return #1a4480;
+// @debug color("primary-lightest");
+// @return error: set to false;
+// @debug color(#f00);
+// @return error: not a valid token;

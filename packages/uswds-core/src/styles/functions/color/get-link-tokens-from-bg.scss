@@ -1,0 +1,132 @@
+/*
+----------------------------------------
+get-link-tokens-from-bg()
+----------------------------------------
+Get accessible link colors for a given
+background color
+returns: link-token, hover-token
+get-link-tokens-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10", "red-5"
+get-link-tokens-from-bg(
+  "black",
+  "red-60v",
+  "red-10v",
+  "AA-large")
+> "red-60v", "red-50v"
+get-link-tokens-from-bg(
+  "black",
+  "red-5v",
+  "red-60v",
+  "AA")
+> "red-5v", "white"
+get-link-tokens-from-bg(
+  "black",
+  "white",
+  "red-60v",
+  "AA")
+> "white", "white"
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+@use "../../settings" as *;
+@use "../../tokens/color" as *;
+@use "../general/get-default" as *;
+@use "../general/str-split" as *;
+@use "../general/remove" as *;
+@use "get-color-token-from-bg" as *;
+@use "calculate-grade" as *;
+@use "decompose-color-token" as *;
+@use "is-accessible-magic-number" as *;
+@use "next-token" as *;
+
+@function get-link-tokens-from-bg(
+  $bg-color: "default",
+  $preferred-link-token: "default",
+  $fallback-link-token: "default",
+  $wcag-target: "AA",
+  $context: false
+) {
+  $context-text: if($context, "[#{$context}] ", "");
+  $is-default: false;
+  $is-default-preferred: false;
+  $is-default-fallback: false;
+  $default-reverse: false;
+  $default-standard: false;
+  @if $bg-color == "default" {
+    $bg-color: get-default("bg-color");
+  }
+  @if $preferred-link-token == "default" {
+    $preferred-link-token: get-default("preferred-link-token");
+    $default-reverse: true;
+  }
+  @if $fallback-link-token == "default" {
+    $fallback-link-token: get-default("fallback-link-token");
+    $standard-reverse: true;
+  }
+  $bg-grade: calculate-grade($bg-color);
+  $preferred-hover-token: false;
+  $default-hover-token: false;
+  $accessible-hover-token: false;
+  $accessible-link-token: get-color-token-from-bg(
+    $bg-color,
+    $preferred-link-token,
+    $fallback-link-token,
+    $wcag-target,
+    $context,
+    $for: "link"
+  );
+  $accessible-link-grade: calculate-grade($accessible-link-token);
+  // Get the hover color token
+  // If link is lighter than bg set $is-reverse to true
+  $is-reverse: if($accessible-link-grade < $bg-grade, true, false);
+  // If using defaults, set the default hover
+  // $link-kind is used for error messaging
+  $link-kind: false;
+  @if $is-reverse {
+    @if $default-reverse {
+      $default-hover-token: $theme-link-reverse-hover-color;
+      $link-kind: "default reverse";
+    }
+  } @else if $default-standard {
+    $default-hover-token: $theme-link-hover-color;
+    $link-kind: "default";
+  }
+  @if $default-hover-token {
+    $default-hover-grade: calculate-grade($default-hover-token);
+    @if is-accessible-magic-number(
+      $default-hover-grade,
+      $bg-grade,
+      $wcag-target
+    )
+    {
+      $accessible-hover-token: $default-hover-token;
+    }
+    @if not $accessible-hover-token and $theme-show-compile-warnings {
+      @warn "#{$context-text}The #{$link-kind} link hover (`#{$default-hover-token}`) does not have #{$wcag-target} contrast on a #{$bg-color} background. Please update your project settings.";
+    }
+  }
+  @if not $accessible-hover-token {
+    $direction: if($is-reverse, "lighter", "darker");
+    $hover-token: next-token($accessible-link-token, $direction);
+    // Use the next token, if it is valid
+    @if $hover-token {
+      $accessible-hover-token: $hover-token;
+      // Otherwise use the token itself as hover, and warn.
+    } @else {
+      $accessible-hover-token: $accessible-link-token;
+      @if $theme-show-compile-warnings {
+        @warn "#{$context-text}A `#{$accessible-hover-token}` link does not have #{$direction} hover available. Hover set to link color.";
+      }
+    }
+  }
+  @return $accessible-link-token, $accessible-hover-token;
+}

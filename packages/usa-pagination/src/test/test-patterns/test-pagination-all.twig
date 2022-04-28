@@ -1,0 +1,394 @@
+<section class="usa-section grid-container">
+  <h1>Bounded sets</h1>
+
+  <h2>Single</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination single page test',
+      'pagination': {
+        'items': 1,
+        'current': 1,
+        'page_label': 'Page',
+        'unbounded': false,
+      }
+    }
+  %}
+
+  <hr>
+
+  <h2>4 total</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination four items test',
+      'pagination': {
+        'items': 4,
+        'current': 1,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <hr>
+
+  <h2>1 of 7</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination one of seven test',
+      'pagination': {
+        'items': 7,
+        'current': 1,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>5 of 7</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination five of seven test',
+      'pagination': {
+        'items': 7,
+        'current': 5,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>1 of 8</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination one of eight test',
+      'pagination': {
+        'items': 8,
+        'current': 1,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>2 of 8</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination two of eight test',
+      'pagination': {
+        'items': 8,
+        'current': 2,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>4 of 8</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination four of eight test',
+      'pagination': {
+        'items': 8,
+        'current': 4,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>5 of 8</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination five of eight test',
+      'pagination': {
+        'items': 8,
+        'current': 5,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>6 of 8</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination six of eight test',
+      'pagination': {
+        'items': 8,
+        'current': 6,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <hr>
+
+  <h2>1 of 9</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination one of nine test',
+      'pagination': {
+        'items': 9,
+        'current': 1,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>2 of 9</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination two of nine test',
+      'pagination': {
+        'items': 9,
+        'current': 2,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>4 of 9</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination four of nine test',
+      'pagination': {
+        'items': 9,
+        'current': 4,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>5 of 9</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination five of nine test',
+      'pagination': {
+        'items': 9,
+        'current': 5,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+
+  <h2>6 of 9</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination six of nine test',
+      'pagination': {
+        'items': 9,
+        'current': 6,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page',
+        }
+      }
+    }
+  %}
+</section>
+
+<section class="usa-section grid-container">
+  <h1>Unbounded sets</h1>
+
+  <h2>1</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination one of seven test',
+      'pagination': {
+        'unbounded': true,
+        'items': 7,
+        'current': 1,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+      }
+    }
+  %}
+
+  <h2>2</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination two of nine test',
+      'pagination': {
+        'unbounded': true,
+        'items': 9,
+        'current': 2,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+      }
+    }
+  %}
+
+  <h2>4</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination four of nine test',
+      'pagination': {
+        'unbounded': true,
+        'items': 9,
+        'current': 4,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+      }
+    }
+  %}
+
+  <h2>5</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination five of nine test',
+      'pagination': {
+        'unbounded': true,
+        'items': 9,
+        'current': 5,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+      }
+    }
+  %}
+
+  <h2>6</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination six of nine test',
+      'pagination': {
+        'unbounded': true,
+        'items': 9,
+        'current': 6,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+      }
+    }
+  %}
+</section>

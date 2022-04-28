@@ -1,0 +1,17 @@
+@use "../../functions" as *;
+@use "../../settings" as *;
+
+// Focus state mixin
+@mixin focus-outline(
+  $width: $theme-focus-width,
+  $style: $theme-focus-style,
+  $color: $theme-focus-color,
+  $offset: $theme-focus-offset
+) {
+  $width: if($width == null, $theme-focus-width, $width);
+  $style: if($style == null, $theme-focus-style, $style);
+  $color: if($color == null, $theme-focus-color, $color);
+  $offset: if($offset == null, $theme-focus-offset, $offset);
+  outline: units($width) $style color($color);
+  outline-offset: units($offset);
+}

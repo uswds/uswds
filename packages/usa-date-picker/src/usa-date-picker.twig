@@ -1,0 +1,20 @@
+<div class="usa-form-group">
+  <label class="usa-label" id="appointment-date-label" for="appointment-date">Appointment date</label>
+  <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+  <div class="usa-date-picker"
+    {% if defaultDate %} data-default-date="{{ defaultDate }}"{% endif %}
+    {% if defaultValue %} data-default-value="{{ defaultValue }}"{% endif %}
+    {% if rangeDate %} data-range-date="{{ rangeDate }}"{% endif %}
+    {% if minDate %} data-min-date="{{ minDate }}"{% endif %}
+    {% if maxDate %} data-max-date="{{ maxDate }}"{% endif %}
+  >
+    <input
+      class="usa-input"
+      id="appointment-date"
+      name="appointment-date"
+      type="text"
+      aria-labelledby="appointment-date-label"
+      aria-describedby="appointment-date-hint"
+      {% if disabled %} disabled{% endif %}>
+  </div>
+</div>

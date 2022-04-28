@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs max-width
+
+@mixin u-maxw($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  max-width: get-uswds-value("max-width", $value...) #{$important};
+}

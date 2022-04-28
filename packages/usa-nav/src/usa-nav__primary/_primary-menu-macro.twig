@@ -1,0 +1,65 @@
+{% macro menu_links(items, menu_level, megamenu, button_id) %}
+  {% import _self as menus %}
+
+  {# 1st level #}
+  {% if menu_level == 0 %}
+    <ul class="usa-nav__primary usa-accordion">
+  {# 2nd level subnavs that aren't megamenu #}
+  {% elseif menu_level > 0 and not megamenu %}
+    <ul id="{{ button_id }}" class="usa-nav__submenu">
+  {% else %}
+    <ul class="usa-nav__submenu-list">
+  {% endif %}
+
+  {% for item in items %}
+    {% if menu_level > 0 %}
+      {% set list_classes = 'usa-nav__submenu-item' %}
+    {% else %}
+      {% set list_classes = 'usa-nav__primary-item' %}
+    {% endif %}
+
+    <li class="{{ list_classes }}">
+      {% if menu_level == 0 and item.subnav %}
+
+        {# @TODO - Use button component #}
+        {% set btn_attrs = {
+          class: 'usa-accordion__button usa-nav__link' ~ ((item.current) ? ' usa-current'),
+          aria_expanded: 'false',
+          aria_controls: item.id
+        } %}
+        <button
+          class="{{ btn_attrs.class }}"
+          aria-expanded="{{ btn_attrs.aria_expanded }}"
+          aria-controls="{{ btn_attrs.aria_controls }}"
+        >
+          <span>{{ item.label|e }}</span>
+        </button>
+        {% if megamenu %}
+          <div id="{{ item.id }}" class="usa-nav__submenu usa-megamenu">
+            <div class="grid-row grid-gap-4">
+              {% for column in item.subnav|batch(3) %}
+                <div class="usa-col">
+                  {{ menus.menu_links(column, menu_level + 1, megamenu, item.id) }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          {{ menus.menu_links(item.subnav, menu_level + 1, megamenu, item.id) }}
+        {% endif %}
+      {% else %}
+        <a
+          href="{{ item.href }}"
+          {% if menu_level == 0 %} class="usa-nav-link" {% endif %}
+        >
+          {% if megamenu %}
+            {{ item.label|e }}
+          {% else %}
+            <span>{{ item.label|e }}</span>
+          {% endif %}
+        </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% endmacro %}

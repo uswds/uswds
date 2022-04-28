@@ -1,0 +1,41 @@
+{% if scrollable %}
+  <div class="usa-table-container--scrollable" tabindex="0">
+{% endif %}
+
+<table class="usa-table {{ modifier }}">
+  {% if caption %}
+    <caption>{{ caption }}</caption>
+  {% endif %}
+
+  {% if scrollable %}
+    <col>
+    <colgroup span="2"></colgroup>
+    <colgroup span="2"></colgroup>
+  {% endif %}
+
+  <thead>
+    <tr>
+      {% for th in thead %}
+        <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in tbody %}
+      <tr>
+        {% for cell in row %}
+          {% if not cell.scope %}
+            <td>{{ cell.title }}</td>
+          {% else %}
+            <th scope="{{ cell.scope }}">{{ cell.title }}</th>
+          {% endif %}
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if scrollable %}
+  </div>
+  <p>* in billions of dollars. Data for illustration purposes only.</p>
+{% endif %}

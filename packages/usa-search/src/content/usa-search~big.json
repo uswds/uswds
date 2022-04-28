@@ -1,0 +1,8 @@
+{
+  "section_label": "Big search component",
+  "modifier": "usa-search--big",
+  "search_js": false,
+  "id": "search-field-en-big",
+  "search_label": "Search",
+  "button_text": "Search"
+}

@@ -1,0 +1,92 @@
+@use "sass:map";
+@use "../functions/general";
+@use "../tokens/units";
+
+$project-spacing-standard: general.map-collect(
+  map.get(units.$system-spacing, "smaller"),
+  map.get(units.$system-spacing, "small"),
+  map.get(units.$system-spacing, "smaller-negative"),
+  map.get(units.$system-spacing, "small-negative"),
+  map.get(units.$system-spacing, "medium"),
+  map.get(units.$system-spacing, "medium-negative"),
+  map.get(units.$system-spacing, "large"),
+  map.get(units.$system-spacing, "larger"),
+  map.get(units.$system-spacing, "largest"),
+  map.get(units.$system-spacing, "special")
+);
+
+$project-spacing-named: general.map-collect(
+  map.get(units.$system-spacing, "large"),
+  map.get(units.$system-spacing, "larger"),
+  map.get(units.$system-spacing, "largest")
+);
+
+$spacing-to-token: (
+  "0": 0,
+  "1": "1px",
+  "2": "2px",
+  "4": "05",
+  "8": 1,
+  "12": "105",
+  "16": 2,
+  "20": "205",
+  "24": 3,
+  "32": 4,
+  "40": 5,
+  "48": 6,
+  "56": 7,
+  "64": 8,
+  "72": 9,
+);
+
+$spacing-to-value: (
+  0: 0,
+  "2px": 2,
+  "05": 4,
+  1: 8,
+  "105": 12,
+  2: 16,
+  3: 24,
+  4: 32,
+  5: 40,
+  6: 48,
+  7: 56,
+  8: 64,
+  9: 72,
+);
+
+$number-to-value: (
+  "1px": "1px",
+  "2px": "2px",
+  "0": 0,
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "15": 15,
+  "0.5": "05",
+  ".5": "05",
+  "1.5": "105",
+  "2.5": "205",
+  "-1px": "neg-1px",
+  "-2px": "neg-2px",
+  "-0.5": "neg-05",
+  "-.5": "neg-05",
+  "-1": "neg-1",
+  "-1.5": "neg-105",
+  "-2": "neg-2",
+  "-2.5": "neg-205",
+  "-3": "neg-3",
+  "-4": "neg-4",
+  "-5": "neg-5",
+  "-6": "neg-6",
+  "-7": "neg-7",
+  "-8": "neg-8",
+  "-9": "neg-9",
+);

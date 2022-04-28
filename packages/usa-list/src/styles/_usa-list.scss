@@ -1,0 +1,16 @@
+@use "uswds-core" as *;
+
+.usa-list {
+  @include usa-list;
+
+  li {
+    @include usa-list-item;
+  }
+}
+
+// Unstyled lists
+@include override-prose {
+  .usa-list--unstyled {
+    @include unstyled-list;
+  }
+}

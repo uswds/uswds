@@ -1,0 +1,14 @@
+@use "uswds-core" as *;
+
+@include override-prose {
+  .usa-input-list {
+    @include add-list-reset;
+
+    li {
+      line-height: line-height(
+        $theme-form-font-family,
+        $theme-input-line-height
+      );
+    }
+  }
+}

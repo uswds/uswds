@@ -1,0 +1,78 @@
+/*
+----------------------------------------
+get-system-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid or a passed
+variable that is, itself, a list
+----------------------------------------
+*/
+
+@use "sass:meta";
+@use "sass:list";
+
+@use "../../functions/general";
+@use "../../tokens/color/system-colors" as color;
+
+@function get-system-color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false
+) {
+  // If the arg being passed to the fn
+  // is a variable defined as a list,
+  // $color-family will contain this
+  // entire list, and needs to be
+  // unpacked.
+  // ex:
+  //    in settings:
+  //      $theme-color-primary.'dark': 'blue', 70
+  //    in the theme colors map:
+  //      $color-primary-dark: get-system-color($theme-color-primary.'dark'),
+
+  @if meta.type-of($color-family) == "list" {
+    @if list.length($color-family) > 2 {
+      $color-variant: list.nth($color-family, 3);
+    }
+    $color-grade: list.nth($color-family, 2);
+    $color-family: list.nth($color-family, 1);
+  }
+
+  $color-family: general.smart-quote($color-family);
+  $color-variant: general.smart-quote($color-variant);
+
+  // If the arg being passed to the fn
+  // is false, it should output as `false`
+  // to preserve a false value in the
+  // target map
+  // ex:
+  //    in settings:
+  //      $theme-color-primary.'darkest': false;
+  //    in the theme colors map:
+  //      'darkest': get-system-color($theme-color-primary.'darkest'),
+  //      'darkest': false, // is the desired outcome
+  // TODO: should a false-pass color function be a separate fn?
+
+  @if not $color-family {
+    @return false;
+  }
+
+  @if $color-variant {
+    $output: general.map-deep-get(
+      color.$system-colors,
+      $color-family,
+      $color-variant,
+      $color-grade
+    );
+
+    @return $output;
+  }
+
+  $output: general.map-deep-get(
+    color.$system-colors,
+    $color-family,
+    $color-grade
+  );
+
+  @return $output;
+}

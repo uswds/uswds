@@ -1,0 +1,139 @@
+@use "uswds-core" as *;
+
+// Map for high contrast search icon
+$search-icon: (
+  "name": "search",
+  "color": ButtonText,
+  "svg-height": 20,
+  "svg-width": 20,
+  "height": units(3),
+);
+
+
+.usa-search {
+  @include border-box-sizing;
+  @include clearfix;
+  @include typeset($theme-search-font-family);
+  position: relative;
+
+  // if role is in the <form> element (>=2.6.0)...
+  &[role="search"],
+  // if there is a (=2.5.[0,1])...
+  &[role="search"]>div,
+  // ...or if the component has a separate <div[role="search"]> (<=2.4.0)
+  [role="search"] {
+    display: flex;
+  }
+
+  [type="submit"] {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    height: units(4);
+    margin: 0;
+    padding: 0;
+    width: units($theme-button-small-width);
+
+    @include at-media("mobile-lg") {
+      @include u-padding-x(2);
+      width: auto;
+    }
+
+    @media (forced-colors: active) {
+      border: 2px solid transparent;
+      @include place-icon($search-icon, "before");
+
+      &::before {
+        @include at-media("mobile-lg") {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &__submit-icon {
+    @include at-media("mobile-lg") {
+      display: none;
+    }
+
+    @media (forced-colors: active) {
+      display: none;
+    }
+  }
+}
+
+.usa-search--big {
+  $height: units(6);
+
+  [type="search"],
+  .usa-search__input {
+    @include at-media("mobile-lg") {
+      font-size: font-size($theme-search-font-family, "sm");
+      height: $height;
+    }
+  }
+
+  [type="submit"],
+  .usa-search__submit {
+    @include at-media("mobile-lg") {
+      @include u-padding-x(4);
+      font-size: font-size($theme-search-font-family, "lg");
+      height: $height;
+      width: auto;
+    }
+  }
+}
+
+.usa-search--small {
+  [type="submit"],
+  .usa-search__submit {
+    @include u-padding-x(1.5);
+    min-width: units($theme-button-small-width);
+  }
+
+  [type="submit"] {
+    @media (forced-colors: active) {
+      &::before {
+        @include at-media("mobile-lg") {
+          content: "";
+        }
+      }
+    }
+  }
+
+  .usa-search__submit-icon {
+    @include u-square(3);
+    display: block;
+
+    @media (forced-colors: active) {
+      display: none;
+    }
+  }
+}
+
+// Extra specificity to override rules set in normalize.css.
+input[type="search"] {
+  /* stylelint-disable-line selector-no-qualifying-type */
+  box-sizing: border-box;
+  appearance: none;
+}
+
+[type="search"],
+.usa-search__input {
+  @include u-padding-y(0);
+  border-bottom-right-radius: 0;
+  border-right: none;
+  border-top-right-radius: 0;
+  box-sizing: border-box;
+  float: left;
+  font-size: font-size($theme-search-font-family, "xs");
+  height: units(4);
+  margin: 0;
+}
+
+.usa-search__submit-text {
+  display: none;
+
+  @include at-media("mobile-lg") {
+    display: block;
+  }
+}

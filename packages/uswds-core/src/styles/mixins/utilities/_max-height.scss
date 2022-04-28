@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs max-height
+
+@mixin u-maxh($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  max-height: get-uswds-value("max-height", $value...) #{$important};
+}

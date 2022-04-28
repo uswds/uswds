@@ -1,0 +1,21 @@
+{% if 'usa-button--outline usa-button--inverse' in modifier %}
+  <div class="bg-base-darkest padding-1" style="max-width: fit-content">
+{% endif %}
+
+{% if is_demo and 'usa-button--big' not in modifier %}
+  <button class="usa-button {{ modifier }}">Default</button>
+  <button class="usa-button {{ modifier }} usa-button--hover">Hover</button>
+  <button class="usa-button {{ modifier }} usa-button--active">Active</button>
+  <button class="usa-button {{ modifier }} usa-focus">Focus</button>
+  <button class="usa-button {{ modifier }}" disabled>Disabled</button>
+  <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+{% else %}
+  <button class="usa-button {{ modifier }}" {% if disabled %} disabled {% endif %}>{{ text }}</button>
+  {% if is_demo and 'usa-button--big' in modifier %}
+    <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+  {% endif %}
+{% endif %}
+
+{% if 'usa-button--outline usa-button--inverse' in modifier %}
+  </div>
+{% endif %}

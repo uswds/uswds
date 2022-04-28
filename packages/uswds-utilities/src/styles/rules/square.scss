@@ -1,0 +1,37 @@
+/*
+========================================
+SQUARE
+----------------------------------------
+usage:
+  .square-[key]
+----------------------------------------
+output:
+  height: [value];
+  width: [value];
+----------------------------------------
+example:
+  .square-g6 {
+    height: 3rem;
+    width: 3rem; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-square: (
+  square: (
+    base: null,
+    modifiers: (
+      square: (
+        height,
+        width,
+      ),
+    ),
+    values: map-collect(get-palettes($square-palettes), $square-manual-values),
+    settings: $square-settings,
+    property: "",
+    type: "utility",
+  ),
+);

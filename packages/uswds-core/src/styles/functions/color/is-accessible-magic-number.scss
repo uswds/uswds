@@ -1,0 +1,25 @@
+/*
+----------------------------------------
+is-accessible-magic-number()
+----------------------------------------
+Returns whether two grades achieve
+specified target color contrast
+Returns: true | false
+is-accessible-magic-number(10, 50, "AA")
+> false
+is-accessible-magic-number(10, 60, "AA")
+> true
+----------------------------------------
+*/
+
+@use "magic-number" as *;
+@use "wcag-magic-number" as *;
+
+@function is-accessible-magic-number($grade-1, $grade-2, $wcag-target) {
+  $target-magic-number: wcag-magic-number($wcag-target);
+  $magic-number: magic-number($grade-1, $grade-2);
+  @if $magic-number >= $target-magic-number {
+    @return true;
+  }
+  @return false;
+}

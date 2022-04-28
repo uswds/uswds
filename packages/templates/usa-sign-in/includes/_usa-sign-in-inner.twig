@@ -1,0 +1,23 @@
+<main id="main-content">
+  <div class="bg-base-lightest">
+    <section class="grid-container usa-section">
+      <div class="grid-row flex-justify-center">
+        <div class="grid-col-12 tablet:grid-col-8 desktop:grid-col-6">
+          <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
+            <h1 class="margin-bottom-0">
+              {{ title }}
+            </h1>
+            {% include '@templates/usa-sign-in/usa-sign-in-form/usa-sign-in-form.twig' %}
+          </div>
+          <p class="text-center">
+            {{ create_account.label }}
+            <a class="usa-link" href="javascript:void(0);">
+              {{- create_account.cta.label -}}
+            </a>.
+          </p>
+          {% include '@templates/usa-sign-in/includes/_max.twig' %}
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

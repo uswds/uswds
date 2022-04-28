@@ -1,0 +1,37 @@
+/*
+----------------------------------------
+unpack()
+----------------------------------------
+Create lists of single items from lists
+of lists.
+----------------------------------------
+(1, (2.1, 2.2), 3) -->
+(1, 2.1, 2.2, 3)
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:meta";
+@use "de-list" as *;
+
+@function unpack($value) {
+  $output: ();
+
+  @if list.length($value) == 0 {
+    @return $value;
+  }
+
+  @each $i in $value {
+    @if meta.type-of($i) == "list" {
+      @each $ii in $i {
+        $output: list.append($output, $ii, comma);
+      }
+    } @else {
+      $output: list.append($output, $i, comma);
+    }
+  }
+
+  @return de-list($output);
+}
+
+// @debug unpack((1, (2.1, 2.2), 3));

@@ -1,0 +1,5 @@
+@use "uswds-core/src/styles/mixins/general/focus-outline" as *;
+
+.usa-focus {
+  @include focus-outline;
+}

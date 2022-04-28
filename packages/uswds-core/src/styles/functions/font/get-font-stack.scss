@@ -1,0 +1,65 @@
+/*
+----------------------------------------
+get-font-stack()
+----------------------------------------
+Get a font stack from a style- or
+role-based font token.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:string";
+@use "../../variables/font-type-tokens" as types;
+@use "../../tokens/font/typefaces" as typefaces;
+@use "../../functions/general";
+@use "convert-to-font-type" as *;
+
+@function get-font-stack($token) {
+  // Start by converting to a type token (sans, serif, etc)
+  $type-token: convert-to-font-type($token);
+  $output-display-name: true;
+  $this-stack: null;
+  // Get the font type metadata
+  $this-font-map: map.get(types.$project-font-type-tokens, $type-token);
+  // Only output if the font type has an assigned typeface token
+  @if map.get($this-font-map, "typeface-token") {
+    $this-font-token: map.get($this-font-map, "typeface-token");
+    // Get the typeface metadata
+    $this-typeface-data: map.get(
+      typefaces.$all-typeface-tokens,
+      $this-font-token
+    );
+    $this-name: map.get($this-typeface-data, "display-name");
+    // If it's a system typeface, don't output the display name
+    @if map.has-key($this-typeface-data, "system-font") {
+      $output-display-name: false;
+      // @debug "it's a system font";
+    }
+    // If there's a custom stack, use it and output the display name
+    @if map.get($this-font-map, "custom-stack") {
+      $this-stack: map.get($this-font-map, "custom-stack");
+      $output-display-name: true;
+      // @debug "it has a custom stack";
+    }
+    // Otherwise, just get the token's default stack
+    @else {
+      $this-stack: general.map-deep-get(
+        typefaces.$all-typeface-tokens,
+        $this-font-token,
+        "stack"
+      );
+    }
+    // If the typeface has no display name (system fonts), don't output the display name
+    @if not map.get($this-typeface-data, "display-name") {
+      $output-display-name: false;
+    }
+    @if not $output-display-name {
+      @return #{$this-stack};
+    }
+    @return string.unquote("#{$this-name}, #{$this-stack}");
+  }
+  @return false;
+}
+
+// @debug get-font-stack("heading");
+// @return Merriweather Web, Georgia, Cambria, Times New Roman, Times, serif

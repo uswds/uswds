@@ -1,0 +1,112 @@
+@use "sass:math";
+
+@use "uswds-core" as *;
+
+@include checkbox-colors;
+
+.usa-checkbox__input {
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include sr-only();
+
+  &:focus {
+    @include format-input {
+      @include focus-outline(null, null, null, 0.5);
+    }
+  }
+
+  &:disabled {
+    @include format-input {
+      cursor: not-allowed;
+    }
+    @include format-label {
+      cursor: not-allowed;
+    }
+  }
+
+  // Checkboxes and radios with tap-friendly targets
+  &--tile {
+    @include format-label {
+      border-radius: radius($theme-input-tile-border-radius);
+      margin-top: units(1);
+      padding: units(1.5) units(2) units(1.5) units(5);
+
+      &::before {
+        left: units(5) - units($input-select-margin-right) -
+          units($theme-input-select-size);
+      }
+    }
+  }
+}
+
+.usa-checkbox__input {
+  &:checked,
+  &:checked:disabled {
+    @include format-input {
+      background-position: center center;
+      background-size: units(1.5) auto;
+      @media print {
+        background-image: none;
+        background-color: color("white");
+        content: "\2714";
+        text-align: center;
+      }
+
+      @media (forced-colors: active) {
+        background-color: ButtonText;
+
+        &--tile {
+          background-color: ButtonText;
+        }
+      }
+    }
+  }
+}
+
+.usa-checkbox__label {
+  @extend %block-input-general;
+  cursor: pointer;
+  display: inherit;
+  font-weight: font-weight("normal");
+  margin-top: units(1.5);
+  padding-left: units($input-select-margin-right) +
+    units($theme-input-select-size);
+  position: relative;
+
+  &::before {
+    content: " ";
+    display: block;
+    left: 0;
+    margin-left: units($theme-input-select-border-width);
+    margin-top: math.div(
+      (
+        line-height($theme-form-font-family, $theme-input-line-height) *
+          font-size($theme-form-font-family, $theme-body-font-size) -
+          units($theme-input-select-size)
+      ),
+      2
+    );
+    position: absolute;
+  }
+}
+
+.usa-checkbox__label::before {
+  @include u-square($theme-input-select-size);
+  border-radius: radius($theme-checkbox-border-radius);
+}
+
+.usa-checkbox__label-description {
+  display: block;
+  font-size: size("ui", "2xs");
+  margin-top: units(1);
+}
+
+// Test code for scoped custom colors
+/*
+.checkbox-tests {
+  @include set-text-and-bg("green-80");
+  @include checkbox-colors("green-80", "green-warm-10v");
+  padding: units(2);
+  border-radius: radius("md");
+}
+*/

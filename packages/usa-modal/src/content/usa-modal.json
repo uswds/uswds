@@ -1,0 +1,33 @@
+{
+  "modifier": "",
+  "id": "example-modal-1",
+  "describedby": "modal-1-description",
+  "trigger": {
+    "text": "Open default modal"
+  },
+  "header": {
+    "text": "Are you sure you want to continue?",
+    "id": "modal-1-heading"
+  },
+  "description": {
+    "id": "modal-1-description",
+    "text": "You have unsaved changes that will be lost."
+  },
+  "footer": [
+    {
+      "action": null,
+      "class": "usa-button",
+      "text": "Continue without saving"
+    },
+    {
+      "action": null,
+      "class": "usa-button usa-button--unstyled padding-105 text-center",
+      "text": "Go back"
+    }
+  ],
+  "close_button": {
+    "aria_label": "Close this window",
+    "text": null,
+    "icon_type": "close"
+  }
+}
