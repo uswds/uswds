@@ -51,7 +51,7 @@ jobs:
           name: Publish to NPM
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
-            npm publish
+            npm publish --access public
   deploy-alpha:
     <<: *container
     steps:
