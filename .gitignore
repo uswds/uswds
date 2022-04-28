@@ -15,9 +15,6 @@ npm-debug.log*
 dist/
 html-templates/
 
-# ignore the build directory
-build/
-
 # ignore compiled storybook directory
 storybook-static/
 _site/
@@ -33,4 +30,5 @@ sassdoc/
 
 # ignore gulp-generated svg-sprite
 src/img/sprite.svg
+packages/usa-icon/src/img/sprite.svg
 src/img/symbol
