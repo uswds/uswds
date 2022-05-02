@@ -29,14 +29,7 @@
       required
     >
     {% include "@components/_usa-password/src/usa-password.twig" with {
-      "toggle": {
-        "title": "Toggle password",
-        "aria_controls": password_id,
-        "text": {
-          "show": "Show password",
-          "hide": "Hide password"
-        }
-      }
+      toggle: password.toggle
     } %}
     {# /Password #}
     <input class="usa-button" type="submit" value="{{ submit.label |default('Sign in') }}">

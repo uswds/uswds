@@ -15,6 +15,14 @@
     "label": "Password",
     "input": {
       "id": "password-sign-in"
+    },
+    "toggle": {
+      "title": "Toggle password",
+      "aria_controls": "password-sign-in",
+      "text": {
+        "show": "Show password",
+        "hide": "Hide password"
+      }
     }
   },
   "submit": {
