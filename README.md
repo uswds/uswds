@@ -55,11 +55,11 @@ As of USWDS 3.0.0, our codebase is centered around functional packages, typicall
 - **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
 - **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
 - **JavaScript** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
-- **Sass** compoment-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
+- **Sass** component-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
 - **Template** markup for the components is located in: `packages/[package]/src/[package.twig]` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 
 ### Directory structure
-Here's what you can expect to find inside the USWDS package: 
+Here's what you can expect to find inside the USWDS package:
 
 ```
 [uswds package]
@@ -140,7 +140,7 @@ Here's what you can expect to find in each of the directories and files in the U
 - `/dist/scss/theme/_uswds-theme.scss`: Example theme settings file
 - `/dist/scss/theme/_uswds-theme-custom-styles.scss`: Example custom settings file
 - `/dist/scss/theme/styles.scss`: Example project Sass entry point
-- `/packages`: Source files for USWDS components and other functionality. 
+- `/packages`: Source files for USWDS components and other functionality.
 - `/packages/usa-[component]`: Each package has a name like `usa-[component]` that matches its class name in the design system, like `usa-accordion`.
 - `/packages/usa-[component]/_index.scss`: Sass entry point for the package.
 - `/packages/usa-[component]/src`: Package source files
@@ -158,7 +158,7 @@ Here's what you can expect to find in each of the directories and files in the U
 - `/tasks`: Internal build process files (not used in USWDS projects)
 
 ## Installing the design system
-There are two ways to install the design system on a project: 
+There are two ways to install the design system on a project:
 - Installing it as a project dependency using Node and npm
 - Installing the package directly from GitHub
 
@@ -193,7 +193,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 **Note:** We do _not_ recommend directly editing the design system files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
 
 ### Install the package directly from GitHub
-If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. 
+If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
 1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.0.0/uswds.zip) directly from the latest USWDS release and uncompress that file.
 
@@ -223,7 +223,7 @@ The three files critical to any USWDS project are the **stylesheet**, the **Java
 - **Library:** This is the compiled JavaScript that controls component interactivity. Reference either `uswds.js` or `uswds.min.js` at the end of the `<body>` of your document. Find this file in `/dist/js`.
 - **Initializer:** This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly. This prevents component content from "flashing" or "shifting" while the page loads. Reference `uswds-init.min.js` in the `<head>` of your page, or inline its contents directly into the `<script>` tag. Find this file in `/dist/js`.
 
-Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project. 
+Reference the stylesheet, library, and initializer in each HTML page or dynamic template in your project.
 
 Here is an example of how to reference these assets in your `index.html` file:
 
@@ -233,6 +233,7 @@ Here is an example of how to reference these assets in your `index.html` file:
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Example Project</title>
     <script src="assets/uswds/dist/js/uswds-init.min.js"></script>
     <link rel="stylesheet" href="assets/uswds/dist/css/uswds.min.css" />
@@ -275,13 +276,13 @@ not dead
 
 #### Sass Load Paths
 
-USWDS 3.0 and newer require the use of [Sass Load Paths](https://sass-lang.com/documentation/at-rules/use#load-paths) to compile properly. 
+USWDS 3.0 and newer require the use of [Sass Load Paths](https://sass-lang.com/documentation/at-rules/use#load-paths) to compile properly.
 
 USWDS 3.0 load paths must include a path to the `/packages` directory in the USWDS package, typically by updating an `IncludePaths` setting to include `node_modules/@uswds/uswds/packages`.
 
 Here's how this might look in Gulp and in Webpack:
 
-##### Gulp 
+##### Gulp
 
 ```js
 .pipe(
@@ -292,7 +293,7 @@ Here's how this might look in Gulp and in Webpack:
   })
 ```
 
-##### Webpack 
+##### Webpack
 
 ```js
 loader: "sass-loader",
@@ -482,7 +483,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 ```scss
 @use "uswds-core" with (
   $theme-font-path: "../fonts",
-  $theme-image-path: "../img",  
+  $theme-image-path: "../img",
 );
 ```
 
@@ -541,7 +542,7 @@ For complete instructions on how to contribute code, please read [CONTRIBUTING.m
 
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswds@gsa.gov).
 
 ## Reuse of open-source style guides
 
