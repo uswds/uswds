@@ -19,7 +19,7 @@
               <p>
                 <a href="{{ placeholder_link }}"
                   class="usa-button usa-button--outline width-full">
-                  {{ item.label }}
+                  {{ item.label | e }}
                 </a>
               </p>
             {% endfor %}
