@@ -11,6 +11,7 @@
     "password": {
       "label": "Cree una contraseña",
       "toggle": {
+        "aria_controls": "password-create-account password-create-account-confirm",
         "text": {
           "show": "Muestre la contraseña",
           "hide": "Esconda la contraseña"
