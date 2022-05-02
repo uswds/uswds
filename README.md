@@ -542,7 +542,7 @@ For complete instructions on how to contribute code, please read [CONTRIBUTING.m
 
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswds@gsa.gov).
 
 ## Reuse of open-source style guides
 
