@@ -169,6 +169,7 @@
     "postcss-sass-loader": "1.1.0",
     "prettier": "2.4.1",
     "resolve-url-loader": "4.0.0",
+    "sass": "1.51.0",
     "sass-embedded": "1.50.1",
     "sass-loader": "12.1.0",
     "sass-true": "6.0.1",
