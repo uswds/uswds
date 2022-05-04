@@ -7,27 +7,6 @@ const { logError } = require('./utils/doc-util');
 
 const svgPath = "packages/usa-icon/src/img";
 
-// More complex configuration example
-const config = {
-  shape: {
-    dimension: {
-      // Set maximum dimensions
-      maxWidth: 24,
-      maxHeight: 24,
-    },
-    id: {
-      separator: "-",
-    },
-    spacing: {
-      // Add padding
-      padding: 0,
-    },
-  },
-  mode: {
-    symbol: true,
-  },
-};
-
 function buildSprite(done) {
   return (
     src(`${svgPath}/usa-icons/*.svg`)
