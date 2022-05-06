@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -112,10 +112,8 @@
     "@babel/preset-env": "7.16.7",
     "@chanzuckerberg/axe-storybook-testing": "5.0.0",
     "@storybook/addon-a11y": "6.4.18",
-    "@storybook/addon-actions": "6.4.18",
     "@storybook/addon-essentials": "6.4.18",
     "@storybook/addon-links": "6.4.18",
-    "@storybook/addon-postcss": "2.0.0",
     "@storybook/builder-webpack5": "6.4.18",
     "@storybook/html": "6.4.18",
     "@storybook/manager-webpack5": "6.4.18",
@@ -174,7 +172,6 @@
     "sass-true": "6.0.1",
     "sinon": "12.0.1",
     "snyk": "1.817.0",
-    "storybook-addon-html-document": "1.0.1",
     "style-loader": "3.3.0",
     "stylelint": "14.1.0",
     "twig-html-loader": "0.1.9",
