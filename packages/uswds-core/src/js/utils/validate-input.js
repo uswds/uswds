@@ -14,6 +14,28 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
+  const span_selector = ".usa-hidden-span";
+  const hidden_span = document.querySelectorAll(span_selector);
+
+  function createSpan() {
+    if (document.querySelector(".usa-sr-only")) {
+      console.log("if worked");
+    } else {
+      console.log("else worked");
+      const checklistItems = [
+        ...document.querySelectorAll(".usa-checklist__item"),
+      ];
+      const newSpan = document.createElement("SPAN");
+      newSpan.className = "usa-sr-only";
+      newSpan.textContent = "";
+      for (const item of checklistItems) {
+        console.log(item);
+      }
+    }
+  }
+
+  createSpan();
+
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
       const validatorName = key.substr("validate".length).toLowerCase();
