@@ -2,11 +2,11 @@ module.exports = {
   plugins: [ 
     {
       name: 'preset-default',
-      // params: {
-      //   overrides: {
-      //     cleanupIDs: false,
-      //   },
-      // },
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
     }
   ]
 }
