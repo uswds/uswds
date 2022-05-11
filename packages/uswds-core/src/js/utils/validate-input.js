@@ -22,14 +22,12 @@ module.exports = function validate(el) {
       console.log("if worked");
     } else {
       console.log("else worked");
-      const checklistItems = [
-        ...document.querySelectorAll(".usa-checklist__item"),
-      ];
-      const newSpan = document.createElement("SPAN");
-      newSpan.className = "usa-sr-only";
-      newSpan.textContent = "";
+      const checklistItems = document.querySelectorAll(".usa-checklist__item");
       for (const item of checklistItems) {
-        console.log(item);
+        const newSpan = document.createElement("SPAN");
+        newSpan.className = "usa-sr-only";
+        newSpan.textContent = "COMPLETE";
+        item.append(newSpan);
       }
     }
   }
