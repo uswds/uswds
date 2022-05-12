@@ -68,7 +68,7 @@
     "test:unit": "gulp unitTests",
     "version": "gulp release",
     "watch": "gulp watch",
-    "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/material-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
+    "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/material-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons -q",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
     "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
