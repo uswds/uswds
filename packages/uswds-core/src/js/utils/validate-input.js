@@ -15,17 +15,17 @@ module.exports = function validate(el) {
   }
 
   const span_selector = ".usa-hidden-span";
-  const hidden_span = document.querySelectorAll(span_selector);
+  const hidden_span = document.querySelector(span_selector);
 
   function createSpan() {
-    if (document.querySelector(".usa-sr-only")) {
+    if (hidden_span) {
       console.log("if worked");
     } else {
       console.log("else worked");
       const checklistItems = document.querySelectorAll(".usa-checklist__item");
       for (const item of checklistItems) {
         const newSpan = document.createElement("SPAN");
-        newSpan.className = "usa-sr-only";
+        newSpan.classList.add("usa-sr-only", "usa-hidden-span");
         newSpan.textContent = "COMPLETE";
         item.append(newSpan);
       }
