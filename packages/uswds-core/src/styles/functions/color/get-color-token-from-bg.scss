@@ -9,8 +9,8 @@
 
 @function get-color-token-from-bg(
   $bg-color: "default",
-  $preferred-text-token: "white",
-  $fallback-text-token: "black",
+  $preferred-text-token: "default",
+  $fallback-text-token: "default",
   $wcag-target: "AA",
   $context: false,
   $for: false

@@ -2,8 +2,8 @@
 
 $project-defaults: (
   "bg-color": settings.$theme-body-background-color,
-  "preferred-text-token": settings.$theme-text-reverse-color,
-  "fallback-text-token": settings.$theme-text-color,
+  "preferred-text-token": "white",
+  "fallback-text-token": "black",
   "preferred-link-token": settings.$theme-link-reverse-color,
   "fallback-link-token": settings.$theme-link-color,
 );
