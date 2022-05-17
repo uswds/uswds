@@ -16,17 +16,13 @@ module.exports = function validate(el) {
 
   const span_selector = ".usa-hidden-span";
   const hidden_span = document.querySelector(span_selector);
+  const checklistItems = document.querySelectorAll(".usa-checklist__item");
 
   function createSpan() {
-    if (hidden_span) {
-      console.log("if worked");
-    } else {
-      console.log("else worked");
-      const checklistItems = document.querySelectorAll(".usa-checklist__item");
+    if (!hidden_span) {
       for (const item of checklistItems) {
         const newSpan = document.createElement("SPAN");
         newSpan.classList.add("usa-sr-only", "usa-hidden-span");
-        newSpan.textContent = "COMPLETE";
         item.append(newSpan);
       }
     }
@@ -48,6 +44,12 @@ module.exports = function validate(el) {
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
       validatorCheckbox.setAttribute(CHECKED, checked);
+
+      if (validatorCheckbox.classList.contains(CHECKED_CLASS)) {
+        validatorCheckbox.lastChild.textContent = "Complete";
+      } else {
+        validatorCheckbox.lastChild.textContent = "";
+      }
     }
   });
 };
