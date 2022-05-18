@@ -13,6 +13,13 @@ import {
 
 export default {
   title: "Components/Button",
+  argTypes: {
+    type: {
+      name: 'Button type',
+      type: { name: 'string', required: false },
+      defaultValue: 'button'
+    }
+  }
 };
 
 const Template = (args) => Component(args);

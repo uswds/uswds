@@ -1,8 +1,8 @@
 {
   "modifier": "usa-button-group--segmented",
   "items": [
-    "<button type='button' class=\"usa-button\">Map</button>",
-    "<button type='button' class=\"usa-button usa-button--outline\">Satellite</button>",
-    "<button type='button' class=\"usa-button usa-button--outline\">Hybrid</button>"
+    "<button type=\"button\" class=\"usa-button\">Map</button>",
+    "<button type=\"button\" class=\"usa-button usa-button--outline\">Satellite</button>",
+    "<button type=\"button\" class=\"usa-button usa-button--outline\">Hybrid</button>"
   ]
 }
