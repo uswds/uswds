@@ -7,7 +7,7 @@
 
 @mixin usa-paragraph-style {
   p {
-    @extend %usa-prose-p;
+    @include typeset-p;
   }
 }
 
@@ -24,7 +24,7 @@
   h4,
   h5,
   h6 {
-    @extend %usa-prose-heading;
+    @include typeset-heading;
   }
 
   h1 {
