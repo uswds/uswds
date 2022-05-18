@@ -1,12 +1,45 @@
 @use "uswds-core" as *;
+@use "../../../uswds-core/src/styles/placeholders/typography" as *;
 
 .usa-prose {
   @include typeset($theme-prose-font-family);
 
   & > {
-    @include usa-paragraph-style;
-    @include usa-headings-styles;
-    @include usa-list-styles;
-    @include usa-table-styles;
+    p {
+      @extend %usa-prose-p;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @extend %usa-prose-heading;
+    }
+
+    h1 {
+      @include h1;
+    }
+
+    h2 {
+      @include h2;
+    }
+
+    h3 {
+      @include h3;
+    }
+
+    h4 {
+      @include h4;
+    }
+
+    h5 {
+      @include h5;
+    }
+
+    h6 {
+      @include h6;
+    }
   }
 }
