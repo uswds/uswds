@@ -41,5 +41,8 @@
     h6 {
       @include h6;
     }
+
+    @include usa-list-styles;
+    @include usa-table-styles;
   }
 }
