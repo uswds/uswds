@@ -231,8 +231,9 @@ $table-sorted-stripe-text-color: color(
   }
   th,
   td {
+    @include u-border(1px, $theme-table-border-color);;
+
     background-color: color($theme-body-background-color);
-    border: 1px solid $table-text-color;
     font-weight: fw("normal");
     padding: units(1) units(2);
   }
