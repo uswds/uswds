@@ -1,0 +1,27 @@
+{% macro in_page_navigation_list(items, base_class) %}
+
+  {% import _self as in_page_navigation %}
+
+  {% set list_item_class = 'usa-in-page-navigation__item' %}
+  {% set current_class = 'usa-current' %}
+  {% set placeholder_link = 'javascript:void(0);' %}
+
+  {% if items %}
+    <ul class="{{ base_class }}">
+    {% for item in items %}
+      <li class="{{ list_item_class }}">
+        <a href="{{ item.href|default(placeholder_link) }}" {% if item.current %}class="{{ current_class }}"{% endif %}>{{ item.label }}</a>
+        {% if item.subnav %}
+          {{ in_page_navigation.in_page_navigation_list(item.subnav, 'usa-in-page-navigation__sublist') }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% import _self as in_page_navigation %}
+
+<nav aria-label="{{ aria_label | default('In-page navigation')}}">
+  {{ in_page_navigation.in_page_navigation_list(items, 'usa-in-page-navigation') }}
+</nav>

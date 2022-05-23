@@ -7,6 +7,7 @@ const dateRangePicker = require("../../../usa-date-range-picker/src/index");
 const fileInput = require("../../../usa-file-input/src/index");
 const footer = require("../../../usa-footer/src/index");
 const inputPrefixSuffix = require("../../../usa-input-prefix-suffix/src/index");
+const inPageNavigation = require("../../../usa-in-page-navigation/src/index");
 const modal = require("../../../usa-modal/src/index");
 const password = require("../../../_usa-password/src/index");
 const search = require("../../../usa-search/src/index");
@@ -27,6 +28,7 @@ module.exports = {
   fileInput,
   footer,
   inputPrefixSuffix,
+  inPageNavigation,
   modal,
   navigation,
   password,
