@@ -100,13 +100,9 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.4",
     "classlist-polyfill": "1.0.3",
     "domready": "1.0.8",
     "object-assign": "4.1.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "receptor": "1.0.0",
     "resolve-id-refs": "0.1.0"
   },
