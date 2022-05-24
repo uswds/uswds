@@ -141,7 +141,7 @@ $table-sorted-stripe-text-color: color(
   }
 
   tr {
-    border-bottom: units(0.5) solid $table-text-color;
+    border-bottom: units(0.5) solid color($theme-table-border-color);
     border-top-width: 0;
     display: block;
     width: 100%;
@@ -159,7 +159,7 @@ $table-sorted-stripe-text-color: color(
     &:first-child {
       th:first-child,
       td:first-child {
-        border-top: units(0.5) solid $table-text-color;
+        border-top: units(0.5) solid color($theme-table-border-color);
       }
     }
   }
@@ -232,7 +232,7 @@ $table-sorted-stripe-text-color: color(
   th,
   td {
     background-color: color($theme-body-background-color);
-    border: 1px solid $table-text-color;
+    border: 1px solid color($theme-table-border-color);
     font-weight: fw("normal");
     padding: units(1) units(2);
   }
