@@ -5,13 +5,12 @@
 @use "../utilities" as *;
 @use "../typography/typeset" as *;
 
-$table-text-color: color(
-  get-color-token-from-bg(
-    $bg-color: $theme-body-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-text-color,
-    $context: "Table text",
-  )
+
+$table-text-color: get-color-token-from-bg(
+  $bg-color: $theme-body-background-color,
+  $preferred-text-token: $theme-text-reverse-color,
+  $fallback-text-token: $theme-table-text-color,
+  $context: "Table text",
 );
 
 $table-header-text-color: color(
@@ -57,6 +56,22 @@ $table-sorted-stripe-text-color: color(
     $fallback-text-token: $theme-table-stripe-text-color,
     $context: "Table sorted stripe text",
   )
+);
+
+$table-sorted-icon-color: color(
+  get-color-token-from-bg(
+    $bg-color: $theme-table-sorted-header-background-color,
+    $preferred-text-token: $theme-table-sorted-icon-color,
+    $fallback-text-token: $theme-table-unsorted-icon-color,
+    $context: "Table sorted icon",
+  )
+);
+
+$table-unsorted-icon-color: get-color-token-from-bg(
+  $bg-color: $theme-table-header-background-color,
+  $preferred-text-token: $theme-table-unsorted-icon-color,
+  $fallback-text-token: $theme-text-color,
+  $context: "Table unsorted icon",
 );
 
 // Shared table styles
@@ -107,24 +122,26 @@ $table-sorted-stripe-text-color: color(
 @mixin table-button-unsorted-styles {
   @include table-button-default-styles;
   .usa-icon > g.unsorted {
-    fill: color($theme-table-unsorted-icon-color);
+    fill:  color(
+      next-token($table-unsorted-icon-color, "lighter")
+    )
   }
   &:hover .usa-icon > g.unsorted {
-    fill: $table-sorted-header-text-color;
+    fill: color($table-unsorted-icon-color);
   }
 }
 
 @mixin table-button-sorted-ascending-styles {
   @include table-button-default-styles;
   .usa-icon > g.ascending {
-    fill: $table-sorted-header-text-color;
+    fill: $table-sorted-icon-color;
   }
 }
 
 @mixin table-button-sorted-descending-styles {
   @include table-button-default-styles;
   .usa-icon > g.descending {
-    fill: $table-sorted-header-text-color;
+    fill: $table-sorted-icon-color;
   }
 }
 
@@ -203,7 +220,7 @@ $table-sorted-stripe-text-color: color(
   @include typeset;
   border-collapse: collapse;
   border-spacing: 0;
-  color: $table-text-color;
+  color: color($table-text-color);
   margin: units(2.5) 0;
   text-align: left;
 
@@ -294,7 +311,7 @@ $table-sorted-stripe-text-color: color(
     th {
       background-color: transparent;
       border-top: 0;
-      color: $table-text-color;
+      color: color($table-text-color);
 
       &[aria-sort] {
         color: $table-sorted-header-text-color;
@@ -302,8 +319,14 @@ $table-sorted-stripe-text-color: color(
     }
     /* stylelint-disable selector-class-pattern */
     th[data-sortable]:not([aria-sort]) {
+      .usa-table__header__button .usa-icon > g.unsorted {
+        fill: color(
+          next-token($table-text-color, "lighter")
+        );
+      }
+
       .usa-table__header__button:hover .usa-icon > g.unsorted {
-        fill: $table-text-color;
+        fill: color($table-text-color);
       }
     }
     /* stylelint-enable selector-class-pattern */
