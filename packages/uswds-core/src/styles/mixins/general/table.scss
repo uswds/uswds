@@ -6,7 +6,7 @@
 @use "../typography/typeset" as *;
 
 
-$table-text-color: get-color-token-from-bg(
+$table-text-color:get-color-token-from-bg(
   $bg-color: $theme-body-background-color,
   $preferred-text-token: $theme-text-reverse-color,
   $fallback-text-token: $theme-table-text-color,
@@ -62,17 +62,16 @@ $table-sorted-icon-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-sorted-header-background-color,
     $preferred-text-token: $theme-table-sorted-icon-color,
-    $fallback-text-token: $theme-table-unsorted-icon-color,
     $context: "Table sorted icon",
   )
 );
 
-$table-unsorted-icon-color: get-color-token-from-bg(
+$table-unsorted-icon-color:get-color-token-from-bg(
   $bg-color: $theme-table-header-background-color,
   $preferred-text-token: $theme-table-unsorted-icon-color,
-  $fallback-text-token: $theme-text-color,
   $context: "Table unsorted icon",
 );
+
 
 // Shared table styles
 @mixin table-header-unsorted-styles {
@@ -122,12 +121,12 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin table-button-unsorted-styles {
   @include table-button-default-styles;
   .usa-icon > g.unsorted {
-    fill:  color(
-      next-token($table-unsorted-icon-color, "lighter")
-    )
+    fill:  color($table-unsorted-icon-color);
   }
   &:hover .usa-icon > g.unsorted {
-    fill: color($table-unsorted-icon-color);
+    fill:  color(
+      next-token($table-unsorted-icon-color, "darker")
+    )
   }
 }
 
@@ -320,13 +319,13 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     /* stylelint-disable selector-class-pattern */
     th[data-sortable]:not([aria-sort]) {
       .usa-table__header__button .usa-icon > g.unsorted {
-        fill: color(
-          next-token($table-text-color, "lighter")
-        );
+        fill: color($table-text-color);
       }
 
       .usa-table__header__button:hover .usa-icon > g.unsorted {
-        fill: color($table-text-color);
+        fill: color(
+          next-token($table-text-color, "darker")
+        );
       }
     }
     /* stylelint-enable selector-class-pattern */
