@@ -5,19 +5,16 @@
 @use "../utilities" as *;
 @use "../typography/typeset" as *;
 
-
-$table-text-color:get-color-token-from-bg(
+$table-text-color: get-color-token-from-bg(
   $bg-color: $theme-body-background-color,
-  $preferred-text-token: $theme-text-reverse-color,
-  $fallback-text-token: $theme-table-text-color,
+  $preferred-text-token: $theme-table-text-color,
   $context: "Table text",
 );
 
 $table-header-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-header-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-header-text-color,
+    $preferred-text-token: $theme-table-header-text-color,
     $context: "Table header text",
   )
 );
@@ -25,8 +22,7 @@ $table-header-text-color: color(
 $table-stripe-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-stripe-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-stripe-text-color,
+    $preferred-text-token: $theme-table-stripe-text-color,
     $context: "Table stripe text",
   )
 );
@@ -34,8 +30,7 @@ $table-stripe-text-color: color(
 $table-sorted-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-sorted-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-text-color,
+    $preferred-text-token: $theme-table-text-color,
     $context: "Table sorted text",
   )
 );
@@ -43,8 +38,7 @@ $table-sorted-text-color: color(
 $table-sorted-header-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-sorted-header-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-header-text-color,
+    $preferred-text-token: $theme-table-header-text-color,
     $context: "Table sorted header text",
   )
 );
@@ -52,8 +46,7 @@ $table-sorted-header-text-color: color(
 $table-sorted-stripe-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-sorted-stripe-background-color,
-    $preferred-text-token: $theme-text-reverse-color,
-    $fallback-text-token: $theme-table-stripe-text-color,
+    $preferred-text-token: $theme-table-stripe-text-color,
     $context: "Table sorted stripe text",
   )
 );
@@ -66,7 +59,7 @@ $table-sorted-icon-color: color(
   )
 );
 
-$table-unsorted-icon-color:get-color-token-from-bg(
+$table-unsorted-icon-color: get-color-token-from-bg(
   $bg-color: $theme-table-header-background-color,
   $preferred-text-token: $theme-table-unsorted-icon-color,
   $context: "Table unsorted icon",
@@ -121,10 +114,10 @@ $table-unsorted-icon-color:get-color-token-from-bg(
 @mixin table-button-unsorted-styles {
   @include table-button-default-styles;
   .usa-icon > g.unsorted {
-    fill:  color($table-unsorted-icon-color);
+    fill: color($table-unsorted-icon-color);
   }
   &:hover .usa-icon > g.unsorted {
-    fill:  color(
+    fill: color(
       next-token($table-unsorted-icon-color, "darker")
     )
   }
