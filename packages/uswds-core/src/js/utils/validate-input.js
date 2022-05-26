@@ -1,3 +1,4 @@
+const validator = require("../../../../usa-validation/src");
 const { prefix: PREFIX } = require("../config");
 
 const CHECKED = "aria-checked";
@@ -32,11 +33,11 @@ module.exports = function validate(el) {
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
       validatorCheckbox.setAttribute(CHECKED, checked);
 
-      if (validatorCheckbox.classList.contains(CHECKED_CLASS)) {
-        hiddenCheckboxSpan.textContent = "Complete";
-      } else {
-        hiddenCheckboxSpan.textContent = "Incomplete";
-      }
+      hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
+        CHECKED_CLASS
+      )
+        ? "Complete"
+        : "Incomplete";
     }
   });
 };
