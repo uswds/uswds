@@ -14,28 +14,15 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
-  const span_selector = ".usa-hidden-span";
-  const hidden_span = document.querySelector(span_selector);
-  const checklistItems = document.querySelectorAll(".usa-checklist__item");
-
-  function createSpan() {
-    if (!hidden_span) {
-      for (const item of checklistItems) {
-        const newSpan = document.createElement("SPAN");
-        newSpan.classList.add("usa-sr-only", "usa-hidden-span");
-        item.append(newSpan);
-      }
-    }
-  }
-
-  createSpan();
-
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
       const validatorName = key.substr("validate".length).toLowerCase();
       const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
+      const hiddenCheckboxSpan = validatorCheckbox.querySelector(
+        `[data-checklist-label="hidden"]`
+      );
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
@@ -46,9 +33,9 @@ module.exports = function validate(el) {
       validatorCheckbox.setAttribute(CHECKED, checked);
 
       if (validatorCheckbox.classList.contains(CHECKED_CLASS)) {
-        validatorCheckbox.lastChild.textContent = "Complete";
+        hiddenCheckboxSpan.textContent = "Complete";
       } else {
-        validatorCheckbox.lastChild.textContent = "";
+        hiddenCheckboxSpan.textContent = "Incomplete";
       }
     }
   });
