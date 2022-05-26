@@ -30,7 +30,6 @@ $table-stripe-text-color: color(
 $table-sorted-text-color: color(
   get-color-token-from-bg(
     $bg-color: $theme-table-sorted-background-color,
-    $preferred-text-token: $theme-table-text-color,
     $context: "Table sorted text",
   )
 );
