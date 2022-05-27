@@ -10,7 +10,7 @@ const VALIDATORS = "[data-validator]";
 const CHECKED_CLASS = "usa-checklist__item--checked";
 
 const keyup = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+  el.dispatchEvent(new Event("change", { bubbles: true }));
 };
 
 const tests = [

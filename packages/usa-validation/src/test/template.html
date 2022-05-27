@@ -1,7 +1,8 @@
 <div>
   <ul class="usa-checklist" id="validate-code">
-    <li class="usa-checklist__item" data-validator="uppercase">Use at least one uppercase character<span class="usa-sr-only" data-checklist-label="hidden">Complete</span></li>
-    <li class="usa-checklist__item" data-validator="numerical">Use at least one number<span class="usa-sr-only" data-checklist-label="hidden">Complete</span></li>
+    <li class="usa-checklist__item" data-validator="length">Be at least 8 characters<span data-checklist-label="hidden"></span></li>
+    <li class="usa-checklist__item" data-validator="uppercase">Use at least one uppercase character<span data-checklist-label="hidden"></span></li>
+    <li class="usa-checklist__item" data-validator="numerical">Use at least one number<span data-checklist-label="hidden"></span></li>
   </ul>
   <input
       class="usa-input"
@@ -9,6 +10,7 @@
       name="password"
       type="password"
       aria-describedby="validate-code"
+      data-validate-length=".{8,}"
       data-validate-uppercase="[A-Z]"
       data-validate-numerical="\d"
       data-validation-element="#validate-code">
