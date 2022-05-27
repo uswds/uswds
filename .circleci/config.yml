@@ -6,7 +6,7 @@ orbs:
 references:
   container: &container
     docker:
-      - image: circleci/node:16.13.0-browsers
+      - image: cimg/node:14.19.3-browsers
         environment:
           CHROME_PATH: $(which google-chrome-stable)
 
