@@ -11,7 +11,7 @@ function change() {
 
 const validator = behavior(
   {
-    "input change": {
+    "keyup change": {
       "input[data-validation-element]": change,
     },
   },
