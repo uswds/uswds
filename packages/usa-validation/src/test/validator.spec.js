@@ -40,7 +40,7 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     describe("validation state", () => {
       it("adds ." + CHECKED_CLASS + " for all successful validations", () => {
-        validated.value = "1GreatPassword";
+        validated.value = "GreatPassword1";
         keyup(validated);
         validators.forEach((checkbox) => {
           assert.strictEqual(checkbox.classList.contains(CHECKED_CLASS), true);

@@ -33,11 +33,13 @@ module.exports = function validate(el) {
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
       validatorCheckbox.setAttribute(CHECKED, checked);
 
-      hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
-        CHECKED_CLASS
-      )
+      if (hiddenCheckboxSpan) {
+        hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
+          CHECKED_CLASS
+        )
         ? "Complete"
         : "Incomplete";
+      }
     }
   });
 };
