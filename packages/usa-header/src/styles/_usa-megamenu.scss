@@ -1,23 +1,27 @@
 @use "sass:math";
-
+@use "sass:meta";
 @use "uswds-core" as *;
 
-@mixin outer-megamenu {
+@mixin outer-megamenu($header-max-width: $theme-header-max-width, $type) {
   @include u-pin("y");
   background-color: color("primary-darker");
   content: "";
   display: block;
   position: absolute;
-}
 
-@mixin outer-megamenu--standard {
-  @include outer-megamenu;
-  width: calc(50vw - units($theme-header-max-width) / 2 + units($theme-site-margins-width));
-}
+  // retrieve the unit value of $theme-header-max-width, depending on type of value added
+  $mw: smart-quote($header-max-width);
+  @if meta.type-of($header-max-width) == "string" {
+    $mw: units($header-max-width);
+  }
 
-@mixin outer-megamenu--extended {
-  @include outer-megamenu;
-  width: calc(50vw - units($theme-header-max-width) / 2);
+  // subtract half the value of the viewport width from half the value of the submenu width
+  // standard needs the additional $theme-site-margins-width to accommodate different paddings/structure on #basic-mega-nav-section-two
+  @if $type == "standard" {
+    width: calc(50vw - $mw / 2 + units($theme-site-margins-width));
+  } @else if $type == "extended" {
+    width: calc(50vw - $mw / 2);
+  }
 }
 
 .usa-megamenu {
@@ -45,31 +49,29 @@
 
   &::before {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu--standard;
+      @include outer-megamenu($type: "standard");
       right: 100%;
     }
   }
 
   &::after {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu--standard;
+      @include outer-megamenu($type: "standard");
       left: 100%;
     }
   }
-
-
 }
 
 .usa-header--extended .usa-megamenu.usa-nav__submenu {
   &::before {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu--extended;
+      @include outer-megamenu($type: "extended");
     }
   }
 
   &::after {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu--extended;
+      @include outer-megamenu($type: "extended");
     }
   }
 }
