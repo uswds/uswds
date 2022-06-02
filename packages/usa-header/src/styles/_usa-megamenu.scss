@@ -8,7 +8,16 @@
   content: "";
   display: block;
   position: absolute;
-  width: 100%;
+}
+
+@mixin outer-megamenu--standard {
+  @include outer-megamenu;
+  width: calc(50vw - units($theme-header-max-width) / 2 + units($theme-site-margins-width));
+}
+
+@mixin outer-megamenu--extended {
+  @include outer-megamenu;
+  width: calc(50vw - units($theme-header-max-width) / 2);
 }
 
 .usa-megamenu {
@@ -36,15 +45,31 @@
 
   &::before {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu;
+      @include outer-megamenu--standard;
       right: 100%;
     }
   }
 
   &::after {
     @include at-media($theme-header-min-width) {
-      @include outer-megamenu;
+      @include outer-megamenu--standard;
       left: 100%;
+    }
+  }
+
+
+}
+
+.usa-header--extended .usa-megamenu.usa-nav__submenu {
+  &::before {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu--extended;
+    }
+  }
+
+  &::after {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu--extended;
     }
   }
 }
