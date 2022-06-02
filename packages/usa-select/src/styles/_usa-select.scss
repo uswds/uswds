@@ -3,12 +3,15 @@
 .usa-select {
   @extend %block-input-general;
   @extend %block-input-styles;
-  @include add-background-svg("usa-icons/unfold_more");
   appearance: none;
   background-color: color("white");
   background-position: right units(1) center;
   background-size: units(2.5);
   padding-right: units(4);
+
+  &:not([multiple]) {
+    @include add-background-svg("usa-icons/unfold_more");
+  }
 
   &::-ms-expand {
     display: none;
@@ -23,6 +26,10 @@
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 color("black");
+  }
+
+  &[multiple] {
+    height: auto;
   }
 
   // Necessary to show chevron in forced colors mode in modern browsers
