@@ -5,9 +5,8 @@ export default {
   title: "Components/Form Inputs/Select",
 
   argTypes: {
-    variant: {
-      options: ["default", "multiple"],
-      control: { type: "radio" },
+    size: {
+      control: { type: "number" },
     },
   },
 };
