@@ -518,7 +518,7 @@ We use the following tools to ensure USWDS is accessible:
 - [Axe core](https://www.deque.com/axe/).
 - [Axe dev tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
 
-If you find any issues with our accessibility conformance, please create an issue in our GitHub repo or send us an email at `uswds` `at` `gsa.gov`. We prioritize accessibility issues. See [the Accessibility page of our website](https://designsystem.digital.gov/documentation/accessibility/) for more information.
+If you find any issues with our accessibility conformance, please create an issue in our GitHub repo or send us an email at [uswds@gsa.gov](mailto:uswds@gsa.gov). We prioritize accessibility issues. See [the Accessibility page of our website](https://designsystem.digital.gov/documentation/accessibility/) for more information.
 
 ## Long-term support of v1.x
 
@@ -534,7 +534,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
-You can also email us directly at uswds@gsa.gov.
+You can also email us directly at [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
 ## Contributing to the code base
 
