@@ -1,28 +1,41 @@
-const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const validate = require("../../uswds-core/src/js/utils/validate-input");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 
-const ITEM = `.${PREFIX}-checklist__item`;
+const VALIDATE_INPUT = "input[data-validation-element]";
+const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 function change() {
   validate(this);
 }
 
+function createHiddenLabel() {
+  const hiddenLabel = document.createElement("span");
+
+  hiddenLabel.classList.add("usa-sr-only");
+  hiddenLabel.textContent = "Incomplete";
+  hiddenLabel.setAttribute("data-checklist-label", "");
+
+  return hiddenLabel;
+}
+
 const validator = behavior(
   {
     "input change": {
-      "input[data-validation-element]": change,
+      [VALIDATE_INPUT]: change,
     },
   },
   {
     init(root) {
-      select(ITEM, root).forEach((item) => {
-        const newSpan = document.createElement("SPAN");
-        newSpan.classList.add("usa-sr-only");
-        newSpan.textContent = "Incomplete";
-        newSpan.setAttribute("data-checklist-label", "hidden");
-        item.append(newSpan);
+      selectOrMatches(VALIDATE_INPUT, root).forEach((item) => {
+        const validationParent = item.parentNode;
+        const checklistItems = validationParent.querySelectorAll(CHECKLIST_ITEM);
+
+        checklistItems.forEach(listItem => {
+          const newSpan = createHiddenLabel();
+          listItem.appendChild(newSpan)
+        });
       });
     },
   }
