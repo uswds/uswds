@@ -1,4 +1,3 @@
-const validator = require("../../../../usa-validation/src");
 const { prefix: PREFIX } = require("../config");
 
 const CHECKED = "aria-checked";
@@ -22,7 +21,7 @@ module.exports = function validate(el) {
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const hiddenCheckboxSpan = validatorCheckbox.querySelector(
-        `[data-checklist-label="hidden"]`
+        `[data-checklist-label]`
       );
 
       if (!validatorCheckbox) {
