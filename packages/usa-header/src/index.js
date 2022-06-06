@@ -197,7 +197,7 @@ navigation = behavior(
     },
     focusout: {
       [NAV_PRIMARY](event) {
-        const nav = event.target.closest(NAV_PRIMARY);
+        const nav = event.target.closest(NAV);
 
         if (!nav.contains(event.relatedTarget)) {
           hideActiveNavDropdown();
