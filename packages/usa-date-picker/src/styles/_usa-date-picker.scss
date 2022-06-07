@@ -363,6 +363,16 @@ $navigate_far_next: map-merge(
 // Date Picker - Month Selection View
 .usa-date-picker__calendar__month-picker {
   padding: 20px 5px;
+
+  @include at-media-max("card-lg") {
+    padding-bottom: 12px;
+    padding-top: 12px;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 .usa-date-picker__calendar__month {
