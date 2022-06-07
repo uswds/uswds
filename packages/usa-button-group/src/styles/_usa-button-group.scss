@@ -125,8 +125,11 @@
     }
 
     &:not(:last-child) .usa-button--secondary:disabled::before,
+    &:not(:last-child) .usa-button--secondary[aria-disabled="true"]::before
     &:not(:last-child) .usa-button--accent-cool:disabled::before,
-    &:not(:last-child) .usa-button--base:disabled::before {
+    &:not(:last-child) .usa-button--accent-cool[aria-disabled="true"]::before,
+    &:not(:last-child) .usa-button--base:disabled::before,
+    &:not(:last-child) .usa-button--base[aria-disabled="true"]::before {
       border-right-color: color("base");
     }
 

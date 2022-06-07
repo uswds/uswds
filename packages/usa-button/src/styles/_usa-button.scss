@@ -47,8 +47,10 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     outline-offset: units(0.5);
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     @include button-disabled;
+    outline-offset: 0;
   }
 }
 
@@ -199,7 +201,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline-inverse-disabled,
 .usa-button--outline:disabled,
 .usa-button--outline-inverse:disabled,
-.usa-button--outline-inverse:disabled {
+.usa-button--outline-inverse[aria-disabled="true"]{
   background-color: color("transparent");
 
   &:hover,
@@ -214,7 +216,8 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 }
 
 .usa-button--outline-disabled,
-.usa-button--outline:disabled {
+.usa-button--outline:disabled,
+.usa-button--outline[aria-disabled="true"] {
   box-shadow: $button-stroke color("disabled");
   color: color("disabled");
 

@@ -79,7 +79,8 @@
           color($input-active-color);
       }
     }
-    &:disabled {
+    &:disabled,
+    &[aria-disabled="true"] {
       @include format-label {
         color: $color-input-disabled;
 
@@ -113,7 +114,8 @@
           }
         }
       }
-      &:disabled:checked {
+      &:disabled:checked,
+      &[aria-disabled="true"]:checked {
         @include format-label {
           background-color: color($input-bg-color);
           border-color: $color-input-disabled;
@@ -125,7 +127,8 @@
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
       &:checked,
-      &:checked:disabled {
+      &:checked:disabled,
+      &:checked[aria-disabled="true"]  {
         @include format-input {
           @include add-background-svg($input-checkmark);
         }
@@ -136,7 +139,8 @@
           }
         }
       }
-      &:checked:disabled {
+      &:checked:disabled,
+      &:checked[aria-disabled="true"] {
         @include format-input {
           background-color: $color-input-disabled;
         }
@@ -158,7 +162,8 @@
           }
         }
       }
-      &:checked:disabled {
+      &:checked:disabled,
+      &:checked[aria-disabled="true"] {
         @include format-input {
           background-color: $color-input-disabled--weak;
           box-shadow: 0 0 0 2px $color-input-disabled,
