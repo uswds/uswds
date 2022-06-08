@@ -1,37 +1,99 @@
 import Component from "./usa-date-picker.twig";
-import Content from "./usa-date-picker.json";
 
 export default {
   title: "Components/Form Inputs/Date Picker",
+  argTypes: {
+    defaultValue: {
+      name: "Default Value (YYYY-MM-DD)",
+      control: { type: 'text' },
+    },
+    rangeDate: {
+      name: "Range Date (YYYY-MM-DD)",
+      control: { type: 'text' },
+    },
+    restrictedStart: {
+      name: "Restricted Date: Start (YYYY-MM-DD)",
+      control: { type: 'text' },
+    },
+    restrictedEnd: {
+      name: "Restricted Date: End (YYYY-MM-DD)",
+      control: { type: 'text' },
+    },
+    disabled: {
+      name: "Disabled",
+      defaultValue: 'false',
+      control: { type: 'boolean' },
+    },
+  },
 };
 
 const Template = (args) => Component(args);
 
-export const DatePicker = Template.bind({});
-DatePicker.args = Content;
-
-export const DefaultDate = Template.bind({});
-DefaultDate.args = {
-  defaultDate: "1995-03-07",
-};
+export const Default = Template.bind({});
 
 export const DefaultValue = Template.bind({});
-DefaultValue.args = {
-  defaultValue: "1995-03-07",
-};
-
-export const RestrictedDate = Template.bind({});
-RestrictedDate.args = {
-  minDate: "2022-01-07",
-  maxDate: "2022-01-14",
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+DefaultValue.argTypes = {
+  defaultValue: {
+    defaultValue: "1995-03-06",
+  },
+  rangeDate: {
+    table: { disable: true },
+  },
+  restrictedStart: {
+    table: { disable: true },
+  },
+  restrictedEnd: {
+    table: { disable: true },
+  },
 };
 
 export const RangeDate = Template.bind({});
-RangeDate.args = {
-  rangeDate: "2022-01-07",
+RangeDate.argTypes = {
+  rangeDate: {
+    defaultValue: "2022-01-07",
+  },
+  defaultValue: {
+    table: { disable: true },
+  },
+  restrictedStart: {
+    table: { disable: true },
+  },
+  restrictedEnd: {
+    table: { disable: true },
+  },
+};
+
+export const RestrictedDate = Template.bind({});
+RestrictedDate.argTypes = {
+  restrictedStart: {
+    defaultValue: "1995-03-06",
+  },
+  restrictedEnd: {
+    defaultValue: "1995-03-15",
+  },
+  defaultValue: {
+    table: { disable: true },
+  },
+  rangeDate: {
+    table: { disable: true },
+  },
+};
+
+export const Disabled = Template.bind({});
+Disabled.argTypes = {
+  disabled: {
+    defaultValue: 'true',
+  },
+  defaultValue: {
+    table: { disable: true },
+  },
+  rangeDate: {
+    table: { disable: true },
+  },
+  restrictedStart: {
+    table: { disable: true },
+  },
+  restrictedEnd: {
+    table: { disable: true },
+  },
 };
