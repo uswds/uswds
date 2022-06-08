@@ -4,6 +4,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 
 const VALIDATE_INPUT = "input[data-validation-element]";
+const CHECKLIST = `.${PREFIX}-checklist`;
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 function change() {
@@ -30,11 +31,15 @@ const validator = behavior(
     init(root) {
       selectOrMatches(VALIDATE_INPUT, root).forEach((item) => {
         const validationParent = item.parentNode;
-        const checklistItems = validationParent.querySelectorAll(CHECKLIST_ITEM);
+        const checklist = validationParent.querySelectorAll(CHECKLIST);
+        const checklistItems =
+          validationParent.querySelectorAll(CHECKLIST_ITEM);
 
-        checklistItems.forEach(listItem => {
+        checklist.forEach((list) => list.setAttribute("aria-live", "polite"));
+
+        checklistItems.forEach((listItem) => {
           const newSpan = createHiddenLabel();
-          listItem.appendChild(newSpan)
+          listItem.appendChild(newSpan);
         });
       });
     },
