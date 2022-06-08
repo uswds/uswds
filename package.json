@@ -43,7 +43,6 @@
     "./img/*": "./dist/img/*",
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
-  "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
