@@ -364,7 +364,7 @@ $navigate_far_next: map-merge(
 .usa-date-picker__calendar__month-picker {
   padding: 20px 5px;
 
-  @include at-media-max("card-lg") {
+  @include at-media-max("mobile") {
     padding-bottom: 12px;
     padding-top: 12px;
 
