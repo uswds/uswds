@@ -1,7 +1,6 @@
 const { src, dest } = require("gulp");
 const rename = require("gulp-rename");
 const dutil = require("./utils/doc-util");
-const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 module.exports = {
   // Copy theme settings files to /dist directory
@@ -21,21 +20,10 @@ module.exports = {
   },
 
   // Copy material icons to /dist/img/material-icons
-  copyIconSrc() {
-    dutil.logMessage("copyIconSrc", "Copying Material icons to dist/img/material-icons");
+  copyIcons() {
+    dutil.logMessage("copyIcons", "Copying Material icons to dist/img/material-icons");
     return src(["node_modules/@material-design-icons/svg/outlined/*"])
       .pipe(dest("dist/img/material-icons"));
-  },
-
-  // Copy default icons to /dist/img/usa-icons
-  copyIconSet() {
-    dutil.logMessage("copyIconSelects", "Copying default icon set to dist/img/usa-icons");
-    return src([
-      `node_modules/@material-design-icons/svg/outlined/{${iconConfig.material}}.svg`,
-      `packages/usa-icon/src/img/material-icons-deprecated/{${iconConfig.materialDeprecated}}.svg`,
-      `packages/usa-icon/src/img/uswds-icons/{${iconConfig.uswds}}.svg`,
-    ])
-      .pipe(dest("dist/img/usa-icons"))
   },
 
   // Copy images to /dist directory
@@ -51,7 +39,6 @@ module.exports = {
       )
       .pipe(dest("dist/img"));
   },
-
 
   // Copy fonts to /dist directory
   copyFonts() {
