@@ -32,3 +32,6 @@ sassdoc/
 src/img/sprite.svg
 packages/usa-icon/src/img/sprite.svg
 src/img/symbol
+
+# ignore material icons
+package/usa-icon/src/img/material-icons
