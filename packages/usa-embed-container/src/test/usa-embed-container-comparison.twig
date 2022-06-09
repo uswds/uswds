@@ -1,0 +1,90 @@
+<div class="grid-container">
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>
+       add-aspect-1x1
+      </h3>
+      <div class="usa-embed-container add-aspect-1x1" aria-label="1x1">
+        <iframe src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A" title="16:9 aspect ratio example iframe" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-left-2px">
+      <h3>
+       aspect-1
+      </h3>
+      <div class="usa-embed-container aspect-1" aria-label="1x1">
+        <iframe src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A" title="16:9 aspect ratio example iframe" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>
+       add-aspect-16x9
+      </h3>
+      <div class="usa-embed-container add-aspect-16x9" aria-label="16x9">
+        <iframe src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A" title="16:9 aspect ratio example iframe" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-left-2px">
+      <h3>
+       aspect-16x9
+      </h3>
+      <div class="usa-embed-container aspect-16x9" aria-label="16x9">
+        <iframe src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A" title="16:9 aspect ratio example iframe" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .aspect-1 {
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    .aspect-16x9 {
+      aspect-ratio: 16 / 9;
+      position: relative;
+      }
+
+    img.aspect-1 {
+      object-fit: cover;
+    }
+
+    .aspect-1 > *,
+    .aspect-16x9 > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .aspect-1 > img,
+    .aspect-16x9 > img {
+      object-fit: cover;
+    }
+
+    .add-aspect-1x1 iframe,
+    .add-aspect-16x9 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bg-image-demo {
+      background-image: url("https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg")
+    }
+
+    .aspect-1.usa-embed-container,
+    .aspect-16x9.usa-embed-container {
+        padding: 0;
+      height: auto;
+      overflow: visible;
+      max-width: none;
+    }
+  </style>
+</div>
