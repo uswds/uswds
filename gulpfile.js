@@ -6,7 +6,7 @@ const { series, parallel } = require("gulp");
 // Each task is broken apart to it's own node module.
 // Check out the ./tasks directory for more.
 const { noCleanup, noTest } = require("./tasks/flags");
-const { buildSprite } = require("./tasks/svg-sprite");
+const { buildSprite, buildSpriteStandalone } = require("./tasks/svg-sprite");
 const { compileJS, typeCheck } = require("./tasks/javascript");
 const { unitTests, sassTests } = require("./tasks/test");
 const { lintSass, typecheck } = require("./tasks/lint");
@@ -58,6 +58,7 @@ exports.test = series(
  * buildJS: Lint, copy normalize, and compile sass.
  * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
+exports.buildSpriteStandalone = buildSpriteStandalone;
 exports.buildSprite = buildSprite;
 exports.buildSass = series(lintSass, compileSass);
 exports.buildJS = series(typeCheck, compileJS);
