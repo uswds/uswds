@@ -1,12 +1,12 @@
 <div class="usa-date-range-picker"
-    {% if restrictedStart %} data-min-date="{{ restrictedStart }}"{% endif %}
-    {% if restrictedEnd %} data-max-date="{{ restrictedEnd }}"{% endif %}
+    {% if restrictedDateStart %} data-min-date="{{ restrictedDateStart }}"{% endif %}
+    {% if restrictedDateEnd %} data-max-date="{{ restrictedDateEnd }}"{% endif %}
 >
   <div class="usa-form-group">
     <label class="usa-label" id="event-date-start-label" for="event-date-start">Event start date</label>
     <div class="usa-hint" id="event-date-start-hint">mm/dd/yyyy</div>
     <div class="usa-date-picker"
-      {% if defaultStart %} data-default-value="{{ defaultStart }}"{% endif %}
+      {% if defaultDateStart %} data-default-value="{{ defaultDateStart }}"{% endif %}
     >
       <input
         class="usa-input"
@@ -23,7 +23,7 @@
     <label class="usa-label" id="event-date-end-label" for="event-date-end">Event end date</label>
     <div class="usa-hint" id="event-date-end-hint">mm/dd/yyyy</div>
     <div class="usa-date-picker"
-      {% if defaultEnd %} data-default-value="{{ defaultEnd }}"{% endif %}
+      {% if defaultDateEnd %} data-default-value="{{ defaultDateEnd }}"{% endif %}
     >
       <input
         class="usa-input"

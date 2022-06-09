@@ -3,19 +3,19 @@ import Component from "./usa-date-picker.twig";
 export default {
   title: "Components/Form Inputs/Date Picker",
   argTypes: {
-    defaultValue: {
-      name: "Default Value (YYYY-MM-DD)",
+    defaultDate: {
+      name: "Default Date (YYYY-MM-DD)",
       control: { type: 'text' },
     },
     rangeDate: {
       name: "Range Date (YYYY-MM-DD)",
       control: { type: 'text' },
     },
-    restrictedStart: {
+    restrictedDateStart: {
       name: "Restricted Date: Start (YYYY-MM-DD)",
       control: { type: 'text' },
     },
-    restrictedEnd: {
+    restrictedDateEnd: {
       name: "Restricted Date: End (YYYY-MM-DD)",
       control: { type: 'text' },
     },
@@ -31,18 +31,18 @@ const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
 
-export const DefaultValue = Template.bind({});
-DefaultValue.argTypes = {
-  defaultValue: {
+export const DefaultDate = Template.bind({});
+DefaultDate.argTypes = {
+  defaultDate: {
     defaultValue: "1995-03-06",
   },
   rangeDate: {
     table: { disable: true },
   },
-  restrictedStart: {
+  restrictedDateStart: {
     table: { disable: true },
   },
-  restrictedEnd: {
+  restrictedDateEnd: {
     table: { disable: true },
   },
 };
@@ -52,26 +52,26 @@ RangeDate.argTypes = {
   rangeDate: {
     defaultValue: "2022-01-07",
   },
-  defaultValue: {
+  defaultDate: {
     table: { disable: true },
   },
-  restrictedStart: {
+  restrictedDateStart: {
     table: { disable: true },
   },
-  restrictedEnd: {
+  restrictedDateEnd: {
     table: { disable: true },
   },
 };
 
 export const RestrictedDate = Template.bind({});
 RestrictedDate.argTypes = {
-  restrictedStart: {
+  restrictedDateStart: {
     defaultValue: "1995-03-06",
   },
-  restrictedEnd: {
+  restrictedDateEnd: {
     defaultValue: "1995-03-15",
   },
-  defaultValue: {
+  defaultDate: {
     table: { disable: true },
   },
   rangeDate: {
@@ -84,16 +84,16 @@ Disabled.argTypes = {
   disabled: {
     defaultValue: 'true',
   },
-  defaultValue: {
+  defaultDate: {
     table: { disable: true },
   },
   rangeDate: {
     table: { disable: true },
   },
-  restrictedStart: {
+  restrictedDateStart: {
     table: { disable: true },
   },
-  restrictedEnd: {
+  restrictedDateEnd: {
     table: { disable: true },
   },
 };
