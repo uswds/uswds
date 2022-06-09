@@ -31,9 +31,9 @@ module.exports = {
   copyIconSet() {
     dutil.logMessage("copyIconSelects", "Copying default icon set to dist/img/usa-icons");
     return src([
-      `node_modules/@material-design-icons/svg/outlined/[${iconConfig.material}].svg`,
-      `packages/usa-icon/src/img/material-icons-deprecated/[${iconConfig.materialDeprecated}].svg`,
-      `packages/usa-icon/src/img/uswds-icons/[${iconConfig.uswds}].svg`,
+      `node_modules/@material-design-icons/svg/outlined/{${iconConfig.material}}.svg`,
+      `packages/usa-icon/src/img/material-icons-deprecated/{${iconConfig.materialDeprecated}}.svg`,
+      `packages/usa-icon/src/img/uswds-icons/{${iconConfig.uswds}}.svg`,
     ])
       .pipe(dest("dist/img/usa-icons"))
   },
