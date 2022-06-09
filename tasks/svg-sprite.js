@@ -4,8 +4,9 @@ const svgSprite = require("gulp-svg-sprite");
 const rename = require("gulp-rename");
 const del = require("del");
 const { logError } = require('./utils/doc-util');
+const { copyIconSrc, copyIconSet } = require("./copy");
 
-const svgPath = "packages/usa-icon/src/img";
+const svgPath = "dist/img";
 
 // More complex configuration example
 const config = {
@@ -47,6 +48,14 @@ function renameSprite() {
 function cleanSprite() {
   return del(`${svgPath}/symbol`);
 }
+
+exports.buildSpriteStandalone = series(
+  copyIconSrc,
+  copyIconSet,
+  buildSprite,
+  renameSprite,
+  cleanSprite
+)
 
 exports.buildSprite = series(
   buildSprite,
