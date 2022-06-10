@@ -1,17 +1,14 @@
 import Component from "./usa-select.twig";
+import Multiple from "./usa-select--multiple.twig";
 import Content from "./usa-select.json";
 
 export default {
   title: "Components/Form Inputs/Select",
-
-  argTypes: {
-    size: {
-      control: { type: "number" },
-    },
-  },
 };
 
 const Template = (args) => Component(args);
+const MultiTemplate = (args) => Multiple(args);
 
 export const Select = Template.bind({});
-Select.args = Content;
+export const SelectMultiple = MultiTemplate.bind({});
+SelectMultiple.args = Content;
