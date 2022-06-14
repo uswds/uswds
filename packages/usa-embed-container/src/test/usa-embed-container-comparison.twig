@@ -46,9 +46,10 @@
     .aspect-16x9 {
       aspect-ratio: 16 / 9;
       position: relative;
-      }
+    }
 
-    img.aspect-1 {
+    img.aspect-1,
+    img.aspect-16x9  {
       object-fit: cover;
     }
 
@@ -79,6 +80,7 @@
       background-image: url("https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg")
     }
 
+//cancel out current embed-container styles
     .aspect-1.usa-embed-container,
     .aspect-16x9.usa-embed-container {
         padding: 0;
