@@ -9,4 +9,4 @@ const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
 
 export const AddAspect = Template.bind({});
-export const AspectComparison = TestTemplate.bind({});
+export const Test = TestTemplate.bind({});
