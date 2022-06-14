@@ -28,10 +28,7 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          "box-sizing": border-box,
-          "height": 0,
-          "overflow": hidden,
-          "padding": 0 0 177.77778%,
+          "aspect-ratio": "9 / 16",
         ),
       ),
       1x1: (
@@ -39,10 +36,7 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          "box-sizing": border-box,
-          "height": 0,
-          "overflow": hidden,
-          "padding": 0 0 100%,
+          "aspect-ratio": 1,
         ),
       ),
       4x3: (
@@ -50,10 +44,7 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          "box-sizing": border-box,
-          "height": 0,
-          "overflow": hidden,
-          "padding": 0 0 75%,
+          "aspect-ratio": "4 / 3",
         ),
       ),
       16x9: (
@@ -61,10 +52,7 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          "box-sizing": border-box,
-          "height": 0,
-          "overflow": hidden,
-          "padding": 0 0 56.25%,
+          "aspect-ratio": "16 / 9",
         ),
       ),
       2x1: (
@@ -72,10 +60,7 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          "box-sizing": border-box,
-          "height": 0,
-          "overflow": hidden,
-          "padding": 0 0 50%,
+          "aspect-ratio": 2,
         ),
       ),
     ),
@@ -84,3 +69,22 @@ $add-aspect: (
     type: "object",
   ),
 );
+
+.add-aspect-9x16,
+.add-aspect-1x1,
+.add-aspect-4x3,
+.add-aspect-16x9,
+.add-aspect-2x1 {
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+  }
+
+  @at-root #{selector-append(img, &)},
+  & > img {
+    object-fit: cover;
+  }
+}
