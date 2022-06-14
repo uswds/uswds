@@ -30,6 +30,13 @@ body:
     validations:
       required: true
   - type: textarea
+    id: code
+    attributes:
+      label: Related code
+      description: If available, include relevant code snippets or a link to a demo of the bug.
+    validations:
+      required: false
+  - type: textarea
     id: screenshots
     attributes:
       label: Screenshots
