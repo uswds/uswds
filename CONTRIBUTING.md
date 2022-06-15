@@ -72,7 +72,7 @@ If you want to propose a code fix, even better! Here’s a few steps to help you
 1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues. 
 2. If your bug has already been submitted, feel free to comment and provide additional context (if different than the original submission).  
 3. If your proposed fix is not in the open issues backlog, create an [issue](https://github.com/uswds/uswds/issues/new/choose) for the change you’re proposing.  This helps us track our work. 
-4. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/). 
+4. Fork this repo into your GitHub account. Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/). 
 5. Create a branch from `develop` and name it in a way that lightly defines what you’re working on (for example, `add-styles`).
 6. Ensure that your contribution works via npm, if applicable.
 7. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
