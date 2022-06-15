@@ -99,7 +99,7 @@ Once you’ve submitted a contribution, we'll triage it based on the following c
 2. **Severity:** What type of functionality is impacted? Is there a workaround?
 3. **Priority:** Does this align with our vision and roadmap goals? 
 
-Note: We prioritize issues impacting accessibility. 
+Note: We prioritize issues that affect accessibility. 
 
 These considerations help us decide if and when we can work on the issue. If the issue is accepted, we will schedule them for an upcoming sprint (a 2-week work period).
 
