@@ -12,14 +12,14 @@
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
                 <a href="tel:1-800-555-5555">
-                  {{ footer.secondary_section.phone }}
+                  {{ footer.secondary_section.phone |e }}
                 </a>
               </div>
             </div>
             <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
               <div class="usa-footer__contact-info">
                 <a href="mailto:info@agency.gov">
-                  {{ footer.secondary_section.email }}
+                  {{ footer.secondary_section.email |e }}
                 </a>
               </div>
             </div>
@@ -35,7 +35,7 @@
       </div>
       <div class="grid-col-auto">
         <p class="usa-footer__logo-heading">
-          {{ footer.secondary_section.heading }}
+          {{ footer.secondary_section.heading |e }}
         </p>
       </div>
     </div>
