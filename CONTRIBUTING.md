@@ -41,7 +41,7 @@ Before submitting a bug, try to recreate it and document the steps we can take t
 
 #### 3. Submit an issue
 
-If your bug or issue is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+), submit an issue using the [bug report template](https://github.com/uswds/uswds/issues/new?assignees=&labels=type%3A+bug&template=bug_report.md&title=). A USWDS core team member may reach out to you if we need further clarification or context. We may also need your help testing possible solutions. Be sure to check in on your issue to answer any questions we may have about it.  
+If your bug or issue is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+), submit an issue using the [bug report template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Bug%2CStatus%3A+Triage%2CNeeds%3A+Confirmation&template=bug_report.yaml&title=USWDS+-+Bug%3A+%5BYOUR+TITLE%5D). A USWDS core team member may reach out to you if we need further clarification or context. We may also need your help testing possible solutions. Be sure to check in on your issue to answer any questions we may have about it.  
 
 If you have a code fix for the issue, go ahead and submit a pull request. Our team tracks issues, so make sure any pull request you submit has a related issue.
 
