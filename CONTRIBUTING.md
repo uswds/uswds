@@ -18,7 +18,7 @@ We encourage you to read this project’s Contribution Guide (you are here), its
 
 Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new component, we welcome your ideas on how to improve the Design System.
 
-First time contributor? No sweat. You’ve got this 💪! We’re here to help guide you through a successful contribution. Don’t worry--you can’t break anything. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](uswds@gsa.gov) — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something.
+First time contributor? No sweat. You’ve got this 💪! We’re here to help guide you through a successful contribution. Don’t worry--you can’t break anything. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something.
 
 Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.  
 
