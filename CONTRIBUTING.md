@@ -2,7 +2,7 @@
 
 We’re so glad you’re thinking about contributing to the U.S. Web Design System (USWDS)! 
 
-USWDS is for everyone--we’re an open source project that accepts contributions from our community members. USWDS is the result of community contributions, large and small. Your contribution helps make the Design System better for the next team that uses it. 
+USWDS is for everyone—we’re an open source project that accepts contributions from our community members. USWDS is the result of community contributions, large and small. Your contribution helps make the Design System better for the next team that uses it. 
 
 
 ## Code of Conduct
