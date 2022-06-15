@@ -117,7 +117,7 @@ There can be a lot of jargon when discussing how you can contribute to the Desig
 - **Feature request** - a proposal for something new to be included to the Design System. 
 - **Fork** - a copy of a repository that you manage. 
 - **Open source** - something that can be viewed, modified, and shared by anyone in the public with permissions enforced through an open source license.
-- **Pull request** - a way to notify project team members when a contributor/ developer wants to merge new code changes into a main project repository. You can read more on [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (external link).
+- **Pull request** - a way to notify project team members when a contributor/developer wants to merge new code changes into a main project repository. You can read more on [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (external link).
 - **Repository (aka repo)** - In Github, a repository contains all your projects’ files and each of their revisions. You can read more on [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) (external link). 
 - **Roadmap** - a summary that outlines a product’s goals, priorities, and progress over a period of time. 
 
