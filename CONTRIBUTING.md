@@ -76,7 +76,7 @@ If you want to propose a code fix, even better! Here’s a few steps to help you
 5. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
 6. Ensure that your contribution works via npm, if applicable.
 7. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
-8. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. 
+8. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. You can read more about linking pull requests on [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 9. Submit your pull request against the `develop` branch. 
 
 If the pull request is accepted, we will schedule the issue and merge the pull request for you. 
