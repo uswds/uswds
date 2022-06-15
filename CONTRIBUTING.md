@@ -102,7 +102,7 @@ Once you’ve submitted a contribution, we triage them based on the following co
 
 Note: We prioritize issues impacting accessibility. 
 
-These considerations help us decide if and when we can work on the issue. If the issue is accepted, we scheduled them for an upcoming sprint (a 2-week work period).
+These considerations help us decide if and when we can work on the issue. If the issue is accepted, we will schedule them for an upcoming sprint (a 2-week work period).
 
 You can stay up to date on the status of your contributions through [GitHub email notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) (external link) and the assigned labels on the issue. 
 
