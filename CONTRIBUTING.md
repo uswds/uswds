@@ -48,7 +48,7 @@ If you have a code fix for the issue, go ahead and submit a pull request. Our te
 
 ### 💡 Proposing feature requests or enhancements
 
-If you’ve got an idea on how something could work better (enhancement) or on new functionality (feature request) for the Design System, we want to hear about it. Here’s a few steps to help you submit an enhancement or feature request. 
+If you’ve got an idea on how something could work better (enhancement) or on new functionality (feature request) for the Design System, we want to hear about it. Here are a few steps to help you submit an enhancement or feature request. 
 
 #### 1. Check the backlog of current feature requests 
 
