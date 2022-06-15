@@ -22,7 +22,7 @@ First time contributor? No sweat. You’ve got this 💪! We’re here to help g
 
 Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.  
 
-If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you’ve got questions, don’t hesitate to [reach out to us](uswds@gsa.gov). 
+If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you’ve got questions, don’t hesitate to [reach out to us](mailto:uswds@gsa.gov). 
 
 
 ###  🐛 Submitting bugs and issues
