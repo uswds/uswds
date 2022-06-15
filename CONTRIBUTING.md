@@ -54,7 +54,7 @@ If you’ve got a new idea or a suggestion for how something could work better, 
 
 Check our [feature requests backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22) for any duplicate or similar feature requests. 
 
-If your idea has already been suggested and fulfills your business need, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request and any other supporting information. We review the number of upvotes (represented by 👍) to help us prioritize feature requests. 
+If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request and any other supporting information. We review the number of upvotes (represented by 👍) to help us prioritize feature requests. 
 
 If you want to find other feature requests open for upvoting, check out our [feature request view sorted by status](https://github.com/orgs/uswds/projects/8/views/18?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Status). 
 
