@@ -60,7 +60,7 @@ If you want to find other feature requests open for upvoting, check out our [fea
 
 #### 2. Submit an issue
 
-If your idea is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22), submit an issue using the [feature request template](https://github.com/uswds/uswds/issues/new?assignees=&labels=type%3A+feature+request&template=feature_request.md&title=).  A USWDS core team member may reach out to you if we need further clarification on your submission. 
+If your idea is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22), submit an issue using the [feature request template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D).  A USWDS core team member may reach out to you if we need further clarification on your submission. 
 
 
 ### 🛠 Submitting pull requests
