@@ -96,9 +96,9 @@ If you’d like to contribute something else that doesn’t fall into any of the
 ## How we prioritize
 
 Once you’ve submitted a contribution, we triage them based on the following considerations:
-1. Size: Can we accomplish this in a sprint or will this take longer? 
-2. Severity: What type of functionality is impacted? Is there a workaround?
-3. Priority: Does this align with our vision and roadmap goals? 
+1. **Size:** Can we accomplish this in a sprint or will this take longer? 
+2. **Severity:** What type of functionality is impacted? Is there a workaround?
+3. **Priority:** Does this align with our vision and roadmap goals? 
 
 Note: We prioritize issues impacting accessibility. 
 
