@@ -48,7 +48,7 @@ If you have a code fix for the issue, go ahead and submit a pull request. Our te
 
 ### 💡 Proposing feature requests or enhancements
 
-If you’ve got a new idea or a suggestion for how something could work better, we want to hear about it. Here are a few steps to help you submit an feature request or enhancement. 
+If you’ve got a new idea or a suggestion for how something could work better, we want to hear about it. Here are a few steps to help you submit a feature request or enhancement. 
 
 #### 1. Check the backlog of current feature requests 
 
