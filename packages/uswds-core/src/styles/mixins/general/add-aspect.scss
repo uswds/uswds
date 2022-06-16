@@ -1,6 +1,5 @@
 @use "sass:list";
 @use "sass:map";
-@use "sass:string";
 @use "../../functions" as *;
 @use "../../variables" as *;
 
@@ -21,16 +20,16 @@
 
 @mixin add-aspect($ratio...) {
   $ratio: unpack($ratio);
-
   @if map-has-key($project-aspect-ratios, $ratio) {
-    position: relative;
     aspect-ratio: map.get($project-aspect-ratios, $ratio);
+    max-width: 100%;
+    position: relative;
     @include add-aspect-children;
   } @else {
     @error '`#{$ratio}` is not a valid key in $project-aspect-ratios. Valid values: #{map.keys($project-aspect-ratios)}';
   }
 }
 
-.test-aspect-ratio {
-  @include add-aspect("16x9");
-}
+// .test-aspect {
+//   @include add-aspect("16x9");
+// }
