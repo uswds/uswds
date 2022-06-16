@@ -17,6 +17,7 @@ example:
 */
 
 @use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/mixins/general/add-aspect" as *;
 
 $add-aspect: (
   add-aspect: (
@@ -79,16 +80,5 @@ $add-aspect: (
 .add-aspect-4x3,
 .add-aspect-16x9,
 .add-aspect-2x1 {
-  & > * {
-    height:100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  @at-root #{selector-append(img, &)},
-  & > img {
-    object-fit: cover;
-  }
+  @include add-aspect-children;
 }
