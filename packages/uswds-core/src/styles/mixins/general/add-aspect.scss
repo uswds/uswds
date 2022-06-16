@@ -1,22 +1,36 @@
 @use "sass:list";
 @use "sass:map";
+@use "sass:string";
 @use "../../functions" as *;
 @use "../../variables" as *;
 
-@mixin add-aspect($ratio...) {
-  $ratio: unpack($ratio);
-  $important: null;
-  @if has-important($ratio) {
-    $ratio: list.nth($ratio, 1);
-    $important: "!important";
+@mixin add-aspect-children{
+  & > * {
+    height:100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
+  @at-root #{selector-append(img, &)},
+  & > img {
+    object-fit: cover;
+  }
+}
+
+@mixin add-aspect($ratio...) {
+  $ratio: unpack($ratio);
+
   @if map-has-key($project-aspect-ratios, $ratio) {
-    box-sizing: border-box #{$important};
-    height: 0 #{$important};
-    overflow: hidden #{$important};
-    padding: 0 0 map.get($project-aspect-ratios, $ratio) #{$important};
+    position: relative;
+    aspect-ratio: map.get($project-aspect-ratios, $ratio);
+    @include add-aspect-children;
   } @else {
     @error '`#{$ratio}` is not a valid key in $project-aspect-ratios. Valid values: #{map.keys($project-aspect-ratios)}';
   }
+}
+
+.test-aspect-ratio {
+  @include add-aspect("16x9");
 }
