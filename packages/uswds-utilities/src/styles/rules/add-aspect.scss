@@ -39,6 +39,7 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": 1,
+          "max-width": 100%,
         ),
       ),
       4x3: (
