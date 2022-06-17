@@ -24,6 +24,7 @@
   @if map-has-key($project-aspect-ratios, $ratio) {
     aspect-ratio: map.get($project-aspect-ratios, $ratio);
     max-width: 100%;
+    overflow: hidden;
     position: relative;
     @include add-aspect-children;
 

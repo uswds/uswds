@@ -31,6 +31,7 @@ $add-aspect: (
         extend: (
           "aspect-ratio": "9 / 16",
           "max-width": 100%,
+          "overflow": hidden,
         ),
       ),
       1x1: (
@@ -40,6 +41,7 @@ $add-aspect: (
         extend: (
           "aspect-ratio": 1,
           "max-width": 100%,
+          "overflow": hidden,
         ),
       ),
       4x3: (
@@ -49,6 +51,7 @@ $add-aspect: (
         extend: (
           "aspect-ratio": "4 / 3",
           "max-width": 100%,
+          "overflow": hidden,
         ),
       ),
       16x9: (
@@ -58,6 +61,7 @@ $add-aspect: (
         extend: (
           "aspect-ratio": "16 / 9",
           "max-width": 100%,
+          "overflow": hidden,
         ),
       ),
       2x1: (
@@ -67,6 +71,7 @@ $add-aspect: (
         extend: (
           "aspect-ratio": 2,
           "max-width": 100%,
+          "overflow": hidden,
         ),
       ),
     ),
