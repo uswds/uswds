@@ -19,13 +19,19 @@
   }
 }
 
-@mixin add-aspect($ratio...) {
+@mixin add-aspect($ratio, $type: "") {
   $ratio: unpack($ratio);
   @if map-has-key($project-aspect-ratios, $ratio) {
     aspect-ratio: map.get($project-aspect-ratios, $ratio);
     max-width: 100%;
     position: relative;
     @include add-aspect-children;
+
+    // Some browsers (at least Safari and Firefox) require a width attribute on img elements for aspect-ratio to work
+    // using :where() to reduce specificity in case a width utility class is added
+    @if ($type == "image"){
+      width: min-content;
+    }
   } @else {
     @error '`#{$ratio}` is not a valid key in $project-aspect-ratios. Valid values: #{map.keys($project-aspect-ratios)}';
   }
@@ -37,5 +43,14 @@
 //   };
 //   @include at-media(desktop){
 //     @include add-aspect("16x9");
+//   };
+// }
+
+// .test-add-aspect-image {
+//   @include at-media-max(desktop){
+//     @include add-aspect("1x1", "image");
+//   };
+//   @include at-media(desktop){
+//     @include add-aspect("16x9", "image");
 //   };
 // }
