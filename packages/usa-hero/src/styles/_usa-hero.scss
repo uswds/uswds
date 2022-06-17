@@ -11,6 +11,10 @@
   background-position: center;
   background-size: cover;
   color: color("white");
+
+  > .grid-container {
+    position: relative;
+  }
 }
 
 .usa-hero__callout {
