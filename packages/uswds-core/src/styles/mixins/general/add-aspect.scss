@@ -2,14 +2,15 @@
 @use "sass:map";
 @use "../../functions" as *;
 @use "../../variables" as *;
+@use "../helpers/at-media.scss" as *;
 
 @mixin add-aspect-children{
   & > * {
-    height:100%;
-    left: 0;
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
   }
 
   @at-root #{selector-append(img, &)},
@@ -30,6 +31,11 @@
   }
 }
 
-// .test-aspect {
-//   @include add-aspect("16x9");
+// .test-add-aspect {
+//   @include at-media-max(desktop){
+//     @include add-aspect("1x1");
+//   };
+//   @include at-media(desktop){
+//     @include add-aspect("16x9");
+//   };
 // }
