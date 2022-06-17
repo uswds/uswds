@@ -71,6 +71,7 @@ const config = {
     "fast_rewind",
     "favorite_border",
     "favorite",
+    "fax",
     "file_download",
     "file_present",
     "file_upload",

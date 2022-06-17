@@ -340,6 +340,10 @@
         "meta": "heart"
       },
       {
+        "name": "fax",
+        "meta": ""
+      },
+      {
         "name": "file_download",
         "meta": "arrow save"
       },
