@@ -38,7 +38,6 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    "@whitespace/storybook-addon-html",
   ],
   staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
@@ -100,7 +99,7 @@ module.exports = {
               sourceMap: true,
               sassOptions: {
                 includePaths: [
-                  "./packages", 
+                  "./packages",
                   "./node_modules/@uswds"
                 ],
               },
