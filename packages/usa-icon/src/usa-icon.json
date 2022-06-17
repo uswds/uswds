@@ -740,6 +740,10 @@
         "meta": "minus collapse"
       },
       {
+        "name": "remove_circle",
+        "meta": "minus delete"
+      },
+      {
         "name": "report",
         "meta": "exclamation danger stop"
       },
