@@ -43,7 +43,6 @@
     "./img/*": "./dist/img/*",
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
-  "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -112,6 +111,7 @@
     "@babel/core": "7.16.7",
     "@babel/preset-env": "7.16.7",
     "@chanzuckerberg/axe-storybook-testing": "5.0.1",
+    "@material-design-icons/svg": "0.11.1",
     "@storybook/addon-a11y": "6.5.5",
     "@storybook/addon-essentials": "6.5.5",
     "@storybook/addon-links": "6.5.5",
