@@ -113,7 +113,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Open Source @ NSA (National Security Administration)](https://code.nsa.gov/)
 - [Opioids.gov](https://www.opioids.gov/)
 - [The Opportunity Project](http://opportunity.census.gov/)
-- [Pandemic Oversight] (https://www.pandemicoversight.gov/)
+- [Pandemic Oversight](https://www.pandemicoversight.gov/)
 - [Pathogen Detection - NCBI](https://www.ncbi.nlm.nih.gov/pathogens/)
 - [Performance.gov](https://www.performance.gov/)
 - [PIV Usage Guidelines](https://piv.idmanagement.gov/)
