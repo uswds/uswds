@@ -157,6 +157,7 @@ const config = {
     "radio_button_unchecked",
     "reduce_capacity",
     "remove",
+    "remove_circle",
     "report",
     "restaurant",
     "rss_feed",
