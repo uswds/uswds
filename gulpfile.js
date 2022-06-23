@@ -42,12 +42,10 @@ exports.lint = parallel(lintSass, typecheck);
  */
 
 
-exports.sassTests = sassTests;
 exports.unitTests = unitTests;
 exports.test = series(
   typeCheck,
   lintSass,
-  sassTests,
   unitTests,
 );
 

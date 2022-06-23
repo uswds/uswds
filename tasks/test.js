@@ -11,9 +11,4 @@ module.exports = {
   unitTests() {
     return src("packages/usa-*/**/*.spec.js").pipe(mocha(mochaConfig));
   },
-
-  sassTests() {
-    return src("packages/uswds-core/src/test/sass.spec.js")
-      .pipe(mocha());
-  },
 };
