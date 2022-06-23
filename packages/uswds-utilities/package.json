@@ -1,0 +1,26 @@
+{
+  "name": "@uswds/uswds-utilities",
+  "version": "0.0.1-alpha.0",
+  "description": "Utility classes for building and testing new designs and components without abstracting work into semantic names or altering production CSS",
+  "main": "_index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "USWDS",
+    "utilities"
+  ],
+  "author": "18F",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/uswds-core": "^0.0.1-alpha.0"
+  }
+}

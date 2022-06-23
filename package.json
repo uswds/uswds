@@ -184,6 +184,7 @@
     "webpack-cli": "4.9.1"
   },
   "workspaces": [
-    "packages/uswds-core"
+    "packages/uswds-core",
+    "packages/uswds-utilities"
   ]
 }
