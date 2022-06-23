@@ -340,6 +340,10 @@
         "meta": "heart"
       },
       {
+        "name": "fax",
+        "meta": ""
+      },
+      {
         "name": "file_download",
         "meta": "arrow save"
       },
@@ -734,6 +738,10 @@
       {
         "name": "remove",
         "meta": "minus collapse"
+      },
+      {
+        "name": "remove_circle",
+        "meta": "minus delete"
       },
       {
         "name": "report",

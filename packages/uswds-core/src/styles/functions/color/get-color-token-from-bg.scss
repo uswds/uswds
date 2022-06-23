@@ -29,6 +29,12 @@
   }
   $target-magic-number: map.get($system-wcag-magic-numbers, $wcag-target);
   $bg-grade: calculate-grade($bg-color);
+  // When $bg-color = 45, serve alternate tokens with color grades of 0 and 100
+  // This provides sufficient contrast to pass WCAG AA standards
+  @if $bg-grade == 45 and $wcag-target == "AA" {
+    $preferred-text-token: "white";
+    $fallback-text-token: "black";
+  }
   $our-color-tokens: ($preferred-text-token, $fallback-text-token);
   $accessible-text-token: false;
   $accessible-text-grade: false;

@@ -19,6 +19,13 @@ module.exports = {
     return src("src/**/**/*.scss").pipe(dest("dist/scss"));
   },
 
+  // Copy material icons to /dist/img/material-icons
+  copyIcons() {
+    dutil.logMessage("copyIcons", "Copying Material icons to dist/img/material-icons");
+    return src(["node_modules/@material-design-icons/svg/outlined/*"])
+      .pipe(dest("dist/img/material-icons"));
+  },
+
   // Copy images to /dist directory
   copyImages() {
     dutil.logMessage("copyImages", "Copying images to /dist/img");
