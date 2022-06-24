@@ -107,7 +107,7 @@ $-chevron-expand-more: map-merge(
     border: 0;
     cursor: pointer;
 
-    &:not([disabled]):focus {
+    &:focus {
       // Apply negative focus offset to ensure that entire focus ring is visible
       @include focus-outline(null, null, null, "neg-05");
     }

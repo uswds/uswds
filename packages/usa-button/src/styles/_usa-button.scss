@@ -42,15 +42,14 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     @include set-text-and-bg("primary-darker", $context: $button-context);
   }
 
-  &:not([disabled]):focus,
-  &:not([disabled]).usa-focus {
+  &:focus,
+  &.usa-focus {
     outline-offset: units(0.5);
   }
 
   &:disabled,
   &[aria-disabled="true"] {
     @include button-disabled;
-    outline-offset: 0;
   }
 }
 
@@ -200,6 +199,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline-disabled,
 .usa-button--outline-inverse-disabled,
 .usa-button--outline:disabled,
+.usa-button--outline[aria-disabled="true"],
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse[aria-disabled="true"]{
   background-color: color("transparent");
