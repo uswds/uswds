@@ -8,11 +8,14 @@
   <button class="usa-button {{ modifier }} usa-button--active">Active</button>
   <button class="usa-button {{ modifier }} usa-focus">Focus</button>
   <button class="usa-button {{ modifier }}" disabled>Disabled</button>
+  <button class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
   <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
 {% else %}
-  <button class="usa-button {{ modifier }}" {% if disabled %} disabled {% endif %}>{{ text }}</button>
+  <button class="usa-button {{ modifier }}">{{ text }}</button>
   {% if is_demo and 'usa-button--big' in modifier %}
     <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+    <button class="usa-button {{ modifier }}" disabled>Disabled</button>
+    <button class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
   {% endif %}
 {% endif %}
 
