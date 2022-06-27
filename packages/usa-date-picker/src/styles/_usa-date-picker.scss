@@ -301,6 +301,7 @@ $navigate_far_next: map-merge(
       &:hover {
         @media (forced-colors: active) {
           color: color("gray-2");
+        }
       }
     }
   }
