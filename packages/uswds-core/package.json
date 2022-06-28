@@ -26,8 +26,8 @@
     "favicons/*": "./src/img/favicons/*"
   },
   "scripts": {
-    "test:js": "mocha './src/js/utils/test/*.spec.js' --exit",
-    "test:sass": "mocha './src/test/*.spec.js' --exit",
+    "test:js": "mocha './src/js/utils/test/*.spec.js'",
+    "test:sass": "mocha './src/test/*.spec.js'",
     "test": "npm run test:js && npm run test:sass",
     "prepublishOnly": "npm run test"
   },
