@@ -1,3 +1,4 @@
+require('jsdom-global')();
 const sinon = require("sinon");
 const assert = require("assert");
 const behavior = require("../behavior");
@@ -56,4 +57,3 @@ describe("behavior", () => {
     });
   });
 });
-

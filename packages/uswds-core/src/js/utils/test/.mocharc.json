@@ -1,7 +1,0 @@
-{
-  "require": [
-    "jsdom-global/register"
-  ],
-  "exit": true,
-  "timeout": 4000
-}
