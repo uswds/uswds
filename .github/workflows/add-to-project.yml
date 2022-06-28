@@ -10,7 +10,7 @@ jobs:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@v0.1.0
         with:
           project-url: https://github.com/orgs/uswds/projects/8
-          github-token: ${{ secrets.TEST_ORG_RW }}
+          github-token: ${{ secrets.ADD_TO_PROJECT }}
