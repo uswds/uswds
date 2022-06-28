@@ -16,9 +16,14 @@
   ],
   "author": "18F",
   "license": "SEE LICENSE IN LICENSE.MD",
-  "main": "src/styles/_index.scss",
-  "directories": {
-    "test": "src/test"
+  "exports": {
+    "sass": "./_index.scss",
+    "js": "./src/js/index.js",
+    "js/start": "./src/js/start.js",
+    "js/utils/*": "./src/js/utils/*",
+    "js/init/*": "./src/js/uswds-init.js",
+    "fonts/*": "./src/assets/fonts/*",
+    "favicons/*": "./src/img/favicons/*"
   },
   "scripts": {
     "test:js": "mocha './src/js/utils/test/*.spec.js' --exit",
