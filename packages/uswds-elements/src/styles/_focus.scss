@@ -5,8 +5,10 @@ input,
 select,
 textarea,
 button {
-  &:focus {
-    @include focus-outline;
+  &:not([disabled]) {
+    &:focus {
+      @include focus-outline;
+    }
   }
 }
 
