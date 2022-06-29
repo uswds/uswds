@@ -81,6 +81,7 @@ $navigate_far_next: map-merge(
 
     &:focus {
       outline-offset: -4px;
+    }
 
     &:hover {
       background-color: color("base-lighter");
@@ -137,13 +138,6 @@ $navigate_far_next: map-merge(
     &:not([disabled]) {
       &:hover {
         background-color: Highlight;
-      }
-    }
-
-    &:disabled,
-    &[aria-disabled="true"] {
-      &:hover {
-        background-color: transparent;
       }
     }
   }
@@ -360,6 +354,8 @@ $navigate_far_next: map-merge(
       }
     }
   }
+}
+
 .usa-date-picker__calendar__month-label {
   @include at-media-max("mobile") {
     min-width: 100%;
@@ -468,11 +464,11 @@ $navigate_far_next: map-merge(
   }
 }
 
-.usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
-  @include add-background-svg("usa-icons/navigate_before");
+.usa-date-picker__calendar__next-year-chunk:not([disabled]) {
+  @include add-background-svg("usa-icons/navigate_next");
 
   @media (forced-colors: active) {
-    @include place-icon($navigate-before, "after");
+    @include place-icon($navigate-next, "after");
     background-image: none;
 
     &:hover {
@@ -496,18 +492,23 @@ $navigate_far_next: map-merge(
     background-color: color("primary-vivid");
     color: color("gray-2");
 
-    &:hover {
-      background-color: color("primary-vivid");
-      color: color("gray-10");
-    }
-
-    &:focus {
+    &:not([disabled]) {
       background-color: color("primary-vivid");
       color: color("gray-2");
-    }
 
-    &:active {
-      background-color: color("primary-dark");
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
     }
   }
 }
