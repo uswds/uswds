@@ -33,7 +33,7 @@ Disabled.args = {
 
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
-  ariaDisabled: true,
+  aria_disabled: true,
 };
 
 export const RangeDate = Template.bind({});

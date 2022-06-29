@@ -5,3 +5,32 @@
     </li>
   {% endfor %}
 </ul>
+
+{% if show_disabled == true %}
+  <ul class="usa-button-group {{ modifier }}">
+      <li class="usa-button-group__item">
+        <button class="usa-button" disabled>Disabled</button>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button" aria-disabled="true">aria-disabled</button>
+      </li>
+  </ul>
+  <ul class="usa-button-group {{ modifier }}">
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline" disabled>Outline Disabled</button>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline" aria-disabled="true">Outline aria-disabled</button>
+      </li>
+  </ul>
+  <div class="bg-base-darkest padding-1" style="max-width: fit-content">
+    <ul class="usa-button-group {{ modifier }}">
+        <li class="usa-button-group__item">
+          <button class="usa-button usa-button--outline usa-button--inverse" disabled>Outline inverse disabled</button>
+        </li>
+        <li class="usa-button-group__item">
+          <button class="usa-button usa-button--outline usa-button--inverse" aria-disabled="true">Outline inverse aria-disabled</button>
+        </li>
+    </ul>
+  </div>
+{% endif %}

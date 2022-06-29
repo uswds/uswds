@@ -4,6 +4,12 @@ import TestComponent from "./test/test-patterns/test-usa-checkbox.twig";
 
 export default {
   title: "Components/Form Inputs/Checkbox",
+  argTypes: {
+    aria_disabled: {
+      control: {type: 'boolean'},
+      defaultValue: false
+    }
+  }
 };
 
 const Template = (args) => Component(args);

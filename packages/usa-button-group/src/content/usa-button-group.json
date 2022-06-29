@@ -3,5 +3,6 @@
   "items": [
     "<a href=\"javascript:void(0);\" class=\"usa-button usa-button--outline\">Back</a>",
     "<button class=\"usa-button\">Continue</button>"
-  ]
+  ],
+  "show_disabled": false
 }

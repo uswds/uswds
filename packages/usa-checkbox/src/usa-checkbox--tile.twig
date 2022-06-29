@@ -22,5 +22,11 @@
       <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2" type="checkbox" name="historical-figures-2"  value="george-washington-carver" disabled>
       <label class="usa-checkbox__label" for="check-historical-carver-2">George Washington Carver</label>
     </div>
+    {% if aria_disabled == true %}
+      <div class="usa-checkbox">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2" type="checkbox" name="historical-figures-2"  value="george-washington-carver" aria-disabled="true">
+        <label class="usa-checkbox__label" for="check-historical-carver-2">George Washington Carver</label>
+      </div>
+    {% endif %}
   </fieldset>
 </form>

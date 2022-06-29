@@ -16,4 +16,10 @@
     <input class="usa-radio__input" id="historical-carver" type="radio" name="historical-figures" value="george-washington-carver" disabled>
     <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
   </div>
+  {% if aria_disabled == true %}
+    <div class="usa-radio">
+      <input class="usa-radio__input" id="historical-carver" type="radio" name="historical-figures" value="george-washington-carver" aria-disabled="true">
+      <label class="usa-radio__label" for="historical-carver">aria-disabled</label>
+    </div>
+  {% endif %}
 </fieldset>

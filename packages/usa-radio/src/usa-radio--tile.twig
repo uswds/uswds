@@ -17,5 +17,11 @@
       <input class="usa-radio__input usa-radio__input--tile" id="historical-carver-2" type="radio" name="historical-figures-2" value="george-washington-carver" disabled>
       <label class="usa-radio__label" for="historical-carver-2">George Washington Carver</label>
     </div>
+    {% if aria_disabled == true %}
+      <div class="usa-radio">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-carver-2" type="radio" name="historical-figures-2" value="george-washington-carver" aria-disabled="true">
+        <label class="usa-radio__label" for="historical-carver-2">aria-disabled</label>
+      </div>
+    {% endif %}
   </fieldset>
 </form>
