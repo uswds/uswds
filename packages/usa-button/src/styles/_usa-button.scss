@@ -42,8 +42,8 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     @include set-text-and-bg("primary-darker", $context: $button-context);
   }
 
-  &:focus,
-  &.usa-focus {
+  &:not([disabled]):focus,
+  &:not([disabled]).usa-focus {
     outline-offset: units(0.5);
   }
 
