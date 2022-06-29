@@ -98,7 +98,7 @@ $navigate_far_next: map-merge(
   }
 
   &:disabled,
-  &[aria-disabled="true"]{
+  &[aria-disabled="true"] {
     @extend %usa-date-picker__button--disabled;
   }
 }
@@ -145,7 +145,8 @@ $navigate_far_next: map-merge(
   }
 }
 
-.usa-date-picker__external-input[aria-disabled="true"] + .usa-date-picker__button {
+.usa-date-picker__external-input[aria-disabled="true"]
+  + .usa-date-picker__button {
   @extend %usa-date-picker__button--disabled;
 }
 

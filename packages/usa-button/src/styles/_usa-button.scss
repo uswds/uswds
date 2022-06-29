@@ -221,7 +221,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"],
 .usa-button--outline-inverse:disabled,
-.usa-button--outline-inverse[aria-disabled="true"]{
+.usa-button--outline-inverse[aria-disabled="true"] {
   background-color: color("transparent");
 
   &:hover,
