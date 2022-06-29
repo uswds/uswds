@@ -124,13 +124,15 @@
       border-right-color: color("base-dark");
     }
 
+    &:not(:last-child) .usa-button:disabled::before,
+    &:not(:last-child) .usa-button[aria-disabled="true"]::before,
     &:not(:last-child) .usa-button--secondary:disabled::before,
-    &:not(:last-child) .usa-button--secondary[aria-disabled="true"]::before
+    &:not(:last-child) .usa-button--secondary[aria-disabled="true"]::before,
     &:not(:last-child) .usa-button--accent-cool:disabled::before,
     &:not(:last-child) .usa-button--accent-cool[aria-disabled="true"]::before,
     &:not(:last-child) .usa-button--base:disabled::before,
     &:not(:last-child) .usa-button--base[aria-disabled="true"]::before {
-      border-right-color: color("base");
+      border-right-color: color($theme-body-background-color);
     }
 
     &:not(:last-child) .usa-button:active::before,
