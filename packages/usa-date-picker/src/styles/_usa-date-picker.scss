@@ -58,6 +58,18 @@ $navigate_far_next: map-merge(
   }
 }
 
+%usa-date-picker__button--disabled {
+  cursor: auto;
+
+  &:hover {
+    background-color: initial;
+
+    @media (forced-colors: active) {
+      background-color: initial;
+    }
+  }
+}
+
 // Date Picker -- initialized
 %usa-date-picker__button {
   background-color: color("base-lightest");
@@ -87,15 +99,7 @@ $navigate_far_next: map-merge(
 
   &:disabled,
   &[aria-disabled="true"]{
-    cursor: auto;
-
-    &:hover {
-      background-color: initial;
-
-      @media (forced-colors: active) {
-        background-color: initial;
-      }
-    }
+    @extend %usa-date-picker__button--disabled;
   }
 }
 
@@ -139,6 +143,10 @@ $navigate_far_next: map-merge(
       }
     }
   }
+}
+
+.usa-date-picker__external-input[aria-disabled="true"] + .usa-date-picker__button {
+  @extend %usa-date-picker__button--disabled;
 }
 
 .usa-date-picker--initialized {
