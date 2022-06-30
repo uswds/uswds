@@ -17,11 +17,11 @@
   "author": "18F",
   "license": "SEE LICENSE IN LICENSE.MD",
   "exports": {
-    "sass": "./_index.scss",
-    "js/utils/*": "./src/js/utils/*",
-    "js/init/*": "./src/js/uswds-init.js",
-    "fonts/*": "./src/assets/fonts/*",
-    "favicons/*": "./src/img/favicons/*"
+    "./sass": "./_index.scss",
+    "./js/utils/*": "./src/js/utils/*.js",
+    "./js/init/*": "./src/js/uswds-init.js",
+    "./fonts/*": "./src/assets/fonts/*",
+    "./favicons/*": "./src/img/favicons/*"
   },
   "scripts": {
     "test:js": "mocha './src/js/utils/test/*.spec.js'",
