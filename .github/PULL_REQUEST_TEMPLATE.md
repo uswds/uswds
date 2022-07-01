@@ -5,12 +5,11 @@ Your contributions are vital to our success and we are glad you're here.
 Please keep in mind:
 - This pull request (PR) template exists to expedite integration.
 The USWDS Core team reviews and approves every PR before merging it into the public code base,
-so the better we understand why this PR was created, how the solution was achieved, and how we can test,
-the sooner we can merge this change. The point here is: details are helpful!
-
+so the better we understand the problem and solution, the sooner we can merge this change. The point here is: clear details are helpful!
+- You can see examples of successful PRs that meet our criteria by...
 - You can erase any part of this template not applicable to your pull request (including these instructions!).
 
-- If you get stuck, you can find more information about contributing in contributing.md or you can reach out to us at uswds@gsa.gov.
+If you get stuck, you can find more information about contributing in contributing.md or you can reach out to us directly at uswds@gsa.gov.
  -->
 
 <!---
@@ -22,28 +21,34 @@ eg: "USWDS - Button: Increase font size"
 
 ## Related issue
 <!-- - Every pull request should resolve an open issue.
-  (If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose) -->
-Closes #[Issue]
+If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose) -->
+Closes [Issue #]
 
 ## Preview link
 <!-- If available, provide a link to a demo of of the solution in action.-->
 
 ## Problem statement
-<!-- Summarize the problem this PR solves in a clear and concise statement.-->
+<!-- Summarize the problem this PR solves in a clear and concise statement. A successful problem statement conveys:
+1. The desired state
+2. The actual state
+3. Consequences of actual state (who does this affect and to what degree?)-->
 
 ## Solution
-<!-- Provide a summary of the solution this PR offers. If relevant, be sure to explain:
-- **what** the solution is,
-- **why** you took this approach, and
-- **how** you implemented the change.
-Additionally, share possible limitations for this approach.
+<!-- Provide a summary of the solution this PR offers.
+It can be helpful if we understand:
+1. What the solution is,
+2. Why this approach was chosen,
+3. How you implemented the change, and
+4. Possible limitations of this approach and alternate solution paths.
 -->
 
 ### Tasks completed
-<!-- For complex PRs, create a list of the tasks completed in this PR-->
+<!-- For complex PRs, create a list of the tasks completed.-->
 
-## How to test
-<!-- Describe the tests that you ran to verify your changes. Provide instructions to reproduce these tests. -->
+## Testing and review
+<!-- Describe the tests that you ran to verify your changes.
+Provide instructions to reproduce these tests.
+Clarify the type of feedback you are looking for at this phase.-->
 
 Before you hit Submit, make sure you’ve done whichever of these applies to you:
 - [ ] Follow the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
