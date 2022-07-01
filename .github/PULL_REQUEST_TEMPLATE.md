@@ -3,24 +3,22 @@ Welcome! Thank you for contributing to the U.S. Web Design System.
 Your contributions are vital to our success and we are glad you're here.
 
 Please keep in mind:
-- This pull request (PR) template exists to expedite integration.
-The USWDS Core team reviews and approves every PR before merging it into the public code base,
-so the better we understand the problem and solution, the sooner we can merge this change. The point here is: clear details are helpful!
-- You can see examples of successful PRs that meet our criteria by...
-- You can erase any part of this template not applicable to your pull request (including these instructions!).
+- This pull request (PR) template exists to expedite integration. The USWDS Core team reviews and approves every PR before merging it into the public code base, so the better we understand the problem and proposed solution, the sooner we can merge this change. The point here is: clear explanations matter!
+- You can see examples of successful PRs that meet our criteria by ... [TK?]
+- You can erase any part of this template that doesn't apply to your pull request (including these instructions!).
 
 If you get stuck, you can find more information about contributing in contributing.md or you can reach out to us directly at uswds@gsa.gov.
  -->
 
 <!---
 Step 1: Add a title
-Provide a title in the field above with the following format:
+Title this PR with the following format:
 USWDS - [Package]: [Brief statement describing what this pull request solves]
 eg: "USWDS - Button: Increase font size"
  -->
 
 ## Related issue
-<!-- - Every pull request should resolve an open issue.
+<!-- Every pull request should resolve an open issue.
 If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose) -->
 Closes [Issue #]
 
@@ -28,10 +26,11 @@ Closes [Issue #]
 <!-- If available, provide a link to a demo of of the solution in action.-->
 
 ## Problem statement
-<!-- Summarize the problem this PR solves in a clear and concise statement. A successful problem statement conveys:
+<!-- Summarize the problem this PR solves in a clear and concise statement.
+A successful problem statement conveys:
 1. The desired state
 2. The actual state
-3. Consequences of actual state (who does this affect and to what degree?)-->
+3. Consequences of current state (who does this affect and to what degree?)-->
 
 ## Solution
 <!-- Provide a summary of the solution this PR offers.
@@ -42,7 +41,7 @@ It can be helpful if we understand:
 4. Possible limitations of this approach and alternate solution paths.
 -->
 
-### Tasks completed
+## Tasks completed
 <!-- For complex PRs, create a list of the tasks completed.-->
 
 ## Testing and review
