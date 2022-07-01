@@ -44,7 +44,6 @@
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "./src/stylesheets/uswds.scss",
   "mocha": {
