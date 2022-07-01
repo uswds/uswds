@@ -14,7 +14,7 @@
     "u.s",
     "government"
   ],
-  "author": "USWDS",
+  "author": "uswds",
   "license": "SEE LICENSE IN LICENSE.MD",
   "exports": {
     "./sass": "./_index.scss",
