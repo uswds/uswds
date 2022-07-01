@@ -1,5 +1,5 @@
-import Component from "./usa-fonts.twig";
-import Content from "./usa-fonts.json";
+import Component from "./uswds-fonts.twig";
+import * as Content from "./uswds-fonts.json";
 
 export default {
   title: "Design Tokens/Fonts",

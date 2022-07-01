@@ -1,0 +1,34 @@
+{
+  "name": "@uswds/usa-accordion",
+  "version": "0.0.1-alpha.0",
+  "description": "USWDS accordion component",
+  "main": "index.js",
+  "scripts": {
+    "test:js": "mocha './src/test/*.spec.js'",
+    "test": "npm run test:js"
+  },
+  "exports": {
+    "./js": "./src/index.js",
+    "./sass": "./_index.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "accordion",
+    "component",
+    "uswds",
+    "usa"
+  ],
+  "author": "uswds",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/uswds-core": "^0.0.1-alpha.0",
+    "@uswds/uswds-fonts": "^0.0.1-alpha.0"
+  }
+}
