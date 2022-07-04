@@ -2,7 +2,7 @@
   "aria_label": "In-page navigation,",
   "items": [
     {
-      "label": "Current page",
+      "label": "Current section",
       "current": true
     },
     {

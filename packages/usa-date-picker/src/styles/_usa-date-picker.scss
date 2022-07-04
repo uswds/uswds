@@ -335,8 +335,15 @@ $navigate_far_next: map-merge(
 }
 
 .usa-date-picker__calendar__month-label {
-  flex: 4;
-  text-align: center;
+  @include at-media-max("mobile") {
+    min-width: 100%;
+    order: -1;
+  }
+
+  @include at-media("mobile") {
+    flex: 4;
+    text-align: center;
+  }
 }
 
 .usa-date-picker__calendar__year-selection,
@@ -346,11 +353,26 @@ $navigate_far_next: map-merge(
   height: 100%;
   padding: 8px 4px;
   width: auto;
+
+  @include at-media-max("mobile") {
+    padding-bottom: 0;
+    padding-top: 12px;
+  }
 }
 
 // Date Picker - Month Selection View
 .usa-date-picker__calendar__month-picker {
   padding: 20px 5px;
+
+  @include at-media-max("mobile") {
+    padding-bottom: 12px;
+    padding-top: 12px;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 .usa-date-picker__calendar__month {
