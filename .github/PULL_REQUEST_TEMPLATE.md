@@ -18,19 +18,24 @@ eg: "USWDS - Button: Increase font size"
  -->
 
 ## Related issue
-<!-- Every pull request should resolve an open issue.
-If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose) -->
+<!-- 
+Every pull request should resolve an open issue.
+If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose
+-->
 Closes [Issue #]
 
 ## Preview link
 <!-- If available, provide a link to a demo of of the solution in action.-->
 
 ## Problem statement
-<!-- Summarize the problem this PR solves in a clear and concise statement.
+<!-- 
+Summarize the problem this PR solves in a clear and concise statement.
+
 A successful problem statement conveys:
 1. The desired state
 2. The actual state
-3. Consequences of current state (who does this affect and to what degree?)-->
+3. Consequences of current state (who does this affect and to what degree?)
+-->
 
 ## Solution
 <!-- Provide a summary of the solution this PR offers.
@@ -45,9 +50,14 @@ It can be helpful if we understand:
 <!-- For complex PRs, create a list of the tasks completed.-->
 
 ## Testing and review
-<!-- Describe the tests that you ran to verify your changes.
-Provide instructions to reproduce these tests.
-Clarify the type of feedback you are looking for at this phase.-->
+<!-- 
+1. Describe the tests that you ran to verify your changes. 
+2. Provide instructions to reproduce these tests.
+3. Clarify the type of feedback you are looking for at this phase.
+-->
+
+ ---
+ 
 
 Before you hit Submit, make sure you’ve done whichever of these applies to you:
 - [ ] Follow the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
