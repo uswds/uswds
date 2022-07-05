@@ -238,6 +238,7 @@ const config = {
     "hurricane",
     "identification",
     "instagram",
+    "linked_in",
     "navigate_far_before",
     "navigate_far_next",
     "rain",
