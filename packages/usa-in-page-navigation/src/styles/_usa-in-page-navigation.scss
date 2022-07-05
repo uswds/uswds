@@ -3,7 +3,7 @@
 .usa-in-page-navigation {
   @include border-box-sizing;
   @include nav-list("sidenav");
-  @include typeset($theme-in-page-navigation-font-family, "sm", 3);
+  @include typeset($theme-in-page-navigation-font-family, "xs", 2);
   border-bottom: units(1px) solid color("base-lighter");
 
   .grid-container & {
@@ -16,6 +16,6 @@
 }
 
 .usa-in-page-navigation__sublist {
-  @include nav-sublist;
-  font-size: font-size($theme-in-page-navigation-font-family, "xs");
+  @include nav-in-page-sublist;
+  font-size: font-size($theme-in-page-navigation-font-family, "xs", 2);
 }

@@ -1,5 +1,5 @@
 
-function ready(fn) {
+/* function ready(fn) {
   document.addEventListener('DOMContentLoaded', fn, false);
 }
 
@@ -40,7 +40,7 @@ ready(() => {
       });
 
       section.setAttribute('tabindex', -1);
-      //section.focus();
+      section.focus();
 
       window.scroll({
         behavior: motionQuery.matches ? 'instant' : 'smooth',
@@ -107,4 +107,4 @@ ready(() => {
   };
 
   InPageNavigation.init();
-});
+}); */
