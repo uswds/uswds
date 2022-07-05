@@ -238,7 +238,7 @@ const config = {
     "hurricane",
     "identification",
     "instagram",
-    "linked_in",
+    "linkedin",
     "navigate_far_before",
     "navigate_far_next",
     "rain",
