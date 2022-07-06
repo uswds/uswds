@@ -91,12 +91,6 @@ $add-aspect: (
 
 // Safari and firefox require a width attribute on img elements for aspect-ratio to work
 // using :where() to reduce specificity in case a width utility class is added
-:where(
-  img.add-aspect-9x16,
-  img.add-aspect-1x1,
-  img.add-aspect-4x3,
-  img.add-aspect-16x9,
-  img.add-aspect-2x1
-) {
+:where(img[class*=add-aspect-]) {
   width: min-content;
 }
