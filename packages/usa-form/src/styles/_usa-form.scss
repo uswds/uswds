@@ -71,7 +71,8 @@
   }
 }
 
-.usa-form__note {
+.usa-form__note,
+.usa-form__note.usa-button--unstyled {
   @include typeset($theme-form-font-family, "2xs", 3);
   float: right;
   margin: units(0.5) 0 units(2);
