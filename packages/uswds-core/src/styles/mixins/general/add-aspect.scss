@@ -13,7 +13,7 @@
     height: 100%;
   }
 
-  @at-root #{selector-append(img, &)},
+  @at-root img#{&},
   & > img {
     object-fit: cover;
   }
