@@ -2,6 +2,14 @@
 
 [![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
 
+## :mega: **USWDS 3.0 is now live** :mega:
+
+Starting with version 3.0, the latest updates to USWDS are now published to the [@uswds/uswds](https://www.npmjs.com/package/@uswds/uswds) package.
+
+This unscoped `uswds` package will remain active for legacy use.
+
+---
+
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 This repository is for the design system code itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
@@ -9,12 +17,19 @@ This repository is for the design system code itself. We maintain [another repos
 ## Contents
 
 - [United States Web Design System](#united-states-web-design-system)
+  - [:mega: **USWDS 3.0 is now live** :mega:](#mega-uswds-30-is-now-live-mega)
   - [Contents](#contents)
   - [Background](#background)
   - [Recent updates](#recent-updates)
   - [Getting started](#getting-started)
   - [Using the design system](#using-the-design-system)
-    - [Download and install without npm](#download-and-install-without-npm)
+    - [Download and install without `npm`](#download-and-install-without-npm)
+    - [Install using npm](#install-using-npm)
+      - [Using the USWDS package](#using-the-uswds-package)
+      - [Sass and theme settings](#sass-and-theme-settings)
+      - [Sass compilation requirements](#sass-compilation-requirements)
+      - [JavaScript](#javascript)
+    - [Use another framework or package manager](#use-another-framework-or-package-manager)
   - [CSS architecture](#css-architecture)
   - [JS customization](#js-customization)
   - [Customization, theming, and tokens](#customization-theming-and-tokens)
