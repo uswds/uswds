@@ -4,7 +4,7 @@ Welcome! Thank you for contributing to the U.S. Web Design System. Your contribu
 Please keep in mind:
 - This pull request (PR) template exists to help speed up integration. The USWDS Core team reviews and approves every PR before merging it into the public code base, so the better we understand the problem and solution, the sooner we can merge this change. The point here is: clear explanations matter!
 - You can see examples of successful PRs that meet our criteria by ... [TK?]
-- It can be helpful to annotate your code with GitHub comments.
+- It can be helpful to annotate code changes with GitHub comments.
 - You can erase any part of this template that doesn't apply to your pull request (including these instructions!).
 
 If you get stuck, you can find more information about contributing in [contributing.md](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md) or you can reach out to us directly at uswds@gsa.gov.
@@ -16,6 +16,16 @@ Title this PR with the following format:
 USWDS - [Package]: [Brief statement describing what this pull request solves]
 eg: "USWDS - Button: Increase font size"
  -->
+
+## Summary
+<!--
+Provide a one or two sentence summary of the update that can be used in the changelog.
+
+A successful summary is written in the past tense and includes:
+1. A benefit statement
+2. A description of the update.
+See the [USWDS release notes](https://github.com/uswds/uswds/releases for examples.
+-->
 
 ## Related issue
 <!--
