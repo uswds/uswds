@@ -55,7 +55,6 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": "16 / 9",
-
         ),
       ),
       2x1: (
@@ -73,11 +72,9 @@ $add-aspect: (
   ),
 );
 
-@each $aspect-key, $aspect-value in map-deep-get(
-  $add-aspect,
-  add-aspect,
-  values
-) {
+@each $aspect-key,
+  $aspect-value in map-deep-get($add-aspect, add-aspect, values)
+{
   .add-aspect-#{$aspect-key} {
     @include add-aspect-children;
     max-width: 100%;
@@ -87,6 +84,6 @@ $add-aspect: (
 
 // Safari and firefox require a width attribute on img elements for aspect-ratio to work
 // using :where() to reduce specificity in case a width utility class is added
-:where(img[class*=add-aspect-]) {
+:where(img[class*="add-aspect-"]) {
   width: min-content;
 }

@@ -4,7 +4,7 @@
 @use "../../variables" as *;
 @use "../helpers/at-media.scss" as *;
 
-@mixin add-aspect-children{
+@mixin add-aspect-children {
   & > * {
     position: absolute;
     top: 0;
@@ -13,8 +13,8 @@
     height: 100%;
   }
 
-  @at-root img#{&},
-  & > img {
+  & > img,
+  @at-root img#{&} {
     object-fit: cover;
   }
 }
@@ -30,7 +30,7 @@
 
     // Some browsers (at least Safari and Firefox) require a width attribute on img elements for aspect-ratio to work
     // using :where() to reduce specificity in case a width utility class is added
-    @if ($type == "image"){
+    @if ($type == "image") {
       width: min-content;
     }
   } @else {
