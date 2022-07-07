@@ -18,6 +18,7 @@ example:
 
 @use "uswds-core/src/styles/settings" as *;
 @use "uswds-core/src/styles/mixins/general/add-aspect" as *;
+@use "uswds-core/src/styles/functions/general/map-deep-get" as *;
 
 $add-aspect: (
   add-aspect: (
@@ -30,8 +31,6 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": "9 / 16",
-          "max-width": 100%,
-          "overflow": hidden,
         ),
       ),
       1x1: (
@@ -40,8 +39,6 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": 1,
-          "max-width": 100%,
-          "overflow": hidden,
         ),
       ),
       4x3: (
@@ -50,8 +47,6 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": "4 / 3",
-          "max-width": 100%,
-          "overflow": hidden,
         ),
       ),
       16x9: (
@@ -60,8 +55,7 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": "16 / 9",
-          "max-width": 100%,
-          "overflow": hidden,
+
         ),
       ),
       2x1: (
@@ -70,8 +64,6 @@ $add-aspect: (
         content: relative,
         extend: (
           "aspect-ratio": 2,
-          "max-width": 100%,
-          "overflow": hidden,
         ),
       ),
     ),
@@ -81,12 +73,16 @@ $add-aspect: (
   ),
 );
 
-.add-aspect-9x16,
-.add-aspect-1x1,
-.add-aspect-4x3,
-.add-aspect-16x9,
-.add-aspect-2x1 {
-  @include add-aspect-children;
+@each $aspect-key, $aspect-value in map-deep-get(
+  $add-aspect,
+  add-aspect,
+  values
+) {
+  .add-aspect-#{$aspect-key} {
+    @include add-aspect-children;
+    max-width: 100%;
+    overflow: hidden;
+  }
 }
 
 // Safari and firefox require a width attribute on img elements for aspect-ratio to work
