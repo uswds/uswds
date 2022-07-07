@@ -84,10 +84,13 @@
       "email": "[info@agency.gov]",
       "social_nav": [
         "Facebook",
-        "Twitter",
-        "YouTube",
+        "Flickr",
+        "Github",
         "Instagram",
-        "RSS"
+        "LinkedIn",
+        "RSS",
+        "Twitter",
+        "YouTube"
       ]
     }
   },
