@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -43,7 +43,6 @@
     "./img/*": "./dist/img/*",
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
-  "types": "./index.d.ts",
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
@@ -70,7 +69,7 @@
     "watch": "gulp watch",
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/material-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons -q",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
-    "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
+    "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
@@ -112,12 +111,14 @@
     "@babel/core": "7.16.7",
     "@babel/preset-env": "7.16.7",
     "@chanzuckerberg/axe-storybook-testing": "5.0.1",
+    "@material-design-icons/svg": "0.11.1",
     "@storybook/addon-a11y": "6.5.5",
     "@storybook/addon-essentials": "6.5.5",
     "@storybook/addon-links": "6.5.5",
     "@storybook/builder-webpack5": "6.5.5",
     "@storybook/html": "6.5.5",
     "@storybook/manager-webpack5": "6.5.5",
+    "@types/eslint": "8.4.3",
     "@types/node": "16.11.19",
     "ansi-colors": "4.1.1",
     "autoprefixer": "10.4.1",

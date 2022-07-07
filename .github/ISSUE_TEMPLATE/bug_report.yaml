@@ -1,0 +1,79 @@
+name: Bug Report 🐞
+description: Report a bug and help USWDS improve.
+title: "USWDS - Bug: [YOUR TITLE]"
+labels: ['Type: Bug','Status: Triage','Needs: Confirmation']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Describe the bug
+      description: Add a clear and concise description of the bug. Let us know if it impacts major or minor functionality and if you have workaround.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce the bug
+      description: Describe how to reproduce this issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error...
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expected Behavior
+      description: Add a clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: Related code
+      description: If available, include relevant code snippets or a link to a demo of the bug.
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add screenshots to help provide context, if applicable.
+    validations:
+      required: false
+  - type: textarea
+    id: system
+    attributes:
+      label: System setup
+      description: Provide your system details. Be sure to include your USWDS version, device, operating system, and browser (with version).
+      placeholder: |
+        - USWDS version:
+        - Device:
+        - Operating system:
+        - Browser and version:
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: Please confirm the following
+      options:
+        - label:
+            I agree to follow this project's [Code of
+              Conduct](https://designsystem.digital.gov/about/community/#community-conduct).
+          required: true
+        - label:
+            I checked the [current
+              issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22) for
+              duplicate bug reports.
+          required: true
