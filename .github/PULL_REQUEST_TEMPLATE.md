@@ -75,7 +75,7 @@ It can be helpful if we understand:
 
 Before opening this PR, make sure you’ve done whichever of these applies to you:
 
-- [ ] Follow the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
+- [ ] Confirm that this code follows the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
 - [ ] Run `git pull origin [base branch]` to pull in the most recent updates from your base and check for merge conflicts. (Often, the base branch is `develop`).
 - [ ] Run `npm run prettier:scss` and `npm run prettier:html` to format code.
 - [ ] Run `npm test` and confirm that all tests pass.
