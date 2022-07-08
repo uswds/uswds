@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
+    "@uswds/usa-icon": "^0.0.1-alpha.0",
     "@uswds/uswds-core": "^0.0.1-alpha.0",
     "@uswds/uswds-fonts": "^0.0.1-alpha.0"
   }
