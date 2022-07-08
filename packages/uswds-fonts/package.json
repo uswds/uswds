@@ -3,7 +3,6 @@
   "version": "0.0.1-alpha.0",
   "description": "Font face rules for USWDS",
   "main": "_index.scss",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/uswds/uswds/issues"
   },
-  "homepage": "https://github.com/uswds/uswds#readme"
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/uswds-core": "^0.0.1-alpha.0"
+  }
 }
