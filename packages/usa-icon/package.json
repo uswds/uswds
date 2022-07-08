@@ -1,0 +1,31 @@
+{
+  "name": "@uswds/usa-icon",
+  "version": "0.0.1-alpha.0",
+  "description": "USWDS icons",
+  "exports": {
+    "./sass": "./_index.scss",
+    "./img/*": "./src/img/*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "uswds",
+    "usa",
+    "icon",
+    "icons"
+  ],
+  "author": "uswds",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/uswds-core": "^0.0.1-alpha.0"
+  }
+}
