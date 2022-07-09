@@ -38,7 +38,7 @@ ready(() => {
         headings.forEach((heading, i) => {
           let tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += `<li class="usa-in-page-navigation__item${tag === 'h3' ? ' margin-left-3' : ''}"><a href="#section_${i}">${heading.textContent}</a></li>`;
+          inPageNavigationInner += `<li class="usa-in-page-navigation__item${tag === 'h3' ? ' padding-left-2' : ''}"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
           const originalHeadingContent = heading.innerHTML;
           const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
@@ -137,5 +137,4 @@ ready(() => {
     },
   };
   InPageNavigation.init();
-
 });
