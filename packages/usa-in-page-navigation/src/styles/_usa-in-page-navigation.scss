@@ -1,21 +1,86 @@
 @use "uswds-core" as *;
 
-.usa-in-page-navigation {
-  @include border-box-sizing;
-  @include nav-list("sidenav");
-  @include typeset($theme-in-page-navigation-font-family, "xs", 2);
-  border-bottom: units(1px) solid color("base-lighter");
+.usa-in-page-navigation.usa-sidenav {
+  background-color: initial;
+  border: none;
+  border-left: units(1px) solid color("base-lighter");
+  font-size: 0.85rem;
+  padding: 0;
 
-  .grid-container & {
-    @include u-margin-x(-$theme-site-margins-mobile-width);
+  a {
+    padding: 0.3rem 0.8rem;
+    color: color("base-darker");
 
-    @include at-media("tablet") {
-      @include u-margin-x(0);
+    &:hover {
+      background-color: transparent;
+      color: color("primary-vivid");
+    }
+
+    &.usa-current {
+      color: color("base-darker");
+      position: static;
+
+      &::after {
+        border-radius: 0;
+        background-color: color("secondary-dark");
+        bottom: units(-1px);
+        left: units(1) * -1;
+        top: units(0);
+        width: units(2px);
+        z-index: z(100);
+      }
+    }
+  }
+
+  .usa-in-page-navigation__item {
+    @include u-border(0);
+    border-top: 0 !important;
+    line-height: lh("lang", 3);
+    position: relative;
+
+    &+.usa-sidenav__item {
+      a {
+        border-top: none;
+      }
+    }
+
+    &.is-current {
+      background-color: color("base-lightest");
+
+      .is-current {
+        background-color: transparent;
+      }
     }
   }
 }
 
-.usa-in-page-navigation__sublist {
-  @include nav-in-page-sublist;
-  font-size: font-size($theme-in-page-navigation-font-family, "xs", 2);
+.in-page-nav-container {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+
+  #main-content {
+    width: 70vw;
+  }
+
+  #in-page-navigation {
+    display: none;
+    margin-top: 2.5rem;
+    max-width: units("card-lg");
+    position: sticky;
+    top: 4rem;
+    width: 30vw;
+
+    @include at-media("tablet") {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .offset-anchor {
+    display: block;
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+  }
 }

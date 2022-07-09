@@ -1,9 +1,9 @@
-
-/* function ready(fn) {
+function ready(fn) {
   document.addEventListener('DOMContentLoaded', fn, false);
 }
 
 ready(() => {
+  const headings = document.querySelectorAll('#main-content h2, #main-content h3');
   const motionQuery = window.matchMedia('(prefers-reduced-motion)');
 
   const InPageNavigation = {
@@ -20,15 +20,43 @@ ready(() => {
     observer: null,
 
     init() {
+      this.createInPageNav();
       this.handleObserver = this.handleObserver.bind(this);
-
       this.setUpObserver();
       this.findLinksAndHeadings();
       this.observeSections();
 
       this.links.forEach((link) => {
         link.addEventListener('click', this.handleLinkClick.bind(this));
-      });
+      }
+      );
+    },
+
+    createInPageNav() {
+      if (headings && headings.length) {
+        let inPageNavigationInner = '';
+        headings.forEach((heading, i) => {
+          let tag = heading.tagName.toLowerCase();
+
+          inPageNavigationInner += `<li class="usa-in-page-navigation__item${tag === 'h3' ? ' margin-left-3' : ''}"><a href="#section_${i}">${heading.textContent}</a></li>`;
+
+          const originalHeadingContent = heading.innerHTML;
+          const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
+          heading.innerHTML = anchor + originalHeadingContent;
+        }
+        );
+
+        const inPageNav = `<ul class="usa-in-page-navigation usa-sidenav">${inPageNavigationInner}</ul>`;
+        // add the generated table of content to the dive
+        document.querySelector('#in-page-navigation').innerHTML += inPageNav;
+
+        // automatically go to the correct section on load
+        if (location.hash) {
+          const target = location.hash;
+          const offsetY = document.querySelector(target).offsetTop;
+          window.scrollTo(0, offsetY);
+        }
+      }
     },
 
     handleLinkClick(evt) {
@@ -37,10 +65,11 @@ ready(() => {
 
       let section = this.headings.find((heading) => {
         return heading.getAttribute('id') === id;
-      });
+      }
+      );
 
       section.setAttribute('tabindex', -1);
-      section.focus();
+      //section.focus();
 
       window.scroll({
         behavior: motionQuery.matches ? 'instant' : 'smooth',
@@ -55,8 +84,8 @@ ready(() => {
 
     handleObserver(entries, observer) {
       entries.forEach((entry) => {
-        let href = `#${entry.target.getAttribute('id')}`,
-          link = this.links.find((l) => l.getAttribute('href') === href);
+        let href = `#${entry.target.getAttribute('id')}`
+          , link = this.links.find((l) => l.getAttribute('href') === href);
 
         if (entry.isIntersecting && entry.intersectionRatio >= 1) {
           link.classList.add('is-visible');
@@ -66,7 +95,8 @@ ready(() => {
         }
 
         this.highlightFirstActive();
-      });
+      }
+      );
     },
 
     highlightFirstActive() {
@@ -74,23 +104,23 @@ ready(() => {
 
       this.links.forEach((link) => {
         link.classList.remove('usa-current');
-      });
+      }
+      );
 
       if (firstVisibleLink) {
         firstVisibleLink.classList.add('usa-current');
       }
 
       if (!firstVisibleLink && this.previousSection) {
-        this.container
-          .querySelector(`a[href="#${this.previousSection}"]`)
-          .classList.add('usa-current');
+        this.container.querySelector(`a[href="#${this.previousSection}"]`).classList.add('usa-current');
       }
     },
 
     observeSections() {
       this.headings.forEach((heading) => {
         this.observer.observe(heading);
-      });
+      }
+      );
     },
 
     setUpObserver() {
@@ -102,9 +132,10 @@ ready(() => {
       this.headings = this.links.map((link) => {
         let id = link.getAttribute('href');
         return document.querySelector(id);
-      });
+      }
+      );
     },
   };
-
   InPageNavigation.init();
-}); */
+
+});
