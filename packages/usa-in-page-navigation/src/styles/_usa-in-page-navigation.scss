@@ -59,10 +59,10 @@
 .in-page-nav-container {
   align-items: flex-start;
   display: flex;
-  justify-content: space-around;
 
   #main-content {
-    width: 70vw;
+    max-width: 87.5rem;
+    width: 100%;
   }
 
   #in-page-navigation {
@@ -71,7 +71,6 @@
     max-width: units("card-lg");
     position: sticky;
     top: 4rem;
-    width: 30vw;
 
     @include at-media("tablet") {
       display: block;
