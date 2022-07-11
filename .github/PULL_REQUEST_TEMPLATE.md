@@ -33,7 +33,7 @@ Every pull request should resolve an open issue.
 If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose.
 -->
 
-Closes [Issue #]
+Closes [issue_no]
 
 ## Preview link
 <!-- If available, provide a link to a demo of the solution in action. -->
