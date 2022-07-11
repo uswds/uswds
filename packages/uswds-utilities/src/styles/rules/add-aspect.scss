@@ -52,7 +52,6 @@ $add-aspect: (
   ),
 );
 
-
 @each $aspect-key in map.keys($project-aspect-ratios) {
   .add-aspect-#{$aspect-key} {
     @include add-aspect($aspect-key, "image");
@@ -61,7 +60,7 @@ $add-aspect: (
 
 // Safari and firefox require a width attribute on img elements for aspect-ratio to work
 // using :where() to reduce specificity in case a width utility class is added
-@supports(aspect-ratio:1){
+@supports (aspect-ratio: 1) {
   :where(img[class*="add-aspect-"]) {
     width: min-content;
   }

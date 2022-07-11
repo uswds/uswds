@@ -34,10 +34,10 @@
     padding: 0 0 map.get($project-aspect-padding, $ratio) #{$important};
 
     // Check for CSS aspect-ratio support
-    @supports(aspect-ratio:1){
+    @supports (aspect-ratio: 1) {
       //reset
       height: inherit #{$important};
-      padding: inherit  #{$important};
+      padding: inherit #{$important};
       // end reset
       aspect-ratio: map.get($project-aspect-ratios, $ratio);
       max-width: 100%;
