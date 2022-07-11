@@ -31,7 +31,7 @@
     box-sizing: border-box #{$important};
     height: 0 #{$important};
     overflow: hidden #{$important};
-    padding: 0 0 map.get($project-aspect-padding, $ratio) #{$important};
+    padding-bottom: map.get($project-aspect-padding, $ratio) #{$important};
     position: relative;
 
     // Check for CSS aspect-ratio support
