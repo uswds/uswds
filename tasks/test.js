@@ -2,7 +2,7 @@ const { src } = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
 const mochaConfig = {
-  config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
+  config: "./.mocharc.json",
 };
 
 // Export our tasks.

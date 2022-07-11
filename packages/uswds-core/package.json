@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test:js": "mocha './src/js/utils/test/*.spec.js'",
-    "test:sass": "mocha './src/test/*.spec.js'",
+    "test:sass": "mocha 'src/test/sass.spec.js' --config='./src/test/.mocharc.json'",
     "test": "npm run test:js && npm run test:sass",
     "prepublishOnly": "npm run test"
   },

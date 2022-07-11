@@ -47,7 +47,7 @@
   "style": "dist/css/uswds.min.css",
   "sass": "./src/stylesheets/uswds.scss",
   "mocha": {
-    "config": "src/utils/test/.mocharc.json"
+    "config": "./.mocharc.json"
   },
   "scripts": {
     "build": "gulp",
