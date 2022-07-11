@@ -32,6 +32,7 @@
     height: 0 #{$important};
     overflow: hidden #{$important};
     padding: 0 0 map.get($project-aspect-padding, $ratio) #{$important};
+    position: relative;
 
     // Check for CSS aspect-ratio support
     @supports (aspect-ratio: 1) {
@@ -41,7 +42,6 @@
       // end reset
       aspect-ratio: map.get($project-aspect-ratios, $ratio);
       max-width: 100%;
-      position: relative;
       @include add-aspect-children;
     }
   } @else {
