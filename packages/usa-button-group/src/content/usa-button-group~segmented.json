@@ -5,5 +5,5 @@
     "<button class=\"usa-button usa-button--outline\">Satellite</button>",
     "<button class=\"usa-button usa-button--outline\">Hybrid</button>"
   ],
-  "show_disabled": false
+  "show_disabled": true
 }
