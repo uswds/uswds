@@ -41,7 +41,7 @@ _Summarize the problem this PR solves in a clear and concise statement._
 A successful problem statement conveys:
 1. The desired state,
 2. The actual state, and
-3. Consequences of the current state (who does this affect and to what degree?)
+3. Consequences of remaining in the current state (who does this affect and to what degree?)
 -->
 
 ## Solution
