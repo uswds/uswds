@@ -19,3 +19,10 @@
 
 // Deprecated in 3.0.0
 $output-all-utilities: true !default;
+
+// Deprecated in 3.1.0
+@use "sass:math";
+
+@mixin embed-container($height, $width) {
+  padding-bottom: math.percentage(math.div($height, $width));
+}
