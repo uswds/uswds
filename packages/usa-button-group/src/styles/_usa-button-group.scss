@@ -130,6 +130,7 @@
       [class*="usa-button"][aria-disabled="true"]::before {
         border-right-color: color($theme-body-background-color);
       }
+
       .usa-button:active::before,
       .usa-button--outline::before {
         display: none;
