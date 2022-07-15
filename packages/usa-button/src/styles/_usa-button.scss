@@ -69,10 +69,9 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--active {
     @include set-text-and-bg("accent-cool-darker", $context: $button-context);
   }
-
   &:disabled:hover,
   &[aria-disabled="true"]:hover {
-    @include button-disabled;
+    color: color("white");
   }
 }
 
@@ -91,11 +90,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &:active,
   &.usa-button--active {
     @include set-text-and-bg("accent-warm-darker", $context: $button-context);
-  }
-
-  &:disabled:hover,
-  &[aria-disabled="true"]:hover {
-    @include button-disabled;
   }
 }
 
@@ -180,11 +174,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--active {
     @include set-text-and-bg("base-darker", $context: $button-context);
   }
-
-  &:disabled:hover,
-  &[aria-disabled="true"]:hover {
-    @include button-disabled;
-  }
 }
 
 .usa-button--secondary {
@@ -198,11 +187,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &:active,
   &.usa-button--active {
     @include set-text-and-bg("secondary-darker", $context: $button-context);
-  }
-
-  &:disabled:hover,
-  &[aria-disabled="true"]:hover {
-    @include button-disabled;
   }
 }
 
