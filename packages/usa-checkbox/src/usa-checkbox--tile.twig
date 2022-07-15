@@ -2,7 +2,7 @@
   <fieldset class="usa-fieldset">
     <legend class="usa-legend">Select any historical figure</legend>
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-truth-2" type="checkbox" name="historical-figures-2" value="sojourner-truth" checked>
+      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-truth-2" type="checkbox" name="historical-figures-2" value="sojourner-truth" checked {% if aria_disabled == true %}aria-disabled="true"{% endif %}>
       <label class="usa-checkbox__label" for="check-historical-truth-2">
         Sojourner Truth
         <span class="usa-checkbox__label-description">
@@ -11,22 +11,16 @@
       </label>
     </div>
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-douglass-2" type="checkbox" name="historical-figures-2" value="frederick-douglass">
+      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-douglass-2" type="checkbox" name="historical-figures-2" value="frederick-douglass" {% if aria_disabled == true %}aria-disabled="true"{% endif %}>
       <label class="usa-checkbox__label" for="check-historical-douglass-2">Frederick Douglass</label>
     </div>
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-washington-2" type="checkbox" name="historical-figures-2" value="booker-t-washington">
+      <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-washington-2" type="checkbox" name="historical-figures-2" value="booker-t-washington" {% if aria_disabled == true %}aria-disabled="true"{% endif %}>
       <label class="usa-checkbox__label" for="check-historical-washington-2">Booker T. Washington</label>
     </div>
     <div class="usa-checkbox">
       <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2" type="checkbox" name="historical-figures-2"  value="george-washington-carver" disabled>
       <label class="usa-checkbox__label" for="check-historical-carver-2">George Washington Carver</label>
     </div>
-    {% if aria_disabled == true %}
-      <div class="usa-checkbox">
-        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2" type="checkbox" name="historical-figures-2"  value="george-washington-carver" aria-disabled="true">
-        <label class="usa-checkbox__label" for="check-historical-carver-2">George Washington Carver</label>
-      </div>
-    {% endif %}
   </fieldset>
 </form>
