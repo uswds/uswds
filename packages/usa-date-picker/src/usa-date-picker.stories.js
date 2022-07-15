@@ -20,10 +20,15 @@ export default {
       control: { type: 'text' },
     },
     disabled: {
-      name: "Disabled",
-      defaultValue: 'false',
+      name: "disabled",
+      defaultValue: false,
       control: { type: 'boolean' },
     },
+    aria_disabled: {
+      control: {type: 'boolean'},
+      defaultValue: false,
+      name: "aria-disabled",
+    }
   },
 };
 
@@ -45,11 +50,6 @@ DefaultDate.argTypes = {
   restrictedDateEnd: {
     table: { disable: true },
   },
-};
-
-export const AriaDisabled = Template.bind({});
-AriaDisabled.args = {
-  aria_disabled: true,
 };
 
 export const RangeDate = Template.bind({});
@@ -87,7 +87,32 @@ RestrictedDate.argTypes = {
 export const Disabled = Template.bind({});
 Disabled.argTypes = {
   disabled: {
-    defaultValue: 'true',
+    defaultValue: true,
+  },
+  aria_disabled: {
+    table: { disable: true },
+  },
+  defaultDate: {
+    table: { disable: true },
+  },
+  rangeDate: {
+    table: { disable: true },
+  },
+  restrictedDateStart: {
+    table: { disable: true },
+  },
+  restrictedDateEnd: {
+    table: { disable: true },
+  },
+};
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.argTypes = {
+  aria_disabled:{
+    defaultValue: true,
+  },
+  disabled: {
+    table: { disable: true },
   },
   defaultDate: {
     table: { disable: true },
