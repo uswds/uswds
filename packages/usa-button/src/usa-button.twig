@@ -12,8 +12,8 @@
 {% else %}
   <button class="usa-button {{ modifier }}">{{ text }}</button>
   {% if is_demo and 'usa-button--big' in modifier %}
-    <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
     <button class="usa-button {{ modifier }}" disabled>Disabled</button>
+    <button class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
   {% endif %}
 {% endif %}
 {% if is_demo and aria_disabled == true %}
