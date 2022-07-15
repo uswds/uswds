@@ -6,7 +6,8 @@ export default {
   argTypes: {
     aria_disabled: {
       control: {type: 'boolean'},
-      defaultValue: false
+      defaultValue: false,
+      name: "aria-disabled",
     }
   }
 };
