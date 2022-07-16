@@ -14,6 +14,7 @@
   padding-left: 0;
 
   @include at-media("mobile-lg") {
+    align-items: center;
     flex-direction: row;
   }
 }
