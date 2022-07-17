@@ -9,9 +9,10 @@
 
   a {
     color: color("base-darker");
-    
-    &:not(.usa-button) {
-      padding: 0.3rem 0.8rem;
+
+    &:where(:not(.usa-button)) {
+      //padding: 0.3rem 0.8rem;
+      padding: units(0.5) units(1);
     }
 
     &:hover {
@@ -40,18 +41,8 @@
     line-height: lh("lang", 3);
     position: relative;
 
-    &+.usa-sidenav__item {
-      a {
-        border-top: none;
-      }
-    }
-
-    &.is-current {
-      background-color: color("base-lightest");
-
-      .is-current {
-        background-color: transparent;
-      }
+    & + .usa-sidenav__item a {
+      border-top: none;
     }
   }
 }
