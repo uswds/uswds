@@ -50,10 +50,10 @@ ready(() => {
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
           const originalHeadingContent = heading.innerText;
-          const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
+          // const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
           // heading.innerHTML = anchor + originalHeadingContent;
-
-          heading.innerHTML = Sanitizer.escapeHTML`${anchor} + ${originalHeadingContent}`;
+          heading.innerHTML = Sanitizer.escapeHTML `<a class="offset-anchor" id="section_${i}"></a>${originalHeadingContent}`;
+          // heading.innerHTML = Sanitizer.escapeHTML anchor + originalHeadingContent;
           // heading.appendChild(heading);
         });
 
