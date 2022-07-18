@@ -4,7 +4,7 @@
 
 ## :mega: **USWDS 3.0 is now live** :mega:
 
-Starting with USWDS 3.0, we're publishing USWDS as a scoped package at [@uswds/uswds].(https://www.npmjs.com/package/@uswds/uswds).
+Starting with USWDS 3.0, we're publishing USWDS as a scoped package at [@uswds/uswds](https://www.npmjs.com/package/@uswds/uswds).
 
 This unscoped `uswds` package will remain active for any updates to USWDS 2.x.
 
