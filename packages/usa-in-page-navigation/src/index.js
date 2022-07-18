@@ -1,12 +1,12 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
+// const behavior = require("../../uswds-core/src/js/utils/behavior");
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
-const domready = require("domready");
-/* function ready(fn) {
+function ready(fn) {
   document.addEventListener("DOMContentLoaded", fn, false);
-} */
+}
 
-domready(() => {
-  /* const headings = document.querySelectorAll(
+ready(() => {
+  const headings = document.querySelectorAll(
     "#main-content h2, #main-content h3"
   );
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
@@ -15,6 +15,7 @@ domready(() => {
     container: document.querySelector(".in-page-navigation"),
     links: null,
     headings: null,
+    headerOffset: 140,
     intersectionOptions: {
       root: null,
       rootMargin: "0px",
@@ -31,53 +32,58 @@ domready(() => {
       this.findLinksAndHeadings();
       this.observeSections();
 
-      this.links.forEach((link) => {
-        link.addEventListener("click", this.handleLinkClick.bind(this));
-      });
+      if (this.links) {
+        this.links.forEach((link) => {
+          link.addEventListener("click", this.handleLinkClick.bind(this));
+        });
+      }
     },
 
     createInPageNav() {
-      if (headings) {
+      if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
-          let tag = heading.tagName.toLowerCase();
+          const tag = heading.tagName.toLowerCase();
 
           inPageNavigationInner += `<li class="usa-in-page-navigation__item${
-            tag === "h3" ? " padding-left-2" : ""
+            tag === "h3" ? " sub-item" : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
-          const originalHeadingContent = heading.innerHTML;
+          const originalHeadingContent = heading.innerText;
           const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
-          heading.innerHTML = anchor + originalHeadingContent;
+          // heading.innerHTML = anchor + originalHeadingContent;
+
+          heading.innerHTML = Sanitizer.escapeHTML`${anchor} + ${originalHeadingContent}`;
+          // heading.appendChild(heading);
         });
 
-        const inPageNav = `<ul class="usa-in-page-navigation usa-sidenav">${inPageNavigationInner}</ul>`;
-        // add the generated table of content to the div
-        document.querySelector("#in-page-navigation").innerHTML += inPageNav;
+        const inPageNav = `<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        // document.querySelector("#in-page-navigation").innerHTML += inPageNav;
+        const inPageNavDiv = document.querySelector("#in-page-navigation");
+        inPageNavDiv.innerHTML += Sanitizer.escapeHTML`${inPageNav}`;
 
-        // automatically go to the correct section on load
-        if (location.hash) {
-          const target = location.hash;
+        if (window.location.hash) {
+          const target = window.location.hash;
           const offsetY = document.querySelector(target).offsetTop;
           window.scrollTo(0, offsetY);
         }
       }
     },
 
-    handleLinkClick(evt) {
-      evt.preventDefault();
-      let id = evt.target.hash.replace("#", "");
+    handleLinkClick(event) {
+      event.preventDefault();
+      const id = event.target.hash.replace("#", "");
 
-      let section = this.headings.find((heading) => {
-        return heading.getAttribute("id") === id;
-      });
+      const section = this.headings.find(
+        (heading) => heading.getAttribute("id") === id
+      );
 
       section.setAttribute("tabindex", -1);
-      //section.focus();
+      section.focus();
 
       window.scroll({
         behavior: motionQuery.matches ? "instant" : "smooth",
-        top: section.offsetTop + 140,
+        top: section.offsetTop + this.headerOffset,
         block: "start",
       });
 
@@ -86,10 +92,10 @@ domready(() => {
       }
     },
 
-    handleObserver(entries, observer) {
+    handleObserver(entries) {
       entries.forEach((entry) => {
-        let href = `#${entry.target.getAttribute("id")}`,
-          link = this.links.find((l) => l.getAttribute("href") === href);
+        const href = `#${entry.target.getAttribute("id")}`;
+        const link = this.links.find((l) => l.getAttribute("href") === href);
 
         if (entry.isIntersecting && entry.intersectionRatio >= 1) {
           link.classList.add("is-visible");
@@ -103,7 +109,7 @@ domready(() => {
     },
 
     highlightFirstActive() {
-      let firstVisibleLink = this.container.querySelector(".is-visible");
+      const firstVisibleLink = this.container.querySelector(".is-visible");
 
       this.links.forEach((link) => {
         link.classList.remove("usa-current");
@@ -121,10 +127,8 @@ domready(() => {
     },
 
     observeSections() {
-      if (headings) {
-        this.headings.forEach((heading) => {
-          this.observer.observe(heading);
-        });
+      if (headings && this.container) {
+        this.headings.forEach((heading) => this.observer.observe(heading));
       }
     },
 
@@ -136,12 +140,14 @@ domready(() => {
     },
 
     findLinksAndHeadings() {
-      this.links = [...this.container.querySelectorAll("a")];
-      this.headings = this.links.map((link) => {
-        let id = link.getAttribute("href");
-        return document.querySelector(id);
-      });
+      if (headings && this.container) {
+        this.links = [...this.container.querySelectorAll("a")];
+        this.headings = this.links.map((link) => {
+          const id = link.getAttribute("href");
+          return document.querySelector(id);
+        });
+      }
     },
   };
-  InPageNavigation.init(); */
+  InPageNavigation.init();
 });

@@ -1,15 +1,35 @@
 {
   "aria_label": "In-page navigation",
+  "heading": "On this page",
   "items": [
     {
-      "label": "Current page",
+      "id": 0,
+      "label": "Component preview",
       "current": true
     },
     {
-      "label": "Parent link"
+      "id": 1,
+      "label": "Component code"
     },
     {
-      "label": "Parent link"
+      "id": 2,
+      "label": "Guidance"
+    },
+    {
+      "id": 3,
+      "label": "When to use something else"
+    },
+    {
+      "id": 4,
+      "label": "When to consider something else"
+    },
+    {
+      "id": 5,
+      "label": "Accessibility"
+    },
+    {
+      "id": 6,
+      "label": "Package"
     }
   ]
 }

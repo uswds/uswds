@@ -105,36 +105,3 @@ $sidenav-level-4-inset: 8;
     padding-left: units($sidenav-level-4-inset);
   }
 }
-
-@mixin nav-in-page-sublist {
-  @include unstyled-list();
-  margin: 0;
-
-  &-item {
-    border-top: units(1px) solid color("base-lighter");
-    font-size: font-size($theme-sidenav-font-family, "2xs");
-  }
-
-  .usa-current {
-    @include remove-bar;
-
-    @include at-media("tablet") {
-      @include remove-bar;
-    }
-  }
-
-  // level 2+
-  a:not(.usa-button) {
-    padding-left: units($sidenav-level-2-inset);
-  }
-
-  // level 3+
-  & & a:not(.usa-button) {
-    padding-left: units($sidenav-level-3-inset);
-  }
-
-  // level 4+
-  & & & a:not(.usa-button) {
-    padding-left: units($sidenav-level-4-inset);
-  }
-}

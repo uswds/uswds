@@ -1,39 +1,29 @@
+{% macro inpagenav_list(items, base_class) %}
+
+	{% import _self as inpagenav %}
+
+	{% set list_item_class = 'usa-in-page-navigation__item' %}
+	{% set current_class = 'usa-current' %}
+	{% set placeholder_link = 'javascript:void(0);' %}
+
+
+	{% if heading %}
+		<p class="site-subheading">{{ heading }}</p>
+	{% endif %}
+
+	{% if items %}
+		<ul class="{{ base_class }}">
+			{% for item in items %}
+				<li class="{{ list_item_class }}">
+					<a href="#section_{{ item.id }}" {% if item.current %} class="usa-current" {% endif %}>{{ item.label }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}
+
+{% import _self as inpagenav %}
+
 <div id="in-page-navigation" class="in-page-navigation">
-	<p class="site-subheading">On this page</p>
-	<ul class="usa-in-page-navigation usa-sidenav">
-		<li class="usa-in-page-navigation__item">
-			<a href="#section_0" class="">Component preview</a>
-		</li>
-		<li class="usa-in-page-navigation__item">
-			<a href="#section_1" class="">Component code</a>
-		</li>
-		<li class="usa-in-page-navigation__item">
-			<a href="#section_2" class="">
-				Guidance
-			</a>
-		</li>
-		<li class="usa-in-page-navigation__item margin-left-3">
-			<a href="#section_3" class="">
-				When to use the character count component
-			</a>
-		</li>
-		<li class="usa-in-page-navigation__item margin-left-3">
-			<a href="#section_4" class="">
-				When to consider something else
-			</a>
-		</li>
-		<li class="usa-in-page-navigation__item margin-left-3">
-			<a href="#section_5" class="">
-				Accessibility
-			</a>
-		</li>
-		<li class="usa-in-page-navigation__item margin-left-3">
-			<a href="#section_6" class="">
-				Using the character count component
-			</a>
-		</li>
-		<li class="usa-in-page-navigation__item">
-			<a href="#section_7" class="is-visible usa-current">Package</a>
-		</li>
-	</ul>
+	{{ inpagenav.inpagenav_list(items, 'usa-in-page-navigation') }}
 </div>
