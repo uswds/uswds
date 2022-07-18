@@ -53,9 +53,12 @@ ready(() => {
           const originalHeadingContent = heading.innerText;
           theHeading.innerHTML = Sanitizer.escapeHTML`<a class="offset-anchor" id="section_${i}"></a>${originalHeadingContent}`;
         });
-        
+
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavDiv.innerHTML += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        const inPageNavUl = "";
+        inPageNavUl.innerHTML += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+
+        inPageNavDiv.appendChild(inPageNavUl);
 
         if (window.location.hash) {
           const target = window.location.hash;
