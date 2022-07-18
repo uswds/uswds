@@ -42,7 +42,7 @@ ready(() => {
     createInPageNav() {
       let inPageNavUl = "";
       if (headings && this.container) {
-        // let inPageNavigationInner = "";
+        let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
