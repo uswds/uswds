@@ -69,6 +69,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--active {
     @include set-text-and-bg("accent-cool-darker", $context: $button-context);
   }
+
   &:disabled:hover,
   &[aria-disabled="true"]:hover {
     color: color("white");
