@@ -14,7 +14,7 @@
       type="text"
       aria-labelledby="appointment-date-label"
       aria-describedby="appointment-date-hint"
-      {% if disabled %} disabled{% endif %}
-      {% if aria_disabled %} aria-disabled="true"{% endif %}>
+      {% if disabled_state == "disabled" %} disabled{% endif %}
+      {% if disabled_state == "aria-disabled" %} aria-disabled="true"{% endif %}>
   </div>
 </div>

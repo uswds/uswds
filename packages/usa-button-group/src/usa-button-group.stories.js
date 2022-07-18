@@ -4,15 +4,10 @@ import { DefaultContent, SegmentedContent } from "./content";
 export default {
   title: "Components/Button Group",
   argTypes: {
-    disabled: {
-      control: {type: 'boolean'},
-      defaultValue: false,
-      name: "disabled",
-    },
-    aria_disabled: {
-      control: {type: 'boolean'},
-      defaultValue: false,
-      name: "aria-disabled",
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria-disabled"]
     },
     segmented: {
       table: { disable: true }

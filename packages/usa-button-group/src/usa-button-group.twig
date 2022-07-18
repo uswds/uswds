@@ -2,13 +2,13 @@
 {% if segmented == true %}
   <ul class="usa-button-group usa-button-group--segmented">
     <li class="usa-button-group__item">
-      <button class="usa-button" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Map</button>
+      <button class="usa-button" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Map</button>
     </li>
     <li class="usa-button-group__item">
-      <button class="usa-button usa-button--outline" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Hybrid</button>
+      <button class="usa-button usa-button--outline" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Hybrid</button>
     </li>
     <li class="usa-button-group__item">
-      <button class="usa-button usa-button--outline" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Satellite</button>
+      <button class="usa-button usa-button--outline" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Satellite</button>
     </li>
   </ul>
 
@@ -18,13 +18,13 @@
   {% endif %}
     <ul class="usa-button-group usa-button-group--segmented">
       <li class="usa-button-group__item">
-        <button class="usa-button {{ modifier }}" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Map</button>
+        <button class="usa-button {{ modifier }}" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Map</button>
       </li>
       <li class="usa-button-group__item">
-        <button class="usa-button {{ modifier }}" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Hybrid</button>
+        <button class="usa-button {{ modifier }}" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Hybrid</button>
       </li>
       <li class="usa-button-group__item">
-        <button class="usa-button {{ modifier }}" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Satellite</button>
+        <button class="usa-button {{ modifier }}" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Satellite</button>
       </li>
     </ul>
   {% if 'usa-button--outline usa-button--inverse' in modifier %}
@@ -37,10 +37,10 @@
   {% else %}
   <ul class="usa-button-group">
     <li class="usa-button-group__item">
-      <a href="javascript:void(0);" class="usa-button usa-button--outline" {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Back</a>
+      <a href="javascript:void(0);" class="usa-button usa-button--outline" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Back</a>
     </li>
     <li class="usa-button-group__item">
-        <button class="usa-button" {% if disabled == true %}disabled{% endif %} {% if aria_disabled == true %}aria-disabled="true"{% endif %}>Continue</button>
+        <button class="usa-button" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Continue</button>
     </li>
   </ul>
 <!-- end default styles -->
