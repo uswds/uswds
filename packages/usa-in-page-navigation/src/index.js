@@ -47,7 +47,7 @@ ready(() => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += `<li class="usa-in-page-navigation__item${
+          inPageNavigationInner += Sanitizer.escapeHTML`<li class="usa-in-page-navigation__item${
             tag === "h3" ? " sub-item" : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
