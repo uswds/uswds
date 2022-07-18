@@ -8,28 +8,39 @@ This repository is for the design system code itself. We maintain [another repos
 
 ## Contents
 
-- [Recent updates](#recent-updates)
-- [Getting started](#getting-started)
-- [What's included in USWDS](#whats-included-in-uswds)
-  - [Directory structure](#directory-structure)
-  - [Package contents](#package-contents)
-- [Installing the design system](#installing-the-design-system)
-- [Using USWDS CSS and JavaScript in your project](#using-uswds-css-and-javascript-in-your-project)
-- [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css)
-  - [Sass compilation requirements](#sass-compilation-requirements)
-  - [Sass and theme settings](#sass-and-theme-settings)
-- [JS customization](#js-customization)
-- [Style theming and tokens](#style-theming-and-tokens)
-- [CSS architecture](#css-architecture)
-- [Browser support](#browser-support)
-- [Accessibility](#accessibility)
-- [Long-term support of v1.x](#long-term-support-of-v1x)
-- [Long-term support of v2.x](#long-term-support-of-v2x)
-- [Need installation help?](#need-installation-help)
-- [Contributing to the code base](#contributing-to-the-code-base)
-- [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
-- [Licenses and attribution](#licenses-and-attribution)
-- [Contributing](#contributing)
+- [United States Web Design System](#united-states-web-design-system)
+  - [Contents](#contents)
+  - [Recent updates](#recent-updates)
+  - [Getting started](#getting-started)
+  - [What's included in USWDS](#whats-included-in-uswds)
+    - [Directory structure](#directory-structure)
+    - [Package contents](#package-contents)
+  - [Installing the design system](#installing-the-design-system)
+    - [Install using Node and npm](#install-using-node-and-npm)
+    - [Install the package directly from GitHub](#install-the-package-directly-from-github)
+  - [Using USWDS CSS and JavaScript in your project](#using-uswds-css-and-javascript-in-your-project)
+  - [Compiling USWDS Sass into CSS](#compiling-uswds-sass-into-css)
+    - [Sass compilation requirements](#sass-compilation-requirements)
+      - [Autoprefixing](#autoprefixing)
+      - [Sass Load Paths](#sass-load-paths)
+        - [Gulp](#gulp)
+        - [Webpack](#webpack)
+      - [Other useful compiler postprocessing](#other-useful-compiler-postprocessing)
+    - [Sass and theme settings](#sass-and-theme-settings)
+  - [JS customization](#js-customization)
+  - [Style theming and tokens](#style-theming-and-tokens)
+    - [Using tokens in theme settings](#using-tokens-in-theme-settings)
+    - [Set the base asset paths (fonts and images)](#set-the-base-asset-paths-fonts-and-images)
+  - [CSS architecture](#css-architecture)
+  - [Browser support](#browser-support)
+  - [Accessibility](#accessibility)
+  - [Long-term support of v1.x](#long-term-support-of-v1x)
+  - [Long-term support of v2.x](#long-term-support-of-v2x)
+  - [Need installation help?](#need-installation-help)
+  - [Contributing to the code base](#contributing-to-the-code-base)
+  - [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+  - [Licenses and attribution](#licenses-and-attribution)
+  - [Contributing](#contributing)
 
 ## Recent updates
 
@@ -424,7 +435,7 @@ The following is an example of theme settings from `_uswds-theme.scss`:
 
 ```scss
 @use "uswds-core" with (
-  $theme-site-max-width: "desktop",
+  $theme-grid-container-max-width: "desktop",
   $theme-site-margins-breakpoint: "desktop",
   $theme-site-margins-width: 4,
   $theme-site-margins-mobile-width: 2,
@@ -436,7 +447,7 @@ The USWDS uses those tokens to build component styles:
 ```scss
 .usa-example {
   @include u-padding-x($theme-site-margins-mobile-width);
-  max-width: units($theme-site-max-width);
+  max-width: units($theme-grid-container-max-width);
 
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width);
@@ -511,7 +522,7 @@ As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). W
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/). 
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/).
 
 We use the following tools to ensure USWDS is accessible:
 - [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).
