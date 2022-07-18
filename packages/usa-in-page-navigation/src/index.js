@@ -43,6 +43,7 @@ ready(() => {
       if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
+          const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
           inPageNavigationInner += `<li class="usa-in-page-navigation__item${
@@ -50,17 +51,11 @@ ready(() => {
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
           const originalHeadingContent = heading.innerText;
-          // const anchor = `<a class="offset-anchor" id="section_${i}"></a>`;
-          // heading.innerHTML = anchor + originalHeadingContent;
-          heading.innerHTML = Sanitizer.escapeHTML `<a class="offset-anchor" id="section_${i}"></a>${originalHeadingContent}`;
-          // heading.innerHTML = Sanitizer.escapeHTML anchor + originalHeadingContent;
-          // heading.appendChild(heading);
+          theHeading.innerHTML = Sanitizer.escapeHTML`<a class="offset-anchor" id="section_${i}"></a>${originalHeadingContent}`;
         });
-
-        const inPageNav = `<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
-        // document.querySelector("#in-page-navigation").innerHTML += inPageNav;
+        
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavDiv.innerHTML += Sanitizer.escapeHTML`${inPageNav}`;
+        inPageNavDiv.innerHTML += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
 
         if (window.location.hash) {
           const target = window.location.hash;
