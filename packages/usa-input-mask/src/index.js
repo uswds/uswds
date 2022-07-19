@@ -1,4 +1,10 @@
-const { InputMask } = require("./usa-input-mask.stories");
+function ready(fn) {
+  document.addEventListener("DOMContentLoaded", fn, false);
+}
+
+ready(() => {
+
+    console.log('hey!');
 
     // Phone Mask
     document.getElementById('phone').addEventListener('input', (e) => {
@@ -12,4 +18,4 @@ const { InputMask } = require("./usa-input-mask.stories");
         e.target.value = `${x[1]} ${x[2]} ${x[3]}`;
     });
 
-module.exports = InputMask; 
+});
