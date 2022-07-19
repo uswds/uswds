@@ -40,7 +40,7 @@ ready(() => {
     },
 
     createInPageNav() {
-      const inPageNavUl = "";
+      let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
@@ -56,7 +56,7 @@ ready(() => {
         });
 
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavUl.innerHTML += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
         // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
         inPageNavDiv.appendChild(inPageNavUl);
         /* inPageNavDiv.insertAdjacentHTML(
