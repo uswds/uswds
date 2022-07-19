@@ -56,7 +56,7 @@ ready(() => {
         });
 
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        inPageNavUl += '<ul class="usa-in-page-navigation">' + inPageNavigationInner + '</ul>';
         // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
         inPageNavDiv.appendChild(inPageNavUl);
         /* inPageNavDiv.insertAdjacentHTML(
