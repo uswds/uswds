@@ -62,7 +62,7 @@ ready(() => {
         inPageNavDiv.insertAdjacentHTML(
           "beforeend",
           Sanitizer.escapeHTML`
-        <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
+        <ul class="usa-in-page-navigation"><li>Test</li><li>Test</li><li>Test</li></ul>
         `
         );
 
