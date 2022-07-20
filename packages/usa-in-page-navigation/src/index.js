@@ -5,6 +5,10 @@ function ready(fn) {
   document.addEventListener("DOMContentLoaded", fn, false);
 }
 
+function htmlEntities(str) {
+  return String(str).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+}
+
 ready(() => {
   const headings = document.querySelectorAll(
     "#main-content h2, #main-content h3"
@@ -47,7 +51,7 @@ ready(() => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner = `<li class="usa-in-page-navigation__item${
+          inPageNavigationInner += `<li class="usa-in-page-navigation__item${
             tag === "h3" ? " sub-item" : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
@@ -62,7 +66,7 @@ ready(() => {
         inPageNavDiv.insertAdjacentHTML(
           "beforeend",
           Sanitizer.escapeHTML`
-        <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
+        <ul class="usa-in-page-navigation">${htmlEntities(inPageNavigationInner)}</ul>
         `
         );
 
