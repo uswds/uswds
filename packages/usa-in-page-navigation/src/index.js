@@ -47,7 +47,7 @@ ready(() => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += `<li class="usa-in-page-navigation__item${
+          inPageNavigationInner = `<li class="usa-in-page-navigation__item${
             tag === "h3" ? " sub-item" : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
@@ -62,7 +62,7 @@ ready(() => {
         inPageNavDiv.insertAdjacentHTML(
           "beforeend",
           Sanitizer.escapeHTML`
-        <ul class="usa-in-page-navigation"><li>Test</li><li>Test</li><li>Test</li></ul>
+        <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
         `
         );
 
