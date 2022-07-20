@@ -44,7 +44,7 @@ ready(() => {
     },
 
     createInPageNav() {
-      // let inPageNavUl = "";
+      let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
@@ -60,15 +60,15 @@ ready(() => {
         });
 
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
         // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
-        // inPageNavDiv.appendChild(inPageNavUl);
-        inPageNavDiv.insertAdjacentHTML(
+        inPageNavDiv.appendChild(htmlEntities(inPageNavUl));
+        /* inPageNavDiv.insertAdjacentHTML(
           "beforeend",
-          Sanitizer.escapeHTML`
-        <ul class="usa-in-page-navigation">${htmlEntities(inPageNavigationInner)}</ul>
-        `
-        );
+          htmlEntities(Sanitizer.escapeHTML`
+        <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
+        `)
+        ); */
 
         if (window.location.hash) {
           const target = window.location.hash;
