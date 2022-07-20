@@ -6,7 +6,7 @@ const { series, parallel } = require("gulp");
 // Each task is broken apart to it's own node module.
 // Check out the ./tasks directory for more.
 const { noCleanup, noTest } = require("./tasks/flags");
-const { buildSprite, buildSpriteStandalone } = require("./tasks/svg-sprite");
+const { buildSprite, buildSpriteStandalone } = require("./packages/usa-icon/src/tasks/svg-sprite");
 const { compileJS, typeCheck } = require("./tasks/javascript");
 const { unitTests, sassTests } = require("./tasks/test");
 const { lintSass, typecheck } = require("./tasks/lint");
