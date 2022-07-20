@@ -4,8 +4,6 @@ function ready(fn) {
 
 ready(() => {
 
-    console.log('hey!');
-
     // Phone Mask
     document.getElementById('phone').addEventListener('input', (e) => {
         const x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
@@ -19,3 +17,5 @@ ready(() => {
     });
 
 });
+
+// module.exports = inputMask;

@@ -5,6 +5,7 @@ const comboBox = require("../../../usa-combo-box/src/index");
 const datePicker = require("../../../usa-date-picker/src/index");
 const dateRangePicker = require("../../../usa-date-range-picker/src/index");
 const fileInput = require("../../../usa-file-input/src/index");
+const inputMask = require("../../../usa-input-mask/src/index");
 const footer = require("../../../usa-footer/src/index");
 const inputPrefixSuffix = require("../../../usa-input-prefix-suffix/src/index");
 const modal = require("../../../usa-modal/src/index");
@@ -25,6 +26,7 @@ module.exports = {
   datePicker,
   dateRangePicker,
   fileInput,
+  inputMask,
   footer,
   inputPrefixSuffix,
   modal,
