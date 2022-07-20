@@ -9,6 +9,7 @@ const { copyIcons } = require("../../../uswds-core/src/tasks/copy");
 const iconConfig = require("../usa-icons.config");
 
 const svgPath = "dist/img";
+const svgPackagePath = "packages/usa-icon/dist/img";
 
 // More complex configuration example
 const config = {
@@ -32,7 +33,7 @@ const config = {
 };
 
 function cleanIcons() {
-  return del(`${svgPath}/usa-icons`);
+  return del([`${svgPath}/usa-icons`, `${svgPackagePath}/usa-icons`]);
 }
 
 function collectIcons() {
@@ -51,6 +52,7 @@ function buildSprite(done) {
       .pipe(svgSprite(config))
       .on("error", logError)
       .pipe(dest(svgPath))
+      .pipe(dest(svgPackagePath))
       .on("end", () => done())
   );
 }
@@ -61,8 +63,14 @@ function renameSprite() {
     .pipe(dest(`./`));
 }
 
+function renamePackageSprite() {
+  return src(`${svgPackagePath}/symbol/svg/sprite.symbol.svg`)
+    .pipe(rename(`${svgPackagePath}/sprite.svg`))
+    .pipe(dest(`./`));
+}
+
 function cleanSprite() {
-  return del(`${svgPath}/symbol`);
+  return del([`${svgPath}/symbol`, `${svgPackagePath}/symbol`]);
 }
 
 exports.buildSpriteStandalone = series(
@@ -71,6 +79,7 @@ exports.buildSpriteStandalone = series(
   collectIcons,
   buildSprite,
   renameSprite,
+  renamePackageSprite,
   cleanSprite
 )
 
@@ -79,5 +88,6 @@ exports.buildSprite = series(
   collectIcons,
   buildSprite,
   renameSprite,
+  renamePackageSprite,
   cleanSprite
 )
