@@ -40,14 +40,14 @@ ready(() => {
     },
 
     createInPageNav() {
-      let inPageNavUl = "";
+      // let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += Sanitizer.escapeHTML`<li class="usa-in-page-navigation__item${
+          inPageNavigationInner += `<li class="usa-in-page-navigation__item${
             tag === "h3" ? " sub-item" : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
@@ -56,15 +56,15 @@ ready(() => {
         });
 
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavUl += '<ul class="usa-in-page-navigation">' + inPageNavigationInner + '</ul>';
+        // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
         // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
-        inPageNavDiv.appendChild(inPageNavUl);
-        /* inPageNavDiv.insertAdjacentHTML(
+        // inPageNavDiv.appendChild(inPageNavUl);
+        inPageNavDiv.insertAdjacentHTML(
           "beforeend",
           Sanitizer.escapeHTML`
         <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
         `
-        ); */
+        );
 
         if (window.location.hash) {
           const target = window.location.hash;
