@@ -16,7 +16,7 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg("usa-icons/remove");
+  @include add-background-svg("../img/remove");
   background-color: color("base-lightest");
   background-position: right units(2.5) center;
   background-size: units(3);
@@ -42,7 +42,7 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg("usa-icons/add");
+  @include add-background-svg("../img/add");
   background-size: units(3);
 }
 
