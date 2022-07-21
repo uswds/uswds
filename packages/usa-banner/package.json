@@ -1,0 +1,29 @@
+{
+  "name": "@uswds/usa-banner",
+  "version": "0.0.1-alpha.0",
+  "description": "USWDS gov banner component",
+  "main": "_index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "uswds",
+    "component",
+    "banner",
+    "usa",
+    "usa-banner"
+  ],
+  "author": "USWDS",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/uswds-core": "^0.0.1-alpha.0"
+  }
+}
