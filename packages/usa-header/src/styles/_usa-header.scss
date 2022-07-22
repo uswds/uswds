@@ -1,4 +1,5 @@
 @use "uswds-core" as *;
+@use "usa-nav" as *;
 
 // Header helpers
 // ---------------------------------
@@ -129,7 +130,7 @@ $z-index-overlay: 400;
   opacity: opacity(0);
   transition: opacity $project-easing;
   visibility: hidden;
-  width: calc(100vw - 15rem);
+  width: calc(100vw - #{units($sliding-panel-width)});
   z-index: z-index($z-index-overlay);
 
   &.is-visible {
