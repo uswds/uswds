@@ -20,7 +20,6 @@
     "./scss": "./_index.scss",
     "./js/utils/*": "./src/js/utils/*.js",
     "./js/init/*": "./src/js/uswds-init.js",
-    "./fonts/*": "./src/assets/fonts/*",
     "./favicons/*": "./src/img/favicons/*"
   },
   "scripts": {

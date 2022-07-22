@@ -43,7 +43,7 @@ module.exports = {
   // Copy fonts to /dist directory
   copyFonts() {
     dutil.logMessage("copyFonts", "Copying fonts to /dist/fonts");
-    return src("packages/uswds-core/src/assets/fonts/**/*").pipe(
+    return src("packages/uswds-fonts/src/assets/fonts/**/*").pipe(
       dest("dist/fonts")
     );
   },

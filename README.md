@@ -52,7 +52,7 @@ The USWDS package includes compiled assets in a `dist` directory and component s
 
 As of USWDS 3.0.0, our codebase is centered around functional packages, typically components. For more about how we organize packages, [see our Packages documentation](https://designsystem.digital.gov/components/packages). In each of the following examples, we use `[package]` to represent a specific package. For example, component Sass is located in `packages/[package]/src/styles` for an accordion, this would be `packages/usa-accordion/src/styles`.
 
-- **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
+- **Fonts** are located in both `dist/fonts` and `packages/uswds-fonts/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-fonts`.
 - **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
 - **JavaScript** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
 - **Sass** component-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
@@ -511,7 +511,7 @@ As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). W
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/). 
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/).
 
 We use the following tools to ensure USWDS is accessible:
 - [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).

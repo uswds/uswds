@@ -129,7 +129,7 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../packages/uswds-core/src/assets/fonts"),
+        include: path.resolve(__dirname, "../packages/uswds-fonts/src/assets/fonts"),
       }
     );
 

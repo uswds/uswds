@@ -14,16 +14,16 @@ This Modified Version packaged as `dist/img/sprite.svg` contains both design ele
 
 ### Files licensed under the SIL Open Font License, Version 1.1
 
-The Source Sans Pro font files in `packages/uswds-core/src/assets/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
+The Source Sans Pro font files in `packages/uswds-fonts/src/assets/fonts/source-sans-pro` are a [customized subset](https://github.com/miguelsousa/source-sans-pro-subset) of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) owned by Adobe Systems Incorporated, licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated], with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States or other countries.
 
-The Merriweather font files in `packages/uswds-core/src/assets/fonts/merriweather` are the version 2.001 files from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
+The Merriweather font files in `packages/uswds-fonts/src/assets/fonts/merriweather` are the version 2.001 files from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
-The Public Sans font files in `packages/uswds-core/src/assets/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
+The Public Sans font files in `packages/uswds-fonts/src/assets/fonts/public-sans` are licensed under the [SIL Open Font License, Version 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
 
 
 ### Files licensed under the Apache 2.0 License
 
-The Roboto Mono font files in `packages/uswds-core/src/assets/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Roboto Mono font files in `packages/uswds-fonts/src/assets/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 The Google Material Icons in `packages/usa-icon/src/img/material-icons-deprecated`, and those packaged as `dist/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 

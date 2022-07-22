@@ -13,11 +13,6 @@ To see the design system and its documentation on the web, visit [https://design
 - JS
   - Utilities
   - Start script
-- Fonts
-  - merriweather
-  - public sans
-  - roboto mono
-  - source sans pro
 - Favicons
 
 See `uswds-core/package.json` for entrypoints.
@@ -61,10 +56,6 @@ Using in javascript requires a tool like require.js, web pack, or rollup.
 ```js
 import isIosDevice from "@uswds/uswds-core/js/utils/is-ios-device";
 ```
-
-### Fonts
-
-Import into you project. They're available in `@uswds/uswds-core/src/assets/fonts`.
 
 ### Favicons
 

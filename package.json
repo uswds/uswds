@@ -41,7 +41,7 @@
     "./css/*": "./dist/css/*",
     "./scss/*": "./packages/*/_index.scss",
     "./img/*": "./dist/img/*",
-    "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
+    "./fonts/*": "./packages/uswds-fonts/src/assets/fonts/*"
   },
   "main": "dist/js/uswds.min.js",
   "style": "dist/css/uswds.min.css",
