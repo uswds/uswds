@@ -22,8 +22,9 @@ module.exports = {
   // Copy material icons to /dist/img/material-icons
   copyIcons() {
     dutil.logMessage("copyIcons", "Copying Material icons to dist/img/material-icons");
-    return src(["node_modules/@material-design-icons/svg/outlined/*"])
-      .pipe(dest("dist/img/material-icons"));
+    return src(["node_modules/@material-design-icons/svg/filled/*"])
+      .pipe(dest("dist/img/material-icons"))
+      .pipe(dest("packages/usa-icon/dist/img/material-icons"));
   },
 
   // Copy images to /dist directory
@@ -37,7 +38,8 @@ module.exports = {
           return path;
         })
       )
-      .pipe(dest("dist/img"));
+      .pipe(dest("dist/img"))
+      .pipe(dest("packages/usa-icon/dist/img"));
   },
 
   // Copy fonts to /dist directory
