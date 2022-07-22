@@ -16,3 +16,33 @@
   padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
   padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
 }
+
+.shell {
+  position: relative;
+  line-height: 1;
+
+  span {
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    pointer-events: none;
+    z-index: -1;
+    color: color("gray-50");
+
+    i {
+      /* any of these 3 will work */
+      color: transparent;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+input.masked,
+.shell span {
+  padding: 0.5rem;
+  line-height: 1.3;
+  font-size: 1.06rem;
+  background-color: transparent;
+  text-transform: uppercase;
+}
