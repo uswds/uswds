@@ -42,38 +42,37 @@ const TEMPORARY_PADDING = `${
   parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
 }px`;
 
-// const hideNonNavItems = () => {
-//   nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
+const hideNonNavItems = () => {
+  nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
 
-//   nonNavElements.forEach((nonNavElement) => {
-//     console.log(nonNavElement);
-//     nonNavElement.setAttribute("aria-hidden", true);
-//     nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
-//   });
-// };
+  nonNavElements.forEach((nonNavElement) => {
+    nonNavElement.setAttribute("aria-hidden", true);
+    nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+  });
+};
 
-// const showNonNavItems = () => {
-//   nonNavElements = document.querySelectorAll(NON_NAV_HIDDEN);
+const showNonNavItems = () => {
+  nonNavElements = document.querySelectorAll(NON_NAV_HIDDEN);
 
-//   if (!nonNavElements) {
-//     return;
-//   }
+  if (!nonNavElements) {
+    return;
+  }
 
-//   // Remove aria-hidden from non-header elements
-//   nonNavElements.forEach((nonNavElement) => {
-//     nonNavElement.removeAttribute("aria-hidden");
-//     nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
-//   });
-// };
+  // Remove aria-hidden from non-header elements
+  nonNavElements.forEach((nonNavElement) => {
+    nonNavElement.removeAttribute("aria-hidden");
+    nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
+  });
+};
 
-// // Toggle all non-header elements #3527.
-// const toggleNonNavItems = (active) => {
-//   if (active) {
-//     hideNonNavItems();
-//   } else {
-//     showNonNavItems();
-//   }
-// };
+// Toggle all non-header elements #3527.
+const toggleNonNavItems = (active) => {
+  if (active) {
+    hideNonNavItems();
+  } else {
+    showNonNavItems();
+  }
+};
 
 const toggleNav = (active) => {
   const { body } = document;
@@ -95,7 +94,7 @@ const toggleNav = (active) => {
       ? INITIAL_PADDING
       : TEMPORARY_PADDING;
 
-  // toggleNonNavItems(safeActive);
+  toggleNonNavItems(safeActive);
 
   if (safeActive && closeButton) {
     // The mobile nav was just activated. Focus on the close button, which is
