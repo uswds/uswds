@@ -2,14 +2,15 @@
   "name": "@uswds/usa-accordion",
   "version": "0.0.1-alpha.0",
   "description": "USWDS accordion component",
-  "main": "index.js",
+  "main": "./_index.scss",
+  "exports": {
+    "./js": "./src/index.js",
+    "./sass": "./_index.scss",
+    "./img/*": "./src/img/*"
+  },
   "scripts": {
     "test:js": "mocha './src/test/*.spec.js'",
     "test": "npm run test:js"
-  },
-  "exports": {
-    "./js": "./src/index.js",
-    "./sass": "./_index.scss"
   },
   "repository": {
     "type": "git",
