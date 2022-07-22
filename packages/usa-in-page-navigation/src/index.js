@@ -1,13 +1,18 @@
 // const behavior = require("../../uswds-core/src/js/utils/behavior");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+// const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 function ready(fn) {
   document.addEventListener("DOMContentLoaded", fn, false);
 }
 
-function htmlEntities(str) {
-  return String(str).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
-}
+/* function htmlEntities(str) {
+  return String(str)
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"');
+} */
 
 ready(() => {
   const headings = document.querySelectorAll(
@@ -44,7 +49,7 @@ ready(() => {
     },
 
     createInPageNav() {
-      let inPageNavUl = "";
+      // let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
         headings.forEach((heading, i) => {
@@ -60,15 +65,15 @@ ready(() => {
         });
 
         const inPageNavDiv = document.querySelector("#in-page-navigation");
-        inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
+        // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
         // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
-        inPageNavDiv.appendChild(htmlEntities(inPageNavUl));
-        /* inPageNavDiv.insertAdjacentHTML(
+        // inPageNavDiv.appendChild(htmlEntities(inPageNavUl));
+        inPageNavDiv.insertAdjacentHTML(
           "beforeend",
-          htmlEntities(Sanitizer.escapeHTML`
+          Sanitizer.escapeHTML`
         <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
-        `)
-        ); */
+        `
+        );
 
         if (window.location.hash) {
           const target = window.location.hash;
@@ -159,3 +164,5 @@ ready(() => {
   };
   InPageNavigation.init();
 });
+
+// module.exports = inPageNavigation;
