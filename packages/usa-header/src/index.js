@@ -42,6 +42,39 @@ const TEMPORARY_PADDING = `${
   parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
 }px`;
 
+// const hideNonNavItems = () => {
+//   nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
+
+//   nonNavElements.forEach((nonNavElement) => {
+//     console.log(nonNavElement);
+//     nonNavElement.setAttribute("aria-hidden", true);
+//     nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+//   });
+// };
+
+// const showNonNavItems = () => {
+//   nonNavElements = document.querySelectorAll(NON_NAV_HIDDEN);
+
+//   if (!nonNavElements) {
+//     return;
+//   }
+
+//   // Remove aria-hidden from non-header elements
+//   nonNavElements.forEach((nonNavElement) => {
+//     nonNavElement.removeAttribute("aria-hidden");
+//     nonNavElement.removeAttribute(NON_NAV_HIDDEN_ATTRIBUTE);
+//   });
+// };
+
+// // Toggle all non-header elements #3527.
+// const toggleNonNavItems = (active) => {
+//   if (active) {
+//     hideNonNavItems();
+//   } else {
+//     showNonNavItems();
+//   }
+// };
+
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
@@ -55,16 +88,18 @@ const toggleNav = (active) => {
   navigation.focusTrap.update(safeActive);
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
-  const menuButton = body.querySelector(OPENERS);
+  const menuButton = document.querySelector(OPENERS);
 
   body.style.paddingRight =
     body.style.paddingRight === TEMPORARY_PADDING
       ? INITIAL_PADDING
       : TEMPORARY_PADDING;
 
+  // toggleNonNavItems(safeActive);
+
   if (safeActive && closeButton) {
-    // The mobile nav was just activated, so focus on the close button,
-    // which is just before all the nav elements in the tab order.
+    // The mobile nav was just activated. Focus on the close button, which is
+    // just before all the nav elements in the tab order.
     closeButton.focus();
   } else if (
     !safeActive &&
