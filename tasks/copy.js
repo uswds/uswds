@@ -20,11 +20,30 @@ module.exports = {
   },
 
   // Copy material icons to /dist/img/material-icons
-  copyIcons() {
-    dutil.logMessage("copyIcons", "Copying Material icons to dist/img/material-icons");
+  copyMaterialIcons() {
+    dutil.logMessage("copyMaterialIcons", "Copying Material icons to dist/img/material-icons");
     return src(["node_modules/@material-design-icons/svg/filled/*"])
       .pipe(dest("dist/img/material-icons"))
       .pipe(dest("packages/usa-icon/dist/img/material-icons"));
+  },
+
+  // Copy USWDS icons to /dist directory
+  copyUSWDSIcons() {
+    dutil.logMessage("copyUSWDSIcons", "Copying USWDS Icons to packages/usa-icon/dist/img");
+    return src([
+      "packages/**/src/img/**/*{png,svg}",
+      // exclude hero images and favicons
+      "!packages/usa-hero/**",
+      "!packages/uswds-core/src/img/favicons/**"
+    ])
+    .pipe(
+      // use only the part of the path specific to the package img dir
+      rename((path) => {
+        path.dirname = path.dirname.replace(/[a-z-]+?\/src\/img/i, "");
+        return path;
+      })
+    )
+    .pipe(dest("packages/usa-icon/dist/img"));
   },
 
   // Copy images to /dist directory
@@ -39,7 +58,6 @@ module.exports = {
         })
       )
       .pipe(dest("dist/img"))
-      .pipe(dest("packages/usa-icon/dist/img"));
   },
 
   // Copy fonts to /dist directory

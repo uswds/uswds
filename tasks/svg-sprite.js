@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
-const { copyIcons } = require("./copy");
+const { copyMaterialIcons, copyUSWDSIcons } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgRootPath = "dist/img";
@@ -75,7 +75,8 @@ function cleanSprite() {
 }
 
 exports.buildSpriteStandalone = series(
-  copyIcons,
+  copyMaterialIcons,
+  copyUSWDSIcons,
   cleanIcons,
   collectIcons,
   buildSprite,
