@@ -4,7 +4,8 @@
   "description": "USWDS icon library",
   "main": "_index.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:js": "mocha './src/test/*.spec.js'",
+    "test": "npm run test:js"
   },
   "repository": {
     "type": "git",
