@@ -1,5 +1,5 @@
 import Component from "./usa-in-page-navigation.twig";
-import LevelOneContent from "./usa-in-page-navigation~one-level.json";
+import Content from "./usa-in-page-navigation.json";
 
 export default {
   title: "Components/In-Page Navigation",
@@ -7,6 +7,5 @@ export default {
 
 const Template = (args) => Component(args);
 
-export const LevelOne = Template.bind({});
-LevelOne.args = LevelOneContent;
-
+export const Default = Template.bind({});
+Default.args = Content;

@@ -1,34 +1,41 @@
-// const behavior = require("../../uswds-core/src/js/utils/behavior");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
-// const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+
+const MAIN_CONTENT_CLASS = `.main-content`;
+const HEADER_OFF_SET_PADDING = 10;
+const IO_ROOT_MARGIN = "0px";
+const IO_THRESHOLD = 1;
+const IN_PAGE_NAV_CLASS = `in-page-navigation`;
+const CURRENT_CLASS = `${PREFIX}-current`;
+const USA_IN_PAGE_NAV_CLASS = `${PREFIX}-${IN_PAGE_NAV_CLASS}`;
+const IN_PAGE_NAV = `.${IN_PAGE_NAV_CLASS}`;
+const VISIBLE_CLASS = "is-visible";
+const VISIBLE = `.${VISIBLE_CLASS}`;
+const OFFSET_ANCHOR = "offset-anchor";
+const SUB_ITEM = "sub-item";
 
 function ready(fn) {
   document.addEventListener("DOMContentLoaded", fn, false);
 }
 
-/* function htmlEntities(str) {
-  return String(str)
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"');
-} */
-
 ready(() => {
+  const HEADER_OFF_SET = document.getElementById("main-content").getBoundingClientRect().top + window.scrollY;
+console.log("HEADER_OFF_SET", HEADER_OFF_SET);
+console.log("HEADER_OFF_SET + HEADER_OFF_SET_PADDING", HEADER_OFF_SET + HEADER_OFF_SET_PADDING);
   const headings = document.querySelectorAll(
-    "#main-content h2, #main-content h3"
+    `${MAIN_CONTENT_CLASS} h2, ${MAIN_CONTENT_CLASS} h3`
   );
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
 
   const InPageNavigation = {
-    container: document.querySelector(".in-page-navigation"),
+    container: document.querySelector(`${IN_PAGE_NAV}`),
     links: null,
     headings: null,
-    headerOffset: 140,
+    headerOffset: HEADER_OFF_SET + HEADER_OFF_SET_PADDING,
     intersectionOptions: {
       root: null,
-      rootMargin: "0px",
-      threshold: 1,
+      rootMargin: IO_ROOT_MARGIN,
+      threshold: IO_THRESHOLD,
     },
 
     previousSection: null,
@@ -52,28 +59,27 @@ ready(() => {
       // let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
-        headings.forEach((heading, i) => {
+
+        headings.forEach((heading, i = 0) => {
+
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += `<li class="usa-in-page-navigation__item${
-            tag === "h3" ? " sub-item" : ""
+          inPageNavigationInner += `<li class="${USA_IN_PAGE_NAV_CLASS}__item${
+            tag === "h3" ? ` ${SUB_ITEM}` : ""
           }"><a href="#section_${i}">${heading.textContent}</a></li>`;
 
           const originalHeadingContent = heading.innerText;
-          theHeading.innerHTML = Sanitizer.escapeHTML`<a class="offset-anchor" id="section_${i}"></a>${originalHeadingContent}`;
+          theHeading.innerHTML = `<a class="${OFFSET_ANCHOR}" id="section_${i}"></a>
+          ${originalHeadingContent}`;
         });
 
-        const inPageNavDiv = document.querySelector("#in-page-navigation");
-        // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>`;
-        // inPageNavUl += Sanitizer.escapeHTML`<ul class="usa-in-page-navigation"><li>Test</li></ul>`;
-        // inPageNavDiv.appendChild(htmlEntities(inPageNavUl));
-        inPageNavDiv.insertAdjacentHTML(
-          "beforeend",
-          Sanitizer.escapeHTML`
-        <ul class="usa-in-page-navigation">${inPageNavigationInner}</ul>
-        `
-        );
+        const inPageNavDiv = document.querySelector(`#${IN_PAGE_NAV_CLASS}`);
+
+        const inPageNavUl = document.createElement("ul");
+        inPageNavUl.setAttribute("class", `${USA_IN_PAGE_NAV_CLASS}`);
+        inPageNavDiv.insertAdjacentElement("beforeend", inPageNavUl);
+        inPageNavUl.insertAdjacentHTML("beforeend", inPageNavigationInner);
 
         if (window.location.hash) {
           const target = window.location.hash;
@@ -100,8 +106,8 @@ ready(() => {
         block: "start",
       });
 
-      if (this.container.classList.contains("usa-current")) {
-        this.container.classList.remove("usa-current");
+      if (this.container.classList.contains(`${CURRENT_CLASS}`)) {
+        this.container.classList.remove(`${CURRENT_CLASS}`);
       }
     },
 
@@ -111,10 +117,10 @@ ready(() => {
         const link = this.links.find((l) => l.getAttribute("href") === href);
 
         if (entry.isIntersecting && entry.intersectionRatio >= 1) {
-          link.classList.add("is-visible");
+          link.classList.add(`${VISIBLE_CLASS}`);
           this.previousSection = entry.target.getAttribute("id");
         } else {
-          link.classList.remove("is-visible");
+          link.classList.remove(`${VISIBLE_CLASS}`);
         }
 
         this.highlightFirstActive();
@@ -122,20 +128,20 @@ ready(() => {
     },
 
     highlightFirstActive() {
-      const firstVisibleLink = this.container.querySelector(".is-visible");
+      const firstVisibleLink = this.container.querySelector(`${VISIBLE}`);
 
       this.links.forEach((link) => {
-        link.classList.remove("usa-current");
+        link.classList.remove(`${CURRENT_CLASS}`);
       });
 
       if (firstVisibleLink) {
-        firstVisibleLink.classList.add("usa-current");
+        firstVisibleLink.classList.add(`${CURRENT_CLASS}`);
       }
 
       if (!firstVisibleLink && this.previousSection) {
         this.container
           .querySelector(`a[href="#${this.previousSection}"]`)
-          .classList.add("usa-current");
+          .classList.add(`${CURRENT_CLASS}`);
       }
     },
 
@@ -164,5 +170,3 @@ ready(() => {
   };
   InPageNavigation.init();
 });
-
-// module.exports = inPageNavigation;

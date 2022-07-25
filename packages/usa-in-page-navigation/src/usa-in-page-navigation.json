@@ -1,49 +1,49 @@
 {
-  "aria_label": "In-page navigation",
-  "heading": "On this page",
-  "items": [
-    {
-      "id": 0,
-      "label": "Component preview",
-      "current": true,
-      "section_heading": "Section 1",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 1,
-      "label": "Component code",
-      "section_heading": "Section 2",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 2,
-      "label": "Guidance",
-      "section_heading": "Section 3",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 3,
-      "label": "When to use something else",
-      "section_heading": "Section 4",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 4,
-      "label": "When to consider something else",
-      "section_heading": "Section 5",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 5,
-      "label": "Accessibility",
-      "section_heading": "Section 6",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    },
-    {
-      "id": 6,
-      "label": "Package",
-      "section_heading": "Section 7",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
-    }
+  "aria_label":"In-page navigation",
+  "heading":"On this page",
+  "items":[
+     {
+        "id":0,
+        "label":"Component preview",
+        "current":true,
+        "section_heading":"Section 1",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":1,
+        "label":"Component code",
+        "section_heading":"Section 2",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":2,
+        "label":"Guidance",
+        "section_heading":"Section 3",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":3,
+        "label":"When to use something else",
+        "section_heading":"Section 4",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":4,
+        "label":"When to consider something else",
+        "section_heading":"Section 5",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":5,
+        "label":"Accessibility",
+        "section_heading":"Section 6",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     },
+     {
+        "id":6,
+        "label":"Package",
+        "section_heading":"Section 7",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.Facilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+     }
   ]
 }

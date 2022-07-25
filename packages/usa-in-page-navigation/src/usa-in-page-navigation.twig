@@ -1,29 +1,40 @@
-{% macro inpagenav_list(items, base_class) %}
-
-	{% import _self as inpagenav %}
+{% macro inpagenav(items, base_class) %}
 
 	{% set list_item_class = 'usa-in-page-navigation__item' %}
 	{% set current_class = 'usa-current' %}
 	{% set placeholder_link = 'javascript:void(0);' %}
 
-
-	{% if heading %}
-		<p class="site-subheading">{{ heading }}</p>
-	{% endif %}
-
-	{% if items %}
-		<ul class="{{ base_class }}">
+	<main id="main-content" class="main-content">
+		{% if items %}
 			{% for item in items %}
-				<li class="{{ list_item_class }}">
-					<a href="#section_{{ item.id }}" {% if item.current %} class="usa-current" {% endif %}>{{ item.label }}</a>
-				</li>
+				<h2>{{ item.section_heading }}</h2>
+				<p>{{ item.content }}</p>
 			{% endfor %}
-		</ul>
-	{% endif %}
+		{% endif %}
+	</main>
+
+	<div id="in-page-navigation" class="in-page-navigation">
+
+		{% if heading %}
+			<p class="site-subheading">{{ heading }}</p>
+		{% endif %}
+
+		{# {% if items %}
+			<ul class="{{ base_class }}">
+				{% for item in items %}
+					<li class="{{ list_item_class }}">
+						<a href="#section_{{ item.id }}" {% if item.current %} class="usa-current" {% endif %}>{{ item.label }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %} #}
+
+	</div>
+
 {% endmacro %}
 
 {% import _self as inpagenav %}
 
-<div id="in-page-navigation" class="in-page-navigation">
-	{{ inpagenav.inpagenav_list(items, 'usa-in-page-navigation') }}
+<div class="in-page-nav-container">
+	{{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
 </div>
