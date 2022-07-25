@@ -9,7 +9,7 @@ const { copyIcons } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgRootPath = "dist/img";
-const svgPackagePath = "dist/img";
+const svgPackagePath = "./packages/usa-icon/dist/img";
 
 // More complex configuration example
 const config = {
