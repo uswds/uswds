@@ -474,7 +474,7 @@ Which, if `$theme-respect-user-font-size` is set to `true` would output somethin
 .usa-example {
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 64 rem;
+  max-width: 64rem;
 }
 
 @media screen and (min-width: 64em) {
