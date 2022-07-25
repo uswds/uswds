@@ -19,9 +19,14 @@ function ready(fn) {
 }
 
 ready(() => {
-  const HEADER_OFF_SET = document.getElementById("main-content").getBoundingClientRect().top + window.scrollY;
-console.log("HEADER_OFF_SET", HEADER_OFF_SET);
-console.log("HEADER_OFF_SET + HEADER_OFF_SET_PADDING", HEADER_OFF_SET + HEADER_OFF_SET_PADDING);
+  const HEADER_OFF_SET =
+    document.getElementById("main-content").getBoundingClientRect().top +
+    window.scrollY;
+  console.log("HEADER_OFF_SET", HEADER_OFF_SET);
+  console.log(
+    "HEADER_OFF_SET - HEADER_OFF_SET_PADDING",
+    HEADER_OFF_SET - HEADER_OFF_SET_PADDING
+  );
   const headings = document.querySelectorAll(
     `${MAIN_CONTENT_CLASS} h2, ${MAIN_CONTENT_CLASS} h3`
   );
@@ -31,7 +36,7 @@ console.log("HEADER_OFF_SET + HEADER_OFF_SET_PADDING", HEADER_OFF_SET + HEADER_O
     container: document.querySelector(`${IN_PAGE_NAV}`),
     links: null,
     headings: null,
-    headerOffset: HEADER_OFF_SET + HEADER_OFF_SET_PADDING,
+    headerOffset: HEADER_OFF_SET - HEADER_OFF_SET_PADDING,
     intersectionOptions: {
       root: null,
       rootMargin: IO_ROOT_MARGIN,
@@ -56,21 +61,21 @@ console.log("HEADER_OFF_SET + HEADER_OFF_SET_PADDING", HEADER_OFF_SET + HEADER_O
     },
 
     createInPageNav() {
-      // let inPageNavUl = "";
       if (headings && this.container) {
         let inPageNavigationInner = "";
 
-        headings.forEach((heading, i = 0) => {
-
+        headings.forEach((heading, i) => {
           const theHeading = heading;
           const tag = heading.tagName.toLowerCase();
 
-          inPageNavigationInner += `<li class="${USA_IN_PAGE_NAV_CLASS}__item${
+          inPageNavigationInner += Sanitizer.escapeHTML`<li class="${USA_IN_PAGE_NAV_CLASS}__item${
             tag === "h3" ? ` ${SUB_ITEM}` : ""
-          }"><a href="#section_${i}">${heading.textContent}</a></li>`;
+          }"><a href="#section_${i + 1}">${heading.textContent}!!</a></li>`;
 
           const originalHeadingContent = heading.innerText;
-          theHeading.innerHTML = `<a class="${OFFSET_ANCHOR}" id="section_${i}"></a>
+          theHeading.innerHTML = Sanitizer.escapeHTML`<a class="${OFFSET_ANCHOR}" id="section_${
+            i + 1
+          }"></a>
           ${originalHeadingContent}`;
         });
 
