@@ -26,9 +26,9 @@ ready(() => {
   },
 
   // replaces each masked input with a shall containing the input and it's mask.
-  createShell: function (input) {
-    var text = "",
-      placeholder = input.getAttribute("placeholder");
+  createShell (input) {
+    let text = "";
+    const placeholder = input.getAttribute("placeholder");
 
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
@@ -55,7 +55,7 @@ ready(() => {
   },
 
   // add event listeners
-  activateMasking: function (inputs) {
+  activateMasking (inputs) {
     var i, l;
 
     for (i = 0, l = inputs.length; i < l; i++) {
@@ -101,26 +101,25 @@ ready(() => {
   },
 
   handleCurrentValue (e) {
-    var isCharsetPresent = e.target.getAttribute("data-charset"),
-      placeholder =
-        isCharsetPresent || e.target.getAttribute("data-placeholder"),
-      value = e.target.value,
-      l = placeholder.length,
-      newValue = "",
-      i,
-      j,
-      isInt,
-      isLetter,
-      strippedValue;
+    const isCharsetPresent = e.target.getAttribute("data-charset");
+    const placeholder = isCharsetPresent || e.target.getAttribute("data-placeholder");
+    const {value} = e.target;
+    const l = placeholder.length;
+    let newValue = "";
+    let i;
+    let j;
+    let isInt;
+    let isLetter;
+    // var strippedValue;
 
     // strip special characters
-    strippedValue = isCharsetPresent
+    const strippedValue = isCharsetPresent
       ? value.replace(/\W/g, "")
       : value.replace(/\D/g, "");
 
     for (i = 0, j = 0; i < l; i++) {
       // eslint-disable-next-line no-multi-assign, no-restricted-globals
-      let x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
+      const x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
       isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
       const matchesNumber = masking.maskedNumber.indexOf(placeholder[i]) >= 0;
       const matchesLetter = masking.maskedLetter.indexOf(placeholder[i]) >= 0;
