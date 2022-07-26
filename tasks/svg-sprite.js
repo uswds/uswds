@@ -76,7 +76,6 @@ function cleanSprite() {
 
 exports.buildSpriteStandalone = series(
   copyMaterialIcons,
-  copyUSWDSIcons,
   cleanIcons,
   collectIcons,
   buildSprite,
