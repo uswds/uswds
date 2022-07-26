@@ -1,3 +1,5 @@
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+
 function ready(fn) {
   document.addEventListener("DOMContentLoaded", fn, false);
 }
@@ -20,7 +22,7 @@ ready(() => {
     let i;
     const l = inputs.length;
 
-    for (i = 0; i < l; i++) {
+    for (i = 0; i < l; i += 1) {
       masking.createShell(inputs[i]);
     }
   },
@@ -30,21 +32,24 @@ ready(() => {
     let text = "";
     const placeholder = input.getAttribute("placeholder");
 
-    input.setAttribute("maxlength", placeholder.length);
-    input.setAttribute("data-placeholder", placeholder);
-    input.removeAttribute("placeholder");
+    if (placeholder.length > 0 && placeholder !== " ") {
+      input.setAttribute("maxlength", placeholder.length);
+      input.setAttribute("data-placeholder", placeholder);
+      input.removeAttribute("placeholder");
+    }
 
     text =
-      '<span class="shell">' +
-      '<span aria-hidden="true" id="' +
-      input.id +
-      'Mask"><i></i>' +
-      placeholder +
-      "</span>" +
-      input.outerHTML +
-      "</span>";
+      `${'<span class="shell">' +
+      '<span aria-hidden="true" id="'}${ 
+      input.id 
+      }Mask"><i></i>${ 
+      placeholder 
+      }</span>${ 
+      input.outerHTML 
+      }</span>`;
 
-    input.outerHTML = text;
+    input.outerHTML = text; // eslint-disable-line no-param-reassign
+
   },
 
   setValueOfMask (e) {
@@ -56,25 +61,17 @@ ready(() => {
 
   // add event listeners
   activateMasking (inputs) {
-    var i, l;
+    let i;
+    let l;
 
-    for (i = 0, l = inputs.length; i < l; i++) {
-      if (masking.maskedInputs[i].addEventListener) {
-        // remove "if" after death of IE 8
-        masking.maskedInputs[i].addEventListener(
-          "keyup",
-          function (e) {
-            masking.handleValueChange(e);
-          },
-          false
-        );
-      } else if (masking.maskedInputs[i].attachEvent) {
-        // For IE 8
-        masking.maskedInputs[i].attachEvent("onkeyup", function (e) {
-          e.target = e.srcElement;
+    for (i = 0, l = inputs.length; i < l; i += 1) {
+      masking.maskedInputs[i].addEventListener(
+        "keyup",
+        (e) => {
           masking.handleValueChange(e);
-        });
-      }
+        },
+        false
+      );
     }
   },
 
@@ -94,10 +91,13 @@ ready(() => {
       case 40:
       case 9: // tab (let blur handle tab)
         return;
+      // no default
     }
 
     document.getElementById(id).value = masking.handleCurrentValue(e);
-    document.getElementById(id + "Mask").innerHTML = masking.setValueOfMask(e);
+    // document.getElementById(`${id}Mask`).innerHTML = Sanitizer.escapeHTML`${masking.setValueOfMask(e)}`;
+    document.getElementById(`${id}Mask`).innerHTML = `${masking.setValueOfMask(e)}`;
+    
   },
 
   handleCurrentValue (e) {
@@ -110,7 +110,6 @@ ready(() => {
     let j;
     let isInt;
     let isLetter;
-    // var strippedValue;
 
     // strip special characters
     const strippedValue = isCharsetPresent
