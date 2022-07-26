@@ -20,14 +20,28 @@ npm install @uswds/uswds-fonts
 
 ## Running tests
 
-TK
+No tests available at this time.
 
 ## Usage
 
+Use SASS to generate the font face rules.
+
 ### SASS
 
-TK
+Make sure `node_modules/@uswds` is included in your paths.
 
-### Fonts
+```scss
+  @forward "uswds-fonts";
 
-TK
+  body {
+  @include typeset("body");
+}
+
+  .container {
+    @include grid-container;
+  }
+
+  code {
+    @include typeset("mono");
+  }
+```
