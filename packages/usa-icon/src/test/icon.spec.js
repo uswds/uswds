@@ -2,21 +2,12 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 
-const distRootPath = path.resolve(path.join(__dirname, "../../../../dist/img"));
-const distPackagePath = path.resolve(path.join(__dirname, "../../dist/img"));
+const distPath = path.resolve(path.join(__dirname, "../../dist/img"));
 
 describe("build output", () => {
   // test copyMaterialIcons()
-  it("copies material icons to ./dist/img", () => {
-    const distFilename = path.join(distRootPath, "/material-icons");
-    assert.ok(
-      fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
-    );
-  });
-
   it("copies material icons to ./packages/usa-icon/dist/img", () => {
-    const distFilename = path.join(distPackagePath, "/material-icons");
+    const distFilename = path.join(distPath, "/material-icons");
     assert.ok(
       fs.existsSync(distFilename),
       `the file does not exist:  ${distFilename}`
@@ -24,16 +15,8 @@ describe("build output", () => {
   });
 
   // test copyPackageIcons()
-  it("copies USWDS package icons to ./dist/img", () => {
-    const distFilename = path.join(distRootPath, "/file.svg");
-    assert.ok(
-      fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
-    );
-  });
-
   it("copies USWDS package icons to ./packages/usa-icon/dist/img", () => {
-    const distFilename = path.join(distPackagePath, "/file.svg");
+    const distFilename = path.join(distPath, "/file.svg");
     assert.ok(
       fs.existsSync(distFilename),
       `the file does not exist:  ${distFilename}`
@@ -41,16 +24,8 @@ describe("build output", () => {
   });
 
   // test buildSprite(), renameSprite()
-  it("creates sprite.svg in ./dist/img", () => {
-    const distFilename = path.join(distRootPath, "sprite.svg");
-    assert.ok(
-      fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
-    );
-  });
-
   it("creates sprite.svg in ./packages/usa-icon/dist/img", () => {
-    const distFilename = path.join(distPackagePath, "sprite.svg");
+    const distFilename = path.join(distPath, "sprite.svg");
     assert.ok(
       fs.existsSync(distFilename),
       `the file does not exist:  ${distFilename}`
@@ -58,16 +33,8 @@ describe("build output", () => {
   });
 
   // test collectIcons()
-  it("collects src icons in ./dist/img/usa-icons/usa-icons", () => {
-    const distFilename = path.join(distRootPath, "/usa-icons");
-    assert.ok(
-      fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
-    );
-  });
-
   it("collects src icons ./packages/usa-icon/dist/img/usa-icons", () => {
-    const distFilename = path.join(distPackagePath, "/usa-icons");
+    const distFilename = path.join(distPath, "/usa-icons");
     assert.ok(
       fs.existsSync(distFilename),
       `the file does not exist:  ${distFilename}`
