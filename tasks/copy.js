@@ -57,7 +57,7 @@ module.exports = {
           return path;
         })
       )
-      .pipe(dest("dist/img"))
+      .pipe(dest("dist/img"));
   },
 
   // Copy fonts to /dist directory
