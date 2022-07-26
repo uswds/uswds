@@ -45,7 +45,6 @@
   "homepage": "https://github.com/uswds/src/stylesheets/core/README.md",
   "dependencies": {
     "classlist-polyfill": "^1.2.0",
-    "domready": "^1.0.8",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0"
