@@ -23,7 +23,7 @@ describe("build output", () => {
     );
   });
 
-  // test copyUSWDSIcons()
+  // test copyPackageIcons()
   it("copies USWDS package icons to ./dist/img", () => {
     const distFilename = path.join(distRootPath, "/file.svg");
     assert.ok(

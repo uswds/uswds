@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
-const { copyMaterialIcons, copyUSWDSIcons } = require("./copy");
+const { copyMaterialIcons } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgRootPath = "dist/img";
