@@ -23,7 +23,6 @@ module.exports = {
   copyMaterialIcons() {
     dutil.logMessage("copyMaterialIcons", "Copying Material icons to dist/img/material-icons");
     return src(["node_modules/@material-design-icons/svg/filled/*"])
-      .pipe(dest("dist/img/material-icons"))
       .pipe(dest("packages/usa-icon/dist/img/material-icons"));
   },
 
@@ -58,6 +57,20 @@ module.exports = {
         })
       )
       .pipe(dest("dist/img"));
+  },
+
+  // Copy usa-icon assets to /dist directory
+  copyIconAssets() {
+    dutil.logMessage("copyIconAssets", "Copying icon assets to /dist/img");
+    return src("packages/usa-icon/dist/img/**/*")
+    .pipe(
+      // use only the part of the path specific to the package img dir
+      rename((path) => {
+        path.dirname = path.dirname.replace(/[a-z-]+?\/src\/img/i, "");
+        return path;
+      })
+    )
+    .pipe(dest("dist/img"));
   },
 
   // Copy fonts to /dist directory
