@@ -19,14 +19,14 @@ module.exports = {
     return src("src/**/**/*.scss").pipe(dest("dist/scss"));
   },
 
-  // Copy material icons to /dist/img/material-icons
+  // Copy material icons to packages/usa-icon/dist
   copyMaterialIcons() {
-    dutil.logMessage("copyMaterialIcons", "Copying Material icons to dist/img/material-icons");
+    dutil.logMessage("copyMaterialIcons", "Copying Material icons to packages/usa-icon/dist/img/material-icons");
     return src(["node_modules/@material-design-icons/svg/filled/*"])
       .pipe(dest("packages/usa-icon/dist/img/material-icons"));
   },
 
-  // Copy USWDS icons to /dist directory
+  // Copy USWDS package icons to packages/usa-icon/dist
   copyPackageIcons() {
     dutil.logMessage("copyPackageIcons", "Copying USWDS Icons to packages/usa-icon/dist/img");
     return src([
@@ -45,7 +45,8 @@ module.exports = {
     .pipe(dest("packages/usa-icon/dist/img"));
   },
 
-  // Copy images to /dist directory
+  // Copy USWDS all package images to /dist/img
+  // Note: This task can be deprecated if/when we stop distributing images to root dist/img
   copyImages() {
     dutil.logMessage("copyImages", "Copying images to /dist/img");
     return src(["packages/**/src/img/**/*{png,jpg,gif,webp,svg,ico}"])
@@ -59,9 +60,10 @@ module.exports = {
       .pipe(dest("dist/img"));
   },
 
-  // Copy usa-icon assets to /dist directory
+  // Copy packages/usa-icon/dist/img/ assets to /dist/img
+  // Note: This task can be deprecated if/when we stop distributing images to root dist/img
   copyIconAssets() {
-    dutil.logMessage("copyIconAssets", "Copying icon assets to /dist/img");
+    dutil.logMessage("copyIconAssets", "Copying usa-icon assets to /dist/img");
     return src("packages/usa-icon/dist/img/**/*")
     .pipe(
       // use only the part of the path specific to the package img dir
