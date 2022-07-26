@@ -5,11 +5,11 @@ const rename = require("gulp-rename");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
-const { copyMaterialIcons } = require("./copy");
+const { copyMaterialIcons, copyPackageIcons, copyIconAssets } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgRootPath = "dist/img";
-const svgPackagePath = "./packages/usa-icon/dist/img";
+const svgPackagePath = "packages/usa-icon/dist/img";
 
 // More complex configuration example
 const config = {
@@ -43,52 +43,47 @@ function collectIcons() {
     `packages/usa-icon/src/img/material-icons-deprecated/{${iconConfig.materialDeprecated}}.svg`,
     `packages/usa-icon/src/img/uswds-icons/{${iconConfig.uswds}}.svg`,
   ])
-    .pipe(dest(`${svgRootPath}/usa-icons`))
     .pipe(dest(`${svgPackagePath}/usa-icons`));
 }
 
 function buildSprite(done) {
   return (
-    src(`${svgRootPath}/usa-icons/*.svg`)
+    src(`${svgPackagePath}/usa-icons/*.svg`)
       .pipe(svgSprite(config))
       .on("error", logError)
-      .pipe(dest(svgRootPath))
       .pipe(dest(svgPackagePath))
       .on("end", () => done())
   );
 }
 
-function renameRootSprite() {
-  return src(`${svgRootPath}/symbol/svg/sprite.symbol.svg`)
-    .pipe(rename(`${svgRootPath}/sprite.svg`))
-    .pipe(dest(`./`));
-}
-
-function renamePackageSprite() {
+function renameSprite() {
   return src(`${svgPackagePath}/symbol/svg/sprite.symbol.svg`)
     .pipe(rename(`${svgPackagePath}/sprite.svg`))
     .pipe(dest(`./`));
 }
 
 function cleanSprite() {
-  return del([`${svgRootPath}/symbol`, `${svgPackagePath}/symbol`]);
+  return del([`${svgPackagePath}/symbol`]);
 }
 
+// create sprite and gather all usa-icon assets in package dist
 exports.buildSpriteStandalone = series(
   copyMaterialIcons,
+  copyPackageIcons,
   cleanIcons,
   collectIcons,
   buildSprite,
-  renameRootSprite,
-  renamePackageSprite,
-  cleanSprite
+  renameSprite,
+  cleanSprite,
+  copyIconAssets
 )
 
+// create sprite and gather config icons in dist/img/usa-icons
 exports.buildSprite = series(
   cleanIcons,
   collectIcons,
   buildSprite,
-  renameRootSprite,
-  renamePackageSprite,
-  cleanSprite
+  renameSprite,
+  cleanSprite,
+  copyIconAssets
 )
