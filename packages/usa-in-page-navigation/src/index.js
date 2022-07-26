@@ -1,11 +1,14 @@
+// const behavior = require("../../uswds-core/src/js/utils/behavior");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
-const MAIN_CONTENT_CLASS = `.main-content`;
+const MAINCONTENT = "main-content";
 const HEADER_OFF_SET_PADDING = 10;
 const IO_ROOT_MARGIN = "0px";
 const IO_THRESHOLD = 1;
 const IN_PAGE_NAV_CLASS = `in-page-navigation`;
+
+const MAINCONTENT_CLASS = `.${MAINCONTENT}`;
 const CURRENT_CLASS = `${PREFIX}-current`;
 const USA_IN_PAGE_NAV_CLASS = `${PREFIX}-${IN_PAGE_NAV_CLASS}`;
 const IN_PAGE_NAV = `.${IN_PAGE_NAV_CLASS}`;
@@ -20,7 +23,7 @@ function ready(fn) {
 
 ready(() => {
   const HEADER_OFF_SET =
-    document.getElementById("main-content").getBoundingClientRect().top +
+    document.getElementById(`${MAINCONTENT}`).getBoundingClientRect().top +
     window.scrollY;
   console.log("HEADER_OFF_SET", HEADER_OFF_SET);
   console.log(
@@ -28,7 +31,7 @@ ready(() => {
     HEADER_OFF_SET - HEADER_OFF_SET_PADDING
   );
   const headings = document.querySelectorAll(
-    `${MAIN_CONTENT_CLASS} h2, ${MAIN_CONTENT_CLASS} h3`
+    `${MAINCONTENT_CLASS} h2, ${MAINCONTENT_CLASS} h3`
   );
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
 
@@ -70,7 +73,7 @@ ready(() => {
 
           inPageNavigationInner += Sanitizer.escapeHTML`<li class="${USA_IN_PAGE_NAV_CLASS}__item${
             tag === "h3" ? ` ${SUB_ITEM}` : ""
-          }"><a href="#section_${i + 1}">${heading.textContent}!!</a></li>`;
+          }"><a href="#section_${i + 1}">${heading.textContent}</a></li>`;
 
           const originalHeadingContent = heading.innerText;
           theHeading.innerHTML = Sanitizer.escapeHTML`<a class="${OFFSET_ANCHOR}" id="section_${
