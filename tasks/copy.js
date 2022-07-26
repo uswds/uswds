@@ -31,7 +31,7 @@ module.exports = {
   copyUSWDSIcons() {
     dutil.logMessage("copyUSWDSIcons", "Copying USWDS Icons to packages/usa-icon/dist/img");
     return src([
-      "packages/**/src/img/**/*{png,svg}",
+      "packages/**/src/img/**/*{png,svg,gif}",
       // exclude hero images and favicons
       "!packages/usa-hero/**",
       "!packages/uswds-core/src/img/favicons/**"
