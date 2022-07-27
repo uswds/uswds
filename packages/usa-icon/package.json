@@ -8,6 +8,11 @@
     "test:js": "mocha './src/test/*.spec.js'",
     "test": "npm run test:js"
   },
+  "exports": {
+    "./sass": "./_index.scss",
+    "./icons/*.svg": "./dist/img/*.svg",
+    "./sprite": "./dist/img/sprite.svg"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uswds/uswds.git"
