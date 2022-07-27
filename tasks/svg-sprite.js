@@ -5,10 +5,9 @@ const rename = require("gulp-rename");
 const del = require("del");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
-const { copyMaterialIcons, copyPackageIcons, copyIconAssets } = require("./copy");
+const { copyIconAssets } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
-const svgRootPath = "dist/img";
 const svgPackagePath = "packages/usa-icon/dist/img";
 
 // More complex configuration example
@@ -32,8 +31,34 @@ const config = {
   },
 };
 
+// Copy material icons to dist
+function copyMaterialIcons() {
+  dutil.logMessage("copyMaterialIcons", "Copying Material icons to packages/usa-icon/dist/img/material-icons");
+  return src(["node_modules/@material-design-icons/svg/filled/*"])
+    .pipe(dest("packages/usa-icon/dist/img/material-icons"));
+}
+
+// Copy USWDS package icons to dist
+function copyPackageIcons() {
+  dutil.logMessage("copyPackageIcons", "Copying USWDS Icons to packages/usa-icon/dist/img");
+  return src([
+    "packages/**/src/img/**/*{png,svg,gif}",
+    // exclude hero images and favicons
+    "!packages/usa-hero/**",
+    "!packages/uswds-core/src/img/favicons/**"
+  ])
+  .pipe(
+    // use only the part of the path specific to the package img dir
+    rename((path) => {
+      path.dirname = path.dirname.replace(/[a-z-]+?\/src\/img/i, "");
+      return path;
+    })
+  )
+  .pipe(dest("packages/usa-icon/dist/img"));
+}
+
 function cleanIcons() {
-  return del([`${svgRootPath}/usa-icons`, `${svgPackagePath}/usa-icons`]);
+  return del(`${svgPackagePath}/usa-icons`);
 }
 
 function collectIcons() {
