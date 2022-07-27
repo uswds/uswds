@@ -4,7 +4,9 @@
   "description": "USWDS icon library",
   "main": "_index.scss",
   "scripts": {
-    "test:js": "gulp buildSpriteStandalone && mocha './src/test/*.spec.js'",
+    "pretest": "gulp buildSpriteStandalone",
+    "test:js": "mocha './src/test/*.spec.js'",
+    "test": "npm run test:js"
     "test": "npm run test:js"
   },
   "repository": {
