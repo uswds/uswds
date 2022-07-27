@@ -5,6 +5,7 @@
 
 $banner-context: "Banner";
 $banner-guidance-measure: 3;
+$banner-flag-width: 2;
 $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
   $theme-banner-link-color,
@@ -136,10 +137,25 @@ $banner-icon-close: (
   }
 }
 
+.usa-banner__header-flag {
+  margin-right: units(1);
+  width: units($banner-flag-width);
+
+  @include at-media("tablet") {
+    margin-right: units(1);
+    padding-top: units(0);
+  }
+}
+
 .usa-banner__header-text {
   @include u-margin-y(0);
   font-size: font-size($theme-banner-font-family, 1);
   line-height: line-height($theme-banner-font-family, 2);
+  flex-basis: px-to-rem(190px); // Prevents layout shift on mobile exapnded
+
+  @include at-media("tablet") {
+    flex-basis: unset;
+  }
 }
 
 .usa-banner__header-action {
@@ -169,16 +185,6 @@ $banner-icon-close: (
     &::after {
       background-color: ButtonText;
     }
-  }
-}
-
-.usa-banner__header-flag {
-  margin-right: units(1);
-  width: units(2);
-
-  @include at-media("tablet") {
-    margin-right: units(1);
-    padding-top: units(0);
   }
 }
 
