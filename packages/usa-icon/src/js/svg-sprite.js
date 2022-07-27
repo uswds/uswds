@@ -3,10 +3,10 @@ const { src, dest, series } = require("gulp");
 const svgSprite = require("gulp-svg-sprite");
 const rename = require("gulp-rename");
 const del = require("del");
-const dutil = require("./utils/doc-util");
-const { logError } = require('./utils/doc-util');
-const { copyIconAssets } = require("./copy");
-const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
+const dutil = require("../../../../tasks/utils/doc-util");
+const { logError } = require('../../../../tasks/utils/doc-util');
+const { copyIconAssets } = require("../../../../tasks/copy");
+const iconConfig = require("../usa-icons.config");
 
 const svgPackagePath = "packages/usa-icon/dist/img";
 
@@ -92,7 +92,7 @@ function cleanSprite() {
 }
 
 // create sprite and gather all usa-icon assets in package dist
-exports.buildIcons = series(
+exports.buildSpriteStandalone = series(
   copyMaterialIcons,
   copyPackageIcons,
   cleanIcons,

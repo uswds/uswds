@@ -1,6 +1,6 @@
 const { series, parallel } = require("gulp");
 const dutil = require("./utils/doc-util");
-const { buildSprite } = require("./svg-sprite");
+const { buildSprite } = require("../packages/usa-icon/src/js/svg-sprite");
 const { compileSass } = require("./sass");
 const { compileJS } = require("./javascript");
 const { copyTheme, copyFonts, copyImages, copySass } = require("./copy");
