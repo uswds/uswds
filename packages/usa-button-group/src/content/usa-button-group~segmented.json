@@ -1,8 +1,13 @@
 {
-  "modifier": "usa-button-group--segmented",
-  "items": [
-    "<button class=\"usa-button\">Map</button>",
-    "<button class=\"usa-button usa-button--outline\">Satellite</button>",
-    "<button class=\"usa-button usa-button--outline\">Hybrid</button>"
-  ]
+  "modifiers": [
+    "",
+    "usa-button--accent-cool",
+    "usa-button--accent-warm",
+    "usa-button--base",
+    "usa-button--big",
+    "usa-button--outline",
+    "usa-button--outline usa-button--inverse",
+    "usa-button--secondary"
+  ],
+  "segmented": true
 }

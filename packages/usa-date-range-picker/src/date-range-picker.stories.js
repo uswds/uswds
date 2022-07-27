@@ -19,10 +19,10 @@ export default {
       name: "Restricted Date: End (YYYY-MM-DD)",
       control: { type: 'text' },
     },
-    disabled: {
-      name: "Disabled",
-      defaultValue: 'false',
-      control: { type: 'boolean' },
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria-disabled"]
     },
   },
 };
@@ -66,8 +66,27 @@ RestrictedDate.argTypes = {
 
 export const Disabled = Template.bind({});
 Disabled.argTypes = {
-  disabled: {
-    defaultValue: 'true',
+  disabled_state: {
+    defaultValue: "disabled",
+  },
+  defaultDateStart: {
+    table: { disable: true },
+  },
+  defaultDateEnd: {
+    table: { disable: true },
+  },
+  restrictedDateStart: {
+    table: { disable: true },
+  },
+  restrictedDateEnd: {
+    table: { disable: true },
+  },
+};
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.argTypes = {
+  disabled_state: {
+    defaultValue: "aria-disabled",
   },
   defaultDateStart: {
     table: { disable: true },

@@ -13,6 +13,11 @@ import {
 
 export default {
   title: "Components/Button",
+  argTypes: {
+    aria_disabled: {
+      name: "aria-disabled",
+    },
+  }
 };
 
 const Template = (args) => Component(args);
