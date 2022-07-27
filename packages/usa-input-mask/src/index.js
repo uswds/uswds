@@ -30,25 +30,25 @@ ready(() => {
       }
     },
 
-    // replaces each masked input with a shall containing the input and it's mask.
+    // replaces each masked input with a shell containing the input and it's mask.
     createShell(input) {
       let text = "";
       const placeholder = input.getAttribute("placeholder");
 
-      if (placeholder.length > 0 && placeholder !== " ") {
+      if (
+        placeholder !== null &&
+        placeholder.length > 0 &&
+        placeholder !== " "
+      ) {
         input.setAttribute("maxlength", placeholder.length);
         input.setAttribute("data-placeholder", placeholder);
         input.removeAttribute("placeholder");
+      } else {
+        return;
       }
 
-      /* input.insertAdjacentHTML(
-        "beforeend",
-        Sanitizer.escapeHTML`
-        <span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>
-        `
-      ); */
-
-      text = `<span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
+      // This section still needs some rework
+      text = `<span class="${SHELL}"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
 
       input.outerHTML = text; // eslint-disable-line no-param-reassign
     },
@@ -56,8 +56,11 @@ ready(() => {
     setValueOfMask(e) {
       const { value } = e.target;
       const placeholder = e.target.getAttribute("data-placeholder");
+      const placeholderVal = `${placeholder.substr(value.length)}`;
 
-      return `<i>${value}</i>${placeholder.substr(value.length)}`;
+      const theIEl = document.createElement("i");
+      theIEl.textContent = value;
+      return [theIEl, placeholderVal];
     },
 
     // add event listeners
@@ -96,18 +99,10 @@ ready(() => {
       }
 
       document.getElementById(id).value = masking.handleCurrentValue(e);
-      // document.getElementById(`${id}Mask`).innerHTML = Sanitizer.escapeHTML`${masking.setValueOfMask(e)}`;
-      document.getElementById(
-        `${id}Mask`
-      ).innerHTML = `${masking.setValueOfMask(e)}`;
-
-      /* const theVal = Sanitizer.escapeHTML`${masking.setValueOfMask(e)}`; 
-
-      document.getElementById(
-        `${id}Mask`
-      ).insertAdjacentElement("beforeend", theVal); */
-
-
+      const maskVal = masking.setValueOfMask(e);
+      const maskEl = document.getElementById(`${id}Mask`);
+      maskEl.innerHTML = "";
+      maskEl.replaceChildren(maskVal[0], maskVal[1]);
     },
 
     handleCurrentValue(e) {
@@ -129,7 +124,7 @@ ready(() => {
 
       for (i = 0, j = 0; i < l; i += 1) {
         // eslint-disable-next-line no-multi-assign, no-restricted-globals
-        const x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
+        isInt = !isNaN(parseInt(strippedValue[j], 10));
         isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
         const matchesNumber = masking.maskedNumber.indexOf(placeholder[i]) >= 0;
         const matchesLetter = masking.maskedLetter.indexOf(placeholder[i]) >= 0;
