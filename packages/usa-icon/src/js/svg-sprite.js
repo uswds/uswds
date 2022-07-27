@@ -92,7 +92,7 @@ function cleanSprite() {
 }
 
 // create sprite and gather all usa-icon assets in package dist
-exports.buildSpriteStandalone = series(
+exports.buildIcons = series(
   copyMaterialIcons,
   copyPackageIcons,
   cleanIcons,
