@@ -26,5 +26,14 @@
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
     "@uswds/uswds-core": "^0.0.1-alpha.0"
+  },
+  "devDependencies": {
+    "assert": "2.0.0",
+    "del": "6.0.0",
+    "fs": "0.0.1-security",
+    "gulp": "4.0.2",
+    "gulp-rename": "2.0.0",
+    "gulp-svg-sprite": "1.5.0",
+    "path": "0.12.7"
   }
 }
