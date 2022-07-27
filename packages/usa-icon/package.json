@@ -7,7 +7,6 @@
     "pretest": "gulp buildSpriteStandalone",
     "test:js": "mocha './src/test/*.spec.js'",
     "test": "npm run test:js"
-    "test": "npm run test:js"
   },
   "repository": {
     "type": "git",
