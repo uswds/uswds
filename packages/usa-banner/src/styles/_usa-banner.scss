@@ -173,7 +173,6 @@ $banner-icon-close: (
 }
 
 .usa-banner__header-flag {
-  @include u-float("left");
   margin-right: units(1);
   width: units(2);
 
