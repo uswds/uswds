@@ -3,6 +3,10 @@
   "version": "0.0.1-alpha.0",
   "description": "USWDS gov banner component",
   "main": "_index.scss",
+  "exports": {
+    "./scss/*": "./src/styles/*",
+    "./js": "./src/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
