@@ -62,53 +62,16 @@ $banner-icon-close: (
   );
 }
 
-.usa-banner__content {
-  @include grid-container($theme-banner-max-width);
-  @include add-responsive-site-margins;
-  background-color: color("transparent");
-  font-size: font-size($theme-banner-font-family, 4);
-  overflow: hidden;
-  padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile-width - 1);
-  padding-top: units(0.5);
-  width: 100%;
+.usa-banner__header {
+  @include u-padding-y(1);
+  font-size: font-size($theme-banner-font-family, 1);
+  font-weight: font-weight("normal");
+  min-height: units($size-touch-target);
+  position: relative;
 
   @include at-media("tablet") {
-    @include u-padding-y(3);
-  }
-
-  p {
-    &:first-child {
-      margin: 0;
-    }
-  }
-}
-
-.usa-banner__guidance {
-  @include u-display("flex");
-  @include u-flex("align-start");
-  @include u-measure($banner-guidance-measure);
-  padding-top: units(2);
-
-  @include at-media("tablet") {
-    padding-top: units(0);
-  }
-}
-
-.usa-banner__lock-image {
-  $lock-h: 64; // unitless height of svg
-  $lock-w: 52; // unitless width of svg
-  $lock-aspect: math.div($lock-w, $lock-h);
-  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
-
-  height: $icon-height;
-  width: $icon-height * $lock-aspect;
-  path {
-    fill: currentColor;
-
-    @media (forced-colors: active) {
-      fill: CanvasText;
-    }
+    @include u-padding-y(0.5);
+    min-height: 0;
   }
 }
 
@@ -124,16 +87,13 @@ $banner-icon-close: (
   }
 }
 
-.usa-banner__header {
-  @include u-padding-y(1);
-  font-size: font-size($theme-banner-font-family, 1);
-  font-weight: font-weight("normal");
-  min-height: units($size-touch-target);
-  position: relative;
+.usa-banner__header-flag {
+  margin-right: units(1);
+  width: units($banner-flag-width);
 
   @include at-media("tablet") {
-    @include u-padding-y(0.5);
-    min-height: 0;
+    margin-right: units(1);
+    padding-top: units(0);
   }
 }
 
@@ -142,16 +102,6 @@ $banner-icon-close: (
     column-gap: units(1);
     display: flex;
     flex-wrap: wrap;
-  }
-}
-
-.usa-banner__header-flag {
-  margin-right: units(1);
-  width: units($banner-flag-width);
-
-  @include at-media("tablet") {
-    margin-right: units(1);
-    padding-top: units(0);
   }
 }
 
@@ -341,5 +291,58 @@ $banner-icon-close: (
 .usa-js-loading {
   .usa-banner__content {
     @include add-sr-only;
+  }
+}
+
+//
+// Dropdown content
+// ==========================================================================
+.usa-banner__content {
+  @include grid-container($theme-banner-max-width);
+  @include add-responsive-site-margins;
+  background-color: color("transparent");
+  font-size: font-size($theme-banner-font-family, 4);
+  overflow: hidden;
+  padding-bottom: units(2);
+  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-top: units(0.5);
+  width: 100%;
+
+  @include at-media("tablet") {
+    @include u-padding-y(3);
+  }
+
+  p {
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.usa-banner__guidance {
+  @include u-display("flex");
+  @include u-flex("align-start");
+  @include u-measure($banner-guidance-measure);
+  padding-top: units(2);
+
+  @include at-media("tablet") {
+    padding-top: units(0);
+  }
+}
+
+.usa-banner__lock-image {
+  $lock-h: 64; // unitless height of svg
+  $lock-w: 52; // unitless width of svg
+  $lock-aspect: math.div($lock-w, $lock-h);
+  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
+
+  height: $icon-height;
+  width: $icon-height * $lock-aspect;
+  path {
+    fill: currentColor;
+
+    @media (forced-colors: active) {
+      fill: CanvasText;
+    }
   }
 }
