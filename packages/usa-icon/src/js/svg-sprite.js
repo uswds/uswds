@@ -42,10 +42,7 @@ function copyMaterialIcons() {
 function copyPackageIcons() {
   dutil.logMessage("copyPackageIcons", "Copying USWDS Icons to packages/usa-icon/dist/img");
   return src([
-    "packages/**/src/img/**/*{png,svg,gif}",
-    // exclude hero images and favicons
-    "!packages/usa-hero/**",
-    "!packages/uswds-core/src/img/favicons/**"
+    "packages/**/src/img/**/*.svg"
   ])
   .pipe(
     // use only the part of the path specific to the package img dir
