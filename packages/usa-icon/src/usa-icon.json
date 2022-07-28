@@ -340,6 +340,10 @@
         "meta": "heart"
       },
       {
+        "name": "fax",
+        "meta": ""
+      },
+      {
         "name": "file_download",
         "meta": "arrow save"
       },
@@ -518,6 +522,10 @@
       {
         "name": "link_off",
         "meta": "hyperlink"
+      },
+      {
+        "name": "linkedin",
+        "meta": "social media"
       },
       {
         "name": "list",
@@ -734,6 +742,10 @@
       {
         "name": "remove",
         "meta": "minus collapse"
+      },
+      {
+        "name": "remove_circle",
+        "meta": "minus delete"
       },
       {
         "name": "report",

@@ -58,6 +58,18 @@ $navigate_far_next: map-merge(
   }
 }
 
+%usa-date-picker__button--disabled {
+  cursor: auto;
+
+  &:hover {
+    background-color: initial;
+
+    @media (forced-colors: active) {
+      background-color: initial;
+    }
+  }
+}
+
 // Date Picker -- initialized
 %usa-date-picker__button {
   background-color: color("base-lightest");
@@ -86,6 +98,11 @@ $navigate_far_next: map-merge(
         background-color: buttontext;
       }
     }
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    @extend %usa-date-picker__button--disabled;
   }
 }
 
@@ -124,6 +141,11 @@ $navigate_far_next: map-merge(
       }
     }
   }
+}
+
+.usa-date-picker__external-input[aria-disabled="true"]
+  + .usa-date-picker__button {
+  @extend %usa-date-picker__button--disabled;
 }
 
 .usa-date-picker--initialized {
@@ -335,8 +357,15 @@ $navigate_far_next: map-merge(
 }
 
 .usa-date-picker__calendar__month-label {
-  flex: 4;
-  text-align: center;
+  @include at-media-max("mobile") {
+    min-width: 100%;
+    order: -1;
+  }
+
+  @include at-media("mobile") {
+    flex: 4;
+    text-align: center;
+  }
 }
 
 .usa-date-picker__calendar__year-selection,
@@ -346,11 +375,26 @@ $navigate_far_next: map-merge(
   height: 100%;
   padding: 8px 4px;
   width: auto;
+
+  @include at-media-max("mobile") {
+    padding-bottom: 0;
+    padding-top: 12px;
+  }
 }
 
 // Date Picker - Month Selection View
 .usa-date-picker__calendar__month-picker {
   padding: 20px 5px;
+
+  @include at-media-max("mobile") {
+    padding-bottom: 12px;
+    padding-top: 12px;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 .usa-date-picker__calendar__month {

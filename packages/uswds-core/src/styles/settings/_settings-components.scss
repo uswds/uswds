@@ -96,7 +96,7 @@ $theme-header-max-width: "desktop" !default;
 $theme-header-min-width: "desktop" !default;
 
 // Hero
-$theme-hero-image: "#{general.$theme-image-path}/hero.png" !default;
+$theme-hero-image: "#{general.$theme-image-path}/hero.jpg" !default;
 
 // Icon List
 $theme-icon-list-font-family: "body" !default;
@@ -184,7 +184,7 @@ $theme-summary-box-link-color: default !default;
 $theme-summary-box-text-color: default !default;
 
 // Table
-$theme-table-border-color: default !default;
+$theme-table-border-color: "ink" !default;
 $theme-table-header-background-color: "base-lighter" !default;
 $theme-table-header-text-color: default !default;
 $theme-table-stripe-background-color: "base-lightest" !default;

@@ -195,7 +195,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 ### Install the package directly from GitHub
 If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
-1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.0.1/uswds-uswds-3.0.1.tgz) directly from the latest USWDS release and uncompress that file.
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.0.2/uswds-uswds-3.0.2.tgz) directly from the latest USWDS release and uncompress that file.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
@@ -412,11 +412,11 @@ export class App implements OnInit {
 
 ## Style theming and tokens
 
-USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
+USWDS 3.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
 Set theme settings with USWDS design tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-Visit the [Design tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
+Visit the [Design tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 3.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
 
 ### Using tokens in theme settings
 
@@ -498,7 +498,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 - Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 - Hard-coded magic numbers are avoided.
 - Media queries are built **mobile first**.
-- **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
+- **Spacing units** are set with the `units()` function as described in [the USWDS 3.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
 [18F’s CSS Guide](https://engineering.18f.gov/css/)
@@ -511,14 +511,14 @@ As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). W
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/).
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/). 
 
 We use the following tools to ensure USWDS is accessible:
 - [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).
 - [Axe core](https://www.deque.com/axe/).
 - [Axe dev tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
 
-We’re happy to answer questions about accessibility — email us for more information.
+If you find any issues with our accessibility conformance, please create an issue in our GitHub repo or send us an email at [uswds@gsa.gov](mailto:uswds@gsa.gov). We prioritize accessibility issues. See [the Accessibility page of our website](https://designsystem.digital.gov/documentation/accessibility/) for more information.
 
 ## Long-term support of v1.x
 
@@ -534,7 +534,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
-You can also email us directly at uswds@gsa.gov.
+You can also email us directly at [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
 ## Contributing to the code base
 

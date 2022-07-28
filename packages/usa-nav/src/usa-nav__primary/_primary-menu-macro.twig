@@ -33,7 +33,7 @@
           aria-expanded="{{ btn_attrs.aria_expanded }}"
           aria-controls="{{ btn_attrs.aria_controls }}"
         >
-          <span>{{ item.label|e }}</span>
+          <span>{{ item.label |e }}</span>
         </button>
         {% if megamenu %}
           <div id="{{ item.id }}" class="usa-nav__submenu usa-megamenu">
@@ -54,9 +54,9 @@
           {% if menu_level == 0 %} class="usa-nav-link" {% endif %}
         >
           {% if megamenu %}
-            {{ item.label|e }}
+            {{ item.label |e }}
           {% else %}
-            <span>{{ item.label|e }}</span>
+            <span>{{ item.label |e }}</span>
           {% endif %}
         </a>
       {% endif %}
