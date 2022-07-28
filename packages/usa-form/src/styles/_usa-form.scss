@@ -71,15 +71,13 @@
   }
 }
 
-.usa-show-password,
-.usa-show-multipassword {
+.usa-show-password {
   @include button-unstyled;
   cursor: pointer;
 }
 
 .usa-form__note,
-.usa-show-password,
-.usa-show-multipassword {
+.usa-show-password {
   @include typeset($theme-form-font-family, "2xs", 3);
   float: right;
   margin: units(0.5) 0 units(2);
