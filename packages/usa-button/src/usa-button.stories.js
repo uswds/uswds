@@ -28,7 +28,7 @@ export default {
       name: 'Type attribute',
       options: ['button', 'reset', 'submit'],
       control: { type: 'radio'},
-    }
+    },
     aria_disabled: {
       name: "aria-disabled",
     },
