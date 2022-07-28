@@ -6,7 +6,7 @@ See full documentation about USWDS icons on the [icon component page](https://de
 Features:
 - Icon assets
   - Icon sets
-  - Sprite with preferred icons
+  - Icon sprite
 - Sass
   - Icon styles
 
@@ -29,10 +29,10 @@ This test confirms that files were distributed as expected.
 ## Usage
 
 ### Icon assets
-Import icon assets into your project.
-Assets can be found in `@uswds/usa-icon/dist/img`.
-A list of the icons built into the sprite can be found in `@uswds/usa-icon/src/usa-icons.config.js`
+- Copy icon assets into your project. Assets can be found in `@uswds/usa-icon/dist/img`.
+- The sprite is built using a pre-configured selection of icons from our library.
+- The list of icons included in the sprite can be found in `@uswds/usa-icon/src/usa-icons.config.js`
 
 ### Styles
-Default icon styles can be accessed via the `.usa-icon` class.
-Pre-configured icon size styles can be accessed via the `.usa-icon--size-` classes.
+- Default icon styles can be accessed via the `.usa-icon` class.
+- Icon sizing styles can be accessed via the `.usa-icon--size-` classes.
