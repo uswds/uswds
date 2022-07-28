@@ -4,7 +4,7 @@ const path = require("path");
 
 const distPath = path.resolve(path.join(__dirname, "../../dist/img"));
 
-describe("build output", () => {
+describe("Icon output", () => {
   // test copyMaterialIcons()
   it("copies material icons to ./packages/usa-icon/dist/img", () => {
     const distFilename = path.join(distPath, "/material-icons");
