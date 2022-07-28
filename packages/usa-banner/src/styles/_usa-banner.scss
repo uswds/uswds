@@ -115,8 +115,8 @@ $banner-icon-close: (
 .usa-banner__inner {
   @include add-responsive-site-margins;
   @include grid-container($theme-banner-max-width);
-  @include grid-row;
-  @include u-flex("align-start");
+  display: flex;
+  align-items: flex-start;
   padding-right: units(0);
 
   @include at-media("tablet") {
@@ -137,6 +137,14 @@ $banner-icon-close: (
   }
 }
 
+.usa-banner__header-content {
+  @include at-media("tablet") {
+    column-gap: units(1);
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 .usa-banner__header-flag {
   margin-right: units(1);
   width: units($banner-flag-width);
@@ -151,14 +159,10 @@ $banner-icon-close: (
   @include u-margin-y(0);
   font-size: font-size($theme-banner-font-family, 1);
   line-height: line-height($theme-banner-font-family, 2);
-  flex-basis: px-to-rem(190px); // Prevents layout shift on mobile exapnded
-
-  @include at-media("tablet") {
-    flex-basis: unset;
-  }
 }
 
 .usa-banner__header-action {
+  @include u-margin-y(0);
   @include place-icon($banner-icon-chevron, "after");
   @include set-link-from-bg(
     $theme-banner-background-color,
@@ -167,8 +171,6 @@ $banner-icon-close: (
   );
 
   line-height: line-height($theme-banner-font-family, 2);
-  margin-bottom: units(0);
-  margin-top: units(2px);
   text-decoration: underline;
 
   .usa-banner__header--expanded & {
@@ -245,7 +247,6 @@ $banner-icon-close: (
     );
     @include u-pin("none");
     display: inline;
-    margin-left: units(1);
     position: relative;
 
     &::after,
