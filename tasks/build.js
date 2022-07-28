@@ -1,6 +1,6 @@
 const { series, parallel } = require("gulp");
 const dutil = require("./utils/doc-util");
-const { buildSprite } = require("../packages/usa-icon/src/js/svg-sprite");
+const { buildIcons } = require("../packages/usa-icon/src/js/svg-sprite");
 const { compileSass } = require("./sass");
 const { compileJS } = require("./javascript");
 const { copyTheme, copyFonts, copyImages, copySass } = require("./copy");
@@ -23,7 +23,7 @@ exports.build = series(
   },
   cleanDist,
   parallel(copyTheme, copyImages, copyFonts, copySass),
-  buildSprite,
+  buildIcons,
   compileJS,
   compileSass
 );
