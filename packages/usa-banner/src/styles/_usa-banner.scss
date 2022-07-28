@@ -311,6 +311,13 @@ $banner-icon-close: (
   }
 }
 
+.usa-banner__content:where(:not([hidden])) {
+  @include at-media("tablet") {
+    display: flex;
+    column-gap: units(3);
+  }
+}
+
 // [uswds-init.js] Offscreen content while js is loading
 .usa-js-loading {
   .usa-banner__content {
@@ -326,6 +333,7 @@ $banner-icon-close: (
 
   @include at-media("tablet") {
     padding-top: units(0);
+    width: 50%;
   }
 }
 
