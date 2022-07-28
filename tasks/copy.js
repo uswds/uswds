@@ -35,8 +35,8 @@ module.exports = {
   },
 
   // Copy packages/usa-icon/dist/img/ assets to /dist
-  copyIconAssets() {
-    dutil.logMessage("copyIconAssets", "Copying usa-icon assets to /dist/img");
+  copyIcons() {
+    dutil.logMessage("copyIcons", "Copying usa-icon assets to /dist/img");
     return src("packages/usa-icon/dist/img/**/*")
     .pipe(
       // use only the part of the path specific to the package img dir
