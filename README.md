@@ -2,6 +2,8 @@
 
 [![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@uswds/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/@uswds/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/@uswds/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
 
+:grinning_face_with_big_eyes:
+
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 This repository is for the design system code itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
@@ -195,7 +197,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 ### Install the package directly from GitHub
 If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
-1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.0.2/uswds-uswds-3.0.2.tgz) directly from the latest USWDS release and uncompress that file.
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.1.0/uswds-uswds-3.1.0.tgz) directly from the latest USWDS release and uncompress that file.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
