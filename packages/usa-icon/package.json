@@ -10,7 +10,7 @@
   },
   "exports": {
     "./sass": "./_index.scss",
-    "./icons/*": "./dist/img/usa-icons/*",
+    "./*": "./dist/img/*",
     "./sprite": "./dist/img/sprite.svg"
   },
   "repository": {
