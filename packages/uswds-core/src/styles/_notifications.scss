@@ -18,9 +18,27 @@ $uswds-notifications:
 + "\A \2709  USWDS Notifications"
 + "\A --------------------------------------------------------------------"
 + "\A 3.0.0"
-+ "\A We deprecated the $output-all-utilities setting."
-+ "\A Control utility output with $output-these-utilities."
-+ "\A See designsystem.digital.gov/documentation/settings for more.";
++ "\A - Settings: We deprecated the $output-all-utilities setting."
++ "\A   Control utility output with $output-these-utilities."
++ "\A   See designsystem.digital.gov/documentation/settings for more."
++ "\A "
++ "\A --------------------------------------------------------------------"
++ "\A 3.1.0"
++ "\A - Accessibility: We added `type='button'` to all buttons that"
++ "\A   do not submit a form. All your non-form project buttons will"
++ "\A   need `type='button'`."
++ "\A - Accessibility: We updated the markup in the usa-password package"
++ "\A   to use a <button> element instead of an anchor element."
++ "\A - Accessibility: Elements that get `aria-disabled` instead of"
++ "\A   `disabled` are now styled as disabled."
++ "\A - Compatibility: We're using some CSS selectors not supported"
++ "\A   by IE11."
++ "\A - Deprecated: We deprecated the embed-container() mixin."
++ "\A - Display: We removed the outline circle from social media icons."
++ "\A - Settings: We changed the default value of $theme-hero-image."
++ "\A   Teams that use the default image (hero.png) will need to get the"
++ "\A   new image (hero.jpg) from the distribution package."
++ "\A ";
 
 /* prettier-ignore */
 $uswds-notification-disable-message:
