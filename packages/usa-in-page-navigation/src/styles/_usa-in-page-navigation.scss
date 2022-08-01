@@ -1,72 +1,19 @@
 @use "uswds-core" as *;
 
-.usa-in-page-navigation {
-  background-color: initial;
-  border: none;
-  border-left: units(1px) solid color("base-lighter");
-  font-size: 0.8rem;
-  padding: units(0);
-
-  @include border-box-sizing;
-  @include nav-list("sidenav");
-
-  .grid-container & {
-    @include u-margin-x(-$theme-site-margins-mobile-width);
-
-    @include at-media("tablet") {
-      @include u-margin-x(0);
-    }
-  }
-
-  a {
-    color: color("base-darker");
-
-    &:where(:not(.usa-button)) {
-      padding: units(0.5) units(1);
-    }
-
-    &:hover {
-      background-color: transparent;
-      color: color("primary-vivid");
-    }
-
-    &.usa-current {
-      color: color("base-darker");
-      position: static;
-
-      &::after {
-        background-color: color("secondary-dark");
-        border-radius: 0;
-        bottom: units(-1px);
-        left: units(0);
-        top: units(0);
-        width: units(2px);
-        z-index: z(100);
-      }
-    }
-  }
-
-  .usa-in-page-navigation__item {
-    @include u-border(0);
-    line-height: lh("lang", 3);
-    position: relative;
-    &.sub-item {
-      padding-left: units(1);
-    }
-  }
-}
-
-.in-page-nav-container {
+.usa-in-page-nav-container {
   align-items: flex-start;
   display: flex;
 
-  #main-content {
+  // Set main landmark max width to ensure in-page nav will fit
+  main,
+  [class^="main"] {
     max-width: 87.5rem;
     width: 100%;
   }
 
-  .in-page-navigation {
+  .usa-in-page-nav {
     display: none;
+    margin-left: units(0.5);
     margin-top: units(2.5);
     max-width: units("card-lg");
     position: sticky;
@@ -78,10 +25,54 @@
     }
   }
 
-  .offset-anchor {
-    display: block;
-    position: relative;
-    top: -20px;
-    visibility: hidden;
+  .usa-in-page-nav-list {
+    background-color: initial;
+    border: none;
+    border-left: units(1px) solid color("base-lighter");
+    @include typeset($theme-in-page-nav-font-family, "sm", 2);
+    padding: units(0);
+
+    @include border-box-sizing;
+    @include nav-list("sidenav");
+
+    a {
+      color: color("base-darker");
+
+      &:where(:not(.usa-button)) {
+        padding: units("05") units(1);
+      }
+
+      &:hover {
+        color: color("primary-vivid");
+      }
+
+      &.usa-current {
+        color: color("base-darker");
+        position: static;
+
+        &::after {
+          background-color: color("secondary-dark");
+          border-radius: 0;
+          bottom: units(-1px);
+          left: units(0);
+          top: units(0);
+          width: units(2px);
+          z-index: z(100);
+        }
+      }
+    }
+
+    .usa-in-page-nav__item {
+      @include u-border(0);
+      position: relative;
+
+      &.sub-item {
+        font-size: font-size($theme-in-page-nav-font-family, "3xs");
+
+        a {
+          padding-left: units(3);
+        }
+      }
+    }
   }
 }

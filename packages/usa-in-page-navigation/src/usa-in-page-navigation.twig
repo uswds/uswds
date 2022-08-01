@@ -1,30 +1,31 @@
 {% macro inpagenav(items, base_class) %}
 
-	{% set list_item_class = 'usa-in-page-navigation__item' %}
+	{% set list_item_class = 'usa-in-page-nav__item' %}
 	{% set current_class = 'usa-current' %}
-	{% set placeholder_link = 'javascript:void(0);' %}
 
 	<main id="main-content" class="main-content">
+		{% if heading %}
+			<h1>{{ heading }}</h1>
+		{% endif %}
+
 		{% if items %}
 			{% for item in items %}
-				<h2>{{ item.section_heading }}</h2>
+				{% if item.is_subheading %}
+					<h3>{{ item.section_heading }}</h3>
+				{% else %}
+					<h2>{{ item.section_heading }}</h2>
+				{% endif %}
 				<p>{{ item.content }}</p>
 			{% endfor %}
 		{% endif %}
 	</main>
 
-	<div id="in-page-navigation" class="in-page-navigation">
-
-		{% if heading %}
-			<p class="site-subheading">{{ heading }}</p>
-		{% endif %}
-
-	</div>
+	<aside class="usa-in-page-nav"></aside>
 
 {% endmacro %}
 
 {% import _self as inpagenav %}
 
-<div class="in-page-nav-container">
+<div class="usa-in-page-nav-container">
 	{{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
 </div>
