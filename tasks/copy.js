@@ -22,14 +22,14 @@ module.exports = {
   // Copy material icons to /dist/img/material-icons
   copyIcons() {
     dutil.logMessage("copyIcons", "Copying Material icons to dist/img/material-icons");
-    return src(["node_modules/@material-design-icons/svg/outlined/*"])
+    return src(["node_modules/@material-design-icons/svg/filled/*"])
       .pipe(dest("dist/img/material-icons"));
   },
 
   // Copy images to /dist directory
   copyImages() {
     dutil.logMessage("copyImages", "Copying images to /dist/img");
-    return src(["packages/**/src/img/**/*{png,jpg,gif,webp,svg,ico}"])
+    return src(["packages/**/src/img/**/[!_]*.{png,jpg,gif,webp,svg,ico}"])
       .pipe(
         // use only the part of the path specific to the package img dir
         rename((path) => {

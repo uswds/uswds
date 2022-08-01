@@ -38,7 +38,7 @@ function cleanIcons() {
 function collectIcons() {
   dutil.logMessage("collectIcons", "Collecting default icon set in dist/img/usa-icons");
   return src([
-    `node_modules/@material-design-icons/svg/outlined/{${iconConfig.material}}.svg`,
+    `node_modules/@material-design-icons/svg/filled/{${iconConfig.material}}.svg`,
     `packages/usa-icon/src/img/material-icons-deprecated/{${iconConfig.materialDeprecated}}.svg`,
     `packages/usa-icon/src/img/uswds-icons/{${iconConfig.uswds}}.svg`,
   ])

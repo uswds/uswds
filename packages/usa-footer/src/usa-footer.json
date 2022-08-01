@@ -7,25 +7,25 @@
         "aria_label": "Footer navigation",
         "links": [
           {
-            "label": "[Primary link]"
+            "label": "<Primary link>"
           },
           {
-            "label": "[Primary link]"
+            "label": "<Primary link>"
           },
           {
-            "label": "[Primary link]"
+            "label": "<Primary link>"
           },
           {
-            "label": "[Primary link]"
+            "label": "<Primary link>"
           }
         ]
       }
     },
     "secondary_section": {
-      "agency_name": "[Name of Agency]",
-      "heading": "[Agency Contact Center]",
-      "phone": "[(800) 555-GOVT]",
-      "email": "[info@agency.gov]",
+      "agency_name": "<Name of Agency>",
+      "heading": "<Agency Contact Center>",
+      "phone": "<(800) 555-GOVT>",
+      "email": "<info@agency.gov>",
       "social_nav": [
         "Facebook",
         "Twitter",

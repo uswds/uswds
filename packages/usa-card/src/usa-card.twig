@@ -33,7 +33,8 @@
         <div class="usa-card__footer">
         {% include "@components/usa-button/src/usa-button.twig" with {
           'modifier': card.cta_modifier,
-          'text': card.cta_text|default('Visit Florida Keys')
+          'text': card.cta_text|default('Visit Florida Keys'),
+          'type': 'button'
         } %}
         </div>
       </div>
