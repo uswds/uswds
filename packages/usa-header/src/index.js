@@ -22,7 +22,7 @@ const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(", ");
-const NON_NAV_ELEMENTS = `body > *:not(${HEADER}):not([aria-hidden])`;
+const NON_NAV_ELEMENTS = `body *:not(${HEADER}, ${HEADER} *, ${NAV}, ${NAV} *, .sb-show-main #root):not([aria-hidden])`;
 const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
