@@ -1,8 +1,9 @@
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer"); // eslint-disable-line no-unused-vars
 
-const MASKED = "masked";
+const MASKED = "usa-masked";
 const MASKED_CLASS = `.${MASKED}`;
-const SHELL = "shell";
+const MASK = "usa-input-mask";
+const MASK_CONTENT = "usa-input-mask--content";
 const PLACEHOLDER = "placeholder";
 
 function ready(fn) {
@@ -33,7 +34,6 @@ ready(() => {
 
     // replaces each masked input with a shell containing the input and it's mask.
     createShell(input) {
-      let text = "";
       const placeholder = input.getAttribute(`${PLACEHOLDER}`);
 
       if (
@@ -49,7 +49,7 @@ ready(() => {
       }
 
       // This section still needs some rework
-      text = `<span class="${SHELL}"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
+      const text = `<span class="${MASK}"><span class="${MASK_CONTENT}" aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
 
       input.outerHTML = text; // eslint-disable-line no-param-reassign, no-unsanitized/property
     },

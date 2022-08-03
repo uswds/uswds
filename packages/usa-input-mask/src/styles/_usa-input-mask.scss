@@ -1,45 +1,24 @@
 @use "uswds-core" as *;
 
-.usa-input {
-  @extend %block-input-general;
-  @extend %block-input-styles;
-
-  &--error {
-    @include u-border($theme-input-state-border-width, "error-dark");
-    padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
-    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
-  }
-
-  &--success {
-    @include u-border($theme-input-state-border-width, "success");
-    padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
-    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
-  }
-}
-
-.shell {
+.usa-input-mask {
   position: relative;
   line-height: 1;
 
-  span {
+  &--content {
     position: absolute;
     left: 3px;
     top: 1px;
     pointer-events: none;
     color: color("gray-50");
     font-family: family("sans");
-
     i {
-      /* any of these 3 will work */
-      color: transparent;
-      opacity: 0;
       visibility: hidden;
     }
   }
 }
 
-input.masked,
-.shell span {
+usa-masked,
+.usa-input-mask--content {
   padding: 0.5rem;
   line-height: 1.3;
   font-size: 1.06rem;
