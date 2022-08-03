@@ -6,6 +6,8 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer__return-to-top [href^="#"]`;
 const MAINCONTENT = "main-content";
 
+let languageSelector;
+
 function setTabindex() {
   // NB: we know because of the selector we're delegating to below that the
   // href already begins with '#'
@@ -29,8 +31,10 @@ function setTabindex() {
   }
 }
 
-module.exports = behavior({
+languageSelector = behavior({
   [CLICK]: {
     [LINK]: setTabindex,
   },
 });
+
+module.exports = languageSelector;
