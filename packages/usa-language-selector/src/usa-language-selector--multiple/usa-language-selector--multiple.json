@@ -1,9 +1,24 @@
 {
-  "label": "Español",
+  "label": "Languages",
   "focus": true,
-  "label-arabic": "Arabic - عربى",
-  "label-english": "English - English",
-  "label-french": "French - Français",
-  "label-spanish": "Spanish - Español",
-  "label-other": "Other"
+  "role": "button",
+  "placeholder_link": "javascript:void()",
+  "languages": [
+    {
+      "label": "Arabic - عربى"
+    },
+    {
+      "label": "English - English"
+    },
+    {
+      "label": "French - Français"
+    },
+    {
+      "label": "Spanish - Español"
+    },
+    {
+      "label": "Other"
+    }
+  ],
+  "more": "More languages with selected content"
 }

@@ -13,7 +13,7 @@
   text-transform: uppercase;
 
   @include at-media($theme-header-min-width) {
-    display: none;
+    // display: none;
   }
 
   &:hover {
@@ -28,5 +28,93 @@
 
   &:visited {
     color: color("white");
+  }
+}
+
+.usa-language {
+  @include u-flex("row", "align-center", "justify-end");
+  display: flex;
+  padding: 0 0 units(0.5) units(1);
+  width: 100%;
+}
+
+.usa-language-container {
+  @include u-flex("align-end", "justify");
+  display: flex;
+}
+
+.usa-language__primary-item>.usa-current,
+.usa-language__link:hover {
+  // @include language-border-basic;
+}
+
+// Don't show extended border if dropdown is active.
+.usa-language__link[aria-expanded="true"]::after,
+.usa-language__link[aria-expanded="true"]:hover::after {
+  display: none;
+}
+
+.usa-language__primary {
+  width: auto;
+}
+
+// Issue #3401: last dropdown gets cutoff.
+.usa-language__primary-item:last-of-type {
+  position: relative;
+
+  .usa-language__submenu {
+    @include u-pin-right;
+  }
+}
+
+.usa-language__submenu {
+  @include at-media-max($theme-header-min-width) {
+    @include nav-sublist;
+  }
+
+  @include at-media($theme-header-min-width) {
+    @include add-list-reset;
+    background-color: color("primary-darker");
+    width: units("card-lg");
+    position: absolute;
+    z-index: z-index(400);
+  }
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  .usa-language__submenu-item {
+    @include at-media($theme-header-min-width) {
+      a {
+        color: color("white");
+        padding: 0;
+        line-height: line-height($theme-navigation-font-family, 3);
+        display: block;
+        padding: units(1);
+
+        &:focus {
+          outline-offset: units("neg-05");
+        }
+
+        &:hover {
+          color: color("white");
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.usa-language__submenu-list {
+  @include unstyled-list;
+
+  .usa-language__submenu-list-item {
+    margin: 0;
+    font-size: font-size($theme-navigation-font-family, "2xs");
+
+    a {
+      line-height: line-height($theme-navigation-font-family, 3);
+    }
   }
 }

@@ -1,3 +1,3 @@
-<button class="usa-language-selector {{ focus ? " usa-focus" }}">
+<button class="usa-language-selector{{ focus ? " usa-focus" }}"{% if role %} role="{{ role }}" {% endif %}>
 	{{ label | default('Español') }}
 </button>

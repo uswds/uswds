@@ -13,7 +13,7 @@
   text-transform: uppercase;
 
   @include at-media($theme-header-min-width) {
-    display: none;
+    // display: none;
   }
 
   &:hover {

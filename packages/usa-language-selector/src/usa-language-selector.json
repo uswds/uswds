@@ -1,4 +1,5 @@
 {
   "label": "Español",
-  "focus": true
+  "focus": true,
+  "role": "button"
 }

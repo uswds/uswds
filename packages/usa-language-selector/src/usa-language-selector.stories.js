@@ -4,7 +4,7 @@ import DefaultContent from "./usa-language-selector.json";
 import MultipleContent from "./usa-language-selector--multiple/usa-language-selector--multiple.json";
 
 export default {
-  title: "Components/LanguageSelector",
+  title: "Components/Language Selector",
 };
 
 const Template = (args) => Component(args);
@@ -14,6 +14,4 @@ export const LanguageSelector = Template.bind({});
 LanguageSelector.args = DefaultContent;
 
 export const MultipleLanguageSelector = MultipleTemplate.bind({});
-MultipleTemplate.args = {
-  ...MultipleContent,
-};
+MultipleLanguageSelector.args = MultipleContent;

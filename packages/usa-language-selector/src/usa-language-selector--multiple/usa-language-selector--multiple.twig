@@ -1,3 +1,17 @@
-<button class="usa-language-selector {{ focus ? " usa-focus" }}">
-	{{ label | default('Español') }}
+<button class="usa-language-selector usa-language-btn{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %}>
+	{{ label | default('Languages') }}
 </button>
+
+{% if languages %}
+	<div class="usa-language">
+		<ul class="usa-language__submenu" aria-hidden="true">
+			{% for language in languages %}
+				<li class="usa-language__submenu-item">
+					<a href="{{ placeholder_link }}">
+						{{ language.label }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endif %}
