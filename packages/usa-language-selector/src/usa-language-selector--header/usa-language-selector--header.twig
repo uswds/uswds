@@ -3,7 +3,7 @@
 	<div class="usa-nav-container">
 		{% include "@components/usa-language-selector/src/_includes/usa-navbar.twig" %}
 
-{% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
+
 {# <div class="usa-navbar">
   {% include "@components/usa-site-title/src/usa-site-title.twig" %}
   {% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
@@ -22,5 +22,8 @@
 				{% include "@components/usa-search/src/usa-search.twig" with search.settings %}
 			</nav>
 		{% endif %}
+
+    {% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
+    
 	</div>
 </header>

@@ -1,3 +1,5 @@
-<button class="usa-language-selector{{ focus ? " usa-focus" }}"{% if role %} role="{{ role }}" {% endif %}>
-	<span lang="{{ lang }}" xml:lang="{{ lang }}">{{ label | default('Español') }}</span>
-</button>
+<div class="usa-language-container">
+	<button class="usa-language-btn{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %}>
+		<span lang="{{ lang }}" xml:lang="{{ lang }}">{{ label | default('Español') }}</span>
+	</button>
+</div>
