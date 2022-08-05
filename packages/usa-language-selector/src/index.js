@@ -12,6 +12,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;
 const LANGUAGE = `.${PREFIX}-language`;
+const LANGUAGE_SUB = `.${PREFIX}-language__submenu`;
 const LANGUAGE_PRIMARY = `.${PREFIX}-language__primary`;
 const LANGUAGE_PRIMARY_ITEM = `.${PREFIX}-language__primary-item`;
 const LANGUAGE_CONTROL = `button.${PREFIX}-language__link`;
@@ -207,9 +208,9 @@ languageSelector = behavior(
   },
   {
     init(root) {
-      const trapContainer = root.matches(LANGUAGE)
+      const trapContainer = root.matches(LANGUAGE_SUB)
         ? root
-        : root.querySelector(LANGUAGE);
+        : root.querySelector(LANGUAGE_SUB);
 
       if (trapContainer) {
         languageSelector.focusTrap = FocusTrap(trapContainer, {

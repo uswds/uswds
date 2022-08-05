@@ -1,6 +1,6 @@
 {
   "label": "Languages",
-  "focus": true,
+  "focus": false,
   "role": "button",
   "placeholder_link": "javascript:void()",
   "languages": [

@@ -1,17 +1,21 @@
-<button class="usa-language-selector usa-language-btn{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %}>
-	{{ label | default('Languages') }}
-</button>
-
-{% if languages %}
-	<div class="usa-language">
-		<ul class="usa-language__submenu" aria-hidden="true">
-			{% for language in languages %}
-				<li class="usa-language__submenu-item">
-					<a href="{{ placeholder_link }}">
-						{{ language.label }}
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-{% endif %}
+<div class="usa-language-container">
+	<ul class="usa-language__primary usa-accordion">
+		<li class="usa-language__primary-item">
+			<button class="usa-language-btn usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
+				{{ label | default('Languages') }}
+			</button>
+			{% if languages %}
+				<ul id="language-options" class="usa-language__submenu" hidden="">
+					{% for language in languages %}
+						<li class="usa-language__submenu-item">
+							<a href="{{ placeholder_link }}">{{ language.label }}</a>
+						</li>
+					{% endfor %}
+					<li class="usa-language__submenu-item">
+						<a href="{{ placeholder_link }}">{{ more }}</a>
+					</li>
+				</ul>
+			{% endif %}
+		</li>
+	</ul>
+</div>

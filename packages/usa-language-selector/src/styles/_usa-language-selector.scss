@@ -1,6 +1,6 @@
 @use "uswds-core" as *;
 
-.usa-language-selector {
+.usa-language-btn {
   @include button-unstyled;
   @include u-flex("auto");
   @include u-padding-x(1.5);
@@ -39,7 +39,7 @@
 }
 
 .usa-language-container {
-  @include u-flex("align-end", "justify");
+  @include u-flex("align-center", "justify-end");
   display: flex;
 }
 
@@ -92,7 +92,7 @@
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
         padding: units(1);
-
+        text-decoration: none;
         &:focus {
           outline-offset: units("neg-05");
         }
@@ -117,4 +117,9 @@
       line-height: line-height($theme-navigation-font-family, 3);
     }
   }
+}
+
+
+.usa-language-btn {
+
 }
