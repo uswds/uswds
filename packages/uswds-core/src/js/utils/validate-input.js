@@ -20,9 +20,6 @@ module.exports = function validate(el) {
       const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
-      const hiddenCheckboxSpan = validatorCheckbox.querySelector(
-        `[data-checklist-label]`
-      );
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
@@ -31,12 +28,6 @@ module.exports = function validate(el) {
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
       validatorCheckbox.setAttribute(CHECKED, checked);
-
-      hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
-        CHECKED_CLASS
-      )
-        ? "Complete"
-        : "Incomplete";
     }
   });
 };
