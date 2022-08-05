@@ -5,19 +5,34 @@
   "placeholder_link": "javascript:void()",
   "languages": [
     {
-      "label": "Arabic - عربى"
+      "lang_label_en": "Arabic",
+      "lang_label": "عربى",
+      "lang_att": "ar"
     },
     {
-      "label": "English - English"
+      "lang_label_en": "English",
+      "lang_label": "English",
+      "lang_att": "en"
     },
     {
-      "label": "French - Français"
+      "lang_label_en": "French",
+      "lang_label": "Français",
+      "lang_att": "fr"
     },
     {
-      "label": "Spanish - Español"
+      "lang_label_en": "Italian",
+      "lang_label": "Italiano",
+      "lang_att": "it"
     },
     {
-      "label": "Other"
+      "lang_label_en": "Spanish",
+      "lang_label": "Español",
+      "lang_att": "es"
+    },
+    {
+      "lang_label_en": "Other",
+      "lang_label": "",
+      "lang_att": ""
     }
   ],
   "more": "More languages with selected content"

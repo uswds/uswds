@@ -1,0 +1,99 @@
+{
+  "label": "Languages",
+  "focus": false,
+  "role": "button",
+  "placeholder_link": "javascript:void()",
+  "languages": [
+    {
+      "lang_label_en": "Arabic",
+      "lang_label": "عربى",
+      "lang_att": "ar"
+    },
+    {
+      "lang_label_en": "English",
+      "lang_label": "English",
+      "lang_att": "en"
+    },
+    {
+      "lang_label_en": "French",
+      "lang_label": "Français",
+      "lang_att": "fr"
+    },
+    {
+      "lang_label_en": "Italian",
+      "lang_label": "Italiano",
+      "lang_att": "it"
+    },
+    {
+      "lang_label_en": "Spanish",
+      "lang_label": "Español",
+      "lang_att": "es"
+    },
+    {
+      "lang_label_en": "Other",
+      "lang_label": "",
+      "lang_att": ""
+    }
+  ],
+  "more": "More languages with selected content",
+  "modifier": "",
+  "title": "Basic header",
+  "nav": {
+    "menu": {
+      "label": "Menu"
+    },
+    "aria_label": "Primary navigation",
+    "close": {
+      "label": "Close"
+    },
+    "items": [
+      {
+        "label": "<Current section>",
+        "current": true,
+        "id": "basic-nav-section-one",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Section>",
+        "id": "basic-nav-section-two",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Simple link>"
+      }
+    ]
+  },
+  "search": {
+    "settings": {
+      "modifier": "usa-search--small",
+      "search_js": false,
+      "id": "search-field",
+      "search_label": "Search",
+      "button_text": "Search"
+    }
+  },
+  "img_path": "./img"
+}

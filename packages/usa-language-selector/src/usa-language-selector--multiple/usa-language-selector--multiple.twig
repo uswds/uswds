@@ -8,7 +8,12 @@
 				<ul id="language-options" class="usa-language__submenu" hidden="">
 					{% for language in languages %}
 						<li class="usa-language__submenu-item">
-							<a href="{{ placeholder_link }}">{{ language.label }}</a>
+							<a href="{{ placeholder_link }}">{{ language.lang_label_en }}
+								{% if language.lang_label %}
+									-
+									<span lang="{{ language.lang_att }}" xml:lang="{{ language.lang_att }}">{{ language.lang_label }}</span>
+								{% endif %}
+							</a>
 						</li>
 					{% endfor %}
 					<li class="usa-language__submenu-item">
