@@ -53,19 +53,19 @@ ready(() => {
       const shell = document.createElement("span");
       shell.classList.add(MASK);
       shell.setAttribute("data-mask", placeholder);
+      console.log("shell " , shell); // eslint-disable-line no-console
 
       const content = document.createElement("span");
       content.classList.add(MASK_CONTENT);
+      content.classList.add("test");
       content.setAttribute("aria-hidden", "true");
       content.id = `${input.id}Mask`;
       content.textContent = placeholder;
-
-      // const i = document.createElement("i");
-
-      shell.appendChild(input);
+  
       shell.appendChild(content);
       input.parentNode.insertBefore(shell, input);
-
+      shell.appendChild(input);
+      
       // // This section still needs some rework
       // const text = `<span class="${MASK}"><span class="${MASK_CONTENT}" aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
       // input.outerHTML = text; // eslint-disable-line no-param-reassign, no-unsanitized/property

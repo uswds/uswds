@@ -6,11 +6,12 @@
 
   &--content {
     position: absolute;
-    left: 3px;
-    top: 1px;
+    left: 2px;
+    top: 0;
     pointer-events: none;
     color: color("gray-50");
     font-family: family("sans");
+    border: 1px solid transparent
     i {
       visibility: hidden;
     }
