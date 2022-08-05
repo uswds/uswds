@@ -1,4 +1,6 @@
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer"); // eslint-disable-line no-unused-vars
+const behavior = require("../../uswds-core/src/js/utils/behavior"); // eslint-disable-line no-unused-vars
+
 
 const MASKED = "usa-masked";
 const MASKED_CLASS = `.${MASKED}`;
@@ -48,10 +50,26 @@ ready(() => {
         return;
       }
 
-      // This section still needs some rework
-      const text = `<span class="${MASK}"><span class="${MASK_CONTENT}" aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
+      const shell = document.createElement("span");
+      shell.classList.add(MASK);
+      shell.setAttribute("data-mask", placeholder);
 
-      input.outerHTML = text; // eslint-disable-line no-param-reassign, no-unsanitized/property
+      const content = document.createElement("span");
+      content.classList.add(MASK_CONTENT);
+      content.setAttribute("aria-hidden", "true");
+      content.id = `${input.id}Mask`;
+      content.textContent = placeholder;
+
+      // const i = document.createElement("i");
+
+      shell.appendChild(input);
+      shell.appendChild(content);
+      input.parentNode.insertBefore(shell, input);
+
+      // // This section still needs some rework
+      // const text = `<span class="${MASK}"><span class="${MASK_CONTENT}" aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
+      // input.outerHTML = text; // eslint-disable-line no-param-reassign, no-unsanitized/property
+
     },
 
     setValueOfMask(e) {
@@ -82,22 +100,6 @@ ready(() => {
 
     handleValueChange(e) {
       const id = e.target.getAttribute("id");
-
-      switch (
-        e.keyCode // allows navigating thru input
-      ) {
-        case 20: // caplocks
-        case 17: // control
-        case 18: // option
-        case 16: // shift
-        case 37: // arrow keys
-        case 38:
-        case 39:
-        case 40:
-        case 9: // tab (let blur handle tab)
-          return;
-        // no default
-      }
 
       document.getElementById(id).value = masking.handleCurrentValue(e);
       const maskVal = masking.setValueOfMask(e);
