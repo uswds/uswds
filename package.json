@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -67,9 +67,9 @@
     "test:unit": "gulp unitTests",
     "version": "gulp release",
     "watch": "gulp watch",
-    "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/material-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons -q",
+    "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
-    "prettier:scss": "npx prettier --write './src/**/**/*.scss'",
+    "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"

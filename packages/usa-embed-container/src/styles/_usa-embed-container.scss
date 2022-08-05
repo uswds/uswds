@@ -1,8 +1,5 @@
 @use "uswds-core" as *;
 
-$aspect-height: 9;
-$aspect-width: 16;
-
 .usa-embed-container {
   iframe,
   object,
@@ -16,9 +13,6 @@ $aspect-width: 16;
 }
 
 .usa-embed-container {
-  @include embed-container($aspect-height, $aspect-width);
-  position: relative;
-  height: 0;
-  overflow: hidden;
+  @include add-aspect("16x9");
   max-width: 100%;
 }

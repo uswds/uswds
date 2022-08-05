@@ -64,7 +64,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   $context: "Table unsorted icon",
 );
 
-
 // Shared table styles
 @mixin table-header-unsorted-styles {
   padding-right: units(5);
@@ -116,9 +115,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     fill: color($table-unsorted-icon-color);
   }
   &:hover .usa-icon > g.unsorted {
-    fill: color(
-      next-token($table-unsorted-icon-color, "darker")
-    )
+    fill: color(next-token($table-unsorted-icon-color, "darker"));
   }
 }
 
@@ -296,7 +293,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 }
 
-
 @mixin usa-table--borderless {
   thead {
     th {
@@ -315,9 +311,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       }
 
       .usa-table__header__button:hover .usa-icon > g.unsorted {
-        fill: color(
-          next-token($table-text-color, "darker")
-        );
+        fill: color(next-token($table-text-color, "darker"));
       }
     }
     /* stylelint-enable selector-class-pattern */
