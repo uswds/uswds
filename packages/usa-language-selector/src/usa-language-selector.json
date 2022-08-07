@@ -1,6 +1,6 @@
 {
   "label": "Español",
   "lang": "es",
-  "focus": true,
+  "focus": false,
   "role": "button"
 }

@@ -3,19 +3,6 @@
 	<div class="usa-nav-container">
 		{% include "@components/usa-language-selector/src/_includes/usa-navbar.twig" %}
 
-
-{# <div class="usa-navbar">
-  {% include "@components/usa-site-title/src/usa-site-title.twig" %}
-  {% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
-  {% if nav %}
-    <button class="usa-menu-btn">
-      {{ nav.menu.label | default('Menu') }}
-    </button>
-  {% endif %}
-</div> #}
-
-
-
 		{% if nav %}
 			<nav aria-label="{{ nav.aria_label }}" class="usa-nav">
 				{% include "@components/usa-nav/src/usa-nav__primary/usa-nav__primary.twig" %}
@@ -23,7 +10,7 @@
 			</nav>
 		{% endif %}
 
-    {% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
-    
+		{% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %}
+
 	</div>
 </header>

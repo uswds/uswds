@@ -1,9 +1,8 @@
 <div class="usa-navbar">
-  {% include "@components/usa-site-title/src/usa-site-title.twig" %}
-  {# {% include "../usa-language-selector--multiple/usa-language-selector--multiple.twig" %} #}
-  {% if nav %}
-    <button class="usa-menu-btn">
-      {{ nav.menu.label | default('Menu') }}
-    </button>
-  {% endif %}
+	{% include "@components/usa-site-title/src/usa-site-title.twig" %}
+	{% if nav %}
+		<button class="usa-menu-btn">
+			{{ nav.menu.label | default('Menu') }}
+		</button>
+	{% endif %}
 </div>
