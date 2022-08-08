@@ -30,7 +30,6 @@ module.exports = function validate(el) {
 
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
-      validatorCheckbox.setAttribute(CHECKED, checked);
 
       hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
         CHECKED_CLASS

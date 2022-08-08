@@ -45,7 +45,6 @@ const validator = behavior(
         checklistItems.forEach((listItem) => {
           const newSpan = createHiddenLabel();
           listItem.appendChild(newSpan);
-          listItem.setAttribute("aria-checked", "false");
         });
       });
     },
