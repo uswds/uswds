@@ -1,6 +1,5 @@
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer"); // eslint-disable-line no-unused-vars
 const behavior = require("../../uswds-core/src/js/utils/behavior"); // eslint-disable-line no-unused-vars
-
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches"); // eslint-disable-line no-unused-vars
 
 const MASKED = "usa-masked";
 const MASKED_CLASS = `.${MASKED}`;
@@ -38,11 +37,7 @@ ready(() => {
     createShell(input) {
       const placeholder = input.getAttribute(`${PLACEHOLDER}`);
 
-      if (
-        placeholder !== null &&
-        placeholder.length > 0 &&
-        placeholder !== " "
-      ) {
+      if (placeholder) {
         input.setAttribute("maxlength", placeholder.length);
         input.setAttribute("data-placeholder", placeholder);
         input.removeAttribute(`${PLACEHOLDER}`);
@@ -161,4 +156,5 @@ ready(() => {
   };
 
   masking.init();
+  
 });
