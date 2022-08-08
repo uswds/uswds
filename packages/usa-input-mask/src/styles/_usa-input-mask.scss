@@ -20,9 +20,9 @@
 
 usa-masked,
 .usa-input-mask--content {
-  padding: 0.5rem;
+  padding: units(1);
   line-height: 1.4;
-  font-size: 1.06rem;
+  font-size: size('body', 'sm');
   background-color: transparent;
   text-transform: uppercase;
 }

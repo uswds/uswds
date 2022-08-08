@@ -1,14 +1,42 @@
 <h3 class="site-preview-heading">Social Security Number Input Mask</h3>
 <label class="usa-label" for="ssn">Social Security Number</label>
 <div class="usa-hint flex" id="ssnHint">For example: XXX XX XXXX</div>
-<input id="ssn" type="text" inputmode="numeric" name="ssn" placeholder="XXX XX XXXX" pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$" class="usa-input usa-masked" title="9-digit social security number" aria-describedby="ssnHint">
+<input 
+    id="ssn" 
+    type="text" 
+    inputmode="numeric" 
+    name="ssn" 
+    placeholder="XXX XX XXXX" 
+    pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$" 
+    class="usa-input usa-masked" 
+    title="9-digit social security number" 
+    aria-describedby="ssnHint" 
+>
 
 <h3 class="site-preview-heading">US Telephone Number Input Mask</h3>
 <label class="usa-label" for="tel">US Telephone Number</label>
 <div class="usa-hint" id="pnHint">For example: (XXX) XXX-XXXX</div>
-<input id="tel" type="tel" name="phone" placeholder="(XXX) XXX-XXXX" pattern="\(\d{3}\) \d{3}\-\d{4}" class="usa-input usa-masked" title="10-digit USA telephone number" aria-describedby="pnHint">
+<input 
+    id="tel" 
+    type="tel" 
+    name="phone" 
+    placeholder="(XXX) XXX-XXXX" 
+    pattern="\(\d{3}\) \d{3}\-\d{4}" 
+    class="usa-input usa-masked" 
+    title="10-digit USA telephone number" 
+    aria-describedby="pnHint"
+>
 
 <h3 class="site-preview-heading">9 Digit US Zip Code Input Mask</h3>
 <label class="usa-label" for="zip">Zip Code</label>
 <div class="usa-hint" id="zipHint">For example: XXXXX-XXXX</div>
-<input id="zip" type="text" inputmode="numeric" name="zip" placeholder="XXXXX-XXXX" pattern="^[0-9]{5}(?:-[0-9]{4})?$" class="usa-input usa-masked" title="9-digit zip code" aria-describedby="zipHint">
+<input 
+    id="zip" 
+    type="text" 
+    inputmode="numeric" 
+    name="zip" 
+    placeholder="XXXXX-XXXX" 
+    pattern="^[0-9]{5}(?:-[0-9]{4})?$" 
+    class="usa-input usa-masked" 
+    title="9-digit zip code" aria-describedby="zipHint"
+>
