@@ -23,6 +23,12 @@
       display: block;
       width: 100%;
     }
+
+    nav {
+      background-color: color($theme-in-page-nav-background-color);
+      border-radius: radius($theme-in-page-nav-background-radius);
+      padding: units($theme-in-page-nav-background-padding);
+    }
   }
 
   .usa-in-page-nav-list {
@@ -51,12 +57,12 @@
         position: static;
 
         &::after {
-          background-color: color("secondary-dark");
+          background-color: color($theme-in-page-nav-bar-color);
           border-radius: 0;
           bottom: units(-1px);
           left: units(0);
           top: units(0);
-          width: units(2px);
+          width: units($theme-in-page-nav-bar-width);
           z-index: z(100);
         }
       }
