@@ -1,165 +1,135 @@
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+const keymap = require("receptor/keymap");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
+const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { CLICK } = require("../../uswds-core/src/js/events");
+// const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
-const MASKED = "masked";
-const MASKED_CLASS = `.${MASKED}`;
-const SHELL = "shell";
+const INPUT_MASK_CLASS = `${PREFIX}-input-mask`;
+const INPUT_MASK = `.${INPUT_MASK_CLASS}`;
+const INPUT_SHELL = "shell";
 
-function ready(fn) {
-  document.addEventListener("DOMContentLoaded", fn, false);
-}
+// User defined Values
+// const maskedInputs = document.getElementsByClassName(MASKED_CLASS);
+const maskedNumber = "XdDmMyY9";
+const maskedLetter = "_";
 
-ready(() => {
-  const masking = {
-    // User defined Values
-    maskedInputs: document.getElementsByClassName(MASKED),
-    maskedNumber: "XdDmMyY9",
-    maskedLetter: "_",
+// replaces each masked input with a shall containing the input and it's mask.
+const createShell = (input) => {
+  const placeholder = input.getAttribute("placeholder");
+  if (placeholder.length > 0 && placeholder !== " ") {
+    input.setAttribute("maxlength", placeholder.length);
+    input.setAttribute("data-placeholder", placeholder);
+    input.removeAttribute("placeholder");
+  }
 
-    init() {
-      masking.setUpMasks(masking.maskedInputs);
-      masking.maskedInputs = document.querySelectorAll(MASKED_CLASS); // Repopulating. Needed b/c static node list was created above.
-      masking.activateMasking(masking.maskedInputs);
-    },
+  /* input.insertAdjacentHTML(
+    "beforeend",
+    Sanitizer.escapeHTML`
+    <span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>
+    `
+  ); */
+  let text = "";
+  text = `<span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
 
-    setUpMasks(inputs) {
-      let i;
-      const l = inputs.length;
+  // const text = document.createElement("span");
+  // text.setAttribute("class", `${INPUT_SHELL}`);
 
-      for (i = 0; i < l; i += 1) {
-        masking.createShell(inputs[i]);
-      }
-    },
+  input.outerHTML = text; // eslint-disable-line no-param-reassign
+};
 
-    // replaces each masked input with a shall containing the input and it's mask.
-    createShell(input) {
-      let text = "";
-      const placeholder = input.getAttribute("placeholder");
+const setUpMasks = (inputs) => {
+  for (let i = 0; i < inputs.length; i += 1) {
+    createShell(inputs[i]);
+  }
+};
 
-      if (placeholder.length > 0 && placeholder !== " ") {
-        input.setAttribute("maxlength", placeholder.length);
-        input.setAttribute("data-placeholder", placeholder);
-        input.removeAttribute("placeholder");
-      }
+const setValueOfMask = (el) => {
+  const { value } = el;
+  const placeholder = el.getAttribute("data-placeholder");
 
-      /* input.insertAdjacentHTML(
-        "beforeend",
-        Sanitizer.escapeHTML`
-        <span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>
-        `
-      ); */
+  return `<i>${value}</i>${placeholder.substr(value.length)}`;
+};
 
-      text = `<span class="shell"><span aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
+const handleCurrentValue = (el) => {
+  const isCharsetPresent = el.getAttribute("data-charset");
+  const placeholder = isCharsetPresent || el.getAttribute("data-placeholder");
+  const { value } = el;
+  const l = placeholder.length;
+  let newValue = "";
+  let i;
+  let j;
+  let isInt;
+  let isLetter;
 
-      input.outerHTML = text; // eslint-disable-line no-param-reassign
-    },
+  // strip special characters
+  const strippedValue = isCharsetPresent
+    ? value.replace(/\W/g, "")
+    : value.replace(/\D/g, "");
 
-    setValueOfMask(e) {
-      const { value } = e.target;
-      const placeholder = e.target.getAttribute("data-placeholder");
+  for (i = 0, j = 0; i < l; i += 1) {
+    // eslint-disable-next-line no-multi-assign, no-restricted-globals
+    const x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
+    isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
+    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
+    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
 
-      return `<i>${value}</i>${placeholder.substr(value.length)}`;
-    },
+    if (
+      (matchesNumber && isInt) ||
+      (isCharsetPresent && matchesLetter && isLetter)
+    ) {
+      newValue += strippedValue[j++];
+    } else if (
+      (!isCharsetPresent && !isInt && matchesNumber) ||
+      (isCharsetPresent &&
+        ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))
+    ) {
+      // errorOnKeyEntry(); // write your own error handling function
+      return newValue;
+    } else {
+      newValue += placeholder[i];
+    }
+    // break if no characters left and the pattern is non-special character
+    if (strippedValue[j] === undefined) {
+      break;
+    }
+  }
+  if (el.getAttribute("data-valid-example")) {
+    // return validateProgress(e, newValue);
+  }
+  return newValue;
+};
+const handleValueChange = (el) => {
+  const id = el.getAttribute("id");
 
-    // add event listeners
-    activateMasking(inputs) {
-      let i;
-      let l;
+  document.getElementById(id).value = handleCurrentValue(el);
+  // document.getElementById(`${id}Mask`).innerHTML = Sanitizer.escapeHTML`${setValueOfMask(e)}`;
+  document.getElementById(`${id}Mask`).innerHTML = `${setValueOfMask(el)}`;
 
-      for (i = 0, l = inputs.length; i < l; i += 1) {
-        masking.maskedInputs[i].addEventListener(
-          "keyup",
-          (e) => {
-            masking.handleValueChange(e);
-          },
-          false
-        );
-      }
-    },
-
-    handleValueChange(e) {
-      const id = e.target.getAttribute("id");
-
-      switch (
-        e.keyCode // allows navigating thru input
-      ) {
-        case 20: // caplocks
-        case 17: // control
-        case 18: // option
-        case 16: // shift
-        case 37: // arrow keys
-        case 38:
-        case 39:
-        case 40:
-        case 9: // tab (let blur handle tab)
-          return;
-        // no default
-      }
-
-      document.getElementById(id).value = masking.handleCurrentValue(e);
-      // document.getElementById(`${id}Mask`).innerHTML = Sanitizer.escapeHTML`${masking.setValueOfMask(e)}`;
-      document.getElementById(
-        `${id}Mask`
-      ).innerHTML = `${masking.setValueOfMask(e)}`;
-
-      /* const theVal = Sanitizer.escapeHTML`${masking.setValueOfMask(e)}`; 
+  /* const theVal = Sanitizer.escapeHTML`${setValueOfMask(e)}`; 
 
       document.getElementById(
         `${id}Mask`
       ).insertAdjacentElement("beforeend", theVal); */
+};
 
+const inputMaskEvents = {
+  [CLICK]: {},
 
+  keyup: {
+    [INPUT_MASK]() {
+      handleValueChange(this);
     },
+  },
+};
 
-    handleCurrentValue(e) {
-      const isCharsetPresent = e.target.getAttribute("data-charset");
-      const placeholder =
-        isCharsetPresent || e.target.getAttribute("data-placeholder");
-      const { value } = e.target;
-      const l = placeholder.length;
-      let newValue = "";
-      let i;
-      let j;
-      let isInt;
-      let isLetter;
-
-      // strip special characters
-      const strippedValue = isCharsetPresent
-        ? value.replace(/\W/g, "")
-        : value.replace(/\D/g, "");
-
-      for (i = 0, j = 0; i < l; i += 1) {
-        // eslint-disable-next-line no-multi-assign, no-restricted-globals
-        const x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
-        isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
-        const matchesNumber = masking.maskedNumber.indexOf(placeholder[i]) >= 0;
-        const matchesLetter = masking.maskedLetter.indexOf(placeholder[i]) >= 0;
-
-        if (
-          (matchesNumber && isInt) ||
-          (isCharsetPresent && matchesLetter && isLetter)
-        ) {
-          newValue += strippedValue[j++];
-        } else if (
-          (!isCharsetPresent && !isInt && matchesNumber) ||
-          (isCharsetPresent &&
-            ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))
-        ) {
-          // masking.errorOnKeyEntry(); // write your own error handling function
-          return newValue;
-        } else {
-          newValue += placeholder[i];
-        }
-        // break if no characters left and the pattern is non-special character
-        if (strippedValue[j] === undefined) {
-          break;
-        }
-      }
-      if (e.target.getAttribute("data-valid-example")) {
-        return masking.validateProgress(e, newValue);
-      }
-      return newValue;
-    },
-  };
-
-  masking.init();
+const inputMask = behavior(inputMaskEvents, {
+  init() {
+    const maskedInputs = document.querySelectorAll(INPUT_MASK);
+    setUpMasks(maskedInputs);
+  },
 });
+
+// #endregion Date Picker Event Delegation Registration / Component
+
+module.exports = inputMask;
