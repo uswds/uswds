@@ -43,14 +43,6 @@ const setActive = (el) => {
   });
 };
 
-const options = {
-  root: IO_ROOT,
-  rootMargin: IO_ROOT_MARGIN,
-  threshold: IO_THRESHOLD,
-};
-
-const observeSections = new IntersectionObserver(setActive, options);
-
 /**
  * Return a node list of section headings
  *
@@ -147,7 +139,14 @@ const createInPageNav = () => {
 
   insertNode.appendChild(inPageNav);
 
+  const options = {
+    root: IO_ROOT,
+    rootMargin: IO_ROOT_MARGIN,
+    threshold: IO_THRESHOLD,
+  };
+
   const anchorTags = getSectionAnchors();
+  const observeSections = new IntersectionObserver(setActive, options);
 
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
