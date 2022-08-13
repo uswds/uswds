@@ -5,7 +5,7 @@ const toggleFormInput = require("../toggle-form-input");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/toggle.template.html"));
 
-const CONTROL_SELECTOR = ".usa-show-multipassword";
+const CONTROL_SELECTOR = ".usa-show-password";
 const PASSWORD_SELECTOR = "#password";
 const CONFIRM_SELECTOR = "#confirmPassword";
 const HIDE_TEXT = "Hide my typing";

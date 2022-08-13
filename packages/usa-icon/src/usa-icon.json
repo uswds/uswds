@@ -524,6 +524,10 @@
         "meta": "hyperlink"
       },
       {
+        "name": "linkedin",
+        "meta": "social media"
+      },
+      {
         "name": "list",
         "meta": "bullet"
       },
