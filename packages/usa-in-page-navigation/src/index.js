@@ -21,8 +21,8 @@ const SUB_ITEM = "sub-item";
 
 // Set Intersection Observer options
 const IO_ROOT = null;
-const IO_ROOT_MARGIN = "0px 0px -95% 0px";
-const IO_THRESHOLD = [1];
+const IO_ROOT_MARGIN = "0px 0px -90% 0px";
+const IO_THRESHOLD = [0];
 
 /**
  * Set the active link state for the currently observed section
@@ -32,7 +32,7 @@ const IO_THRESHOLD = [1];
 const setActive = (el) => {
   const allLinks = document.querySelectorAll(IN_PAGE_NAV_LINK);
   el.map((i) => {
-    if (i.isIntersecting === true) {
+    if (i.isIntersecting === true && i.intersectionRatio >= 1) {
       allLinks.forEach((link) => link.classList.remove(CURRENT_CLASS));
       document
         .querySelector(`a[href="#${i.target.id}"]`)
