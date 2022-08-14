@@ -1,0 +1,85 @@
+@use "uswds-core" as *;
+
+.usa-in-page-nav-container {
+  align-items: flex-start;
+  display: flex;
+  margin: units(8) units(0);
+
+  // Set main landmark max width to ensure in-page nav will fit
+  main,
+  [class^="main"] {
+    max-width: 87.5rem;
+    width: 100%;
+  }
+
+  .usa-in-page-nav {
+    display: none;
+    margin-left: units(0.5);
+    margin-top: units(2.5);
+    max-width: units("card-lg");
+    position: sticky;
+    top: units(4);
+
+    @include at-media("tablet") {
+      display: block;
+      width: 100%;
+    }
+
+    nav {
+      background-color: color($theme-in-page-nav-background-color);
+      border-radius: radius($theme-in-page-nav-background-radius);
+      padding: units($theme-in-page-nav-background-padding);
+    }
+  }
+
+  .usa-in-page-nav-list {
+    background-color: initial;
+    border: none;
+    border-left: units(1px) solid color("base-lighter");
+    @include typeset($theme-in-page-nav-font-family, "sm", 2);
+    padding: units(0);
+
+    @include border-box-sizing;
+    @include nav-list("sidenav");
+
+    a {
+      color: color("base-darker");
+
+      &:where(:not(.usa-button)) {
+        padding: units("05") units(1);
+      }
+
+      &:hover {
+        color: color("primary-vivid");
+      }
+
+      &.usa-current {
+        color: color("base-darker");
+        position: static;
+
+        &::after {
+          background-color: color($theme-in-page-nav-bar-color);
+          border-radius: 0;
+          bottom: units(-1px);
+          left: units(0);
+          top: units(0);
+          width: units($theme-in-page-nav-bar-width);
+          z-index: z(100);
+        }
+      }
+    }
+
+    .usa-in-page-nav__item {
+      @include u-border(0);
+      position: relative;
+
+      &.sub-item {
+        font-size: font-size($theme-in-page-nav-font-family, "3xs");
+
+        a {
+          padding-left: units(3);
+        }
+      }
+    }
+  }
+}

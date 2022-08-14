@@ -110,6 +110,14 @@ $theme-identifier-max-width: "desktop" !default;
 $theme-identifier-primary-link-color: default !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
+// In-Page Navigation
+$theme-in-page-nav-background-color: "white" !default;
+$theme-in-page-nav-background-padding: 2 !default;
+$theme-in-page-nav-background-radius: "lg" !default;
+$theme-in-page-nav-bar-color: "secondary-dark" !default;
+$theme-in-page-nav-bar-width: 2px !default;
+$theme-in-page-nav-font-family: "ui" !default;
+
 // Modal
 $theme-modal-border-radius: "lg" !default;
 $theme-modal-default-max-width: "mobile-lg" !default;
