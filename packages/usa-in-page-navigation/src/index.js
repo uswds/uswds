@@ -21,7 +21,7 @@ const SUB_ITEM = "sub-item";
 
 // Set Intersection Observer options
 const IO_ROOT = null;
-const IO_ROOT_MARGIN = "0px 0px -90% 0px";
+const IO_ROOT_MARGIN = "0px 0px -95% 0px";
 const IO_THRESHOLD = [0];
 
 /**
