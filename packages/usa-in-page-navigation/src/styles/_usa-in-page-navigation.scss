@@ -18,7 +18,7 @@
     margin-top: units(2.5);
     max-width: units("card-lg");
     position: sticky;
-    top: units(4);
+    top: units($theme-in-page-nav-top-position);
 
     @include at-media("tablet") {
       display: block;
