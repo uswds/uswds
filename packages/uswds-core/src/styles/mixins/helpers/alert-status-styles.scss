@@ -107,10 +107,6 @@
 
   .usa-alert__text {
     @include u-margin-y(0);
-
-    a {
-      @include typeset-link;
-    }
   }
 
   .usa-link {
