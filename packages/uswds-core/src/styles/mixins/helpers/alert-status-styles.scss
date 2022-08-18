@@ -42,18 +42,9 @@
     // padding - optical spacing value
     left: $alert-icon-optical-padding;
     position: absolute;
-    top: units($theme-alert-padding-y * .75);
-    @include at-media($theme-site-margins-breakpoint){
-      left: units($alert-icon-left);
-    }
-  }
-}
-
-@mixin site-alert-margins {
-  &:before {
-    left: units($theme-site-margins-mobile-width);
+    top: units($theme-alert-padding-y * 0.75);
     @include at-media($theme-site-margins-breakpoint) {
-      left: units($theme-site-margins-width);
+      left: units($alert-icon-left);
     }
   }
 }
@@ -88,7 +79,7 @@
   @include u-padding-x($theme-site-margins-mobile-width);
 
   padding-left: units($theme-alert-icon-size) +
-        (2 * $alert-icon-optical-padding);
+    (2 * $alert-icon-optical-padding);
 
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width * 2);
