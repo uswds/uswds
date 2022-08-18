@@ -40,9 +40,12 @@
     display: block;
     height: $theme-alert-icon-size;
     // padding - optical spacing value
-    left: units($alert-icon-left);
+    left: $alert-icon-optical-padding;
     position: absolute;
     top: units($theme-alert-padding-y * .75);
+    @include at-media($theme-site-margins-breakpoint){
+      left: units($alert-icon-left);
+    }
   }
 }
 
@@ -79,11 +82,13 @@
     $context: "Alert (#{$name})"
   );
 
-
   position: relative;
   @include border-box-sizing;
   @include u-padding-y($theme-alert-padding-y);
   @include u-padding-x($theme-site-margins-mobile-width);
+
+  padding-left: units($theme-alert-icon-size) +
+        (2 * $alert-icon-optical-padding);
 
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width * 2);
@@ -149,7 +154,7 @@
     @include u-padding-y(1);
     @include add-slim-alert-icon;
 
-    padding-left: units($theme-site-margins-mobile-width) + $alert-slim-icon-size;
+    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
     @include at-media($theme-site-margins-breakpoint) {
       padding-left: units($theme-site-margins-width) + $alert-slim-icon-size;
     }
