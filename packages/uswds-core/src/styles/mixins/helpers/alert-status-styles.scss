@@ -142,10 +142,10 @@
     display: none;
   }
 
-    padding-left: units($theme-site-margins-mobile-width);
-    @include at-media($theme-site-margins-breakpoint) {
-      padding-left: units($theme-site-margins-width);
-    }
+  padding-left: units($theme-site-margins-mobile-width);
+  @include at-media($theme-site-margins-breakpoint) {
+    padding-left: units($theme-site-margins-width);
+  }
 }
 
 @mixin alert-styles-slim {
@@ -153,11 +153,9 @@
     @include u-padding-y(1);
     @include add-slim-alert-icon;
 
-    padding-left: units($theme-site-margins-mobile-width) +
-      $alert-slim-icon-size + units(1.5);
+    padding-left: units($theme-site-margins-mobile-width) + $alert-slim-icon-size;
     @include at-media($theme-site-margins-breakpoint) {
-      padding-left: units($theme-site-margins-width) + $alert-slim-icon-size +
-        units(1.5);
+      padding-left: units($theme-site-margins-width) + $alert-slim-icon-size;
     }
   }
 }
