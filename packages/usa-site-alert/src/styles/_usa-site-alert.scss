@@ -23,6 +23,8 @@ $site-alert-icons: (
   }
 
   &.usa-site-alert--no-icon {
-    @include alert-styles-no-icon;
+    .usa-alert__body {
+      @include alert-styles-no-icon;
+    }
   }
 }
