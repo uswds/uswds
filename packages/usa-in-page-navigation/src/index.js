@@ -102,7 +102,7 @@ const createInPageNav = () => {
 
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("role", "navigation");
-  inPageNav.setAttribute("arial-label", "In-page navigation");
+  inPageNav.setAttribute("aria-label", IN_PAGE_NAV_TITLE);
 
   const inPageNavTitle = document.createElement("p");
   inPageNavTitle.classList.add(SITE_SUBHEADING);
