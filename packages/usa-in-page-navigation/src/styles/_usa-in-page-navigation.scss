@@ -8,7 +8,7 @@
   // Set main landmark max width to ensure in-page nav will fit
   main,
   [class^="main"] {
-    max-width: 87.5rem;
+    max-width: units($theme-in-page-nav-max-width);
     width: 100%;
   }
 
@@ -33,14 +33,11 @@
   }
 
   .usa-in-page-nav-list {
-    background-color: initial;
-    border: none;
-    border-left: units(1px) solid color("base-lighter");
-    @include typeset($theme-in-page-nav-font-family, "sm", 2);
-    padding: units(0);
-
     @include border-box-sizing;
     @include nav-list("sidenav");
+    @include typeset($theme-in-page-nav-font-family, "sm", 2);
+    border-left: units(1px) solid color("base-lighter");
+    padding: units(0);
 
     a {
       color: color("base-darker");

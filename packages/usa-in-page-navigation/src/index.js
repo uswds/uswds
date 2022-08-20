@@ -8,7 +8,7 @@ const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}-list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
-const IN_PAGE_NAV_ANCHOR_CLASS = "usa-anchor-tag";
+const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor-tag`;
 
 const IN_PAGE_NAV_LINK = `.${IN_PAGE_NAV_LINK_CLASS}`;
 const IN_PAGE_NAV_ANCHOR = `.${IN_PAGE_NAV_ANCHOR_CLASS}`;
@@ -104,7 +104,7 @@ const createInPageNav = () => {
   inPageNav.setAttribute("role", "navigation");
   inPageNav.setAttribute("aria-label", IN_PAGE_NAV_TITLE);
 
-  const inPageNavTitle = document.createElement("p");
+  const inPageNavTitle = document.createElement("h4");
   inPageNavTitle.classList.add(SITE_SUBHEADING);
   inPageNavTitle.textContent = IN_PAGE_NAV_TITLE;
   inPageNav.appendChild(inPageNavTitle);
