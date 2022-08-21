@@ -146,7 +146,7 @@ const createInPageNav = () => {
   };
 
   const anchorTags = getSectionAnchors();
-  const observeSections = new IntersectionObserver(setActive, options);
+  const observeSections = new window.IntersectionObserver(setActive, options);
 
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
