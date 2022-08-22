@@ -12,12 +12,7 @@ $alert-icons: (
 );
 
 .usa-alert {
-  @include alert-styles-background;
-
-  .usa-alert__body {
-    @include alert-styles;
-    @include alert-styles-no-icon;
-  }
+  @include alert-styles;
 }
 
 @each $name, $icon in $alert-icons {
@@ -36,9 +31,7 @@ $alert-icons: (
   }
 
   &.usa-alert--no-icon {
-    .usa-alert__body {
-      @include alert-styles-no-icon;
-    }
+    @include alert-styles-no-icon;
   }
 }
 

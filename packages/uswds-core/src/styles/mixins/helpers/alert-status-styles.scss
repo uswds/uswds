@@ -13,43 +13,6 @@
 
 // Common alert styles
 @mixin alert-styles {
-  @include border-box-sizing;
-  @include typeset($theme-alert-font-family);
-  @include u-margin-x("auto");
-  @include u-maxw($theme-site-alert-max-width);
-  @include u-padding-y($theme-alert-padding-y);
-  @include u-padding-x($theme-site-margins-mobile-width);
-
-  position: relative;
-
-  .usa-alert__text {
-    @include u-margin-y(0);
-
-    &:only-child {
-      @include u-padding-y(0);
-    }
-  }
-
-  .usa-alert__heading {
-    @include typeset($theme-alert-font-family, "lg", 1);
-    margin-top: 0;
-    margin-bottom: units(1);
-  }
-
-  > .usa-list {
-    padding-left: 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .usa-list {
-    padding-left: 2ch;
-  }
-}
-
-@mixin alert-styles-background {
   $bgcolor: "base-lightest";
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
@@ -61,9 +24,51 @@
   background-color: color($bgcolor);
   border-left: units($theme-alert-bar-width) solid color("base-light");
   color: color($banner-text-color-token);
+
+  .usa-alert__body {
+    @include border-box-sizing;
+    @include typeset($theme-alert-font-family);
+    @include u-margin-x("auto");
+    @include u-maxw($theme-site-alert-max-width);
+    @include u-padding-y($theme-alert-padding-y);
+    @include u-padding-x($theme-site-margins-mobile-width);
+
+    padding-left: units($theme-site-margins-mobile-width);
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: 2 * $alert-icon-optical-padding;
+    }
+    position: relative;
+
+    .usa-alert__text {
+      @include u-margin-y(0);
+
+      &:only-child {
+        @include u-padding-y(0);
+      }
+    }
+
+    .usa-alert__heading {
+      @include typeset($theme-alert-font-family, "lg", 1);
+      margin-top: 0;
+      margin-bottom: units(1);
+    }
+
+    > .usa-list {
+      padding-left: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .usa-list {
+      padding-left: 2ch;
+    }
+  }
 }
 
-// Set styles for alert wrapper/background
+
+// Set status styles for alert wrapper/background
 @mixin alert-status-styles-background($name) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
@@ -74,10 +79,10 @@
   );
 
   background-color: color($bgcolor);
-  border-left: units($theme-alert-bar-width) solid color($name);
+  border-left-color: color($name);
 }
 
-// Set styles for alert content
+// Set status styles for alert content
 @mixin alert-status-styles($name, $icon) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
@@ -131,13 +136,15 @@
 
 // Variant - no icon
 @mixin alert-styles-no-icon {
-  &:before {
-    display: none;
-  }
+  .usa-alert__body {
+    &:before {
+      display: none;
+    }
 
-  padding-left: units($theme-site-margins-mobile-width);
-  @include at-media($theme-site-margins-breakpoint) {
-    padding-left: 2 * $alert-icon-optical-padding;
+    padding-left: units($theme-site-margins-mobile-width);
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: 2 * $alert-icon-optical-padding;
+    }
   }
 }
 
