@@ -46,7 +46,7 @@
 
   position: relative;
   padding-left: units($theme-alert-icon-size) +
-  (2 * $alert-icon-optical-padding);
+    (2 * $alert-icon-optical-padding);
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width * 2);
   }
@@ -122,7 +122,6 @@
     padding-left: 2 * $alert-icon-optical-padding;
   }
 }
-
 
 // Variant - slim
 @mixin add-slim-alert-icon {
