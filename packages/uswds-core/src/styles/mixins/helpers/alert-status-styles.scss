@@ -119,7 +119,7 @@
 
   padding-left: units($theme-site-margins-mobile-width);
   @include at-media($theme-site-margins-breakpoint) {
-    padding-left: units($theme-site-margins-width);
+    padding-left: 2 * $alert-icon-optical-padding;
   }
 }
 
