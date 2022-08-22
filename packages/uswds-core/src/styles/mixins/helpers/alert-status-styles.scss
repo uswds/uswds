@@ -12,7 +12,7 @@
 @use "../helpers/set-link-from-bg" as *;
 
 // Set styles for alert wrapper/background
-@mixin alert-status-styles-background($name, $icon) {
+@mixin alert-status-styles-background($name) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
@@ -26,18 +26,8 @@
   color: color($banner-text-color-token);
 }
 
-// Set styles for alert content
-@mixin alert-status-styles($name, $icon) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: "Alert (#{$name})"
-  );
-  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+@mixin alert-styles {
   @include border-box-sizing;
-  @include set-text-and-bg($bgcolor);
   @include typeset($theme-alert-font-family);
   @include u-margin-x("auto");
   @include u-maxw($theme-site-alert-max-width);
@@ -65,15 +55,6 @@
     margin-bottom: units(1);
   }
 
-  .usa-link {
-    @include set-link-from-bg(
-      $bgcolor,
-      $theme-alert-link-reverse-color,
-      $theme-alert-link-color,
-      $context: "Alert (#{$name})"
-    );
-  }
-
   > .usa-list {
     padding-left: 0;
 
@@ -84,6 +65,28 @@
 
   .usa-list {
     padding-left: 2ch;
+  }
+}
+
+// Set styles for alert content
+@mixin alert-status-styles($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  @include set-text-and-bg($bgcolor);
+
+  .usa-link {
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
   }
 }
 
