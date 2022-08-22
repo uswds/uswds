@@ -11,15 +11,79 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
-@mixin add-slim-alert-icon {
-  &:before {
-    background-size: $alert-slim-icon-size;
-    height: $alert-slim-icon-size;
-    top: units(1);
-    width: $alert-slim-icon-size;
-    @supports (mask: url("")) {
-      mask-size: $alert-slim-icon-size;
+// Set styles for alert wrapper/background
+@mixin alert-status-styles-background($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+
+  background-color: color($bgcolor);
+  border-left: units($theme-alert-bar-width) solid color($name);
+  color: color($banner-text-color-token);
+}
+
+// Set styles for alert content
+@mixin alert-status-styles($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  @include border-box-sizing;
+  @include set-text-and-bg($bgcolor);
+  @include typeset($theme-alert-font-family);
+  @include u-margin-x("auto");
+  @include u-maxw($theme-site-alert-max-width);
+  @include u-padding-y($theme-alert-padding-y);
+  @include u-padding-x($theme-site-margins-mobile-width);
+
+  position: relative;
+  padding-left: units($theme-alert-icon-size) +
+  (2 * $alert-icon-optical-padding);
+  @include at-media($theme-site-margins-breakpoint) {
+    @include u-padding-x($theme-site-margins-width * 2);
+  }
+
+  .usa-alert__text {
+    @include u-margin-y(0);
+
+    &:only-child {
+      @include u-padding-y(0);
     }
+  }
+
+  .usa-alert__heading {
+    @include typeset($theme-alert-font-family, "lg", 1);
+    margin-top: 0;
+    margin-bottom: units(1);
+  }
+
+  .usa-link {
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
+  }
+
+  > .usa-list {
+    padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .usa-list {
+    padding-left: 2ch;
   }
 }
 
@@ -32,8 +96,6 @@
     "height": $theme-alert-icon-size,
   );
 
-  $alert-icon-left: $theme-site-margins-width - $theme-alert-bar-width;
-
   &:before {
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
@@ -44,91 +106,12 @@
     position: absolute;
     top: units($theme-alert-padding-y * 0.75);
     @include at-media($theme-site-margins-breakpoint) {
-      left: units($alert-icon-left);
+      left: units($theme-site-margins-width - $theme-alert-bar-width);
     }
   }
 }
 
-@mixin alert-status-styles-background($name, $icon) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: "Alert (#{$name})"
-  );
-
-  background-color: color($bgcolor);
-  border-left: units($theme-alert-bar-width) solid color("base-light");
-  border-left-color: color($name);
-  color: color($banner-text-color-token);
-}
-
-@mixin alert-status-styles($name, $icon) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: "Alert (#{$name})"
-  );
-
-  position: relative;
-  @include border-box-sizing;
-  @include u-padding-y($theme-alert-padding-y);
-  @include u-padding-x($theme-site-margins-mobile-width);
-
-  padding-left: units($theme-alert-icon-size) +
-    (2 * $alert-icon-optical-padding);
-
-  @include at-media($theme-site-margins-breakpoint) {
-    @include u-padding-x($theme-site-margins-width * 2);
-  }
-
-  @include u-margin-x("auto");
-  @include u-maxw($theme-site-alert-max-width);
-
-  @include typeset($theme-alert-font-family);
-  @include set-text-and-bg($bgcolor);
-  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
-
-  > .usa-list,
-  .usa-alert__body > .usa-list {
-    padding-left: 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .usa-alert__text {
-    @include u-margin-y(0);
-  }
-
-  .usa-link {
-    @include set-link-from-bg(
-      $bgcolor,
-      $theme-alert-link-reverse-color,
-      $theme-alert-link-color,
-      $context: "Alert (#{$name})"
-    );
-  }
-
-  .usa-list {
-    padding-left: 2ch;
-  }
-
-  .usa-alert__heading {
-    @include typeset($theme-alert-font-family, "lg", 1);
-    margin-top: 0;
-    margin-bottom: units(1);
-  }
-
-  .usa-alert__text:only-child {
-    @include u-padding-y(0);
-  }
-}
-
+// Variant - no icon
 @mixin alert-styles-no-icon {
   &:before {
     display: none;
@@ -137,6 +120,20 @@
   padding-left: units($theme-site-margins-mobile-width);
   @include at-media($theme-site-margins-breakpoint) {
     padding-left: units($theme-site-margins-width);
+  }
+}
+
+
+// Variant - slim
+@mixin add-slim-alert-icon {
+  &:before {
+    background-size: $alert-slim-icon-size;
+    height: $alert-slim-icon-size;
+    top: units($theme-alert-padding-y * 0.5);
+    width: $alert-slim-icon-size;
+    @supports (mask: url("")) {
+      mask-size: $alert-slim-icon-size;
+    }
   }
 }
 
