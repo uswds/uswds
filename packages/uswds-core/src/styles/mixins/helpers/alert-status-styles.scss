@@ -11,21 +11,7 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
-// Set styles for alert wrapper/background
-@mixin alert-status-styles-background($name) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: "Alert (#{$name})"
-  );
-
-  background-color: color($bgcolor);
-  border-left: units($theme-alert-bar-width) solid color($name);
-  color: color($banner-text-color-token);
-}
-
+// Common alert styles
 @mixin alert-styles {
   @include border-box-sizing;
   @include typeset($theme-alert-font-family);
@@ -35,11 +21,6 @@
   @include u-padding-x($theme-site-margins-mobile-width);
 
   position: relative;
-  padding-left: units($theme-alert-icon-size) +
-    (2 * $alert-icon-optical-padding);
-  @include at-media($theme-site-margins-breakpoint) {
-    @include u-padding-x($theme-site-margins-width * 2);
-  }
 
   .usa-alert__text {
     @include u-margin-y(0);
@@ -68,6 +49,34 @@
   }
 }
 
+@mixin alert-styles-background {
+  $bgcolor: "base-lightest";
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (default)"
+  );
+
+  background-color: color($bgcolor);
+  border-left: units($theme-alert-bar-width) solid color("base-light");
+  color: color($banner-text-color-token);
+}
+
+// Set styles for alert wrapper/background
+@mixin alert-status-styles-background($name) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+
+  background-color: color($bgcolor);
+  border-left: units($theme-alert-bar-width) solid color($name);
+}
+
 // Set styles for alert content
 @mixin alert-status-styles($name, $icon) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
@@ -79,6 +88,12 @@
   );
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
+
+  padding-left: units($theme-alert-icon-size) +
+    (2 * $alert-icon-optical-padding);
+  @include at-media($theme-site-margins-breakpoint) {
+    @include u-padding-x($theme-site-margins-width * 2);
+  }
 
   .usa-link {
     @include set-link-from-bg(

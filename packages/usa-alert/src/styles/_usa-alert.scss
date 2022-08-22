@@ -12,10 +12,11 @@ $alert-icons: (
 );
 
 .usa-alert {
-  @include alert-status-styles-background("base");
+  @include alert-styles-background;
 
   .usa-alert__body {
     @include alert-styles;
+    @include alert-styles-no-icon;
   }
 }
 
