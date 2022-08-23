@@ -15,7 +15,8 @@
         type="text"
         aria-labelledby="event-date-start-label"
         aria-describedby="event-date-start-hint"
-        {% if disabled == 'true' %} disabled{% endif %}>
+        {% if disabled_state == "disabled" %}disabled{% endif %}
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>
     </div>
   </div>
 
@@ -32,7 +33,8 @@
         type="text"
         aria-labelledby="event-date-end-label"
         aria-describedby="event-date-end-hint"
-        {% if disabled == 'true' %} disabled{% endif %}>
+        {% if disabled_state == "disabled" %}disabled{% endif %}
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>
     </div>
   </div>
 </div>
