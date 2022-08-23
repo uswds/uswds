@@ -10,6 +10,11 @@
       "lang_att": "ar"
     },
     {
+      "lang_label_en": "Chinese",
+      "lang_label": "中国人",
+      "lang_att": "zh"
+    },
+    {
       "lang_label_en": "English",
       "lang_label": "English",
       "lang_att": "en"
@@ -28,11 +33,6 @@
       "lang_label_en": "Spanish",
       "lang_label": "Español",
       "lang_att": "es"
-    },
-    {
-      "lang_label_en": "Other",
-      "lang_label": "",
-      "lang_att": ""
     }
   ],
   "more": "More languages with selected content",
@@ -80,9 +80,6 @@
             "label": "<Navigation link>"
           }
         ]
-      },
-      {
-        "label": "<Simple link>"
       }
     ]
   },

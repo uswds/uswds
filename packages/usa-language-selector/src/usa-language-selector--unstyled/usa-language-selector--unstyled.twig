@@ -1,7 +1,7 @@
-<div class="usa-language-container usa-language--small">
+<div class="usa-language-container">
   <ul class="usa-language__primary usa-accordion">
     <li class="usa-language__primary-item">
-      <button class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
+      <button class="usa-button--unstyled usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
         {{ label | default('Languages') }}
       </button>
       {% if languages %}

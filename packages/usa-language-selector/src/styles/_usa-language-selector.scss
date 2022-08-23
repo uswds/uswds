@@ -1,41 +1,21 @@
 @use "uswds-core" as *;
 
-.usa-language-btn {
-  @include button-unstyled;
-  @include u-flex("auto");
-  @include u-padding-x(1.5);
-  background-color: color("primary");
-  color: color("white");
-  font-size: font-size($theme-header-font-family, "3xs");
-  height: units($size-touch-target);
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  @include at-media($theme-header-min-width) {
-    // display: none;
-  }
-
-  &:hover {
-    background-color: color("primary-dark");
-    color: color("white");
-    text-decoration: none;
-  }
-
-  &:active {
-    color: color("white");
-  }
-
-  &:visited {
-    color: color("white");
-  }
-}
-
 .usa-language {
   @include u-flex("row", "align-center", "justify-end");
   display: flex;
   padding: 0 0 units(0.5) units(1);
   width: 100%;
+
+  &--small {
+    .usa-button {
+      @include u-padding-x(1.5);
+      @include u-padding-y(0);
+      font-size: font-size($theme-header-font-family, "3xs");
+      height: units(4);
+      margin-top: 0.3rem;
+      min-width: units($theme-button-small-width);
+    }
+  }
 }
 
 .usa-language-container {
@@ -45,6 +25,7 @@
 
 .usa-nav-container {
   .usa-language-container {
+    align-self: center;
     margin-left: units(0);
     position: absolute;
     right: units(10);
@@ -124,5 +105,11 @@
   }
 }
 
+// Adjustments for language selector in header example.
+.usa-header--basic .usa-nav {
+  align-items: flex-start;
+}
 
-.usa-language-btn {}
+.usa-header--basic .usa-nav-container {
+  align-items: baseline;
+}
