@@ -31,7 +31,6 @@ const createShell = (input) => {
 
   const content = document.createElement("span");
   content.classList.add(MASK_CONTENT);
-  content.classList.add("test");
   content.setAttribute("aria-hidden", "true");
   content.id = `${input.id}Mask`;
   content.textContent = placeholder;
@@ -80,7 +79,7 @@ const handleCurrentValue = (el) => {
 
   for (i = 0, j = 0; i < l; i += 1) {
     // eslint-disable-next-line no-multi-assign, no-restricted-globals
-    const x = (isInt = !isNaN(parseInt(strippedValue[j], 10)));
+    isInt = !isNaN(parseInt(strippedValue[j], 10));
     isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
@@ -90,6 +89,9 @@ const handleCurrentValue = (el) => {
       (isCharsetPresent && matchesLetter && isLetter)
     ) {
       newValue += strippedValue[j++];
+      console.log("newValue ", newValue); // eslint-disable-line no-console
+      console.log("strippedValue ", strippedValue); // eslint-disable-line no-console
+      console.log("j ", j); // eslint-disable-line no-console
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&

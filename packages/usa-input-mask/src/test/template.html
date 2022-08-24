@@ -1,0 +1,16 @@
+<div id="root">
+  <h3 class="site-preview-heading">Social Security Number Input Mask</h3>
+  <label class="usa-label" for="ssn">Social Security Number</label>
+  <div class="usa-hint flex" id="ssnHint">For example: XXX XX XXXX</div>
+  <span class="usa-input-mask" data-mask="XXX XX XXXX"><span class="usa-input-mask--content test" aria-hidden="true" id="ssnMask">XXX XX XXXX</span><input id="ssn" type="text" inputmode="numeric" name="ssn" pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$" class="usa-input usa-masked" title="9-digit social security number" aria-describedby="ssnHint" maxlength="11" data-placeholder="XXX XX XXXX"></span>
+
+  <h3 class="site-preview-heading">US Telephone Number Input Mask</h3>
+  <label class="usa-label" for="tel">US Telephone Number</label>
+  <div class="usa-hint" id="pnHint">For example: (XXX) XXX-XXXX</div>
+  <span class="usa-input-mask" data-mask="(XXX) XXX-XXXX"><span class="usa-input-mask--content test" aria-hidden="true" id="telMask">(XXX) XXX-XXXX</span><input id="tel" type="tel" name="phone" pattern="\(\d{3}\) \d{3}\-\d{4}" class="usa-input usa-masked" title="10-digit USA telephone number" aria-describedby="pnHint" maxlength="14" data-placeholder="(XXX) XXX-XXXX"></span>
+
+  <h3 class="site-preview-heading">9 Digit US Zip Code Input Mask</h3>
+  <label class="usa-label" for="zip">Zip Code</label>
+  <div class="usa-hint" id="zipHint">For example: XXXXX-XXXX</div>
+  <span class="usa-input-mask" data-mask="XXXXX-XXXX"><span class="usa-input-mask--content test" aria-hidden="true" id="zipMask">XXXXX-XXXX</span><input id="zip" type="text" inputmode="numeric" name="zip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" class="usa-input usa-masked" title="9-digit zip code" aria-describedby="zipHint" maxlength="10" data-placeholder="XXXXX-XXXX"></span>
+</div>

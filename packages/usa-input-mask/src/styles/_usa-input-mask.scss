@@ -2,27 +2,25 @@
 
 .usa-input-mask {
   position: relative;
-  line-height: 1;
 
   &--content {
-    position: absolute;
-    left: 2px;
-    top: 0;
-    pointer-events: none;
-    color: color("gray-50");
-    font-family: family("sans");
     border: 1px solid transparent;
+    color: color("gray-50");
+    font-size: font-size($theme-form-font-family, $theme-body-font-size);
+    left: 2px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+
     i {
       visibility: hidden;
     }
   }
 }
 
-usa-masked,
+.usa-masked,
 .usa-input-mask--content {
-  padding: units(1);
-  line-height: 1.4;
-  font-size: size('body', 'sm');
+  @extend %block-input-general;
   background-color: transparent;
-  text-transform: uppercase;
+  padding: units(1);
 }
