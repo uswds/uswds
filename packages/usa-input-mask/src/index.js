@@ -38,11 +38,6 @@ const createShell = (input) => {
   shell.appendChild(content);
   input.parentNode.insertBefore(shell, input);
   shell.appendChild(input);
-
-  // // This section still needs some rework
-  // const text = `<span class="${MASK}"><span class="${MASK_CONTENT}" aria-hidden="true" id="${input.id}Mask"><i></i>${placeholder}</span>${input.outerHTML}</span>`;
-  // input.outerHTML = text; // eslint-disable-line no-param-reassign, no-unsanitized/property
-  // input.insertAdjacentElement("beforebegin", shellSpanOuter);
 };
 
 const setUpMasks = (inputs) => {
@@ -89,9 +84,6 @@ const handleCurrentValue = (el) => {
       (isCharsetPresent && matchesLetter && isLetter)
     ) {
       newValue += strippedValue[j++];
-      console.log("newValue ", newValue); // eslint-disable-line no-console
-      console.log("strippedValue ", strippedValue); // eslint-disable-line no-console
-      console.log("j ", j); // eslint-disable-line no-console
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&

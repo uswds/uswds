@@ -4,7 +4,7 @@ const assert = require("assert");
 const InputMask = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/input-mask.template.html")
+  path.join(__dirname, "/input-mask-zip-code.template.html")
 );
 
 const EVENTS = {};
@@ -44,12 +44,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    it("formats a nine digit social security number to 999 99 9999", () => {
-      input.value = "999999999";
+    it("formats a US zip code to 12345-6789", () => {
+      input.value = "123456789";
 
       EVENTS.input(input);
       shell = root.querySelector(".usa-input-mask--content");
-      assert.strictEqual(shell.textContent, "999 99 9999");
+      assert.strictEqual(shell.textContent, "12345-6789");
     });
   });
 });
+
