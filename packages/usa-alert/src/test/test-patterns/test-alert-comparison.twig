@@ -1,331 +1,81 @@
-<section class="usa-banner" aria-label="Official government website">
-  <div class="usa-accordion">
-    <header class="usa-banner__header">
-      <div class="usa-banner__inner">
-        <div class="grid-col-auto">
-          <img
-            class="usa-banner__header-flag"
-            src="https://designsystem.digital.gov/assets/img/us_flag_small.png"
-            alt="U.S. flag"
-          />
-        </div>
-        <div class="grid-col-fill tablet:grid-col-auto">
-          <p class="usa-banner__header-text">
-            An official website of the United States government
-          </p>
-          <p class="usa-banner__header-action" aria-hidden="true">
-            Here’s how you know
-          </p>
-        </div>
-        <button
-          type="button"
-          class="usa-accordion__button usa-banner__button"
-          aria-expanded="false"
-          aria-controls="gov-banner-default-default"
-        >
-          <span class="usa-banner__button-text">Here’s how you know</span>
-        </button>
-      </div>
-    </header>
-    <div
-      class="usa-banner__content usa-accordion__content"
-      id="gov-banner-default-default"
-    >
-      <div class="grid-row grid-gap-lg">
-        <div class="usa-banner__guidance tablet:grid-col-6">
-          <img
-            class="usa-banner__icon usa-media-block__img"
-            src="https://designsystem.digital.gov/assets/img/icon-dot-gov.svg"
-            role="img"
-            alt=""
-            aria-hidden="true"
-          />
-          <div class="usa-media-block__body">
-            <p>
-              <strong>Official websites use .gov</strong><br />A
-              <strong>.gov</strong> website belongs to an official government
-              organization in the United States.
-            </p>
-          </div>
-        </div>
-        <div class="usa-banner__guidance tablet:grid-col-6">
-          <img
-            class="usa-banner__icon usa-media-block__img"
-            src="https://designsystem.digital.gov/assets/img/icon-https.svg"
-            role="img"
-            alt=""
-            aria-hidden="true"
-          />
-          <div class="usa-media-block__body">
-            <p>
-              <strong>Secure .gov websites use HTTPS</strong><br />A
-              <strong>lock</strong> (
-              <span class="icon-lock"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="52"
-                  height="64"
-                  viewBox="0 0 52 64"
-                  class="usa-banner__lock-image"
-                  role="img"
-                  aria-labelledby="banner-lock-title-default banner-lock-description-default"
-                  focusable="false"
-                >
-                  <title id="banner-lock-title-default">Lock</title>
-                  <desc id="banner-lock-description-default">A locked padlock</desc>
-                  <path
-                    fill="#000000"
-                    fill-rule="evenodd"
-                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
-                  />
-                </svg> </span
-              >) or <strong>https://</strong> means you’ve safely connected to
-              the .gov website. Share sensitive information only on official,
-              secure websites.
-            </p>
-          </div>
-        </div>
+
+{% set banner = {
+    'banner': {
+      'id': 'gov-banner-default',
+      'text': 'An official website of the United States government',
+      'action': 'Here’s how you know',
+      'aria_label': 'Official government website'
+    },
+    'domain': {
+      'heading': 'Official websites use .gov',
+      'text': 'A <strong>.gov</strong> website belongs to an official government organization in the United States.'
+    },
+    'https': {
+      'heading': 'Secure .gov websites use HTTPS',
+      'pretext': 'A <strong>lock</strong>',
+      'posttext': 'or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.'
+    }
+} %}
+
+{% include "@components/usa-banner/src/usa-banner.twig" with banner %}
+
+{% for alert in alerts %}
+  <h3>{{ alert.header }}</h3>
+  <div class="usa-alert {{ alert.alertModifier }}">
+    <div class="usa-alert__body">
+      {% if alert.title %}<h4 class="usa-alert__heading">{{ alert.title }}</h4>{% endif %}
+      <p class="usa-alert__text">
+        Lorem ipsum dolor sit amet,
+        <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+        elit, sed do eiusmod.
+      </p>
+    </div>
+  </div>
+  <hr/>
+  <section
+    class="usa-site-alert {{ alert.siteModifier }}"
+    aria-label="{{ alert.aria }}"
+  >
+    <div class="usa-alert">
+      <div class="usa-alert__body">
+        {% if alert.title %}<h3 class="usa-alert__heading">{{ alert.title }}</h3>{% endif %}
+        <p class="usa-alert__text">
+          Additional context and followup information including
+          <a class="usa-link" href="javascript:void(0);">a link</a>.
+        </p>
       </div>
     </div>
-  </div>
-</section>
-
-<h3 class="site-preview-heading">Info alert</h3>
-<div class="usa-alert usa-alert--info" role="alert">
-  <div class="usa-alert__body">
-    <h4 class="usa-alert__heading">Error status</h4>
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--info"
-  aria-label="Site alert info"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <h3 class="usa-alert__heading">Emergency alert message</h3>
-      <p class="usa-alert__text">
-        Additional context and followup information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<h3 class="site-preview-heading">Slim alert - Info</h3>
-<div class="usa-alert usa-alert--info usa-alert--slim">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--info usa-site-alert--slim"
-  aria-label="Site alert info,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
+  </section>
+{% endfor %}
 
 
-<h3 class="site-preview-heading">Alert with no icon - Info</h3>
-<div class="usa-alert usa-alert--info usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--info usa-site-alert--no-icon"
-  aria-label="Site alert info,,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
+{% set footer = {
+  'footer': {
+    'return_to_top': 'Return to top',
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'}
+        ]
+      }
+    },
+    'secondary_section': {
+      'agency_name': '<Name of Agency>',
+      'heading': '<Agency Contact Center>',
+      'phone': '<(800) 555-GOVT>',
+      'email': '<info@agency.gov>',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
+    }
+  }
+} %}
 
-<h3 class="site-preview-heading">Emergency alert</h3>
-<div class="usa-alert usa-alert--emergency" role="alert">
-  <div class="usa-alert__body">
-    <h4 class="usa-alert__heading">Error status</h4>
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--emergency"
-  aria-label="Site alert emergency"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <h3 class="usa-alert__heading">Emergency alert message</h3>
-      <p class="usa-alert__text">
-        Additional context and followup information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<h3 class="site-preview-heading">Slim alert - Emergency</h3>
-<div class="usa-alert usa-alert--emergency usa-alert--slim">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--emergency usa-site-alert--slim"
-  aria-label="Site alert emergency,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<h3 class="site-preview-heading">Alert with no icon - Emergency</h3>
-<div class="usa-alert usa-alert--emergency usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-icon"
-  aria-label="Site alert emergency,,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<h3 class="site-preview-heading">Default alert</h3>
-<div class="usa-alert" role="alert">
-  <div class="usa-alert__body">
-    <h4 class="usa-alert__heading">Error status</h4>
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert"
-  aria-label="Site alert"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <h3 class="usa-alert__heading">Emergency alert message</h3>
-      <p class="usa-alert__text">
-        Additional context and followup information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<h3 class="site-preview-heading">Slim alert - Default</h3>
-<div class="usa-alert usa-alert--slim usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--slim usa-site-alert--no-icon"
-  aria-label="Site alert,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<h3 class="site-preview-heading">Alert with no icon - Default</h3>
-<div class="usa-alert usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      Lorem ipsum dolor sit amet,
-      <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-      elit, sed do eiusmod.
-    </p>
-  </div>
-</div>
-<hr/>
-<section
-  class="usa-site-alert usa-site-alert--no-icon"
-  aria-label="Site alert,,"
->
-  <div class="usa-alert">
-    <div class="usa-alert__body">
-      <p class="usa-alert__text">
-        <strong>Short alert message.</strong> Additional context and followup
-        information including
-        <a class="usa-link" href="javascript:void(0);">a link</a>.
-      </p>
-    </div>
-  </div>
-</section>
+{% include '@components/usa-footer/src/usa-footer.twig' with footer %}
