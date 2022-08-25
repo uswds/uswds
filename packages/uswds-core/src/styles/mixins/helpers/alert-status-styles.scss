@@ -59,15 +59,11 @@
 
   > .usa-list,
   .usa-alert__body > .usa-list {
-    padding-left: 0;
+    padding-left: 2ch;
 
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  .usa-list {
-    padding-left: 2ch;
   }
 }
 
