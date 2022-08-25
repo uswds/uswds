@@ -99,7 +99,7 @@
   @include set-text-and-bg($bgcolor);
 
   padding-left: units($theme-alert-icon-size) +
-    (2 * $alert-icon-optical-padding);
+    ($alert-icon-optical-padding);
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width * 2);
   }
@@ -123,13 +123,13 @@
     "height": $theme-alert-icon-size,
   );
 
-  &:before {
+  &::before {
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
     display: block;
     height: $theme-alert-icon-size;
     // padding - optical spacing value
-    left: $alert-icon-optical-padding;
+    left: units($theme-site-margins-mobile-width - $theme-alert-bar-width);
     position: absolute;
     top: units($theme-alert-padding-y * 0.75);
     @include at-media($theme-site-margins-breakpoint) {
@@ -145,7 +145,7 @@
       display: none;
     }
 
-    padding-left: units($theme-site-margins-mobile-width);
+    padding-left: units($theme-site-margins-mobile-width - $theme-alert-bar-width);
     @include at-media($theme-site-margins-breakpoint) {
       padding-left: 2 * $alert-icon-optical-padding;
     }
@@ -170,7 +170,7 @@
     @include u-padding-y(1);
     @include add-slim-alert-icon;
 
-    padding-left: $alert-slim-icon-size + (2 * $alert-icon-optical-padding);
+    padding-left: $alert-slim-icon-size + $alert-icon-optical-padding;
     @include at-media($theme-site-margins-breakpoint) {
       padding-left: units($theme-site-margins-width) + $alert-slim-icon-size;
     }
