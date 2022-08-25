@@ -11,7 +11,7 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
-// Common alert styles
+// Base alert styles
 @mixin alert-styles {
   $bgcolor: "base-lightest";
   $banner-text-color-token: get-color-token-from-bg(
@@ -25,6 +25,10 @@
   border-left: units($theme-alert-bar-width) solid color("base-light");
   color: color($banner-text-color-token);
 
+  * + & {
+    margin-top: units(2);
+  }
+
   .usa-alert__body {
     @include border-box-sizing;
     @include typeset($theme-alert-font-family);
@@ -32,41 +36,40 @@
     @include u-maxw($theme-site-alert-max-width);
     @include u-padding-y($theme-alert-padding-y);
     @include u-padding-x($theme-site-margins-mobile-width);
-
-    padding-left: units($theme-site-margins-mobile-width);
     @include at-media($theme-site-margins-breakpoint) {
       padding-left: 2 * $alert-icon-optical-padding;
     }
+
     position: relative;
+  }
 
-    .usa-alert__text {
-      @include u-margin-y(0);
+  .usa-alert__text {
+    @include u-margin-y(0);
 
-      &:only-child {
-        @include u-padding-y(0);
-      }
-    }
-
-    .usa-alert__heading {
-      @include typeset($theme-alert-font-family, "lg", 1);
-      margin-top: 0;
-      margin-bottom: units(1);
-    }
-
-    > .usa-list {
-      padding-left: 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .usa-list {
-      padding-left: 2ch;
+    &:only-child {
+      @include u-padding-y(0);
     }
   }
-}
 
+  .usa-alert__heading {
+    @include typeset($theme-alert-font-family, "lg", 1);
+    margin-top: 0;
+    margin-bottom: units(1);
+  }
+
+  > .usa-list,
+  .usa-alert__body > .usa-list {
+    padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .usa-list {
+    padding-left: 2ch;
+  }
+}
 
 // Set status styles for alert wrapper/background
 @mixin alert-status-styles-background($name) {
@@ -83,6 +86,7 @@
 }
 
 // Set status styles for alert content
+// added to __body element
 @mixin alert-status-styles($name, $icon) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
