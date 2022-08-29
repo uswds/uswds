@@ -70,12 +70,6 @@
 // Set status styles for alert wrapper/background
 @mixin alert-status-wrapper-styles($name) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: "Alert (#{$name})"
-  );
 
   background-color: color($bgcolor);
   border-left-color: color($name);
@@ -94,8 +88,7 @@
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
 
-  padding-left: units($theme-alert-icon-size) +
-    ($alert-icon-optical-padding);
+  padding-left: units($theme-alert-icon-size) + ($alert-icon-optical-padding);
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width * 2);
   }
@@ -141,7 +134,9 @@
       display: none;
     }
 
-    padding-left: units($theme-site-margins-mobile-width - $theme-alert-bar-width);
+    padding-left: units(
+      $theme-site-margins-mobile-width - $theme-alert-bar-width
+    );
     @include at-media($theme-site-margins-breakpoint) {
       padding-left: 2 * $alert-icon-optical-padding;
     }
