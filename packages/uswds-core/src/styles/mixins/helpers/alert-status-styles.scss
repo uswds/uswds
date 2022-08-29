@@ -68,7 +68,7 @@
 }
 
 // Set status styles for alert wrapper/background
-@mixin alert-status-styles-background($name) {
+@mixin alert-status-wrapper-styles($name) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
@@ -83,7 +83,7 @@
 
 // Set status styles for alert content
 // added to __body element
-@mixin alert-status-styles($name, $icon) {
+@mixin alert-status-body-styles($name, $icon) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
