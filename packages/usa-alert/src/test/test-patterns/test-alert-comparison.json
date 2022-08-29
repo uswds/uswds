@@ -1,42 +1,42 @@
 {
-    "alerts": [
-        {
-            "header": "Info alert",
-            "alertModifier": "usa-alert--info",
-            "siteModifier": "usa-site-alert--info",
-            "title": "Informative status",
-            "aria": "Site alert info"
-        },
-        {
-            "header": "Info alert - slim",
-            "alertModifier": "usa-alert--info usa-alert--slim",
-            "siteModifier": "usa-site-alert--info usa-site-alert--slim",
-            "aria": "Site alert info,"
-        },
-        {
-            "header": "Info alert - no icon",
-            "alertModifier": "usa-alert--info usa-alert--no-icon",
-            "siteModifier": "usa-site-alert--info usa-site-alert--no-icon",
-            "aria": "Site alert info,,"
-        },
-        {
-            "header": "Emergency alert",
-            "alertModifier": "usa-alert--emergency",
-            "siteModifier": "usa-site-alert--emergency",
-            "title": "Informative status",
-            "aria": "Emergency alert info"
-        },
-        {
-            "header": "Emergency alert - slim",
-            "alertModifier": "usa-alert--emergency usa-alert--slim",
-            "siteModifier": "usa-site-alert--emergency usa-site-alert--slim",
-            "aria": "Emergency alert info,"
-        },
-        {
-            "header": "Emergency alert - no icon",
-            "alertModifier": "usa-alert--emergency usa-alert--no-icon",
-            "siteModifier": "usa-site-alert--emergency usa-site-alert--no-icon",
-            "aria": "Emergency alert info,,"
-        }
-      ]
-  }
+  "alerts": [
+    {
+      "header": "Info alert",
+      "alertModifier": "usa-alert--info",
+      "siteModifier": "usa-site-alert--info",
+      "title": "Informative status",
+      "aria": "Site alert info"
+    },
+    {
+      "header": "Info alert - slim",
+      "alertModifier": "usa-alert--info usa-alert--slim",
+      "siteModifier": "usa-site-alert--info usa-site-alert--slim",
+      "aria": "Site alert info,"
+    },
+    {
+      "header": "Info alert - no icon",
+      "alertModifier": "usa-alert--info usa-alert--no-icon",
+      "siteModifier": "usa-site-alert--info usa-site-alert--no-icon",
+      "aria": "Site alert info,,"
+    },
+    {
+      "header": "Emergency alert",
+      "alertModifier": "usa-alert--emergency",
+      "siteModifier": "usa-site-alert--emergency",
+      "title": "Informative status",
+      "aria": "Emergency alert info"
+    },
+    {
+      "header": "Emergency alert - slim",
+      "alertModifier": "usa-alert--emergency usa-alert--slim",
+      "siteModifier": "usa-site-alert--emergency usa-site-alert--slim",
+      "aria": "Emergency alert info,"
+    },
+    {
+      "header": "Emergency alert - no icon",
+      "alertModifier": "usa-alert--emergency usa-alert--no-icon",
+      "siteModifier": "usa-site-alert--emergency usa-site-alert--no-icon",
+      "aria": "Emergency alert info,,"
+    }
+  ]
+}
