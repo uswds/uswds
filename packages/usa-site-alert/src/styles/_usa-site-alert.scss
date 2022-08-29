@@ -23,12 +23,10 @@ $site-alert-icons: (
   }
 }
 
-.usa-site-alert {
-  &.usa-site-alert--slim {
-    @include alert-styles-slim;
-  }
+.usa-site-alert--slim .usa-alert {
+  @include alert-styles-slim;
+}
 
-  &.usa-site-alert--no-icon {
-    @include alert-styles-no-icon;
-  }
+.usa-site-alert--no-icon .usa-alert {
+  @include alert-styles-no-icon;
 }

@@ -25,14 +25,12 @@ $alert-icons: (
   }
 }
 
-.usa-alert {
-  &.usa-alert--slim {
-    @include alert-styles-slim;
-  }
+.usa-alert--slim {
+  @include alert-styles-slim;
+}
 
-  &.usa-alert--no-icon {
-    @include alert-styles-no-icon;
-  }
+.usa-alert--no-icon {
+  @include alert-styles-no-icon;
 }
 
 .usa-alert--validation {
