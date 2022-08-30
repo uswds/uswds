@@ -40,10 +40,8 @@
   }
 }
 
-// Don't show extended border if dropdown is active.
-.usa-language__link[aria-expanded="true"]::after,
-.usa-language__link[aria-expanded="true"]:hover::after {
-  display: none;
+.usa-language__link {
+  margin-right: units(0);
 }
 
 .usa-language__primary {
