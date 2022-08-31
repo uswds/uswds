@@ -424,7 +424,7 @@ The following is an example of theme settings from `_uswds-theme.scss`:
 
 ```scss
 @use "uswds-core" with (
-  $theme-site-max-width: "desktop",
+  $theme-grid-container-max-width: "desktop",
   $theme-site-margins-breakpoint: "desktop",
   $theme-site-margins-width: 4,
   $theme-site-margins-mobile-width: 2,
@@ -436,7 +436,7 @@ The USWDS uses those tokens to build component styles:
 ```scss
 .usa-example {
   @include u-padding-x($theme-site-margins-mobile-width);
-  max-width: units($theme-site-max-width);
+  max-width: units($theme-grid-container-max-width);
 
   @include at-media($theme-site-margins-breakpoint) {
     @include u-padding-x($theme-site-margins-width);
@@ -463,7 +463,7 @@ Which, if `$theme-respect-user-font-size` is set to `true` would output somethin
 .usa-example {
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 64 rem;
+  max-width: 64rem;
 }
 
 @media screen and (min-width: 64em) {
@@ -511,7 +511,7 @@ As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). W
 
 ## Accessibility
 
-The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/). 
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). Additionally, we try to meet the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/).
 
 We use the following tools to ensure USWDS is accessible:
 - [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html).
