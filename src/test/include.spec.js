@@ -1,6 +1,10 @@
-require("sass");
+require("sass-embedded");
 const path = require("path");
-const { runGulp, distScssPath, render } = require("../../packages/uswds-core/src/js/utils/test/util");
+const {
+  runGulp,
+  distScssPath,
+  render,
+} = require("../../packages/uswds-core/src/js/utils/test/util");
 
 const includePath = path.resolve(path.join(__dirname, "../"));
 
