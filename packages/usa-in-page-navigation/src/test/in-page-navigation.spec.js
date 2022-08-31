@@ -43,7 +43,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe.only(`in-page navigation initialized at ${name}`, () => {
+  describe(`in-page navigation initialized at ${name}`, () => {
     const { body } = document;
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 

@@ -1,5 +1,6 @@
 const once = require("receptor/once");
 const keymap = require("receptor/keymap");
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
@@ -96,10 +97,8 @@ const handleScrollToSection = (el) => {
   });
 };
 
-const createInPageNav = () => {
+const createInPageNav = (inPageNavEl) => {
   const sectionHeadings = getSectionHeadings();
-  const insertNode = document.querySelector(IN_PAGE_NAV);
-
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("role", "navigation");
   inPageNav.setAttribute("aria-label", IN_PAGE_NAV_TITLE);
@@ -137,7 +136,7 @@ const createInPageNav = () => {
     listItem.appendChild(navLinks);
   });
 
-  insertNode.appendChild(inPageNav);
+  inPageNavEl.appendChild(inPageNav);
 
   const options = {
     root: IO_ROOT,
@@ -210,8 +209,10 @@ const inPageNavigation = behavior(
     },
   },
   {
-    init() {
-      createInPageNav();
+    init(root) {
+      selectOrMatches(IN_PAGE_NAV, root).forEach((inPageNavEl) => {
+        createInPageNav(inPageNavEl);
+      });
     },
   }
 );
