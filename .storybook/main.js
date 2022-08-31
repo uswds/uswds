@@ -102,6 +102,7 @@ module.exports = {
                   "./packages",
                   "./node_modules/@uswds"
                 ],
+                implementation: require("sass-embedded")
               },
             },
           },
