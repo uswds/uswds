@@ -76,12 +76,12 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 ### Download and install without `npm`
 If you’re using a framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.13.3/uswds-2.13.3.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.13.4/uswds-2.13.4.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.13.3/
+   uswds-2.13.4/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -112,7 +112,7 @@ If you’re using a framework or package manager that doesn’t support `npm`, y
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.13.3/
+   │   ├── uswds-2.13.4/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -132,11 +132,11 @@ If you’re using a framework or package manager that doesn’t support `npm`, y
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.13.3/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.13.3/css/uswds.min.css" />
+       <script src="assets/uswds-2.13.4/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.13.4/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.13.3/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.13.4/js/uswds.min.js"></script>
      </body>
    </html>
    ```
