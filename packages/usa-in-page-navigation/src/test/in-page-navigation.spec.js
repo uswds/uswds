@@ -12,7 +12,6 @@ const STYLES = fs.readFileSync(
 const THE_NAV = ".usa-in-page-nav";
 const PRIMARY_CONTENT_SELECTOR =
   ".usa-in-page-nav-container .usa-in-page-nav .usa-in-page-nav-list";
-// const IN_PAGE_NAV_SELECTOR = ".usa-in-page-nav__link";
 
 /**
  * Resize the window's width, then dispatch a 'resize' event
@@ -48,7 +47,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
     let theNav;
-    // let theLinks;
     let theList;
 
     before(() => {
@@ -62,7 +60,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       theNav = document.querySelector(THE_NAV);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
-      // theLinks = () => document.querySelectorAll(IN_PAGE_NAV_SELECTOR);
 
       window.innerWidth = 1024;
       behavior.on(containerSelector());
