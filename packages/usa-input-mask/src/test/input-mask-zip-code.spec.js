@@ -14,7 +14,7 @@ const EVENTS = {};
  * @param {HTMLElement} el the element to sent the event to
  */
 EVENTS.input = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
+  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 };
 
 const inputMaskingSelector = () => document.querySelector(".usa-input-masking");

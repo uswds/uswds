@@ -1,20 +1,20 @@
+const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
-const MASKED = `${PREFIX}-masked`;
-const MASKED_CLASS = `.${MASKED}`;
+const MASKED_CLASS = `${PREFIX}-masked`;
+const MASKED = `.${MASKED_CLASS}`;
 const MASK = `${PREFIX}-input-mask`;
 const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
 
 // User defined Values
-// const maskedInputs = document.getElementsByClassName(MASKED_CLASS);
-const maskedNumber = "XdDmMyY9";
+const maskedNumber = "_dDmMyY9";
 const maskedLetter = "_";
 
-// replaces each masked input with a shall containing the input and it's mask.
-const createShell = (input) => {
+// replaces each masked input with a shell containing the input and it's mask.
+const createMaskedInputShell = (input) => {
   const placeholder = input.getAttribute(`${PLACEHOLDER}`);
   if (placeholder) {
     input.setAttribute("maxlength", placeholder.length);
@@ -38,12 +38,6 @@ const createShell = (input) => {
   shell.appendChild(content);
   input.parentNode.insertBefore(shell, input);
   shell.appendChild(input);
-};
-
-const setUpMasks = (inputs) => {
-  for (let i = 0; i < inputs.length; i += 1) {
-    createShell(inputs[i]);
-  }
 };
 
 const setValueOfMask = (el) => {
@@ -73,8 +67,7 @@ const handleCurrentValue = (el) => {
     : value.replace(/\D/g, "");
 
   for (i = 0, j = 0; i < l; i += 1) {
-    // eslint-disable-next-line no-multi-assign, no-restricted-globals
-    isInt = !isNaN(parseInt(strippedValue[j], 10));
+    isInt = !Number.isNaN(parseInt(strippedValue[j], 10));
     isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
@@ -83,13 +76,13 @@ const handleCurrentValue = (el) => {
       (matchesNumber && isInt) ||
       (isCharsetPresent && matchesLetter && isLetter)
     ) {
-      newValue += strippedValue[j++];
+      newValue += strippedValue[j];
+      j += 1;
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
         ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))
     ) {
-      // errorOnKeyEntry(); // write your own error handling function
       return newValue;
     } else {
       newValue += placeholder[i];
@@ -117,17 +110,18 @@ const handleValueChange = (el) => {
 const inputMaskEvents = {
   [CLICK]: {},
 
-  keydown: {
-    [MASKED_CLASS]() {
+  keyup: {
+    [MASKED]() {
       handleValueChange(this);
     },
   },
 };
 
 const inputMask = behavior(inputMaskEvents, {
-  init() {
-    const maskedInputs = document.querySelectorAll(MASKED_CLASS);
-    setUpMasks(maskedInputs);
+  init(root) {
+    selectOrMatches(MASKED, root).forEach((maskedInput) => {
+      createMaskedInputShell(maskedInput);
+    });
   },
 });
 
