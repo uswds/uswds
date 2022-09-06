@@ -44,12 +44,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    it("formats a US telephone number to (999) 999-9999", () => {
+    it("formats a US telephone number to 999-999-9999", () => {
       input.value = "9999999999";
 
       EVENTS.input(input);
       shell = root.querySelector(".usa-input-mask--content");
-      assert.strictEqual(shell.textContent, "(999) 999-9999");
+      assert.strictEqual(shell.textContent, "999-999-9999");
     });
   });
 });
