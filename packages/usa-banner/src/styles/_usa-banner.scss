@@ -118,11 +118,17 @@ $banner-icon-close: (
     $theme-banner-link-color,
     $context: $banner-context
   );
-
+  display: inline-flex;
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
   text-decoration: underline;
+
+  // Alignment for mobile chevron
+  &::after {
+    background-position-y: 1px;
+    -webkit-mask-position-y: 1px;
+  }
 
   .usa-banner__header--expanded & {
     display: none;
