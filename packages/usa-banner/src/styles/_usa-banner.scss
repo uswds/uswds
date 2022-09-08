@@ -112,7 +112,6 @@ $banner-icon-close: (
 }
 
 .usa-banner__header-action {
-  @include u-margin-y(0);
   @include place-icon($banner-icon-chevron, "after");
   @include set-link-from-bg(
     $theme-banner-background-color,
@@ -121,6 +120,8 @@ $banner-icon-close: (
   );
 
   line-height: line-height($theme-banner-font-family, 2);
+  margin-bottom: units(0);
+  margin-top: units(2px);
   text-decoration: underline;
 
   .usa-banner__header--expanded & {
