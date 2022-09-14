@@ -24,7 +24,7 @@ const EVENTS = {
   },
 };
 
-describe("language selector component", () => {
+describe.only("language selector component", () => {
   const { body } = document;
 
   let language;

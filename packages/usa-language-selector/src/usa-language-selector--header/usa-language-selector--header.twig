@@ -8,11 +8,11 @@
       <div class="usa-language-container usa-language--small display-block desktop:display-none">
         <ul class="usa-language__primary usa-accordion">
           <li class="usa-language__primary-item">
-            <button class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
+            <button class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options-mobile">
               {{ label | default('Languages') }}
             </button>
             {% if languages %}
-              <ul id="language-options" class="usa-language__submenu" hidden="true">
+              <ul id="language-options-mobile" class="usa-language__submenu" hidden="true">
                 {% for language in languages %}
                   <li class="usa-language__submenu-item">
                     <a href="{{ placeholder_link }}" title="{{ language.lang_label }} | {{ language.lang_label_en }}">
