@@ -20,7 +20,7 @@ const initComponents = () => {
     behavior.on(target);
   });
   svg4everybody();
-}
+};
 
 window.addEventListener("DOMContentLoaded", initComponents, { once: true });
 
