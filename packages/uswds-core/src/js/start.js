@@ -13,13 +13,16 @@ const svg4everybody = require("./polyfills/svg4everybody");
 
 uswds.components = components;
 
-window.addEventListener("DOMContentLoaded", () => {
+const initComponents = () => {
   const target = document.body;
   Object.keys(components).forEach((key) => {
     const behavior = components[key];
     behavior.on(target);
   });
   svg4everybody();
-});
+}
 
-module.exports = uswds;
+window.addEventListener("DOMContentLoaded", initComponents, { once: true });
+
+exports.default = uswds;
+exports.initComponents = initComponents;
