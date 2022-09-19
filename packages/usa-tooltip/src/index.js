@@ -384,6 +384,10 @@ const tooltip = behavior(
         } else {
           // throw error or let other tooltips on page function?
         }
+  {
+    init(root) {
+      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
+        setUpAttributes(tooltipTrigger);
       });
     },
   }
