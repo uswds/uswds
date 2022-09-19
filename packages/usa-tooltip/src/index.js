@@ -38,6 +38,7 @@ const getTooltipElements = (trigger) => {
 
   return { trigger, wrapper , body };
 }
+
 /**
  * Shows the tooltip
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
@@ -107,7 +108,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {Number} tooltipBodyOffset
    * @param {HTMLElement} trigger
    */
-
   const calculateMarginOffset = (
     marginPosition,
     tooltipBodyOffset,
@@ -370,6 +370,15 @@ const setUpAttributes = (tooltipTrigger) => {
 const tooltip = behavior(
   {
     'mouseover focusin': {
+      [TOOLTIP](e) {
+        const trigger = e.target;
+        const elementType = trigger.nodeName;
+
+        // Initialize tooltip if it hasn't already
+        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
+          setUpAttributes(trigger);
+        }
+      },
       [TOOLTIP_TRIGGER](e) {
         const { trigger, body } = getTooltipElements(e.target);
 
@@ -381,7 +390,7 @@ const tooltip = behavior(
         const { body } = getTooltipElements(e.target);
 
         hideToolTip(body);
-        }
+      }
     }
   },
   {
