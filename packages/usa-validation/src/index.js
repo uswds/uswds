@@ -15,7 +15,7 @@ function createHiddenLabel() {
   const hiddenLabel = document.createElement("span");
 
   hiddenLabel.classList.add("usa-sr-only");
-  hiddenLabel.textContent = "Incomplete";
+  hiddenLabel.textContent = ", status incomplete. ";
   hiddenLabel.setAttribute("data-checklist-label", "");
 
   return hiddenLabel;
@@ -31,16 +31,12 @@ const validator = behavior(
     init(root) {
       selectOrMatches(VALIDATE_INPUT, root).forEach((item) => {
         const validationParent = item.parentNode;
-        const checklist = validationParent.querySelectorAll(CHECKLIST);
         const checklistItems =
           validationParent.querySelectorAll(CHECKLIST_ITEM);
 
         item.setAttribute("aria-controls", "validate-code");
-
-        checklist.forEach((list) => {
-          list.setAttribute("aria-live", "polite");
-          list.setAttribute("aria-atomic", true);
-        });
+        item.setAttribute("aria-live", "polite");
+        item.setAttribute("aria-atomic", true);
 
         checklistItems.forEach((listItem) => {
           const newSpan = createHiddenLabel();

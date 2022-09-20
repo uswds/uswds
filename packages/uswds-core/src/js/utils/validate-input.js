@@ -1,6 +1,5 @@
 const { prefix: PREFIX } = require("../config");
 
-const CHECKED = "aria-checked";
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 
 module.exports = function validate(el) {
@@ -14,6 +13,8 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
+  // create element to hold input aria-label content
+  let inputLabel = "";
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
       const validatorName = key.substr("validate".length).toLowerCase();
@@ -34,8 +35,15 @@ module.exports = function validate(el) {
       hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
         CHECKED_CLASS
       )
-        ? "Complete"
-        : "Incomplete";
+        ? " status complete. "
+        : " status incomplete. ";
+
+      // gather text content from checklist items into one element for aria-label
+      inputLabel += `${validatorCheckbox.innerText} `;
+      return inputLabel ;
     }
   });
+
+  // add checklist item content to input aria-label
+  el.setAttribute("aria-label", inputLabel);
 };
