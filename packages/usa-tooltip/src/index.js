@@ -15,19 +15,6 @@ const TRIANGLE_SIZE = 5;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
- * Add one or more listeners to an element
- * @param {DOMElement} element - DOM element to add listeners to
- * @param {events} eventNames - space separated list of event names, e.g. 'click change'
- * @param {Function} listener - function to attach for each event as a listener
- */
-const addListenerMulti = (element, eventNames, listener) => {
-  const events = eventNames.split(" ");
-  for (let i = 0, iLen = events.length; i < iLen; i += 1) {
-    element.addEventListener(events[i], listener, false);
-  }
-};
-
-/**
  *
  * @param {DOMElement} trigger - The tooltip trigger
  * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
@@ -399,6 +386,10 @@ const tooltip = behavior(
         setUpAttributes(tooltipTrigger);
       });
     },
+    setUpAttributes,
+    getTooltipElements,
+    showToolTip,
+    hideToolTip
   }
 );
 
