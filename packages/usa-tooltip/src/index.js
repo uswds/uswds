@@ -386,10 +386,10 @@ const tooltip = behavior(
         setUpAttributes(tooltipTrigger);
       });
     },
-    setUpAttributes,
+    setup: setUpAttributes,
     getTooltipElements,
-    showToolTip,
-    hideToolTip
+    show: showToolTip,
+    hide: hideToolTip,
   }
 );
 
