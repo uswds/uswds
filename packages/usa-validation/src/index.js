@@ -12,7 +12,7 @@ function change() {
 }
 
 function createHiddenLabel() {
-  const hiddenLabel = document.createElement("span");
+  const hiddenLabel = document.createElement("i");
 
   hiddenLabel.classList.add("usa-sr-only");
   hiddenLabel.textContent = ", status incomplete. ";
