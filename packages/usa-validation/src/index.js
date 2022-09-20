@@ -15,7 +15,7 @@ function createHiddenLabel() {
   const hiddenLabel = document.createElement("i");
 
   hiddenLabel.classList.add("usa-sr-only");
-  hiddenLabel.textContent = ", status incomplete. ";
+  hiddenLabel.textContent = " status incomplete. ";
   hiddenLabel.setAttribute("data-checklist-label", "");
 
   return hiddenLabel;
