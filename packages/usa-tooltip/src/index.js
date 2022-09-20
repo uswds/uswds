@@ -33,8 +33,8 @@ const addListenerMulti = (element, eventNames, listener) => {
  * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
  */
 const getTooltipElements = (trigger) => {
-  const wrapper = trigger.closest(TOOLTIP);
-  const body = wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`)
+  const wrapper = trigger.parentNode;
+  const body = wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
 
   return { trigger, wrapper , body };
 }
