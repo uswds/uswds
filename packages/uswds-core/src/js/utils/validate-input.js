@@ -39,7 +39,7 @@ module.exports = function validate(el) {
         : " status incomplete. ";
 
       // gather text content from checklist items into one element for aria-label
-      inputLabel += `${validatorCheckbox.innerText} `;
+      inputLabel += validatorCheckbox.textContent;
       // apply new aria-label content to input element
       el.setAttribute("aria-label", inputLabel);
     }
