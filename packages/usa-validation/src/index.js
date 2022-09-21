@@ -38,11 +38,15 @@ const validator = behavior(
         item.setAttribute("aria-live", "polite");
         item.setAttribute("aria-atomic", true);
 
+        let inputLabel = "";
         checklistItems.forEach((listItem) => {
           const newSpan = createHiddenLabel();
           listItem.appendChild(newSpan);
           listItem.setAttribute("tabindex", "0");
+          inputLabel += listItem.textContent;
         });
+
+        item.setAttribute("aria-label", inputLabel);
       });
     },
   }
