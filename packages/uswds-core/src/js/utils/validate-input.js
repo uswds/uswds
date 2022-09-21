@@ -13,7 +13,7 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
-  // create element to hold input aria-label content
+  // create element to hold aria-label content for input element
   let inputLabel = "";
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
@@ -40,10 +40,8 @@ module.exports = function validate(el) {
 
       // gather text content from checklist items into one element for aria-label
       inputLabel += `${validatorCheckbox.innerText} `;
-      return inputLabel ;
+      // apply new aria-label content to input element
+      el.setAttribute("aria-label", inputLabel);
     }
   });
-
-  // add checklist item content to input aria-label
-  el.setAttribute("aria-label", inputLabel);
 };
