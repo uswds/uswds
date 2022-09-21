@@ -8,7 +8,7 @@
         <ul id="language-options" class="usa-language__submenu" hidden="true">
           {% for language in languages %}
             <li class="usa-language__submenu-item">
-              <a href="{{ placeholder_link }}" title="{{ language.lang_label }} | {{ language.lang_label_en }}">
+              <a href="{{ placeholder_link }}" aria-label="{{ language.lang_label_en }}" title="{{ language.lang_label_en }}">
                 {% if language.lang_label %}
                   <span lang="{{ language.lang_att }}" xml:lang="{{ language.lang_att }}">
                     <strong>{{ language.lang_label }}</strong>
