@@ -21,7 +21,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Be Tobacco Free - HHS](https://betobaccofree.hhs.gov/)
 - [The Centers for Medicare and Medicaid Services (CMS) Blue Button API Docs](https://bluebutton.cms.gov/developers/)
 - [Centers of Excellence (GSA)](https://coe.gsa.gov/)
-- [Challenge.Gov](https://www.challenge.gov/)
+- [Challenge.gov](https://www.challenge.gov/)
 - [CitizenScience.gov](https://www.citizenscience.gov/)
 - [ClinicalTrials.gov](https://clinicaltrials.gov/)
 - [cloud.gov](https://cloud.gov/)
