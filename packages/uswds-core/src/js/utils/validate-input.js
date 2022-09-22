@@ -21,9 +21,6 @@ module.exports = function validate(el) {
       const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
-      const hiddenCheckboxSpan = validatorCheckbox.querySelector(
-        `[data-checklist-label]`
-      );
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
@@ -32,15 +29,15 @@ module.exports = function validate(el) {
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
 
-      hiddenCheckboxSpan.textContent = validatorCheckbox.classList.contains(
-        CHECKED_CLASS
-      )
-        ? " status complete. "
-        : " status incomplete. ";
+      let validatorStatus = `${validatorCheckbox.textContent} status `;
+      if(validatorCheckbox.classList.contains(CHECKED_CLASS)){
+        validatorStatus += "complete";
+      } else{
+        validatorStatus += "incomplete";
+      };
 
-      // gather text content from checklist items into one element for aria-label
-      inputLabel += validatorCheckbox.textContent;
-      // apply new aria-label content to input element
+      validatorCheckbox.setAttribute("aria-label", validatorStatus);
+      inputLabel += `${validatorStatus}. `;
       el.setAttribute("aria-label", inputLabel);
     }
   });

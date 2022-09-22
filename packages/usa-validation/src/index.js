@@ -4,21 +4,10 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 
 const VALIDATE_INPUT = "input[data-validation-element]";
-const CHECKLIST = `.${PREFIX}-checklist`;
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 function change() {
   validate(this);
-}
-
-function createHiddenLabel() {
-  const hiddenLabel = document.createElement("i");
-
-  hiddenLabel.classList.add("usa-sr-only");
-  hiddenLabel.textContent = " status incomplete. ";
-  hiddenLabel.setAttribute("data-checklist-label", "");
-
-  return hiddenLabel;
 }
 
 const validator = behavior(
@@ -40,10 +29,10 @@ const validator = behavior(
 
         let inputLabel = "";
         checklistItems.forEach((listItem) => {
-          const newSpan = createHiddenLabel();
-          listItem.appendChild(newSpan);
+          const itemStatus = `${listItem.textContent} status incomplete`;
           listItem.setAttribute("tabindex", "0");
-          inputLabel += listItem.textContent;
+          listItem.setAttribute("aria-label", itemStatus);
+          inputLabel += `${itemStatus}. `;
         });
 
         item.setAttribute("aria-label", inputLabel);
