@@ -23,8 +23,8 @@ const getTooltipElements = (trigger) => {
   const wrapper = trigger.parentNode;
   const body = wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
 
-  return { trigger, wrapper , body };
-}
+  return { trigger, wrapper, body };
+};
 
 /**
  * Shows the tooltip
@@ -356,7 +356,7 @@ const setUpAttributes = (tooltipTrigger) => {
 // Setup our function to run on various events
 const tooltip = behavior(
   {
-    'mouseover focusin': {
+    "mouseover focusin": {
       [TOOLTIP](e) {
         const trigger = e.target;
         const elementType = trigger.nodeName;
@@ -370,15 +370,15 @@ const tooltip = behavior(
         const { trigger, body } = getTooltipElements(e.target);
 
         showToolTip(body, trigger, trigger.dataset.position);
-      }
+      },
     },
-    'mouseout focusout': {
+    "mouseout focusout": {
       [TOOLTIP_TRIGGER](e) {
         const { body } = getTooltipElements(e.target);
 
         hideToolTip(body);
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
