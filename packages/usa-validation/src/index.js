@@ -22,20 +22,20 @@ const validator = behavior(
         const validationParent = item.parentNode;
         const checklistItems =
           validationParent.querySelectorAll(CHECKLIST_ITEM);
+        const statusSummary = document.createElement("span");
 
         item.setAttribute("aria-controls", "validate-code");
-        item.setAttribute("aria-live", "polite");
-        item.setAttribute("aria-atomic", true);
+        statusSummary.classList.add("usa-sr-only");
+        statusSummary.setAttribute("aria-live", "polite");
+        statusSummary.setAttribute("aria-atomic", true);
+        statusSummary.setAttribute("data-checklist-label", "");
+        validationParent.append(statusSummary);
 
-        let inputLabel = "";
         checklistItems.forEach((listItem) => {
           const itemStatus = `${listItem.textContent} status incomplete`;
           listItem.setAttribute("tabindex", "0");
           listItem.setAttribute("aria-label", itemStatus);
-          inputLabel += `${itemStatus}. `;
         });
-
-        item.setAttribute("aria-label", inputLabel);
       });
     },
   }

@@ -14,13 +14,17 @@ module.exports = function validate(el) {
   }
 
   // create element to hold aria-label content for input element
-  let inputLabel = "";
+  let statusSummary = "";
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
       const validatorName = key.substr("validate".length).toLowerCase();
       const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
+      const validatorParent = el.parentNode;
+      const statusSummaryContainer = validatorParent.querySelector(
+        `[data-checklist-label]`
+      );
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
@@ -37,8 +41,9 @@ module.exports = function validate(el) {
       };
 
       validatorCheckbox.setAttribute("aria-label", validatorStatus);
-      inputLabel += `${validatorStatus}. `;
-      el.setAttribute("aria-label", inputLabel);
+      statusSummary += `${validatorStatus}. `;
+
+      statusSummaryContainer.textContent = statusSummary;
     }
   });
 };
