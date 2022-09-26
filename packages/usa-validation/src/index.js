@@ -18,18 +18,18 @@ const validator = behavior(
   },
   {
     init(root) {
-      selectOrMatches(VALIDATE_INPUT, root).forEach((item) => {
-        const validationParent = item.parentNode;
+      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => {
+        const validationParent = input.parentNode;
         const checklistItems =
           validationParent.querySelectorAll(CHECKLIST_ITEM);
-        const statusSummary = document.createElement("span");
+        const statusSummaryContainer = document.createElement("span");
 
-        item.setAttribute("aria-controls", "validate-code");
-        statusSummary.classList.add("usa-sr-only");
-        statusSummary.setAttribute("aria-live", "polite");
-        statusSummary.setAttribute("aria-atomic", true);
-        statusSummary.setAttribute("data-checklist-label", "");
-        validationParent.append(statusSummary);
+        input.setAttribute("aria-controls", "validate-code");
+        statusSummaryContainer.classList.add("usa-sr-only");
+        statusSummaryContainer.setAttribute("aria-live", "polite");
+        statusSummaryContainer.setAttribute("aria-atomic", true);
+        statusSummaryContainer.setAttribute("data-checklist-label", "");
+        validationParent.append(statusSummaryContainer);
 
         checklistItems.forEach((listItem) => {
           const itemStatus = `${listItem.textContent} status incomplete`;
