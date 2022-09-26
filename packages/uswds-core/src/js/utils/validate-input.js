@@ -13,7 +13,6 @@ module.exports = function validate(el) {
     throw new Error(`No validation element found with id: "${id}"`);
   }
 
-  // create element to hold aria-label content for input element
   let statusSummary = "";
   Object.entries(el.dataset).forEach(([key, value]) => {
     if (key.startsWith("validate")) {
@@ -22,27 +21,36 @@ module.exports = function validate(el) {
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const validatorParent = el.parentNode;
-      const statusSummaryContainer = validatorParent.querySelector(
-        `[data-checklist-label]`
-      );
+      const statusSummaryContainer = validatorParent.querySelector(`[data-checklist-label]`);
+
+      const checked = validatorPattern.test(el.value);
+      validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
       }
 
-      const checked = validatorPattern.test(el.value);
-      validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
+      // Create ARIA readout
+      let statusComplete = "status complete";
+      let statusIncomplete = "status incomplete";
+      let checkboxContent = `${validatorCheckbox.textContent} `;
 
-      let validatorStatus = `${validatorCheckbox.textContent} status `;
+      if (el.hasAttribute("data-validation-complete")) {
+        statusComplete = el.getAttribute("data-validation-complete");
+      }
+
+      if (el.hasAttribute("data-validation-incomplete")) {
+        statusIncomplete = el.getAttribute("data-validation-incomplete");
+      }
+
       if(validatorCheckbox.classList.contains(CHECKED_CLASS)){
-        validatorStatus += "complete";
+        checkboxContent += statusComplete;
       } else{
-        validatorStatus += "incomplete";
+        checkboxContent += statusIncomplete;
       };
 
-      validatorCheckbox.setAttribute("aria-label", validatorStatus);
-      statusSummary += `${validatorStatus}. `;
-
+      validatorCheckbox.setAttribute("aria-label", checkboxContent);
+      statusSummary += `${checkboxContent}. `;
       statusSummaryContainer.textContent = statusSummary;
     }
   });

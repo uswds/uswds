@@ -32,9 +32,12 @@ const validator = behavior(
         validationParent.append(statusSummaryContainer);
 
         checklistItems.forEach((listItem) => {
-          const itemStatus = `${listItem.textContent} status incomplete`;
+          let statusIncomplete  = "status incomplete";
+          if (input.hasAttribute("data-validation-incomplete")) {
+            statusIncomplete  = input.getAttribute("data-validation-incomplete");
+          }
           listItem.setAttribute("tabindex", "0");
-          listItem.setAttribute("aria-label", itemStatus);
+          listItem.setAttribute("aria-label", statusIncomplete );
         });
       });
     },
