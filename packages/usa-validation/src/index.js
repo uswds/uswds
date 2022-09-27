@@ -10,6 +10,36 @@ function change() {
   validate(this);
 }
 
+const enhanceValidation = (target) => {
+  selectOrMatches(VALIDATE_INPUT, target).forEach((input) => {
+    const validationParent = input.parentNode;
+    const checklistItems =
+      validationParent.querySelectorAll(CHECKLIST_ITEM);
+
+    // Set up input attributes
+    input.setAttribute("aria-controls", "validate-code");
+
+    // Create container to hold aria readout
+    const statusSummaryContainer = document.createElement("span");
+    statusSummaryContainer.setAttribute("data-checklist-label", "");
+    statusSummaryContainer.classList.add("usa-sr-only");
+    statusSummaryContainer.setAttribute("aria-live", "polite");
+    statusSummaryContainer.setAttribute("aria-atomic", true);
+    validationParent.append(statusSummaryContainer);
+
+    // Set up initial aria-label on checklist items
+    checklistItems.forEach((listItem) => {
+      let currentStatus = "status incomplete";
+      if (input.hasAttribute("data-validation-incomplete")) {
+        currentStatus = input.getAttribute("data-validation-incomplete");
+      }
+      const itemStatus = `${listItem.textContent} ${currentStatus} `;
+      listItem.setAttribute("tabindex", "0");
+      listItem.setAttribute("aria-label", itemStatus);
+    });
+  });
+}
+
 const validator = behavior(
   {
     "input change": {
@@ -18,29 +48,9 @@ const validator = behavior(
   },
   {
     init(root) {
-      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => {
-        const validationParent = input.parentNode;
-        const checklistItems =
-          validationParent.querySelectorAll(CHECKLIST_ITEM);
-        const statusSummaryContainer = document.createElement("span");
-
-        input.setAttribute("aria-controls", "validate-code");
-        statusSummaryContainer.classList.add("usa-sr-only");
-        statusSummaryContainer.setAttribute("aria-live", "polite");
-        statusSummaryContainer.setAttribute("aria-atomic", true);
-        statusSummaryContainer.setAttribute("data-checklist-label", "");
-        validationParent.append(statusSummaryContainer);
-
-        checklistItems.forEach((listItem) => {
-          let statusIncomplete  = "status incomplete";
-          if (input.hasAttribute("data-validation-incomplete")) {
-            statusIncomplete  = input.getAttribute("data-validation-incomplete");
-          }
-          listItem.setAttribute("tabindex", "0");
-          listItem.setAttribute("aria-label", statusIncomplete );
-        });
-      });
+      enhanceValidation(root);
     },
+    enhance: enhanceValidation,
   }
 );
 
