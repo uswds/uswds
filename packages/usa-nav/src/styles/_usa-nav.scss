@@ -344,7 +344,7 @@ $expand-less-icon: map-merge(
 
       & + .usa-nav__secondary-item::before {
         color: color("base-lighter");
-        content: "|";
+        content: "\007C" / ""; // Code for "|" character
         padding-right: units(0.5);
       }
     }
