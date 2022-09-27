@@ -21,7 +21,7 @@ module.exports = function validate(el) {
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const validatorParent = el.parentNode;
-      const statusSummaryContainer = validatorParent.querySelector(`[data-checklist-label]`);
+      const statusSummaryContainer = validatorParent.querySelector(`[data-validation-status]`);
 
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);

@@ -21,7 +21,7 @@ const enhanceValidation = (target) => {
 
     // Create container to hold aria readout
     const statusSummaryContainer = document.createElement("span");
-    statusSummaryContainer.setAttribute("data-checklist-label", "");
+    statusSummaryContainer.setAttribute("data-validation-status", "");
     statusSummaryContainer.classList.add("usa-sr-only");
     statusSummaryContainer.setAttribute("aria-live", "polite");
     statusSummaryContainer.setAttribute("aria-atomic", true);
