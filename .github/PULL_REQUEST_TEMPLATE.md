@@ -24,15 +24,15 @@ See the [USWDS release notes](https://github.com/uswds/uswds/releases) for examp
 -->
 
 ### Breaking change
-_Indicate if this is a breaking change._
+_Indicate if this update is a breaking change._
 <!--
 Use clear language to:
 1. Indicate if this update is a breaking change.
 2. Explain what actions are required for the user to remediate the break.
 For clarity, include a statement here even if there is no breaking change:
-"This is a breaking change."
+":warning: This is a breaking change."
+":warning: This is potentially a breaking change."
 "This is not a breaking change."
-"This is potentially a breaking change."
 -->
 
 ## Related issue
