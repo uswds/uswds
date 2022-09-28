@@ -2,11 +2,16 @@ const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
-const CHARACTER_COUNT = `.${PREFIX}-character-count`;
+const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
+const CHARACTER_COUNT = `.${CHARACTER_COUNT_CLASS}`;
 const INPUT = `.${PREFIX}-character-count__field`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__message--invalid`;
+const STATUS_MESSAGE_CLASS = `${CHARACTER_COUNT_CLASS}__status`;
+const STATUS_MESSAGE_SR_ONLY_CLASS = `${CHARACTER_COUNT_CLASS}__sr-status`;
+const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
+const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 
 /**
  * The elements within the character count.
@@ -93,6 +98,30 @@ const setupAttributes = (inputEl) => {
 
   inputEl.removeAttribute("maxlength");
   characterCountEl.setAttribute("data-maxlength", maxlength);
+};
+
+/**
+ * Create two status messages for current characters left;
+ * one visual status and another for screenreaders
+ *
+ * @param {htmlDivElement} characterCountEl
+ */
+const createStatusMessages = (characterCountEl) => {
+  const statusMessage = document.createElement("div");
+  const srStatusMessage = document.createElement("div");
+
+  statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
+  srStatusMessage.classList.add(
+    `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
+    "usa-sr-only"
+  );
+
+  statusMessage.setAttribute("aria-hidden", true);
+  srStatusMessage.setAttribute("aria-live", "polite");
+
+  updateCountMessage(characterCountEl);
+
+  characterCountEl.append(statusMessage, srStatusMessage);
 };
 
 const characterCount = behavior(
