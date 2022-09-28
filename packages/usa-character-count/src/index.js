@@ -124,6 +124,12 @@ const createStatusMessages = (characterCountEl) => {
   characterCountEl.append(statusMessage, srStatusMessage);
 };
 
+const enhanceCharacterCount = (inputEl) => {
+  const { characterCountEl } = getCharacterCountElements(inputEl);
+
+  setupAttributes(inputEl);
+  createStatusMessages(characterCountEl);
+};
 const characterCount = behavior(
   {
     input: {
@@ -134,10 +140,7 @@ const characterCount = behavior(
   },
   {
     init(root) {
-      select(INPUT, root).forEach((input) => {
-        setupAttributes(input);
-        updateCountMessage(input);
-      });
+      select(INPUT, root).forEach((input) => enhanceCharacterCount(input));
     },
     MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE,
