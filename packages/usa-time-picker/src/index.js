@@ -123,7 +123,9 @@ const transformTimePicker = (el) => {
   timePickerEl.dataset.defaultValue = defaultValue;
 
   timePickerEl.appendChild(selectEl);
-  initialInputEl.style.display = "none";
+  initialInputEl.classList.add("usa-sr-only");
+  initialInputEl.setAttribute("aria-hidden", "true");
+  initialInputEl.setAttribute("tabindex","-1");
 };
 
 const timePicker = behavior(
