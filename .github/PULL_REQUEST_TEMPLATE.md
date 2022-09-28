@@ -2,9 +2,8 @@
 Welcome! Thank you for contributing to the U.S. Web Design System. Your contributions are vital to our success and we are glad you're here.
 
 Please keep in mind:
-- This pull request (PR) template exists to help speed up integration. The USWDS Core team reviews and approves every PR before merging it into the public code base, so the better we understand the problem and solution, the sooner we can merge this change. The point here is: clear explanations matter!
+- This pull request (PR) template exists to help speed up integration. The USWDS Core team reviews and approves every PR before merging it into the public code base, so the better we can understand the problem and solution, the sooner we can merge this change. The point here is: clear explanations matter!
 - You can erase any part of this template that doesn't apply to your pull request (including these instructions!).
-- You can see examples of successful PRs that meet our criteria by ... [TK?]
 
 If you get stuck, you can find more information about contributing in [contributing.md](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md) or you can reach out to us directly at uswds@gsa.gov.
  -->
@@ -28,12 +27,12 @@ See the [USWDS release notes](https://github.com/uswds/uswds/releases) for examp
 _Indicate if this is a breaking change._
 <!--
 Use clear language to:
-1. Indicate if this update will break anything.
+1. Indicate if this update is a breaking change.
 2. Explain what actions are required for the user to remediate the break.
 For clarity, include a statement here even if there is no breaking change:
 "This is a breaking change."
 "This is not a breaking change."
-"This is a potentially a breaking change."
+"This is potentially a breaking change."
 -->
 
 ## Related issue
@@ -83,6 +82,6 @@ Before opening this PR, make sure you’ve done whichever of these applies to yo
 
 - [ ] Confirm that this code follows the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
 - [ ] Run `git pull origin [base branch]` to pull in the most recent updates from your base and check for merge conflicts. (Often, the base branch is `develop`).
-- [ ] Run `npm run prettier:scss` to format code.
+- [ ] Run `npm run prettier:scss` to format any Sass updates.
 - [ ] Run `npm test` and confirm that all tests pass.
 - [ ] Run your code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and make sure it’s error free.
