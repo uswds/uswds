@@ -12,13 +12,7 @@ const STATUS_MESSAGE_CLASS = `${CHARACTER_COUNT_CLASS}__status`;
 const STATUS_MESSAGE_SR_ONLY_CLASS = `${CHARACTER_COUNT_CLASS}__sr-status`;
 const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
 const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
-
-/**
- * The elements within the character count.
- * @typedef {Object} CharacterCountElements
- * @property {HTMLDivElement} characterCountEl
- * @property {HTMLSpanElement} messageEl
- */
+const DEFAULT_STATUS_LABEL = `characters allowed`;
 
 /**
  * Returns the root and message element
@@ -44,7 +38,28 @@ const getCharacterCountElements = (inputEl) => {
 };
 
 /**
- * Update the character count component
+ * Returns message with how many characters are left
+ *
+ * @param {number} currentLength - The number of characters used
+ * @param {number} maxLength - The total number of characters allowed
+ * @returns {string} A string description of how many characters are left
+ */
+const getCountMessage = (currentLength, maxLength) => {
+  let newMessage = "";
+
+  if (currentLength === 0) {
+    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
+  } else {
+    const difference = Math.abs(maxLength - currentLength);
+    const characters = `character${difference === 1 ? "" : "s"}`;
+    const guidance = (currentLength > maxLength) ? "over limit" : "left";
+
+    newMessage = `${difference} ${characters} ${guidance}`;
+  }
+
+  return newMessage;
+}
+
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
