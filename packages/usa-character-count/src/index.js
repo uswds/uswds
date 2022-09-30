@@ -85,11 +85,11 @@ const updateCountMessage = (inputEl) => {
 };
 
 /**
- * Setup the character count component
+ * Move maxlength to a data attribute on usa-character-count
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const setupAttributes = (inputEl) => {
+const setDataLength = (inputEl) => {
   const { characterCountEl } = getCharacterCountElements(inputEl);
 
   const maxlength = inputEl.getAttribute("maxlength");
@@ -101,14 +101,17 @@ const setupAttributes = (inputEl) => {
 };
 
 /**
- * Create two status messages for current characters left;
- * one visual status and another for screenreaders
+ * Create and append status messages for visual and screen readers
  *
- * @param {htmlDivElement} characterCountEl
+ * @param {HTMLDivElement} characterCountEl - Div with `.usa-character-count` class
+ * @description  Create two status messages for number of characters left;
+ * one visual status and another for screen readers
  */
 const createStatusMessages = (characterCountEl) => {
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
+  const maxLength = characterCountEl.dataset.maxlength;
+  const defaultMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
 
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
   srStatusMessage.classList.add(
@@ -119,17 +122,21 @@ const createStatusMessages = (characterCountEl) => {
   statusMessage.setAttribute("aria-hidden", true);
   srStatusMessage.setAttribute("aria-live", "polite");
 
-  updateCountMessage(characterCountEl);
+  statusMessage.textContent = defaultMessage;
+  srStatusMessage.textContent = defaultMessage;
 
   characterCountEl.append(statusMessage, srStatusMessage);
 };
 
 const enhanceCharacterCount = (inputEl) => {
-  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
-  setupAttributes(inputEl);
+  messageEl.classList.add("usa-sr-only");
+
+  setDataLength(inputEl);
   createStatusMessages(characterCountEl);
 };
+
 const characterCount = behavior(
   {
     input: {
