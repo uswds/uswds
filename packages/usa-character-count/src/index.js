@@ -1,5 +1,6 @@
 const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
+const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
@@ -60,35 +61,42 @@ const getCountMessage = (currentLength, maxLength) => {
   return newMessage;
 }
 
+/**
+ * Updates the character count status for screen readers after a 1000ms delay.
  *
+ * @param {HTMLElement} msgEl - The screen reader status message element
+ * @param {string} statusMessage - A string of the current character status
+ */
+const srUpdateStatus = debounce((msgEl, statusMessage) => {
+  const srStatusMessage = msgEl;
+  srStatusMessage.textContent = statusMessage;
+}, 1000);
+
+/**
+ * Update the character count component.
+ *
+ * @description Based on input, it will update visual status, screenreader status,
+ * and update input validation (if over character length)
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 const updateCountMessage = (inputEl) => {
-  const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
-
-  const maxlength = parseInt(
+  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const currentLength = inputEl.value.length;
+  const maxLength = parseInt(
     characterCountEl.getAttribute("data-maxlength"),
     10
   );
+  const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
+  const srStatusMessage = characterCountEl.querySelector(STATUS_MESSAGE_SR_ONLY);
+  const currentStatusMessage = getCountMessage(currentLength, maxLength);
 
-  if (!maxlength) return;
+  if (!maxLength) return;
 
-  let newMessage = "";
-  const currentLength = inputEl.value.length;
-  const isOverLimit = currentLength && currentLength > maxlength;
+  const isOverLimit = currentLength && currentLength > maxLength;
 
-  if (currentLength === 0) {
-    newMessage = `${maxlength} characters allowed`;
-  } else {
-    const difference = Math.abs(maxlength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = isOverLimit ? "over limit" : "left";
+  statusMessage.textContent = currentStatusMessage;
+  srUpdateStatus(srStatusMessage, currentStatusMessage);
 
-    newMessage = `${difference} ${characters} ${guidance}`;
-  }
-
-  messageEl.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
-  messageEl.textContent = newMessage;
 
   if (isOverLimit && !inputEl.validationMessage) {
     inputEl.setCustomValidity(VALIDATION_MESSAGE);
@@ -97,6 +105,8 @@ const updateCountMessage = (inputEl) => {
   if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
     inputEl.setCustomValidity("");
   }
+
+  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
 /**
