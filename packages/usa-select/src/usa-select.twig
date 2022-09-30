@@ -1,5 +1,5 @@
 <form class="usa-form">
-  <label class="usa-label" for="options">Dropdown label</label>
+  <label class="usa-label" for="options">Select</label>
   <select class="usa-select" name="options" id="options">
     <option value>- Select -</option>
     <option value="value1">Option A</option>
@@ -7,3 +7,33 @@
     <option value="value3">Option C</option>
   </select>
 </form>
+
+<form class="usa-form">
+  <label class="usa-label" for="options">Disabled select</label>
+  <select class="usa-select" name="options" id="options" disabled>
+    <option value>- Select -</option>
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
+
+<form class="usa-form">
+  <label class="usa-label" for="options">Disabled select - browser default <br/>(no .usa-select)</label>
+  <select name="options" id="options" disabled>
+    <option value>- Select -</option>
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
+
+<label class="usa-label" for="input-type-text">Input</label>
+<input class="usa-input" id="input-type-text" name="input-type-text" type="text" >
+
+<label class="usa-label" for="input-type-text">Disabled input</label>
+<input class="usa-input" id="input-type-text" name="input-type-text" type="text" disabled>
+
+
+<label class="usa-label" for="input-type-text">browser default <br/>(no .usa-input)</label>
+<input id="input-type-text" name="input-type-text" type="text" disabled>
