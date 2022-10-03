@@ -1,6 +1,6 @@
 {% set settings = {
-  'tagline': '[A tagline that explains the benefit of creating an account.]',
-  "description": '[Here’s space for a longer description to introduce 3-5 easily scannable bullet points. Note that on mobile, this text block will bump below the Create Account form.]',
+  'tagline': '<A tagline that explains the benefit of creating an account.>',
+  "description": '<Here’s space for a longer description to introduce 3-5 easily scannable bullet points. Note that on mobile, this text block will bump below the Create Account form.>',
   'values': [
     {
       'img': 'circle-gray-20.svg',
@@ -17,7 +17,7 @@
   ]
 } %}
 
-<h2 class="display-none desktop:display-block">{{ settings.tagline }}</h2>
+<h2 class="display-none desktop:display-block">{{ settings.tagline |e }}</h2>
 <div class="usa-prose">
   <p>{{ settings.description }}</p>
   <section class="usa-graphic-list">

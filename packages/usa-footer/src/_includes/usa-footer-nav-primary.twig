@@ -14,7 +14,7 @@
     {% for link in links %}
       <li class="{{ list_classes }}">
         <a class="usa-footer__primary-link" href="javascript:void(0);">
-          {{ link.label }}
+          {{ link.label |e }}
         </a>
       </li>
     {% endfor %}

@@ -15,7 +15,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     @include format-input {
       cursor: not-allowed;
     }

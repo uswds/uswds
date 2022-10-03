@@ -25,7 +25,7 @@ The Public Sans font files in `packages/uswds-core/src/assets/fonts/public-sans`
 
 The Roboto Mono font files in `packages/uswds-core/src/assets/fonts/roboto-mono` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-The Google Material Icons in `packages/usa-icon/src/img/usa-icons` and `packages/usa-icon/src/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+The Google Material Icons in `packages/usa-icon/src/img/material-icons-deprecated`, and those packaged as `dist/img/material-icons` are licensed under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Files licensed under the MIT license
 

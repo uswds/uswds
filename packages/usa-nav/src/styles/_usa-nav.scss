@@ -375,7 +375,6 @@ $expand-less-icon: map-merge(
     @include add-list-reset;
     background-color: color("primary-darker");
     width: units("card-lg");
-    padding: units(2);
     position: absolute;
     z-index: z-index(400);
   }
@@ -386,19 +385,18 @@ $expand-less-icon: map-merge(
 
   .usa-nav__submenu-item {
     @include at-media($theme-header-min-width) {
-      & + * {
-        margin-top: units(1.5);
-      }
-
       a {
         color: color("white");
         padding: 0;
         line-height: line-height($theme-navigation-font-family, 3);
+        display: block;
+        padding: units(1);
+        &:focus {
+          outline-offset: units("neg-05");
+        }
 
         &:hover {
-          background-color: transparent;
           color: color("white");
-          padding: 0;
           text-decoration: underline;
         }
       }

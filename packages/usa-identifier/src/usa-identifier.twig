@@ -11,7 +11,7 @@
             <img
               class="usa-identifier__logo-img"
               src="{{ masthead.parent.logo|default(placeholder_logo) }}"
-              alt="{{ masthead.parent.name|e }} logo"
+              alt="{{ masthead.parent.name |e }} logo"
               role="img">
           </a>
           {%- if masthead.agency.logo %}
@@ -21,7 +21,7 @@
                 {% if masthead.agency.logo %}
                 src="{{ masthead.agency.logo|default(placeholder_logo) }}"
                 {% endif %}
-                alt="{{ masthead.agency.name|e }} logo"
+                alt="{{ masthead.agency.name |e }} logo"
                 role="img">
             </a>
           {%- endif -%}
@@ -31,7 +31,7 @@
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
           {{ masthead.content }}
-          <a href="{{ placeholder_link }}">{{ masthead.parent.name|e }}</a>
+          <a href="{{ placeholder_link }}">{{ masthead.parent.name |e }}</a>
           {% if masthead.agency.url %}
             {{ (lang == "es") ? "y" : "and" }}
           {% endif %}
@@ -41,9 +41,9 @@
           {% if mashead.agency.name or masthead.agency.shortname %}
             <a href="{{ masthead.agency.url | default(placeholder_link) }}">
               {% if masthead.agency.name -%}
-                {{ masthead.agency.name|e }}
+                {{ masthead.agency.name |e }}
               {% else %}
-                {{ masthead.agency.shortname|e }}
+                {{ masthead.agency.shortname |e }}
               {%- endif -%}
             </a>
           {% endif %}
@@ -60,7 +60,7 @@
         {% for link in required_links.links %}
           <li class="usa-identifier__required-links-item">
             <a href="{{ link.url }}" class="usa-identifier__required-link usa-link">
-              {{ link.label }} {{ link.include_shortname ? masthead.parent.shortname|e }}
+              {{ link.label }} {{ link.include_shortname ? masthead.parent.shortname |e }}
             </a>
           </li>
         {% endfor %}
@@ -73,6 +73,6 @@
       <div class="usa-identifier__usagov-description">{{ usagov.description }}</div>
       <a href="{{ usagov.link.url }}" class="usa-link">{{ usagov.link.label }}</a>
     </div>
-  </section>  
+  </section>
   {% endif -%}
 </div>

@@ -171,7 +171,9 @@ through all possible variants
   // loop through the $utilities
   @each $utility-name, $utility in $utilities {
     // Check to see if the utility is in the output uselist
-    @if ($output-these-utilities == "default") or list.index($output-these-utilities, $utility-name) {
+    @if ($output-these-utilities == "default") or
+      list.index($output-these-utilities, $utility-name)
+    {
       // Only do this if the the utility is meant to output
       @if not($media-key) or
         ($media-key and map-deep-get($utility, settings, responsive))

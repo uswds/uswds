@@ -27,8 +27,3 @@ src/stylesheets/lib
 
 # ignore sassdoc build
 sassdoc/
-
-# ignore gulp-generated svg-sprite
-src/img/sprite.svg
-packages/usa-icon/src/img/sprite.svg
-src/img/symbol

@@ -1,139 +1,137 @@
 ## Welcome!
 
-We’re so glad you’re thinking about contributing to a Technology Transformation Services (TTS) open source project! If you’re unsure about anything, just ask — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something. We appreciate all friendly contributions.
+We’re so glad you’re thinking about contributing to the U.S. Web Design System (USWDS)! 
 
-TTS is committed to building a safe, welcoming, harassment-free culture for everyone. We expect everyone on the TTS team and everyone within TTS spaces, including contributors to our projects, to follow the [TTS Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md).
+USWDS is for everyone — we’re an open source project that accepts contributions from our community members. USWDS is the result of community contributions, large and small. Your contribution helps make the Design System better for the next team that uses it. 
 
-We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), [README](README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
 
-If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or [send us an email](mailto:18f@gsa.gov).
+## Code of Conduct
 
-## Guidelines
+USWDS is committed to building a safe, welcoming, harassment-free culture for everyone. USWDS is a part of the Technology Transformation Services (TTS) within the General Services Administration (GSA) and we expect everyone to follow the [GSA TTS Code of Conduct](https://handbook.tts.gsa.gov/about-us/code-of-conduct/).
 
-### Contributor Guidelines for Design
+We encourage you to read this project’s Contribution Guide (you are here), its [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md) and its [README](https://github.com/uswds/uswds/blob/develop/README.md). If you want to read more about our open source policy or have questions, check out the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy) or send us an [email](mailto:uswds@gsa.gov).
 
-We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design System and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/uswds/uswds/wiki/Contribution-Guidelines:-Design).
 
-### Submitting an issue
+## How you can contribute
 
-To help us get a better understanding of the issue you’re submitting, follow our ISSUE TEMPLATE and the guidelines it describes.
+### Getting Started
 
-### Submitting a pull request
+Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new component, we welcome your ideas on how to improve the Design System.
 
-Here are a few guidelines to follow when submitting a pull request:
+First time contributor? No sweat. You’ve got this 💪! We’re here to help guide you through a successful contribution. Don’t worry — you can’t break anything. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something.
 
-1. Create a GitHub account or sign in to your existing account.
-1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
-[https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
-1. Ensure that your contribution works via `npm`, if applicable.
-1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
-1. Submit your pull request against the `develop` branch.
+Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.  
 
-[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
+If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you’ve got questions, don’t hesitate to [reach out to us](mailto:uswds@gsa.gov). 
 
-### Running locally
 
-The U.S. Web Design System `uswds` package (the zip download and the
-files needed to use the Design System on your project) is built primarily with
-two [Node.js] tools: [StorybookJS] and [Gulp]. Once you've cloned this
-repository, you'll need to install its dependencies:
+###  🐛 Submitting bugs and issues
 
-```sh
-npm install
-```
+If something isn’t working the way it's supposed to, here’s how you can let us know: 
 
-**ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
+#### 1. Check the issues backlog to see if your bug has already been reported
 
-To start the [StorybookJS] server, run:
+First, check our [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+) to see if your bug has already been reported. 
 
-```sh
-npm start
-```
+If your bug has already been reported, leave a comment in the original issue and provide any additional context (if different than the original submission). This helps us better understand the issue and its impact.
 
-Then, visit [http://localhost:6006/](http://localhost:6006/) in a web browser to peruse the component library. While the server is running, any changes that you make to the component templates or configurations will reload the page automatically.
+#### 2. Document how to reproduce the bug
 
-If you're working on the JavaScript or CSS, you can run the "watch" task in
-another shell to automatically rebuild the distribution files that StorybookJS
-references with:
+Before submitting a bug, try to recreate it and document the steps we can take to reproduce it. If you can, take screen shots to capture specific details about the bug. This helps us understand its context. We can only fix bugs that we're able to understand and reproduce.
 
-```sh
-npm run watch
-```
+#### 3. Submit an issue
 
-### Testing
+If your bug or issue is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+), submit an issue using the [bug report template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Bug%2CStatus%3A+Triage%2CNeeds%3A+Confirmation&template=bug_report.yaml&title=USWDS+-+Bug%3A+%5BYOUR+TITLE%5D). A USWDS core team member may reach out to you if we need further clarification or context. We may also need your help testing possible solutions. Be sure to check in on your issue to answer any questions we may have about it.  
 
-To run the component unit tests, run:
+If you have a code fix for the issue, go ahead and submit a pull request. Our team tracks issues, so make sure any pull request you submit has a related issue.
 
-```sh
-npm test
-```
 
-This will also run [eslint] and [stylelint] to ensure that the JavaScript
-and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
-tests, you'll need [Gulp][]. Install it globally (`npm install -g
-gulp-cli`), then run:
+### 💡 Proposing feature requests or enhancements
 
-```sh
-npm run lint // JS linting
-gulp lintSass
-```
+If you’ve got a new idea or a suggestion for how something could work better, we want to hear about it. Here are a few steps to help you submit a feature request or enhancement. 
 
-(Or, if you don't want to install Gulp globally, you can run `npx gulp` instead of `gulp`.)
+#### 1. Check the backlog of current feature requests 
 
-If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
-substituting the actual path to the spec. Only javascript files can be executed by the `mocha` runner,
-and only those js files in the `packages/` directory ending with a `.spec.js`.
+Check our [feature requests backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22) for any duplicate or similar feature requests. 
 
-Alternatively, you can add an `.only` to a `describe` or `it` block (i.e. `describe.only('my spec')`)
-and run the `npm run test` command. Keep in mind that this will also run linters and aXe accessibility tests.
+If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request and any other supporting information. We review the number of upvotes (represented by 👍) to help us prioritize feature requests. 
 
-To run all of the unit tests, run `npm run test:unit`.
+If you want to find other feature requests open for upvoting, check out our [feature request view sorted by status](https://github.com/orgs/uswds/projects/8/views/18?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Status). 
 
-### Building
+#### 2. Submit an issue
 
-To build the `uswds` package in preparation for releases, run:
+If your idea is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22), submit an issue using the [feature request template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D).  A USWDS core team member may reach out to you if we need further clarification on your submission. 
 
-```sh
-npm run release
-```
 
-## Coding guidelines
+### 🛠 Submitting pull requests
 
-The purpose of our coding styleguides are to create consistent coding practices across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
+If you want to propose a code fix, even better! Here’s a few steps to help you submit pull requests.
 
-This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
+#### If it’s a bug fix:
 
-## Browser support
-See [browser support](https://designsystem.digital.gov/documentation/developers/#browser-support) in the “Developer Documentation”.
+1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues. 
+2. If your bug has already been submitted, feel free to comment and provide additional context (if different than the original submission).  
+3. If your proposed fix is not in the open issues backlog, create an [issue](https://github.com/uswds/uswds/issues/new/choose) for the change you’re proposing.  This helps us track our work. 
+4. Fork this repo into your GitHub account. Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/). 
+5. Create a branch from `develop` and name it in a way that lightly defines what you’re working on (for example, `add-styles`).
+7. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
+8. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. You can read more about linking pull requests on [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+9. Submit your pull request against the `develop` branch. 
 
-## Our use of branches
+If the pull request is accepted, we will schedule the issue and merge the pull request for you. 
 
-See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
+#### If it's a feature request or enhancement:
+
+1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues.
+2. If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request or enhancement and any other supporting information. 
+Tip: If you want to find other feature requests open for upvoting, check out our [feature requests sorted by upvotes](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Status%3A+Voting+Open+%F0%9F%91%8D%22+sort%3Areactions-%2B1-desc). 
+3. If your proposed fix is not in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean we don’t want you to create a pull request. We simply want to start the process with an online conversation first. Plus, other community members might have supporting thoughts to add to your proposal. If you’ve already got a pull request, no worries. Go ahead and attach it to the issue. 
+
+
+### ✨ Proposing something else?
+
+If you’d like to contribute something else that doesn’t fall into any of the above, we’d still love to hear about it. Just create an issue or a discussion, and we can talk about it.  
+
+## How we prioritize
+
+Once you’ve submitted a contribution, we'll triage it based on the following considerations:
+1. **Size:** Can we accomplish this in a sprint or will this take longer? 
+2. **Severity:** What type of functionality is impacted? Is there a workaround?
+3. **Priority:** Does this align with our vision and roadmap goals? 
+
+Note: We prioritize issues that affect accessibility. 
+
+These considerations help us decide if and when we can work on the issue. If the issue is accepted, we will schedule them for an upcoming sprint (a 2-week work period).
+
+You can stay up to date on the status of your contributions through [GitHub email notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) (external link) and the assigned labels on the issue. 
+
+## Common terms
+
+There can be a lot of jargon when discussing how you can contribute to the Design System. We’ve included some common terms we use below.
+
+- **Backlog** - list of deliverables (like a feature request, enhancement, or bug) that should be implemented into upcoming product development. 
+- **Bug** - problem resulting in something not working properly or as expected.
+- **Contribution** - when a community member gives back in a way that enhances the Design System by proposing a new idea, enhancement, or fix that’s released through the system for other people to use.
+- **Enhancement** - a proposal to make something existing in the Design System work better. 
+- **Feature request** - a proposal for something new to be included to the Design System. 
+- **Fork** - a copy of a repository that you manage. 
+- **Open source** - something that can be viewed, modified, and shared by anyone in the public with permissions enforced through an open source license.
+- **Pull request** - a way to notify project team members when a contributor/developer wants to merge new code changes into a main project repository. You can read more on [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (external link).
+- **Repository (aka repo)** - In Github, a repository contains all your projects’ files and each of their revisions. You can read more on [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) (external link). 
+- **Roadmap** - a summary that outlines a product’s goals, priorities, and progress over a period of time. 
 
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see the [LICENSE](LICENSE.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see the [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md).
 
 ### The rest of this project is in the public domain
 
-The rest of this project is in the worldwide [public domain](https://github.com/uswds/uswds/blob/develop/LICENSE.md).
+The rest of this project is in the worldwide [public domain](https://github.com/uswds/uswds/blob/develop/LICENSE.md#the-rest-of-this-project-is-in-the-worldwide-public-domain).
 
-This project is in the public domain within the United States, and
-copyright and related rights in the work worldwide are waived through
-the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 
 ### Contributions will be released into the public domain
 
-All contributions to this project will be released under the CC0
-dedication. By submitting a pull request, you are agreeing to comply
-with this waiver of copyright interest.
-
-[Node.js]: https://nodejs.org
-[StorybookJS]: https://storybook.js.org/
-[Gulp]: http://gulpjs.com/
-[Yarn]: https://yarnpkg.com/
-[eslint]: http://eslint.org/
-[stylelint]: https://stylelint.io/
+All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.

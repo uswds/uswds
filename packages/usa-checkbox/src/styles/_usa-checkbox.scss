@@ -15,7 +15,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     @include format-input {
       cursor: not-allowed;
     }
@@ -41,7 +42,8 @@
 
 .usa-checkbox__input {
   &:checked,
-  &:checked:disabled {
+  &:checked:disabled,
+  &:checked[aria-disabled="true"] {
     @include format-input {
       background-position: center center;
       background-size: units(1.5) auto;

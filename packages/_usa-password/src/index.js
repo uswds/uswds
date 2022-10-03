@@ -4,7 +4,7 @@ const toggleFormInput = require("../../uswds-core/src/js/utils/toggle-form-input
 const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
-const LINK = `.${PREFIX}-show-password, .${PREFIX}-show-multipassword`;
+const LINK = `.${PREFIX}-show-password`;
 
 function toggle(event) {
   event.preventDefault();

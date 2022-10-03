@@ -12,7 +12,6 @@
 // Block input elements
 .usa-form-group--error {
   @include u-border-left(0.5, "error-dark");
-  margin-top: units(4);
   padding-left: units(2);
   position: relative;
 

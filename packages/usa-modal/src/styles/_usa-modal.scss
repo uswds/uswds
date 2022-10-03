@@ -134,7 +134,7 @@
     color: color("ink");
   }
 
-  &:not([disabled]):focus {
+  &:focus {
     outline-offset: 0;
   }
 

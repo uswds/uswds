@@ -21,7 +21,6 @@ $z-index-overlay: 400;
   @include clearfix;
   @include typeset($theme-header-font-family);
   @include border-box-sizing;
-  z-index: z-index($z-index-header);
 
   a {
     border-bottom: none;

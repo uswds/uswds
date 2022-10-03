@@ -7,8 +7,12 @@
 
 .usa-input--error {
   @include u-border($theme-input-state-border-width, "error-dark");
+  padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+  padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
 }
 
 .usa-input--success {
   @include u-border($theme-input-state-border-width, "success");
+  padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+  padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
 }

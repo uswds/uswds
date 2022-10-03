@@ -417,6 +417,16 @@ $this-function: "get-color-token-from-bg()";
     $expect: $theme-text-reverse-color;
     @include assert-equal($test, $expect);
   }
+  @include it("Returns black from top threshold of color-grade 45") {
+    $test: get-color-token-from-bg(#598c7f);
+    $expect: "black";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns black from bottom threshold of color-grade 45") {
+    $test: get-color-token-from-bg(#577c8e);
+    $expect: "black";
+    @include assert-equal($test, $expect);
+  }
   @include it("Returns the proper AA Large color.") {
     $test: get-color-token-from-bg("white", "gray-40", "gray-50", "AA-large");
     $expect: "gray-40";

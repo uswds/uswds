@@ -1,6 +1,6 @@
 {
   "lang": "es",
-  "tagline": "[A tagline that explains the benefit of creating an account.]",
+  "tagline": "<A tagline that explains the benefit of creating an account.>",
   "form": {
     "title": "Cree una cuenta",
     "legend": "Comience con su cuenta.",
