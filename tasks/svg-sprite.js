@@ -10,27 +10,6 @@ const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgPath = "dist/img";
 
-// More complex configuration example
-const config = {
-  shape: {
-    dimension: {
-      // Set maximum dimensions
-      maxWidth: 24,
-      maxHeight: 24,
-    },
-    id: {
-      separator: "-",
-    },
-    spacing: {
-      // Add padding
-      padding: 0,
-    },
-  },
-  mode: {
-    symbol: true,
-  },
-};
-
 function cleanIcons() {
   return del(`${svgPath}/usa-icons`);
 }
