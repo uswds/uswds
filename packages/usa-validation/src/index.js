@@ -10,37 +10,37 @@ function handleChange() {
   validate(this);
 }
 
-const enhanceValidation = (target) => {
-  selectOrMatches(VALIDATE_INPUT, target).forEach((input) => {
-    const validationParent = input.parentNode;
-    const checklistItems =
-      validationParent.querySelectorAll(CHECKLIST_ITEM);
+const enhanceValidation = (input) => {
+  const validationParent = input.parentNode;
+  const checklistItems =
+    validationParent.querySelectorAll(CHECKLIST_ITEM);
 
-    // Set up input attributes
-    input.setAttribute("aria-controls", "validate-code");
 
-    // Create container to hold aria readout
-    const statusSummaryContainer = document.createElement("span");
-    const inputID = input.getAttribute('id');
-    const statusSummaryID = `${inputID}-summary`;
+  // Set up input attributes
+  const inputID = input.getAttribute('id');
+  const statusSummaryID = `${inputID}-summary`;
+  input.setAttribute("aria-controls", "validate-code");
+  input.setAttribute("aria-describedby", statusSummaryID);
 
-    statusSummaryContainer.setAttribute("data-validation-status", "");
-    statusSummaryContainer.classList.add("usa-sr-only");
-    statusSummaryContainer.setAttribute("aria-live", "polite");
-    statusSummaryContainer.setAttribute("aria-atomic", true);
-    statusSummaryContainer.setAttribute("id", statusSummaryID);
-    validationParent.append(statusSummaryContainer);
+  // Create container to hold aria readout
+  const statusSummaryContainer = document.createElement("span");
 
-    // Set up initial aria-label on checklist items
-    checklistItems.forEach((listItem) => {
-      let currentStatus = "status incomplete";
-      if (input.hasAttribute("data-validation-incomplete")) {
-        currentStatus = input.getAttribute("data-validation-incomplete");
-      }
-      const itemStatus = `${listItem.textContent} ${currentStatus} `;
-      listItem.setAttribute("tabindex", "0");
-      listItem.setAttribute("aria-label", itemStatus);
-    });
+  statusSummaryContainer.setAttribute("data-validation-status", "");
+  statusSummaryContainer.classList.add("usa-sr-only");
+  statusSummaryContainer.setAttribute("aria-live", "polite");
+  statusSummaryContainer.setAttribute("aria-atomic", true);
+  statusSummaryContainer.setAttribute("id", statusSummaryID);
+  validationParent.append(statusSummaryContainer);
+
+  // Set up initial aria-label on checklist items
+  checklistItems.forEach((listItem) => {
+    let currentStatus = "status incomplete";
+    if (input.hasAttribute("data-validation-incomplete")) {
+      currentStatus = input.getAttribute("data-validation-incomplete");
+    }
+    const itemStatus = `${listItem.textContent} ${currentStatus} `;
+    listItem.setAttribute("tabindex", "0");
+    listItem.setAttribute("aria-label", itemStatus);
   });
 }
 
@@ -52,7 +52,7 @@ const validator = behavior(
   },
   {
     init(root) {
-      enhanceValidation(root);
+      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => enhanceValidation(input))
     },
     enhance: enhanceValidation,
   }
