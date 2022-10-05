@@ -21,10 +21,14 @@ const enhanceValidation = (target) => {
 
     // Create container to hold aria readout
     const statusSummaryContainer = document.createElement("span");
+    const inputID = input.getAttribute('id');
+    const statusSummaryID = `${inputID}-summary`;
+
     statusSummaryContainer.setAttribute("data-validation-status", "");
     statusSummaryContainer.classList.add("usa-sr-only");
     statusSummaryContainer.setAttribute("aria-live", "polite");
     statusSummaryContainer.setAttribute("aria-atomic", true);
+    statusSummaryContainer.setAttribute("id", statusSummaryID);
     validationParent.append(statusSummaryContainer);
 
     // Set up initial aria-label on checklist items
