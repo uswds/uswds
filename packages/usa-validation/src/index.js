@@ -6,7 +6,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const VALIDATE_INPUT = "input[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
-function change() {
+function handleChange() {
   validate(this);
 }
 
@@ -47,7 +47,7 @@ const enhanceValidation = (target) => {
 const validator = behavior(
   {
     "input change": {
-      [VALIDATE_INPUT]: change,
+      [VALIDATE_INPUT]: handleChange,
     },
   },
   {
