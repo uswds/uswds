@@ -147,7 +147,7 @@
     "gulp-sass": "5.1.0",
     "gulp-sourcemaps": "3.0.0",
     "gulp-spawn-mocha": "6.0.0",
-    "gulp-svg-sprite": "1.5.0",
+    "gulp-svg-sprite": "2.0.0",
     "gulp-uglify": "3.0.2",
     "handlebars-helpers": "0.10.0",
     "html-webpack-plugin": "5.4.0",
