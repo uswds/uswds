@@ -16,8 +16,7 @@ const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 const DEFAULT_STATUS_LABEL = `characters allowed`;
 
 /**
- * Returns the root and message element
- * for an character count input
+ * Returns the root and message element for an character count input
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
@@ -39,78 +38,7 @@ const getCharacterCountElements = (inputEl) => {
 };
 
 /**
- * Returns message with how many characters are left
- *
- * @param {number} currentLength - The number of characters used
- * @param {number} maxLength - The total number of characters allowed
- * @returns {string} A string description of how many characters are left
- */
-const getCountMessage = (currentLength, maxLength) => {
-  let newMessage = "";
-
-  if (currentLength === 0) {
-    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
-  } else {
-    const difference = Math.abs(maxLength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = (currentLength > maxLength) ? "over limit" : "left";
-
-    newMessage = `${difference} ${characters} ${guidance}`;
-  }
-
-  return newMessage;
-}
-
-/**
- * Updates the character count status for screen readers after a 1000ms delay.
- *
- * @param {HTMLElement} msgEl - The screen reader status message element
- * @param {string} statusMessage - A string of the current character status
- */
-const srUpdateStatus = debounce((msgEl, statusMessage) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.textContent = statusMessage;
-}, 1000);
-
-/**
- * Update the character count component.
- *
- * @description Based on input, it will update visual status, screenreader status,
- * and update input validation (if over character length)
- * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- */
-const updateCountMessage = (inputEl) => {
-  const { characterCountEl } = getCharacterCountElements(inputEl);
-  const currentLength = inputEl.value.length;
-  const maxLength = parseInt(
-    characterCountEl.getAttribute("data-maxlength"),
-    10
-  );
-  const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
-  const srStatusMessage = characterCountEl.querySelector(STATUS_MESSAGE_SR_ONLY);
-  const currentStatusMessage = getCountMessage(currentLength, maxLength);
-
-  if (!maxLength) return;
-
-  const isOverLimit = currentLength && currentLength > maxLength;
-
-  statusMessage.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessage, currentStatusMessage);
-
-
-  if (isOverLimit && !inputEl.validationMessage) {
-    inputEl.setCustomValidity(VALIDATION_MESSAGE);
-  }
-
-  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
-    inputEl.setCustomValidity("");
-  }
-
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
-};
-
-/**
- * Move maxlength to a data attribute on usa-character-count
+ * Move maxlength attribute to a data attribute on usa-character-count
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
@@ -151,6 +79,78 @@ const createStatusMessages = (characterCountEl) => {
   srStatusMessage.textContent = defaultMessage;
 
   characterCountEl.append(statusMessage, srStatusMessage);
+};
+
+/**
+ * Returns message with how many characters are left
+ *
+ * @param {number} currentLength - The number of characters used
+ * @param {number} maxLength - The total number of characters allowed
+ * @returns {string} A string description of how many characters are left
+ */
+const getCountMessage = (currentLength, maxLength) => {
+  let newMessage = "";
+
+  if (currentLength === 0) {
+    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
+  } else {
+    const difference = Math.abs(maxLength - currentLength);
+    const characters = `character${difference === 1 ? "" : "s"}`;
+    const guidance = currentLength > maxLength ? "over limit" : "left";
+
+    newMessage = `${difference} ${characters} ${guidance}`;
+  }
+
+  return newMessage;
+};
+
+/**
+ * Updates the character count status for screen readers after a 1000ms delay.
+ *
+ * @param {HTMLElement} msgEl - The screen reader status message element
+ * @param {string} statusMessage - A string of the current character status
+ */
+const srUpdateStatus = debounce((msgEl, statusMessage) => {
+  const srStatusMessage = msgEl;
+  srStatusMessage.textContent = statusMessage;
+}, 1000);
+
+/**
+ * Update the character count component
+ *
+ * @description On input, it will update visual status, screenreader
+ * status and update input validation (if over character length)
+ * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
+ */
+const updateCountMessage = (inputEl) => {
+  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const currentLength = inputEl.value.length;
+  const maxLength = parseInt(
+    characterCountEl.getAttribute("data-maxlength"),
+    10
+  );
+  const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
+  const srStatusMessage = characterCountEl.querySelector(
+    STATUS_MESSAGE_SR_ONLY
+  );
+  const currentStatusMessage = getCountMessage(currentLength, maxLength);
+
+  if (!maxLength) return;
+
+  const isOverLimit = currentLength && currentLength > maxLength;
+
+  statusMessage.textContent = currentStatusMessage;
+  srUpdateStatus(srStatusMessage, currentStatusMessage);
+
+  if (isOverLimit && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+  }
+
+  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    inputEl.setCustomValidity("");
+  }
+
+  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
 const enhanceCharacterCount = (inputEl) => {
