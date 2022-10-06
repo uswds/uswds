@@ -15,7 +15,7 @@ const handleChange = (el) => {
 const createStatusElement = (input) => {
   const validationContainer = input.parentNode;
   const inputID = input.getAttribute('id');
-  const statusSummaryID = `${inputID}-summary`;
+  const statusSummaryID = `${inputID}-sr-summary`;
   input.setAttribute("aria-describedby", statusSummaryID);
 
   const statusSummaryContainer = document.createElement("span");
