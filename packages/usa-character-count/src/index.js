@@ -153,6 +153,13 @@ const updateCountMessage = (inputEl) => {
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
+/**
+ * Initialize component
+ *
+ * @description On init this function will create elements and update any
+ * attributes so it can tell the user how many characters are left.
+ * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
+ */
 const enhanceCharacterCount = (inputEl) => {
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
