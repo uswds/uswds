@@ -185,6 +185,12 @@ const characterCount = behavior(
     },
     MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE,
+    STATUS_MESSAGE_CLASS,
+    STATUS_MESSAGE_SR_ONLY_CLASS,
+    DEFAULT_STATUS_LABEL,
+    createStatusMessages,
+    getCountMessage,
+    updateCountMessage,
   }
 );
 
