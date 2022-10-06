@@ -6,23 +6,18 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const VALIDATE_INPUT = "input[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
+// Trigger validation on input change
 function handleChange() {
   validate(this);
 }
 
-const enhanceValidation = (input) => {
-  const validationParent = input.parentNode;
-  const checklistItems =
-    validationParent.querySelectorAll(CHECKLIST_ITEM);
-
-
-  // Set up input attributes
+// Create container to hold aria readout
+const createStatusElement = (input) => {
+  const validationContainer = input.parentNode;
   const inputID = input.getAttribute('id');
   const statusSummaryID = `${inputID}-summary`;
-  input.setAttribute("aria-controls", "validate-code");
   input.setAttribute("aria-describedby", statusSummaryID);
 
-  // Create container to hold aria readout
   const statusSummaryContainer = document.createElement("span");
 
   statusSummaryContainer.setAttribute("data-validation-status", "");
@@ -30,9 +25,17 @@ const enhanceValidation = (input) => {
   statusSummaryContainer.setAttribute("aria-live", "polite");
   statusSummaryContainer.setAttribute("aria-atomic", true);
   statusSummaryContainer.setAttribute("id", statusSummaryID);
-  validationParent.append(statusSummaryContainer);
+  validationContainer.append(statusSummaryContainer);
+};
 
-  // Set up initial aria-label on checklist items
+// Set up checklist items with initial aria-label (incomplete) values
+const createInitialStatus = (input) => {
+  const validationContainer = input.parentNode;
+  const checklistItems = validationContainer.querySelectorAll(CHECKLIST_ITEM);
+  const validationElement = input.getAttribute('data-validation-element');
+
+  input.setAttribute("aria-controls", validationElement);
+
   checklistItems.forEach((listItem) => {
     let currentStatus = "status incomplete";
     if (input.hasAttribute("data-validation-incomplete")) {
@@ -44,6 +47,11 @@ const enhanceValidation = (input) => {
   });
 }
 
+const enhanceValidation = (input) => {
+  createStatusElement(input);
+  createInitialStatus(input);
+}
+
 const validator = behavior(
   {
     "input change": {
@@ -52,7 +60,7 @@ const validator = behavior(
   },
   {
     init(root) {
-      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => enhanceValidation(input))
+      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => enhanceValidation(input));
     },
     enhance: enhanceValidation,
   }
