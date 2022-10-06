@@ -156,7 +156,9 @@ const createStatusMessages = (characterCountEl) => {
 const enhanceCharacterCount = (inputEl) => {
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
+  // Hide hint and remove aria-live for backwards compatibility
   messageEl.classList.add("usa-sr-only");
+  messageEl.removeAttribute("aria-live");
 
   setDataLength(inputEl);
   createStatusMessages(characterCountEl);
