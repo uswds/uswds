@@ -7,8 +7,8 @@ const VALIDATE_INPUT = "input[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 // Trigger validation on input change
-function handleChange() {
-  validate(this);
+const handleChange = (el) => {
+  validate(el);
 }
 
 // Create container to hold aria readout
@@ -55,14 +55,15 @@ const enhanceValidation = (input) => {
 const validator = behavior(
   {
     "input change": {
-      [VALIDATE_INPUT]: handleChange,
+      [VALIDATE_INPUT](event) {
+        handleChange(event.target)
+      }
     },
   },
   {
     init(root) {
       selectOrMatches(VALIDATE_INPUT, root).forEach((input) => enhanceValidation(input));
-    },
-    enhance: enhanceValidation,
+    }
   }
 );
 
