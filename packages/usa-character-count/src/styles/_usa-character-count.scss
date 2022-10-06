@@ -3,9 +3,9 @@
 .usa-character-count__status {
   display: inline-block;
   padding-top: units(0.5);
-}
 
-.usa-character-count__message--invalid {
-  color: color("error-dark");
-  font-weight: font-weight("bold");
+  &.usa-character-count__status--invalid {
+    color: color("error-dark");
+    font-weight: font-weight("bold");
+  }
 }
