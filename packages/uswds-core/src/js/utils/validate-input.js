@@ -1,3 +1,4 @@
+const debounce = require("./debounce");
 const { prefix: PREFIX } = require("../config");
 
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
@@ -30,7 +31,7 @@ module.exports = function validate(el) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
       }
 
-      // Create ARIA readout
+      // Create status reports for checklist items
       let statusComplete = "status complete";
       let statusIncomplete = "status incomplete";
       let checkboxContent = `${validatorCheckbox.textContent} `;
@@ -49,9 +50,16 @@ module.exports = function validate(el) {
         checkboxContent += statusIncomplete;
       };
 
+      // move status updates to aria-label on checklist item
       validatorCheckbox.setAttribute("aria-label", checkboxContent);
+
+      // Create a summary of status for all checklist items
       statusSummary += `${checkboxContent}. `;
-      statusSummaryContainer.textContent = statusSummary;
+
+      // Add summary to screen reader summary container, after a delay
+      ((debounce(() => {
+        statusSummaryContainer.textContent = statusSummary;
+      }, 1000)))();
     }
   });
 };
