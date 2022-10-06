@@ -12,6 +12,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;
 const NAV = `.${PREFIX}-nav`;
+const NAV_CONTAINER = `.${PREFIX}-nav-container`;
 const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
 const NAV_CONTROL = `button.${PREFIX}-nav__link`;
@@ -22,7 +23,7 @@ const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(", ");
-const NON_NAV_ELEMENTS = `body > *:not(${HEADER}):not([aria-hidden])`;
+const NON_NAV_ELEMENTS = `body *:not(${HEADER}, ${NAV_CONTAINER}, ${NAV}, ${NAV} *):not([aria-hidden])`;
 const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
@@ -43,11 +44,14 @@ const TEMPORARY_PADDING = `${
 }px`;
 
 const hideNonNavItems = () => {
+  const headerParent = document.querySelector(`${HEADER}`).parentNode;
   nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
 
   nonNavElements.forEach((nonNavElement) => {
-    nonNavElement.setAttribute("aria-hidden", true);
-    nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+    if(nonNavElement !== headerParent) {
+      nonNavElement.setAttribute("aria-hidden", true);
+      nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
+    }
   });
 };
 
