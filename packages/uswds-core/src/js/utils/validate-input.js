@@ -49,9 +49,11 @@ module.exports = function validate(el) {
       statusSummary += `${checkboxContent}. `;
 
       // Add summary to screen reader summary container, after a delay
-      ((debounce(() => {
+      const srUpdateStatus = debounce(() => {
         statusSummaryContainer.textContent = statusSummary;
-      }, 1000)))();
+      }, 1000);
+
+      srUpdateStatus();
     }
   });
 };
