@@ -32,17 +32,9 @@ module.exports = function validate(el) {
       }
 
       // Create status reports for checklist items
-      let statusComplete = "status complete";
-      let statusIncomplete = "status incomplete";
+      const statusComplete = el.dataset.validationComplete || "status complete";
+      const statusIncomplete = el.dataset.validationIncomplete || "status incomplete";
       let checkboxContent = `${validatorCheckbox.textContent} `;
-
-      if (el.hasAttribute("data-validation-complete")) {
-        statusComplete = el.getAttribute("data-validation-complete");
-      }
-
-      if (el.hasAttribute("data-validation-incomplete")) {
-        statusIncomplete = el.getAttribute("data-validation-incomplete");
-      }
 
       if(validatorCheckbox.classList.contains(CHECKED_CLASS)){
         checkboxContent += statusComplete;
