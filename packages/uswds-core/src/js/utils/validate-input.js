@@ -22,7 +22,9 @@ module.exports = function validate(el) {
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const validatorParent = el.parentNode;
-      const statusSummaryContainer = validatorParent.querySelector(`[data-validation-status]`);
+      const statusSummaryContainer = validatorParent.querySelector(
+        `[data-validation-status]`
+      );
 
       const checked = validatorPattern.test(el.value);
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
@@ -33,14 +35,15 @@ module.exports = function validate(el) {
 
       // Create status reports for checklist items
       const statusComplete = el.dataset.validationComplete || "status complete";
-      const statusIncomplete = el.dataset.validationIncomplete || "status incomplete";
+      const statusIncomplete =
+        el.dataset.validationIncomplete || "status incomplete";
       let checkboxContent = `${validatorCheckbox.textContent} `;
 
-      if(validatorCheckbox.classList.contains(CHECKED_CLASS)){
+      if (validatorCheckbox.classList.contains(CHECKED_CLASS)) {
         checkboxContent += statusComplete;
-      } else{
+      } else {
         checkboxContent += statusIncomplete;
-      };
+      }
 
       // move status updates to aria-label on checklist item
       validatorCheckbox.setAttribute("aria-label", checkboxContent);

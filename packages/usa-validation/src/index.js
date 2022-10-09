@@ -12,7 +12,7 @@ const handleChange = (el) => validate(el);
 // Create container to hold aria readout
 const createStatusElement = (input) => {
   const validationContainer = input.parentNode;
-  const inputID = input.getAttribute('id');
+  const inputID = input.getAttribute("id");
   const statusSummaryID = `${inputID}-sr-summary`;
   input.setAttribute("aria-describedby", statusSummaryID);
 
@@ -30,7 +30,7 @@ const createStatusElement = (input) => {
 const createInitialStatus = (input) => {
   const validationContainer = input.parentNode;
   const checklistItems = validationContainer.querySelectorAll(CHECKLIST_ITEM);
-  const validationElement = input.getAttribute('data-validation-element');
+  const validationElement = input.getAttribute("data-validation-element");
 
   input.setAttribute("aria-controls", validationElement);
 
@@ -43,25 +43,27 @@ const createInitialStatus = (input) => {
     listItem.setAttribute("tabindex", "0");
     listItem.setAttribute("aria-label", itemStatus);
   });
-}
+};
 
 const enhanceValidation = (input) => {
   createStatusElement(input);
   createInitialStatus(input);
-}
+};
 
 const validator = behavior(
   {
     "input change": {
       [VALIDATE_INPUT](event) {
-        handleChange(event.target)
-      }
+        handleChange(event.target);
+      },
     },
   },
   {
     init(root) {
-      selectOrMatches(VALIDATE_INPUT, root).forEach((input) => enhanceValidation(input));
-    }
+      selectOrMatches(VALIDATE_INPUT, root).forEach((input) =>
+        enhanceValidation(input)
+      );
+    },
   }
 );
 
