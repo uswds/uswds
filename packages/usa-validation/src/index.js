@@ -7,9 +7,7 @@ const VALIDATE_INPUT = "input[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 // Trigger validation on input change
-const handleChange = (el) => {
-  validate(el);
-}
+const handleChange = (el) => validate(el);
 
 // Create container to hold aria readout
 const createStatusElement = (input) => {
