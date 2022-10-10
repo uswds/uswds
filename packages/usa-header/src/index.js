@@ -147,7 +147,10 @@ const focusNavButton = (event) => {
 
   // Only shift focus if within dropdown
   if (!event.target.matches(NAV_CONTROL)) {
-    parentNavItem.querySelector(NAV_CONTROL).focus();
+    const navControl = parentNavItem.querySelector(NAV_CONTROL)
+    if (navControl) {
+      navControl.focus()
+    }
   }
 };
 
