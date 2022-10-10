@@ -3,7 +3,7 @@
 .usa-in-page-nav-container {
   align-items: flex-start;
   display: flex;
-  margin: units(8) units(0);
+  margin: units(2) units(0) units(15);
 
   // Set main landmark max width to ensure in-page nav will fit
   main,
@@ -17,6 +17,7 @@
     margin-left: units(0.5);
     margin-top: units(2.5);
     max-width: units("card-lg");
+    order: 2;
     position: sticky;
     top: units($theme-in-page-nav-top-position);
 
@@ -51,6 +52,7 @@
       }
 
       &.usa-current {
+        background-color: color("base-lightest");
         color: color("base-darker");
         position: static;
 

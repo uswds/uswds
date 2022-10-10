@@ -22,7 +22,7 @@ const SUB_ITEM = "sub-item";
 
 // Set Intersection Observer options
 const IO_ROOT = null;
-const IO_ROOT_MARGIN = "0px 0px -95% 0px";
+const IO_ROOT_MARGIN = "0px 0px -85% 0px";
 const IO_THRESHOLD = [0];
 
 /**
@@ -101,10 +101,10 @@ const createInPageNav = (inPageNavEl) => {
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("role", "navigation");
-  inPageNav.setAttribute("aria-label", IN_PAGE_NAV_TITLE);
 
   const inPageNavTitle = document.createElement("h4");
   inPageNavTitle.classList.add(SITE_SUBHEADING);
+  inPageNavTitle.setAttribute("tabindex", "0");
   inPageNavTitle.textContent = IN_PAGE_NAV_TITLE;
   inPageNav.appendChild(inPageNavTitle);
 
