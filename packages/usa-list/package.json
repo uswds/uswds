@@ -1,0 +1,24 @@
+{
+  "name": "@uswds/usa-list",
+  "version": "0.0.1-alpha.0",
+  "description": "USWDS list styles",
+  "main": "_index.scss",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "\"list",
+    "styles\""
+  ],
+  "author": "uswds",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme"
+}

@@ -17,7 +17,7 @@ module.exports = {
     let packageName = dutil.pkg.name.replace("@uswds/", "");
     const streams = Object.entries({
       [packageName]: browserify({
-        entries: ["packages/uswds-core/src/js/start.js"],
+        entries: ["packages/uswds/start.js"],
         debug: true,
       })
         .transform("babelify", {

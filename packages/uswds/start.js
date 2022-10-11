@@ -6,12 +6,12 @@ window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
  * older browsers, so must be loaded first.
  */
-require("./polyfills");
+require("../uswds-core/src/js/polyfills");
 
-const uswds = require("./config");
+const uswds = require("../uswds-core/src/js/config");
 
 const components = require("./index");
-const svg4everybody = require("./polyfills/svg4everybody");
+const svg4everybody = require("../uswds-core/src/js/polyfills/svg4everybody");
 
 uswds.components = components;
 

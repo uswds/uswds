@@ -1,0 +1,34 @@
+{
+  "name": "@uswds/uswds-typography",
+  "version": "0.0.1-alpha.0",
+  "description": "The base typographic styles for USWDS. Includes usa content, dark background, display, intro, link, list, paragraph, and prose.",
+  "main": "_index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "uswds",
+    "typography"
+  ],
+  "author": "uswds",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme",
+  "dependencies": {
+    "@uswds/usa-content": "^0.0.1-alpha.0",
+    "@uswds/usa-dark-background": "^0.0.1-alpha.0",
+    "@uswds/usa-display": "^0.0.1-alpha.0",
+    "@uswds/usa-intro": "^0.0.1-alpha.0",
+    "@uswds/usa-link": "^0.0.1-alpha.0",
+    "@uswds/usa-list": "^0.0.1-alpha.0",
+    "@uswds/usa-paragraph": "^0.0.1-alpha.0",
+    "@uswds/usa-prose": "^0.0.1-alpha.0",
+    "@uswds/uswds-core": "^0.0.1-alpha.0"
+  }
+}

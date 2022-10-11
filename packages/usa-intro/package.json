@@ -1,0 +1,25 @@
+{
+  "name": "@uswds/usa-intro",
+  "version": "0.0.1-alpha.0",
+  "description": "Lead-in type styles for USWDS.",
+  "main": "_index.scss",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds.git"
+  },
+  "keywords": [
+    "typography",
+    "lead-in",
+    "styles"
+  ],
+  "author": "uswds",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/uswds/uswds/issues"
+  },
+  "homepage": "https://github.com/uswds/uswds#readme"
+}

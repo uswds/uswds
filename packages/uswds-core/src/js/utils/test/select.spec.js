@@ -1,3 +1,5 @@
+require('jsdom-global')();
+
 const fs = require("fs");
 const assert = require("assert");
 const select = require("../select");

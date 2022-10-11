@@ -44,11 +44,10 @@
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "./src/stylesheets/uswds.scss",
   "mocha": {
-    "config": "src/utils/test/.mocharc.json"
+    "config": "./.mocharc.json"
   },
   "scripts": {
     "build": "gulp",
@@ -185,6 +184,6 @@
     "webpack-cli": "4.9.1"
   },
   "workspaces": [
-    "packages/uswds-core"
+    "packages/*"
   ]
 }
