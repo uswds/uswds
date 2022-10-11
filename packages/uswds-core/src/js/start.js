@@ -22,7 +22,11 @@ const initComponents = () => {
   svg4everybody();
 };
 
-window.addEventListener("DOMContentLoaded", initComponents, { once: true });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initComponents, { once: true });
+} else {
+  initComponents();
+}
 
 exports.default = uswds;
 exports.initComponents = initComponents;
