@@ -1,0 +1,121 @@
+{% set banner = {
+  'banner': {
+    'id': 'gov-banner-default',
+    'text': 'An official website of the United States government',
+    'action': 'Here’s how you know',
+    'aria_label': 'Official government website'
+  },
+  'domain': {
+    'heading': 'Official websites use .gov',
+    'text': 'A <strong>.gov</strong> website belongs to an official government organization in the United States.'
+  },
+  'https': {
+    'heading': 'Secure .gov websites use HTTPS',
+    'pretext': 'A <strong>lock</strong>',
+    'posttext': 'or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.'
+  }
+} %}
+
+{% set alerts = [
+  {
+    'header': 'Info alert',
+    'alertModifier': 'usa-alert--info',
+    'siteModifier': 'usa-site-alert--info',
+    'title': 'Informative status',
+    'aria': 'Site alert info'
+  },
+  {
+    'header': 'Info alert - slim',
+    'alertModifier': 'usa-alert--info usa-alert--slim',
+    'siteModifier': 'usa-site-alert--info usa-site-alert--slim',
+    'aria': 'Site alert info,'
+  },
+  {
+    'header': 'Info alert - no icon',
+    'alertModifier': 'usa-alert--info usa-alert--no-icon',
+    'siteModifier': 'usa-site-alert--info usa-site-alert--no-icon',
+    'aria': 'Site alert info,,'
+  },
+  {
+    'header': 'Emergency alert',
+    'alertModifier': 'usa-alert--emergency',
+    'siteModifier': 'usa-site-alert--emergency',
+    'title': 'Informative status',
+    'aria': 'Emergency alert info'
+  },
+  {
+    'header': 'Emergency alert - slim',
+    'alertModifier': 'usa-alert--emergency usa-alert--slim',
+    'siteModifier': 'usa-site-alert--emergency usa-site-alert--slim',
+    'aria': 'Emergency alert info,'
+  },
+  {
+    'header': 'Emergency alert - no icon',
+    'alertModifier': 'usa-alert--emergency usa-alert--no-icon',
+    'siteModifier': 'usa-site-alert--emergency usa-site-alert--no-icon',
+    'aria': 'Emergency alert info,,'
+  }
+] %}
+
+{% include '@components/usa-banner/src/usa-banner.twig' with banner %}
+
+{% for alert in alerts %}
+  <h3>{{ alert.header }}</h3>
+  <div class="usa-alert {{ alert.alertModifier }}">
+    <div class="usa-alert__body">
+      {% if alert.title %}<h4 class="usa-alert__heading">{{ alert.title }}</h4>{% endif %}
+      <p class="usa-alert__text">
+        Lorem ipsum dolor sit amet,
+        <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+        elit, sed do eiusmod.
+      </p>
+    </div>
+  </div>
+  <hr/>
+  <section
+    class="usa-site-alert {{ alert.siteModifier }}"
+    aria-label="{{ alert.aria }}"
+  >
+    <div class="usa-alert">
+      <div class="usa-alert__body">
+        {% if alert.title %}<h3 class="usa-alert__heading">{{ alert.title }}</h3>{% endif %}
+        <p class="usa-alert__text">
+          Additional context and followup information including
+          <a class="usa-link" href="javascript:void(0);">a link</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+
+{% set footer = {
+  'footer': {
+    'return_to_top': 'Return to top',
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'}
+        ]
+      }
+    },
+    'secondary_section': {
+      'agency_name': '<Name of Agency>',
+      'heading': '<Agency Contact Center>',
+      'phone': '<(800) 555-GOVT>',
+      'email': '<info@agency.gov>',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
+    }
+  }
+} %}
+
+{% include '@components/usa-footer/src/usa-footer.twig' with footer %}

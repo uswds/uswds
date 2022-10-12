@@ -1,5 +1,3 @@
-const domready = require("domready");
-
 window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
 /**
@@ -15,13 +13,20 @@ const svg4everybody = require("./polyfills/svg4everybody");
 
 uswds.components = components;
 
-domready(() => {
+const initComponents = () => {
   const target = document.body;
   Object.keys(components).forEach((key) => {
     const behavior = components[key];
     behavior.on(target);
   });
   svg4everybody();
-});
+};
 
-module.exports = uswds;
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initComponents, { once: true });
+} else {
+  initComponents();
+}
+
+exports.default = uswds;
+exports.initComponents = initComponents;
