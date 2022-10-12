@@ -6,12 +6,13 @@
  * @returns {Function} A debounced function
  * @example const updateStatus = debounce((string) => console.log(string), 2000)
  */
- module.exports = function debounce(callback, delay = 500) {
-    let timer = null;
-    return (...args) => {
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        callback.apply(this, args);
-      }, delay);
-    };
+
+module.exports = function debounce(callback, delay = 500) {
+  let timer = null;
+  return (...args) => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      callback.apply(this, args);
+    }, delay);
   };
+};
