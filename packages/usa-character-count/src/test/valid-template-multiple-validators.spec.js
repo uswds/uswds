@@ -17,13 +17,14 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
-const characterCountSelector = () => document.querySelector('.usa-character-count');
+const characterCountSelector = () =>
+  document.querySelector(".usa-character-count");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "character count", selector: characterCountSelector }
+  { name: "character count", selector: characterCountSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`character count component with multiple validators initialized at ${name}`, () => {
     const { body } = document;
 
