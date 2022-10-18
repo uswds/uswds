@@ -62,7 +62,6 @@ $banner-icon-close: (
 }
 
 .usa-banner__content {
-  @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
@@ -113,10 +112,9 @@ $banner-icon-close: (
 
 .usa-banner__inner {
   @include add-responsive-site-margins;
-  @include grid-container($theme-banner-max-width);
-  @include grid-row;
   @include u-flex("align-start");
   padding-right: units(0);
+  display: flex;
 
   @include at-media("tablet") {
     @include u-flex("align-center");
