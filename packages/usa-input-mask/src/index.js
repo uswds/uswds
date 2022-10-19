@@ -1,13 +1,13 @@
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
 const MASK = `${PREFIX}-input-mask`;
 const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
+const CONTEXT = "form";
 
 // User defined Values
 const maskedNumber = "_dDmMyY9";
@@ -27,7 +27,6 @@ const createMaskedInputShell = (input) => {
   const shell = document.createElement("span");
   shell.classList.add(MASK);
   shell.setAttribute("data-mask", placeholder);
-  console.log("shell ", shell); // eslint-disable-line no-console
 
   const content = document.createElement("span");
   content.classList.add(MASK_CONTENT);
@@ -36,7 +35,7 @@ const createMaskedInputShell = (input) => {
   content.textContent = placeholder;
 
   shell.appendChild(content);
-  input.parentNode.insertBefore(shell, input);
+  input.closest(CONTEXT).insertBefore(shell, input);
   shell.appendChild(input);
 };
 
@@ -54,7 +53,7 @@ const handleCurrentValue = (el) => {
   const isCharsetPresent = el.getAttribute("data-charset");
   const placeholder = isCharsetPresent || el.getAttribute("data-placeholder");
   const { value } = el;
-  const l = placeholder.length;
+  const len = placeholder.length;
   let newValue = "";
   let i;
   let j;
@@ -66,7 +65,7 @@ const handleCurrentValue = (el) => {
     ? value.replace(/\W/g, "")
     : value.replace(/\D/g, "");
 
-  for (i = 0, j = 0; i < l; i += 1) {
+  for (i = 0, j = 0; i < len; i += 1) {
     isInt = !Number.isNaN(parseInt(strippedValue[j], 10));
     isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
@@ -97,19 +96,23 @@ const handleCurrentValue = (el) => {
   }
   return newValue;
 };
-const handleValueChange = (el) => {
-  const id = el.getAttribute("id");
 
-  document.getElementById(id).value = handleCurrentValue(el);
+const handleValueChange = (el) => {
+  // const id = el.getAttribute("id");
+
+  // document.getElementById(id).value = handleCurrentValue(el);
+
+  const inputEl = el;
+  const id = inputEl.getAttribute("id");
+  inputEl.value = handleCurrentValue(inputEl);
+
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
-  maskEl.innerHTML = "";
+  maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 };
 
 const inputMaskEvents = {
-  [CLICK]: {},
-
   keyup: {
     [MASKED]() {
       handleValueChange(this);
