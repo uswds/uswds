@@ -123,9 +123,7 @@ const transformTimePicker = (el) => {
   timePickerEl.dataset.defaultValue = defaultValue;
 
   timePickerEl.appendChild(selectEl);
-  initialInputEl.classList.add("usa-sr-only");
-  initialInputEl.setAttribute("aria-hidden", "true");
-  initialInputEl.setAttribute("tabindex","-1");
+  initialInputEl.remove();
 };
 
 const timePicker = behavior(
