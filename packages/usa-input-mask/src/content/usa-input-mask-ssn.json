@@ -1,0 +1,9 @@
+{
+  "label": "Social Security Number",
+  "hint": "For example, 123 45 6789",
+  "id": "ssn",
+  "type": "text",
+  "inputmode": "numeric",
+  "placeholder": "___ __ ____",
+  "pattern": "^(?!(000|666|9))\\d{3} (?!00)\\d{2} (?!0000)\\d{4}$"
+}
