@@ -1,5 +1,3 @@
-// import "../dist/js/uswds.min.js";
-
 import "../packages/uswds-core/src/js/start";
 
 export const parameters = {
