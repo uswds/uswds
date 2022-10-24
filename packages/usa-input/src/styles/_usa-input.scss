@@ -3,6 +3,10 @@
 .usa-input {
   @extend %block-input-general;
   @extend %block-input-styles;
+
+  &:disabled {
+    background-color: color("disabled-light");
+  }
 }
 
 .usa-input--error {

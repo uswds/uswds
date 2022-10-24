@@ -13,6 +13,10 @@
     @include focus-outline();
   }
 
+  &--disabled {
+    background-color: color(disabled-light);
+  }
+
   &--error {
     @include u-border($theme-input-state-border-width, "error-dark");
   }
