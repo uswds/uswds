@@ -11,7 +11,7 @@ const CONTEXT = "form";
 
 // User defined Values
 const maskedNumber = "_dDmMyY9";
-const maskedLetter = "_";
+const maskedLetter = "X";
 
 // replaces each masked input with a shell containing the input and it's mask.
 const createMaskedInputShell = (input) => {

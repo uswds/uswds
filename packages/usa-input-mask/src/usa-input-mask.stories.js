@@ -3,6 +3,7 @@ import {
   SsnContent,
   PhoneContent,
   ZipContent,
+  AlphanumericContent,
 } from "./content";
 
 export default {
@@ -19,3 +20,6 @@ Phone.args = PhoneContent;
 
 export const ZIP = Template.bind({});
 ZIP.args = ZipContent;
+
+export const Alphanumeric = Template.bind({});
+Alphanumeric.args = AlphanumericContent;
