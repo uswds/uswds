@@ -41,67 +41,62 @@ const createMaskedInputShell = (input) => {
 
 const setValueOfMask = (el) => {
   const { value } = el;
-  const placeholder = el.getAttribute("data-placeholder");
-  const placeholderVal = `${placeholder.substr(value.length)}`;
+  const placeholderVal = `${el.dataset.placeholder.substr(value.length)}`;
 
   const theIEl = document.createElement("i");
   theIEl.textContent = value;
   return [theIEl, placeholderVal];
 };
 
+const strippedValue = (isCharsetPresent, value) =>
+  isCharsetPresent ? value.replace(/\W/g, "") : value.replace(/\D/g, "");
+
+const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
+
+const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
+
 const handleCurrentValue = (el) => {
-  const isCharsetPresent = el.getAttribute("data-charset");
-  const placeholder = isCharsetPresent || el.getAttribute("data-placeholder");
+  const isCharsetPresent = el.dataset.charset;
+  const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
   let newValue = "";
   let i;
-  let j;
-  let isInt;
-  let isLetter;
+  let charIndex;
 
-  // strip special characters
-  const strippedValue = isCharsetPresent
-    ? value.replace(/\W/g, "")
-    : value.replace(/\D/g, "");
+  const strippedVal = strippedValue(isCharsetPresent, value);
 
-  for (i = 0, j = 0; i < len; i += 1) {
-    isInt = !Number.isNaN(parseInt(strippedValue[j], 10));
-    isLetter = strippedValue[j] ? strippedValue[j].match(/[A-Z]/i) : false;
+  for (i = 0, charIndex = 0; i < len; i += 1) {
+    const isInt = isInteger(strippedVal[charIndex]);
+    const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
 
     if (
       (matchesNumber && isInt) ||
-      (isCharsetPresent && matchesLetter && isLetter)
+      (isCharsetPresent && matchesLetter && isLet)
     ) {
-      newValue += strippedValue[j];
-      j += 1;
+      newValue += strippedVal[charIndex];
+      charIndex += 1;
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
-        ((matchesLetter && !isLetter) || (matchesNumber && !isInt)))
+        ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
       return newValue;
     } else {
       newValue += placeholder[i];
     }
     // break if no characters left and the pattern is non-special character
-    if (strippedValue[j] === undefined) {
+    if (strippedVal[charIndex] === undefined) {
       break;
     }
   }
-  if (el.getAttribute("data-valid-example")) {
-    // return validateProgress(e, newValue);
-  }
+
   return newValue;
 };
 
 const handleValueChange = (el) => {
-  // const id = el.getAttribute("id");
-
-  // document.getElementById(id).value = handleCurrentValue(el);
-
   const inputEl = el;
   const id = inputEl.getAttribute("id");
   inputEl.value = handleCurrentValue(inputEl);
