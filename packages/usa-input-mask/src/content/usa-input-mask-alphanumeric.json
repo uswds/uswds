@@ -6,5 +6,5 @@
   "inputmode": "text",
   "placeholder": "___ ___",
   "pattern": "\\w\\d\\w \\d\\w\\d",
-  "datacharset": "X_X _X_"
+  "datacharset": "A#A #A#"
 }

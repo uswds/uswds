@@ -10,8 +10,8 @@ const PLACEHOLDER = "placeholder";
 const CONTEXT = "form";
 
 // User defined Values
-const maskedNumber = "_dDmMyY9";
-const maskedLetter = "X";
+const maskedNumber = "_#dDmMyY9";
+const maskedLetter = "A";
 
 // replaces each masked input with a shell containing the input and it's mask.
 const createMaskedInputShell = (input) => {
