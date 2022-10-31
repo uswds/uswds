@@ -14,7 +14,7 @@
   }
 
   &--disabled {
-    background-color: color(disabled-light);
+    background-color: color("disabled-light");
   }
 
   &--error {
