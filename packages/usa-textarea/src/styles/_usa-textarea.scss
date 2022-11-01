@@ -7,4 +7,8 @@
 
 .usa-textarea {
   height: units("card");
+
+  &:disabled {
+    background-color: color("disabled-light");
+  }
 }
