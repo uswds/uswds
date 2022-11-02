@@ -19,7 +19,7 @@
     max-width: units("card-lg");
     order: 2;
     position: sticky;
-    top: units($theme-in-page-nav-top-position);
+    top: units($theme-in-page-nav-top);
 
     @include at-media("tablet") {
       display: block;
