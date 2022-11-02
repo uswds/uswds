@@ -27,7 +27,7 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-      <div class="usa-identifier__identity" aria-label="{{ masthead.description }}">
+      <section class="usa-identifier__identity" aria-label="{{ masthead.description }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
           {{ masthead.content }}
@@ -51,7 +51,7 @@
           . {{ masthead.taxpayer_disclaimer.content }}
           {%- endif -%}
         </p>
-      </div>
+      </section>
     </div>
   </section>
   <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="{{ required_links.aria_label }}">
