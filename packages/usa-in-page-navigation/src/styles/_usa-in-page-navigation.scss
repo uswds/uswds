@@ -22,7 +22,7 @@
   .usa-in-page-nav {
     @include set-text-from-bg(
       $bg-color: $theme-in-page-nav-background-color,
-      $context: "in-page-navigation"
+      $context: "In-page navigation text color"
     );
     display: none;
     margin-left: units(2);
@@ -38,7 +38,10 @@
     }
 
     nav {
-      background-color: color($theme-in-page-nav-background-color);
+      @include set-text-and-bg(
+        $theme-in-page-nav-background-color,
+        $context: "In-page navigation background"
+      );    
       border-radius: radius($theme-in-page-nav-background-radius);
       padding: units($theme-in-page-nav-background-padding);
     }
