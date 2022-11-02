@@ -13,6 +13,10 @@
   }
 
   .usa-in-page-nav {
+    @include set-text-from-bg(
+      $bg-color: $theme-in-page-nav-background-color,
+      $context: "in-page-navigation"
+    );
     display: none;
     margin-left: units(0.5);
     margin-top: units(2.5);
@@ -40,20 +44,28 @@
     border-left: units(1px) solid color("base-lighter");
     padding: units(0);
 
-    a {
-      color: color("base-darker");
-
-      &:where(:not(.usa-button)) {
-        padding: units("05") units(1);
-      }
-
-      &:hover {
-        color: color("primary-vivid");
+    // specificity to override sidenav styles
+    a:not(.usa-button) {
+      &:not(.usa-current) {
+        @include set-link-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "in-page-navigation"
+        );
       }
 
       &.usa-current {
-        background-color: color("base-lightest");
-        color: color("base-darker");
+        @include set-text-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "in-page-navigation"
+        );
+      }
+    
+      &:hover {
+        text-decoration: underline;
+        background-color: none;
+      }
+
+      &.usa-current {
         position: static;
 
         &::after {
@@ -73,10 +85,8 @@
       position: relative;
 
       &.usa-in-page-nav__item--sub-item {
-        font-size: font-size($theme-in-page-nav-font-family, "3xs");
-
         a {
-          padding-left: units(3);
+          padding-left: units(5);
         }
       }
     }
