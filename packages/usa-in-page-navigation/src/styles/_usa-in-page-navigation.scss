@@ -1,4 +1,5 @@
 @use "uswds-core" as *;
+@use "sass:color";
 
 .usa-in-page-nav-container {
   align-items: flex-start;
@@ -50,7 +51,14 @@
     @include border-box-sizing;
     @include nav-list("sidenav");
     @include typeset($theme-in-page-nav-font-family, "sm", 2);
-    border-left: units(1px) solid color("base-lighter");
+    border-left: units(1px) solid color.adjust(
+      color(
+        get-color-token-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page navigation rail",
+        )
+      ), $alpha: -0.75
+    );
     padding: units(0);
 
     // specificity to override sidenav styles
