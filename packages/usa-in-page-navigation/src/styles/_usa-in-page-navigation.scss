@@ -33,7 +33,7 @@
     }
   }
 
-  .usa-in-page-nav-list {
+  .usa-in-page-nav__list {
     @include border-box-sizing;
     @include nav-list("sidenav");
     @include typeset($theme-in-page-nav-font-family, "sm", 2);

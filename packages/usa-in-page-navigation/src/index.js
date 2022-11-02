@@ -6,7 +6,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
-const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}-list`;
+const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor-tag`;
@@ -17,7 +17,7 @@ const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV = `.${PREFIX}-in-page-nav`;
 const CURRENT_CLASS = `${PREFIX}-current`;
 const MAIN_ELEMENT = "main";
-const SITE_SUBHEADING = "site-subheading";
+const NAV_SUBHEADING = `${IN_PAGE_NAV_CLASS}__heading`;
 const SUB_ITEM = "sub-item";
 
 // Set Intersection Observer options
@@ -103,7 +103,7 @@ const createInPageNav = (inPageNavEl) => {
   inPageNav.setAttribute("role", "navigation");
 
   const inPageNavTitle = document.createElement("h4");
-  inPageNavTitle.classList.add(SITE_SUBHEADING);
+  inPageNavTitle.classList.add(NAV_SUBHEADING);
   inPageNavTitle.setAttribute("tabindex", "0");
   inPageNavTitle.textContent = IN_PAGE_NAV_TITLE;
   inPageNav.appendChild(inPageNavTitle);
