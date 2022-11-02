@@ -21,6 +21,12 @@ const IO_ROOT = null;
 const IO_ROOT_MARGIN = "0px 0px -85% 0px";
 const IO_THRESHOLD = [0];
 
+const options = {
+  root: IO_ROOT,
+  rootMargin: IO_ROOT_MARGIN,
+  threshold: IO_THRESHOLD,
+};
+
 /**
  * Set the active link state for the currently observed section
  *
@@ -133,12 +139,6 @@ const createInPageNav = (inPageNavEl) => {
   });
 
   inPageNavEl.appendChild(inPageNav);
-
-  const options = {
-    root: IO_ROOT,
-    rootMargin: IO_ROOT_MARGIN,
-    threshold: IO_THRESHOLD,
-  };
 
   const anchorTags = getSectionAnchors();
   const observeSections = new window.IntersectionObserver(setActive, options);
