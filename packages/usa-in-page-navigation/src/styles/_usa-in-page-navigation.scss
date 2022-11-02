@@ -72,7 +72,7 @@
       @include u-border(0);
       position: relative;
 
-      &.sub-item {
+      &.usa-in-page-nav__item--sub-item {
         font-size: font-size($theme-in-page-nav-font-family, "3xs");
 
         a {
