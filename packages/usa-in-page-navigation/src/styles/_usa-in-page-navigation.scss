@@ -24,8 +24,8 @@
       $context: "In-page navigation text color"
     );
     display: none;
-    margin-left: units(2);
-    margin-top: units(2.5);
+    margin-left: units($theme-in-page-nav-margin-left);
+    margin-top: units($theme-in-page-nav-margin-top);
     max-width: units("card-lg");
     order: 2;
     position: sticky;
