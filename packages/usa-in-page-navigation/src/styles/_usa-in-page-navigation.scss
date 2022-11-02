@@ -12,13 +12,20 @@
     width: 100%;
   }
 
+  .usa-in-page-nav__heading {
+    // TODO: This could be a setting?
+    @include u-font("ui", "2xs");
+    @include u-font-weight("bold");
+    margin-top: 0;
+  }
+
   .usa-in-page-nav {
     @include set-text-from-bg(
       $bg-color: $theme-in-page-nav-background-color,
       $context: "in-page-navigation"
     );
     display: none;
-    margin-left: units(0.5);
+    margin-left: units(2);
     margin-top: units(2.5);
     max-width: units("card-lg");
     order: 2;
@@ -49,15 +56,16 @@
       &:not(.usa-current) {
         @include set-link-from-bg(
           $bg-color: $theme-in-page-nav-background-color,
-          $context: "in-page-navigation"
+          $context: "In-page-navigation link"
         );
       }
 
       &.usa-current {
         @include set-text-from-bg(
           $bg-color: $theme-in-page-nav-background-color,
-          $context: "in-page-navigation"
+          $context: "In-page-navigation current color"
         );
+        font-weight: inherit;
       }
     
       &:hover {
@@ -69,7 +77,12 @@
         position: static;
 
         &::after {
-          background-color: color($theme-in-page-nav-bar-color);
+          background-color: color(
+            get-color-token-from-bg(
+              $bg-color: $theme-in-page-nav-background-color,
+              $context: "In-page navigation bar",
+            )
+          );
           border-radius: 0;
           bottom: units(-1px);
           left: units(0);
@@ -82,12 +95,12 @@
 
     .usa-in-page-nav__item {
       @include u-border(0);
+      font-size: font-size($theme-in-page-nav-font-family, "2xs");
+      font-weight: bold;
       position: relative;
 
       &.usa-in-page-nav__item--sub-item {
-        a {
-          padding-left: units(5);
-        }
+        font-weight: normal;
       }
     }
   }
