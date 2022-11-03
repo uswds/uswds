@@ -102,7 +102,7 @@ const handleScrollToSection = (el) => {
 const createInPageNav = (inPageNavEl) => {
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
-  inPageNav.setAttribute("role", "navigation");
+  inPageNav.setAttribute("aria-label", "in-page navigation");
 
   const inPageNavTitle = document.createElement("h4");
   inPageNavTitle.classList.add(IN_PAGE_NAV_TITLE_CLASS);
