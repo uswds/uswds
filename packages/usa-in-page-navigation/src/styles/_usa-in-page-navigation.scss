@@ -90,6 +90,7 @@
           background-color: color(
             get-color-token-from-bg(
               $bg-color: $theme-in-page-nav-background-color,
+              $preferred-text-token: $theme-in-page-nav-bar-color,
               $context: "In-page navigation bar",
             )
           );
