@@ -77,7 +77,7 @@ const getSectionId = (value) => {
   let id;
 
   // Check if value is an event or element and get the cleaned up id
-  if (value && typeof value === "object" && value.nodeType === 1) {
+  if (value && value.nodeType === 1) {
     id = value.getAttribute("href").replace("#", "");
   } else {
     id = value.target.hash.replace("#", "");
