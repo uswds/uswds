@@ -6,7 +6,6 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
-const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
@@ -100,14 +99,16 @@ const handleScrollToSection = (el) => {
 };
 
 const createInPageNav = (inPageNavEl) => {
+  const inPageNavTitleText = inPageNavEl.dataset.title;
+  const inPageNavHeadingLevel = inPageNavEl.dataset.headingLevel;
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
-  inPageNav.setAttribute("aria-label", "In-page navigation");
+  inPageNav.setAttribute("aria-label", inPageNavTitleText);
 
-  const inPageNavTitle = document.createElement("h4");
+  const inPageNavTitle = document.createElement(inPageNavHeadingLevel);
   inPageNavTitle.classList.add(IN_PAGE_NAV_TITLE_CLASS);
   inPageNavTitle.setAttribute("tabindex", "0");
-  inPageNavTitle.textContent = IN_PAGE_NAV_TITLE;
+  inPageNavTitle.textContent = inPageNavTitleText;
   inPageNav.appendChild(inPageNavTitle);
 
   const inPageNavList = document.createElement("ul");
