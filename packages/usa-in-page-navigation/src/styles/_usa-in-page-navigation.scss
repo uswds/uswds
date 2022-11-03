@@ -14,9 +14,11 @@
 
   .usa-in-page-nav__heading {
     // TODO: This could be a setting?
-    @include u-font("ui", "2xs");
+    @include typeset("ui", "2xs", 3);
     @include u-font-weight("bold");
+    margin-bottom: units(2);
     margin-top: 0;
+    padding: 0;
   }
 
   .usa-in-page-nav {
