@@ -1,9 +1,9 @@
 @use "uswds-core" as *;
+@use "sass:color";
 
 .usa-in-page-nav-container {
   align-items: flex-start;
   display: flex;
-  margin: units(2) units(0) units(15);
 
   // Set main landmark max width to ensure in-page nav will fit
   main,
@@ -12,14 +12,25 @@
     width: 100%;
   }
 
+  .usa-in-page-nav__heading {
+    // TODO: This could be a setting?
+    @include u-font("ui", "2xs");
+    @include u-font-weight("bold");
+    margin-top: 0;
+  }
+
   .usa-in-page-nav {
+    @include set-text-from-bg(
+      $bg-color: $theme-in-page-nav-background-color,
+      $context: "In-page navigation text color"
+    );
     display: none;
-    margin-left: units(0.5);
-    margin-top: units(2.5);
+    margin-left: units($theme-in-page-nav-margin-left);
+    margin-top: units($theme-in-page-nav-margin-top);
     max-width: units("card-lg");
     order: 2;
     position: sticky;
-    top: units($theme-in-page-nav-top-position);
+    top: units($theme-in-page-nav-top);
 
     @include at-media("tablet") {
       display: block;
@@ -27,37 +38,61 @@
     }
 
     nav {
-      background-color: color($theme-in-page-nav-background-color);
+      @include set-text-and-bg(
+        $theme-in-page-nav-background-color,
+        $context: "In-page navigation background"
+      );    
       border-radius: radius($theme-in-page-nav-background-radius);
       padding: units($theme-in-page-nav-background-padding);
     }
   }
 
-  .usa-in-page-nav-list {
+  .usa-in-page-nav__list {
     @include border-box-sizing;
     @include nav-list("sidenav");
     @include typeset($theme-in-page-nav-font-family, "sm", 2);
-    border-left: units(1px) solid color("base-lighter");
+    border-left: units(1px) solid color.adjust(
+      color(
+        get-color-token-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page navigation rail",
+        )
+      ), $alpha: -0.75
+    );
     padding: units(0);
 
-    a {
-      color: color("base-darker");
-
-      &:where(:not(.usa-button)) {
-        padding: units("05") units(1);
-      }
-
-      &:hover {
-        color: color("primary-vivid");
+    // specificity to override sidenav styles
+    a:not(.usa-button) {
+      &:not(.usa-current) {
+        @include set-link-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page-navigation link"
+        );
       }
 
       &.usa-current {
-        background-color: color("base-lightest");
-        color: color("base-darker");
+        @include set-text-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page-navigation current color"
+        );
+        font-weight: inherit;
+      }
+    
+      &:hover {
+        text-decoration: underline;
+        background-color: none;
+      }
+
+      &.usa-current {
         position: static;
 
         &::after {
-          background-color: color($theme-in-page-nav-bar-color);
+          background-color: color(
+            get-color-token-from-bg(
+              $bg-color: $theme-in-page-nav-background-color,
+              $context: "In-page navigation bar",
+            )
+          );
           border-radius: 0;
           bottom: units(-1px);
           left: units(0);
@@ -70,14 +105,12 @@
 
     .usa-in-page-nav__item {
       @include u-border(0);
+      font-size: font-size($theme-in-page-nav-font-family, "2xs");
+      font-weight: bold;
       position: relative;
 
-      &.sub-item {
-        font-size: font-size($theme-in-page-nav-font-family, "3xs");
-
-        a {
-          padding-left: units(3);
-        }
+      &.usa-in-page-nav__item--sub-item {
+        font-weight: normal;
       }
     }
   }

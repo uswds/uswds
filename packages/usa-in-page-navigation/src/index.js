@@ -5,25 +5,27 @@ const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
+const CURRENT_CLASS = `${PREFIX}-current`;
+const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
-const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}-list`;
+const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
+const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
-const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor-tag`;
-
-const IN_PAGE_NAV_LINK = `.${IN_PAGE_NAV_LINK_CLASS}`;
-const IN_PAGE_NAV_ANCHOR = `.${IN_PAGE_NAV_ANCHOR_CLASS}`;
-const IN_PAGE_NAV_TITLE = "On this page";
-const IN_PAGE_NAV = `.${PREFIX}-in-page-nav`;
-const CURRENT_CLASS = `${PREFIX}-current`;
+const IN_PAGE_NAV_TITLE_CLASS = `${IN_PAGE_NAV_CLASS}__heading`;
+const SUB_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--sub-item`;
 const MAIN_ELEMENT = "main";
-const SITE_SUBHEADING = "site-subheading";
-const SUB_ITEM = "sub-item";
 
 // Set Intersection Observer options
 const IO_ROOT = null;
 const IO_ROOT_MARGIN = "0px 0px -85% 0px";
 const IO_THRESHOLD = [0];
+
+const options = {
+  root: IO_ROOT,
+  rootMargin: IO_ROOT_MARGIN,
+  threshold: IO_THRESHOLD,
+};
 
 /**
  * Set the active link state for the currently observed section
@@ -31,7 +33,7 @@ const IO_THRESHOLD = [0];
  * @param {HTMLElement} el An element within the in-page nav component
  */
 const setActive = (el) => {
-  const allLinks = document.querySelectorAll(IN_PAGE_NAV_LINK);
+  const allLinks = document.querySelectorAll(`.${IN_PAGE_NAV_LINK_CLASS}`);
   el.map((i) => {
     if (i.isIntersecting === true && i.intersectionRatio >= 1) {
       allLinks.forEach((link) => link.classList.remove(CURRENT_CLASS));
@@ -62,7 +64,7 @@ const getSectionHeadings = () => {
  * @return {HTMLElement[]} - An array of DOM nodes
  */
 const getSectionAnchors = () => {
-  const sectionAnchors = document.querySelectorAll(IN_PAGE_NAV_ANCHOR);
+  const sectionAnchors = document.querySelectorAll(`.${IN_PAGE_NAV_ANCHOR_CLASS}`);
   return sectionAnchors;
 };
 
@@ -103,7 +105,7 @@ const createInPageNav = (inPageNavEl) => {
   inPageNav.setAttribute("role", "navigation");
 
   const inPageNavTitle = document.createElement("h4");
-  inPageNavTitle.classList.add(SITE_SUBHEADING);
+  inPageNavTitle.classList.add(IN_PAGE_NAV_TITLE_CLASS);
   inPageNavTitle.setAttribute("tabindex", "0");
   inPageNavTitle.textContent = IN_PAGE_NAV_TITLE;
   inPageNav.appendChild(inPageNavTitle);
@@ -121,7 +123,7 @@ const createInPageNav = (inPageNavEl) => {
 
     listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
     if (tag === "h3") {
-      listItem.classList.add(SUB_ITEM);
+      listItem.classList.add(SUB_ITEM_CLASS);
     }
 
     navLinks.setAttribute("href", `#section_${i}`);
@@ -137,12 +139,6 @@ const createInPageNav = (inPageNavEl) => {
   });
 
   inPageNavEl.appendChild(inPageNav);
-
-  const options = {
-    root: IO_ROOT,
-    rootMargin: IO_ROOT_MARGIN,
-    threshold: IO_THRESHOLD,
-  };
 
   const anchorTags = getSectionAnchors();
   const observeSections = new window.IntersectionObserver(setActive, options);
@@ -196,21 +192,21 @@ const handleEnterFromLink = (event) => {
 const inPageNavigation = behavior(
   {
     [CLICK]: {
-      [IN_PAGE_NAV_LINK](event) {
+      [`.${IN_PAGE_NAV_LINK_CLASS}`](event) {
         event.preventDefault();
         if (this.disabled) return;
         handleClickFromLink(this);
       },
     },
     keydown: {
-      [IN_PAGE_NAV_LINK]: keymap({
+      [`.${IN_PAGE_NAV_LINK_CLASS}`]: keymap({
         Enter: handleEnterFromLink,
       }),
     },
   },
   {
     init(root) {
-      selectOrMatches(IN_PAGE_NAV, root).forEach((inPageNavEl) => {
+      selectOrMatches(`.${IN_PAGE_NAV_CLASS}`, root).forEach((inPageNavEl) => {
         createInPageNav(inPageNavEl);
       });
     },
