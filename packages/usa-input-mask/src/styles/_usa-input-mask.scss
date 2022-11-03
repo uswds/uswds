@@ -1,26 +1,33 @@
 @use "uswds-core" as *;
 
 .usa-input-mask {
+  display: block;
   position: relative;
+}
 
-  &--content {
-    border: 1px solid transparent;
-    color: color("gray-50");
-    font-size: font-size($theme-form-font-family, $theme-body-font-size);
-    left: 2px;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
+.usa-input-mask--content {
+  border: 1px solid transparent;
+  color: color("disabled");
+  display: flex;
+  font-size: font-size("mono", $theme-body-font-size);
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
 
-    i {
-      visibility: hidden;
-    }
+  i {
+    visibility: hidden;
   }
 }
 
 .usa-masked,
 .usa-input-mask--content {
-  @extend %block-input-general;
+  @include border-box-sizing;
+  @include typeset(
+    "mono",
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
   background-color: transparent;
   padding: units(1);
 }
