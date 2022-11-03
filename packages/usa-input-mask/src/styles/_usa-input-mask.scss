@@ -8,9 +8,8 @@
 .usa-input-mask--content {
   border: 1px solid transparent;
   color: color("disabled");
-  display: flex;
-  font-size: font-size("mono", $theme-body-font-size);
-  left: 0;
+  display: block;
+  left: 2px;
   pointer-events: none;
   position: absolute;
   top: 0;
