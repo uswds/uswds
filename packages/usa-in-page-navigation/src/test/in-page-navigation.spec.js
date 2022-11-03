@@ -11,7 +11,7 @@ const STYLES = fs.readFileSync(
 );
 const THE_NAV = ".usa-in-page-nav";
 const PRIMARY_CONTENT_SELECTOR =
-  ".usa-in-page-nav-container .usa-in-page-nav .usa-in-page-nav-list";
+  ".usa-in-page-nav-container .usa-in-page-nav .usa-in-page-nav__list";
 
 /**
  * Resize the window's width, then dispatch a 'resize' event
