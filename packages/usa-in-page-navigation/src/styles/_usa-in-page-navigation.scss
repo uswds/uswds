@@ -66,6 +66,7 @@
       &:not(.usa-current) {
         @include set-link-from-bg(
           $bg-color: $theme-in-page-nav-background-color,
+          $preferred-link-color: $theme-in-page-nav-link-color,
           $context: "In-page-navigation link"
         );
       }
