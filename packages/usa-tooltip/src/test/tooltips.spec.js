@@ -35,8 +35,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       );
     });
 
-    it("title attribute on trigger is cleared", () => {
-      assert.strictEqual(tooltipTrigger.getAttribute("title"), "");
+    it("title attribute on trigger is removed", () => {
+      assert.strictEqual(tooltipTrigger.hasAttribute("title"), false);
     });
 
     it("tooltip body is created", () => {
