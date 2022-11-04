@@ -149,6 +149,8 @@ $z-index-overlay: 400;
 
     .usa-nav {
       @include u-flex("row", "align-center", "justify-end");
+      // TODO: BREAKING? Adjustments for language selector in header example.
+      // align-items: flex-start;
       display: flex;
       padding: 0 0 units(0.5) units(1);
       width: 100%;
@@ -156,6 +158,8 @@ $z-index-overlay: 400;
 
     .usa-nav-container {
       @include u-flex("align-end", "justify");
+      // TODO: BREAKING? Adjustments for language selector in header example.
+      // align-items: baseline;
       display: flex;
     }
 
