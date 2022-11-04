@@ -32,10 +32,12 @@
     top: units(2);
 
     @include at-media($theme-header-min-width) {
+      align-self: flex-end;
       margin-left: units(1.5);
-      position: inherit;
+      margin-bottom: units(1);
+      position: relative;
       right: inherit;
-      top: inherit;
+      top: units(-2px);
     }
   }
 }
