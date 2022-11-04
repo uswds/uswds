@@ -22,11 +22,6 @@
 .usa-masked,
 .usa-input-mask--content {
   @include border-box-sizing;
-  @include typeset(
-    "mono",
-    $theme-body-font-size,
-    $theme-input-line-height
-  );
   background-color: transparent;
   padding: units(1);
 }
