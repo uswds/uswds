@@ -8,7 +8,7 @@
       <div class="usa-language-container usa-language--small display-block desktop:display-none">
         <ul class="usa-language__primary usa-accordion">
           <li class="usa-language__primary-item">
-            <button class="usa-button usa-button--unstyled usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options-mobile">
+            <button type="button" class="usa-button usa-button--unstyled usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options-mobile">
               {{ label | default('Languages') }}
             </button>
             {% if languages %}
@@ -51,7 +51,7 @@
     <div class="usa-language-container usa-language--small display-none desktop:display-block">
       <ul class="usa-language__primary usa-accordion">
         <li class="usa-language__primary-item">
-          <button class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
+          <button type="button" class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
             {{ label | default('Languages') }}
           </button>
           {% if languages %}

@@ -50,6 +50,10 @@ languageSelector = behavior(
         if (languageActive !== this) {
           hideActiveLanguageDropdown();
         }
+        if (languageActive === this) {
+          hideActiveLanguageDropdown();
+          return false;
+        }
         if (!languageActive) {
           languageActive = this;
           toggle(languageActive, true);
