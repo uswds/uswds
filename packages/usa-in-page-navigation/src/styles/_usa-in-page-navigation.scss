@@ -43,7 +43,7 @@
       @include set-text-and-bg(
         $theme-in-page-nav-background-color,
         $context: "In-page navigation background"
-      );    
+      );
       border-radius: radius($theme-in-page-nav-background-radius);
       padding: units($theme-in-page-nav-background-padding);
     }
@@ -53,14 +53,16 @@
     @include border-box-sizing;
     @include nav-list("sidenav");
     @include typeset($theme-in-page-nav-font-family, "sm", 2);
-    border-left: units(1px) solid color.adjust(
-      color(
-        get-color-token-from-bg(
-          $bg-color: $theme-in-page-nav-background-color,
-          $context: "In-page navigation rail",
-        )
-      ), $alpha: -0.75
-    );
+    border-left: units(1px) solid
+      color.adjust(
+        color(
+          get-color-token-from-bg(
+            $bg-color: $theme-in-page-nav-background-color,
+            $context: "In-page navigation rail"
+          )
+        ),
+        $alpha: -0.75
+      );
     padding: units(0);
 
     // specificity to override sidenav styles
@@ -80,7 +82,7 @@
         );
         font-weight: inherit;
       }
-    
+
       &:hover {
         text-decoration: underline;
         background-color: none;
@@ -94,7 +96,7 @@
             get-color-token-from-bg(
               $bg-color: $theme-in-page-nav-background-color,
               $preferred-text-token: $theme-in-page-nav-bar-color,
-              $context: "In-page navigation bar",
+              $context: "In-page navigation bar"
             )
           );
           border-radius: 0;
