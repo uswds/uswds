@@ -99,8 +99,8 @@
           );
           border-radius: 0;
           bottom: units(-1px);
-          left: units(0);
-          top: units(0);
+          left: 0;
+          top: 0;
           width: units($theme-in-page-nav-bar-width);
           z-index: z(100);
         }
