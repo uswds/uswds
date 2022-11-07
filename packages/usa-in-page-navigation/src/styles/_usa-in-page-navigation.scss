@@ -10,113 +10,114 @@
     max-width: units($theme-in-page-nav-main-content-max-width);
     width: 100%;
   }
+}
 
-  .usa-in-page-nav__heading {
-    // TODO: This could be a setting?
-    @include typeset("ui", "2xs", 3);
-    @include u-font-weight("bold");
-    margin-bottom: units(2);
-    margin-top: 0;
-    padding: 0;
+.usa-in-page-nav__heading {
+  // TODO: This could be a setting?
+  @include typeset("ui", "2xs", 3);
+  @include u-font-weight("bold");
+  margin-bottom: units(2);
+  margin-top: 0;
+  padding: 0;
+}
+
+.usa-in-page-nav {
+  @include set-text-from-bg(
+    $bg-color: $theme-in-page-nav-background-color,
+    $context: "In-page navigation text color"
+  );
+  display: none;
+  margin-left: units($theme-in-page-nav-margin-left);
+  margin-top: units($theme-in-page-nav-margin-top);
+  max-width: units("card-lg");
+  order: 2;
+  position: sticky;
+  top: units($theme-in-page-nav-top);
+
+  @include at-media("tablet") {
+    display: block;
+    width: 100%;
   }
+}
 
-  .usa-in-page-nav {
-    @include set-text-from-bg(
-      $bg-color: $theme-in-page-nav-background-color,
-      $context: "In-page navigation text color"
+.usa-in-page-nav__nav {
+  @include set-text-and-bg(
+    $theme-in-page-nav-background-color,
+    $context: "In-page navigation background"
+  );
+  border-radius: radius($theme-in-page-nav-background-radius);
+  padding: units($theme-in-page-nav-background-padding);
+}
+
+.usa-in-page-nav__list {
+  @include border-box-sizing;
+  @include nav-list("sidenav");
+  @include typeset($theme-in-page-nav-font-family, "sm", 2);
+  border-left: units(1px) solid
+    color.adjust(
+      color(
+        get-color-token-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page navigation rail"
+        )
+      ),
+      $alpha: -0.75
     );
-    display: none;
-    margin-left: units($theme-in-page-nav-margin-left);
-    margin-top: units($theme-in-page-nav-margin-top);
-    max-width: units("card-lg");
-    order: 2;
-    position: sticky;
-    top: units($theme-in-page-nav-top);
+  padding: 0;
 
-    @include at-media("tablet") {
-      display: block;
-      width: 100%;
-    }
-
-    nav {
-      @include set-text-and-bg(
-        $theme-in-page-nav-background-color,
-        $context: "In-page navigation background"
+  // specificity to override sidenav styles
+  a:not(.usa-button) {
+    &:not(.usa-current) {
+      @include set-link-from-bg(
+        $bg-color: $theme-in-page-nav-background-color,
+        $preferred-link-color: $theme-in-page-nav-link-color,
+        $context: "In-page-navigation link"
       );
-      border-radius: radius($theme-in-page-nav-background-radius);
-      padding: units($theme-in-page-nav-background-padding);
     }
-  }
 
-  .usa-in-page-nav__list {
-    @include border-box-sizing;
-    @include nav-list("sidenav");
-    @include typeset($theme-in-page-nav-font-family, "sm", 2);
-    border-left: units(1px) solid
-      color.adjust(
-        color(
+    &.usa-current {
+      @include set-text-from-bg(
+        $bg-color: $theme-in-page-nav-background-color,
+        $context: "In-page-navigation current color"
+      );
+      font-weight: inherit;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      background-color: none;
+    }
+
+    &.usa-current {
+      position: static;
+
+      &::after {
+        background-color: color(
           get-color-token-from-bg(
             $bg-color: $theme-in-page-nav-background-color,
-            $context: "In-page navigation rail"
+            $preferred-text-token: $theme-in-page-nav-bar-color,
+            $context: "In-page navigation bar"
           )
-        ),
-        $alpha: -0.75
-      );
-    padding: 0;
-
-    // specificity to override sidenav styles
-    a:not(.usa-button) {
-      &:not(.usa-current) {
-        @include set-link-from-bg(
-          $bg-color: $theme-in-page-nav-background-color,
-          $preferred-link-color: $theme-in-page-nav-link-color,
-          $context: "In-page-navigation link"
         );
-      }
-
-      &.usa-current {
-        @include set-text-from-bg(
-          $bg-color: $theme-in-page-nav-background-color,
-          $context: "In-page-navigation current color"
-        );
-        font-weight: inherit;
-      }
-
-      &:hover {
-        text-decoration: underline;
-        background-color: none;
-      }
-
-      &.usa-current {
-        position: static;
-
-        &::after {
-          background-color: color(
-            get-color-token-from-bg(
-              $bg-color: $theme-in-page-nav-background-color,
-              $preferred-text-token: $theme-in-page-nav-bar-color,
-              $context: "In-page navigation bar"
-            )
-          );
-          border-radius: 0;
-          bottom: units(-1px);
-          left: 0;
-          top: 0;
-          width: units($theme-in-page-nav-bar-width);
-          z-index: z(100);
-        }
-      }
-    }
-
-    .usa-in-page-nav__item {
-      border: none;
-      font-size: font-size($theme-in-page-nav-font-family, "2xs");
-      font-weight: bold;
-      position: relative;
-
-      &.usa-in-page-nav__item--sub-item {
-        font-weight: normal;
+        border-radius: 0;
+        bottom: units(-1px);
+        left: 0;
+        top: 0;
+        width: units($theme-in-page-nav-bar-width);
+        z-index: z(100);
       }
     }
   }
 }
+
+.usa-in-page-nav__item {
+  border: none;
+  font-size: font-size($theme-in-page-nav-font-family, "2xs");
+  font-weight: bold;
+  position: relative;
+
+  &.usa-in-page-nav__item--sub-item {
+    font-weight: normal;
+  }
+}
+
