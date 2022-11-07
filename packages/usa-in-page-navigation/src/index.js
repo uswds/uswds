@@ -100,6 +100,11 @@ const handleScrollToSection = (el) => {
   });
 };
 
+/**
+ * Create the in-page navigation component
+ *
+ * @param {HTMLElement} inPageNavEl The in-page nav element
+ */
 const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
   const inPageNavHeadingLevel = inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
