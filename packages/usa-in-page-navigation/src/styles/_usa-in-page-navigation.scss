@@ -110,7 +110,7 @@
     }
 
     .usa-in-page-nav__item {
-      @include u-border(0);
+      border: none;
       font-size: font-size($theme-in-page-nav-font-family, "2xs");
       font-weight: bold;
       position: relative;
