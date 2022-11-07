@@ -10,6 +10,7 @@ const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
+const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
@@ -111,6 +112,7 @@ const createInPageNav = (inPageNavEl) => {
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
+  inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
 
   const inPageNavTitle = document.createElement(inPageNavHeadingLevel);
   inPageNavTitle.classList.add(IN_PAGE_NAV_TITLE_CLASS);
