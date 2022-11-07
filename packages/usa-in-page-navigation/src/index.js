@@ -102,7 +102,7 @@ const handleScrollToSection = (el) => {
 
 const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
-  const inPageNavHeadingLevel = inPageNavEl.dataset.headingLevel ? inPageNavEl.dataset.headingLevel : IN_PAGE_NAV_HEADING_LEVEL;
+  const inPageNavHeadingLevel = inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
