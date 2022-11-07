@@ -24,10 +24,10 @@
   order: 2;
   position: sticky;
   top: units($theme-in-page-nav-top);
+  width: 100%;
 
   @include at-media("tablet") {
     display: block;
-    width: 100%;
   }
 }
 
