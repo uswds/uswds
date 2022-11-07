@@ -6,8 +6,7 @@
   display: flex;
 
   // Set main landmark max width to ensure in-page nav will fit
-  main,
-  [class^="main"] {
+  main {
     max-width: units($theme-in-page-nav-main-content-max-width);
     width: 100%;
   }
