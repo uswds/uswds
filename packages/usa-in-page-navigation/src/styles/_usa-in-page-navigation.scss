@@ -52,7 +52,6 @@
 .usa-in-page-nav__list {
   @include border-box-sizing;
   @include nav-list("sidenav");
-  @include typeset($theme-in-page-nav-font-family, "sm", 2);
   border-left: units(1px) solid
     color.adjust(
       color(
@@ -111,8 +110,8 @@
 }
 
 .usa-in-page-nav__item {
+  @include typeset($theme-in-page-nav-font-family, "2xs", 2);
   border: none;
-  font-size: font-size($theme-in-page-nav-font-family, "2xs");
   font-weight: bold;
   position: relative;
 
