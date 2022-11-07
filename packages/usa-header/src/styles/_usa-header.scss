@@ -156,6 +156,7 @@ $z-index-overlay: 400;
 
     .usa-nav-container {
       @include u-flex("align-end", "justify");
+      display: flex;
     }
 
     .usa-nav__primary-item > .usa-current,
