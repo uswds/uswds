@@ -12,15 +12,6 @@
   }
 }
 
-.usa-in-page-nav__heading {
-  // TODO: This could be a setting?
-  @include typeset("ui", "2xs", 3);
-  @include u-font-weight("bold");
-  margin-bottom: units(2);
-  margin-top: 0;
-  padding: 0;
-}
-
 .usa-in-page-nav {
   @include set-text-from-bg(
     $bg-color: $theme-in-page-nav-background-color,
@@ -47,6 +38,15 @@
   );
   border-radius: radius($theme-in-page-nav-background-radius);
   padding: units($theme-in-page-nav-background-padding);
+}
+
+.usa-in-page-nav__heading {
+  // TODO: This could be a setting?
+  @include typeset("ui", "2xs", 3);
+  @include u-font-weight("bold");
+  margin-bottom: units(2);
+  margin-top: 0;
+  padding: 0;
 }
 
 .usa-in-page-nav__list {
