@@ -66,7 +66,9 @@ const getSectionHeadings = () => {
  * @return {HTMLElement[]} - An array of DOM nodes
  */
 const getSectionAnchors = () => {
-  const sectionAnchors = document.querySelectorAll(`.${IN_PAGE_NAV_ANCHOR_CLASS}`);
+  const sectionAnchors = document.querySelectorAll(
+    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
+  );
   return sectionAnchors;
 };
 
@@ -108,7 +110,8 @@ const handleScrollToSection = (el) => {
  */
 const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
-  const inPageNavHeadingLevel = inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
+  const inPageNavHeadingLevel =
+    inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
@@ -164,14 +167,8 @@ const createInPageNav = (inPageNavEl) => {
  * @param {HTMLElement} el An element within the in-page nav component
  */
 const handleClickFromLink = (el) => {
-  const id = getSectionId(el);
-  const allAnchors = getSectionAnchors();
-  const allAnchorsArr = Array.from(allAnchors);
-  const target = allAnchorsArr.find(
-    (anchor) => anchor.getAttribute("id") === id
-  );
-
-  handleScrollToSection(target);
+  const elementToScrollTo = document.querySelector(el.hash);
+  handleScrollToSection(elementToScrollTo);
 };
 
 /**
