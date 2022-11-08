@@ -1,0 +1,80 @@
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--basic {{ modifier }}">
+  <div class="usa-nav-container">
+
+    <div class="usa-navbar">
+      {% include "@components/usa-site-title/src/usa-site-title.twig" %}
+
+      <div class="usa-language-container usa-language--small display-block desktop:display-none">
+        <ul class="usa-language__primary usa-accordion">
+          <li class="usa-language__primary-item">
+            <button type="button" class="usa-button usa-button--unstyled usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options-mobile">
+              {{ label | default('Languages') }}
+            </button>
+            {% if languages %}
+              <ul id="language-options-mobile" class="usa-language__submenu" hidden="true">
+                {% for language in languages %}
+                  <li class="usa-language__submenu-item">
+                    <a href="{{ placeholder_link }}">
+                      {% if language.lang_label %}
+                        <span lang="{{ language.lang_att }}" xml:lang="{{ language.lang_att }}">
+                          <strong>{{ language.lang_label }}</strong>
+                          {{ language.lang_label_en }}
+                        </span>
+                      {% endif %}
+                    </a>
+                  </li>
+                {% endfor %}
+                <li class="usa-language__submenu-item">
+                  <a href="{{ placeholder_link }}">{{ more }}</a>
+                </li>
+              </ul>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+
+      {% if nav %}
+        <button class="usa-menu-btn">
+          {{ nav.menu.label | default('Menu') }}
+        </button>
+      {% endif %}
+    </div>
+
+    {% if nav %}
+      <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
+        {% include "@components/usa-nav/src/usa-nav__primary/usa-nav__primary.twig" %}
+        {% include "@components/usa-search/src/usa-search.twig" with search.settings %}
+      </nav>
+    {% endif %}
+
+    <div class="usa-language-container usa-language--small display-none desktop:display-block">
+      <ul class="usa-language__primary usa-accordion">
+        <li class="usa-language__primary-item">
+          <button type="button" class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
+            {{ label | default('Languages') }}
+          </button>
+          {% if languages %}
+            <ul id="language-options" class="usa-language__submenu" hidden="true">
+              {% for language in languages %}
+                <li class="usa-language__submenu-item">
+                  <a href="{{ placeholder_link }}">
+                    {% if language.lang_label %}
+                      <span lang="{{ language.lang_att }}" xml:lang="{{ language.lang_att }}">
+                        <strong>{{ language.lang_label }}</strong>
+                        {{ language.lang_label_en }}
+                      </span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+              <li class="usa-language__submenu-item">
+                <a href="{{ placeholder_link }}">{{ more }}</a>
+              </li>
+            </ul>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
