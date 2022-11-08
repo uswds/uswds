@@ -7,7 +7,7 @@
 
 .usa-input-mask--content {
   border: 1px solid transparent;
-  color: color("disabled");
+  color: color("ink");
   display: block;
   left: 2px;
   pointer-events: none;
@@ -22,11 +22,6 @@
 .usa-masked,
 .usa-input-mask--content {
   @include border-box-sizing;
-  @include typeset(
-    "mono",
-    $theme-body-font-size,
-    $theme-input-line-height
-  );
   background-color: transparent;
   padding: units(1);
 }
