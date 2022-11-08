@@ -4,6 +4,7 @@ import {
   PhoneContent,
   ZipContent,
   AlphanumericContent,
+  DateContent,
 } from "./content";
 
 export default {
@@ -23,3 +24,6 @@ ZIP.args = ZipContent;
 
 export const Alphanumeric = Template.bind({});
 Alphanumeric.args = AlphanumericContent;
+
+export const DateShort = Template.bind({});
+DateShort.args = DateContent;

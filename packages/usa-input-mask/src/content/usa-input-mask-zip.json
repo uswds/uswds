@@ -4,6 +4,7 @@
   "id": "zip",
   "type": "text",
   "inputmode": "numeric",
+  "mask": "99999-9999",
   "placeholder": "_____-____",
   "pattern": "^[0-9]{5}(?:-[0-9]{4})?$"
 }
