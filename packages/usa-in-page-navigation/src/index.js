@@ -8,6 +8,7 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const CURRENT_CLASS = `${PREFIX}-current`;
 const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_HEADING_LEVEL = "h4";
+const IN_PAGE_NAV_OFFSET_TOP = 0;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -96,9 +97,13 @@ const getSectionId = (value) => {
  * @param {HTMLElement} - Id value with the number sign removed
  */
 const handleScrollToSection = (el) => {
+  const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
+  const inPageNavOffsetTop =
+    inPageNavEl.dataset.offsetTop || IN_PAGE_NAV_OFFSET_TOP;
+
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop,
+    top: el.offsetTop - inPageNavOffsetTop,
     block: "start",
   });
 };
@@ -112,6 +117,7 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
   const inPageNavHeadingLevel =
     inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
+
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
