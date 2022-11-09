@@ -6,6 +6,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
+const IN_PAGE_NAV_HEADINGS = "h2 h3";
 const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_OFFSET_TOP = 0;
@@ -52,12 +53,20 @@ const setActive = (el) => {
 /**
  * Return a node list of section headings
  *
+ * @param {String} headings A string of one or more headings to query for
  * @return {HTMLElement[]} - An array of DOM nodes
  */
-const getSectionHeadings = () => {
-  const sectionHeadings = document.querySelectorAll(
-    `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
-  );
+const getSectionHeadings = (headings) => {
+  const headingList = headings.indexOf(" ") ? headings.split(" ") : headings;
+  const headingArr = [];
+
+  headingList.forEach((heading) => {
+    headingArr.push(`${MAIN_ELEMENT} ${heading}`);
+  });
+
+  const headingListNew = headingArr.join(",");
+  const sectionHeadings = document.querySelectorAll(headingListNew);
+
   return sectionHeadings;
 };
 
@@ -115,10 +124,12 @@ const handleScrollToSection = (el) => {
  */
 const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
+  const inPageNavHeadings =
+    inPageNavEl.dataset.headings || IN_PAGE_NAV_HEADINGS;
   const inPageNavHeadingLevel =
     inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
 
-  const sectionHeadings = getSectionHeadings();
+  const sectionHeadings = getSectionHeadings(inPageNavHeadings);
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);

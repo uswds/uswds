@@ -33,11 +33,13 @@ const assertHidden = (el, hidden) => {
   );
 };
 
+const inPageNavSelector = () => document.querySelector(".usa-in-page-nav");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
   {
     name: "in page nav",
-    selector: () => document.querySelector(".usa-in-page-nav"),
+    selector: inPageNavSelector,
   },
 ];
 
@@ -46,8 +48,11 @@ tests.forEach(({ name, selector: containerSelector }) => {
     const { body } = document;
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
+    let root;
     let theNav;
     let theList;
+    const getInPageNavEl = (query) =>
+      root.querySelector(`.usa-in-page-nav${query ? ` ${query}` : ""}`);
 
     before(() => {
       const observe = sinon.spy();
@@ -57,7 +62,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
-
+      root = document.querySelector(".usa-in-page-nav-container");
       theNav = document.querySelector(THE_NAV);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
 
@@ -79,10 +84,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assertHidden(theNav, true);
     });
 
-    it("show on larger screens", () => {
+    it("shows on larger screens", () => {
       resizeTo(400);
       resizeTo(1024);
       assertHidden(theList, false);
+    });
+
+    it("reads the custom heading elements in the data-headings attribute", () => {
+      assert.strictEqual(
+        getInPageNavEl().dataset.headings,
+        "h2 h3",
+        "reads the correct headings"
+      );
     });
   });
 });
