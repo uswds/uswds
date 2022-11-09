@@ -303,10 +303,12 @@ modal = {
   focusTrap: null,
   toggleModal,
   on(root) {
-    this.init(root);
+    if (!document.querySelector(".usa-modal-wrapper"))
+      this.init(root);
   },
   off(root) {
-    this.teardown(root);
+    if (document.querySelector(".usa-modal-wrapper"))
+      this.teardown(root);
   }
 };
 
