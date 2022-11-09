@@ -1,0 +1,15 @@
+<form class="usa-form">
+  <label class="usa-label" for="{{ id }}">{{ label }}</label>
+  <div class="usa-hint" id="{{ id }}Hint">{{ hint }}</div>
+  <input 
+      id="{{ id }}" 
+      type="{{ type }}" 
+      inputmode="{{ inputmode }}" 
+      name="{{ id }}" 
+      placeholder="{{ placeholder }}" 
+      pattern="{{ pattern }}" 
+      class="usa-input usa-masked" 
+      aria-describedby="{{ id }}Hint"
+      {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
+  >
+</form>

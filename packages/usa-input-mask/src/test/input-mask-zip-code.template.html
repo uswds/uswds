@@ -1,0 +1,21 @@
+<div class="usa-input-masking">
+  <h3 class="site-preview-heading">9 Digit US ZIP Code Input Mask</h3>
+  <label class="usa-label" for="zip">ZIP Code</label>
+  <div class="usa-hint" id="zipHint">For example, 12345-6789</div>
+  <span class="usa-input-mask" data-mask="_____-____">
+    <span class="usa-input-mask--content test" aria-hidden="true" id="zipMask"
+      >_____-____</span
+    >
+    <input
+      id="zip"
+      type="text"
+      inputmode="numeric"
+      name="zip"
+      pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+      class="usa-input usa-masked"
+      aria-describedby="zipHint"
+      maxlength="10"
+      data-placeholder="_____-____"
+    />
+  </span>
+</div>
