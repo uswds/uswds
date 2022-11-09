@@ -1,0 +1,21 @@
+<div class="usa-input-masking">
+  <h3 class="site-preview-heading">Social Security Number Input Mask</h3>
+  <label class="usa-label" for="ssn">Social Security Number</label>
+  <div class="usa-hint" id="ssnHint">For example, 123 45 6789</div>
+  <span class="usa-input-mask" data-mask="___ __ ____">
+    <span class="usa-input-mask--content test" aria-hidden="true" id="ssnMask"
+      >___ __ ____</span
+    >
+    <input
+      id="ssn"
+      type="text"
+      inputmode="numeric"
+      name="ssn"
+      pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
+      class="usa-input usa-masked"
+      aria-describedby="ssnHint"
+      maxlength="11"
+      data-placeholder="___ __ ____"
+    />
+  </span>
+</div>

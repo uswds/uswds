@@ -1,0 +1,10 @@
+{
+  "label": "Alphanumeric",
+  "hint": "For example, A1B 2C3",
+  "id": "alphanumeric",
+  "type": "text",
+  "inputmode": "text",
+  "placeholder": "___ ___",
+  "pattern": "\\w\\d\\w \\d\\w\\d",
+  "datacharset": "A#A #A#"
+}

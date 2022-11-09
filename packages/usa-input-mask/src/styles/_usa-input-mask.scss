@@ -1,0 +1,27 @@
+@use "uswds-core" as *;
+
+.usa-input-mask {
+  display: block;
+  position: relative;
+}
+
+.usa-input-mask--content {
+  border: 1px solid transparent;
+  color: color("gray-50");
+  display: block;
+  left: 2px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+
+  i {
+    visibility: hidden;
+  }
+}
+
+.usa-masked,
+.usa-input-mask--content {
+  @include border-box-sizing;
+  background-color: transparent;
+  padding: units(1);
+}
