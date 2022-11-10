@@ -24,7 +24,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe.only(`input mask component initialized at ${name}`, () => {
+  describe(`input mask component initialized at ${name}`, () => {
     const { body } = document;
 
     let root;
