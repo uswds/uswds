@@ -4,6 +4,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
+const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
 const IN_PAGE_NAV_TITLE_TEXT = "On this page";
@@ -114,9 +115,9 @@ const handleScrollToSection = (el) => {
  * @param {HTMLElement} inPageNavEl The in-page nav element
  */
 const createInPageNav = (inPageNavEl) => {
-  const inPageNavTitleText = inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT;
+  const inPageNavTitleText = Sanitizer.escapeHTML`${inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT}`;
   const inPageNavTitleHeadingLevel =
-    inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL;
+    Sanitizer.escapeHTML`${inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL}`;
 
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
