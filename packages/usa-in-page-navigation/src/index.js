@@ -7,6 +7,7 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
 const IN_PAGE_NAV_HEADINGS = "h2 h3";
+const IN_PAGE_NAV_VALID_HEADINGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 const IN_PAGE_NAV_TITLE = "On this page";
 const IN_PAGE_NAV_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_OFFSET_TOP = 0;
@@ -61,6 +62,11 @@ const getSectionHeadings = (headings) => {
   const headingArr = [];
 
   headingList.forEach((heading) => {
+    if (!IN_PAGE_NAV_VALID_HEADINGS.includes(heading)) {
+      throw new Error(
+        `Invalid heading type: ${heading}. Please use one or more of the following: ${IN_PAGE_NAV_VALID_HEADINGS}`
+      );
+    }
     headingArr.push(`${MAIN_ELEMENT} ${heading}`);
   });
 
