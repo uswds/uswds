@@ -6,9 +6,9 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
-const IN_PAGE_NAV_TITLE = "On this page";
-const IN_PAGE_NAV_HEADING_LEVEL = "h4";
-const IN_PAGE_NAV_OFFSET_TOP = 0;
+const IN_PAGE_NAV_TITLE_TEXT = "On this page";
+const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
+const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -98,12 +98,12 @@ const getSectionId = (value) => {
  */
 const handleScrollToSection = (el) => {
   const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
-  const inPageNavOffsetTop =
-    inPageNavEl.dataset.offsetTop || IN_PAGE_NAV_OFFSET_TOP;
+  const inPageNavScrollOffset =
+    inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop - inPageNavOffsetTop,
+    top: el.offsetTop - inPageNavScrollOffset,
     block: "start",
   });
 };
@@ -114,16 +114,16 @@ const handleScrollToSection = (el) => {
  * @param {HTMLElement} inPageNavEl The in-page nav element
  */
 const createInPageNav = (inPageNavEl) => {
-  const inPageNavTitleText = inPageNavEl.dataset.title || IN_PAGE_NAV_TITLE;
-  const inPageNavHeadingLevel =
-    inPageNavEl.dataset.headingLevel || IN_PAGE_NAV_HEADING_LEVEL;
+  const inPageNavTitleText = inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT;
+  const inPageNavTitleHeadingLevel =
+    inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL;
 
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
 
-  const inPageNavTitle = document.createElement(inPageNavHeadingLevel);
+  const inPageNavTitle = document.createElement(inPageNavTitleHeadingLevel);
   inPageNavTitle.classList.add(IN_PAGE_NAV_TITLE_CLASS);
   inPageNavTitle.setAttribute("tabindex", "0");
   inPageNavTitle.textContent = inPageNavTitleText;
