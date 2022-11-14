@@ -5,6 +5,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
+const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
 const TOOLTIP_CLASS = `${PREFIX}-tooltip`;
 const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
@@ -14,16 +15,15 @@ const TRIANGLE_SIZE = 5;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
- * Add one or more listeners to an element
- * @param {DOMElement} element - DOM element to add listeners to
- * @param {events} eventNames - space separated list of event names, e.g. 'click change'
- * @param {Function} listener - function to attach for each event as a listener
+ *
+ * @param {DOMElement} trigger - The tooltip trigger
+ * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
  */
-const addListenerMulti = (element, eventNames, listener) => {
-  const events = eventNames.split(" ");
-  for (let i = 0, iLen = events.length; i < iLen; i += 1) {
-    element.addEventListener(events[i], listener, false);
-  }
+const getTooltipElements = (trigger) => {
+  const wrapper = trigger.parentNode;
+  const body = wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
+
+  return { trigger, wrapper, body };
 };
 
 /**
@@ -95,7 +95,6 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * @param {Number} tooltipBodyOffset
    * @param {HTMLElement} trigger
    */
-
   const calculateMarginOffset = (
     marginPosition,
     tooltipBodyOffset,
@@ -324,7 +323,7 @@ const setUpAttributes = (tooltipTrigger) => {
   // Set up tooltip attributes
   tooltipTrigger.setAttribute("aria-describedby", tooltipID);
   tooltipTrigger.setAttribute("tabindex", "0");
-  tooltipTrigger.setAttribute("title", "");
+  tooltipTrigger.removeAttribute("title");
   tooltipTrigger.classList.remove(TOOLTIP_CLASS);
   tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
 
@@ -356,36 +355,41 @@ const setUpAttributes = (tooltipTrigger) => {
 
 // Setup our function to run on various events
 const tooltip = behavior(
-  {},
+  {
+    "mouseover focusin": {
+      [TOOLTIP](e) {
+        const trigger = e.target;
+        const elementType = trigger.nodeName;
+
+        // Initialize tooltip if it hasn't already
+        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
+          setUpAttributes(trigger);
+        }
+      },
+      [TOOLTIP_TRIGGER](e) {
+        const { trigger, body } = getTooltipElements(e.target);
+
+        showToolTip(body, trigger, trigger.dataset.position);
+      },
+    },
+    "mouseout focusout": {
+      [TOOLTIP_TRIGGER](e) {
+        const { body } = getTooltipElements(e.target);
+
+        hideToolTip(body);
+      },
+    },
+  },
   {
     init(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
-        const {
-          tooltipBody,
-          position,
-          tooltipContent,
-          wrapper,
-        } = setUpAttributes(tooltipTrigger);
-
-        if (tooltipContent) {
-          // Listeners for showing and hiding the tooltip
-          addListenerMulti(tooltipTrigger, "mouseenter focus", () => {
-            showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
-            return false;
-          });
-
-          // Keydown here prevents tooltips from being read twice by
-          // screen reader. Also allows escape key to close it
-          // (along with any other.)
-          addListenerMulti(tooltipTrigger, "mouseleave blur keydown", () => {
-            hideToolTip(tooltipBody);
-            return false;
-          });
-        } else {
-          // throw error or let other tooltips on page function?
-        }
+        setUpAttributes(tooltipTrigger);
       });
     },
+    setup: setUpAttributes,
+    getTooltipElements,
+    show: showToolTip,
+    hide: hideToolTip,
   }
 );
 

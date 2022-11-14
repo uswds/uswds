@@ -1,5 +1,7 @@
 import Component from "./usa-alert.twig";
 import TestComponent from "./test/test-patterns/test-usa-alert-lists.twig";
+import ComparisonComponent from "./test/test-patterns/test-alert-comparison.twig";
+
 import {
   DefaultContent,
   EmergencyContent,
@@ -18,6 +20,7 @@ export default {
 
 const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
+const ComparisonTemplate = (args) => ComparisonComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -47,3 +50,5 @@ export const Warning = Template.bind({});
 Warning.args = WarningContent;
 
 export const Test = TestTemplate.bind({});
+
+export const AlertComparison = ComparisonTemplate.bind({});

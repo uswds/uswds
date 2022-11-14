@@ -1,0 +1,22 @@
+<div class="usa-input-masking">
+  <h3 class="site-preview-heading">Alphanumeric Input Mask</h3>
+  <label class="usa-label" for="zip">Alphanumeric example</label>
+  <div class="usa-hint" id="alphanumericHint">For example, A1B 2C3</div>
+  <span class="usa-input-mask" data-mask="___ ___">
+    <span class="usa-input-mask--content test" aria-hidden="true" id="alphanumericMask"
+      >___ ___</span
+    >
+    <input
+      id="alphanumeric"
+      type="text"
+      inputmode="text"
+      name="alphanumeric"
+      pattern="\w\d\w \d\w\d"
+      class="usa-input usa-masked"
+      aria-describedby="alphanumericHint"
+      maxlength="10"
+      data-placeholder="___ ___"
+      data-charset="A#A #A#"
+    />
+  </span>
+</div>
