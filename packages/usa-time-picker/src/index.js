@@ -123,7 +123,7 @@ const transformTimePicker = (el) => {
   timePickerEl.dataset.defaultValue = defaultValue;
 
   timePickerEl.appendChild(selectEl);
-  initialInputEl.style.display = "none";
+  initialInputEl.remove();
 };
 
 const timePicker = behavior(
