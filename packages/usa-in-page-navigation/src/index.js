@@ -10,6 +10,8 @@ const CURRENT_CLASS = `${PREFIX}-current`;
 const IN_PAGE_NAV_TITLE_TEXT = "On this page";
 const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
+const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
+const IN_PAGE_NAV_THRESHOLD = "1";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -19,17 +21,6 @@ const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
 const IN_PAGE_NAV_TITLE_CLASS = `${IN_PAGE_NAV_CLASS}__heading`;
 const SUB_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--sub-item`;
 const MAIN_ELEMENT = "main";
-
-// Set Intersection Observer options
-const IO_ROOT = null;
-const IO_ROOT_MARGIN = "0px 0px -85% 0px";
-const IO_THRESHOLD = [0];
-
-const options = {
-  root: IO_ROOT,
-  rootMargin: IO_ROOT_MARGIN,
-  threshold: IO_THRESHOLD,
-};
 
 /**
  * Set the active link state for the currently observed section
@@ -115,9 +106,24 @@ const handleScrollToSection = (el) => {
  * @param {HTMLElement} inPageNavEl The in-page nav element
  */
 const createInPageNav = (inPageNavEl) => {
-  const inPageNavTitleText = Sanitizer.escapeHTML`${inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT}`;
-  const inPageNavTitleHeadingLevel =
-    Sanitizer.escapeHTML`${inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL}`;
+  const inPageNavTitleText = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
+  }`;
+  const inPageNavTitleHeadingLevel = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL
+  }`;
+  const inPageNavRootMargin = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.rootMargin || IN_PAGE_NAV_ROOT_MARGIN
+  }`;
+  const inPageNavThreshold = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.threshold || IN_PAGE_NAV_THRESHOLD
+  }`;
+
+  const options = {
+    root: null,
+    rootMargin: inPageNavRootMargin,
+    threshold: [inPageNavThreshold],
+  };
 
   const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
