@@ -3,11 +3,10 @@
 @use "./usa-prose" as *;
 @use "./usa-list" as *;
 @use "./usa-table-styles" as *;
-@use "../../placeholders/typography" as *;
 
 @mixin usa-paragraph-style {
   p {
-    @extend %usa-prose-p;
+    @include usa-prose-p;
   }
 }
 
@@ -24,7 +23,7 @@
   h4,
   h5,
   h6 {
-    @extend %usa-prose-heading;
+    @include usa-prose-heading;
   }
 
   h1 {
