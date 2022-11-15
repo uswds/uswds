@@ -39,10 +39,6 @@ Sets:
   @include u-margin-y(0);
   clear: both;
 
-  * + & {
-    margin-top: 1.5em; // TODO: add as var to settings?
-  }
-
   + * {
     margin-top: 1em;
   }
@@ -54,10 +50,6 @@ Sets:
   margin-bottom: 0;
   margin-top: 0;
   max-width: measure($theme-text-measure);
-
-  * + & {
-    margin-top: 1em; // TODO: add as var to settings?
-  }
 
   + * {
     margin-top: 1em;

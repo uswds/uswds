@@ -2,8 +2,16 @@
 
 %usa-paragraph {
   @include typeset-p;
+
+  * + & {
+    margin-top: 1em; // TODO: add as var to settings?
+  }
 }
 
 .usa-paragraph {
   @include typeset-p;
+
+  * + & {
+    margin-top: 1em; // TODO: add as var to settings?
+  }
 }
