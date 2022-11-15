@@ -6,13 +6,13 @@
 
 @mixin usa-paragraph-style {
   p {
-    @include usa-prose-p;
+    @include typeset-p;
   }
 }
 
 @mixin usa-link-style {
   a {
-    @include usa-prose-link;
+    @include typeset-link;
   }
 }
 
@@ -23,7 +23,7 @@
   h4,
   h5,
   h6 {
-    @include usa-prose-heading;
+    @include typeset-heading;
   }
 
   h1 {
