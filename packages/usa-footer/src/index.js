@@ -38,10 +38,10 @@ function toggleHtmlTag(isMobile) {
   }
 
   const primaryLinks = bigFooter.querySelectorAll(BUTTON);
-  const newElementType = isMobile ? "button" : "h4";
 
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
+    const newElementType = isMobile ? "button" : currentElement.tagName;
 
     // Create the new element
     const newElement = document.createElement(newElementType);
