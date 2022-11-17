@@ -1,0 +1,9 @@
+{
+  "label": "ZIP Code",
+  "hint": "For example, 12345-6789",
+  "id": "zip",
+  "type": "text",
+  "inputmode": "numeric",
+  "placeholder": "_____-____",
+  "pattern": "^[0-9]{5}(?:-[0-9]{4})?$"
+}
