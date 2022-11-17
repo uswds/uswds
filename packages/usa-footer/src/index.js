@@ -1,3 +1,4 @@
+const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
@@ -41,11 +42,14 @@ function toggleHtmlTag(isMobile) {
 
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const newElementType = isMobile ? "button" : currentElement.tagName;
+    const preserveHtmlTag = currentElement.getAttribute("data-tag");
+
+    const newElementType = isMobile ? "button" : preserveHtmlTag;
 
     // Create the new element
     const newElement = document.createElement(newElementType);
     newElement.setAttribute("class", currentElementClasses);
+    newElement.setAttribute("data-tag", preserveHtmlTag);
     newElement.classList.toggle(
       `${PREFIX}-footer__primary-link--button`,
       isMobile
@@ -83,7 +87,15 @@ module.exports = behavior(
     // export for use elsewhere
     HIDE_MAX_WIDTH,
 
-    init() {
+    init(root) {
+      const bigFooter = root.querySelector(SCOPE);
+      if (bigFooter) {
+        select(BUTTON, bigFooter).forEach((button) => {
+          // Preserve original html tag
+          button.setAttribute("data-tag", button.tagName);
+        });
+      }
+
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
