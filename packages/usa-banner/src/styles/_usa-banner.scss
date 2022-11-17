@@ -62,6 +62,8 @@ $banner-icon-close: (
 }
 
 .usa-banner__content {
+  @include u-maxw($theme-banner-max-width);
+  @include u-margin-x(auto);
   @include add-responsive-site-margins;
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
@@ -111,6 +113,8 @@ $banner-icon-close: (
 }
 
 .usa-banner__inner {
+  @include u-maxw($theme-banner-max-width);
+  @include u-margin-x(auto);
   @include add-responsive-site-margins;
   @include u-flex("align-start");
   padding-right: units(0);
