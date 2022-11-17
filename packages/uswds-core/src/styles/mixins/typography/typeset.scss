@@ -55,13 +55,13 @@ Sets:
   margin-top: 0;
   max-width: measure($theme-text-measure);
 
-  * + & {
-    margin-top: 1em; // TODO: add as var to settings?
-  }
+  // * + & {
+  //   margin-top: 1em; // TODO: add as var to settings?
+  // }
 
-  + * {
-    margin-top: 1em;
-  }
+  // + * {
+  //   margin-top: 1em;
+  // }
 }
 
 @mixin typeset-link {
