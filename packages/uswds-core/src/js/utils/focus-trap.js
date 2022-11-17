@@ -1,4 +1,3 @@
-const assign = require("object-assign");
 const { keymap } = require("receptor");
 const behavior = require("./behavior");
 const select = require("./select");
@@ -54,13 +53,11 @@ module.exports = (context, additionalKeyBindings = {}) => {
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
   const keyMappings = keymap(
-    assign(
-      {
-        Tab: tabEventHandler.tabAhead,
-        "Shift+Tab": tabEventHandler.tabBack,
-      },
-      additionalKeyBindings
-    )
+    {
+      Tab: tabEventHandler.tabAhead,
+      "Shift+Tab": tabEventHandler.tabBack,
+      ...additionalKeyBindings
+    },
   );
 
   const focusTrap = behavior(
