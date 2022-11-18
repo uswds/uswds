@@ -41,9 +41,9 @@ function toggleHtmlTag(isMobile) {
 
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const preserveHtmlTag = currentElement.getAttribute("data-tag");
+    const preservedHtmlTag = currentElement.getAttribute("data-tag") || "div";
 
-    const newElementType = isMobile ? "button" : preserveHtmlTag;
+    const newElementType = isMobile ? "button" : preservedHtmlTag;
 
     // Create the new element
     const newElement = document.createElement(newElementType);
