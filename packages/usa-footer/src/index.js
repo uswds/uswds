@@ -49,7 +49,6 @@ function toggleHtmlTag(isMobile) {
     // Create the new element
     const newElement = document.createElement(newElementType);
     newElement.setAttribute("class", currentElementClasses);
-    newElement.setAttribute("data-tag", preserveHtmlTag);
     newElement.classList.toggle(
       `${PREFIX}-footer__primary-link--button`,
       isMobile
@@ -57,6 +56,7 @@ function toggleHtmlTag(isMobile) {
     newElement.textContent = currentElement.textContent;
 
     if (isMobile) {
+      newElement.setAttribute("data-tag", currentElement.tagName);
       const menuId = `${PREFIX}-footer-menu-list-${Math.floor(
         Math.random() * 100000
       )}`;
@@ -87,15 +87,7 @@ module.exports = behavior(
     // export for use elsewhere
     HIDE_MAX_WIDTH,
 
-    init(root) {
-      const bigFooter = root.querySelector(SCOPE);
-      if (bigFooter) {
-        select(BUTTON, bigFooter).forEach((button) => {
-          // Preserve original html tag
-          button.setAttribute("data-tag", button.tagName);
-        });
-      }
-
+    init() {
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
