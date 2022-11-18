@@ -1,7 +1,7 @@
 {
   "lang": "en",
   "title": "Page not found",
-  "intro": "We’re sorry, we can’t find the page you're looking for. It might have been removed, changed its name, or is otherwise unavailable.",
+  "intro": "We’re sorry, we can’t find the page you're looking for. The site administrator may have removed it, changed its location, or made it otherwise unavailable. Try searching for the information you need.",
   "instructions": "<p>If you typed the URL directly, check your spelling and capitalization. Our URLs look like this: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visit our homepage for helpful tools and resources, or contact us and we’ll point you in the right direction.</p>",
   "actions": {
     "primary": "Visit homepage",
