@@ -158,7 +158,8 @@
   @supports (mask: url("")) {
     background: none;
     background-color: if($color == currentColor, $color, color($color));
-    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg");
+    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
+      linear-gradient(transparent, transparent);
     mask-repeat: no-repeat;
     mask-position: $position-x $position-y;
     mask-size: $width $height;
