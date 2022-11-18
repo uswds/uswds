@@ -1,4 +1,3 @@
-const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
