@@ -129,7 +129,7 @@
   $position-y: if(
     map.has-key($icon-object, "position-y"),
     map.get($icon-object, "position-y"),
-    bottom
+    center
   );
   $position-x: if(
     map.has-key($icon-object, "position-x"),
