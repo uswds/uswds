@@ -5,6 +5,5 @@
   "type": "tel",
   "inputmode": "numeric",
   "mask": "(999) 999-9999",
-  "placeholder": "(___) ___-____",
-  "pattern": "\\d{3}-\\d{3}-\\d{4}"
+  "placeholder": "(___) ___-____"
 }

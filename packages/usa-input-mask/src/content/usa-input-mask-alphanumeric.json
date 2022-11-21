@@ -4,7 +4,6 @@
   "id": "alphanumeric",
   "type": "text",
   "inputmode": "text",
-  "placeholder": "___ ___",
-  "pattern": "\\w\\d\\w \\d\\w\\d",
-  "datacharset": "A#A #A#"
+  "mask": "A99 99A",
+  "placeholder": "___ ___"
 }
