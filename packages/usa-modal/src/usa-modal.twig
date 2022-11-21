@@ -17,6 +17,34 @@
         {% if description.text -%}
         <div class="usa-prose">
           <p id="{{ description.id }}">{{ description.text }}</p>
+          {% if nestedForms -%}
+          <div class="usa-form-group">
+            <label class="usa-label" id="appointment-date-label-modal" for="appointment-date-modal"
+              >Appointment date</label
+            >
+            <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+            <div class="usa-date-picker">
+              <input
+                class="usa-input"
+                id="appointment-date-modal"
+                name="appointment-date"
+                aria-labelledby="appointment-date-label-modal"
+                aria-describedby="appointment-date-hint"
+              />
+            </div>
+          </div>
+
+          <label class="usa-label" for="CB-modal">Combobox</label>
+          <div class="usa-combo-box">
+            <select class="usa-select" name="modal-cb" id="CB-modal">
+              <option value>Combo a Box</option>
+              <option value="combo">Combo</option>
+              <option value="box">Box</option>
+              <option value="combo-box">Combobox</option>
+            </select>
+          </div>
+          <div class="margin-y-3"></div>
+          {% endif -%}
         </div>
         {% endif -%}
         {% if footer -%}
