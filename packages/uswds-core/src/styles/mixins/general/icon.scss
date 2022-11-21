@@ -78,7 +78,7 @@
 // the mixin will pick IE11-compatible svgs named
 // [base]-[variant].svg based on the specified background-color
 //
-// @param {Map} - $icon-object - name, svg-height, svg-width, height, container-height, container-width, color, color-variant, color-hover, rotate, path, background-p
+// @param {Map} - $icon-object - name, svg-height, svg-width, height, container-height, container-width, color, color-variant, color-hover, rotate, path, position-x, position-y
 // @param {String} - $contrast-bg - Color token
 @mixin add-color-icon($icon-object, $contrast-bg: "default") {
   $filename-base: map.get($icon-object, "name");
