@@ -15,18 +15,14 @@ $icon-object: (
 
 @mixin external-link($contrast-bg: "default") {
   display: inline;
-  padding-right: $external-link-size;
-  position: relative;
 
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);
-    background-position: center;
-    content: "\00a0";
-    // Use following inline styling to prevent icon splitting over line breaks
-    display: inline-block;
-    height: $external-link-size;
-    margin-left: units(2px);
+    content: "";
+    display: inline;
     margin-top: 0.7ex;
-    position: absolute;
+    margin-left: 2px;
+    padding-left: 1.75ex;
+    vertical-align: middle;
   }
 }
