@@ -1,9 +1,10 @@
 {
   "label": "Alphanumeric",
-  "hint": "For example, A1B 2C3",
+  "hint": "For example, 1EG4-TE5-MK73",
   "id": "alphanumeric",
   "type": "text",
   "inputmode": "text",
-  "mask": "A99 99A",
-  "placeholder": "___ ___"
+  "mask": "9AA9-AA9-AA99",
+  "placeholder": "____-___-____",
+  "forceupper": "true"
 }

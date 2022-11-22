@@ -14,7 +14,7 @@ const STATUS_MESSAGE_CLASS = `${MASKED_CLASS}__status`;
 const STATUS_MESSAGE_SR_ONLY_CLASS = `${MASKED_CLASS}__sr-status`;
 const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
 const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
-const DEFAULT_STATUS_LABEL = `Only number characters allowed`;
+const DEFAULT_STATUS_LABEL = `character is required here`;
 
 const FORMAT_CHARACTERS = [
   "-",
@@ -36,6 +36,8 @@ const FORMAT_CHARACTERS = [
 // const MASK_CHARACTERS = ["A", "9", "*"];
 let ORIGINAL_VALUE = "";
 let MASK = null;
+let FORCE_UPPER = false;
+let FORCE_LOWER = false;
 let HAS_MASK = false;
 
 const KEYS = {
@@ -88,14 +90,13 @@ const getCursorPosition = (inputEl) => {
 };
 
 /**
- * Check if character is valid
+ * Check if character is valid and matches mask
  *
  * @param {number} keyCode - Key code
  * @param {string | number} maskCharacter - Mask character
  */
 const isValidCharacter = (keyCode, maskCharacter) => {
   const maskCharacterCode = maskCharacter.charCodeAt(0);
-
   const isNumber =
     (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
     (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine);
@@ -352,14 +353,21 @@ const getMaskedElements = (inputEl) => {
  * @returns {string} A string description notifying the user if the
  * character is valid or not
  */
-const getMaskMessage = (keyCode) => {
-  let newMessage = "";
+const getMaskMessage = (inputEl, keyCode) => {
+  let currentStatusMessage = "";
+  let invalidCharType = false;
 
-  if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
-    // key -= 48;
-    newMessage = `${DEFAULT_STATUS_LABEL}`;
+  const isNumber =
+    (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
+    (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine);
+  const theCharType = isNumber ? "letter" : "number";
+
+  if (isValidCharacter(keyCode, MASK[getCursorPosition(inputEl)])) {
+    currentStatusMessage = "";
+    invalidCharType = false;
   } else {
-    newMessage = `${DEFAULT_STATUS_LABEL}`;
+    currentStatusMessage = `A ${theCharType} ${DEFAULT_STATUS_LABEL}`;
+    invalidCharType = true;
   }
 
   /* if (currentChar === 0) {
@@ -372,11 +380,11 @@ const getMaskMessage = (keyCode) => {
     newMessage = `${difference} ${characters} ${guidance}`;
   } */
 
-  return newMessage;
+  return { currentStatusMessage, invalidCharType };
 };
 
 /**
- * Updates the character count status for screen readers after a 1000ms delay.
+ * Updates the character count status for screen readers after a 200ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader status message element
  * @param {string} statusMessage - A string of the current character status
@@ -384,7 +392,7 @@ const getMaskMessage = (keyCode) => {
 const srUpdateStatus = debounce((msgEl, statusMessage) => {
   const srStatusMessage = msgEl;
   srStatusMessage.textContent = statusMessage;
-}, 1000);
+}, 200);
 
 /**
  * On input, it will update visual status, screenreader
@@ -394,24 +402,35 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  * @param {number} keyCode The key number code
  */
 const updateMaskMessage = (inputEl, keyCode) => {
-  const validCharType = "number";
+  // const validCharType = "number";
   const { maskedEl } = getMaskedElements(inputEl);
   // const currentLength = inputEl.value.length;
   // const maxLength = parseInt(maskedEl.getAttribute("data-maxlength"), 10);
   const statusMessage = maskedEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = maskedEl.querySelector(STATUS_MESSAGE_SR_ONLY);
-  const currentStatusMessage = getMaskMessage(keyCode, validCharType);
-
-  const isNumber =
-    (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
-    (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine);
-
-  const isInvalidChar = !isNumber;
+  const { currentStatusMessage, invalidCharType } = getMaskMessage(
+    inputEl,
+    keyCode
+  );
 
   statusMessage.textContent = currentStatusMessage;
   srUpdateStatus(srStatusMessage, currentStatusMessage);
 
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isInvalidChar);
+  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
+
+  /* if (isValidCharacter(keyCode, MASK[getCursorPosition(inputEl)])) {
+    statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, false);
+  } else {
+    statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, true);
+  } */
+
+  /* const isNumber =
+    (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
+    (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine);
+
+  const isInvalidChar = !isNumber; */
+
+  // statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isInvalidChar);
 
   /* if (!maxLength) return;
 
@@ -439,14 +458,12 @@ const updateMaskMessage = (inputEl, keyCode) => {
  */
 const handleKeyDown = (inputEl, event) => {
   const el = inputEl;
-  let key = event.which;
+  let keyCode = event.which;
   const copyCutPasteKeys =
-    [KEYS.v, KEYS.c, KEYS.x].indexOf(key) > -1 &&
+    [KEYS.v, KEYS.c, KEYS.x].indexOf(keyCode) > -1 &&
     (KEYS.command || event.ctrlKey);
-  const movementKeys = [KEYS.left, KEYS.right, KEYS.tab].indexOf(key) > -1;
+  const movementKeys = [KEYS.left, KEYS.right, KEYS.tab].indexOf(keyCode) > -1;
   const modifierKeys = event.ctrlKey || event.shiftKey;
-
-  updateMaskMessage(el, key);
 
   if (copyCutPasteKeys || movementKeys || modifierKeys) {
     return true;
@@ -458,7 +475,7 @@ const handleKeyDown = (inputEl, event) => {
     el.value = "";
   }
 
-  if (key === KEYS.escape) {
+  if (keyCode === KEYS.escape) {
     if (ORIGINAL_VALUE !== "") {
       el.value = ORIGINAL_VALUE;
     }
@@ -466,14 +483,14 @@ const handleKeyDown = (inputEl, event) => {
     return true;
   }
 
-  if (key === KEYS.backSpace || key === KEYS.delete) {
-    if (key === KEYS.backSpace) {
-      checkAndRemoveMaskCharacters(el, getCursorPosition(el) - 1, key);
+  if (keyCode === KEYS.backSpace || keyCode === KEYS.delete) {
+    if (keyCode === KEYS.backSpace) {
+      checkAndRemoveMaskCharacters(el, getCursorPosition(el) - 1, keyCode);
       removeCharacterAtIndex(el, getCursorPosition(el) - 1);
     }
 
-    if (key === KEYS.delete) {
-      checkAndRemoveMaskCharacters(el, getCursorPosition(el), key);
+    if (keyCode === KEYS.delete) {
+      checkAndRemoveMaskCharacters(el, getCursorPosition(el), keyCode);
       removeCharacterAtIndex(el, getCursorPosition(el));
     }
 
@@ -488,18 +505,28 @@ const handleKeyDown = (inputEl, event) => {
     return false;
   }
 
+  updateMaskMessage(el, keyCode);
+
   if (HAS_MASK) {
     checkAndInsertMaskCharacters(el, getCursorPosition(el));
   }
 
-  if (isValidCharacter(key, MASK[getCursorPosition(el)])) {
-    if (key >= KEYS.numberPadZero && key <= KEYS.numberPadNine) {
-      key -= 48;
+  if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
+    if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
+      keyCode -= 48;
     }
 
-    const character = event.shiftKey
-      ? String.fromCharCode(key).toUpperCase()
-      : String.fromCharCode(key).toLowerCase();
+    let character = event.shiftKey
+      ? String.fromCharCode(keyCode).toUpperCase()
+      : String.fromCharCode(keyCode).toLowerCase();
+
+    if (FORCE_UPPER) {
+      character = character.toUpperCase();
+    }
+
+    if (FORCE_LOWER) {
+      character = character.toLowerCase();
+    }
 
     insertCharacterAtIndex(el, getCursorPosition(el), character);
 
@@ -554,29 +581,11 @@ const handlePaste = (inputEl, event, data) => {
           keyDownEvent.initEvent("keydown", true, true);
         }
 
-        // keyDownEvent.keyCode = keyDownEvent.which = pastedText[i].charCodeAt(0);
-
         keyDownEvent.keyCode = pastedText[i].charCodeAt(0);
         keyDownEvent.which = pastedText[i].charCodeAt(0);
 
         handleKeyDown(inputEl, keyDownEvent);
       }
-
-      /* if (FORMAT_CHARACTERS.indexOf(pastedText[i]) > -1) {
-        continue;
-      }
-
-      const keyDownEvent = document.createEventObject
-        ? document.createEventObject()
-        : document.createEvent("Events");
-
-      if (keyDownEvent.initEvent) {
-        keyDownEvent.initEvent("keydown", true, true);
-      }
-
-      keyDownEvent.keyCode = keyDownEvent.which = pastedText[i].charCodeAt(0);
-
-      handleKeyDown(element, keyDownEvent); */
     }
   }
 
@@ -595,7 +604,6 @@ const enhanceInputMask = (inputEl, options) => {
     throw new Error(`${MASKED} is missing correct attributes`);
   }
   const { value } = inputEl;
-
   const { maskedEl, messageEl } = getMaskedElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -607,6 +615,14 @@ const enhanceInputMask = (inputEl, options) => {
   if (options.mask && options.mask.length > 0) {
     MASK = options.mask.split("");
     HAS_MASK = true;
+  }
+
+  if (options.forceupper && options.forceupper === "true") {
+    FORCE_UPPER = true;
+  }
+
+  if (options.forcelower && options.forcelower === "true") {
+    FORCE_LOWER = true;
   }
 
   if (value.length > 0 && HAS_MASK) {
