@@ -1,0 +1,44 @@
+{
+  "label": "Languages",
+  "focus": false,
+  "role": "button",
+  "placeholder_link": "javascript:void()",
+  "languages": [
+    {
+      "lang_label": "العربية",
+      "lang_label_en": "(Arabic)",
+      "lang_att": "ar"
+    },
+    {
+      "lang_label": "简体字",
+      "lang_label_en": "(Chinese - Simplified)",
+      "lang_att": "zh"
+    },
+    {
+      "lang_label": "English",
+      "lang_label_en": "",
+      "lang_att": "en"
+    },
+    {
+      "lang_label": "Español",
+      "lang_label_en": "(Spanish)",
+      "lang_att": "es"
+    },
+    {
+      "lang_label": "Français",
+      "lang_label_en": "(French)",
+      "lang_att": "fr"
+    },
+    {
+      "lang_label": "Italiano",
+      "lang_label_en": "(Italian)",
+      "lang_att": "it"
+    },
+    {
+      "lang_label": "Pусский",
+      "lang_label_en": "(Russian)",
+      "lang_att": "ru"
+    }
+  ],
+  "more": "Selected content in additional languages"
+}
