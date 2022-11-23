@@ -1,9 +1,10 @@
 {
   "name": "@uswds/uswds",
+  "type": "module",
   "version": "3.3.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
-    "node": ">= 4"
+    "node": ">= 12"
   },
   "keywords": [
     "ui",
