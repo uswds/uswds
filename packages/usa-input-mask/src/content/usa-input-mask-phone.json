@@ -1,0 +1,9 @@
+{
+  "label": "US Telephone Number",
+  "hint": "For example, 123-456-7890",
+  "id": "tel",
+  "type": "tel",
+  "inputmode": "numeric",
+  "placeholder": "___-___-____",
+  "pattern": "\\d{3}-\\d{3}-\\d{4}"
+}

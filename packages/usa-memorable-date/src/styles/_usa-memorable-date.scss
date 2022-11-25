@@ -31,9 +31,21 @@
 .usa-form-group--year {
   @include u-flex(auto);
   margin-right: units(2);
+  width: fit-content;
+}
+
+// Support months that include a text input...
+.usa-form-group--day input,
+.usa-form-group--month input {
   width: units(6);
 }
 
-.usa-form-group--year {
+// ...and support months that include a select
+.usa-form-group--month select {
+  width: units(card-lg);
+}
+
+.usa-form-group--year input {
   width: units(9);
 }
+

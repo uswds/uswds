@@ -106,11 +106,11 @@ const toggleNav = (active) => {
     closeButton.focus();
   } else if (
     !safeActive &&
-    document.activeElement === closeButton &&
-    menuButton
+    menuButton &&
+    getComputedStyle(menuButton).display !== 'none'
+
   ) {
-    // The mobile nav was just deactivated, and focus was on the close
-    // button, which is no longer visible. We don't want the focus to
+    // The mobile nav was just deactivated. We don't want the focus to
     // disappear into the void, so focus on the menu button if it's
     // visible (this may have been what the user was just focused on,
     // if they triggered the mobile nav by mistake).
@@ -147,7 +147,10 @@ const focusNavButton = (event) => {
 
   // Only shift focus if within dropdown
   if (!event.target.matches(NAV_CONTROL)) {
-    parentNavItem.querySelector(NAV_CONTROL).focus();
+    const navControl = parentNavItem.querySelector(NAV_CONTROL)
+    if (navControl) {
+      navControl.focus()
+    }
   }
 };
 
