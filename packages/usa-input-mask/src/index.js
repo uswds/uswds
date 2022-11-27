@@ -6,8 +6,11 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
+const MASK_SHELL = `${PREFIX}-input-mask`;
+const MASK_CONTENT = `${MASK_SHELL}--content`;
 const INPUT = `${MASKED}__field`;
 const MESSAGE = `${MASKED}__message`;
+const PLACEHOLDER = "placeholder";
 // const VALIDATION_MESSAGE = "The content is too long.";
 const MESSAGE_INVALID_CLASS = `${MASKED_CLASS}__status--invalid`;
 const STATUS_MESSAGE_CLASS = `${MASKED_CLASS}__status`;
@@ -63,6 +66,37 @@ const KEYS = {
   v: 86,
   c: 67,
   x: 88,
+};
+
+/**
+ * Replace each masked input with a shell containing the input and it's mask.
+ *
+ * @param {HTMLInputElement} inputEl The masked input element
+ */
+const createMaskedInputShell = (inputEl) => {
+  const placeholder = inputEl.getAttribute(`${PLACEHOLDER}`);
+  if (placeholder) {
+    inputEl.setAttribute("maxlength", placeholder.length);
+    inputEl.setAttribute("data-placeholder", placeholder);
+    inputEl.removeAttribute(`${PLACEHOLDER}`);
+  } else {
+    return;
+  }
+
+  const shell = document.createElement("span");
+  shell.classList.add(MASK_SHELL);
+  shell.setAttribute("data-mask", placeholder);
+
+  const content = document.createElement("span");
+  content.classList.add(MASK_CONTENT);
+  content.setAttribute("aria-hidden", "true");
+  content.id = `${inputEl.id}Mask`;
+  content.textContent = placeholder;
+
+  shell.appendChild(content);
+  inputEl.parentNode.insertBefore(shell, inputEl);
+  // inputEl.closest(MASKED).insertBefore(shell, inputEl);
+  shell.appendChild(inputEl);
 };
 
 /**
@@ -245,7 +279,7 @@ const createStatusMessages = (maskedEl) => {
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
   // const maxLength = maskedEl.dataset.maxlength;
-  const defaultMessage = `${DEFAULT_STATUS_LABEL}`;
+  const defaultMessage = `Please enter a valid character`;
 
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
   srStatusMessage.classList.add(
@@ -451,6 +485,38 @@ const updateMaskMessage = (inputEl, keyCode) => {
 };
 
 /**
+ * On init this function will create elements and update any
+ * attributes so it can validate user input.
+ *
+ * @param {HTMLInputElement} inputEl the components input
+ */
+const setValueOfMask = (inputEl) => {
+  const { value } = inputEl;
+  const placeholderVal = `${inputEl.dataset.placeholder.substr(value.length)}`;
+
+  const theIEl = document.createElement("i");
+  theIEl.textContent = value;
+  return [theIEl, placeholderVal];
+};
+
+/**
+ * On init this function will create elements and update any
+ * attributes so it can validate user input.
+ *
+ * @param {HTMLInputElement} inputEl the components input
+ */
+const handleValueChange = (inputEl) => {
+  const el = inputEl;
+  const id = el.getAttribute("id");
+  // el.value = handleCurrentValue(el);
+
+  const maskVal = setValueOfMask(el);
+  const maskEl = document.getElementById(`${id}Mask`);
+  maskEl.textContent = "";
+  maskEl.replaceChildren(maskVal[0], maskVal[1]);
+};
+
+/**
  * Handles the keydown event
  *
  * @param {HTMLElement} inputEl - The maskedinput element
@@ -494,6 +560,8 @@ const handleKeyDown = (inputEl, event) => {
       removeCharacterAtIndex(el, getCursorPosition(el));
     }
 
+    handleValueChange(el);
+
     event.preventDefault();
 
     return false;
@@ -534,6 +602,8 @@ const handleKeyDown = (inputEl, event) => {
       checkAndInsertMaskCharacters(el, getCursorPosition(el));
     }
   }
+
+  handleValueChange(el);
 
   event.preventDefault();
 
@@ -610,8 +680,6 @@ const enhanceInputMask = (inputEl, options) => {
   messageEl.classList.add("usa-sr-only");
   messageEl.removeAttribute("aria-live");
 
-  createStatusMessages(maskedEl);
-
   if (options.mask && options.mask.length > 0) {
     MASK = options.mask.split("");
     HAS_MASK = true;
@@ -628,6 +696,9 @@ const enhanceInputMask = (inputEl, options) => {
   if (value.length > 0 && HAS_MASK) {
     handlePaste(inputEl, null, value);
   }
+
+  createMaskedInputShell(inputEl);
+  createStatusMessages(maskedEl);
 };
 
 const inputMaskEvents = {

@@ -5,5 +5,5 @@
   "type": "text",
   "inputmode": "numeric",
   "mask": "999-99-9999",
-  "placeholder": "___ __ ____"
+  "placeholder": "___-__-____"
 }
