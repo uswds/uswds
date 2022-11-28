@@ -14,7 +14,8 @@
   }
 
   &--disabled {
-    background-color: color("disabled-light");
+    background-color: color("disabled");
+    cursor: not-allowed;
   }
 
   &--error {
