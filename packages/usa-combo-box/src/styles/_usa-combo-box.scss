@@ -56,12 +56,24 @@ $close: map-merge(
   margin-bottom: 0;
   max-width: none;
   padding-right: calc(2.5em + 3px);
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: color("disabled");
+    cursor: not-allowed;
+  }
 }
 
 button.usa-combo-box__toggle-list,
 button.usa-combo-box__clear-input {
   &:focus {
     outline-offset: -4px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: color("disabled");
+    cursor: not-allowed;   
   }
 }
 
