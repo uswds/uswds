@@ -192,10 +192,10 @@
   }
 
   .usa-file-input__box {
-    background-color: color("disabled-light");
+    background-color: color("disabled");
   }
 
   .usa-file-input__input[type] {
-    cursor: default;
+    cursor: not-allowed;
   }
 }
