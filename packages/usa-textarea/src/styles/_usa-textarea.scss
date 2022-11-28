@@ -3,6 +3,11 @@
 .usa-textarea {
   @extend %block-input-general;
   @extend %block-input-styles;
+
+  &:disabled{
+    background-color: color("disabled");
+    cursor: not-allowed;
+  }
 }
 
 .usa-textarea {
