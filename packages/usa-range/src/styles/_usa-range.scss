@@ -32,6 +32,25 @@
   border: units(1px) solid color("base");
 }
 
+
+@mixin range-thumb--disabled {
+  @include range-thumb;
+  background-color: color("disabled");
+  cursor: not-allowed;
+}
+
+@mixin range-track--disabled {
+  @include range-track;
+  background-color: color("disabled");
+  cursor: not-allowed;
+}
+
+@mixin range-ms-fill--disabled {
+  @include range-ms-fill;
+  background-color: color("disabled");
+  cursor: not-allowed;
+}
+
 .usa-range {
   @extend %block-input-general;
   @extend %block-input-styles;
@@ -91,5 +110,41 @@
 
   &::-ms-fill-upper {
     @include range-ms-fill;
+  }
+
+  &:disabled {
+    &::-webkit-slider-runnable-track {
+      @include range-track--disabled;
+    }
+  
+    &::-moz-range-track {
+      @include range-track--disabled;
+    }
+  
+    &::-ms-track {
+      @include range-track--disabled;
+    }
+  
+    &::-webkit-slider-thumb {
+      @include range-thumb--disabled;
+      appearance: none;
+      margin-top: px-to-rem(-3px); // magic number
+    }
+  
+    &::-moz-range-thumb {
+      @include range-thumb--disabled;
+    }
+  
+    &::-ms-thumb {
+      @include range-thumb--disabled;
+    }
+  
+    &::-ms-fill-lower {
+      @include range-ms-fill--disabled;
+    }
+  
+    &::-ms-fill-upper {
+      @include range-ms-fill--disabled;
+    }
   }
 }
