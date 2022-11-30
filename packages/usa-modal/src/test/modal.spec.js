@@ -3,12 +3,16 @@ const fs = require("fs");
 const path = require("path");
 
 const modal = require("../index");
+const combobox = require("../../../usa-combo-box/src/index")
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 const modalWindowSelector = () => document.querySelector(".usa-modal");
 const bodySelector = () => document.body;
 const openButton1Selector = () => document.querySelector("#open-button1");
 const openButton2Selector = () => document.querySelector("#open-button2");
+const comboListSelector = () => document.querySelector(".usa-combo-box__list");
+const comboListToggle = () => document.querySelector(".usa-combo-box__toggle-list");
+// const comboListButtonSelector = () => document.querySelector(".usa-combo-box__toggle-list")
 
 const tests = [
   { name: "document.body", selector: bodySelector },
@@ -25,18 +29,24 @@ tests.forEach(({name, selector: containerSelector}) => {
     let openButton1;
     let openButton2;
     let overlay;
+    let comboList;
+    let CBToggle;
 
     const isVisible = (el) => el.classList.contains("is-visible");
+    const isHidden = (el) => el.hasAttribute("hidden");
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
       modal.on(containerSelector());
+      combobox.on(containerSelector())
       modalWindow = modalWindowSelector();
       closeButton = body.querySelector("#close-button");
       modalWrapper = body.querySelector(".usa-modal-wrapper");
       overlay = body.querySelector(".usa-modal-overlay");
       openButton1 = openButton1Selector();
       openButton2 = openButton2Selector();
+      comboList = comboListSelector();
+      CBToggle = comboListToggle();
     });
 
     afterEach(() => {
@@ -107,6 +117,11 @@ tests.forEach(({name, selector: containerSelector}) => {
 
         assert.strictEqual(activeContent.length, 1);
         assert.strictEqual(activeContent[0], modalWrapper);
+      });
+
+      it("allows event propogation", () => {
+        CBToggle.click();
+        assert.strictEqual(isHidden(comboList), false)
       });
     });
 
