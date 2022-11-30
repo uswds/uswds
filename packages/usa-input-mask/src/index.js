@@ -4,10 +4,10 @@ const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
-const MASKED_CLASS = `${PREFIX}-masked`;
+const MASKED_CLASS = `${PREFIX}-input-mask`;
 const MASKED = `.${MASKED_CLASS}`;
-const MASK_SHELL = `${PREFIX}-input-mask`;
-const MASK_CONTENT = `${MASK_SHELL}--content`;
+const MASK_SHELL = `${MASKED_CLASS}__shell`;
+const MASK_CONTENT = `${MASKED_CLASS}__content`;
 const INPUT = `${MASKED}__field`;
 const MESSAGE = `${MASKED}__message`;
 const PLACEHOLDER = "placeholder";
@@ -36,7 +36,9 @@ const FORMAT_CHARACTERS = [
   "/",
 ];
 
-// const MASK_CHARACTERS = ["A", "9", "*"];
+const maskedNumber = "_dDmMyY9";
+const maskedLetter = "A";
+const MASK_CHARACTERS = ["A", "9", "*"];
 let ORIGINAL_VALUE = "";
 let MASK = null;
 let FORCE_UPPER = false;
@@ -278,7 +280,6 @@ const checkAndRemoveMaskCharacters = (inputEl, cursorPos, keyCode) => {
 const createStatusMessages = (maskedEl) => {
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
-  // const maxLength = maskedEl.dataset.maxlength;
   const defaultMessage = `Please enter a valid character`;
 
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
@@ -404,16 +405,6 @@ const getMaskMessage = (inputEl, keyCode) => {
     invalidCharType = true;
   }
 
-  /* if (currentChar === 0) {
-    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
-  } else {
-    const difference = Math.abs(maxLength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = currentLength > maxLength ? "over limit" : "left";
-
-    newMessage = `${difference} ${characters} ${guidance}`;
-  } */
-
   return { currentStatusMessage, invalidCharType };
 };
 
@@ -436,10 +427,7 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  * @param {number} keyCode The key number code
  */
 const updateMaskMessage = (inputEl, keyCode) => {
-  // const validCharType = "number";
   const { maskedEl } = getMaskedElements(inputEl);
-  // const currentLength = inputEl.value.length;
-  // const maxLength = parseInt(maskedEl.getAttribute("data-maxlength"), 10);
   const statusMessage = maskedEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = maskedEl.querySelector(STATUS_MESSAGE_SR_ONLY);
   const { currentStatusMessage, invalidCharType } = getMaskMessage(
@@ -451,38 +439,72 @@ const updateMaskMessage = (inputEl, keyCode) => {
   srUpdateStatus(srStatusMessage, currentStatusMessage);
 
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
-
-  /* if (isValidCharacter(keyCode, MASK[getCursorPosition(inputEl)])) {
-    statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, false);
-  } else {
-    statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, true);
-  } */
-
-  /* const isNumber =
-    (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
-    (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine);
-
-  const isInvalidChar = !isNumber; */
-
-  // statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isInvalidChar);
-
-  /* if (!maxLength) return;
-
-  const isOverLimit = currentLength && currentLength > maxLength;
-
-  statusMessage.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessage, currentStatusMessage);
-
-  if (isOverLimit && !inputEl.validationMessage) {
-    inputEl.setCustomValidity(VALIDATION_MESSAGE);
-  }
-
-  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
-    inputEl.setCustomValidity("");
-  }
-
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit); */
 };
+
+
+
+
+
+
+
+const strippedValue = (isCharsetPresent, value) =>
+  isCharsetPresent ? value.replace(/\W/g, "") : value.replace(/\D/g, "");
+
+const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
+
+const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
+
+const handleCurrentValue = (el) => {
+  const isCharsetPresent = el.dataset.charset;
+  const placeholder = isCharsetPresent || el.dataset.placeholder;
+  console.log("placeholder", placeholder);
+  const { value } = el;
+  console.log("value", value);
+  const len = placeholder.length;
+  let newValue = "";
+  let i;
+  let charIndex;
+
+  const strippedVal = strippedValue(isCharsetPresent, value);
+  console.log("strippedVal", strippedVal);
+  for (i = 0, charIndex = 0; i < len; i += 1) {
+    console.log("strippedVal[charIndex]", strippedVal[charIndex]);
+    const isInt = isInteger(strippedVal[charIndex]);
+    const isLet = isLetter(strippedVal[charIndex]);
+    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
+    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
+    console.log("matchesNumber", matchesNumber);
+    console.log("matchesLetter", matchesLetter);
+    if (
+      (matchesNumber && isInt) ||
+      (isCharsetPresent && matchesLetter && isLet)
+    ) {
+      console.log("newValue += strippedVal[charIndex]", newValue += strippedVal[charIndex]);
+      console.log("charIndex += 1", charIndex += 1);
+      newValue += strippedVal[charIndex];
+      charIndex += 1;
+    } else if (
+      (!isCharsetPresent && !isInt && matchesNumber) ||
+      (isCharsetPresent &&
+        ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
+    ) {
+      console.log("inside else if: newValue", newValue);
+      return newValue;
+    } else {
+      newValue += placeholder[i];
+    }
+    // break if no characters left and the pattern is non-special character
+    if (strippedVal[charIndex] === undefined) {
+      break;
+    }
+  }
+
+  return newValue;
+};
+
+
+
+
 
 /**
  * On init this function will create elements and update any
@@ -493,7 +515,6 @@ const updateMaskMessage = (inputEl, keyCode) => {
 const setValueOfMask = (inputEl) => {
   const { value } = inputEl;
   const placeholderVal = `${inputEl.dataset.placeholder.substr(value.length)}`;
-
   const theIEl = document.createElement("i");
   theIEl.textContent = value;
   return [theIEl, placeholderVal];
@@ -508,13 +529,126 @@ const setValueOfMask = (inputEl) => {
 const handleValueChange = (inputEl) => {
   const el = inputEl;
   const id = el.getAttribute("id");
-  // el.value = handleCurrentValue(el);
+  el.value = handleCurrentValue(el);
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 };
+
+
+
+/**
+ * Handles the keydown event
+ *
+ * @param {HTMLElement} inputEl - The maskedinput element
+ * @param {event} event - The event object
+ */
+ const handlePasteMask = (inputEl, event) => {
+  const el = inputEl;
+  let keyCode = event.which;
+  const copyCutPasteKeys =
+    [KEYS.v, KEYS.c, KEYS.x].indexOf(keyCode) > -1 &&
+    (KEYS.command || event.ctrlKey);
+  const movementKeys = [KEYS.left, KEYS.right, KEYS.tab].indexOf(keyCode) > -1;
+  const modifierKeys = event.ctrlKey || event.shiftKey;
+
+  /* if (copyCutPasteKeys || movementKeys || modifierKeys) {
+    return true;
+  } */
+
+  if (movementKeys || modifierKeys) {
+    return true;
+  }
+
+  if (el.selectionStart === 0 && el.selectionEnd === el.value.length) {
+    ORIGINAL_VALUE = el.value;
+
+    el.value = "";
+  }
+
+  if (keyCode === KEYS.escape) {
+    if (ORIGINAL_VALUE !== "") {
+      el.value = ORIGINAL_VALUE;
+    }
+
+    return true;
+  }
+
+  if (keyCode === KEYS.backSpace || keyCode === KEYS.delete) {
+    if (keyCode === KEYS.backSpace) {
+      checkAndRemoveMaskCharacters(el, getCursorPosition(el) - 1, keyCode);
+      removeCharacterAtIndex(el, getCursorPosition(el) - 1);
+    }
+
+    if (keyCode === KEYS.delete) {
+      checkAndRemoveMaskCharacters(el, getCursorPosition(el), keyCode);
+      removeCharacterAtIndex(el, getCursorPosition(el));
+    }
+
+    // handleValueChange(el);
+
+    event.preventDefault();
+
+    return false;
+  }
+
+  if (el.value.length === MASK.length) {
+    event.preventDefault();
+
+    return false;
+  }
+
+  updateMaskMessage(el, keyCode);
+
+  if (HAS_MASK) {
+    checkAndInsertMaskCharacters(el, getCursorPosition(el));
+  }
+
+  if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
+    if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
+      keyCode -= 48;
+    }
+
+    let character = event.shiftKey
+      ? String.fromCharCode(keyCode).toUpperCase()
+      : String.fromCharCode(keyCode).toLowerCase();
+
+    if (FORCE_UPPER) {
+      character = character.toUpperCase();
+    }
+
+    if (FORCE_LOWER) {
+      character = character.toLowerCase();
+    }
+
+    insertCharacterAtIndex(el, getCursorPosition(el), character);
+
+    if (HAS_MASK) {
+      checkAndInsertMaskCharacters(el, getCursorPosition(el));
+    }
+  }
+
+  handleValueChange(el);
+
+  event.preventDefault();
+
+  return false;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Handles the keydown event
@@ -531,7 +665,11 @@ const handleKeyDown = (inputEl, event) => {
   const movementKeys = [KEYS.left, KEYS.right, KEYS.tab].indexOf(keyCode) > -1;
   const modifierKeys = event.ctrlKey || event.shiftKey;
 
-  if (copyCutPasteKeys || movementKeys || modifierKeys) {
+  /* if (copyCutPasteKeys || movementKeys || modifierKeys) {
+    return true;
+  } */
+
+  if (movementKeys || modifierKeys) {
     return true;
   }
 
@@ -635,27 +773,30 @@ const handlePaste = (inputEl, event, data) => {
   ) {
     pastedText = event.clipboardData.getData("text/plain");
   }
+console.log("pastedText", pastedText);
 
   if (pastedText != null && pastedText !== "") {
     for (let j = 0; j < FORMAT_CHARACTERS.length; j += 1) {
       pastedText.replace(FORMAT_CHARACTERS[j], "");
     }
-
     for (let i = 0; i < pastedText.length; i += 1) {
-      while (FORMAT_CHARACTERS.indexOf(pastedText[i]) > -1) {
-        const keyDownEvent = document.createEventObject
-          ? document.createEventObject()
-          : document.createEvent("Events");
-
-        if (keyDownEvent.initEvent) {
-          keyDownEvent.initEvent("keydown", true, true);
-        }
-
-        keyDownEvent.keyCode = pastedText[i].charCodeAt(0);
-        keyDownEvent.which = pastedText[i].charCodeAt(0);
-
-        handleKeyDown(inputEl, keyDownEvent);
+      if (FORMAT_CHARACTERS.indexOf(pastedText[i]) > -1) {
+        continue;
       }
+      const keyDownEvent = document.createEventObject
+        ? document.createEventObject()
+        : document.createEvent("Events");
+
+        console.log("keyDownEvent", keyDownEvent);
+      /* if (keyDownEvent.initEvent) {
+        console.log("keyDownEvent.initEvent");
+        keyDownEvent.initEvent("keydown", true, true);
+      } */
+
+      keyDownEvent.keyCode = pastedText[i].charCodeAt(0);
+      keyDownEvent.which = pastedText[i].charCodeAt(0);
+      
+      handlePasteMask(inputEl, keyDownEvent);
     }
   }
 

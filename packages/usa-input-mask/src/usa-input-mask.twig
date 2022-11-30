@@ -1,5 +1,5 @@
 <form class="usa-form">
-  <div class="usa-masked">
+  <div class="usa-input-mask">
     <div class="usa-form-group">
       <label class="usa-label" for="{{ id }}">{{ label }}</label>
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
@@ -12,10 +12,11 @@
           placeholder="{{ placeholder }}" 
           pattern="{{ pattern }}" 
           forceupper="{{ forceupper }}"
-          class="usa-input usa-masked__field" 
+          class="usa-input usa-input-mask__field" 
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
+          autocomplete="off"
       >
     </div>
-    <span id="{{ id }}-hint-info" class="usa-masked__message"></span>
+    <span id="{{ id }}-hint-info" class="usa-input-mask__message"></span>
   </div>
 </form>

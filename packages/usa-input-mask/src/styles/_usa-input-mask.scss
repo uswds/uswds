@@ -1,36 +1,36 @@
 @use "uswds-core" as *;
 
-.usa-input-mask {
+.usa-input-mask__field {
   display: block;
   position: relative;
 }
 
-.usa-input-mask--content {
+.usa-input-mask__content {
   border: 1px solid transparent;
   color: color("ink");
   display: block;
-  left: 2px;
+  /* left: 2px; */
   pointer-events: none;
   position: absolute;
-  top: 0;
+  /* top: 0; */
 
   i {
     visibility: hidden;
   }
 }
 
-.usa-masked,
-.usa-input-mask--content {
+.usa-input-mask__field,
+.usa-input-mask__content {
   @include border-box-sizing;
   background-color: transparent;
   padding: units(1);
 }
 
-.usa-masked__status {
+.usa-input-mask__status {
   display: inline-block;
   padding-top: units(0.5);
 
-  &.usa-masked__status--invalid {
+  &.usa-input-mask__status--invalid {
     color: color("error-dark");
     font-weight: font-weight("bold");
   }
