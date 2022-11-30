@@ -59,7 +59,7 @@ $navigate_far_next: map-merge(
 }
 
 %usa-date-picker__button--disabled {
-  cursor: auto;
+  cursor: not-allowed;
 
   &:hover {
     background-color: initial;
