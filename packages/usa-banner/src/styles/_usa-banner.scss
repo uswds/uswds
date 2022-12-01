@@ -82,6 +82,16 @@ $banner-icon-close: (
       margin: 0;
     }
   }
+
+  &.usa-accordion__content > .grid-row.grid-gap-lg{
+    @include u-display("flex");
+    @include u-margin-x(-1.5);
+
+    & > * {
+      @include u-padding-x(1.5);
+      width: 50%;
+    }
+  }
 }
 
 .usa-banner__guidance {
@@ -187,6 +197,7 @@ $banner-icon-close: (
 
 .usa-banner__header--expanded {
   padding-right: units($size-touch-target + 1);
+  @include u-display("flex");
 
   @include at-media("tablet") {
     background-color: transparent;
