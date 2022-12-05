@@ -153,14 +153,11 @@ const isValidCharacter = (keyCode, maskCharacter) => {
  * @param {number} cursorPos - Cursor position
  */
 const setCursorPosition = (inputEl, cursorPos) => {
-  console.log("setCursorPosition", cursorPos);
   const el = inputEl;
   if (el != null) {
     if (el.createTextRange) {
       const range = el.createTextRange();
 
-      console.log("range", range);
-      console.log("cursorPos", cursorPos);
       range.move("character", cursorPos);
 
       range.select();
