@@ -4,17 +4,17 @@
       <label class="usa-label" for="{{ id }}">{{ label }}</label>
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
       <input 
+          aria-describedby="{{ id }}-hint {{ id }}-hint-info"
+          class="usa-input usa-input-mask__field" 
+          forceupper="{{ forceupper }}"
           id="{{ id }}" 
-          type="{{ type }}" 
           inputmode="{{ inputmode }}" 
           mask="{{ mask }}"
           name="{{ id }}" 
-          placeholder="{{ placeholder }}" 
           pattern="{{ pattern }}" 
-          forceupper="{{ forceupper }}"
-          class="usa-input usa-input-mask__field" 
-          aria-describedby="{{ id }}-hint {{ id }}-hint-info"
-          autocomplete="off"
+          placeholder="{{ placeholder }}" 
+          type="{{ type }}" 
+          {# autocomplete="off" #}
       >
     </div>
     <span id="{{ id }}-hint-info" class="usa-input-mask__message"></span>

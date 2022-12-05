@@ -1,9 +1,10 @@
 {
-  "label": "US Date",
   "hint": "For example, 01/01/1970",
   "id": "tel",
-  "type": "tel",
   "inputmode": "numeric",
+  "label": "US Date",
   "mask": "99/99/9999",
-  "placeholder": "__/__/____"
+  "pattern": "\\d{2}/\\d{2}/\\d{4}",
+  "placeholder": "__/__/____",
+  "type": "tel"
 }

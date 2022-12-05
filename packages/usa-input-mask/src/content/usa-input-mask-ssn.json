@@ -1,9 +1,10 @@
 {
-  "label": "Social Security Number",
   "hint": "For example, 123-45-6789",
   "id": "ssn",
-  "type": "text",
   "inputmode": "numeric",
+  "label": "Social Security Number",
   "mask": "999-99-9999",
-  "placeholder": "___-__-____"
+  "pattern": "\\d{3}-\\d{2}-\\d{4}",
+  "placeholder": "___-__-____",
+  "type": "text"
 }

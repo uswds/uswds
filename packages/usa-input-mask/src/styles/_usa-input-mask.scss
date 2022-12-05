@@ -1,6 +1,7 @@
 @use "uswds-core" as *;
 
-.usa-input-mask__field {
+.usa-input-mask__field,
+.usa-input-mask__shell {
   display: block;
   position: relative;
 }
@@ -9,10 +10,10 @@
   border: 1px solid transparent;
   color: color("ink");
   display: block;
-  /* left: 2px; */
+  left: 2px;
   pointer-events: none;
   position: absolute;
-  /* top: 0; */
+  top: 0;
 
   i {
     visibility: hidden;

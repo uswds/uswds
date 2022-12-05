@@ -36,9 +36,7 @@ const FORMAT_CHARACTERS = [
   "/",
 ];
 
-const maskedNumber = "_dDmMyY9";
-const maskedLetter = "A";
-const MASK_CHARACTERS = ["A", "9", "*"];
+// const MASK_CHARACTERS = ["A", "9", "*"];
 let ORIGINAL_VALUE = "";
 let MASK = null;
 let FORCE_UPPER = false;
@@ -155,11 +153,14 @@ const isValidCharacter = (keyCode, maskCharacter) => {
  * @param {number} cursorPos - Cursor position
  */
 const setCursorPosition = (inputEl, cursorPos) => {
+  console.log("setCursorPosition", cursorPos);
   const el = inputEl;
   if (el != null) {
     if (el.createTextRange) {
       const range = el.createTextRange();
 
+      console.log("range", range);
+      console.log("cursorPos", cursorPos);
       range.move("character", cursorPos);
 
       range.select();
@@ -368,16 +369,15 @@ const getMaskedElements = (inputEl) => {
     throw new Error(`${MASKED} is missing inner ${MESSAGE}`);
   }
 
-  return { maskedEl, messageEl };
-
-  /* const el = inputEl;
+  const el = inputEl;
   const { value } = el;
 
   // el.value = "";
 
   if (value != null && value !== "") {
     handlePaste(el, null, value);
-  } */
+  }
+  return { maskedEl, messageEl };
 };
 
 /**
@@ -441,71 +441,6 @@ const updateMaskMessage = (inputEl, keyCode) => {
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
 };
 
-
-
-
-
-
-
-const strippedValue = (isCharsetPresent, value) =>
-  isCharsetPresent ? value.replace(/\W/g, "") : value.replace(/\D/g, "");
-
-const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
-
-const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
-
-const handleCurrentValue = (el) => {
-  const isCharsetPresent = el.dataset.charset;
-  const placeholder = isCharsetPresent || el.dataset.placeholder;
-  console.log("placeholder", placeholder);
-  const { value } = el;
-  console.log("value", value);
-  const len = placeholder.length;
-  let newValue = "";
-  let i;
-  let charIndex;
-
-  const strippedVal = strippedValue(isCharsetPresent, value);
-  console.log("strippedVal", strippedVal);
-  for (i = 0, charIndex = 0; i < len; i += 1) {
-    console.log("strippedVal[charIndex]", strippedVal[charIndex]);
-    const isInt = isInteger(strippedVal[charIndex]);
-    const isLet = isLetter(strippedVal[charIndex]);
-    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
-    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
-    console.log("matchesNumber", matchesNumber);
-    console.log("matchesLetter", matchesLetter);
-    if (
-      (matchesNumber && isInt) ||
-      (isCharsetPresent && matchesLetter && isLet)
-    ) {
-      console.log("newValue += strippedVal[charIndex]", newValue += strippedVal[charIndex]);
-      console.log("charIndex += 1", charIndex += 1);
-      newValue += strippedVal[charIndex];
-      charIndex += 1;
-    } else if (
-      (!isCharsetPresent && !isInt && matchesNumber) ||
-      (isCharsetPresent &&
-        ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
-    ) {
-      console.log("inside else if: newValue", newValue);
-      return newValue;
-    } else {
-      newValue += placeholder[i];
-    }
-    // break if no characters left and the pattern is non-special character
-    if (strippedVal[charIndex] === undefined) {
-      break;
-    }
-  }
-
-  return newValue;
-};
-
-
-
-
-
 /**
  * On init this function will create elements and update any
  * attributes so it can validate user input.
@@ -529,7 +464,7 @@ const setValueOfMask = (inputEl) => {
 const handleValueChange = (inputEl) => {
   const el = inputEl;
   const id = el.getAttribute("id");
-  el.value = handleCurrentValue(el);
+  // el.value = handleCurrentValue(el);
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
@@ -537,15 +472,13 @@ const handleValueChange = (inputEl) => {
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 };
 
-
-
 /**
  * Handles the keydown event
  *
  * @param {HTMLElement} inputEl - The maskedinput element
  * @param {event} event - The event object
  */
- const handlePasteMask = (inputEl, event) => {
+const handlePasteMask = (inputEl, event) => {
   const el = inputEl;
   let keyCode = event.which;
   const copyCutPasteKeys =
@@ -636,19 +569,6 @@ const handleValueChange = (inputEl) => {
 
   return false;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * Handles the keydown event
@@ -773,7 +693,6 @@ const handlePaste = (inputEl, event, data) => {
   ) {
     pastedText = event.clipboardData.getData("text/plain");
   }
-console.log("pastedText", pastedText);
 
   if (pastedText != null && pastedText !== "") {
     for (let j = 0; j < FORMAT_CHARACTERS.length; j += 1) {
@@ -787,7 +706,6 @@ console.log("pastedText", pastedText);
         ? document.createEventObject()
         : document.createEvent("Events");
 
-        console.log("keyDownEvent", keyDownEvent);
       /* if (keyDownEvent.initEvent) {
         console.log("keyDownEvent.initEvent");
         keyDownEvent.initEvent("keydown", true, true);
@@ -795,8 +713,8 @@ console.log("pastedText", pastedText);
 
       keyDownEvent.keyCode = pastedText[i].charCodeAt(0);
       keyDownEvent.which = pastedText[i].charCodeAt(0);
-      
-      handlePasteMask(inputEl, keyDownEvent);
+
+      // handlePasteMask(inputEl, keyDownEvent);
     }
   }
 
