@@ -1,7 +1,7 @@
 <fieldset class="usa-fieldset">
   <legend class="usa-legend">Date of Birth</legend>
   <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
-  <div class="usa-memorable-date">
+  <div class="usa-memorable-date {% if disabledClass == true %} usa-memorable-date--disabled {%- endif %}">
     <div class="usa-form-group usa-form-group--month usa-form-group--select">
       <label class="usa-label" for="date_of_birth_month">Month</label>
       <select class="usa-select" id="date_of_birth_month" name="date_of_birth_month" aria-describedby="mdHint" >
