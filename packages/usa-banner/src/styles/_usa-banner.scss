@@ -85,11 +85,20 @@ $banner-icon-close: (
 
   &.usa-accordion__content > .grid-row.grid-gap-lg{
     @include u-display("flex");
+    @include u-flex-direction("column");
     @include u-margin-x(-1.5);
 
     & > * {
       @include u-padding-x(1.5);
-      width: 50%;
+      width: 100%;
+
+      @include at-media("tablet") {
+        width: 50%
+      }
+    }
+
+    @include at-media("tablet") {
+      @include u-flex-direction("row")
     }
   }
 }
@@ -197,7 +206,6 @@ $banner-icon-close: (
 
 .usa-banner__header--expanded {
   padding-right: units($size-touch-target + 1);
-  @include u-display("flex");
 
   @include at-media("tablet") {
     background-color: transparent;
@@ -342,6 +350,7 @@ $banner-icon-close: (
 
 .usa-banner__icon {
   width: units(5);
+  margin-right: units(1);
 }
 
 // [uswds-init.js] Offscreen content while js is loading
