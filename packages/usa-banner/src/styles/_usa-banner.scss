@@ -139,13 +139,17 @@ $banner-icon-close: (
   padding-right: units(0);
   display: flex;
 
-  @include at-media("tablet") {
-    @include u-flex("align-center");
-  }
-
   // Prevents content shift when expanded on small screens
   & > .grid-col-fill {
     flex: 1 1 0%;
+  }
+
+  @include at-media("tablet") {
+    @include u-flex("align-center");
+    
+    & > .grid-col-fill {
+      flex: 0 1 auto;
+    }
   }
 }
 
