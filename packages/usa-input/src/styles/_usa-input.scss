@@ -3,6 +3,12 @@
 .usa-input {
   @extend %block-input-general;
   @extend %block-input-styles;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: color("disabled");
+    cursor: not-allowed;
+  }
 }
 
 .usa-input--error {
