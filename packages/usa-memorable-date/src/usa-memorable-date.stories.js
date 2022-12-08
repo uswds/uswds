@@ -1,5 +1,4 @@
 import Component from "./usa-memorable-date.twig";
-
 import memorableDateDisabled from "./content/usa-memorable-date~disabled.json";
 
 export default {

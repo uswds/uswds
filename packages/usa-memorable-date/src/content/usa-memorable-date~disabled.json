@@ -1,3 +1,4 @@
 {
-  "disabledClass": true
+  "disabled": true,
+  "aria_disabled": true
 }
