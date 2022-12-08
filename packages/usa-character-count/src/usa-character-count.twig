@@ -9,7 +9,8 @@
         maxlength="25"
         name="with-hint-input"
         aria-describedby="with-hint-input-info with-hint-input-hint"
-        {% if disabled %} disabled {%- endif %}>
+        {% if disabled %} disabled {%- endif %}
+        {% if aria_disabled %} aria-disabled="true" {%- endif %}>
     </div>
     <span id="with-hint-input-info" class="usa-character-count__message">You can enter up to 25 characters</span>
   </div>
@@ -27,7 +28,9 @@
         name="with-hint-textarea"
         rows="5"
         aria-describedby="with-hint-textarea-info with-hint-textarea-hint"
-        {% if disabled %} disabled {%- endif %}></textarea>
+        {% if disabled %} disabled {%- endif %}
+        {% if aria_disabled %} aria-disabled="true" {%- endif %}
+        ></textarea>
     </div>
     <span id="with-hint-textarea-info" class="usa-character-count__message">You can enter up to 50 characters</span>
   </div>

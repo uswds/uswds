@@ -11,5 +11,7 @@
       class="usa-input usa-masked" 
       aria-describedby="{{ id }}Hint"
       {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
+      {% if disabled %} disabled {% endif %}
+      {% if aria_disabled %} aria-disabled="true" {% endif %}
   >
 </form>

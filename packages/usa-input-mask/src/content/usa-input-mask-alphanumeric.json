@@ -6,5 +6,7 @@
   "inputmode": "text",
   "placeholder": "___ ___",
   "pattern": "\\w\\d\\w \\d\\w\\d",
-  "datacharset": "A#A #A#"
+  "datacharset": "A#A #A#",
+  "disabled": false,
+  "aria_disabled": false
 }

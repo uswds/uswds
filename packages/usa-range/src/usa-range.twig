@@ -12,5 +12,7 @@
     aria-valuemax="100"
     aria-valuenow="20"
     role="slider"
+    {% if disabled %} disabled {%- endif %}
+    {% if aria_disabled %} aria-disabled="true" {%- endif %}
   >
 </form>
