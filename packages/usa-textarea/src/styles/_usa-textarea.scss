@@ -4,7 +4,8 @@
   @extend %block-input-general;
   @extend %block-input-styles;
 
-  &:disabled{
+  &:disabled,
+  &[aria-disabled="true"] {
     background-color: color("disabled");
     cursor: not-allowed;
   }

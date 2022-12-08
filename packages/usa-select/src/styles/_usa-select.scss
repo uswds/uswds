@@ -30,7 +30,8 @@
     background-image: none;
   }
 
-  &:disabled{
+  &:disabled,
+  &[aria-disabled="true"] {
     background-color: color("disabled");
     opacity: 1;
     cursor: not-allowed;
