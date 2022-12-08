@@ -21,8 +21,13 @@ export default {
     },
     disabled_state: {
       name: "Disabled state",
-      control: { type: "radio" },
-      options: ["none", "disabled", "aria-disabled"]
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    aria_disabled: {
+      name: "Aria disabled",
+      control: { type: "boolean" },
+      defaultValue: false,
     },
   },
 };
@@ -82,7 +87,10 @@ RestrictedDate.argTypes = {
 export const Disabled = Template.bind({});
 Disabled.argTypes = {
   disabled_state:{
-    defaultValue: "disabled",
+    defaultValue: true,
+  },
+  aria_disabled:{
+    defaultValue: false,
   },
   defaultDate: {
     table: { disable: true },
@@ -101,7 +109,10 @@ Disabled.argTypes = {
 export const AriaDisabled = Template.bind({});
 AriaDisabled.argTypes = {
   disabled_state:{
-    defaultValue: "aria-disabled",
+    defaultValue: false,
+  },
+  aria_disabled:{
+    defaultValue: true,
   },
   defaultDate: {
     table: { disable: true },
