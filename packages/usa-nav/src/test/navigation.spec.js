@@ -26,6 +26,8 @@ const EVENTS = {
   },
 };
 
+const delay = (timeout = 0) => new Promise(resolve => { setTimeout(resolve, timeout) })
+
 describe("navigation toggle", () => {
   const { body } = document;
 
@@ -81,23 +83,26 @@ describe("navigation toggle", () => {
     assert.strictEqual(isVisible(overlay), true);
   });
 
-  it("hides the nav when the close button is clicked", () => {
+  it("hides the nav when the close button is clicked", async () => {
     menuButton.click();
     closeButton.click();
+    await delay() // The menu closes asynchronously
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
   });
 
-  it("hides the nav when the overlay is clicked", () => {
+  it("hides the nav when the overlay is clicked", async () => {
     menuButton.click();
     overlay.click();
+    await delay() // The menu closes asynchronously
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
   });
 
-  it("hides the nav when a nav link is clicked", () => {
+  it("hides the nav when a nav link is clicked", async () => {
     menuButton.click();
     navLink.click();
+    await delay() // The menu closes asynchronously
     assert.strictEqual(isVisible(nav), false);
   });
 
@@ -121,10 +126,11 @@ describe("navigation toggle", () => {
     assert.strictEqual(activeContent[0], header);
   })
 
-  it("collapses nav if needed on window resize", () => {
+  it("collapses nav if needed on window resize", async () => {
     menuButton.click();
     sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 0 });
     window.dispatchEvent(new CustomEvent("resize"));
+    await delay()
     assert.strictEqual(isVisible(nav), false);
   });
 
@@ -152,19 +158,21 @@ describe("navigation toggle", () => {
     assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
   });
 
-  it("hides the nav when the Escape key is hit", () => {
+  it("hides the nav when the Escape key is hit", async () => {
     menuButton.click();
     navControl.focus();
     EVENTS.escape(navPrimary)
+    await delay()
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
     assert.strictEqual(document.activeElement, menuButton)
   });
 
-  it("collapses dropdowns when focus leaves nav", () => {
+  it("collapses dropdowns when focus leaves nav", async () => {
     menuButton.click();
     navLink.click();
     EVENTS.focusOut(navLink);
+    await delay()
     assert.strictEqual(isVisible(nav), false);
   });
 
