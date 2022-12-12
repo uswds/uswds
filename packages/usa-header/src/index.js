@@ -82,8 +82,10 @@ const toggleNonNavItems = (active) => {
 const animateClose = (el, duration) => {
   el.classList.add(CLOSING_CLASS);
   const cleanup = () => {
-    el.classList.remove(CLOSING_CLASS);
-    el.classList.remove(VISIBLE_CLASS);
+    if (el.classList.contains(CLOSING_CLASS)) {
+      el.classList.remove(CLOSING_CLASS);
+      el.classList.remove(VISIBLE_CLASS);
+    }
   };
 
   let timeout;
@@ -117,6 +119,7 @@ const toggleNav = (active) => {
       animateClose(el, duration);
     } else {
       el.classList.toggle(VISIBLE_CLASS, safeActive);
+      el.classList.toggle(CLOSING_CLASS, false);
     }
   });
 
