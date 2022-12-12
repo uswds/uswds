@@ -83,6 +83,19 @@ describe("navigation toggle", () => {
     assert.strictEqual(isVisible(overlay), true);
   });
 
+  it("animates the nav closed", async () => {
+    menuButton.click();
+    closeButton.click();
+    assert.strictEqual(nav.classList.contains('is-closing'), true);
+    assert.strictEqual(overlay.classList.contains('is-closing'), true);
+    assert.strictEqual(isVisible(nav), true);
+    assert.strictEqual(isVisible(overlay), true);
+    await delay()
+    assert.strictEqual(nav.classList.contains('is-closing'), false);
+    assert.strictEqual(isVisible(nav), false);
+    assert.strictEqual(isVisible(overlay), false);
+  })
+
   it("hides the nav when the close button is clicked", async () => {
     menuButton.click();
     closeButton.click();
