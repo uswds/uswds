@@ -79,6 +79,15 @@ $expand-less-icon: map-merge(
     transform: translateX(0);
   }
 }
+@keyframes slideout-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(units($sliding-panel-width));
+  }
+}
 
 // Header navigation
 // ---------------------------------
@@ -97,10 +106,19 @@ $expand-less-icon: map-merge(
     padding: units(2);
     width: units($sliding-panel-width);
     z-index: z-index(500);
+    animation: slidein-left 0.3s ease-in-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0s;
+    }
 
     &.is-visible {
-      animation: slidein-left 0.3s ease-in-out;
       display: flex;
+    }
+
+    &.is-closing {
+      pointer-events: none;
+      animation-name: slideout-left;
     }
   }
 

@@ -28,6 +28,7 @@ const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
+const CLOSING_CLASS = "is-closing";
 
 let navigation;
 let navActive;
@@ -48,7 +49,7 @@ const hideNonNavItems = () => {
   nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
 
   nonNavElements.forEach((nonNavElement) => {
-    if(nonNavElement !== headerParent) {
+    if (nonNavElement !== headerParent) {
       nonNavElement.setAttribute("aria-hidden", true);
       nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
     }
@@ -78,15 +79,46 @@ const toggleNonNavItems = (active) => {
   }
 };
 
+const animateClose = (el, duration) => {
+  el.classList.add(CLOSING_CLASS);
+  const cleanup = () => {
+    el.classList.remove(CLOSING_CLASS);
+    el.classList.remove(VISIBLE_CLASS);
+  };
+
+  let timeout;
+  const callback = () => {
+    el.removeEventListener("animationend", callback);
+    clearTimeout(timeout);
+    cleanup();
+  };
+  el.addEventListener("animationend", callback);
+
+  // Just in case `animationend` event never fires,
+  // remove CLOSING_CLASS anyway
+  timeout = setTimeout(callback, duration * 1000);
+};
+
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
-  select(TOGGLES).forEach((el) =>
-    el.classList.toggle(VISIBLE_CLASS, safeActive)
-  );
+  select(TOGGLES).forEach((el) => {
+    // If there's an animation/transition duration and the nav
+    // is closing, add CLOSING_CLASS for the duration instead of
+    // immediately closing. This lets the nav animate close
+    const computedStyle = getComputedStyle(el);
+    const duration =
+      parseFloat(computedStyle.animationDuration, 10) ||
+      parseFloat(computedStyle.transitionDuration);
+    if (duration !== 0 && !safeActive) {
+      animateClose(el, duration);
+    } else {
+      el.classList.toggle(VISIBLE_CLASS, safeActive);
+    }
+  });
 
   navigation.focusTrap.update(safeActive);
 

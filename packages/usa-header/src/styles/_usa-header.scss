@@ -131,9 +131,17 @@ $z-index-overlay: 400;
   visibility: hidden;
   z-index: z-index($z-index-overlay);
 
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0s;
+  }
+
   &.is-visible {
     opacity: opacity(100);
     visibility: visible;
+  }
+
+  &.is-closing {
+    opacity: opacity(0);
   }
 }
 
