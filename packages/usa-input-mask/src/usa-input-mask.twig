@@ -6,7 +6,7 @@
       <input 
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
           class="usa-input usa-input-mask__field" 
-          forceupper="{{ forceupper }}"
+          {% if forceupper %}forceupper="{{ forceupper }}"{% endif %}
           id="{{ id }}" 
           inputmode="{{ inputmode }}" 
           mask="{{ mask }}"
