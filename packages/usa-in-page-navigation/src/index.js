@@ -98,6 +98,8 @@ const handleScrollToSection = (el) => {
     top: el.offsetTop - inPageNavScrollOffset,
     block: "start",
   });
+
+  window.location.hash = el.id;
 };
 
 /**
@@ -146,13 +148,14 @@ const createInPageNav = (inPageNavEl) => {
     const anchorTag = document.createElement("a");
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
+    const linkHref = `#section_${i}`;
 
     listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
     if (tag === "h3") {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
-    navLinks.setAttribute("href", `#section_${i}`);
+    navLinks.setAttribute("href", linkHref);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
     navLinks.textContent = textContentOfLink;
 
@@ -162,6 +165,10 @@ const createInPageNav = (inPageNavEl) => {
 
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
+
+    if (window.location.hash === linkHref) {
+      handleScrollToSection(anchorTag);
+    }
   });
 
   inPageNavEl.appendChild(inPageNav);

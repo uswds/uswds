@@ -5,6 +5,7 @@ const sinon = require("sinon");
 const behavior = require("../index");
 
 const HIDE_MAX_WIDTH = 639;
+const OFFSET_PER_SECTION = 100;
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
   `${__dirname}/../../../../dist/css/uswds.min.css`
@@ -48,11 +49,27 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let theNav;
     let theList;
+    let originalOffsetTop;
 
     before(() => {
+      originalOffsetTop = Object.getOwnPropertyDescriptor(
+        HTMLElement.prototype,
+        "offsetTop"
+      );
+      Object.defineProperty(HTMLElement.prototype, "offsetTop", {
+        get() {
+          const anchor =
+            this.closest("h1,h2,h3,h4").querySelector("[id^=section_]");
+          const index = Number(anchor.id.split("_")[1]);
+          return (index + 1) * OFFSET_PER_SECTION;
+        },
+      });
       const observe = sinon.spy();
       const mockIntersectionObserver = sinon.stub().returns({ observe });
       window.IntersectionObserver = mockIntersectionObserver;
+      sinon.stub(window, "scroll");
+      sinon.stub(window, "location").value({ hash: undefined });
+      sinon.stub(window.location, "hash").set(sinon.stub());
     });
 
     beforeEach(() => {
@@ -66,8 +83,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     afterEach(() => {
+      sinon.resetHistory();
       behavior.off(containerSelector(body));
       body.innerHTML = "";
+    });
+
+    after(() => {
+      Object.defineProperty(
+        HTMLElement.prototype,
+        "offsetTop",
+        originalOffsetTop
+      );
+      sinon.restore();
     });
 
     it("defines a max width", () => {
@@ -83,6 +110,39 @@ tests.forEach(({ name, selector: containerSelector }) => {
       resizeTo(400);
       resizeTo(1024);
       assertHidden(theList, false);
+    });
+
+    it("scrolls to section", () => {
+      const firstLink = theNav.querySelector("a[href='#section_0']");
+      firstLink.click();
+
+      assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
+    });
+
+    it("updates url when scrolling to section", () => {
+      const firstLink = theNav.querySelector("a[href='#section_0']");
+      firstLink.click();
+
+      Object.getOwnPropertyDescriptor(
+        window.location,
+        "hash"
+      ).set.calledOnceWith("section_0");
+    });
+
+    context("with initial hash URL", () => {
+      before(() => {
+        sinon.stub(window.location, "hash").get(() => "#section_0");
+      });
+
+      it("scrolls to section on initialization", () => {
+        assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
+        assert(
+          Object.getOwnPropertyDescriptor(
+            window.location,
+            "hash"
+          ).set.calledOnceWith("section_0")
+        );
+      });
     });
   });
 });
