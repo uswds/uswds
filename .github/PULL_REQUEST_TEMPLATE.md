@@ -1,11 +1,21 @@
 <!---
-Welcome! Thank you for contributing to the U.S. Web Design System. Your contributions are vital to our success and we are glad you're here.
+Welcome! Thank you for contributing to the U.S. Web Design System.
+Your contributions are vital to our success and we are glad you're here.
 
 Please keep in mind:
-- This pull request (PR) template exists to help speed up integration. The USWDS Core team reviews and approves every PR before merging it into the public code base, so the better we can understand the problem and solution, the sooner we can merge this change. The point here is: clear explanations matter!
-- You can erase any part of this template that doesn't apply to your pull request (including these instructions!).
+- This pull request (PR) template exists to help speed up integration.
+  The USWDS Core team reviews and approves every PR
+  before merging it into the public code base,
+  so the better we can understand the problem and solution,
+  the sooner we can merge this change.
+  The point here is: clear explanations matter!
 
-If you get stuck, you can find more information about contributing in [contributing.md](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md) or you can reach out to us directly at uswds@gsa.gov.
+- You can erase any part of this template
+  that doesn't apply to your pull request (including these instructions!).
+
+- You can find more information about contributing in
+  [contributing.md](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md)
+  or you can reach out to us directly at uswds@gsa.gov.
  -->
 
 <!---
@@ -20,7 +30,7 @@ _Provide a one or two sentence summary of the update that can be used in the cha
 A successful summary is written in the past tense and includes:
 1. A benefit statement, and
 2. A description of the update
-See the [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
+See [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
 -->
 
 ### Breaking change
@@ -29,17 +39,18 @@ _Indicate if this update is a breaking change._
 Use clear language to:
 1. Indicate if this update is a breaking change.
 2. Explain what actions are required for the user to remediate the break.
-For clarity, include a statement here even if there is no breaking change:
-":warning: This is a breaking change."
-":warning: This is potentially a breaking change."
-"This is not a breaking change."
+   For clarity, include a statement here even if there is no breaking change:
+   "This is not a breaking change."
+   ":warning: This is potentially a breaking change."
+   ":warning: This is a breaking change."
 -->
 
 ## Related issue
 Closes #_[issue_no]_
 <!--
 Every pull request should resolve an open issue.
-If no open issue exists, you can open one here: https://github.com/uswds/uswds/issues/new/choose.
+If no open issue exists, you can open one here:
+https://github.com/uswds/uswds/issues/new/choose.
 -->
 
 ## Preview link
@@ -52,7 +63,8 @@ _Summarize the problem this PR solves in a clear and concise statement._
 A successful problem statement conveys:
 1. The desired state,
 2. The actual state, and
-3. Consequences of remaining in the current state (who does this affect and to what degree?)
+3. Consequences of remaining in the current state
+   (who does this affect and to what degree?)
 -->
 
 ## Solution
