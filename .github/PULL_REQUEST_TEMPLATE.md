@@ -33,7 +33,7 @@ A successful summary is written in the past tense and includes:
 See [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
 -->
 
-### Breaking change
+## Breaking change
 _Indicate if this update is a breaking change._
 <!--
 Use clear language to:
