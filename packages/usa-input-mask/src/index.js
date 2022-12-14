@@ -3,6 +3,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { isConstructSignatureDeclaration } = require("typescript");
 
 const MASKED_CLASS = `${PREFIX}-input-mask`;
 const MASKED = `.${MASKED_CLASS}`;
@@ -34,7 +35,7 @@ const FORMAT_CHARACTERS = [
   "@",
   " ",
   "/",
-  " "
+  " ",
 ];
 
 // const MASK_CHARACTERS = ["A", "9", "*"];
@@ -71,40 +72,42 @@ const KEYS = {
   parenthesisRight: 48,
 };
 
-const strLetter = ""
+const strLetter = "";
 
-// QQQ 
-const checkMaskStatus = () => {
+// Refactored
+const checkMaskStatus = () =>
+  MASK.some((c) => c.toUpperCase() !== c.toLowerCase());
+// QQQ
+/* const checkMaskStatus = () => {
   let bStatus = false;
-  for (let i = 0; i < MASK.length; i+= 1) {
+  for (let i = 0; i < MASK.length; i += 1) {
     if (MASK[i].toUpperCase() !== MASK[i].toLowerCase()) {
       bStatus = true;
       break;
-
     }
   }
 
   return bStatus;
-}
+}; */
 
-
-
-// QQQ get only numbers
+/**
+ * Extracts the numeric characters from a string.
+ *
+ * @param {string} strVal - The input string to process.
+ * @returns {string} The numeric characters from the input string.
+ */
 const getstrNumbers = (strVal) => {
-
   if (!strVal) {
     return "";
   }
 
-  // return strVal.replace(/\D/g, "")
-
   let newValue = strVal;
-  for (let i = 0; i < FORMAT_CHARACTERS.length; i+=1) {
+  for (let i = 0; i < FORMAT_CHARACTERS.length; i += 1) {
     newValue = newValue.replaceAll(FORMAT_CHARACTERS[i], "");
   }
-  
+
   return newValue;
-}
+};
 
 /**
  * Get the cursor position
@@ -112,7 +115,18 @@ const getstrNumbers = (strVal) => {
  * @param {HTMLDivElement} inputEl - Input with `.usa-masked__field` class
  * @returns {number} - Cursor position
  */
+// Refactored
 const getCursorPosition = (inputEl) => {
+  if (document.selection) {
+    inputEl.focus();
+    const selectRange = document.selection.createRange();
+    selectRange.moveStart("character", -inputEl.value.length);
+    return selectRange.text.length;
+  }
+  return inputEl.selectionStart || 0;
+};
+
+/* const getCursorPosition = (inputEl) => {
   let position = 0;
 
   if (document.selection) {
@@ -128,7 +142,7 @@ const getCursorPosition = (inputEl) => {
   }
 
   return position;
-};
+}; */
 
 /**
  * Set cursor position
@@ -136,7 +150,29 @@ const getCursorPosition = (inputEl) => {
  * @param {HTMLInputElement} inputEl - Input with `.usa-masked__field` class
  * @param {number} cursorPos - Cursor position
  */
+// Refactored
 const setCursorPosition = (inputEl, cursorPos) => {
+  if (inputEl == null) return;
+  if (inputEl.createTextRange) {
+    const range = inputEl.createTextRange();
+    range.move("character", cursorPos);
+    range.select();
+  } else if (inputEl.selectionStart) {
+    inputEl.focus();
+    inputEl.setSelectionRange(cursorPos, cursorPos);
+  } else {
+
+
+    // check here
+    if (cursorPos <= inputEl.value.length) {
+      inputEl.setSelectionRange(cursorPos, cursorPos);
+    }
+
+    inputEl.focus();
+  }
+};
+
+/* const setCursorPosition = (inputEl, cursorPos) => {
   const el = inputEl;
   if (el != null) {
     if (el.createTextRange) {
@@ -153,19 +189,27 @@ const setCursorPosition = (inputEl, cursorPos) => {
       el.focus();
     }
   }
-};
+}; */
 
-// QQQ insert MASK value util number
+/**
+ * Returns message
+ *
+ * @param {inputEl} inputEl - The current character key number code
+ * @param {curPos} validCharType - The type of characters allowed
+ */
+
 const insertMaskUntilNumber = (inputEl, curPos) => {
   const el = inputEl;
   let strAddVal = "";
 
   let newPos = curPos;
 
-  const maxLength = curPos > el.value.length - 1 ? MASK.length : el.value.length;
+  const maxLength =
+    curPos > el.value.length - 1 ? MASK.length : el.value.length;
 
-  for (let i = curPos; i < maxLength; i+=1) {
-    if (FORMAT_CHARACTERS.indexOf(MASK[i]) ===  -1) { // means number
+  for (let i = curPos; i < maxLength; i += 1) {
+    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
+      // means number
       newPos = i;
       break;
     } else {
@@ -184,7 +228,7 @@ const insertMaskUntilNumber = (inputEl, curPos) => {
   if (newPos !== curPos) {
     setCursorPosition(inputEl, newPos);
   }
-}
+};
 
 /**
  * Check if character is valid and matches mask
@@ -193,7 +237,6 @@ const insertMaskUntilNumber = (inputEl, curPos) => {
  * @param {string | number} maskCharacter - Mask character
  */
 const isValidCharacter = (keyCode, maskCharacter) => {
-
   if (!maskCharacter) {
     return false;
   }
@@ -211,11 +254,7 @@ const isValidCharacter = (keyCode, maskCharacter) => {
   }
 
   return false;
-
-  
 };
-
-
 
 /**
  * Remove character at index
@@ -260,6 +299,24 @@ const insertCharacterAtIndex = (inputEl, cursorPos, character) => {
   }
 };
 
+// QQQ set init mask
+const setInitMask = (inputEl) => {
+  const el = inputEl;
+  let position = 0;
+  let strInitVal = "";
+  for (let i = 0; i < MASK.length; i += 1) {
+    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
+      position = i;
+      break;
+    } else {
+      strInitVal += MASK[i];
+    }
+  }
+
+  el.value = strInitVal;
+  setCursorPosition(inputEl, position);
+};
+
 /**
  * Check and insert masked characters
  *
@@ -274,13 +331,10 @@ const changeValue = (inputEl, cursorPos) => {
   // get only values
   const strValue = getstrNumbers(el.value);
 
-  
-
   let newValue = "";
   let index = 0;
 
   for (let i = 0; i < MASK.length; i += 1) {
-
     if (index >= strValue.length) {
       break;
     }
@@ -289,9 +343,9 @@ const changeValue = (inputEl, cursorPos) => {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) > -1) {
       newValue += MASK[i];
     } else if (strValue.length > index) {
-        newValue += strValue.charAt(index);
-        index += 1;
-      } 
+      newValue += strValue.charAt(index);
+      index += 1;
+    }
   }
 
   el.value = newValue;
@@ -440,7 +494,7 @@ const createStatusMessages = (maskedEl) => {
 const handleBlur = (inputEl) => {
   const el = inputEl;
   // if (el.value.length > 0) {
-    
+
   // }
 };
 
@@ -450,7 +504,7 @@ const setPostitionToLast = (inputEl) => {
   const strNumber = "1234567890";
 
   let position = 0;
-  for (let i = el.value.length - 1; i >= 0; i-=1) {
+  for (let i = el.value.length - 1; i >= 0; i -= 1) {
     if (strNumber.indexOf(el.value.charAt(i)) > -1) {
       position = i + 1;
       break;
@@ -458,13 +512,16 @@ const setPostitionToLast = (inputEl) => {
   }
 
   if (position < el.value.length - 1) {
-    if (FORMAT_CHARACTERS.indexOf(el.value.charAt(position)) > -1 && el.value.charAt(position) !== '_') {
+    if (
+      FORMAT_CHARACTERS.indexOf(el.value.charAt(position)) > -1 &&
+      el.value.charAt(position) !== "_"
+    ) {
       position += 1;
     }
   }
 
   setCursorPosition(inputEl, position);
-}
+};
 
 /**
  * Handles the paste event
@@ -473,7 +530,6 @@ const setPostitionToLast = (inputEl) => {
  * @param {event} event - The event object
  * @param {object} data - The data object
  */
-
 
 /**
  * Returns the root and message element for a maskedinput
@@ -507,28 +563,6 @@ const getMaskedElements = (inputEl, onlyElement = false) => {
 
 
 
-// QQQ set init mask
-const setInitMask = (inputEl) => {
-  const el = inputEl;
-  let position = 0;
-  let strInitVal = "";
-  for(let i = 0; i < MASK.length; i+= 1) {
-    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1 ) {
-      position = i;
-      break;
-    } else {
-      strInitVal += MASK[i];
-    }
-
-  }
-
-  el.value = strInitVal;
-  setCursorPosition(inputEl, position);
-
-}
-
-
-
 // QQQ check enable for Backspace or delete
 const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
   const el = inputEl;
@@ -541,10 +575,9 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
 
     const prevCharater = el.value.charAt(curPos - 1);
 
-
     let startPos = curPos - 1;
 
-    for(let i = startPos; i >= 0; i-=1) {
+    for (let i = startPos; i >= 0; i -= 1) {
       if (FORMAT_CHARACTERS.indexOf(el.value.charAt(i)) === -1) {
         startPos = i;
         break;
@@ -552,9 +585,10 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
     }
 
     const bEnd = curPos > el.value.length - 1;
-  
-    el.value = el.value.slice(0, startPos) + el.value.slice(curPos, el.value.length);
-    
+
+    el.value =
+      el.value.slice(0, startPos) + el.value.slice(curPos, el.value.length);
+
     if (FORMAT_CHARACTERS.indexOf(prevCharater) === -1 && bEnd) {
       setCursorPosition(inputEl, curPos - 1);
       return;
@@ -570,22 +604,52 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
     }
 
     let endPos = curPos + 1;
-    for(let i = endPos; i < el.value.length; i+=1) {
+    for (let i = endPos; i < el.value.length; i += 1) {
       if (FORMAT_CHARACTERS.indexOf(el.value.charAt(i)) === -1) {
         endPos = i;
         break;
       }
-
     }
 
-    el.value = el.value.slice(0, curPos) + el.value.slice(endPos, el.value.length);
-    
+    el.value =
+      el.value.slice(0, curPos) + el.value.slice(endPos, el.value.length);
+
     changeValue(inputEl);
     setCursorPosition(inputEl, curPos);
-
-    
   }
-}
+};
+
+/**
+ * On init this function will create elements and update any
+ * attributes so it can validate user input.
+ *
+ * @param {HTMLInputElement} inputEl the components input
+ */
+const setValueOfMask = (inputEl) => {
+  const { value } = inputEl;
+  const placeholderVal = `${inputEl.dataset.placeholder.slice(value.length)}`;
+  const theIEl = document.createElement("i");
+  theIEl.textContent = value;
+  return [theIEl, placeholderVal];
+};
+
+/**
+ * On init this function will create elements and update any
+ * attributes so it can validate user input.
+ *
+ * @param {HTMLInputElement} inputEl the components input
+ */
+const handleValueChange = (inputEl) => {
+  console.log("handleValueChange");
+  const el = inputEl;
+  const id = el.getAttribute("id");
+  // el.value = handleCurrentValue(el);
+
+  const maskVal = setValueOfMask(el);
+  const maskEl = document.getElementById(`${id}Mask`);
+  maskEl.textContent = "";
+  maskEl.replaceChildren(maskVal[0], maskVal[1]);
+};
 
 /**
  * Replace each masked input with a shell containing the input and it's mask.
@@ -594,17 +658,11 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
  */
 const createMaskedInputShell = (inputEl) => {
   const placeholder = inputEl.getAttribute(`${PLACEHOLDER}`);
-  if (placeholder) {
-    inputEl.setAttribute("maxlength", placeholder.length);
-    inputEl.setAttribute("data-placeholder", placeholder);
-    inputEl.removeAttribute(`${PLACEHOLDER}`);
+  if (!placeholder) return;
 
-    
-
-
-  } else {
-    return;
-  }
+  inputEl.setAttribute("maxlength", placeholder.length);
+  inputEl.setAttribute("data-placeholder", placeholder);
+  inputEl.removeAttribute(`${PLACEHOLDER}`);
 
   const shell = document.createElement("span");
   shell.classList.add(MASK_SHELL);
@@ -618,10 +676,8 @@ const createMaskedInputShell = (inputEl) => {
 
   shell.appendChild(content);
   inputEl.parentNode.insertBefore(shell, inputEl);
-  // inputEl.closest(MASKED).insertBefore(shell, inputEl);
   shell.appendChild(inputEl);
 
-  // 
   setInitMask(inputEl);
   handleValueChange(inputEl);
 };
@@ -634,20 +690,29 @@ const createMaskedInputShell = (inputEl) => {
  * @returns {string} A string description notifying the user if the
  * character is valid or not
  */
+
 const getMaskMessage = (inputEl, keyCode, key) => {
+  const isNumber = /^\d+$/.test(key);
+  const theCharType = !isNumber ? "number" : "letter";
+
+  if (isValidCharacter(keyCode, MASK[getCursorPosition(inputEl)])) {
+    return { currentStatusMessage: "", invalidCharType: false };
+  }
+
+  return {
+    currentStatusMessage: `A ${theCharType} ${DEFAULT_STATUS_LABEL}`,
+    invalidCharType: true,
+  };
+};
+
+/* const getMaskMessage = (inputEl, keyCode, key) => {
   let currentStatusMessage = "";
   let invalidCharType = false;
-
 
   let isNumber = false;
   if ("1234567890".indexOf(key) > -1) {
     isNumber = true;
   }
-
-  // const isNumber =
-  //   (keyCode >= KEYS.zero && keyCode <= KEYS.nine) ||
-  //   (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) ||
-  //   (keyCode !== KEYS.parenthesisLeft && keyCode !== KEYS.parenthesisRight);
 
   const theCharType = !isNumber ? "number" : "letter";
 
@@ -660,7 +725,7 @@ const getMaskMessage = (inputEl, keyCode, key) => {
   }
 
   return { currentStatusMessage, invalidCharType };
-};
+}; */
 
 /**
  * Updates the character count status for screen readers after a 200ms delay.
@@ -682,9 +747,7 @@ const hideMessage = (inputEl) => {
   srUpdateStatus(srStatusMessage, "");
 
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, false);
-}
-
-
+};
 
 /**
  * On input, it will update visual status, screenreader
@@ -694,13 +757,23 @@ const hideMessage = (inputEl) => {
  * @param {number} keyCode The key number code
  */
 const updateMaskMessage = (inputEl, keyCode, key) => {
+
+  // check here
+  const curPos = getCursorPosition(inputEl);
+  if ((curPos < MASK.length && FORMAT_CHARACTERS.indexOf(MASK[curPos])  > -1) || curPos >= MASK.length) {
+    return;
+  }
+
   const { maskedEl } = getMaskedElements(inputEl, true);
   const statusMessage = maskedEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = maskedEl.querySelector(STATUS_MESSAGE_SR_ONLY);
   const { currentStatusMessage, invalidCharType } = getMaskMessage(
     inputEl,
     keyCode,
-    key );
+    key
+  );
+
+  
 
   statusMessage.textContent = currentStatusMessage;
   srUpdateStatus(srStatusMessage, currentStatusMessage);
@@ -708,49 +781,46 @@ const updateMaskMessage = (inputEl, keyCode, key) => {
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
 };
 
-/**
- * On init this function will create elements and update any
- * attributes so it can validate user input.
- *
- * @param {HTMLInputElement} inputEl the components input
- */
-const setValueOfMask = (inputEl) => {
-  const { value } = inputEl;
-  const placeholderVal = `${inputEl.dataset.placeholder.substr(value.length)}`;
-  const theIEl = document.createElement("i");
-  theIEl.textContent = value;
-  return [theIEl, placeholderVal];
-};
+const getPastedText = (pastedText) => {
+  let strRes = "";
 
-/**
- * On init this function will create elements and update any
- * attributes so it can validate user input.
- *
- * @param {HTMLInputElement} inputEl the components input
- */
-const handleValueChange = (inputEl) => {
-  const el = inputEl;
-  const id = el.getAttribute("id");
-  // el.value = handleCurrentValue(el);
+  let strPastedtext = "";
+  for (let i = 0; i < pastedText.length; i+=1) {
+    if (FORMAT_CHARACTERS.indexOf(pastedText.charAt(i)) === -1) {
+      strPastedtext += pastedText.charAt[i]
+    }
+  }
 
-  const maskVal = setValueOfMask(el);
-  const maskEl = document.getElementById(`${id}Mask`);
-  maskEl.textContent = "";
-  maskEl.replaceChildren(maskVal[0], maskVal[1]);
-};
+  let strMask = "";
 
+  for (let i = 0; i < MASK.length; i+=1) {
+    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
+      strMask += MASK[i]
+    }
+  }
 
+  const minLength = strPastedtext.length > strMask.length ? strMask.length : strPastedtext.length;
+
+  for (let i = 0; i < minLength; i+=1) {
+    if (("0123456789".indexOf(strPastedtext[i]) > -1 && "0123456789".indexOf(strMask[i]) > -1) 
+      || ("0123456789".indexOf(strPastedtext[i]) === -1 && "0123456789".indexOf(strMask[i]) === -1)
+    ) {
+      strRes += strPastedtext[i];
+    } else {
+      return "";
+    }
+  }
+
+  return strRes;
+}
 
 const handlePaste = (inputEl, event, data) => {
   let pastedText = "";
 
-
-
   const clipboardData = event.clipboardData || window.clipboardData;
-  pastedText = clipboardData.getData('text/plain');
+  pastedText = clipboardData.getData("text/plain");
   const el = inputEl;
 
-  
   // if (!!data ) {
   //   pastedText = data;
   // } else if (clipboardData) {
@@ -761,7 +831,11 @@ const handlePaste = (inputEl, event, data) => {
   // pastedText = "123yy3k";
 
   pastedText = pastedText.trim();
-  pastedText = getstrNumbers(pastedText);
+
+  // check here
+  pastedText = getPastedText(pastedText);
+
+  // pastedText = getstrNumbers(pastedText);
 
   if (pastedText !== "") {
     const curPos = getCursorPosition(el);
@@ -769,7 +843,6 @@ const handlePaste = (inputEl, event, data) => {
     let oldText = "";
     if (curPos > 0) {
       oldText = el.value.slice(0, curPos);
-
     }
 
     const newText = oldText + pastedText;
@@ -784,18 +857,12 @@ const handlePaste = (inputEl, event, data) => {
     handleValueChange(inputEl);
 
     event.preventDefault();
-    
+
     return false;
-  } 
+  }
 
   event.preventDefault();
-
-  
-
 };
-
-
-
 
 /**
  * Handles the keydown event
@@ -826,7 +893,6 @@ const handleKeyDown = (inputEl, event) => {
   }
   const movementKeys = [KEYS.left, KEYS.right, KEYS.tab].indexOf(keyCode) > -1;
 
-
   /* if (copyCutPasteKeys || movementKeys || modifierKeys) {
     return true;
   } */
@@ -850,8 +916,6 @@ const handleKeyDown = (inputEl, event) => {
     if (ORIGINAL_VALUE !== "") {
       el.value = ORIGINAL_VALUE;
     }
-
-
 
     return true;
   }
@@ -878,7 +942,6 @@ const handleKeyDown = (inputEl, event) => {
       // checkAndRemoveMaskCharacters(el, getCursorPosition(el), keyCode);
       // removeCharacterAtIndex(el, getCursorPosition(el));
       hideMessage(inputEl);
-
     }
 
     handleValueChange(el);
@@ -1005,23 +1068,10 @@ const inputMaskEvents = {
 const inputMask = behavior(inputMaskEvents, {
   init(root) {
     selectOrMatches(INPUT, root).forEach((maskedInput) => {
-      const nodes = [];
-      const values = [];
-      const options = {};
-      for (
-        let attr, i = 0, attrs = maskedInput.attributes, n = attrs.length;
-        i < n;
-        i += 1
-      ) {
-        attr = attrs[i];
-        nodes.push(attr.nodeName);
-        values.push(attr.nodeValue);
-      }
-
-      for (let i = 0; i < nodes.length; i += 1) {
-        options[nodes[i]] = values[i];
-      }
-
+      const options = Array.from(maskedInput.attributes).reduce(
+        (obj, { nodeName, nodeValue }) => ({ ...obj, [nodeName]: nodeValue }),
+        {}
+      );
       enhanceInputMask(maskedInput, options);
     });
   },
