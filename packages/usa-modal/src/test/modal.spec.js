@@ -10,8 +10,9 @@ const modalWindowSelector = () => document.querySelector(".usa-modal");
 const bodySelector = () => document.body;
 const openButton1Selector = () => document.querySelector("#open-button1");
 const openButton2Selector = () => document.querySelector("#open-button2");
-const comboListSelector = () => document.querySelector(".usa-combo-box__list");
-const comboListToggle = () => document.querySelector(".usa-combo-box__toggle-list");
+
+// const comboListSelector = () => document.querySelector(".usa-combo-box__list");
+// const comboListToggle = () => document.querySelector(".usa-combo-box__toggle-list");
 // const comboListButtonSelector = () => document.querySelector(".usa-combo-box__toggle-list")
 
 const tests = [
@@ -29,28 +30,31 @@ tests.forEach(({name, selector: containerSelector}) => {
     let openButton1;
     let openButton2;
     let overlay;
-    let comboList;
-    let CBToggle;
+    // let comboBox;
+    // let comboList;
+    // let CBToggle;
 
     const isVisible = (el) => el.classList.contains("is-visible");
-    const isHidden = (el) => el.hasAttribute("hidden");
+    // const isHidden = (el) => el.hasAttribute("hidden");
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
       modal.on(containerSelector());
-      combobox.on(containerSelector())
+      combobox.on(containerSelector());
       modalWindow = modalWindowSelector();
       closeButton = body.querySelector("#close-button");
       modalWrapper = body.querySelector(".usa-modal-wrapper");
       overlay = body.querySelector(".usa-modal-overlay");
       openButton1 = openButton1Selector();
       openButton2 = openButton2Selector();
-      comboList = comboListSelector();
-      CBToggle = comboListToggle();
+      // comboBox = document.querySelector("#modalCB");
+      // comboList = comboListSelector();
+      // CBToggle = comboListToggle();
     });
 
     afterEach(() => {
       modal.off(containerSelector());
+      combobox.off(containerSelector());
       body.innerHTML = "";
       body.className = "";
     });
@@ -60,6 +64,7 @@ tests.forEach(({name, selector: containerSelector}) => {
         assert.ok(modalWindow, "creates inner div");
         assert.ok(overlay, "creates the overlay");
         assert.ok(modalWrapper, "creates the outer div");
+        // assert.ok(comboBox, "creates combobox");
       });
 
       it('adds role="dialog" to modal parent', () => {
@@ -73,6 +78,8 @@ tests.forEach(({name, selector: containerSelector}) => {
         assert.strictEqual(modalWrapper.hasAttribute("aria-describedby"), true);
         assert.strictEqual(modalWrapper.hasAttribute("aria-labelledby"), true);
         assert.strictEqual(modalWrapper.getAttribute("id"), "modal");
+        // assert.strictEqual(comboBox.hasAttribute("aria-labelledby"), false);
+        // assert.strictEqual(comboBox.getAttribute("id"), "modalCB");
       });
 
       it('sets tabindex="-1" to the modal window', () => {
@@ -119,10 +126,14 @@ tests.forEach(({name, selector: containerSelector}) => {
         assert.strictEqual(activeContent[0], modalWrapper);
       });
 
-      it("allows event propogation", () => {
-        CBToggle.click();
-        assert.strictEqual(isHidden(comboList), false)
-      });
+    //   beforeEach(() => {
+    //     CBToggle.click();
+    //   });
+
+    //   it("allows event propogation", () => {
+    //     // assert.strictEqual(isHidden(comboList), false)
+    //     console.log('Clicked');
+    //   });
     });
 
     describe("When closing", () => {
