@@ -88,13 +88,18 @@ _Share recommended methods for reviewing this change._
 3. Clarify the type of feedback you are looking for at this phase.
 -->
 
+<!--
 ## Dependency updates
-_For PRs that include dependency updates, include a list of the changed dependencies and version numbers._
 | Dependency name              | Previous version | New version |
 | ---------------------------- | :--------------: | :---------: |
 | [Updated dependency example] |     [1.0.0]      |   [1.0.1]   |
 | [New dependency example]     |        --        |   [3.0.1]   |
 | [Removed dependency example] |     [2.10.2]     |     --      |
+-->
+<!--
+For PRs that include dependency updates, uncomment this section and
+include a list of the changed dependencies and version numbers.
+-->
 
 <!--
 Before opening this PR, make sure you’ve done whichever of these applies to you:
