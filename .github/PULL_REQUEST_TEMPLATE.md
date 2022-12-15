@@ -28,8 +28,7 @@ eg: "USWDS - Button: Increase font size"
 _Provide a one or two sentence summary of the update that can be used in the changelog._
 <!--
 A successful summary is written in the past tense and includes:
-1. A benefit statement, and
-2. A description of the update
+**A benefit statement.** A description of the update.
 See [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
 -->
 
