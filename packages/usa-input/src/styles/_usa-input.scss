@@ -3,7 +3,11 @@
 .usa-input {
   @extend %block-input-general;
   @extend %block-input-styles;
-  @include u-disabled;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    @include u-disabled;
+  }
 }
 
 .usa-input--error {

@@ -59,8 +59,7 @@ $close: map-merge(
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: color("disabled");
-    cursor: not-allowed;
+    @include u-disabled;
   }
 }
 
@@ -72,8 +71,7 @@ button.usa-combo-box__clear-input {
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: color("disabled");
-    cursor: not-allowed;   
+    @include u-disabled;
   }
 }
 

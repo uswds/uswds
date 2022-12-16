@@ -32,9 +32,8 @@
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: color("disabled");
+    @include u-disabled;
     opacity: 1;
-    cursor: not-allowed;
   }
 
   // Necessary to show chevron in forced colors mode in modern browsers

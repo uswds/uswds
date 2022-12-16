@@ -35,20 +35,17 @@
 
 @mixin range-thumb--disabled {
   @include range-thumb;
-  background-color: color("disabled");
-  cursor: not-allowed;
+  @include u-disabled;
 }
 
 @mixin range-track--disabled {
   @include range-track;
-  background-color: color("disabled");
-  cursor: not-allowed;
+  @include u-disabled;
 }
 
 @mixin range-ms-fill--disabled {
   @include range-ms-fill;
-  background-color: color("disabled");
-  cursor: not-allowed;
+  @include u-disabled;
 }
 
 .usa-range {

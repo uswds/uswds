@@ -6,8 +6,7 @@
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: color("disabled");
-    cursor: not-allowed;
+    @include u-disabled;
   }
 }
 
