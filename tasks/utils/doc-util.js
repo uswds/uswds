@@ -1,6 +1,7 @@
-const log = require("fancy-log");
-const colors = require("ansi-colors");
-const pkg = require("../../package.json");
+import log from "fancy-log";
+import colors from "ansi-colors";
+import pkg from '../../package.json' assert { type: 'json' };
+
 
 const shellPrefix = "$";
 
@@ -16,7 +17,9 @@ function drawFlag() {
   log(colors.white(""));
 }
 
-module.exports = {
+// This default export approach doesn't support tree-shaking
+// Should split out into exported named functions
+export default {
   pkg: {
     name: pkg.name,
     version: pkg.version,

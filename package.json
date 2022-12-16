@@ -109,6 +109,8 @@
   "devDependencies": {
     "@18f/identity-stylelint-config": "1.0.0",
     "@babel/core": "7.16.7",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
     "@babel/preset-env": "7.16.7",
     "@chanzuckerberg/axe-storybook-testing": "5.0.1",
     "@material-design-icons/svg": "0.11.1",
