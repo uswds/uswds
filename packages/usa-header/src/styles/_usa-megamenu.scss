@@ -9,7 +9,13 @@
   display: block;
   position: absolute;
 
-  @if not ($header-max-width == "none") {
+  @if $header-max-width == "none" {
+    @if $type == "standard" {
+      width: units($theme-site-margins-width);
+    } @else if $type == "extended" {
+      width: 0;
+    }
+  } @else {
     // retrieve the unit value of $theme-header-max-width, depending on type of value added
     $mw: smart-quote($header-max-width);
     @if meta.type-of($header-max-width) == "string" {
@@ -24,7 +30,6 @@
       width: calc(50vw - $mw / 2);
     }
   }
-
 }
 
 .usa-megamenu {
@@ -43,7 +48,7 @@
 
 .usa-megamenu.usa-nav__submenu {
   @include at-media($theme-header-min-width) {
-    @include u-padding-x(0);
+    // @include u-padding-x(0);
     @include u-padding-y(4);
     left: -$theme-header-logo-text-width;
     right: 0;
