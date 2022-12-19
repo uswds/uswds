@@ -3,12 +3,12 @@
  */
 
 // Include Our Plugins
-const del = require('del');
-const cFlags = require("./utils/cflags");
-const dutil = require("./utils/doc-util");
+import del from "del";
+import cFlags from "./utils/cflags";
+import dutil from "./utils/doc-util";
 
 // Clean generated Dist directory.
-exports.cleanDist = done => {
+const cleanDist = done => {
   if (!cFlags.cleanup) {
     dutil.logMessage(
       "clean-dist",
@@ -20,3 +20,5 @@ exports.cleanDist = done => {
 
   return del("dist");
 };
+
+export default cleanDist;

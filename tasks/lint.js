@@ -1,7 +1,6 @@
-const { formatters } = require("stylelint");
-const childProcess = require("child_process");
-const stylelint = require("stylelint");
-const dutil = require("./utils/doc-util");
+import { stylelint, formatters } from "stylelint";
+import childProcess from "child_process";
+import dutil from "./utils/doc-util";
 
 const IGNORE_STRING = "This file is ignored";
 const PROJECT_SASS_SRC = "src/stylesheets";
@@ -51,7 +50,7 @@ async function lintSass(callback) {
   callback(errored ? new Error(output) : null);
 }
 
-module.exports = {
+export default {
   lintSass,
   typecheck
 };

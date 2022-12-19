@@ -1,8 +1,8 @@
-const { src, dest } = require("gulp");
-const rename = require("gulp-rename");
-const dutil = require("./utils/doc-util");
+import { src, dest } from "gulp";
+import rename from "gulp-rename";
+import dutil from "./utils/doc-util";
 
-module.exports = {
+export default {
   // Copy theme settings files to /dist directory
   copyTheme() {
     dutil.logMessage(

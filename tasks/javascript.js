@@ -1,20 +1,18 @@
-/* eslint-disable arrow-body-style */
+import { dest, src } from "gulp";
+import buffer from "vinyl-buffer";
+import browserify from "browserify";
+import childProcess from "child_process";
+import rename from "gulp-rename";
+import source from "vinyl-source-stream";
+import sourcemaps from "gulp-sourcemaps";
+import uglify from "gulp-uglify";
+import merge from "merge-stream";
+import dutil from "./utils/doc-util";
 
-const { dest, src } = require("gulp");
-const buffer = require("vinyl-buffer");
-const browserify = require("browserify");
-const childProcess = require("child_process");
-const rename = require("gulp-rename");
-const source = require("vinyl-source-stream");
-const sourcemaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify");
-const merge = require("merge-stream");
-const dutil = require("./utils/doc-util");
-
-module.exports = {
+export default {
   compileJS() {
     dutil.logMessage("javascript", "Compiling JavaScript");
-    let packageName = dutil.pkg.name.replace("@uswds/", "");
+    const packageName = dutil.pkg.name.replace("@uswds/", "");
     const streams = Object.entries({
       [packageName]: browserify({
         entries: ["packages/uswds-core/src/js/start.js"],

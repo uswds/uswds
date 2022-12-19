@@ -1,5 +1,5 @@
-const { src } = require("gulp");
-const mocha = require("gulp-spawn-mocha");
+import { src } from "gulp";
+import mocha from "gulp-spawn-mocha";
 
 const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",

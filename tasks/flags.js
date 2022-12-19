@@ -1,19 +1,19 @@
-const dutil = require("./utils/doc-util");
-const cFlags = require("./utils/cflags");
+// import dutil from "./utils/doc-util";
+// import cFlags from "./utils/cflags";
 
-module.exports = {
-  noTest(done) {
-    dutil.logMessage("no-test", "Disabling linting and tests for all assets.");
-    cFlags.test = false;
-    done();
-  },
+// export default {
+//   noTest(done) {
+//     dutil.logMessage("no-test", "Disabling linting and tests for all assets.");
+//     cFlags.test = false;
+//     done();
+//   },
 
-  noCleanup(done) {
-    dutil.logMessage(
-      "no-cleanup",
-      "Disabling cleanup of distribution directories."
-    );
-    cFlags.cleanup = false;
-    done();
-  }
-}
+//   noCleanup(done) {
+//     dutil.logMessage(
+//       "no-cleanup",
+//       "Disabling cleanup of distribution directories."
+//     );
+//     cFlags.cleanup = false;
+//     done();
+//   }
+// }

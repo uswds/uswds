@@ -1,9 +1,9 @@
-const spawn = require("cross-spawn");
-const { series } = require("gulp");
-const crypto = require("crypto");
-const fs = require("fs");
-const dutil = require("./utils/doc-util");
-const { build } = require("./build");
+import spawn from "cross-spawn";
+import { series } from "gulp";
+import crypto from "crypto";
+import fs from "fs";
+import dutil from "./utils/doc-util";
+import { build } from "./build";
 
 const hash = crypto.createHash("sha256");
 
@@ -53,7 +53,7 @@ function zipArchives(done) {
   });
 }
 
-exports.release = series(
+const release = series(
   (done) => {
     dutil.logMessage(
       "release",
@@ -64,3 +64,5 @@ exports.release = series(
   build,
   zipArchives
 );
+
+export default release;
