@@ -1,13 +1,5 @@
-const assign = require("object-assign");
-const Behavior = require("receptor/behavior");
+import { behavior }  from "receptor";
 
-/**
- * @name sequence
- * @param {...Function} seq an array of functions
- * @return { closure } callHooks
- */
-// We use a named function here because we want it to inherit its lexical scope
-// from the behavior props object, not from the module
 const sequence = (...seq) =>
   function callHooks(target = document.body) {
     seq.forEach((method) => {
@@ -23,14 +15,12 @@ const sequence = (...seq) =>
  * @param {object?} props
  * @return {receptor.behavior}
  */
-module.exports = (events, props) =>
-  Behavior(
+export default (events, props) =>
+  behavior(
     events,
-    assign(
-      {
-        on: sequence("init", "add"),
-        off: sequence("teardown", "remove"),
-      },
-      props
-    )
+    {
+      on: sequence("init", "add"),
+      off: sequence("teardown", "remove"),
+      ...props
+    }
   );

@@ -1,4 +1,5 @@
-const select = require("./select");
+import { select } from "./select";
+
 /**
  * @name isElement
  * @desc returns whether or not the given argument is a DOM element.

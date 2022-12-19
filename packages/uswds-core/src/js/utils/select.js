@@ -15,7 +15,7 @@ const isElement = (value) =>
  *   in. If not provided, it defaults to the document.
  * @return {HTMLElement[]} - An array of DOM nodes or an empty array.
  */
-module.exports = (selector, context) => {
+export default (selector, context) => {
   if (typeof selector !== "string") {
     return [];
   }

@@ -8,4 +8,4 @@ function isIosDevice() {
   );
 }
 
-module.exports = isIosDevice;
+export default isIosDevice;
