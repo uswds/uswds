@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // This used to be conditionally dependent on whether the
   // browser supported touch events; if it did, `CLICK` was set to
   // `touchstart`.  However, this had downsides:
