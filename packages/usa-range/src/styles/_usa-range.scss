@@ -32,7 +32,6 @@
   border: units(1px) solid color("base");
 }
 
-
 @mixin range-thumb--disabled {
   @include range-thumb;
   @include u-disabled;
