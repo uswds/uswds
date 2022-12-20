@@ -4,6 +4,10 @@ import Content from "./usa-combo-box.json";
 
 export default {
   title: "Components/Form Inputs/Combo Box",
+  argTypes: {
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+  }
 };
 
 const Template = (args) => Component(args);
