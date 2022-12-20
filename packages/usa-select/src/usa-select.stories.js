@@ -1,16 +1,19 @@
 import Component from "./usa-select.twig";
-import Test from "./test/test-patterns/usa-select--multiple.twig";
-import {defaultContent, multipleContent } from "./content"
 
 export default {
   title: "Components/Form Inputs/Select",
+  args: {
+    disabled: false,
+    aria_disabled: false,
+  },
 };
 
 const Template = (args) => Component(args);
-const MultipleTemplate = (args) => Test(args);
 
 export const Select = Template.bind({});
-Select.args = defaultContent;
 
-export const Multiple = MultipleTemplate.bind({});
-Multiple.args = multipleContent
+export const Multiple = Template.bind({});
+Multiple.args = {
+  multiple: true,
+  size: 0,
+};

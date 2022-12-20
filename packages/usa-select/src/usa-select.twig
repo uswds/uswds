@@ -1,8 +1,13 @@
 <form class="usa-form">
   <label class="usa-label" for="options">Dropdown label</label>
-  <select class="usa-select" name="options" id="options" 
-    {% if disabled %} disabled {% endif %}
-    {% if aria_disabled %} aria-disabled="true" {% endif %}>
+  <select class="usa-select"
+    name="options"
+    id="options"
+    {% if multiple %}multiple{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if size %}size="{{ size }}"{% endif %}
+    {% if aria_disabled %}aria-disabled="true"{% endif %}
+  >
     <option value>- Select -</option>
     <option value="value1">Option A</option>
     <option value="value2">Option B</option>
