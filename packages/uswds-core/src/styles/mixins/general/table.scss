@@ -356,6 +356,15 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   @include table-stacked-header-styles;
 }
 
+@mixin usa-table--sticky-header {
+  thead {
+    th {
+      position: sticky;
+      top: 0;
+    }
+  }
+}
+
 @mixin usa-table-container--scrollable {
   margin: units(2.5) 0;
   overflow-y: hidden;

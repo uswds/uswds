@@ -3,6 +3,7 @@ import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
+import StickyHeaderContent from "./usa-table~stickyheader.json";
 
 export default {
   title: "Components/Table",
@@ -19,5 +20,8 @@ Borderless.args = BorderlessContent;
 
 export const Striped = Template.bind({});
 Striped.args = StripedContent;
+
+export const StickyHeader = Template.bind({});
+StickyHeader.args = StickyHeaderContent;
 
 export const Sortable = SortableTemplate.bind({});
