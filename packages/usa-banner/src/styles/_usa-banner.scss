@@ -68,7 +68,7 @@ $banner-icon-close: (
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-left: units($theme-site-margins-mobile-width) - units(1);
   padding-top: units(0.5);
   width: 100%;
 
