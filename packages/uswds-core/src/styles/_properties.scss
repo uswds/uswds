@@ -9,6 +9,7 @@ USWDS Properties
 
 @use "./functions/general/map-collect" as *;
 @use "./functions/units/units" as *;
+@use "./functions/units/spacing-multiple" as *;
 @use "./functions/utilities/line-height" as *;
 // TODO: ^^^ s/b "functions/utilities/units"
 
@@ -41,6 +42,7 @@ $standard-colors: map-collect(
 );
 
 $extended-colors: map-collect($system-colors, $tokens-color-basic);
+$half: spacing-multiple(0.5);
 
 $partial-values: (
   zero-zero: (
