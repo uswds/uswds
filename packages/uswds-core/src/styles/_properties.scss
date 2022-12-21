@@ -9,6 +9,7 @@ USWDS Properties
 
 @use "./functions/general/map-collect" as *;
 @use "./functions/units/units" as *;
+@use "./functions/units/spacing-multiple" as *;
 @use "./functions/utilities/line-height" as *;
 // TODO: ^^^ s/b "functions/utilities/units"
 
