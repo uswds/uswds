@@ -7,7 +7,7 @@ export default {
   argTypes: {
     id: { table: { disable: true } },
     name: { table: { disable: true } },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
