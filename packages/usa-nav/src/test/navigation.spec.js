@@ -32,7 +32,6 @@ describe("navigation toggle", () => {
   let sandbox;
   let header;
   let nav;
-  let navPrimary;
   let navControl;
   let overlay;
   let closeButton;
@@ -48,7 +47,6 @@ describe("navigation toggle", () => {
     navigation.on();
     header = body.querySelector(".usa-header");
     nav = body.querySelector(".usa-nav");
-    navPrimary = body.querySelector(".usa-nav__primary");
     navControl = body.querySelector(".usa-nav__link");
     overlay = body.querySelector(".usa-overlay");
     closeButton = body.querySelector(".usa-nav__close");
@@ -155,7 +153,7 @@ describe("navigation toggle", () => {
   it("hides the nav when the Escape key is hit", () => {
     menuButton.click();
     navControl.focus();
-    EVENTS.escape(navPrimary)
+    EVENTS.escape(navControl)
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
     assert.strictEqual(document.activeElement, menuButton)
