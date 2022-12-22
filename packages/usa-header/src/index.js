@@ -79,7 +79,7 @@ const toggleNonNavItems = (active) => {
   }
 };
 
-const animateClose = (el, duration) => {
+const animateClose = (el) => {
   el.classList.add(CLOSING_CLASS);
   const cleanup = () => {
     if (el.classList.contains(CLOSING_CLASS)) {
@@ -88,17 +88,19 @@ const animateClose = (el, duration) => {
     }
   };
 
-  let timeout;
+  const events = [
+    "transitionend",
+    "animationend",
+    // Just in case transition/animation gets cancelled
+    "transitioncancel",
+    "animationcancel",
+  ];
   const callback = () => {
-    el.removeEventListener("animationend", callback);
-    clearTimeout(timeout);
+    console.log('callback')
     cleanup();
+    events.forEach((e) => el.removeEventListener(e, callback));
   };
-  el.addEventListener("animationend", callback);
-
-  // Just in case `animationend` event never fires,
-  // remove CLOSING_CLASS anyway
-  timeout = setTimeout(callback, duration * 1000);
+  events.forEach((e) => el.addEventListener(e, callback));
 };
 
 const toggleNav = (active) => {
@@ -116,7 +118,7 @@ const toggleNav = (active) => {
       parseFloat(computedStyle.animationDuration, 10) ||
       parseFloat(computedStyle.transitionDuration);
     if (duration !== 0 && !safeActive) {
-      animateClose(el, duration);
+      animateClose(el);
     } else {
       el.classList.toggle(VISIBLE_CLASS, safeActive);
       el.classList.toggle(CLOSING_CLASS, false);
