@@ -41,7 +41,8 @@ function toggleHtmlTag(isMobile) {
 
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const preservedHtmlTag = currentElement.getAttribute("data-tag") || "div";
+    const preservedHtmlTag =
+      currentElement.getAttribute("data-tag") || currentElement.tagName;
 
     const newElementType = isMobile ? "button" : preservedHtmlTag;
 
