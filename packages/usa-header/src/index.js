@@ -144,8 +144,7 @@ const toggleNav = (active) => {
   } else if (
     !safeActive &&
     menuButton &&
-    getComputedStyle(menuButton).display !== 'none'
-
+    getComputedStyle(menuButton).display !== "none"
   ) {
     // The mobile nav was just deactivated. We don't want the focus to
     // disappear into the void, so focus on the menu button if it's
@@ -184,9 +183,9 @@ const focusNavButton = (event) => {
 
   // Only shift focus if within dropdown
   if (!event.target.matches(NAV_CONTROL)) {
-    const navControl = parentNavItem.querySelector(NAV_CONTROL)
+    const navControl = parentNavItem.querySelector(NAV_CONTROL);
     if (navControl) {
-      navControl.focus()
+      navControl.focus();
     }
   }
 };
