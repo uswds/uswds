@@ -1,8 +1,8 @@
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches";
+import focusTrap from "../../uswds-core/src/js/utils/focus-trap";
+import getScrollbarWidth from "../../uswds-core/src/js/utils/scrollbar-width";
 
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}-overlay`;
@@ -27,7 +27,7 @@ const HIDDEN_CLASS = "is-hidden";
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = getScrollbarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -138,9 +138,9 @@ function toggleModal(event) {
     // Binds escape key if we're not forcing
     // the user to take an action
     if (forceUserAction) {
-      modal.focusTrap = FocusTrap(targetModal);
+      modal.focusTrap = focusTrap(targetModal);
     } else {
-      modal.focusTrap = FocusTrap(targetModal, {
+      modal.focusTrap = focusTrap(targetModal, {
         Escape: onMenuClose,
       });
     }
@@ -310,4 +310,4 @@ modal = {
   }
 };
 
-module.exports = modal;
+export default modal;

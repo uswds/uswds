@@ -1,11 +1,11 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/index");
+import { keymap } from "receptor";
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import toggle from "../../uswds-core/src/js/utils/toggle";
+import focusTrap from "../../uswds-core/src/js/utils/focus-trap";
+import accordion from "../../usa-accordion/src/index";
 
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { CLICK } from "../../uswds-core/src/js/events";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const BODY = "body";
 const LANGUAGE = `.${PREFIX}-language`;
@@ -90,7 +90,7 @@ languageSelector = behavior(
         : root.querySelector(LANGUAGE_SUB);
 
       if (trapContainer) {
-        languageSelector.focusTrap = FocusTrap(trapContainer, {
+        languageSelector.focusTrap = focusTrap(trapContainer, {
           Escape: onLanguageClose,
         });
       }
@@ -102,4 +102,4 @@ languageSelector = behavior(
   }
 );
 
-module.exports = languageSelector;
+export default languageSelector;

@@ -1,10 +1,14 @@
 // polyfills HTMLElement.prototype.classList and DOMTokenList
-require("classlist-polyfill");
+import classListPolyfill from "classlist-polyfill";
+
 // polyfills HTMLElement.prototype.hidden
-require("./element-hidden");
+import elementHidden from "./element-hidden";
+
 // polyfills Number.isNaN()
-require("./number-is-nan");
+import numberIsNan from "./number-is-nan";
+
 // polyfills CustomEvent
-require("./custom-event");
+import CustomEvent from "./custom-event";
+
 // polyfills svg4everybody
-require("./svg4everybody");
+import svg4everybody from "./svg4everybody";

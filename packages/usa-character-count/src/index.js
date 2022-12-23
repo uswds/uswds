@@ -1,7 +1,7 @@
-const select = require("../../uswds-core/src/js/utils/select");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const debounce = require("../../uswds-core/src/js/utils/debounce");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import select  from "../../uswds-core/src/js/utils/select";
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import debounce from "../../uswds-core/src/js/utils/debounce";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
 const CHARACTER_COUNT = `.${CHARACTER_COUNT_CLASS}`;
@@ -194,4 +194,4 @@ const characterCount = behavior(
   }
 );
 
-module.exports = characterCount;
+export default characterCount;

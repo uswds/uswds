@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable func-names */
-(function () {
+export default (function () {
   if (typeof window.CustomEvent === "function") return false;
 
   function CustomEvent(event, _params) {

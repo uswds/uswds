@@ -1,7 +1,7 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import select  from "../../uswds-core/src/js/utils/select";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
+import { CLICK } from "../../uswds-core/src/js/events";
 
 const CONTAINER = `.${PREFIX}-input-group`;
 const INPUT = `${CONTAINER} .${PREFIX}-input`;
@@ -38,4 +38,4 @@ const inputPrefixSuffix = behavior(
   }
 );
 
-module.exports = inputPrefixSuffix;
+export default inputPrefixSuffix;

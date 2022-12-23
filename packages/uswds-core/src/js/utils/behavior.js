@@ -1,4 +1,4 @@
-import { behavior }  from "receptor";
+import { behavior } from "receptor";
 
 const sequence = (...seq) =>
   function callHooks(target = document.body) {
@@ -16,11 +16,8 @@ const sequence = (...seq) =>
  * @return {receptor.behavior}
  */
 export default (events, props) =>
-  behavior(
-    events,
-    {
-      on: sequence("init", "add"),
-      off: sequence("teardown", "remove"),
-      ...props
-    }
-  );
+  behavior(events, {
+    on: sequence("init", "add"),
+    off: sequence("teardown", "remove"),
+    ...props,
+  });
