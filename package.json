@@ -52,6 +52,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "build:js": "npx esbuild ./packages/uswds-core/src/js/start.js --bundle --outfile=./dist/uswds-esm.js",
     "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
     "lint": "eslint src/**/**/*.js",
     "mocha": "mocha",
@@ -129,6 +130,7 @@
     "cross-spawn": "7.0.3",
     "css-loader": "6.2.0",
     "del": "6.0.0",
+    "esbuild": "0.16.10",
     "eslint": "8.4.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.3.0",
