@@ -2,11 +2,9 @@ import select  from "../../uswds-core/src/js/utils/select";
 import behavior  from "../../uswds-core/src/js/utils/behavior";
 import toggle  from "../../uswds-core/src/js/utils/toggle";
 import isElementInViewport  from "../../uswds-core/src/js/utils/is-in-viewport";
-import events from "../../uswds-core/src/js/events";
-import config from "../../uswds-core/src/js/config";
+import { CLICK } from "../../uswds-core/src/js/events";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
-const { CLICK } = events;
-const PREFIX = config.prefix;
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
 const EXPANDED = "aria-expanded";
