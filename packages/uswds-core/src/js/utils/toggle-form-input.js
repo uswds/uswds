@@ -1,5 +1,5 @@
-import { resolveIdRefs } from "resolve-id-refs";
-import * as toggleFieldMask from "./toggle-field-mask";
+import resolveIdRefs from "resolve-id-refs";
+import toggleFieldMask from "./toggle-field-mask";
 
 const CONTROLS = "aria-controls";
 const PRESSED = "aria-pressed";

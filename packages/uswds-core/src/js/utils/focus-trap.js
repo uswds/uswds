@@ -1,7 +1,7 @@
 import { keymap } from "receptor";
 import behavior from "./behavior";
 import select from "./select";
-import * as activeElement from "./active-element";
+import activeElement from "./active-element";
 
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
