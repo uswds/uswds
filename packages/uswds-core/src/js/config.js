@@ -1,3 +1,1 @@
-export default {
-  prefix: "usa",
-};
+export const prefix = "usa";

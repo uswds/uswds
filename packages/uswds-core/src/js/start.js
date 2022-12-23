@@ -4,14 +4,18 @@
  */
 
 import "./polyfills";
-
-import uswds from "./config";
-import components  from "./index";
 import svg4everybody  from "./polyfills/svg4everybody";
 
-window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
+import { prefix } from "./config";
+import components  from "./index";
 
-uswds.components = components;
+const uswds = {
+  prefix,
+  components
+};
+
+
+window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
 export const initComponents = () => {
   const target = document.body;
