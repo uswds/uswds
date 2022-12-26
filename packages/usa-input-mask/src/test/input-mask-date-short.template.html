@@ -1,28 +1,21 @@
-<div class="usa-input-mask">
-  <div class="usa-form-group">
-    <label class="usa-label" for="tel">US Date</label>
-    <div class="usa-hint" id="tel-hint">For example, 01/01/1970</div>
-    <span class="usa-input-mask__shell" data-mask="__/__/____"
-      ><span class="usa-input-mask__content" aria-hidden="true" id="telMask"
-        ><i></i>__/__/____</span
-      ><input
+<form class="usa-form">
+  <div class="usa-input-mask">
+    <div class="usa-form-group">
+      <label class="usa-label" for="tel">US Date</label>
+      <div class="usa-hint" id="tel-hint">For example, 01/01/1970</div>
+      <input
         aria-describedby="tel-hint tel-hint-info"
         class="usa-input usa-input-mask__field"
         id="tel"
         inputmode="numeric"
         mask="99/99/9999"
+        maxlength="10"
         name="tel"
         pattern="\d{2}/\d{2}/\d{4}"
+        placeholder="__/__/____"
         type="tel"
-        maxlength="10"
-        data-placeholder="__/__/____"
-    /></span>
+      />
+    </div>
+    <span id="tel-hint-info" class="usa-input-mask__message"></span>
   </div>
-  <span id="tel-hint-info" class="usa-input-mask__message usa-sr-only"></span>
-  <div class="usa-input-mask__status usa-hint" aria-hidden="true">
-    Please enter a valid character
-  </div>
-  <div class="usa-input-mask__sr-status usa-sr-only" aria-live="assertive">
-    Please enter a valid character
-  </div>
-</div>
+</form>

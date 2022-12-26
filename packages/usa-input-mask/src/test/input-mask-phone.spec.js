@@ -14,10 +14,12 @@ const EVENTS = {};
  * @param {HTMLElement} el the element to sent the event to
  */
 EVENTS.input = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+  el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
 const inputMaskSelector = () => document.querySelector(".usa-input-mask");
+const inputMaskShellSelector = () =>
+  document.querySelector(".usa-input-mask__content");
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "input mask", selector: inputMaskSelector },
@@ -29,6 +31,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let root;
     let input;
+    let requirementsMessage;
+    let statusMessageVisual;
+    let statusMessageSR;
     let shell;
 
     beforeEach(() => {
@@ -36,7 +41,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       InputMask.on(containerSelector());
 
       root = inputMaskSelector();
-      input = root.querySelector(".usa-input");
+      input = root.querySelector(".usa-input-mask__field");
+      requirementsMessage = root.querySelector(".usa-input-mask__message");
+      statusMessageVisual = root.querySelector(".usa-input-mask__status");
+      statusMessageSR = root.querySelector(".usa-input-mask__sr-status");
     });
 
     afterEach(() => {
@@ -44,12 +52,58 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
+    it("hides the requirements hint for screen readers", () => {
+      assert.strictEqual(
+        requirementsMessage.classList.contains("usa-sr-only"),
+        true
+      );
+    });
+
+    it("creates a visual status message on init", () => {
+      const visibleStatus = document.querySelectorAll(
+        ".usa-input-mask__status"
+      );
+
+      assert.strictEqual(visibleStatus.length, 1);
+    });
+
+    it("creates a screen reader status message on init", () => {
+      const srStatus = document.querySelectorAll(".usa-input-mask__sr-status");
+
+      assert.strictEqual(srStatus.length, 1);
+    });
+
+    it("adds initial status message for the input mask component", () => {
+      assert.strictEqual(
+        statusMessageVisual.innerHTML,
+        "Please enter a valid character"
+      );
+      assert.strictEqual(
+        statusMessageSR.innerHTML,
+        "Please enter a valid character"
+      );
+    });
+
+    it("informs the user only number characters are allowed", () => {
+      input.value = "a";
+
+      EVENTS.input(input);
+
+      assert.strictEqual(
+        statusMessageVisual.innerHTML,
+        "A number character is required here"
+      );
+    });
+
     it("formats a US telephone number to (123) 456-7890", () => {
       input.value = "1234567890";
 
       EVENTS.input(input);
-      shell = root.querySelector(".usa-input-mask__shell");
-      assert.strictEqual(shell.textContent, "(123) 456-7890");
+
+      setTimeout(() => {
+        shell = inputMaskShellSelector();
+        assert.strictEqual(shell.textContent, "(123) 456-7890");
+      }, 100);
     });
   });
 });

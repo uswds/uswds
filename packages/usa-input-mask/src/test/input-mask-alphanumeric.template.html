@@ -1,37 +1,24 @@
-<div class="usa-input-mask">
-  <div class="usa-form-group">
-    <label class="usa-label" for="alphanumeric">Alphanumeric</label>
-    <div class="usa-hint" id="alphanumeric-hint">
-      For example, 1EG4-TE5-MK73
-    </div>
-    <span class="usa-input-mask__shell" data-mask="____-___-____"
-      ><span
-        class="usa-input-mask__content"
-        aria-hidden="true"
-        id="alphanumericMask"
-        ><i></i>____-___-____</span
-      ><input
+<form class="usa-form">
+  <div class="usa-input-mask">
+    <div class="usa-form-group">
+      <label class="usa-label" for="alphanumeric">Alphanumeric</label>
+      <div class="usa-hint" id="alphanumeric-hint">
+        For example, 1EG4-TE5-MK73
+      </div>
+      <input
         aria-describedby="alphanumeric-hint alphanumeric-hint-info"
         class="usa-input usa-input-mask__field"
         forceupper="true"
         id="alphanumeric"
         inputmode="text"
         mask="9AA9-AA9-AA99"
+        maxlength="13"
         name="alphanumeric"
         pattern="\d\w\w\d-\w\w\d-\w\w\d\d"
+        placeholder="____-___-____"
         type="text"
-        maxlength="13"
-        data-placeholder="____-___-____"
-    /></span>
+      />
+    </div>
+    <span id="alphanumeric-hint-info" class="usa-input-mask__message"></span>
   </div>
-  <span
-    id="alphanumeric-hint-info"
-    class="usa-input-mask__message usa-sr-only"
-  ></span>
-  <div class="usa-input-mask__status usa-hint" aria-hidden="true">
-    Please enter a valid character
-  </div>
-  <div class="usa-input-mask__sr-status usa-sr-only" aria-live="assertive">
-    Please enter a valid character
-  </div>
-</div>
+</form>

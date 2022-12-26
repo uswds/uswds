@@ -3,18 +3,18 @@
     <div class="usa-form-group">
       <label class="usa-label" for="ssn">Social Security Number</label>
       <div class="usa-hint" id="ssn-hint">For example, 123-45-6789</div>
-        <input
-          aria-describedby="ssn-hint ssn-hint-info"
-          class="usa-input usa-input-mask__field"
-          id="ssn"
-          inputmode="numeric"
-          mask="999-99-9999"
-          name="ssn"
-          pattern="\d{3}-\d{2}-\d{4}"
-          type="text"
-          placeholder="___-__-____"
-        />
-      </span>
+      <input
+        aria-describedby="ssn-hint ssn-hint-info"
+        class="usa-input usa-input-mask__field"
+        id="ssn"
+        inputmode="numeric"
+        mask="999-99-9999"
+        maxlength="11"
+        name="ssn"
+        pattern="\d{3}-\d{2}-\d{4}"
+        placeholder="___-__-____"
+        type="text"
+      />
     </div>
     <span id="ssn-hint-info" class="usa-input-mask__message"></span>
   </div>
