@@ -1,21 +1,21 @@
 <div class="usa-input-mask">
   <div class="usa-form-group">
-    <label class="usa-label" for="tel">US Telephone Number</label>
-    <div class="usa-hint" id="tel-hint">For example, (123) 456-7890</div>
-    <span class="usa-input-mask__shell" data-mask="(___) ___-____"
+    <label class="usa-label" for="tel">US Date</label>
+    <div class="usa-hint" id="tel-hint">For example, 01/01/1970</div>
+    <span class="usa-input-mask__shell" data-mask="__/__/____"
       ><span class="usa-input-mask__content" aria-hidden="true" id="telMask"
-        ><i>(</i>___) ___-____</span
+        ><i></i>__/__/____</span
       ><input
         aria-describedby="tel-hint tel-hint-info"
         class="usa-input usa-input-mask__field"
         id="tel"
         inputmode="numeric"
-        mask="(999) 999-9999"
+        mask="99/99/9999"
         name="tel"
-        pattern="(\d{3}) \d{3}-\d{4}"
+        pattern="\d{2}/\d{2}/\d{4}"
         type="tel"
-        maxlength="14"
-        data-placeholder="(___) ___-____"
+        maxlength="10"
+        data-placeholder="__/__/____"
     /></span>
   </div>
   <span id="tel-hint-info" class="usa-input-mask__message usa-sr-only"></span>

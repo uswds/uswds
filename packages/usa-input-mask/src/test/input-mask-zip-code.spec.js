@@ -14,13 +14,13 @@ const EVENTS = {};
  * @param {HTMLElement} el the element to sent the event to
  */
 EVENTS.input = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+  el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
-const inputMaskingSelector = () => document.querySelector(".usa-input-masking");
+const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "input mask", selector: inputMaskingSelector },
+  { name: "input mask", selector: inputMaskSelector },
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
@@ -35,7 +35,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = TEMPLATE;
       InputMask.on(containerSelector());
 
-      root = inputMaskingSelector();
+      root = inputMaskSelector();
       input = root.querySelector(".usa-input");
     });
 
@@ -48,7 +48,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "123456789";
 
       EVENTS.input(input);
-      shell = root.querySelector(".usa-input-mask--content");
+      shell = root.querySelector(".usa-input-mask__shell");
       assert.strictEqual(shell.textContent, "12345-6789");
     });
   });

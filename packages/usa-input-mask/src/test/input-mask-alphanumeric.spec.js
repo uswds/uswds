@@ -17,14 +17,14 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 };
 
-const inputMaskingSelector = () => document.querySelector(".usa-input-masking");
+const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "input mask", selector: inputMaskingSelector },
+  { name: "input mask", selector: inputMaskSelector },
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe.only(`input mask component initialized at ${name}`, () => {
+  describe(`input mask component initialized at ${name}`, () => {
     const { body } = document;
 
     let root;
@@ -35,7 +35,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = TEMPLATE;
       InputMask.on(containerSelector());
 
-      root = inputMaskingSelector();
+      root = inputMaskSelector();
       input = root.querySelector(".usa-input");
     });
 
@@ -44,13 +44,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    it("formats an alphanumeric example to A1B 2C3", () => {
-      input.value = "A1B2C3";
+    it("formats an alphanumeric example to 1EG4-TE5-MK73", () => {
+      input.value = "1EG4TE5MK73";
 
       EVENTS.input(input);
-      shell = root.querySelector(".usa-input-mask--content");
-      assert.strictEqual(shell.textContent, "A1B 2C3");
+      shell = root.querySelector(".usa-input-mask__shell");
+      assert.strictEqual(shell.textContent, "1EG4-TE5-MK73");
     });
   });
 });
-

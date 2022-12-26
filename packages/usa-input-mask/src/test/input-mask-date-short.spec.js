@@ -4,7 +4,7 @@ const assert = require("assert");
 const InputMask = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/input-mask-phone.template.html")
+  path.join(__dirname, "/input-mask-date-short.template.html")
 );
 
 const EVENTS = {};
@@ -44,12 +44,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    it("formats a US telephone number to (123) 456-7890", () => {
-      input.value = "1234567890";
+    it("formats a short date to 01/01/1970", () => {
+      input.value = "01011970";
 
       EVENTS.input(input);
       shell = root.querySelector(".usa-input-mask__shell");
-      assert.strictEqual(shell.textContent, "(123) 456-7890");
+      assert.strictEqual(shell.textContent, "01/01/1970");
     });
   });
 });
