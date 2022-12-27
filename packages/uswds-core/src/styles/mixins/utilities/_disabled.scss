@@ -1,0 +1,6 @@
+@use "../../functions/utilities/color" as *;
+
+@mixin u-disabled {
+  background-color: color("disabled") !important;
+  cursor: not-allowed;
+}
