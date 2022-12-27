@@ -34,6 +34,7 @@ module.exports = {
   inputMask,
   inputPrefixSuffix,
   languageSelector,
+  memorableDate,
   modal,
   navigation,
   password,
@@ -43,6 +44,4 @@ module.exports = {
   timePicker,
   tooltip,
   validator,
-
-  memorableDate,
 };
