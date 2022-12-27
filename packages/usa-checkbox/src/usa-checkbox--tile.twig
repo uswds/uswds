@@ -9,8 +9,8 @@
         name="historical-figures-2"
         value="sojourner-truth"
         checked
-        {% if disabled %}disabled{% endif %}
-        {% if aria_disabled %}aria-disabled="true"{% endif %}
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria_disabled" %}aria-disabled="true"{% endif %}
       >
       <label class="usa-checkbox__label" for="check-historical-truth-2">
         Sojourner Truth
@@ -25,8 +25,8 @@
         type="checkbox"
         name="historical-figures-2"
         value="frederick-douglass"
-        {% if disabled %}disabled{% endif %}
-        {% if aria_disabled %}aria-disabled="true"{% endif %}
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria_disabled" %}aria-disabled="true"{% endif %}
       >
       <label class="usa-checkbox__label" for="check-historical-douglass-2">Frederick Douglass</label>
     </div>
@@ -37,8 +37,8 @@
         type="checkbox"
         name="historical-figures-2"
         value="booker-t-washington"
-        {% if disabled %}disabled{% endif %}
-        {% if aria_disabled %}aria-disabled="true"{% endif %}
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria_disabled" %}aria-disabled="true"{% endif %}
       >
       <label class="usa-checkbox__label" for="check-historical-washington-2">Booker T. Washington</label>
     </div>
