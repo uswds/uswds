@@ -14,8 +14,7 @@
   }
 
   &--disabled {
-    background-color: color("disabled");
-    cursor: not-allowed;
+    @include u-disabled;
   }
 
   &--error {
