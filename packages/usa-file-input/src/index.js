@@ -70,6 +70,17 @@ const disable = (el) => {
 
   inputEl.disabled = true;
   dropZoneEl.classList.add(DISABLED_CLASS);
+};
+
+/**
+ * Set aria-disabled attribute to file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const ariaDisable = (el) => {
+  const { dropZoneEl } = getFileInputContext(el);
+
+  dropZoneEl.classList.add(DISABLED_CLASS);
   dropZoneEl.setAttribute("aria-disabled", "true");
 };
 
@@ -121,6 +132,7 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
+  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
   let defaultAriaLabel;
 
   // Adds class names and other attributes
@@ -145,6 +157,11 @@ const buildFileInput = (fileInputEl) => {
   // Disabled styling
   if (disabled) {
     disable(fileInputEl);
+  }
+
+  // Aria-disabled styling
+  if (ariaDisabled) {
+    ariaDisable(fileInputEl);
   }
 
   // Sets instruction test and aria-label based on whether or not multiple files are accepted
@@ -469,6 +486,7 @@ const fileInput = behavior(
     },
     getFileInputContext,
     disable,
+    ariaDisable,
     enable,
   }
 );
