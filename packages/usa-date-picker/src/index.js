@@ -710,6 +710,7 @@ const disable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = true;
+  toggleBtnEl.style.opacity = "0.6";
   externalInputEl.disabled = true;
 };
 
@@ -722,6 +723,7 @@ const enable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = false;
+  toggleBtnEl.style.opacity = "initial";
   externalInputEl.disabled = false;
 };
 
