@@ -4,12 +4,12 @@ import Tile from "./usa-radio--tile.twig";
 export default {
   title: "Components/Form Inputs/Radio",
   argTypes: {
-    aria_disabled: {
-      control: { type: "boolean" },
-      defaultValue: false,
-      name: "aria-disabled",
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
     },
-  },
+  }
 };
 
 const Template = (args) => Component(args);
