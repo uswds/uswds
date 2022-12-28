@@ -82,10 +82,7 @@ RestrictedDate.argTypes = {
 export const Disabled = Template.bind({});
 Disabled.argTypes = {
   disabled_state: {
-    defaultValue: true,
-  },
-  aria_disabled: {
-    defaultValue: false,
+    defaultValue: "disabled",
   },
   defaultDate: {
     table: { disable: true },
@@ -104,10 +101,7 @@ Disabled.argTypes = {
 export const AriaDisabled = Template.bind({});
 AriaDisabled.argTypes = {
   disabled_state: {
-    defaultValue: false,
-  },
-  aria_disabled: {
-    defaultValue: true,
+    defaultValue: "aria_disabled",
   },
   defaultDate: {
     table: { disable: true },
