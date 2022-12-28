@@ -83,25 +83,19 @@ $banner-icon-close: (
     }
   }
 
-  &.usa-accordion__content > .grid-row.grid-gap-lg{
-    @include u-display("flex");
-    @include u-flex-direction("column");
-    @include u-margin-x(-1.5);
+  &.usa-accordion__content > .grid-row {
+    @include grid-row;
 
-    & > * {
-      @include u-padding-x(1.5);
-      width: 100%;
+    &.grid-gap-lg {
+      @include grid-gap("lg");
+    }
 
-      @include at-media("tablet") {
-        width: 50%
+    .tablet\:grid-col-6 {
+      @include at-media("tablet"){
+        @include grid-col(6);
       }
     }
-
-    @include at-media("tablet") {
-      @include u-flex-direction("row")
-    }
   }
-}
 
 .usa-banner__guidance {
   @include u-display("flex");
