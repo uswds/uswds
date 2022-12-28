@@ -7,6 +7,11 @@ export default {
   argTypes: {
     id: { table: { disable: true } },
     name: { table: { disable: true } },
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
+    },
   },
 };
 
