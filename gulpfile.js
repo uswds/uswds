@@ -1,34 +1,30 @@
 // Include gulp helpers.
-// const { series, parallel } = require("gulp");
+// const { series, parallel } from "gulp";
+import gulp from "gulp";
 // import { series, parallel } from "gulp";
 
 // Include Our tasks.
 //
 // Each task is broken apart to it's own node module.
 // Check out the ./tasks directory for more.
-// const { noCleanup, noTest } = require("./tasks/flags");
-// const { buildSprite, buildSpriteStandalone } = require("./tasks/svg-sprite");
-// const { compileJS, typeCheck } = require("./tasks/javascript");
-// const { unitTests, sassTests } = require("./tasks/test");
-// const { lintSass, typecheck } = require("./tasks/lint");
-// const { build } = require("./tasks/build");
-// const { release } = require("./tasks/release");
-// const { watch } = require("./tasks/watch");
-// const { cleanDist } = require("./tasks/clean");
+import flags from "./tasks/flags.js";
+import { buildSprite, buildSpriteStandalone } from "./tasks/svg-sprite.js";
+import { unitTests, sassTests } from "./tasks/test.js";
+import lintSass from "./tasks/lint.js";
+import build from "./tasks/build.js";
+// import { release } from "./tasks/release";
+// import { watch } from "./tasks/watch";
+import cleanDist from "./tasks/clean.js";
 
-// import compileSass from "./tasks/index.js";
-import compileSass from "./tasks/sass.js"
+import { compileJS, typeCheck } from "./tasks/javascript.js";
+import compileSass from "./tasks/sass.js";
+
+const { series, parallel } = gulp;
 
 /**
  * *Flags*
  */
-// exports.noTest = noTest;
-// exports.noCleanup = noCleanup;
-
-/**
- * *Clean tasks*
- */
-// exports.cleanDist = cleanDist;
+const { noTest, noCleanup } = flags;
 
 /**
  * *Lint tasks*
@@ -45,12 +41,12 @@ import compileSass from "./tasks/sass.js"
  */
 // exports.sassTests = sassTests;
 // exports.unitTests = unitTests;
-// exports.test = series(
-//   typeCheck,
-//   lintSass,
-//   sassTests,
-//   unitTests,
-// );
+const test = series(
+  typeCheck,
+  lintSass,
+  sassTests,
+  unitTests,
+);
 
 /**
  * *Build tasks*
@@ -60,11 +56,11 @@ import compileSass from "./tasks/sass.js"
  * release: Builds USWDS and returns a zip with sha256 hash and filesize.
  */
 // exports.buildSpriteStandalone = buildSpriteStandalone;
-// exports.buildSprite = buildSprite;
-// exports.buildSass = series(lintSass, compileSass);
-// export default buildSass = compileSass;
-// exports.buildJS = series(typeCheck, compileJS);
-// exports.buildUSWDS = build;
+// export { buildSprite };
+// export const buildSass = series(lintSass, compileSass);
+// export const buildSass = compileSass;
+const buildJS = series(typeCheck, compileJS);
+// export { build as buildUSWDS };
 // exports.release = release;
 
 // export default compileSass;
@@ -79,4 +75,17 @@ import compileSass from "./tasks/sass.js"
 // Default Task
 // exports.default = this.buildUSWDS;
 
-export default compileSass;
+export default build;
+
+export {
+  lintSass,
+  test,
+  unitTests,
+  noTest,
+  noCleanup,
+  cleanDist,
+  buildSprite,
+  buildSpriteStandalone,
+  compileSass as buildSass,
+  buildJS,
+}

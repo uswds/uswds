@@ -1,10 +1,12 @@
-import { series, parallel } from "gulp";
-import dutil from "./utils/doc-util";
-import { buildSprite } from "./svg-sprite";
-import { compileSass } from "./sass";
-import { compileJS } from "./javascript";
-import { copyTheme, copyFonts, copyIcons, copyImages, copySass } from "./copy";
-import { cleanDist } from "./clean";
+import gulp from "gulp";
+import dutil from "./utils/doc-util.js";
+import { buildSprite } from "./svg-sprite.js";
+import compileSass from "./sass.js";
+import { compileJS } from "./javascript.js";
+import { copyTheme, copyFonts, copyIcons, copyImages, copySass } from "./copy.js";
+import cleanDist from "./clean.js";
+
+const { series, parallel } = gulp;
 
 /**
  * Generates the dist directory that gets zipped on release.

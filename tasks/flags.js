@@ -1,5 +1,5 @@
-import dutil from "./utils/doc-util";
-import cFlags from "./utils/cflags";
+import dutil from "./utils/doc-util.js";
+import cFlags from "./utils/cflags.js";
 
 export default {
   noTest(done) {

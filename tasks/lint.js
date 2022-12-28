@@ -1,10 +1,10 @@
-import { stylelint, formatters } from "stylelint";
+import stylelint from "stylelint";
 
 const IGNORE_STRING = "This file is ignored";
 const PROJECT_SASS_SRC = "src/stylesheets";
 
 function ignoreStylelintIgnoreWarnings(lintResults) {
-  return formatters.string(
+  return stylelint.formatters.string(
     lintResults.reduce((memo, result) => {
       const { warnings } = result;
       const fileIsIgnored = warnings.some((warning) =>
@@ -32,6 +32,4 @@ async function lintSass(callback) {
   callback(errored ? new Error(output) : null);
 }
 
-export default {
-  lintSass,
-};
+export default lintSass;

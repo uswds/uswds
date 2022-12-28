@@ -9,7 +9,7 @@ import gulpSass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import sassEmbedded from "sass-embedded";
 import dutil from "./utils/doc-util.js";
-import pkg from '../package.json' assert { type: 'json' };
+import pkg from "../package.json" assert { type: "json" };
 
 const { src, dest } = gulp;
 
@@ -24,9 +24,7 @@ function compileSass() {
     .pipe(sourcemaps.init({ largeFile: true }))
     .pipe(
       sass({
-        includePaths: [
-          "./packages",
-        ],
+        includePaths: ["./packages"],
         outputStyle: "expanded",
       }).on("error", function handleError(error) {
         dutil.logError(error);
@@ -44,6 +42,6 @@ function compileSass() {
     )
     .pipe(sourcemaps.write("."))
     .pipe(dest("dist/css"));
-};
+}
 
 export default compileSass;

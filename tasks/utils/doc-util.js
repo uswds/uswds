@@ -1,7 +1,6 @@
 import log from "fancy-log";
 import colors from "ansi-colors";
-import pkg from '../../package.json' assert { type: 'json' };
-
+import pkg from "../../package.json" assert { type: "json" };
 
 const shellPrefix = "$";
 

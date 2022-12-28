@@ -4,12 +4,12 @@
 
 // Include Our Plugins
 import del from "del";
-import cFlags from "./utils/cflags";
-import dutil from "./utils/doc-util";
+import flags from "./utils/cflags.js";
+import dutil from "./utils/doc-util.js";
 
 // Clean generated Dist directory.
 const cleanDist = done => {
-  if (!cFlags.cleanup) {
+  if (!flags.cleanup) {
     dutil.logMessage(
       "clean-dist",
       "Skipping cleaning up the distribution directories."

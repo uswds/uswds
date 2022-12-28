@@ -1,10 +1,11 @@
 import spawn from "cross-spawn";
-import { series } from "gulp";
+import gulp from "gulp";
 import crypto from "crypto";
 import fs from "fs";
-import dutil from "./utils/doc-util";
-import { build } from "./build";
+import dutil from "./utils/doc-util.js";
+import build from "./build";
 
+const { series } = gulp;
 const hash = crypto.createHash("sha256");
 
 const version = dutil.dirName.replace("@uswds/", "");
