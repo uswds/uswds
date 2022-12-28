@@ -715,6 +715,19 @@ const disable = (el) => {
 };
 
 /**
+ * Check for aria-disabled on initialization
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const ariaDisable = (el) => {
+  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
+
+  toggleBtnEl.setAttribute("aria-disabled", true);
+  toggleBtnEl.style.opacity = "0.6";
+  externalInputEl.setAttribute("aria-disabled", true);
+};
+
+/**
  * Enable the date picker component
  *
  * @param {HTMLElement} el An element within the date picker component
@@ -896,6 +909,11 @@ const enhanceDatePicker = (el) => {
   if (internalInputEl.disabled) {
     disable(datePickerEl);
     internalInputEl.disabled = false;
+  }
+
+  if (internalInputEl.hasAttribute("aria-disabled")) {
+    ariaDisable(datePickerEl);
+    internalInputEl.removeAttribute("aria-disabled");
   }
 };
 
@@ -2234,6 +2252,7 @@ const datePicker = behavior(datePickerEvents, {
   },
   getDatePickerContext,
   disable,
+  ariaDisable,
   enable,
   isDateInputInvalid,
   setCalendarValue,
