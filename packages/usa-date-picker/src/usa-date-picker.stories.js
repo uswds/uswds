@@ -21,13 +21,8 @@ export default {
     },
     disabled_state: {
       name: "Disabled state",
-      control: { type: "boolean" },
-      defaultValue: false,
-    },
-    aria_disabled: {
-      name: "Aria disabled",
-      control: { type: "boolean" },
-      defaultValue: false,
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
     },
   },
 };
