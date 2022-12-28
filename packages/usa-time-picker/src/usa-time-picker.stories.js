@@ -2,10 +2,13 @@ import Component from "./usa-time-picker.twig";
 
 export default {
   title: "Components/Form Inputs/Time Picker",
-  args: {
-    disabled: false,
-    aria_disabled: false,
-  },
+  argTypes: {
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
+    },
+  }
 };
 
 const Template = (args) => Component(args);
