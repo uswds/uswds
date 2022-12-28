@@ -8,6 +8,13 @@ import {
 
 export default {
   title: "Components/Form Inputs/Text Input Mask",
+  argTypes: {
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
+    },
+  }
 };
 
 const Template = (args) => Component(args);
