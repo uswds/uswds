@@ -6,7 +6,7 @@ import postcss from "gulp-postcss";
 import replace from "gulp-replace";
 import rename from "gulp-rename";
 import gulpSass from "gulp-sass";
-// import sourcemaps from "gulp-sourcemaps";
+import sourcemaps from "gulp-sourcemaps";
 import sassEmbedded from "sass-embedded";
 import dutil from "./utils/doc-util.js";
 import pkg from '../package.json' assert { type: 'json' };
@@ -20,7 +20,8 @@ function compileSass() {
   const pluginsProcess = [discardComments(), autoprefixer()];
   const pluginsMinify = [csso({ forceMediaMerge: false })];
 
-  return src("src/stylesheets/uswds.scss", { sourcemaps: true })
+  return src("src/stylesheets/uswds.scss")
+    .pipe(sourcemaps.init({ largeFile: true }))
     .pipe(
       sass({
         includePaths: [
@@ -41,7 +42,8 @@ function compileSass() {
         suffix: ".min",
       })
     )
-    .pipe(dest("dist/css", { sourcemaps: '.' }));
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("dist/css"));
 };
 
 export default compileSass;
