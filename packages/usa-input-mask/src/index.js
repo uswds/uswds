@@ -1,4 +1,3 @@
-// const keymap = require("receptor/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
@@ -86,13 +85,7 @@ const checkMaskForLetters = () =>
  * @param {string} strVal - The input string to process.
  * @returns {string} The numeric characters from the input string.
  */
-const getStrNumbers = (strVal) => {
-  console.log("strVal", strVal);
-  if (!strVal) return "";
-  console.log("strVal.replace(/[^0-9]/g,", strVal.replace(/[^0-9]/g, ""));
-  return strVal.replace(/[^0-9]/g, "");
-};
-/* const getStrNumbers = (strVal) => {
+const getMatchValue = (strVal) => {
   if (!strVal) {
     return "";
   }
@@ -103,7 +96,7 @@ const getStrNumbers = (strVal) => {
   }
 
   return newValue;
-}; */
+};
 
 /**
  * Returns the current cursor position in the input element.
@@ -277,7 +270,7 @@ const setInitMask = (inputEl) => {
  */
 const changeValue = (inputEl) => {
   const el = inputEl;
-  const strValue = getStrNumbers(el.value);
+  const strValue = getMatchValue(el.value);
 
   let newValue = "";
   let index = 0;
@@ -297,7 +290,7 @@ const changeValue = (inputEl) => {
 
   el.value = newValue;
 
-  const strNumber = getStrNumbers(newValue);
+  const strNumber = getMatchValue(newValue);
   if (strNumber === "") {
     setInitMask(inputEl);
   }
@@ -350,18 +343,6 @@ const createStatusMessages = (maskedEl) => {
 
   maskedEl.append(statusMessage, srStatusMessage);
 };
-
-/**
- * Handles the blur or focusout event
- *
- * @param {HTMLElement} inputEl - The maskedinput element
- */
-/* const handleBlur = (inputEl) => {
-  const el = inputEl;
-  if (el.value.length > 0) {
-
-  }
-}; */
 
 /**
  * Extracts the valid text from a given string of pasted text, based on the current mask.
@@ -427,12 +408,38 @@ const setValueOfMask = (inputEl) => {
 const handleValueChange = (inputEl) => {
   const el = inputEl;
   const id = el.getAttribute("id");
-  // el.value = handleCurrentValue(el);
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
+};
+
+/**
+ * Paste text into an input element at a specific cursor position.
+ *
+ * @param {HTMLElement} inputEl - The input element.
+ * @param {string} pastedText - The text to be pasted.
+ * @param {number} curPos - The cursor position where the text will be pasted.
+ */
+const pasteTextToInput = (inputEl, pastedText, curPos) => {
+  const el = inputEl;
+  if (pastedText !== "") {
+    let oldText = "";
+    if (curPos > 0) {
+      oldText = el.value.slice(0, curPos);
+    }
+
+    const newText = oldText + pastedText;
+
+    el.value = newText;
+
+    changeValue(inputEl, curPos);
+
+    setCursorPosition(inputEl, el.value.length);
+
+    handleValueChange(inputEl);
+  }
 };
 
 /**
@@ -450,28 +457,9 @@ const handlePaste = (inputEl, event) => {
   pastedText = pastedText.trim();
   pastedText = getPastedText(pastedText);
 
-  if (pastedText !== "") {
-    const curPos = getCursorPosition(el);
+  const curPos = getCursorPosition(el);
 
-    let oldText = "";
-    if (curPos > 0) {
-      oldText = el.value.slice(0, curPos);
-    }
-
-    const newText = oldText + pastedText;
-
-    el.value = newText;
-
-    changeValue(inputEl, curPos);
-
-    setCursorPosition(inputEl, el.value.length);
-
-    handleValueChange(inputEl);
-
-    event.preventDefault();
-
-    return false;
-  }
+  pasteTextToInput(inputEl, pastedText, curPos);
 
   event.preventDefault();
   return false;
@@ -514,61 +502,11 @@ const getMaskedElements = (inputEl, onlyElement = false) => {
  * @param {number} curPos - The current position in the input element.
  * @param {boolean} [isBackspace=true] - Indicates whether the backspace key was pressed (true) or not (false).
  */
-
-/* const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
-  const el = inputEl;
-  if (isBackspace) {
-    if (curPos < 1) {
-      return;
-    }
-    const startPos = el.value
-      .slice(0, curPos)
-      .split("")
-      .reverse()
-      .findIndex((char) => FORMAT_CHARACTERS.indexOf(char) === -1);
-    el.value =
-      el.value.slice(0, startPos) + el.value.slice(curPos, el.value.length);
-    changeValue(inputEl, curPos);
-    setCursorPosition(inputEl, startPos);
-  } else {
-    if (curPos > el.value.length - 1) {
-      return;
-    }
-    const endPos =
-      el.value
-        .slice(curPos)
-        .split("")
-        .findIndex((char) => FORMAT_CHARACTERS.indexOf(char) === -1) + curPos;
-    el.value =
-      el.value.slice(0, curPos) + el.value.slice(endPos, el.value.length);
-    changeValue(inputEl);
-    setCursorPosition(inputEl, curPos);
-  }
-}; */
-
-/* const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
-  const el = inputEl;
-  if (isBackspace) {
-    if (curPos < 1) return;
-    const startPos = el.value.slice(0, curPos).search(/[^0-9]*$/);
-    el.value = el.value.slice(0, startPos) + el.value.slice(curPos);
-    changeValue(inputEl, curPos);
-    setCursorPosition(inputEl, startPos);
-  } else {
-    if (curPos > el.value.length - 1) return;
-    const endPos = el.value.slice(curPos).search(/[^0-9]/);
-    el.value = el.value.slice(0, curPos) + el.value.slice(curPos + endPos + 1);
-    changeValue(inputEl);
-    setCursorPosition(inputEl, curPos);
-  }
-};
-*/
-
 const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
   const el = inputEl;
   if (isBackspace) {
     const strVal = el.value.slice(0, curPos);
-    const strNumberVal = getStrNumbers(strVal);
+    const strNumberVal = getMatchValue(strVal);
     if (strNumberVal === "" || curPos < 1) {
       return;
     }
@@ -598,7 +536,7 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
     setCursorPosition(inputEl, startPos);
   } else {
     const strVal = el.value.slice(curPos, el.value.length);
-    const strNumberVal = getStrNumbers(strVal);
+    const strNumberVal = getMatchValue(strVal);
     if (strNumberVal === "" || curPos > el.value.length - 1) {
       return;
     }
@@ -734,6 +672,51 @@ const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
 };
 
 /**
+ * Check if there is an available character to the left of the current position in the mask.
+ *
+ * @param {number} curPos - The current position in the mask.
+ * @returns {boolean} - `true` if there is an available character to the left, `false` otherwise.
+ */
+const checkAvailableLeft = (curPos) => {
+  if (curPos === 0) {
+    return true;
+  }
+
+  let result = false;
+
+  for (let i = curPos - 1; i >= 0; i -= 1) {
+    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
+      result = true;
+      break;
+    }
+  }
+
+  return result;
+};
+
+/**
+ * Handle the `keyup` event for an input element.
+ *
+ * @param {HTMLElement} inputEl - The input element.
+ * @param {Event} event - The `keyup` event object.
+ * @returns {boolean} - `false` if the event is handled, `true` otherwise.
+ */
+const handleKeyUp = (inputEl, event) => {
+  const keyCode = event.which;
+  const el = inputEl;
+
+  if (keyCode === undefined && el.value.length > 0) {
+    const pastedText = el.value;
+    el.value = "";
+    pasteTextToInput(inputEl, pastedText, 0);
+    event.preventDefault();
+    return false;
+  }
+
+  return true;
+};
+
+/**
  * Handles the key down event for the input element.
  *
  * @param {HTMLElement} inputEl - The input element.
@@ -746,7 +729,12 @@ const handleKeyDown = (inputEl, event) => {
 
   let curPos = getCursorPosition(el);
 
-  if (keyCode === KEYS.command || event.ctrlKey) {
+  // check and set disable
+  if (keyCode === undefined) {
+    return true;
+  }
+
+  if (keyCode === KEYS.command || event.ctrlKey || keyCode === KEYS.shift) {
     return true;
   }
   const copyCutPasteKeys =
@@ -765,6 +753,11 @@ const handleKeyDown = (inputEl, event) => {
 
   if (movementKeys) {
     if (checkMaskForLetters()) {
+      event.preventDefault();
+      return false;
+    }
+
+    if (keyCode === KEYS.left && !checkAvailableLeft(curPos)) {
       event.preventDefault();
       return false;
     }
@@ -829,19 +822,17 @@ const handleKeyDown = (inputEl, event) => {
         keyCode -= 48;
       }
 
-      let character = event.shiftKey
-        ? String.fromCharCode(keyCode).toUpperCase()
-        : String.fromCharCode(keyCode).toLowerCase();
+      let keyVal = event.key;
 
       if (FORCE_UPPER) {
-        character = character.toUpperCase();
+        keyVal = keyVal.toUpperCase();
       }
 
       if (FORCE_LOWER) {
-        character = character.toLowerCase();
+        keyVal = keyVal.toLowerCase();
       }
 
-      insertCharacterAtIndex(el, lastPosition, character);
+      insertCharacterAtIndex(el, lastPosition, keyVal);
 
       if (HAS_MASK) {
         checkAndInsertMaskCharacters(el, lastPosition);
@@ -870,19 +861,17 @@ const handleKeyDown = (inputEl, event) => {
       keyCode -= 48;
     }
 
-    let character = event.shiftKey
-      ? String.fromCharCode(keyCode).toUpperCase()
-      : String.fromCharCode(keyCode).toLowerCase();
+    let temp = event.key;
 
     if (FORCE_UPPER) {
-      character = character.toUpperCase();
+      temp = temp.toUpperCase();
     }
 
     if (FORCE_LOWER) {
-      character = character.toLowerCase();
+      temp = temp.toLowerCase();
     }
 
-    insertCharacterAtIndex(el, getCursorPosition(el), character);
+    insertCharacterAtIndex(el, getCursorPosition(el), temp);
 
     if (HAS_MASK) {
       checkAndInsertMaskCharacters(el, getCursorPosition(el));
@@ -943,6 +932,11 @@ const inputMaskEvents = {
   paste: {
     [INPUT](event) {
       handlePaste(this, event, null);
+    },
+  },
+  keyup: {
+    [INPUT](event) {
+      handleKeyUp(this, event);
     },
   },
 };
