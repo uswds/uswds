@@ -1,23 +1,22 @@
 <label class="usa-label" for="input-type-text">Text input label</label>
-<input class="usa-input" id="input-type-text" name="input-type-text" type="text">
-
-<label class="usa-label" for="input-focus">Text input focused</label>
-<input class="usa-input usa-focus" id="input-focus" name="input-focus" type="text">
-
-<div class="usa-form-group usa-form-group--error">
-  <label class="usa-label usa-label--error" for="input-error">Text input error</label>
-  <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
-  <input class="usa-input usa-input--error" id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
-</div>
-
-<label class="usa-label" for="input-success">Text input success</label>
-<input class="usa-input usa-input--success" id="input-success" name="input-success" type="text">
+{% if state == "error" %} <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>{%- endif %}
+<input class="usa-input 
+  {% if state == "focus" %} usa-focus{%- endif%}
+  {% if state == "error" %} usa-input--error{%- endif%}
+  {% if state == "success" %} usa-input--success{%- endif%}
+  " 
+  {% if state == "disabled" %} disabled{%- endif%}
+  {% if state == "aria_disabled" %} aria-disabled="true"{%- endif%}
+  id="input-type-text" name="input-type-text" type="text">
 
 <label class="usa-label" for="input-type-textarea">Text area label</label>
-<textarea class="usa-textarea" id="input-type-textarea" name="input-type-textarea"></textarea>
-
-<label class="usa-label" for="input-disabled">Text input disabled</label>
-<input class="usa-input" id="input-disabled" name="input-disabled" type="text" disabled>
-
-<label class="usa-label" for="input-type-textarea-disabled">Text area disabled</label>
-<textarea class="usa-textarea" id="input-type-textarea-disabled" name="input-type-textarea-disabled" disabled></textarea>
+{% if state == "error" %} <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>{%- endif %}
+<textarea class="usa-textarea 
+  {% if state == "focus" %} usa-focus{%- endif%}
+  {% if state == "error" %} usa-input--error{%- endif%}
+  {% if state == "success" %} usa-input--success{%- endif%}
+  
+  " 
+  {% if state == "disabled" %} disabled{%- endif%}
+  {% if state == "aria_disabled" %} aria-disabled="true"{%- endif%}
+  id="input-type-textarea" name="input-type-textarea"></textarea>
