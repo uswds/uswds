@@ -99,11 +99,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "123456789";
 
       EVENTS.input(input);
-
+      shell = inputMaskShellSelector();
       setTimeout(() => {
-        shell = inputMaskShellSelector();
         assert.strictEqual(shell.textContent, "123-45-6789");
-      }, 100);
+      }, 2000);
     });
   });
 });

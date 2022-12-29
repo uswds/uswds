@@ -26,7 +26,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe(`input mask component initialized at ${name}`, () => {
+  describe.only(`input mask component initialized at ${name}`, () => {
     const { body } = document;
 
     let root;
@@ -107,18 +107,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
           statusMessageVisual.innerHTML,
           "A letter character is required here"
         );
-      }, 500);
+      }, 2000);
     });
 
     it("formats an alphanumeric example to 1EG4-TE5-MK73", () => {
       input.value = "1EG4TE5MK73";
 
       EVENTS.input(input);
-
+      shell = inputMaskShellSelector();
       setTimeout(() => {
-        shell = inputMaskShellSelector();
         assert.strictEqual(shell.textContent, "1EG4-TE5-MK73");
-      }, 100);
+      }, 2000);
     });
   });
 });
