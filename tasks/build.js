@@ -1,12 +1,10 @@
-import gulp from "gulp";
-import dutil from "./utils/doc-util.js";
-import { buildSprite } from "./svg-sprite.js";
-import compileSass from "./sass.js";
-import { compileJS } from "./javascript.js";
-import { copyTheme, copyFonts, copyIcons, copyImages, copySass } from "./copy.js";
-import cleanDist from "./clean.js";
-
-const { series, parallel } = gulp;
+const { series, parallel } = require("gulp");
+const dutil = require("./utils/doc-util");
+const { buildSprite } = require("./svg-sprite");
+const { compileSass } = require("./sass");
+const { compileJS } = require("./javascript");
+const { copyTheme, copyFonts, copyIcons, copyImages, copySass } = require("./copy");
+const { cleanDist } = require("./clean");
 
 /**
  * Generates the dist directory that gets zipped on release.
@@ -17,7 +15,7 @@ const { series, parallel } = gulp;
   ├── * Compile sass and js
   └── * Copy sass, images, and fonts to `dist/`
  */
-const build = series(
+exports.build = series(
   (done) => {
     dutil.logIntroduction();
     dutil.logMessage("build", "Creating distribution directories.");
@@ -29,5 +27,3 @@ const build = series(
   compileJS,
   compileSass
 );
-
-export default build;

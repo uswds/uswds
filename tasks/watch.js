@@ -1,9 +1,9 @@
-import { watch, series, parallel } from "gulp";
-import { unitTests, sassTests } from "./test";
-import { lintSass, typecheck } from "./lint";
-import { compileSass } from "./sass";
-import { compileJS } from "./javascript";
-import { build } from "./build";
+const { watch, series, parallel } = require("gulp");
+const { unitTests, sassTests } = require("./test");
+const { lintSass, typecheck } = require("./lint");
+const { compileSass } = require("./sass");
+const { compileJS } = require("./javascript");
+const { build } = require("./build");
 
 /**
  * Watch Sass and JS files.
@@ -32,7 +32,7 @@ function watchFiles() {
   );
 }
 
-export const watch = series(
+exports.watch = series(
   build,
   watchFiles
 );

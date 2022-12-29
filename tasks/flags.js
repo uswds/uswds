@@ -1,7 +1,7 @@
-import dutil from "./utils/doc-util.js";
-import cFlags from "./utils/cflags.js";
+const dutil = require("./utils/doc-util");
+const cFlags = require("./utils/cflags");
 
-export default {
+module.exports = {
   noTest(done) {
     dutil.logMessage("no-test", "Disabling linting and tests for all assets.");
     cFlags.test = false;
