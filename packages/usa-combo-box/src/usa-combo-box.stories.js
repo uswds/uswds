@@ -11,6 +11,7 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria_disabled"],
+      defaultValue: "none"
     },
   },
 };
@@ -20,5 +21,19 @@ const TestTemplate = (args) => TestComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
+
+export const Disabled = Template.bind({});
+Disabled.argTypes = {
+  disabled_state: {
+    defaultValue: "disabled"
+  }
+}
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.argTypes = {
+  disabled_state: {
+    defaultValue: "aria_disabled"
+  }
+}
 
 export const Test = TestTemplate.bind({});

@@ -1,0 +1,11 @@
+{
+  "label": "Aria-Disabled",
+  "hint": "Input is disabled",
+  "id": "aria-disabled",
+  "type": "text",
+  "inputmode": "text",
+  "placeholder": "___ ___",
+  "pattern": "\\w\\d\\w \\d\\w\\d",
+  "datacharset": "A#A #A#",
+  "disabled_state": "aria_disabled"
+}
