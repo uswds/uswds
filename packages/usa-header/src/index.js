@@ -1,13 +1,13 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/index");
-const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+import { keymap } from "receptor";
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import select  from "../../uswds-core/src/js/utils/select";
+import toggle from "../../uswds-core/src/js/utils/toggle";
+import focusTrap from "../../uswds-core/src/js/utils/focus-trap";
+import accordion from "../../usa-accordion/src/index";
+import getScrollbarWidth from "../../uswds-core/src/js/utils/scrollbar-width";
 
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { CLICK } from "../../uswds-core/src/js/events";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;
@@ -34,7 +34,7 @@ let navActive;
 let nonNavElements;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = getScrollbarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -217,7 +217,7 @@ navigation = behavior(
       const trapContainer = root.matches(NAV) ? root : root.querySelector(NAV);
 
       if (trapContainer) {
-        navigation.focusTrap = FocusTrap(trapContainer, {
+        navigation.focusTrap = focusTrap(trapContainer, {
           Escape: onMenuClose,
         });
       }
@@ -234,4 +234,4 @@ navigation = behavior(
   }
 );
 
-module.exports = navigation;
+export default navigation;

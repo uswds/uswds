@@ -1,4 +1,5 @@
-const select = require("./select");
+import select from "./select";
+
 /**
  * @name isElement
  * @desc returns whether or not the given argument is a DOM element.
@@ -16,7 +17,7 @@ const isElement = (value) =>
  *   in. If not provided, it defaults to the document.
  * @return {HTMLElement[]} - An array of DOM nodes or an empty array.
  */
-module.exports = (selector, context) => {
+export default (selector, context) => {
   const selection = select(selector, context);
   if (typeof selector !== "string") {
     return selection;

@@ -1,5 +1,5 @@
-const resolveIdRefs = require("resolve-id-refs");
-const toggleFieldMask = require("./toggle-field-mask");
+import resolveIdRefs from "resolve-id-refs";
+import toggleFieldMask from "./toggle-field-mask";
 
 const CONTROLS = "aria-controls";
 const PRESSED = "aria-pressed";
@@ -23,7 +23,7 @@ const getHideText = (showText) =>
  * @param  {HTMLElement} el    Parent element containing the fields to be masked
  * @return {boolean}
  */
-module.exports = (el) => {
+export default (el) => {
   // this is the *target* state:
   // * if the element has the attr and it's !== "true", pressed is true
   // * otherwise, pressed is false

@@ -1,4 +1,4 @@
-module.exports = function getScrollbarWidth() {
+function getScrollbarWidth() {
   // Creating invisible container
   const outer = document.createElement('div');
   outer.style.visibility = 'hidden';
@@ -9,7 +9,7 @@ module.exports = function getScrollbarWidth() {
   // Creating inner element and placing it in the container
   const inner = document.createElement('div');
   outer.appendChild(inner);
-  
+
   // Calculating difference between container's full width and the child width
   const scrollbarWidth = `${(outer.offsetWidth - inner.offsetWidth)}px`;
 
@@ -18,3 +18,5 @@ module.exports = function getScrollbarWidth() {
 
   return scrollbarWidth;
 };
+
+export default getScrollbarWidth;

@@ -1,8 +1,7 @@
-const assign = require("object-assign");
-const { keymap } = require("receptor");
-const behavior = require("./behavior");
-const select = require("./select");
-const activeElement = require("./active-element");
+import { keymap } from "receptor";
+import behavior from "./behavior";
+import select from "./select";
+import activeElement from "./active-element";
 
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
@@ -43,7 +42,7 @@ const tabHandler = (context) => {
   };
 };
 
-module.exports = (context, additionalKeyBindings = {}) => {
+export default (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
   const bindings = additionalKeyBindings;
   const { Esc, Escape } = bindings;
@@ -54,13 +53,11 @@ module.exports = (context, additionalKeyBindings = {}) => {
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
   const keyMappings = keymap(
-    assign(
-      {
-        Tab: tabEventHandler.tabAhead,
-        "Shift+Tab": tabEventHandler.tabBack,
-      },
-      additionalKeyBindings
-    )
+    {
+      Tab: tabEventHandler.tabAhead,
+      "Shift+Tab": tabEventHandler.tabBack,
+      ...additionalKeyBindings
+    }
   );
 
   const focusTrap = behavior(

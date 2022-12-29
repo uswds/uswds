@@ -1,1 +1,1 @@
-module.exports = (htmlDocument = document) => htmlDocument.activeElement;
+export default (htmlDocument = document) => htmlDocument.activeElement;

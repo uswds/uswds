@@ -1,9 +1,9 @@
-const select = require("../../uswds-core/src/js/utils/select");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import select  from "../../uswds-core/src/js/utils/select";
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import toggle  from "../../uswds-core/src/js/utils/toggle";
+import isElementInViewport  from "../../uswds-core/src/js/utils/is-in-viewport";
+import { CLICK } from "../../uswds-core/src/js/events";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
@@ -96,4 +96,4 @@ const accordion = behavior(
   }
 );
 
-module.exports = accordion;
+export default accordion;

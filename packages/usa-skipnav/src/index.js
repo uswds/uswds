@@ -1,7 +1,7 @@
-const once = require("receptor/once");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import once from "receptor/once";
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import { CLICK } from "../../uswds-core/src/js/events";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
 
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer__return-to-top [href^="#"]`;
 const MAINCONTENT = "main-content";
@@ -29,7 +29,7 @@ function setTabindex() {
   }
 }
 
-module.exports = behavior({
+export default behavior({
   [CLICK]: {
     [LINK]: setTabindex,
   },

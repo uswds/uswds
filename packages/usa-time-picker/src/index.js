@@ -1,10 +1,9 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const {
-  COMBO_BOX_CLASS,
-  enhanceComboBox,
-} = require("../../usa-combo-box/src/index");
+import behavior  from "../../uswds-core/src/js/utils/behavior";
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config";
+import comboBox from "../../usa-combo-box/src/index";
+
+const { COMBO_BOX_CLASS, enhanceComboBox } = comboBox;
 
 const TIME_PICKER_CLASS = `${PREFIX}-time-picker`;
 const TIME_PICKER = `.${TIME_PICKER_CLASS}`;
@@ -139,4 +138,4 @@ const timePicker = behavior(
   }
 );
 
-module.exports = timePicker;
+export default timePicker;

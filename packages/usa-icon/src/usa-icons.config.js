@@ -247,7 +247,7 @@ const config = {
     "sort_arrow",
     "tornado",
     "twitter",
-    "youtube",  
+    "youtube",
   ]
 };
 

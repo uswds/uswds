@@ -1,3 +1,1 @@
-module.exports = {
-  prefix: "usa",
-};
+export const prefix = "usa";

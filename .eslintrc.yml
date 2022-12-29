@@ -1,3 +1,9 @@
+parser: "@babel/eslint-parser"
+parserOptions:
+  requireConfigFile: false
+  babelOptions:
+    plugins:
+      - '@babel/plugin-syntax-import-assertions'
 extends:
   - airbnb-base
   - prettier
@@ -7,7 +13,7 @@ plugins:
 env:
   node: true
   browser: true
-  es6: true
+  es2021: true
   mocha: true
 rules:
   import/no-extraneous-dependencies:
