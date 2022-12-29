@@ -3,20 +3,18 @@
 <input class="usa-input 
   {% if state == "focus" %} usa-focus{%- endif%}
   {% if state == "error" %} usa-input--error{%- endif%}
-  {% if state == "success" %} usa-input--success{%- endif%}
-  " 
+  {% if state == "success" %} usa-input--success{%- endif%}" 
   {% if state == "disabled" %} disabled{%- endif%}
   {% if state == "aria_disabled" %} aria-disabled="true"{%- endif%}
   id="input-type-text" name="input-type-text" type="text">
-
 <label class="usa-label" for="input-type-textarea">Text area label</label>
-{% if state == "error" %} <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>{%- endif %}
+{% if state == "error" %}
+  <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
+{%- endif %}
 <textarea class="usa-textarea 
   {% if state == "focus" %} usa-focus{%- endif%}
   {% if state == "error" %} usa-input--error{%- endif%}
-  {% if state == "success" %} usa-input--success{%- endif%}
-  
-  " 
+  {% if state == "success" %} usa-input--success{%- endif%}" 
   {% if state == "disabled" %} disabled{%- endif%}
   {% if state == "aria_disabled" %} aria-disabled="true"{%- endif%}
   id="input-type-textarea" name="input-type-textarea"></textarea>
