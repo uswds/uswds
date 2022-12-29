@@ -62,8 +62,7 @@ $banner-icon-close: (
 }
 
 .usa-banner__content {
-  @include u-maxw($theme-banner-max-width);
-  @include u-margin-x(auto);
+  @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
   background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
@@ -127,24 +126,14 @@ $banner-icon-close: (
 }
 
 .usa-banner__inner {
-  @include u-maxw($theme-banner-max-width);
-  @include u-margin-x(auto);
   @include add-responsive-site-margins;
+  @include grid-container($theme-banner-max-width);
+  @include grid-row;
   @include u-flex("align-start");
   padding-right: units(0);
-  display: flex;
-
-  // Prevents content shift when expanded on small screens
-  & > .grid-col-fill {
-    flex: 1 1 0%;
-  }
 
   @include at-media("tablet") {
     @include u-flex("align-center");
-    
-    & > .grid-col-fill {
-      flex: 0 1 auto;
-    }
   }
 }
 
@@ -354,7 +343,6 @@ $banner-icon-close: (
 
 .usa-banner__icon {
   width: units(5);
-  margin-right: units(1);
 }
 
 // [uswds-init.js] Offscreen content while js is loading
