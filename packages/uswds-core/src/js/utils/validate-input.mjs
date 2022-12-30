@@ -1,9 +1,9 @@
-const debounce = require("./debounce");
-const { prefix: PREFIX } = require("../config");
+import debounce from "./debounce";
+import { prefix as PREFIX } from "../config";
 
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 
-module.exports = function validate(el) {
+function validate(el) {
   const id = el.dataset.validationElement;
   const checkList =
     id.charAt(0) === "#"
@@ -60,3 +60,5 @@ module.exports = function validate(el) {
     }
   });
 };
+
+export default validate;

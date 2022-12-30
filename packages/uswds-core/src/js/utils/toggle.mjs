@@ -2,7 +2,7 @@ const EXPANDED = "aria-expanded";
 const CONTROLS = "aria-controls";
 const HIDDEN = "hidden";
 
-module.exports = (button, expanded) => {
+export default (button, expanded) => {
   let safeExpanded = expanded;
 
   if (typeof safeExpanded !== "boolean") {

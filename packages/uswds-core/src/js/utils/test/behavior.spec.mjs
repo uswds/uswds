@@ -1,6 +1,6 @@
-const sinon = require("sinon");
-const assert = require("assert");
-const behavior = require("../behavior");
+import sinon from "sinon";
+import assert from "assert";
+import behavior from "../behavior.mjs";
 
 describe("behavior", () => {
   it("returns an object", () => {
@@ -56,4 +56,3 @@ describe("behavior", () => {
     });
   });
 });
-
