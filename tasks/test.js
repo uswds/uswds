@@ -10,7 +10,7 @@ module.exports = {
   // run unit test.
   unitTests() {
     //! @TODO Undo this after component conversion
-    //! Should point to "packages/uswds-core/src/js/utils/**/*.spec.mjs"
+    //! Should point to "packages/usa-*/**/*.spec.js"
     return src("packages/uswds-core/src/js/utils/**/*.spec.mjs").pipe(
       mocha(mochaConfig)
     );
