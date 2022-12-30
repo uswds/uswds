@@ -3,7 +3,7 @@
   "version": "3.3.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
-    "node": ">= 4"
+    "node": ">= 12"
   },
   "keywords": [
     "ui",
@@ -117,7 +117,7 @@
     "@storybook/builder-webpack5": "6.5.12",
     "@storybook/html": "6.5.12",
     "@storybook/manager-webpack5": "6.5.12",
-    "@types/node": "16.11.19",
+    "@types/node": "18.11.18",
     "ansi-colors": "4.1.1",
     "autoprefixer": "10.4.1",
     "axe-core": "4.3.4",
@@ -177,7 +177,7 @@
     "svgo": "2.8.0",
     "twig-html-loader": "0.1.9",
     "twigjs-loader": "1.0.2",
-    "typescript": "4.4.4",
+    "typescript": "4.9.4",
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0",
     "webpack": "5.58.1",
