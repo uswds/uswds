@@ -37,6 +37,7 @@ export const Wildcard = Template.bind({});
 Wildcard.args = WildcardContent;
 
 export const Disabled = Template.bind({});
+Disabled.args = DefaultContent;
 Disabled.argTypes = {
   disabled_state: {
     defaultValue: "disabled"
@@ -44,6 +45,7 @@ Disabled.argTypes = {
 }
 
 export const AriaDisabled = Template.bind({});
+AriaDisabled.args = DefaultContent;
 AriaDisabled.argTypes = {
   disabled_state: {
     defaultValue: "aria_disabled"

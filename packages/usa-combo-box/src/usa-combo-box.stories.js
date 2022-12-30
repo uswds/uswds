@@ -23,6 +23,7 @@ export const Default = Template.bind({});
 Default.args = Content;
 
 export const Disabled = Template.bind({});
+Disabled.args = Content;
 Disabled.argTypes = {
   disabled_state: {
     defaultValue: "disabled"
@@ -30,6 +31,7 @@ Disabled.argTypes = {
 }
 
 export const AriaDisabled = Template.bind({});
+AriaDisabled.args = Content;
 AriaDisabled.argTypes = {
   disabled_state: {
     defaultValue: "aria_disabled"
