@@ -1,5 +1,5 @@
-const assert = require("assert");
-const isInViewport = require("../is-in-viewport");
+import assert from "assert";
+import isInViewport  from "../is-in-viewport.mjs";
 
 function fakeEl(rect) {
   return {

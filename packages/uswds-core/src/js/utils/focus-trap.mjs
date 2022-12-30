@@ -1,8 +1,7 @@
-const assign = require("object-assign");
-const { keymap } = require("receptor");
-const behavior = require("./behavior");
-const select = require("./select");
-const activeElement = require("./active-element");
+import { keymap } from "receptor";
+import behavior from "./behavior.mjs";
+import select from "./select.mjs";
+import activeElement from "./active-element.mjs";
 
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';

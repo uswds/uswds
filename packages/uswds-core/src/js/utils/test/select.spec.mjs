@@ -1,11 +1,16 @@
-const fs = require("fs");
-const assert = require("assert");
-const select = require("../select");
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
+import assert from "assert";
+import select from "../select.mjs";
 
-const TEMPLATE = fs.readFileSync(`${__dirname  }/select.template.html`);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const TEMPLATE = readFileSync(`${__dirname}/select.template.html`);
 
 const assertArrayWithLength = (array, length) => {
-  assert(Array.isArray(array), `not an array: ${  typeof array}`);
+  assert(Array.isArray(array), `not an array: ${typeof array}`);
   assert.strictEqual(array.length, length);
 };
 
