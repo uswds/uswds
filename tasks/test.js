@@ -13,7 +13,7 @@ module.exports = {
   },
 
   sassTests() {
-    return src("packages/uswds-core/src/test/sass.spec.js")
+    return src("packages/uswds-core/src/test/sass.spec.mjs")
       .pipe(mocha());
   },
 };
