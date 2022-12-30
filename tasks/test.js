@@ -9,11 +9,14 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("packages/usa-*/**/*.spec.js").pipe(mocha(mochaConfig));
+    //! @TODO Undo this after component conversion
+    //! Should point to "packages/uswds-core/src/js/utils/**/*.spec.mjs"
+    return src("packages/uswds-core/src/js/utils/**/*.spec.mjs").pipe(
+      mocha(mochaConfig)
+    );
   },
 
   sassTests() {
-    return src("packages/uswds-core/src/test/sass.spec.mjs")
-      .pipe(mocha());
+    return src("packages/uswds-core/src/test/sass.spec.mjs").pipe(mocha());
   },
 };
