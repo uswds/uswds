@@ -1,6 +1,10 @@
-const path = require("path");
-const child = require("child_process");
-const sass = require("sass-embedded"); // eslint-disable-line import/no-extraneous-dependencies
+import { fileURLToPath } from "url";
+import path from "path";
+import child from "child_process";
+import sass from "sass-embedded"; // eslint-disable-line import/no-extraneous-dependencies
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 exports.distPath = path.resolve(path.join(__dirname, "../../../dist"));
 exports.distCssPath = path.join(exports.distPath, "css");
@@ -13,7 +17,7 @@ exports.runGulp = (task) =>
       .on("exit", () => resolve());
   });
 
-exports.render = (data, includePaths) =>
+const render = (data, includePaths) =>
   new Promise((resolve, reject) => {
     sass.renderSync(
       {
@@ -29,3 +33,5 @@ exports.render = (data, includePaths) =>
       }
     );
   });
+
+export default render;
