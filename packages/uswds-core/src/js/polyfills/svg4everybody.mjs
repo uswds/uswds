@@ -1,7 +1,4 @@
-/* eslint-disable */
-!(function (factory) {
-  module.exports = factory();
-})(function () {
+export default (function () {
   /*! svg4everybody v2.1.9 | github.com/jonathantneal/svg4everybody */
   function embed(parent, svg, target, use) {
     // if the target exists
@@ -172,4 +169,4 @@
     return svg;
   }
   return svg4everybody;
-});
+})();
