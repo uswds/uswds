@@ -1,32 +1,30 @@
 /* eslint-disable arrow-body-style */
 
 const { dest, src } = require("gulp");
-const buffer = require("vinyl-buffer");
-const browserify = require("browserify");
+const { createGulpEsbuild } = require("gulp-esbuild");
 const childProcess = require("child_process");
 const rename = require("gulp-rename");
-const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 const merge = require("merge-stream");
 const dutil = require("./utils/doc-util");
 
+const gulpEsbuild = createGulpEsbuild({
+  piping: true,
+});
+
 module.exports = {
   compileJS() {
     dutil.logMessage("javascript", "Compiling JavaScript");
-    let packageName = dutil.pkg.name.replace("@uswds/", "");
+    const packageName = dutil.pkg.name.replace("@uswds/", "");
     const streams = Object.entries({
-      [packageName]: browserify({
-        entries: ["./packages/uswds-core/src/js/start.mjs"],
-        debug: true,
-      })
-        .transform("babelify", {
-          global: true,
-          presets: ["@babel/preset-env"],
-        })
-        .bundle()
-        .pipe(source(`${packageName}.js`))
-        .pipe(buffer()),
+      [packageName]: src("./packages/uswds-core/src/js/start.mjs")
+        .pipe(
+          gulpEsbuild({
+            bundle: true,
+            target: "es6",
+          })
+        ),
       "uswds-init": src("packages/uswds-core/src/js/uswds-init.js"),
     }).map(([basename, stream]) =>
       stream
