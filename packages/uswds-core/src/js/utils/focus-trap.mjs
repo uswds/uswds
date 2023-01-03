@@ -1,4 +1,5 @@
-import { keymap } from "receptor";
+// import keymap from "receptor/keymap";
+import keymap from "receptor/keymap/index.js";
 import behavior from "./behavior.mjs";
 import select from "./select.mjs";
 import activeElement from "./active-element.mjs";
@@ -42,7 +43,7 @@ const tabHandler = (context) => {
   };
 };
 
-module.exports = (context, additionalKeyBindings = {}) => {
+export default (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
   const bindings = additionalKeyBindings;
   const { Esc, Escape } = bindings;
@@ -52,15 +53,11 @@ module.exports = (context, additionalKeyBindings = {}) => {
   //  TODO: In the future, loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
-  const keyMappings = keymap(
-    assign(
-      {
-        Tab: tabEventHandler.tabAhead,
-        "Shift+Tab": tabEventHandler.tabBack,
-      },
-      additionalKeyBindings
-    )
-  );
+  const keyMappings = keymap({
+    Tab: tabEventHandler.tabAhead,
+    "Shift+Tab": tabEventHandler.tabBack,
+    ...additionalKeyBindings,
+  });
 
   const focusTrap = behavior(
     {

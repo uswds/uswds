@@ -1,5 +1,5 @@
 import assert from "assert";
-import isInViewport  from "../is-in-viewport.mjs";
+import isInViewport from "../is-in-viewport.mjs";
 
 function fakeEl(rect) {
   return {

@@ -14,6 +14,6 @@ function debounce(callback, delay = 500) {
       callback.apply(this, args);
     }, delay);
   };
-};
+}
 
 export default debounce;

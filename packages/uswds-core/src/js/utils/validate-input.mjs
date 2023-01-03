@@ -1,5 +1,5 @@
-import debounce from "./debounce";
-import { prefix as PREFIX } from "../config";
+import debounce from "./debounce.mjs";
+import { prefix as PREFIX } from "../config.mjs";
 
 const CHECKED_CLASS = `${PREFIX}-checklist__item--checked`;
 
@@ -59,6 +59,6 @@ function validate(el) {
       srUpdateStatus();
     }
   });
-};
+}
 
 export default validate;

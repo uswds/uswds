@@ -7,6 +7,9 @@ import select from "../select.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const TEMPLATE = readFileSync(`${__dirname}/select.template.html`);
 
 const assertArrayWithLength = (array, length) => {
