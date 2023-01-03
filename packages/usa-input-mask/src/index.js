@@ -351,11 +351,13 @@ const createStatusMessages = (maskedEl) => {
  */
 const getPastedText = (pastedText) => {
   let strRes = "";
+  let strPastedtext = "";
 
-  const strPastedtext = pastedText.replace(
-    new RegExp(`[${FORMAT_CHARACTERS}]`, "g"),
-    ""
-  );
+  for (let i = 0; i < pastedText.length; i += 1) {
+    if (FORMAT_CHARACTERS.indexOf(pastedText[i]) === -1) {
+      strPastedtext += pastedText[i];
+    }
+  }
 
   let strMask = "";
 
@@ -706,7 +708,7 @@ const handleKeyUp = (inputEl, event) => {
   const el = inputEl;
 
   if (keyCode === undefined && el.value.length > 0) {
-    const pastedText = el.value;
+    const pastedText = getPastedText(el.value);
     el.value = "";
     pasteTextToInput(inputEl, pastedText, 0);
     event.preventDefault();
@@ -745,7 +747,7 @@ const handleKeyDown = (inputEl, event) => {
     return true;
   }
 
-  if (event.metaKey && [KEYS.v, KEYS.c, KEYS.x].indexOf(keyCode) > -1) {
+  if (event.metaKey && [KEYS.v, KEYS.c, KEYS.x, KEYS.a].indexOf(keyCode) > -1) {
     return true;
   }
   const movementKeys =
