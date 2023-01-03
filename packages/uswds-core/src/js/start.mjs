@@ -2,11 +2,11 @@
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
  * older browsers, so must be loaded first.
  */
-import "./polyfills";
-import svg4everybody from "./polyfills/svg4everybody";
+import "./polyfills/index.mjs";
+import svg4everybody from "./polyfills/svg4everybody.mjs";
 
-import { prefix } from "./config";
-import components from "./index";
+import { prefix } from "./config.mjs";
+import components from "./index.mjs";
 
 const uswds = {
   prefix,
