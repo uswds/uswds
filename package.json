@@ -34,17 +34,17 @@
       "import": "./dist/js/uswds.min.js",
       "default": "./dist/js/uswds.min.js"
     },
-    "./src/js/components": "./packages/uswds-core/src/js/index.js",
+    "./src/js/components": "./packages/uswds-core/src/js/index.mjs",
     "./src/img/*": "./dist/img/*",
-    "./js": "./packages/uswds-core/src/js/index.js",
-    "./js/*": "./packages/*/src/index.js",
+    "./js": "./packages/uswds-core/src/js/index.mjs",
+    "./js/*": "./packages/*/src/index.mjs",
     "./css/*": "./dist/css/*",
     "./scss/*": "./packages/*/_index.scss",
     "./img/*": "./dist/img/*",
     "./fonts/*": "./packages/uswds-core/src/assets/fonts/*"
   },
   "main": "dist/js/uswds.min.js",
-  "jsnext:main": "./packages/uswds-core/src/js/start.js",
+  "jsnext:main": "./packages/uswds-core/src/js/start.mjs",
   "style": "dist/css/uswds.min.css",
   "sass": "./src/stylesheets/uswds.scss",
   "mocha": {
