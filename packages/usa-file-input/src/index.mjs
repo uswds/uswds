@@ -1,7 +1,7 @@
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import { Sanitizer } from "../../uswds-core/src/js/utils/sanitizer.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
 
 const DROPZONE_CLASS = `${PREFIX}-file-input`;
 const DROPZONE = `.${DROPZONE_CLASS}`;
@@ -462,7 +462,10 @@ const fileInput = behavior(
     teardown(root) {
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
-        fileInputTopElement.parentElement.replaceChild(fileInputEl, fileInputTopElement);
+        fileInputTopElement.parentElement.replaceChild(
+          fileInputEl,
+          fileInputTopElement
+        );
         // eslint-disable-next-line no-param-reassign
         fileInputEl.className = DROPZONE_CLASS;
       });
@@ -473,4 +476,4 @@ const fileInput = behavior(
   }
 );
 
-module.exports = fileInput;
+export default fileInput;

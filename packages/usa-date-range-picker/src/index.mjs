@@ -1,13 +1,11 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const {
-  getDatePickerContext,
-  isDateInputInvalid,
-  updateCalendarIfVisible,
-} = require("../../usa-date-picker/src/index");
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import select from "../../uswds-core/src/js/utils/select.mjs";
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
+import datepicker from "../../usa-date-picker/src/index.mjs";
 
+const { getDatePickerContext, isDateInputInvalid, updateCalendarIfVisible } =
+  datepicker;
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;
 const DATE_RANGE_PICKER_RANGE_START_CLASS = `${DATE_RANGE_PICKER_CLASS}__range-start`;
@@ -167,4 +165,4 @@ const dateRangePicker = behavior(
   }
 );
 
-module.exports = dateRangePicker;
+export default dateRangePicker;

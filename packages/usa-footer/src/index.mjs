@@ -1,6 +1,6 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import { CLICK } from "../../uswds-core/src/js/events.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
 
 const SCOPE = `.${PREFIX}-footer--big`;
 const NAV = `${SCOPE} nav`;
@@ -73,7 +73,7 @@ const resize = (event) => {
   toggleHtmlTag(event.matches);
 };
 
-module.exports = behavior(
+export default behavior(
   {
     [CLICK]: {
       [BUTTON]: showPanel,
@@ -88,10 +88,12 @@ module.exports = behavior(
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
       );
+      // ! Deprecated feature
       this.mediaQueryList.addListener(resize);
     },
 
     teardown() {
+      // ! Deprecated feature
       this.mediaQueryList.removeListener(resize);
     },
   }

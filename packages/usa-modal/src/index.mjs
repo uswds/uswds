@@ -1,8 +1,8 @@
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
+import FocusTrap from "../../uswds-core/src/js/utils/focus-trap.mjs";
+import getScrollbarWidth from "../../uswds-core/src/js/utils/scrollbar-width.mjs";
 
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}-overlay`;
@@ -27,7 +27,7 @@ const HIDDEN_CLASS = "is-hidden";
 let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = getScrollbarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -189,10 +189,17 @@ const setUpModal = (baseComponent) => {
   const originalLocationPlaceHolder = document.createElement("div");
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
-  originalLocationPlaceHolder.setAttribute('aria-hidden', 'true');
-  for (let attributeIndex = 0; attributeIndex < modalContent.attributes.length; attributeIndex += 1) {
+  originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
+  for (
+    let attributeIndex = 0;
+    attributeIndex < modalContent.attributes.length;
+    attributeIndex += 1
+  ) {
     const attribute = modalContent.attributes[attributeIndex];
-    originalLocationPlaceHolder.setAttribute(`data-original-${attribute.name}`, attribute.value);
+    originalLocationPlaceHolder.setAttribute(
+      `data-original-${attribute.name}`,
+      attribute.value
+    );
   }
 
   modalContent.after(originalLocationPlaceHolder);
@@ -247,20 +254,26 @@ const cleanUpModal = (baseComponent) => {
   const modalWrapper = modalContent.parentElement.parentElement;
   const modalID = modalWrapper.getAttribute("id");
 
-  const originalLocationPlaceHolder = document.querySelector(`[data-placeholder-for="${modalID}"]`);
-  if(originalLocationPlaceHolder)
-  {
-    for (let attributeIndex = 0; attributeIndex < originalLocationPlaceHolder.attributes.length; attributeIndex += 1) {
+  const originalLocationPlaceHolder = document.querySelector(
+    `[data-placeholder-for="${modalID}"]`
+  );
+  if (originalLocationPlaceHolder) {
+    for (
+      let attributeIndex = 0;
+      attributeIndex < originalLocationPlaceHolder.attributes.length;
+      attributeIndex += 1
+    ) {
       const attribute = originalLocationPlaceHolder.attributes[attributeIndex];
-      if(attribute.name.startsWith('data-original-'))
-      {
+      if (attribute.name.startsWith("data-original-")) {
         // data-original- is 14 long
         modalContent.setAttribute(attribute.name.substr(14), attribute.value);
       }
     }
 
     originalLocationPlaceHolder.after(modalContent);
-    originalLocationPlaceHolder.parentElement.removeChild(originalLocationPlaceHolder);
+    originalLocationPlaceHolder.parentElement.removeChild(
+      originalLocationPlaceHolder
+    );
   }
 
   modalWrapper.parentElement.removeChild(modalWrapper);
@@ -273,22 +286,24 @@ modal = {
       setUpModal(modalWindow);
 
       // this will query all openers and closers including the overlay
-      document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
-        // Turn anchor links into buttons because of
-        // VoiceOver on Safari
-        if (item.nodeName === "A") {
-          item.setAttribute("role", "button");
-          item.addEventListener("click", (e) => e.preventDefault());
-        }
+      document
+        .querySelectorAll(`[aria-controls="${modalId}"]`)
+        .forEach((item) => {
+          // Turn anchor links into buttons because of
+          // VoiceOver on Safari
+          if (item.nodeName === "A") {
+            item.setAttribute("role", "button");
+            item.addEventListener("click", (e) => e.preventDefault());
+          }
 
-        // Can uncomment when aria-haspopup="dialog" is supported
-        // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
-        // Most screen readers support aria-haspopup, but might announce
-        // as opening a menu if "dialog" is not supported.
-        // item.setAttribute("aria-haspopup", "dialog");
+          // Can uncomment when aria-haspopup="dialog" is supported
+          // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+          // Most screen readers support aria-haspopup, but might announce
+          // as opening a menu if "dialog" is not supported.
+          // item.setAttribute("aria-haspopup", "dialog");
 
-        item.addEventListener("click", toggleModal);
-      });
+          item.addEventListener("click", toggleModal);
+        });
     });
   },
   teardown(root) {
@@ -296,7 +311,8 @@ modal = {
       cleanUpModal(modalWindow);
       const modalId = modalWindow.id;
 
-      document.querySelectorAll(`[aria-controls="${modalId}"]`)
+      document
+        .querySelectorAll(`[aria-controls="${modalId}"]`)
         .forEach((item) => item.removeEventListener("click", toggleModal));
     });
   },
@@ -307,7 +323,7 @@ modal = {
   },
   off(root) {
     this.teardown(root);
-  }
+  },
 };
 
-module.exports = modal;
+export default modal;

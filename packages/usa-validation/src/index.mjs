@@ -1,7 +1,7 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const validate = require("../../uswds-core/src/js/utils/validate-input");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import validate from "../../uswds-core/src/js/utils/validate-input.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
 
 const VALIDATE_INPUT = "input[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
@@ -67,4 +67,4 @@ const validator = behavior(
   }
 );
 
-module.exports = validator;
+export default validator;

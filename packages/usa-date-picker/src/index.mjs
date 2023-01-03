@@ -1,12 +1,12 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const activeElement = require("../../uswds-core/src/js/utils/active-element");
-const isIosDevice = require("../../uswds-core/src/js/utils/is-ios-device");
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+import keymap from "receptor/keymap/index.js";
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import select from "../../uswds-core/src/js/utils/select.mjs";
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
+import { CLICK } from "../../uswds-core/src/js/events.mjs";
+import activeElement from "../../uswds-core/src/js/utils/active-element.mjs";
+import isIosDevice from "../../uswds-core/src/js/utils/is-ios-device.mjs";
+import { Sanitizer } from "../../uswds-core/src/js/utils/sanitizer.mjs";
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
@@ -2242,4 +2242,4 @@ const datePicker = behavior(datePickerEvents, {
 
 // #endregion Date Picker Event Delegation Registration / Component
 
-module.exports = datePicker;
+export default datePicker;

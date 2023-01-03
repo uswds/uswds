@@ -1,8 +1,8 @@
 // Tooltips
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
+import selectOrMatches from "../../uswds-core/src/js/utils/select-or-matches.mjs";
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
+import isElementInViewport from "../../uswds-core/src/js/utils/is-in-viewport.mjs";
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
 const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
@@ -393,4 +393,4 @@ const tooltip = behavior(
   }
 );
 
-module.exports = tooltip;
+export default tooltip;

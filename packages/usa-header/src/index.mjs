@@ -1,13 +1,13 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/index");
-const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+import keymap from "receptor/keymap/index.js";
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import select from "../../uswds-core/src/js/utils/select.mjs";
+import toggle from "../../uswds-core/src/js/utils/toggle.mjs";
+import FocusTrap from "../../uswds-core/src/js/utils/focus-trap.mjs";
+import accordion from "../../usa-accordion/src/index.mjs";
+import getScrollbarWidth from "../../uswds-core/src/js/utils/scrollbar-width.mjs";
 
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { CLICK } from "../../uswds-core/src/js/events.mjs";
+import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
 
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;
@@ -34,7 +34,7 @@ let navActive;
 let nonNavElements;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
-const SCROLLBAR_WIDTH = ScrollBarWidth();
+const SCROLLBAR_WIDTH = getScrollbarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
   .getPropertyValue("padding-right");
@@ -48,7 +48,7 @@ const hideNonNavItems = () => {
   nonNavElements = document.querySelectorAll(NON_NAV_ELEMENTS);
 
   nonNavElements.forEach((nonNavElement) => {
-    if(nonNavElement !== headerParent) {
+    if (nonNavElement !== headerParent) {
       nonNavElement.setAttribute("aria-hidden", true);
       nonNavElement.setAttribute(NON_NAV_HIDDEN_ATTRIBUTE, "");
     }
@@ -107,8 +107,7 @@ const toggleNav = (active) => {
   } else if (
     !safeActive &&
     menuButton &&
-    getComputedStyle(menuButton).display !== 'none'
-
+    getComputedStyle(menuButton).display !== "none"
   ) {
     // The mobile nav was just deactivated. We don't want the focus to
     // disappear into the void, so focus on the menu button if it's
@@ -147,9 +146,9 @@ const focusNavButton = (event) => {
 
   // Only shift focus if within dropdown
   if (!event.target.matches(NAV_CONTROL)) {
-    const navControl = parentNavItem.querySelector(NAV_CONTROL)
+    const navControl = parentNavItem.querySelector(NAV_CONTROL);
     if (navControl) {
-      navControl.focus()
+      navControl.focus();
     }
   }
 };
@@ -234,4 +233,4 @@ navigation = behavior(
   }
 );
 
-module.exports = navigation;
+export default navigation;

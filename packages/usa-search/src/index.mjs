@@ -1,8 +1,8 @@
-const ignore = require("receptor/ignore");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
+import { ignore } from "receptor";
+import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
+import select from "../../uswds-core/src/js/utils/select.mjs";
 
-const { CLICK } = require("../../uswds-core/src/js/events");
+import { CLICK } from "../../uswds-core/src/js/events.mjs";
 
 const BUTTON = ".js-search-button";
 const FORM = ".js-search-form";
@@ -86,4 +86,4 @@ const search = behavior(
   }
 );
 
-module.exports = search;
+export default search;
