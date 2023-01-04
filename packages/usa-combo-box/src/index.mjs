@@ -33,7 +33,6 @@ const STATUS = `.${STATUS_CLASS}`;
 
 const DEFAULT_FILTER = ".*{{query}}.*";
 
-
 const noop = () => {};
 
 /**

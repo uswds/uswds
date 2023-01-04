@@ -6,7 +6,6 @@ import jsdomUtils from "jsdom/lib/jsdom/living/generated/utils.js";
 import jsdomFileList from "jsdom/lib/jsdom/living/generated/FileList.js";
 import fileInput from "../index.mjs";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

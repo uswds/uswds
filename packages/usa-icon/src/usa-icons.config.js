@@ -248,7 +248,7 @@ const config = {
     "tornado",
     "twitter",
     "youtube",
-  ]
+  ],
 };
 
 module.exports = config;

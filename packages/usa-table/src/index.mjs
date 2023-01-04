@@ -1,6 +1,6 @@
 import select from "../../uswds-core/src/js/utils/select.mjs";
 import behavior from "../../uswds-core/src/js/utils/behavior.mjs";
-import { Sanitizer } from "../../uswds-core/src/js/utils/sanitizer.mjs"
+import { Sanitizer } from "../../uswds-core/src/js/utils/sanitizer.mjs";
 import { CLICK } from "../../uswds-core/src/js/events.mjs";
 import { prefix as PREFIX } from "../../uswds-core/src/js/config.mjs";
 
