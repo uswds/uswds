@@ -1,5 +1,5 @@
 const { src } = require("gulp");
-const mocha = require("gulp-spawn-mocha");
+const mocha = require("gulp-mocha");
 
 const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
@@ -9,11 +9,12 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("packages/usa-*/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("packages/usa-*/**/*.spec.mjs").pipe(
+      mocha(mochaConfig)
+    );
   },
 
   sassTests() {
-    return src("packages/uswds-core/src/test/sass.spec.js")
-      .pipe(mocha());
+    return src("packages/uswds-core/src/test/sass.spec.mjs").pipe(mocha());
   },
 };

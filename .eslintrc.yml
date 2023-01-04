@@ -16,9 +16,7 @@ rules:
   no-unsanitized/method: error
   no-unsanitized/property: error
 overrides:
-  - { files: ['*.spec.js'],
-      rules: {
-        no-unsanitized/method: off,
-        no-unsanitized/property: off
-        }
-      }
+  - {
+      files: [".js", ".mjs"],
+      rules: { no-unsanitized/method: off, no-unsanitized/property: off },
+    }

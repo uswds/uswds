@@ -7,8 +7,9 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "module": "NodeNext",
     "lib": ["es6", "DOM"],
     "types": ["node"]
   },
-  "include": ["packages/uswds-core/src/js/utils/select.js"]
+  "include": ["./packages/uswds-core/src/js/utils/select.mjs"]
 }
