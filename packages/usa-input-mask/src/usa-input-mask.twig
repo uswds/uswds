@@ -5,16 +5,15 @@
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
       <input 
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
-          class="usa-input usa-input-mask__field" 
+          class="usa-input usa-input-mask__field"
           {% if forceupper %}forceupper="{{ forceupper }}"{% endif %}
-          id="{{ id }}" 
-          inputmode="{{ inputmode }}" 
+          id="{{ id }}"
+          inputmode="{{ inputmode }}"
           mask="{{ mask }}"
-          name="{{ id }}" 
-          pattern="{{ pattern }}" 
-          placeholder="{{ placeholder }}" 
-          type="{{ type }}" 
-          {# autocomplete="off" #}
+          name="{{ id }}"
+          pattern="{{ pattern }}"
+          placeholder="{{ placeholder }}"
+          type="{{ type }}"
       >
     </div>
     <span id="{{ id }}-hint-info" class="usa-input-mask__message"></span>
