@@ -6,6 +6,5 @@
   "inputmode": "numeric",
   "placeholder": "_____-____",
   "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
-  "disabled": false,
-  "aria_disabled": false
+  "disabled_state": "none"
 }

@@ -22,11 +22,12 @@
     class="usa-file-input"
     type="file"
     name="{{ id }}"
-    {% if hint or accept or multiple or disabled -%}
+    {% if hint or accept or multiple or disabled_state -%}
     {% if hint -%}aria-describedby="{{ aria_hint }}"{%- endif -%}
     {% if accept -%}accept="{{ accept }}"{%- endif -%}
     {% if multiple -%} multiple{%- endif -%}
-    {% if disabled -%} disabled{%- endif -%}
+    {% if disabled_state == 'disabled' %} disabled{%- endif %}
+    {% if disabled_state == "aria_disabled" -%} aria-disabled="true"{%- endif -%}
     {% endif %}
   />
 </div>

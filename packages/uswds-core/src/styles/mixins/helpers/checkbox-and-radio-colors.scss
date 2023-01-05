@@ -30,7 +30,7 @@
     get-link-tokens-from-bg($bg-color, $preferred-link-token: $selected-color),
     1
   );
-  $input-disabled-alpha: -0.7;
+  $input-disabled-alpha: -0.4;
   $input-disabled-alpha--strong: -0.5;
   $input-disabled-alpha--weak: -0.8;
   $input-border-alpha: -0;

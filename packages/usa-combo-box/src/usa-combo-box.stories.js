@@ -7,6 +7,12 @@ export default {
   argTypes: {
     id: { table: { disable: true } },
     name: { table: { disable: true } },
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
+      defaultValue: "none"
+    },
   },
 };
 
@@ -15,5 +21,21 @@ const TestTemplate = (args) => TestComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
+
+export const Disabled = Template.bind({});
+Disabled.args = Content;
+Disabled.argTypes = {
+  disabled_state: {
+    defaultValue: "disabled"
+  }
+}
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.args = Content;
+AriaDisabled.argTypes = {
+  disabled_state: {
+    defaultValue: "aria_disabled"
+  }
+}
 
 export const Test = TestTemplate.bind({});

@@ -9,8 +9,8 @@
       type="text"
       aria-describedby="appointment-time-label appointment-time-hint"
       {% if defaultValue %}value="{{ defaultValue }}"{% endif %}
-      {% if disabled %} disabled {% endif %}
-      {% if aria_disabled %} aria-disabled="true" {% endif %}
+      {% if disabled_state == 'disabled' %} disabled {%- endif %}
+      {% if disabled_state == 'aria_disabled' %} aria-disabled="true" {%- endif %}
     >
   </div>
 </div>

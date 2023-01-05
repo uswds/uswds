@@ -1,7 +1,6 @@
 import Component from "./usa-file-input.twig";
 import {
   DefaultContent,
-  DisabledContent,
   ErrorContent,
   MultipleContent,
   SpecificContent,
@@ -10,15 +9,20 @@ import {
 
 export default {
   title: "Components/Form Inputs/File Input",
+  argTypes: {
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria_disabled"],
+      defaultValue: "none"
+    },
+  }
 };
 
 const Template = (args) => Component(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
-
-export const Disabled = Template.bind({});
-Disabled.args = DisabledContent;
 
 export const Error = Template.bind({});
 Error.args = ErrorContent;
@@ -31,3 +35,19 @@ Specific.args = SpecificContent;
 
 export const Wildcard = Template.bind({});
 Wildcard.args = WildcardContent;
+
+export const Disabled = Template.bind({});
+Disabled.args = DefaultContent;
+Disabled.argTypes = {
+  disabled_state: {
+    defaultValue: "disabled"
+  }
+}
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.args = DefaultContent;
+AriaDisabled.argTypes = {
+  disabled_state: {
+    defaultValue: "aria_disabled"
+  }
+}

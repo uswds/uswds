@@ -5,7 +5,5 @@
   "default_value": "",
   "placeholder": "",
   "id": "fruit",
-  "disabled": false,
-  "aria_disabled": false,
   "required": false
 }
