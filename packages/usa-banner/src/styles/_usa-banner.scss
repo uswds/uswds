@@ -51,6 +51,20 @@ $banner-icon-close: (
   .usa-accordion {
     @include typeset($theme-banner-font-family);
   }
+
+  .grid-row {
+    @include grid-row;
+
+    &.grid-gap-lg {
+      @include grid-gap("lg");
+    }
+
+    .tablet\:grid-col-6 {
+      @include at-media("tablet"){
+        @include grid-col(6);
+      }
+    }
+  }
 }
 
 .usa-banner__header,
@@ -79,20 +93,6 @@ $banner-icon-close: (
   p {
     &:first-child {
       margin: 0;
-    }
-  }
-
-  &.usa-accordion__content > .grid-row {
-    @include grid-row;
-
-    &.grid-gap-lg {
-      @include grid-gap("lg");
-    }
-
-    .tablet\:grid-col-6 {
-      @include at-media("tablet"){
-        @include grid-col(6);
-      }
     }
   }
 }
