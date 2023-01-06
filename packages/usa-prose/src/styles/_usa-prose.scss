@@ -8,20 +8,20 @@
     @include usa-headings-styles;
     @include usa-list-styles;
     @include usa-table-styles;
-  }
-
-  > * + {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 1.5em;
-    }
-
-    p {
-      margin-top: 1em;
+    
+    * + {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 1.5em;
+      }
+  
+      p {
+        margin-top: 1em;
+      }
     }
   }
 }
