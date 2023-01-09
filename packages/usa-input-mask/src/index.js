@@ -36,13 +36,7 @@ const FORMAT_CHARACTERS = [
   " ",
 ];
 
-let MASK_INFO = {};
-
-// let ORIGINAL_VALUE = "";
-// let MASK = {};
-// let FORCE_UPPER = false;
-// let FORCE_LOWER = false;
-// let HAS_MASK = false;
+const MASK_INFO = {};
 
 const KEYS = {
   a: 65,
@@ -817,7 +811,6 @@ const handleKeyDown = (inputEl, event) => {
 
   if (el.selectionStart === 0 && el.selectionEnd === el.value.length) {
     setMaskInfo(inputEl.id, "ORIGINAL_VALUE", el.value);
-    // ORIGINAL_VALUE = el.value;
 
     el.value = getInitMaskValue(el.id);
     setCursorPosition(inputEl, el.value.length);
@@ -968,18 +961,14 @@ const enhanceInputMask = (inputEl, options) => {
   if (options.mask && options.mask.length > 0) {
     setMaskInfo(inputId, "MASK", options.mask.split(""));
     setMaskInfo(inputId, "HAS_MASK", true);
-    // MASK[id] = options.mask.split("");
-    // HAS_MASK = true;
   }
 
   if (options.forceupper && options.forceupper === "true") {
     setMaskInfo(inputId, "FORCE_UPPER", true);
-    // FORCE_UPPER = true;
   }
 
   if (options.forcelower && options.forcelower === "true") {
     setMaskInfo(inputId, "FORCE_LOWER", true);
-    // FORCE_LOWER = true;
   }
 
   const HAS_MASK = getMaskInfo(inputId, "HAS_MASK", false);

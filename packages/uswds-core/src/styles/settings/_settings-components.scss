@@ -110,6 +110,19 @@ $theme-identifier-max-width: "desktop" !default;
 $theme-identifier-primary-link-color: default !default;
 $theme-identifier-secondary-link-color: "base-light" !default;
 
+// In-Page Navigation
+$theme-in-page-nav-background-color: "default" !default;
+$theme-in-page-nav-background-padding: 2 !default;
+$theme-in-page-nav-background-radius: "lg" !default;
+$theme-in-page-nav-bar-color: "default" !default;
+$theme-in-page-nav-bar-width: "05" !default;
+$theme-in-page-nav-font-family: "ui" !default;
+$theme-in-page-nav-link-color: "default" !default;
+$theme-in-page-nav-main-content-max-width: "desktop" !default;
+$theme-in-page-nav-margin-left: 4 !default;
+$theme-in-page-nav-margin-top: 2.5 !default;
+$theme-in-page-nav-top: 4 !default;
+
 // Modal
 $theme-modal-border-radius: "lg" !default;
 $theme-modal-default-max-width: "mobile-lg" !default;
