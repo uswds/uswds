@@ -1,5 +1,5 @@
 {
-  "hint": "For example, (123) 456-7890",
+  "hint": "For example, 123-456-7890",
   "id": "tel",
   "inputmode": "numeric",
   "label": "US Telephone Number",
