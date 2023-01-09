@@ -120,10 +120,10 @@ tests.forEach(({name, selector: containerSelector}) => {
         assert.strictEqual(activeContent[0], modalWrapper);
       });
 
-      it("should show the list by clicking the toggle button", () => {
+      it("Displays comobobox list when toggle is clicked", () => {
         CBToggle.click();
 
-        assert.ok(!comboList.hidden, "should display the option list");
+        assert.ok(!comboList.hidden, "should display the combobox option list");
       });
     });
 
