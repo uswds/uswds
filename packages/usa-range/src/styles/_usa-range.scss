@@ -32,21 +32,6 @@
   border: units(1px) solid color("base");
 }
 
-@mixin range-thumb--disabled {
-  @include range-thumb;
-  @include u-disabled;
-}
-
-@mixin range-track--disabled {
-  @include range-track;
-  @include u-disabled;
-}
-
-@mixin range-ms-fill--disabled {
-  @include range-ms-fill;
-  @include u-disabled;
-}
-
 .usa-range {
   @extend %block-input-general;
   @extend %block-input-styles;
@@ -108,37 +93,35 @@
   &:disabled,
   &[aria-disabled="true"] {
     &::-webkit-slider-runnable-track {
-      @include range-track--disabled;
+      @include u-disabled;
     }
 
     &::-moz-range-track {
-      @include range-track--disabled;
+      @include u-disabled;
     }
 
     &::-ms-track {
-      @include range-track--disabled;
+      @include u-disabled;
     }
 
     &::-webkit-slider-thumb {
-      @include range-thumb--disabled;
-      appearance: none;
-      margin-top: px-to-rem(-3px); // magic number
+      @include u-disabled;
     }
 
     &::-moz-range-thumb {
-      @include range-thumb--disabled;
+      @include u-disabled;
     }
 
     &::-ms-thumb {
-      @include range-thumb--disabled;
+      @include u-disabled;
     }
 
     &::-ms-fill-lower {
-      @include range-ms-fill--disabled;
+      @include u-disabled;
     }
 
     &::-ms-fill-upper {
-      @include range-ms-fill--disabled;
+      @include u-disabled;
     }
   }
 }
