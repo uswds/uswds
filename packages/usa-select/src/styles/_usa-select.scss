@@ -33,12 +33,7 @@
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
-    opacity: 1; // Undo chromium browser style
-
-    option {
-      color: color(ink); // Undo browser style
-      opacity: 0.7;
-    }
+    opacity: .8; // Necessary for grey text on disabled background color contrast across browsers
   }
 
   // Necessary to show chevron in forced colors mode in modern browsers
