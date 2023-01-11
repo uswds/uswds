@@ -1,11 +1,11 @@
 @use "./add-knockout-font-smoothing" as *;
 @use "../../functions" as *;
+@use "../utilities" as *;
 
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
-  background-color: color("disabled");
+  @include u-disabled;
   color: color("white");
-  cursor: auto;
 
   &:hover,
   &.usa-button--hover,
@@ -13,7 +13,6 @@
   &.usa-button--active,
   &:focus,
   &.usa-focus {
-    background-color: color("disabled");
     border: 0;
     box-shadow: none;
   }
