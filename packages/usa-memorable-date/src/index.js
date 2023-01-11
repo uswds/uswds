@@ -4,6 +4,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 
 const MEMORABLE_DATE_CLASS = `.${PREFIX}-memorable-date`;
 const MD_DISABLED = `${PREFIX}-memorable-date--disabled`;
+const MD_ARIA_DISABLED = `${PREFIX}-memorable-date--aria-disabled`;
 
 
 const getMemorableDateForms = (el) => {
@@ -27,6 +28,14 @@ const disable = (el) => {
   })
 }
 
+const ariaDisable = (el) => {
+  const children = getMemorableDateForms(el);
+
+  children.forEach(childEl => {
+    childEl.setAttribute('aria-disabled', 'true')
+  })
+}
+
 const memorableDate = behavior(
   {},
   {
@@ -34,6 +43,8 @@ const memorableDate = behavior(
       selectOrMatches(MEMORABLE_DATE_CLASS, root).forEach((MemDateEl) => {
         if (MemDateEl.classList.contains(MD_DISABLED)) {
           disable(MemDateEl);
+        } else if (MemDateEl.classList.contains(MD_ARIA_DISABLED)) {
+          ariaDisable(MemDateEl)
         }
       })
     }
