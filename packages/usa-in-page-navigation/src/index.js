@@ -103,6 +103,21 @@ const handleScrollToSection = (el) => {
 };
 
 /**
+ * Scrolls the page to the section corresponding to the current hash fragment, if one exists.
+ */
+const scrollToCurrentSection = () => {
+  const hashFragment = window.location.hash.slice(1);
+  if (hashFragment) {
+    const anchorTag = document.querySelector(
+      `.${IN_PAGE_NAV_ANCHOR_CLASS}#${hashFragment}`
+    );
+    if (anchorTag) {
+      handleScrollToSection(anchorTag);
+    }
+  }
+};
+
+/**
  * Create the in-page navigation component
  *
  * @param {HTMLElement} inPageNavEl The in-page nav element
@@ -148,14 +163,13 @@ const createInPageNav = (inPageNavEl) => {
     const anchorTag = document.createElement("a");
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
-    const linkHref = `#section_${i}`;
 
     listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
     if (tag === "h3") {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
-    navLinks.setAttribute("href", linkHref);
+    navLinks.setAttribute("href", `#section_${i}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
     navLinks.textContent = textContentOfLink;
 
@@ -165,10 +179,6 @@ const createInPageNav = (inPageNavEl) => {
 
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
-
-    if (window.location.hash === linkHref) {
-      handleScrollToSection(anchorTag);
-    }
   });
 
   inPageNavEl.appendChild(inPageNav);
@@ -235,6 +245,7 @@ const inPageNavigation = behavior(
     init(root) {
       selectOrMatches(`.${IN_PAGE_NAV_CLASS}`, root).forEach((inPageNavEl) => {
         createInPageNav(inPageNavEl);
+        scrollToCurrentSection();
       });
     },
   }

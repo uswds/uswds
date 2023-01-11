@@ -69,7 +69,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       window.IntersectionObserver = mockIntersectionObserver;
       sinon.stub(window, "scroll");
       sinon.stub(window, "location").value({ hash: undefined });
-      sinon.stub(window.location, "hash").set(sinon.stub());
+      sinon
+        .stub(window.location, "hash")
+        .set(sinon.stub())
+        .get(() => "");
     });
 
     beforeEach(() => {
@@ -127,6 +130,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
         window.location,
         "hash"
       ).set.calledOnceWith("section_0");
+    });
+
+    it("does not scroll to section on initialization", () => {
+      assert.equal(window.scroll.called, false);
     });
 
     context("with initial hash URL", () => {
