@@ -18,5 +18,19 @@ Input.argTypes = {
   }
 }
 
+export const Disabled = Template.bind({});
+Disabled.argTypes = {
+  state: {
+    defaultValue: "disabled"
+  }
+}
+
+export const AriaDisabled = Template.bind({});
+AriaDisabled.argTypes = {
+  state: {
+    defaultValue: "aria_disabled"
+  }
+}
+
 export const StateShowcase = ShowcaseTemplate.bind({});
 StateShowcase.args = {}
