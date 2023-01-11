@@ -96,7 +96,6 @@ const animateClose = (el) => {
     "animationcancel",
   ];
   const callback = () => {
-    console.log('callback')
     cleanup();
     events.forEach((e) => el.removeEventListener(e, callback));
   };
@@ -120,6 +119,9 @@ const toggleNav = (active) => {
     if (duration !== 0 && !safeActive) {
       animateClose(el);
     } else {
+      // Nav is opening, OR the nav close duration is 0ms.
+      // If the close duration is 0ms, then the end/cancel
+      // events in animateClose() never run, getting stuck.
       el.classList.toggle(VISIBLE_CLASS, safeActive);
       el.classList.toggle(CLOSING_CLASS, false);
     }
