@@ -185,10 +185,8 @@
 
 // Disabled state
 .usa-file-input--disabled {
-  pointer-events: none;
-
   .usa-file-input__instructions {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .usa-file-input__box {
@@ -197,5 +195,16 @@
 
   .usa-file-input__input[type] {
     cursor: not-allowed;
+  }
+
+
+.usa-file-input__target {
+  &:hover {
+    border-color: color("base-light");
+  }
+}
+
+  .usa-file-input--drag .usa-file-input__box {
+    background-color: color("disabled") !important;
   }
 }
