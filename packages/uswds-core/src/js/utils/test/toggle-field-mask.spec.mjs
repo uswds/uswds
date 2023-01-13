@@ -1,5 +1,5 @@
-const assert = require("assert");
-const toggleFieldMask = require("../toggle-field-mask");
+import assert from "assert";
+import toggleFieldMask from "../toggle-field-mask.mjs";
 
 const createElement = (name, attrs) => {
   const el = document.createElement(name);

@@ -1,9 +1,13 @@
-const assert = require("assert");
-const fs = require("fs");
-const path = require("path");
-const toggleFormInput = require("../toggle-form-input");
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
+import assert from "assert";
+import toggleFormInput from "../toggle-form-input.mjs";
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/toggle.template.html"));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const TEMPLATE = readFileSync(path.join(__dirname, "/toggle.template.html"));
 
 const CONTROL_SELECTOR = ".usa-show-password";
 const PASSWORD_SELECTOR = "#password";

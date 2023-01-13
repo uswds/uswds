@@ -17,7 +17,7 @@ module.exports = {
     let packageName = dutil.pkg.name.replace("@uswds/", "");
     const streams = Object.entries({
       [packageName]: browserify({
-        entries: ["packages/uswds-core/src/js/start.js"],
+        entries: ["./packages/uswds-core/src/js/start.mjs"],
         debug: true,
       })
         .transform("babelify", {
@@ -35,7 +35,7 @@ module.exports = {
         .pipe(sourcemaps.init({ loadMaps: true }))
         .on("error", function handleError(error) {
           dutil.logError(error);
-          this.emit('end');
+          this.emit("end");
         })
         .pipe(uglify())
         .pipe(

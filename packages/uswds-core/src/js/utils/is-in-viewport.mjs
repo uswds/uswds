@@ -14,4 +14,4 @@ function isElementInViewport(
   );
 }
 
-module.exports = isElementInViewport;
+export default isElementInViewport;
