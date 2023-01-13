@@ -42,7 +42,7 @@ const tabHandler = (context) => {
   };
 };
 
-module.exports = (context, additionalKeyBindings = {}) => {
+export default (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
   const bindings = additionalKeyBindings;
   const { Esc, Escape } = bindings;
