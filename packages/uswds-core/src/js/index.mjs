@@ -8,7 +8,7 @@ import fileInput from "../../../usa-file-input/src/index";
 import footer from "../../../usa-footer/src/index";
 import inPageNavigation from "../../../usa-in-page-navigation/src/index";
 import inputMask from "../../../usa-input-mask/src/index";
-import inputPrefixSuffix from "../../../usa-input-prefix-suffix/sr/index";
+import inputPrefixSuffix from "../../../usa-input-prefix-suffix/src/index";
 import languageSelector from "../../../usa-language-selector/src/index";
 import modal from "../../../usa-modal/src/index";
 import navigation from "../../../usa-header/src/index";
