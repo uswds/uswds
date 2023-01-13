@@ -1,7 +1,7 @@
 // polyfills HTMLElement.prototype.classList and DOMTokenList
 import "classlist-polyfill"
 // polyfills HTMLElement.prototype.hidden
-import "./element-hidden.mjs"
+import "./element-hidden.mjs";
 // polyfills Number.isNaN()
 import "./number-is-nan.mjs";
 // polyfills CustomEvent
