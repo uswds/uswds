@@ -72,9 +72,7 @@
     "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
-    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html",
-    "only-test": "mocha --inspect-brk packages/usa-input-mask/src/test/input-mask.spec.js",
-    "debug-jest": "node - inspect-brk=9230 ./node_modules/.bin/jest -i .packages/usa-input-mask/src/test/input-mask.spec.js"
+    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
   },
   "repository": {
     "type": "git",

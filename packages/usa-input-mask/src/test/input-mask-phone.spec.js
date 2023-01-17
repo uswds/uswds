@@ -13,7 +13,7 @@ const EVENTS = {};
  * send an input event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
+EVENTS.keydown = (el) => {
   el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
@@ -87,7 +87,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("informs the user only number characters are allowed", () => {
       input.value = "a";
 
-      EVENTS.input(input);
+      EVENTS.keydown(input);
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
@@ -96,13 +96,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("formats a US telephone number to (123) 456-7890", () => {
-      input.value = "1234567890";
+      const value = "1234567890";
 
-      EVENTS.input(input);
+      for (let i = 0; i < value.length; i += 1) {
+        input.dispatchEvent(
+          new KeyboardEvent("keydown", {
+            bubbles: true,
+            keyCode: value[i].charCodeAt(0),
+            key: value[i],
+            which: value[i].charCodeAt(0),
+          })
+        );
+      }
+
       shell = inputMaskShellSelector();
-      setTimeout(() => {
-        assert.strictEqual(shell.textContent, "(123) 456-7890");
-      }, 2000);
+      assert.strictEqual(shell.textContent, "(123) 456-7890");
     });
   });
 });

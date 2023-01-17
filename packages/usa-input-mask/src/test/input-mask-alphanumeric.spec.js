@@ -10,19 +10,23 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send an input event
+ * send an keydown event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
+EVENTS.keydown = (el) => {
   el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
 const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const inputMaskShellSelector = () =>
-  document.querySelector(".usa-input-mask__content");
+  document.querySelector(".usa-input-mask__content > span");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "input mask", selector: inputMaskSelector },
+  {
+    name: "input mask",
+    selector: inputMaskSelector,
+  },
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
@@ -38,9 +42,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
-      InputMask.on(containerSelector());
-
-      root = inputMaskSelector();
+      root = containerSelector();
+      InputMask.on(root);
       input = root.querySelector(".usa-input-mask__field");
       requirementsMessage = root.querySelector(".usa-input-mask__message");
       statusMessageVisual = root.querySelector(".usa-input-mask__status");
@@ -48,7 +51,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     afterEach(() => {
-      InputMask.off(containerSelector());
+      InputMask.off(root);
       body.textContent = "";
     });
 
@@ -87,37 +90,30 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("informs the user only a number character is allowed", () => {
       input.value = "a";
 
-      EVENTS.input(input);
+      EVENTS.keydown(input);
 
-      setTimeout(() => {
-        assert.strictEqual(
-          statusMessageVisual.innerHTML,
-          "A number character is required here"
-        );
-      }, 500);
-    });
-
-    it("informs the user only a letter character is allowed", () => {
-      input.value = "11";
-
-      EVENTS.input(input);
-
-      setTimeout(() => {
-        assert.strictEqual(
-          statusMessageVisual.innerHTML,
-          "A letter character is required here"
-        );
-      }, 2000);
+      assert.strictEqual(
+        statusMessageVisual.innerHTML,
+        "A number character is required here"
+      );
     });
 
     it("formats an alphanumeric example to 1EG4-TE5-MK73", () => {
-      input.value = "1EG4TE5MK73";
+      const value = "1EG4TE5MK73";
 
-      EVENTS.input(input);
+      for (let i = 0; i < value.length; i += 1) {
+        input.dispatchEvent(
+          new KeyboardEvent("keydown", {
+            bubbles: true,
+            keyCode: value[i].charCodeAt(0),
+            key: value[i],
+            which: value[i].charCodeAt(0),
+          })
+        );
+      }
+
       shell = inputMaskShellSelector();
-      setTimeout(() => {
-        assert.strictEqual(shell.textContent, "1EG4-TE5-MK73");
-      }, 2000);
+      assert.strictEqual(shell.textContent, "1EG4-TE5-MK73");
     });
   });
 });

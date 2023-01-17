@@ -10,16 +10,16 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send an input event
+ * send an keydown event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
+EVENTS.keydown = (el) => {
   el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
 const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const inputMaskShellSelector = () =>
-  document.querySelector(".usa-input-mask__content");
+  document.querySelector(".usa-input-mask__content > span");
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "input mask", selector: inputMaskSelector },
@@ -87,7 +87,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("informs the user only number characters are allowed", () => {
       input.value = "a";
 
-      EVENTS.input(input);
+      EVENTS.keydown(input);
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
@@ -96,13 +96,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("formats a nine digit social security number to 123-45-6789", () => {
-      input.value = "123456789";
+      const value = "123456789";
 
-      EVENTS.input(input);
+      for (let i = 0; i < value.length; i += 1) {
+        input.dispatchEvent(
+          new KeyboardEvent("keydown", {
+            bubbles: true,
+            keyCode: value[i].charCodeAt(0),
+            key: value[i],
+            which: value[i].charCodeAt(0),
+          })
+        );
+      }
+
       shell = inputMaskShellSelector();
-      setTimeout(() => {
-        assert.strictEqual(shell.textContent, "123-45-6789");
-      }, 2000);
+      assert.strictEqual(shell.textContent, "123-45-6789");
     });
   });
 });

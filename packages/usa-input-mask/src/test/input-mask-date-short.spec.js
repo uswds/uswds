@@ -10,10 +10,10 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send an input event
+ * send an keydown event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
+EVENTS.keydown = (el) => {
   el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
@@ -87,7 +87,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("informs the user only number characters are allowed", () => {
       input.value = "a";
 
-      EVENTS.input(input);
+      EVENTS.keydown(input);
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
@@ -96,13 +96,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("formats a short date to 01/01/1970", () => {
-      input.value = "01011970";
+      const value = "01011970";
 
-      EVENTS.input(input);
+      for (let i = 0; i < value.length; i += 1) {
+        input.dispatchEvent(
+          new KeyboardEvent("keydown", {
+            bubbles: true,
+            keyCode: value[i].charCodeAt(0),
+            key: value[i],
+            which: value[i].charCodeAt(0),
+          })
+        );
+      }
+
       shell = inputMaskShellSelector();
-      setTimeout(() => {
-        assert.strictEqual(shell.textContent, "01/01/1970");
-      }, 2000);
+      assert.strictEqual(shell.textContent, "01/01/1970");
     });
   });
 });

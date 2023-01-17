@@ -67,6 +67,12 @@ const KEYS = {
   zero: 48,
 };
 
+/**
+ * Updates the key value pair of the mask info object
+ * @param {string} id - the key of the mask info object
+ * @param {string} key - the key of the value pair to be updated
+ * @param {*} value - the new value for the specified key
+ */
 const setMaskInfo = (id, key, value) => {
   const idKeys = Object.keys(MASK_INFO);
   if (idKeys.indexOf(id) === -1) {
@@ -76,6 +82,15 @@ const setMaskInfo = (id, key, value) => {
   MASK_INFO[id][key] = value;
 };
 
+/**
+ * Gets the value of the specified key in the MASK_INFO object for a given id.
+ *
+ * @param {string} id - The id to get the mask info from.
+ * @param {string} key - The key to get the value of.
+ * @param {any} [defaulVal=null] - The default value to return if no value is found.
+ *
+ * @return {any} The value of the specified key in the MASK_INFO object or the given default value if not found.
+ */
 const getMaskInfo = (id, key, defaulVal = null) => {
   if (MASK_INFO[id] && MASK_INFO[id][key]) {
     return MASK_INFO[id][key];
@@ -150,7 +165,7 @@ const setCursorPosition = (inputEl, cursorPos, isFocus = true) => {
     }
     inputEl.setSelectionRange(cursorPos, cursorPos);
   } else {
-    if (cursorPos <= inputEl.value.length) {
+    if (inputEl.value !== undefined && cursorPos <= inputEl.value.length) {
       inputEl.setSelectionRange(cursorPos, cursorPos);
     }
 
@@ -509,7 +524,7 @@ const handlePaste = (inputEl, event) => {
  * @throws {Error} If either the `maskedEl` or `messageEl` element is not found.
  */
 const getMaskedElements = (inputEl, onlyElement = false) => {
-  const maskedEl = inputEl.closest(MASKED);
+  const maskedEl = document.querySelector(".usa-input-mask");
 
   if (!maskedEl) {
     throw new Error(`${INPUT} is missing outer ${MASKED}`);
@@ -619,9 +634,6 @@ const createMaskedInputShell = (inputEl) => {
   shell.appendChild(content);
   inputEl.parentNode.insertBefore(shell, inputEl);
   shell.appendChild(inputEl);
-
-  setInitMask(inputEl, false);
-  handleValueChange(inputEl);
 };
 
 /**
@@ -749,14 +761,60 @@ const handleKeyUp = (inputEl, event) => {
     pasteTextToInput(inputEl, pastedText, 0);
 
     if (pastedText === "") {
-      // handleValueChange(inputEl);
       setInitMask(inputEl);
     }
     event.preventDefault();
     return false;
   }
-
   return true;
+};
+
+const getAvailablePos = (inputEl, curPos) => {
+  let res = curPos + 1;
+  const el = inputEl;
+  for (let i = curPos + 1; i < el.value.length; i += 1) {
+    const MASK = getMaskInfo(inputEl.id, "MASK", []);
+    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
+      res = i;
+      break;
+    }
+  }
+  return res;
+};
+
+const handleFocus = (inputEl, event) => {
+  event.preventDefault();
+
+  const el = inputEl;
+  if (el.value === undefined || el.value === "") {
+    setInitMask(el);
+  } else {
+    setCursorPosition(inputEl, el.value.length);
+  }
+};
+
+/**
+ * Handles a click on an input element
+ * @param {HTMLElement} inputEl - The HTML element that was clicked
+ * @param {Event} event - The click event
+ */
+const handleClick = (inputEl, event) => {
+  const el = inputEl;
+  event.preventDefault();
+
+  const curPos = getCursorPosition(el);
+
+  if (curPos === 0) {
+    const MASK = getMaskInfo(inputEl.id, "MASK", []);
+
+    if (FORMAT_CHARACTERS.indexOf(MASK[curPos]) > -1) {
+      if (el.value === "") {
+        setInitMask(el);
+      } else {
+        setCursorPosition(inputEl, getAvailablePos(el, curPos));
+      }
+    }
+  }
 };
 
 /**
@@ -773,7 +831,6 @@ const handleKeyDown = (inputEl, event) => {
   let curPos = getCursorPosition(el);
 
   const MASK = getMaskInfo(el.id, "MASK", []);
-  // check and set disable
   if (keyCode === undefined) {
     return true;
   }
@@ -982,19 +1039,29 @@ const enhanceInputMask = (inputEl, options) => {
 };
 
 const inputMaskEvents = {
+  click: {
+    [INPUT](event) {
+      handleClick(this, event);
+    },
+  },
+  focusin: {
+    [INPUT](event) {
+      handleFocus(this, event);
+    },
+  },
   keydown: {
     [INPUT](event) {
       handleKeyDown(this, event);
     },
   },
-  paste: {
-    [INPUT](event) {
-      handlePaste(this, event, null);
-    },
-  },
   keyup: {
     [INPUT](event) {
       handleKeyUp(this, event);
+    },
+  },
+  paste: {
+    [INPUT](event) {
+      handlePaste(this, event, null);
     },
   },
 };
