@@ -19,7 +19,8 @@ EVENTS.keydown = (el) => {
 
 const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const inputMaskShellSelector = () =>
-  document.querySelector(".usa-input-mask__content > span");
+  document.querySelector(".usa-input-mask__content");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "input mask", selector: inputMaskSelector },
@@ -102,8 +103,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
         input.dispatchEvent(
           new KeyboardEvent("keydown", {
             bubbles: true,
-            keyCode: value[i].charCodeAt(0),
             key: value[i],
+            keyCode: value[i].charCodeAt(0),
             which: value[i].charCodeAt(0),
           })
         );

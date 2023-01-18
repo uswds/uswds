@@ -524,7 +524,7 @@ const handlePaste = (inputEl, event) => {
  * @throws {Error} If either the `maskedEl` or `messageEl` element is not found.
  */
 const getMaskedElements = (inputEl, onlyElement = false) => {
-  const maskedEl = document.querySelector(".usa-input-mask");
+  const maskedEl = inputEl.closest(MASKED);
 
   if (!maskedEl) {
     throw new Error(`${INPUT} is missing outer ${MASKED}`);
