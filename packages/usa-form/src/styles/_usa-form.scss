@@ -60,7 +60,7 @@
     }
   }
 
-  a {
+  a:not(.usa-button) {
     @include typeset-link;
   }
 }
