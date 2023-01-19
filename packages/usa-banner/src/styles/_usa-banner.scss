@@ -184,7 +184,7 @@ $banner-icon-close: (
 }
 
 .usa-banner__header--expanded {
-  padding-right: units($size-touch-target + 1);
+  padding-right: units($size-touch-target) + units(1);
 
   @include at-media("tablet") {
     background-color: transparent;
