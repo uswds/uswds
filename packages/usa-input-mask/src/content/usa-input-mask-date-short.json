@@ -1,6 +1,6 @@
 {
   "hint": "For example, 01/01/1970",
-  "id": "date",
+  "id": "us-date",
   "inputmode": "numeric",
   "label": "US Date",
   "mask": "99/99/9999",
