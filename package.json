@@ -1,6 +1,9 @@
 {
   "name": "uswds",
   "version": "2.13.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/GSA"
+  },
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
