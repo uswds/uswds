@@ -4,7 +4,6 @@
   "inputmode": "numeric",
   "label": "Social Security Number",
   "mask": "999-99-9999",
-  "pattern": "\\d{3}-\\d{2}-\\d{4}",
   "placeholder": "___-__-____",
   "type": "text"
 }

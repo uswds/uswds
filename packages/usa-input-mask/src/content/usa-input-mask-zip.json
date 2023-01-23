@@ -4,7 +4,6 @@
   "inputmode": "numeric",
   "label": "ZIP Code",
   "mask": "99999-9999",
-  "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
   "placeholder": "_____-____",
   "type": "text"
 }

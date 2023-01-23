@@ -4,7 +4,6 @@
   "inputmode": "numeric",
   "label": "US Telephone Number",
   "mask": "(999) 999-9999",
-  "pattern": "(\\d{3}) \\d{3}-\\d{4}",
   "placeholder": "(___) ___-____",
   "type": "tel"
 }
