@@ -1,6 +1,6 @@
 {
   "name": "@gsa/uswds",
-  "version": "2.13.2",
+  "version": "2.13.2-b",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/GSA"
   },
