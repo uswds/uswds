@@ -2,7 +2,7 @@
   "hint": "For example, 01/01/1970",
   "id": "us-date",
   "inputmode": "numeric",
-  "label": "US Date",
+  "label": "U.S. Date",
   "mask": "99/99/9999",
   "placeholder": "__/__/____",
   "type": "text"

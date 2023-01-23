@@ -96,7 +96,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("formats a US zip code to 12345-6789", () => {
+    it("formats a U.S. zip code to 12345-6789", () => {
       const value = "123456789";
 
       for (let i = 0; i < value.length; i += 1) {

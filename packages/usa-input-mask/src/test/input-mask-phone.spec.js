@@ -96,7 +96,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("formats a US telephone number to (123) 456-7890", () => {
+    it("formats a U.S. telephone number to (123) 456-7890", () => {
       const value = "1234567890";
 
       for (let i = 0; i < value.length; i += 1) {
