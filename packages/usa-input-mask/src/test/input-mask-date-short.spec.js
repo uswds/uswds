@@ -96,8 +96,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("formats a short date to 01/01/1970", () => {
-      const value = "01011970";
+    it("formats a short date to 01/31/1970", () => {
+      const value = "01311970";
 
       for (let i = 0; i < value.length; i += 1) {
         input.dispatchEvent(
@@ -111,7 +111,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       }
 
       shell = inputMaskShellSelector();
-      assert.strictEqual(shell.textContent, "01/01/1970");
+      assert.strictEqual(shell.textContent, "01/31/1970");
     });
   });
 });
