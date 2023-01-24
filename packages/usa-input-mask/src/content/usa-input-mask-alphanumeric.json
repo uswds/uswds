@@ -1,5 +1,5 @@
 {
-  "forceupper": "true",
+  "forceupper": true,
   "hint": "For example, 1EG4-TE5-MK73",
   "id": "alphanumeric",
   "inputmode": "text",
