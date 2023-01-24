@@ -100,7 +100,7 @@ $font-face-default-filetypes: "woff2", "woff", "ttf";
     $this-src: map.get($typeface-metadata, src);
   }
 
-  // If the typeface has custom src sefined, generate and override
+  // If the typeface has custom src defined, generate and override
   // any existing USWDS src
   @if $src {
     $generate: true;
