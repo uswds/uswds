@@ -7,29 +7,33 @@
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
 
-// TEMP: Add custom filetype vars
 $font-face-filetype-library: (
   "woff2": "woff2",
   "woff": "woff",
   "ttf": "truetype",
 );
-$font-face-filetypes: "woff2";
-$font-face-filetypes: "woff2", "woff", "ttf" !default;
+$font-face-default-filetypes: "woff2", "woff", "ttf";
 
-// TEMP: Add font-face format generator
-@function fontFaceFormats($path, $filetypes: $font-face-filetypes) {
+@function fontFaceFormats($path, $filetypes) {
   $list: ();
+  $format: null;
+
   @each $filetype in $filetypes {
-    $format: map.get($map: $font-face-filetype-library, $key: $filetype);
+    @if map.has-key($map: $font-face-filetype-library, $key: $filetype) {
+      $format: map.get($map: $font-face-filetype-library, $key: $filetype);
+    } 
+    @else {
+      @error "Font filetype \"#{$filetype}\" needs to be one of the following: #{$font-face-default-filetypes}";
+    }
     $entry: url(#{$path}.#{$filetype}) format("#{$format}");
     $list: list.append($list, $entry, $separator: "comma");
-    @debug $list;
   }
+
   @return $list;
 }
 
 // Output the @font-face rule
-@mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
+@mixin at-font-face($display-name, $file-path, $filetypes, $font-weight, $font-style) {
   // TODO: If $theme-use-rails-pipeline use font-url() statements
   // instead of url()
   // Dunno why I can't do this without an error...
@@ -39,7 +43,7 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
     font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: fontFaceFormats($file-path);
+    src: fontFaceFormats($file-path, $filetypes);
   }
 }
 
@@ -49,7 +53,8 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
   $output-weights,
   $display-name,
   $dir,
-  $font-style
+  $font-style,
+  $filetypes
 ) {
   @each $font-weight, $filename in $font-style-src {
     @each $key, $output-weight in $output-weights {
@@ -58,6 +63,7 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
           "#{$display-name}",
           // TODO: Why is this path causing problems?
           "#{$theme-font-path}/#{$dir}/#{$filename}",
+          $filetypes,
           #{$font-weight},
           string.unquote("#{$font-style}")
         );
@@ -106,6 +112,12 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
     $roman: map.get($this-src, roman);
     $italic: map.get($this-src, italic);
     $dir: map.get($this-src, dir);
+    $filetypes: if(
+      map.has-key($this-src, "filetypes"),
+      map.get($this-src, "filetypes"),
+      $font-face-default-filetypes
+    );
+    @debug "#{$display-name} filetypes: #{$filetypes}";
 
     @if $roman {
       @include generate-font-face(
@@ -113,7 +125,8 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
         $output-weights,
         $display-name,
         $dir,
-        normal
+        normal,
+        $filetypes
       );
     }
 
@@ -123,7 +136,8 @@ $font-face-filetypes: "woff2", "woff", "ttf" !default;
         $output-weights,
         $display-name,
         $dir,
-        italic
+        italic,
+        $filetypes
       );
     }
   }
