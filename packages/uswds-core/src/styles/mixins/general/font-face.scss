@@ -1,10 +1,32 @@
 @use "sass:map";
 @use "sass:string";
+@use "sass:list";
 
 @use "../../functions" as *;
 @use "../../variables" as *;
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
+
+// TEMP: Add custom filetype vars
+$font-face-filetype-library: (
+  "woff2": "woff2",
+  "woff": "woff",
+  "ttf": "truetype",
+);
+$font-face-filetypes: "woff2";
+$font-face-filetypes: "woff2", "woff", "ttf" !default;
+
+// TEMP: Add font-face format generator
+@function fontFaceFormats($path, $filetypes: $font-face-filetypes) {
+  $list: ();
+  @each $filetype in $filetypes {
+    $format: map.get($map: $font-face-filetype-library, $key: $filetype);
+    $entry: url(#{$path}.#{$filetype}) format("#{$format}");
+    $list: list.append($list, $entry, $separator: "comma");
+    @debug $list;
+  }
+  @return $list;
+}
 
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
@@ -17,9 +39,7 @@
     font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: url(#{$file-path}.woff2) format("woff2"),
-      url(#{$file-path}.woff) format("woff"),
-      url(#{$file-path}.ttf) format("truetype");
+    src: fontFaceFormats($file-path);
   }
 }
 
