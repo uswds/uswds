@@ -69,6 +69,7 @@
     "watch": "gulp watch",
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
+    "prettier:js": "npx prettier --write './packages/**/**/*.js'",
     "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
