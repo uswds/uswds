@@ -115,11 +115,13 @@ describe("navigation toggle", () => {
   it("makes all other page content invisible to screen readers", () => {
     menuButton.click();
 
-    const activeContent = document.querySelectorAll("body > :not([aria-hidden])");
+    const activeContent = document.querySelectorAll(
+      "body > :not([aria-hidden])"
+    );
 
     assert.strictEqual(activeContent.length, 1);
     assert.strictEqual(activeContent[0], header);
-  })
+  });
 
   it("collapses nav if needed on window resize", () => {
     menuButton.click();
@@ -155,10 +157,10 @@ describe("navigation toggle", () => {
   it("hides the nav when the Escape key is hit", () => {
     menuButton.click();
     navControl.focus();
-    EVENTS.escape(navPrimary)
+    EVENTS.escape(navPrimary);
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
-    assert.strictEqual(document.activeElement, menuButton)
+    assert.strictEqual(document.activeElement, menuButton);
   });
 
   it("collapses dropdowns when focus leaves nav", () => {
