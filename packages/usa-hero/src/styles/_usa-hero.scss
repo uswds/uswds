@@ -30,6 +30,10 @@
   @include typeset-h2;
   color: color("accent-cool");
   line-height: line-height("heading", 2);
+
+  * + & {
+    margin-top: $theme-heading-margin-top;
+  }
 }
 
 .usa-hero__heading--alt {

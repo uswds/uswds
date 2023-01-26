@@ -41,4 +41,8 @@
 
 .usa-graphic-list__heading {
   @include typeset-h3;
+
+  * + & {
+    margin-top: $theme-heading-margin-top;
+  }
 }
