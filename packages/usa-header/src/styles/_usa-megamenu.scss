@@ -9,28 +9,26 @@
   display: block;
   position: absolute;
 
-  // Bypass width calculation if $header-max-width is set to none
-  @if $header-max-width == "none" {
-    @if $type == "standard" {
-      // standard needs the $theme-site-margins-width to accommodate different paddings/structure on #basic-mega-nav-section-two
-      width: units($theme-site-margins-width);
-    } @else if $type == "extended" {
-      width: 0;
-    }
-  } @else {
-    // retrieve the unit value of $theme-header-max-width, depending on type of value added
-    $mw: smart-quote($header-max-width);
-    @if meta.type-of($header-max-width) == "string" {
-      $mw: units($header-max-width);
-    }
+  // Retrieve the unit value of $theme-header-max-width, depending on type of value added
+  $mw: smart-quote($header-max-width);
+  @if meta.type-of($header-max-width) == "string" {
+    $mw: units($header-max-width);
+  }
 
-    // subtract half the value of the viewport width from half the value of the submenu width
-    // standard needs the additional $theme-site-margins-width to accommodate different paddings/structure on #basic-mega-nav-section-two
-    @if $type == "standard" {
-      width: calc(50vw - $mw / 2 + units($theme-site-margins-width));
-    } @else if $type == "extended" {
-      width: calc(50vw - $mw / 2);
-    }
+  // Calculate the width of the outer megamenu
+  // Subtract half the value of the viewport width from half the value of the submenu width
+  //
+  // Standard needs the additional $theme-site-margins-width to accommodate
+  // different paddings/structure on #basic-mega-nav-section-two
+  @if $type == "extended" and $header-max-width == "none" {
+    width: 0;
+  } @else if $type == "extended" {
+    width: calc(50vw - $mw / 2);
+  } @else if $type == "standard" and $header-max-width == "none" {
+    // No calc is needed if $header-max-width is set to none
+    width: units($theme-site-margins-width);
+  } @else if $type == "standard" {
+    width: calc(50vw - $mw / 2 + units($theme-site-margins-width));
   }
 }
 
