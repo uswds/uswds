@@ -16,11 +16,11 @@
       h4,
       h5,
       h6 {
-        margin-top: 1.5em;
+        margin-top: $theme-heading-margin-top;
       }
 
       p {
-        margin-top: 1em;
+        margin-top: $theme-paragraph-margin-top;
       }
     }
   }
