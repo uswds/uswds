@@ -239,6 +239,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
+    let imageId;
 
     // Push updated file names into the store array
     fileStore.push(fileName);
@@ -256,7 +257,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       );
     }
 
-    let imageId;
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
