@@ -60,7 +60,8 @@
     }
   }
 
-  a:not(.usa-button) { // Avoids links styled as buttons
+  // Avoids links styled as buttons
+  a:not(.usa-button) {
     @include typeset-link;
   }
 }
