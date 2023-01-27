@@ -15,6 +15,7 @@ $icon-object: (
   display: inline-block;
   padding-right: $external-link-size;
   position: relative;
+  text-indent: initial;
 
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);
