@@ -256,9 +256,11 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       );
     }
 
+    let imageId;
+
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
+      imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
@@ -270,7 +272,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
