@@ -71,6 +71,7 @@
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
     "prettier:js": "npx prettier --write './packages/**/**/*.js'",
     "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
+    "prettier": "npx prettier --write './html-templates/**/**/*.html' && npx prettier --write './packages/**/**/*.js' && npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
