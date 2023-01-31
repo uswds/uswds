@@ -11,7 +11,7 @@
     data-threshold="1"
   ></aside>
 
-  <main id="main-content" class="main-content usa-prose">
+  <div class="usa-in-page-nav__main usa-prose">
     {% if heading %}
       <h1>{{ heading }}</h1>
     {% endif %}
@@ -26,12 +26,12 @@
         {{ item.content }}
       {% endfor %}
     {% endif %}
-  </main>
+  </div>
 
 {% endmacro %}
 
 {% import _self as inpagenav %}
 
-<div class="usa-in-page-nav-container">
+<div class="usa-in-page-nav__container">
   {{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
 </div>

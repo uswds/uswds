@@ -1,12 +1,12 @@
 @use "uswds-core" as *;
 @use "sass:color";
 
-.usa-in-page-nav-container {
+.usa-in-page-nav__container {
   align-items: flex-start;
   display: flex;
 
-  // Set main landmark max width to ensure in-page nav will fit
-  main {
+  // Set main element max width to ensure in-page nav will fit
+  .usa-in-page-nav__main {
     max-width: units($theme-in-page-nav-main-content-max-width);
     width: 100%;
   }

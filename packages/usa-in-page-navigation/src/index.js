@@ -14,13 +14,14 @@ const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
+const IN_PAGE_NAV_CONTAINER_CLASS = `${IN_PAGE_NAV_CLASS}__container`;
+const IN_PAGE_NAV_MAIN_CLASS = `${IN_PAGE_NAV_CLASS}__main`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
 const IN_PAGE_NAV_TITLE_CLASS = `${IN_PAGE_NAV_CLASS}__heading`;
 const SUB_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--sub-item`;
-const MAIN_ELEMENT = "main";
 
 /**
  * Set the active link state for the currently observed section
@@ -48,7 +49,7 @@ const setActive = (el) => {
  */
 const getSectionHeadings = () => {
   const sectionHeadings = document.querySelectorAll(
-    `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
+    `.${IN_PAGE_NAV_MAIN_CLASS} h2, .${IN_PAGE_NAV_MAIN_CLASS} h3`
   );
   return sectionHeadings;
 };
@@ -106,6 +107,14 @@ const handleScrollToSection = (el) => {
  * @param {HTMLElement} inPageNavEl The in-page nav element
  */
 const createInPageNav = (inPageNavEl) => {
+  const inPageNavMainEl = document.querySelector(`.${IN_PAGE_NAV_MAIN_CLASS}`);
+
+  if (!inPageNavMainEl) {
+    throw new Error(
+      `${IN_PAGE_NAV_CONTAINER_CLASS} is missing inner ${IN_PAGE_NAV_MAIN_CLASS}`
+    );
+  }
+
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
