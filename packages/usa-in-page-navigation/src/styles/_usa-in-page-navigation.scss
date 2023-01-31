@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 @use "sass:color";
 
-.usa-in-page-nav__container {
+.usa-in-page-nav {
   align-items: flex-start;
   display: flex;
 
@@ -12,7 +12,7 @@
   }
 }
 
-.usa-in-page-nav {
+.usa-in-page-nav__container {
   @include set-text-from-bg(
     $bg-color: $theme-in-page-nav-background-color,
     $context: "In-page navigation text color"

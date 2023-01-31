@@ -9,9 +9,9 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
   `${__dirname}/../../../../dist/css/uswds.min.css`
 );
-const THE_NAV = ".usa-in-page-nav";
+const THE_NAV = ".usa-in-page-nav__container";
 const PRIMARY_CONTENT_SELECTOR =
-  ".usa-in-page-nav-container .usa-in-page-nav .usa-in-page-nav__list";
+  ".usa-in-page-nav .usa-in-page-nav__container .usa-in-page-nav__list";
 
 /**
  * Resize the window's width, then dispatch a 'resize' event
@@ -37,7 +37,7 @@ const tests = [
   { name: "document.body", selector: () => document.body },
   {
     name: "in page nav",
-    selector: () => document.querySelector(".usa-in-page-nav"),
+    selector: () => document.querySelector(".usa-in-page-nav__container"),
   },
 ];
 

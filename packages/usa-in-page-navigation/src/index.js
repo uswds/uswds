@@ -90,7 +90,7 @@ const getSectionId = (value) => {
  * @param {HTMLElement} - Id value with the number sign removed
  */
 const handleScrollToSection = (el) => {
-  const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
+  const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CONTAINER_CLASS}`);
   const inPageNavScrollOffset =
     inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
@@ -108,10 +108,19 @@ const handleScrollToSection = (el) => {
  */
 const createInPageNav = (inPageNavEl) => {
   const inPageNavMainEl = document.querySelector(`.${IN_PAGE_NAV_MAIN_CLASS}`);
+  const inPageNavContainerEl = document.querySelector(
+    `.${IN_PAGE_NAV_CONTAINER_CLASS}`
+  );
 
   if (!inPageNavMainEl) {
     throw new Error(
-      `${IN_PAGE_NAV_CONTAINER_CLASS} is missing inner ${IN_PAGE_NAV_MAIN_CLASS}`
+      `${IN_PAGE_NAV_CLASS} is missing inner ${IN_PAGE_NAV_MAIN_CLASS}`
+    );
+  }
+
+  if (!inPageNavContainerEl) {
+    throw new Error(
+      `${IN_PAGE_NAV_CLASS} is missing inner ${IN_PAGE_NAV_CONTAINER_CLASS}`
     );
   }
 
@@ -235,9 +244,11 @@ const inPageNavigation = behavior(
   },
   {
     init(root) {
-      selectOrMatches(`.${IN_PAGE_NAV_CLASS}`, root).forEach((inPageNavEl) => {
-        createInPageNav(inPageNavEl);
-      });
+      selectOrMatches(`.${IN_PAGE_NAV_CONTAINER_CLASS}`, root).forEach(
+        (inPageNavEl) => {
+          createInPageNav(inPageNavEl);
+        }
+      );
     },
   }
 );
