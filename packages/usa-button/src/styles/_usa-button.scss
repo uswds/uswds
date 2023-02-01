@@ -197,10 +197,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   padding: units(2) units(3);
 }
 
-.usa-button--disabled {
-  @include button-disabled;
-}
-
 .usa-button--outline-disabled,
 .usa-button--outline-inverse-disabled,
 .usa-button--outline:disabled,
