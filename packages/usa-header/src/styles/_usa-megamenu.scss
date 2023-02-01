@@ -10,10 +10,10 @@
   display: block;
   position: absolute;
 
-  // Set variabled for submenu max-width
+  // Set variable for submenu max width
   $mw: smart-quote($header-max-width);
   @if meta.type-of($header-max-width) == "string" {
-    // Retrieve the unit equivalent for header max width
+    // Retrieve the unit equivalent for submenu max width
     $mw: units($header-max-width);
   }
 
