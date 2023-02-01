@@ -29,11 +29,9 @@ tests.forEach(({name, selector: containerSelector}) => {
         body.innerHTML = "";
       });
 
-      it("has disabled styling", () => {
-        const expectedClass = "usa-file-input--disabled";
-        assert.strictEqual(
-          component.getAttribute("class").includes(expectedClass),
-          true
+      it("includes aria-disabled attribute", () => {
+        assert(
+          component.getAttribute("aria-disabled").includes("true")
         );
       });
     });

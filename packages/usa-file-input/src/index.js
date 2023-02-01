@@ -12,7 +12,6 @@ const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
 const PREVIEW_HEADING_CLASS = `${PREFIX}-file-input__preview-heading`;
-const DISABLED_CLASS = `${PREFIX}-file-input--disabled`;
 const CHOOSE_CLASS = `${PREFIX}-file-input__choose`;
 const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
 const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
@@ -69,7 +68,6 @@ const disable = (el) => {
   const { dropZoneEl, inputEl } = getFileInputContext(el);
 
   inputEl.disabled = true;
-  dropZoneEl.classList.add(DISABLED_CLASS);
   dropZoneEl.setAttribute("aria-disabled", "true");
 };
 
@@ -82,7 +80,6 @@ const enable = (el) => {
   const { dropZoneEl, inputEl } = getFileInputContext(el);
 
   inputEl.disabled = false;
-  dropZoneEl.classList.remove(DISABLED_CLASS);
   dropZoneEl.removeAttribute("aria-disabled");
 };
 
