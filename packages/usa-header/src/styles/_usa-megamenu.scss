@@ -2,6 +2,7 @@
 @use "sass:meta";
 @use "uswds-core" as *;
 
+// Calculate the width of the outer megamenu pseudo elements
 @mixin outer-megamenu($header-max-width: $theme-header-max-width, $type) {
   @include u-pin("y");
   background-color: color("primary-darker");
@@ -9,9 +10,10 @@
   display: block;
   position: absolute;
 
-  // Retrieve the unit value of $theme-header-max-width, depending on type of value added
+  // Set variabled for submenu max-width
   $mw: smart-quote($header-max-width);
   @if meta.type-of($header-max-width) == "string" {
+    // Retrieve the unit equivalent for header max width
     $mw: units($header-max-width);
   }
 
@@ -20,9 +22,10 @@
     $mw: 100vw;
   }
 
-  // subtract half the value of the viewport width from half the value of the submenu width
-  // standard needs the additional $theme-site-margins-width to accommodate different paddings/structure on #basic-mega-nav-section-two
+  // Calculate pseudo element width
+  // Subtract half the submenu width from half the viewport width
   @if $type == "standard" {
+    // Add theme margin width to match padding in .usa-nav-container
     width: calc(50vw - $mw / 2 + units($theme-site-margins-width));
   } @else if $type == "extended" {
     width: calc(50vw - $mw / 2);
