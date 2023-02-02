@@ -35,7 +35,7 @@ See [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
 
 ## Breaking change
 
-_Indicate if this update is a breaking change with one of the following statements:_
+_Indicate if this update is a breaking change with **one** of the following statements:_
 This is not a breaking change.
 :warning: This is potentially a breaking change.
 :warning: This is a breaking change.
