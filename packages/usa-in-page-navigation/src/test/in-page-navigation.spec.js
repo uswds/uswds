@@ -2,7 +2,7 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 const sinon = require("sinon");
-const behavior = require("../index");
+const InPageNav = require("../index");
 
 const HIDE_MAX_WIDTH = 639;
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
@@ -33,11 +33,13 @@ const assertHidden = (el, hidden) => {
   );
 };
 
+const inPageNavSelector = () => document.querySelector(".usa-in-page-nav");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
   {
-    name: "in page nav",
-    selector: () => document.querySelector(".usa-in-page-nav__container"),
+    name: "in-page nav",
+    selector: inPageNavSelector,
   },
 ];
 
@@ -46,6 +48,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     const { body } = document;
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
+    let root;
     let theNavContainer;
     let theList;
 
@@ -57,16 +60,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
+      InPageNav.on(containerSelector());
 
-      theNavContainer = document.querySelector(THE_NAV_CONTAINER);
-      theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
+      root = inPageNavSelector();
+
+      theNavContainer = root.querySelector(THE_NAV_CONTAINER);
+      theList = root.querySelector(PRIMARY_CONTENT_SELECTOR);
 
       window.innerWidth = 1024;
-      behavior.on(containerSelector());
     });
 
     afterEach(() => {
-      behavior.off(containerSelector(body));
+      InPageNav.off(containerSelector(body));
       body.innerHTML = "";
     });
 
