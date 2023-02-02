@@ -342,10 +342,10 @@ $expand-less-icon: map-merge(
       display: inline;
       padding-left: units(0.5);
 
-      & + .usa-nav__secondary-item::before {
-        color: color("base-lighter");
-        content: "\007C" / ""; // Code for "|" character
-        padding-right: units(0.5);
+      & + .usa-nav__secondary-item {
+        border-left: 1px solid color("base-lighter");
+        margin-left: px-to-rem(5px);
+        padding-left: units(1);
       }
     }
   }
