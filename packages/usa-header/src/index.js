@@ -80,14 +80,12 @@ const toggleNonNavItems = (active) => {
 };
 
 const animateClose = (el) => {
-  el.classList.add(CLOSING_CLASS);
   const cleanup = () => {
     if (el.classList.contains(CLOSING_CLASS)) {
       el.classList.remove(CLOSING_CLASS);
       el.classList.remove(VISIBLE_CLASS);
     }
   };
-
   const events = [
     "transitionend",
     "animationend",
@@ -99,6 +97,8 @@ const animateClose = (el) => {
     cleanup();
     events.forEach((e) => el.removeEventListener(e, callback));
   };
+
+  el.classList.add(CLOSING_CLASS);
   events.forEach((e) => el.addEventListener(e, callback));
 };
 
