@@ -4,6 +4,6 @@
   @include typeset-p;
 
   * + & {
-    margin-top: 1em; // TODO: add as var to settings?
+    margin-top: $theme-paragraph-margin-top;
   }
 }
