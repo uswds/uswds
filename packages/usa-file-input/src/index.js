@@ -257,7 +257,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       );
     }
 
-
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
       imageId = createUniqueID(makeSafeForID(fileName));
