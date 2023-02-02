@@ -9,7 +9,7 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
   `${__dirname}/../../../../dist/css/uswds.min.css`
 );
-const THE_NAV = ".usa-in-page-nav__container";
+const THE_NAV_CONTAINER = ".usa-in-page-nav__container";
 const PRIMARY_CONTENT_SELECTOR =
   ".usa-in-page-nav .usa-in-page-nav__container .usa-in-page-nav__list";
 
@@ -46,7 +46,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     const { body } = document;
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
-    let theNav;
+    let theNavContainer;
     let theList;
 
     before(() => {
@@ -58,7 +58,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
 
-      theNav = document.querySelector(THE_NAV);
+      theNavContainer = document.querySelector(THE_NAV_CONTAINER);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
 
       window.innerWidth = 1024;
@@ -76,7 +76,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("hides at small screens", () => {
       resizeTo(400);
-      assertHidden(theNav, true);
+      assertHidden(theNavContainer, true);
     });
 
     it("show on larger screens", () => {
