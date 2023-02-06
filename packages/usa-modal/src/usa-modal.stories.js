@@ -1,5 +1,5 @@
 import Component from "./usa-modal.twig";
-import { DefaultContent, ForcedActionContent, LargeContent, NestedFormsContent } from "./content";
+import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
 
 export default {
   title: "Components/Modal",
@@ -16,5 +16,9 @@ Large.args = LargeContent;
 export const ForcedAction = Template.bind({});
 ForcedAction.args = ForcedActionContent;
 
-export const NestedForms = Template.bind({});
-NestedForms.args = NestedFormsContent;
+// Test for forme nested within modal windows
+export const TestNestedForms = Template.bind({});
+TestNestedForms.args = {
+  ...DefaultContent,
+  nestedForms: "true"
+};
