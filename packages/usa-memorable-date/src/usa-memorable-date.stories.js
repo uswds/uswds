@@ -18,15 +18,11 @@ const Template = (args) => Component(args);
 export const MemorableDate = Template.bind({});
 
 export const Disabled = Template.bind({});
-Disabled.argTypes = {
-  disabled_state: {
-    defaultValue: "disabled"
-  }
+Disabled.args = {
+  disabled_state: "disabled"
 }
 
 export const AriaDisabled = Template.bind({});
-AriaDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "aria_disabled"
-  }
+AriaDisabled.args = {
+  disabled_state: "aria_disabled"
 }

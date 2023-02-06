@@ -23,7 +23,6 @@ export const Default = Template.bind({});
 Default.args = Content;
 
 export const Disabled = Template.bind({});
-Disabled.args = Content;
 Disabled.args = {
   ...Content,
   disabled_state: "disabled"
