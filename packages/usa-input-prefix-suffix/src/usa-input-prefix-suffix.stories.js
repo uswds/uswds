@@ -18,28 +18,20 @@ const SuffixTemplate = (args) => suffix(args);
 
 export const Prefix = PrefixTemplate.bind({});
 export const PrefixDisabled = PrefixTemplate.bind({});
-PrefixDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "disabled"
-  }
+PrefixDisabled.args = {
+  disabled_state: "disabled"
 }
 export const PrefixAriaDisabled = PrefixTemplate.bind({});
-PrefixAriaDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "aria_disabled"
-  }
+PrefixAriaDisabled.args = {
+  disabled_state: "aria_disabled"
 }
 
 export const Suffix = SuffixTemplate.bind({});
 export const SuffixDisabled = SuffixTemplate.bind({});
-SuffixDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "disabled"
-  }
+SuffixDisabled.args = {
+  disabled_state: "disabled"
 }
 export const SuffixAriaDisabled = SuffixTemplate.bind({});
-SuffixAriaDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "aria_disabled"
-  }
+SuffixAriaDisabled.args = {
+  disabled_state: "aria_disabled"
 }

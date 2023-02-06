@@ -19,31 +19,23 @@ const TileTemplate = (args) => Tile(args);
 export const Default = Template.bind({});
 
 export const Disabled = Template.bind({});
-Disabled.argTypes ={
-  disabled_state: {
-    defaultValue: "disabled"
-  }
+Disabled.args = {
+  disabled_state: "disabled"
 }
 
 export const AriaDisabled = Template.bind({});
-AriaDisabled.argTypes ={
-  disabled_state: {
-    defaultValue: "aria_disabled"
-  }
+AriaDisabled.args = {
+  disabled_state: "aria_disabled"
 }
 
 export const CheckboxTile = TileTemplate.bind({});
 
 export const DisabledTile = TileTemplate.bind({});
-DisabledTile.argTypes ={
-  disabled_state: {
-    defaultValue: "disabled"
-  }
+DisabledTile.args = {
+  disabled_state: "disabled"
 }
 
 export const AriaDisabledTile = TileTemplate.bind({});
-AriaDisabledTile.argTypes ={
-  disabled_state: {
-    defaultValue: "aria_disabled"
-  }
+AriaDisabledTile.args = {
+  disabled_state: "aria_disabled"
 }

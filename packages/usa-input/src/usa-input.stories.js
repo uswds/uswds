@@ -3,30 +3,33 @@ import Showcase from "./usa-input--showcase.twig"
 
 export default {
   title: "Components/Form Inputs/Text Input",
+  argTypes: {
+    state: {
+      name: "State",
+      control: "radio",
+      options: ["default", "focus", "error", "success", "disabled", "aria_disabled"],
+      defaultValue: "default",
+    }
+  }
 };
 
 const Template = (args) => Component(args);
 const ShowcaseTemplate = (args) => Showcase(args);
 
 export const Input = Template.bind({});
-Input.argTypes = {
-  state: {
-    name: "State",
-    control: "radio",
-    options: ["default", "focus", "error", "success", "disabled", "aria_disabled"],
-    defaultValue: "default",
-  }
+Input.args = {
+  state: "default"
 }
 
 export const Disabled = Template.bind({});
-Disabled.argTypes = {
+Disabled.args = {
   state: {
     defaultValue: "disabled"
   }
 }
 
 export const AriaDisabled = Template.bind({});
-AriaDisabled.argTypes = {
+AriaDisabled.args = {
   state: {
     defaultValue: "aria_disabled"
   }

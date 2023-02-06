@@ -3,14 +3,12 @@ import {
   SsnContent,
   PhoneContent,
   ZipContent,
-  AlphanumericContent,
-  DisabledContent,
-  AriaDisabledContent
+  AlphanumericContent
 } from "./content";
 
 export default {
   title: "Components/Form Inputs/Text Input Mask",
-  argTypes: {
+  args: {
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
@@ -35,7 +33,13 @@ export const Alphanumeric = Template.bind({});
 Alphanumeric.args = AlphanumericContent;
 
 export const Disabled = Template.bind({});
-Disabled.args = DisabledContent;
+Disabled.args = {
+  ...AlphanumericContent,
+  disabled_state: "disabled"
+}
 
 export const AriaDisabled = Template.bind({});
-AriaDisabled.args = AriaDisabledContent;
+AriaDisabled.args = {
+  ...AlphanumericContent,
+  disabled_state: "aria_disabled"
+}
