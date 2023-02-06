@@ -29,7 +29,7 @@ tests.forEach(({name, selector: containerSelector}) => {
     let openButton2;
     let overlay;
     let comboList;
-    let CBToggle;
+    let comboBoxToggleButton;
 
     const isVisible = (el) => el.classList.contains("is-visible");
 
@@ -45,7 +45,7 @@ tests.forEach(({name, selector: containerSelector}) => {
       openButton2 = openButton2Selector();
 
       comboList = comboListSelector();
-      CBToggle = body.querySelector(".usa-combo-box__toggle-list");
+      comboBoxToggleButton = body.querySelector(".usa-combo-box__toggle-list");
 
     });
 
@@ -121,7 +121,7 @@ tests.forEach(({name, selector: containerSelector}) => {
       });
 
       it("Allows event propagation and displays combobox list when toggle is clicked", () => {
-        CBToggle.click();
+        comboBoxToggleButton.click();
 
         assert.ok(!comboList.hidden, "should display the combobox option list");
       });
