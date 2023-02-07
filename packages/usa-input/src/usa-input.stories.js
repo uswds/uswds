@@ -7,7 +7,7 @@ export default {
     state: {
       name: "State",
       control: "radio",
-      options: ["default", "focus", "error", "success", "disabled", "aria_disabled"],
+      options: ["default", "focus", "error", "success", "disabled", "aria-disabled"],
       defaultValue: "default",
     }
   }
@@ -23,16 +23,12 @@ Input.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  state: {
-    defaultValue: "disabled"
-  }
+  state: "disabled"
 }
 
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
-  state: {
-    defaultValue: "aria_disabled"
-  }
+  state: "aria-disabled"
 }
 
 export const StateShowcase = ShowcaseTemplate.bind({});

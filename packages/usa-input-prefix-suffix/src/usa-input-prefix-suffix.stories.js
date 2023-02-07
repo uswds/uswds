@@ -7,7 +7,7 @@ export default {
     disabled_state: {
       name: "Disabled State",
       control: "radio",
-      options: ["default", "disabled", "aria_disabled"],
+      options: ["default", "disabled", "aria-disabled"],
       defaultValue: "default"
     }
   }
@@ -23,7 +23,7 @@ PrefixDisabled.args = {
 }
 export const PrefixAriaDisabled = PrefixTemplate.bind({});
 PrefixAriaDisabled.args = {
-  disabled_state: "aria_disabled"
+  disabled_state: "aria-disabled"
 }
 
 export const Suffix = SuffixTemplate.bind({});
@@ -33,5 +33,5 @@ SuffixDisabled.args = {
 }
 export const SuffixAriaDisabled = SuffixTemplate.bind({});
 SuffixAriaDisabled.args = {
-  disabled_state: "aria_disabled"
+  disabled_state: "aria-disabled"
 }
