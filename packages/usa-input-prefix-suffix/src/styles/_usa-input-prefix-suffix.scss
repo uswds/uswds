@@ -8,13 +8,10 @@
   background-color: color("white");
   display: flex;
   padding: 0;
+  position: relative;
 
   &.is-focused {
     @include focus-outline();
-  }
-
-  &--disabled {
-    @include u-disabled;
   }
 
   &--error {
@@ -35,11 +32,26 @@
     &:focus {
       outline: none;
     }
+
+    &:disabled + .usa-input-suffix,
+    &[aria-disabled="true"] + .usa-input-suffix {
+        @include u-disabled;
+    }
   }
+}
+
+.usa-input-prefix:has(+ input:disabled), 
+.usa-input-prefix:has(+ input[aria-disabled="true"]) {
+  @include u-disabled;
+}
+
+.usa-input-suffix {
+  right: 0;
 }
 
 .usa-input-prefix,
 .usa-input-suffix {
+  position: absolute;
   color: color("base");
   line-height: 0;
   padding: 0 units(1);
