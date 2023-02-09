@@ -331,7 +331,6 @@ $expand-less-icon: map-merge(
   margin-top: units(3);
 
   @include at-media($theme-header-min-width) {
-    float: right;
     line-height: line-height($theme-navigation-font-family, 1);
     margin-bottom: units(0.5);
     margin-top: 0;
