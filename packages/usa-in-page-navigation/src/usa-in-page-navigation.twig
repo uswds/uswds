@@ -1,0 +1,37 @@
+{% macro inpagenav(items, base_class) %}
+
+  {% set list_item_class = 'usa-in-page-nav__item' %}
+  {% set current_class = 'usa-current' %}
+
+  <aside class="usa-in-page-nav" 
+    data-title-text="On this page" 
+    data-title-heading-level="h4" 
+    data-scroll-offset="0" 
+    data-root-margin="0px 0px 0px 0px"
+    data-threshold="1"
+  ></aside>
+
+  <main id="main-content" class="main-content usa-prose">
+    {% if heading %}
+      <h1>{{ heading }}</h1>
+    {% endif %}
+
+    {% if items %}
+      {% for item in items %}
+        {% if item.is_subheading %}
+          <h3>{{ item.section_heading }}</h3>
+        {% else %}
+          <h2>{{ item.section_heading }}</h2>
+        {% endif %}
+        {{ item.content }}
+      {% endfor %}
+    {% endif %}
+  </main>
+
+{% endmacro %}
+
+{% import _self as inpagenav %}
+
+<div class="usa-in-page-nav-container">
+  {{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
+</div>
