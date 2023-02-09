@@ -1,11 +1,16 @@
 @use "uswds-core" as *;
 
+// Padding helpers
+$ICON_WIDTH: 3;
+$PREFIX_SUFFIX_PADDING: 1;
+$PREFIX_SUFFIX_OFFSET: $ICON_WIDTH + ($PREFIX_SUFFIX_PADDING * 2) + 1; // 1 is padding from input sytles
+
+
 // Input prefixes / suffixes
 .usa-input-group {
   @extend %block-input-general;
   @extend %block-input-styles;
   align-items: center;
-  background-color: color("white");
   display: flex;
   padding: 0;
   position: relative;
@@ -23,6 +28,7 @@
   }
 
   input {
+    @include u-padding-right($PREFIX_SUFFIX_OFFSET);
     border: 0;
     height: 100%;
     margin-top: 0;
@@ -40,6 +46,11 @@
   }
 }
 
+.usa-input-prefix + input {
+  @include u-padding-left($PREFIX_SUFFIX_OFFSET);
+  @include u-padding-right(1);
+}
+
 .usa-input-prefix:has(+ input:disabled), 
 .usa-input-prefix:has(+ input[aria-disabled="true"]) {
   @include u-disabled;
@@ -54,11 +65,11 @@
   position: absolute;
   color: color("base");
   line-height: 0;
-  padding: 0 units(1);
+  padding: 0 units($PREFIX_SUFFIX_PADDING);
   user-select: none;
   white-space: nowrap;
 
   .usa-icon {
-    @include u-square(3);
+    @include u-square($ICON_WIDTH);
   }
 }
