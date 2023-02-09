@@ -331,6 +331,9 @@ $expand-less-icon: map-merge(
   margin-top: units(3);
 
   @include at-media($theme-header-min-width) {
+    column-gap: units(1);
+    display: flex;
+    flex-flow: row nowrap;
     line-height: line-height($theme-navigation-font-family, 1);
     margin-bottom: units(0.5);
     margin-top: 0;
@@ -338,12 +341,10 @@ $expand-less-icon: map-merge(
 
   .usa-nav__secondary-item {
     @include at-media($theme-header-min-width) {
-      display: inline;
       padding-left: units(0.5);
 
       & + .usa-nav__secondary-item {
         border-left: 1px solid color("base-lighter");
-        margin-left: px-to-rem(5px);
         padding-left: units(1);
       }
     }
