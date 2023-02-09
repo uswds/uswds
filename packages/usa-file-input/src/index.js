@@ -12,6 +12,7 @@ const BOX_CLASS = `${PREFIX}-file-input__box`;
 const INSTRUCTIONS_CLASS = `${PREFIX}-file-input__instructions`;
 const PREVIEW_CLASS = `${PREFIX}-file-input__preview`;
 const PREVIEW_HEADING_CLASS = `${PREFIX}-file-input__preview-heading`;
+const DISABLED_CLASS = `${PREFIX}-file-input--disabled`;
 const CHOOSE_CLASS = `${PREFIX}-file-input__choose`;
 const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-message`;
 const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
@@ -68,17 +69,7 @@ const disable = (el) => {
   const { dropZoneEl, inputEl } = getFileInputContext(el);
 
   inputEl.disabled = true;
-  dropZoneEl.setAttribute("aria-disabled", "true");
-};
-
-/**
- * Set aria-disabled attribute to file input component
- *
- * @param {HTMLElement} el An element within the file input component
- */
-const ariaDisable = (el) => {
-  const { dropZoneEl } = getFileInputContext(el);
-
+  dropZoneEl.classList.add(DISABLED_CLASS);
   dropZoneEl.setAttribute("aria-disabled", "true");
 };
 
@@ -91,6 +82,7 @@ const enable = (el) => {
   const { dropZoneEl, inputEl } = getFileInputContext(el);
 
   inputEl.disabled = false;
+  dropZoneEl.classList.remove(DISABLED_CLASS);
   dropZoneEl.removeAttribute("aria-disabled");
 };
 
@@ -129,7 +121,6 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
-  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
   let defaultAriaLabel;
 
   // Adds class names and other attributes
@@ -154,11 +145,6 @@ const buildFileInput = (fileInputEl) => {
   // Disabled styling
   if (disabled) {
     disable(fileInputEl);
-  }
-
-  // Aria-disabled styling
-  if (ariaDisabled) {
-    ariaDisable(fileInputEl);
   }
 
   // Sets instruction test and aria-label based on whether or not multiple files are accepted
@@ -483,7 +469,6 @@ const fileInput = behavior(
     },
     getFileInputContext,
     disable,
-    ariaDisable,
     enable,
   }
 );

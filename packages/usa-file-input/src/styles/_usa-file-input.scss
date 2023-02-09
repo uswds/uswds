@@ -11,22 +11,6 @@
   display: block;
   max-width: units($theme-input-max-width);
   width: 100%;
-
-  &[aria-disabled="true"] {
-    pointer-events: none;
-
-    .usa-file-input__instructions {
-      opacity: 0.5;
-    }
-
-    .usa-file-input__box {
-      background-color: color("disabled-light");
-    }
-
-    .usa-file-input__input[type] {
-      cursor: default;
-    }
-  }
 }
 
 .usa-file-input__target {
@@ -197,4 +181,21 @@
 .usa-form-group--error .usa-file-input__target {
   border-color: color("secondary-dark");
   border-width: 2px;
+}
+
+// Disabled state
+.usa-file-input--disabled {
+  pointer-events: none;
+
+  .usa-file-input__instructions {
+    opacity: 0.5;
+  }
+
+  .usa-file-input__box {
+    background-color: color("disabled-light");
+  }
+
+  .usa-file-input__input[type] {
+    cursor: default;
+  }
 }
