@@ -1,5 +1,5 @@
 export { default as DefaultContent } from "./usa-file-input.json";
-export { default as DisabledContent } from "./usa-file-input~disabled.json"
+export { default as DisabledContent } from "./usa-file-input~disabled.json";
 export { default as ErrorContent } from "./usa-file-input~error.json";
 export { default as MultipleContent } from "./usa-file-input~multiple.json";
 export { default as SpecificContent } from "./usa-file-input~specific.json";
