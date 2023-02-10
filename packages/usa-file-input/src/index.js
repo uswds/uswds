@@ -81,7 +81,6 @@ const ariaDisable = (el) => {
   const { dropZoneEl } = getFileInputContext(el);
 
   dropZoneEl.classList.add(DISABLED_CLASS);
-  dropZoneEl.setAttribute("aria-disabled", "true");
 };
 
 /**
