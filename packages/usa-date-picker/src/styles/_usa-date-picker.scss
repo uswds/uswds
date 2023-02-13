@@ -458,7 +458,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      @include u-forced-color-outline;
       background-color: transparent;
     }
   }
@@ -472,7 +472,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      @include u-forced-color-outline;
       background-color: transparent;
     }
   }
