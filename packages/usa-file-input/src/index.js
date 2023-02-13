@@ -70,7 +70,6 @@ const disable = (el) => {
 
   inputEl.disabled = true;
   dropZoneEl.classList.add(DISABLED_CLASS);
-  dropZoneEl.setAttribute("aria-disabled", "true");
 };
 
 /**
@@ -83,7 +82,6 @@ const enable = (el) => {
 
   inputEl.disabled = false;
   dropZoneEl.classList.remove(DISABLED_CLASS);
-  dropZoneEl.removeAttribute("aria-disabled");
 };
 
 /**
