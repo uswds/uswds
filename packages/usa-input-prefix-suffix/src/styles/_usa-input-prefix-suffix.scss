@@ -27,7 +27,7 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   &--error,
   &--success {
     & input:focus {
-      outline-offset: units(.5);
+      outline-offset: units($theme-input-state-border-width);
     }
   }
 
