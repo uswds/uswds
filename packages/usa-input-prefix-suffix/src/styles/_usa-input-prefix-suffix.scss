@@ -48,7 +48,7 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
 
 .usa-input-prefix + input {
   @include u-padding-left($prefix_suffix_offset);
-  @include u-padding-right(1);
+  @include u-padding-right($prefix_suffix_padding);
 }
 
 .usa-input-prefix:has(+ input:disabled), 
