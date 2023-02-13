@@ -1,4 +1,4 @@
-@use "../../functions/utilities/color" as *;
+@use "../../functions/utilities/color" as *; // Allows the use of the color() function + disabled token
 
 @mixin u-disabled {
   background-color: color("disabled") !important;
