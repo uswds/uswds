@@ -38,7 +38,8 @@ $search-icon: (
     }
 
     @media (forced-colors: active) {
-      border: 2px solid transparent;
+      border: 2px solid transparent; // Override forced-color button outline for to match input outline
+      outline: none !important;
       @include place-icon($search-icon, "before");
 
       &::before {
