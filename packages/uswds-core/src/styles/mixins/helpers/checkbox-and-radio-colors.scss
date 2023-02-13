@@ -67,7 +67,7 @@
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
 
       @media (forced-colors: active) {
-        @include u-forced-color-outline;        
+        @include u-forced-color-outline;
         outline-offset: 2px;
       }
     }
