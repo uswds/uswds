@@ -15,9 +15,6 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   padding: 0;
   position: relative;
 
-  &.is-focused {
-    @include focus-outline();
-  }
 
   &--error {
     @include u-border($theme-input-state-border-width, "error-dark");
@@ -27,6 +24,13 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
     @include u-border($theme-input-state-border-width, "success");
   }
 
+  &--error,
+  &--success {
+    & input:focus {
+      outline-offset: units(.5);
+    }
+  }
+
   input {
     @include u-padding-right($prefix_suffix_offset);
     border: 0;
@@ -34,10 +38,6 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
     margin-top: 0;
     min-width: 0;
     width: 100%;
-
-    &:focus {
-      outline: none;
-    }
 
     &:disabled + .usa-input-suffix,
     &[aria-disabled="true"] + .usa-input-suffix {
