@@ -3,7 +3,7 @@
 // Padding helpers
 $icon_width: 3;
 $prefix_suffix_padding: 1;
-$prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2) + 1; // 1 is padding from input sytles
+$prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
 
 
 // Input prefixes / suffixes
