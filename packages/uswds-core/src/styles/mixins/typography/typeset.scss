@@ -40,11 +40,11 @@ Sets:
   clear: both;
 
   * + & {
-    margin-top: 1.5em; // TODO: add as var to settings?
+    margin-top: $theme-heading-margin-top;
   }
 
   + * {
-    margin-top: 1em;
+    margin-top: $theme-paragraph-margin-top;
   }
 }
 
@@ -56,11 +56,11 @@ Sets:
   max-width: measure($theme-text-measure);
 
   * + & {
-    margin-top: 1em; // TODO: add as var to settings?
+    margin-top: $theme-paragraph-margin-top;
   }
 
   + * {
-    margin-top: 1em;
+    margin-top: $theme-paragraph-margin-top;
   }
 }
 
