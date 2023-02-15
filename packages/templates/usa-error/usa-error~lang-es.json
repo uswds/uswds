@@ -1,6 +1,9 @@
 {
   "lang": "es",
+  "layout": "default",
+  "permalink": "/404.html",
   "title": "No se encontró esta página",
+  "touchpoints_survey": false,
   "intro": "Lo sentimos, pero no podemos encontrar la página que busca.  Es posible que haya sido eliminada, cambiado de nombre o no esté disponible por ahora.",
   "instructions": "<p>Si escribió el URL a mano, verifique su ortografía y el uso de mayúsculas.  Nuestros URLs aparecen así: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visite nuestra página principal para encontrar herramientas y recursos útiles o contáctenos y lo ayudaremos a encontrar lo que busca.</p>",
   "actions": {
