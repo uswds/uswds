@@ -4,9 +4,68 @@
   @include typeset($theme-prose-font-family);
 
   & > {
-    @include usa-paragraph-style;
-    @include usa-headings-styles;
     @include usa-list-styles;
     @include usa-table-styles;
+
+    p {
+      line-height: line-height($theme-body-font-family, $theme-body-line-height);
+      margin-bottom: 0;
+      margin-top: 0;
+      max-width: measure($theme-text-measure);
+
+      + * {
+        margin-top: $theme-paragraph-margin-top;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include u-margin-y(0);
+      clear: both;
+
+      + * {
+        margin-top: $theme-paragraph-margin-top;
+      }
+    }
+    
+    * + {
+      p {
+        margin-top: $theme-paragraph-margin-top;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: $theme-heading-margin-top;
+      }
+    }
+
+    
+    // Replaces styles from usa-headings-styles
+    h1 {
+      @include h1;
+    }
+    h2 {
+      @include h2;
+    }
+    h3 {
+      @include h3;
+    }
+    h4 {
+      @include h4;
+    }
+    h5 {
+      @include h5;
+    }
+    h6 {
+      @include h6;
+    }
   }
 }
