@@ -16,19 +16,19 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   position: relative;
 
 
+  &--error,
+  &--success {
+    input:focus {
+      outline-offset: units($theme-input-state-border-width);
+    }
+  }
+
   &--error {
     @include u-border($theme-input-state-border-width, "error-dark");
   }
 
   &--success {
     @include u-border($theme-input-state-border-width, "success");
-  }
-
-  &--error,
-  &--success {
-    & input:focus {
-      outline-offset: units($theme-input-state-border-width);
-    }
   }
 
   // Input suffix padding
@@ -47,18 +47,9 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   }
 }
 
-.usa-input-prefix + input {
-  @include u-padding-left($prefix_suffix_offset);
-  @include u-padding-right($prefix_suffix_padding);
-}
-
 .usa-input-prefix:has(+ input:disabled), 
 .usa-input-prefix:has(+ input[aria-disabled="true"]) {
   @include u-disabled;
-}
-
-.usa-input-suffix {
-  right: 0;
 }
 
 .usa-input-prefix,
@@ -73,4 +64,14 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   .usa-icon {
     @include u-square($icon_width);
   }
+}
+
+
+.usa-input-prefix + input {
+  @include u-padding-left($prefix_suffix_offset);
+  @include u-padding-right($prefix_suffix_padding);
+}
+
+.usa-input-suffix {
+  right: 0;
 }
