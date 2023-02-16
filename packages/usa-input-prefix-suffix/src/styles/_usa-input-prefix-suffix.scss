@@ -31,6 +31,7 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
     }
   }
 
+  // Input suffix padding
   input {
     @include u-padding-right($prefix_suffix_offset);
     border: 0;
