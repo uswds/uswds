@@ -399,7 +399,7 @@ tests.forEach(({name, selector: containerSelector}) => {
         );
       });
 
-      it("should select the focused list item in the list when pressing tab on a focused item", () => {
+      it("should select the focused list item in the list when pressing space on a focused item", () => {
         select.value = "cantaloupe";
         input.value = "berry";
         EVENTS.input(input);
@@ -411,7 +411,7 @@ tests.forEach(({name, selector: containerSelector}) => {
           "should focus the first item in the list"
         );
 
-        EVENTS.keydownTab(focusedOption);
+        EVENTS.keydownSpace(focusedOption);
 
         assert.strictEqual(
           select.value,
