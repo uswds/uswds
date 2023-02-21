@@ -646,11 +646,11 @@ const handleDownFromListOption = (event) => {
 };
 
 /**
- * Handle the tab event from an list option element within the combo box component.
+ * Handle the space event from an list option element within the combo box component.
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleTabFromListOption = (event) => {
+const handleSpaceFromListOption = (event) => {
   selectItem(event.target);
   event.preventDefault();
 };
@@ -779,7 +779,7 @@ const comboBox = behavior(
         ArrowDown: handleDownFromListOption,
         Down: handleDownFromListOption,
         Enter: handleEnterFromListOption,
-        Tab: handleTabFromListOption,
+        " ": handleSpaceFromListOption,
         "Shift+Tab": noop,
       }),
     },
