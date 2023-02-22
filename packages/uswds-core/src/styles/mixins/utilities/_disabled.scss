@@ -1,6 +1,8 @@
 @use "../../functions/utilities/color" as *;
 
+// Overrides background-color and cursor styles of elements to display as disabled
+
 @mixin u-disabled {
-  background-color: color("disabled");
+  background-color: color("disabled") !important;
   cursor: not-allowed;
 }
