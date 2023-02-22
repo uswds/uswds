@@ -5,6 +5,5 @@
   "type": "text",
   "inputmode": "numeric",
   "placeholder": "_____-____",
-  "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
-  "disabled_state": "none"
+  "pattern": "^[0-9]{5}(?:-[0-9]{4})?$"
 }

@@ -8,7 +8,7 @@ import {
 
 export default {
   title: "Components/Form Inputs/Text Input Mask",
-  args: {
+  argTypes: {
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
