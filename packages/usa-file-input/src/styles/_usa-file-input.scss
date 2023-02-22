@@ -186,7 +186,7 @@
 // Disabled state
 .usa-file-input--disabled {
   .usa-file-input__instructions {
-    opacity: 0.8;
+    opacity: 0.8; // Necessary for grey text on disabled background color contrast across browsers
   }
 
   .usa-file-input__choose {
@@ -202,11 +202,11 @@
   }
 
 
-.usa-file-input__target {
-  &:hover {
-    border-color: color("base-light");
+  .usa-file-input__target {
+    &:hover {
+      border-color: color("base-light");
+    }
   }
-}
 
   .usa-file-input--drag .usa-file-input__box {
     background-color: color("disabled") !important;
