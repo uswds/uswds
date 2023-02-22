@@ -11,7 +11,7 @@
 
 @mixin usa-link-style {
   a {
-    @include usa-prose-link;
+    @include typeset-link;
   }
 }
 
