@@ -114,11 +114,17 @@
           }
         }
       }
-      &:disabled:checked,
-      &[aria-disabled="true"]:checked {
+      &:disabled,
+      &[aria-disabled="true"] {
         @include format-label {
-          background-color: color($input-bg-color);
-          border-color: $color-input-disabled;
+          border-color: $color-input-disabled--weak;
+        }
+
+        &:checked {
+          @include format-label {
+            background-color: color($input-bg-color);
+            border-color: $color-input-disabled;
+          }
         }
       }
     }
