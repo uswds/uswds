@@ -1,8 +1,6 @@
 @use "uswds-core" as *;
 
 @mixin prose-test {
-  // margin-top: $theme-paragraph-margin-top;
-
   .usa-prose {
     & > {
       * + * {
