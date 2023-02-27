@@ -53,9 +53,8 @@ Sets:
 }
 
 @mixin typeset-p-base {
+  @include u-margin-y(0);
   line-height: line-height($theme-body-font-family, $theme-body-line-height);
-  margin-bottom: 0;
-  margin-top: 0;
   max-width: measure($theme-text-measure);
 }
 
