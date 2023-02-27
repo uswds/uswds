@@ -626,4 +626,21 @@ $this-function: "color-token-variant()";
   }
 }
 
+// usa-prose
+@include describe(".usa-prose") {
+  @include it("Adds top margin to all elements after paragraphs") {
+    @include assert {
+      @include output {
+        @include prose-test;
+      }
+
+      @include expect {
+        .usa-prose>*+* {
+          margin-top: 1em !important;
+        }
+      }
+    }
+  }
+}
+
 // Debug
