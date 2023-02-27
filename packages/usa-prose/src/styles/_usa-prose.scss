@@ -1,29 +1,23 @@
 @use "uswds-core" as *;
 
+@mixin prose-test {
+  // margin-top: $theme-paragraph-margin-top;
+
+  .usa-prose {
+    & > {
+      * + * {
+        margin-top: $theme-paragraph-margin-top !important;
+      }
+    }
+  }
+}
+
 .usa-prose {
   @include typeset($theme-prose-font-family);
 
   & > {
     @include usa-list-styles;
     @include usa-table-styles;
-
-    *:not(:first-child) {
-      margin-top: $theme-paragraph-margin-top;
-    }  
-
-    * + {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-top: $theme-heading-margin-top;
-      }
-
-    p {
-      @include typeset-p-base;
-    }
 
     h1,
     h2,
@@ -33,6 +27,24 @@
     h6 {
       @include typeset-heading-base;
     }
+
+    * + * {
+      margin-top: $theme-paragraph-margin-top !important;
+    }
+
+    * + {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: $theme-heading-margin-top !important;
+      }
+
+      p {
+        @include typeset-p-base;
+      }
     }
 
     
