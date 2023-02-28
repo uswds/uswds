@@ -7,7 +7,6 @@
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
 
-$font-face-filetypes-default: "woff2", "woff", "ttf";
 
 @function fontFaceFormats($path, $filetypes) {
   $list: ();
@@ -18,7 +17,7 @@ $font-face-filetypes-default: "woff2", "woff", "ttf";
       $format: map.get($map: $project-font-face-filetypes, $key: $filetype);
     } 
     @else {
-      @error "Font filetype \"#{$filetype}\" needs to be one of the following: #{$font-face-default-filetypes}";
+      @error "Font filetype \"#{$filetype}\" needs to be one of the following filetypes: #{$project-font-face-filetypes-default}";
     }
     $entry: url(#{$path}.#{$filetype}) format("#{$format}");
     $list: list.append($list, $entry, $separator: "comma");
@@ -110,7 +109,7 @@ $font-face-filetypes-default: "woff2", "woff", "ttf";
     $filetypes: if(
       map.has-key($this-src, "filetypes"),
       map.get($this-src, "filetypes"),
-      $font-face-default-filetypes
+      $project-font-face-filetypes-default
     );
     @debug "#{$display-name} filetypes: #{$filetypes}";
 
