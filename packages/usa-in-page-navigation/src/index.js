@@ -99,7 +99,9 @@ const handleScrollToSection = (el) => {
     block: "start",
   });
 
-  window.location.hash = el.id;
+  if (window.location.hash.slice(1) !== el.id) {
+    window.history.pushState(null, "", `#${el.id}`);
+  }
 };
 
 /**

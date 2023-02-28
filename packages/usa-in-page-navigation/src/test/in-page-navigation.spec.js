@@ -143,12 +143,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("scrolls to section on initialization", () => {
         assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
-        assert(
-          Object.getOwnPropertyDescriptor(
-            window.location,
-            "hash"
-          ).set.calledOnceWith("section_0")
-        );
       });
     });
   });
