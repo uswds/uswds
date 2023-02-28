@@ -38,7 +38,6 @@ $search-icon: (
     }
 
     @media (forced-colors: active) {
-      outline-offset: -$theme-forced-color-outline-width;
       @include place-icon($search-icon, "before");
 
       &:focus {
