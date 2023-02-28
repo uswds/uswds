@@ -7,20 +7,15 @@
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
 
-$font-face-filetype-library: (
-  "woff2": "woff2",
-  "woff": "woff",
-  "ttf": "truetype",
-);
-$font-face-default-filetypes: "woff2", "woff", "ttf";
+$font-face-filetypes-default: "woff2", "woff", "ttf";
 
 @function fontFaceFormats($path, $filetypes) {
   $list: ();
   $format: null;
 
   @each $filetype in $filetypes {
-    @if map.has-key($map: $font-face-filetype-library, $key: $filetype) {
-      $format: map.get($map: $font-face-filetype-library, $key: $filetype);
+    @if map.has-key($map: $project-font-face-filetypes, $key: $filetype) {
+      $format: map.get($map: $project-font-face-filetypes, $key: $filetype);
     } 
     @else {
       @error "Font filetype \"#{$filetype}\" needs to be one of the following: #{$font-face-default-filetypes}";
