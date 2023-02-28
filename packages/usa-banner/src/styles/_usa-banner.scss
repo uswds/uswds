@@ -243,6 +243,11 @@ $banner-icon-close: (
 
   @include at-media-max("tablet") {
     width: 100%;
+
+    &:enabled:focus {
+      // adjust outline to render within the viewport
+      outline-offset: units(-0.5);
+    }
   }
 
   @include at-media("tablet") {
