@@ -13,7 +13,6 @@ const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
-const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
@@ -54,15 +53,40 @@ const getSectionHeadings = () => {
 };
 
 /**
- * Return a node list of section anchor tags
+ * Generates a unique ID for the given heading element.
  *
- * @return {HTMLElement[]} - An array of DOM nodes
+ * @param {HTMLHeadingElement} heading
+ *
+ * @return {string} - Unique ID
  */
-const getSectionAnchors = () => {
-  const sectionAnchors = document.querySelectorAll(
-    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
-  );
-  return sectionAnchors;
+const getHeadingId = (heading) => {
+  if (heading.id) {
+    return heading.id;
+  }
+
+  const baseId = heading.textContent
+    .toLowerCase()
+    .replace(/[^a-z\d]/g, "-")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-|-$/g, "");
+
+  let id;
+  let suffix;
+  while (true) {
+    id = baseId;
+    if (suffix) {
+      id += `-${suffix}`;
+    }
+
+    const isUnique = !document.getElementById(id);
+    if (isUnique) {
+      break;
+    }
+
+    suffix = (suffix || 1) + 1;
+  }
+
+  return id;
 };
 
 /**
@@ -110,9 +134,7 @@ const handleScrollToSection = (el) => {
 const scrollToCurrentSection = () => {
   const hashFragment = window.location.hash.slice(1);
   if (hashFragment) {
-    const anchorTag = document.querySelector(
-      `.${IN_PAGE_NAV_ANCHOR_CLASS}#${hashFragment}`
-    );
+    const anchorTag = document.getElementById(hashFragment);
     if (anchorTag) {
       handleScrollToSection(anchorTag);
     }
@@ -159,10 +181,12 @@ const createInPageNav = (inPageNavEl) => {
   inPageNavList.classList.add(IN_PAGE_NAV_LIST_CLASS);
   inPageNav.appendChild(inPageNavList);
 
-  sectionHeadings.forEach((el, i) => {
+  const observeSections = new window.IntersectionObserver(setActive, options);
+  sectionHeadings.forEach((el) => {
+    observeSections.observe(el);
+
     const listItem = document.createElement("li");
     const navLinks = document.createElement("a");
-    const anchorTag = document.createElement("a");
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
 
@@ -171,26 +195,18 @@ const createInPageNav = (inPageNavEl) => {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
-    navLinks.setAttribute("href", `#section_${i}`);
+    // eslint-disable-next-line no-param-reassign
+    el.id = getHeadingId(el);
+
+    navLinks.setAttribute("href", `#${el.id}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
     navLinks.textContent = textContentOfLink;
-
-    anchorTag.setAttribute("id", `section_${i}`);
-    anchorTag.setAttribute("class", IN_PAGE_NAV_ANCHOR_CLASS);
-    el.insertAdjacentElement("afterbegin", anchorTag);
 
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
   });
 
   inPageNavEl.appendChild(inPageNav);
-
-  const anchorTags = getSectionAnchors();
-  const observeSections = new window.IntersectionObserver(setActive, options);
-
-  anchorTags.forEach((tag) => {
-    observeSections.observe(tag);
-  });
 };
 
 /**

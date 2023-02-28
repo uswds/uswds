@@ -58,10 +58,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
       Object.defineProperty(HTMLElement.prototype, "offsetTop", {
         get() {
-          const anchor =
-            this.closest("h1,h2,h3,h4").querySelector("[id^=section_]");
-          const index = Number(anchor.id.split("_")[1]);
-          return (index + 1) * OFFSET_PER_SECTION;
+          let index = 0;
+          let sibling = this;
+          while (true) {
+            sibling = sibling.previousElementSibling;
+            if (sibling) {
+              index += 1;
+            } else {
+              break;
+            }
+          }
+
+          return index * OFFSET_PER_SECTION;
         },
       });
       const observe = sinon.spy();
@@ -78,11 +86,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
 
+      behavior.on(containerSelector());
+
       theNav = document.querySelector(THE_NAV);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
 
       window.innerWidth = 1024;
-      behavior.on(containerSelector());
     });
 
     afterEach(() => {
@@ -115,21 +124,29 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assertHidden(theList, false);
     });
 
+    it("assigns id to section headings", () => {
+      const ok = !!document.querySelector(
+        "h2#section-1 ~ h3#section-1-1 ~ h3#custom-heading ~ h3#section-1-3-2 ~ h3#section-1-4"
+      );
+
+      assert(ok);
+    });
+
     it("scrolls to section", () => {
-      const firstLink = theNav.querySelector("a[href='#section_0']");
+      const firstLink = theNav.querySelector("a[href='#section-1']");
       firstLink.click();
 
       assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
     });
 
     it("updates url when scrolling to section", () => {
-      const firstLink = theNav.querySelector("a[href='#section_0']");
+      const firstLink = theNav.querySelector("a[href='#section-1']");
       firstLink.click();
 
       Object.getOwnPropertyDescriptor(
         window.location,
         "hash"
-      ).set.calledOnceWith("section_0");
+      ).set.calledOnceWith("section-1");
     });
 
     it("does not scroll to section on initialization", () => {
@@ -138,7 +155,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     context("with initial hash URL", () => {
       before(() => {
-        sinon.stub(window.location, "hash").get(() => "#section_0");
+        sinon.stub(window.location, "hash").get(() => "#section-1");
       });
 
       it("scrolls to section on initialization", () => {
