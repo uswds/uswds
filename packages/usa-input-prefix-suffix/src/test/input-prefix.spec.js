@@ -8,10 +8,10 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const inputGroupSelector = () => document.querySelector(".usa-input-group");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "input group", selector: inputGroupSelector }
+  { name: "input group", selector: inputGroupSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`input prefix initialized at ${name}`, () => {
     const { body } = document;
 

@@ -51,6 +51,20 @@ $banner-icon-close: (
   .usa-accordion {
     @include typeset($theme-banner-font-family);
   }
+
+  .grid-row {
+    @include grid-row;
+
+    &.grid-gap-lg {
+      @include grid-gap("lg");
+    }
+
+    .tablet\:grid-col-6 {
+      @include at-media("tablet"){
+        @include grid-col(6);
+      }
+    }
+  }
 }
 
 .usa-banner__header,
@@ -68,7 +82,7 @@ $banner-icon-close: (
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-left: units($theme-site-margins-mobile-width) - units(1);
   padding-top: units(0.5);
   width: 100%;
 
@@ -184,7 +198,7 @@ $banner-icon-close: (
 }
 
 .usa-banner__header--expanded {
-  padding-right: units($size-touch-target + 1);
+  padding-right: units($size-touch-target) + units(1);
 
   @include at-media("tablet") {
     background-color: transparent;

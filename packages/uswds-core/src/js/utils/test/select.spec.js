@@ -2,10 +2,10 @@ const fs = require("fs");
 const assert = require("assert");
 const select = require("../select");
 
-const TEMPLATE = fs.readFileSync(`${__dirname  }/select.template.html`);
+const TEMPLATE = fs.readFileSync(`${__dirname}/select.template.html`);
 
 const assertArrayWithLength = (array, length) => {
-  assert(Array.isArray(array), `not an array: ${  typeof array}`);
+  assert(Array.isArray(array), `not an array: ${typeof array}`);
   assert.strictEqual(array.length, length);
 };
 
