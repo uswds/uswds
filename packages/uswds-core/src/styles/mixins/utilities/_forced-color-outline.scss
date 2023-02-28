@@ -1,5 +1,5 @@
 $theme-forced-color-outline-width: 2px;
 
 @mixin u-forced-color-outline {
-  outline: $theme-forced-color-outline-width solid transparent;
+  border: $theme-forced-color-outline-width solid transparent;
 }
