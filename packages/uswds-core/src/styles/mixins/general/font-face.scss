@@ -17,7 +17,7 @@
       $format: map.get($map: $project-font-face-filetypes, $key: $filetype);
     } 
     @else {
-      @error "Font filetype \"#{$filetype}\" needs to be one of the following filetypes: #{$project-font-face-filetypes-default}";
+      @error "[Settings] custom-src.filetypes: \"#{$filetype}\" is not a valid USWDS custom font filetype. Available filetypes: #{$project-font-face-filetypes-default}";
     }
     $entry: url(#{$path}.#{$filetype}) format("#{$format}");
     $list: list.append($list, $entry, $separator: "comma");
