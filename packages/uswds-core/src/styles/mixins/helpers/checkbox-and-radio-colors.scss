@@ -67,7 +67,7 @@
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
 
       @media (forced-colors: active) {
-        @include u-forced-color-outline;
+        border: $border-high-contrast;
         outline-offset: 2px;
       }
     }
@@ -112,6 +112,7 @@
 
           @media (forced-colors: active) {
             border: ButtonText solid units("05");
+            //
           }
         }
       }

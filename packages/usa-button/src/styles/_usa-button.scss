@@ -54,7 +54,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   @media (forced-colors: active) {
     &:not(.usa-button--unstyled) {
-      @include u-forced-color-outline;
+      border: $border-high-contrast
     }
   }
 }
