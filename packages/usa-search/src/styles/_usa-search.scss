@@ -38,10 +38,13 @@ $search-icon: (
     }
 
     @media (forced-colors: active) {
-      border: 2px solid transparent; // Override forced-color button outline for to match input outline
-      outline: none !important;
+      outline-offset: -$theme-forced-color-outline-width;
       @include place-icon($search-icon, "before");
 
+      &:focus {
+        outline-offset: 0;
+      }
+      
       &::before {
         @include at-media("mobile-lg") {
           content: none;
