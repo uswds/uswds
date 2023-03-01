@@ -58,8 +58,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
       Object.defineProperty(HTMLElement.prototype, "offsetTop", {
         get() {
+          const heading = this.closest("h2,h3");
+
           let index = 0;
-          let sibling = this;
+          let sibling = heading;
           while (true) {
             sibling = sibling.previousElementSibling;
             if (sibling) {
@@ -125,9 +127,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("assigns id to section headings", () => {
-      const ok = !!document.querySelector(
-        "h2#section-1 ~ h3#section-1-1 ~ h3#custom-heading ~ h3#section-1-3-2 ~ h3#section-1-4"
-      );
+      const ok = [
+        "h2 > .usa-anchor#section-1",
+        "h2 ~ h3 > .usa-anchor#section-1-1",
+        "h2 ~ h3 ~ h3 > .usa-anchor#section-1-2-2",
+        "h2 ~ h3 ~ h3 ~ h3 > .usa-anchor#section-1-3",
+      ].every((selector) => document.querySelector(selector));
 
       assert(ok);
     });

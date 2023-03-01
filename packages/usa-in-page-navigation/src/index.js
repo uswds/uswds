@@ -13,6 +13,7 @@ const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
+const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
@@ -53,6 +54,18 @@ const getSectionHeadings = () => {
 };
 
 /**
+ * Return a node list of section anchor tags
+ *
+ * @return {HTMLElement[]} - An array of DOM nodes
+ */
+const getSectionAnchors = () => {
+  const sectionAnchors = document.querySelectorAll(
+    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
+  );
+  return sectionAnchors;
+};
+
+/**
  * Generates a unique ID for the given heading element.
  *
  * @param {HTMLHeadingElement} heading
@@ -60,10 +73,6 @@ const getSectionHeadings = () => {
  * @return {string} - Unique ID
  */
 const getHeadingId = (heading) => {
-  if (heading.id) {
-    return heading.id;
-  }
-
   const baseId = heading.textContent
     .toLowerCase()
     .replace(/[^a-z\d]/g, "-")
@@ -181,12 +190,10 @@ const createInPageNav = (inPageNavEl) => {
   inPageNavList.classList.add(IN_PAGE_NAV_LIST_CLASS);
   inPageNav.appendChild(inPageNavList);
 
-  const observeSections = new window.IntersectionObserver(setActive, options);
   sectionHeadings.forEach((el) => {
-    observeSections.observe(el);
-
     const listItem = document.createElement("li");
     const navLinks = document.createElement("a");
+    const anchorTag = document.createElement("a");
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
 
@@ -195,15 +202,25 @@ const createInPageNav = (inPageNavEl) => {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
-    // eslint-disable-next-line no-param-reassign
-    el.id = getHeadingId(el);
+    const headingId = getHeadingId(el);
 
-    navLinks.setAttribute("href", `#${el.id}`);
+    navLinks.setAttribute("href", `#${headingId}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
     navLinks.textContent = textContentOfLink;
 
+    anchorTag.setAttribute("id", headingId);
+    anchorTag.setAttribute("class", IN_PAGE_NAV_ANCHOR_CLASS);
+    el.insertAdjacentElement("afterbegin", anchorTag);
+
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
+  });
+
+  const anchorTags = getSectionAnchors();
+  const observeSections = new window.IntersectionObserver(setActive, options);
+
+  anchorTags.forEach((tag) => {
+    observeSections.observe(tag);
   });
 
   inPageNavEl.appendChild(inPageNav);
