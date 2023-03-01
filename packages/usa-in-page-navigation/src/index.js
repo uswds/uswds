@@ -80,20 +80,14 @@ const getHeadingId = (heading) => {
     .replace(/^-|-$/g, "");
 
   let id;
-  let suffix;
-  while (true) {
+  let suffix = 0;
+  do {
     id = baseId;
-    if (suffix) {
+    suffix += 1;
+    if (suffix > 1) {
       id += `-${suffix}`;
     }
-
-    const isUnique = !document.getElementById(id);
-    if (isUnique) {
-      break;
-    }
-
-    suffix = (suffix || 1) + 1;
-  }
+  } while (document.getElementById(id));
 
   return id;
 };
