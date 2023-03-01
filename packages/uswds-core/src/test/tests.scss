@@ -635,8 +635,26 @@ $this-function: "color-token-variant()";
       }
 
       @include expect {
+
+        .usa-prose>p{
+          margin-bottom: 0;
+          margin-top: 0;
+          line-height: 1.5;
+          max-width: 68ex;
+        }
+
+        .usa-prose>h1 {
+          margin-bottom: 0;
+          margin-top: 0;
+          clear: both;        
+        }
+
         .usa-prose>*+* {
           margin-top: 1em !important;
+        }
+
+        .usa-prose>*+h1 {
+          margin-top: 1.5em !important;
         }
       }
     }

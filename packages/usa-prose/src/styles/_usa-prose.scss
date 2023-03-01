@@ -3,8 +3,23 @@
 @mixin prose-test {
   .usa-prose {
     & > {
+
+      p {
+        @include typeset-p-base;
+      }
+
+      h1 {
+        margin-bottom: 0;
+        margin-top: 0;
+        clear: both;
+      }
+
       * + * {
         margin-top: $theme-paragraph-margin-top !important;
+      }
+
+      * + h1 {
+        margin-top: $theme-heading-margin-top !important;
       }
     }
   }
