@@ -210,14 +210,14 @@ const createInPageNav = (inPageNavEl) => {
     listItem.appendChild(navLinks);
   });
 
+  inPageNavEl.appendChild(inPageNav);
+
   const anchorTags = getSectionAnchors();
   const observeSections = new window.IntersectionObserver(setActive, options);
 
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
   });
-
-  inPageNavEl.appendChild(inPageNav);
 };
 
 /**
