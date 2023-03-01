@@ -30,7 +30,7 @@ export const Megamenu = Template.bind({});
 Megamenu.args = {
   ...MegamenuContent,
   megamenu: true,
-}
+};
 
 export const Extended = ExtendedTemplate.bind({});
 Extended.args = {

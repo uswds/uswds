@@ -12,10 +12,10 @@ const comboBoxSelector = () => document.querySelector(".usa-combo-box");
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "combo box", selector: comboBoxSelector }
+  { name: "combo box", selector: comboBoxSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Combo box initialized at ${name}`, () => {
     describe("combo box component - subsequent selection", () => {
       const { body } = document;
@@ -114,8 +114,16 @@ tests.forEach(({name, selector: containerSelector}) => {
           "",
           "should clear the value on the select"
         );
-        assert.strictEqual(input.value, "", "should clear the value on the input");
-        assert.strictEqual(document.activeElement, input, "should focus the input");
+        assert.strictEqual(
+          input.value,
+          "",
+          "should clear the value on the input"
+        );
+        assert.strictEqual(
+          document.activeElement,
+          input,
+          "should focus the input"
+        );
       });
 
       it("should update the filter and begin filtering once a pristine input value is changed", () => {
