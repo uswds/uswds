@@ -1,5 +1,5 @@
 import Component from "./usa-modal.twig";
-import NestedFormsTest from './usa-modal--nested-forms.twig';
+import NestedFormsTest from './usa-modal--nested-forms/usa-modal--nested-forms.twig';
 import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
 
 export default {
