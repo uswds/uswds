@@ -75,14 +75,20 @@ const getSectionAnchors = () => {
 const getHeadingId = (heading) => {
   const baseId = heading.textContent
     .toLowerCase()
+    // Replace non-alphanumeric characters with dashes
     .replace(/[^a-z\d]/g, "-")
+    // Replace a sequence of two or more dashes with a single dash
     .replace(/-{2,}/g, "-")
+    // Trim leading or trailing dash (there should only ever be one)
     .replace(/^-|-$/g, "");
 
   let id;
   let suffix = 0;
   do {
     id = baseId;
+
+    // To avoid conflicts with existing IDs on the page, loop and append an
+    // incremented suffix until a unique ID is found.
     suffix += 1;
     if (suffix > 1) {
       id += `-${suffix}`;
