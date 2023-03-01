@@ -53,7 +53,7 @@
   "scripts": {
     "build": "gulp",
     "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
-    "lint": "eslint src/**/**/*.js",
+    "lint": "eslint packages/**/**/*.js",
     "mocha": "mocha",
     "prepare": "npx gulp",
     "preversion": "npm test",
@@ -68,7 +68,9 @@
     "version": "gulp release",
     "watch": "gulp watch",
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
+    "prettier": "npx prettier --write './html-templates/**/**/*.html' && npx prettier --write './packages/**/**/*.js' && npx prettier --write './packages/**/**/*.scss'",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
+    "prettier:js": "npx prettier --write './packages/**/**/*.js'",
     "prettier:scss": "npx prettier --write './packages/**/**/*.scss'",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",

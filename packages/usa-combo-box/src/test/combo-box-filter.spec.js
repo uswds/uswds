@@ -10,10 +10,13 @@ const TEMPLATE = fs.readFileSync(
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+  {
+    name: "combo box",
+    selector: () => document.querySelector(".usa-combo-box"),
+  },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Combo box initialized at ${name}`, () => {
     describe("combo box component with filter attribute", () => {
       const { body } = document;
