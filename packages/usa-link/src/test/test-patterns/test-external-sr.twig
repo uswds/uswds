@@ -1,0 +1,29 @@
+<p>External link with screen reader label in square brackets. <a class="usa-link usa-link--external usa-link--external-1" href="https://i.giphy.com/media/WPzQF6ruiIIVzHNlwX/source.gif">CDC recommends using sunscreen when you're outside</a>. to reduce your risk of skin damage and skin cancer</p>
+
+<p>External link with screen reader label with a colon. To ensure food safety during an emergency, <a class="usa-link usa-link--external usa-link--external-2" href="https://i.giphy.com/media/WPzQF6ruiIIVzHNlwX/source.gif">the Red Cross recommends you do not open the refrigerator or freezer</a>.</p>
+
+<p>External link with screen reader label without punctuation. For more information on how to boil water, <a class="usa-link usa-link--external usa-link--external-3" href="https://i.giphy.com/media/WPzQF6ruiIIVzHNlwX/source.gif">see video resource</a>.</p>
+
+<style>
+  /* Global styles */
+  .usa-link--external::before {
+    position: absolute;
+    left: -999em;
+    right: auto;
+  }
+
+  /* Brackets */
+  .usa-link--external-1::before {
+    content: "[External link]";
+  }
+
+  /* Colon */
+  .usa-link--external-2::before {
+    content: "External link:";
+  }
+
+  /* No punctuation */
+  .usa-link--external-3::before {
+    content: "External link";
+  }
+</style>
