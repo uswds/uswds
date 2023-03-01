@@ -15,10 +15,10 @@ const comboListSelector = () => document.querySelector("#nestedCB--list");
 
 const tests = [
   { name: "document.body", selector: bodySelector },
-  { name: "modal", selector: modalWindowSelector }
+  { name: "modal", selector: modalWindowSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Modal window initialized at ${name}`, () => {
     const { body } = document;
 

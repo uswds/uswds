@@ -11,10 +11,13 @@ const TEMPLATE = fs.readFileSync(
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+  {
+    name: "combo box",
+    selector: () => document.querySelector(".usa-combo-box"),
+  },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Combo box initialized at ${name}`, () => {
     describe("combo box component change event dispatch", () => {
       const { body } = document;
@@ -98,7 +101,10 @@ tests.forEach(({name, selector: containerSelector}) => {
           selectChangeSpy.notCalled,
           "should not have dispatched a change event"
         );
-        assert.ok(inputChangeSpy.called, "should have dispatched a change event");
+        assert.ok(
+          inputChangeSpy.called,
+          "should have dispatched a change event"
+        );
       });
 
       it("should emit change events when closing the list but not the clear the input value when escape is performed while the list is open", () => {
@@ -123,7 +129,10 @@ tests.forEach(({name, selector: containerSelector}) => {
           selectChangeSpy.notCalled,
           "should not have dispatched a change event"
         );
-        assert.ok(inputChangeSpy.called, "should have dispatched a change event");
+        assert.ok(
+          inputChangeSpy.called,
+          "should have dispatched a change event"
+        );
       });
 
       it("should emit change events when setting the input value when a complete selection is submitted by pressing enter", () => {
@@ -144,8 +153,14 @@ tests.forEach(({name, selector: containerSelector}) => {
           "Fig",
           "should set that item to being the input value"
         );
-        assert.ok(selectChangeSpy.called, "should have dispatched a change event");
-        assert.ok(inputChangeSpy.called, "should have dispatched a change event");
+        assert.ok(
+          selectChangeSpy.called,
+          "should have dispatched a change event"
+        );
+        assert.ok(
+          inputChangeSpy.called,
+          "should have dispatched a change event"
+        );
       });
 
       it("should emit change events when selecting the focused list item in the list when pressing enter on a focused item", () => {
@@ -172,8 +187,14 @@ tests.forEach(({name, selector: containerSelector}) => {
           "Lemon",
           "should set the value in the input"
         );
-        assert.ok(selectChangeSpy.called, "should have dispatched a change event");
-        assert.ok(inputChangeSpy.called, "should have dispatched a change event");
+        assert.ok(
+          selectChangeSpy.called,
+          "should have dispatched a change event"
+        );
+        assert.ok(
+          inputChangeSpy.called,
+          "should have dispatched a change event"
+        );
       });
 
       it("should emit change events when pressing escape from a focused item", () => {
@@ -209,7 +230,10 @@ tests.forEach(({name, selector: containerSelector}) => {
           selectChangeSpy.notCalled,
           "should not have dispatched a change event"
         );
-        assert.ok(inputChangeSpy.called, "should have dispatched a change event");
+        assert.ok(
+          inputChangeSpy.called,
+          "should have dispatched a change event"
+        );
       });
     });
   });
