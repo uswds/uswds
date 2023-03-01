@@ -17,6 +17,10 @@
     @include usa-list-styles;
     @include usa-table-styles;
 
+    p {
+      @include typeset-p-base;
+    }
+
     h1,
     h2,
     h3,
@@ -38,10 +42,6 @@
       h5,
       h6 {
         margin-top: $theme-heading-margin-top !important;
-      }
-
-      p {
-        @include typeset-p-base;
       }
     }
 
