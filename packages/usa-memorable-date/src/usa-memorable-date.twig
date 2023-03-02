@@ -1,13 +1,12 @@
 <fieldset class="usa-fieldset">
   <legend class="usa-legend">Date of Birth</legend>
   <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
-  <div class="usa-memorable-date 
-    {% if disabled_state == 'disabled' %} usa-memorable-date--disabled
-    {% elseif disabled_state == 'aria-disabled' %} usa-memorable-date--aria-disabled{%- endif %}"
-  >
+  <div class="usa-memorable-date">
     <div class="usa-form-group usa-form-group--month usa-form-group--select">
       <label class="usa-label" for="date_of_birth_month">Month</label>
-      <select class="usa-select" id="date_of_birth_month" name="date_of_birth_month" aria-describedby="mdHint" 
+      <select class="usa-select" id="date_of_birth_month" name="date_of_birth_month" aria-describedby="mdHint"
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
       >
         <option value>- Select -</option>
         <option value="1">01 - January</option>
@@ -28,12 +27,16 @@
       <label class="usa-label" for="date_of_birth_day">Day</label>
       <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_day" name="date_of_birth_day"
         maxlength="2" pattern="[0-9]*" inputmode="numeric" value="" 
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
       />
     </div>
     <div class="usa-form-group usa-form-group--year">
       <label class="usa-label" for="date_of_birth_year">Year</label>
       <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_year" name="date_of_birth_year"
         minlength="4" maxlength="4" pattern="[0-9]*" inputmode="numeric" value="" 
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
       />
     </div>
   </div>
