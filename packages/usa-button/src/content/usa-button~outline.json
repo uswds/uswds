@@ -1,6 +1,5 @@
 {
   "modifier": "usa-button--outline",
   "text": "Outline",
-  "is_demo": true,
-  "aria_disabled": false
+  "is_demo": true
 }
