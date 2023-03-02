@@ -5,7 +5,8 @@
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
   @include u-disabled;
-  color: color("white");
+  color: color("ink") !important; // Override state colors
+  opacity: .8;
 
   &:hover,
   &.usa-button--hover,
