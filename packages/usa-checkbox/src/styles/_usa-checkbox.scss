@@ -21,6 +21,7 @@
       cursor: not-allowed;
     }
     @include format-label {
+      color: $disabled-text-on-white;
       cursor: not-allowed;
     }
   }

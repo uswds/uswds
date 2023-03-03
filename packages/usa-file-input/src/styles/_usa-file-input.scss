@@ -185,13 +185,11 @@
 
 // Disabled state
 .usa-file-input--disabled {
-  .usa-file-input__instructions {
-    opacity: 0.8; // Necessary for grey text on disabled background color contrast across browsers
+  .usa-file-input__instructions,
+  .usa-file-input__choose {
+    color: $disabled-text-on-gray;
   }
 
-  .usa-file-input__choose {
-    color: color("ink");
-  }
   
   .usa-file-input__box {
     background-color: color("disabled");

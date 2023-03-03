@@ -5,8 +5,7 @@
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
   @include u-disabled;
-  color: color("ink") !important; // Override state colors
-  opacity: .8;
+  color: $disabled-text-on-gray;
 
   &:hover,
   &.usa-button--hover,
@@ -16,5 +15,6 @@
   &.usa-focus {
     border: 0;
     box-shadow: none;
+    color: $disabled-text-on-gray;
   }
 }

@@ -60,6 +60,10 @@ $close: map-merge(
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
+    
+    &::placeholder {
+      color: $disabled-text-on-gray;
+    }
 
     & ~ .usa-combo-box__input-button-separator {
       background-color: color("gray-cool-60");

@@ -50,7 +50,10 @@
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
-    color: color("disabled");
+  &[aria-disabled="true"],
+  &:disabled:hover,
+  &[aria-disabled="true"]:hover,
+  &[aria-disabled="true"]:focus {
+    color: $disabled-text-on-white;
   }
 }
