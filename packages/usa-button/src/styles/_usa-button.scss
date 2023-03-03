@@ -197,7 +197,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse[aria-disabled="true"] {
   background-color: color("transparent");
-  color: $disabled-text-on-white;
 
   &:hover,
   &.usa-button--hover,
@@ -217,7 +216,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--inverse {
     background-color: transparent;
     box-shadow: $button-stroke color("base");
-    color: $disabled-text-on-black;
   }
 }
 
