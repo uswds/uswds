@@ -4,7 +4,7 @@
 
 @mixin u-disabled {
   background-color: color("disabled");
-  color: color($theme-text-color-on-disabled);
+  color: color($theme-color-text-on-disabled);
   cursor: not-allowed;
 
   &:hover,

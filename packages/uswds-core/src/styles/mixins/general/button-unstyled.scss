@@ -54,6 +54,6 @@
   &:disabled:hover,
   &[aria-disabled="true"]:hover,
   &[aria-disabled="true"]:focus {
-    color: color($theme-text-disabled-color);
+    color: color($theme-color-disabled-text);
   }
 }

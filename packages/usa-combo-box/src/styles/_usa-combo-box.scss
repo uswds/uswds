@@ -62,7 +62,7 @@ $close: map-merge(
     @include u-disabled;
 
     &::placeholder {
-      color: color($theme-text-color-on-disabled);
+      color: color($theme-color-text-on-disabled);
     }
 
     & ~ .usa-combo-box__input-button-separator {

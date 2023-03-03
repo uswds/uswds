@@ -211,13 +211,13 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"] {
-  box-shadow: $button-stroke color($theme-text-disabled-color);
-  color: color($theme-text-disabled-color);
+  box-shadow: $button-stroke color($theme-color-disabled-text);
+  color: color($theme-color-disabled-text);
 
   &.usa-button--inverse {
     background-color: transparent;
-    box-shadow: $button-stroke color($theme-text-disabled-color-reverse);
-    color: color($theme-text-disabled-color-reverse);
+    box-shadow: $button-stroke color($theme-color-disabled-text-reverse);
+    color: color($theme-color-disabled-text-reverse);
   }
 }
 
