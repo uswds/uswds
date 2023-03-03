@@ -34,18 +34,8 @@
   $input-disabled-alpha--strong: -0.5;
   $input-disabled-alpha--weak: -0.8;
   $input-border-alpha: -0;
-  $color-input-disabled: color.adjust(
-    color($input-text-color),
-    $alpha: $input-disabled-alpha
-  );
-  $color-input-disabled--strong: color.adjust(
-    color($input-text-color),
-    $alpha: $input-disabled-alpha--strong
-  );
-  $color-input-disabled--weak: color.adjust(
-    color($input-text-color),
-    $alpha: $input-disabled-alpha--weak
-  );
+  $color-input-disabled: color($theme-text-disabled-color);
+  $color-input-disabled--weak: color($theme-color-disabled);
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
@@ -123,7 +113,6 @@
         &:checked {
           @include format-label {
             background-color: color($input-bg-color);
-            border-color: $color-input-disabled;
           }
         }
       }
@@ -171,7 +160,7 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          background-color: $color-input-disabled--weak;
+          background-color: $color-input-disabled;
           box-shadow: 0 0 0 2px $color-input-disabled,
             inset 0 0 0 2px color($input-bg-color);
         }
