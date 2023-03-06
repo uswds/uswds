@@ -66,7 +66,7 @@ $close: map-merge(
     }
 
     & ~ .usa-combo-box__input-button-separator {
-      background-color: color("gray-cool-60");
+      background-color: color($theme-color-disabled-text);
       cursor: not-allowed;
     }
   }
@@ -129,8 +129,9 @@ button.usa-combo-box__clear-input {
   background-color: color("gray-cool-20");
   position: absolute;
   top: 1px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  height: calc(100% - #{units(2)});
+  margin-bottom: units(1);
+  margin-top: units(1);
   width: 1px;
   right: calc(2.5em + 2px);
   box-sizing: border-box;
