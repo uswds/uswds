@@ -1,5 +1,5 @@
 import Component from "./usa-checkbox.twig";
-import Tile from "./usa-checkbox--tile.twig";
+import TileComponent from "./usa-checkbox--tile.twig";
 import TestComponent from "./test/test-patterns/test-usa-checkbox.twig";
 
 export default {
@@ -15,7 +15,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
-const TileTemplate = (args) => Tile(args);
+const TileTemplate = (args) => TileComponent(args);
 const TestTemplate = (args) => TestComponent(args);
 
 export const Default = Template.bind({});
@@ -30,7 +30,7 @@ AriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
 
-export const CheckboxTile = TileTemplate.bind({});
+export const Tile = TileTemplate.bind({});
 
 export const DisabledTile = TileTemplate.bind({});
 DisabledTile.args = {
@@ -44,7 +44,7 @@ AriaDisabledTile.args = {
 
 export const Test = TestTemplate.bind({});
 Test.argTypes = {
-  aria_disabled: {
+  disabled_state: {
     table: { disable: true },
   },
 };
