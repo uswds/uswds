@@ -92,14 +92,35 @@
 
   &:disabled,
   &[aria-disabled="true"] {
-    &::-webkit-slider-runnable-track,
-    &::-moz-range-track,
-    &::-ms-track,
-    &::-webkit-slider-thumb,
-    &::-moz-range-thumb,
-    &::-ms-thumb,
-    &::-ms-fill-lower,
-    &::-ms-fill-upper  {
+    &::-webkit-slider-runnable-track {
+      @include u-disabled;
+    }
+
+    &::-moz-range-track {
+      @include u-disabled;
+    }
+
+    &::-ms-track {
+      @include u-disabled;
+    }
+
+    &::-webkit-slider-thumb {
+      @include u-disabled;
+    }
+
+    &::-moz-range-thumb {
+      @include u-disabled;
+    }
+
+    &::-ms-thumb {
+      @include u-disabled;
+    }
+
+    &::-ms-fill-lower {
+      @include u-disabled;
+    }
+
+    &::-ms-fill-upper {
       @include u-disabled;
     }
   }
