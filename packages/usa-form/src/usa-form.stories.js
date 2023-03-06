@@ -12,6 +12,15 @@ import EsMultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple
 
 export default {
   title: "Patterns/Forms",
+  argTypes: {
+    disabled_state: {
+      name: "Disabled state",
+      control: { type: "radio" },
+      options: ["none", "disabled", "aria-disabled"],
+      defaultValue: "disabled",
+      table: { disable: true },
+    },
+  }
 };
 
 const CollectionTemplate = (args) => FormCollected(args);
@@ -20,8 +29,6 @@ const NameTemplate = (args) => FormName(args);
 const PasswordTemplate = (args) => FormPassword(args);
 const SignInTemplate = (args) => FormSignIn(args);
 const SignInMultipleTemplate = (args) => FormSignInMultiple(args);
-
-export const DisabledForms = CollectionTemplate.bind({});
 
 export const MailingAddress = AddressTemplate.bind({});
 
@@ -40,3 +47,10 @@ SignInMultiple.args = MultipleContent;
 
 export const SignInMultipleSpanish = SignInMultipleTemplate.bind({});
 SignInMultipleSpanish.args = EsMultipleContent;
+
+export const DisabledFormElements = CollectionTemplate.bind({});
+DisabledFormElements.argTypes = {
+  disabled_state: {
+    table: { disable: false },
+  }
+};
