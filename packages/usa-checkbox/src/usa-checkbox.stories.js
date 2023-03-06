@@ -9,7 +9,6 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
-      defaultValue: "none",
     },
   },
 };
