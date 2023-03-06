@@ -58,6 +58,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
       Object.defineProperty(HTMLElement.prototype, "offsetTop", {
         get() {
+          // Since JSDOM doesn't emulate positions, create a fake offset using
+          // the heading's index to be used to test scrolling behavior.
           const heading = this.closest("h2,h3");
 
           let index = 0;
@@ -127,6 +129,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("assigns id to section headings", () => {
+      // Tests that new anchor children are created in the fixture template in
+      // the expected locations.
       const ok = [
         "h2 > .usa-anchor#section-1",
         "h2 ~ h3 > .usa-anchor#section-1-1",
