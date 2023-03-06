@@ -7,8 +7,7 @@ export default {
     disabled_state: {
       name: "Disabled State",
       control: "radio",
-      options: ["default", "disabled", "aria-disabled"],
-      defaultValue: "default",
+      options: ["none", "disabled", "aria-disabled"],
     },
   },
 };
