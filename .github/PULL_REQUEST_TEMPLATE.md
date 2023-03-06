@@ -24,7 +24,8 @@ USWDS - [Package]: [Brief statement describing what this pull request solves]
 eg: "USWDS - Button: Increase font size"
  -->
 
-## Summary
+# Summary
+
 _Provide a one or two sentence summary of the update that can be used in the changelog._
 <!--
 A successful summary is written in the past tense and includes:
@@ -33,18 +34,15 @@ See [USWDS release notes](https://github.com/uswds/uswds/releases) for examples.
 -->
 
 ## Breaking change
-_Indicate if this update is a breaking change._
-<!--
-Use clear language to:
-1. Indicate if this update is a breaking change.
-2. Explain what actions are required for the user to remediate the break.
-   For clarity, include a statement here even if there is no breaking change:
-   "This is not a breaking change."
-   ":warning: This is potentially a breaking change."
-   ":warning: This is a breaking change."
--->
+
+_Indicate if this update is a breaking change with **one** of the following statements:_
+This is not a breaking change.
+:warning: This is potentially a breaking change.
+:warning: This is a breaking change.
+<!-- If applicable, explain what actions are required for the user to remediate the break. -->
 
 ## Related issue
+
 Closes #_[issue_no]_
 <!--
 Every pull request should resolve an open issue.
@@ -53,10 +51,12 @@ https://github.com/uswds/uswds/issues/new/choose.
 -->
 
 ## Preview link
+
 Preview link:
 <!-- If available, provide a link to a demo of the solution in action. -->
 
 ## Problem statement
+
 _Summarize the problem this PR solves in a clear and concise statement._
 <!--
 A successful problem statement conveys:
@@ -67,6 +67,7 @@ A successful problem statement conveys:
 -->
 
 ## Solution
+
 _Provide a summary of the solution this PR offers._
 <!--
 It can be helpful if we understand:
@@ -77,9 +78,11 @@ It can be helpful if we understand:
 -->
 
 ## Major changes
+
 _For complex PRs, create a list of the significant updates made._
 
 ## Testing and review
+
 _Share recommended methods for reviewing this change._
 <!--
 1. Describe the tests that you ran to verify your changes,
@@ -89,6 +92,7 @@ _Share recommended methods for reviewing this change._
 
 <!--
 ## Dependency updates
+
 | Dependency name              | Previous version | New version |
 | ---------------------------- | :--------------: | :---------: |
 | [Updated dependency example] |     [1.0.0]      |   [1.0.1]   |

@@ -8,10 +8,13 @@ const TEMPLATE = fs.readFileSync(
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "file input", selector: () => document.querySelector('.usa-file-input') }
+  {
+    name: "file input",
+    selector: () => document.querySelector(".usa-file-input"),
+  },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`File input initialized at ${name}`, () => {
     describe("file input component builds successfully", () => {
       const { body } = document;
@@ -52,7 +55,10 @@ tests.forEach(({name, selector: containerSelector}) => {
       });
 
       it("input gets new class", () => {
-        assert.strictEqual(inputEl.getAttribute("class"), "usa-file-input__input");
+        assert.strictEqual(
+          inputEl.getAttribute("class"),
+          "usa-file-input__input"
+        );
       });
 
       it("box is created", () => {
