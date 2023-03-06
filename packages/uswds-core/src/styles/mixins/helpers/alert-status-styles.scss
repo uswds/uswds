@@ -118,7 +118,8 @@
     display: block;
     height: $theme-alert-icon-size;
     // padding - optical spacing value
-    left: units($theme-site-margins-mobile-width) - units($theme-alert-bar-width);
+    left: units($theme-site-margins-mobile-width) -
+      units($theme-alert-bar-width);
     position: absolute;
     top: units($theme-alert-padding-y) * 0.75;
     @include at-media($theme-site-margins-breakpoint) {

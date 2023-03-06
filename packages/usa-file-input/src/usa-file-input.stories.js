@@ -14,9 +14,9 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
-      defaultValue: "none"
+      defaultValue: "none",
     },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
@@ -39,11 +39,11 @@ Wildcard.args = WildcardContent;
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...DefaultContent,
-  disabled_state: "disabled"
+  disabled_state: "disabled",
 };
 
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   ...DefaultContent,
-  disabled_state: "aria-disabled"
+  disabled_state: "aria-disabled",
 };

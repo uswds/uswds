@@ -60,7 +60,7 @@ $banner-icon-close: (
     }
 
     .tablet\:grid-col-6 {
-      @include at-media("tablet"){
+      @include at-media("tablet") {
         @include grid-col(6);
       }
     }

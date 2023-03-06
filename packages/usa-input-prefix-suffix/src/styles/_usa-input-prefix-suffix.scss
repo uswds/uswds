@@ -5,7 +5,6 @@ $icon_width: 3;
 $prefix_suffix_padding: 1;
 $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
 
-
 // Input prefixes / suffixes
 .usa-input-group {
   @extend %block-input-general;
@@ -14,7 +13,6 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   display: flex;
   padding: 0;
   position: relative;
-
 
   &--error,
   &--success {
@@ -42,12 +40,12 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
 
     &:disabled + .usa-input-suffix,
     &[aria-disabled="true"] + .usa-input-suffix {
-        @include u-disabled;
+      @include u-disabled;
     }
   }
 }
 
-.usa-input-prefix:has(+ input:disabled), 
+.usa-input-prefix:has(+ input:disabled),
 .usa-input-prefix:has(+ input[aria-disabled="true"]) {
   @include u-disabled;
 }
@@ -65,7 +63,6 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
     @include u-square($icon_width);
   }
 }
-
 
 .usa-input-prefix + input {
   @include u-padding-left($prefix_suffix_offset);

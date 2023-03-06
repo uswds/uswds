@@ -20,7 +20,7 @@ export default {
       defaultValue: "disabled",
       table: { disable: true },
     },
-  }
+  },
 };
 
 const CollectionTemplate = (args) => FormCollected(args);
@@ -52,5 +52,5 @@ export const DisabledFormElements = CollectionTemplate.bind({});
 DisabledFormElements.argTypes = {
   disabled_state: {
     table: { disable: false },
-  }
+  },
 };

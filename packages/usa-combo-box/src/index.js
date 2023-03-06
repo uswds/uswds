@@ -281,7 +281,7 @@ const enhanceComboBox = (_comboBoxEl) => {
 
   if (selectEl.hasAttribute("aria-disabled")) {
     ariaDisable(comboBoxEl);
-    selectEl.removeAttribute("aria-disabled")
+    selectEl.removeAttribute("aria-disabled");
   }
 
   comboBoxEl.dataset.enhanced = "true";

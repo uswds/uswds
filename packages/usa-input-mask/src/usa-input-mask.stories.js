@@ -3,7 +3,7 @@ import {
   SsnContent,
   PhoneContent,
   ZipContent,
-  AlphanumericContent
+  AlphanumericContent,
 } from "./content";
 
 export default {
@@ -13,9 +13,9 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
-      defaultValue: "none"
+      defaultValue: "none",
     },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
@@ -35,11 +35,11 @@ Alphanumeric.args = AlphanumericContent;
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...AlphanumericContent,
-  disabled_state: "disabled"
-}
+  disabled_state: "disabled",
+};
 
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   ...AlphanumericContent,
-  disabled_state: "aria-disabled"
-}
+  disabled_state: "aria-disabled",
+};
