@@ -1,9 +1,9 @@
+@use "../../settings" as *;
 @use "./icon" as *;
 @use "../../functions" as *;
 @use "./screen-reader" as *;
 
 $external-link-size: 1.75ex;
-$external-link-label: "External link";
 
 $icon-object: (
   "name": "launch",
@@ -19,10 +19,10 @@ $icon-object: (
   position: relative;
 
   // Screen reader label
-  // &::before {
-    // @include sr-only;
-  //   content: "[#{$external-link-label}]";
-  // }
+  &::before {
+    @include sr-only;
+    content: $theme-external-link-sr-label;
+  }
 
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);
