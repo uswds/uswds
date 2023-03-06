@@ -1,9 +1,9 @@
 @use "uswds-core" as *;
 
 // Padding helpers
-$icon_width: 3;
-$prefix_suffix_padding: 1;
-$prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
+$icon-width: 3;
+$input-padding: 1;
+$icon-offset: $icon-width + ($input-padding * 2);
 
 // Input prefixes / suffixes
 .usa-input-group {
@@ -31,7 +31,7 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
 
   // Input suffix padding
   input {
-    @include u-padding-right($prefix_suffix_offset);
+    @include u-padding-right($icon-offset);
     border: 0;
     height: 100%;
     margin-top: 0;
@@ -55,18 +55,18 @@ $prefix_suffix_offset: $icon_width + ($prefix_suffix_padding * 2);
   position: absolute;
   color: color("base");
   line-height: 0;
-  padding: 0 units($prefix_suffix_padding);
+  padding: 0 units($input-padding);
   user-select: none;
   white-space: nowrap;
 
   .usa-icon {
-    @include u-square($icon_width);
+    @include u-square($icon-width);
   }
 }
 
 .usa-input-prefix + input {
-  @include u-padding-left($prefix_suffix_offset);
-  @include u-padding-right($prefix_suffix_padding);
+  @include u-padding-left($icon-offset);
+  @include u-padding-right($input-padding);
 }
 
 .usa-input-suffix {
