@@ -13,10 +13,10 @@ const sortButtonEl = ".usa-table__header__button";
 const tableSelector = () => document.querySelector(".usa-table");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "table", selector: tableSelector }
+  { name: "table", selector: tableSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Sortable Table initialized at ${name}`, () => {
     const { body } = document;
 
@@ -31,11 +31,11 @@ tests.forEach(({name, selector: containerSelector}) => {
     let dataSortValueSortButton;
     let ariaLive;
 
-   function getCellValuesByColumn(index) {
-    return Array.from(tbody.querySelectorAll("tr")).map(
-      (row) => row.children[index].innerHTML
-    );
-  }
+    function getCellValuesByColumn(index) {
+      return Array.from(tbody.querySelectorAll("tr")).map(
+        (row) => row.children[index].innerHTML
+      );
+    }
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
@@ -80,13 +80,21 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("sorts rows by 'data-sort-value' attribute on cells when clicked", () => {
       dataSortValueSortButton.click();
-      assert.deepEqual(getCellValuesByColumn(2), ["-1", "Zero", "25%", "2,000"]);
+      assert.deepEqual(getCellValuesByColumn(2), [
+        "-1",
+        "Zero",
+        "25%",
+        "2,000",
+      ]);
     });
 
     it("sorts rows descending if already sorted ascending when clicked", () => {
       alphabeticalSortButton.click();
       assert.deepEqual(getCellValuesByColumn(0), ["A", "X", "Y", "Z"]);
-      assert.strictEqual(sortableHeaders[0].getAttribute("aria-sort"), ASCENDING);
+      assert.strictEqual(
+        sortableHeaders[0].getAttribute("aria-sort"),
+        ASCENDING
+      );
       alphabeticalSortButton.click();
       assert.deepEqual(getCellValuesByColumn(0), ["Z", "Y", "X", "A"]);
       assert.strictEqual(
@@ -102,16 +110,22 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     describe("Sortable column header", () => {
       it("has an aria-label that describes the current sort direction", () => {
-        const currentSortDirection = sortableHeaders[0].getAttribute("aria-sort");
+        const currentSortDirection =
+          sortableHeaders[0].getAttribute("aria-sort");
         const currentAriaLabel = sortableHeaders[0].getAttribute("aria-label");
-        assert.strictEqual(currentAriaLabel.includes(currentSortDirection), true);
+        assert.strictEqual(
+          currentAriaLabel.includes(currentSortDirection),
+          true
+        );
       });
 
       it("has sort button with a title that describes what the sort direction will be if clicked", () => {
-        const currentSortDirection = sortableHeaders[0].getAttribute("aria-sort");
+        const currentSortDirection =
+          sortableHeaders[0].getAttribute("aria-sort");
         const futureSortDirection =
           currentSortDirection === DESCENDING ? ASCENDING : DESCENDING;
-        const firstHeaderButton = sortableHeaders[0].querySelector(sortButtonEl);
+        const firstHeaderButton =
+          sortableHeaders[0].querySelector(sortButtonEl);
         assert.strictEqual(
           firstHeaderButton.classList.contains("usa-table__header__button"),
           true
@@ -123,7 +137,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       });
 
       it("has an SVG which displays the correct icon", () => {
-        const currentSortDirection = sortableHeaders[0].getAttribute("aria-sort");
+        const currentSortDirection =
+          sortableHeaders[0].getAttribute("aria-sort");
         const futureSortDirection =
           currentSortDirection === DESCENDING ? ASCENDING : DESCENDING;
         const activeSVGNode = sortableHeaders[0].querySelector(
@@ -136,16 +151,21 @@ tests.forEach(({name, selector: containerSelector}) => {
           ".usa-icon > .unsorted"
         );
         assert.notEqual(getComputedStyle(activeSVGNode).fill, "transparent");
-        assert.strictEqual(getComputedStyle(inactiveSVGNode).fill, "transparent");
-        assert.strictEqual(getComputedStyle(unsortedSVGNode).fill, "transparent");
+        assert.strictEqual(
+          getComputedStyle(inactiveSVGNode).fill,
+          "transparent"
+        );
+        assert.strictEqual(
+          getComputedStyle(unsortedSVGNode).fill,
+          "transparent"
+        );
       });
     });
 
     describe("Non-sortable column header", () => {
       it("does not have a sort button", () => {
-        const unsortableHeaderButton = unsortableHeader.querySelector(
-          sortButtonEl
-        );
+        const unsortableHeaderButton =
+          unsortableHeader.querySelector(sortButtonEl);
         assert.strictEqual(unsortableHeaderButton, null);
       });
     });

@@ -12,10 +12,10 @@ const TEMPLATE = fs.readFileSync(
 const timePickerSelector = () => document.querySelector(".usa-time-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "time picker", selector: timePickerSelector }
+  { name: "time picker", selector: timePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`time picker component initialized at ${name}`, () => {
     const { body } = document;
 

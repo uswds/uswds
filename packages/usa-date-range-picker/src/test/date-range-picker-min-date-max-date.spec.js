@@ -9,13 +9,14 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-range-picker-min-date-max-date.template.html")
 );
 
-const dateRangePickerSelector = () => document.querySelector('.usa-date-range-picker');
+const dateRangePickerSelector = () =>
+  document.querySelector(".usa-date-range-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date range picker", selector: dateRangePickerSelector }
+  { name: "date range picker", selector: dateRangePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date range picker component with min date and max date initialized at ${name}`, () => {
     const { body } = document;
 
@@ -90,7 +91,11 @@ tests.forEach(({name, selector: containerSelector}) => {
         "has the default max date"
       );
       assert.strictEqual(rangeEnd.dataset.rangeDate, "", "has no range date");
-      assert.strictEqual(rangeEnd.dataset.defaultDate, "", "has no default date");
+      assert.strictEqual(
+        rangeEnd.dataset.defaultDate,
+        "",
+        "has no default date"
+      );
     });
 
     it("should update the range end date picker properties to have a min date and range date when the range start date picker has an updated valid value", () => {
@@ -136,7 +141,11 @@ tests.forEach(({name, selector: containerSelector}) => {
         "has the default max date"
       );
       assert.strictEqual(rangeEnd.dataset.rangeDate, "", "has no range date");
-      assert.strictEqual(rangeEnd.dataset.defaultDate, "", "has no default date");
+      assert.strictEqual(
+        rangeEnd.dataset.defaultDate,
+        "",
+        "has no default date"
+      );
     });
 
     it("should not update the range end date picker properties when the range start date picker has an empty value", () => {
