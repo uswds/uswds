@@ -156,7 +156,7 @@
     "jsdom-global": "3.0.2",
     "lodash.merge": "4.6.2",
     "merge-stream": "2.0.0",
-    "mocha": "6.2.3",
+    "mocha": "10.2.0",
     "mq-polyfill": "1.1.8",
     "normalize.css": "8.0.1",
     "path": "0.12.7",
