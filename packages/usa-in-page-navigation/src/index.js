@@ -258,7 +258,7 @@ const handleEnterFromLink = (event) => {
   } else {
     // throw an error?
   }
-  handleScrollToSection(target);
+  handleScrollToSection(targetAnchor);
 };
 
 const inPageNavigation = behavior(

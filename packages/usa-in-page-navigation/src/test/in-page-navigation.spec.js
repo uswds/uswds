@@ -80,11 +80,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
       const mockIntersectionObserver = sinon.stub().returns({ observe });
       window.IntersectionObserver = mockIntersectionObserver;
       sinon.stub(window, "scroll");
-      sinon.stub(window, "location").value({ hash: undefined });
-      sinon
-        .stub(window.location, "hash")
-        .set(sinon.stub())
-        .get(() => "");
     });
 
     beforeEach(() => {
@@ -102,6 +97,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       sinon.resetHistory();
       behavior.off(containerSelector(body));
       body.innerHTML = "";
+      window.location.hash = "";
     });
 
     after(() => {
@@ -149,13 +145,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("updates url when scrolling to section", () => {
+      // Activate by click
       const firstLink = theNav.querySelector("a[href='#section-1']");
       firstLink.click();
 
-      Object.getOwnPropertyDescriptor(
-        window.location,
-        "hash"
-      ).set.calledOnceWith("section-1");
+      assert.equal(window.location.hash, "#section-1");
+
+      // Activate by Enter press
+      const secondLink = theNav.querySelector("a[href='#section-1-1']");
+      const event = new KeyboardEvent("keydown", {
+        bubbles: true,
+        key: "Enter",
+        keyCode: 13,
+      });
+      secondLink.dispatchEvent(event);
+
+      assert.equal(window.location.hash, "#section-1-1");
     });
 
     it("does not scroll to section on initialization", () => {
@@ -164,6 +169,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     context("with initial hash URL", () => {
       before(() => {
+        sinon.stub(window, "location").value({ hash: undefined });
         sinon.stub(window.location, "hash").get(() => "#section-1");
       });
 
