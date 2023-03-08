@@ -231,7 +231,7 @@ $z-index-overlay: 400;
     @include at-media($theme-header-min-width) {
       font-size: font-size($theme-header-font-family, "xl");
       margin: units(4) 0 units(3);
-      max-width: 50%;
+      max-width: $theme-header-logo-text-width;
     }
   }
 
