@@ -9,7 +9,7 @@
 
 
 // Output the @font-face rule
-@mixin at-font-face($display-name, $file-path, $filetypes, $font-weight, $font-style) {
+@mixin at-font-face($display-name, $file-path, $compatibility, $font-weight, $font-style) {
   // TODO: If $theme-use-rails-pipeline use font-url() statements
   // instead of url()
   // Dunno why I can't do this without an error...
@@ -19,7 +19,7 @@
     font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: font-sources($file-path, $filetypes);
+    src: font-sources($file-path, $compatibility);
   }
 }
 
@@ -30,7 +30,7 @@
   $display-name,
   $dir,
   $font-style,
-  $filetypes
+  $compatibility
 ) {
   @each $font-weight, $filename in $font-style-src {
     @each $key, $output-weight in $output-weights {
@@ -39,7 +39,7 @@
           "#{$display-name}",
           // TODO: Why is this path causing problems?
           "#{$theme-font-path}/#{$dir}/#{$filename}",
-          $filetypes,
+          $compatibility,
           #{$font-weight},
           string.unquote("#{$font-style}")
         );
@@ -88,12 +88,12 @@
     $roman: map.get($this-src, roman);
     $italic: map.get($this-src, italic);
     $dir: map.get($this-src, dir);
-    $filetypes: if(
-      map.has-key($this-src, "filetypes"),
-      map.get($this-src, "filetypes"),
-      $project-font-face-filetypes-default
+    $compatibility: if(
+      map.has-key($this-src, "compatibility"),
+      map.get($this-src, "compatibility"),
+      true
     );
-    @debug "#{$display-name} filetypes: #{$filetypes}";
+    @debug "#{$display-name} compatibility: #{$compatibility}";
 
     @if $roman {
       @include generate-font-face(
@@ -102,7 +102,7 @@
         $display-name,
         $dir,
         normal,
-        $filetypes
+        $compatibility
       );
     }
 
@@ -113,7 +113,7 @@
         $display-name,
         $dir,
         italic,
-        $filetypes
+        $compatibility
       );
     }
   }

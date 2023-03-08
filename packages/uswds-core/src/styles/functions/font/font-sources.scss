@@ -22,21 +22,12 @@ filetypes must be one of the filetypes set in variables/$project-font-face-filet
 ----------------------------------------
 */
 
-@function font-sources($stem, $filetypes) {
-  $sources: ();
-  $format: null;
-
-  // 
-  @each $filetype in $filetypes {
-    @if map.has-key(filetypes.$project-font-face-filetypes, $filetype) {
-      $format: map.get(filetypes.$project-font-face-filetypes, $filetype);
-    } 
-    @else {
-      @error "[Settings] custom-src.filetypes: \"#{$filetype}\" is not a valid USWDS custom font filetype. Available filetypes: #{filetypes.$project-font-face-filetypes-default}";
-    }
-    $source: 'url(#{$stem}.#{$filetype}) format("#{$format}")';
-    $sources: list.append($sources, string.unquote($source), $separator: "comma");
+@function font-sources($stem, $compatibility) {
+  @if $compatibility {
+    @return url(#{$stem}.woff2) format("woff2"),
+      url(#{$stem}.woff) format("woff"),
+      url(#{$stem}.ttf) format("truetype");
   }
 
-  @return $sources;
+  @return url(#{$stem}.woff2) format("woff2");
 }
