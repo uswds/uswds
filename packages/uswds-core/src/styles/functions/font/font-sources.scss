@@ -2,7 +2,7 @@
 @use "sass:string";
 @use "sass:list";
 
-@use "../../variables/project-font-face-filetypes" as filetypes;
+@use "../../settings" as *;
 
 /*
 ----------------------------------------
@@ -22,8 +22,8 @@ filetypes must be one of the filetypes set in variables/$project-font-face-filet
 ----------------------------------------
 */
 
-@function font-sources($stem, $compatibility) {
-  @if $compatibility {
+@function font-sources($stem) {
+  @if $theme-font-browser-compatibility {
     @return url(#{$stem}.woff2) format("woff2"),
       url(#{$stem}.woff) format("woff"),
       url(#{$stem}.ttf) format("truetype");

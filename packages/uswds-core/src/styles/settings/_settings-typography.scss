@@ -69,6 +69,17 @@ $theme-global-content-styles: false !default;
 
 /*
 ----------------------------------------
+Broswer compatibility mode
+----------------------------------------
+When true, outputs woff and ttf font 
+formats in addition to woff2
+----------------------------------------
+*/
+
+$theme-font-browser-compatibility: false !default;
+
+/*
+----------------------------------------
 Font path
 ----------------------------------------
 Relative font file path
