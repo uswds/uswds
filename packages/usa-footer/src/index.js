@@ -38,10 +38,13 @@ function toggleHtmlTag(isMobile) {
   }
 
   const primaryLinks = bigFooter.querySelectorAll(BUTTON);
-  const newElementType = isMobile ? "button" : "h4";
 
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
+    const preservedHtmlTag =
+      currentElement.getAttribute("data-tag") || currentElement.tagName;
+
+    const newElementType = isMobile ? "button" : preservedHtmlTag;
 
     // Create the new element
     const newElement = document.createElement(newElementType);
@@ -53,6 +56,7 @@ function toggleHtmlTag(isMobile) {
     newElement.textContent = currentElement.textContent;
 
     if (isMobile) {
+      newElement.setAttribute("data-tag", currentElement.tagName);
       const menuId = `${PREFIX}-footer-menu-list-${Math.floor(
         Math.random() * 100000
       )}`;

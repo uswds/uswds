@@ -17,18 +17,18 @@
 !(function (factory) {
   module.exports = factory();
 })(function () {
-  'use strict';
+  "use strict";
 
   var Sanitizer = {
     _entity: /[&<>"'/]/g,
 
     _entities: {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      '\'': '&apos;',
-      '/': '&#x2F;'
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&apos;",
+      "/": "&#x2F;",
     },
 
     getEntity: function (s) {
@@ -39,14 +39,16 @@
      * Escapes HTML for all values in a tagged template string.
      */
     escapeHTML: function (strings) {
-      var result = '';
+      var result = "";
 
       for (var i = 0; i < strings.length; i++) {
         result += strings[i];
         if (i + 1 < arguments.length) {
-          var value = arguments[i + 1] || '';
-          result += String(value).replace(Sanitizer._entity,
-            Sanitizer.getEntity);
+          var value = arguments[i + 1] || "";
+          result += String(value).replace(
+            Sanitizer._entity,
+            Sanitizer.getEntity
+          );
         }
       }
 
@@ -62,15 +64,18 @@
         values[_key - 1] = arguments[_key];
       }
 
-      var escaped = Sanitizer.escapeHTML.apply(Sanitizer,
-        [strings].concat(values));
+      var escaped = Sanitizer.escapeHTML.apply(
+        Sanitizer,
+        [strings].concat(values)
+      );
       return {
         __html: escaped,
         toString: function () {
-          return '[object WrappedHTMLObject]';
+          return "[object WrappedHTMLObject]";
         },
-        info: 'This is a wrapped HTML object. See https://developer.mozilla.or'+
-          'g/en-US/Firefox_OS/Security/Security_Automation for more.'
+        info:
+          "This is a wrapped HTML object. See https://developer.mozilla.or" +
+          "g/en-US/Firefox_OS/Security/Security_Automation for more.",
       };
     },
     /**
@@ -84,13 +89,12 @@
         htmlObjects[_key] = arguments[_key];
       }
 
-      var markupList = htmlObjects.map(function(obj) {
+      var markupList = htmlObjects.map(function (obj) {
         return obj.__html;
       });
-      return markupList.join('');
-    }
+      return markupList.join("");
+    },
   };
 
   return Sanitizer;
-
 });

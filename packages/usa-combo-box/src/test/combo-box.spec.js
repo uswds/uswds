@@ -10,10 +10,13 @@ const TEMPLATE = fs.readFileSync(
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "combo box", selector: () => document.querySelector(".usa-combo-box") }
+  {
+    name: "combo box",
+    selector: () => document.querySelector(".usa-combo-box"),
+  },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Combo box initialized at ${name}`, () => {
     describe("combo box component", () => {
       const { body } = document;
@@ -97,7 +100,11 @@ tests.forEach(({name, selector: containerSelector}) => {
           select.classList.contains("usa-combo-box__select"),
           "add the class for the select element"
         );
-        assert.strictEqual(select.value, "", "the select value should be empty");
+        assert.strictEqual(
+          select.value,
+          "",
+          "the select value should be empty"
+        );
         assert.strictEqual(input.value, "", "the input should be empty");
       });
 
@@ -363,7 +370,9 @@ tests.forEach(({name, selector: containerSelector}) => {
         const focusedOption = document.activeElement;
 
         assert.ok(
-          focusedOption.classList.contains("usa-combo-box__list-option--focused"),
+          focusedOption.classList.contains(
+            "usa-combo-box__list-option--focused"
+          ),
           "should style the focused item in the list"
         );
         assert.strictEqual(
@@ -439,7 +448,11 @@ tests.forEach(({name, selector: containerSelector}) => {
         EVENTS.focusout(focusedOption);
 
         assert.strictEqual(select.value, "");
-        assert.strictEqual(input.value, "", "should reset the value in the input");
+        assert.strictEqual(
+          input.value,
+          "",
+          "should reset the value in the input"
+        );
       });
 
       it("should focus the last item in the list when pressing down many times from the input", () => {
@@ -458,7 +471,9 @@ tests.forEach(({name, selector: containerSelector}) => {
         const focusedOption = document.activeElement;
 
         assert.ok(
-          focusedOption.classList.contains("usa-combo-box__list-option--focused"),
+          focusedOption.classList.contains(
+            "usa-combo-box__list-option--focused"
+          ),
           "should style the focused item in the list"
         );
         assert.strictEqual(
@@ -519,7 +534,11 @@ tests.forEach(({name, selector: containerSelector}) => {
         EVENTS.keydownArrowUp(focusedOption);
 
         assert.ok(list.hidden, "should hide the option list");
-        assert.strictEqual(document.activeElement, input, "should focus the input");
+        assert.strictEqual(
+          document.activeElement,
+          input,
+          "should focus the input"
+        );
       });
 
       it("should not allow for innerHTML of child elements ", () => {
