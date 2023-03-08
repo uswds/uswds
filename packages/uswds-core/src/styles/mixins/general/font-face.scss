@@ -91,7 +91,7 @@
     $compatibility: if(
       map.has-key($this-src, "compatibility"),
       map.get($this-src, "compatibility"),
-      true
+      false
     );
     @debug "#{$display-name} compatibility: #{$compatibility}";
 
