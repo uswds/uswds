@@ -28,8 +28,8 @@ filetypes must be one of the filetypes set in variables/$project-font-face-filet
 
   // 
   @each $filetype in $filetypes {
-    @if map.has-key($map: filetypes.$project-font-face-filetypes, $key: $filetype) {
-      $format: map.get($map: filetypes.$project-font-face-filetypes, $key: $filetype);
+    @if map.has-key(filetypes.$project-font-face-filetypes, $filetype) {
+      $format: map.get(filetypes.$project-font-face-filetypes, $filetype);
     } 
     @else {
       @error "[Settings] custom-src.filetypes: \"#{$filetype}\" is not a valid USWDS custom font filetype. Available filetypes: #{filetypes.$project-font-face-filetypes-default}";
