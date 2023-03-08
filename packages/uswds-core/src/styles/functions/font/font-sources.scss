@@ -9,13 +9,13 @@
 font-sources()
 ----------------------------------------
 Outputs a list of font sources used in 
-a @font-face declaration.
+a @font-face declaration. 
 
-Each source takes the following form:
-url([stem].[filetype]) format([format])
+compatility: true - output woff2, woff, ttf
+compatibility: false - output woff2
 
 @param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
-@param filetypes: list - filetypes taken from custom-src.filetypes
+@param compatibility: bool - taken from custom-src.filetypes
 @output: list
 
 filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
