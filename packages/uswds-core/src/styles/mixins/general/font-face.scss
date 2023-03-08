@@ -8,24 +8,6 @@
 @use "../../settings" as *;
 
 
-@function fontFaceFormats($path, $filetypes) {
-  $list: ();
-  $format: null;
-
-  @each $filetype in $filetypes {
-    @if map.has-key($map: $project-font-face-filetypes, $key: $filetype) {
-      $format: map.get($map: $project-font-face-filetypes, $key: $filetype);
-    } 
-    @else {
-      @error "[Settings] custom-src.filetypes: \"#{$filetype}\" is not a valid USWDS custom font filetype. Available filetypes: #{$project-font-face-filetypes-default}";
-    }
-    $entry: url(#{$path}.#{$filetype}) format("#{$format}");
-    $list: list.append($list, $entry, $separator: "comma");
-  }
-
-  @return $list;
-}
-
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $filetypes, $font-weight, $font-style) {
   // TODO: If $theme-use-rails-pipeline use font-url() statements
@@ -37,7 +19,7 @@
     font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: fontFaceFormats($file-path, $filetypes);
+    src: fontSources($file-path, $filetypes);
   }
 }
 

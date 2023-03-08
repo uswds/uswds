@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+
+@use "../../variables/project-font-face-filetypes" as filetypes;
+
+/*
+----------------------------------------
+fontSources()
+----------------------------------------
+Outputs a list of font sources used in 
+a @font-face declaration.
+
+Each source takes the following form:
+url([stem].[filetype]) format([format])
+
+@param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
+@param filetypes: list - filetypes taken from custom-src.filetypes
+@output: list
+
+filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
+----------------------------------------
+*/
+
+@function fontSources($stem, $filetypes) {
+  $sources: ();
+  $format: null;
+
+  // 
+  @each $filetype in $filetypes {
+    @if map.has-key($map: filetypes.$project-font-face-filetypes, $key: $filetype) {
+      $format: map.get($map: filetypes.$project-font-face-filetypes, $key: $filetype);
+    } 
+    @else {
+      @error "[Settings] custom-src.filetypes: \"#{$filetype}\" is not a valid USWDS custom font filetype. Available filetypes: #{filetypes.$project-font-face-filetypes-default}";
+    }
+    $source: 'url(#{$stem}.#{$filetype}) format("#{$format}")';
+    $sources: list.append($sources, string.unquote($source), $separator: "comma");
+  }
+
+  @return $sources;
+}
