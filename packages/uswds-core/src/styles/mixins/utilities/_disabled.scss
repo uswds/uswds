@@ -1,15 +1,14 @@
 @use "../../functions/utilities/color" as *;
-
-$disabled-text-on-white: color("gray-50");
-$disabled-text-on-gray: color("gray-70");
-$disabled-text-on-black: color("gray-40");
-
+@use "../../settings" as *;
 // Overrides background-color and cursor styles of elements to display as disabled
 
-@mixin u-disabled {
-  background-color: color("disabled");
+@mixin u-disabled(
+  $bg-color: "disabled",
+  $text-color: $theme-color-text-on-disabled
+) {
+  background-color: color($bg-color);
+  color: color($text-color);
   cursor: not-allowed;
-  
 
   &:hover,
   &.usa-button--hover,
@@ -17,6 +16,7 @@ $disabled-text-on-black: color("gray-40");
   &.usa-button--active,
   &:focus,
   &.usa-focus {
-    background-color: color("disabled");
+    background-color: color($bg-color);
+    color: color($text-color);
   }
 }

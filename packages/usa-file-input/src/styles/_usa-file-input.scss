@@ -94,7 +94,7 @@
 }
 
 .usa-file-input--drag .usa-file-input__box {
-  background-color: color("primary-lighter") !important;
+  background-color: color("primary-lighter");
 }
 
 .usa-file-input--drag .usa-file-input__preview {
@@ -187,10 +187,9 @@
 .usa-file-input--disabled {
   .usa-file-input__instructions,
   .usa-file-input__choose {
-    color: $disabled-text-on-gray;
+    color: color($theme-color-text-on-disabled);
   }
 
-  
   .usa-file-input__box {
     background-color: color("disabled");
   }
@@ -199,7 +198,6 @@
     cursor: not-allowed;
   }
 
-
   .usa-file-input__target {
     &:hover {
       border-color: color("base-light");
@@ -207,6 +205,6 @@
   }
 
   .usa-file-input--drag .usa-file-input__box {
-    background-color: color("disabled") !important;
+    background-color: color("disabled");
   }
 }

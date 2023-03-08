@@ -60,6 +60,7 @@ $navigate_far_next: map-merge(
 
 %usa-date-picker__button--disabled {
   cursor: not-allowed;
+  opacity: opacity(60);
 
   &:hover {
     background-color: initial;

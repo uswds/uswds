@@ -106,7 +106,6 @@ function toggleModal(event) {
       ) {
         // do nothing. move on.
       } else {
-        event.stopPropagation();
         return false;
       }
     }

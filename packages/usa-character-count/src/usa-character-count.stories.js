@@ -7,9 +7,8 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
-      defaultValue: "none"
     },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
@@ -19,8 +18,8 @@ export const CharacterCount = Template.bind({});
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled_state: "disabled",
-}
+};
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   disabled_state: "aria-disabled",
-}
+};

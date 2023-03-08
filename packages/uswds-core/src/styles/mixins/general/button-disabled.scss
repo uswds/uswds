@@ -1,24 +1,7 @@
 @use "./add-knockout-font-smoothing" as *;
-@use "../../functions" as *;
 @use "../utilities" as *;
-@use "../helpers" as *;
 
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
   @include u-disabled;
-  @include set-text-from-bg(
-    "default",
-    "gray-40",
-    "gray-70"
-  );
-
-  &:hover,
-  &.usa-button--hover,
-  &:active,
-  &.usa-button--active,
-  &:focus,
-  &.usa-focus {
-    border: 0;
-    box-shadow: none;
-  }
 }
