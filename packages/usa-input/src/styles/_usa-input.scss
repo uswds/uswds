@@ -7,6 +7,8 @@
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
+
+    -webkit-text-fill-color: color($theme-color-text-on-disabled); // Fix for Safari
   }
 }
 

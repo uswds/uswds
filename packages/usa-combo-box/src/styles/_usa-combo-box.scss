@@ -61,6 +61,8 @@ $close: map-merge(
   &[aria-disabled="true"] {
     @include u-disabled;
 
+    -webkit-text-fill-color: color($theme-color-text-on-disabled); // Fix for Safari
+
     // Placeholder overrides to ensure color contrast compliance accross browsers
     &::placeholder {
       opacity: 1; 

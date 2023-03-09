@@ -514,8 +514,4 @@ $navigate_far_next: map-merge(
   }
 }
 
-.usa-date-picker__external-input:disabled,
-.usa-date-picker__external-input[aria-disabled="true"] {
-  -webkit-text-fill-color: color($theme-color-text-on-disabled); // Fix for Safari
-}
 /* stylelint-enable selector-class-pattern */
