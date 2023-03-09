@@ -11,12 +11,11 @@ font-sources()
 Outputs a list of font sources used in 
 a @font-face declaration. 
 
-compatility: true - output woff2, woff, ttf
-compatibility: false - output woff2
+$theme-font-browser-compatibility: true - output woff2, woff, ttf
+$theme-font-browser-compatibility: false - output woff2
 
 @param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
-@param compatibility: bool - taken from custom-src.filetypes
-@output: list
+@output: string
 
 filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
 ----------------------------------------
