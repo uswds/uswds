@@ -1,6 +1,6 @@
 ## Welcome!
 
-We’re so glad you’re thinking about contributing to the U.S. Web Design System (USWDS)! 
+We’re glad you’re thinking about contributing to the U.S. Web Design System (USWDS)! 
 
 USWDS is for everyone — we’re an open source project that accepts contributions from our community members. USWDS is the result of community contributions, large and small. Your contribution helps make the Design System better for the next team that uses it. 
 
@@ -18,14 +18,14 @@ We encourage you to read this project’s Contribution Guide (you are here), its
 
 Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new component, we welcome your ideas on how to improve the Design System.
 
-First time contributor? No sweat. You’ve got this 💪! We’re here to help guide you through a successful contribution. Don’t worry — you can’t break anything. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something.
+First time contributor? We’re here to help guide you through a successful contribution. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway to get the conversation started.
 
 Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.  
 
 If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you’ve got questions, don’t hesitate to [reach out to us](mailto:uswds@gsa.gov). 
 
 
-###  🐛 Submitting bugs and issues
+###  Submitting bugs and issues
 
 If something isn’t working the way it's supposed to, here’s how you can let us know: 
 
@@ -46,7 +46,7 @@ If your bug or issue is not in the [current issues backlog](https://github.com/u
 If you have a code fix for the issue, go ahead and submit a pull request. Our team tracks issues, so make sure any pull request you submit has a related issue.
 
 
-### 💡 Proposing feature requests or enhancements
+### Proposing feature requests or enhancements
 
 If you’ve got a new idea or a suggestion for how something could work better, we want to hear about it. Here are a few steps to help you submit a feature request or enhancement. 
 
@@ -63,7 +63,7 @@ If you want to find other feature requests open for upvoting, check out our [fea
 If your idea is not in the [current issues backlog](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22), submit an issue using the [feature request template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D).  A USWDS core team member may reach out to you if we need further clarification on your submission. 
 
 
-### 🛠 Submitting pull requests
+### Submitting pull requests
 
 If you want to propose a code fix, even better! Here’s a few steps to help you submit pull requests.
 
@@ -88,7 +88,7 @@ Tip: If you want to find other feature requests open for upvoting, check out our
 3. If your proposed fix is not in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean we don’t want you to create a pull request. We simply want to start the process with an online conversation first. Plus, other community members might have supporting thoughts to add to your proposal. If you’ve already got a pull request, no worries. Go ahead and attach it to the issue. 
 
 
-### ✨ Proposing something else?
+### Proposing something else?
 
 If you’d like to contribute something else that doesn’t fall into any of the above, we’d still love to hear about it. Just create an issue or a discussion, and we can talk about it.  
 

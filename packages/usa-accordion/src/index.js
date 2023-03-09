@@ -68,7 +68,7 @@ const hideButton = (button) => toggleButton(button, false);
 const accordion = behavior(
   {
     [CLICK]: {
-      [BUTTON](event) {
+      [BUTTON]() {
         toggleButton(this);
 
         if (this.getAttribute(EXPANDED) === "true") {
