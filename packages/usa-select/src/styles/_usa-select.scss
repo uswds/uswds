@@ -33,7 +33,6 @@
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
-    opacity: 1; // Override chromium default disabled styles for color contrast compliance
   }
 
   // Necessary to show chevron in forced colors mode in modern browsers
