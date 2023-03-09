@@ -33,7 +33,7 @@
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
-    opacity: 0.8; // Necessary for grey text on disabled background color contrast across browsers
+    opacity: 1; // Override chromium default disabled styles for color contrast compliance
     > option {
       color: color("ink");
     }
