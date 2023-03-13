@@ -61,12 +61,13 @@ $close: map-merge(
   &[aria-disabled="true"] {
     @include u-disabled;
 
-    -webkit-text-fill-color: color($theme-color-text-on-disabled); // Fix for Safari
+    // Fix for Safari
+    -webkit-text-fill-color: color($theme-color-text-on-disabled);
 
     // Placeholder overrides to ensure color contrast compliance accross browsers
     &::placeholder {
-      opacity: 1; 
-      color: color($theme-color-text-on-disabled); 
+      opacity: 1;
+      color: color($theme-color-text-on-disabled);
     }
 
     & ~ .usa-combo-box__input-button-separator {
