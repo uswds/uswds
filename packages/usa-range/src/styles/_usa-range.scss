@@ -92,6 +92,9 @@
 
   &:disabled,
   &[aria-disabled="true"] {
+    // Required for mobile styles
+    opacity: 1;
+
     &::-webkit-slider-runnable-track {
       @include u-disabled;
     }
