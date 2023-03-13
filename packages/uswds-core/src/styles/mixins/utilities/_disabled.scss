@@ -9,7 +9,7 @@
   background-color: color($bg-color);
   color: color($text-color);
   cursor: not-allowed;
-  opacity: 1; // Override disabled default opacity shift (Necesarry for Chromium, iOS Safari)
+  opacity: 1; // Override disabled default opacity shift (Necessary for Chromium, iOS Safari)
 
   &:hover,
   &.usa-button--hover,
