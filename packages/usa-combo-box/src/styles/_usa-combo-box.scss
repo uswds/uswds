@@ -84,7 +84,7 @@ button.usa-combo-box__clear-input {
 
   &:disabled,
   &[aria-disabled="true"] {
-    @include u-disabled;
+    cursor: not-allowed;
   }
 }
 
