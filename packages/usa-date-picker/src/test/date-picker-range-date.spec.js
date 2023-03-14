@@ -8,13 +8,13 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker-range-date.template.html")
 );
 
-const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const datePickerSelector = () => document.querySelector(".usa-date-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date picker", selector: datePickerSelector }
+  { name: "date picker", selector: datePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date picker component with range date initialized at ${name}`, () => {
     const { body } = document;
 
@@ -23,7 +23,7 @@ tests.forEach(({name, selector: containerSelector}) => {
     let button;
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${  query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
       );
 
     beforeEach(() => {
