@@ -11,13 +11,13 @@ const TEMPLATE = fs.readFileSync(
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
-const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const datePickerSelector = () => document.querySelector(".usa-date-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date picker", selector: datePickerSelector }
+  { name: "date picker", selector: datePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date picker component initialized at ${name}`, () => {
     const { body } = document;
 
@@ -26,7 +26,8 @@ tests.forEach(({name, selector: containerSelector}) => {
     let button;
     let inputChangeSpy;
 
-    const getCalendarEl = () => root.querySelector(".usa-date-picker__calendar");
+    const getCalendarEl = () =>
+      root.querySelector(".usa-date-picker__calendar");
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
@@ -53,7 +54,11 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should display a calendar for the current date when the date picker button is clicked", () => {
       EVENTS.click(button);
 
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
       assert.ok(
         getCalendarEl().contains(document.activeElement),
         "The focus is within the component"
@@ -62,38 +67,67 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        true,
+        "The calendar is hidden"
+      );
     });
 
     it("should close the calendar you click outside of an active calendar", () => {
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.focusout();
 
-      assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        true,
+        "The calendar is hidden"
+      );
     });
 
     it("should close the calendar you press escape from the input", () => {
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownEscape(input);
 
-      assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        true,
+        "The calendar is hidden"
+      );
     });
 
     it("should display a calendar for the inputted date when the date picker button is clicked with a date entered", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
 
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
+      assert.strictEqual(
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -116,7 +150,11 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should allow for the selection of a date within the calendar", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(
@@ -134,7 +172,11 @@ tests.forEach(({name, selector: containerSelector}) => {
         document.activeElement,
         "The focus is on the input"
       );
-      assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        true,
+        "The calendar is hidden"
+      );
       assert.ok(
         inputChangeSpy.called,
         "should have dispatched a change event from the input"
@@ -144,7 +186,11 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should allow for navigation to the preceding month by clicking the left single arrow button within the calendar", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(
@@ -153,8 +199,9 @@ tests.forEach(({name, selector: containerSelector}) => {
       );
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -177,15 +224,20 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should allow for navigation to the succeeding month by clicking the right single arrow button within the calendar", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(".usa-date-picker__calendar__next-month")
       );
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -208,15 +260,22 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should allow for navigation to the preceding year by clicking the left double arrow button within the calendar", () => {
       input.value = "1/1/2016";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__previous-year")
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__previous-year"
+        )
       );
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -239,15 +298,20 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should allow for navigation to the succeeding year by clicking the right double arrow button within the calendar", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(".usa-date-picker__calendar__next-year")
       );
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -269,7 +333,11 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should display a month selection screen by clicking the month display within the calendar", () => {
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(
@@ -287,7 +355,9 @@ tests.forEach(({name, selector: containerSelector}) => {
         "calendar month is focused"
       );
       assert.ok(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__month-picker"),
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__month-picker"
+        ),
         "calendar is showing the month picker"
       );
     });
@@ -325,7 +395,9 @@ tests.forEach(({name, selector: containerSelector}) => {
 
       const focusedYear = document.activeElement;
       assert.ok(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__year-picker"),
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__year-picker"
+        ),
         "calendar is showing the year picker"
       );
       assert.strictEqual(
@@ -413,23 +485,36 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should close the calendar when escape is pressed within the calendar", () => {
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownEscape();
 
-      assert.strictEqual(getCalendarEl().hidden, true, "The calendar is hidden");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        true,
+        "The calendar is hidden"
+      );
     });
 
     it("should move focus to the same day of week of the previous week when up is pressed from the currently focused day", () => {
       input.value = "1/10/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownArrowUp();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "3",
         "focuses correct date"
       );
@@ -452,13 +537,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day of week of the next week when down is pressed from the currently focused day", () => {
       input.value = "1/10/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownArrowDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "17",
         "focuses correct date"
       );
@@ -481,13 +571,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the previous day when left is pressed from the currently focused day", () => {
       input.value = "1/10/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownArrowLeft();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "9",
         "focuses correct date"
       );
@@ -510,13 +605,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the next day when right is pressed from the currently focused day", () => {
       input.value = "1/10/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownArrowRight();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "11",
         "focuses correct date"
       );
@@ -539,13 +639,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the first day (e.g. Sunday) of the current week when home is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownHome();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "29",
         "focuses correct date"
       );
@@ -568,13 +673,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the last day (e.g. Saturday) of the current week when end is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownEnd();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "4",
         "focuses correct date"
       );
@@ -597,13 +707,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day of the previous month when page up is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownPageUp();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -626,13 +741,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the last day of the previous month when page up is pressed from the the last day of a longer month", () => {
       input.value = "12/31/2019";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownPageUp();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "30",
         "focuses correct date"
       );
@@ -655,13 +775,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day of the next month when page down is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownPageDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -684,13 +809,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the last day of the next month when page down is pressed from the the last day of a longer month", () => {
       input.value = "1/31/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownPageDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "29",
         "focuses correct date"
       );
@@ -713,13 +843,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day of the month January when page down is pressed from the currently focused day in December", () => {
       input.value = "12/31/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownPageDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "31",
         "focuses correct date"
       );
@@ -742,13 +877,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day/month of the previous year when shift + page up is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownShiftPageUp();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -771,13 +911,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
       input.value = "2/29/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownShiftPageUp();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "28",
         "focuses correct date"
       );
@@ -800,13 +945,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to the same day/month of the next year when shift + page down is pressed from the currently focused day", () => {
       input.value = "1/1/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownShiftPageDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "1",
         "focuses correct date"
       );
@@ -829,13 +979,18 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should move focus to February 28th of the next year when shift + page down is pressed from a focused February 29th date of a leap year", () => {
       input.value = "2/29/2020";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.keydownShiftPageDown();
 
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "28",
         "focuses correct date"
       );
@@ -859,10 +1014,15 @@ tests.forEach(({name, selector: containerSelector}) => {
       input.value = "2/29/20";
       EVENTS.click(button);
 
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
       assert.strictEqual(
-        getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
+      assert.strictEqual(
+        getCalendarEl().querySelector(
+          ".usa-date-picker__calendar__date--focused"
+        ).textContent,
         "29",
         "focuses correct date"
       );
@@ -918,7 +1078,11 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.focusout(input);
       assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
 
       EVENTS.click(
         getCalendarEl().querySelector(
@@ -948,7 +1112,11 @@ tests.forEach(({name, selector: containerSelector}) => {
     it("should prevent action from button when event didn't originate from date", () => {
       input.value = "2/31/2019";
       EVENTS.click(button);
-      assert.strictEqual(getCalendarEl().hidden, false, "The calendar is shown");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown"
+      );
       const { preventDefaultSpy } = EVENTS.keyupEnter();
       assert.ok(
         preventDefaultSpy.called,

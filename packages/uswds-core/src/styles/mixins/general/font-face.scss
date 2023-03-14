@@ -1,10 +1,12 @@
 @use "sass:map";
 @use "sass:string";
+@use "sass:list";
 
 @use "../../functions" as *;
 @use "../../variables" as *;
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
+
 
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
@@ -17,9 +19,7 @@
     font-style: string.unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: url(#{$file-path}.woff2) format("woff2"),
-      url(#{$file-path}.woff) format("woff"),
-      url(#{$file-path}.ttf) format("truetype");
+    src: font-sources($file-path);
   }
 }
 
@@ -74,7 +74,7 @@
     $this-src: map.get($typeface-metadata, src);
   }
 
-  // If the typeface has custom src sefined, generate and override
+  // If the typeface has custom src defined, generate and override
   // any existing USWDS src
   @if $src {
     $generate: true;
