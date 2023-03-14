@@ -8,14 +8,12 @@ const toggleButton = (event) => {
   event.target.click();
 };
 
-const anchorButton = behavior(
-  {
-    keydown: {
-      [ANCHOR_BUTTON]: keymap({
-        " ": toggleButton
-      })
-    }
-  }
-);
+const anchorButton = behavior({
+  keydown: {
+    [ANCHOR_BUTTON]: keymap({
+      " ": toggleButton,
+    }),
+  },
+});
 
 module.exports = anchorButton;

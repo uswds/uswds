@@ -1,6 +1,6 @@
 const accordion = require("../../../usa-accordion/src/index");
 const banner = require("../../../usa-banner/src/index");
-const button = require("../../../usa-button/src/index")
+const button = require("../../../usa-button/src/index");
 const characterCount = require("../../../usa-character-count/src/index");
 const comboBox = require("../../../usa-combo-box/src/index");
 const datePicker = require("../../../usa-date-picker/src/index");
