@@ -1,0 +1,12 @@
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--basic {{ modifier }}">
+  <div class="usa-nav-container">
+    {% include "@components/usa-header/src/_includes/usa-navbar.twig" %}
+    {% if nav %}
+      <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
+        {% include "@components/usa-nav/src/usa-nav__primary/usa-nav__primary.twig" %}
+        {% include "@components/usa-search/src/usa-search.twig" with search.settings %}
+      </nav>
+    {% endif %}
+  </div>
+</header>

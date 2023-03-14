@@ -1,0 +1,47 @@
+<!-- start segmented styles -->
+{% if segmented == true %}
+  <ul class="usa-button-group usa-button-group--segmented">
+    <li class="usa-button-group__item">
+      <button type="button" class="usa-button">Map</button>
+    </li>
+    <li class="usa-button-group__item">
+      <button type="button" class="usa-button usa-button--outline" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Hybrid</button>
+    </li>
+    <li class="usa-button-group__item">
+      <button type="button" class="usa-button usa-button--outline" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Satellite</button>
+    </li>
+  </ul>
+
+  {% for modifier in modifiers %}
+  {% if 'usa-button--outline usa-button--inverse' in modifier %}
+    <div class="bg-base-darkest padding-1" style="max-width: fit-content">
+  {% endif %}
+    <ul class="usa-button-group usa-button-group--segmented">
+      <li class="usa-button-group__item">
+        <button type="button" class="usa-button {{ modifier }}">Map</button>
+      </li>
+      <li class="usa-button-group__item">
+        <button type="button" class="usa-button {{ modifier }}" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Hybrid</button>
+      </li>
+      <li class="usa-button-group__item">
+        <button type="button" class="usa-button {{ modifier }}" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Satellite</button>
+      </li>
+    </ul>
+  {% if 'usa-button--outline usa-button--inverse' in modifier %}
+    </div>
+  {% endif %}
+  {% endfor %}
+<!-- end segmented styles -->
+
+<!-- start default styles -->
+  {% else %}
+  <ul class="usa-button-group">
+    <li class="usa-button-group__item">
+      <a href="javascript:void(0);" class="usa-button usa-button--outline">Back</a>
+    </li>
+    <li class="usa-button-group__item">
+        <button type="button" class="usa-button" {% if disabled_state == "disabled" %}disabled{% endif %} {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>Continue</button>
+    </li>
+  </ul>
+<!-- end default styles -->
+{% endif %}

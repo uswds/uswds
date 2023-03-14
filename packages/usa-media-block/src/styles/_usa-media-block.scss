@@ -1,0 +1,14 @@
+@use "uswds-core" as *;
+
+.usa-media-block {
+  @include u-align-items("align-start");
+  @include u-display("flex");
+}
+
+.usa-media-block__img {
+  @include media-block-img;
+}
+
+.usa-media-block__body {
+  @include u-flex(1);
+}

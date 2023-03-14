@@ -1,0 +1,79 @@
+@use "sass:list";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:math";
+@use "../../functions/output/number-to-token" as *;
+@use "../../functions/general/smart-quote" as *;
+@use "../../functions/general/map-deep-get" as *;
+@use "../../properties" as *;
+@use "../../settings" as *;
+
+/*
+----------------------------------------
+get-uswds-value()
+----------------------------------------
+Finds and outputs a value from the
+USWDS standard values.
+
+Used to build other standard utility
+functions and mixins.
+----------------------------------------
+*/
+
+@function get-uswds-value($property, $value...) {
+  @if meta.type-of($value) == "arglist" and list.nth($value, 1) == override {
+    @return list.nth($value, 2);
+  }
+
+  $value: list.nth($value, 1);
+  $converted: number-to-token($value);
+  $quoted-value: if(
+    $converted,
+    smart-quote($converted),
+    smart-quote(list.nth($value, 1))
+  );
+  $our-standard-values: map-deep-get($system-properties, $property, standard);
+  $our-extended-values: map-deep-get($system-properties, $property, extended);
+
+  @if map.has-key($our-standard-values, $quoted-value) {
+    $output: map.get($our-standard-values, $quoted-value);
+
+    @if not $output {
+      @if $theme-show-compile-warnings {
+        @error '`#{$value}` is set as a `false` value '
+          + 'for the #{$property} property in your project settings '
+          + 'and will not output properly. '
+          + 'Set the value of `#{$value}` in project settings.';
+      }
+    }
+
+    @return $output;
+  }
+
+  @if map.has-key($our-extended-values, $quoted-value) {
+    @if $theme-show-compile-warnings {
+      @warn '`#{$value}` is an extended USWDS `#{$property}` token. '
+        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map.keys($our-standard-values)}';
+    }
+
+    @return map.get($our-extended-values, $quoted-value);
+  }
+
+  // TODO: what are these last two cases? Evaluate.
+  @if not((meta.type-of($value) == "number") and not(math.is-unitless($value)))
+  {
+    @error '`#{$value}` is not a valid `#{$property}` token. '
+      + 'You should correct this. Standard `#{$property}` tokens: '
+      + ' #{map.keys($our-standard-values)}';
+  }
+
+  @if $theme-show-compile-warnings {
+    @warn '`#{$value}` is not a USWDS `#{$property}` token. '
+      + 'This is OK, but only components built with standard '
+      + 'tokens can be accepted back into the system. '
+      + 'Standard `#{$property}` values: #{map.keys($our-standard-values)}';
+  }
+
+  @return $value;
+}

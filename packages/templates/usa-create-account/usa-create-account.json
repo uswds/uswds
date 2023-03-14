@@ -1,0 +1,34 @@
+{
+  "lang": "en",
+  "tagline": "<A tagline that explains the benefit of creating an account.>",
+  "form": {
+    "title": "Create account",
+    "legend": "Get started with an account.",
+    "hint": "<abbr title=\"required\" class=\"usa-hint usa-hint--required\">*</abbr> indicates a required field.",
+    "email": {
+      "label": "Email address"
+    },
+    "password": {
+      "label": "Create password",
+      "toggle": {
+        "aria_controls": "password-create-account password-create-account-confirm",
+        "text": {
+          "show": "Show password",
+          "hide": "Hide password"
+        }
+      },
+      "confirmation": {
+        "label": "Re-type password"
+      }
+    },
+    "terms": {
+      "label": "I agree to the <a href=\"javascript:void();\">terms and conditions</a>."
+    },
+    "submit": "Create account"
+  },
+  "existing_user": {
+    "label": "Already have an account?",
+    "cta": "Sign in"
+  },
+  "img_path": "./img"
+}

@@ -1,0 +1,353 @@
+<style>
+.bg-image-demo {background-image: url("https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg")}
+</style>
+<div class="grid-container">
+  <!--
+  <div class="test-add-aspect bg-secondary"></div>
+  <img class="test-add-aspect-image" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg">
+  -->
+  <h2>On div</h2>
+  <p>This section demonstrates the new opportunities with height and width overrides (<a href="https://css-tricks.com/almanac/properties/a/aspect-ratio/#aa-it-works-on-its-own-without-specifying-a-width-or-height" target="_blank">More info on overrides from CSS-tricks</a>)</p>
+  <h3>1x1</h3>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h4>no height/width</h4>
+      <div class="add-aspect-1x1 bg-secondary"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: full</h4>
+      <div class="add-aspect-1x1 bg-secondary width-full"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card</h4>
+      <div class="add-aspect-1x1 bg-secondary width-card"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>height: 15</h4>
+      <div class="add-aspect-1x1 bg-secondary height-15"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card, height: 15</h4>
+      <div class="add-aspect-1x1 bg-secondary height-15 width-card"></div>
+    </div>
+  </div>
+
+  <h3>2x1</h3>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h4>no height/width</h4>
+      <div class="add-aspect-2x1 bg-image-demo"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: full</h4>
+      <div class="add-aspect-2x1 bg-image-demo width-full"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card</h4>
+      <div class="add-aspect-2x1 bg-image-demo width-card"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>height: 15</h4>
+      <div class="add-aspect-2x1 bg-image-demo height-15"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card, height: 15</h4>
+      <div class="add-aspect-2x1 bg-image-demo height-15 width-card"></div>
+    </div>
+  </div>
+
+  <h3>4x3</h3>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h4>no height/width</h4>
+      <div class="add-aspect-4x3 bg-accent-cool"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: full</h4>
+      <div class="add-aspect-4x3 bg-accent-cool width-full"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card</h4>
+      <div class="add-aspect-4x3 bg-accent-cool width-card"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>height: 15</h4>
+      <div class="add-aspect-4x3 bg-accent-cool height-15"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card, height: 15</h4>
+      <div class="add-aspect-4x3 bg-accent-cool height-15 width-card"></div>
+    </div>
+  </div>
+
+  <h3>9x16</h3>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h4>no height/width</h4>
+      <div class="add-aspect-9x16 bg-accent-warm"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: full</h4>
+      <div class="add-aspect-9x16 bg-accent-warm width-full"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card</h4>
+      <div class="add-aspect-9x16 bg-accent-warm width-card"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>height: 15</h4>
+      <div class="add-aspect-9x16 bg-accent-warm height-15"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card, height: 15</h4>
+      <div class="add-aspect-9x16 bg-accent-warm height-15 width-card"></div>
+    </div>
+  </div>
+
+  <h3>16x9</h3>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h4>no height/width</h4>
+      <div class="add-aspect-16x9 bg-base"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: full</h4>
+      <div class="add-aspect-16x9 bg-base width-full"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card</h4>
+      <div class="add-aspect-16x9 bg-base width-card"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>height: 15</h4>
+      <div class="add-aspect-16x9 bg-base height-15"></div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h4>width: card, height: 15</h4>
+      <div class="add-aspect-16x9 bg-base height-15 width-card"></div>
+    </div>
+  </div>
+
+  <h2>On iframe wrapper</h2>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>1x1</h3>
+      <div class="add-aspect-1x1">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>16x9</h3>
+      <div class="add-aspect-16x9">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>4x3</h3>
+      <div class="add-aspect-4x3">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player,,,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>2x1</h3>
+      <div class="add-aspect-2x1">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player,,,,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <h2>On iframe wrapper (with .usa-embed-container)</h2>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>1x1</h3>
+      <div class="add-aspect-1x1 usa-embed-container">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player with embed container"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>16x9</h3>
+      <div class="add-aspect-16x9 usa-embed-container">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player with embed container,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>4x3</h3>
+      <div class="add-aspect-4x3 usa-embed-container">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player with embed container,,,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>2x1</h3>
+      <div class="add-aspect-2x1 usa-embed-container">
+          <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V9l4MvXcrSc"
+            title="YouTube video player with embed container,,,,"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <h2>On image wrapper</h2>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>1x1</h3>
+      <div class="add-aspect-1x1">
+        <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>2x1</h3>
+      <div class="add-aspect-2x1">
+        <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>4x3</h3>
+      <div class="add-aspect-4x3">
+        <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>9x16</h3>
+      <div class="add-aspect-9x16">
+        <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>16x9</h3>
+      <div class="add-aspect-16x9">
+        <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+      </div>
+    </div>
+  </div>
+
+  <h2>On image</h2>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>1x1</h3>
+      <img class="add-aspect-1x1" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>2x1</h3>
+      <img class="add-aspect-2x1" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>4x3</h3>
+      <img class="add-aspect-4x3" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>9x16</h3>
+      <img class="add-aspect-9x16" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+    </div>
+    <div class="grid-col margin-right-2px">
+      <h3>16x9</h3>
+      <img class="add-aspect-16x9" alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" />
+    </div>
+  </div>
+
+  <h2>On card</h2>
+  <div class="grid-row flex-row">
+    <div class="grid-col margin-right-2px">
+      <h3>1x1</h3>
+      <div class="usa-card">
+        <div class="usa-card__container">
+          <div class="usa-card__header">
+            <h2 class="usa-card__heading">
+              Card with Media
+            </h2>
+          </div>
+          <div class="usa-card__media">
+            <div class="usa-card__img add-aspect-1x1">
+              <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+                alt="A placeholder image" />
+            </div>
+          </div>
+          <div class="usa-card__body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+              earum tenetur quo cupiditate, eaque qui officia recusandae.
+            </p>
+          </div>
+          <div class="usa-card__footer">
+            <button class="usa-button">Visit Florida Keys</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-col margin-right-2px">
+    <h3>4x3</h3>
+      <div class="usa-card">
+        <div class="usa-card__container">
+          <div class="usa-card__header">
+            <h2 class="usa-card__heading">
+              Card with Media
+            </h2>
+          </div>
+          <div class="usa-card__media">
+            <div class="usa-card__img add-aspect-4x3">
+              <img alt="Alt text" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+                alt="A placeholder image" />
+            </div>
+          </div>
+          <div class="usa-card__body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+              earum tenetur quo cupiditate, eaque qui officia recusandae.
+            </p>
+          </div>
+          <div class="usa-card__footer">
+            <button class="usa-button">Visit Florida Keys</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

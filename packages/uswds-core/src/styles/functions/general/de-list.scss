@@ -1,0 +1,29 @@
+/*
+----------------------------------------
+de-list()
+----------------------------------------
+Transform a one-element list or arglist
+into that single element.
+----------------------------------------
+(1) => 1
+((1)) => (1)
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:meta";
+
+@function de-list($value) {
+  $types: ("list", "arglist");
+
+  @if not list.index($types, meta.type-of($value)) {
+    @return $value;
+  }
+
+  $output: if(list.length($value) == 1, list.nth($value, 1), $value);
+
+  @return $output;
+}
+
+// @debug de-list((1));
+// @return 1;

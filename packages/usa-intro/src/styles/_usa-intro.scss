@@ -1,0 +1,11 @@
+@use "uswds-core" as *;
+
+.usa-intro {
+  @include typeset(
+    $theme-lead-font-family,
+    $theme-lead-font-size,
+    $theme-lead-line-height
+  );
+  font-weight: $theme-font-weight-normal;
+  max-width: measure($theme-lead-measure);
+}

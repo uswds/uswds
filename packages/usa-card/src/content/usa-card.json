@@ -1,0 +1,23 @@
+{
+  "modifier": "",
+  "default_classes": "tablet:grid-col-4",
+  "cards": [
+    {
+      "title": "Default card",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "body_overrides": null,
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nFacilis earum tenetur quo cupiditate, eaque qui officia recusandae.",
+      "cta_text": ""
+    },
+    {
+      "title": "The economy of cities",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "content": "Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes,\nnascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.",
+      "cta_text": ""
+    }
+  ]
+}

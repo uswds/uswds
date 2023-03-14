@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs width
+
+@mixin u-z($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  z-index: get-uswds-value("z-index", $value...) #{$important};
+}

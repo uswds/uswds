@@ -1,0 +1,20 @@
+{% set list_classes = [
+  "usa-icon-list",
+  color ? "usa-icon-list--" ~ color : "",
+  size ? "usa-icon-list--size-" ~ size : "",
+] %}
+
+<ul class="{{ list_classes | join(' ') | trim }}">
+  {% for item in items %}
+  <li class="usa-icon-list__item">
+    <div class="usa-icon-list__icon {% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
+      <svg class="usa-icon{% if item.icon.utilities %} {{ item.icon.utilities }}{% endif %}" aria-hidden="true" role="img">
+        <use xlink:href="{{ img_path }}/sprite.svg#{{ item.icon.name }}"></use>
+      </svg>
+    </div>
+    <div class="usa-icon-list__content">
+      {{ item.content }}
+    </div>
+  </li>
+  {% endfor %}
+</ul>

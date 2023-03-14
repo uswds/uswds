@@ -1,0 +1,47 @@
+<table class="usa-table">
+  <caption>Test table</caption>
+  <thead>
+    <tr>
+      <th data-sortable scope="col" role="columnheader" aria-sort="ascending">
+        Alphabetical
+      </th>
+      <th data-sortable scope="col" role="columnheader">
+        Numeric
+      </th>
+      <th data-sortable scope="col" role="columnheader">
+        Numeric with data-sort-value override
+      </th>
+      <th scope="col" role="columnheader">
+        Unsortable column
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>X</th>
+      <td>2</td>
+      <td data-sort-value="0.25">25%</td>
+      <td>Don't sort me</td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>1</td>
+      <td data-sort-value="2000">2,000</td>
+      <td>Don't sort me</td>d>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>4</td>
+      <td data-sort-value="-1">-1</td>
+      <td>Don't sort me</td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>3</td>
+      <td data-sort-value="0">Zero</td>
+      <td>Don't sort me</td>
+    </tr>
+  </tbody>
+</table>
+<div class="usa-sr-only usa-table__announcement-region" aria-live="polite">
+</div>

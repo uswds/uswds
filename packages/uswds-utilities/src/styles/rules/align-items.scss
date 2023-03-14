@@ -1,0 +1,34 @@
+/*
+========================================
+align-items
+----------------------------------------
+usage:
+  .flex-align-[key]
+----------------------------------------
+output:
+  align-items: [value];
+----------------------------------------
+example:
+  .flex-align-start {
+    align-items: flex-start; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-align-items: (
+  align-items: (
+    base: "flex",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($align-items-palettes),
+        $align-items-manual-values
+      ),
+    settings: $align-items-settings,
+    property: "align-items",
+    type: "utility",
+  ),
+);

@@ -1,0 +1,40 @@
+@use "sass:math";
+
+@use "uswds-core" as *;
+
+// Alert variables ---------- //
+$alert-icons: (
+  success: "check_circle",
+  warning: "warning",
+  error: "error",
+  info: "info",
+  emergency: "error",
+);
+
+.usa-alert {
+  @include alert-styles;
+}
+
+@each $name, $icon in $alert-icons {
+  .usa-alert--#{$name} {
+    @include alert-status-wrapper-styles($name);
+
+    .usa-alert__body {
+      @include alert-status-body-styles($name, $icon);
+    }
+  }
+}
+
+.usa-alert--slim {
+  @include alert-styles-slim;
+}
+
+.usa-alert--no-icon {
+  @include alert-styles-no-icon;
+}
+
+.usa-alert--validation {
+  .usa-checklist {
+    margin-top: units(2);
+  }
+}

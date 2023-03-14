@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs text-decoration-color
+
+@mixin u-underline($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  text-decoration-color: color($value) #{$important};
+}

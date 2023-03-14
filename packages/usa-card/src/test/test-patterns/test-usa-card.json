@@ -1,0 +1,101 @@
+{
+  "modifier": "",
+  "default_classes": "",
+  "cards": [
+    {
+      "title": "He had a little small bull pup",
+      "classes_override": "tablet:grid-col-6",
+      "header_first": true,
+      "media": true,
+      "container_overrides": "bg-base-lightest border-ink",
+      "body_overrides": "text-white bg-primary padding-y-3",
+      "content": "<p>His underjaw'd begin to stick out like the fo'castle of a steamboat, and his teeth would uncover, and shine savage like the furnaces. </p><p>And a dog might tackle him, and bully-rag him, and bite him, and throw him over his shoulder two or three times, and Andrew Jackson which was the name of the pup, Andrew Jackson would never let on but what he was satisfied.</p>",
+      "cta_text": "Stick out",
+      "cta_modifier": "usa-button--secondary"
+    },
+    {
+      "title": "There was a feller here once by the name of Jim Smiley",
+      "classes_override": "tablet:grid-col-6",
+      "header_first": false,
+      "media": false,
+      "content": "In the winter of '49 or may be it was the spring of '50 I don't recollect exactly, somehow, though what makes me think it was one or the other is because I remember the big flume wasn't finished when he first came to the camp: <ol class='usa-list'><li>But any way, he was the curiosest man about always betting on any thing that turned up</li><li>If he could get anybody to bet on the other side; and if he couldn't, he'd change sides.</li><li>Any way that suited the other man would suit him any way just so's he got a bet, he was satisfied.</li><li>But still he was lucky, uncommon lucky; he most always come out winner. </li></ol>",
+      "cta_text": "Help the less fortunate"
+    },
+    {
+      "title": "I hereunto append the result",
+      "classes_override": "usa-card--flag desktop:grid-col-6",
+      "header_first": true,
+      "media": true,
+      "body_overrides": null,
+      "content": "He roused up and gave me good-day. I told him a friend of mine had commissioned me to make some inquiries about a cherished companion of his boyhood named Leonidas W. Smiley.",
+      "cta_text": "Make some inquiries"
+    },
+    {
+      "title": "My friend's friend",
+      "classes_override": "usa-card--flag desktop:grid-col-6",
+      "container_overrides": "border-primary-vivid",
+      "header_first": false,
+      "flag_direction": "right",
+      "media": {
+        "media_classes": "flex-align-center",
+        "image_classes": "circle-card margin-x-auto"
+      },
+      "content": "He roused up and gave me good-day. I told him a friend of mine had commissioned me to make some inquiries about a cherished companion of his boyhood named Leonidas W. Smiley.",
+      "cta_text": "Give me good-day",
+      "cta_modifier": "usa-button--outline"
+
+    },
+    {
+      "title": "If that was the design, it certainly succeeded",
+      "classes_override": "tablet:grid-col-6 desktop:grid-col-4",
+      "header_first": true,
+      "flag_direction": "right",
+      "media": {
+        "media_classes": "usa-card__media--exdent usa-card__media--fix-aspect add-aspect-1x1"
+      },
+      "content": "He roused up and gave me good-day. I told him a friend of mine had commissioned me to make some inquiries about a cherished companion of his boyhood named Leonidas W. Smiley.",
+      "cta_text": "Rouse Simon"
+    },
+    {
+      "title": "Garrulous old Simon Wheeler",
+      "classes_override": "tablet:grid-col-6 desktop:grid-col-fill",
+      "header_first": false,
+      "flag_direction": "right",
+      "media": {
+        "media_classes": "usa-card__media--fix-aspect add-aspect"
+      },
+      "container_overrides": "bg-base-lightest border-0",
+      "content": "I found Simon Wheeler dozing comfortably by the bar-room stove of the old, dilapidated tavern in the ancient mining camp of Angel's, and I noticed that he was fat and bald-headed, and had an expression of winning gentleness and simplicity upon his tranquil countenance.",
+      "cta_text": "Express gentleness"
+    },
+    {
+      "title": "He never smiled, he never frowned",
+      "classes_override": "tablet:grid-col-4",
+      "container_overrides": "border-ink",
+      "header_first": false,
+      "media": true,
+      "content": "Simon Wheeler backed me into a corner and blockaded me there with his chair, and then sat me down and reeled off the monotonous narrative which follows this paragraph. He never smiled, he never frowned, he never changed his voice from the gentle-flowing key to which he tuned the initial sentence, he never betrayed the slightest suspicion of enthusiasm; but all through the interminable narrative there ran a vein of impressive earnestness and sincerity, which showed me plainly that, so far from his imagining that there was any thing ridiculous or funny about his story, he regarded it as a really important matter, and admired its two heroes as men of transcendent genius in finesse.",
+      "cta_text": "Rouse Simon"
+    },
+    {
+      "title": "Garrulous old Simon Wheeler",
+      "classes_override": "tablet:grid-col-4",
+      "header_first": false,
+      "media": {
+        "media_classes": "usa-card__media--inset"
+      },
+      "content": "Simon Wheeler backed me into a corner and blockaded me there with his chair, and then sat me down and reeled off the monotonous narrative which follows this paragraph. He never smiled, he never frowned, he never changed his voice from the gentle-flowing key to which he tuned the initial sentence, he never betrayed the slightest suspicion of enthusiasm; but all through the interminable narrative there ran a vein of impressive earnestness and sincerity, which showed me plainly that, so far from his imagining that there was any thing ridiculous or funny about his story, he regarded it as a really important matter, and admired its two heroes as men of transcendent genius in finesse.",
+      "cta_text": "Read More"
+    },
+    {
+      "title": "He never smiled, he never frowned",
+      "classes_override": "tablet:grid-col-4",
+      "header_first": true,
+      "media": {
+        "media_classes": "usa-card__media--inset"
+      },
+      "content": "Simon Wheeler backed me into a corner and blockaded me there with his chair, and then sat me down and reeled off the monotonous narrative which follows this paragraph. He never smiled, he never frowned, he never changed his voice from the gentle-flowing key to which he tuned the initial sentence, he never betrayed the slightest suspicion of enthusiasm; but all through the interminable narrative there ran a vein of impressive earnestness and sincerity, which showed me plainly that, so far from his imagining that there was any thing ridiculous or funny about his story, he regarded it as a really important matter, and admired its two heroes as men of transcendent genius in finesse.",
+      "cta_text": "Read More"
+    }
+  ]
+}

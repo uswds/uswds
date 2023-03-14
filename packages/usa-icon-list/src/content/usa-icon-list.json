@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "icon": {
+        "name": "check_circle",
+        "color": "green"
+      },
+      "content": "Wash your hands for 20 seconds with soap"
+    },
+    {
+      "icon": {
+        "name": "check_circle",
+        "color": "green"
+      },
+      "content": "Stay six feet away from others"
+    },
+    {
+      "icon": {
+        "name": "cancel",
+        "color": "red"
+      },
+      "content": "Avoid large gatherings"
+    }
+  ],
+  "img_path": "./img"
+}

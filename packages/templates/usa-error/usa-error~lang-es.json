@@ -1,0 +1,19 @@
+{
+  "lang": "es",
+  "title": "No se encontró esta página",
+  "intro": "Lo sentimos, pero no pudimos encontrar la página que busca. Es posible que el administrador del sitio la haya eliminado, movido, o la haya hecho indisponible de otra manera.",
+  "instructions": "<p>Si escribió el URL a mano, verifique su ortografía y el uso de mayúsculas.  Nuestros URLs aparecen así: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visite nuestra página principal para encontrar herramientas y recursos útiles o contáctenos y lo ayudaremos a encontrar lo que busca.</p>",
+  "actions": {
+    "primary": "Visite la página principal",
+    "secondary": "Contáctenos"
+  },
+  "additional_support": {
+    "text": "Para ayuda inmediata:",
+    "actions": [
+      "<a href=\"javascript:void();\" class=\"usa-link\">Chatee con nosotros</a>",
+      "Llámenos al <a href=\"javascript:void();\" class=\"usa-link\">(555) 555-GOVT</a>"
+    ]
+  },
+  "error_code": "<strong>Código de error:</strong> 404",
+  "img_path": "./img"
+}

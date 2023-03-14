@@ -1,0 +1,6 @@
+{
+  "modifier": "usa-site-alert--emergency usa-site-alert--slim",
+  "title": "",
+  "aria_label": "Site alert,,,,,,",
+  "text": "<strong>Short alert message.</strong> Additional context and followup information including <a class=\"usa-link\" href=\"javascript:void(0);\">a link</a>."
+}

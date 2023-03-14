@@ -1,0 +1,43 @@
+/*
+----------------------------------------
+Project fonts
+----------------------------------------
+Collects font settings in a map for
+looping.
+----------------------------------------
+*/
+
+@use "../settings";
+
+$project-font-type-tokens: (
+  "cond": (
+    "typeface-token": settings.$theme-font-type-cond,
+    "custom-stack": settings.$theme-font-cond-custom-stack,
+    "src": settings.$theme-font-cond-custom-src,
+  ),
+  "icon": (
+    "typeface-token": settings.$theme-font-type-icon,
+    "custom-stack": settings.$theme-font-icon-custom-stack,
+    "src": settings.$theme-font-icon-custom-src,
+  ),
+  "lang": (
+    "typeface-token": settings.$theme-font-type-lang,
+    "custom-stack": settings.$theme-font-lang-custom-stack,
+    "src": settings.$theme-font-lang-custom-src,
+  ),
+  "mono": (
+    "typeface-token": settings.$theme-font-type-mono,
+    "custom-stack": settings.$theme-font-mono-custom-stack,
+    "src": settings.$theme-font-mono-custom-src,
+  ),
+  "sans": (
+    "typeface-token": settings.$theme-font-type-sans,
+    "custom-stack": settings.$theme-font-sans-custom-stack,
+    "src": settings.$theme-font-sans-custom-src,
+  ),
+  "serif": (
+    "typeface-token": settings.$theme-font-type-serif,
+    "custom-stack": settings.$theme-font-serif-custom-stack,
+    "src": settings.$theme-font-serif-custom-src,
+  ),
+);

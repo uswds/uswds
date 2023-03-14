@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+color-token-assignment()
+----------------------------------------
+Get the system token equivalent of any
+theme color token
+----------------------------------------
+*/
+
+@use "sass:map";
+
+@use "is-system-color-token" as *;
+@use "is-theme-color-token" as *;
+@use "../general/error-not-token" as *;
+@use "../../tokens/color/assignments-theme-color" as *;
+
+@function color-token-assignment($color-token) {
+  @if is-system-color-token($color-token) {
+    $system-token: $color-token;
+    @return $system-token;
+  }
+
+  @if not is-theme-color-token($color-token) {
+    @return error-not-token($color-token, "color");
+  }
+
+  $theme-token: $color-token;
+  $theme-token-assignment: map.get($assignments-theme-color, $theme-token);
+  @return $theme-token-assignment;
+}

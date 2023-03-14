@@ -1,0 +1,39 @@
+{% set settings = {
+  'tagline': '<A tagline that explains the benefit of creating an account.>',
+  "description": '<Here’s space for a longer description to introduce 3-5 easily scannable bullet points. Note that on mobile, this text block will bump below the Create Account form.>',
+  'values': [
+    {
+      'img': 'circle-gray-20.svg',
+      'description': '<strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.'
+    },
+    {
+      'img': 'circle-gray-20.svg',
+      'description': '<strong>Value proposition 1:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.'
+    },
+    {
+      'img': 'circle-gray-20.svg',
+      'description': '<strong>Value proposition 3:</strong> Vivamus nec velit sed leo scelerisque laoreet vestibulum.'
+    }
+  ]
+} %}
+
+<h2 class="display-none desktop:display-block">{{ settings.tagline |e }}</h2>
+<div class="usa-prose">
+  <p>{{ settings.description }}</p>
+  <section class="usa-graphic-list">
+    <div class="usa-graphic-list__row">
+      {% for value in settings.values %}
+        <div class="usa-media-block margin-y-2">
+          <img
+            class="usa-media-block__img height-7 width-7"
+            src="{{ img_path }}/{{ value.img }}"
+            alt=""
+          >
+          <div class="usa-media-block__body">
+            <p>{{ value.description | trim | raw }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>

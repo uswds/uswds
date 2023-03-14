@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../../functions" as *;
+
+// Outputs text-indent property
+
+@mixin u-text-indent($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  text-indent: get-uswds-value("text-indent", $value...) #{$important};
+}

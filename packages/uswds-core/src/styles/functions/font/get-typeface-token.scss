@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+get-typeface-token()
+----------------------------------------
+Get a typeface token from a font-type or
+font-role token.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../general";
+@use "../../variables/font-role-tokens" as *;
+@use "../../variables/font-type-tokens" as *;
+
+@function get-typeface-token($font-token) {
+  $this-token: $font-token;
+  @if map.has-key($project-font-role-tokens, $font-token) {
+    $this-token: map.get($project-font-role-tokens, $font-token);
+  }
+  @return general.map-deep-get(
+    $project-font-type-tokens,
+    $this-token,
+    "typeface-token"
+  );
+}
+
+// @debug get-typeface-token("sans");
+// @return source-sans-pro
+// @debug get-typeface-token("heading");
+// @return merriweather

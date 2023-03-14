@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "../../functions/general";
+@use "../../tokens/units/spacing";
+
+$system-breakpoints: general.map-collect(
+  map.get(spacing.$system-spacing, "large"),
+  map.get(spacing.$system-spacing, "larger"),
+  map.get(spacing.$system-spacing, "largest")
+);

@@ -1,0 +1,11 @@
+@use "../settings";
+
+$project-font-weights: (
+  "thin": settings.$theme-font-weight-thin,
+  "light": settings.$theme-font-weight-light,
+  "normal": settings.$theme-font-weight-normal,
+  "medium": settings.$theme-font-weight-medium,
+  "semibold": settings.$theme-font-weight-semibold,
+  "bold": settings.$theme-font-weight-bold,
+  "heavy": settings.$theme-font-weight-heavy,
+);

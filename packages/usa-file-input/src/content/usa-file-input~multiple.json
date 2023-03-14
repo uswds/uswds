@@ -1,0 +1,10 @@
+{
+  "id": "file-input-multiple",
+  "label": "Input accepts multiple files",
+  "hint": "Select one or more files",
+  "error": false,
+  "error_message": "",
+  "accept": "",
+  "multiple": true,
+  "disabled": false
+}

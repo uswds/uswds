@@ -1,0 +1,25 @@
+{
+  "lang": "en",
+  "title": "Sign in to your account",
+  "tagline": "<A tagline that explains the benefit of creating an account.>",
+  "description": "You can access your account by signing in with one of the options below.",
+  "placeholder_link": "javascript:void()",
+  "multiple": [
+    {
+      "label": "Sign in with Login.gov"
+    },
+    {
+      "label": "Sign in with <Legacy system 1>"
+    },
+    {
+      "label": "Sign in with <Legacy system 2>"
+    }
+  ],
+  "create_account": {
+    "description": "If you don’t have an account already, sign up here:",
+    "cta": {
+      "label": "Create Login.gov account"
+    }
+  },
+  "img_path": "./img"
+}

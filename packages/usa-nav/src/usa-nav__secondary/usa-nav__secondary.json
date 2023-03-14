@@ -1,0 +1,14 @@
+{
+  "search": false,
+  "items": [
+    {
+      "label": "Secondary link",
+      "href": "javascript:void(0);"
+    },
+    {
+      "label": "Another secondary link",
+      "href": "javascript:void(0);",
+      "current": true
+    }
+  ]
+}

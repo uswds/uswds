@@ -1,0 +1,10 @@
+{
+  "id": "file-input-wildcard",
+  "label": "Input accepts any kind of image",
+  "hint": "Select any type of image format",
+  "error": false,
+  "error_message": "",
+  "accept": "image/*",
+  "multiple": true,
+  "disabled": false
+}

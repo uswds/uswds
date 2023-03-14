@@ -1,0 +1,10 @@
+<div class="usa-overlay"></div>
+<header class="usa-header {{ modifier }}">
+  {% include "@components/usa-header/src/_includes/usa-navbar.twig" %}
+  <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
+    <div class="usa-nav__inner">
+      {% include "@components/usa-nav/src/usa-nav__primary/usa-nav__primary.twig" %}
+      {% include "@components/usa-nav/src/usa-nav__secondary/usa-nav__secondary.twig" with navSecondaryContent %}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,31 @@
+/*
+========================================
+min-width
+----------------------------------------
+usage:
+  .minw-[key]
+----------------------------------------
+output:
+  min-width: [value];
+----------------------------------------
+example:
+  .minw-desktop {
+    min-width: 960px; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-min-width: (
+  min-width: (
+    base: "minw",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($min-width-palettes), $min-width-manual-values),
+    settings: $min-width-settings,
+    property: "min-width",
+    type: "utility",
+  ),
+);

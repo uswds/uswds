@@ -1,0 +1,19 @@
+{
+  "lang": "en",
+  "title": "Page not found",
+  "intro": "We’re sorry, we can’t find the page you're looking for. The site administrator may have removed it, changed its location, or made it otherwise unavailable.",
+  "instructions": "<p>If you typed the URL directly, check your spelling and capitalization. Our URLs look like this: <strong>&lt;agency.gov/example-one&gt;</strong>.</p><p>Visit our homepage for helpful tools and resources, or contact us and we’ll point you in the right direction.</p>",
+  "actions": {
+    "primary": "Visit homepage",
+    "secondary": "Contact Us"
+  },
+  "additional_support": {
+    "text": "For immediate assistance:",
+    "actions": [
+      "<a href=\"javascript:void();\" class=\"usa-link\">Start a live chat with us</a>",
+      "Call <a href=\"javascript:void();\" class=\"usa-link\">(555) 555-GOVT</a>"
+    ]
+  },
+  "error_code": "<strong>Error code:</strong> 404",
+  "img_path": "./img"
+}

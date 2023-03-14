@@ -1,0 +1,66 @@
+{% from "@components/usa-pagination/src/includes/_pagination-button.twig" import paginationButton %}
+
+{% set pager_ranges = {
+    'default': range(pagination.current - 1, pagination.current + 1),
+    'last_item': pagination.items,
+    'first_five': range(1, 5),
+    'last_five': range(pagination.items - 4, pagination.items),
+  }
+%}
+
+{% set pager_button_opts = {
+  'current': pagination.current,
+  'total': pagination.items,
+  'aria_labels': {
+    'page_label': pagination.page_label,
+    'previous': pagination.previous.label,
+    'next': pagination.next.label,
+    'last': pagination.last_item.label
+    }
+} %}
+
+{# Page numbers #}
+{# List all items if less than 7 #}
+{% if pagination.items <= 7 %}
+  {% for item in 1..pagination.items  %}
+    {{ paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+{# User is at the start of a long dataset #}
+{# Example: 1, 2, 3, *4*, 5 … 8 #}
+{# Doesn't apply when user gets to 5 of 8 #}
+{% elseif pagination.current <= 4 and pagination.items >= 7 %}
+  {% for item in pager_ranges.first_five  %}
+    {{ paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+
+  {{ overflow | trim | raw }}
+
+  {{ paginationButton(pager_ranges.last_item, pager_button_opts) }}
+
+{# When user is close to the end of dataset #}
+{# Example: 1 … 4, *5*, 6, 7, 8 #}
+{% elseif pagination.current >= pagination.items - 3 %}
+  {{ paginationButton(1, pager_button_opts) }}
+
+  {{ overflow | trim | raw }}
+
+  {% for item in pager_ranges.last_five %}
+    {{ paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+{# Default case: Current - 1, Current, Current + 1 #}
+{# Example: 1 … 21, *22*, 23 … 50 #}
+{# Example: 1 … 4, *5*, 6 … 9 #}
+{% else %}
+  {{ paginationButton(1, pager_button_opts) }}
+
+  {{ overflow | trim | raw }}
+
+  {% for item in pager_ranges.default %}
+    {{ paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+
+  {{ overflow | trim | raw }}
+
+  {{ paginationButton(pager_ranges.last_item, pager_button_opts) }}
+{% endif %}
+

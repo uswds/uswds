@@ -1,0 +1,16 @@
+@use "sass:math";
+$project-aspect-padding: (
+  "9x16": 177.77778%,
+  "16x9": 56.25%,
+  "1x1": 100%,
+  "4x3": 75%,
+  "2x1": 50%,
+);
+
+$project-aspect-ratios: (
+  "9x16": math.div(9, 16),
+  "16x9": math.div(16, 9),
+  "1x1": 1,
+  "4x3": math.div(4, 3),
+  "2x1": 2,
+);

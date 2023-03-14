@@ -1,0 +1,37 @@
+/*
+----------------------------------------
+base-to-map()
+@TODO: Deprecate and delete
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "remove" as *;
+
+@function base-to-map($values) {
+  $l: list.length($values);
+
+  @if $l == 1 or list.nth($values, $l) != isReadable {
+    @return (slug: $values, isReadable: true);
+  } @else {
+    $values: remove($values, isReadable);
+
+    @return (slug: unquote(list.nth($values, 1)), isReadable: true);
+  }
+}
+
+@function to-map($key, $values) {
+  $l: list.length($values);
+
+  @if $key == "noModifier" or $key == "noValue" {
+    $key: "";
+  }
+
+  @return (slug: $key, content: $values);
+}

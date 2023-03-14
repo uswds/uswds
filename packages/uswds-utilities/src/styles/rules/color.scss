@@ -1,0 +1,37 @@
+/*
+========================================
+color
+----------------------------------------
+usage:
+  .color-[key]
+----------------------------------------
+output:
+  color: [value];
+----------------------------------------
+example:
+  .color-black-100 {
+    color: #000; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/tokens" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-color: (
+  color: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        $tokens-color-global,
+        get-palettes($color-palettes),
+        get-palettes($global-color-palettes),
+        $color-manual-values
+      ),
+    settings: $color-settings,
+    property: "color",
+    type: "utility",
+  ),
+);

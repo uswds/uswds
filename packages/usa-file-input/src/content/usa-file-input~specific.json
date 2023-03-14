@@ -1,0 +1,10 @@
+{
+  "id": "file-input-specific",
+  "label": "Input accepts only specific file types",
+  "hint": "Select PDF or TXT files",
+  "error": false,
+  "error_message": "",
+  "accept": ".pdf,.txt",
+  "multiple": true,
+  "disabled": false
+}

@@ -1,0 +1,8 @@
+@use "../../functions/general";
+@use "shortcodes-color-state" as *;
+@use "shortcodes-color-theme" as *;
+
+$project-color-shortcodes: general.map-collect(
+  $tokens-color-theme,
+  $tokens-color-state
+);

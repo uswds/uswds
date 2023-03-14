@@ -1,0 +1,32 @@
+{
+  "modifier": "usa-modal--lg",
+  "id": "example-modal-2",
+  "describedby": "modal-2-description",
+  "trigger": {
+    "text": "Open large modal"
+  },
+  "header": {
+    "text": "Are you sure you want to continue?",
+    "id": "modal-2-heading"
+  },
+  "description": {
+    "id": "modal-2-description",
+    "text": "You have unsaved changes that will be lost."
+  },
+  "footer": [
+    {
+      "action": null,
+      "text": "Continue without saving"
+    },
+    {
+      "action": null,
+      "class": "usa-button usa-button--unstyled padding-105 text-center",
+      "text": "Go back"
+    }
+  ],
+  "close_button": {
+    "aria_label": "Close this window",
+    "text": null,
+    "icon_type": "close"
+  }
+}

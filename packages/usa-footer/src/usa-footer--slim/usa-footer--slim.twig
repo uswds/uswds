@@ -1,0 +1,43 @@
+{% embed '@components/usa-footer/src/usa-footer.twig' with {
+  'modifier': modifier
+} %}
+  {% block primary %}
+    <div class="usa-footer__primary-container grid-row">
+      <div class="mobile-lg:grid-col-8">
+        {% include "@components/usa-footer/src/_includes/usa-footer-nav-primary.twig" with footer.primary_section.nav %}
+      </div>
+      <div class="mobile-lg:grid-col-4">
+        <address class="usa-footer__address">
+          <div class="grid-row grid-gap">
+            <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
+              <div class="usa-footer__contact-info">
+                <a href="tel:1-800-555-5555">
+                  {{ footer.secondary_section.phone |e }}
+                </a>
+              </div>
+            </div>
+            <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
+              <div class="usa-footer__contact-info">
+                <a href="mailto:info@agency.gov">
+                  {{ footer.secondary_section.email |e }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </address>
+      </div>
+    </div>
+  {% endblock %}
+  {% block secondary %}
+    <div class="usa-footer__logo grid-row grid-gap-2">
+      <div class="grid-col-auto">
+        <img class="usa-footer__logo-img" src="{{ img_path }}/logo-img.png" alt="">
+      </div>
+      <div class="grid-col-auto">
+        <p class="usa-footer__logo-heading">
+          {{ footer.secondary_section.heading |e }}
+        </p>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}

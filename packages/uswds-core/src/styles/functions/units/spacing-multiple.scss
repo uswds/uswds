@@ -1,0 +1,24 @@
+/*
+----------------------------------------
+spacing-multiple()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@use "sass:math";
+@use "../../tokens/units/grid-base";
+@use "root";
+
+@function spacing-multiple($unit) {
+  $grid-to-rem: math.div(
+      (grid-base.$system-spacing-grid-base * $unit),
+      root.$root-font-size-equiv
+    ) * 1rem;
+
+  @return $grid-to-rem;
+}
+
+// @debug spacing-multiple(1);
+// @return 0.5rem

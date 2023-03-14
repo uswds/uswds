@@ -1,0 +1,34 @@
+{
+  "lang": "es",
+  "tagline": "<A tagline that explains the benefit of creating an account.>",
+  "form": {
+    "title": "Cree una cuenta",
+    "legend": "Comience con su cuenta.",
+    "hint": "<abbr title=\"required\" class=\"usa-hint usa-hint--required\">*</abbr> indica un campo obligatorio.",
+    "email": {
+      "label": "Su email"
+    },
+    "password": {
+      "label": "Cree una contraseña",
+      "toggle": {
+        "aria_controls": "password-create-account password-create-account-confirm",
+        "text": {
+          "show": "Muestre la contraseña",
+          "hide": "Esconda la contraseña"
+        }
+      },
+      "confirmation": {
+        "label": "Reescriba la contraseña"
+      }
+    },
+    "terms": {
+      "label": "Estoy de acuerdo con los <a href=\"javascript:void();\">términos y condiciones de uso</a>."
+    },
+    "submit": "Cree su cuenta"
+  },
+  "existing_user": {
+    "label": "¿Ya tiene una cuenta?",
+    "cta": "Ingrese a su cuenta"
+  },
+  "img_path": "./img"
+}

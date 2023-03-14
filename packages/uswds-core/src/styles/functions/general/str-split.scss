@@ -1,0 +1,28 @@
+@use "sass:list";
+@use "sass:string";
+
+/*
+----------------------------------------
+str-split()
+----------------------------------------
+Split a string at a given separator
+and convert into a list of substrings
+----------------------------------------
+*/
+
+@function str-split($string, $separator) {
+  $split-arr: ();
+  $index: string.index($string, $separator);
+  @while $index != null {
+    $item: string.slice($string, 1, $index - 1);
+    $split-arr: list.append($split-arr, $item);
+    $string: string.slice($string, $index + 1);
+    $index: string.index($string, $separator);
+  }
+  $split-arr: list.append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+// @debug str-split("1, 2, 3, 4, 5", ",");
+// @return "1" " 2" " 3" " 4" " 5";

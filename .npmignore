@@ -2,10 +2,12 @@
 !dist/
 !src/
 
-build/
+_site/
 coverage/
-spec/
 .github/
+.circleci/
+config/
+
 .editorconfig
 .eslintrc.yml
 circle.yml

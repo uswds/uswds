@@ -1,0 +1,135 @@
+@use "uswds-core" as *;
+@use "sass:color";
+@use "sass:list";
+
+.usa-in-page-nav-container {
+  align-items: flex-start;
+  display: flex;
+
+  // Set main landmark max width to ensure in-page nav will fit
+  main {
+    max-width: units($theme-in-page-nav-main-content-max-width);
+    width: 100%;
+  }
+}
+
+.usa-in-page-nav {
+  @include set-text-from-bg(
+    $bg-color: $theme-in-page-nav-background-color,
+    $context: "In-page navigation text color"
+  );
+  display: none;
+  margin-left: units($theme-in-page-nav-margin-left);
+  margin-top: units($theme-in-page-nav-margin-top);
+  max-width: units("card-lg");
+  order: 2;
+  position: sticky;
+  top: units($theme-in-page-nav-top);
+  width: 100%;
+
+  @include at-media("tablet") {
+    display: block;
+  }
+}
+
+.usa-in-page-nav__nav {
+  @include set-text-and-bg(
+    $theme-in-page-nav-background-color,
+    $context: "In-page navigation background"
+  );
+  border-radius: radius($theme-in-page-nav-background-radius);
+  padding: units($theme-in-page-nav-background-padding);
+}
+
+.usa-in-page-nav__heading {
+  // TODO: This could be a setting?
+  @include typeset("ui", "2xs", 3);
+  @include u-font-weight("bold");
+  margin-bottom: units(2);
+  margin-top: 0;
+  padding: 0;
+}
+
+.usa-in-page-nav__list {
+  @include border-box-sizing;
+  @include nav-list("sidenav");
+  border-left: units(1px) solid
+    color.adjust(
+      color(
+        get-color-token-from-bg(
+          $bg-color: $theme-in-page-nav-background-color,
+          $context: "In-page navigation rail"
+        )
+      ),
+      $alpha: -0.75
+    );
+  padding: 0;
+
+  // specificity to override sidenav styles
+  a:not(.usa-button) {
+    &:not(.usa-current) {
+      @include set-link-from-bg(
+        $bg-color: $theme-in-page-nav-background-color,
+        $preferred-link-color: $theme-in-page-nav-link-color,
+        $context: "In-page-navigation link"
+      );
+
+      &:visited {
+        color: color(
+          list.nth(
+            get-link-tokens-from-bg(
+              $bg-color: $theme-in-page-nav-background-color,
+              $preferred-link-token: $theme-in-page-nav-link-color,
+              $context: "In-page-navigation link"
+            ),
+            1
+          )
+        );
+      }
+    }
+
+    &.usa-current {
+      @include set-text-from-bg(
+        $bg-color: $theme-in-page-nav-background-color,
+        $context: "In-page-navigation current color"
+      );
+      font-weight: inherit;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      background-color: none;
+    }
+
+    &.usa-current {
+      position: static;
+
+      &::after {
+        background-color: color(
+          get-color-token-from-bg(
+            $bg-color: $theme-in-page-nav-background-color,
+            $preferred-text-token: $theme-in-page-nav-bar-color,
+            $context: "In-page navigation bar"
+          )
+        );
+        border-radius: 0;
+        bottom: units(-1px);
+        left: 0;
+        top: 0;
+        width: units($theme-in-page-nav-bar-width);
+        z-index: z(100);
+      }
+    }
+  }
+}
+
+.usa-in-page-nav__item {
+  @include typeset($theme-in-page-nav-font-family, "2xs", 2);
+  border: none;
+  font-weight: bold;
+  position: relative;
+
+  &.usa-in-page-nav__item--sub-item {
+    font-weight: normal;
+  }
+}

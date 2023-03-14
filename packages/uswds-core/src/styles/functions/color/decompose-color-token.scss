@@ -1,0 +1,84 @@
+/*
+----------------------------------------
+decompose()
+----------------------------------------
+Convert a color token into into a list
+of form [family], [grade], [variant]
+Vivid variants return "vivid" as the
+variant.
+If neither grade nor variant exists,
+returns 'null'
+----------------------------------------
+*/
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@use "../general/str-split" as *;
+@use "../general/to-number" as *;
+
+@function decompose-color-token($token) {
+  $separator: "-";
+  $family: false;
+  $grade: false;
+  $variant: false;
+  $exceptions: (
+    "black": 100,
+    "white": 0,
+  );
+
+  $token: if($token == "ink", "base-darkest", $token);
+  // If there's no separator, set family and grade
+  @if not string.index($token, $separator) {
+    $family: $token;
+    $grade: if(
+      map.has-key($exceptions, $family),
+      map.get($exceptions, $family),
+      "root"
+    );
+  } @else {
+    $split: str-split($token, $separator);
+    $last: list.nth($split, list.length($split));
+    // If the last string is over 3 char, it's a theme token
+    @if string.length($last) > 3 {
+      @if $last == "vivid" {
+        $variant: "vivid";
+        $grade: "root";
+      } @else if $last == "warm" or $last == "cool" {
+        $grade: "root";
+      } @else {
+        $grade: $last;
+      }
+      // Otherwise treat as system token
+    } @else {
+      // Determine if it's a vivid variant
+      @if string.index($last, "v") {
+        $variant: "vivid";
+        $grade: string.slice($last, 1, (string.index($last, "v") - 1));
+      } @else {
+        $grade: $last;
+      }
+      // Make sure the grade is a number
+      $grade: if(meta.type-of($grade) == "string", to-number($grade), $grade);
+    }
+    // Collect compound-word families
+    $is-compound-family: false;
+    @if list.length($split) ==
+      3 or
+      list.index($split, "warm") or
+      list.index($split, "cool")
+    {
+      $is-compound-family: true;
+    }
+    @if $is-compound-family {
+      $family: list.nth($split, 1) + $separator + list.nth($split, 2);
+    } @else {
+      $family: list.nth($split, 1);
+    }
+  }
+  @return $family, $grade, $variant;
+}
+
+// @debug decompose-color-token("accent-cool");

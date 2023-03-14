@@ -1,0 +1,38 @@
+@use "uswds-core" as *;
+
+// Hero feature
+// ==========================
+
+.usa-hero {
+  @include border-box-sizing;
+  @include typeset;
+  background-image: url("#{$theme-hero-image}");
+  background-position: center;
+  background-size: cover;
+  color: color("white");
+
+  > .grid-container {
+    position: relative;
+    @include u-padding-y($theme-site-margins-width);
+  }
+}
+
+.usa-hero__callout {
+  background-color: color("primary-darker");
+  padding: units(4);
+
+  @include at-media("tablet") {
+    max-width: units("mobile");
+  }
+}
+
+.usa-hero__heading {
+  @include typeset-h2;
+  color: color("accent-cool");
+  line-height: line-height("heading", 2);
+}
+
+.usa-hero__heading--alt {
+  color: color("white");
+  display: block;
+}

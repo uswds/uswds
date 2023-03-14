@@ -1,0 +1,23 @@
+/*
+----------------------------------------
+color-token-type()
+----------------------------------------
+Returns the type of a color token.
+Returns: "system" | "theme"
+----------------------------------------
+*/
+
+@use "../general/error-not-token" as *;
+@use "is-system-color-token" as *;
+@use "is-theme-color-token" as *;
+
+@function color-token-type($token) {
+  $type: if(is-system-color-token($token), "system", false);
+  @if not $type {
+    $type: if(is-theme-color-token($token), "theme", false);
+  }
+  @if not $type {
+    @return error-not-token($token, "color");
+  }
+  @return $type;
+}

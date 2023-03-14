@@ -1,0 +1,34 @@
+/*
+========================================
+text-indent
+----------------------------------------
+usage:
+  .text-indent-[key]
+----------------------------------------
+output:
+  align: [value];
+----------------------------------------
+example:
+  .text-indent-0 {
+    text-ident: 0; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-text-indent: (
+  text-indent: (
+    base: "text-indent",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($text-indent-palettes),
+        $text-indent-manual-values
+      ),
+    settings: $text-indent-settings,
+    property: "text-indent",
+    type: "utility",
+  ),
+);

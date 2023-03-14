@@ -1,0 +1,46 @@
+{% set password_id = password.input.id |default('password-sign-in') %}
+
+<form class="usa-form">
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend usa-legend--large">{{ form.legend |default('Access your account') }}</legend>
+    {# Email #}
+    <label class="usa-label" for="{{ email.input.id |default('email') }}">
+      {{ email.label |default('Email address') }}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ email.input.id |default('email') }}"
+      name="{{ email.input.id |default('email') }}"
+      type="{{ email.input.type |default('email') }}"
+      autocapitalize="off"
+      autocorrect="off"
+      required
+    >
+    {# /Email #}
+    {# Password #}
+    <label class="usa-label" for="{{ password_id }}">
+      {{ password.label |default('Password')}}
+    </label>
+    <input
+      class="usa-input"
+      id="{{ password_id }}"
+      name="password"
+      type="password"
+      required
+    >
+    {% include "@components/_usa-password/src/usa-password.twig" with {
+      toggle: password.toggle
+    } %}
+    {# /Password #}
+    <input class="usa-button" type="submit" value="{{ submit.label |default('Sign in') }}">
+    {# Forgot password #}
+    <p>
+      <a
+        href="{{ placeholder_link |default('javascript:void()') }}"
+        title="{{ recovery.title |default('Forgot password') }}">
+        {{ recovery.label |default('Forgot password?') }}
+      </a>
+    </p>
+    {# /Forgot password #}
+  </fieldset>
+</form>

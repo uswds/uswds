@@ -1,0 +1,36 @@
+/*
+----------------------------------------
+units()
+----------------------------------------
+Converts a spacing unit into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../../functions/general/error-not-token.scss";
+@use "../../functions/output/number-to-token" as *;
+@use "../../variables/project-spacing" as vars;
+
+@function units($value) {
+  $converted: if(
+    meta.type-of($value) == "string",
+    string.quote($value),
+    number-to-token($value)
+  );
+
+  @if not(map.has-key(vars.$project-spacing-standard, $converted)) {
+    @return error-not-token(
+      $value,
+      "spacing unit",
+      vars.$project-spacing-standard
+    );
+  }
+
+  @return map.get(vars.$project-spacing-standard, $converted);
+}
+
+// @debug units(0.5);
+// @return 0.25rem;

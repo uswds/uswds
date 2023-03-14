@@ -1,0 +1,37 @@
+/*
+----------------------------------------
+magic-number()
+----------------------------------------
+Returns the magic number of two color
+grades. Takes numbers or color tokens.
+magic-number(50, 10)
+return: 40
+magic-number("red-50", "red-10")
+return: 40
+----------------------------------------
+*/
+
+@use "sass:math";
+@use "sass:meta";
+@use "calculate-grade" as *;
+
+@function magic-number($grade-1, $grade-2) {
+  $grade-1: if(
+    meta.type-of($grade-1) == "number",
+    $grade-1,
+    calculate-grade($grade-1)
+  );
+  $grade-2: if(
+    meta.type-of($grade-2) == "number",
+    $grade-2,
+    calculate-grade($grade-2)
+  );
+  $magic-number: math.abs($grade-1 - $grade-2);
+  @return $magic-number;
+}
+
+// @debug magic-number(100, 30);
+// @return 70;
+
+// @debug magic-number("red-50", "red-10")
+// @return 40

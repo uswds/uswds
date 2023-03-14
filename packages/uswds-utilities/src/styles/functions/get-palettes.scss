@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../palettes/palette-registry" as *;
+
+/*
+----------------------------------------
+get-palettes()
+----------------------------------------
+Build a single map of plugin values
+from a list of plugin keys.
+----------------------------------------
+*/
+
+@function get-palettes($list) {
+  $our-palettes: ();
+
+  @if meta.type-of($list) == "map" {
+    @error 'Use a list of strings as plugin values.';
+  }
+
+  @each $palette in $list {
+    @if not(map.has-key($palette-registry, $palette)) {
+      @error '#{$palette} isn\'t in the registry.';
+    }
+
+    $our-palettes: map.merge(
+      $our-palettes,
+      map.get($palette-registry, $palette)
+    );
+  }
+
+  @return $our-palettes;
+}
+
+// @debug get-palettes("palette-color-system-red-vivid");
+// @return ("red-5v": #fff3f2, "red-10v": #fde0db, "red-20v": #fdb8ae, "red-30v": #ff8d7b, "red-40v": #fb5a47, "red-50v": #e52207, "red-60v": #b50909, "red-70v": #8b0a03, "red-80v": #5c1111, "red-90v": false);

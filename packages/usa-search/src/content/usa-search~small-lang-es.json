@@ -1,0 +1,8 @@
+{
+  "section_label": "Small (Spanish) search component",
+  "modifier": "usa-search--small",
+  "search_js": false,
+  "id": "search-field-es-small",
+  "search_label": "Buscar",
+  "button_text": "Buscar"
+}

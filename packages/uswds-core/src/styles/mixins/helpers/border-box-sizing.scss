@@ -1,0 +1,21 @@
+@use "../../settings" as *;
+
+@mixin border-box-sizing {
+  @if not $theme-global-border-box-sizing {
+    box-sizing: border-box;
+
+    &::after,
+    &::before,
+    & *,
+    & *::after,
+    & *::before {
+      box-sizing: inherit;
+    }
+  }
+}
+
+@mixin this-border-box-sizing {
+  @if not $theme-global-border-box-sizing {
+    box-sizing: border-box;
+  }
+}

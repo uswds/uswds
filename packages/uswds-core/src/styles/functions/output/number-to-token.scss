@@ -1,0 +1,28 @@
+/*
+----------------------------------------
+number-to-token()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:meta";
+@use "../../variables/project-spacing" as vars;
+
+@function number-to-token($number) {
+  $number: meta.inspect($number);
+
+  @if not(map.has-key(vars.$number-to-value, $number)) {
+    @return false;
+  }
+
+  @return map.get(vars.$number-to-value, $number);
+}
+
+// @debug number-to-token(0.5);
+// @return 05;

@@ -1,0 +1,118 @@
+{% set tooltip = {
+  classes: "usa-button usa-tooltip",
+  util_classes: "width-full tablet:width-auto",
+  img_path: "./img"
+} %}
+
+<h2>In a footer</h2>
+<hr/>
+<p>In this scenario:
+  <ul>
+    <li>at screensizes greater than 1548, tooltip that is positioned top with a long description should appear as expected</li>
+    <li>at screensizes less than 1550px and greater than 320, tooltip that is positioned top with a long description should not be visible in the window without being cut off</li>
+    <li>at screensizes of apx 320, tooltip that is positioned top with a long description should be compressed and visible in the window without being cut off</li>
+  </ul>
+</p>
+<footer class="usa-footer">
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+  <div class="usa-footer__primary-section">
+    <nav class="usa-footer__nav" aria-label="Footer navigation">
+      <ul class="grid-row grid-gap">
+        <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
+        </li>
+        <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
+        </li>
+        <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
+        </li>
+        <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
+        </li>
+        <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+          <div class="mobile-lg:grid-col-auto">
+            <img class="usa-footer__logo-img" src="{{ tooltip.img_path }}/logo-img.png" alt="">
+          </div>
+          <div class="mobile-lg:grid-col-auto">
+            <p class="usa-footer__logo-heading">Name of Agency</p>
+          </div>
+        </div>
+        <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+          <div class="usa-footer__social-links grid-row grid-gap-1">
+            <div class="grid-col-auto">
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/facebook.svg" alt="Facebook" />
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/twitter.svg" alt="Twitter" />
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/youtube.svg" alt="YouTube" />
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-social-link usa-tooltip" data-position="top" title="Top" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/instagram.svg" alt="Instagram" />
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-social-link usa-tooltip" data-position="top" title="A longer Top tooltip that is longer than appx 320px" href="javascript:void(0);">
+                <img class="usa-social-link__icon" src="./img/usa-icons/rss_feed.svg" alt="RSS Feed" />
+              </a>
+            </div>
+          </div>
+          <h3 class="usa-footer__contact-heading">Agency Contact Center</h3>
+          <address class="usa-footer__address">
+            <div class="usa-footer__contact-info grid-row grid-gap">
+              <div class="grid-col-auto">
+                <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+              </div>
+              <div class="grid-col-auto">
+                <a href="mailto:info@agency.gov">info@agency.gov</a>
+              </div>
+            </div>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<h2>In a utility</h2>
+<hr/>
+<p>In this scenario:
+  <ul>
+    <li>Because the "right" positioned tooltip description is appx 320px+, it should never be visible on the right side</li>
+    <li>at screensizes of apx 320, tooltip that is positioned "right" with a long description should be compressed and visible in the window without being cut off</li>
+  </ul>
+</p>
+<div class="grid-row padding-8">
+  <div class="tablet:grid-col-3 margin-top-2 text-center">
+    <button type="button" class="{{ tooltip.classes }}" data-position="top" data-classes="{{ tooltip.util_classes }}" title="Top">Show on top</button>
+  </div>
+  <div class="tablet:grid-col-3 margin-top-2 text-center">
+    <button type="button" class="{{ tooltip.classes }}" data-position="bottom" data-classes="{{ tooltip.util_classes }}" title="Bottom">Show on bottom</button>
+  </div>
+  <div class="tablet:grid-col-3 margin-top-2 text-center">
+    <button type="button" class="{{ tooltip.classes }}" data-position="left" data-classes="{{ tooltip.util_classes }}" title="Left">Show on left</button>
+  </div>
+  <div class="tablet:grid-col-3 margin-top-2 text-center">
+    <button type="button" class="{{ tooltip.classes }}" data-position="right" title="A longer Top tooltip that is longer than appx 320px" data-classes="{{ tooltip.util_classes }}" title="">Show on Right</button>
+  </div>
+</div>

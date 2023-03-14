@@ -1,0 +1,101 @@
+/*
+----------------------------------------
+calculate-grade()
+----------------------------------------
+Derive the grade equivalent any color,
+even non-token colors
+----------------------------------------
+*/
+
+@use "sass:color";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+@use "sass:string";
+
+@use "../general";
+@use "../../variables/luminance-grade-ranges" as *;
+@use "color-token-assignment" as *;
+@use "color-token-family" as *;
+@use "color-token-grade" as *;
+@use "decompose-color-token" as *;
+@use "is-color-token" as *;
+@use "luminance" as *;
+
+@function calculate-grade($color-token) {
+  $transparency-error: "USWDS can't calculate the grade of a transparent color. Avoid using transparency in theme colors and text.";
+  $grade: null;
+  $lum: null;
+  $custom-color: false;
+  $color-token-assignment: false;
+
+  // Determine if the color is a custom color
+  @if meta.type-of($color-token) == "color" {
+    $custom-color: $color-token;
+  } @else {
+    $color-token-assignment: color-token-assignment($color-token);
+    @if meta.type-of($color-token-assignment) == "color" {
+      $custom-color: color-token-assignment($color-token);
+    }
+  }
+
+  // If it's custom, compare its rLum to USWDS grade rLum ranges
+  @if $custom-color {
+    // If the color uses transparency, throw an error
+    @if color.alpha($custom-color) != 1 {
+      @return general.uswds-error($transparency-error);
+    }
+    $lum: luminance($custom-color);
+    // Cycle through grades, knowing current AND next grade
+    $our-grades: map.keys($system-color-grades);
+    $grade-count: list.length($our-grades);
+    @for $i from 1 through $grade-count {
+      $this-grade: list.nth($our-grades, $i);
+      $this-grade-min: general.map-deep-get(
+        $system-color-grades,
+        $this-grade,
+        "min"
+      );
+      $this-grade-max: general.map-deep-get(
+        $system-color-grades,
+        $this-grade,
+        "max"
+      );
+      $next-grade: if($i < $grade-count, list.nth($our-grades, $i + 1), false);
+      $next-grade-min: if(
+        $next-grade,
+        general.map-deep-get($system-color-grades, $next-grade, "min"),
+        false
+      );
+      // If the lum fits the range, assign a USWDS grade
+      // Otherwise, set a grade midway between two USWDS grades
+      @if ($lum >= $this-grade-min) and ($lum <= $this-grade-max) {
+        @return $this-grade;
+      }
+      @if ($lum > $this-grade-max) and ($lum < $next-grade-min) {
+        $custom-grade-midpoint: math.div(($this-grade + $next-grade), 2);
+        $custom-grade: $custom-grade-midpoint;
+        @return $custom-grade;
+      }
+    }
+  }
+
+  @if not is-color-token($color-token-assignment) {
+    @return general.error-not-token($color-token-assignment, "color");
+  }
+
+  $system-token: $color-token-assignment;
+  $token-split: decompose-color-token($system-token);
+  $token-family: color-token-family($token-split);
+  // If the color uses transparency, throw an error
+  @if string.index($token-family, "transparent") {
+    @return general.uswds-error($transparency-error);
+  }
+  // Otherwise, return token grade
+  $token-grade: color-token-grade($token-split);
+  @return $token-grade;
+}
+
+// @debug calculate-grade("red-60v");
+// @return 60;

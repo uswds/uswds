@@ -1,0 +1,10 @@
+@use "sass:math";
+
+@use "../settings";
+@use "../functions/units/units" as *;
+
+// Icon settings used in: _usa-alert, _usa-site-alert, and alert-status-body-styles
+$alert-slim-icon-size: units(3);
+$alert-icon-optical-factor: math.div(units(settings.$theme-alert-icon-size), 6);
+$alert-icon-optical-padding: units(settings.$theme-alert-padding-x) -
+  $alert-icon-optical-factor;

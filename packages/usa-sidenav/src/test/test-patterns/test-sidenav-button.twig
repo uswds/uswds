@@ -1,0 +1,50 @@
+<div class="grid-container padding-x-2 tablet-padding-x-4 padding-y-4">
+  <h2>Incorrect text color on current items in sidenav</h2>
+  <p class="usa-intro">
+    Based on this <a href="https://github.com/uswds/uswds/issues/4073">issue</a>. Added buttons to make sure there are no regressions related to <a href="https://github.com/uswds/uswds/issues/3838">buttons</a>.
+  </p>
+  <nav aria-label="Secondary navigation">
+    <ul class="usa-sidenav">
+      <li class="usa-sidenav__item">
+        <a class="usa-button" href="javascript:void(0);">Parent button link</a>
+      </li>
+      <li class="usa-sidenav__item">
+        <a href="javascript:void(0);" class="usa-current">Current page</a>
+        <ul class="usa-sidenav__sublist">
+          <li class="usa-sidenav__item">
+            <a href="javascript:void(0);">Child link</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="javascript:void(0);" class="usa-current">Child link</a>
+            <ul class="usa-sidenav__sublist">
+              <li class="usa-sidenav__item">
+                <a href="javascript:void(0);">Grandchild link</a>
+              </li>
+              <li class="usa-sidenav__item">
+                <a href="javascript:void(0);">Grandchild link</a>
+              </li>
+              <li class="usa-sidenav__item">
+                <a href="javascript:void(0);" class="usa-current">Grandchild link</a>
+              </li>
+              <li class="usa-sidenav__item">
+                <a href="javascript:void(0);">Grandchild link</a>
+              </li>
+            </ul>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="javascript:void(0);">Child link</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <button type="button" class="usa-button usa-button--accent-warm">Child button</button>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="javascript:void(0);">Child link</a>
+          </li>
+        </ul>
+      </li>
+      <li class="usa-sidenav__item">
+        <a href="javascript:void(0);">Parent link</a>
+      </li>
+    </ul>
+  </nav>
+</div>

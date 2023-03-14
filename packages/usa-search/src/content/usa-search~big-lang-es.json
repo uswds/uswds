@@ -1,0 +1,8 @@
+{
+  "section_label": "Big (Spanish) search component",
+  "modifier": "usa-search--big",
+  "search_js": false,
+  "id": "search-field-es-big",
+  "search_label": "Buscar",
+  "button_text": "Buscar"
+}

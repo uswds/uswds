@@ -1,0 +1,30 @@
+/*
+========================================
+color
+----------------------------------------
+usage:
+  .cursor-[key]
+----------------------------------------
+output:
+  cursor: [value];
+----------------------------------------
+example:
+  .cursor-pointer {
+    cursor: pointer; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-cursor: (
+  cursor: (
+    base: "cursor",
+    modifiers: null,
+    values: map-collect(get-palettes($cursor-palettes), $cursor-manual-values),
+    settings: $cursor-settings,
+    property: "cursor",
+    type: "utility",
+  ),
+);

@@ -1,0 +1,38 @@
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+@use "../../settings" as *;
+
+@mixin usa-list {
+  @include u-margin-y(1em);
+  line-height: line-height($theme-body-font-family, $theme-body-line-height);
+  padding-left: 3ch;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol {
+    margin-top: 0.25em;
+  }
+}
+
+@mixin usa-list-item {
+  margin-bottom: 0.25em;
+  max-width: measure($theme-text-measure);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin usa-list-styles {
+  ul,
+  ol {
+    @include usa-list;
+
+    li {
+      @include usa-list-item;
+    }
+  }
+}

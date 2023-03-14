@@ -1,0 +1,61 @@
+{
+  "modifier": "",
+  "default_classes": "tablet:grid-col-4",
+  "cards": [
+    {
+      "title": "Card",
+      "classes_override": "",
+      "header_first": false,
+      "media": false,
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nFacilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+    },
+    {
+      "title": "Card with Media",
+      "classes_override": "",
+      "header_first": false,
+      "media": {
+        "media_classes": "",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nFacilis earum tenetur quo cupiditate, eaque qui officia recusandae."
+    },
+    {
+      "title": "Media with header first",
+      "classes_override": "",
+      "header_first": true,
+      "media": {
+        "media_classes": "usa-card__media--exdent",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus similique nemo odit doloremque laudantium?"
+    },
+    {
+      "title": "Inset media",
+      "classes_override": "",
+      "header_first": false,
+      "media": {
+        "media_classes": "usa-card__media--inset",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada."
+    },
+    {
+      "title": "Exdent media",
+      "classes_override": "",
+      "header_first": false,
+      "media": {
+        "media_classes": "usa-card__media--exdent",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus similique nemo odit doloremque laudantium?"
+    }
+  ]
+}

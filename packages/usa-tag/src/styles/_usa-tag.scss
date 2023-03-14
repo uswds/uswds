@@ -1,0 +1,20 @@
+@use "uswds-core" as *;
+
+.usa-tag {
+  @include border-box-sizing;
+  @include u-font("ui", "2xs");
+  @include u-text("white", "uppercase");
+  background-color: color("base-dark");
+  border-radius: radius("sm");
+  margin-right: units(0.5);
+  padding: units(1px) units(1);
+
+  &:only-of-type {
+    margin-right: 0;
+  }
+}
+
+.usa-tag--big {
+  @include u-padding-x(1);
+  @include u-font("ui", $theme-body-font-size);
+}

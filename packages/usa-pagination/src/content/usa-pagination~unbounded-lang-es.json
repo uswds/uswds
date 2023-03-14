@@ -1,0 +1,18 @@
+{
+  "aria_label": "Paginación,",
+  "pagination": {
+    "unbounded": true,
+    "page_label": "Página",
+    "items": 24,
+    "current": 10,
+    "previous": {
+      "label": "Anterior"
+    },
+    "next": {
+      "label": "Siguiente"
+    },
+    "last_item": {
+      "label": "Última página,"
+    }
+  }
+}

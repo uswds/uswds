@@ -1,0 +1,21 @@
+/*
+----------------------------------------
+error-not-token()
+----------------------------------------
+Returns a common not-a-token error.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "error" as *;
+
+@function error-not-token($token, $type, $valid-token-map: false) {
+  $valid-token-message: if(
+    $valid-token-map,
+    " Valid tokens: #{map.keys($valid-token-map)}",
+    ""
+  );
+  @return uswds-error(
+    "'#{$token}' is not a valid USWDS #{$type} token. #{$valid-token-message}"
+  );
+}

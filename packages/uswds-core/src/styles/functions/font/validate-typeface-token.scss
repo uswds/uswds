@@ -1,0 +1,27 @@
+/*
+----------------------------------------
+validate-typeface-token()
+----------------------------------------
+Check to see if a typeface-token exists.
+Throw an error if a passed token does
+not exist in the typeface-token map.
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../../tokens";
+@use "../general/error-not-token" as *;
+
+@function validate-typeface-token($typeface-token) {
+  @if not map.has-key(tokens.$all-typeface-tokens, $typeface-token) {
+    @return error-not-token($typeface-token, "typeface", $all-typeface-tokens);
+  }
+
+  @return $typeface-token;
+}
+
+// @debug validate-typeface-token("public-sans");
+// @return public-sans
+
+// @debug validate-typeface-token("foo");
+// @return error

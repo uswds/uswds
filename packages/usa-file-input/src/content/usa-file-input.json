@@ -1,0 +1,10 @@
+{
+  "id": "file-input-single",
+  "label": "Input accepts a single file",
+  "hint": "",
+  "error": false,
+  "error_message": "",
+  "accept": "",
+  "multiple": false,
+  "disabled": false
+}

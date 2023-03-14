@@ -1,0 +1,34 @@
+/*
+========================================
+font-weight
+----------------------------------------
+usage:
+  .text-[key]
+----------------------------------------
+output:
+  font-weight: [value];
+----------------------------------------
+example:
+  .text-300 {
+    font-weight: 300; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-font-weight: (
+  font-weight: (
+    base: "text",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($font-weight-palettes),
+        $font-weight-manual-values
+      ),
+    settings: $font-weight-settings,
+    property: "font-weight",
+    type: "utility",
+  ),
+);

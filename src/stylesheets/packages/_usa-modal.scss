@@ -1,5 +1,5 @@
 // dependencies
-@import "usa-button";
+@forward "usa-button";
 
 // src
-@import "../components/modal";
+@forward "usa-modal";

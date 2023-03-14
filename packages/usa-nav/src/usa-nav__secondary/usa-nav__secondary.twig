@@ -1,0 +1,14 @@
+<div class="usa-nav__secondary">
+  <ul class="usa-nav__secondary-links">
+    {% for item in items %}
+    <li class="usa-nav__secondary-item">
+      <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
+        {{ item.label }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if search %}
+    {% include "@components/usa-search/src/usa-search.twig" with { 'modifier': 'usa-search--small' } %}
+  {% endif %}
+</div>

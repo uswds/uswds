@@ -1,0 +1,99 @@
+{
+  "title": "Extended header with mega-menu",
+  "modifier": "usa-header--extended",
+  "nav": {
+    "menu": {
+      "label": "Menu"
+    },
+    "aria_label": "Primary navigation",
+    "megamenu": true,
+    "items": [
+      {
+        "label": "<Current section>",
+        "current": true,
+        "id": "extended-mega-nav-section-one",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<A very long navigation link that goes onto two lines>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Section>",
+        "id": "extended-mega-nav-section-two",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<A very long navigation link that goes onto two lines>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      }
+    ]
+  },
+  "img_path": "./img"
+}

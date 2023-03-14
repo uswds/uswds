@@ -1,0 +1,8 @@
+{
+  "section_label": "Small search component",
+  "modifier": "usa-search--small",
+  "search_js": false,
+  "id": "search-field-en-small",
+  "search_label": "Search",
+  "button_text": "Search"
+}

@@ -1,0 +1,48 @@
+<main id="main-content">
+  <div class="bg-base-lightest">
+    <section class="grid-container usa-section">
+      <div class="grid-row margin-x-neg-205 margin-bottom-7 flex-justify-center">
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205 margin-bottom-7">
+          <h1 class="desktop:display-none font-sans-lg margin-bottom-4 tablet:margin-top-neg-3">
+            {{ tagline |e }}
+          </h1>
+          <div class="bg-white padding-y-3 padding-x-5 border border-base-lighter">
+            <h1 class="margin-bottom-1">
+              {{ title }}
+            </h1>
+            <div class="usa-prose">
+              <p class="margin-top-1">
+                {{ description }}
+              </p>
+            </div>
+            {% for item in multiple %}
+              <p>
+                <a href="{{ placeholder_link }}"
+                  class="usa-button usa-button--outline width-full">
+                  {{ item.label | e }}
+                </a>
+              </p>
+            {% endfor %}
+            <div class="border-top border-base-lighter margin-top-6 padding-top-1">
+              <p>
+                <strong>{{ create_account.label }}</strong>
+              </p>
+              <p>
+                {{ create_account.description }}
+              </p>
+              <p>
+                <a href="{{ placeholder_link }}" class="usa-button width-full">
+                  {{ create_account.cta.label }}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-col-12 mobile-lg:grid-col-10 tablet:grid-col-8 desktop:grid-col-6 padding-x-205">
+          {% include '@templates/usa-sign-in/includes/_value-props.twig' %}
+          {% include '@templates/usa-sign-in/includes/_max.twig' %}
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

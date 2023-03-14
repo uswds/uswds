@@ -1,0 +1,169 @@
+@use "sass:math";
+
+@use "../../variables/project-alerts" as *;
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "./at-media" as *;
+@use "./border-box-sizing" as *;
+@use "./set-text-and-bg" as *;
+@use "../general/icon" as *;
+@use "../utilities" as *;
+@use "../typography/typeset.scss" as *;
+@use "../helpers/set-link-from-bg" as *;
+
+// Base alert styles
+@mixin alert-styles {
+  $bgcolor: "base-lightest";
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (default)"
+  );
+
+  background-color: color($bgcolor);
+  border-left: units($theme-alert-bar-width) solid color("base-light");
+  color: color($banner-text-color-token);
+
+  * + & {
+    margin-top: units(2);
+  }
+
+  .usa-alert__body {
+    @include border-box-sizing;
+    @include typeset($theme-alert-font-family);
+    @include u-margin-x("auto");
+    @include u-maxw($theme-site-alert-max-width);
+    @include u-padding-y($theme-alert-padding-y);
+    @include u-padding-x($theme-site-margins-mobile-width);
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: 2 * $alert-icon-optical-padding;
+    }
+
+    position: relative;
+  }
+
+  .usa-alert__text {
+    @include u-margin-y(0);
+
+    &:only-child {
+      @include u-padding-y(0);
+    }
+  }
+
+  .usa-alert__heading {
+    @include typeset($theme-alert-font-family, "lg", 1);
+    margin-top: 0;
+    margin-bottom: units(1);
+  }
+
+  > .usa-list,
+  .usa-alert__body > .usa-list {
+    padding-left: 2ch;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Set status styles for alert wrapper/background
+@mixin alert-status-wrapper-styles($name) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+
+  background-color: color($bgcolor);
+  border-left-color: color($name);
+}
+
+// Set status styles for alert content
+// added to __body element
+@mixin alert-status-body-styles($name, $icon) {
+  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $banner-text-color-token: get-color-token-from-bg(
+    $bgcolor,
+    $theme-alert-text-reverse-color,
+    $theme-alert-text-color,
+    $context: "Alert (#{$name})"
+  );
+  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  @include set-text-and-bg($bgcolor);
+
+  padding-left: units($theme-alert-icon-size) + ($alert-icon-optical-padding);
+  @include at-media($theme-site-margins-breakpoint) {
+    @include u-padding-x($theme-site-margins-width * 2);
+  }
+
+  .usa-link {
+    @include set-link-from-bg(
+      $bgcolor,
+      $theme-alert-link-reverse-color,
+      $theme-alert-link-color,
+      $context: "Alert (#{$name})"
+    );
+  }
+}
+
+@mixin add-alert-icon($name, $color, $bgcolor) {
+  $this-icon-object: (
+    "name": $name,
+    "color": $color,
+    "svg-height": 40,
+    "svg-width": 40,
+    "height": $theme-alert-icon-size,
+  );
+
+  &::before {
+    @include add-color-icon($this-icon-object, $bgcolor);
+    content: "";
+    display: block;
+    height: $theme-alert-icon-size;
+    // padding - optical spacing value
+    left: units($theme-site-margins-mobile-width) - units($theme-alert-bar-width);
+    position: absolute;
+    top: units($theme-alert-padding-y) * 0.75;
+    @include at-media($theme-site-margins-breakpoint) {
+      left: units($theme-site-margins-width) - units($theme-alert-bar-width);
+    }
+  }
+}
+
+// Variant - no icon
+@mixin alert-styles-no-icon {
+  .usa-alert__body {
+    &:before {
+      display: none;
+    }
+
+    padding-left: units(
+      $theme-site-margins-mobile-width - $theme-alert-bar-width
+    );
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: 2 * $alert-icon-optical-padding;
+    }
+  }
+}
+
+// Variant - slim
+@mixin add-slim-alert-icon {
+  &:before {
+    background-size: $alert-slim-icon-size;
+    height: $alert-slim-icon-size;
+    top: units($theme-alert-padding-y) * 0.5;
+    width: $alert-slim-icon-size;
+    @supports (mask: url("")) {
+      mask-size: $alert-slim-icon-size;
+    }
+  }
+}
+
+@mixin alert-styles-slim {
+  .usa-alert__body {
+    @include u-padding-y(1);
+    @include add-slim-alert-icon;
+
+    padding-left: $alert-slim-icon-size + $alert-icon-optical-padding;
+    @include at-media($theme-site-margins-breakpoint) {
+      padding-left: units($theme-site-margins-width) + $alert-slim-icon-size;
+    }
+  }
+}

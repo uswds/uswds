@@ -1,0 +1,64 @@
+ {% set defaults = {
+  'footer': {
+    'return_to_top': 'Return to top',
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'}
+        ]
+      }
+    },
+    'secondary_section': {
+      'agency_name': '<Name of Agency>',
+      'heading': '<Agency Contact Center>',
+      'phone': '<(800) 555-GOVT>',
+      'email': '<info@agency.gov>',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
+    }
+  }
+} %}
+
+ {% set defaultsEs = {
+  'footer': {
+    'return_to_top': 'Subir',
+    'primary_section': {
+      'nav': {
+        'links': [
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'},
+          {'label': '<Primary link>'}
+        ]
+      }
+    },
+    'secondary_section': {
+      'agency_name': '<Name of Agency>',
+      'heading': '<Agency Contact Center>',
+      'phone': '<(800) 555-GOVT>',
+      'email': '<info@agency.gov>',
+      'social_nav': [
+        'Facebook',
+        'Twitter',
+        'YouTube',
+        'Instagram',
+        'RSS'
+      ]
+    }
+  }
+} %}
+
+{% set settings = {
+  'en': defaults,
+  'es': defaultsEs
+} %}
+
+{% include '@components/usa-footer/src/usa-footer.twig' with settings[lang] %}

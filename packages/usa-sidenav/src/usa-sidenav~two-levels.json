@@ -1,0 +1,29 @@
+{
+  "aria_label": "Side navigation,,",
+  "items": [
+    {
+      "label": "Parent link",
+      "current": false
+    },
+    {
+      "label": "Current page",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link",
+          "current": true
+        }
+      ]
+    },
+    {
+      "label": "Parent link",
+      "current": false
+    }
+  ]
+}

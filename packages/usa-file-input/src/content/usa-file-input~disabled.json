@@ -1,0 +1,10 @@
+{
+  "id": "file-input-disabled",
+  "label": "Input in a disabled state",
+  "hint": "",
+  "error": false,
+  "error_message": "",
+  "accept": "",
+  "multiple": "",
+  "disabled": true
+}

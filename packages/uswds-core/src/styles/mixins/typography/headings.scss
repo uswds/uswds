@@ -1,0 +1,80 @@
+@use "../../settings" as *;
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+@use "./typeset" as *;
+
+@mixin display {
+  @include typeset(
+    "heading",
+    $theme-display-font-size,
+    $theme-heading-line-height
+  );
+
+  font-weight: fw("bold");
+}
+
+@mixin h1 {
+  @include typeset("heading", $theme-h1-font-size, $theme-heading-line-height);
+  font-weight: fw("bold");
+}
+
+@mixin h2 {
+  @include typeset("heading", $theme-h2-font-size, $theme-heading-line-height);
+  font-weight: fw("bold");
+}
+
+@mixin h3 {
+  @include typeset("heading", $theme-h3-font-size, $theme-heading-line-height);
+  font-weight: fw("bold");
+}
+
+@mixin h4 {
+  @include typeset("heading", $theme-h4-font-size, $theme-heading-line-height);
+  font-weight: fw("bold");
+}
+@mixin h5 {
+  @include typeset("heading", $theme-h5-font-size, $theme-heading-line-height);
+  font-weight: fw("bold");
+}
+
+@mixin h6 {
+  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
+  font-weight: fw("normal");
+  letter-spacing: ls("ls-1");
+  text-transform: uppercase;
+}
+
+@mixin typeset-display {
+  @include typeset-heading;
+  @include display;
+}
+
+@mixin typeset-h1 {
+  @include typeset-heading;
+  @include h1;
+}
+
+@mixin typeset-h2 {
+  @include typeset-heading;
+  @include h2;
+}
+
+@mixin typeset-h3 {
+  @include typeset-heading;
+  @include h3;
+}
+
+@mixin typeset-h4 {
+  @include typeset-heading;
+  @include h4;
+}
+
+@mixin typeset-h5 {
+  @include typeset-heading;
+  @include h5;
+}
+
+@mixin typeset-h6 {
+  @include typeset-heading;
+  @include h6;
+}

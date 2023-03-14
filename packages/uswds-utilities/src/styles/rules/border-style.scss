@@ -1,0 +1,34 @@
+/*
+========================================
+border-style
+----------------------------------------
+usage:
+  .border[-modifier]*-[key]
+----------------------------------------
+output:
+  border-style: [value];
+----------------------------------------
+example:
+  .border-dotted {
+    border-style: dotted; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-border-style: (
+  border-style: (
+    base: "border",
+    modifiers: null,
+    values:
+      map-collect(
+        get-palettes($border-style-palettes),
+        $border-style-manual-values
+      ),
+    settings: $border-style-settings,
+    property: "border-style",
+    type: "utility",
+  ),
+);

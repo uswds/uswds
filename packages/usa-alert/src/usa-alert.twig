@@ -1,0 +1,10 @@
+<div class="usa-alert {{ modifier }}" {% if role %}role="{{ role }}"{% endif %}>
+  <div class="usa-alert__body">
+    {%- if title %}
+      <h4 class="usa-alert__heading">{{ title }}</h4>
+    {%- endif %}
+    <p class="usa-alert__text">
+      {{ text }}
+    </p>
+  </div>
+</div>

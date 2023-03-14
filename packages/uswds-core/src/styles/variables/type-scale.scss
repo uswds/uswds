@@ -1,0 +1,18 @@
+@use "../functions/general";
+@use "../functions/font/system-type-scale" as *;
+@use "../settings";
+@use "../tokens/font/type-scale" as *;
+
+$project-type-scale: (
+  "3xs": system-type-scale(settings.$theme-type-scale-3xs),
+  "2xs": system-type-scale(settings.$theme-type-scale-2xs),
+  "xs": system-type-scale(settings.$theme-type-scale-xs),
+  "sm": system-type-scale(settings.$theme-type-scale-sm),
+  "md": system-type-scale(settings.$theme-type-scale-md),
+  "lg": system-type-scale(settings.$theme-type-scale-lg),
+  "xl": system-type-scale(settings.$theme-type-scale-xl),
+  "2xl": system-type-scale(settings.$theme-type-scale-2xl),
+  "3xl": system-type-scale(settings.$theme-type-scale-3xl),
+);
+
+$all-type-scale: general.map-collect($system-type-scale, $project-type-scale);

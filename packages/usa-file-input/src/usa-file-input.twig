@@ -1,0 +1,32 @@
+{% set name = "file-input" %}
+{% set aria_hint =  id ~ "-hint" %}
+{% set aria_error = id ~ "-alert" %}
+
+<div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
+  <label
+    class="usa-label{% if error %} usa-label--error{% endif %}"
+    for="{{ id }}"
+  >
+    {{ label }}
+  </label>
+  {%- if hint %}
+    <span class="usa-hint" id="{{ aria_hint }}">{{ hint }}</span>
+  {%- endif -%}
+  {%- if error %}
+    <span class="usa-error-message" id="{{ aria_error }}">
+      {{ error_message }}
+    </span>
+  {%- endif %}
+  <input
+    id="{{ id }}"
+    class="usa-file-input"
+    type="file"
+    name="{{ id }}"
+    {% if hint or accept or multiple or disabled -%}
+    {% if hint -%}aria-describedby="{{ aria_hint }}"{%- endif -%}
+    {% if accept -%}accept="{{ accept }}"{%- endif -%}
+    {% if multiple -%} multiple{%- endif -%}
+    {% if disabled -%} disabled{%- endif -%}
+    {% endif %}
+  />
+</div>

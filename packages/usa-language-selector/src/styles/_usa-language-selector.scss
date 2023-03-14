@@ -1,0 +1,105 @@
+@use "uswds-core" as *;
+
+.usa-language {
+  @include u-flex("row", "align-center", "justify-end");
+  display: flex;
+  padding: 0 0 units(0.5) units(1);
+  width: 100%;
+
+  &--small {
+    .usa-button {
+      @include u-padding-x(1.5);
+      @include u-padding-y(0);
+      font-size: font-size($theme-header-font-family, "3xs");
+      height: units(4);
+      margin-top: 0.3rem;
+      min-width: units($theme-button-small-width);
+    }
+  }
+}
+
+.usa-language-container {
+  @include u-flex("align-center", "justify-end");
+  display: flex;
+}
+
+.usa-nav-container {
+  .usa-language-container {
+    align-self: center;
+    margin-left: units(0);
+    position: absolute;
+    right: units(10);
+    top: units(2);
+
+    @include at-media($theme-header-min-width) {
+      align-self: flex-end;
+      margin-left: units(1.5);
+      margin-bottom: units(1);
+      position: relative;
+      right: inherit;
+      top: units(-2px);
+    }
+  }
+}
+
+.usa-language__link {
+  margin-right: units(0);
+}
+
+.usa-language__primary {
+  width: auto;
+}
+
+.usa-language__primary-item:last-of-type {
+  position: relative;
+
+  .usa-language__submenu {
+    @include u-pin-right;
+  }
+}
+
+.usa-language__submenu {
+  @include add-list-reset;
+  @include nav-sublist;
+  background-color: color("primary-darker");
+  position: absolute;
+  width: units("card-lg");
+  z-index: z-index(400);
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  .usa-language__submenu-item {
+    a {
+      color: color("white");
+      display: block;
+      line-height: line-height($theme-navigation-font-family, 3);
+      padding: 0;
+      padding: units(1);
+      text-decoration: none;
+
+      &:focus {
+        outline-offset: units("neg-05");
+      }
+
+      &:hover {
+        color: color("white");
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.usa-language__submenu-list {
+  @include unstyled-list;
+
+  .usa-language__submenu-list-item {
+    margin: 0;
+    font-size: font-size($theme-navigation-font-family, "2xs");
+
+    a {
+      line-height: line-height($theme-navigation-font-family, 3);
+    }
+  }
+}

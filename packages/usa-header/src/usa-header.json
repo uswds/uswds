@@ -1,0 +1,62 @@
+{
+  "modifier": "",
+  "title": "Basic header",
+  "nav": {
+    "menu": {
+      "label": "Menu"
+    },
+    "aria_label": "Primary navigation",
+    "close": {
+      "label": "Close"
+    },
+    "items": [
+      {
+        "label": "<Current section>",
+        "current": true,
+        "id": "basic-nav-section-one",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Section>",
+        "id": "basic-nav-section-two",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Simple link>"
+      }
+    ]
+  },
+  "search": {
+    "settings": {
+      "modifier": "usa-search--small",
+      "search_js": false,
+      "id": "search-field",
+      "search_label": "Search",
+      "button_text": "Search"
+    }
+  },
+  "img_path": "./img"
+}

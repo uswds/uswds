@@ -1,0 +1,40 @@
+<div class="usa-date-range-picker"
+    {% if restrictedDateStart %} data-min-date="{{ restrictedDateStart }}"{% endif %}
+    {% if restrictedDateEnd %} data-max-date="{{ restrictedDateEnd }}"{% endif %}
+>
+  <div class="usa-form-group">
+    <label class="usa-label" id="event-date-start-label" for="event-date-start">Event start date</label>
+    <div class="usa-hint" id="event-date-start-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker"
+      {% if defaultDateStart %} data-default-value="{{ defaultDateStart }}"{% endif %}
+    >
+      <input
+        class="usa-input"
+        id="event-date-start"
+        name="event-date-start"
+        type="text"
+        aria-labelledby="event-date-start-label"
+        aria-describedby="event-date-start-hint"
+        {% if disabled_state == "disabled" %}disabled{% endif %}
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>
+    </div>
+  </div>
+
+  <div class="usa-form-group">
+    <label class="usa-label" id="event-date-end-label" for="event-date-end">Event end date</label>
+    <div class="usa-hint" id="event-date-end-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker"
+      {% if defaultDateEnd %} data-default-value="{{ defaultDateEnd }}"{% endif %}
+    >
+      <input
+        class="usa-input"
+        id="event-date-end"
+        name="event-date-end"
+        type="text"
+        aria-labelledby="event-date-end-label"
+        aria-describedby="event-date-end-hint"
+        {% if disabled_state == "disabled" %}disabled{% endif %}
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "banner": {
+    "id": "gov-banner-default",
+    "text": "An official website of the United States government",
+    "action": "Here’s how you know",
+    "aria_label": "Official website of the United States government"
+  },
+  "domain": {
+    "heading": "Official websites use .gov",
+    "text": "A <strong>.gov</strong> website belongs to an official government organization in the United States."
+  },
+  "https": {
+    "heading": "Secure .gov websites use HTTPS",
+    "pretext": "A <strong>lock</strong>",
+    "posttext": "or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites."
+  }
+}

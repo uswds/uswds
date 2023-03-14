@@ -1,0 +1,17 @@
+{
+  "banner": {
+    "id": "gov-banner-dot-mil",
+    "text": "An official website of the United States government",
+    "action": "Here’s how you know",
+    "aria_label": "Official website of the United States government,"
+  },
+  "domain": {
+    "heading": "Official websites use .mil",
+    "text": "A <strong>.mil</strong> website belongs to an official U.S. Department of Defense organization."
+  },
+  "https": {
+    "heading": "Secure .mil websites use HTTPS",
+    "pretext": "A <strong>lock</strong>",
+    "posttext": "or <strong>https://</strong> means you’ve safely connected to the .mil website. Share sensitive information only on official, secure websites."
+  }
+}

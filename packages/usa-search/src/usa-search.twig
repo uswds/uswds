@@ -1,0 +1,28 @@
+{% set base_label = search_label|default("Search") %}
+{% set id = id|default("search-field") %}
+{% set section_label = section_label|default("Search component") %}
+
+{% if not search_js %}
+  <section aria-label="{{ section_label }}">
+{% endif %}
+  <form class="usa-search {{ modifier }} {% if search_js %}js-search-form{% endif %}" role="search">
+    <label class="usa-sr-only" for="{{ id }}">
+      {{ base_label }}
+    </label>
+    <input class="usa-input" id="{{ id }}" type="search" name="search">
+    <button class="usa-button" type="submit">
+      {% if modifier != 'usa-search--small' %}
+        <span class="usa-search__submit-text">
+          {{ button_text|default(base_label) }}
+        </span>
+      {% endif %}
+      <img
+          src="./img/usa-icons-bg/search--white.svg"
+          class="usa-search__submit-icon"
+          alt="{{ button_text|default(base_label) }}"
+      >
+    </button>
+  </form>
+{% if not search_js %}
+  </section>
+{% endif %}

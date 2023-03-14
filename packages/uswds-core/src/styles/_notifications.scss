@@ -1,0 +1,84 @@
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+
+@use "settings" as *;
+
+/* prettier-ignore */
+$uswds-notifications:
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A \2709  USWDS Notifications"
++ "\A --------------------------------------------------------------------"
++ "\A 3.0.0"
++ "\A - Settings: We deprecated the $output-all-utilities setting."
++ "\A   Control utility output with $output-these-utilities."
++ "\A   See designsystem.digital.gov/documentation/settings for more."
++ "\A "
++ "\A --------------------------------------------------------------------"
++ "\A 3.1.0"
++ "\A - Accessibility: We added `type='button'` to all buttons that"
++ "\A   do not submit a form. All your non-form project buttons will"
++ "\A   need `type='button'`."
++ "\A - Accessibility: We updated the markup in the usa-password package"
++ "\A   to use a <button> element instead of an anchor element."
++ "\A - Accessibility: Elements that get `aria-disabled` instead of"
++ "\A   `disabled` are now styled as disabled."
++ "\A - Compatibility: We're using some CSS selectors not supported"
++ "\A   by IE11."
++ "\A - Deprecated: We deprecated the embed-container() mixin."
++ "\A - Display: We removed the outline circle from social media icons."
++ "\A - Settings: We changed the default value of $theme-hero-image."
++ "\A   Teams that use the default image (hero.png) will need to get the"
++ "\A   new image (hero.jpg) from the distribution package."
++ "\A --------------------------------------------------------------------"
++ "\A 3.2.0"
++ "\A - Accessibility: We changed `div.usa-identifier__identity` to "
++ "\A   `section.usa-identifier__identity` (we changed the div to a "
++ "\A   section) so the ARIA label is associated with an non-div element."
++ "\A - Accessibility: We updated the aria-label in English versions of"
++ "\A   section.usa-banner to 'Official website of the United States "
++ "\A   government' to reduce ambiguity in screen reader vocalizations. "
++ "\A   Previously, 'An official' could be misunderstood as 'unofficial'."
++ "\A - Accessibility: We added `aria-hidden='true'` to the parent div "
++ "\A   of `p.usa-banner__header-text` in usa-banner. We also "
++ "\A   removed `aria-hidden='true'` from `p.usa-banner__header-action`. "
++ "\A   Together these assure that the proper elements are read in the"
++ "\A   banner."
++ "\A - Accessibility: In the lock icon SVG in usa-banner, we changed the "
++ "\A   value of aria-labelledby to  "
++ "\A   `aria-labelledby='banner-lock-description'` and updated the value"
++ "\A   of desc#banner-lock-description to `'Locked padlock'` to simplify"
++ "\A   the vocalization."
++ "\A - Accessibility: We added `aria-hidden='true' to "
++ "\A   `img.usa-banner__header-flag` in usa-banner since this is a"
++ "\A   decorative image."
++ "\A --------------------------------------------------------------------"
++ "\A 3.4.0"
++ "\A - Compatibility: We no longer include ttf and woff fonts in our "
++ "\A   @font-face rules. If you need these files for IEll compatibility,"
++ "\A   add `$theme-font-browser-compatibility: true` to your project"
++ "\A   settings."
++ "\A ";
+
+/* prettier-ignore */
+$uswds-notification-disable-message:
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A These are notifications from the USWDS team, not necessarily a"
++ "\A problem with your code."
++ "\A"
++ "\A Disable notifications using `$theme-show-notifications: false`."
++ "\A --------------------------------------------------------------------\A";
+
+@if $theme-show-notifications {
+  @warn "#{$uswds-notifications}"
+    + "#{$uswds-notification-disable-message}";
+}

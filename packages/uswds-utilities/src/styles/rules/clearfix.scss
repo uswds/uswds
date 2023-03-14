@@ -1,0 +1,37 @@
+/*
+========================================
+.clearfix
+----------------------------------------
+usage:
+  .clearfix
+----------------------------------------
+example:
+  .clearfix::after {
+    clear: both;
+    content: "";
+    display: block; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+
+$u-clearfix: (
+  clearfix: (
+    base: "clearfix::after",
+    modifiers: null,
+    values: (
+      reset: (
+        slug: "noValue",
+        isReadable: false,
+        content: "both",
+        extend: (
+          "content": '""',
+          "display": "block",
+        ),
+      ),
+    ),
+    settings: $clearfix-settings,
+    property: "clear",
+    type: "utility",
+  ),
+);

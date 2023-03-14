@@ -1,0 +1,6 @@
+@use "uswds-core/src/styles/mixins/helpers/set-text-and-bg" as *;
+
+body {
+  @include set-text-and-bg($context: "Body");
+  overflow-x: hidden;
+}

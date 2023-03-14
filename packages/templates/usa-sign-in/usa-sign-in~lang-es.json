@@ -1,0 +1,42 @@
+{
+  "lang": "es",
+  "title": "Ingrese a su cuenta",
+  "form": {
+    "legend": "Acceda a su cuenta"
+  },
+  "email": {
+    "label": "Su email",
+    "input": {
+      "id": "email",
+      "type": "email"
+    }
+  },
+  "password": {
+    "label": "Contraseña",
+    "input": {
+      "id": "password-sign-in"
+    },
+    "toggle": {
+      "title": "Muestre la contraseña",
+      "aria_controls": "password-sign-in",
+      "text": {
+        "show": "Muestre la contraseña",
+        "hide": "Esconda la contraseña"
+      }
+    }
+  },
+  "submit": {
+    "label": "Ingrese"
+  },
+  "recovery": {
+    "title": "¿No recuerda su contraseña?",
+    "label": "¿No recuerda su contraseña?"
+  },
+  "create_account": {
+    "label": "¿No tiene una cuenta?",
+    "cta": {
+      "label": "Cree su cuenta ahora"
+    }
+  },
+  "img_path": "./img"
+}

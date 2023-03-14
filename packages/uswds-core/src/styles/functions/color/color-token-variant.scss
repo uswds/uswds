@@ -1,0 +1,31 @@
+/*
+----------------------------------------
+color-token-variant()
+----------------------------------------
+Returns the variant of color token.
+Returns: "vivid" | false
+color-token-variant("accent-warm")
+> false
+color-token-variant("accent-warm-vivid")
+> "vivid"
+color-token-variant("red-50v")
+> "vivid"
+color-token-variant(("red", 50, "vivid"))
+> "vivid"
+----------------------------------------
+*/
+
+@use "sass:meta";
+@use "sass:list";
+
+@use "./decompose-color-token" as *;
+
+@function color-token-variant($color-token) {
+  $split: if(
+    meta.type-of($color-token) == "list",
+    $color-token,
+    decompose-color-token($color-token)
+  );
+  $variant: list.nth($split, 3);
+  @return $variant;
+}

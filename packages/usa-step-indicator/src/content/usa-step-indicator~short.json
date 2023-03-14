@@ -1,0 +1,23 @@
+{
+  "modifier": "",
+  "showLabels": true,
+  "centered": false,
+  "currentStep": 2,
+  "steps": [
+    {
+      "step": null,
+      "status": "complete",
+      "label": "Personal information"
+    },
+    {
+      "step": null,
+      "status": "current",
+      "label": "Household status"
+    },
+    {
+      "step": null,
+      "status": "incomplete",
+      "label": "Supporting documents"
+    }
+  ]
+}

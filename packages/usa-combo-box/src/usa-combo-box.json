@@ -1,0 +1,10 @@
+{
+  "name": "fruit",
+  "label": "Select a fruit",
+  "modifier": "",
+  "default_value": "",
+  "placeholder": "",
+  "id": "fruit",
+  "disabled": false,
+  "required": false
+}

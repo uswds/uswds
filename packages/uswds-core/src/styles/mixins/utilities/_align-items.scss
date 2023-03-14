@@ -1,0 +1,19 @@
+@use "sass:list";
+@use "../../functions/general/unpack" as *;
+@use "../../functions/general/has-important" as *;
+@use "../../functions/output/get-uswds-value" as *;
+
+// Outputs align-items
+
+@mixin u-align-items($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
+    $important: " !important";
+  }
+  align-items: get-uswds-value("align-items", $value) #{$important};
+}

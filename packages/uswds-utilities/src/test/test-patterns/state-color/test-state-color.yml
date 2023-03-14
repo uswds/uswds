@@ -1,0 +1,26 @@
+state_colors:
+  - error-lighter
+  - error-light
+  - error
+  - error-dark
+  - error-darker
+  - warning-lighter
+  - warning-light
+  - warning
+  - warning-dark
+  - warning-darker
+  - success-lighter
+  - success-light
+  - success
+  - success-dark
+  - success-darker
+  - info-lighter
+  - info-light
+  - info
+  - info-dark
+  - info-darker
+  - disabled-light
+  - disabled
+  - disabled-dark
+  - emergency
+  - emergency-dark

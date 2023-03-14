@@ -1,0 +1,31 @@
+/*
+========================================
+position
+----------------------------------------
+usage:
+  .position-[key]
+----------------------------------------
+output:
+  position: [value];
+----------------------------------------
+example:
+  .position-absolute {
+    position: absolute; }
+----------------------------------------
+*/
+
+@use "uswds-core/src/styles/settings" as *;
+@use "uswds-core/src/styles/functions" as *;
+@use "../functions/" as *;
+
+$u-position: (
+  position: (
+    base: "position",
+    modifiers: null,
+    values:
+      map-collect(get-palettes($position-palettes), $position-manual-values),
+    settings: $position-settings,
+    property: "position",
+    type: "utility",
+  ),
+);

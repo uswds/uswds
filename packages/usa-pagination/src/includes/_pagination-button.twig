@@ -1,0 +1,19 @@
+{% macro paginationButton(item, pager_opts) %}
+  {% set is_current = item is same as(pager_opts.current) %}
+  {% set is_last = item is same as(pager_opts.total) %}
+  {% set labels = pager_opts.aria_labels %}
+
+  {# Display: "Last page, page X" if last item. Otherwise "Page X" #}
+  {% set aria_label = (is_last ? labels.last ~ " " ~ labels.page_label | lower : labels.page_label) ~ " " ~ item %}
+
+  <li class="usa-pagination__item usa-pagination__page-no">
+    {# Global variable placeholder_link doesn't work for some reason.  #}
+    <a
+        href="{{ placeholder_link | default("javascript:void(0);") }}"
+        class="usa-pagination__button {{ is_current ? "usa-current" }}"
+        aria-label="{{ aria_label }}"
+        {% if is_current %}aria-current="page"{% endif %}>
+      {{ item }}
+    </a>
+  </li>
+{% endmacro %}

@@ -1,0 +1,28 @@
+{
+  "modifier": null,
+  "id": "example-modal-3",
+  "forced": true,
+  "describedby": "modal-3-description",
+  "trigger": {
+    "text": "Open modal with forced action"
+  },
+  "header": {
+    "text": "Your session will end soon.",
+    "id": "modal-3-heading"
+  },
+  "description": {
+    "id": "modal-3-description",
+    "text": "You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes."
+  },
+  "footer": [
+    {
+      "action": null,
+      "text": "Yes, stay signed in"
+    },
+    {
+      "action": null,
+      "class": "usa-button usa-button--unstyled padding-105 text-center",
+      "text": "Sign out"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+@use "../../functions/general";
+@use "shortcodes-color-system" as *;
+@use "shortcodes-color-project" as *;
+@use "high-contrast-mode-colors" as *;
+@use "global" as *;
+
+$all-color-shortcodes: general.map-collect(
+  $tokens-color-global,
+  $system-color-shortcodes,
+  $project-color-shortcodes,
+  $high-contrast-system-colors
+);

@@ -1,0 +1,95 @@
+{
+  "modifier": "usa-footer--big",
+  "footer": {
+    "return_to_top": "Return to top",
+    "primary_section": {
+      "nav": {
+        "aria_label": "Footer navigation,,",
+        "links": [
+          {
+            "label": "<Topic>",
+            "secondary_nav": [
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link that's a bit longer than most of the others>"
+              },
+              {
+                "label": "<Secondary link>"
+              }
+            ]
+          },
+          {
+            "label": "<Topic>",
+            "secondary_nav": [
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link that's pretty long>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              }
+            ]
+          },
+          {
+            "label": "<Topic>",
+            "secondary_nav": [
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              }
+            ]
+          },
+          {
+            "label": "<Topic>",
+            "secondary_nav": [
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              },
+              {
+                "label": "<Secondary link>"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "secondary_section": {
+      "agency_name": "<Name of Agency>",
+      "heading": "<Agency Contact Center>",
+      "phone": "<(800) 555-GOVT>",
+      "email": "<info@agency.gov>",
+      "social_nav": [
+        "Facebook",
+        "Twitter",
+        "YouTube",
+        "Instagram",
+        "RSS"
+      ]
+    }
+  },
+  "img_path": "./img"
+}

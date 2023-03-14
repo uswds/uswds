@@ -1,0 +1,32 @@
+{
+  "modifier": "",
+  "showLabels": true,
+  "currentStep": 3,
+  "steps": [
+    {
+      "step": null,
+      "status": "complete",
+      "label": "Personal information"
+    },
+    {
+      "step": null,
+      "status": "complete",
+      "label": "Household status"
+    },
+    {
+      "step": null,
+      "status": "current",
+      "label": "Supporting documents"
+    },
+    {
+      "step": null,
+      "status": "incomplete",
+      "label": "Signature"
+    },
+    {
+      "step": null,
+      "status": "incomplete",
+      "label": "Review and submit"
+    }
+  ]
+}

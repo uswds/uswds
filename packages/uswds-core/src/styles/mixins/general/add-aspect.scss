@@ -1,0 +1,50 @@
+@use "sass:list";
+@use "sass:map";
+@use "../../functions" as *;
+@use "../../variables" as *;
+
+@mixin add-aspect-children {
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @at-root img#{&},
+    & > img {
+    object-fit: cover;
+  }
+}
+
+@mixin add-aspect($ratio, $type: "") {
+  $ratio: unpack($ratio);
+  $important: null;
+
+  @if has-important($ratio) {
+    $ratio: list.nth($ratio, 1);
+    $important: "!important";
+  }
+
+  @if map-has-key($project-aspect-ratios, $ratio) {
+    box-sizing: border-box #{$important};
+    height: 0 #{$important};
+    overflow: hidden #{$important};
+    padding-bottom: map.get($project-aspect-padding, $ratio) #{$important};
+    position: relative;
+
+    // Check for CSS aspect-ratio support
+    @supports (aspect-ratio: 1) {
+      //reset
+      height: inherit #{$important};
+      padding: inherit #{$important};
+      // end reset
+      aspect-ratio: map.get($project-aspect-ratios, $ratio);
+      max-width: 100%;
+      @include add-aspect-children;
+    }
+  } @else {
+    @error '`#{$ratio}` is not a valid key in $project-aspect-ratios. Valid values: #{map.keys($project-aspect-ratios)}';
+  }
+}

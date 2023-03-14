@@ -1,0 +1,21 @@
+@use "uswds-core" as *;
+
+.usa-form-group {
+  margin-top: units(3);
+
+  // Let form-group handle top margin
+  .usa-label:first-child {
+    margin-top: 0;
+  }
+}
+
+// Block input elements
+.usa-form-group--error {
+  @include u-border-left(0.5, "error-dark");
+  padding-left: units(2);
+  position: relative;
+
+  @include at-media("desktop") {
+    margin-left: units(-2.5);
+  }
+}

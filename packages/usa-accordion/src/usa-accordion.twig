@@ -1,0 +1,13 @@
+<div class="usa-accordion {{ modifier }}"{% if multiselectable == true %} data-allow-multiple {% endif %}>
+  {% for item in items %}
+    <!-- Use the accurate heading level to maintain the document outline -->
+    <h4 class="usa-accordion__heading">
+      <button type="button" class="usa-accordion__button" aria-expanded="{{ item.expanded|default('false') }}" aria-controls="{{ id_prefix }}{{ item.id }}">
+        {{ item.title }}
+      </button>
+    </h4>
+    <div id="{{ id_prefix }}{{ item.id }}" class="usa-accordion__content usa-prose">
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

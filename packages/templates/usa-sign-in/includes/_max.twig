@@ -1,0 +1,32 @@
+{% set settings = {
+  'en': {
+    'title': 'Are you a federal employee?',
+    'description': 'If you are a federal employee or <other secondary user>, please use <secondary Single Sign On (SSO)>.',
+    'cta': {
+      'label': 'Launch secondary SSO'
+    }
+  },
+  'es': {
+    'title': '¿Es usted un empleado federal?',
+    'description': 'Si es un empleado federal <u otro tipo de usuario secundario>, por favor use <Single Sign On (SSO) secundario>.',
+    'cta': {
+      'label': 'Inicie SSO secundario'
+    }
+  }
+} %}
+
+{% set button_defaults = 'usa-button usa-button--outline' %}
+
+<div class="border-top border-base-lighter margin-top-3 padding-top-1">
+  <h2>{{ settings[lang].title }}</h2>
+  <div class="usa-prose">
+    <p>{{ settings[lang].description | e }}</p>
+    <p>
+      <a
+        class="{{ settings[lang].cta.type | default(button_defaults) }}"
+        href="{{ placholder_link }}">
+        {{ settings[lang].cta.label }}
+      </a>
+    </p>
+  </div>
+</div>

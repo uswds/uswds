@@ -1,0 +1,69 @@
+/*
+----------------------------------------
+set-theme-color()
+----------------------------------------
+Derive a color from a system color token
+or a hex value
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../../functions/general";
+@use "../../settings";
+@use "../../tokens/color/shortcodes-color-system" as tokens;
+
+@function set-theme-color($value, $flag: null) {
+  $value: general.unpack($value);
+
+  // If it's a color, return that color
+  // Withhold warning if "no-warn" flag
+
+  @if meta.type-of($value) == color {
+    @if $flag == "no-warn" {
+      @return $value;
+    }
+
+    @if settings.$theme-show-compile-warnings {
+      @warn 'Override: `#{$value}` is not a USWDS color token.';
+    }
+
+    @return $value;
+  }
+
+  // If it's false, return false
+
+  @if $value == false {
+    @return $value;
+  }
+
+  // Any other value should be evaluated as a system token
+
+  $value: general.smart-quote($value);
+
+  @if map.has-key(tokens.$system-color-shortcodes, $value) {
+    $our-color: map.get(tokens.$system-color-shortcodes, $value);
+    @if $our-color == false {
+      @error 'USWDS does not include -90v color tokens';
+    }
+    @return $our-color;
+  }
+
+  @error '`#{$value}` is not a valid USWDS color token. '
+      + 'See designsystem.digital.gov/design-tokens/color '
+      + 'for more information.';
+}
+
+// @debug set-theme-color("red-50");
+// @return #d83933;
+// @debug set-theme-color(false);
+// @return false;
+// @debug set-theme-color("red-90v");
+// @return error "no 90v tokens";
+// @debug set-theme-color(#f00, no-warn);
+// @return #f00;
+// @debug set-theme-color(#f00);
+// @return #f00 + warning;
+// @debug set-theme-color("foo");
+// @return error "not valid";

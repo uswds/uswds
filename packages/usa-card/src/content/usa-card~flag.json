@@ -1,0 +1,30 @@
+{
+  "modifier": "usa-card--flag",
+  "default_classes": "",
+  "cards": [
+    {
+      "title": "Default flag",
+      "classes_override": "desktop:grid-col-6",
+      "flag_direction": "",
+      "media": {
+        "media_classes": "",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "title": "Flag media right inset",
+      "classes_override": "desktop:grid-col-6",
+      "flag_direction": "right",
+      "media": {
+        "media_classes": "usa-card__media--inset",
+        "image_classes": "",
+        "image_src": "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
+        "image_alt_text": "A placeholder image"
+      },
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    }
+  ]
+}

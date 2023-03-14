@@ -1,0 +1,25 @@
+/*
+----------------------------------------
+ns()
+----------------------------------------
+Add a namesspace of $type if that
+namespace is set to output
+----------------------------------------
+*/
+
+@use "../../settings";
+@use "../../functions/general/map-deep-get" as *;
+@use "../../functions/general/smart-quote" as *;
+
+@function ns($type) {
+  $type: smart-quote($type);
+
+  @if not map-deep-get(settings.$theme-namespace, $type, output) {
+    @return "";
+  }
+
+  @return map-deep-get(settings.$theme-namespace, $type, namespace);
+}
+
+// @debug ns("grid");
+// @return grid-

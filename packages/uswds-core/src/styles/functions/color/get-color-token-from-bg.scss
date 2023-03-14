@@ -1,0 +1,70 @@
+@use "sass:map";
+
+@use "../../settings" as *;
+@use "../../variables/wcag-magic-numbers" as *;
+@use "../general/get-default" as *;
+@use "calculate-grade" as *;
+@use "magic-number" as *;
+@use "is-accessible-magic-number" as *;
+
+@function get-color-token-from-bg(
+  $bg-color: "default",
+  $preferred-text-token: "default",
+  $fallback-text-token: "default",
+  $wcag-target: "AA",
+  $context: false,
+  $for: false
+) {
+  $for-text: if($for, "#{$for} ", "");
+  $context-text: if($context, "[#{$context}] ", "");
+  // Set defaults
+  @if $bg-color == "default" {
+    $bg-color: get-default("bg-color");
+  }
+  @if $preferred-text-token == "default" {
+    $preferred-text-token: get-default("preferred-text-token");
+  }
+  @if $fallback-text-token == "default" {
+    $fallback-text-token: get-default("fallback-text-token");
+  }
+  $target-magic-number: map.get($system-wcag-magic-numbers, $wcag-target);
+  $bg-grade: calculate-grade($bg-color);
+  // When $bg-color = 45, serve alternate tokens with color grades of 0 and 100
+  // This provides sufficient contrast to pass WCAG AA standards
+  @if $bg-grade == 45 and $wcag-target == "AA" {
+    $preferred-text-token: "white";
+    $fallback-text-token: "black";
+  }
+  $our-color-tokens: ($preferred-text-token, $fallback-text-token);
+  $accessible-text-token: false;
+  $accessible-text-grade: false;
+  // Get the text color token
+  // Check both text tokens.
+  // Accept a token if it has specified accessible contrast.
+  $best-token: false;
+  $best-magic-number: 0;
+  @each $token in $our-color-tokens {
+    @if not $accessible-text-token {
+      $token-grade: calculate-grade($token);
+      $this-magic-number: magic-number($token-grade, $bg-grade);
+      @if $this-magic-number > $best-magic-number {
+        $best-magic-number: $this-magic-number;
+        $best-token: $token;
+      }
+      @if is-accessible-magic-number($token-grade, $bg-grade, $wcag-target) {
+        $accessible-text-token: $token;
+        $accessible-text-grade: $token-grade;
+      }
+    }
+  }
+  // If neither is accessible,
+  // warn the user and use the Preferred token
+  @if not $accessible-text-token {
+    $accessible-text-token: $best-token;
+    @if $theme-show-compile-warnings {
+      @warn "#{$context-text}Neither the specified preferred #{$for-text}color token (`#{$preferred-text-token}`) nor the fallback #{$for-text}color token (`#{$fallback-text-token}`) have #{$wcag-target} contrast on a `#{$bg-color}` background. Using `#{$best-token}`. Please check your source code and project settings.";
+    }
+  }
+
+  @return $accessible-text-token;
+}

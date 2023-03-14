@@ -1,0 +1,42 @@
+{
+  "lang": "en",
+  "title": "Sign in",
+  "form": {
+    "legend": "Access your account"
+  },
+  "email": {
+    "label": "Email address",
+    "input": {
+      "id": "email",
+      "type": "email"
+    }
+  },
+  "password": {
+    "label": "Password",
+    "input": {
+      "id": "password-sign-in"
+    },
+    "toggle": {
+      "title": "Toggle password",
+      "aria_controls": "password-sign-in",
+      "text": {
+        "show": "Show password",
+        "hide": "Hide password"
+      }
+    }
+  },
+  "submit": {
+    "label": "Sign in"
+  },
+  "recovery": {
+    "title": "Forgot password",
+    "label": "Forgot password?"
+  },
+  "create_account": {
+    "label": "Don't have an account?",
+    "cta": {
+      "label": "Create your account now"
+    }
+  },
+  "img_path": "./img"
+}

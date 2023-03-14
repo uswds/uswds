@@ -1,0 +1,8 @@
+@use "uswds-core" as *;
+
+.usa-fieldset {
+  @extend %block-input-general;
+  border: none;
+  margin: 0;
+  padding: 0;
+}

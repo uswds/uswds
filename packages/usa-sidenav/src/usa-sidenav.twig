@@ -1,0 +1,27 @@
+{% macro sidenav_list(items, base_class) %}
+
+  {% import _self as sidenav %}
+
+  {% set list_item_class = 'usa-sidenav__item' %}
+  {% set current_class = 'usa-current' %}
+  {% set placeholder_link = 'javascript:void(0);' %}
+
+  {% if items %}
+    <ul class="{{ base_class }}">
+    {% for item in items %}
+      <li class="{{ list_item_class }}">
+        <a href="{{ item.href|default(placeholder_link) }}" {% if item.current %}class="{{ current_class }}"{% endif %}>{{ item.label }}</a>
+        {% if item.subnav %}
+          {{ sidenav.sidenav_list(item.subnav, 'usa-sidenav__sublist') }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% import _self as sidenav %}
+
+<nav aria-label="{{ aria_label | default('Secondary navigation')}}">
+  {{ sidenav.sidenav_list(items, 'usa-sidenav') }}
+</nav>

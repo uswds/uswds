@@ -1,0 +1,111 @@
+{
+  "modifier": "usa-header--megamenu",
+  "title": "Basic with mega-menu",
+  "nav": {
+    "menu": {
+      "label": "Menu"
+    },
+    "aria_label": "Primary navigation",
+    "megamenu": true,
+    "items": [
+      {
+        "label": "<Current section>",
+        "current": true,
+        "id": "basic-mega-nav-section-one",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<A very long navigation link that goes onto two lines>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Section>",
+        "id": "basic-mega-nav-section-two",
+        "subnav": [
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<A very long navigation link that goes onto two lines>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          },
+          {
+            "label": "<Navigation link>"
+          }
+        ]
+      },
+      {
+        "label": "<Simple link>"
+      }
+    ]
+  },
+  "search": {
+    "settings": {
+      "modifier": "usa-search--small",
+      "search_js": false,
+      "id": "search-field",
+      "search_label": "Search",
+      "button_text": "Search"
+    }
+  },
+  "img_path": "./img"
+}

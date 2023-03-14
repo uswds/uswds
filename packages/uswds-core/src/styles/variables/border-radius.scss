@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "../settings";
+@use "../functions/units" as *;
+@use "../functions/general/map-collect" as *;
+@use "../tokens/units/spacing" as *;
+
+$project-border-radius: (
+  0: 0,
+  "sm": units(settings.$theme-border-radius-sm),
+  "md": units(settings.$theme-border-radius-md),
+  "lg": units(settings.$theme-border-radius-lg),
+  "pill": 99rem,
+);
+
+$all-border-radius: map-collect(
+  $project-border-radius,
+  map.get($system-spacing, "smaller"),
+  map.get($system-spacing, "small")
+);

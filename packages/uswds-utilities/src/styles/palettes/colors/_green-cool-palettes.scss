@@ -1,0 +1,72 @@
+@use "uswds-core/src/styles/functions/general/map-collect" as *;
+@use "uswds-core/src/styles/tokens/color" as *;
+
+$tokens-color-green-cool-light: (
+  "green-cool-5": $color-green-cool-5,
+  "green-cool-10": $color-green-cool-10,
+  "green-cool-20": $color-green-cool-20,
+  "green-cool-30": $color-green-cool-30,
+);
+
+$tokens-color-green-cool-medium: (
+  "green-cool-40": $color-green-cool-40,
+  "green-cool-50": $color-green-cool-50,
+  "green-cool-60": $color-green-cool-60,
+);
+
+$tokens-color-green-cool-dark: (
+  "green-cool-70": $color-green-cool-70,
+  "green-cool-80": $color-green-cool-80,
+  "green-cool-90": $color-green-cool-90,
+);
+
+$tokens-color-green-cool-light-vivid: (
+  "green-cool-5v": $color-green-cool-5v,
+  "green-cool-10v": $color-green-cool-10v,
+  "green-cool-20v": $color-green-cool-20v,
+  "green-cool-30v": $color-green-cool-30v,
+);
+
+$tokens-color-green-cool-medium-vivid: (
+  "green-cool-40v": $color-green-cool-40v,
+  "green-cool-50v": $color-green-cool-50v,
+  "green-cool-60v": $color-green-cool-60v,
+);
+
+$tokens-color-green-cool-dark-vivid: (
+  "green-cool-70v": $color-green-cool-70v,
+  "green-cool-80v": $color-green-cool-80v,
+  "green-cool-90v": $color-green-cool-90v,
+);
+
+$tokens-color-green-cool-standard: map-collect(
+  $tokens-color-green-cool-light,
+  $tokens-color-green-cool-medium,
+  $tokens-color-green-cool-dark
+);
+
+$tokens-color-green-cool-vivid: map-collect(
+  $tokens-color-green-cool-light-vivid,
+  $tokens-color-green-cool-medium-vivid,
+  $tokens-color-green-cool-dark-vivid
+);
+
+$tokens-color-green-cool: map-collect(
+  $tokens-color-green-cool-standard,
+  $tokens-color-green-cool-vivid
+);
+
+$palettes-color-green-cool: (
+  "palette-color-system-green-cool-light": $tokens-color-green-cool-light,
+  "palette-color-system-green-cool-medium": $tokens-color-green-cool-medium,
+  "palette-color-system-green-cool-dark": $tokens-color-green-cool-dark,
+  "palette-color-system-green-cool-light-vivid":
+    $tokens-color-green-cool-light-vivid,
+  "palette-color-system-green-cool-medium-vivid":
+    $tokens-color-green-cool-medium-vivid,
+  "palette-color-system-green-cool-dark-vivid":
+    $tokens-color-green-cool-dark-vivid,
+  "palette-color-system-green-cool-standard": $tokens-color-green-cool-standard,
+  "palette-color-system-green-cool-vivid": $tokens-color-green-cool-vivid,
+  "palette-color-system-green-cool": $tokens-color-green-cool,
+);

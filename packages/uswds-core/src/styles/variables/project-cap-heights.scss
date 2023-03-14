@@ -1,0 +1,18 @@
+@use "../tokens";
+@use "../functions/font" as font;
+@use "project-font-types" as types;
+
+$project-cap-heights: (
+  "base": tokens.$system-base-cap-height,
+  "cond": font.cap-height(types.$project-font-cond),
+  "icon": font.cap-height(types.$project-font-icon),
+  "lang": font.cap-height(types.$project-font-lang),
+  "mono": font.cap-height(types.$project-font-mono),
+  "sans": font.cap-height(types.$project-font-sans),
+  "serif": font.cap-height(types.$project-font-serif),
+  "ui": font.cap-height(types.$project-font-ui),
+  "heading": font.cap-height(types.$project-font-heading),
+  "body": font.cap-height(types.$project-font-body),
+  "code": font.cap-height(types.$project-font-code),
+  "alt": font.cap-height(types.$project-font-alt),
+);

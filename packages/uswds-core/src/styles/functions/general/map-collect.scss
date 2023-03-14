@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
+
+@use "sass:map";
+
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map.merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+// @debug map-collect(
+//   (
+//     "foo": bar,
+//   ),
+//   (
+//     "baz": qux,
+//   )
+// );
