@@ -77,7 +77,9 @@
 // ($base, $variant, $variant-alt, $bg)
 // the mixin will pick IE11-compatible svgs named
 // [base]-[variant].svg based on the specified background-color
-
+//
+// @param {Map} - $icon-object - name, svg-height, svg-width, height, container-height, container-width, color, color-variant, color-hover, rotate, path, position-x, position-y
+// @param {String} - $contrast-bg - Color token
 @mixin add-color-icon($icon-object, $contrast-bg: "default") {
   $filename-base: map.get($icon-object, "name");
   $svg-height: map.get($icon-object, "svg-height");
@@ -124,6 +126,16 @@
     map.get($icon-object, "path"),
     $theme-image-path
   );
+  $position-y: if(
+    map.has-key($icon-object, "position-y"),
+    map.get($icon-object, "position-y"),
+    center
+  );
+  $position-x: if(
+    map.has-key($icon-object, "position-x"),
+    map.get($icon-object, "position-x"),
+    center
+  );
   $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
   $filename-ie11: if(
     $ie11-variant == "white",
@@ -131,12 +143,10 @@
     "usa-icons/#{$filename-base}.svg"
   );
 
-  $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
-    contain;
-  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / contain;
-
-  // Default background shorthand for browsers that don't support mask or supports.
-  background: $image-props;
+  background-image: url("#{$path}/#{$filename-ie11}");
+  background-repeat: no-repeat;
+  background-position: $position-x $position-y;
+  background-size: $width $height;
   display: inline-block;
   height: if($container-height, $container-height, $height);
   width: if($container-width, $container-width, $width);
@@ -148,7 +158,13 @@
   @supports (mask: url("")) {
     background: none;
     background-color: if($color == currentColor, $color, color($color));
-    mask: $mask-props;
+    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
+      linear-gradient(transparent, transparent);
+    mask-repeat: no-repeat;
+    mask-position: $position-x $position-y;
+    mask-size: $width $height;
+    mask-repeat: no-repeat;
+
     @if $color-hover {
       &:hover {
         background-color: color($color-hover);
