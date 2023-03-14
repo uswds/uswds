@@ -5,24 +5,24 @@ export default {
   argTypes: {
     defaultDate: {
       name: "Default Date (YYYY-MM-DD)",
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     rangeDate: {
       name: "Range Date (YYYY-MM-DD)",
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     restrictedDateStart: {
       name: "Restricted Date: Start (YYYY-MM-DD)",
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     restrictedDateEnd: {
       name: "Restricted Date: End (YYYY-MM-DD)",
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
-      options: ["none", "disabled", "aria-disabled"]
+      options: ["none", "disabled", "aria-disabled"],
     },
   },
 };
@@ -81,7 +81,7 @@ RestrictedDate.argTypes = {
 
 export const Disabled = Template.bind({});
 Disabled.argTypes = {
-  disabled_state:{
+  disabled_state: {
     defaultValue: "disabled",
   },
   defaultDate: {
@@ -100,7 +100,7 @@ Disabled.argTypes = {
 
 export const AriaDisabled = Template.bind({});
 AriaDisabled.argTypes = {
-  disabled_state:{
+  disabled_state: {
     defaultValue: "aria-disabled",
   },
   defaultDate: {

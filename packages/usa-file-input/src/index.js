@@ -462,7 +462,10 @@ const fileInput = behavior(
     teardown(root) {
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
-        fileInputTopElement.parentElement.replaceChild(fileInputEl, fileInputTopElement);
+        fileInputTopElement.parentElement.replaceChild(
+          fileInputEl,
+          fileInputTopElement
+        );
         // eslint-disable-next-line no-param-reassign
         fileInputEl.className = DROPZONE_CLASS;
       });
