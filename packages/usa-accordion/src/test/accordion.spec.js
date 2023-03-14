@@ -10,13 +10,13 @@ const CONTROLS = "aria-controls";
 const HIDDEN = "hidden";
 const MULTISELECTABLE = "data-allow-multiple";
 
-const accordionSelector = () => document.querySelector('.usa-accordion');
+const accordionSelector = () => document.querySelector(".usa-accordion");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "accordion", selector: accordionSelector }
+  { name: "accordion", selector: accordionSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Accordion behavior when initialized at ${name}`, () => {
     const { body } = document;
 
@@ -95,7 +95,7 @@ tests.forEach(({name, selector: containerSelector}) => {
         assert(target.getAttribute(HIDDEN) !== true);
       });
 
-      it('keeps multiple sections open with data-allow-multiple', () => {
+      it("keeps multiple sections open with data-allow-multiple", () => {
         root.setAttribute(MULTISELECTABLE, "");
 
         const second = buttons[1];

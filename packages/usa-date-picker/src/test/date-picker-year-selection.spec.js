@@ -8,13 +8,13 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker.template.html")
 );
 
-const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const datePickerSelector = () => document.querySelector(".usa-date-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date picker", selector: datePickerSelector }
+  { name: "date picker", selector: datePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date picker component year selection initialized at ${name}`, () => {
     const { body } = document;
 
@@ -24,7 +24,7 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${  query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
       );
 
     beforeEach(() => {
@@ -48,7 +48,8 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should show year of 2020 as focused", () => {
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2020",
         "focuses correct year"
       );
@@ -56,7 +57,8 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should show year of 2020 as selected", () => {
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--selected").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--selected").dataset
+          .value,
         "2020",
         "selects correct year"
       );
@@ -66,7 +68,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowUp();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2017",
         "focuses correct year"
       );
@@ -76,7 +79,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowDown();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2023",
         "focuses correct year"
       );
@@ -86,7 +90,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowLeft();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2019",
         "focuses correct year"
       );
@@ -96,7 +101,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowRight();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2021",
         "focuses correct year"
       );
@@ -106,7 +112,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownHome();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2019",
         "focuses correct year"
       );
@@ -116,7 +123,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownEnd();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2021",
         "focuses correct year"
       );
@@ -126,7 +134,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownPageUp();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2008",
         "focuses correct year"
       );
@@ -136,7 +145,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownPageDown();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2032",
         "focuses correct year"
       );
@@ -150,7 +160,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       );
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset.value,
+        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
+          .value,
         "2022",
         "focuses correct year"
       );

@@ -6,11 +6,11 @@ export default {
   title: "Components/Form Inputs/Checkbox",
   argTypes: {
     aria_disabled: {
-      control: {type: 'boolean'},
+      control: { type: "boolean" },
       defaultValue: false,
       name: "aria-disabled",
-    }
-  }
+    },
+  },
 };
 
 const Template = (args) => Component(args);
@@ -24,4 +24,4 @@ Test.argTypes = {
   aria_disabled: {
     table: { disable: true },
   },
-}
+};

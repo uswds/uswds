@@ -9,22 +9,20 @@ $icon-object: (
   "height": $external-link-size,
   "svg-height": 24,
   "svg-width": 24,
+  "position-x": center,
+  "position-y": center,
 );
 
 @mixin external-link($contrast-bg: "default") {
-  display: inline-block;
-  padding-right: $external-link-size;
-  position: relative;
+  display: inline;
 
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);
-    background-position: center;
     content: "";
-    // Use following inline styling to prevent icon splitting over line breaks
-    display: inline-block;
-    height: $external-link-size;
-    margin-left: units(2px);
+    display: inline;
     margin-top: 0.7ex;
-    position: absolute;
+    margin-left: 2px;
+    padding-left: 1.75ex;
+    vertical-align: middle;
   }
 }

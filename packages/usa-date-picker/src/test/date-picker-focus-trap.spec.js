@@ -8,19 +8,18 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker.template.html")
 );
 
-const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const datePickerSelector = () => document.querySelector(".usa-date-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date picker", selector: datePickerSelector }
+  { name: "date picker", selector: datePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date picker component focus trap initialized at ${name}`, () => {
     const { body } = document;
 
     let root;
     let button;
-
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
