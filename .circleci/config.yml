@@ -13,7 +13,7 @@ references:
   restore_deps: &restore_deps
     restore_cache:
       keys:
-        - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+        - v2-uswds-dependencies-{{ checksum "npm-shrinkwrap.json" }}
 
 jobs:
   build:
@@ -25,12 +25,12 @@ jobs:
           command: sudo npm install -g codeclimate-test-reporter
       - restore_cache:
           keys:
-            - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+            - v2-uswds-dependencies-{{ checksum "npm-shrinkwrap.json" }}
       - run: npm install
       - save_cache:
           paths:
             - node_modules
-          key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+          key: v2-uswds-dependencies-{{ checksum "npm-shrinkwrap.json" }}
       - snyk/scan:
           organization: uswds
       - run:
@@ -53,7 +53,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+            - v2-uswds-dependencies-{{ checksum "npm-shrinkwrap.json" }}
       - run: npm install --ignore-scripts
       - run: npm rebuild node-sass
       - run:
