@@ -5,6 +5,7 @@ const sinon = require("sinon");
 const behavior = require("../index");
 
 const HIDE_MAX_WIDTH = 639;
+const OFFSET_PER_SECTION = 100;
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
   `${__dirname}/../../../../dist/css/uswds.min.css`
@@ -48,26 +49,64 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let theNav;
     let theList;
+    let originalOffsetTop;
 
     before(() => {
+      originalOffsetTop = Object.getOwnPropertyDescriptor(
+        HTMLElement.prototype,
+        "offsetTop"
+      );
+      Object.defineProperty(HTMLElement.prototype, "offsetTop", {
+        get() {
+          // Since JSDOM doesn't emulate positions, create a fake offset using
+          // the heading's index to be used to test scrolling behavior.
+          const heading = this.closest("h2,h3");
+
+          let index = 0;
+          let sibling = heading;
+          while (true) {
+            sibling = sibling.previousElementSibling;
+            if (sibling) {
+              index += 1;
+            } else {
+              break;
+            }
+          }
+
+          return index * OFFSET_PER_SECTION;
+        },
+      });
       const observe = sinon.spy();
       const mockIntersectionObserver = sinon.stub().returns({ observe });
       window.IntersectionObserver = mockIntersectionObserver;
+      sinon.stub(window, "scroll");
     });
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
 
+      behavior.on(containerSelector());
+
       theNav = document.querySelector(THE_NAV);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
 
       window.innerWidth = 1024;
-      behavior.on(containerSelector());
     });
 
     afterEach(() => {
+      sinon.resetHistory();
       behavior.off(containerSelector(body));
       body.innerHTML = "";
+      window.location.hash = "";
+    });
+
+    after(() => {
+      Object.defineProperty(
+        HTMLElement.prototype,
+        "offsetTop",
+        originalOffsetTop
+      );
+      sinon.restore();
     });
 
     it("defines a max width", () => {
@@ -83,6 +122,60 @@ tests.forEach(({ name, selector: containerSelector }) => {
       resizeTo(400);
       resizeTo(1024);
       assertHidden(theList, false);
+    });
+
+    it("assigns id to section headings", () => {
+      // Tests that new anchor children are created in the fixture template in
+      // the expected locations.
+      const ok = [
+        "h2 > .usa-anchor#section-1",
+        "h2 ~ h3 > .usa-anchor#section-1-1",
+        "h2 ~ h3 ~ h3 > .usa-anchor#section-1-2-2",
+        "h2 ~ h3 ~ h3 ~ h3 > .usa-anchor#section-1-3",
+      ].every((selector) => document.querySelector(selector));
+
+      assert(ok);
+    });
+
+    it("scrolls to section", () => {
+      const firstLink = theNav.querySelector("a[href='#section-1']");
+      firstLink.click();
+
+      assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
+    });
+
+    it("updates url when scrolling to section", () => {
+      // Activate by click
+      const firstLink = theNav.querySelector("a[href='#section-1']");
+      firstLink.click();
+
+      assert.equal(window.location.hash, "#section-1");
+
+      // Activate by Enter press
+      const secondLink = theNav.querySelector("a[href='#section-1-1']");
+      const event = new KeyboardEvent("keydown", {
+        bubbles: true,
+        key: "Enter",
+        keyCode: 13,
+      });
+      secondLink.dispatchEvent(event);
+
+      assert.equal(window.location.hash, "#section-1-1");
+    });
+
+    it("does not scroll to section on initialization", () => {
+      assert.equal(window.scroll.called, false);
+    });
+
+    context("with initial hash URL", () => {
+      before(() => {
+        sinon.stub(window, "location").value({ hash: undefined });
+        sinon.stub(window.location, "hash").get(() => "#section-1");
+      });
+
+      it("scrolls to section on initialization", () => {
+        assert(window.scroll.calledOnceWith(sinon.match({ top: 80 })));
+      });
     });
   });
 });
