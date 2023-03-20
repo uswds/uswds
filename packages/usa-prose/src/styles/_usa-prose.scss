@@ -21,7 +21,8 @@
     }
 
     * + * {
-      margin-top: $theme-paragraph-margin-top !important;
+      margin-top: $theme-paragraph-margin-top;
+      margin-bottom: 0;
     }
 
     * + {
@@ -31,7 +32,7 @@
       h4,
       h5,
       h6 {
-        margin-top: $theme-heading-margin-top !important;
+        margin-top: $theme-heading-margin-top;
       }
     }
 
@@ -73,11 +74,11 @@
       }
 
       * + * {
-        margin-top: $theme-paragraph-margin-top !important;
+        margin-top: $theme-paragraph-margin-top;
       }
 
       * + h1 {
-        margin-top: $theme-heading-margin-top !important;
+        margin-top: $theme-heading-margin-top;
       }
     }
   }
