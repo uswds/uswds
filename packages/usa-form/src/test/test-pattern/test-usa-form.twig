@@ -261,7 +261,7 @@
 </form>
 
 <form class="usa-form">
-  <label class="usa-label" for="options">Dropdown label</label>
+  <label class="usa-label" for="options">Select</label>
   <select
     class="usa-select"
     name="options"
@@ -276,9 +276,19 @@
   </select>
 </form>
 
+<label class="usa-label" for="input-type-text">Text input</label>
+<input
+  class="usa-input"
+  id="input-type-text"
+  name="input-type-text"
+  type="text"
+  {% if disabled_state == 'disabled' %} disabled
+  {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  >
+
 <div class="usa-form-group">
   <label class="usa-label" id="appointment-time-label" for="appointment-time"
-    >Appointment time</label
+    >Time picker</label
   >
   <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
   <div class="usa-time-picker">
@@ -293,25 +303,16 @@
   </div>
 </div>
 
-<label class="usa-label" for="input-type-text">Input</label>
-<input
-  class="usa-input"
-  id="input-type-text"
-  name="input-type-text"
-  type="text"
-  {% if disabled_state == 'disabled' %} disabled
-  {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-  >
-
 <button
   type="submit"
   class="usa-button margin-top-2"
   {% if disabled_state == 'disabled' %} disabled
   {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-  >Submit</button>
+  >Submit button</button>
+
 <button
   type="submit"
   class="usa-button usa-button--outline margin-top-2"
   {% if disabled_state == 'disabled' %} disabled
   {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-  >Submit</button>
+  >Submit button - outline</button>
