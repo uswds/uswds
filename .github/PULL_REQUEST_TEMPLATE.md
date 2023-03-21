@@ -39,12 +39,12 @@ _Indicate if this update is a breaking change with **one** of the following stat
 This is not a breaking change.
 :warning: This is potentially a breaking change.
 :warning: This is a breaking change.
-<!-- 
+<!--
 Breaking changes include:
   - Changes to the JavaScript API
   - Changes to markup or content in our components
   - Significant changes to the display of a component
-If applicable, explain what actions are required for the user to remediate the break. 
+If applicable, explain what actions are required for the user to remediate the break.
 -->
 
 ## Related issue
@@ -60,8 +60,18 @@ https://github.com/uswds/uswds/issues/new/choose.
 
 _Indicate if there are other pull requests necessary to complete this issue._
 
+
 <!--
-Some changes to the USWDS codebase require a change to the documentation site, and need a pull request in the uswds-site repo. This could include new or updated component documentation, new or updated settings documentation, or changelog entries. Add links to any related PRs in this section. If this change requires an update to the uswds-site repo, but that PR does yet exist, just make sure to note that here.
+Some changes to the USWDS codebase require a change to the documentation site,
+and need a pull request in the uswds-site repo.
+
+This could include:
+- New or updated component documentation
+- New or updated settings documentation, or
+- Changelog entries.
+
+Add links to any related PRs in this section. If this change requires an update
+to the uswds-site repo, but that PR does yet exist, just make sure to note that here.
 -->
 
 ## Preview link
