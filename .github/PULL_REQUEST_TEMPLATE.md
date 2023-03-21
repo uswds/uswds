@@ -59,19 +59,17 @@ https://github.com/uswds/uswds/issues/new/choose.
 ## Related pull requests
 
 _Indicate if there are other pull requests necessary to complete this issue._
-
-
 <!--
 Some changes to the USWDS codebase require a change to the documentation site,
-and need a pull request in the uswds-site repo.
+and need a pull request in the [uswds-site repo](https://github.com/uswds/uswds-site).
 
 This could include:
-- New or updated component documentation
+- New or updated component documentation,
 - New or updated settings documentation, or
 - Changelog entries.
 
 Add links to any related PRs in this section. If this change requires an update
-to the uswds-site repo, but that PR does yet exist, just make sure to note that here.
+to the uswds-site repo, but that PR does not yet exist, just make sure to note that here.
 -->
 
 ## Preview link
