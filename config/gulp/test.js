@@ -7,10 +7,6 @@ const mochaConfig = {
 
 gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha(mochaConfig)));
 
-gulp.task("regression", () =>
-  gulp.src("spec/headless-chrome.js").pipe(mocha(mochaConfig))
-);
-
 gulp.task("cover", () =>
   gulp.src("spec/unit/**/*.spec.js").pipe(
     mocha(
