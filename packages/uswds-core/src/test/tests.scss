@@ -628,31 +628,29 @@ $this-function: "color-token-variant()";
 
 // usa-prose
 @include describe(".usa-prose") {
-  @include it("Adds top margin to all elements after paragraphs") {
+  @include it("Adds top margin to prose children") {
     @include assert {
       @include output {
         @include prose-test;
       }
 
       @include expect {
-
-        .usa-prose>p{
-          line-height: 1.5;
-          max-width: 68ex;
-        }
-
-        .usa-prose>h1 {
-          margin-bottom: 0;
-          margin-top: 0;
-          clear: both;        
-        }
-
-        .usa-prose>*+* {
-          margin-top: 1em;
-        }
-
-        .usa-prose>*+h1 {
-          margin-top: 1.5em;
+        .usa-prose > {
+          * + * {
+            margin-top: 1em;
+          }
+          * + h1 {
+            margin-top: 1.5em;
+          }
+          h1 {
+            clear: both;
+            margin-bottom: 0;
+            margin-top: 0;
+          }
+          p {
+            line-height: 1.5;
+            max-width: 68ex;
+          }
         }
       }
     }

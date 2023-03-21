@@ -5,7 +5,7 @@
 
 @mixin usa-paragraph-style {
   p {
-    @include typeset-p
+    @include typeset-p;
   }
 }
 

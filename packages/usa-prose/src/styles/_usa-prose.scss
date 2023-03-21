@@ -36,7 +36,6 @@
       }
     }
 
-    
     // Replaces styles from usa-headings-styles
     h1 {
       @include h1;
@@ -62,7 +61,6 @@
 @mixin prose-test {
   .usa-prose {
     & > {
-
       p {
         @include typeset-p-base;
       }
