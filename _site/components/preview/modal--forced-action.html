@@ -1,0 +1,55 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    
+  <div class="grid-container padding-x-2 tablet-padding-x-4 padding-y-4">
+    
+
+<div class="margin-y-3">
+  <a href="#example-modal-3" class="usa-button" aria-controls="example-modal-3" data-open-modal>Open modal with forced action</a>
+  <div class="usa-modal " id="example-modal-3" aria-labelledby="modal-3-heading" aria-describedby="modal-3-description" data-force-action>
+    <div class="usa-modal__content">
+      <div class="usa-modal__main">
+        <h2 class="usa-modal__heading" id="modal-3-heading">
+          Your session will end soon.
+        </h2>
+        <div class="usa-prose">
+          <p id="modal-3-description">You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes.</p>
+        </div>
+        <div class="usa-modal__footer">
+          <ul class="usa-button-group">
+            <li class="usa-button-group__item">
+                <button type="button" class="usa-button" data-close-modal>Yes, stay signed in</button>
+              </li>
+            <li class="usa-button-group__item">
+                <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Sign out</button>
+              </li>
+            </ul>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+

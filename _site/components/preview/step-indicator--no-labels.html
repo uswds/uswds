@@ -1,0 +1,57 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Content: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    
+  <div class="grid-container usa-prose padding-y-4">
+    <div class="usa-step-indicator usa-step-indicator--no-labels" aria-label="progress">
+  <ol class="usa-step-indicator__segments">
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+      <span class="usa-step-indicator__segment-label">Personal information <span class="usa-sr-only">completed</span></span>
+    </li>
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+      <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
+    </li>
+    <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+      <span class="usa-step-indicator__segment-label">Supporting documents </span>
+    </li>
+    <li class="usa-step-indicator__segment">
+      <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
+    </li>
+    <li class="usa-step-indicator__segment">
+      <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
+    </li>
+  </ol>
+  <div class="usa-step-indicator__header">
+    <h4 class="usa-step-indicator__heading">
+      <span class="usa-step-indicator__heading-counter">
+        <span class="usa-sr-only">Step</span>
+        <span class="usa-step-indicator__current-step">3</span>
+        <span class="usa-step-indicator__total-steps">of 5</span>
+      </span>
+      <span class="usa-step-indicator__heading-text">Supporting documents</span>
+    </h4>
+  </div>
+</div>
+
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+
