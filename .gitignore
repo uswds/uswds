@@ -32,5 +32,4 @@ spec/screenshots/metadata.js
 sassdoc/
 
 # ignore gulp-generated svg-sprite
-src/img/sprite.svg
 src/img/symbol
