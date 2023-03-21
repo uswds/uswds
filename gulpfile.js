@@ -7,7 +7,6 @@ require("./config/gulp/fonts");
 require("./config/gulp/svg-sprite");
 require("./config/gulp/build");
 require("./config/gulp/release");
-require("./config/gulp/test");
 
 const gulp = require("gulp");
 const dutil = require("./config/gulp/doc-util");
@@ -23,11 +22,6 @@ gulp.task("default", (done) => {
   dutil.logHelp(
     "gulp no-cleanup [ task-name ]",
     "Prefixing tasks with `no-cleanup ` will not remove the distribution directories."
-  );
-
-  dutil.logHelp(
-    "gulp no-test [ task-name ]",
-    "Prefixing tasks with `no-test` will disable testing and linting for all supported tasks."
   );
 
   dutil.logCommand(
@@ -63,11 +57,6 @@ gulp.task("default", (done) => {
   dutil.logCommand(
     "gulp release",
     "This task will run `gulp build` and prepare a release directory."
-  );
-
-  dutil.logCommand(
-    "gulp test",
-    "This task will run `gulp test` and run this repository's unit tests."
   );
 
   dutil.logCommand(
