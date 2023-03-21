@@ -39,4 +39,8 @@ AriaDisabled.args = {
 };
 
 export const StateShowcase = ShowcaseTemplate.bind({});
-StateShowcase.args = {};
+StateShowcase.argTypes = {
+  state: {
+    table: { disable: true },
+  },
+};
