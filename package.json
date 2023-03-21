@@ -54,19 +54,14 @@
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
-    "start": "npm run build && fractal start --sync & npm run watch",
+    "start": "npm run build",
     "test": "snyk test && eslint && gulp typecheck && gulp stylelint && gulp test && npm run test:sass",
     "test:ci": "eslint && gulp typecheck && gulp stylelint && gulp test",
     "test:sass": "mocha spec/unit/sass/sass-spec.js",
     "test:unit": "gulp test",
     "version": "gulp build release",
-    "watch": "NODE_ENV=development nswatch",
     "prettier:scss": "npx prettier --write ./src/stylesheets/**/*.scss",
     "prettier:templates": "npx prettier --write './_site/components/render/*.html'"
-  },
-  "watch": {
-    "src/stylesheets/**/*.scss": "build:css",
-    "src/js/**/*.js": "build:js"
   },
   "repository": {
     "type": "git",
@@ -138,7 +133,6 @@
     "mq-polyfill": "1.1.8",
     "node-notifier": "10.0.1",
     "normalize.css": "8.0.1",
-    "nswatch": "0.2.0",
     "nyc": "15.1.0",
     "postcss": "8.4.14",
     "postcss-csso": "6.0.0",
