@@ -1,0 +1,85 @@
+{% set close_icon %}
+  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="./img/sprite.svg#{{ close_button.icon_type | default("close") }}"></use>
+  </svg>
+{% endset %}
+
+<div class="margin-y-3">
+  <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal>Open modal 1</a>
+  <div class="usa-modal {{ modifier }}" id="example-modal-1" aria-labelledby="modal-1-heading" aria-describedby="modal-1-description"{% if forced %} data-force-action{% endif -%}>
+    <div class="usa-modal__content">
+      <div class="usa-modal__main">
+        {% if header.text -%}
+        <h2 class="usa-modal__heading" id="modal-1-heading">
+          {{ header.text }}
+        </h2>
+        {% endif -%}
+        {% if description.text -%}
+        <div class="usa-prose">
+          <p id="modal-1-description">Modal 1 description</p>
+        </div>
+        {% endif -%}
+        {% if footer -%}
+        <div class="usa-modal__footer">
+          <ul class="usa-button-group">
+            {% for action in footer -%}
+              <li class="usa-button-group__item">
+                <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
+              </li>
+            {% endfor -%}
+          </ul>
+        </div>
+        {%- endif %}
+      </div>
+      {% if not forced -%}
+      <button type="button" class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
+        {% if close_button.text -%}
+          {{ close_button.text }}
+        {% else -%}
+          {{ close_icon | raw }}
+        {% endif -%}
+      </button>
+      {% endif -%}
+    </div>
+  </div>
+</div>
+
+<div class="margin-y-3">
+  <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal>Open modal 2</a>
+  <div class="usa-modal {{ modifier }}" id="example-modal-2" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description"{% if forced %} data-force-action{% endif -%}>
+    <div class="usa-modal__content">
+      <div class="usa-modal__main">
+        {% if header.text -%}
+        <h2 class="usa-modal__heading" id="modal-2-heading">
+          {{ header.text }}
+        </h2>
+        {% endif -%}
+        {% if description.text -%}
+        <div class="usa-prose">
+          <p id="modal-2-description">Modal 2 description</p>
+        </div>
+        {% endif -%}
+        {% if footer -%}
+        <div class="usa-modal__footer">
+          <ul class="usa-button-group">
+            {% for action in footer -%}
+              <li class="usa-button-group__item">
+                <button type="button" class="{{ action.class | default("usa-button") }}" data-close-modal>{{ action.text }}</button>
+              </li>
+            {% endfor -%}
+          </ul>
+        </div>
+        {%- endif %}
+      </div>
+      {% if not forced -%}
+      <button type="button" class="usa-button usa-modal__close" aria-label="{{ close_button.aria_label }}" data-close-modal>
+        {% if close_button.text -%}
+          {{ close_button.text }}
+        {% else -%}
+          {{ close_icon | raw }}
+        {% endif -%}
+      </button>
+      {% endif -%}
+    </div>
+  </div>
+</div>

@@ -268,47 +268,50 @@ const cleanUpModal = (baseComponent) => {
 
 modal = {
   init(root) {
-    selectOrMatches(MODAL, root).forEach((modalWindow) => {
-      const modalId = modalWindow.id;
-      setUpModal(modalWindow);
+    // if (!document.querySelector(".usa-modal-wrapper")) {
+    if (!document.querySelector(`.${WRAPPER_CLASSNAME}`)) {
+      selectOrMatches(MODAL, root).forEach((modalWindow) => {
+        const modalId = modalWindow.id;
+        setUpModal(modalWindow);
 
-      // this will query all openers and closers including the overlay
-      document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
-        // Turn anchor links into buttons because of
-        // VoiceOver on Safari
-        if (item.nodeName === "A") {
-          item.setAttribute("role", "button");
-          item.addEventListener("click", (e) => e.preventDefault());
-        }
+        // this will query all openers and closers including the overlay
+        document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
+          // Turn anchor links into buttons because of
+          // VoiceOver on Safari
+          if (item.nodeName === "A") {
+            item.setAttribute("role", "button");
+            item.addEventListener("click", (e) => e.preventDefault());
+          }
 
-        // Can uncomment when aria-haspopup="dialog" is supported
-        // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
-        // Most screen readers support aria-haspopup, but might announce
-        // as opening a menu if "dialog" is not supported.
-        // item.setAttribute("aria-haspopup", "dialog");
+          // Can uncomment when aria-haspopup="dialog" is supported
+          // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+          // Most screen readers support aria-haspopup, but might announce
+          // as opening a menu if "dialog" is not supported.
+          // item.setAttribute("aria-haspopup", "dialog");
 
-        item.addEventListener("click", toggleModal);
+          item.addEventListener("click", toggleModal);
+        });
       });
-    });
+    } 
   },
   teardown(root) {
-    selectOrMatches(MODAL, root).forEach((modalWindow) => {
-      cleanUpModal(modalWindow);
-      const modalId = modalWindow.id;
+    if (document.querySelector(`.${WRAPPER_CLASSNAME}`)) {
+      selectOrMatches(MODAL, root).forEach((modalWindow) => {
+        cleanUpModal(modalWindow);
+        const modalId = modalWindow.id;
 
-      document.querySelectorAll(`[aria-controls="${modalId}"]`)
-        .forEach((item) => item.removeEventListener("click", toggleModal));
-    });
+        document.querySelectorAll(`[aria-controls="${modalId}"]`)
+          .forEach((item) => item.removeEventListener("click", toggleModal));
+      });
+    }
   },
   focusTrap: null,
   toggleModal,
   on(root) {
-    if (!document.querySelector(".usa-modal-wrapper"))
-      this.init(root);
+    this.init(root);
   },
   off(root) {
-    if (document.querySelector(".usa-modal-wrapper"))
-      this.teardown(root);
+    this.teardown(root);
   }
 };
 
