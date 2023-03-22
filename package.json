@@ -43,7 +43,7 @@
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
     "federalist": "npm install && gulp build",
-    "lint": "eslint src/js/**/*.js spec/**/*.js",
+    "lint": "eslint src/js/**/*.js",
     "prepare": "gulp build",
     "release": "gulp release",
     "start": "npm run build",
