@@ -268,7 +268,6 @@ const cleanUpModal = (baseComponent) => {
 
 modal = {
   init(root) {
-    // if (!document.querySelector(".usa-modal-wrapper")) {
     if (!document.querySelector(`.${WRAPPER_CLASSNAME}`)) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
