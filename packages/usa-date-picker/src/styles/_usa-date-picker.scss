@@ -458,7 +458,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      border: $border-high-contrast;
+      border: $theme-high-contrast-border;
       background-color: transparent;
     }
   }
@@ -472,7 +472,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      border: $border-high-contrast;
+      border: $theme-high-contrast-border;
       background-color: transparent;
     }
   }

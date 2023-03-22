@@ -22,7 +22,7 @@
   cursor: pointer;
 
   @media (forced-colors: active) {
-    border: $border-high-contrast;
+    outline: $theme-high-contrast-border;
   }
 }
 

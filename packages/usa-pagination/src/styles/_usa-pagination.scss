@@ -133,7 +133,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
     border-color: color($pagination-hover-token);
 
     @media (forced-colors: active) {
-      border: $border-high-contrast;
+      border: $theme-high-contrast-border;
     }
   }
 }
@@ -149,7 +149,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   color: color($text-color);
 
   @media (forced-colors: active) {
-    border: $border-high-contrast;
+    border: $theme-high-contrast-border;
     color: buttonText;
   }
 
