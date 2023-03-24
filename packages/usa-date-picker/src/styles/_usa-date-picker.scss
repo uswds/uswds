@@ -223,6 +223,10 @@ $navigate_far_next: map-merge(
   @media (forced-colors: active) {
     @include add-color-icon($navigate_far_before);
     background-color: buttonText;
+
+    &:hover {
+      background-color: highlight;
+    }
   }
 }
 
@@ -232,6 +236,10 @@ $navigate_far_next: map-merge(
   @media (forced-colors: active) {
     @include add-color-icon($navigate_before);
     background-color: buttonText;
+
+    &:hover {
+      background-color: highlight;
+    }
   }
 }
 
@@ -241,6 +249,10 @@ $navigate_far_next: map-merge(
   @media (forced-colors: active) {
     @include add-color-icon($navigate_far_next);
     background-color: buttonText;
+
+    &:hover {
+      background-color: highlight;
+    }
   }
 }
 
@@ -250,6 +262,10 @@ $navigate_far_next: map-merge(
   @media (forced-colors: active) {
     @include add-color-icon($navigate_next);
     background-color: buttonText;
+
+    &:hover {
+      background-color: highlight;
+    }
   }
 }
 
