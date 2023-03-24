@@ -636,20 +636,20 @@ $this-function: "color-token-variant()";
 
       @include expect {
         .usa-prose > {
+          p {
+            line-height: 1.5;
+            max-width: 68ex;
+          }
+          h1 {
+            margin-bottom: 0;
+            margin-top: 0;
+            clear: both;
+          }
           * + * {
             margin-top: 1em;
           }
           * + h1 {
             margin-top: 1.5em;
-          }
-          h1 {
-            clear: both;
-            margin-bottom: 0;
-            margin-top: 0;
-          }
-          p {
-            line-height: 1.5;
-            max-width: 68ex;
           }
         }
       }
