@@ -1,6 +1,7 @@
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
 const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+const behavior = require("../../uswds-core/src/js/utils/behavior");
 
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
@@ -278,51 +279,53 @@ const cleanUpModal = (baseComponent) => {
   modalWrapper.parentElement.removeChild(modalWrapper);
 };
 
-modal = {
-  init(root) {
-    selectOrMatches(MODAL, root).forEach((modalWindow) => {
-      const modalId = modalWindow.id;
-      setUpModal(modalWindow);
+modal = behavior(
+  {},
+  {
+    init(root) {
+        selectOrMatches(MODAL, root).forEach((modalWindow) => {
+          const modalId = modalWindow.id;
+          setUpModal(modalWindow);
 
-      // this will query all openers and closers including the overlay
-      document
-        .querySelectorAll(`[aria-controls="${modalId}"]`)
-        .forEach((item) => {
-          // Turn anchor links into buttons because of
-          // VoiceOver on Safari
-          if (item.nodeName === "A") {
-            item.setAttribute("role", "button");
-            item.addEventListener("click", (e) => e.preventDefault());
-          }
+          // this will query all openers and closers including the overlay
+          document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
+            // Turn anchor links into buttons because of
+            // VoiceOver on Safari
+            if (item.nodeName === "A") {
+              item.setAttribute("role", "button");
+              item.addEventListener("click", (e) => e.preventDefault());
+            }
 
-          // Can uncomment when aria-haspopup="dialog" is supported
-          // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
-          // Most screen readers support aria-haspopup, but might announce
-          // as opening a menu if "dialog" is not supported.
-          // item.setAttribute("aria-haspopup", "dialog");
+            // Can uncomment when aria-haspopup="dialog" is supported
+            // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+            // Most screen readers support aria-haspopup, but might announce
+            // as opening a menu if "dialog" is not supported.
+            // item.setAttribute("aria-haspopup", "dialog");
 
-          item.addEventListener("click", toggleModal);
+            item.addEventListener("click", toggleModal);
+          });
         });
-    });
-  },
-  teardown(root) {
-    selectOrMatches(MODAL, root).forEach((modalWindow) => {
-      cleanUpModal(modalWindow);
-      const modalId = modalWindow.id;
+    },
+    teardown(root) {
+      if (document.querySelector(`.${WRAPPER_CLASSNAME}`)) {
+        selectOrMatches(MODAL, root).forEach((modalWindow) => {
+          cleanUpModal(modalWindow);
+          const modalId = modalWindow.id;
 
-      document
-        .querySelectorAll(`[aria-controls="${modalId}"]`)
-        .forEach((item) => item.removeEventListener("click", toggleModal));
-    });
-  },
-  focusTrap: null,
-  toggleModal,
-  on(root) {
-    this.init(root);
-  },
-  off(root) {
-    this.teardown(root);
-  },
-};
+          document.querySelectorAll(`[aria-controls="${modalId}"]`)
+            .forEach((item) => item.removeEventListener("click", toggleModal));
+        });
+      }
+    },
+    focusTrap: null,
+    toggleModal,
+    on(root) {
+      this.init(root);
+    },
+    off(root) {
+      this.teardown(root);
+    }
+  }
+);
 
 module.exports = modal;
