@@ -285,7 +285,9 @@ modal = behavior(
     init(root) {
         selectOrMatches(MODAL, root).forEach((modalWindow) => {
           const modalId = modalWindow.id;
-          setUpModal(modalWindow);
+          if (modalId) {
+            setUpModal(modalWindow);
+          }
 
           // this will query all openers and closers including the overlay
           document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
