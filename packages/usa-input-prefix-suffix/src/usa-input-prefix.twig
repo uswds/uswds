@@ -16,6 +16,7 @@
       {% if disabled_state == "aria-disabled"%} aria-disabled="true"{%- endif %}>
   </div>
 
+  {# Error state #}
   {% if not (disabled_state == "disabled" or disabled_state == "aria-disabled") %}
   <label class="usa-label" for="example-input-prefix-error">Credit card number (Error)</label>
   <div class="usa-input-group usa-input-group--error">
@@ -30,8 +31,6 @@
       class="usa-input"
       pattern="[0-9]*"
       inputmode="numeric"
-      {% if disabled_state == "disabled"%} disabled{%- endif %}
-      {% if disabled_state == "aria-disabled"%} aria-disabled="true"{%- endif %}>
   </div>
   {% endif %}
 </form>
