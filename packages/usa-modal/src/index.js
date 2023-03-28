@@ -309,24 +309,16 @@ modal = behavior(
         });
     },
     teardown(root) {
-      if (document.querySelector(`.${WRAPPER_CLASSNAME}`)) {
-        selectOrMatches(MODAL, root).forEach((modalWindow) => {
-          cleanUpModal(modalWindow);
-          const modalId = modalWindow.id;
+      selectOrMatches(MODAL, root).forEach((modalWindow) => {
+        cleanUpModal(modalWindow);
+        const modalId = modalWindow.id;
 
-          document.querySelectorAll(`[aria-controls="${modalId}"]`)
-            .forEach((item) => item.removeEventListener("click", toggleModal));
-        });
-      }
+        document.querySelectorAll(`[aria-controls="${modalId}"]`)
+          .forEach((item) => item.removeEventListener("click", toggleModal));
+      });
     },
     focusTrap: null,
     toggleModal,
-    on(root) {
-      this.init(root);
-    },
-    off(root) {
-      this.teardown(root);
-    }
   }
 );
 
