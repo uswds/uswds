@@ -22,6 +22,8 @@ export default {
     },
     is_demo: {
       name: "Show all button states",
+      defaultValue: true,
+      type: "boolean"
     },
     type: {
       defaultValue: "button",
