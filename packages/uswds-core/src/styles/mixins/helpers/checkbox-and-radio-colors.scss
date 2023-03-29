@@ -53,7 +53,7 @@
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
 
       @media (forced-colors: active) {
-        outline: 2px solid transparent;
+        outline: $theme-high-contrast-border;
         outline-offset: 2px;
       }
     }

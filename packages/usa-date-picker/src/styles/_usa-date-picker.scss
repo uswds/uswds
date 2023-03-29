@@ -200,6 +200,13 @@ $navigate_far_next: map-merge(
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media (forced-colors: active) {
+    &:not([disabled]):hover {
+      outline: $theme-high-contrast-border;
+      outline-offset: -2px;
+    }
+  }
 }
 
 // Date Picker - Date Selection View
@@ -459,7 +466,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      border: $theme-high-contrast-border;
       background-color: transparent;
     }
   }
@@ -473,7 +480,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      border: $theme-high-contrast-border;
       background-color: transparent;
     }
   }
