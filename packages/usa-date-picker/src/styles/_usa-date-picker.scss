@@ -202,7 +202,7 @@ $navigate_far_next: map-merge(
   
   @media (forced-colors: active) {
     &:not([disabled]):hover {
-      outline: $theme-high-contrast-border;
+      outline: $border-high-contrast;
       outline-offset: -2px;
     }
   }
@@ -465,7 +465,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      border: $theme-high-contrast-border;
+      border: $border-high-contrast;
       background-color: transparent;
     }
   }
@@ -479,7 +479,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      border: $theme-high-contrast-border;
+      border: $border-high-contrast;
       background-color: transparent;
     }
   }
