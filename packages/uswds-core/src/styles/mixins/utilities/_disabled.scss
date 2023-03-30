@@ -12,9 +12,7 @@
   opacity: 1; // Override disabled default opacity shift (Necessary for Chromium, iOS Safari)
 
   &:hover,
-  &.usa-button--hover,
   &:active,
-  &.usa-button--active,
   &:focus,
   &.usa-focus {
     background-color: color($bg-color);

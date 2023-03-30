@@ -4,4 +4,9 @@
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
   @include u-disabled;
+
+  &.usa-button--hover,
+  &.usa-button--active {
+    @include u-disabled;
+  }
 }
