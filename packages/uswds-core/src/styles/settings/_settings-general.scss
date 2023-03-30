@@ -113,14 +113,3 @@ Icons
 
 $theme-icon-image-size: 2 !default;
 
-/*
-----------------------------------------
-High contrast mode
-----------------------------------------
-Overrides system settings set by Windows high contrast mode or other forced-colors modes.
-
-High contrast modes are activated via the user's device settings or browser's emulating forced-colors mode.
-----------------------------------------
-*/
-
-$theme-high-contrast-border: 2px solid transparent;
