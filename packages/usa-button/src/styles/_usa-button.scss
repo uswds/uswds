@@ -53,7 +53,9 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 
   @media (forced-colors: active) {
-    &:not(.usa-button--unstyled) {
+    &:not(.usa-button--unstyled),
+    &:not([disabled]),
+    &:not([aria-disabled="true"]) {
       border: $border-high-contrast;
     }
   }
@@ -212,6 +214,10 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--inverse {
     box-shadow: $button-stroke color($theme-color-disabled-text-reverse);
     color: color($theme-color-disabled-text-reverse);
+
+    @media (forced-colors: active) {
+      color: color(GrayText);
+    }
   }
 }
 

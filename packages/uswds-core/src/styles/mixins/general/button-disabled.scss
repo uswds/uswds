@@ -13,4 +13,10 @@
     background-color: color("disabled");
     box-shadow: none;
   }
+
+  @media (forced-colors: active) {
+    &:not(.usa-button--unstyled) {
+      @include u-disabled-high-contrast-border;
+    }
+  }
 }
