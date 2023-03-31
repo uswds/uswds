@@ -6,7 +6,11 @@
   @include u-disabled;
 
   &.usa-button--hover,
-  &.usa-button--active {
-    @include u-disabled;
+  &:active,
+  &.usa-button--active,
+  &:focus,
+  &.usa-focus {
+    background-color: color("disabled");
+    box-shadow: none;
   }
 }

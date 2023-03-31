@@ -3,7 +3,7 @@
 
 @use "../../functions" as *;
 @use "../../settings" as *;
-@use "../../variables" as *;
+@use "../../variables/border-high-contrast" as *;
 @use "../general/add-background-svg" as *;
 @use "format-input" as *;
 @use "format-label" as *;
