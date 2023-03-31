@@ -1,5 +1,6 @@
 @use "../../functions/utilities/color" as *;
 @use "../../settings" as *;
+@use "../../variables/border-high-contrast" as *;
 // Overrides background-color and cursor styles of elements to display as disabled
 
 @mixin u-disabled(
@@ -17,5 +18,22 @@
   &.usa-focus {
     background-color: color($bg-color);
     color: color($text-color);
+  }
+
+  @media (forced-colors: active) {
+    color: color(GrayText);
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.usa-focus {
+      color: color(GrayText);
+    }
+  }
+}
+
+@mixin u-disabled-high-contrast-border {
+  @media (forced-colors: active) {
+    border: $border-high-contrast-disabled;
   }
 }
