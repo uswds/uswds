@@ -136,6 +136,9 @@
       &:checked[aria-disabled="true"] {
         @include format-input {
           background-color: $color-input-disabled;
+          @media (forced-colors: active) {
+            background-color: color(GrayText);
+          }
         }
       }
     }
@@ -149,10 +152,6 @@
               color($input-active-color),
             inset 0 0 0 units($theme-input-select-border-width)
               color($input-bg-color);
-
-          @media (forced-colors: active) {
-            background-color: ButtonText;
-          }
         }
       }
       &:checked:disabled,
@@ -161,6 +160,10 @@
           background-color: $color-input-disabled;
           box-shadow: 0 0 0 2px $color-input-disabled,
             inset 0 0 0 2px color($input-bg-color);
+
+            @media (forced-colors: active) {
+              background-color: color(GrayText);
+            }
         }
       }
     }
