@@ -28,6 +28,7 @@ const VIDEO_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--video`;
 const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const SR_ONLY_CLASS = `${PREFIX}-sr-onlyy`;
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
@@ -121,7 +122,9 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
-  let defaultAriaLabel;
+  const fileInputStatusEl = document.createElement("div");
+  const inputItems = "files";
+  let inputItem = "file";
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -131,8 +134,6 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
-  // Encourage screenreader to read out aria changes immediately following upload status change
-  fileInputEl.setAttribute("aria-live", "polite");
 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
@@ -147,18 +148,17 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // Sets instruction test and aria-label based on whether or not multiple files are accepted
+  // Create text content
   if (acceptsMultiple) {
-    defaultAriaLabel = "No files selected";
-    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag files here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
-    fileInputEl.setAttribute("aria-label", defaultAriaLabel);
-    fileInputEl.setAttribute("data-default-aria-label", defaultAriaLabel);
-  } else {
-    defaultAriaLabel = "No file selected";
-    instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">Drag file here or </span><span class="${CHOOSE_CLASS}">choose from folder</span>`;
-    fileInputEl.setAttribute("aria-label", defaultAriaLabel);
-    fileInputEl.setAttribute("data-default-aria-label", defaultAriaLabel);
+    inputItem = inputItems;
   }
+
+  const dragText = `Drag ${inputItem} here or `;
+  const chooseText = "choose from folder";
+  const defaultStatus = `No ${inputItem} selected.`;
+
+  // Create text content
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
@@ -168,7 +168,15 @@ const buildFileInput = (fileInputEl) => {
     fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
   }
 
-  return { instructions, dropTarget };
+  // Create status message element
+  // Set default status message
+  fileInputStatusEl.classList.add(SR_ONLY_CLASS);
+  fileInputStatusEl.setAttribute("aria-live", "polite");
+  fileInputStatusEl.textContent = defaultStatus;
+  fileInputParent.appendChild(fileInputStatusEl);
+  console.log(fileInputStatusEl);
+
+  return { instructions, dropTarget, defaultStatus, fileInputParent, fileInputStatusEl };
 };
 
 /**
