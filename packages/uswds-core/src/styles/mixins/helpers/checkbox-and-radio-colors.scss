@@ -152,6 +152,10 @@
               color($input-active-color),
             inset 0 0 0 units($theme-input-select-border-width)
               color($input-bg-color);
+
+          @media (forced-colors: active) {
+            background-color: ButtonText;
+          }
         }
       }
       &:checked:disabled,
