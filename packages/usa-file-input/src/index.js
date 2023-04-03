@@ -158,7 +158,7 @@ const buildFileInput = (fileInputEl) => {
   const defaultStatus = `No ${inputItem} selected.`;
   const instructionText = `${dragText}${chooseText}`;
 
-    // Create text content
+  // Create text content
   fileInputEl.setAttribute("aria-label", instructionText);
   fileInputEl.setAttribute("data-default-aria-label", instructionText);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
