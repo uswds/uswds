@@ -171,9 +171,9 @@ const buildFileInput = (fileInputEl) => {
   // Set default status message
   fileInputStatusEl.classList.add(SR_ONLY_CLASS);
   fileInputStatusEl.setAttribute("aria-live", "polite");
+  fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
   fileInputStatusEl.textContent = defaultStatus;
   fileInputParent.appendChild(fileInputStatusEl);
-  console.log(fileInputStatusEl);
 
   return { instructions, dropTarget, defaultStatus, fileInputParent };
 };
@@ -183,15 +183,16 @@ const buildFileInput = (fileInputEl) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
-const removeOldPreviews = (dropTarget, instructions, inputAriaLabel) => {
+const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
-  const fileInputElement = dropTarget.querySelector(INPUT);
   const currentPreviewHeading = dropTarget.querySelector(
     `.${PREVIEW_HEADING_CLASS}`
   );
   const currentErrorMessage = dropTarget.querySelector(
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
+  const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
+  const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
 
   /**
    * finds the parent of the passed node and removes the child
@@ -217,7 +218,7 @@ const removeOldPreviews = (dropTarget, instructions, inputAriaLabel) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    fileInputElement.setAttribute("aria-label", inputAriaLabel);
+    statusElement.textContent = (statusMessage);
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
 };
@@ -234,12 +235,13 @@ const removeOldPreviews = (dropTarget, instructions, inputAriaLabel) => {
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
-  const inputAriaLabel = fileInputEl.dataset.defaultAriaLabel;
-  const statusElement = document.querySelector(`.${SR_ONLY_CLASS}`);
+  const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
+  const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
+  const statusMessage = statusElement.dataset.defaultStatusMessage;
   const fileStore = [];
 
   // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions, inputAriaLabel);
+  removeOldPreviews(dropTarget, instructions, statusMessage);
 
   // Then, iterate through files list and:
   // 1. Add selected file list names to aria-label
@@ -253,9 +255,9 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
-      statusElement.textContent = `You have selected the ${inputItem}: ${fileName}`;
+      statusElement.textContent = `You have selected the file: ${fileName}`;
     } else if (i >= 1) {
-      statusElement.textContent = `You have selected ${fileNames.length} ${inputItems}: ${fileStore.join(", ")}`;
+      statusElement.textContent = `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`;
     }
 
     // Starts with a loading image while preview is created
