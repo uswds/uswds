@@ -17,6 +17,11 @@
   i {
     visibility: hidden;
   }
+
+  @media (forced-colors: active) {
+    border: none;
+    color: color(GrayText);
+  }
 }
 
 .usa-masked,
