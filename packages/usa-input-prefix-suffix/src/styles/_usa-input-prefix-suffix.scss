@@ -38,9 +38,24 @@ $icon-offset: $icon-width + ($input-padding * 2);
     min-width: 0;
     width: 100%;
 
-    &:disabled + .usa-input-suffix,
-    &[aria-disabled="true"] + .usa-input-suffix {
-      @include u-disabled;
+    &:disabled,
+    &[aria-disabled="true"] {
+      & + .usa-input-suffix {
+        @include u-disabled
+      }
+
+      @media (forced-colors: active) {  
+        // Override border from disabled input
+        border: 0;
+      }
+    }
+  }
+
+  @media (forced-colors: active) {
+    // If input is disabled, set usa-input-group border
+    &:has(input:disabled),
+    &:has(input[aria-disabled="true"]) {
+      @include u-disabled-high-contrast-border;      
     }
   }
 }
