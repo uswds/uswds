@@ -29,6 +29,7 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
+
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -157,9 +158,10 @@ const buildFileInput = (fileInputEl) => {
   const defaultStatus = `No ${inputItem} selected.`;
   const instructionText = `${dragText}${chooseText}`;
 
-  // Create text content
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+    // Create text content
   fileInputEl.setAttribute("aria-label", instructionText);
+  fileInputEl.setAttribute("data-default-aria-label", instructionText);
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
   // Create status message element
   fileInputStatusEl.classList.add(SR_ONLY_CLASS);
@@ -193,6 +195,8 @@ const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
   const currentErrorMessage = dropTarget.querySelector(
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
+  const inputEl = dropTarget.querySelector(INPUT);
+  const ariaLabel = inputEl.dataset.defaultAriaLabel;
   const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
   const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
 
@@ -223,6 +227,9 @@ const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
     statusElement.textContent = statusMessage;
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
+
+  // Reset input aria-label with default message
+  inputEl.setAttribute("aria-label", ariaLabel);
 };
 
 /**
@@ -324,13 +331,17 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Adds heading above file previews, pluralizes if there are multiple
     if (i === 0) {
+      const changeText = `Change file`;
       dropTarget.insertBefore(filePreviewsHeading, instructions);
-      filePreviewsHeading.innerHTML = `Selected file <span class="usa-file-input__choose">Change file</span>`;
+      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeText}</span>`;
+      fileInputEl.setAttribute("aria-label", changeText);
     } else if (i >= 1) {
+      const changeText = `Change files`;
       dropTarget.insertBefore(filePreviewsHeading, instructions);
       filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
-      } files selected <span class="usa-file-input__choose">Change files</span>`;
+      } files selected <span class="usa-file-input__choose">${changeText}</span>`;
+      fileInputEl.setAttribute("aria-label", changeText);
     }
 
     // Hides null state content and sets preview heading class
