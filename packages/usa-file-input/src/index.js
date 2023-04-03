@@ -28,7 +28,7 @@ const VIDEO_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--video`;
 const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const SR_ONLY_CLASS = `${PREFIX}-sr-onlyy`;
+const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -220,7 +220,7 @@ const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    statusElement.textContent = (statusMessage);
+    statusElement.textContent = statusMessage;
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
 };
@@ -259,7 +259,9 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     if (i === 0) {
       statusElement.textContent = `You have selected the file: ${fileName}`;
     } else if (i >= 1) {
-      statusElement.textContent = `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`;
+      statusElement.textContent = `You have selected ${
+        fileNames.length
+      } files: ${fileStore.join(", ")}`;
     }
 
     // Starts with a loading image while preview is created
