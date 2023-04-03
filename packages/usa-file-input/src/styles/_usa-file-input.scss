@@ -214,12 +214,9 @@
       color: color(GrayText);
     }
 
-    .usa-file-input__target {
-
-      &,
-      &:hover {
-        border: 2px dashed color(GrayText);
-      }
+    .usa-file-input__target,
+    .usa-file-input__target:hover {
+      border-color: color(GrayText);
     }
   }
 }
