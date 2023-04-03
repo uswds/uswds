@@ -29,7 +29,8 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const SR_ONLY_CLASS = `${PREFIX}-sr-onlyy`;
-
+const inputItems = "files";
+let inputItem = "file";
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -123,8 +124,6 @@ const buildFileInput = (fileInputEl) => {
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
   const fileInputStatusEl = document.createElement("div");
-  const inputItems = "files";
-  let inputItem = "file";
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -176,7 +175,7 @@ const buildFileInput = (fileInputEl) => {
   fileInputParent.appendChild(fileInputStatusEl);
   console.log(fileInputStatusEl);
 
-  return { instructions, dropTarget, defaultStatus, fileInputParent, fileInputStatusEl };
+  return { instructions, dropTarget, defaultStatus, fileInputParent };
 };
 
 /**
@@ -236,6 +235,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
   const filePreviewsHeading = document.createElement("div");
   const inputAriaLabel = fileInputEl.dataset.defaultAriaLabel;
+  const statusElement = document.querySelector(`.${SR_ONLY_CLASS}`);
   const fileStore = [];
 
   // First, get rid of existing previews
@@ -253,15 +253,9 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // read out the store array via aria-label, wording options vary based on file count
     if (i === 0) {
-      fileInputEl.setAttribute(
-        "aria-label",
-        `You have selected the file: ${fileName}`
-      );
+      statusElement.textContent = `You have selected the ${inputItem}: ${fileName}`;
     } else if (i >= 1) {
-      fileInputEl.setAttribute(
-        "aria-label",
-        `You have selected ${fileNames.length} files: ${fileStore.join(", ")}`
-      );
+      statusElement.textContent = `You have selected ${fileNames.length} ${inputItems}: ${fileStore.join(", ")}`;
     }
 
     // Starts with a loading image while preview is created
