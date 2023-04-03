@@ -29,8 +29,6 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const SR_ONLY_CLASS = `${PREFIX}-sr-onlyy`;
-const inputItems = "files";
-let inputItem = "file";
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -124,6 +122,8 @@ const buildFileInput = (fileInputEl) => {
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
   const fileInputStatusEl = document.createElement("div");
+  const inputItems = "files";
+  let inputItem = "file";
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -147,7 +147,7 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // Create text content
+  // Create instruction text
   if (acceptsMultiple) {
     inputItem = inputItems;
   }
@@ -155,9 +155,19 @@ const buildFileInput = (fileInputEl) => {
   const dragText = `Drag ${inputItem} here or `;
   const chooseText = "choose from folder";
   const defaultStatus = `No ${inputItem} selected.`;
+  const instructionText = `${dragText}${chooseText}`;
 
   // Create text content
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  fileInputEl.setAttribute("aria-label", instructionText);
+
+  // Create status message element
+  fileInputStatusEl.classList.add(SR_ONLY_CLASS);
+  fileInputStatusEl.setAttribute("aria-live", "polite");
+  fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
+  // Set default status message
+  fileInputStatusEl.textContent = defaultStatus;
+  fileInputParent.appendChild(fileInputStatusEl);
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
@@ -166,14 +176,6 @@ const buildFileInput = (fileInputEl) => {
   ) {
     fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
   }
-
-  // Create status message element
-  // Set default status message
-  fileInputStatusEl.classList.add(SR_ONLY_CLASS);
-  fileInputStatusEl.setAttribute("aria-live", "polite");
-  fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
-  fileInputStatusEl.textContent = defaultStatus;
-  fileInputParent.appendChild(fileInputStatusEl);
 
   return { instructions, dropTarget, defaultStatus, fileInputParent };
 };
