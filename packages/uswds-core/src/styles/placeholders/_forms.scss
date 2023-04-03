@@ -1,6 +1,7 @@
 @use "../settings" as *;
 @use "../functions" as *;
 @use "../mixins" as *;
+@use "../variables/border-high-contrast.scss" as *;
 
 // Helpers
 $input-select-margin-right: 1.5;
@@ -25,4 +26,8 @@ $input-select-margin-right: 1.5;
   max-width: units($theme-input-max-width);
   padding: units(1);
   width: 100%;
+
+  @media (forced-colors: active) {
+    border: $border-high-contrast;
+  }
 }
