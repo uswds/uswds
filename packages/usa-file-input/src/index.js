@@ -26,9 +26,9 @@ const PDF_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--pdf`;
 const WORD_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--word`;
 const VIDEO_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--video`;
 const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
+const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
@@ -186,7 +186,7 @@ const buildFileInput = (fileInputEl) => {
     fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
   }
 
-  return { instructions, dropTarget, defaultStatus, fileInputParent };
+  return { instructions, dropTarget };
 };
 
 /**
