@@ -29,7 +29,6 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -176,7 +175,7 @@ const buildFileInput = (fileInputEl) => {
   // Add default status text to status element
   fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
   fileInputStatusEl.textContent = defaultStatus;
-  fileInputParent.appendChild(fileInputStatusEl);
+  fileInputParent.insertBefore(fileInputStatusEl, dropTarget);
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
@@ -194,7 +193,7 @@ const buildFileInput = (fileInputEl) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
-const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
+const removeOldPreviews = (dropTarget, instructions, statusElement, statusMessage) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
     `.${PREVIEW_HEADING_CLASS}`
@@ -202,10 +201,9 @@ const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
   const currentErrorMessage = dropTarget.querySelector(
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
+  const statusEl = statusElement;
   const inputEl = dropTarget.querySelector(INPUT);
   const ariaLabel = inputEl.dataset.defaultAriaLabel;
-  const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
-  const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
 
   /**
    * finds the parent of the passed node and removes the child
@@ -231,7 +229,9 @@ const removeOldPreviews = (dropTarget, instructions, statusMessage) => {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    statusElement.textContent = statusMessage;
+    setTimeout(() => {
+      statusEl.textContent = statusMessage;
+    }, 1000);
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
 
@@ -257,7 +257,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileStore = [];
 
   // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions, statusMessage);
+  removeOldPreviews(dropTarget, instructions, statusElement, statusMessage);
 
   // Then, iterate through files list and:
   // 1. Add selected file list names to status message
@@ -271,11 +271,15 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // read out the store array, wording options vary based on file count
     if (i === 0) {
-      statusElement.textContent = `You have selected the file: ${fileName}`;
+      setTimeout(() => {
+        statusElement.textContent = `You have selected the file: ${fileName}`;
+      }, 1000);
     } else if (i >= 1) {
-      statusElement.textContent = `You have selected ${
-        fileNames.length
-      } files: ${fileStore.join(", ")}`;
+      setTimeout(() => {
+        statusElement.textContent = `You have selected ${
+          fileNames.length
+        } files: ${fileStore.join(", ")}`;
+      }, 1000);
     }
 
     // Starts with a loading image while preview is created
