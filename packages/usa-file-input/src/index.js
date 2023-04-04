@@ -125,6 +125,10 @@ const buildFileInput = (fileInputEl) => {
   const fileInputStatusEl = document.createElement("div");
   const inputItems = "files";
   let inputItem = "file";
+  let dragText = "";
+  let chooseText = "";
+  let instructionText = "";
+  let defaultStatus = "";
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -149,25 +153,28 @@ const buildFileInput = (fileInputEl) => {
   }
 
   // Create instruction text
+  // Identify if the plural should be used
   if (acceptsMultiple) {
     inputItem = inputItems;
   }
-
-  const dragText = `Drag ${inputItem} here or `;
-  const chooseText = "choose from folder";
-  const defaultStatus = `No ${inputItem} selected.`;
-  const instructionText = `${dragText}${chooseText}`;
-
-  // Create text content
+  // Construct instruction text
+  // TODO: allow user to customize text via a data attribute
+  dragText = `Drag ${inputItem} here or `;
+  chooseText = "choose from folder";
+  instructionText = `${dragText}${chooseText}`;
+  // Add instruction text to input element
   fileInputEl.setAttribute("aria-label", instructionText);
   fileInputEl.setAttribute("data-default-aria-label", instructionText);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
-  // Create status message element
+  // Create status message
+  // Build sr-only status element
   fileInputStatusEl.classList.add(SR_ONLY_CLASS);
   fileInputStatusEl.setAttribute("aria-live", "polite");
+  // Construct default status text
+  defaultStatus = `No ${inputItem} selected.`;
+  // Add default status text to status element
   fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
-  // Set default status message
   fileInputStatusEl.textContent = defaultStatus;
   fileInputParent.appendChild(fileInputStatusEl);
 
@@ -253,7 +260,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   removeOldPreviews(dropTarget, instructions, statusMessage);
 
   // Then, iterate through files list and:
-  // 1. Add selected file list names to aria-label
+  // 1. Add selected file list names to status message
   // 2. Create previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
@@ -262,7 +269,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     // Push updated file names into the store array
     fileStore.push(fileName);
 
-    // read out the store array via aria-label, wording options vary based on file count
+    // read out the store array, wording options vary based on file count
     if (i === 0) {
       statusElement.textContent = `You have selected the file: ${fileName}`;
     } else if (i >= 1) {
