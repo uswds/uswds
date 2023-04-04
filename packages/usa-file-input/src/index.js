@@ -194,7 +194,12 @@ const buildFileInput = (fileInputEl) => {
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  */
-const removeOldPreviews = (dropTarget, instructions, statusElement, statusMessage) => {
+const removeOldPreviews = (
+  dropTarget,
+  instructions,
+  statusElement,
+  statusMessage
+) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
     `.${PREVIEW_HEADING_CLASS}`
@@ -229,7 +234,7 @@ const removeOldPreviews = (dropTarget, instructions, statusElement, statusMessag
   if (filePreviews !== null) {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
-    };
+    }
     if (statusEl) {
       setTimeout(() => {
         statusEl.textContent = statusMessage;

@@ -71,14 +71,11 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(dragText.innerHTML, "Drag files here or ");
       });
 
-      it('creates a status message element', () => {
-        assert.strictEqual(
-          statusMessage.getAttribute("class"),
-          "usa-sr-only"
-        );
+      it("creates a status message element", () => {
+        assert.strictEqual(statusMessage.getAttribute("class"), "usa-sr-only");
       });
 
-      it('adds a default status message', () => {
+      it("adds a default status message", () => {
         assert.strictEqual(statusMessage.innerHTML, "No files selected.");
       });
     });
