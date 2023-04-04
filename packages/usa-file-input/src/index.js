@@ -29,6 +29,7 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 
 /**
@@ -228,10 +229,12 @@ const removeOldPreviews = (dropTarget, instructions, statusElement, statusMessag
   if (filePreviews !== null) {
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
+    };
+    if (statusEl) {
+      setTimeout(() => {
+        statusEl.textContent = statusMessage;
+      }, 1000);
     }
-    setTimeout(() => {
-      statusEl.textContent = statusMessage;
-    }, 1000);
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
 
