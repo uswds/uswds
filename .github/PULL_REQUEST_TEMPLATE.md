@@ -39,7 +39,13 @@ _Indicate if this update is a breaking change with **one** of the following stat
 This is not a breaking change.
 :warning: This is potentially a breaking change.
 :warning: This is a breaking change.
-<!-- If applicable, explain what actions are required for the user to remediate the break. -->
+<!--
+Breaking changes include:
+  - Changes to the JavaScript API
+  - Changes to markup or content in our components
+  - Significant changes to the display of a component
+If applicable, explain what actions are required for the user to remediate the break.
+-->
 
 ## Related issue
 
@@ -48,6 +54,22 @@ Closes #_[issue_no]_
 Every pull request should resolve an open issue.
 If no open issue exists, you can open one here:
 https://github.com/uswds/uswds/issues/new/choose.
+-->
+
+## Related pull requests
+
+_Indicate if there are other pull requests necessary to complete this issue._
+<!--
+Some changes to the USWDS codebase require a change to the documentation site,
+and need a pull request in the [uswds-site repo](https://github.com/uswds/uswds-site).
+
+This could include:
+- New or updated component documentation,
+- New or updated settings documentation, or
+- Changelog entries.
+
+Add links to any related PRs in this section. If this change requires an update
+to the uswds-site repo, but that PR does not yet exist, just make sure to note that here.
 -->
 
 ## Preview link
