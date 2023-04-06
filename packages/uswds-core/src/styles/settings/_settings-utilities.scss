@@ -28,7 +28,8 @@ used by utilities or layout grid
 ----------------------------------------
 */
 
-$theme-utility-breakpoints: (
+$theme-utility-breakpoints-override: () !default;
+$theme-utility-breakpoints: map-merge((
   // 160px:
   "card": false,
   // 240px:
@@ -47,8 +48,9 @@ $theme-utility-breakpoints: (
   "desktop-lg": false,
   // 1400px:
   "widescreen": false
-) !default;
+), $theme-utility-breakpoints-override) !default;
 
+// $theme-utility-breakpoints: map-merge($theme-utility-breakpoints, $theme-utility-breakpoints-override) !default;
 /*
 ----------------------------------------
 Global colors
