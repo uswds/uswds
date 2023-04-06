@@ -283,14 +283,16 @@ modal = behavior(
   {},
   {
     init(root) {
-        selectOrMatches(MODAL, root).forEach((modalWindow) => {
-          const modalId = modalWindow.id;
-          if (modalId) {
-            setUpModal(modalWindow);
-          }
+      selectOrMatches(MODAL, root).forEach((modalWindow) => {
+        const modalId = modalWindow.id;
+        if (modalId) {
+          setUpModal(modalWindow);
+        }
 
-          // this will query all openers and closers including the overlay
-          document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
+        // this will query all openers and closers including the overlay
+        document
+          .querySelectorAll(`[aria-controls="${modalId}"]`)
+          .forEach((item) => {
             // Turn anchor links into buttons because of
             // VoiceOver on Safari
             if (item.nodeName === "A") {
@@ -306,14 +308,15 @@ modal = behavior(
 
             item.addEventListener("click", toggleModal);
           });
-        });
+      });
     },
     teardown(root) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         cleanUpModal(modalWindow);
         const modalId = modalWindow.id;
 
-        document.querySelectorAll(`[aria-controls="${modalId}"]`)
+        document
+          .querySelectorAll(`[aria-controls="${modalId}"]`)
           .forEach((item) => item.removeEventListener("click", toggleModal));
       });
     },
