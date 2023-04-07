@@ -290,7 +290,7 @@ modal = behavior(
         }
 
           // Query all openers and closers including the overlay
-          selectOrMatches(`[aria-controls="${modalId}"]`, root).forEach((modalTrigger) => {
+          selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach((modalTrigger) => {
             // If modalTrigger is an anchor...
             if (modalTrigger.nodeName === "A") {
               // Turn anchor links into buttons for screen readers
@@ -315,7 +315,7 @@ modal = behavior(
         cleanUpModal(modalWindow);
         const modalId = modalWindow.id;
 
-        selectOrMatches(`[aria-controls="${modalId}"]`, root)
+        selectOrMatches(`[aria-controls="${modalId}"]`, document)
           .forEach((modalTrigger) => modalTrigger.removeEventListener("click", toggleModal));
       });
     },
