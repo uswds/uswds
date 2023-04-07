@@ -289,10 +289,9 @@ modal = behavior(
             setUpModal(modalWindow);
           }
 
-          // this will query all openers and closers including the overlay
+          // Query all openers and closers including the overlay
           document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
-            // Turn anchor links into buttons because of
-            // VoiceOver on Safari
+            // Turn anchor links into buttons for screen readers
             if (item.nodeName === "A") {
               item.setAttribute("role", "button");
               item.addEventListener("click", (e) => e.preventDefault());
