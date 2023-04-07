@@ -1,6 +1,12 @@
 # United States Web Design System
 
-[![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
+## :mega: **USWDS 3.0 is now live** :mega:
+
+Starting with USWDS 3.0, we're publishing USWDS as a scoped package at [@uswds/uswds](https://www.npmjs.com/package/@uswds/uswds).
+
+This unscoped `uswds` package for USWDS 2.x. is in maintenance mode and will only receive security updates.
+
+---
 
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
@@ -9,12 +15,19 @@ This repository is for the design system code itself. We maintain [another repos
 ## Contents
 
 - [United States Web Design System](#united-states-web-design-system)
+  - [:mega: **USWDS 3.0 is now live** :mega:](#mega-uswds-30-is-now-live-mega)
   - [Contents](#contents)
   - [Background](#background)
   - [Recent updates](#recent-updates)
   - [Getting started](#getting-started)
   - [Using the design system](#using-the-design-system)
-    - [Download and install without npm](#download-and-install-without-npm)
+    - [Download and install without `npm`](#download-and-install-without-npm)
+    - [Install using npm](#install-using-npm)
+      - [Using the USWDS package](#using-the-uswds-package)
+      - [Sass and theme settings](#sass-and-theme-settings)
+      - [Sass compilation requirements](#sass-compilation-requirements)
+      - [JavaScript](#javascript)
+    - [Use another framework or package manager](#use-another-framework-or-package-manager)
   - [CSS architecture](#css-architecture)
   - [JS customization](#js-customization)
   - [Customization, theming, and tokens](#customization-theming-and-tokens)
@@ -61,12 +74,12 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 ### Download and install without `npm`
 If you’re using a framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.13.3/uswds-2.13.3.zip) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.14.0/uswds-2.14.0.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.13.3/
+   uswds-2.14.0/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -97,7 +110,7 @@ If you’re using a framework or package manager that doesn’t support `npm`, y
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.13.3/
+   │   ├── uswds-2.14.0/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -117,11 +130,11 @@ If you’re using a framework or package manager that doesn’t support `npm`, y
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <script src="assets/uswds-2.13.3/js/uswds-init.min.js"></script>
-       <link rel="stylesheet" href="assets/uswds-2.13.3/css/uswds.min.css" />
+       <script src="assets/uswds-2.14.0/js/uswds-init.min.js"></script>
+       <link rel="stylesheet" href="assets/uswds-2.14.0/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.13.3/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.14.0/js/uswds.min.js"></script>
      </body>
    </html>
    ```

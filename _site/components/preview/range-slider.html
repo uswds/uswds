@@ -1,0 +1,44 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Form: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    
+  <div class="grid-container padding-x-2 tablet-padding-x-4 padding-y-4">
+    <form class="usa-form">
+      <label class="usa-label" for="usa-range">Range slider</label>
+<input
+  id="usa-range"
+  class="usa-range"
+  type="range"
+  min="0"
+  max="100"
+  step="10"
+  value="20"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="20"
+  role="slider"
+>
+
+    </form>
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+

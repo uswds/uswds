@@ -1,0 +1,34 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    <ol class="usa-process-list">
+  <li class="usa-process-list__item padding-bottom-4">
+    <p class="usa-process-list__heading font-sans-xl line-height-sans-1">Start a process.</p>
+  </li>
+  <li class="usa-process-list__item padding-bottom-4">
+    <p class="usa-process-list__heading font-sans-xl line-height-sans-1">Proceed to the second step.</p>
+  </li>
+  <li class="usa-process-list__item">
+    <p class="usa-process-list__heading font-sans-xl line-height-sans-1">Complete the step-by-step process.</p>
+  </li>
+</ol>
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+
