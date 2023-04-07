@@ -110,6 +110,7 @@ const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
+
 /**
  * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
@@ -122,7 +123,7 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
-  const fileInputStatusEl = document.createElement("div");
+  const statusEl = document.createElement("div");
   const inputItems = "files";
   let inputItem = "file";
   let dragText = "";
@@ -152,8 +153,7 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // Create instruction text
-  // Identify if the plural should be used
+  // If multiple attribute enabled, use the plural form
   if (acceptsMultiple) {
     inputItem = inputItems;
   }
@@ -167,16 +167,15 @@ const buildFileInput = (fileInputEl) => {
   fileInputEl.setAttribute("data-default-aria-label", instructionText);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
-  // Create status message
-  // Build sr-only status element
-  fileInputStatusEl.classList.add(SR_ONLY_CLASS);
-  fileInputStatusEl.setAttribute("aria-live", "polite");
+  // Create screen-reader only status message
+  statusEl.classList.add(SR_ONLY_CLASS);
+  statusEl.setAttribute("aria-live", "polite");
   // Construct default status text
   defaultStatus = `No ${inputItem} selected.`;
   // Add default status text to status element
-  fileInputStatusEl.setAttribute("data-default-status-message", defaultStatus);
-  fileInputStatusEl.textContent = defaultStatus;
-  fileInputParent.insertBefore(fileInputStatusEl, dropTarget);
+  statusEl.setAttribute("data-default-status-message", defaultStatus);
+  statusEl.textContent = defaultStatus;
+  fileInputParent.insertBefore(statusEl, dropTarget);
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
@@ -193,6 +192,8 @@ const buildFileInput = (fileInputEl) => {
  * Removes image previews, we want to start with a clean list every time files are added to the file input
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
+ * @param {HTMLElement} statusElement - screen-reader only container for file status updates
+ * @param {HTMLElement} statusMessage - text to inform users about the file selection status
  */
 const removeOldPreviews = (
   dropTarget,
@@ -209,7 +210,7 @@ const removeOldPreviews = (
   );
   const statusEl = statusElement;
   const inputEl = dropTarget.querySelector(INPUT);
-  const ariaLabel = inputEl.dataset.defaultAriaLabel;
+  const inputAriaLabel = inputEl.dataset.defaultAriaLabel;
 
   /**
    * finds the parent of the passed node and removes the child
@@ -244,7 +245,7 @@ const removeOldPreviews = (
   }
 
   // Reset input aria-label with default message
-  inputEl.setAttribute("aria-label", ariaLabel);
+  inputEl.setAttribute("aria-label", inputAriaLabel);
 };
 
 /**
