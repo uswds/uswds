@@ -1,0 +1,140 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    
+  <div class="grid-container padding-x-2 tablet-padding-x-4 padding-y-4">
+    <div class="table-example-container">
+
+<div class="width-mobile">
+  <table class="usa-table usa-table--stacked">
+    <caption>Stacked bordered table <br>(when on a mobile-width screen)</caption>
+    <thead>
+      <tr>
+        <th scope="col">Document title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th data-label="Document title" scope="row">Declaration of Independence</th>
+        <td data-label="Description">Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
+        <td data-label="Year">1776</td>
+      </tr>
+      <tr>
+        <th data-label="Document title" scope="row">Bill of Rights</th>
+        <td data-label="Description">The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
+        <td data-label="Year">1791</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="width-mobile">
+  <table class="usa-table usa-table--borderless usa-table--stacked">
+    <caption>Stacked borderless table <br>(when on a <span class="text-no-wrap">mobile-width</span> screen)</caption>
+    <thead>
+      <tr>
+        <th scope="col">Document title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th data-label="Document title" scope="row">Declaration of Independence</th>
+        <td data-label="Description">Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
+        <td data-label="Year">1776</td>
+      </tr>
+      <tr>
+        <th data-label="Document title" scope="row">Bill of Rights</th>
+        <td data-label="Description">The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
+        <td data-label="Year">1791</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="width-mobile">
+  <table class="usa-table usa-table--stacked-header">
+    <caption>Stacked bordered table with headers <br>(when on a mobile-width screen)</caption>
+    <thead>
+      <tr>
+        <th scope="col">Document title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th data-label="Document title" scope="row">Declaration of Independence</th>
+        <td data-label="Description">Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
+        <td data-label="Year">1776</td>
+      </tr>
+      <tr>
+        <th data-label="Document title" scope="row">Bill of Rights</th>
+        <td data-label="Description">The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
+        <td data-label="Year">1791</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="width-mobile">
+  <table class="usa-table usa-table--borderless usa-table--stacked-header">
+    <caption>Stacked borderless table with headers <br>(when on a mobile-width screen)</caption>
+    <thead>
+      <tr>
+        <th scope="col">Document title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th data-label="Document title" scope="row">Declaration of Independence</th>
+        <td data-label="Description">Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
+        <td data-label="Year">1776</td>
+      </tr>
+      <tr>
+        <th data-label="Document title" scope="row">Bill of Rights</th>
+        <td data-label="Description">The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
+        <td data-label="Year">1791</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<style scoped>
+
+.table-example-container {
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+</style>
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+

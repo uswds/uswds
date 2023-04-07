@@ -1,0 +1,47 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Form: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+    <script src="../../dist/js/uswds-init.min.js"></script>
+  </head>
+  <body tabindex="0">
+    
+  <div class="grid-container padding-x-2 tablet-padding-x-4 padding-y-4">
+    <form class="usa-form">
+      <div class="usa-date-range-picker">
+  <div class="usa-form-group">
+    <label class="usa-label" id="event-date-start-label" for="event-date-start">Event start date</label>
+    <div class="usa-hint" id="event-date-start-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker">
+      <input class="usa-input" id="event-date-start" name="event-date-start" type="text" aria-labelledby="event-date-start-label" aria-describedby="event-date-start-hint">
+    </div>
+  </div>
+
+  <div class="usa-form-group">
+    <label class="usa-label" id="event-date-end-label" for="event-date-end">Event end date</label>
+    <div class="usa-hint" id="event-date-end-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker">
+      <input class="usa-input" id="event-date-end" name="event-date-end" type="text" aria-labelledby="event-date-end-label" aria-describedby="event-date-end-hint">
+    </div>
+  </div>
+</div>
+
+    </form>
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+
