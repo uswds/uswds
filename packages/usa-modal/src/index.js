@@ -290,20 +290,20 @@ modal = behavior(
           }
 
           // Query all openers and closers including the overlay
-          document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach((item) => {
+          selectOrMatches(`[aria-controls="${modalId}"]`, root).forEach((modalTrigger) => {
             // Turn anchor links into buttons for screen readers
-            if (item.nodeName === "A") {
-              item.setAttribute("role", "button");
-              item.addEventListener("click", (e) => e.preventDefault());
+            if (modalTrigger.nodeName === "A") {
+              modalTrigger.setAttribute("role", "button");
+              modalTrigger.addEventListener("click", (e) => e.preventDefault());
             }
 
             // Can uncomment when aria-haspopup="dialog" is supported
             // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
             // Most screen readers support aria-haspopup, but might announce
             // as opening a menu if "dialog" is not supported.
-            // item.setAttribute("aria-haspopup", "dialog");
+            // modalTrigger.setAttribute("aria-haspopup", "dialog");
 
-            item.addEventListener("click", toggleModal);
+            modalTrigger.addEventListener("click", toggleModal);
           });
         });
     },
@@ -312,8 +312,8 @@ modal = behavior(
         cleanUpModal(modalWindow);
         const modalId = modalWindow.id;
 
-        document.querySelectorAll(`[aria-controls="${modalId}"]`)
-          .forEach((item) => item.removeEventListener("click", toggleModal));
+        selectOrMatches(`[aria-controls="${modalId}"]`, root)
+          .forEach((modalTrigger) => modalTrigger.removeEventListener("click", toggleModal));
       });
     },
     focusTrap: null,
