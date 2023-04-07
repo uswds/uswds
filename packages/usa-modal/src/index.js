@@ -291,9 +291,12 @@ modal = behavior(
 
           // Query all openers and closers including the overlay
           selectOrMatches(`[aria-controls="${modalId}"]`, root).forEach((modalTrigger) => {
-            // Turn anchor links into buttons for screen readers
+            // If modalTrigger is an anchor...
             if (modalTrigger.nodeName === "A") {
+              // Turn anchor links into buttons for screen readers
               modalTrigger.setAttribute("role", "button");
+
+              // Prevent modal triggers from acting like links
               modalTrigger.addEventListener("click", (e) => e.preventDefault());
             }
 
