@@ -65,4 +65,4 @@ workflows:
             - build
           filters:
             branches:
-              only: main
+              only: v2-main
