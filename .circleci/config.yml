@@ -34,6 +34,9 @@ jobs:
       - run:
           name: Run test
           command: npm run test:ci
+      - run:
+          name: Check formatting
+          command: npx prettier -c ./packages/**/**/*.{scss,js}
 
   deploy:
     <<: *container
