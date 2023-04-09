@@ -7,7 +7,6 @@
 @use "../../tokens/font" as *;
 @use "../../settings" as *;
 
-
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
   // TODO: If $theme-use-rails-pipeline use font-url() statements
