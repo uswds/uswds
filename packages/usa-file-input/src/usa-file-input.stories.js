@@ -10,6 +10,9 @@ import {
 
 export default {
   title: "Components/Form Inputs/File Input",
+  args: {
+    multiple_inputs: false,
+  }
 };
 
 const Template = (args) => Component(args);
@@ -31,3 +34,9 @@ Specific.args = SpecificContent;
 
 export const Wildcard = Template.bind({});
 Wildcard.args = WildcardContent;
+
+export const TestMultipleInputs = Template.bind({});
+TestMultipleInputs.args = {
+  ...DefaultContent,
+  multiple_inputs: true,
+}
