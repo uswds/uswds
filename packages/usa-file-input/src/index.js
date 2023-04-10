@@ -124,6 +124,7 @@ const buildFileInput = (fileInputEl) => {
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
   const statusEl = document.createElement("div");
+  const statusElId = createUniqueID(`${PREFIX}-file-input__status`);
   const inputItems = "files";
   let inputItem = "file";
   let dragText = "";
@@ -157,6 +158,18 @@ const buildFileInput = (fileInputEl) => {
   if (acceptsMultiple) {
     inputItem = inputItems;
   }
+
+  // Create screen-reader only status message
+  statusEl.classList.add(SR_ONLY_CLASS);
+  statusEl.setAttribute("aria-hidden", "true");
+  statusEl.setAttribute("id", statusElId);
+  // Construct default status text
+  defaultStatus = `No ${inputItem} selected.`;
+  // Add default status text to status element
+  statusEl.setAttribute("data-default-status-message", defaultStatus);
+  statusEl.textContent = defaultStatus;
+  fileInputParent.insertBefore(statusEl, dropTarget);
+
   // Construct instruction text
   // TODO: allow user to customize text via a data attribute
   dragText = `Drag ${inputItem} here or `;
@@ -165,17 +178,9 @@ const buildFileInput = (fileInputEl) => {
   // Add instruction text to input element
   fileInputEl.setAttribute("aria-label", instructionText);
   fileInputEl.setAttribute("data-default-aria-label", instructionText);
+  fileInputEl.setAttribute("aria-describedby", statusElId);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
-  // Create screen-reader only status message
-  statusEl.classList.add(SR_ONLY_CLASS);
-  statusEl.setAttribute("aria-live", "polite");
-  // Construct default status text
-  defaultStatus = `No ${inputItem} selected.`;
-  // Add default status text to status element
-  statusEl.setAttribute("data-default-status-message", defaultStatus);
-  statusEl.textContent = defaultStatus;
-  fileInputParent.insertBefore(statusEl, dropTarget);
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
