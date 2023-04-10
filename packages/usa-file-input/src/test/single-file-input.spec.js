@@ -8,10 +8,13 @@ const TEMPLATE = fs.readFileSync(
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "file input", selector: () => document.querySelector('.usa-file-input') }
+  {
+    name: "file input",
+    selector: () => document.querySelector(".usa-file-input"),
+  },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`File input initialized at ${name}`, () => {
     describe("file input: single file input", () => {
       const { body } = document;

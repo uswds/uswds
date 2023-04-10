@@ -60,6 +60,12 @@ $uswds-notifications:
 + "\A - Accessibility: We added `aria-hidden='true' to "
 + "\A   `img.usa-banner__header-flag` in usa-banner since this is a"
 + "\A   decorative image."
++ "\A --------------------------------------------------------------------"
++ "\A 3.4.0"
++ "\A - Compatibility: We no longer include ttf and woff fonts in our "
++ "\A   @font-face rules. If you need these files for IEll compatibility,"
++ "\A   add `$theme-font-browser-compatibility: true` to your project"
++ "\A   settings."
 + "\A ";
 
 /* prettier-ignore */

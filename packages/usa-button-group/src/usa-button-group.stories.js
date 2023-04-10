@@ -7,18 +7,18 @@ export default {
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
-      options: ["none", "disabled", "aria-disabled"]
+      options: ["none", "disabled", "aria-disabled"],
     },
     segmented: {
-      table: { disable: true }
+      table: { disable: true },
     },
     modifiers: {
-      table: { disable: true }
+      table: { disable: true },
     },
     modifier: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 };
 
 const Template = (args) => Component(args);

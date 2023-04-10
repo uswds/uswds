@@ -66,6 +66,39 @@ const getSectionAnchors = () => {
 };
 
 /**
+ * Generates a unique ID for the given heading element.
+ *
+ * @param {HTMLHeadingElement} heading
+ *
+ * @return {string} - Unique ID
+ */
+const getHeadingId = (heading) => {
+  const baseId = heading.textContent
+    .toLowerCase()
+    // Replace non-alphanumeric characters with dashes
+    .replace(/[^a-z\d]/g, "-")
+    // Replace a sequence of two or more dashes with a single dash
+    .replace(/-{2,}/g, "-")
+    // Trim leading or trailing dash (there should only ever be one)
+    .replace(/^-|-$/g, "");
+
+  let id;
+  let suffix = 0;
+  do {
+    id = baseId;
+
+    // To avoid conflicts with existing IDs on the page, loop and append an
+    // incremented suffix until a unique ID is found.
+    suffix += 1;
+    if (suffix > 1) {
+      id += `-${suffix}`;
+    }
+  } while (document.getElementById(id));
+
+  return id;
+};
+
+/**
  * Return a section id/anchor hash without the number sign
  *
  * @return {String} - Id value with the number sign removed
@@ -98,6 +131,23 @@ const handleScrollToSection = (el) => {
     top: el.offsetTop - inPageNavScrollOffset,
     block: "start",
   });
+
+  if (window.location.hash.slice(1) !== el.id) {
+    window.history.pushState(null, "", `#${el.id}`);
+  }
+};
+
+/**
+ * Scrolls the page to the section corresponding to the current hash fragment, if one exists.
+ */
+const scrollToCurrentSection = () => {
+  const hashFragment = window.location.hash.slice(1);
+  if (hashFragment) {
+    const anchorTag = document.getElementById(hashFragment);
+    if (anchorTag) {
+      handleScrollToSection(anchorTag);
+    }
+  }
 };
 
 /**
@@ -140,7 +190,7 @@ const createInPageNav = (inPageNavEl) => {
   inPageNavList.classList.add(IN_PAGE_NAV_LIST_CLASS);
   inPageNav.appendChild(inPageNavList);
 
-  sectionHeadings.forEach((el, i) => {
+  sectionHeadings.forEach((el) => {
     const listItem = document.createElement("li");
     const navLinks = document.createElement("a");
     const anchorTag = document.createElement("a");
@@ -152,11 +202,13 @@ const createInPageNav = (inPageNavEl) => {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
-    navLinks.setAttribute("href", `#section_${i}`);
+    const headingId = getHeadingId(el);
+
+    navLinks.setAttribute("href", `#${headingId}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
     navLinks.textContent = textContentOfLink;
 
-    anchorTag.setAttribute("id", `section_${i}`);
+    anchorTag.setAttribute("id", headingId);
     anchorTag.setAttribute("class", IN_PAGE_NAV_ANCHOR_CLASS);
     el.insertAdjacentElement("afterbegin", anchorTag);
 
@@ -206,7 +258,7 @@ const handleEnterFromLink = (event) => {
   } else {
     // throw an error?
   }
-  handleScrollToSection(target);
+  handleScrollToSection(targetAnchor);
 };
 
 const inPageNavigation = behavior(
@@ -228,6 +280,7 @@ const inPageNavigation = behavior(
     init(root) {
       selectOrMatches(`.${IN_PAGE_NAV_CLASS}`, root).forEach((inPageNavEl) => {
         createInPageNav(inPageNavEl);
+        scrollToCurrentSection();
       });
     },
   }
