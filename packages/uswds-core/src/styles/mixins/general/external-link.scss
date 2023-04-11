@@ -21,12 +21,12 @@ $icon-object: (
   // Screen reader label
   &::before {
     @include sr-only;
-    content: "#{$theme-external-link-sr-label}, #{$theme-external-link-sr-label-tab-same}";
+    content: $theme-external-link-sr-label-tab-same;
   }
 
   &[target="_blank"]::before {
     @include sr-only;
-    content: "#{$theme-external-link-sr-label}, #{$theme-external-link-sr-label-tab-new}";
+    content: $theme-external-link-sr-label-tab-new;
   }
 
   &::after {
