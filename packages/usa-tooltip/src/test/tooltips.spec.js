@@ -7,10 +7,10 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "tooltip", selector: () => document.querySelector(".usa-tooltip") }
+  { name: "tooltip", selector: () => document.querySelector(".usa-tooltip") },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`tooltips initialized at ${name}`, () => {
     const { body } = document;
     let tooltipBody;
