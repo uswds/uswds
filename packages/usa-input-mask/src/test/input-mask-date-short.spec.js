@@ -4,7 +4,7 @@ const assert = require("assert");
 const InputMask = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/input-mask-zip-code.template.html")
+  path.join(__dirname, "/input-mask-date-short.template.html")
 );
 
 const EVENTS = {};
@@ -96,8 +96,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("formats a U.S. zip code to 12345-6789", () => {
-      const value = "123456789";
+    it("formats a short date to 01/31/1970", () => {
+      const value = "01311970";
 
       for (let i = 0; i < value.length; i += 1) {
         input.dispatchEvent(
@@ -111,7 +111,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       }
 
       shell = inputMaskShellSelector();
-      assert.strictEqual(shell.textContent, "12345-6789");
+      assert.strictEqual(shell.textContent, "01/31/1970");
     });
   });
 });

@@ -1,0 +1,20 @@
+<form class="usa-form">
+  <div class="usa-input-mask">
+    <div class="usa-form-group">
+      <label class="usa-label" for="us-date">U.S. Date</label>
+      <div class="usa-hint" id="us-date-hint">For example, 01/31/1970</div>
+      <input
+        aria-describedby="us-date-hint us-date-hint-info"
+        class="usa-input usa-input-mask__field"
+        id="us-date"
+        inputmode="numeric"
+        mask="99/99/9999"
+        maxlength="10"
+        name="us-date"
+        placeholder="__/__/____"
+        type="text"
+      />
+    </div>
+    <span id="us-date-hint-info" class="usa-input-mask__message"></span>
+  </div>
+</form>

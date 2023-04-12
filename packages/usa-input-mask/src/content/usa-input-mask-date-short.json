@@ -1,0 +1,9 @@
+{
+  "hint": "For example, 01/31/1970",
+  "id": "us-date",
+  "inputmode": "numeric",
+  "label": "U.S. Date",
+  "mask": "99/99/9999",
+  "placeholder": "__/__/____",
+  "type": "text"
+}
