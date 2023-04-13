@@ -114,7 +114,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it('pluralizes "files" if there is a "multiple" attribute', () => {
-        assert.strictEqual(dragText.innerHTML, "Drag files here or ");
+        assert.strictEqual(dragText.innerHTML, "Drag files here or");
       });
 
       it("mock file should be defined with specific values", () => {
