@@ -87,16 +87,16 @@ const setMaskInfo = (id, key, value) => {
  *
  * @param {string} id - The id to get the mask info from.
  * @param {string} key - The key to get the value of.
- * @param {any} [defaulVal=null] - The default value to return if no value is found.
+ * @param {any} [defaultVal=null] - The default value to return if no value is found.
  *
  * @return {any} The value of the specified key in the MASK_INFO object or the given default value if not found.
  */
-const getMaskInfo = (id, key, defaulVal = null) => {
+const getMaskInfo = (id, key, defaultVal = null) => {
   if (MASK_INFO[id] && MASK_INFO[id][key]) {
     return MASK_INFO[id][key];
   }
 
-  return defaulVal;
+  return defaultVal;
 };
 
 /**
