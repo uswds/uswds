@@ -110,7 +110,6 @@ const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
-
 /**
  * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
@@ -122,9 +121,8 @@ const buildFileInput = (fileInputEl) => {
   const dropTarget = document.createElement("div");
   const box = document.createElement("div");
   const instructions = document.createElement("div");
-  const disabled = fileInputEl.hasAttribute("disabled");
   const statusEl = document.createElement("div");
-  const statusElId = createUniqueID(`${PREFIX}-file-input__status`);
+  const disabled = fileInputEl.hasAttribute("disabled");
   const inputItems = "files";
   let inputItem = "file";
   let dragText = "";
@@ -140,6 +138,9 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
+  statusEl.classList.add(SR_ONLY_CLASS);
+  statusEl.setAttribute("aria-live", "polite");
+
 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
@@ -154,33 +155,32 @@ const buildFileInput = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-  // If multiple attribute enabled, use the plural form
+  // If multiple attribute enabled, use the plural
   if (acceptsMultiple) {
     inputItem = inputItems;
   }
 
   // Create screen-reader only status message
-  statusEl.classList.add(SR_ONLY_CLASS);
-  statusEl.setAttribute("aria-hidden", "true");
-  statusEl.setAttribute("id", statusElId);
-  // Construct default status text
+  // 1. Construct default status text
+  // 2. Add default status text to attributes
+  // 3. Add default status text to status element
+  // 4. Add status element to DOM
   defaultStatus = `No ${inputItem} selected.`;
-  // Add default status text to status element
   statusEl.setAttribute("data-default-status-message", defaultStatus);
   statusEl.textContent = defaultStatus;
   fileInputParent.insertBefore(statusEl, dropTarget);
 
-  // Construct instruction text
+  // Add instructions to input element
+  // 1. Construct instruction text
+  // 2. Add instruction text to attributes
+  // 3. Add instruction text to input element
   // TODO: allow user to customize text via a data attribute
   dragText = `Drag ${inputItem} here or `;
   chooseText = "choose from folder";
   instructionText = `${dragText}${chooseText}`;
-  // Add instruction text to input element
   fileInputEl.setAttribute("aria-label", instructionText);
   fileInputEl.setAttribute("data-default-aria-label", instructionText);
-  fileInputEl.setAttribute("aria-describedby", statusElId);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
-
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
