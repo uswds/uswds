@@ -163,12 +163,12 @@ const buildFileInput = (fileInputEl) => {
   // Add screen reader-only file status message
   // 1. Construct default status text
   // 2. Add default status text to attributes and status element
-  if (fileInputEl.hasAttribute("data-default-status-message")) {
-    defaultStatus = fileInputEl.dataset.defaultStatusMessage;
+  if (fileInputEl.hasAttribute("data-default-status-text")) {
+    defaultStatus = fileInputEl.dataset.defaultStatusText;
   } else {
     defaultStatus = `No ${inputItem} selected.`;
   }
-  statusEl.setAttribute("data-default-status-message", defaultStatus);
+  statusEl.setAttribute("data-default-status-text", defaultStatus);
   statusEl.textContent = defaultStatus;
 
   // Add instructions for input usage
@@ -276,7 +276,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const filePreviewsHeading = document.createElement("div");
   const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
   const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
-  const statusMessage = statusElement.dataset.defaultStatusMessage;
+  const statusMessage = statusElement.dataset.defaultStatusText;
   const fileStore = [];
   let changeText = "";
 
