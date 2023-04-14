@@ -8,7 +8,6 @@ const MASKED = `.${MASKED_CLASS}`;
 const MASK_SHELL = `${MASKED_CLASS}__shell`;
 const MASK_CONTENT = `${MASKED_CLASS}__content`;
 const INPUT = `${MASKED}__field`;
-const MESSAGE = `${MASKED}__message`;
 const PLACEHOLDER = "placeholder";
 
 const MESSAGE_INVALID_CLASS = `${MASKED_CLASS}__status--invalid`;
@@ -372,7 +371,6 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
 const createStatusMessages = (maskedEl) => {
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
-  const defaultMessage = `Please enter a valid character`;
 
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
   srStatusMessage.classList.add(
@@ -382,9 +380,6 @@ const createStatusMessages = (maskedEl) => {
 
   statusMessage.setAttribute("aria-hidden", true);
   srStatusMessage.setAttribute("aria-live", "assertive");
-
-  statusMessage.textContent = defaultMessage;
-  srStatusMessage.textContent = defaultMessage;
 
   maskedEl.append(statusMessage, srStatusMessage);
 };
@@ -520,8 +515,8 @@ const handlePaste = (inputEl, event) => {
  *
  * @param {HTMLElement} inputEl - The input element from which to start searching for the masked and message elements.
  * @param {boolean} [onlyElement=false] - A flag indicating whether to only return the elements or to also call the `handlePaste` function.
- * @returns {Object} An object containing the `maskedEl` and `messageEl` elements.
- * @throws {Error} If either the `maskedEl` or `messageEl` element is not found.
+ * @returns {Object} An object containing the `maskedEl` element.
+ * @throws {Error} If the `maskedEl` element is not found.
  */
 const getMaskedElements = (inputEl, onlyElement = false) => {
   const maskedEl = inputEl.closest(MASKED);
@@ -530,19 +525,13 @@ const getMaskedElements = (inputEl, onlyElement = false) => {
     throw new Error(`${INPUT} is missing outer ${MASKED}`);
   }
 
-  const messageEl = maskedEl.querySelector(MESSAGE);
-
-  if (!messageEl) {
-    throw new Error(`${MASKED} is missing inner ${MESSAGE}`);
-  }
-
   const el = inputEl;
   const { value } = el;
 
   if (onlyElement === false && value != null && value !== "") {
     handlePaste(el, null, value);
   }
-  return { maskedEl, messageEl };
+  return { maskedEl };
 };
 
 /**
@@ -1007,10 +996,7 @@ const enhanceInputMask = (inputEl, options) => {
     throw new Error(`${MASKED} is missing correct attributes`);
   }
   const { value } = inputEl;
-  const { maskedEl, messageEl } = getMaskedElements(inputEl);
-
-  messageEl.classList.add("usa-sr-only");
-  messageEl.removeAttribute("aria-live");
+  const { maskedEl } = getMaskedElements(inputEl);
 
   const el = inputEl;
   const inputId = el.id;
