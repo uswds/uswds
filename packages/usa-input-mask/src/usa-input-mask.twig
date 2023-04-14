@@ -3,10 +3,11 @@
     <div class="usa-form-group">
       <label class="usa-label" for="{{ id }}">{{ label }}</label>
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
-      <input 
+      <input
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
           class="usa-input usa-input-mask__field"
-          {% if forceupper %}forceupper="{{ forceupper }}"{% endif %}
+          {% if forceCase == "forceupper" %}forceupper="{{ forceupper }}"{% endif %}
+          {% if forceCase == "forcelower" %}forcelower="{{ forcelower }}"{% endif %}
           id="{{ id }}"
           inputmode="{{ inputmode }}"
           mask="{{ mask }}"

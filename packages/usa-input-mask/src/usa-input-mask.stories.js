@@ -9,6 +9,14 @@ import {
 
 export default {
   title: "Components/Form Inputs/Text Input Mask",
+  argTypes: {
+    forceCase: {
+      name: "Force case",
+      control: { type: "radio" },
+      options: ["none", "forcelower", "forceupper"],
+      table: { disable: true },
+    },
+  }
 };
 
 const Template = (args) => Component(args);
@@ -24,6 +32,11 @@ ZIP.args = ZipContent;
 
 export const Alphanumeric = Template.bind({});
 Alphanumeric.args = AlphanumericContent;
+Alphanumeric.argTypes = {
+  forceCase: {
+    table: { disable: false },
+  },
+}
 
 export const DateShort = Template.bind({});
 DateShort.args = DateContent;
