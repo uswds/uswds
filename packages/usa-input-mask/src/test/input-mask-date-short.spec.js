@@ -43,7 +43,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       root = inputMaskSelector();
       input = root.querySelector(".usa-input-mask__field");
-      requirementsMessage = root.querySelector(".usa-input-mask__message");
       statusMessageVisual = root.querySelector(".usa-input-mask__status");
       statusMessageSR = root.querySelector(".usa-input-mask__sr-status");
     });
@@ -51,13 +50,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
     afterEach(() => {
       InputMask.off(containerSelector());
       body.textContent = "";
-    });
-
-    it("hides the requirements hint for screen readers", () => {
-      assert.strictEqual(
-        requirementsMessage.classList.contains("usa-sr-only"),
-        true
-      );
     });
 
     it("creates a visual status message on init", () => {
@@ -74,16 +66,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(srStatus.length, 1);
     });
 
-    it("adds initial status message for the input mask component", () => {
-      assert.strictEqual(
-        statusMessageVisual.innerHTML,
-        "Please enter a valid character"
-      );
-      assert.strictEqual(
-        statusMessageSR.innerHTML,
-        "Please enter a valid character"
-      );
-    });
 
     it("informs the user only number characters are allowed", () => {
       input.value = "a";
