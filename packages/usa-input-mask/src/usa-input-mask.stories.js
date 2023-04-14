@@ -16,7 +16,7 @@ export default {
       options: ["none", "forcelower", "forceupper"],
       table: { disable: true },
     },
-  }
+  },
 };
 
 const Template = (args) => Component(args);
@@ -36,7 +36,7 @@ Alphanumeric.argTypes = {
   forceCase: {
     table: { disable: false },
   },
-}
+};
 
 export const DateShort = Template.bind({});
 DateShort.args = DateContent;

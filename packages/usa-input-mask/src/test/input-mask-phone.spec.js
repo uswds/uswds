@@ -20,7 +20,7 @@ EVENTS.keydown = (el) => {
 const inputMaskSelector = () => document.querySelector(".usa-input-mask");
 const inputMaskShellSelector = () =>
   document.querySelector(".usa-input-mask__content");
-  
+
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "input mask", selector: inputMaskSelector },
