@@ -1,4 +1,7 @@
 import component from "./usa-banner.twig";
+import accordionContent from "../../usa-accordion/src/content/usa-accordion.json";
+import initTestComponent from "./test/test-patterns/test-usa-banner-init.twig";
+
 import {
   DefaultContent,
   DefaultContentLangEs,
@@ -14,6 +17,7 @@ export default {
 
 const Template = (banner, domain, https, ...args) =>
   component(banner, domain, https, ...args);
+const TestInitTemplate = (args) => initTestComponent(args);
 
 export const Default = Template.bind({});
 Default.args = defaults;
@@ -35,3 +39,10 @@ MilSpanish.args = {
   ...defaults,
   ...MilContentLangEs,
 };
+
+export const Test = TestInitTemplate.bind({});
+Test.args = {
+  DefaultContent,
+  DefaultContentLangEs,
+  accordionContent,
+}

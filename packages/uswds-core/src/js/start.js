@@ -8,17 +8,14 @@ require("./polyfills");
 
 const uswds = require("./config");
 
-const components = require("./index");
+const banner = require("../../../usa-banner/src/index");
 const svg4everybody = require("./polyfills/svg4everybody");
 
-uswds.components = components;
+// uswds.components = components;
 
 const initComponents = () => {
   const target = document.body;
-  Object.keys(components).forEach((key) => {
-    const behavior = components[key];
-    behavior.on(target);
-  });
+  banner.on(target);
   svg4everybody();
 };
 
