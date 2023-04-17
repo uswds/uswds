@@ -32,18 +32,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let root;
     let input;
-    let requirementsMessage;
     let statusMessageVisual;
     let statusMessageSR;
     let shell;
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
-      root = containerSelector();
+      root = containerSelector().parentNode;
       InputMask.on(root);
-      input = root.querySelector(".usa-input-mask__field");
+      input = root.querySelector(".usa-input-mask");
       statusMessageVisual = root.querySelector(".usa-input-mask__status");
-      statusMessageSR = root.querySelector(".usa-input-mask__sr-status");
+      statusMessageSR = root.querySelector(".usa-sr-only");
     });
 
     afterEach(() => {
@@ -60,7 +59,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("creates a screen reader status message on init", () => {
-      const srStatus = document.querySelectorAll(".usa-input-mask__sr-status");
+      const srStatus = document.querySelectorAll(".usa-sr-only");
 
       assert.strictEqual(srStatus.length, 1);
     });
