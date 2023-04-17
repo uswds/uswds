@@ -10,10 +10,10 @@ const HIDDEN = "hidden";
 
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "banner", selector: () => document.querySelector('.usa-banner') }
+  { name: "banner", selector: () => document.querySelector(".usa-banner") },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Banner initialized at ${name}`, () => {
     const { body } = document;
 
