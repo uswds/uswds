@@ -3,18 +3,15 @@ const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
-const MASKED_CLASS = `${PREFIX}-input-mask`;
-const MASKED = `.${MASKED_CLASS}`;
-const MASK_SHELL = `${MASKED_CLASS}__shell`;
-const MASK_CONTENT = `${MASKED_CLASS}__content`;
-const INPUT = `${MASKED}__field`;
+const MASKED_INPUT_CLASS = `${PREFIX}-input-mask`;
+const MASKED_INPUT = `.${MASKED_INPUT_CLASS}`;
+const MASKED_INPUT_SHELL_CLASS = `${MASKED_INPUT_CLASS}__shell`;
+const MASKED_INPUT_CONTENT_CLASS = `${MASKED_INPUT_CLASS}__content`;
 const PLACEHOLDER = "placeholder";
 
-const MESSAGE_INVALID_CLASS = `${MASKED_CLASS}__status--invalid`;
-const STATUS_MESSAGE_CLASS = `${MASKED_CLASS}__status`;
-const STATUS_MESSAGE_SR_ONLY_CLASS = `${MASKED_CLASS}__sr-status`;
-const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
-const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
+const MESSAGE_INVALID_CLASS = `${MASKED_INPUT_CLASS}__status--invalid`;
+const STATUS_MESSAGE_CLASS = `${MASKED_INPUT_CLASS}__status`;
+const STATUS_MESSAGE_SR_ONLY_CLASS = `${MASKED_INPUT_CLASS}__sr-status`;
 const DEFAULT_STATUS_LABEL = `character is required here`;
 
 const FORMAT_CHARACTERS = [
@@ -369,19 +366,20 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
  * @param {HTMLElement} maskedEl - The element to which the new status message elements will be appended.
  */
 const createStatusMessages = (maskedEl) => {
-  const statusMessage = document.createElement("div");
-  const srStatusMessage = document.createElement("div");
+  const statusMessageEl = document.createElement("div");
+  const srStatusMessageEl = document.createElement("div");
 
-  statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
-  srStatusMessage.classList.add(
+  statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
+  srStatusMessageEl.classList.add(
     `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
     "usa-sr-only"
   );
 
-  statusMessage.setAttribute("aria-hidden", true);
-  srStatusMessage.setAttribute("aria-live", "assertive");
+  statusMessageEl.setAttribute("aria-hidden", true);
+  srStatusMessageEl.setAttribute("aria-live", "assertive");
 
-  maskedEl.append(statusMessage, srStatusMessage);
+  maskedEl.insertAdjacentElement("afterend", statusMessageEl);
+  statusMessageEl.insertAdjacentElement("afterend", srStatusMessageEl);
 };
 
 /**
@@ -519,12 +517,7 @@ const handlePaste = (inputEl, event) => {
  * @throws {Error} If the `maskedEl` element is not found.
  */
 const getMaskedElements = (inputEl, onlyElement = false) => {
-  const maskedEl = inputEl.closest(MASKED);
-
-  if (!maskedEl) {
-    throw new Error(`${INPUT} is missing outer ${MASKED}`);
-  }
-
+  const maskedEl = inputEl;
   const el = inputEl;
   const { value } = el;
 
@@ -611,11 +604,11 @@ const createMaskedInputShell = (inputEl) => {
   inputEl.removeAttribute(`${PLACEHOLDER}`);
 
   const shell = document.createElement("span");
-  shell.classList.add(MASK_SHELL);
+  shell.classList.add(MASKED_INPUT_SHELL_CLASS);
   shell.setAttribute("data-mask", placeholder);
 
   const content = document.createElement("span");
-  content.classList.add(MASK_CONTENT);
+  content.classList.add(MASKED_INPUT_CONTENT_CLASS);
   content.setAttribute("aria-hidden", "true");
   content.id = `${inputEl.id}Mask`;
   content.textContent = placeholder;
@@ -657,8 +650,8 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
  * @param {string} statusMessage - A string of the current character status
  */
 const srUpdateStatus = debounce((msgEl, statusMessage) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.textContent = statusMessage;
+  const srStatusMessageEl = msgEl;
+  srStatusMessageEl.textContent = statusMessage;
 }, 200);
 
 /**
@@ -666,15 +659,12 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  *
  * @param {HTMLElement} inputEl - The input element associated with the status message to be hidden.
  */
-const hideMessage = (inputEl) => {
-  const { maskedEl } = getMaskedElements(inputEl, true);
-  const statusMessage = maskedEl.querySelector(STATUS_MESSAGE);
-  const srStatusMessage = maskedEl.querySelector(STATUS_MESSAGE_SR_ONLY);
+const hideMessage = (inputEl, statusMessageEl, srStatusMessageEl) => {
+  const statusEl = statusMessageEl;
 
-  statusMessage.textContent = "";
-  srUpdateStatus(srStatusMessage, "");
-
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, false);
+  statusEl.textContent = "";
+  srUpdateStatus(srStatusMessageEl, "");
+  statusMessageEl.classList.toggle(MESSAGE_INVALID_CLASS, false);
 };
 
 /**
@@ -684,8 +674,10 @@ const hideMessage = (inputEl) => {
  * @param {HTMLInputElement} inputEl The masked input element
  * @param {number} keyCode The key number code
  */
-const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
+const updateMaskMessage = (inputEl, statusMessageEl, srStatusMessageEl, keyCode, key, curPos) => {
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
+  const statusEl = statusMessageEl;
+
   if (
     (curPos < MASK.length && FORMAT_CHARACTERS.indexOf(MASK[curPos]) > -1) ||
     curPos >= MASK.length
@@ -693,9 +685,6 @@ const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
     return;
   }
 
-  const { maskedEl } = getMaskedElements(inputEl, true);
-  const statusMessage = maskedEl.querySelector(STATUS_MESSAGE);
-  const srStatusMessage = maskedEl.querySelector(STATUS_MESSAGE_SR_ONLY);
   const { currentStatusMessage, invalidCharType } = getMaskMessage(
     inputEl,
     keyCode,
@@ -703,10 +692,10 @@ const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
     curPos
   );
 
-  statusMessage.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessage, currentStatusMessage);
+  statusEl.textContent = currentStatusMessage;
+  srUpdateStatus(srStatusMessageEl, currentStatusMessage);
 
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
+  statusEl.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
 };
 
 /**
@@ -815,6 +804,10 @@ const handleClick = (inputEl, event) => {
  */
 const handleKeyDown = (inputEl, event) => {
   const el = inputEl;
+  const inputElContainer = inputEl.parentNode;
+  const statusMessageEl = inputElContainer.querySelector(`.${STATUS_MESSAGE_CLASS}`);
+  const srStatusMessageEl = inputElContainer.querySelector(`.${STATUS_MESSAGE_SR_ONLY_CLASS}`);
+
   let keyCode = event.which;
 
   let curPos = getCursorPosition(el);
@@ -882,12 +875,12 @@ const handleKeyDown = (inputEl, event) => {
 
     if (keyCode === KEYS.backSpace) {
       checkRemoveValue(inputEl, getCursorPosition(el));
-      hideMessage(inputEl);
+      hideMessage(inputEl, statusMessageEl, srStatusMessageEl);
     }
 
     if (keyCode === KEYS.delete) {
       checkRemoveValue(inputEl, getCursorPosition(el), false);
-      hideMessage(inputEl);
+      hideMessage(inputEl, statusMessageEl, srStatusMessageEl);
     }
 
     handleValueChange(el);
@@ -906,7 +899,7 @@ const handleKeyDown = (inputEl, event) => {
   ) {
     const lastPosition = el.value.length;
 
-    updateMaskMessage(el, keyCode, event.key, el.value.length);
+    updateMaskMessage(el, statusMessageEl, srStatusMessageEl, keyCode, event.key, el.value.length);
     if (isValidCharacter(keyCode, MASK[lastPosition])) {
       if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
         keyCode -= 48;
@@ -948,7 +941,7 @@ const handleKeyDown = (inputEl, event) => {
     }
   }
 
-  updateMaskMessage(el, keyCode, event.key, getCursorPosition(inputEl));
+  updateMaskMessage(el, statusMessageEl, srStatusMessageEl, keyCode, event.key, getCursorPosition(inputEl));
 
   if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
     if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
@@ -993,7 +986,7 @@ const handleKeyDown = (inputEl, event) => {
  */
 const enhanceInputMask = (inputEl, options) => {
   if (!inputEl || !options) {
-    throw new Error(`${MASKED} is missing correct attributes`);
+    throw new Error(`${MASKED_INPUT_CLASS} is missing correct attributes`);
   }
   const { value } = inputEl;
   const { maskedEl } = getMaskedElements(inputEl);
@@ -1026,27 +1019,27 @@ const enhanceInputMask = (inputEl, options) => {
 
 const inputMaskEvents = {
   click: {
-    [INPUT](event) {
+    [MASKED_INPUT](event) {
       handleClick(this, event);
     },
   },
   focusin: {
-    [INPUT](event) {
+    [MASKED_INPUT](event) {
       handleFocus(this, event);
     },
   },
   keydown: {
-    [INPUT](event) {
+    [MASKED_INPUT](event) {
       handleKeyDown(this, event);
     },
   },
   keyup: {
-    [INPUT](event) {
+    [MASKED_INPUT](event) {
       handleKeyUp(this, event);
     },
   },
   paste: {
-    [INPUT](event) {
+    [MASKED_INPUT](event) {
       handlePaste(this, event, null);
     },
   },
@@ -1054,7 +1047,7 @@ const inputMaskEvents = {
 
 const inputMask = behavior(inputMaskEvents, {
   init(root) {
-    selectOrMatches(INPUT, root).forEach((maskedInput) => {
+    selectOrMatches(MASKED_INPUT, root).forEach((maskedInput) => {
       const nodes = [];
       const values = [];
       const options = {};
