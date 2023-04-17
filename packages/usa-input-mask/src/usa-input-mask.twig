@@ -5,8 +5,8 @@
       <input
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
           class="usa-input usa-input-mask"
-          {% if forceCase == "forceupper" %}forceupper="{{ forceupper }}"{% endif %}
-          {% if forceCase == "forcelower" %}forcelower="{{ forcelower }}"{% endif %}
+          {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
+          {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
           id="{{ id }}"
           inputmode="{{ inputmode }}"
           mask="{{ mask }}"
@@ -25,7 +25,8 @@
       <input
           aria-describedby="{{ id }}-data-attribute-test-hint"
           class="usa-input usa-input-mask"
-          forceupper
+          {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
+          {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
           id="{{ id }}-data-attribute-test"
           inputmode="{{ inputmode }}"
           mask="{{ mask }}"
