@@ -840,11 +840,6 @@ const handleKeyDown = (inputEl, event) => {
     [KEYS.left, KEYS.right, KEYS.up, KEYS.down, KEYS.tab].indexOf(keyCode) > -1;
 
   if (movementKeys) {
-    if (checkMaskForLetters(inputEl.id)) {
-      event.preventDefault();
-      return false;
-    }
-
     if (keyCode === KEYS.left && !checkAvailableLeft(inputEl, curPos)) {
       event.preventDefault();
       return false;
