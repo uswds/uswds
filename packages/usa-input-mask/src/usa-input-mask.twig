@@ -16,4 +16,25 @@
           type="{{ type }}"
       >
     </div>
+
+  {% if test %}
+      <label class="usa-label" for="{{ id }}-data-attribute-test">Custom status message test</label>
+      <div class="usa-hint" id="{{ id }}-data-attribute-test-hint">
+        This follows the same pattern as above, but it should show a custom invalid character message.
+      </div>
+      <input
+          aria-describedby="{{ id }}-data-attribute-test-hint"
+          class="usa-input usa-input-mask"
+          forceupper
+          id="{{ id }}-data-attribute-test"
+          inputmode="{{ inputmode }}"
+          mask="{{ mask }}"
+          name="{{ id }}-data-attribute-test"
+          pattern="{{ pattern }}"
+          placeholder="{{ placeholder }}"
+          type="{{ type }}"
+          data-invalid-alpha-text="Aquí se requiere un carácter de letra"
+          data-invalid-numeric-text="Aquí se requiere un carácter de número"
+      >
+  {% endif %}
 </form>

@@ -12,7 +12,6 @@ const PLACEHOLDER = "placeholder";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-error-message`;
 const STATUS_MESSAGE_CLASS = `${MASKED_INPUT_CLASS}__status`;
 const STATUS_MESSAGE_SR_ONLY_CLASS = `${PREFIX}-sr-only`;
-const DEFAULT_STATUS_LABEL = `character is required here`;
 
 const FORMAT_CHARACTERS = [
   "-",
@@ -629,7 +628,13 @@ const createMaskedInputShell = (inputEl) => {
  */
 const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const isNumber = /^\d+$/.test(key);
-  const theCharType = !isNumber ? "number" : "letter";
+  const invalidAlpha = inputEl.getAttribute("data-invalid-alpha-text")
+  ? inputEl.getAttribute("data-invalid-alpha-text")
+  : "A letter character is required here";
+  const invalidNumeric = inputEl.getAttribute("data-invalid-numeric-text")
+  ? inputEl.getAttribute("data-invalid-numeric-text")
+  : "A number character is required here";
+  const invalidStatusMessage = !isNumber ? invalidNumeric : invalidAlpha;
 
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
 
@@ -638,7 +643,7 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   }
 
   return {
-    currentStatusMessage: `A ${theCharType} ${DEFAULT_STATUS_LABEL}`,
+    currentStatusMessage: invalidStatusMessage,
     invalidCharType: true,
   };
 };

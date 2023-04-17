@@ -40,3 +40,9 @@ Alphanumeric.argTypes = {
 
 export const DateShort = Template.bind({});
 DateShort.args = DateContent;
+
+export const Test = Template.bind({});
+Test.args = {
+  ...AlphanumericContent,
+  test: true,
+}
