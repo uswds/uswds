@@ -1,6 +1,6 @@
 @use "uswds-core" as *;
 
-.usa-input-mask__field,
+.usa-input-mask,
 .usa-input-mask__shell {
   display: block;
   position: relative;
@@ -20,7 +20,7 @@
   }
 }
 
-.usa-input-mask__field,
+.usa-input-mask,
 .usa-input-mask__content {
   @include border-box-sizing;
   background-color: transparent;

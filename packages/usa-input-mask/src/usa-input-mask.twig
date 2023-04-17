@@ -1,11 +1,10 @@
 <form class="usa-form">
-  <div class="usa-input-mask">
     <div class="usa-form-group">
       <label class="usa-label" for="{{ id }}">{{ label }}</label>
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
       <input
           aria-describedby="{{ id }}-hint {{ id }}-hint-info"
-          class="usa-input usa-input-mask__field"
+          class="usa-input usa-input-mask"
           {% if forceCase == "forceupper" %}forceupper="{{ forceupper }}"{% endif %}
           {% if forceCase == "forcelower" %}forcelower="{{ forcelower }}"{% endif %}
           id="{{ id }}"
@@ -17,5 +16,4 @@
           type="{{ type }}"
       >
     </div>
-  </div>
 </form>
