@@ -9,9 +9,9 @@ const MASKED_INPUT_SHELL_CLASS = `${MASKED_INPUT_CLASS}__shell`;
 const MASKED_INPUT_CONTENT_CLASS = `${MASKED_INPUT_CLASS}__content`;
 const PLACEHOLDER = "placeholder";
 
-const MESSAGE_INVALID_CLASS = `${MASKED_INPUT_CLASS}__status--invalid`;
+const MESSAGE_INVALID_CLASS = `${PREFIX}-error-message`;
 const STATUS_MESSAGE_CLASS = `${MASKED_INPUT_CLASS}__status`;
-const STATUS_MESSAGE_SR_ONLY_CLASS = `${MASKED_INPUT_CLASS}__sr-status`;
+const STATUS_MESSAGE_SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const DEFAULT_STATUS_LABEL = `character is required here`;
 
 const FORMAT_CHARACTERS = [
@@ -369,7 +369,7 @@ const createStatusMessages = (maskedEl) => {
   const statusMessageEl = document.createElement("div");
   const srStatusMessageEl = document.createElement("div");
 
-  statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
+  statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
   srStatusMessageEl.classList.add(
     `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
     "usa-sr-only"
