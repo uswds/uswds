@@ -163,33 +163,19 @@ const buildFileInput = (fileInputEl) => {
   // Add screen reader-only file status message
   // 1. Construct default status text
   // 2. Add default status text to attributes and status element
-  if (fileInputEl.hasAttribute("data-default-status-text")) {
-    defaultStatus = fileInputEl.dataset.defaultStatusText;
-  } else {
-    defaultStatus = `No ${inputItem} selected.`;
-  }
+  defaultStatus = `No ${inputItem} selected.`;
   statusEl.setAttribute("data-default-status-text", defaultStatus);
   statusEl.textContent = defaultStatus;
 
   // Add instructions for input usage
   // 1. Construct instruction text
   // 2. Add instruction text to attributes and input element
-  if (fileInputEl.hasAttribute("data-default-drag-text")) {
-    dragText = fileInputEl.dataset.defaultDragText;
-    console.log(dragText);
-  } else {
-    dragText = `Drag ${inputItem} here or`;
-  }
-  if (fileInputEl.hasAttribute("data-default-choose-text")) {
-    chooseText = fileInputEl.dataset.defaultChooseText;
-    console.log(chooseText);
-  } else {
-    chooseText = "choose from folder";
-  }
-  defaultInstructionsText = `${dragText} ${chooseText}`;
+  dragText = `Drag ${inputItem} here or `;
+  chooseText = "choose from folder";
+  defaultInstructionsText = `${dragText}${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
@@ -364,27 +350,19 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       reader.readAsDataURL(fileNames[i]);
     }
 
-    // Set "change item" text
-    // If data attribute is added, use that
-    // If multiple files added, use plural
-    if (fileInputEl.hasAttribute("data-default-change-text")) {
-      changeText = fileInputEl.dataset.defaultChangeText;
-    } else if (i === 0) {
-      changeText = `Change file`;
-    } else if (i >= 1) {
-      changeText = `Change files`;
-    }
-
-    // Creates change file text for preview heading
+    // Adds heading above file previews
+    // 1. Create content for preview heading - use plural if multiple files added
+    // 2. Add content to preview heading
     if (i === 0) {
+      changeText = `Change file`;
       filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeText}</span>`;
     } else if (i >= 1) {
+      changeText = `Change files`;
       filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
         i + 1
       } files selected <span class="usa-file-input__choose">${changeText}</span>`;
     }
 
-    // Adds heading above file previews
     if (i >= 0) {
       dropTarget.insertBefore(filePreviewsHeading, instructions);
       fileInputEl.setAttribute("aria-label", changeText);
