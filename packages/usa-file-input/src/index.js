@@ -170,12 +170,12 @@ const buildFileInput = (fileInputEl) => {
   // Add instructions for input usage
   // 1. Construct instruction text
   // 2. Add instruction text to attributes and input element
-  dragText = `Drag ${inputItem} here or `;
+  dragText = `Drag ${inputItem} here or`;
   chooseText = "choose from folder";
-  defaultInstructionsText = `${dragText}${chooseText}`;
+  defaultInstructionsText = `${dragText} ${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span><span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
