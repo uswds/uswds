@@ -1,5 +1,5 @@
 {
-  "hint": "Provide your nine-digit social security number (For example: 123-45-6789)",
+  "hint": "For example, 123-45-6789",
   "id": "ssn",
   "inputmode": "numeric",
   "label": "Social Security Number",
