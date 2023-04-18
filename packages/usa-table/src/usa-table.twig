@@ -2,7 +2,7 @@
   <div class="usa-table-container--scrollable" tabindex="0">
 {% endif %}
 
-<table class="usa-table {{ modifier }}">
+<table class="usa-table {{stickyheader ? 'usa-table--sticky-header' : ''}} {{ modifier }}">
   {% if caption %}
     <caption>{{ caption }}</caption>
   {% endif %}
@@ -32,6 +32,32 @@
         {% endfor %}
       </tr>
     {% endfor %}
+    {% if stickyheader %}
+      {% for row in tbody %}
+        <tr>
+          {% for cell in row %}
+            {% if not cell.scope %}
+              <td>{{ cell.title }}</td>
+            {% else %}
+              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    {% endif %}
+    {% if stickyheader %}
+      {% for row in tbody %}
+        <tr>
+          {% for cell in row %}
+            {% if not cell.scope %}
+              <td>{{ cell.title }}</td>
+            {% else %}
+              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    {% endif %}
   </tbody>
 </table>
 
