@@ -4,7 +4,6 @@ import {
   PhoneContent,
   ZipContent,
   AlphanumericContent,
-  DateContent,
 } from "./content";
 
 export default {
@@ -37,9 +36,6 @@ Alphanumeric.argTypes = {
     table: { disable: false },
   },
 };
-
-export const DateShort = Template.bind({});
-DateShort.args = DateContent;
 
 export const Test = Template.bind({});
 Test.args = {
