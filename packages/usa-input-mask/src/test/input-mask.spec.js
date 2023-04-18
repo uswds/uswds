@@ -71,7 +71,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
-        "A number character is required here"
+        "Please enter a number character here"
       );
     });
 
