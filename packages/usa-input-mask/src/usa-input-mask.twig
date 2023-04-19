@@ -3,7 +3,7 @@
       <label class="usa-label" for="{{ id }}">{{ label }}</label>
       <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
       <input
-          aria-describedby="{{ id }}-hint {{ id }}-hint-info"
+          aria-describedby="{{ id }}-hint"
           class="usa-input usa-input-mask"
           {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
           {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
