@@ -629,11 +629,11 @@ const createMaskedInputShell = (inputEl) => {
 const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const isNumber = /^\d+$/.test(key);
   const invalidAlpha = inputEl.getAttribute("data-invalid-alpha-text")
-  ? inputEl.getAttribute("data-invalid-alpha-text")
-  : "Please enter a letter character here";
+    ? inputEl.getAttribute("data-invalid-alpha-text")
+    : "Please enter a letter character here";
   const invalidNumeric = inputEl.getAttribute("data-invalid-numeric-text")
-  ? inputEl.getAttribute("data-invalid-numeric-text")
-  : "Please enter a number character here";
+    ? inputEl.getAttribute("data-invalid-numeric-text")
+    : "Please enter a number character here";
   const invalidStatusMessage = !isNumber ? invalidNumeric : invalidAlpha;
 
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
@@ -679,7 +679,14 @@ const hideMessage = (inputEl, statusMessageEl, srStatusMessageEl) => {
  * @param {HTMLInputElement} inputEl The masked input element
  * @param {number} keyCode The key number code
  */
-const updateMaskMessage = (inputEl, statusMessageEl, srStatusMessageEl, keyCode, key, curPos) => {
+const updateMaskMessage = (
+  inputEl,
+  statusMessageEl,
+  srStatusMessageEl,
+  keyCode,
+  key,
+  curPos
+) => {
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
   const statusEl = statusMessageEl;
 
@@ -810,8 +817,12 @@ const handleClick = (inputEl, event) => {
 const handleKeyDown = (inputEl, event) => {
   const el = inputEl;
   const inputElContainer = inputEl.parentNode;
-  const statusMessageEl = inputElContainer.querySelector(`.${STATUS_MESSAGE_CLASS}`);
-  const srStatusMessageEl = inputElContainer.querySelector(`.${STATUS_MESSAGE_SR_ONLY_CLASS}`);
+  const statusMessageEl = inputElContainer.querySelector(
+    `.${STATUS_MESSAGE_CLASS}`
+  );
+  const srStatusMessageEl = inputElContainer.querySelector(
+    `.${STATUS_MESSAGE_SR_ONLY_CLASS}`
+  );
 
   let keyCode = event.which;
 
@@ -899,7 +910,14 @@ const handleKeyDown = (inputEl, event) => {
   ) {
     const lastPosition = el.value.length;
 
-    updateMaskMessage(el, statusMessageEl, srStatusMessageEl, keyCode, event.key, el.value.length);
+    updateMaskMessage(
+      el,
+      statusMessageEl,
+      srStatusMessageEl,
+      keyCode,
+      event.key,
+      el.value.length
+    );
     if (isValidCharacter(keyCode, MASK[lastPosition])) {
       if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
         keyCode -= 48;
@@ -941,7 +959,14 @@ const handleKeyDown = (inputEl, event) => {
     }
   }
 
-  updateMaskMessage(el, statusMessageEl, srStatusMessageEl, keyCode, event.key, getCursorPosition(inputEl));
+  updateMaskMessage(
+    el,
+    statusMessageEl,
+    srStatusMessageEl,
+    keyCode,
+    event.key,
+    getCursorPosition(inputEl)
+  );
 
   if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
     if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
