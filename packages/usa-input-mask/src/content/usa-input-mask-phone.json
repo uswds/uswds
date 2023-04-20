@@ -1,7 +1,7 @@
 {
   "hint": "For example, 123-456-7890",
   "id": "tel",
-  "inputmode": "numeric",
+  "inputmode": "tel",
   "label": "U.S. Telephone Number",
   "mask": "(999) 999-9999",
   "placeholder": "(___) ___-____",
