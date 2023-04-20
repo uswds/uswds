@@ -1,13 +1,15 @@
 import Component from "./usa-input-mask.twig";
+import TestComponent from "./test/test-patterns/test-input-mask-multiple-input.twig";
 import {
   SsnContent,
   PhoneContent,
   ZipContent,
   AlphanumericContent,
+  CustomTextContent,
 } from "./content";
 
 export default {
-  title: "Components/Form Inputs/Text Input Mask",
+  title: "Components/Form Inputs/Input Mask",
   argTypes: {
     forceCase: {
       name: "Force case",
@@ -19,6 +21,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
+const TestTemplate = (args) => TestComponent(args);
 
 export const SSN = Template.bind({});
 SSN.args = SsnContent;
@@ -37,8 +40,9 @@ Alphanumeric.argTypes = {
   },
 };
 
-export const Test = Template.bind({});
+export const Test = TestTemplate.bind({});
 Test.args = {
-  ...AlphanumericContent,
-  test: true,
-}
+  PhoneContent,
+  AlphanumericContent,
+  CustomTextContent,
+};

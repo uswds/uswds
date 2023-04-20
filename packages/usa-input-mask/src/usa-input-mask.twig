@@ -5,6 +5,8 @@
       <input
           aria-describedby="{{ id }}-hint"
           class="usa-input usa-input-mask"
+          {% if customInvalidAlphaText %}data-invalid-alpha-text="{{ customInvalidAlphaText }}"{% endif %}
+          {% if customInvalidNumericText %}data-invalid-numeric-text="{{ customInvalidNumericText }}"{% endif %}
           {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
           {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
           id="{{ id }}"
@@ -16,26 +18,4 @@
           type="{{ type }}"
       >
     </div>
-
-  {% if test %}
-      <label class="usa-label" for="{{ id }}-data-attribute-test">Custom status message test</label>
-      <div class="usa-hint" id="{{ id }}-data-attribute-test-hint">
-        This follows the same pattern as above, but it should show a custom invalid character message.
-      </div>
-      <input
-          aria-describedby="{{ id }}-data-attribute-test-hint"
-          class="usa-input usa-input-mask"
-          {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
-          {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
-          id="{{ id }}-data-attribute-test"
-          inputmode="{{ inputmode }}"
-          mask="{{ mask }}"
-          name="{{ id }}-data-attribute-test"
-          pattern="{{ pattern }}"
-          placeholder="{{ placeholder }}"
-          type="{{ type }}"
-          data-invalid-alpha-text="Ingrese un carácter de letra aquí"
-          data-invalid-numeric-text="Ingrese un carácter de número aquí"
-      >
-  {% endif %}
 </form>

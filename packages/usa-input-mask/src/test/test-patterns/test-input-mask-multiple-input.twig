@@ -1,0 +1,9 @@
+<h3>Test multiple input masks</h3>
+<p>Confirm that each mask operates independently</p>
+
+{% include "@components/usa-input-mask/src/usa-input-mask.twig" with AlphanumericContent %}
+{% include "@components/usa-input-mask/src/usa-input-mask.twig" with PhoneContent %}
+
+<h3>Test custom hint text</h3>
+<p>Confirm that data attributes create custom text in the status message</p>
+{% include "@components/usa-input-mask/src/usa-input-mask.twig" with CustomTextContent %}
