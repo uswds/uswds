@@ -657,7 +657,7 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
 const srUpdateStatus = debounce((msgEl, statusMessage) => {
   const srStatusMessageEl = msgEl;
   srStatusMessageEl.textContent = statusMessage;
-}, 200);
+}, 1000);
 
 /**
  * Hides a status message by setting its text content and screen-reader-only status message element's text content to an empty string, and removing the `MESSAGE_INVALID_CLASS` class from the status message element.
@@ -668,7 +668,7 @@ const hideMessage = (inputEl, statusMessageEl, srStatusMessageEl) => {
   const statusEl = statusMessageEl;
 
   statusEl.textContent = "";
-  srUpdateStatus(srStatusMessageEl, "");
+  srUpdateStatus(srStatusMessageEl, " ");
   statusMessageEl.classList.toggle(MESSAGE_INVALID_CLASS, false);
 };
 
