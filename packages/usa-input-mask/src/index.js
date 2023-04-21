@@ -367,15 +367,26 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
 const createStatusMessages = (maskedEl) => {
   const statusMessageEl = document.createElement("div");
   const srStatusMessageEl = document.createElement("div");
+  const srStatusMessageElID = `input-mask-status-${
+    Math.floor(Math.random() * 900000) + 100000
+  }`;
+  let maskedElAriaDescribedBy = maskedEl.getAttribute("aria-describedby");
 
+  if (maskedElAriaDescribedBy) {
+    maskedElAriaDescribedBy = `${srStatusMessageElID} ${maskedElAriaDescribedBy}`;
+  } else {
+    maskedElAriaDescribedBy = srStatusMessageElID;
+  }
+
+  maskedEl.setAttribute("aria-describedby", maskedElAriaDescribedBy);
   statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
   srStatusMessageEl.classList.add(
     `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
     "usa-sr-only"
   );
-
   statusMessageEl.setAttribute("aria-hidden", true);
   srStatusMessageEl.setAttribute("aria-live", "assertive");
+  srStatusMessageEl.setAttribute("id", srStatusMessageElID);
 
   maskedEl.insertAdjacentElement("afterend", statusMessageEl);
   statusMessageEl.insertAdjacentElement("afterend", srStatusMessageEl);
@@ -630,10 +641,10 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const isNumber = /^\d+$/.test(key);
   const invalidAlpha = inputEl.getAttribute("data-invalid-alpha-text")
     ? inputEl.getAttribute("data-invalid-alpha-text")
-    : "Please enter a letter character here";
+    : "Please enter a letter character here.";
   const invalidNumeric = inputEl.getAttribute("data-invalid-numeric-text")
     ? inputEl.getAttribute("data-invalid-numeric-text")
-    : "Please enter a number character here";
+    : "Please enter a number character here.";
   const invalidStatusMessage = !isNumber ? invalidNumeric : invalidAlpha;
 
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
