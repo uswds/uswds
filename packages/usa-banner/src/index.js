@@ -5,7 +5,6 @@ const accordion = require("../../usa-accordion/src/index");
 
 const HEADER = `.${PREFIX}-banner__header`;
 const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;
-const BUTTON = `.${PREFIX}-banner__button[aria-controls]`;
 
 /**
  * Toggle expanded banner class.
@@ -14,7 +13,7 @@ const BUTTON = `.${PREFIX}-banner__button[aria-controls]`;
  */
 const toggleBanner = function toggleEl(event) {
   event.preventDefault();
-  this.closest(HEADER).classList.toggle(EXPANDED_CLASS);
+  event.target.closest(HEADER).classList.toggle(EXPANDED_CLASS);
 };
 
 const banner = behavior(
@@ -25,13 +24,18 @@ const banner = behavior(
   },
   {
     init(root) {
-      const bannerButtons = root.querySelectorAll(BUTTON);
-
-      bannerButtons.forEach((button) => {
-        const parentBanner = button.closest(accordion.ACCORDION);
-
-        accordion.on(parentBanner);
-      });
+      // Initialize accordion if it hasn't already.
+      // Required for modular import of Banner.
+      if (!accordion.hasInit) {
+        accordion.on(root);
+        accordion.hasInit = true;
+      }
+    },
+    teardown(root) {
+      if (accordion.hasInit) {
+        accordion.off(root);
+        accordion.hasInit = false;
+      }
     },
   }
 );

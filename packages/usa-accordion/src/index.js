@@ -82,10 +82,18 @@ const accordion = behavior(
   },
   {
     init(root) {
-      select(BUTTON, root).forEach((button) => {
-        const expanded = button.getAttribute(EXPANDED) === "true";
-        toggleButton(button, expanded);
-      });
+      // Check if Banner has previously initialized accordion.
+      if (!this.hasInit) {
+        select(BUTTON, root).forEach((button) => {
+          const expanded = button.getAttribute(EXPANDED) === "true";
+          toggleButton(button, expanded);
+        });
+
+        this.hasInit = true;
+      }
+    },
+    teardown() {
+      this.hasInit = false;
     },
     ACCORDION,
     BUTTON,
@@ -93,6 +101,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
+    hasInit: this.hasInit || false
   }
 );
 
