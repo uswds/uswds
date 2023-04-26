@@ -15,6 +15,8 @@ https://designsystem.digital.gov/design-tokens
 ----------------------------------------
 */
 
+@use "sass:map";
+
 /*
 ----------------------------------------
 Image path
@@ -45,7 +47,8 @@ Namespace
 ----------------------------------------
 */
 
-$theme-namespace: (
+$theme-namespace: () !default;
+$theme-namespace-complete: map.deep-merge((
   "grid": (
     namespace: "grid-",
     output: true,
@@ -54,7 +57,7 @@ $theme-namespace: (
     namespace: "u-",
     output: false,
   ),
-) !default;
+), $theme-namespace) !default;
 
 /*
 ----------------------------------------
