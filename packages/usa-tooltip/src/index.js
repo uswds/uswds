@@ -5,7 +5,6 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
-const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
 const TOOLTIP_CLASS = `${PREFIX}-tooltip`;
 const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
