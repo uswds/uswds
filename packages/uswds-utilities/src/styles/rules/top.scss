@@ -25,7 +25,7 @@ $u-top: (
     base: "top",
     modifiers: null,
     values: map-collect(get-palettes($top-palettes), $top-manual-values),
-    settings: $top-settings,
+    settings: $top-settings-complete,
     property: "top",
     type: "utility",
   ),

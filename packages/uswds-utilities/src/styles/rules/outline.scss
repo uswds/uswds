@@ -25,7 +25,7 @@ $u-outline: (
     base: "outline",
     modifiers: null,
     values: map-collect(get-palettes($outline-palettes), $outline-manual-values),
-    settings: $outline-settings,
+    settings: $outline-settings-complete,
     valuePrepend: null,
     valueAppend: " solid",
     property: "outline",

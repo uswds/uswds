@@ -27,7 +27,7 @@ $u-vertical-align: (
         get-palettes($vertical-align-palettes),
         $vertical-align-manual-values
       ),
-    settings: $vertical-align-settings,
+    settings: $vertical-align-settings-complete,
     property: "vertical-align",
     type: "utility",
   ),

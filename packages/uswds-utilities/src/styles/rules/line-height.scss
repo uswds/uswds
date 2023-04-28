@@ -27,7 +27,7 @@ $u-line-height: (
         get-palettes($line-height-palettes),
         $line-height-manual-values
       ),
-    settings: $line-height-settings,
+    settings: $line-height-settings-complete,
     property: "line-height",
     type: "utility",
   ),

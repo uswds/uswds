@@ -72,518 +72,575 @@ Settings
 ----------------------------------------
 */
 
-$add-aspect-settings: (
+$add-aspect-settings: () !default;
+$add-aspect-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $add-aspect-settings) !default;
 
-$add-list-reset-settings: (
+$add-list-reset-settings: () !default;
+$add-list-reset-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $add-list-reset-settings) !default;
 
-$align-items-settings: (
+$align-items-settings: () !default;
+$align-items-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $align-items-settings) !default;
 
-$align-self-settings: (
+$align-self-settings: () !default;
+$align-self-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $align-self-settings) !default;
 
-$background-color-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: true,
-  visited: false,
-) !default;
-
-$border-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: true,
-  visited: false,
-) !default;
-
-$border-color-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: true,
-  visited: false,
-) !default;
-
-$border-radius-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$border-style-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$border-width-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$bottom-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$box-shadow-settings: (
+$background-color-settings: () !default;
+$background-color-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: true,
   visited: false,
-) !default;
+), $background-color-settings) !default;
 
-$circle-settings: (
+$border-settings: () !default;
+$border-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false,
+), $border-settings) !default;
+
+$border-color-settings: () !default;
+$border-color-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false,
+), $border-color-settings) !default;
+
+$border-radius-settings: () !default;
+$border-radius-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $border-radius-settings) !default;
+
+$border-style-settings: () !default;
+$border-style-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $border-style-settings) !default;
 
-$clearfix-settings: (
+$border-width-settings: () !default;
+$border-width-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $border-width-settings) !default;
 
-$color-settings: (
+$bottom-settings: () !default;
+$bottom-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $bottom-settings) !default;
+
+$box-shadow-settings: () !default;
+$box-shadow-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: true,
   visited: false,
-) !default;
+), $box-shadow-settings) !default;
 
-$cursor-settings: (
+$circle-settings: () !default;
+$circle-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $circle-settings) !default;
 
-$display-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$flex-settings: (
+$clearfix-settings: () !default;
+$clearfix-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $clearfix-settings) !default;
 
-$flex-direction-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$flex-wrap-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$float-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$font-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$font-family-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$font-feature-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$font-style-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$font-weight-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$height-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$justify-content-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$left-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$letter-spacing-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$line-height-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$margin-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$max-height-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$max-width-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$measure-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$min-height-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$min-width-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$opacity-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$order-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$outline-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$outline-color-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$overflow-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$padding-settings: (
-  output: true,
-  responsive: true,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$pin-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$position-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$right-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$square-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$text-align-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$text-decoration-settings: (
+$color-settings: () !default;
+$color-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: true,
   visited: false,
-) !default;
+), $color-settings) !default;
 
-$text-decoration-color-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: true,
-  visited: false,
-) !default;
-
-$text-indent-settings: (
+$cursor-settings: () !default;
+$cursor-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $cursor-settings) !default;
 
-$text-transform-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$top-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$vertical-align-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$whitespace-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
-) !default;
-
-$width-settings: (
+$display-settings: () !default;
+$display-settings-complete: map.merge((
   output: true,
   responsive: true,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $display-settings) !default;
 
-$z-index-settings: (
+$flex-settings: () !default;
+$flex-settings-complete: map.merge((
   output: true,
   responsive: false,
   active: false,
   focus: false,
   hover: false,
   visited: false,
-) !default;
+), $flex-settings) !default;
+
+$flex-direction-settings: () !default;
+$flex-direction-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $flex-direction-settings) !default;
+
+$flex-wrap-settings: () !default;
+$flex-wrap-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $flex-wrap-settings) !default;
+
+$float-settings: () !default;
+$float-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $float-settings) !default;
+
+$font-settings: () !default;
+$font-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $font-settings) !default;
+
+$font-family-settings: () !default;
+$font-family-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $font-family-settings) !default;
+
+$font-feature-settings: () !default;
+$font-feature-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $font-feature-settings) !default;
+
+$font-style-settings: () !default;
+$font-style-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $font-style-settings) !default;
+
+$font-weight-settings: () !default;
+$font-weight-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $font-weight-settings) !default;
+
+$height-settings: () !default;
+$height-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $height-settings) !default;
+
+$justify-content-settings: () !default;
+$justify-content-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $justify-content-settings) !default;
+
+$left-settings: () !default;
+$left-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $left-settings) !default;
+
+$letter-spacing-settings: () !default;
+$letter-spacing-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $letter-spacing-settings) !default;
+
+$line-height-settings: () !default;
+$line-height-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $line-height-settings) !default;
+
+$margin-settings: () !default;
+$margin-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $margin-settings) !default;
+
+$max-height-settings: () !default;
+$max-height-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $max-height-settings) !default;
+
+$max-width-settings: () !default;
+$max-width-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $max-width-settings) !default;
+
+$measure-settings: () !default;
+$measure-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $measure-settings) !default;
+
+$min-height-settings: () !default;
+$min-height-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $min-height-settings) !default;
+
+$min-width-settings: () !default;
+$min-width-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $min-width-settings) !default;
+
+$opacity-settings: () !default;
+$opacity-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $opacity-settings) !default;
+
+$order-settings: () !default;
+$order-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $order-settings) !default;
+
+$outline-settings: () !default;
+$outline-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $outline-settings) !default;
+
+$outline-color-settings: () !default;
+$outline-color-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $outline-color-settings) !default;
+
+$overflow-settings: () !default;
+$overflow-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $overflow-settings) !default;
+
+$padding-settings: () !default;
+$padding-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $padding-settings) !default;
+
+$pin-settings: () !default;
+$pin-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+),$pin-settings ) !default;
+
+$position-settings: () !default;
+$position-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $position-settings) !default;
+
+$right-settings: () !default;
+$right-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $right-settings) !default;
+
+$square-settings: () !default;
+$square-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $square-settings) !default;
+
+$text-align-settings: () !default;
+$text-align-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $text-align-settings) !default;
+
+$text-decoration-settings: () !default;
+$text-decoration-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false,
+), $text-decoration-settings) !default;
+
+$text-decoration-color-settings: () !default;
+$text-decoration-color-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: true,
+  visited: false,
+), $text-decoration-color-settings) !default;
+
+$text-indent-settings: () !default;
+$text-indent-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $text-indent-settings) !default;
+
+$text-transform-settings: () !default;
+$text-transform-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $text-transform-settings) !default;
+
+$top-settings: () !default;
+$top-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $top-settings) !default;
+
+$vertical-align-settings: () !default;
+$vertical-align-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $vertical-align-settings) !default;
+
+$whitespace-settings: () !default;
+$whitespace-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $whitespace-settings) !default;
+
+$width-settings: () !default;
+$width-settings-complete: map.merge((
+  output: true,
+  responsive: true,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $width-settings) !default;
+
+$z-index-settings: () !default;
+$z-index-settings-complete: map.merge((
+  output: true,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+  visited: false,
+), $z-index-settings) !default;
 
 /*
 ----------------------------------------
