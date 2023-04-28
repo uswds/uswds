@@ -1,12 +1,12 @@
 import Component from "./usa-input-mask.twig";
-import TestComponent from "./test/test-patterns/test-input-mask-multiple-input.twig";
+import TestComponent from "./test/test-patterns/test-input-mask.twig";
 import {
   SsnContent,
   PhoneContent,
   ZipContent,
   AlphanumericContent,
-  CustomTextContent,
 } from "./content";
+import { CustomTextContent } from "./test/test-patterns/test-input-mask-custom-text.json";
 
 export default {
   title: "Components/Form Inputs/Input Mask",
