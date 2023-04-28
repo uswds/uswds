@@ -11,11 +11,6 @@ $triangle-size: 5px;
 
 .usa-tooltip__trigger {
   cursor: pointer;
-
-  > svg {
-    display: block;
-    pointer-events: none;
-  }
 }
 
 .usa-tooltip__body,
