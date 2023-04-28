@@ -1,10 +1,10 @@
 {
   "forceCase": "forceupper",
-  "hint": "For example, 1EG4-TE5-MK73",
+  "hint": "For example, ABC-1234",
   "id": "alphanumeric",
   "inputmode": "text",
   "label": "Alphanumeric",
-  "mask": "9AA9-AA9-AA99",
-  "placeholder": "____-___-____",
+  "mask": "AAA-9999",
+  "placeholder": "___-____",
   "type": "text"
 }
