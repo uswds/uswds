@@ -132,7 +132,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.left = `50%`; // center the element
     e.style.top = `-${TRIANGLE_SIZE}px`; // consider the pseudo element
     // apply our margins based on the offset
-    e.style.margin = `-${topMargin}px 0 0 -${leftMargin / 2}px`;
+    e.style.margin = `${-topMargin}px 0 0 ${-leftMargin / 2}px`;
   };
 
   /**
@@ -150,7 +150,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
 
     setPositionClass("bottom");
     e.style.left = `50%`;
-    e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${leftMargin / 2}px`;
+    e.style.margin = `${TRIANGLE_SIZE}px 0 0 ${-leftMargin / 2}px`;
   };
 
   /**
@@ -171,7 +171,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.left = `${
       tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
     }px`;
-    e.style.margin = `-${topMargin / 2}px 0 0 0`;
+    e.style.margin = `${topMargin / -2}px 0 0 0`;
   };
 
   /**
@@ -199,7 +199,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     setPositionClass("left");
     e.style.top = `50%`;
     e.style.left = `-${TRIANGLE_SIZE}px`;
-    e.style.margin = `-${topMargin / 2}px 0 0 ${
+    e.style.margin = `${-topMargin / 2}px 0 0 ${
       tooltipTrigger.offsetLeft > e.offsetWidth ? leftMargin : -leftMargin
     }px`; // adjust the margin
   };
