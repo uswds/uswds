@@ -12,7 +12,7 @@ const PLACEHOLDER = "placeholder";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-error-message`;
 const STATUS_MESSAGE_CLASS = `${MASKED_INPUT_CLASS}__status`;
 const STATUS_MESSAGE_SR_ONLY_CLASS = `${PREFIX}-sr-only`;
-
+const STATUS_MESSAGE_DEFAULT = "Input requires"
 const FORMAT_CHARACTERS = [
   "-",
   "_",
@@ -632,7 +632,7 @@ const createMaskedInputShell = (inputEl) => {
  * @param {number} keyCode - The key code of the key that was pressed.
  * @param {string} key - The character that was entered.
  * @param {number} curPos - The current position in the input field.
- * @returns {{currentStatusMessage: string, invalidCharType: boolean}} An object containing the current status message and whether or not the character type is valid.
+ * @returns {{currentStatusMessage: string, currentSRStatusMessage: string, invalidCharType: boolean}} An object containing the current status message and whether or not the character type is valid.
  */
 const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const isNumber = /^\d+$/.test(key);
@@ -643,15 +643,20 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
     ? inputEl.getAttribute("data-invalid-numeric-text")
     : "Please enter a number character here";
   const invalidStatusMessage = !isNumber ? invalidNumeric : invalidAlpha;
+  const invalidCharacter = inputEl.getAttribute("data-invalid-character")
+    ? inputEl.getAttribute("data-invalid-character")
+    : "Invalid character";
+  const invalidSRStatusMessage = `${invalidCharacter}. ${invalidStatusMessage}.`;
 
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
 
   if (isValidCharacter(keyCode, MASK[curPos])) {
-    return { currentStatusMessage: "", invalidCharType: false };
+    return { currentStatusMessage: "", currentSRStatusMessage: "", invalidCharType: false };
   }
 
   return {
     currentStatusMessage: invalidStatusMessage,
+    currentSRStatusMessage: invalidSRStatusMessage,
     invalidCharType: true,
   };
 };
@@ -705,7 +710,7 @@ const updateMaskMessage = (
     return;
   }
 
-  const { currentStatusMessage, invalidCharType } = getMaskMessage(
+  const { currentStatusMessage, currentSRStatusMessage, invalidCharType } = getMaskMessage(
     inputEl,
     keyCode,
     key,
@@ -713,7 +718,7 @@ const updateMaskMessage = (
   );
 
   statusEl.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessageEl, currentStatusMessage);
+  srUpdateStatus(srStatusMessageEl, currentSRStatusMessage);
 
   statusEl.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
 };
