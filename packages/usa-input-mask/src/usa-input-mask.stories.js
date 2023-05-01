@@ -6,7 +6,7 @@ import {
   ZipContent,
   AlphanumericContent,
 } from "./content";
-import { CustomTextContent } from "./test/test-patterns/test-input-mask-custom-text.json";
+import CustomTextContent from "./test/test-patterns/test-input-mask-custom-text.json";
 
 export default {
   title: "Components/Form Inputs/Input Mask",
