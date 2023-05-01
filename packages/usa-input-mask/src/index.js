@@ -380,10 +380,7 @@ const createStatusMessages = (maskedEl) => {
 
   maskedEl.setAttribute("aria-describedby", maskedElAriaDescribedBy);
   statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
-  srStatusMessageEl.classList.add(
-    `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
-    "usa-sr-only"
-  );
+  srStatusMessageEl.classList.add(`${STATUS_MESSAGE_SR_ONLY_CLASS}`);
   statusMessageEl.setAttribute("aria-hidden", true);
   srStatusMessageEl.setAttribute("aria-live", "assertive");
   srStatusMessageEl.setAttribute("id", srStatusMessageElID);
