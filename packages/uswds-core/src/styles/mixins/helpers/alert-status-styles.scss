@@ -116,7 +116,6 @@
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
     display: block;
-    height: $theme-alert-icon-size;
     // padding - optical spacing value
     left: units($theme-site-margins-mobile-width) - units($theme-alert-bar-width);
     position: absolute;
