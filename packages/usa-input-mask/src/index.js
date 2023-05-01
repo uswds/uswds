@@ -1020,8 +1020,10 @@ const handleKeyDown = (inputEl, event) => {
  * @param {HTMLInputElement} inputEl the components input
  * @param {HTMLInputElement.dataset} options the components input attributes
  */
-const enhanceInputMask = (inputEl, options) => {
-  if (!inputEl || !options) {
+const enhanceInputMask = (inputEl) => {
+  const attrs = inputEl.attributes;
+
+  if (!inputEl || !attrs) {
     throw new Error(`${MASKED_INPUT_CLASS} is missing correct attributes`);
   }
   const { value } = inputEl;
@@ -1030,16 +1032,16 @@ const enhanceInputMask = (inputEl, options) => {
   const el = inputEl;
   const inputId = el.id;
 
-  if (options.mask && options.mask.length > 0) {
-    setMaskInfo(inputId, "MASK", options.mask.split(""));
+  if (attrs.mask && attrs.mask.value.length > 0) {
+    setMaskInfo(inputId, "MASK", attrs.mask.value.split(""));
     setMaskInfo(inputId, "HAS_MASK", true);
   }
 
-  if (options.forceupper && options.forceupper === "true") {
+  if (attrs.forceupper && attrs.forceupper.value === "true") {
     setMaskInfo(inputId, "FORCE_UPPER", true);
   }
 
-  if (options.forcelower && options.forcelower === "true") {
+  if (attrs.forcelower && attrs.forcelower.value === "true") {
     setMaskInfo(inputId, "FORCE_LOWER", true);
   }
 
@@ -1084,23 +1086,7 @@ const inputMaskEvents = {
 const inputMask = behavior(inputMaskEvents, {
   init(root) {
     selectOrMatches(MASKED_INPUT, root).forEach((maskedInput) => {
-      const nodes = [];
-      const values = [];
-      const options = {};
-      for (
-        let attr, i = 0, attrs = maskedInput.attributes, n = attrs.length;
-        i < n;
-        i += 1
-      ) {
-        attr = attrs[i];
-        nodes.push(attr.nodeName);
-        values.push(attr.nodeValue);
-      }
-
-      for (let i = 0; i < nodes.length; i += 1) {
-        options[nodes[i]] = values[i];
-      }
-      enhanceInputMask(maskedInput, options);
+      enhanceInputMask(maskedInput);
     });
   },
 });
