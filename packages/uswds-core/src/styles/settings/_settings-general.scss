@@ -48,16 +48,19 @@ Namespace
 */
 
 $theme-namespace: () !default;
-$theme-namespace-complete: map.deep-merge((
-  "grid": (
-    namespace: "grid-",
-    output: true,
+$theme-namespace-complete: map.deep-merge(
+  (
+    "grid": (
+      namespace: "grid-",
+      output: true,
+    ),
+    "utility": (
+      namespace: "u-",
+      output: false,
+    ),
   ),
-  "utility": (
-    namespace: "u-",
-    output: false,
-  ),
-), $theme-namespace) !default;
+  $theme-namespace
+) !default;
 
 /*
 ----------------------------------------
