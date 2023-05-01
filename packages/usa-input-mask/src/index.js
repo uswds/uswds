@@ -1023,8 +1023,11 @@ const handleKeyDown = (inputEl, event) => {
 const enhanceInputMask = (inputEl) => {
   const attrs = inputEl.attributes;
 
-  if (!inputEl || !attrs) {
-    throw new Error(`${MASKED_INPUT_CLASS} is missing correct attributes`);
+  if (!attrs.mask) {
+    throw new Error(`${MASKED_INPUT_CLASS} is missing the mask attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`);
+  }
+  if (!attrs.placeholder) {
+    throw new Error(`${MASKED_INPUT_CLASS} is missing the placeholder attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`);
   }
   const { value } = inputEl;
   const { maskedEl } = getMaskedElements(inputEl);
