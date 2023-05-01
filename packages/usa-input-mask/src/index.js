@@ -382,7 +382,7 @@ const createStatusMessages = (maskedEl) => {
   statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
   srStatusMessageEl.classList.add(`${STATUS_MESSAGE_SR_ONLY_CLASS}`);
   statusMessageEl.setAttribute("aria-hidden", true);
-  srStatusMessageEl.setAttribute("aria-live", "assertive");
+  srStatusMessageEl.setAttribute("aria-live", "polite");
   srStatusMessageEl.setAttribute("id", srStatusMessageElID);
 
   maskedEl.insertAdjacentElement("afterend", statusMessageEl);
