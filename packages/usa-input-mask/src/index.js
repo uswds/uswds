@@ -12,7 +12,6 @@ const PLACEHOLDER = "placeholder";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-error-message`;
 const STATUS_MESSAGE_CLASS = `${MASKED_INPUT_CLASS}__status`;
 const STATUS_MESSAGE_SR_ONLY_CLASS = `${PREFIX}-sr-only`;
-const STATUS_MESSAGE_DEFAULT = "Input requires"
 const FORMAT_CHARACTERS = [
   "-",
   "_",
@@ -651,7 +650,11 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
 
   if (isValidCharacter(keyCode, MASK[curPos])) {
-    return { currentStatusMessage: "", currentSRStatusMessage: "", invalidCharType: false };
+    return {
+      currentStatusMessage: "",
+      currentSRStatusMessage: "",
+      invalidCharType: false,
+    };
   }
 
   return {
@@ -710,12 +713,8 @@ const updateMaskMessage = (
     return;
   }
 
-  const { currentStatusMessage, currentSRStatusMessage, invalidCharType } = getMaskMessage(
-    inputEl,
-    keyCode,
-    key,
-    curPos
-  );
+  const { currentStatusMessage, currentSRStatusMessage, invalidCharType } =
+    getMaskMessage(inputEl, keyCode, key, curPos);
 
   statusEl.textContent = currentStatusMessage;
   srUpdateStatus(srStatusMessageEl, currentSRStatusMessage);
@@ -1026,10 +1025,14 @@ const enhanceInputMask = (inputEl) => {
   const attrs = inputEl.attributes;
 
   if (!attrs.mask) {
-    throw new Error(`${MASKED_INPUT_CLASS} is missing the mask attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`);
+    throw new Error(
+      `${MASKED_INPUT_CLASS} is missing the mask attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`
+    );
   }
   if (!attrs.placeholder) {
-    throw new Error(`${MASKED_INPUT_CLASS} is missing the placeholder attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`);
+    throw new Error(
+      `${MASKED_INPUT_CLASS} is missing the placeholder attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`
+    );
   }
   const { value } = inputEl;
   const { maskedEl } = getMaskedElements(inputEl);
