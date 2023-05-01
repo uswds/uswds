@@ -641,10 +641,10 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
   const isNumber = /^\d+$/.test(key);
   const invalidAlpha = inputEl.getAttribute("data-invalid-alpha-text")
     ? inputEl.getAttribute("data-invalid-alpha-text")
-    : "Please enter a letter character here.";
+    : "Please enter a letter character here";
   const invalidNumeric = inputEl.getAttribute("data-invalid-numeric-text")
     ? inputEl.getAttribute("data-invalid-numeric-text")
-    : "Please enter a number character here.";
+    : "Please enter a number character here";
   const invalidStatusMessage = !isNumber ? invalidNumeric : invalidAlpha;
 
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
