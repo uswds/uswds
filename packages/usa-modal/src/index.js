@@ -285,9 +285,11 @@ modal = behavior(
     init(root) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
-        if (modalId) {
-          setUpModal(modalWindow);
+        if (!modalId) {
+          return;
         }
+
+        setUpModal(modalWindow);
 
           // Query all openers and closers including the overlay
           selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach((modalTrigger) => {
@@ -312,8 +314,11 @@ modal = behavior(
     },
     teardown(root) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
-        cleanUpModal(modalWindow);
         const modalId = modalWindow.id;
+        if (!modalId) {
+          return;
+        }
+        cleanUpModal(modalWindow);
 
         selectOrMatches(`[aria-controls="${modalId}"]`, document)
           .forEach((modalTrigger) => modalTrigger.removeEventListener("click", toggleModal));
