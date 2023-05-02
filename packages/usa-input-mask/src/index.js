@@ -30,8 +30,6 @@ const FORMAT_CHARACTERS = [
   " ",
 ];
 
-const MASK_INFO = {};
-
 const KEYS = {
   a: 65,
   asterisk: 42,
@@ -61,33 +59,36 @@ const KEYS = {
   zero: 48,
 };
 
+const INPUT_PROPERTIES = {};
+
 /**
- * Updates the key value pair of the mask info object
- * @param {string} id - the key of the mask info object
- * @param {string} key - the key of the value pair to be updated
- * @param {*} value - the new value for the specified key
+ * Sets the value of a specified property in the MASKED_INPUT object
+ *
+ * @param {string} id - The MASKED_INPUT id
+ * @param {string} key - The key of a specified property in MASKED_INPUT object
+ * @param {*} value - The new value for the specified key
  */
-const setMaskInfo = (id, key, value) => {
-  const idKeys = Object.keys(MASK_INFO);
-  if (idKeys.indexOf(id) === -1) {
-    MASK_INFO[id] = {};
+const setPropertyValue = (inputID, key, updatedValue) => {
+  const hasNoProperties = Object.keys(INPUT_PROPERTIES).indexOf(inputID) === -1;
+  if (hasNoProperties) {
+    INPUT_PROPERTIES[inputID] = {};
   }
 
-  MASK_INFO[id][key] = value;
+  INPUT_PROPERTIES[inputID][key] = updatedValue;
 };
 
 /**
- * Gets the value of the specified key in the MASK_INFO object for a given id.
+ * Gets the value of a specified property key in the MASKED_INPUT object
  *
- * @param {string} id - The id to get the mask info from.
- * @param {string} key - The key to get the value of.
- * @param {any} [defaultVal=null] - The default value to return if no value is found.
- *
- * @return {any} The value of the specified key in the MASK_INFO object or the given default value if not found.
+ * @param {string} inputID - The MASKED_INPUT id
+ * @param {string} key - The key of a specified property in MASKED_INPUT object
+ * @param {any} [defaultVal=null] - The default value to return if no property value is found.
+ * @return {any} Returns either the value of the specified property key (if found) OR the given default value (if not found).
  */
-const getMaskInfo = (id, key, defaultVal = null) => {
-  if (MASK_INFO[id] && MASK_INFO[id][key]) {
-    return MASK_INFO[id][key];
+const getPropertyValue = (inputID, key, defaultVal = null) => {
+  const inputPropertyValue = INPUT_PROPERTIES[inputID][key];
+  if (inputPropertyValue) {
+    return inputPropertyValue;
   }
 
   return defaultVal;
@@ -99,8 +100,8 @@ const getMaskInfo = (id, key, defaultVal = null) => {
  * @returns {boolean} True if the mask contains at least one alphabetic character, false otherwise.
  */
 const checkMaskForLetters = (inputId) => {
-  if (MASK_INFO[inputId] && MASK_INFO[inputId].MASK) {
-    return MASK_INFO[inputId].MASK.some((char) => char !== char.toLowerCase());
+  if (INPUT_PROPERTIES[inputId] && INPUT_PROPERTIES[inputId].MASK) {
+    return INPUT_PROPERTIES[inputId].MASK.some((char) => char !== char.toLowerCase());
   }
 
   return false;
@@ -181,7 +182,7 @@ const insertMaskUntilNumber = (inputEl, curPos) => {
 
   let newPos = curPos;
 
-  const MASK = getMaskInfo(el.id, "MASK", []);
+  const MASK = getPropertyValue(el.id, "MASK", []);
 
   const maxLength =
     curPos > el.value.length - 1 ? MASK.length : el.value.length;
@@ -263,7 +264,7 @@ const insertCharacterAtIndex = (inputEl, cursorPos, character) => {
  */
 const getInitMaskValue = (inputId) => {
   let strInitVal = "";
-  const MASK = getMaskInfo(inputId, "MASK", []);
+  const MASK = getPropertyValue(inputId, "MASK", []);
 
   for (let i = 0; i < MASK.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
@@ -285,7 +286,7 @@ const setInitMask = (inputEl, isFocus = true) => {
   const el = inputEl;
   let position = 0;
   let strInitVal = "";
-  const MASK = getMaskInfo(el.id, "MASK", []);
+  const MASK = getPropertyValue(el.id, "MASK", []);
   for (let i = 0; i < MASK.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
       position = i;
@@ -312,7 +313,7 @@ const changeValue = (inputEl) => {
   let newValue = "";
   let index = 0;
 
-  const MASK = getMaskInfo(el.id, "MASK", []);
+  const MASK = getPropertyValue(el.id, "MASK", []);
 
   for (let i = 0; i < MASK.length; i += 1) {
     if (index >= strValue.length) {
@@ -405,7 +406,7 @@ const getPastedText = (inputEl, pastedText) => {
 
   let strMask = "";
 
-  const MASK = getMaskInfo(inputEl.id, "MASK", []);
+  const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
   for (let i = 0; i < MASK.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
@@ -647,7 +648,7 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
     : "Invalid character";
   const invalidSRStatusMessage = `${invalidCharacter}. ${invalidStatusMessage}.`;
 
-  const MASK = getMaskInfo(inputEl.id, "MASK", []);
+  const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
   if (isValidCharacter(keyCode, MASK[curPos])) {
     return {
@@ -703,7 +704,7 @@ const updateMaskMessage = (
   key,
   curPos
 ) => {
-  const MASK = getMaskInfo(inputEl.id, "MASK", []);
+  const MASK = getPropertyValue(inputEl.id, "MASK", []);
   const parent = inputEl.closest(`.${MASKED_INPUT_SHELL_CLASS}`);
   const visibleStatusEl = parent.querySelector(`.${STATUS_MESSAGE_CLASS}`);
   const srStatusEl = parent.querySelector(`.${STATUS_MESSAGE_SR_ONLY_CLASS}`);
@@ -736,7 +737,7 @@ const checkAvailableLeft = (inputEl, curPos) => {
   }
 
   let result = false;
-  const MASK = getMaskInfo(inputEl.id, "MASK", []);
+  const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
   for (let i = curPos - 1; i >= 0; i -= 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
@@ -777,7 +778,7 @@ const getAvailablePos = (inputEl, curPos) => {
   let res = curPos + 1;
   const el = inputEl;
   for (let i = curPos + 1; i < el.value.length; i += 1) {
-    const MASK = getMaskInfo(inputEl.id, "MASK", []);
+    const MASK = getPropertyValue(inputEl.id, "MASK", []);
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
       res = i;
       break;
@@ -809,7 +810,7 @@ const handleClick = (inputEl, event) => {
   const curPos = getCursorPosition(el);
 
   if (curPos === 0) {
-    const MASK = getMaskInfo(inputEl.id, "MASK", []);
+    const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
     if (FORMAT_CHARACTERS.indexOf(MASK[curPos]) > -1) {
       if (el.value === "") {
@@ -835,7 +836,7 @@ const handleKeyDown = (inputEl, event) => {
 
   let curPos = getCursorPosition(el);
 
-  const MASK = getMaskInfo(el.id, "MASK", []);
+  const MASK = getPropertyValue(el.id, "MASK", []);
   if (keyCode === undefined) {
     return true;
   }
@@ -867,14 +868,14 @@ const handleKeyDown = (inputEl, event) => {
   }
 
   if (el.selectionStart === 0 && el.selectionEnd === el.value.length) {
-    setMaskInfo(inputEl.id, "ORIGINAL_VALUE", el.value);
+    setPropertyValue(inputEl.id, "ORIGINAL_VALUE", el.value);
 
     el.value = getInitMaskValue(el.id);
     setCursorPosition(inputEl, el.value.length);
   }
 
   if (keyCode === KEYS.escape) {
-    const ORIGINAL_VALUE = getMaskInfo(inputEl.id, "ORIGINAL_VALUE", "");
+    const ORIGINAL_VALUE = getPropertyValue(inputEl.id, "ORIGINAL_VALUE", "");
     if (ORIGINAL_VALUE !== "") {
       el.value = ORIGINAL_VALUE;
     }
@@ -930,17 +931,17 @@ const handleKeyDown = (inputEl, event) => {
 
       let keyVal = event.key;
 
-      if (getMaskInfo(inputEl.id, "FORCE_UPPER", false)) {
+      if (getPropertyValue(inputEl.id, "FORCE_UPPER", false)) {
         keyVal = keyVal.toUpperCase();
       }
 
-      if (getMaskInfo(inputEl.id, "FORCE_LOWER", false)) {
+      if (getPropertyValue(inputEl.id, "FORCE_LOWER", false)) {
         keyVal = keyVal.toLowerCase();
       }
 
       insertCharacterAtIndex(el, lastPosition, keyVal);
 
-      const HAS_MASK = getMaskInfo(inputEl.id, "HAS_MASK", false);
+      const HAS_MASK = getPropertyValue(inputEl.id, "HAS_MASK", false);
       if (HAS_MASK) {
         checkAndInsertMaskCharacters(el, lastPosition);
       }
@@ -978,13 +979,13 @@ const handleKeyDown = (inputEl, event) => {
 
     let temp = event.key;
 
-    const FORCE_UPPER = getMaskInfo(inputEl.id, "FORCE_UPPER", false);
+    const FORCE_UPPER = getPropertyValue(inputEl.id, "FORCE_UPPER", false);
 
     if (FORCE_UPPER) {
       temp = temp.toUpperCase();
     }
 
-    const FORCE_LOWER = getMaskInfo(inputEl.id, "FORCE_LOWER", false);
+    const FORCE_LOWER = getPropertyValue(inputEl.id, "FORCE_LOWER", false);
 
     if (FORCE_LOWER) {
       temp = temp.toLowerCase();
@@ -992,7 +993,7 @@ const handleKeyDown = (inputEl, event) => {
 
     insertCharacterAtIndex(el, getCursorPosition(el), temp);
 
-    const HAS_MASK = getMaskInfo(inputEl.id, "HAS_MASK", false);
+    const HAS_MASK = getPropertyValue(inputEl.id, "HAS_MASK", false);
     if (HAS_MASK) {
       checkAndInsertMaskCharacters(el, getCursorPosition(el));
     }
@@ -1032,19 +1033,19 @@ const enhanceInputMask = (inputEl) => {
   const inputId = el.id;
 
   if (attrs.mask && attrs.mask.value.length > 0) {
-    setMaskInfo(inputId, "MASK", attrs.mask.value.split(""));
-    setMaskInfo(inputId, "HAS_MASK", true);
+    setPropertyValue(inputId, "MASK", attrs.mask.value.split(""));
+    setPropertyValue(inputId, "HAS_MASK", true);
   }
 
   if (attrs.forceupper && attrs.forceupper.value === "true") {
-    setMaskInfo(inputId, "FORCE_UPPER", true);
+    setPropertyValue(inputId, "FORCE_UPPER", true);
   }
 
   if (attrs.forcelower && attrs.forcelower.value === "true") {
-    setMaskInfo(inputId, "FORCE_LOWER", true);
+    setPropertyValue(inputId, "FORCE_LOWER", true);
   }
 
-  const HAS_MASK = getMaskInfo(inputId, "HAS_MASK", false);
+  const HAS_MASK = getPropertyValue(inputId, "HAS_MASK", false);
 
   if (value.length > 0 && HAS_MASK) {
     handlePaste(inputEl, null, value);
