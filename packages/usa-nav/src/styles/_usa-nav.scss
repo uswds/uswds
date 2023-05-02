@@ -209,22 +209,26 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded="false"] {
+    &[aria-expanded] {
       /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
       span {
-        @include place-icon($-add-icon, "after");
-
         &::after {
           position: absolute;
           top: 50%;
           right: 0;
           transform: translateY(-50%);
+        }
+      }
+    }
 
-          &:hover {
-            background-color: buttonText;
-          }
+    &[aria-expanded="false"] {
+      span {
+        @include place-icon($-add-icon, "after");
+
+        &::after:hover {
+          background-color: buttonText;
         }
       }
 
@@ -252,14 +256,9 @@ $expand-less-icon: map-merge(
     }
 
     &[aria-expanded="true"] {
-      /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: none;
-
       span {
         @include place-icon($-remove-icon, "after");
         &::after {
-          position: absolute;
-          right: 0;
           @media (forced-colors: active) {
             background-color: ButtonText;
           }
