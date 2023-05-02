@@ -108,22 +108,22 @@ const checkMaskForLetters = (inputId) => {
 };
 
 /**
- * Extracts the numeric characters from a string.
+ * Removes format characters from a string.
  *
- * @param {string} strVal - The input string to process.
- * @returns {string} The numeric characters from the input string.
+ * @param {string} string - The input string to process.
+ * @returns {string} The string without format characters
  */
-const getMatchValue = (strVal) => {
-  if (!strVal) {
+const removeFormatCharacters = (string) => {
+  if (!string) {
     return "";
   }
 
-  let newValue = strVal;
+  let newString = string;
   for (let i = 0; i < FORMAT_CHARACTERS.length; i += 1) {
-    newValue = newValue.replaceAll(FORMAT_CHARACTERS[i], "");
+    newString = newString.replaceAll(FORMAT_CHARACTERS[i], "");
   }
 
-  return newValue;
+  return newString;
 };
 
 /**
@@ -308,7 +308,7 @@ const setInitMask = (inputEl, isFocus = true) => {
  */
 const changeValue = (inputEl) => {
   const el = inputEl;
-  const strValue = getMatchValue(el.value);
+  const strValue = removeFormatCharacters(el.value);
 
   let newValue = "";
   let index = 0;
@@ -330,7 +330,7 @@ const changeValue = (inputEl) => {
 
   el.value = newValue;
 
-  const strNumber = getMatchValue(newValue);
+  const strNumber = removeFormatCharacters(newValue);
   if (strNumber === "") {
     setInitMask(inputEl);
   }
@@ -544,7 +544,7 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
   const el = inputEl;
   if (isBackspace) {
     const strVal = el.value.slice(0, curPos);
-    const strNumberVal = getMatchValue(strVal);
+    const strNumberVal = removeFormatCharacters(strVal);
     if (strNumberVal === "" || curPos < 1) {
       return;
     }
@@ -574,7 +574,7 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
     setCursorPosition(inputEl, startPos);
   } else {
     const strVal = el.value.slice(curPos, el.value.length);
-    const strNumberVal = getMatchValue(strVal);
+    const strNumberVal = removeFormatCharacters(strVal);
     if (strNumberVal === "" || curPos > el.value.length - 1) {
       return;
     }
