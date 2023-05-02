@@ -364,28 +364,28 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
  * @param {HTMLElement} maskedEl - The element to which the new status message elements will be appended.
  */
 const createStatusMessages = (maskedEl) => {
-  const statusMessageEl = document.createElement("div");
-  const srStatusMessageEl = document.createElement("div");
-  const srStatusMessageElID = `input-mask-status-${
+  const visibleStatusEl = document.createElement("div");
+  const srStatusEl = document.createElement("div");
+  const srStatusElID = `input-mask-status-${
     Math.floor(Math.random() * 900000) + 100000
   }`;
   let maskedElAriaDescribedBy = maskedEl.getAttribute("aria-describedby");
 
   if (maskedElAriaDescribedBy) {
-    maskedElAriaDescribedBy = `${srStatusMessageElID} ${maskedElAriaDescribedBy}`;
+    maskedElAriaDescribedBy = `${srStatusElID} ${maskedElAriaDescribedBy}`;
   } else {
-    maskedElAriaDescribedBy = srStatusMessageElID;
+    maskedElAriaDescribedBy = srStatusElID;
   }
 
   maskedEl.setAttribute("aria-describedby", maskedElAriaDescribedBy);
-  statusMessageEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
-  srStatusMessageEl.classList.add(`${STATUS_MESSAGE_SR_ONLY_CLASS}`);
-  statusMessageEl.setAttribute("aria-hidden", true);
-  srStatusMessageEl.setAttribute("aria-live", "polite");
-  srStatusMessageEl.setAttribute("id", srStatusMessageElID);
+  visibleStatusEl.classList.add(`${STATUS_MESSAGE_CLASS}`);
+  srStatusEl.classList.add(`${STATUS_MESSAGE_SR_ONLY_CLASS}`);
+  visibleStatusEl.setAttribute("aria-hidden", true);
+  srStatusEl.setAttribute("aria-live", "polite");
+  srStatusEl.setAttribute("id", srStatusElID);
 
-  maskedEl.insertAdjacentElement("afterend", statusMessageEl);
-  statusMessageEl.insertAdjacentElement("afterend", srStatusMessageEl);
+  maskedEl.insertAdjacentElement("afterend", visibleStatusEl);
+  visibleStatusEl.insertAdjacentElement("afterend", srStatusEl);
 };
 
 /**
@@ -671,8 +671,8 @@ const getMaskMessage = (inputEl, keyCode, key, curPos) => {
  * @param {string} statusMessage - A string of the current character status
  */
 const srUpdateStatus = debounce((msgEl, statusMessage) => {
-  const srStatusMessageEl = msgEl;
-  srStatusMessageEl.textContent = statusMessage;
+  const srStatusEl = msgEl;
+  srStatusEl.textContent = statusMessage;
 }, 1000);
 
 /**
@@ -680,12 +680,14 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  *
  * @param {HTMLElement} inputEl - The input element associated with the status message to be hidden.
  */
-const hideMessage = (inputEl, statusMessageEl, srStatusMessageEl) => {
-  const statusEl = statusMessageEl;
+const hideMessage = (inputEl) => {
+  const parent = inputEl.closest(`.${MASKED_INPUT_SHELL_CLASS}`);
+  const visibleStatusEl = parent.querySelector(`.${STATUS_MESSAGE_CLASS}`);
+  const srStatusEl = parent.querySelector(`.${STATUS_MESSAGE_SR_ONLY_CLASS}`);
 
-  statusEl.textContent = "";
-  srUpdateStatus(srStatusMessageEl, " ");
-  statusMessageEl.classList.toggle(MESSAGE_INVALID_CLASS, false);
+  visibleStatusEl.textContent = "";
+  srUpdateStatus(srStatusEl, " ");
+  visibleStatusEl.classList.toggle(MESSAGE_INVALID_CLASS, false);
 };
 
 /**
@@ -697,14 +699,14 @@ const hideMessage = (inputEl, statusMessageEl, srStatusMessageEl) => {
  */
 const updateMaskMessage = (
   inputEl,
-  statusMessageEl,
-  srStatusMessageEl,
   keyCode,
   key,
   curPos
 ) => {
   const MASK = getMaskInfo(inputEl.id, "MASK", []);
-  const statusEl = statusMessageEl;
+  const parent = inputEl.closest(`.${MASKED_INPUT_SHELL_CLASS}`);
+  const visibleStatusEl = parent.querySelector(`.${STATUS_MESSAGE_CLASS}`);
+  const srStatusEl = parent.querySelector(`.${STATUS_MESSAGE_SR_ONLY_CLASS}`);
 
   if (
     (curPos < MASK.length && FORMAT_CHARACTERS.indexOf(MASK[curPos]) > -1) ||
@@ -716,10 +718,10 @@ const updateMaskMessage = (
   const { currentStatusMessage, currentSRStatusMessage, invalidCharType } =
     getMaskMessage(inputEl, keyCode, key, curPos);
 
-  statusEl.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessageEl, currentSRStatusMessage);
+  visibleStatusEl.textContent = currentStatusMessage;
+  srUpdateStatus(srStatusEl, currentSRStatusMessage);
 
-  statusEl.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
+  visibleStatusEl.classList.toggle(MESSAGE_INVALID_CLASS, invalidCharType);
 };
 
 /**
@@ -828,13 +830,6 @@ const handleClick = (inputEl, event) => {
  */
 const handleKeyDown = (inputEl, event) => {
   const el = inputEl;
-  const inputElContainer = inputEl.parentNode;
-  const statusMessageEl = inputElContainer.querySelector(
-    `.${STATUS_MESSAGE_CLASS}`
-  );
-  const srStatusMessageEl = inputElContainer.querySelector(
-    `.${STATUS_MESSAGE_SR_ONLY_CLASS}`
-  );
 
   let keyCode = event.which;
 
@@ -898,12 +893,12 @@ const handleKeyDown = (inputEl, event) => {
 
     if (keyCode === KEYS.backSpace) {
       checkRemoveValue(inputEl, getCursorPosition(el));
-      hideMessage(inputEl, statusMessageEl, srStatusMessageEl);
+      hideMessage(inputEl);
     }
 
     if (keyCode === KEYS.delete) {
       checkRemoveValue(inputEl, getCursorPosition(el), false);
-      hideMessage(inputEl, statusMessageEl, srStatusMessageEl);
+      hideMessage(inputEl);
     }
 
     handleValueChange(el);
@@ -924,8 +919,6 @@ const handleKeyDown = (inputEl, event) => {
 
     updateMaskMessage(
       el,
-      statusMessageEl,
-      srStatusMessageEl,
       keyCode,
       event.key,
       el.value.length
@@ -973,8 +966,6 @@ const handleKeyDown = (inputEl, event) => {
 
   updateMaskMessage(
     el,
-    statusMessageEl,
-    srStatusMessageEl,
     keyCode,
     event.key,
     getCursorPosition(inputEl)
