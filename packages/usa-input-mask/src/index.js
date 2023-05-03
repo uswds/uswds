@@ -492,29 +492,6 @@ const pasteTextToInput = (inputEl, pastedText, curPos) => {
 };
 
 /**
- * Handles a paste event on the given input element by inserting the pasted text at the current cursor position.
- * @param {HTMLInputElement} inputEl - The input element to insert the pasted text into.
- * @param {Event} event - The paste event.
- */
-const handlePaste = (inputEl, event) => {
-  let pastedText = "";
-
-  const clipboardData = event.clipboardData || window.clipboardData;
-  pastedText = clipboardData.getData("text/plain");
-  const el = inputEl;
-
-  pastedText = pastedText.trim();
-  pastedText = getPastedText(inputEl, pastedText);
-
-  const curPos = getCursorPosition(el);
-
-  pasteTextToInput(inputEl, pastedText, curPos);
-
-  event.preventDefault();
-  return false;
-};
-
-/**
  * Finds and returns the closest ancestor element with the `MASKED` class and the first descendant element with the `MESSAGE` class.
  * Throws an error if either element is not found. If the `onlyElement` argument is `false`, the `handlePaste` function is called with the input element and its value as arguments.
  *
@@ -747,6 +724,32 @@ const checkAvailableLeft = (inputEl, curPos) => {
   }
 
   return result;
+};
+
+/**
+ * Handles a paste event on the given input element by inserting the pasted text at the current cursor position.
+ * @param {HTMLInputElement} inputEl - The input element to insert the pasted text into.
+ * @param {Event} event - The paste event.
+ */
+const handlePaste = (inputEl, event) => {
+  let pastedText = "";
+
+  const clipboardData = event.clipboardData || window.clipboardData;
+  pastedText = clipboardData.getData("text/plain");
+
+  pastedText = pastedText.trim();
+  const validPastedText = getValidPastedText(inputEl, pastedText);
+
+  if (!validPastedText) {
+    updateMaskMessage();
+  }
+
+  const curPos = getCursorPosition(inputEl);
+
+  pasteTextToInput(inputEl, pastedText, curPos);
+
+  event.preventDefault();
+  return false;
 };
 
 /**
