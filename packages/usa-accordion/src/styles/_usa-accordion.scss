@@ -1,8 +1,15 @@
 @use "uswds-core" as *;
 
 // Variables
+$accordion-context: "Accordion";
+
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
+
+$accordion-background-active-color: next-token(
+  $theme-accordion-button-background-color,
+  "darker"
+);
 
 // Accordion Styles
 @mixin accordion-list-styles {
@@ -16,8 +23,10 @@ $accordion-border: units($theme-accordion-border-width) solid
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg("usa-icons/remove");
-  background-color: color("base-lightest");
+  @include set-text-and-bg(
+    $theme-accordion-button-background-color,
+    $context: $accordion-context
+  );
   background-position: right units(2.5) center;
   background-size: units(3);
   color: color("ink");
@@ -30,8 +39,10 @@ $accordion-border: units($theme-accordion-border-width) solid
   width: 100%;
 
   &:hover {
-    background-color: color("base-lighter");
-    color: color("ink");
+    @include set-text-and-bg(
+      $accordion-background-active-color,
+      $context: $accordion-context
+    );
     text-decoration: none;
   }
 
@@ -96,7 +107,10 @@ $accordion-border: units($theme-accordion-border-width) solid
 }
 
 .usa-accordion__content {
-  background-color: color("white");
+  @include set-text-and-bg(
+    $theme-accordion-background-color,
+    $context: $accordion-context
+  );
   margin-top: 0;
   overflow: auto;
   padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
