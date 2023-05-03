@@ -11,6 +11,22 @@ $accordion-background-active-color: next-token(
   "darker"
 );
 
+$accordion-button-darkmode: is-input-darkmode(
+  $theme-accordion-button-background-color
+);
+
+$accordion-button-unopen-icon: if(
+  $accordion-button-darkmode,
+  "usa-icons-bg/add--white",
+  "usa-icons/add"
+);
+
+$accordion-button-open-icon: if(
+  $accordion-button-darkmode,
+  "usa-icons-bg/remove--white",
+  "usa-icons/remove"
+);
+
 // Accordion Styles
 @mixin accordion-list-styles {
   @include unstyled-list;
@@ -22,6 +38,7 @@ $accordion-background-active-color: next-token(
 
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
+  @include add-background-svg($accordion-button-open-icon);
   @include button-unstyled;
   @include set-text-and-bg(
     $theme-accordion-button-background-color,
@@ -29,7 +46,6 @@ $accordion-background-active-color: next-token(
   );
   background-position: right units(2.5) center;
   background-size: units(3);
-  color: color("ink");
   cursor: pointer;
   display: inline-block;
   font-weight: font-weight("bold");
@@ -53,7 +69,7 @@ $accordion-background-active-color: next-token(
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg("usa-icons/add");
+  @include add-background-svg($accordion-button-unopen-icon);
   background-size: units(3);
 }
 
