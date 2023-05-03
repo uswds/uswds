@@ -101,7 +101,9 @@ const getPropertyValue = (inputID, key, defaultVal = null) => {
  */
 const checkMaskForLetters = (inputId) => {
   if (INPUT_PROPERTIES[inputId] && INPUT_PROPERTIES[inputId].MASK) {
-    return INPUT_PROPERTIES[inputId].MASK.some((char) => char !== char.toLowerCase());
+    return INPUT_PROPERTIES[inputId].MASK.some(
+      (char) => char !== char.toLowerCase()
+    );
   }
 
   return false;
@@ -492,8 +494,12 @@ const pasteTextToInput = (inputEl, pastedText, curPos) => {
 };
 
 /**
- * Finds and returns the closest ancestor element with the `MASKED` class and the first descendant element with the `MESSAGE` class.
- * Throws an error if either element is not found. If the `onlyElement` argument is `false`, the `handlePaste` function is called with the input element and its value as arguments.
+ * Finds and returns the closest ancestor element with the `MASKED` class and
+ * the first descendant element with the `MESSAGE` class.
+ *
+ * Throws an error if either element is not found. If the `onlyElement` argument
+ * is `false`, the `handlePaste` function is called with the input element and
+ * its value as arguments.
  *
  * @param {HTMLElement} inputEl - The input element from which to start searching for the masked and message elements.
  * @param {boolean} [onlyElement=false] - A flag indicating whether to only return the elements or to also call the `handlePaste` function.
@@ -675,12 +681,7 @@ const hideMessage = (inputEl) => {
  * @param {HTMLInputElement} inputEl The masked input element
  * @param {number} keyCode The key number code
  */
-const updateMaskMessage = (
-  inputEl,
-  keyCode,
-  key,
-  curPos
-) => {
+const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
   const MASK = getPropertyValue(inputEl.id, "MASK", []);
   const parent = inputEl.closest(`.${MASKED_INPUT_SHELL_CLASS}`);
   const visibleStatusEl = parent.querySelector(`.${STATUS_MESSAGE_CLASS}`);
@@ -921,12 +922,7 @@ const handleKeyDown = (inputEl, event) => {
   ) {
     const lastPosition = el.value.length;
 
-    updateMaskMessage(
-      el,
-      keyCode,
-      event.key,
-      el.value.length
-    );
+    updateMaskMessage(el, keyCode, event.key, el.value.length);
     if (isValidCharacter(keyCode, MASK[lastPosition])) {
       if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
         keyCode -= 48;
@@ -968,12 +964,7 @@ const handleKeyDown = (inputEl, event) => {
     }
   }
 
-  updateMaskMessage(
-    el,
-    keyCode,
-    event.key,
-    getCursorPosition(inputEl)
-  );
+  updateMaskMessage(el, keyCode, event.key, getCursorPosition(inputEl));
 
   if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
     if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
@@ -1032,8 +1023,7 @@ const enhanceInputMask = (inputEl) => {
   const { value } = inputEl;
   const { maskedEl } = getMaskedElements(inputEl);
 
-  const el = inputEl;
-  const inputId = el.id;
+  const inputId = inputEl.id;
 
   if (attrs.mask && attrs.mask.value.length > 0) {
     setPropertyValue(inputId, "MASK", attrs.mask.value.split(""));
