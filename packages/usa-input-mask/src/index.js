@@ -396,7 +396,7 @@ const createStatusMessages = (maskedEl) => {
  * @param {string} pastedText - The string of pasted text to extract from.
  * @return {string} The extracted, valid text.
  */
-const getPastedText = (inputEl, pastedText) => {
+const getValidPastedText = (inputEl, pastedText) => {
   let strRes = "";
   let strPastedtext = "";
 
@@ -765,7 +765,7 @@ const handleKeyUp = (inputEl, event) => {
   const el = inputEl;
 
   if (keyCode === undefined && el.value.length > 0) {
-    const pastedText = getPastedText(inputEl, el.value);
+    const pastedText = getValidPastedText(inputEl, el.value);
     el.value = "";
     pasteTextToInput(inputEl, pastedText, 0);
 
