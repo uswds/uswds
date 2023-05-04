@@ -4,6 +4,7 @@ import {
   DefaultContent,
   DisabledContent,
   ErrorContent,
+  MultipleContent,
   SpecificContent,
   WildcardContent,
 } from "./content";
@@ -23,6 +24,9 @@ Disabled.args = DisabledContent;
 
 export const Error = Template.bind({});
 Error.args = ErrorContent;
+
+export const Multiple = Template.bind({});
+Multiple.args = MultipleContent;
 
 export const Specific = Template.bind({});
 Specific.args = SpecificContent;
