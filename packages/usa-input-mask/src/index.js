@@ -499,30 +499,6 @@ const pasteTextToInput = (inputEl, pastedText, curPos) => {
 };
 
 /**
- * Finds and returns the closest ancestor element with the `MASKED` class and
- * the first descendant element with the `MESSAGE` class.
- *
- * Throws an error if either element is not found. If the `onlyElement` argument
- * is `false`, the `handlePaste` function is called with the input element and
- * its value as arguments.
- *
- * @param {HTMLElement} inputEl - The input element from which to start searching for the masked and message elements.
- * @param {boolean} [onlyElement=false] - A flag indicating whether to only return the elements or to also call the `handlePaste` function.
- * @returns {Object} An object containing the `maskedEl` element.
- * @throws {Error} If the `maskedEl` element is not found.
- */
-const getMaskedElements = (inputEl, onlyElement = false) => {
-  const maskedEl = inputEl;
-  const el = inputEl;
-  const { value } = el;
-
-  if (onlyElement === false && value != null && value !== "") {
-    handlePaste(el, null, value);
-  }
-  return { maskedEl };
-};
-
-/**
  * Removes a value from the input element based on the given position and whether or not the backspace key was pressed.
  * @param {HTMLInputElement} inputEl - The input element to remove the value from.
  * @param {number} curPos - The current position in the input element.
@@ -1019,6 +995,7 @@ const handleKeyDown = (inputEl, event) => {
  */
 const enhanceInputMask = (inputEl) => {
   const attrs = inputEl.attributes;
+  const inputId = inputEl.id;
 
   if (!attrs.mask) {
     throw new Error(
@@ -1030,10 +1007,6 @@ const enhanceInputMask = (inputEl) => {
       `${MASKED_INPUT_CLASS} is missing the placeholder attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`
     );
   }
-  const { value } = inputEl;
-  const { maskedEl } = getMaskedElements(inputEl);
-
-  const inputId = inputEl.id;
 
   if (attrs.mask && attrs.mask.value.length > 0) {
     setPropertyValue(inputId, "MASK", attrs.mask.value.split(""));
@@ -1048,14 +1021,8 @@ const enhanceInputMask = (inputEl) => {
     setPropertyValue(inputId, "FORCE_LOWER", true);
   }
 
-  const HAS_MASK = getPropertyValue(inputId, "HAS_MASK", false);
-
-  if (value.length > 0 && HAS_MASK) {
-    handlePaste(inputEl, null, value);
-  }
-
   createMaskedInputShell(inputEl);
-  createStatusMessages(maskedEl);
+  createStatusMessages(inputEl);
 };
 
 const inputMaskEvents = {
