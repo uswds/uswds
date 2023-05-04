@@ -372,12 +372,11 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
  * @param {HTMLElement} maskedEl - The element to which the new status message elements will be appended.
  * @param {String} randomID - A string passed to ensure the Screen reader message ID is unique.
  */
-const createStatusMessages = (maskedEl) => {
+const createStatusMessages = (maskedEl, randomID) => {
   const visibleStatusEl = document.createElement("div");
   const srStatusEl = document.createElement("div");
-  const srStatusElID = `input-mask-status-${
-    Math.floor(Math.random() * 900000) + 100000
-  }`;
+  const srStatusID = randomID || Math.floor(Math.random() * 900000) + 100000;
+  const srStatusElID = `input-mask-status-${srStatusID}`;
   let maskedElAriaDescribedBy = maskedEl.getAttribute("aria-describedby");
 
   if (maskedElAriaDescribedBy) {
