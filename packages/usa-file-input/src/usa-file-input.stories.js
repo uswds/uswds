@@ -10,9 +10,6 @@ import {
 
 export default {
   title: "Components/Form Inputs/File Input",
-  args: {
-    multiple_inputs: false,
-  },
 };
 
 const Template = (args) => Component(args);
