@@ -111,24 +111,58 @@ const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
+ * Builds an element that will house the file upload status
+ * @param {HTMLElement} fileInputEl - original file input on page
+ * @param {HTMLElement} fileInputParent - file input wrapper with the DROPZONE_CLASS
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
+ * @param {HTMLElement} dropTarget - target area div that encases the input
+ */
+const buildStatusMessage = (fileInputEl, fileInputParent, instructions, dropTarget) => {
+  const statusEl = document.createElement("div");
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
+  const instructionsEl = instructions;
+  const inputItems = "files";
+  let inputItem = "file";
+  let chooseText = "";
+  let defaultInstructionsText = "";
+  let defaultStatus = "";
+  let dragText = "";
+
+  // Set up status message and add it to the DOM
+  statusEl.classList.add(SR_ONLY_CLASS);
+  statusEl.setAttribute("aria-live", "polite");
+  fileInputParent.insertBefore(statusEl, dropTarget);
+
+  // If multiple attribute enabled, use the plural
+  if (acceptsMultiple) {
+    inputItem = inputItems;
+  }
+
+  // Add initial file status message
+  defaultStatus = `No ${inputItem} selected.`;
+  statusEl.setAttribute("data-default-status-text", defaultStatus);
+  statusEl.textContent = defaultStatus;
+
+  // Add initial instructions for input usage
+  dragText = `Drag ${inputItem} here or`;
+  chooseText = "choose from folder";
+  defaultInstructionsText = `${dragText} ${chooseText}`;
+  fileInputEl.setAttribute("aria-label", defaultInstructionsText);
+  fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
+  instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+}
+
+/**
  * Builds full file input component
  * @param {HTMLElement} fileInputEl - original file input on page
  * @returns {HTMLElement|HTMLElement} - Instructions, target area div
  */
 const buildFileInput = (fileInputEl) => {
-  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = document.createElement("div");
   const dropTarget = document.createElement("div");
   const box = document.createElement("div");
   const instructions = document.createElement("div");
-  const statusEl = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
-  const inputItems = "files";
-  let inputItem = "file";
-  let dragText = "";
-  let chooseText = "";
-  let defaultInstructionsText = "";
-  let defaultStatus = "";
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -138,8 +172,6 @@ const buildFileInput = (fileInputEl) => {
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
-  statusEl.classList.add(SR_ONLY_CLASS);
-  statusEl.setAttribute("aria-live", "polite");
 
   // Adds child elements to the DOM
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
@@ -148,35 +180,13 @@ const buildFileInput = (fileInputEl) => {
   fileInputParent.appendChild(dropTarget);
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
-  fileInputParent.insertBefore(statusEl, dropTarget);
+
+  buildStatusMessage(fileInputEl, fileInputParent, instructions, dropTarget);
 
   // Disabled styling
   if (disabled) {
     disable(fileInputEl);
   }
-
-  // If multiple attribute enabled, use the plural
-  if (acceptsMultiple) {
-    inputItem = inputItems;
-  }
-
-  // Add screen reader-only file status message
-  // 1. Construct default status text
-  // 2. Add default status text to attributes and status element
-  defaultStatus = `No ${inputItem} selected.`;
-  statusEl.setAttribute("data-default-status-text", defaultStatus);
-  statusEl.textContent = defaultStatus;
-
-  // Add instructions for input usage
-  // 1. Construct instruction text
-  // 2. Add instruction text to attributes and input element
-  dragText = `Drag ${inputItem} here or`;
-  chooseText = "choose from folder";
-  defaultInstructionsText = `${dragText} ${chooseText}`;
-  fileInputEl.setAttribute("aria-label", defaultInstructionsText);
-  fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
-
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
     /rv:11.0/i.test(navigator.userAgent) ||
