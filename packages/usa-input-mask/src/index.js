@@ -361,10 +361,16 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
 };
 
 /**
- * Creates and appends two new elements to the given element: a visible status message element and a screen-reader-only status message element.
- * Both elements have the same default text content and are given specific classes and attributes.
+ * Creates and appends two new elements to the given element:
+ *
+ * 1. A visual status message.
+ * 2. A screen reader only status message element.
+ *
+ * Both elements have the same default text content and their own specific
+ * classes and attributes.
  *
  * @param {HTMLElement} maskedEl - The element to which the new status message elements will be appended.
+ * @param {String} randomID - A string passed to ensure the Screen reader message ID is unique.
  */
 const createStatusMessages = (maskedEl) => {
   const visibleStatusEl = document.createElement("div");
@@ -579,9 +585,14 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
 };
 
 /**
- * Creates and inserts a new shell element around the given input element, and sets various attributes and properties for the input element and shell element.
- * The shell element consists of a content element with a placeholder text taken from the input element's `PLACEHOLDER` attribute.
- * The `setInitMask` and `handleValueChange` functions are also called with the input element as an argument.
+ * Creates and inserts a new shell element around the given input element, and
+ * sets various attributes and properties for the input element and shell element.
+ *
+ * The shell element consists of a content element with a placeholder text taken
+ * from the input element's `PLACEHOLDER` attribute.
+ *
+ * The `setInitMask` and `handleValueChange` functions are also called with the
+ * input element as an argument.
  *
  * @param {HTMLElement} inputEl - The input element to be wrapped in a shell element.
  */
