@@ -415,26 +415,28 @@ const getValidPastedText = (inputEl, pastedText) => {
 
   const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
+  // Get mask's accepted characters.
   for (let i = 0; i < MASK.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
       strMask += MASK[i];
     }
   }
 
+  // Check if pasted text is bigger than mask limit.
   const minLength =
     strPastedtext.length > strMask.length
       ? strMask.length
       : strPastedtext.length;
 
   const isNumber = /[0-9]/;
+
+  // Loop through pasted text and validate each character. Only keep valid.
   for (let i = 0; i < minLength; i += 1) {
     if (
       (isNumber.test(strPastedtext[i]) && isNumber.test(strMask[i])) ||
       (!isNumber.test(strPastedtext[i]) && !isNumber.test(strMask[i]))
     ) {
       strRes += strPastedtext[i];
-    } else {
-      return "";
     }
   }
 
@@ -722,18 +724,21 @@ const handlePaste = (inputEl, event) => {
   let pastedText = "";
 
   const clipboardData = event.clipboardData || window.clipboardData;
-  pastedText = clipboardData.getData("text/plain");
 
+  pastedText = clipboardData.getData("text/plain");
   pastedText = pastedText.trim();
+
   const validPastedText = getValidPastedText(inputEl, pastedText);
 
   if (!validPastedText) {
-    updateMaskMessage();
+    updateMaskMessage(inputEl);
+  } else {
+    hideMessage(inputEl);
   }
 
   const curPos = getCursorPosition(inputEl);
 
-  pasteTextToInput(inputEl, pastedText, curPos);
+  pasteTextToInput(inputEl, validPastedText, curPos);
 
   event.preventDefault();
   return false;
