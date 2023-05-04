@@ -1,5 +1,5 @@
 import Component from "./usa-file-input.twig";
-import TestComponent from "./test/test-patterns/test-usa-file-input.twig"
+import TestComponent from "./test/test-patterns/test-usa-file-input.twig";
 import {
   DefaultContent,
   DisabledContent,
@@ -37,5 +37,5 @@ Wildcard.args = WildcardContent;
 export const TestMultipleInputs = TestTemplate.bind({});
 TestMultipleInputs.args = {
   DefaultContent,
-  SpecificContent
+  SpecificContent,
 };
