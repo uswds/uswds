@@ -154,7 +154,7 @@ const buildStatusMessage = (
   defaultInstructionsText = `${dragText} ${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <button type="button" class="${CHOOSE_CLASS}">${chooseText}</button>`;
 };
 
 /**
@@ -175,7 +175,7 @@ const buildFileInput = (fileInputEl) => {
   fileInputParent.classList.add(DROPZONE_CLASS);
   box.classList.add(BOX_CLASS);
   instructions.classList.add(INSTRUCTIONS_CLASS);
-  instructions.setAttribute("aria-hidden", "true");
+  // instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
 
   // Adds child elements to the DOM
@@ -289,10 +289,10 @@ const addPreviewHeading = (
   let previewText = "";
 
   if (fileNames.length === 1) {
-    previewText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
+    previewText = Sanitizer.escapeHTML`Selected file <button type="button" tabindex="0" class="usa-file-input__choose">${changeItemText}</span>`;
   } else if (fileNames.length > 1) {
     changeItemText = "Change files";
-    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
+    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <button type="button" tabindex="0" class="usa-file-input__choose">${changeItemText}</button>`;
   }
 
   // Hides null state content and sets preview heading
