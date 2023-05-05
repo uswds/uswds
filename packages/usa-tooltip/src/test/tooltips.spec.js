@@ -20,19 +20,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = TEMPLATE;
       tooltip.on(containerSelector());
       tooltipBody = body.querySelector(".usa-tooltip__body");
-      tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipTrigger = body.querySelector(".usa-tooltip");
     });
 
     afterEach(() => {
       tooltip.off(containerSelector());
       body.textContent = "";
-    });
-
-    it("trigger is created", () => {
-      assert.strictEqual(
-        tooltipTrigger.getAttribute("class"),
-        "usa-button usa-tooltip__trigger"
-      );
     });
 
     it("title attribute on trigger is removed", () => {
@@ -80,7 +73,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = `<button class="usa-button usa-tooltip" title="Apricot &lt;img src='' onerror=alert('ouch')&gt;">Button</button>`;
       tooltip.on();
       tooltipBody = body.querySelector(".usa-tooltip__body");
-      tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipTrigger = body.querySelector(".usa-tooltip");
       tooltip.on(body);
 
       // confirm we are not on the original template

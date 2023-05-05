@@ -5,8 +5,6 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
-const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
-const TOOLTIP_CLASS = `${PREFIX}-tooltip`;
 const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
 const SET_CLASS = "is-set";
 const VISIBLE_CLASS = "is-visible";
@@ -149,6 +147,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
 
     setPositionClass("bottom");
     e.style.left = `50%`;
+    e.style.top = `100%`;
     e.style.margin = `${TRIANGLE_SIZE}px 0 0 -${leftMargin / 2}px`;
   };
 
@@ -167,9 +166,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
 
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.left = `${
-      tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
-    }px`;
+    e.style.left = `${tooltipTrigger.offsetWidth + TRIANGLE_SIZE}px`;
     e.style.margin = `-${topMargin / 2}px 0 0 0`;
   };
 
@@ -190,7 +187,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const leftMargin = calculateMarginOffset(
       "left",
       tooltipTrigger.offsetLeft > e.offsetWidth
-        ? tooltipTrigger.offsetLeft - e.offsetWidth
+        ? -e.offsetWidth
         : e.offsetWidth,
       tooltipTrigger
     );
@@ -343,16 +340,6 @@ const setUpAttributes = (tooltipTrigger) => {
   tooltipTrigger.setAttribute("aria-describedby", tooltipID);
   tooltipTrigger.setAttribute("tabindex", "0");
   tooltipTrigger.removeAttribute("title");
-  tooltipTrigger.classList.remove(TOOLTIP_CLASS);
-  tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
-
-  // insert wrapper before el in the DOM tree
-  tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
-
-  // set up the wrapper
-  wrapper.appendChild(tooltipTrigger);
-  wrapper.classList.add(TOOLTIP_CLASS);
-  wrapper.appendChild(tooltipBody);
 
   // Apply additional class names to wrapper element
   if (additionalClasses) {
@@ -360,14 +347,13 @@ const setUpAttributes = (tooltipTrigger) => {
     classesArray.forEach((classname) => wrapper.classList.add(classname));
   }
 
-  // set up the tooltip body
+  // Set up the tooltip body
   tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
   tooltipBody.setAttribute("id", tooltipID);
   tooltipBody.setAttribute("role", "tooltip");
   tooltipBody.setAttribute("aria-hidden", "true");
-
-  // place the text in the tooltip
   tooltipBody.textContent = tooltipContent;
+  tooltipTrigger.appendChild(tooltipBody);
 
   return { tooltipBody, position, tooltipContent, wrapper };
 };
