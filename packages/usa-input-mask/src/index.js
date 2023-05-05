@@ -405,16 +405,18 @@ const getValidPastedText = (inputEl, pastedText) => {
   let strRes = "";
   let strPastedtext = "";
 
+  // Loop through entire pasted text and remove format characters.
   for (let i = 0; i < pastedText.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(pastedText[i]) === -1) {
       strPastedtext += pastedText[i];
     }
   }
 
-  let strMask = "";
-
+  // Mask pattern.
+  // Example: ["A", "A", "A", "-", "9", "9", "9", "9"].
   const MASK = getPropertyValue(inputEl.id, "MASK", []);
 
+  // User defined mask *without* FORMAT_CHARACTERS.
   // Get mask's accepted characters.
   for (let i = 0; i < MASK.length; i += 1) {
     if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
@@ -422,8 +424,9 @@ const getValidPastedText = (inputEl, pastedText) => {
     }
   }
 
-  // Check if pasted text is bigger than mask limit.
-  const minLength =
+  // Compare pasted text is bigger than mask limit, if so use mask.
+  // Otherwise minLength is pasted text.
+  const maxLength =
     strPastedtext.length > strMask.length
       ? strMask.length
       : strPastedtext.length;
@@ -431,7 +434,7 @@ const getValidPastedText = (inputEl, pastedText) => {
   const isNumber = /[0-9]/;
 
   // Loop through pasted text and validate each character. Only keep valid.
-  for (let i = 0; i < minLength; i += 1) {
+  for (let k = 0; k < maxLength; k += 1) {
     if (
       (isNumber.test(strPastedtext[i]) && isNumber.test(strMask[i])) ||
       (!isNumber.test(strPastedtext[i]) && !isNumber.test(strMask[i]))
