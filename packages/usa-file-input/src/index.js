@@ -289,7 +289,7 @@ const addPreviewHeading = (
   let previewText = "";
 
   if (fileNames.length === 1) {
-    previewText = Sanitizer.escapeHTML`Selected file <button type="button" tabindex="0" class="usa-file-input__choose">${changeItemText}</span>`;
+    previewText = Sanitizer.escapeHTML`Selected file <button type="button" tabindex="0" class="usa-file-input__choose">${changeItemText}</button>`;
   } else if (fileNames.length > 1) {
     changeItemText = "Change files";
     previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <button type="button" tabindex="0" class="usa-file-input__choose">${changeItemText}</button>`;
