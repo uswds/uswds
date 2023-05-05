@@ -117,7 +117,12 @@ const createUniqueID = (name) =>
  * @param {HTMLElement} instructions - text to inform users to drag or select files
  * @param {HTMLElement} dropTarget - target area div that encases the input
  */
-const buildStatusMessage = (fileInputEl, fileInputParent, instructions, dropTarget) => {
+const buildStatusMessage = (
+  fileInputEl,
+  fileInputParent,
+  instructions,
+  dropTarget
+) => {
   const statusEl = document.createElement("div");
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructionsEl = instructions;
@@ -150,7 +155,7 @@ const buildStatusMessage = (fileInputEl, fileInputParent, instructions, dropTarg
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
   instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
-}
+};
 
 /**
  * Builds full file input component
@@ -202,15 +207,8 @@ const buildFileInput = (fileInputEl) => {
  * Removes image previews, we want to start with a clean list every time files are added to the file input
  * @param {HTMLElement} dropTarget - target area div that encases the input
  * @param {HTMLElement} instructions - text to inform users to drag or select files
- * @param {HTMLElement} statusElement - screen-reader only container for file status updates
- * @param {HTMLElement} statusMessage - text to inform users about the file selection status
  */
-const removeOldPreviews = (
-  dropTarget,
-  instructions,
-  statusElement,
-  statusMessage
-) => {
+const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
     `.${PREVIEW_HEADING_CLASS}`
@@ -218,9 +216,6 @@ const removeOldPreviews = (
   const currentErrorMessage = dropTarget.querySelector(
     `.${ACCEPTED_FILE_MESSAGE_CLASS}`
   );
-  const statusEl = statusElement;
-  const inputEl = dropTarget.querySelector(INPUT);
-  const inputAriaLabel = inputEl.dataset.defaultAriaLabel;
 
   /**
    * finds the parent of the passed node and removes the child
@@ -246,16 +241,68 @@ const removeOldPreviews = (
     if (instructions) {
       instructions.classList.remove(HIDDEN_CLASS);
     }
-    if (statusEl) {
-      setTimeout(() => {
-        statusEl.textContent = statusMessage;
-      }, 1000);
-    }
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
+};
 
-  // Reset input aria-label with default message
-  inputEl.setAttribute("aria-label", inputAriaLabel);
+/**
+ * Update the screen reader-only status message after interaction
+ * @param {HTMLElement} statusElement - screen-reader only container for file status updates
+ * @param {HTMLElement} fileNames - uploaded files
+ * @param {HTMLElement} fileStore - array of uploaded file names
+ */
+const updateStatusMessage = (statusElement, fileNames, fileStore) => {
+  const defaultStatusMessage = statusElement.dataset.defaultStatusText;
+  const statusEl = statusElement;
+  let statusMessage = defaultStatusMessage;
+
+  // If files added, update the status message with file name(s)
+  if (fileNames.length === 1) {
+    statusMessage = `You have selected the file: ${fileStore}`;
+  } else if (fileNames.length > 1) {
+    statusMessage = `You have selected ${
+      fileNames.length
+    } files: ${fileStore.join(", ")}`;
+  }
+
+  // Add delay to encourage screen reader readout
+  setTimeout(() => {
+    statusEl.textContent = statusMessage;
+  }, 1000);
+};
+
+/**
+ * Hide the initial instructions and show the preview heading
+ * @param {HTMLElement} fileInputEl - file input element
+ * @param {HTMLElement} fileNames - uploaded files
+ * @param {HTMLElement} dropTarget - target area div that encases the input
+ * @param {HTMLElement} instructions - text to inform users to drag or select files
+ */
+const addPreviewHeading = (
+  fileInputEl,
+  fileNames,
+  dropTarget,
+  instructions
+) => {
+  const filePreviewsHeading = document.createElement("div");
+  let changeText = "Change file";
+  let previewText = "";
+
+  if (fileNames.length === 1) {
+    previewText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeText}</span>`;
+  } else if (fileNames.length > 1) {
+    changeText = "Change files";
+    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeText}</span>`;
+  }
+
+  // Hides null state content and sets preview heading
+  instructions.classList.add(HIDDEN_CLASS);
+  filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
+  filePreviewsHeading.innerHTML = previewText;
+  dropTarget.insertBefore(filePreviewsHeading, instructions);
+
+  // Update aria label to match the visible text
+  fileInputEl.setAttribute("aria-label", changeText);
 };
 
 /**
@@ -269,38 +316,21 @@ const removeOldPreviews = (
 
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const fileNames = e.target.files;
-  const filePreviewsHeading = document.createElement("div");
   const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
   const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
-  const statusMessage = statusElement.dataset.defaultStatusText;
   const fileStore = [];
-  let changeText = "";
+  const inputAriaLabel = fileInputEl.dataset.defaultAriaLabel;
 
   // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions, statusElement, statusMessage);
+  removeOldPreviews(dropTarget, instructions, statusElement);
 
-  // Then, iterate through files list and:
-  // 1. Add selected file list names to status message
-  // 2. Create previews
+  // Then, iterate through files list and create previews
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
 
     // Push updated file names into the store array
     fileStore.push(fileName);
-
-    // read out the store array, wording options vary based on file count
-    if (i === 0) {
-      setTimeout(() => {
-        statusElement.textContent = `You have selected the file: ${fileName}`;
-      }, 1000);
-    } else if (i >= 1) {
-      setTimeout(() => {
-        statusElement.textContent = `You have selected ${
-          fileNames.length
-        } files: ${fileStore.join(", ")}`;
-      }, 1000);
-    }
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
@@ -359,31 +389,18 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     if (fileNames[i]) {
       reader.readAsDataURL(fileNames[i]);
     }
-
-    // Adds heading above file previews
-    // 1. Create content for preview heading - use plural if multiple files added
-    // 2. Add content to preview heading
-    if (i === 0) {
-      changeText = `Change file`;
-      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeText}</span>`;
-    } else if (i >= 1) {
-      changeText = `Change files`;
-      filePreviewsHeading.innerHTML = Sanitizer.escapeHTML`${
-        i + 1
-      } files selected <span class="usa-file-input__choose">${changeText}</span>`;
-    }
-
-    if (i >= 0) {
-      dropTarget.insertBefore(filePreviewsHeading, instructions);
-      fileInputEl.setAttribute("aria-label", changeText);
-    }
-
-    // Hides null state content and sets preview heading class
-    if (filePreviewsHeading) {
-      instructions.classList.add(HIDDEN_CLASS);
-      filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
-    }
   }
+
+  if (fileNames.length === 0) {
+    // Reset input aria-label with default message
+    fileInputEl.setAttribute("aria-label", inputAriaLabel);
+  }
+
+  if (fileNames.length > 0) {
+    addPreviewHeading(fileInputEl, fileNames, dropTarget, instructions);
+  }
+
+  updateStatusMessage(statusElement, fileNames, fileStore);
 };
 
 /**
