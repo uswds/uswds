@@ -45,7 +45,10 @@
 
 .usa-file-input__choose {
   @include typeset-link;
+  background: none;
+  border: none;
   font-weight: normal;
+  padding: 0;
 }
 
 .usa-file-input__instructions {
