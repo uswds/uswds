@@ -126,8 +126,8 @@ const buildStatusMessage = (
   const statusEl = document.createElement("div");
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructionsEl = instructions;
-  const inputItems = "files";
-  let inputItem = "file";
+  const items = "files";
+  let item = "file";
   let chooseText = "";
   let defaultInstructionsText = "";
   let defaultStatus = "";
@@ -140,16 +140,16 @@ const buildStatusMessage = (
 
   // If multiple attribute enabled, use the plural
   if (acceptsMultiple) {
-    inputItem = inputItems;
+    item = items;
   }
 
   // Add initial file status message
-  defaultStatus = `No ${inputItem} selected.`;
+  defaultStatus = `No ${item} selected.`;
   statusEl.setAttribute("data-default-status-text", defaultStatus);
   statusEl.textContent = defaultStatus;
 
   // Add initial instructions for input usage
-  dragText = `Drag ${inputItem} here or`;
+  dragText = `Drag ${item} here or`;
   chooseText = "choose from folder";
   defaultInstructionsText = `${dragText} ${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
