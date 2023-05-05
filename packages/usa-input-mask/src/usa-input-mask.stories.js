@@ -44,5 +44,6 @@ export const Test = TestTemplate.bind({});
 Test.args = {
   PhoneContent,
   AlphanumericContent,
+  SsnContent,
   CustomTextContent,
 };
