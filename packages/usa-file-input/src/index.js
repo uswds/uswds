@@ -285,14 +285,14 @@ const addPreviewHeading = (
   instructions
 ) => {
   const filePreviewsHeading = document.createElement("div");
-  let changeText = "Change file";
+  let changeItemText = "Change file";
   let previewText = "";
 
   if (fileNames.length === 1) {
-    previewText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeText}</span>`;
+    previewText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
   } else if (fileNames.length > 1) {
-    changeText = "Change files";
-    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeText}</span>`;
+    changeItemText = "Change files";
+    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
   }
 
   // Hides null state content and sets preview heading
@@ -301,8 +301,8 @@ const addPreviewHeading = (
   filePreviewsHeading.innerHTML = previewText;
   dropTarget.insertBefore(filePreviewsHeading, instructions);
 
-  // Update aria label to match the visible text
-  fileInputEl.setAttribute("aria-label", changeText);
+  // Update aria label to match the visible action text
+  fileInputEl.setAttribute("aria-label", changeItemText);
 };
 
 /**
