@@ -319,7 +319,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
   const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
   const fileStore = [];
-  const inputAriaLabel = fileInputEl.dataset.defaultAriaLabel;
+  const defaultAriaLabelText = fileInputEl.dataset.defaultAriaLabel;
 
   // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions, statusElement);
@@ -393,7 +393,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   if (fileNames.length === 0) {
     // Reset input aria-label with default message
-    fileInputEl.setAttribute("aria-label", inputAriaLabel);
+    fileInputEl.setAttribute("aria-label", defaultAriaLabelText);
   }
 
   if (fileNames.length > 0) {
