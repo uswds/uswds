@@ -162,6 +162,7 @@ const buildStatusMessage = (
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
   chooseButton.classList.add(CHOOSE_CLASS);
   chooseButton.textContent = chooseText;
+  chooseButton.setAttribute("tabindex", "-1");
   dragTextEl.textContent = dragText;
 
   instructions.append(dragTextEl, chooseButton);
