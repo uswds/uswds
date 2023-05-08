@@ -46,7 +46,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       comboList = comboListSelector();
       comboBoxToggleButton = body.querySelector(".usa-combo-box__toggle-list");
-
     });
 
     afterEach(() => {
