@@ -121,17 +121,23 @@ const buildStatusMessage = (
   fileInputEl,
   fileInputParent,
   instructions,
-  dropTarget
+  dropTarget,
+  uniqueID
 ) => {
   const statusEl = document.createElement("div");
+  const dragTextEl = document.createElement("span");
+  const chooseButton = document.createElement("button");
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
-  const instructionsEl = instructions;
   const items = "files";
   let item = "file";
   let chooseText = "";
   let defaultInstructionsText = "";
   let defaultStatus = "";
   let dragText = "";
+
+  const openFileDialog = () => {
+    document.getElementById(uniqueID).click();
+  }
 
   // Set up status message and add it to the DOM
   statusEl.classList.add(SR_ONLY_CLASS);
@@ -154,7 +160,12 @@ const buildStatusMessage = (
   defaultInstructionsText = `${dragText} ${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <button type="button" class="${CHOOSE_CLASS}">${chooseText}</button>`;
+  chooseButton.classList.add(CHOOSE_CLASS);
+  chooseButton.textContent = chooseText;
+  dragTextEl.textContent = dragText;
+
+  instructions.append(dragTextEl, chooseButton);
+  chooseButton.addEventListener("click", openFileDialog);
 };
 
 /**
@@ -168,10 +179,13 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
+  const uniqueNumber = Math.floor(Math.random() * 900000) + 100000;
+  const uniqueID = `file-input-${uniqueNumber}`;
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
   fileInputEl.classList.add(INPUT_CLASS);
+  fileInputEl.setAttribute("id", uniqueID);
   fileInputParent.classList.add(DROPZONE_CLASS);
   box.classList.add(BOX_CLASS);
   instructions.classList.add(INSTRUCTIONS_CLASS);
@@ -186,7 +200,7 @@ const buildFileInput = (fileInputEl) => {
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
 
-  buildStatusMessage(fileInputEl, fileInputParent, instructions, dropTarget);
+  buildStatusMessage(fileInputEl, fileInputParent, instructions, dropTarget, uniqueID);
 
   // Disabled styling
   if (disabled) {
