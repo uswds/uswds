@@ -401,16 +401,10 @@ const createStatusMessages = (maskedEl, randomID) => {
  * @param {string} pastedText - The string of pasted text to extract from.
  * @return {string} The extracted, valid text.
  */
-const getValidPastedText = (inputEl, pastedText) => {
+const getValidPastedText = (inputEl, pastedText = "", curPos = 0) => {
+  const strPastedtext = removeFormatCharacters(pastedText);
+  const startingPoint = curPos;
   let strRes = "";
-  let strPastedtext = "";
-
-  // Loop through entire pasted text and remove format characters.
-  for (let i = 0; i < pastedText.length; i += 1) {
-    if (FORMAT_CHARACTERS.indexOf(pastedText[i]) === -1) {
-      strPastedtext += pastedText[i];
-    }
-  }
 
   // Mask pattern.
   // Example: ["A", "A", "A", "-", "9", "9", "9", "9"].
@@ -719,7 +713,8 @@ const checkAvailableLeft = (inputEl, curPos) => {
 };
 
 /**
- * Handles a paste event on the given input element by inserting the pasted text at the current cursor position.
+ * Handles a paste event on the given input element by inserting the pasted
+ * text at the current cursor position.
  * @param {HTMLInputElement} inputEl - The input element to insert the pasted text into.
  * @param {Event} event - The paste event.
  */
@@ -727,11 +722,11 @@ const handlePaste = (inputEl, event) => {
   let pastedText = "";
 
   const clipboardData = event.clipboardData || window.clipboardData;
-
-  pastedText = clipboardData.getData("text/plain");
+  const curPos = getCursorPosition(inputEl);
+  let pastedText = clipboardData.getData("text/plain") || "";
   pastedText = pastedText.trim();
 
-  const validPastedText = getValidPastedText(inputEl, pastedText);
+  const validPastedText = getValidPastedText(inputEl, pastedText, curPos);
 
   if (!validPastedText) {
     updateMaskMessage(inputEl);
