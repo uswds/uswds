@@ -1,5 +1,6 @@
 @use "uswds-core" as *;
 @use "sass:color";
+@use "sass:list";
 
 .usa-in-page-nav-container {
   align-items: flex-start;
@@ -72,6 +73,19 @@
         $preferred-link-color: $theme-in-page-nav-link-color,
         $context: "In-page-navigation link"
       );
+
+      &:visited {
+        color: color(
+          list.nth(
+            get-link-tokens-from-bg(
+              $bg-color: $theme-in-page-nav-background-color,
+              $preferred-link-token: $theme-in-page-nav-link-color,
+              $context: "In-page-navigation link"
+            ),
+            1
+          )
+        );
+      }
     }
 
     &.usa-current {
@@ -119,4 +133,3 @@
     font-weight: normal;
   }
 }
-

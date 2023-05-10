@@ -8,13 +8,13 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker.template.html")
 );
 
-const datePickerSelector = () => document.querySelector('.usa-date-picker');
+const datePickerSelector = () => document.querySelector(".usa-date-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date picker", selector: datePickerSelector }
+  { name: "date picker", selector: datePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`date picker component month selection initialized at ${name}`, () => {
     const { body } = document;
 
@@ -24,7 +24,7 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${ query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
       );
 
     beforeEach(() => {
@@ -38,7 +38,9 @@ tests.forEach(({name, selector: containerSelector}) => {
     beforeEach("Open month selection view", () => {
       input.value = "6/20/2020";
       EVENTS.click(button);
-      EVENTS.click(getCalendarEl(".usa-date-picker__calendar__month-selection"));
+      EVENTS.click(
+        getCalendarEl(".usa-date-picker__calendar__month-selection")
+      );
     });
 
     afterEach(() => {
@@ -48,7 +50,8 @@ tests.forEach(({name, selector: containerSelector}) => {
 
     it("should show month of June as focused", () => {
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "June",
         "focuses correct month"
       );
@@ -67,7 +70,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowUp();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "March",
         "focuses correct month"
       );
@@ -77,7 +81,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowDown();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "September",
         "focuses correct month"
       );
@@ -87,7 +92,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowLeft();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "May",
         "focuses correct month"
       );
@@ -97,7 +103,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownArrowRight();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "July",
         "focuses correct month"
       );
@@ -107,7 +114,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownHome();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "April",
         "focuses correct month"
       );
@@ -117,7 +125,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownEnd();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "June",
         "focuses correct month"
       );
@@ -127,7 +136,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownPageUp();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "January",
         "focuses correct month"
       );
@@ -137,7 +147,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       EVENTS.keydownPageDown();
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "December",
         "focuses correct month"
       );
@@ -151,7 +162,8 @@ tests.forEach(({name, selector: containerSelector}) => {
       );
 
       assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset.label,
+        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
+          .label,
         "October",
         "focuses correct month"
       );

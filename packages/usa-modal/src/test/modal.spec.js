@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const modal = require("../index");
+const comboBox = require("../../../usa-combo-box/src/index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
 const modalWindowSelector = () => document.querySelector(".usa-modal");
@@ -10,12 +11,14 @@ const bodySelector = () => document.body;
 const openButton1Selector = () => document.querySelector("#open-button1");
 const openButton2Selector = () => document.querySelector("#open-button2");
 
+const comboListSelector = () => document.querySelector("#nestedCB--list");
+
 const tests = [
   { name: "document.body", selector: bodySelector },
-  { name: "modal", selector: modalWindowSelector }
+  { name: "modal", selector: modalWindowSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Modal window initialized at ${name}`, () => {
     const { body } = document;
 
@@ -25,22 +28,29 @@ tests.forEach(({name, selector: containerSelector}) => {
     let openButton1;
     let openButton2;
     let overlay;
+    let comboList;
+    let comboBoxToggleButton;
 
     const isVisible = (el) => el.classList.contains("is-visible");
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
       modal.on(containerSelector());
+      comboBox.on(containerSelector());
       modalWindow = modalWindowSelector();
       closeButton = body.querySelector("#close-button");
       modalWrapper = body.querySelector(".usa-modal-wrapper");
       overlay = body.querySelector(".usa-modal-overlay");
       openButton1 = openButton1Selector();
       openButton2 = openButton2Selector();
+
+      comboList = comboListSelector();
+      comboBoxToggleButton = body.querySelector(".usa-combo-box__toggle-list");
     });
 
     afterEach(() => {
       modal.off(containerSelector());
+      comboBox.off(containerSelector());
       body.innerHTML = "";
       body.className = "";
     });
@@ -107,6 +117,12 @@ tests.forEach(({name, selector: containerSelector}) => {
 
         assert.strictEqual(activeContent.length, 1);
         assert.strictEqual(activeContent[0], modalWrapper);
+      });
+
+      it("Allows event propagation and displays combobox list when toggle is clicked", () => {
+        comboBoxToggleButton.click();
+
+        assert.ok(!comboList.hidden, "should display the combobox option list");
       });
     });
 

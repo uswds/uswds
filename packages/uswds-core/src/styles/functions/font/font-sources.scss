@@ -1,0 +1,31 @@
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+
+@use "../../settings" as *;
+
+/*
+----------------------------------------
+font-sources()
+----------------------------------------
+Outputs a list of font sources used in
+a @font-face declaration.
+
+$theme-font-browser-compatibility: true - output woff2, woff, ttf
+$theme-font-browser-compatibility: false - output woff2
+
+@param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
+@output: string
+
+filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
+----------------------------------------
+*/
+
+@function font-sources($stem) {
+  @if $theme-font-browser-compatibility {
+    @return url(#{$stem}.woff2) format("woff2"),
+      url(#{$stem}.woff) format("woff"), url(#{$stem}.ttf) format("truetype");
+  }
+
+  @return url(#{$stem}.woff2) format("woff2");
+}

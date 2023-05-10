@@ -11,10 +11,10 @@ const TEMPLATE = fs.readFileSync(
 const comboBoxSelector = () => document.querySelector(".usa-combo-box");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "combo box", selector: comboBoxSelector }
+  { name: "combo box", selector: comboBoxSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Combo box initialized at ${name}`, () => {
     describe("combo box component - disabled enhancement", () => {
       const { body } = document;

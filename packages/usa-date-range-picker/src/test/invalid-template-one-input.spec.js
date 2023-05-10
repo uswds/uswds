@@ -8,13 +8,14 @@ const INVALID_TEMPLATE_ONE_INPUT = fs.readFileSync(
   path.join(__dirname, "/invalid-template-one-input.template.html")
 );
 
-const dateRangePickerSelector = () => document.querySelector('.usa-date-range-picker');
+const dateRangePickerSelector = () =>
+  document.querySelector(".usa-date-range-picker");
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "date range picker", selector: dateRangePickerSelector }
+  { name: "date range picker", selector: dateRangePickerSelector },
 ];
 
-tests.forEach(({name, selector: containerSelector}) => {
+tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Date range picker without second date picker initialized at ${name}`, () => {
     const { body } = document;
 

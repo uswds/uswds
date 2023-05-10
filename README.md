@@ -195,7 +195,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 ### Install the package directly from GitHub
 If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
-1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.3.0/uswds-uswds-3.3.0.tgz) directly from the latest USWDS release and uncompress that file.
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.4.1/uswds-uswds-3.4.1.tgz) directly from the latest USWDS release and uncompress that file.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
@@ -355,7 +355,7 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "@uswds/uswds/src/js";
+import USWDS from "@uswds/uswds/js";
 const { characterCount, accordion } = USWDS; // deconstruct your components here
 
 // Alternatively

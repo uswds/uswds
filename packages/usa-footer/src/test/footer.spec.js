@@ -120,5 +120,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assertHidden(lists[1], false);
       assertHidden(lists[2], false);
     });
+
+    it("preserves html tag on resize", () => {
+      const initialHtmlTag = buttons()[0].tagName;
+      assert.strictEqual(initialHtmlTag, "H4");
+      assert.strictEqual(buttons()[0].getAttribute("data-tag"), null);
+      resizeTo(400);
+      assert.strictEqual(buttons()[0].tagName, "BUTTON");
+      assert.strictEqual(buttons()[0].getAttribute("data-tag"), initialHtmlTag);
+      resizeTo(1024);
+      assert.strictEqual(buttons()[0].tagName, initialHtmlTag);
+      assert.strictEqual(buttons()[0].getAttribute("data-tag"), null);
+    });
   });
 });
