@@ -111,11 +111,12 @@ const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
- * Builds an element that will house the file upload status
- * @param {HTMLElement} fileInputEl - original file input on page
- * @param {HTMLElement} fileInputParent - file input wrapper with the DROPZONE_CLASS
- * @param {HTMLElement} instructions - text to inform users to drag or select files
- * @param {HTMLElement} dropTarget - target area div that encases the input
+ * Builds an element that will house the file upload status messages.
+ *
+ * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ * @param {HTMLDivElement} fileInputParent - File input wrapper with the DROPZONE_CLASS.
+ * @param {HTMLDivElement} instructions - Text to inform users to drag or select files.
+ * @param {HTMLDivElement} dropTarget - Target area div that holds the input.
  */
 const buildStatusMessage = (
   fileInputEl,
