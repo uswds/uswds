@@ -295,8 +295,7 @@ const updateStatusMessage = (statusElement, fileNames, fileStore) => {
 };
 
 /**
- * Hide the initial instructions
- * Show the preview heading
+ * Show the preview heading, hide the initial instructions and
  * Update the aria-label with new instructions text
  *
  * @param {HTMLInputElement} fileInputEl - The input element.
@@ -344,7 +343,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const defaultAriaLabelText = fileInputEl.dataset.defaultAriaLabel;
 
   // First, get rid of existing previews
-  removeOldPreviews(dropTarget, instructions, statusElement);
+  removeOldPreviews(dropTarget, instructions);
 
   // Then, iterate through files list and create previews
   for (let i = 0; i < fileNames.length; i += 1) {
