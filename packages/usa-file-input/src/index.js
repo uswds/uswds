@@ -301,30 +301,25 @@ const updateStatusMessage = (statusElement, fileNames, fileStore) => {
  *
  * @param {HTMLInputElement} fileInputEl - The input element.
  * @param {Object} fileNames - The selected files found in the fileList object.
- * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
- * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
  */
-const addPreviewHeading = (
-  fileInputEl,
-  fileNames,
-  dropTarget,
-  instructions
-) => {
+const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
+  const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+  const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS }`);
   let changeItemText = "Change file";
-  let previewText = "";
+  let previewHeadingText = "";
 
   if (fileNames.length === 1) {
-    previewText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
+    previewHeadingText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
   } else if (fileNames.length > 1) {
     changeItemText = "Change files";
-    previewText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
   }
 
   // Hides null state content and sets preview heading
   instructions.classList.add(HIDDEN_CLASS);
   filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
-  filePreviewsHeading.innerHTML = previewText;
+  filePreviewsHeading.innerHTML = previewHeadingText;
   dropTarget.insertBefore(filePreviewsHeading, instructions);
 
   // Update aria label to match the visible action text
