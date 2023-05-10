@@ -28,6 +28,7 @@ const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
+const CLOSING_CLASS = "is-closing";
 
 let navigation;
 let navActive;
@@ -78,15 +79,53 @@ const toggleNonNavItems = (active) => {
   }
 };
 
+const animateClose = (el) => {
+  const events = [
+    "transitionend",
+    "animationend",
+    // Just in case transition/animation gets cancelled
+    "transitioncancel",
+    "animationcancel",
+  ];
+  const onAnimationComplete = () => {
+    // Remove no-longer-needed event listeners
+    events.forEach((e) => el.removeEventListener(e, onAnimationComplete));
+
+    // Remove in-progress animation classes
+    if (el.classList.contains(CLOSING_CLASS)) {
+      el.classList.remove(CLOSING_CLASS);
+      el.classList.remove(VISIBLE_CLASS);
+    }
+  };
+
+  el.classList.add(CLOSING_CLASS);
+  events.forEach((e) => el.addEventListener(e, onAnimationComplete));
+};
+
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
-  select(TOGGLES).forEach((el) =>
-    el.classList.toggle(VISIBLE_CLASS, safeActive)
-  );
+  select(TOGGLES).forEach((el) => {
+    // If there's an animation/transition duration and the nav
+    // is closing, add CLOSING_CLASS for the duration instead of
+    // immediately closing. This lets the nav animate close
+    const computedStyle = getComputedStyle(el);
+    const duration =
+      parseFloat(computedStyle.animationDuration, 10) ||
+      parseFloat(computedStyle.transitionDuration);
+    if (duration !== 0 && !safeActive) {
+      animateClose(el);
+    } else {
+      // Nav is opening, OR the nav close duration is 0ms.
+      // If the close duration is 0ms, then the end/cancel
+      // events in animateClose() never run, getting stuck.
+      el.classList.toggle(VISIBLE_CLASS, safeActive);
+      el.classList.toggle(CLOSING_CLASS, false);
+    }
+  });
 
   navigation.focusTrap.update(safeActive);
 
