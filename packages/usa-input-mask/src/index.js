@@ -397,43 +397,52 @@ const createStatusMessages = (maskedEl, randomID) => {
 };
 
 /**
- * Extracts the valid text from a given string of pasted text, based on the current mask.
- * @param {string} pastedText - The string of pasted text to extract from.
- * @return {string} The extracted, valid text.
+ * Extracts the valid text from a given string of pasted text, regardless of
+ * cursor position.
+ *
+ * @param {HTMLInputElement} inputEl - The masks input element.
+ * @param {string} pastedText - The pasted text string.
+ * @param {curPos} curPos - The users cursor position on paste.
+ * @return {string} - The extracted, valid text.
  */
 const getValidPastedText = (inputEl, pastedText = "", curPos = 0) => {
   const strPastedtext = removeFormatCharacters(pastedText);
   const startingPoint = curPos;
   let strRes = "";
 
-  // Mask pattern.
-  // Example: ["A", "A", "A", "-", "9", "9", "9", "9"].
-  const MASK = getPropertyValue(inputEl.id, "MASK", []);
+  let mask = getPropertyValue(inputEl.id, "MASK", []);
+  const inputMaxLength = Number(inputEl.getAttribute("maxLength"));
 
-  // User defined mask *without* FORMAT_CHARACTERS.
-  // Get mask's accepted characters.
-  for (let i = 0; i < MASK.length; i += 1) {
-    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
-      strMask += MASK[i];
-    }
+  // ! Placement matters for slicing array
+  // Maybe start at 1 for alphanumeric
+  if (startingPoint > 0) {
+    mask = mask.slice(startingPoint);
   }
 
-  // Compare pasted text is bigger than mask limit, if so use mask.
-  // Otherwise minLength is pasted text.
+  // Convert mask into string and remove formatted characters.
+  mask = removeFormatCharacters(mask.join(""));
+  const maskLimit = mask.length < inputMaxLength ? mask.length : inputMaxLength;
+
+  // Compare pasted text is bigger than mask limit.
   const maxLength =
-    strPastedtext.length > strMask.length
-      ? strMask.length
-      : strPastedtext.length;
+    strPastedtext.length > maskLimit ? maskLimit : strPastedtext.length;
 
+  // ! Need a way to match current cursor position with mask position.
   const isNumber = /[0-9]/;
-
   // Loop through pasted text and validate each character. Only keep valid.
-  for (let k = 0; k < maxLength; k += 1) {
+  // Maybe maxLength also needs to start at cursor position.
+
+  // ! Need to find way to get mask to reset.
+  for (let j = 0; j < maxLength; j += 1) {
+    // On phone numbers the first `(` will cut off last number in `@@@@@123`
     if (
-      (isNumber.test(strPastedtext[i]) && isNumber.test(strMask[i])) ||
-      (!isNumber.test(strPastedtext[i]) && !isNumber.test(strMask[i]))
+      // Compare current pasted string to mask expected character
+      (isNumber.test(strPastedtext[j]) && isNumber.test(mask[j])) ||
+      (!isNumber.test(strPastedtext[j]) && !isNumber.test(mask[j]))
     ) {
-      strRes += strPastedtext[i];
+      strRes += strPastedtext[j];
+    } else {
+      strRes = "";
     }
   }
 
@@ -660,8 +669,8 @@ const hideMessage = (inputEl) => {
 };
 
 /**
- * On input, it will update visual status, screenreader
- * status and update input validation (if invalid character is entered).
+ * On input, it will update visual status, screen reader
+ * status, and update input validation (if invalid character is entered).
  *
  * @param {HTMLInputElement} inputEl The masked input element
  * @param {number} keyCode The key number code
@@ -719,12 +728,12 @@ const checkAvailableLeft = (inputEl, curPos) => {
  * @param {Event} event - The paste event.
  */
 const handlePaste = (inputEl, event) => {
-  let pastedText = "";
-
   const clipboardData = event.clipboardData || window.clipboardData;
   const curPos = getCursorPosition(inputEl);
   let pastedText = clipboardData.getData("text/plain") || "";
   pastedText = pastedText.trim();
+
+  event.preventDefault();
 
   const validPastedText = getValidPastedText(inputEl, pastedText, curPos);
 
@@ -734,11 +743,8 @@ const handlePaste = (inputEl, event) => {
     hideMessage(inputEl);
   }
 
-  const curPos = getCursorPosition(inputEl);
-
   pasteTextToInput(inputEl, validPastedText, curPos);
 
-  event.preventDefault();
   return false;
 };
 
