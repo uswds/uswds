@@ -128,10 +128,10 @@ const buildStatusMessage = (
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructionsEl = instructions;
   const itemsLabel =  acceptsMultiple ? "files" : "file";
-  let chooseText = "";
-  let defaultInstructionsText = "";
-  let defaultStatus = "";
-  let dragText = "";
+  const defaultStatus = `No ${itemsLabel} selected.`;
+  const dragText = `Drag ${itemsLabel} here or`;
+  const chooseText = "choose from folder";
+  const defaultInstructionsText = `${dragText} ${chooseText}`;
 
   // Set up status message and add it to the DOM
   statusEl.classList.add(SR_ONLY_CLASS);
@@ -139,14 +139,10 @@ const buildStatusMessage = (
   fileInputParent.insertBefore(statusEl, dropTarget);
 
   // Add initial file status message
-  defaultStatus = `No ${itemsLabel} selected.`;
   statusEl.setAttribute("data-default-status-text", defaultStatus);
   statusEl.textContent = defaultStatus;
 
   // Add initial instructions for input usage
-  dragText = `Drag ${itemsLabel} here or`;
-  chooseText = "choose from folder";
-  defaultInstructionsText = `${dragText} ${chooseText}`;
   fileInputEl.setAttribute("aria-label", defaultInstructionsText);
   fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
   instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
