@@ -114,8 +114,8 @@ const createUniqueID = (name) =>
  * Scaffold the file input component with a parent wrapper and
  * Create a target area overlay for drag and drop functionality
  *
- * @param {HTMLInputElement} fileInputEl - Original file input on page.
- * @returns {HTMLDivElement} The drag and drop target area div
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @returns {HTMLDivElement} The drag and drop target area.
  */
 const createTargetArea = (fileInputEl) => {
   const fileInputParent = document.createElement("div");
@@ -149,8 +149,8 @@ const createTargetArea = (fileInputEl) => {
  * Build the visible element that contains default interaction instructions and
  * Create and set the default instructions text
  *
- * @param {HTMLInputElement} fileInputEl - Original file input on page.
- * @returns {HTMLDivElement} The visible instructions div element
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @returns {HTMLDivElement} The container for visible interaction instructions.
  */
 const createVisibleInstructions = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
@@ -188,7 +188,7 @@ const createVisibleInstructions = (fileInputEl) => {
  * Build a screen reader-only message element that contains file status updates and
  * Create and set the default file status message
  *
- * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ * @param {HTMLInputElement} fileInputEl - The input element.
  */
 const createSROnlyStatus = (fileInputEl) => {
   const statusEl = document.createElement("div");
@@ -213,7 +213,7 @@ const createSROnlyStatus = (fileInputEl) => {
 /**
  * Scaffold the component with all required elements
  *
- * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
   const dropTarget = createTargetArea(fileInputEl);
@@ -224,9 +224,11 @@ const enhanceFileInput = (fileInputEl) => {
 };
 
 /**
- * Removes image previews, we want to start with a clean list every time files are added to the file input
- * @param {HTMLElement} dropTarget - target area div that encases the input
- * @param {HTMLElement} instructions - text to inform users to drag or select files
+ * Removes image previews
+ * We want to start with a clean list every time files are added to the file input
+ *
+ * @param {HTMLDivElement} dropTarget - The drag and drop target area.
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
  */
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
@@ -267,9 +269,10 @@ const removeOldPreviews = (dropTarget, instructions) => {
 
 /**
  * Update the screen reader-only status message after interaction
- * @param {HTMLElement} statusElement - screen-reader only container for file status updates
- * @param {HTMLElement} fileNames - uploaded files
- * @param {HTMLElement} fileStore - array of uploaded file names
+ *
+ * @param {HTMLDivElement} statusElement - The screen reader-only container for file status updates.
+ * @param {Object} fileNames - The selected files found in the fileList object.
+ * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
  */
 const updateStatusMessage = (statusElement, fileNames, fileStore) => {
   const defaultStatusMessage = statusElement.dataset.defaultStatusText;
@@ -292,11 +295,14 @@ const updateStatusMessage = (statusElement, fileNames, fileStore) => {
 };
 
 /**
- * Hide the initial instructions and show the preview heading
- * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} fileNames - uploaded files
- * @param {HTMLElement} dropTarget - target area div that encases the input
- * @param {HTMLElement} instructions - text to inform users to drag or select files
+ * Hide the initial instructions
+ * Show the preview heading
+ * Update the aria-label with new instructions text
+ *
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @param {Object} fileNames - The selected files found in the fileList object.
+ * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
  */
 const addPreviewHeading = (
   fileInputEl,
@@ -328,10 +334,11 @@ const addPreviewHeading = (
 /**
  * When new files are applied to file input, this function generates previews
  * and removes old ones.
+ *
  * @param {event} e
- * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to inform users to drag or select files
- * @param {HTMLElement} dropTarget - target area div that encases the input
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
+ * @param {HTMLDivElement} dropTarget - The drag and drop target area.
  */
 
 const handleChange = (e, fileInputEl, instructions, dropTarget) => {
@@ -426,10 +433,11 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
  * file browser, but they can still be dragged to the input. This
  * function prevents them from being dragged and removes error states
  * when correct files are added.
+ *
  * @param {event} e
- * @param {HTMLElement} fileInputEl - file input element
- * @param {HTMLElement} instructions - text to inform users to drag or select files
- * @param {HTMLElement} dropTarget - target area div that encases the input
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
+ * @param {HTMLDivElement} dropTarget - The drag and drop target area.
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   const acceptedFilesAttr = fileInputEl.getAttribute("accept");
@@ -497,15 +505,16 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 /**
  * 1. passes through gate for preventing invalid files
  * 2. handles updates if file is valid
+ *
  * @param {event} event
- * @param {HTMLElement} element
- * @param {HTMLElement} instructionsEl
- * @param {HTMLElement} target
+ * @param {HTMLInputElement} fileInputEl - The input element.
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions.
+ * @param {HTMLDivElement} dropTarget - The drag and drop target area.
  */
-const handleUpload = (event, element, instructionsEl, dropTargetEl) => {
-  preventInvalidFiles(event, element, instructionsEl, dropTargetEl);
+const handleUpload = (event, fileInputEl, instructions, dropTarget) => {
+  preventInvalidFiles(event, fileInputEl, instructions, dropTarget);
   if (TYPE_IS_VALID === true) {
-    handleChange(event, element, instructionsEl, dropTargetEl);
+    handleChange(event, fileInputEl, instructions, dropTarget);
   }
 };
 
