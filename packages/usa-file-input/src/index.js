@@ -111,53 +111,16 @@ const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
- * Builds an element that will house the file upload status messages.
+ * Scaffold the file input component with a parent wrapper and
+ * Create a target area overlay for drag and drop functionality
  *
  * @param {HTMLInputElement} fileInputEl - Original file input on page.
- * @param {HTMLDivElement} fileInputParent - File input wrapper with the DROPZONE_CLASS.
- * @param {HTMLDivElement} instructions - Text to inform users to drag or select files.
- * @param {HTMLDivElement} dropTarget - Target area div that holds the input.
+ * @returns {HTMLDivElement} The drag and drop target area div
  */
-const buildStatusMessage = (
-  fileInputEl,
-  fileInputParent,
-  instructions,
-  dropTarget
-) => {
-  const statusEl = document.createElement("div");
-  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
-  const instructionsEl = instructions;
-  const itemsLabel =  acceptsMultiple ? "files" : "file";
-  const defaultStatus = `No ${itemsLabel} selected.`;
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
-  const defaultInstructionsText = `${dragText} ${chooseText}`;
-
-  // Set up status message and add it to the DOM
-  statusEl.classList.add(SR_ONLY_CLASS);
-  statusEl.setAttribute("aria-live", "polite");
-  fileInputParent.insertBefore(statusEl, dropTarget);
-
-  // Add initial file status message
-  statusEl.setAttribute("data-default-status-text", defaultStatus);
-  statusEl.textContent = defaultStatus;
-
-  // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", defaultInstructionsText);
-  fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
-  instructionsEl.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
-};
-
-/**
- * Builds full file input component
- * @param {HTMLElement} fileInputEl - original file input on page
- * @returns {HTMLElement|HTMLElement} - Instructions, target area div
- */
-const buildFileInput = (fileInputEl) => {
+const createTargetArea = (fileInputEl) => {
   const fileInputParent = document.createElement("div");
   const dropTarget = document.createElement("div");
   const box = document.createElement("div");
-  const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
 
   // Adds class names and other attributes
@@ -165,8 +128,6 @@ const buildFileInput = (fileInputEl) => {
   fileInputEl.classList.add(INPUT_CLASS);
   fileInputParent.classList.add(DROPZONE_CLASS);
   box.classList.add(BOX_CLASS);
-  instructions.classList.add(INSTRUCTIONS_CLASS);
-  instructions.setAttribute("aria-hidden", "true");
   dropTarget.classList.add(TARGET_CLASS);
 
   // Adds child elements to the DOM
@@ -174,15 +135,44 @@ const buildFileInput = (fileInputEl) => {
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
   dropTarget.appendChild(fileInputEl);
   fileInputParent.appendChild(dropTarget);
-  fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
   fileInputEl.parentNode.insertBefore(box, fileInputEl);
-
-  buildStatusMessage(fileInputEl, fileInputParent, instructions, dropTarget);
 
   // Disabled styling
   if (disabled) {
     disable(fileInputEl);
   }
+
+  return dropTarget;
+};
+
+/**
+ * Build the visible element that contains default interaction instructions and
+ * Create and set the default instructions text
+ *
+ * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ * @returns {HTMLDivElement} The visible instructions div element
+ */
+const createVisibleInstructions = (fileInputEl) => {
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
+  const fileInputParent = fileInputEl.closest(DROPZONE);
+  const itemsLabel = acceptsMultiple ? "files" : "file";
+  const instructions = document.createElement("div");
+  const dragText = `Drag ${itemsLabel} here or`;
+  const chooseText = "choose from folder";
+  const defaultInstructionsText = `${dragText} ${chooseText}`;
+
+  // Adds class names and other attributes
+  instructions.classList.add(INSTRUCTIONS_CLASS);
+  instructions.setAttribute("aria-hidden", "true");
+
+  // Add initial instructions for input usage
+  fileInputEl.setAttribute("aria-label", defaultInstructionsText);
+  fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+
+  // Add the instructions element to the DOM
+  fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
+
   // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
   if (
     /rv:11.0/i.test(navigator.userAgent) ||
@@ -190,6 +180,45 @@ const buildFileInput = (fileInputEl) => {
   ) {
     fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
   }
+
+  return instructions;
+};
+
+/**
+ * Build a screen reader-only message element that contains file status updates and
+ * Create and set the default file status message
+ *
+ * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ */
+const createSROnlyStatus = (fileInputEl) => {
+  const statusEl = document.createElement("div");
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
+  const itemsLabel = acceptsMultiple ? "files" : "file";
+  const defaultStatus = `No ${itemsLabel} selected.`;
+  const fileInputParent = fileInputEl.closest(DROPZONE);
+  const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+
+  // Adds class names and other attributes
+  statusEl.classList.add(SR_ONLY_CLASS);
+  statusEl.setAttribute("aria-live", "polite");
+
+  // Add initial file status message
+  statusEl.setAttribute("data-default-status-text", defaultStatus);
+  statusEl.textContent = defaultStatus;
+
+  // Add the status element to the DOM
+  fileInputParent.insertBefore(statusEl, fileInputTarget);
+};
+
+/**
+ * Scaffold the component with all required elements
+ *
+ * @param {HTMLInputElement} fileInputEl - Original file input on page.
+ */
+const enhanceFileInput = (fileInputEl) => {
+  const dropTarget = createTargetArea(fileInputEl);
+  const instructions = createVisibleInstructions(fileInputEl);
+  createSROnlyStatus(fileInputEl);
 
   return { instructions, dropTarget };
 };
@@ -485,7 +514,7 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
-        const { instructions, dropTarget } = buildFileInput(fileInputEl);
+        const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
 
         dropTarget.addEventListener(
           "dragover",
