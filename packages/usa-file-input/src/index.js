@@ -110,7 +110,7 @@ const makeSafeForID = (name) => name.replace(/[^a-z0-9]/g, replaceName);
 const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
-  /**
+/**
  * Determines if the singular or plural item label should be used
  * Determination is based on the presence of the `multiple` attribute
  *
@@ -122,7 +122,7 @@ const setItemsLabel = (fileInputEl) => {
   const itemsLabel = acceptsMultiple ? "files" : "file";
 
   return itemsLabel;
-}
+};
 
 /**
  * Scaffold the file input component with a parent wrapper and
