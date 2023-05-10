@@ -305,7 +305,7 @@ const updateStatusMessage = (statusElement, fileNames, fileStore) => {
 const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
   const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
-  const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS }`);
+  const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS}`);
   let changeItemText = "Change file";
   let previewHeadingText = "";
 
