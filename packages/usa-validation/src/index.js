@@ -3,7 +3,8 @@ const validate = require("../../uswds-core/src/js/utils/validate-input");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 
-const VALIDATE_INPUT = "input[data-validation-element]";
+const VALIDATE_INPUT =
+  "input[data-validation-element],textarea[data-validation-element]";
 const CHECKLIST_ITEM = `.${PREFIX}-checklist__item`;
 
 // Trigger validation on input change

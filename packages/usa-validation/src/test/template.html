@@ -1,5 +1,5 @@
 <div>
-  <ul class="usa-checklist" id="validation_list">
+  <ul class="usa-checklist" id="input_validation_list">
     <li class="usa-checklist__item" data-validator="length">
       Be at least 8 characters
     </li>
@@ -15,10 +15,26 @@
     id="password"
     name="password"
     type="password"
-    aria-describedby="validation_list"
+    aria-describedby="input_validation_list"
     data-validate-length=".{8,}"
     data-validate-uppercase="[A-Z]"
     data-validate-numerical="\d"
-    data-validation-element="validation_list"
-  />
+    data-validation-element="input_validation_list"
+/>
+</div>
+
+<div>
+  <ul class="usa-checklist" id="textarea_validation_list">
+    <li class="usa-checklist__item" data-validator="empty">
+      Have at least 3 words
+    </li>
+  </ul>
+  <textarea
+    class="usa-textarea"
+    id="comment"
+    name="comment"
+    aria-describedby="textarea_validation_list"
+    data-validate-empty="\S"
+    data-validation-element="textarea_validation_list"
+></textarea>
 </div>

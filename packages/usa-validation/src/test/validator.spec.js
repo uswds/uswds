@@ -5,12 +5,14 @@ const validator = require("../index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
-const INPUT_SELECTOR = "[data-validation-element]";
+const INPUT_SELECTOR = "input[data-validation-element]";
+const TEXTAREA_SELECTOR = "textarea[data-validation-element]";
 const VALIDATORS = "[data-validator]";
 const VALIDATOR_LABEL = "[data-checklist-label]";
 const CHECKED_CLASS = "usa-checklist__item--checked";
 
 const inputSelector = () => document.querySelector(INPUT_SELECTOR);
+const textareaSelector = () => document.querySelector(TEXTAREA_SELECTOR);
 
 const keyup = (el) => {
   el.dispatchEvent(new Event("change", { bubbles: true }));
@@ -19,6 +21,7 @@ const keyup = (el) => {
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "input", selector: inputSelector },
+  { name: "textarea", selector: textareaSelector },
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
