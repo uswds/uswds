@@ -417,7 +417,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     // Reset input aria-label with default message
     fileInputEl.setAttribute("aria-label", defaultAriaLabelText);
   } else {
-    addPreviewHeading(fileInputEl, fileNames, dropTarget, instructions);
+    addPreviewHeading(fileInputEl, fileNames);
   }
 
   updateStatusMessage(statusElement, fileNames, fileStore);
