@@ -38,9 +38,12 @@ $search-icon: (
     }
 
     @media (forced-colors: active) {
-      border: 2px solid transparent;
       @include place-icon($search-icon, "before");
 
+      &:focus {
+        outline-offset: 0;
+      }
+      
       &::before {
         @include at-media("mobile-lg") {
           content: none;

@@ -51,6 +51,12 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &[aria-disabled="true"] {
     @include button-disabled;
   }
+
+  @media (forced-colors: active) {
+    &:not(.usa-button--unstyled) {
+      border: $border-high-contrast;
+    }
+  }
 }
 
 .usa-button--accent-cool {
