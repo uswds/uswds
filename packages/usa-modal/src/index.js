@@ -171,65 +171,61 @@ function toggleModal(event) {
 }
 
 /**
- *  Builds modal window from base HTML
- *
- * @param {HTMLElement} baseComponent the modal html in the DOM
+ * 
+ * @param {HTMLElement} baseComponent - Modal HTML from the DOM
+ * @returns {HTMLElement} Placeholder to append modal content to
  */
-const setUpModal = (baseComponent) => {
-  const modalContent = baseComponent;
-  const modalWrapper = document.createElement("div");
-  const overlayDiv = document.createElement("div");
+const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
-  const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
-  const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
-  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
-    ? baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE)
-    : false;
-  // Create placeholder where modal is for cleanup
   const originalLocationPlaceHolder = document.createElement("div");
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
   originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
+
+  // TODO: Refactor this ↓↓↓
   for (
     let attributeIndex = 0;
-    attributeIndex < modalContent.attributes.length;
+    attributeIndex < baseComponent.attributes.length;
     attributeIndex += 1
   ) {
-    const attribute = modalContent.attributes[attributeIndex];
+    const attribute = baseComponent.attributes[attributeIndex];
     originalLocationPlaceHolder.setAttribute(
       `data-original-${attribute.name}`,
       attribute.value
     );
   }
 
-  modalContent.after(originalLocationPlaceHolder);
+  return originalLocationPlaceHolder;
+}
 
-  // Rebuild the modal element
-  modalContent.parentNode.insertBefore(modalWrapper, modalContent);
-  modalWrapper.appendChild(modalContent);
-  modalContent.parentNode.insertBefore(overlayDiv, modalContent);
-  overlayDiv.appendChild(modalContent);
-
-  // Add classes and attributes
-  modalWrapper.classList.add(HIDDEN_CLASS);
-  modalWrapper.classList.add(WRAPPER_CLASSNAME);
-  overlayDiv.classList.add(OVERLAY_CLASSNAME);
+const setModalAttributes = (baseComponent, targetWrapper) => {
+  const modalID = baseComponent.getAttribute("id");
+  const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
+  const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
+  const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
 
   // Set attributes
-  modalWrapper.setAttribute("role", "dialog");
-  modalWrapper.setAttribute("id", modalID);
+  targetWrapper.setAttribute("role", "dialog");
+  targetWrapper.setAttribute("id", modalID);
 
+  // ? More intuitive 
   if (ariaLabelledBy) {
-    modalWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
+    targetWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
   }
 
   if (ariaDescribedBy) {
-    modalWrapper.setAttribute("aria-describedby", ariaDescribedBy);
+    targetWrapper.setAttribute("aria-describedby", ariaDescribedBy);
   }
 
   if (forceUserAction) {
-    modalWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, "true");
+    targetWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
   }
+
+  // Add aria-controls
+  const modalClosers = targetWrapper.querySelectorAll(CLOSERS);
+  modalClosers.forEach((el) => {
+    el.setAttribute("aria-controls", modalID);
+  });
 
   // Update the base element HTML
   baseComponent.removeAttribute("id");
@@ -237,16 +233,55 @@ const setUpModal = (baseComponent) => {
   baseComponent.removeAttribute("aria-describedby");
   baseComponent.setAttribute("tabindex", "-1");
 
-  // Add aria-controls
-  const modalClosers = modalWrapper.querySelectorAll(CLOSERS);
-  modalClosers.forEach((el) => {
-    el.setAttribute("aria-controls", modalID);
-  });
+  return targetWrapper
+}
+
+const rebuildModal = (baseComponent) => {
+  const modalContent = baseComponent;
+  const modalWrapper = document.createElement("div");
+  const overlayDiv = document.createElement("div");
+
+  // ? Seperate wrapper and modal?
+  // Rebuild the modal element
+  modalContent.parentNode.insertBefore(modalWrapper, modalContent);
+  modalWrapper.appendChild(modalContent);
+  modalContent.parentNode.insertBefore(overlayDiv, modalContent);
+  overlayDiv.appendChild(modalContent);
+
+  // Add classes
+  modalWrapper.classList.add(HIDDEN_CLASS);
+  modalWrapper.classList.add(WRAPPER_CLASSNAME);
+  overlayDiv.classList.add(OVERLAY_CLASSNAME);
+
+  // Add attributes
+  setModalAttributes(modalContent, modalWrapper);
+
+  return modalWrapper;
+}
+
+/**
+ *  Builds modal window from base HTML
+ *
+ * @param {HTMLElement} baseComponent the modal html in the DOM
+ */
+const setUpModal = (baseComponent) => {
+  const modalID = baseComponent.getAttribute("id");
+
+  if (!modalID) {
+    throw new Error(`Modal markdown is missing ID`);
+  }
+
+  // Create placeholder where modal is for cleanup
+  const originalLocationPlaceHolder = createPlaceHolder(baseComponent);
+  baseComponent.after(originalLocationPlaceHolder);
+
+  // Build modal component
+  const modalComponent = rebuildModal(baseComponent);
 
   // Move all modals to the end of the DOM. Doing this allows us to
   // more easily find the elements to hide from screen readers
   // when the modal is open.
-  document.body.appendChild(modalWrapper);
+  document.body.appendChild(modalComponent);
 };
 
 const cleanUpModal = (baseComponent) => {
@@ -285,31 +320,28 @@ modal = behavior(
     init(root) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
-        if (!modalId) {
-          return;
-        }
 
         setUpModal(modalWindow);
 
-          // Query all openers and closers including the overlay
-          selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach((modalTrigger) => {
-            // If modalTrigger is an anchor...
-            if (modalTrigger.nodeName === "A") {
-              // Turn anchor links into buttons for screen readers
-              modalTrigger.setAttribute("role", "button");
+        // Query all openers and closers including the overlay
+        selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach((modalTrigger) => {
+          // If modalTrigger is an anchor...
+          if (modalTrigger.nodeName === "A") {
+            // Turn anchor links into buttons for screen readers
+            modalTrigger.setAttribute("role", "button");
 
-              // Prevent modal triggers from acting like links
-              modalTrigger.addEventListener("click", (e) => e.preventDefault());
-            }
+            // Prevent modal triggers from acting like links
+            modalTrigger.addEventListener("click", (e) => e.preventDefault());
+          }
 
-            // Can uncomment when aria-haspopup="dialog" is supported
-            // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
-            // Most screen readers support aria-haspopup, but might announce
-            // as opening a menu if "dialog" is not supported.
-            // modalTrigger.setAttribute("aria-haspopup", "dialog");
+          // Can uncomment when aria-haspopup="dialog" is supported
+          // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+          // Most screen readers support aria-haspopup, but might announce
+          // as opening a menu if "dialog" is not supported.
+          // modalTrigger.setAttribute("aria-haspopup", "dialog");
 
-            modalTrigger.addEventListener("click", toggleModal);
-          });
+          modalTrigger.addEventListener("click", toggleModal);
+        });
       });
     },
     teardown(root) {
