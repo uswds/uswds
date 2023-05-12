@@ -77,7 +77,7 @@ const updateSortLabel = (header) => {
     header.getAttribute(SORTED) === ASCENDING ||
     header.getAttribute(SORTED) === DESCENDING ||
     false;
-  const headerLabel = `${headerName}', sortable column, currently ${
+  const headerLabel = `${headerName}, sortable column, currently ${
     isSorted
       ? `${sortedAscending ? `sorted ${ASCENDING}` : `sorted ${DESCENDING}`}`
       : "unsorted"
