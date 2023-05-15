@@ -11,7 +11,7 @@ $accordion-background-active-color: next-token(
   "darker"
 );
 
-$accordion-button-darkmode: is-input-darkmode(
+$accordion-button-darkmode: is-color-dark(
   $theme-accordion-button-background-color
 );
 
