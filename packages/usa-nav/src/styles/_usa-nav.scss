@@ -387,10 +387,10 @@ $expand-less-icon: map-merge(
     @include at-media($theme-header-min-width) {
       a {
         color: color("white");
-        padding: 0;
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
         padding: units(1);
+
         &:focus {
           outline-offset: units("neg-05");
         }

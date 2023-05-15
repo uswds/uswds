@@ -69,6 +69,18 @@ EVENTS.keydownTab = (el) => {
 };
 
 /**
+ * send a keydown Space event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownSpace = (el) => {
+  const evt = new KeyboardEvent("keydown", {
+    bubbles: true,
+    key: " ",
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
  * send a keydown ArrowDown event
  * @param {HTMLElement} el the element to sent the event to
  */
