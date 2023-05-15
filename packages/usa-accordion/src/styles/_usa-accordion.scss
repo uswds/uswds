@@ -55,7 +55,6 @@ $accordion-button-background-active-color: next-token(
     forced-color-adjust: none;
   }
 }
-// scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
   @include set-icon-from-bg($theme-accordion-button-background-color, "add");
