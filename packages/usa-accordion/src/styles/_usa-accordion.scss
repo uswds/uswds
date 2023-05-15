@@ -4,6 +4,29 @@
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
+// Maps for High Contrast Mode
+
+$accordion-icon-map: (
+  color: ButtonText,
+  svg-height: 20,
+  svg-width: 20,
+  height: units(3),
+);
+
+$accordion-button-unopen-hc-icon: map-merge(
+  $accordion-icon-map,
+  (
+    "name": "add",
+  )
+);
+
+$accordion-button-open-hc-icon: map-merge(
+  $accordion-icon-map,
+  (
+    "name": "remove",
+  )
+);
+
 // Accordion Styles
 @mixin accordion-list-styles {
   @include unstyled-list;
@@ -36,7 +59,17 @@ $accordion-border: units($theme-accordion-border-width) solid
   }
 
   @media (forced-colors: active) {
-    forced-color-adjust: none;
+    background-image: none;
+    border: $border-high-contrast;
+    position: relative;
+
+    &::after {
+      @include add-color-icon($accordion-button-open-hc-icon);
+      background-color: buttonText;
+      content: "";
+      position: absolute;
+      right: units(2.5);
+    }
   }
 }
 // scss-lint:enable PropertyCount
@@ -44,6 +77,14 @@ $accordion-border: units($theme-accordion-border-width) solid
 @mixin accordion-button-unopened-styles {
   @include add-background-svg("usa-icons/add");
   background-size: units(3);
+
+  @media (forced-colors: active) {
+    background-image: none;
+
+    &::after {
+      @include add-color-icon($accordion-button-unopen-hc-icon);
+    }
+  }
 }
 
 @mixin accordion-nested-list {
