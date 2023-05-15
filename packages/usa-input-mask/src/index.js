@@ -101,7 +101,9 @@ const getPropertyValue = (inputID, key, defaultVal = null) => {
  */
 const checkMaskForLetters = (inputId) => {
   if (INPUT_PROPERTIES[inputId] && INPUT_PROPERTIES[inputId].MASK) {
-    return INPUT_PROPERTIES[inputId].MASK.some((char) => char !== char.toLowerCase());
+    return INPUT_PROPERTIES[inputId].MASK.some(
+      (char) => char !== char.toLowerCase()
+    );
   }
 
   return false;
@@ -359,17 +361,22 @@ const checkAndInsertMaskCharacters = (inputEl, cursorPos) => {
 };
 
 /**
- * Creates and appends two new elements to the given element: a visible status message element and a screen-reader-only status message element.
- * Both elements have the same default text content and are given specific classes and attributes.
+ * Creates and appends two new elements to the given element:
+ *
+ * 1. A visual status message.
+ * 2. A screen reader only status message element.
+ *
+ * Both elements have the same default text content and their own specific
+ * classes and attributes.
  *
  * @param {HTMLElement} maskedEl - The element to which the new status message elements will be appended.
+ * @param {String} randomID - A string passed to ensure the Screen reader message ID is unique.
  */
-const createStatusMessages = (maskedEl) => {
+const createStatusMessages = (maskedEl, randomID) => {
   const visibleStatusEl = document.createElement("div");
   const srStatusEl = document.createElement("div");
-  const srStatusElID = `input-mask-status-${
-    Math.floor(Math.random() * 900000) + 100000
-  }`;
+  const srStatusID = randomID || Math.floor(Math.random() * 900000) + 100000;
+  const srStatusElID = `input-mask-status-${srStatusID}`;
   let maskedElAriaDescribedBy = maskedEl.getAttribute("aria-describedby");
 
   if (maskedElAriaDescribedBy) {
@@ -390,44 +397,52 @@ const createStatusMessages = (maskedEl) => {
 };
 
 /**
- * Extracts the valid text from a given string of pasted text, based on the current mask.
- * @param {string} pastedText - The string of pasted text to extract from.
- * @return {string} The extracted, valid text.
+ * Extracts the valid text from a given string of pasted text, regardless of
+ * cursor position.
+ *
+ * @param {HTMLInputElement} inputEl - The masks input element.
+ * @param {string} pastedText - The pasted text string.
+ * @param {curPos} curPos - The users cursor position on paste.
+ * @return {string} - The extracted, valid text.
  */
-const getPastedText = (inputEl, pastedText) => {
+const getValidPastedText = (inputEl, pastedText = "", curPos = 0) => {
+  const strPastedtext = removeFormatCharacters(pastedText);
+  const startingPoint = curPos;
   let strRes = "";
-  let strPastedtext = "";
 
-  for (let i = 0; i < pastedText.length; i += 1) {
-    if (FORMAT_CHARACTERS.indexOf(pastedText[i]) === -1) {
-      strPastedtext += pastedText[i];
-    }
+  let mask = getPropertyValue(inputEl.id, "MASK", []);
+  const inputMaxLength = Number(inputEl.getAttribute("maxLength"));
+
+  // ! Placement matters for slicing array
+  // Maybe start at 1 for alphanumeric
+  if (startingPoint > 0) {
+    mask = mask.slice(startingPoint);
   }
 
-  let strMask = "";
+  // Convert mask into string and remove formatted characters.
+  mask = removeFormatCharacters(mask.join(""));
+  const maskLimit = mask.length < inputMaxLength ? mask.length : inputMaxLength;
 
-  const MASK = getPropertyValue(inputEl.id, "MASK", []);
+  // Compare pasted text is bigger than mask limit.
+  const maxLength =
+    strPastedtext.length > maskLimit ? maskLimit : strPastedtext.length;
 
-  for (let i = 0; i < MASK.length; i += 1) {
-    if (FORMAT_CHARACTERS.indexOf(MASK[i]) === -1) {
-      strMask += MASK[i];
-    }
-  }
-
-  const minLength =
-    strPastedtext.length > strMask.length
-      ? strMask.length
-      : strPastedtext.length;
-
+  // ! Need a way to match current cursor position with mask position.
   const isNumber = /[0-9]/;
-  for (let i = 0; i < minLength; i += 1) {
+  // Loop through pasted text and validate each character. Only keep valid.
+  // Maybe maxLength also needs to start at cursor position.
+
+  // ! Need to find way to get mask to reset.
+  for (let j = 0; j < maxLength; j += 1) {
+    // On phone numbers the first `(` will cut off last number in `@@@@@123`
     if (
-      (isNumber.test(strPastedtext[i]) && isNumber.test(strMask[i])) ||
-      (!isNumber.test(strPastedtext[i]) && !isNumber.test(strMask[i]))
+      // Compare current pasted string to mask expected character
+      (isNumber.test(strPastedtext[j]) && isNumber.test(mask[j])) ||
+      (!isNumber.test(strPastedtext[j]) && !isNumber.test(mask[j]))
     ) {
-      strRes += strPastedtext[i];
+      strRes += strPastedtext[j];
     } else {
-      return "";
+      strRes = "";
     }
   }
 
@@ -492,49 +507,6 @@ const pasteTextToInput = (inputEl, pastedText, curPos) => {
 };
 
 /**
- * Handles a paste event on the given input element by inserting the pasted text at the current cursor position.
- * @param {HTMLInputElement} inputEl - The input element to insert the pasted text into.
- * @param {Event} event - The paste event.
- */
-const handlePaste = (inputEl, event) => {
-  let pastedText = "";
-
-  const clipboardData = event.clipboardData || window.clipboardData;
-  pastedText = clipboardData.getData("text/plain");
-  const el = inputEl;
-
-  pastedText = pastedText.trim();
-  pastedText = getPastedText(inputEl, pastedText);
-
-  const curPos = getCursorPosition(el);
-
-  pasteTextToInput(inputEl, pastedText, curPos);
-
-  event.preventDefault();
-  return false;
-};
-
-/**
- * Finds and returns the closest ancestor element with the `MASKED` class and the first descendant element with the `MESSAGE` class.
- * Throws an error if either element is not found. If the `onlyElement` argument is `false`, the `handlePaste` function is called with the input element and its value as arguments.
- *
- * @param {HTMLElement} inputEl - The input element from which to start searching for the masked and message elements.
- * @param {boolean} [onlyElement=false] - A flag indicating whether to only return the elements or to also call the `handlePaste` function.
- * @returns {Object} An object containing the `maskedEl` element.
- * @throws {Error} If the `maskedEl` element is not found.
- */
-const getMaskedElements = (inputEl, onlyElement = false) => {
-  const maskedEl = inputEl;
-  const el = inputEl;
-  const { value } = el;
-
-  if (onlyElement === false && value != null && value !== "") {
-    handlePaste(el, null, value);
-  }
-  return { maskedEl };
-};
-
-/**
  * Removes a value from the input element based on the given position and whether or not the backspace key was pressed.
  * @param {HTMLInputElement} inputEl - The input element to remove the value from.
  * @param {number} curPos - The current position in the input element.
@@ -596,9 +568,14 @@ const checkRemoveValue = (inputEl, curPos, isBackspace = true) => {
 };
 
 /**
- * Creates and inserts a new shell element around the given input element, and sets various attributes and properties for the input element and shell element.
- * The shell element consists of a content element with a placeholder text taken from the input element's `PLACEHOLDER` attribute.
- * The `setInitMask` and `handleValueChange` functions are also called with the input element as an argument.
+ * Creates and inserts a new shell element around the given input element, and
+ * sets various attributes and properties for the input element and shell element.
+ *
+ * The shell element consists of a content element with a placeholder text taken
+ * from the input element's `PLACEHOLDER` attribute.
+ *
+ * The `setInitMask` and `handleValueChange` functions are also called with the
+ * input element as an argument.
  *
  * @param {HTMLElement} inputEl - The input element to be wrapped in a shell element.
  */
@@ -692,18 +669,13 @@ const hideMessage = (inputEl) => {
 };
 
 /**
- * On input, it will update visual status, screenreader
- * status and update input validation (if invalid character is entered).
+ * On input, it will update visual status, screen reader
+ * status, and update input validation (if invalid character is entered).
  *
  * @param {HTMLInputElement} inputEl The masked input element
  * @param {number} keyCode The key number code
  */
-const updateMaskMessage = (
-  inputEl,
-  keyCode,
-  key,
-  curPos
-) => {
+const updateMaskMessage = (inputEl, keyCode, key, curPos) => {
   const MASK = getPropertyValue(inputEl.id, "MASK", []);
   const parent = inputEl.closest(`.${MASKED_INPUT_SHELL_CLASS}`);
   const visibleStatusEl = parent.querySelector(`.${STATUS_MESSAGE_CLASS}`);
@@ -750,6 +722,33 @@ const checkAvailableLeft = (inputEl, curPos) => {
 };
 
 /**
+ * Handles a paste event on the given input element by inserting the pasted
+ * text at the current cursor position.
+ * @param {HTMLInputElement} inputEl - The input element to insert the pasted text into.
+ * @param {Event} event - The paste event.
+ */
+const handlePaste = (inputEl, event) => {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  const curPos = getCursorPosition(inputEl);
+  let pastedText = clipboardData.getData("text/plain") || "";
+  pastedText = pastedText.trim();
+
+  event.preventDefault();
+
+  const validPastedText = getValidPastedText(inputEl, pastedText, curPos);
+
+  if (!validPastedText) {
+    updateMaskMessage(inputEl);
+  } else {
+    hideMessage(inputEl);
+  }
+
+  pasteTextToInput(inputEl, validPastedText, curPos);
+
+  return false;
+};
+
+/**
  * Handle the `keyup` event for an input element.
  *
  * @param {HTMLElement} inputEl - The input element.
@@ -761,7 +760,7 @@ const handleKeyUp = (inputEl, event) => {
   const el = inputEl;
 
   if (keyCode === undefined && el.value.length > 0) {
-    const pastedText = getPastedText(inputEl, el.value);
+    const pastedText = getValidPastedText(inputEl, el.value);
     el.value = "";
     pasteTextToInput(inputEl, pastedText, 0);
 
@@ -918,12 +917,7 @@ const handleKeyDown = (inputEl, event) => {
   ) {
     const lastPosition = el.value.length;
 
-    updateMaskMessage(
-      el,
-      keyCode,
-      event.key,
-      el.value.length
-    );
+    updateMaskMessage(el, keyCode, event.key, el.value.length);
     if (isValidCharacter(keyCode, MASK[lastPosition])) {
       if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
         keyCode -= 48;
@@ -965,12 +959,7 @@ const handleKeyDown = (inputEl, event) => {
     }
   }
 
-  updateMaskMessage(
-    el,
-    keyCode,
-    event.key,
-    getCursorPosition(inputEl)
-  );
+  updateMaskMessage(el, keyCode, event.key, getCursorPosition(inputEl));
 
   if (isValidCharacter(keyCode, MASK[getCursorPosition(el)])) {
     if (keyCode >= KEYS.numberPadZero && keyCode <= KEYS.numberPadNine) {
@@ -1015,6 +1004,7 @@ const handleKeyDown = (inputEl, event) => {
  */
 const enhanceInputMask = (inputEl) => {
   const attrs = inputEl.attributes;
+  const inputId = inputEl.id;
 
   if (!attrs.mask) {
     throw new Error(
@@ -1026,11 +1016,6 @@ const enhanceInputMask = (inputEl) => {
       `${MASKED_INPUT_CLASS} is missing the placeholder attribute. Learn more at http://designsystem.digital.gov/components/input-mask/#available-attributes.`
     );
   }
-  const { value } = inputEl;
-  const { maskedEl } = getMaskedElements(inputEl);
-
-  const el = inputEl;
-  const inputId = el.id;
 
   if (attrs.mask && attrs.mask.value.length > 0) {
     setPropertyValue(inputId, "MASK", attrs.mask.value.split(""));
@@ -1045,14 +1030,8 @@ const enhanceInputMask = (inputEl) => {
     setPropertyValue(inputId, "FORCE_LOWER", true);
   }
 
-  const HAS_MASK = getPropertyValue(inputId, "HAS_MASK", false);
-
-  if (value.length > 0 && HAS_MASK) {
-    handlePaste(inputEl, null, value);
-  }
-
   createMaskedInputShell(inputEl);
-  createStatusMessages(maskedEl);
+  createStatusMessages(inputEl);
 };
 
 const inputMaskEvents = {
