@@ -1,15 +1,20 @@
 <form class="usa-form">
-  <label class="usa-label" for="{{ id }}">{{ label }}</label>
-  <div class="usa-hint" id="{{ id }}Hint">{{ hint }}</div>
-  <input 
-      id="{{ id }}" 
-      type="{{ type }}" 
-      inputmode="{{ inputmode }}" 
-      name="{{ id }}" 
-      placeholder="{{ placeholder }}" 
-      pattern="{{ pattern }}" 
-      class="usa-input usa-masked" 
-      aria-describedby="{{ id }}Hint"
-      {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
-  >
+    <div class="usa-form-group">
+      <label class="usa-label" for="{{ id }}">{{ label }}</label>
+      <div class="usa-hint" id="{{ id }}-hint">{{ hint }}</div>
+      <input
+          aria-describedby="{{ id }}-hint"
+          class="usa-input usa-input-mask"
+          {% if customInvalidAlphaText %}data-invalid-alpha-text="{{ customInvalidAlphaText }}"{% endif %}
+          {% if customInvalidNumericText %}data-invalid-numeric-text="{{ customInvalidNumericText }}"{% endif %}
+          {% if forceCase == "forceupper" %}forceupper="true"{% endif %}
+          {% if forceCase == "forcelower" %}forcelower="true"{% endif %}
+          id="{{ id }}"
+          inputmode="{{ inputmode }}"
+          mask="{{ mask }}"
+          name="{{ id }}"
+          placeholder="{{ placeholder }}"
+          type="{{ type }}"
+      >
+    </div>
 </form>

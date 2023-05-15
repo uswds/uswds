@@ -1,20 +1,16 @@
-<div class="usa-input-masking">
-  <h3 class="site-preview-heading">US Telephone Number Input Mask</h3>
-  <label class="usa-label" for="tel">US Telephone Number</label>
-  <div class="usa-hint" id="telHint">For example, (123) 456-7890</div>
-  <span class="usa-input-mask" data-mask="___-___-____">
-    <span class="usa-input-mask--content test" aria-hidden="true" id="telMask"
-      >___-___-____</span
-    >
+<form class="usa-form">
+  <div class="usa-form-group">
+    <label class="usa-label" for="tel">U.S. Telephone Number</label>
+    <div class="usa-hint" id="tel-hint">For example, (123) 456-7890</div>
     <input
+      aria-describedby="tel-hint"
+      class="usa-input usa-input-mask"
       id="tel"
-      type="tel"
+      inputmode="numeric"
+      mask="(999) 999-9999"
       name="tel"
-      pattern="\\d{3}-\d{3}-\d{4}"
-      class="usa-input usa-masked"
-      aria-describedby="telHint"
-      maxlength="14"
-      data-placeholder="___-___-____"
+      placeholder="(___) ___-____"
+      type="tel"
     />
-  </span>
-</div>
+  </div>
+</form>

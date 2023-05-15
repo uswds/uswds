@@ -1,10 +1,10 @@
 {
-  "label": "Alphanumeric",
-  "hint": "For example, A1B 2C3",
+  "forceCase": "forceupper",
+  "hint": "For example, ABC-1234",
   "id": "alphanumeric",
-  "type": "text",
   "inputmode": "text",
-  "placeholder": "___ ___",
-  "pattern": "\\w\\d\\w \\d\\w\\d",
-  "datacharset": "A#A #A#"
+  "label": "Alphanumeric",
+  "mask": "AAA-9999",
+  "placeholder": "___-____",
+  "type": "text"
 }

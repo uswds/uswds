@@ -10,17 +10,20 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send an input event
+ * send an keydown event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+EVENTS.keydown = (el) => {
+  el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
 };
 
-const inputMaskingSelector = () => document.querySelector(".usa-input-masking");
+const inputMaskSelector = () => document.querySelector(".usa-input-mask");
+const inputMaskShellSelector = () =>
+  document.querySelector(".usa-input-mask__content");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
-  { name: "input mask", selector: inputMaskingSelector },
+  { name: "input mask", selector: inputMaskSelector },
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
@@ -29,27 +32,65 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let root;
     let input;
+    let statusMessageVisual;
+    let statusMessageSR;
     let shell;
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
-      InputMask.on(containerSelector());
-
-      root = inputMaskingSelector();
-      input = root.querySelector(".usa-input");
+      root = containerSelector().parentNode;
+      InputMask.on(root);
+      input = root.querySelector(".usa-input-mask");
+      statusMessageVisual = root.querySelector(".usa-input-mask__status");
+      statusMessageSR = root.querySelector(".usa-sr-only");
     });
 
     afterEach(() => {
-      InputMask.off(containerSelector());
+      InputMask.off(root);
       body.textContent = "";
     });
 
-    it("formats an alphanumeric example to A1B 2C3", () => {
-      input.value = "A1B2C3";
+    it("creates a visual status message on init", () => {
+      const visibleStatus = document.querySelectorAll(
+        ".usa-input-mask__status"
+      );
 
-      EVENTS.input(input);
-      shell = root.querySelector(".usa-input-mask--content");
-      assert.strictEqual(shell.textContent, "A1B 2C3");
+      assert.strictEqual(visibleStatus.length, 1);
+    });
+
+    it("creates a screen reader status message on init", () => {
+      const srStatus = document.querySelectorAll(".usa-sr-only");
+
+      assert.strictEqual(srStatus.length, 1);
+    });
+
+    it("informs the user only a number character is allowed", () => {
+      input.value = "a";
+
+      EVENTS.keydown(input);
+
+      assert.strictEqual(
+        statusMessageVisual.innerHTML,
+        "Please enter a number character here"
+      );
+    });
+
+    it("formats an alphanumeric example to 1EG4-TE5-MK73", () => {
+      const value = "1EG4TE5MK73";
+
+      for (let i = 0; i < value.length; i += 1) {
+        input.dispatchEvent(
+          new KeyboardEvent("keydown", {
+            bubbles: true,
+            key: value[i],
+            keyCode: value[i].charCodeAt(0),
+            which: value[i].charCodeAt(0),
+          })
+        );
+      }
+
+      shell = inputMaskShellSelector();
+      assert.strictEqual(shell.textContent, "1EG4-TE5-MK73");
     });
   });
 });
