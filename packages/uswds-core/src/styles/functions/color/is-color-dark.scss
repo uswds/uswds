@@ -6,7 +6,7 @@
 /// @param {string} $color - A color token.
 /// @return {boolean} - Returns true if color is dark.
 @function is-color-dark($color: "default") {
-  @return if(calculate-grade($color) > 50%, true, false);
+  @return if(calculate-grade($color) >= 50%, true, false);
 }
 
 // @debug is-color-dark("yellow-20v");
