@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "uswds-core" as *;
 
 // Variables
@@ -6,25 +7,9 @@ $accordion-context: "Accordion";
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
-$accordion-background-active-color: next-token(
+$accordion-button-background-active-color: next-token(
   $theme-accordion-button-background-color,
   "darker"
-);
-
-$accordion-button-darkmode: is-color-dark(
-  $theme-accordion-button-background-color
-);
-
-$accordion-button-unopen-icon: if(
-  $accordion-button-darkmode,
-  "usa-icons-bg/add--white",
-  "usa-icons/add"
-);
-
-$accordion-button-open-icon: if(
-  $accordion-button-darkmode,
-  "usa-icons-bg/remove--white",
-  "usa-icons/remove"
 );
 
 // Accordion Styles
@@ -36,14 +21,14 @@ $accordion-button-open-icon: if(
   width: 100%;
 }
 
-// scss-lint:disable PropertyCount
+// Opened styles
 @mixin accordion-button-styles {
-  @include add-background-svg($accordion-button-open-icon);
   @include button-unstyled;
   @include set-text-and-bg(
     $theme-accordion-button-background-color,
     $context: $accordion-context
   );
+  @include set-icon-from-bg($theme-accordion-button-background-color, "remove");
   background-position: right units(2.5) center;
   background-size: units(3);
   cursor: pointer;
@@ -56,8 +41,12 @@ $accordion-button-open-icon: if(
 
   &:hover {
     @include set-text-and-bg(
-      $accordion-background-active-color,
+      $accordion-button-background-active-color,
       $context: $accordion-context
+    );
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "remove"
     );
     text-decoration: none;
   }
@@ -69,8 +58,12 @@ $accordion-button-open-icon: if(
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg($accordion-button-unopen-icon);
+  @include set-icon-from-bg($theme-accordion-button-background-color, "add");
   background-size: units(3);
+
+  &:hover {
+    @include set-icon-from-bg($accordion-button-background-active-color, "add");
+  }
 }
 
 @mixin accordion-nested-list {
