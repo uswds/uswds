@@ -7,7 +7,7 @@ $accordion-border: units($theme-accordion-border-width) solid
 // Maps for High Contrast Mode
 
 $accordion-icon-map: (
-  color: ButtonText,
+  color: color("ButtonText"),
   svg-height: 20,
   svg-width: 20,
   height: units(3),
@@ -65,7 +65,6 @@ $accordion-button-open-hc-icon: map-merge(
 
     &::after {
       @include add-color-icon($accordion-button-open-hc-icon);
-      background-color: buttonText;
       content: "";
       position: absolute;
       right: units(2.5);
