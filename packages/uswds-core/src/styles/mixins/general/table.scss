@@ -364,6 +364,10 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       top: -1px;
     }
   }
+
+  th[data-sortable] {
+    position: sticky;
+  }
 }
 
 @mixin usa-table-container--scrollable {
