@@ -4,6 +4,7 @@ import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
+import SortableContent from "./usa-table--sortable/usa-table~sortable.json";
 
 export default {
   title: "Components/Table",
@@ -28,3 +29,4 @@ StickyHeader.args = {
 }
 
 export const Sortable = SortableTemplate.bind({});
+Sortable.args = SortableContent;
