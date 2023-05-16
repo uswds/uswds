@@ -3,10 +3,16 @@ import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
 import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
-import StickyHeaderContent from "./usa-table~stickyheader.json";
 
 export default {
   title: "Components/Table",
+  argTypes: {
+    stickyheader: {
+      control: { type: "boolean" },
+      defaultValue: false,
+      name: "Sticky header",
+    },
+  }
 };
 
 const Template = (args) => Component(args);
@@ -22,6 +28,11 @@ export const Striped = Template.bind({});
 Striped.args = StripedContent;
 
 export const StickyHeader = Template.bind({});
-StickyHeader.args = StickyHeaderContent;
+StickyHeader.args = {
+  ...DefaultContent,
+  stickyheader: {
+    defaultValue: true
+  },
+}
 
 export const Sortable = SortableTemplate.bind({});

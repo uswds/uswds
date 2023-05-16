@@ -1,5 +1,7 @@
+{% if scrollable %}
 <div class="usa-table-container--scrollable" tabindex="0">
-  <table class="usa-table">
+{% endif %}
+  <table class="usa-table {{stickyheader ? 'usa-table--sticky-header' : ''}}">
     <caption>Recently admitted US states (sortable table example)</caption>
     <thead>
       <tr>
@@ -228,4 +230,6 @@
     </tbody>
   </table>
   <div class="usa-sr-only usa-table__announcement-region" aria-live="polite"></div>
+{% if scrollable %}
 </div>
+{% endif %}
