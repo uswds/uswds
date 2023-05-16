@@ -357,16 +357,34 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 }
 
 @mixin usa-table--sticky-header {
-  thead {
-    th {
-      background-color: color($theme-table-header-background-color);
-      position: sticky;
-      top: -1px;
+  border: 1px solid color($theme-table-border-color);
+  border-collapse: separate;
+  border-spacing: 0;
+
+  td, th {
+    border: 1px solid #1b1b1b;
+    border-left: none;
+    border-top: none;
+
+    &:last-child {
+      border-right: none;
     }
   }
 
-  th[data-sortable] {
+  tbody tr:last-child {
+    td, th {
+      border-bottom: none;
+    }
+  }
+
+  thead {
+    background: #1b1b1b;
     position: sticky;
+    top: -1px;
+
+    th {
+      background-color: color($theme-table-header-background-color);
+    }
   }
 }
 
