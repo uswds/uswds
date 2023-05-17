@@ -37,3 +37,8 @@ StickyHeader.args = {
 
 export const Sortable = SortableTemplate.bind({});
 Sortable.args = SortableContent;
+Sortable.argTypes = {
+  multipleHeaderRows: {
+    table: {disable: true}
+  }
+}
