@@ -8,6 +8,13 @@ import SortableContent from "./usa-table--sortable/usa-table~sortable.json";
 
 export default {
   title: "Components/Table",
+  argTypes: {
+    multipleHeaderRows: {
+      name: "Multiple header rows",
+      control: { type: "boolean" },
+      defaultValue: true,
+    }
+  }
 };
 
 const Template = (args) => Component(args);

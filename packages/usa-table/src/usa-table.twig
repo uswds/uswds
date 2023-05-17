@@ -14,15 +14,23 @@
   {% endif %}
 
   <thead>
+  {% if not multipleHeaderRows %}
     <tr>
-    // DEMO ONLY - do not include in final production
-        <th rowspan="2">Federal Budget<br> Baseline Projections</th>
-        <th colspan="2" scope="colgroup" class="text-center">2017</th>
-      </tr>
-      <tr>
-        <th scope="col" class="text-right">%GDP</th>
-        <th scope="col" class="text-right">USD*</th>
-      </tr>
+      {% for th in thead %}
+        <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
+      {% endfor %}
+    </tr>
+  {% endif %}
+  {% if multipleHeaderRows %}
+    <tr>
+      <th rowspan="2">Federal Budget<br> Baseline Projections</th>
+      <th colspan="2" scope="colgroup" class="text-center">2017</th>
+    </tr>
+    <tr>
+      <th scope="col" class="text-right">%GDP</th>
+      <th scope="col" class="text-right">USD*</th>
+    </tr>
+  {% endif %}
   </thead>
   <tbody>
     {% for row in tbody %}
