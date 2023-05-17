@@ -7,6 +7,11 @@ $accordion-context: "Accordion";
 $accordion-border: units($theme-accordion-border-width) solid
   color($theme-accordion-border-color);
 
+$accordion-button-background-active-color: next-token(
+  $theme-accordion-button-background-color,
+  "darker"
+);
+
 // Maps for High Contrast Mode
 
 $accordion-icon-map: (
@@ -30,11 +35,6 @@ $accordion-button-open-hc-icon: map-merge(
   )
 );
 
-$accordion-button-background-active-color: next-token(
-  $theme-accordion-button-background-color,
-  "darker"
-);
-
 // Accordion Styles
 @mixin accordion-list-styles {
   @include unstyled-list;
@@ -42,6 +42,13 @@ $accordion-button-background-active-color: next-token(
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+@mixin accordion-hc-icon-styles {
+  height: 100%;
+  position: absolute;
+  right: units(2.5);
+  top: 0;
 }
 
 // Opened styles
@@ -75,15 +82,13 @@ $accordion-button-background-active-color: next-token(
   }
 
   @media (forced-colors: active) {
-    background-image: none;
     border: $border-high-contrast;
     position: relative;
 
     &::after {
       @include add-color-icon($accordion-button-open-hc-icon);
+      @include accordion-hc-icon-styles();
       content: "";
-      position: absolute;
-      right: units(2.5);
     }
   }
 }
@@ -92,16 +97,17 @@ $accordion-button-background-active-color: next-token(
   @include set-icon-from-bg($theme-accordion-button-background-color, "add");
   background-size: units(3);
 
-  @media (forced-colors: active) {
-    background-image: none;
-
-    &::after {
-      @include add-color-icon($accordion-button-unopen-hc-icon);
-    }
-  }
   &:hover {
     @include set-icon-from-bg($accordion-button-background-active-color, "add");
   }
+
+  @media (forced-colors: active) {
+    &::after {
+      @include add-color-icon($accordion-button-unopen-hc-icon);
+      @include accordion-hc-icon-styles();
+    }
+  }
+
 }
 
 @mixin accordion-nested-list {
