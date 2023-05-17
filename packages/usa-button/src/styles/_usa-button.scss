@@ -51,6 +51,12 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &[aria-disabled="true"] {
     @include button-disabled;
   }
+
+  @media (forced-colors: active) {
+    &:not(.usa-button--unstyled) {
+      border: $border-high-contrast;
+    }
+  }
 }
 
 .usa-button--accent-cool {
@@ -68,11 +74,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &:active,
   &.usa-button--active {
     @include set-text-and-bg("accent-cool-darker", $context: $button-context);
-  }
-
-  &:disabled:hover,
-  &[aria-disabled="true"]:hover {
-    color: color("white");
   }
 }
 
@@ -197,39 +198,20 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   padding: units(2) units(3);
 }
 
-.usa-button--disabled {
-  @include button-disabled;
-}
-
-.usa-button--outline-disabled,
-.usa-button--outline-inverse-disabled,
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"],
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse[aria-disabled="true"] {
-  background-color: color("transparent");
-
-  &:hover,
-  &.usa-button--hover,
-  &:active,
-  &.usa-button--active,
-  &:focus,
-  &.usa-focus {
-    background-color: color("transparent");
-    box-shadow: $button-stroke color("disabled");
-  }
+  @include u-disabled("transparent", $theme-color-disabled-text);
 }
 
-.usa-button--outline-disabled,
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"] {
   box-shadow: $button-stroke color("disabled");
-  color: color("disabled");
 
   &.usa-button--inverse {
-    background-color: transparent;
-    box-shadow: $button-stroke color("base");
-    color: color("base");
+    box-shadow: $button-stroke color($theme-color-disabled-text-reverse);
+    color: color($theme-color-disabled-text-reverse);
   }
 }
 

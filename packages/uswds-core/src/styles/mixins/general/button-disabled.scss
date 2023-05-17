@@ -1,18 +1,10 @@
-@use "../../functions" as *;
+@use "../utilities" as *;
 
 @mixin button-disabled {
-  background-color: color("disabled");
-  color: color("white");
-  cursor: auto;
+  @include u-disabled;
 
-  &:hover,
   &.usa-button--hover,
-  &:active,
-  &.usa-button--active,
-  &:focus,
-  &.usa-focus {
-    background-color: color("disabled");
-    border: 0;
-    box-shadow: none;
+  &.usa-button--active {
+    @include u-disabled;
   }
 }
