@@ -255,6 +255,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
+    let imageId;
 
     // Push updated file names into the store array
     fileStore.push(fileName);
@@ -274,7 +275,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
+      imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
@@ -286,7 +287,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(

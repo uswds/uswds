@@ -3,6 +3,7 @@
 
 @use "../../functions" as *;
 @use "../../settings" as *;
+@use "../../variables/border-high-contrast" as *;
 @use "../general/add-background-svg" as *;
 @use "format-input" as *;
 @use "format-label" as *;
@@ -53,7 +54,7 @@
         color.adjust(color($input-text-color), $alpha: $input-border-alpha);
 
       @media (forced-colors: active) {
-        outline: 2px solid transparent;
+        outline: $border-high-contrast;
         outline-offset: 2px;
       }
     }

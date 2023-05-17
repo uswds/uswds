@@ -1,12 +1,9 @@
 @use "../../settings" as *;
 @use "../../functions" as *;
 @use "../../mixins/utilities" as *;
-@use "../typography/usa-prose" as *;
 @use "../typography/typeset" as *;
-@use "add-knockout-font-smoothing" as *;
 
 @mixin button-unstyled {
-  @include no-knockout-font-smoothing;
   @include typeset-link;
   background-color: transparent;
   border: 0;
@@ -34,8 +31,8 @@
   &:disabled.usa-focus,
   &[aria-disabled="true"].usa-focus,
   &:disabled,
-  &[aria-disabled="true"] {
-    @include no-knockout-font-smoothing;
+  &[aria-disabled="true"],
+  &.usa-button--disabled {
     background-color: transparent;
     box-shadow: none;
     text-decoration: underline;

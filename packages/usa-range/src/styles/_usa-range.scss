@@ -22,7 +22,7 @@
   cursor: pointer;
 
   @media (forced-colors: active) {
-    outline: 2px solid transparent;
+    outline: $border-high-contrast;
   }
 }
 

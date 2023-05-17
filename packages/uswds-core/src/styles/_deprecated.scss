@@ -26,3 +26,14 @@ $output-all-utilities: true !default;
 @mixin embed-container($height, $width) {
   padding-bottom: math.percentage(math.div($height, $width));
 }
+
+$font-smoothing-warning: "Font smoothing was deprecated in USWDS 3.5.0. Please remove any references to it.";
+
+// Deprecated in 3.5.0
+@mixin add-knockout-font-smoothing {
+  @warn $font-smoothing-warning;
+}
+
+@mixin no-knockout-font-smoothing {
+  @warn $font-smoothing-warning;
+}
