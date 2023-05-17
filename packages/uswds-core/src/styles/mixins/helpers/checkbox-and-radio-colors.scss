@@ -47,11 +47,7 @@
     color($input-text-color),
     $alpha: $input-disabled-alpha--weak
   );
-  $input-darkmode: if(
-    color.lightness(color($input-bg-color)) < 50%,
-    true,
-    false
-  );
+  $input-darkmode: is-color-dark($input-bg-color);
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
 
   .usa-#{$input-type} {
