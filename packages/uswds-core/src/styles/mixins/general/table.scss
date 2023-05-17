@@ -378,12 +378,23 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   thead {
-    background: #1b1b1b;
     position: sticky;
     top: -1px;
 
     th {
       background-color: color($theme-table-header-background-color);
+    }
+  }
+
+  &.usa-table--borderless {
+    border: none;
+
+    th {
+      background-color: color($theme-body-background-color);
+    }
+
+    td,th {
+      border-right:none;
     }
   }
 }
