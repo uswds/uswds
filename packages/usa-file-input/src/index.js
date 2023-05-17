@@ -167,7 +167,7 @@ const createTargetArea = (fileInputEl) => {
     disable(fileInputEl);
   }
 
-    // Aria-disabled styling
+  // Aria-disabled styling
   if (ariaDisabled) {
     ariaDisable(fileInputEl);
   }
