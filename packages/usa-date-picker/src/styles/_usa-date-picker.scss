@@ -59,7 +59,8 @@ $navigate_far_next: map-merge(
 }
 
 %usa-date-picker__button--disabled {
-  cursor: auto;
+  cursor: not-allowed;
+  opacity: opacity(60);
 
   &:hover {
     background-color: initial;
@@ -199,7 +200,7 @@ $navigate_far_next: map-merge(
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   @media (forced-colors: active) {
     &:not([disabled]):hover {
       outline: $border-high-contrast;
@@ -519,4 +520,5 @@ $navigate_far_next: map-merge(
     }
   }
 }
+
 /* stylelint-enable selector-class-pattern */

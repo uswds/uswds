@@ -62,15 +62,21 @@ const transformTimePicker = (el) => {
 
   const selectEl = document.createElement("select");
 
-  ["id", "name", "required", "aria-label", "aria-labelledby"].forEach(
-    (name) => {
-      if (initialInputEl.hasAttribute(name)) {
-        const value = initialInputEl.getAttribute(name);
-        selectEl.setAttribute(name, value);
-        initialInputEl.removeAttribute(name);
-      }
+  [
+    "id",
+    "name",
+    "required",
+    "aria-label",
+    "aria-labelledby",
+    "disabled",
+    "aria-disabled",
+  ].forEach((name) => {
+    if (initialInputEl.hasAttribute(name)) {
+      const value = initialInputEl.getAttribute(name);
+      selectEl.setAttribute(name, value);
+      initialInputEl.removeAttribute(name);
     }
-  );
+  });
 
   const padZeros = (value, length) => `0000${value}`.slice(-length);
 
