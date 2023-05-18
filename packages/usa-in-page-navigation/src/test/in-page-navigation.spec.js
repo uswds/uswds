@@ -132,6 +132,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "h2 ~ h3 > .usa-anchor#section-1-1",
         "h2 ~ h3 ~ h3 > .usa-anchor#section-1-2-2",
         "h2 ~ h3 ~ h3 ~ h3 > .usa-anchor#section-1-3",
+        "h2 ~ h3 ~ h3 ~ h3 ~ h3 > .usa-anchor[id='1-4-section-1-4']",
       ].every((selector) => document.querySelector(selector));
 
       assert(ok);
@@ -165,6 +166,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("does not scroll to section on initialization", () => {
       assert.equal(window.scroll.called, false);
+    });
+
+    it("handles headings starting with a number", () => {
+      const firstLink = theNav.querySelector("a[href='#1-4-section-1-4']");
+      firstLink.click();
+
+      assert(window.scroll.calledOnceWith(sinon.match({ top: 880 })));
     });
 
     context("with initial hash URL", () => {

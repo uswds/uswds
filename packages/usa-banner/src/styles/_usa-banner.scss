@@ -52,6 +52,9 @@ $banner-icon-close: (
     @include typeset($theme-banner-font-family);
   }
 
+  // ! Stylelint will complain about BEM formatting.
+  // Added grid classes in #5000 to remove layout grid dependency.
+  // stylelint-disable selector-class-pattern
   .grid-row {
     @include grid-row;
 
@@ -65,6 +68,7 @@ $banner-icon-close: (
       }
     }
   }
+  // stylelint-enable
 }
 
 .usa-banner__header,

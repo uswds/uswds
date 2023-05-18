@@ -140,20 +140,6 @@ future version of Sass' warning.
       $media-prefix
     );
   }
-
-  // And add the responsive prefixes, if applicable
-
-  /*
-  @if map-deep-get($utility, settings, responsive) {
-    @include render-media-queries(
-      $utility,
-      $selector,
-      $property,
-      $value,
-      $val-props
-    );
-  }
-  */
 }
 
 /*
