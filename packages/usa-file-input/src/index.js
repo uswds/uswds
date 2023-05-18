@@ -244,9 +244,13 @@ const createSROnlyStatus = (fileInputEl) => {
  * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
+  const disabled = fileInputEl.hasAttribute("disabled");
   const dropTarget = createTargetArea(fileInputEl);
   const instructions = createVisibleInstructions(fileInputEl);
-  createSROnlyStatus(fileInputEl);
+
+  if (!disabled) {
+    createSROnlyStatus(fileInputEl);
+  }
 
   return { instructions, dropTarget };
 };
