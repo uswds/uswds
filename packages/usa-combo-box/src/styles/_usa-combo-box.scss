@@ -128,6 +128,11 @@ button.usa-combo-box__clear-input {
     @include add-color-icon($chevron-open);
     height: auto;
     width: auto;
+
+    &:disabled,
+    &[aria-disabled="true"] {
+      background-color: color(GrayText);
+    }
   }
 }
 
