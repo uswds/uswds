@@ -3,6 +3,11 @@
 .usa-textarea {
   @extend %block-input-general;
   @extend %block-input-styles;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    @include u-disabled;
+  }
 }
 
 .usa-textarea {
