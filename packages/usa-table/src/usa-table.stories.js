@@ -13,8 +13,8 @@ export default {
       name: "Multiple header rows",
       control: { type: "boolean" },
       defaultValue: true,
-    }
-  }
+    },
+  },
 };
 
 const Template = (args) => Component(args);
@@ -32,13 +32,13 @@ Striped.args = StripedContent;
 export const StickyHeader = Template.bind({});
 StickyHeader.args = {
   ...DefaultContent,
-  ...StickyHeaderContent
-}
+  ...StickyHeaderContent,
+};
 
 export const Sortable = SortableTemplate.bind({});
 Sortable.args = SortableContent;
 Sortable.argTypes = {
   multipleHeaderRows: {
-    table: {disable: true}
-  }
-}
+    table: { disable: true },
+  },
+};

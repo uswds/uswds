@@ -361,7 +361,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   border-collapse: separate;
   border-spacing: 0;
 
-  td, th {
+  td,
+  th {
     border: 1px solid #1b1b1b;
     border-left: none;
     border-top: none;
@@ -372,7 +373,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   tbody tr:last-child {
-    td, th {
+    td,
+    th {
       border-bottom: none;
     }
   }
@@ -393,8 +395,9 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       background-color: color($theme-body-background-color);
     }
 
-    td,th {
-      border-right:none;
+    td,
+    th {
+      border-right: none;
     }
   }
 }
