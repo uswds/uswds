@@ -70,7 +70,17 @@ const disable = (el) => {
 
   inputEl.disabled = true;
   dropZoneEl.classList.add(DISABLED_CLASS);
-  dropZoneEl.setAttribute("aria-disabled", "true");
+};
+
+/**
+ * Set aria-disabled attribute to file input component
+ *
+ * @param {HTMLElement} el An element within the file input component
+ */
+const ariaDisable = (el) => {
+  const { dropZoneEl } = getFileInputContext(el);
+
+  dropZoneEl.classList.add(DISABLED_CLASS);
 };
 
 /**
@@ -121,6 +131,7 @@ const buildFileInput = (fileInputEl) => {
   const box = document.createElement("div");
   const instructions = document.createElement("div");
   const disabled = fileInputEl.hasAttribute("disabled");
+  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
   let defaultAriaLabel;
 
   // Adds class names and other attributes
@@ -145,6 +156,11 @@ const buildFileInput = (fileInputEl) => {
   // Disabled styling
   if (disabled) {
     disable(fileInputEl);
+  }
+
+  // Aria-disabled styling
+  if (ariaDisabled) {
+    ariaDisable(fileInputEl);
   }
 
   // Sets instruction test and aria-label based on whether or not multiple files are accepted
@@ -239,6 +255,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   for (let i = 0; i < fileNames.length; i += 1) {
     const reader = new FileReader();
     const fileName = fileNames[i].name;
+    let imageId;
 
     // Push updated file names into the store array
     fileStore.push(fileName);
@@ -258,7 +275,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Starts with a loading image while preview is created
     reader.onloadstart = function createLoadingImage() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
+      imageId = createUniqueID(makeSafeForID(fileName));
 
       instructions.insertAdjacentHTML(
         "afterend",
@@ -270,7 +287,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
-      const imageId = createUniqueID(makeSafeForID(fileName));
       const previewImage = document.getElementById(imageId);
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
@@ -472,6 +488,7 @@ const fileInput = behavior(
     },
     getFileInputContext,
     disable,
+    ariaDisable,
     enable,
   }
 );

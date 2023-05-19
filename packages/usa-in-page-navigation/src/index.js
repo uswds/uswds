@@ -232,7 +232,7 @@ const createInPageNav = (inPageNavEl) => {
  * @param {HTMLElement} el An element within the in-page nav component
  */
 const handleClickFromLink = (el) => {
-  const elementToScrollTo = document.querySelector(el.hash);
+  const elementToScrollTo = document.getElementById(el.hash.slice(1));
   handleScrollToSection(elementToScrollTo);
 };
 

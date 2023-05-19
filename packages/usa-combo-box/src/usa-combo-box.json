@@ -5,6 +5,5 @@
   "default_value": "",
   "placeholder": "",
   "id": "fruit",
-  "disabled": false,
   "required": false
 }

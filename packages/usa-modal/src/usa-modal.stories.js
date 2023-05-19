@@ -1,5 +1,5 @@
 import Component from "./usa-modal.twig";
-import NestedFormsTest from './test/test-patterns/test-usa-modal--nested-forms.twig';
+import NestedFormsTest from "./test/test-patterns/test-usa-modal--nested-forms.twig";
 import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
 
 export default {
@@ -22,5 +22,5 @@ ForcedAction.args = ForcedActionContent;
 export const TestNestedForms = NestedFormsTemplate.bind({});
 TestNestedForms.args = {
   ...DefaultContent,
-  nestedForms: "true"
+  nestedForms: "true",
 };

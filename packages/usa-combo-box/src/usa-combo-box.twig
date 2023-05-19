@@ -1,6 +1,17 @@
 <label class="usa-label" for="{{ name }}">{{ label }}</label>
-<div class="usa-combo-box {{ modifier }}" {% if default_value %} data-default-value="{{ default_value }}"{% endif %} {% if placeholder %} data-placeholder="{{ placeholder }}"{% endif %}>
-  <select class="usa-select" name="{{ name }}" id="{{ id }}" {% if disabled %} disabled{% endif %} {% if required %} required{% endif %}>
+<div
+  class="usa-combo-box {{ modifier }}"
+  {% if default_value %}data-default-value="{{ default_value }}"{% endif %}
+  {% if placeholder %}data-placeholder="{{ placeholder }}"{% endif %}
+>
+  <select
+    class="usa-select"
+    name="{{ name }}"
+    id="{{ id }}"
+    {% if disabled_state == 'disabled' %} disabled {%- endif %}
+    {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    {% if required %}required{% endif %}
+  >
     <option value>Select a fruit</option>
     <option value="apple">Apple</option>
     <option value="apricot">Apricot</option>
