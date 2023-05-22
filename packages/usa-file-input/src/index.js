@@ -31,6 +31,7 @@ const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
+let DEFAULT_ARIA_LABEL_TEXT = "";
 
 /**
  * The properties and elements within the file input.
@@ -188,15 +189,16 @@ const createVisibleInstructions = (fileInputEl) => {
   const instructions = document.createElement("div");
   const dragText = `Drag ${itemsLabel} here or`;
   const chooseText = "choose from folder";
-  const defaultInstructionsText = `${dragText} ${chooseText}`;
+
+  // Create instructions text for aria-label
+  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
 
   // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", defaultInstructionsText);
-  fileInputEl.setAttribute("data-default-aria-label", defaultInstructionsText);
+  fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
 
   // Add the instructions element to the DOM
@@ -372,7 +374,6 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
   const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
   const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
   const fileStore = [];
-  const defaultAriaLabelText = fileInputEl.dataset.defaultAriaLabel;
 
   // First, get rid of existing previews
   removeOldPreviews(dropTarget, instructions);
@@ -446,7 +447,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   if (fileNames.length === 0) {
     // Reset input aria-label with default message
-    fileInputEl.setAttribute("aria-label", defaultAriaLabelText);
+    fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
   } else {
     addPreviewHeading(fileInputEl, fileNames);
   }
