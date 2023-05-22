@@ -147,8 +147,6 @@ const createTargetArea = (fileInputEl) => {
   const fileInputParent = document.createElement("div");
   const dropTarget = document.createElement("div");
   const box = document.createElement("div");
-  const disabled = fileInputEl.hasAttribute("disabled");
-  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
 
   // Adds class names and other attributes
   fileInputEl.classList.remove(DROPZONE_CLASS);
@@ -163,16 +161,6 @@ const createTargetArea = (fileInputEl) => {
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
   dropTarget.appendChild(fileInputEl);
   fileInputParent.appendChild(dropTarget);
-
-  // Disabled styling
-  if (disabled) {
-    disable(fileInputEl);
-  }
-
-  // Aria-disabled styling
-  if (ariaDisabled) {
-    ariaDisable(fileInputEl);
-  }
 
   return dropTarget;
 };
@@ -246,11 +234,17 @@ const createSROnlyStatus = (fileInputEl) => {
  * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
+  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
   const disabled = fileInputEl.hasAttribute("disabled");
   const dropTarget = createTargetArea(fileInputEl);
   const instructions = createVisibleInstructions(fileInputEl);
 
-  if (!disabled) {
+  // Add attributes and elements based on presence of disabled attributes
+  if (disabled) {
+    disable(fileInputEl);
+  } else if (ariaDisabled){
+    ariaDisable(fileInputEl);
+  } else {
     createSROnlyStatus(fileInputEl);
   }
 
