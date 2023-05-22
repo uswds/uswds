@@ -241,7 +241,7 @@ const enhanceFileInput = (fileInputEl) => {
   // Add attributes and elements based on presence of disabled attributes
   if (disabled) {
     disable(fileInputEl);
-  } else if (ariaDisabled){
+  } else if (ariaDisabled) {
     ariaDisable(fileInputEl);
   } else {
     createSROnlyStatus(fileInputEl);
