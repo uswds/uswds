@@ -32,6 +32,7 @@ const SPACER_GIF =
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
+let DEFAULT_FILE_STATUS_TEXT = "";
 
 /**
  * The properties and elements within the file input.
@@ -223,17 +224,17 @@ const createVisibleInstructions = (fileInputEl) => {
 const createSROnlyStatus = (fileInputEl) => {
   const statusEl = document.createElement("div");
   const itemsLabel = getItemsLabel(fileInputEl);
-  const defaultStatus = `No ${itemsLabel} selected.`;
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+
+  DEFAULT_FILE_STATUS_TEXT = `No ${itemsLabel} selected.`;
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
   statusEl.setAttribute("aria-live", "polite");
 
   // Add initial file status message
-  statusEl.setAttribute("data-default-status-text", defaultStatus);
-  statusEl.textContent = defaultStatus;
+  statusEl.textContent = DEFAULT_FILE_STATUS_TEXT;
 
   // Add the status element to the DOM
   fileInputParent.insertBefore(statusEl, fileInputTarget);
@@ -308,9 +309,8 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
  */
 const updateStatusMessage = (statusElement, fileNames, fileStore) => {
-  const defaultStatusMessage = statusElement.dataset.defaultStatusText;
   const statusEl = statusElement;
-  let statusMessage = defaultStatusMessage;
+  let statusMessage = DEFAULT_FILE_STATUS_TEXT;
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
