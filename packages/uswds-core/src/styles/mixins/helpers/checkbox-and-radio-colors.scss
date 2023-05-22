@@ -34,7 +34,11 @@
   $input-border-alpha: -0;
   $color-input-disabled: color($theme-color-disabled-text);
   $color-input-disabled--weak: color($theme-color-disabled);
-  $input-darkmode: is-color-dark($input-bg-color);
+  $input-darkmode: if(
+    color.lightness(color($input-bg-color)) < 50%,
+    true,
+    false
+  );
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
 
   .usa-#{$input-type} {
@@ -119,7 +123,7 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          @include add-background-svg($input-checkmark);
+          @include add-background-svg("correct8");
         }
 
         @media (forced-colors: active) {
