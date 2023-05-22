@@ -127,7 +127,7 @@ const createUniqueID = (name) =>
  * @param {HTMLInputElement} fileInputEl - The input element.
  * @returns {HTMLDivElement} The singular or plural version of "item"
  */
-const setItemsLabel = (fileInputEl) => {
+const getItemsLabel = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const itemsLabel = acceptsMultiple ? "files" : "file";
 
@@ -184,7 +184,7 @@ const createTargetArea = (fileInputEl) => {
  */
 const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
-  const itemsLabel = setItemsLabel(fileInputEl);
+  const itemsLabel = getItemsLabel(fileInputEl);
   const instructions = document.createElement("div");
   const dragText = `Drag ${itemsLabel} here or`;
   const chooseText = "choose from folder";
@@ -221,7 +221,7 @@ const createVisibleInstructions = (fileInputEl) => {
  */
 const createSROnlyStatus = (fileInputEl) => {
   const statusEl = document.createElement("div");
-  const itemsLabel = setItemsLabel(fileInputEl);
+  const itemsLabel = getItemsLabel(fileInputEl);
   const defaultStatus = `No ${itemsLabel} selected.`;
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
