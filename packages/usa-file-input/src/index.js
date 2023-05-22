@@ -18,7 +18,6 @@ const ACCEPTED_FILE_MESSAGE_CLASS = `${PREFIX}-file-input__accepted-files-messag
 const DRAG_TEXT_CLASS = `${PREFIX}-file-input__drag-text`;
 const DRAG_CLASS = `${PREFIX}-file-input--drag`;
 const LOADING_CLASS = "is-loading";
-const HIDDEN_CLASS = "display-none";
 const INVALID_FILE_CLASS = "has-invalid-file";
 const GENERIC_PREVIEW_CLASS_NAME = `${PREFIX}-file-input__preview-image`;
 const GENERIC_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--generic`;
@@ -289,7 +288,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
   // Get rid of existing previews if they exist, show instructions
   if (filePreviews !== null) {
     if (instructions) {
-      instructions.classList.remove(HIDDEN_CLASS);
+      instructions.removeAttribute("hidden");
     }
     Array.prototype.forEach.call(filePreviews, removeImages);
   }
@@ -343,7 +342,7 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   }
 
   // Hides null state content and sets preview heading
-  instructions.classList.add(HIDDEN_CLASS);
+  instructions.setAttribute("hidden", "true");
   filePreviewsHeading.classList.add(PREVIEW_HEADING_CLASS);
   filePreviewsHeading.innerHTML = previewHeadingText;
   dropTarget.insertBefore(filePreviewsHeading, instructions);
