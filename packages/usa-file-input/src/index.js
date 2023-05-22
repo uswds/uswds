@@ -176,8 +176,7 @@ const createTargetArea = (fileInputEl) => {
 };
 
 /**
- * Build the visible element that contains default interaction instructions and
- * Create and set the default instructions text
+ * Build the visible element with default interaction instructions.
  *
  * @param {HTMLInputElement} fileInputEl - The input element.
  * @returns {HTMLDivElement} The container for visible interaction instructions.
