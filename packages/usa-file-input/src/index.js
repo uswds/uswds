@@ -156,11 +156,11 @@ const createTargetArea = (fileInputEl) => {
   dropTarget.classList.add(TARGET_CLASS);
 
   // Adds child elements to the DOM
+  dropTarget.prepend(box);
   fileInputEl.parentNode.insertBefore(dropTarget, fileInputEl);
   fileInputEl.parentNode.insertBefore(fileInputParent, dropTarget);
   dropTarget.appendChild(fileInputEl);
   fileInputParent.appendChild(dropTarget);
-  fileInputEl.parentNode.insertBefore(box, fileInputEl);
 
   // Disabled styling
   if (disabled) {
