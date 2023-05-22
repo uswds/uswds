@@ -28,7 +28,11 @@ $accordion-button-background-active-color: next-token(
     $theme-accordion-button-background-color,
     $context: $accordion-context
   );
-  @include set-icon-from-bg($theme-accordion-button-background-color, "remove");
+  @include set-icon-from-bg(
+    $theme-accordion-button-background-color,
+    "usa-icons/remove",
+    "usa-icons-bg/remove--white"
+  );
   background-position: right units(2.5) center;
   background-size: units(3);
   cursor: pointer;
@@ -46,7 +50,8 @@ $accordion-button-background-active-color: next-token(
     );
     @include set-icon-from-bg(
       $accordion-button-background-active-color,
-      "remove"
+      "usa-icons/remove",
+      "usa-icons-bg/remove--white"
     );
     text-decoration: none;
   }
@@ -57,11 +62,19 @@ $accordion-button-background-active-color: next-token(
 }
 
 @mixin accordion-button-unopened-styles {
-  @include set-icon-from-bg($theme-accordion-button-background-color, "add");
+  @include set-icon-from-bg(
+    $theme-accordion-button-background-color,
+    "usa-icons/add",
+    "usa-icons-bg/add--white"
+  );
   background-size: units(3);
 
   &:hover {
-    @include set-icon-from-bg($accordion-button-background-active-color, "add");
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "usa-icons/add",
+      "usa-icons/add--white"
+    );
   }
 }
 
