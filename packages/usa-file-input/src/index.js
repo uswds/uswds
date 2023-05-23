@@ -233,16 +233,15 @@ const createSROnlyStatus = (fileInputEl) => {
  * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
-  const ariaDisabled = fileInputEl.hasAttribute("aria-disabled");
-  const disabled = fileInputEl.hasAttribute("disabled");
+  const isInputDisabled =
+    fileInputEl.hasAttribute("aria-disabled") ||
+    fileInputEl.hasAttribute("disabled");
   const dropTarget = createTargetArea(fileInputEl);
   const instructions = createVisibleInstructions(fileInputEl);
+  const { dropZoneEl } = getFileInputContext(fileInputEl);
 
-  // Add attributes and elements based on presence of disabled attributes
-  if (disabled) {
-    disable(fileInputEl);
-  } else if (ariaDisabled) {
-    ariaDisable(fileInputEl);
+  if (isInputDisabled) {
+    dropZoneEl.classList.add(DISABLED_CLASS);
   } else {
     createSROnlyStatus(fileInputEl);
   }
