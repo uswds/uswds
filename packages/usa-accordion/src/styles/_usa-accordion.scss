@@ -73,7 +73,7 @@ $accordion-button-background-active-color: next-token(
     @include set-icon-from-bg(
       $accordion-button-background-active-color,
       "usa-icons/add",
-      "usa-icons/add--white"
+      "usa-icons-bg/add--white"
     );
   }
 }
