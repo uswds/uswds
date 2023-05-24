@@ -9,9 +9,9 @@
 /// @param {type} $icon-light - Light icon variant.
 /// @output - A light or dark icon depending on the $background-color.
 @mixin set-icon-from-bg($background-color, $icon-dark, $icon-light) {
-  $is-text-dark: is-color-dark($background-color);
+  $is-background-dark: is-color-dark($background-color);
 
-  $icon: if($is-text-dark, $icon-light, $icon-dark);
+  $icon: if($is-background-dark, $icon-light, $icon-dark);
 
   @include add-background-svg($icon);
 }
