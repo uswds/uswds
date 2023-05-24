@@ -123,7 +123,7 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          @include add-background-svg("correct8");
+          @include add-background-svg($input-checkmark);
         }
 
         @media (forced-colors: active) {
