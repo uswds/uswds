@@ -8,9 +8,7 @@
     @include u-disabled;
   }
 
-  @media (forced-colors: active) {
-    &:not(.usa-button--unstyled) {
-      @include u-disabled-high-contrast-border;
-    }
+  &:not(.usa-button--unstyled) {
+    @include u-disabled-high-contrast-border;
   }
 }
