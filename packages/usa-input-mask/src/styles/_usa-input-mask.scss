@@ -17,16 +17,12 @@
   i {
     visibility: hidden;
   }
-
-  @media (forced-colors: active) {
-    border: none;
-    color: color(GrayText);
-  }
 }
 
 .usa-masked,
 .usa-input-mask--content {
   @include border-box-sizing;
+  @include u-disabled;
   background-color: transparent;
   padding: units(1);
 }
