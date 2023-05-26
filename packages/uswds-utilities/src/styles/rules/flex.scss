@@ -29,7 +29,7 @@ $u-flex: (
     base: "flex",
     modifiers: null,
     values: map-collect(get-palettes($flex-palettes), $flex-manual-values),
-    settings: $flex-settings,
+    settings: $flex-settings-complete,
     property: "flex",
     type: "utility",
   ),

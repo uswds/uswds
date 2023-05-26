@@ -28,7 +28,7 @@ $u-overflow: (
     ),
     values:
       map-collect(get-palettes($overflow-palettes), $overflow-manual-values),
-    settings: $overflow-settings,
+    settings: $overflow-settings-complete,
     property: "overflow",
     type: "utility",
   ),

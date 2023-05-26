@@ -29,7 +29,7 @@ $u-margin: (
       noModifier: "",
     ),
     values: map-collect(get-palettes($margin-palettes), $margin-manual-values),
-    settings: $margin-settings,
+    settings: $margin-settings-complete,
     property: "margin",
     type: "utility",
   ),
@@ -48,7 +48,7 @@ $u-margin: (
         get-palettes($margin-vertical-palettes),
         $margin-manual-values
       ),
-    settings: $margin-settings,
+    settings: $margin-settings-complete,
     property: "margin",
     type: "utility",
   ),
@@ -67,7 +67,7 @@ $u-margin: (
         get-palettes($margin-horizontal-palettes),
         $margin-manual-values
       ),
-    settings: $margin-settings,
+    settings: $margin-settings-complete,
     property: "margin",
     type: "utility",
   ),

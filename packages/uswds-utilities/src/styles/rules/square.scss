@@ -30,7 +30,7 @@ $u-square: (
       ),
     ),
     values: map-collect(get-palettes($square-palettes), $square-manual-values),
-    settings: $square-settings,
+    settings: $square-settings-complete,
     property: "",
     type: "utility",
   ),
