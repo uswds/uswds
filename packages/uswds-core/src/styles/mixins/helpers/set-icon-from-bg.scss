@@ -2,13 +2,16 @@
 @use "../../functions/color/is-color-dark" as *;
 @use "../../mixins/general/add-background-svg" as *;
 
-/// Set an icon depending on the background color.
+/// Set a light/dark icon, with optional file path, that matches text color.
+///
 /// @param {type} $background-color - The elements background color.
-/// @param {type} $icon - The icon that will be set. Requires a variant in `usa-icons-bg` directory.
+/// @param {type} $icon-dark - Dark icon variant.
+/// @param {type} $icon-light - Light icon variant.
 /// @output - A light or dark icon depending on the $background-color.
-@mixin set-icon-from-bg($background-color, $icon) {
-  $is-darkmode: is-color-dark($background-color);
-  $icon: if($is-darkmode, "usa-icons-bg/#{$icon}--white", "usa-icons/#{$icon}");
+@mixin set-icon-from-bg($background-color, $icon-dark, $icon-light) {
+  $is-background-dark: is-color-dark($background-color);
+
+  $icon: if($is-background-dark, $icon-light, $icon-dark);
 
   @include add-background-svg($icon);
 }

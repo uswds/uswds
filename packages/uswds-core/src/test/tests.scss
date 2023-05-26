@@ -638,12 +638,16 @@ $this-function: "is-color-dark()";
     $expect: true;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns false if it's a light system color token.") {
+  @include it(
+    "Returns false if it's a light system color token, ex: 'yellow-20v'."
+  ) {
     $test: is-color-dark("yellow-20v");
     $expect: false;
     @include assert-equal($test, $expect);
   }
-  @include it("Returns true if it's a dark system color token.") {
+  @include it(
+    "Returns true if it's a dark system color token, ex: 'yellow-70v'."
+  ) {
     $test: is-color-dark("yellow-70v");
     $expect: true;
     @include assert-equal($test, $expect);

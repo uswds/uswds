@@ -58,7 +58,11 @@ $accordion-button-open-hc-icon: map-merge(
     $theme-accordion-button-background-color,
     $context: $accordion-context
   );
-  @include set-icon-from-bg($theme-accordion-button-background-color, "remove");
+  @include set-icon-from-bg(
+    $theme-accordion-button-background-color,
+    "usa-icons/remove",
+    "usa-icons-bg/remove--white"
+  );
   background-position: right units(2.5) center;
   background-size: units(3);
   cursor: pointer;
@@ -73,10 +77,6 @@ $accordion-button-open-hc-icon: map-merge(
     @include set-text-and-bg(
       $accordion-button-background-active-color,
       $context: $accordion-context
-    );
-    @include set-icon-from-bg(
-      $accordion-button-background-active-color,
-      "remove"
     );
     text-decoration: none;
   }
@@ -94,12 +94,12 @@ $accordion-button-open-hc-icon: map-merge(
 }
 
 @mixin accordion-button-unopened-styles {
-  @include set-icon-from-bg($theme-accordion-button-background-color, "add");
+  @include set-icon-from-bg(
+    $theme-accordion-button-background-color,
+    "usa-icons/add",
+    "usa-icons-bg/add--white"
+  );
   background-size: units(3);
-
-  &:hover {
-    @include set-icon-from-bg($accordion-button-background-active-color, "add");
-  }
 
   @media (forced-colors: active) {
     &::after {

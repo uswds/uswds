@@ -94,7 +94,7 @@
 }
 
 .usa-file-input--drag .usa-file-input__box {
-  background-color: color("primary-lighter") !important;
+  background-color: color("primary-lighter");
 }
 
 .usa-file-input--drag .usa-file-input__preview {
@@ -185,17 +185,26 @@
 
 // Disabled state
 .usa-file-input--disabled {
-  pointer-events: none;
-
-  .usa-file-input__instructions {
-    opacity: 0.5;
+  .usa-file-input__instructions,
+  .usa-file-input__choose {
+    color: color($theme-color-text-on-disabled);
   }
 
   .usa-file-input__box {
-    background-color: color("disabled-light");
+    background-color: color("disabled");
   }
 
   .usa-file-input__input[type] {
-    cursor: default;
+    cursor: not-allowed;
+  }
+
+  .usa-file-input__target {
+    &:hover {
+      border-color: color("base-light");
+    }
+  }
+
+  .usa-file-input--drag .usa-file-input__box {
+    background-color: color("disabled");
   }
 }
