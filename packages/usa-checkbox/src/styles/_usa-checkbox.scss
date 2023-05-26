@@ -23,6 +23,10 @@
     @include format-label {
       color: color($theme-color-disabled-text);
       cursor: not-allowed;
+
+      @media (forced-colors: active) {
+        color: color(GrayText);
+      }
     }
   }
 
@@ -42,9 +46,7 @@
 }
 
 .usa-checkbox__input {
-  &:checked,
-  &:checked:disabled,
-  &:checked[aria-disabled="true"] {
+  &:checked {
     @include format-input {
       background-position: center center;
       background-size: units(1.5) auto;
@@ -56,11 +58,7 @@
       }
 
       @media (forced-colors: active) {
-        background-color: ButtonText;
-
-        &--tile {
-          background-color: ButtonText;
-        }
+        background-color: color(ButtonText);
       }
     }
   }

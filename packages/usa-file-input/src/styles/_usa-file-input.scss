@@ -207,4 +207,16 @@
   .usa-file-input--drag .usa-file-input__box {
     background-color: color("disabled");
   }
+
+  @media (forced-colors: active) {
+    .usa-file-input__instructions,
+    .usa-file-input__choose {
+      color: color(GrayText);
+    }
+
+    .usa-file-input__target,
+    .usa-file-input__target:hover {
+      border-color: color(GrayText);
+    }
+  }
 }

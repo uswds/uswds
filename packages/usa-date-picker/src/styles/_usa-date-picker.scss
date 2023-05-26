@@ -64,9 +64,13 @@ $navigate_far_next: map-merge(
 
   &:hover {
     background-color: initial;
+  }
 
-    @media (forced-colors: active) {
-      background-color: initial;
+  @media (forced-colors: active) {
+    background-color: color(GrayText);
+
+    &:hover {
+      background-color: color(GrayText);
     }
   }
 }
