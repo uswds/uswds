@@ -90,7 +90,7 @@ $accordion-button-open-hc-icon: map-merge(
     border: $border-high-contrast;
     position: relative;
 
-    &::after {
+    &::before {
       @include add-color-icon($accordion-button-open-hc-icon);
       @include accordion-hc-icon-styles();
       content: "";
@@ -115,7 +115,7 @@ $accordion-button-open-hc-icon: map-merge(
   }
 
   @media (forced-colors: active) {
-    &::after {
+    &::before {
       @include add-color-icon($accordion-button-unopen-hc-icon);
       @include accordion-hc-icon-styles();
     }
