@@ -52,5 +52,9 @@
   &[aria-disabled="true"]:hover,
   &[aria-disabled="true"]:focus {
     color: color($theme-color-disabled-text);
+
+    @media (forced-colors: active) {
+      color: color(GrayText);
+    }
   }
 }

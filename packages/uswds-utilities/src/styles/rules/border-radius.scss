@@ -49,7 +49,7 @@ $u-border-radius: (
         get-palettes($border-radius-palettes),
         $border-radius-manual-values
       ),
-    settings: $border-radius-settings,
+    settings: $border-radius-settings-complete,
     type: "utility",
   ),
 );

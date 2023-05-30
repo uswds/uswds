@@ -24,7 +24,7 @@ $u-align-self: (
     modifiers: null,
     values:
       map-collect(get-palettes($align-self-palettes), $align-self-manual-values),
-    settings: $align-self-settings,
+    settings: $align-self-settings-complete,
     property: "align-self",
     type: "utility",
   ),

@@ -7,4 +7,8 @@
   &.usa-button--active {
     @include u-disabled;
   }
+
+  &:not(.usa-button--unstyled) {
+    @include u-disabled-high-contrast-border;
+  }
 }

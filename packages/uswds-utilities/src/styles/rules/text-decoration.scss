@@ -27,7 +27,7 @@ $u-text-decoration: (
         get-palettes($text-decoration-palettes),
         $text-decoration-manual-values
       ),
-    settings: $text-decoration-settings,
+    settings: $text-decoration-settings-complete,
     property: "text-decoration",
     type: "utility",
   ),

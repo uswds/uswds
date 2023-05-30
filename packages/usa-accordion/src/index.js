@@ -101,7 +101,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-    hasInit: this.hasInit || false
+    hasInit: this.hasInit || false,
   }
 );
 

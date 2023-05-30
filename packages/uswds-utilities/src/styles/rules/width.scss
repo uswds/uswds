@@ -23,7 +23,7 @@ $u-width: (
     base: "width",
     modifiers: null,
     values: map-collect(get-palettes($width-palettes), $width-manual-values),
-    settings: $width-settings,
+    settings: $width-settings-complete,
     property: "width",
     type: "utility",
   ),

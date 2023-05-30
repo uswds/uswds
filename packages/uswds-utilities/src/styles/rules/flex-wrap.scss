@@ -24,7 +24,7 @@ $u-flex-wrap: (
     modifiers: null,
     values:
       map-collect(get-palettes($flex-wrap-palettes), $flex-wrap-manual-values),
-    settings: $flex-wrap-settings,
+    settings: $flex-wrap-settings-complete,
     property: "flex-wrap",
     type: "utility",
   ),
