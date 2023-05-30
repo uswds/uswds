@@ -78,6 +78,11 @@ $accordion-button-open-hc-icon: map-merge(
       $accordion-button-background-active-color,
       $context: $accordion-context
     );
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "usa-icons/remove",
+      "usa-icons-bg/remove--white"
+    );
     text-decoration: none;
   }
 
@@ -101,13 +106,20 @@ $accordion-button-open-hc-icon: map-merge(
   );
   background-size: units(3);
 
+  &:hover {
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "usa-icons/add",
+      "usa-icons-bg/add--white"
+    );
+  }
+
   @media (forced-colors: active) {
     &::after {
       @include add-color-icon($accordion-button-unopen-hc-icon);
       @include accordion-hc-icon-styles();
     }
   }
-}
 
 @mixin accordion-nested-list {
   > ul li ul {
