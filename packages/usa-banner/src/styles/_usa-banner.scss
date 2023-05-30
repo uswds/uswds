@@ -289,7 +289,6 @@ $banner-icon-close: (
   &[aria-expanded="true"]:hover {
     background-image: none;
 
-
     @media (forced-colors: active) {
       &::before {
         display: none;
