@@ -216,6 +216,12 @@ $expand-less-icon: map-merge(
     &[aria-expanded="true"],
     &[aria-expanded="true"]:hover {
       background-image: none;
+
+      @media (forced-colors: active) {
+        &::before {
+          display: none;
+        }
+      }
     }
 
     &[aria-expanded="false"] {
@@ -296,6 +302,10 @@ $expand-less-icon: map-merge(
         margin-right: 0;
         padding-right: units(2);
       }
+    }
+
+    &::after {
+      display: none;
     }
   }
 }
