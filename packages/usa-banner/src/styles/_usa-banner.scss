@@ -281,13 +281,16 @@ $banner-icon-close: (
     }
   }
 
-  &[aria-expanded="false"] {
+  // Remove icon set from usa-accordion.
+  // Also removed in _usa-nav.scss.
+  &[aria-expanded="false"],
+  &[aria-expanded="false"]:hover,
+  &[aria-expanded="true"],
+  &[aria-expanded="true"]:hover {
     background-image: none;
   }
 
   &[aria-expanded="true"] {
-    background-image: none;
-
     @include at-media-max("tablet") {
       @include place-icon(
         $banner-icon-close,
