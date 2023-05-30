@@ -48,6 +48,11 @@ $accordion-button-background-active-color: next-token(
       $accordion-button-background-active-color,
       $context: $accordion-context
     );
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "usa-icons/remove",
+      "usa-icons-bg/remove--white"
+    );
     text-decoration: none;
   }
 
@@ -63,6 +68,14 @@ $accordion-button-background-active-color: next-token(
     "usa-icons-bg/add--white"
   );
   background-size: units(3);
+
+  &:hover {
+    @include set-icon-from-bg(
+      $accordion-button-background-active-color,
+      "usa-icons/add",
+      "usa-icons-bg/add--white"
+    );
+  }
 }
 
 @mixin accordion-nested-list {
