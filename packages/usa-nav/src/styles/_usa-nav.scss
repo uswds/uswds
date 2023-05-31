@@ -219,7 +219,7 @@ $expand-less-icon: map-merge(
 
       @media (forced-colors: active) {
         &::before {
-          display: none;
+          content: none;
         }
       }
     }
@@ -302,10 +302,6 @@ $expand-less-icon: map-merge(
         margin-right: 0;
         padding-right: units(2);
       }
-    }
-
-    &::after {
-      display: none;
     }
   }
 }

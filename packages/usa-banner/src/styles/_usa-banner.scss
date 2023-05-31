@@ -291,7 +291,7 @@ $banner-icon-close: (
 
     @media (forced-colors: active) {
       &::before {
-        display: none;
+        content: none;
       }
     }
   }

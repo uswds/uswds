@@ -14,7 +14,7 @@ $accordion-button-background-active-color: next-token(
 
 // Maps for High Contrast Mode
 
-$accordion-icon-map: (
+$accordion-icon-map-defaults: (
   color: color("ButtonText"),
   svg-height: 20,
   svg-width: 20,
@@ -22,14 +22,14 @@ $accordion-icon-map: (
 );
 
 $accordion-button-unopen-hc-icon: map-merge(
-  $accordion-icon-map,
+  $accordion-icon-map-defaults,
   (
     "name": "add",
   )
 );
 
 $accordion-button-open-hc-icon: map-merge(
-  $accordion-icon-map,
+  $accordion-icon-map-defaults,
   (
     "name": "remove",
   )
