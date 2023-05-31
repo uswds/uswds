@@ -178,22 +178,17 @@ function toggleModal(event) {
 const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
   const originalLocationPlaceHolder = document.createElement("div");
+  const modalAttributes = Array.from(baseComponent.attributes);
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
   originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
 
-  // TODO: Refactor this ↓↓↓
-  for (
-    let attributeIndex = 0;
-    attributeIndex < baseComponent.attributes.length;
-    attributeIndex += 1
-  ) {
-    const attribute = baseComponent.attributes[attributeIndex];
+  modalAttributes.forEach(attribute => {
     originalLocationPlaceHolder.setAttribute(
       `data-original-${attribute.name}`,
       attribute.value
     );
-  }
+  });
 
   return originalLocationPlaceHolder;
 }
