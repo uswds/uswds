@@ -179,6 +179,7 @@ const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
   const originalLocationPlaceHolder = document.createElement("div");
   const modalAttributes = Array.from(baseComponent.attributes);
+
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
   originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
@@ -198,6 +199,10 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
+
+  if (!ariaLabelledBy) throw new Error(`${modalID} is missing aria-labelledby attribute`);
+
+  if (!ariaDescribedBy) throw new Error(`${modalID} is missing aria-desribedby attribute`);
 
   // Set attributes
   targetWrapper.setAttribute("role", "dialog");
@@ -284,21 +289,23 @@ const cleanUpModal = (baseComponent) => {
   const modalWrapper = modalContent.parentElement.parentElement;
   const modalID = modalWrapper.getAttribute("id");
 
+  // if there is no modalID, return early
+  if (!modalID) {
+    return
+  };
+
   const originalLocationPlaceHolder = document.querySelector(
     `[data-placeholder-for="${modalID}"]`
   );
+
   if (originalLocationPlaceHolder) {
-    for (
-      let attributeIndex = 0;
-      attributeIndex < originalLocationPlaceHolder.attributes.length;
-      attributeIndex += 1
-    ) {
-      const attribute = originalLocationPlaceHolder.attributes[attributeIndex];
+    const modalAttributes = Array.from(originalLocationPlaceHolder.attributes);
+    modalAttributes.forEach(attribute => {
       if (attribute.name.startsWith("data-original-")) {
         // data-original- is 14 long
         modalContent.setAttribute(attribute.name.substr(14), attribute.value);
       }
-    }
+    })
 
     originalLocationPlaceHolder.after(modalContent);
     originalLocationPlaceHolder.parentElement.removeChild(
@@ -342,9 +349,6 @@ modal = behavior(
     teardown(root) {
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
-        if (!modalId) {
-          return;
-        }
         cleanUpModal(modalWindow);
 
         selectOrMatches(`[aria-controls="${modalId}"]`, document)
