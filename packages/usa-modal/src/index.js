@@ -171,7 +171,7 @@ function toggleModal(event) {
 }
 
 /**
- * 
+ *
  * @param {HTMLElement} baseComponent - Modal HTML from the DOM
  * @returns {HTMLElement} Placeholder to append modal content to
  */
@@ -184,7 +184,7 @@ const createPlaceHolder = (baseComponent) => {
   originalLocationPlaceHolder.style.display = "none";
   originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
 
-  modalAttributes.forEach(attribute => {
+  modalAttributes.forEach((attribute) => {
     originalLocationPlaceHolder.setAttribute(
       `data-original-${attribute.name}`,
       attribute.value
@@ -192,7 +192,7 @@ const createPlaceHolder = (baseComponent) => {
   });
 
   return originalLocationPlaceHolder;
-}
+};
 
 const setModalAttributes = (baseComponent, targetWrapper) => {
   const modalID = baseComponent.getAttribute("id");
@@ -200,15 +200,16 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
 
-  if (!ariaLabelledBy) throw new Error(`${modalID} is missing aria-labelledby attribute`);
+  if (!ariaLabelledBy)
+    throw new Error(`${modalID} is missing aria-labelledby attribute`);
 
-  if (!ariaDescribedBy) throw new Error(`${modalID} is missing aria-desribedby attribute`);
+  if (!ariaDescribedBy)
+    throw new Error(`${modalID} is missing aria-desribedby attribute`);
 
   // Set attributes
   targetWrapper.setAttribute("role", "dialog");
   targetWrapper.setAttribute("id", modalID);
 
-  // ? More intuitive 
   if (ariaLabelledBy) {
     targetWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
   }
@@ -233,8 +234,8 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   baseComponent.removeAttribute("aria-describedby");
   baseComponent.setAttribute("tabindex", "-1");
 
-  return targetWrapper
-}
+  return targetWrapper;
+};
 
 const rebuildModal = (baseComponent) => {
   const modalContent = baseComponent;
@@ -257,7 +258,7 @@ const rebuildModal = (baseComponent) => {
   setModalAttributes(modalContent, modalWrapper);
 
   return modalWrapper;
-}
+};
 
 /**
  *  Builds modal window from base HTML
@@ -291,8 +292,8 @@ const cleanUpModal = (baseComponent) => {
 
   // if there is no modalID, return early
   if (!modalID) {
-    return
-  };
+    return;
+  }
 
   const originalLocationPlaceHolder = document.querySelector(
     `[data-placeholder-for="${modalID}"]`
@@ -300,12 +301,12 @@ const cleanUpModal = (baseComponent) => {
 
   if (originalLocationPlaceHolder) {
     const modalAttributes = Array.from(originalLocationPlaceHolder.attributes);
-    modalAttributes.forEach(attribute => {
+    modalAttributes.forEach((attribute) => {
       if (attribute.name.startsWith("data-original-")) {
         // data-original- is 14 long
         modalContent.setAttribute(attribute.name.substr(14), attribute.value);
       }
-    })
+    });
 
     originalLocationPlaceHolder.after(modalContent);
     originalLocationPlaceHolder.parentElement.removeChild(
@@ -326,24 +327,26 @@ modal = behavior(
         setUpModal(modalWindow);
 
         // Query all openers and closers including the overlay
-        selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach((modalTrigger) => {
-          // If modalTrigger is an anchor...
-          if (modalTrigger.nodeName === "A") {
-            // Turn anchor links into buttons for screen readers
-            modalTrigger.setAttribute("role", "button");
+        selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
+          (modalTrigger) => {
+            // If modalTrigger is an anchor...
+            if (modalTrigger.nodeName === "A") {
+              // Turn anchor links into buttons for screen readers
+              modalTrigger.setAttribute("role", "button");
 
-            // Prevent modal triggers from acting like links
-            modalTrigger.addEventListener("click", (e) => e.preventDefault());
+              // Prevent modal triggers from acting like links
+              modalTrigger.addEventListener("click", (e) => e.preventDefault());
+            }
+
+            // Can uncomment when aria-haspopup="dialog" is supported
+            // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
+            // Most screen readers support aria-haspopup, but might announce
+            // as opening a menu if "dialog" is not supported.
+            // modalTrigger.setAttribute("aria-haspopup", "dialog");
+
+            modalTrigger.addEventListener("click", toggleModal);
           }
-
-          // Can uncomment when aria-haspopup="dialog" is supported
-          // https://a11ysupport.io/tech/aria/aria-haspopup_attribute
-          // Most screen readers support aria-haspopup, but might announce
-          // as opening a menu if "dialog" is not supported.
-          // modalTrigger.setAttribute("aria-haspopup", "dialog");
-
-          modalTrigger.addEventListener("click", toggleModal);
-        });
+        );
       });
     },
     teardown(root) {
@@ -351,8 +354,10 @@ modal = behavior(
         const modalId = modalWindow.id;
         cleanUpModal(modalWindow);
 
-        selectOrMatches(`[aria-controls="${modalId}"]`, document)
-          .forEach((modalTrigger) => modalTrigger.removeEventListener("click", toggleModal));
+        selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
+          (modalTrigger) =>
+            modalTrigger.removeEventListener("click", toggleModal)
+        );
       });
     },
     focusTrap: null,
