@@ -41,7 +41,7 @@ $u-border-width: (
         get-palettes($border-width-palettes),
         $border-width-manual-values
       ),
-    settings: $border-width-settings,
+    settings: $border-width-settings-complete,
     property: "border",
     type: "utility",
   ),

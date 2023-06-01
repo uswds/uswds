@@ -31,11 +31,7 @@
           {% endif %}
         </div>
         <div class="usa-card__footer">
-        {% include "@components/usa-button/src/usa-button.twig" with {
-          'modifier': card.cta_modifier,
-          'text': card.cta_text|default('Visit Florida Keys'),
-          'type': 'button'
-        } %}
+          <a href="#" class="usa-button">Visit Florida Keys</a>
         </div>
       </div>
     </li>

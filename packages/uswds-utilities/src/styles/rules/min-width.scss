@@ -24,7 +24,7 @@ $u-min-width: (
     modifiers: null,
     values:
       map-collect(get-palettes($min-width-palettes), $min-width-manual-values),
-    settings: $min-width-settings,
+    settings: $min-width-settings-complete,
     property: "min-width",
     type: "utility",
   ),

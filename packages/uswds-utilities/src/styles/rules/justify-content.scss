@@ -29,7 +29,7 @@ $u-justify-content: (
         get-palettes($justify-content-palettes),
         $justify-content-manual-values
       ),
-    settings: $justify-content-settings,
+    settings: $justify-content-settings-complete,
     property: "justify-content",
     type: "utility",
   ),

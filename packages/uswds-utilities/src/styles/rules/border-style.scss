@@ -27,7 +27,7 @@ $u-border-style: (
         get-palettes($border-style-palettes),
         $border-style-manual-values
       ),
-    settings: $border-style-settings,
+    settings: $border-style-settings-complete,
     property: "border-style",
     type: "utility",
   ),

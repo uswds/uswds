@@ -160,10 +160,9 @@
     background-color: if($color == currentColor, $color, color($color));
     mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
       linear-gradient(transparent, transparent);
-    mask-repeat: no-repeat;
     mask-position: $position-x $position-y;
-    mask-size: $width $height;
     mask-repeat: no-repeat;
+    mask-size: $width $height;
 
     @if $color-hover {
       &:hover {

@@ -298,11 +298,11 @@ namespace is set to output
 @function ns($type) {
   $type: smart-quote($type);
 
-  @if not map-deep-get($theme-namespace, $type, output) {
+  @if not map-deep-get($theme-namespace-complete, $type, output) {
     @return "";
   }
 
-  @return map-deep-get($theme-namespace, $type, namespace);
+  @return map-deep-get($theme-namespace-complete, $type, namespace);
 }
 
 /*

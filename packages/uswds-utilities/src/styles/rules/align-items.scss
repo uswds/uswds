@@ -27,7 +27,7 @@ $u-align-items: (
         get-palettes($align-items-palettes),
         $align-items-manual-values
       ),
-    settings: $align-items-settings,
+    settings: $align-items-settings-complete,
     property: "align-items",
     type: "utility",
   ),
