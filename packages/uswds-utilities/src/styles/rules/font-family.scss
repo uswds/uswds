@@ -35,7 +35,7 @@ $u-font-family: (
         get-palettes($font-family-palettes),
         $font-family-manual-values
       ),
-    settings: $font-family-settings,
+    settings: $font-family-settings-complete,
     property: "font-family",
     type: "utility",
   ),

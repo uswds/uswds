@@ -5,11 +5,19 @@
       <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
         <use xlink:href="./img/sprite.svg#credit_card"></use>
       </svg>
-
     </div>
-    <input type="text" id="example-input-prefix" class="usa-input" pattern="[0-9]*" inputmode="numeric">
+    <input
+      type="text"
+      id="example-input-prefix"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+      {% if disabled_state == "disabled"%} disabled{%- endif %}
+      {% if disabled_state == "aria-disabled"%} aria-disabled="true"{%- endif %}>
   </div>
 
+  {# Error state #}
+  {% if not (disabled_state == "disabled" or disabled_state == "aria-disabled") %}
   <label class="usa-label" for="example-input-prefix-error">Credit card number (Error)</label>
   <div class="usa-input-group usa-input-group--error">
     <div class="usa-input-prefix" aria-hidden="true">
@@ -17,6 +25,13 @@
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./img/sprite.svg#credit_card"></use>
       </svg>
     </div>
-    <input type="text" id="example-input-prefix-error" class="usa-input" pattern="[0-9]*" inputmode="numeric">
+    <input
+      type="text"
+      id="example-input-prefix-error"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+    >
   </div>
+  {% endif %}
 </form>

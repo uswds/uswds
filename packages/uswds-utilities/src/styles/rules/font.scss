@@ -35,7 +35,7 @@ $u-font: (
     base: "font",
     modifiers: null,
     values: map-collect(get-palettes($font-palettes), $font-manual-values),
-    settings: $font-settings,
+    settings: $font-settings-complete,
     property: "font-size",
     type: "utility",
   ),

@@ -25,7 +25,7 @@ $u-left: (
     base: "left",
     modifiers: null,
     values: map-collect(get-palettes($left-palettes), $left-manual-values),
-    settings: $left-settings,
+    settings: $left-settings-complete,
     property: "left",
     type: "utility",
   ),

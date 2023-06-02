@@ -27,7 +27,7 @@ $u-letter-spacing: (
         get-palettes($letter-spacing-palettes),
         $letter-spacing-manual-values
       ),
-    settings: $letter-spacing-settings,
+    settings: $letter-spacing-settings-complete,
     property: "letter-spacing",
     type: "utility",
   ),

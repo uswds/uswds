@@ -125,6 +125,20 @@ const disable = (el) => {
 };
 
 /**
+ * Check for aria-disabled on initialization
+ *
+ * @param {HTMLInputElement} el An element within the combo box component
+ */
+const ariaDisable = (el) => {
+  const { inputEl, toggleListBtnEl, clearInputBtnEl } = getComboBoxContext(el);
+
+  clearInputBtnEl.hidden = true;
+  clearInputBtnEl.setAttribute("aria-disabled", true);
+  toggleListBtnEl.setAttribute("aria-disabled", true);
+  inputEl.setAttribute("aria-disabled", true);
+};
+
+/**
  * Enable the combo-box component
  *
  * @param {HTMLInputElement} el An element within the combo box component
@@ -263,6 +277,11 @@ const enhanceComboBox = (_comboBoxEl) => {
   if (selectEl.disabled) {
     disable(comboBoxEl);
     selectEl.disabled = false;
+  }
+
+  if (selectEl.hasAttribute("aria-disabled")) {
+    ariaDisable(comboBoxEl);
+    selectEl.removeAttribute("aria-disabled");
   }
 
   comboBoxEl.dataset.enhanced = "true";
@@ -646,11 +665,11 @@ const handleDownFromListOption = (event) => {
 };
 
 /**
- * Handle the tab event from an list option element within the combo box component.
+ * Handle the space event from an list option element within the combo box component.
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleTabFromListOption = (event) => {
+const handleSpaceFromListOption = (event) => {
   selectItem(event.target);
   event.preventDefault();
 };
@@ -779,7 +798,7 @@ const comboBox = behavior(
         ArrowDown: handleDownFromListOption,
         Down: handleDownFromListOption,
         Enter: handleEnterFromListOption,
-        Tab: handleTabFromListOption,
+        " ": handleSpaceFromListOption,
         "Shift+Tab": noop,
       }),
     },

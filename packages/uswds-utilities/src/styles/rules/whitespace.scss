@@ -24,7 +24,7 @@ $u-whitespace: (
     modifiers: null,
     values:
       map-collect(get-palettes($whitespace-palettes), $whitespace-manual-values),
-    settings: $whitespace-settings,
+    settings: $whitespace-settings-complete,
     property: "white-space",
     type: "utility",
   ),

@@ -33,7 +33,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it('uses singular "file" if there is not a "multiple" attribute', () => {
-        assert.strictEqual(dragText.innerHTML, "Drag file here or ");
+        assert.strictEqual(dragText.innerHTML, "Drag file here or");
       });
     });
   });

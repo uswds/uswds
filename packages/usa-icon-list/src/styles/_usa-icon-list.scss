@@ -107,7 +107,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
     $prefix: "";
   }
   // Or the standard prefix if the breakpoint is output
-  @else if map.get($theme-utility-breakpoints, $mq-key) {
+  @else if map.get($theme-utility-breakpoints-complete, $mq-key) {
     $prefix: "#{$mq-key}#{$separator}";
   }
 

@@ -30,7 +30,7 @@ $u-background-color: (
         get-palettes($global-color-palettes),
         $background-color-manual-values
       ),
-    settings: $background-color-settings,
+    settings: $background-color-settings-complete,
     type: "utility",
   ),
 );

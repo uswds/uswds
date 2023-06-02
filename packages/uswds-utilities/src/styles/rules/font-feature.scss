@@ -28,7 +28,7 @@ $u-font-feature: (
         get-palettes($font-feature-palettes),
         $font-feature-manual-values
       ),
-    settings: $font-feature-settings,
+    settings: $font-feature-settings-complete,
     property: "font-feature-settings",
     type: "utility",
   ),

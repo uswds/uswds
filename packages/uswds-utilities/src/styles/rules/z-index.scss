@@ -25,7 +25,7 @@ $u-z-index: (
     base: "z",
     modifiers: null,
     values: map-collect(get-palettes($z-index-palettes), $z-index-manual-values),
-    settings: $z-index-settings,
+    settings: $z-index-settings-complete,
     property: "z-index",
     type: "utility",
   ),

@@ -23,7 +23,7 @@ $u-opacity: (
     base: "opacity",
     modifiers: null,
     values: map-collect(get-palettes($opacity-palettes), $opacity-manual-values),
-    settings: $opacity-settings,
+    settings: $opacity-settings-complete,
     property: "opacity",
     type: "utility",
   ),

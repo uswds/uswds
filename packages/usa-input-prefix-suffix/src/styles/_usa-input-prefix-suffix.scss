@@ -1,16 +1,24 @@
 @use "uswds-core" as *;
 
+// Padding helpers
+$icon-width: 3;
+$input-padding: 1;
+$icon-offset: $icon-width + ($input-padding * 2);
+
 // Input prefixes / suffixes
 .usa-input-group {
   @extend %block-input-general;
   @extend %block-input-styles;
   align-items: center;
-  background-color: color("white");
   display: flex;
   padding: 0;
+  position: relative;
 
-  &.is-focused {
-    @include focus-outline();
+  &--error,
+  &--success {
+    input:focus {
+      outline-offset: units($theme-input-state-border-width);
+    }
   }
 
   &--error {
@@ -21,28 +29,61 @@
     @include u-border($theme-input-state-border-width, "success");
   }
 
+  // Input suffix padding
   input {
+    @include u-padding-right($icon-offset);
     border: 0;
     height: 100%;
     margin-top: 0;
     min-width: 0;
     width: 100%;
 
-    &:focus {
-      outline: none;
+    &:disabled,
+    &[aria-disabled="true"] {
+      & + .usa-input-suffix {
+        @include u-disabled;
+      }
+
+      @media (forced-colors: active) {
+        // Override border from disabled input
+        border: 0;
+      }
+    }
+  }
+
+  @media (forced-colors: active) {
+    // If input is disabled, set usa-input-group border
+    &:has(input:disabled),
+    &:has(input[aria-disabled="true"]) {
+      @include u-disabled-high-contrast-border;
     }
   }
 }
 
+.usa-input-prefix:has(+ input:disabled),
+.usa-input-prefix:has(+ input[aria-disabled="true"]) {
+  @include u-disabled;
+}
+
 .usa-input-prefix,
 .usa-input-suffix {
+  position: absolute;
   color: color("base");
   line-height: 0;
-  padding: 0 units(1);
+  padding: 0 units($input-padding);
   user-select: none;
   white-space: nowrap;
 
   .usa-icon {
-    @include u-square(3);
+    @include u-square($icon-width);
   }
+}
+
+.usa-input-prefix + input {
+  @include u-padding-left($icon-offset);
+  @include u-padding-right($input-padding);
+}
+
+.usa-input-suffix {
+  right: 0;
 }

@@ -1,5 +1,7 @@
+@use "../../settings" as *;
 @use "./icon" as *;
 @use "../../functions" as *;
+@use "./screen-reader" as *;
 
 $external-link-size: 1.75ex;
 
@@ -15,6 +17,17 @@ $icon-object: (
 
 @mixin external-link($contrast-bg: "default") {
   display: inline;
+
+  // Screen reader label
+  &::before {
+    @include sr-only;
+    content: $theme-external-link-sr-label-tab-same;
+  }
+
+  &[target="_blank"]::before {
+    @include sr-only;
+    content: $theme-external-link-sr-label-tab-new;
+  }
 
   &::after {
     @include add-color-icon($icon-object, $contrast-bg);

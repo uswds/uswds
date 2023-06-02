@@ -27,7 +27,7 @@ $u-font-weight: (
         get-palettes($font-weight-palettes),
         $font-weight-manual-values
       ),
-    settings: $font-weight-settings,
+    settings: $font-weight-settings-complete,
     property: "font-weight",
     type: "utility",
   ),
