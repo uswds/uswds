@@ -1,6 +1,7 @@
 {
   "modifier": "",
   "title": "Basic header",
+  "id_prefix": "basic",
   "nav": {
     "menu": {
       "label": "Menu"

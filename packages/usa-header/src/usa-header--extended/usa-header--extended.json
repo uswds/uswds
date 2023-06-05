@@ -1,6 +1,7 @@
 {
   "modifier": "usa-header--extended",
   "title": "Extended header",
+  "id_prefix": "extended",
   "nav": {
     "menu": {
       "label": "Menu"
