@@ -12,6 +12,29 @@ $accordion-button-background-active-color: next-token(
   "darker"
 );
 
+// Maps for High Contrast Mode
+
+$accordion-icon-map-defaults: (
+  color: color("ButtonText"),
+  svg-height: 20,
+  svg-width: 20,
+  height: units(3),
+);
+
+$accordion-button-unopen-hc-icon: map-merge(
+  $accordion-icon-map-defaults,
+  (
+    "name": "add",
+  )
+);
+
+$accordion-button-open-hc-icon: map-merge(
+  $accordion-icon-map-defaults,
+  (
+    "name": "remove",
+  )
+);
+
 // Accordion Styles
 @mixin accordion-list-styles {
   @include unstyled-list;
@@ -19,6 +42,13 @@ $accordion-button-background-active-color: next-token(
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+@mixin accordion-hc-icon-styles {
+  height: 100%;
+  position: absolute;
+  right: units(2.5);
+  top: 0;
 }
 
 // Opened styles
@@ -57,7 +87,14 @@ $accordion-button-background-active-color: next-token(
   }
 
   @media (forced-colors: active) {
-    forced-color-adjust: none;
+    border: $border-high-contrast;
+    position: relative;
+
+    &::before {
+      @include add-color-icon($accordion-button-open-hc-icon);
+      @include accordion-hc-icon-styles();
+      content: "";
+    }
   }
 }
 
@@ -75,6 +112,13 @@ $accordion-button-background-active-color: next-token(
       "usa-icons/add",
       "usa-icons-bg/add--white"
     );
+  }
+
+  @media (forced-colors: active) {
+    &::before {
+      @include add-color-icon($accordion-button-unopen-hc-icon);
+      @include accordion-hc-icon-styles();
+    }
   }
 }
 

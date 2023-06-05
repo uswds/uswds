@@ -216,6 +216,12 @@ $expand-less-icon: map-merge(
     &[aria-expanded="true"],
     &[aria-expanded="true"]:hover {
       background-image: none;
+
+      @media (forced-colors: active) {
+        &::before {
+          content: none;
+        }
+      }
     }
 
     &[aria-expanded="false"] {
