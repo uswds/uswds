@@ -35,7 +35,7 @@ module.exports = {
         .pipe(sourcemaps.init({ loadMaps: true }))
         .on("error", function handleError(error) {
           dutil.logError(error);
-          this.emit('end');
+          this.emit("end");
         })
         .pipe(uglify())
         .pipe(

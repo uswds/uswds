@@ -4,7 +4,7 @@ const svgSprite = require("gulp-svgstore");
 const rename = require("gulp-rename");
 const del = require("del");
 const dutil = require("./utils/doc-util");
-const { logError } = require('./utils/doc-util');
+const { logError } = require("./utils/doc-util");
 const { copyIcons } = require("./copy");
 const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
@@ -15,23 +15,23 @@ function cleanIcons() {
 }
 
 function collectIcons() {
-  dutil.logMessage("collectIcons", "Collecting default icon set in dist/img/usa-icons");
+  dutil.logMessage(
+    "collectIcons",
+    "Collecting default icon set in dist/img/usa-icons"
+  );
   return src([
     `node_modules/@material-design-icons/svg/filled/{${iconConfig.material}}.svg`,
     `packages/usa-icon/src/img/material-icons-deprecated/{${iconConfig.materialDeprecated}}.svg`,
     `packages/usa-icon/src/img/uswds-icons/{${iconConfig.uswds}}.svg`,
-  ])
-    .pipe(dest(`${svgPath}/usa-icons`))
+  ]).pipe(dest(`${svgPath}/usa-icons`));
 }
 
 function buildSprite(done) {
-  return (
-    src(`${svgPath}/usa-icons/*.svg`)
-      .pipe(svgSprite())
-      .on("error", logError)
-      .pipe(dest(svgPath))
-      .on("end", () => done())
-  );
+  return src(`${svgPath}/usa-icons/*.svg`)
+    .pipe(svgSprite())
+    .on("error", logError)
+    .pipe(dest(svgPath))
+    .on("end", () => done());
 }
 
 function renameSprite() {
@@ -51,7 +51,7 @@ exports.buildSpriteStandalone = series(
   buildSprite,
   renameSprite,
   cleanSprite
-)
+);
 
 exports.buildSprite = series(
   cleanIcons,
@@ -59,4 +59,4 @@ exports.buildSprite = series(
   buildSprite,
   renameSprite,
   cleanSprite
-)
+);

@@ -15,5 +15,5 @@ module.exports = {
     );
     cFlags.cleanup = false;
     done();
-  }
-}
+  },
+};
