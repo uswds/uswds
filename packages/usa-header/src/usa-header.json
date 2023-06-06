@@ -1,10 +1,12 @@
 {
   "modifier": "",
   "title": "Basic header",
+  "id_prefix": "basic",
   "nav": {
     "menu": {
       "label": "Menu"
     },
+    "megamenu": false,
     "aria_label": "Primary navigation",
     "close": {
       "label": "Close"
