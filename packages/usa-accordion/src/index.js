@@ -10,6 +10,8 @@ const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "data-allow-multiple";
 
+let hasInit = false;
+
 /**
  * Get an Array of button elements belonging directly to the given
  * accordion element.
@@ -83,17 +85,17 @@ const accordion = behavior(
   {
     init(root) {
       // Check if Banner has previously initialized accordion.
-      if (!this.hasInit) {
+      if (!hasInit) {
         select(BUTTON, root).forEach((button) => {
           const expanded = button.getAttribute(EXPANDED) === "true";
           toggleButton(button, expanded);
         });
 
-        this.hasInit = true;
+        hasInit = true;
       }
     },
     teardown() {
-      this.hasInit = false;
+      hasInit = false;
     },
     ACCORDION,
     BUTTON,
@@ -101,7 +103,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-    hasInit: this.hasInit || false,
+    hasInit,
   }
 );
 
