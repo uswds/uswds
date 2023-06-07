@@ -1,5 +1,5 @@
 import Component from "./usa-button-group.twig";
-import TestTextWrappingComponent from "./usa-button-group--test-text-wrapping.twig";
+import TestTextWrappingComponent from "./test/test-patterns/usa-button-group--test-text-wrapping.twig";
 import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
