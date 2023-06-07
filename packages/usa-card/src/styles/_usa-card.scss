@@ -187,7 +187,7 @@
 .usa-card__media--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
-  @include u-margin-x(-$theme-card-border-width);
+  @include u-margin-x(units($theme-card-border-width)  * -1);
 }
 
 .usa-card__header--exdent,
@@ -199,7 +199,7 @@
 }
 
 .usa-card__media--exdent {
-  @include u-margin-top(-$theme-card-border-width);
+  @include u-margin-x(units($theme-card-border-width)  * -1);
 
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
@@ -215,7 +215,7 @@
   }
 
   .usa-card__header--exdent {
-    @include u-margin-top(-$theme-card-border-width);
+    @include u-margin-x(units($theme-card-border-width)  * -1);
     @include u-radius-top($theme-card-border-radius);
   }
 
@@ -268,9 +268,9 @@
     }
 
     .usa-card__media--exdent {
-      @include u-margin-left(-$theme-card-border-width);
+      @include u-margin-left(units($theme-card-border-width)  * -1);
       @include u-margin-right(0);
-      @include u-margin-y(-$theme-card-border-width);
+      @include u-margin-y(units($theme-card-border-width)  * -1);
 
       .usa-card__img {
         @include u-radius-left($theme-card-border-radius);
@@ -337,7 +337,7 @@
       }
 
       .usa-card__media--exdent {
-        @include u-margin-right(-$theme-card-border-width);
+        @include u-margin-right(units($theme-card-border-width)  * -1);
         @include u-margin-left(0);
 
         .usa-card__img {
