@@ -1,7 +1,6 @@
 {
   "modifier": "usa-header--megamenu",
   "title": "Basic with mega-menu",
-  "id_prefix": "megamenu",
   "nav": {
     "menu": {
       "label": "Menu"
