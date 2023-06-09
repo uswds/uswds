@@ -66,6 +66,22 @@ $uswds-notifications:
 + "\A   @font-face rules. If you need these files for IEll compatibility,"
 + "\A   add `$theme-font-browser-compatibility: true` to your project"
 + "\A   settings."
++ "\A --------------------------------------------------------------------"
++ "\A 3.5.0"
++ "\A - Sass: Removed usa-prose- mixins and placeholders from Sass."
++ "\A   This is a breaking change only if your project Sass uses "
++ "\A   usa-prose- mixins and placeholders. Users should instead use "
++ "\A   typeset- mixins in their place."
++ "\A - Settings: Now adjusting a single Sass map setting will no "
++ "\A   longer set all other values in the map to `false`. Users can"
++ "\A   now update only the map values they wish to change. This is a "
++ "\A   breaking change only if your project deactivated mapped "
++ "\A   settings by not declaring them."
++ "\A - Content: Updated Accessibility statement link text. "
++ "\A   Updated the Identifier to use the text "
++ "\A   \"Accessibility statement\" (EN) / \"Declaración de "
++ "\A   accesibilidad\" (ES) for the required link to an accessibility "
++ "\A   statement."
 + "\A ";
 
 /* prettier-ignore */
