@@ -22,7 +22,7 @@
   cursor: pointer;
 
   @media (forced-colors: active) {
-    outline: 2px solid transparent;
+    outline: $border-high-contrast;
   }
 }
 
@@ -35,9 +35,6 @@
 .usa-range {
   @extend %block-input-general;
   @extend %block-input-styles;
-}
-
-.usa-range {
   appearance: none;
   border: none;
   padding-left: 1px;
@@ -91,5 +88,45 @@
 
   &::-ms-fill-upper {
     @include range-ms-fill;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    // Required for mobile styles
+    opacity: 1;
+
+    &::-webkit-slider-runnable-track {
+      @include u-disabled;
+      @include u-disabled-high-contrast-border;
+    }
+
+    &::-moz-range-track {
+      @include u-disabled;
+      @include u-disabled-high-contrast-border;
+    }
+
+    &::-ms-track {
+      @include u-disabled;
+    }
+
+    &::-webkit-slider-thumb {
+      @include u-disabled;
+    }
+
+    &::-moz-range-thumb {
+      @include u-disabled;
+    }
+
+    &::-ms-thumb {
+      @include u-disabled;
+    }
+
+    &::-ms-fill-lower {
+      @include u-disabled;
+    }
+
+    &::-ms-fill-upper {
+      @include u-disabled;
+    }
   }
 }

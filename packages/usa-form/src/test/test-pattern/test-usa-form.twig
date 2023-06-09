@@ -1,0 +1,318 @@
+<form class="usa-form">
+  <div class="usa-character-count">
+    <div class="usa-form-group">
+      <label class="usa-label" for="with-hint-input">Character count</label>
+      <span id="with-hint-input-hint" class="usa-hint">This is an input with a character counter.</span>
+      <input
+        class="usa-input usa-character-count__field"
+        id="with-hint-input"
+        maxlength="25"
+        name="with-hint-input"
+        aria-describedby="with-hint-input-info with-hint-input-hint"
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}>
+    </div>
+    <span id="with-hint-input-info" class="usa-character-count__message">You can enter up to 25 characters</span>
+  </div>
+</form>
+
+<fieldset class="usa-fieldset margin-top-2">
+  <legend class="usa-legend">Checkbox</legend usa-label>
+
+  <div class="usa-checkbox">
+    <input
+      class="usa-checkbox__input"
+      id="check-historical-washington"
+      type="checkbox"
+      name="historical-figures"
+      value="booker-t-washington"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+    <label class="usa-checkbox__label" for="check-historical-washington"
+      >Booker T. Washington</label
+    >
+  </div>
+  <div class="usa-checkbox">
+    <input
+      class="usa-checkbox__input"
+      id="check-historical-carver"
+      type="checkbox"
+      name="historical-figures"
+      value="george-washington-carver"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+    <label class="usa-checkbox__label" for="check-historical-carver"
+      >George Washington Carver</label
+    >
+  </div>
+</fieldset>
+
+
+<fieldset class="usa-fieldset margin-top-2">
+  <legend class="usa-legend">Radio</legend>
+  <div class="usa-radio">
+    <input
+      class="usa-radio__input"
+      id="historical-washington"
+      type="radio"
+      name="historical-figures"
+      value="booker-t-washington"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+    <label class="usa-radio__label" for="historical-washington"
+      >Booker T. Washington</label
+    >
+  </div>
+  <div class="usa-radio">
+    <input
+      class="usa-radio__input"
+      id="historical-carver"
+      type="radio"
+      name="historical-figures"
+      value="george-washington-carver"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+    <label class="usa-radio__label" for="historical-carver"
+      >George Washington Carver</label
+    >
+  </div>
+</fieldset>
+
+<label class="usa-label" for="fruit">Combo box</label>
+<div class="usa-combo-box">
+  <select
+    class="usa-select"
+    name="fruit"
+    id="fruit"
+    {% if disabled_state == 'disabled' %} disabled
+    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}>
+    <option value>Select a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="apricot">Apricot</option>
+  </select>
+</div>
+
+<div class="usa-form-group">
+  <label class="usa-label" id="appointment-date-label" for="appointment-date"
+    >Date picker</label
+  >
+  <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+  <div class="usa-date-picker">
+    <input
+      class="usa-input"
+      id="appointment-date"
+      name="appointment-date"
+      aria-labelledby="appointment-date-label"
+      aria-describedby="appointment-date-hint"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+  </div>
+</div>
+
+<div class="usa-form-group">
+  <label class="usa-label" for="file-input-single"
+    >File input</label
+  >
+  <input
+    id="file-input-single"
+    class="usa-file-input"
+    type="file"
+    name="file-input-single"
+    {% if disabled_state == 'disabled' %} disabled
+    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  />
+</div>
+
+<form class="usa-form">
+  <label class="usa-label" for="ssn">Input mask</label>
+  <div class="usa-hint" id="ssnHint">For example, 123 45 6789</div>
+  <input
+    id="ssn"
+    inputmode="numeric"
+    name="ssn"
+    placeholder="___ __ ____"
+    pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
+    class="usa-input usa-masked"
+    aria-describedby="ssnHint"
+    {% if disabled_state == 'disabled' %} disabled
+    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  />
+</form>
+
+<form class="usa-form">
+  <label class="usa-label" for="example-input-prefix">Input prefix</label>
+  <div class="usa-input-group">
+    <div class="usa-input-prefix" aria-hidden="true">
+      <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
+        <use xlink:href="./img/sprite.svg#credit_card"></use>
+      </svg>
+    </div>
+    <input
+      id="example-input-prefix"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+  </div>
+</form>
+
+<form class="usa-form">
+  <label class="usa-label" for="example-input-suffix">Input suffix</label>
+  <div class="usa-input-group usa-input-group--sm">
+    <input
+      id="example-input-suffix"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+    <div class="usa-input-suffix" aria-hidden="true">lbs.</div>
+  </div>
+</form>
+
+<fieldset class="usa-fieldset">
+  <legend class="usa-legend">Memorable date</legend>
+  <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
+  <div class="usa-memorable-date">
+    <div class="usa-form-group usa-form-group--month usa-form-group--select">
+      <label class="usa-label" for="date_of_birth_month">Month</label>
+      <select
+        class="usa-select"
+        id="date_of_birth_month"
+        name="date_of_birth_month"
+        aria-describedby="mdHint"
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      >
+        <option value>- Select -</option>
+        <option value="1">01 - January</option>
+        <option value="2">02 - February</option>
+        <option value="3">03 - March</option>
+        <option value="4">04 - April</option>
+        <option value="5">05 - May</option>
+        <option value="6">06 - June</option>
+        <option value="7">07 - July</option>
+        <option value="8">08 - August</option>
+        <option value="9">09 - September</option>
+        <option value="10">10 - October</option>
+        <option value="11">11 - November</option>
+        <option value="12">12 - December</option>
+      </select>
+    </div>
+    <div class="usa-form-group usa-form-group--day">
+      <label class="usa-label" for="date_of_birth_day">Day</label>
+      <input
+        class="usa-input"
+        aria-describedby="mdHint"
+        id="date_of_birth_day"
+        name="date_of_birth_day"
+        maxlength="2"
+        pattern="[0-9]*"
+        inputmode="numeric"
+        value=""
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      />
+    </div>
+    <div class="usa-form-group usa-form-group--year">
+      <label class="usa-label" for="date_of_birth_year">Year</label>
+      <input
+        class="usa-input"
+        aria-describedby="mdHint"
+        id="date_of_birth_year"
+        name="date_of_birth_year"
+        minlength="4"
+        maxlength="4"
+        pattern="[0-9]*"
+        inputmode="numeric"
+        value=""
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      />
+    </div>
+  </div>
+</fieldset>
+
+<form class="usa-form">
+  <label class="usa-label" for="usa-range">Range slider</label>
+  <input
+    id="usa-range"
+    class="usa-range"
+    type="range"
+    min="0"
+    max="100"
+    step="10"
+    value="20"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="20"
+    role="slider"
+    {% if disabled_state == 'disabled' %} disabled
+    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  />
+</form>
+
+<form class="usa-form">
+  <label class="usa-label" for="options">Select</label>
+  <select
+    class="usa-select"
+    name="options"
+    id="options"
+    {% if disabled_state == 'disabled' %} disabled
+    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    >
+    <option value>- Select -</option>
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
+
+<label class="usa-label" for="input-type-text">Text input</label>
+<input
+  class="usa-input"
+  id="input-type-text"
+  name="input-type-text"
+  type="text"
+  {% if disabled_state == 'disabled' %} disabled
+  {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  >
+
+<div class="usa-form-group">
+  <label class="usa-label" id="appointment-time-label" for="appointment-time"
+    >Time picker</label
+  >
+  <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
+  <div class="usa-time-picker">
+    <input
+      class="usa-input"
+      id="appointment-time"
+      name="appointment-time"
+      aria-describedby="appointment-time-label appointment-time-hint"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+  </div>
+</div>
+
+<button
+  type="submit"
+  class="usa-button margin-top-2"
+  {% if disabled_state == 'disabled' %} disabled
+  {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  >Submit button</button>
+
+<button
+  type="submit"
+  class="usa-button usa-button--outline margin-top-2"
+  {% if disabled_state == 'disabled' %} disabled
+  {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+  >Submit button - outline</button>

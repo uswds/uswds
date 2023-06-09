@@ -71,9 +71,12 @@ Derive a color from a color shortcode
 
 // @debug color("orange-80v");
 // @return #352313;
+
 // @debug color("primary-dark");
 // @return #1a4480;
+
 // @debug color("primary-lightest");
 // @return error: set to false;
+
 // @debug color(#f00);
 // @return error: not a valid token;

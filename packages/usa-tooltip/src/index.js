@@ -315,10 +315,14 @@ const setUpAttributes = (tooltipTrigger) => {
   const tooltipContent = tooltipTrigger.getAttribute("title");
   const wrapper = document.createElement("span");
   const tooltipBody = document.createElement("span");
-  const position = tooltipTrigger.getAttribute("data-position")
-    ? tooltipTrigger.getAttribute("data-position")
-    : "top";
   const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+  let position = tooltipTrigger.getAttribute("data-position");
+
+  // Apply default position if not set as attribute
+  if (!position) {
+    position = "top";
+    tooltipTrigger.setAttribute("data-position", position);
+  }
 
   // Set up tooltip attributes
   tooltipTrigger.setAttribute("aria-describedby", tooltipID);

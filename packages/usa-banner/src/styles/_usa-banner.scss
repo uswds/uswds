@@ -52,6 +52,9 @@ $banner-icon-close: (
     @include typeset($theme-banner-font-family);
   }
 
+  // ! Stylelint will complain about BEM formatting.
+  // Added grid classes in #5000 to remove layout grid dependency.
+  // stylelint-disable selector-class-pattern
   .grid-row {
     @include grid-row;
 
@@ -60,11 +63,12 @@ $banner-icon-close: (
     }
 
     .tablet\:grid-col-6 {
-      @include at-media("tablet"){
+      @include at-media("tablet") {
         @include grid-col(6);
       }
     }
   }
+  // stylelint-enable
 }
 
 .usa-banner__header,
@@ -277,13 +281,22 @@ $banner-icon-close: (
     }
   }
 
-  &[aria-expanded="false"] {
+  // Remove icon set from usa-accordion.
+  // Also removed in _usa-nav.scss.
+  &[aria-expanded="false"],
+  &[aria-expanded="false"]:hover,
+  &[aria-expanded="true"],
+  &[aria-expanded="true"]:hover {
     background-image: none;
+
+    @media (forced-colors: active) {
+      &::before {
+        content: none;
+      }
+    }
   }
 
   &[aria-expanded="true"] {
-    background-image: none;
-
     @include at-media-max("tablet") {
       @include place-icon(
         $banner-icon-close,
