@@ -82,6 +82,9 @@ $uswds-notifications:
 + "\A   \"Accessibility statement\" (EN) / \"Declaración de "
 + "\A   accesibilidad\" (ES) for the required link to an accessibility "
 + "\A   statement."
++ "\A - Links: We now suggest using the `rel=\"noreferrer\"` property"
++ "\A   on external links. This prevents the browser from leaking "
++ "\A   information about the original web address."
 + "\A ";
 
 /* prettier-ignore */
