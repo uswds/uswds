@@ -9,7 +9,7 @@
   <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-focus" style="font-weight:{{fontWeight}}">Focus</button>
   <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}" disabled>Disabled</button>
   <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}" aria-disabled="true">aria-disabled</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} style="font-weight:{{fontWeight}}" usa-button--unstyled">Unstyled button</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-button--unstyled" style="font-weight:{{fontWeight}}">Unstyled button</button>
 {% else %}
   <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}">{{ text }}</button>
   {% if is_demo and 'usa-button--big' in modifier %}
