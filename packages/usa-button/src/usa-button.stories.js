@@ -31,6 +31,16 @@ export default {
       options: ["button", "reset", "submit"],
       control: { type: "radio" },
     },
+    margin: {
+      name: "margin",
+      type: "string",
+      defaultValue: "0",
+    },
+    fontWeight: {
+      name: "font-weight",
+      type: "number",
+      defaultValue: 500,
+    },
   },
 };
 
