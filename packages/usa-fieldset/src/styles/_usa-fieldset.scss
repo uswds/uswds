@@ -3,6 +3,7 @@
 .usa-fieldset {
   @extend %block-input-general;
   border: none;
+  display: contents;
   margin: 0;
   padding: 0;
 }
