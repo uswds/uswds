@@ -169,7 +169,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
 .usa-pagination__overflow {
   align-items: center;
   align-self: stretch;
-  color: color("gray-50");
   display: inherit;
   user-select: none;
   padding: units($pagination-margin-padding);
