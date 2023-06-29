@@ -29,7 +29,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
 .usa-pagination {
   @include u-margin-y($pagination-margin-y);
   @include typeset($theme-pagination-font-family);
-  @include set-text-and-bg (
+  @include set-text-and-bg(
     $theme-pagination-background-color,
     $context: $pagination-context
   );
