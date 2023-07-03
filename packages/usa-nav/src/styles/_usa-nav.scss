@@ -209,10 +209,22 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded="false"] {
-      /* stylelint-disable-line selector-no-qualifying-type */
+    // Remove icon set from usa-accordion.
+    // Also removed in _usa-banner.scss.
+    &[aria-expanded="false"],
+    &[aria-expanded="false"]:hover,
+    &[aria-expanded="true"],
+    &[aria-expanded="true"]:hover {
       background-image: none;
 
+      @media (forced-colors: active) {
+        &::before {
+          content: none;
+        }
+      }
+    }
+
+    &[aria-expanded="false"] {
       span {
         @include place-icon($-add-icon, "after");
 
@@ -250,14 +262,13 @@ $expand-less-icon: map-merge(
     }
 
     &[aria-expanded="true"] {
-      /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: none;
-
       span {
         @include place-icon($-remove-icon, "after");
+
         &::after {
           position: absolute;
           right: 0;
+
           @media (forced-colors: active) {
             background-color: ButtonText;
           }
