@@ -35,7 +35,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;

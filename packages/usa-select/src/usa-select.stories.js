@@ -1,5 +1,5 @@
 import Component from "./usa-select.twig";
-import MultipleTest from "./test/test-patterns/usa-select--multiple.twig"
+import MultipleTest from "./test/test-patterns/usa-select--multiple.twig";
 
 export default {
   title: "Components/Form Inputs/Select",
