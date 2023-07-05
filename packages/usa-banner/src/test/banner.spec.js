@@ -1,6 +1,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const banner = require("../index");
+const accordion = require("../../../usa-accordion/src/index");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = "aria-expanded";
@@ -26,10 +27,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       button = body.querySelector(".usa-banner__button");
       content = body.querySelector(".usa-banner__content");
       banner.on(containerSelector());
+      accordion.on(containerSelector());
     });
 
     afterEach(() => {
       banner.off(containerSelector());
+      accordion.off(containerSelector());
       body.innerHTML = "";
     });
 
