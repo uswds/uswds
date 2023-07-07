@@ -17,8 +17,8 @@ $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 
 // Get fixed size for icon, based on non-normalized size token
 $this-system-token: if(
-  map.has-key($project-type-scale, $theme-body-font-size),
-  map.get($project-type-scale, $theme-body-font-size),
+  map.has-key($all-type-scale, $theme-body-font-size),
+  map.get($all-type-scale, $theme-body-font-size),
   $theme-body-font-size
 );
 
@@ -102,7 +102,7 @@ $icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
   }
 
   @include at-media($mq-key) {
-    @each $token, $val in $project-type-scale {
+    @each $token, $val in $all-type-scale {
       @if $prefix {
         $this-type-scale: font-size($theme-icon-list-font-family, $token);
         .#{$prefix}usa-icon-list--size-#{$token} {
