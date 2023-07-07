@@ -24,7 +24,6 @@ $this-system-token: if(
 
 $icon-size: px-to-rem($this-system-token);
 
-
 @include override-prose {
   .usa-icon-list {
     @include typeset($theme-icon-list-font-family, $theme-body-font-size);
