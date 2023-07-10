@@ -224,8 +224,6 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
     targetWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
   }
 
-  console.log(targetWrapper);
-
   // Add aria-controls
   const modalClosers = targetWrapper.querySelectorAll(CLOSERS);
   modalClosers.forEach((el) => {
