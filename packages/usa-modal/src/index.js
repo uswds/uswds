@@ -209,14 +209,8 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   // Set attributes
   targetWrapper.setAttribute("role", "dialog");
   targetWrapper.setAttribute("id", modalID);
-
-  if (ariaLabelledBy) {
-    targetWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
-  }
-
-  if (ariaDescribedBy) {
-    targetWrapper.setAttribute("aria-describedby", ariaDescribedBy);
-  }
+  targetWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
+  targetWrapper.setAttribute("aria-describedby", ariaDescribedBy);
 
   if (forceUserAction) {
     targetWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
