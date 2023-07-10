@@ -197,7 +197,7 @@ const createPlaceHolder = (baseComponent) => {
 
 /**
  * Move necessary attributes from Modal HTML to wrapper element
- * 
+ *
  * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
  * @param {HTMLDivElement} targetWrapper - Modal component wrapper element
  * @returns Wrapper with attributes
@@ -243,7 +243,7 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
 
 /**
  * Takes in Modal HTML and builds component w/ correct structure
- * 
+ *
  * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
  * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content
  */
@@ -293,7 +293,7 @@ const setUpModal = (baseComponent) => {
 
 /**
  * Removes dynamically created Modal and Wrapper elements.
- * 
+ *
  * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
  */
 const cleanUpModal = (baseComponent) => {
