@@ -236,7 +236,6 @@ const rebuildModal = (baseComponent) => {
   const modalWrapper = document.createElement("div");
   const overlayDiv = document.createElement("div");
 
-  // ? Seperate wrapper and modal?
   // Rebuild the modal element
   modalContent.parentNode.insertBefore(modalWrapper, modalContent);
   modalWrapper.appendChild(modalContent);
