@@ -38,7 +38,7 @@ const TEMPORARY_PADDING = `${
 }px`;
 
 /**
- *  Is bound to escape key, closes modal when
+ *  Is bound to escape key, closes modal when pressed
  */
 const onMenuClose = () => {
   modal.toggleModal.call(modal, false);
@@ -171,9 +171,10 @@ function toggleModal(event) {
 }
 
 /**
+ * Create placeholder with data attributes for cleanup function.
  *
- * @param {HTMLElement} baseComponent - Modal HTML from the DOM
- * @returns {HTMLElement} Placeholder to append modal content to
+ * @param {HTMLDivElement} baseComponent - Modal HTML from the DOM.
+ * @returns {HTMLDivElement} Placeholder used for cleanup function
  */
 const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
@@ -194,6 +195,13 @@ const createPlaceHolder = (baseComponent) => {
   return originalLocationPlaceHolder;
 };
 
+/**
+ * Move necessary attributes from Modal HTML to wrapper element
+ * 
+ * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
+ * @param {HTMLDivElement} targetWrapper - Modal component wrapper element
+ * @returns Wrapper with attributes
+ */
 const setModalAttributes = (baseComponent, targetWrapper) => {
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
@@ -231,6 +239,12 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   return targetWrapper;
 };
 
+/**
+ * Takes in Modal HTML and builds component w/ correct structure
+ * 
+ * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
+ * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content
+ */
 const rebuildModal = (baseComponent) => {
   const modalContent = baseComponent;
   const modalWrapper = document.createElement("div");
@@ -243,8 +257,7 @@ const rebuildModal = (baseComponent) => {
   overlayDiv.appendChild(modalContent);
 
   // Add classes
-  modalWrapper.classList.add(HIDDEN_CLASS);
-  modalWrapper.classList.add(WRAPPER_CLASSNAME);
+  modalWrapper.classList.add(HIDDEN_CLASS, WRAPPER_CLASSNAME);
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
 
   // Add attributes
@@ -254,15 +267,15 @@ const rebuildModal = (baseComponent) => {
 };
 
 /**
- *  Builds modal window from base HTML
+ *  Builds modal window from base HTML and appends to the end of the DOM
  *
- * @param {HTMLElement} baseComponent the modal html in the DOM
+ * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
  */
 const setUpModal = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
 
   if (!modalID) {
-    throw new Error(`Modal markdown is missing ID`);
+    throw new Error(`Modal markup is missing ID`);
   }
 
   // Create placeholder where modal is for cleanup
@@ -278,6 +291,11 @@ const setUpModal = (baseComponent) => {
   document.body.appendChild(modalComponent);
 };
 
+/**
+ * Removes dynamically created Modal and Wrapper elements.
+ * 
+ * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
+ */
 const cleanUpModal = (baseComponent) => {
   const modalContent = baseComponent;
   const modalWrapper = modalContent.parentElement.parentElement;
