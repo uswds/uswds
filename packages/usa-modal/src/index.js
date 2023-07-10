@@ -224,6 +224,8 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
     targetWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
   }
 
+  console.log(targetWrapper);
+
   // Add aria-controls
   const modalClosers = targetWrapper.querySelectorAll(CLOSERS);
   modalClosers.forEach((el) => {
@@ -250,15 +252,13 @@ const rebuildModal = (baseComponent) => {
   const modalWrapper = document.createElement("div");
   const overlayDiv = document.createElement("div");
 
-  // Rebuild the modal element
-  modalContent.parentNode.insertBefore(modalWrapper, modalContent);
-  modalWrapper.appendChild(modalContent);
-  modalContent.parentNode.insertBefore(overlayDiv, modalContent);
-  overlayDiv.appendChild(modalContent);
-
   // Add classes
   modalWrapper.classList.add(HIDDEN_CLASS, WRAPPER_CLASSNAME);
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
+
+  // Rebuild the modal element
+  modalWrapper.append(overlayDiv);
+  overlayDiv.append(modalContent);
 
   // Add attributes
   setModalAttributes(modalContent, modalWrapper);
