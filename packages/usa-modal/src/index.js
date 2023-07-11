@@ -38,7 +38,7 @@ const TEMPORARY_PADDING = `${
 }px`;
 
 /**
- *  Closes modal when bound to a button and pressed. 
+ *  Closes modal when bound to a button and pressed.
  */
 const onMenuClose = () => {
   modal.toggleModal.call(modal, false);
