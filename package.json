@@ -111,7 +111,7 @@
     "resolve-id-refs": "0.1.0"
   },
   "devDependencies": {
-    "@18f/identity-stylelint-config": "1.0.0",
+    "@18f/identity-stylelint-config": "^2.0.0",
     "@babel/core": "7.16.7",
     "@babel/preset-env": "7.16.7",
     "@chanzuckerberg/axe-storybook-testing": "6.3.0",
@@ -161,7 +161,7 @@
     "mq-polyfill": "1.1.8",
     "normalize.css": "8.0.1",
     "path": "0.12.7",
-    "postcss": "8.4.0",
+    "postcss": "^8.4.19",
     "postcss-csso": "6.0.0",
     "postcss-discard-comments": "5.0.1",
     "postcss-loader": "6.1.1",
