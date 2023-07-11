@@ -38,14 +38,14 @@ const TEMPORARY_PADDING = `${
 }px`;
 
 /**
- *  Is bound to escape key, closes modal when pressed
+ *  Closes modal when bound to a button and pressed. 
  */
 const onMenuClose = () => {
   modal.toggleModal.call(modal, false);
 };
 
 /**
- *  Toggle the visibility of a modal window
+ *  Toggle the visibility of a modal window.
  *
  * @param {KeyboardEvent} event the keydown event
  * @returns {boolean} safeActive if mobile is open
@@ -171,10 +171,10 @@ function toggleModal(event) {
 }
 
 /**
- * Create placeholder with data attributes for cleanup function.
+ * Creates a placeholder with data attributes for cleanup function.
  *
  * @param {HTMLDivElement} baseComponent - Modal HTML from the DOM.
- * @returns {HTMLDivElement} Placeholder used for cleanup function
+ * @returns {HTMLDivElement} Placeholder used for cleanup function.
  */
 const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
@@ -196,11 +196,11 @@ const createPlaceHolder = (baseComponent) => {
 };
 
 /**
- * Move necessary attributes from Modal HTML to wrapper element
+ * Moves necessary attributes from Modal HTML to wrapper element.
  *
- * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
- * @param {HTMLDivElement} targetWrapper - Modal component wrapper element
- * @returns Wrapper with attributes
+ * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM.
+ * @param {HTMLDivElement} targetWrapper - Modal component wrapper element.
+ * @returns Modal wrapper with correct attributes.
  */
 const setModalAttributes = (baseComponent, targetWrapper) => {
   const modalID = baseComponent.getAttribute("id");
@@ -240,10 +240,10 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
 };
 
 /**
- * Takes in Modal HTML and builds component w/ correct structure
+ * Takes in Modal HTML and builds component w/ correct structure.
  *
- * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM
- * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content
+ * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM.
+ * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content.
  */
 const rebuildModal = (baseComponent) => {
   const modalContent = baseComponent;
@@ -265,7 +265,7 @@ const rebuildModal = (baseComponent) => {
 };
 
 /**
- *  Builds modal window from base HTML and appends to the end of the DOM
+ *  Builds modal window from base HTML and appends to the end of the DOM.
  *
  * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
  */
