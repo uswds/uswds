@@ -580,8 +580,10 @@ const listToGridHtml = (htmlArray, rowSize) => {
     row = [];
 
     const tr = document.createElement("tr");
+    tr.setAttribute("role", "row");
     while (i < htmlArray.length && row.length < rowSize) {
       const td = document.createElement("td");
+      td.setAttribute("role", "gridcell");
       td.insertAdjacentElement("beforeend", htmlArray[i]);
       row.push(td);
       i += 1;
@@ -1118,7 +1120,7 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "presentation");
+  table.setAttribute("role", "grid");
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
@@ -1138,7 +1140,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   Object.keys(daysOfWeek).forEach((key) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
-    th.setAttribute("scope", "presentation");
+    th.setAttribute("scope", "col");
     th.setAttribute("aria-label", key);
     th.textContent = daysOfWeek[key];
     tableHeadRow.insertAdjacentElement("beforeend", th);
@@ -1388,7 +1390,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "presentation");
+  table.setAttribute("role", "grid");
 
   const monthsGrid = listToGridHtml(months, 3);
   const tableBody = createTableBody(monthsGrid);
