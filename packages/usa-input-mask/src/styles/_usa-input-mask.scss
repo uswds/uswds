@@ -16,6 +16,10 @@
 
   i {
     visibility: hidden;
+
+    @media (forced-colors: active) {
+      visibility: visible;
+    }
   }
 
   @media (forced-colors: active) {
