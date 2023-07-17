@@ -1120,7 +1120,7 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "grid");
+  // table.setAttribute("role", "grid");
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
@@ -1390,7 +1390,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "grid");
+  // table.setAttribute("role", "grid");
 
   const monthsGrid = listToGridHtml(months, 3);
   const tableBody = createTableBody(monthsGrid);
