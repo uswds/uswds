@@ -47,7 +47,7 @@ const setActive = (el) => {
  * @return {HTMLElement[]} - An array of DOM nodes
  */
 const getSectionHeadings = (el) => {
-  const mainContent = el.dataset.mainSelector || MAIN_ELEMENT;
+  const mainContent = el.dataset.mainContentSelector || MAIN_ELEMENT;
   const sectionHeadings = document.querySelectorAll(
     `${mainContent} h2, ${mainContent} h3`
   );
