@@ -46,9 +46,10 @@ const setActive = (el) => {
  *
  * @return {HTMLElement[]} - An array of DOM nodes
  */
-const getSectionHeadings = () => {
+const getSectionHeadings = (el) => {
+  const mainContent = el.dataset.mainSelector || MAIN_ELEMENT;
   const sectionHeadings = document.querySelectorAll(
-    `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
+    `${mainContent} h2, ${mainContent} h3`
   );
   return sectionHeadings;
 };
@@ -175,7 +176,7 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings();
+  const sectionHeadings = getSectionHeadings(inPageNavEl);
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
