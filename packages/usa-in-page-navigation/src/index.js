@@ -42,16 +42,29 @@ const setActive = (el) => {
 };
 
 /**
- * Return a node list of section headings
+ * Return an array of the visible section headings in the main content region
  *
- * @return {HTMLElement[]} - An array of DOM nodes
+ * @return {HTMLElement[]} - An array of visible section headings
  */
 const getSectionHeadings = (el) => {
   const mainContent = el.dataset.mainContentSelector || MAIN_ELEMENT;
   const sectionHeadings = document.querySelectorAll(
     `${mainContent} h2, ${mainContent} h3`
   );
-  return sectionHeadings;
+
+  // Convert nodeList to an array
+  const headingArray = Array.from(sectionHeadings);
+
+  // Find all headings with hidden styling and remove them from the array
+  const visibleHeadingArray = headingArray.filter(heading => {
+    const headingStyle = window.getComputedStyle(heading);
+    const visibleHeading = headingStyle.getPropertyValue("display") !== "none" &&
+          headingStyle.getPropertyValue("visibility") !== "hidden";
+
+    return visibleHeading;
+  });
+
+  return visibleHeadingArray;
 };
 
 /**
