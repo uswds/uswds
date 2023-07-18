@@ -44,22 +44,23 @@ const setActive = (el) => {
 /**
  * Return an array of the visible section headings in the main content region
  *
- * @return {HTMLElement[]} - An array of visible section headings
+ * @return {Array} - An array of visible section headings
  */
 const getSectionHeadings = (el) => {
+  // Collect all h2 and h3 headings from the main content region in a nodeList
   const mainContent = el.dataset.mainContentSelector || MAIN_ELEMENT;
   const sectionHeadings = document.querySelectorAll(
     `${mainContent} h2, ${mainContent} h3`
   );
-
-  // Convert nodeList to an array
+  // Convert nodeList to an array to allow for filtering
   const headingArray = Array.from(sectionHeadings);
 
   // Find all headings with hidden styling and remove them from the array
-  const visibleHeadingArray = headingArray.filter(heading => {
+  const visibleHeadingArray = headingArray.filter((heading) => {
     const headingStyle = window.getComputedStyle(heading);
-    const visibleHeading = headingStyle.getPropertyValue("display") !== "none" &&
-          headingStyle.getPropertyValue("visibility") !== "hidden";
+    const visibleHeading =
+      headingStyle.getPropertyValue("display") !== "none" &&
+      headingStyle.getPropertyValue("visibility") !== "hidden";
 
     return visibleHeading;
   });
