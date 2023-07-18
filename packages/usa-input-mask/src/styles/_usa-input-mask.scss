@@ -18,6 +18,7 @@
     visibility: hidden;
 
     @media (forced-colors: active) {
+      font-style: normal;
       visibility: visible;
     }
   }
