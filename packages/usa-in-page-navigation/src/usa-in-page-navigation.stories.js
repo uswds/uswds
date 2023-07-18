@@ -20,5 +20,5 @@ Default.args = Content;
 export const TestCustomContentSelector = Template.bind();
 TestCustomContentSelector.args = {
   ...Content,
-  mainContentSelector: true
-}
+  mainContentSelector: true,
+};
