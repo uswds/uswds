@@ -14,15 +14,15 @@ export default {
 };
 
 const Template = (args) => Component(args);
-const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent (args);
+const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
 Default.argTypes = {
   customContentSelector: {
     table: { disable: true },
-  }
-}
+  },
+};
 
 export const TestCustomContentSelectorOn = TestHiddenHeaderTemplate.bind();
 TestCustomContentSelectorOn.args = {
