@@ -1,0 +1,58 @@
+{% macro inpagenav(items, base_class) %}
+
+  {% set list_item_class = 'usa-in-page-nav__item' %}
+  {% set current_class = 'usa-current' %}
+
+  <aside class="usa-in-page-nav"
+    data-title-text="On this page"
+    data-title-heading-level="h4"
+    data-scroll-offset="0"
+    data-root-margin="0px 0px 0px 0px"
+    data-threshold="1"
+    {% if customContentSelector %}
+      data-main-content-selector=".main-content"
+    {% endif %}
+  ></aside>
+
+  <main class="usa-prose">
+    <div
+        class="usa-summary-box"
+        role="region"
+        aria-labelledby="summary-box-key-information"
+    >
+    <div class="usa-summary-box__body">
+        <h1 class="usa-summary-box__heading" id="summary-box-key-information">
+        Test data-main-content-selector
+        </h1>
+        <div class="usa-summary-box__text">
+        <p>Test if <code>data-main-content-selector</code> pulls headers from only the <code>.main-content</code> region.</p>
+        <p>When <code>data-main-content-selector</code> is turned on, you should see the following links in the in-page nav link list:
+        <ul class="usa-list">
+            <li>"This heading should be included whether custom content selector is used or not"</li>
+        </ul>
+        <p>If <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
+        <ul>
+            <li>"This heading should be excluded if custom content selector is used" </li>
+            <li>"This heading should be included whether custom content selector is used or not" </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class="main-content usa-prose">
+        <h2>This heading should be included both when custom content selector is on and off</h2>
+        <p> This happens because this header exists inside the class defined in <code>data-main-content-selector</code>.</p>
+    </div>
+
+    <!-- This header exists outside of the class defined in data-main-content-selector -->
+    <h2>This heading should be included only if custom content selector is off</h2>
+    <p> This happens because this header exists outside of the class defined in <code>data-main-content-selector</code>.</p>
+  </main>
+
+{% endmacro %}
+
+{% import _self as inpagenav %}
+
+<div class="usa-in-page-nav-container">
+  {{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
+</div>
