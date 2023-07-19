@@ -1,5 +1,5 @@
 import Component from "./usa-in-page-navigation.twig";
-import TestHiddenHeaderComponent from "./test/test-pattern/test-custom-content-selector.twig";
+import TestCustomContentComponent from "./test/test-pattern/test-custom-content-selector.twig";
 import Content from "./usa-in-page-navigation.json";
 
 export default {
@@ -14,7 +14,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
-const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent(args);
+const TestCustomContentTemplate = (args) => TestCustomContentComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
@@ -24,12 +24,12 @@ Default.argTypes = {
   },
 };
 
-export const TestCustomContentSelectorOn = TestHiddenHeaderTemplate.bind();
+export const TestCustomContentSelectorOn = TestCustomContentTemplate.bind();
 TestCustomContentSelectorOn.args = {
   customContentSelector: true,
 };
 
-export const TestCustomContentSelectorOff = TestHiddenHeaderTemplate.bind();
+export const TestCustomContentSelectorOff = TestCustomContentTemplate.bind();
 TestCustomContentSelectorOff.args = {
   customContentSelector: false,
 };
