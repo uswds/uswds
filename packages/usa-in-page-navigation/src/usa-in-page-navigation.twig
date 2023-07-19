@@ -9,37 +9,23 @@
     data-scroll-offset="0"
     data-root-margin="0px 0px 0px 0px"
     data-threshold="1"
-    {% if mainContentSelector %}
-      data-main-content-selector=".main-content"
-    {% endif %}
   ></aside>
 
-  <main class="usa-prose">
-    <div class="main-content">
-      {% if heading %}
-        <h1>{{ heading }}</h1>
-      {% endif %}
+  <main id="main-content" class="main-content usa-prose">
+    {% if heading %}
+      <h1>{{ heading }}</h1>
+    {% endif %}
 
-      {% if items %}
-        {% for item in items %}
-          {% if item.is_subheading %}
-            <h3>{{ item.section_heading }}</h3>
-          {% else %}
-            <h2>{{ item.section_heading }}</h2>
-          {% endif %}
-          {{ item.content }}
-        {% endfor %}
-      {% endif %}
-    </div>
-
-    <!-- This header exists outside of the class defined in data-main-content-selector -->
-    <h2>This heading should be excluded if custom content selector is used</h2>
-
-    <!-- Test multiple main-content regions -->
-    <div class="main-content">
-      <!-- This header exists inside the class defined in data-main-content-selector -->
-      <h2>This heading should be included whether custom content selector is used or not</h2>
-    </div>
+    {% if items %}
+      {% for item in items %}
+        {% if item.is_subheading %}
+          <h3>{{ item.section_heading }}</h3>
+        {% else %}
+          <h2>{{ item.section_heading }}</h2>
+        {% endif %}
+        {{ item.content }}
+      {% endfor %}
+    {% endif %}
   </main>
 
 {% endmacro %}
