@@ -8,7 +8,6 @@ export default {
     customContentSelector: {
       name: "Add data-main-content-selector",
       defaultValue: false,
-      table: { disable: true },
       type: "boolean",
     },
   },
@@ -19,15 +18,18 @@ const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent (args);
 
 export const Default = Template.bind({});
 Default.args = Content;
+Default.argTypes = {
+  customContentSelector: {
+    table: { disable: true },
+  }
+}
 
 export const TestCustomContentSelectorOn = TestHiddenHeaderTemplate.bind();
-TestCustomContentSelectorOn.argTypes = {
-  defaultValue: true,
-  table: { disable: false },
+TestCustomContentSelectorOn.args = {
+  customContentSelector: true,
 };
 
 export const TestCustomContentSelectorOff = TestHiddenHeaderTemplate.bind();
-TestCustomContentSelectorOff.argTypes = {
-  defaultValue: true,
-  table: { disable: false },
+TestCustomContentSelectorOff.args = {
+  customContentSelector: false,
 };
