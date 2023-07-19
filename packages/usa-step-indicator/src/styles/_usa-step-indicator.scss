@@ -17,8 +17,6 @@ $step-indicator-counter-size-sm: 3;
     2
   );
   background-color: color($step-indicator-background-color);
-  display: flex;
-  flex-direction: column-reverse;
   margin-bottom: units($step-indicator-margin-bottom);
   margin-left: math.div(units($theme-step-indicator-segment-gap), -2);
   margin-right: math.div(units($theme-step-indicator-segment-gap), -2);
