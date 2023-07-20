@@ -27,16 +27,16 @@
             <div class="usa-summary-box__text">
             <p>Test if <code>data-main-content-selector</code> pulls headers from only the <code>.main-content</code> region.</p>
             <ol>
-                <li>When <code>data-main-content-selector</code> is turned on, you should see the following links in the in-page nav link list:
+                <li>When <code>data-main-content-selector</code> is turned on, you should see this link in the in-page nav link list:
                   <ul class="usa-list">
-                      <li>"This heading should be included whether custom content selector is used or not"</li>
+                      <li>"This heading should be included in both scenarios"</li>
                   </ul>
                   <p>This happens because the other header is outside of the region designated in <code>data-main-content-selector</code>.</p>
                 </li>
-                <li>Then <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
+                <li>When <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
                   <ul>
-                      <li>"This heading should be excluded if custom content selector is used" </li>
-                      <li>"This heading should be included whether custom content selector is used or not" </li>
+                      <li>"This heading should be included in both scenarios" </li>
+                      <li>"This heading should be included only if custom content selector is off" </li>
                   </ul>
                   <p>This happens because the component is pulling all headers inside of the default <code>&lt;main&gt;</code> element.</p>
                 </li>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="main-content usa-prose">
-        <h2>This heading should be included both when custom content selector is on and off</h2>
+        <h2>This heading should be included in both scenarios</h2>
         <p> This happens because this header exists inside the class defined in <code>data-main-content-selector</code>.</p>
     </div>
 
