@@ -11,6 +11,11 @@ import {
   UnstyledContent,
 } from "./content";
 
+import { icons } from "../../usa-icon/src/usa-icon.json";
+
+const iconItems = icons.items;
+const iconNames = iconItems.map((item) => item.name);
+
 export default {
   title: "Components/Button",
   argTypes: {
@@ -31,6 +36,19 @@ export default {
       options: ["button", "reset", "submit"],
       control: { type: "radio" },
     },
+    icon_included: {
+      name: "Icon included",
+      defaultValue: false,
+      type: "boolean",
+    },
+    icon_name: {
+      control: {
+        type: "select",
+        options: iconNames,
+        defaultValue: "add_circle_outline",
+      },
+      if: { arg: "icon_included" },
+    },
   },
 };
 
@@ -50,6 +68,13 @@ Base.args = BaseContent;
 
 export const Big = Template.bind({});
 Big.args = BigContent;
+
+export const Icon = Template.bind({});
+Icon.args = {
+  ...DefaultContent,
+  icon_included: true,
+  icon_name: "add_circle_outline",
+};
 
 export const Outline = Template.bind({});
 Outline.args = OutlineContent;

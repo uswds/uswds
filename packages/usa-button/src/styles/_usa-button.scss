@@ -52,6 +52,13 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     @include button-disabled;
   }
 
+  // @TODO: Use `:has()` selector once browser support improves.
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility
+  .usa-icon {
+    margin-top: -0.1em; // Similar pattern to _usa-breadcrumb.scss:14.
+    vertical-align: middle;
+  }
+
   @media (forced-colors: active) {
     &:not(.usa-button--unstyled) {
       border: $border-high-contrast;
