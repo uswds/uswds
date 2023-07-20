@@ -25,16 +25,21 @@
                 Test data-main-content-selector
             </h1>
             <div class="usa-summary-box__text">
-                <p>Test if <code>data-main-content-selector</code> pulls headers from only the <code>.main-content</code> region.</p>
-                <p>When <code>data-main-content-selector</code> is turned on, you should see the following links in the in-page nav link list:
-                <ul class="usa-list">
-                    <li>"This heading should be included whether custom content selector is used or not"</li>
-                </ul>
-                <p>If <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
-                <ul>
-                    <li>"This heading should be excluded if custom content selector is used" </li>
-                    <li>"This heading should be included whether custom content selector is used or not" </li>
-                </ul>
+            <p>Test if <code>data-main-content-selector</code> pulls headers from only the <code>.main-content</code> region.</p>
+            <ol>
+                <li>When <code>data-main-content-selector</code> is turned on, you should see the following links in the in-page nav link list:
+                  <ul class="usa-list">
+                      <li>"This heading should be included whether custom content selector is used or not"</li>
+                  </ul>
+                  <p>This happens because the other header is outside of the region designated in <code>data-main-content-selector</code>.</p>
+                </li>
+                <li>Then <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
+                  <ul>
+                      <li>"This heading should be excluded if custom content selector is used" </li>
+                      <li>"This heading should be included whether custom content selector is used or not" </li>
+                  </ul>
+                  <p>This happens because the component is pulling all headers inside of the default <code>&lt;main&gt;</code> element.</p>
+                </li>
             </div>
         </div>
     </div>
