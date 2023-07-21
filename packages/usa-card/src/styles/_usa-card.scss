@@ -183,12 +183,14 @@
 // ---------------------------------
 
 // Exdent
+.usa-card__header--exdent,
 .usa-card__media--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
   margin-inline: units($theme-card-border-width) * -1;
 }
 
+.usa-card__header--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
   > * {
@@ -210,6 +212,11 @@
   .usa-card__header {
     @include card-inner-radius;
     @include u-padding-bottom($theme-card-padding-y);
+  }
+
+  .usa-card__header--exdent {
+    @include u-radius-top($theme-card-border-radius);
+    margin-top: units($theme-card-border-width) * -1;
   }
 
   .usa-card__media--inset {
