@@ -187,7 +187,7 @@
 .usa-card__media--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
-  @include u-margin-x(units($theme-card-border-width) * -1);
+  margin-inline: units($theme-card-border-width) * -1;
 }
 
 .usa-card__header--exdent,
@@ -199,7 +199,7 @@
 }
 
 .usa-card__media--exdent {
-  @include u-margin-x(units($theme-card-border-width) * -1);
+  margin-top: units(-$theme-card-border-width);
 
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
@@ -268,9 +268,7 @@
     }
 
     .usa-card__media--exdent {
-      @include u-margin-left(units($theme-card-border-width) * -1);
-      @include u-margin-right(0);
-      @include u-margin-y(units($theme-card-border-width) * -1);
+      margin: units($theme-card-border-width) * -1;
 
       .usa-card__img {
         @include u-radius-left($theme-card-border-radius);
@@ -336,14 +334,9 @@
         @include u-margin-right($theme-card-flag-image-width);
       }
 
-      .usa-card__media--exdent {
-        @include u-margin-right(units($theme-card-border-width) * -1);
-        @include u-margin-left(0);
-
-        .usa-card__img {
-          @include u-radius(0);
-          @include u-radius-right($theme-card-border-radius);
-        }
+      .usa-card__img {
+        @include u-radius(0);
+        @include u-radius-right($theme-card-border-radius);
       }
     }
   }
