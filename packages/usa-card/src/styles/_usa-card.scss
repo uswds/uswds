@@ -197,7 +197,7 @@
 }
 
 .usa-card__media--exdent {
-  margin-top: units(-$theme-card-border-width);
+  margin-top: units($theme-card-border-width) * -1;
 
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
