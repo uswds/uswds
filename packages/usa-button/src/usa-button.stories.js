@@ -42,6 +42,7 @@ export default {
       type: "boolean",
     },
     icon_name: {
+      name: "Icon name",
       control: {
         type: "select",
         options: iconNames,
