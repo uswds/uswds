@@ -615,7 +615,7 @@ const listToGridHtmlFlex = (htmlArray, rowSize) => {
     const tr = document.createElement("div");
     while (i < htmlArray.length && row.length < rowSize) {
       const td = document.createElement("div");
-      td.classList.add("grid-col")
+      td.classList.add("grid-col");
       td.insertAdjacentElement("beforeend", htmlArray[i]);
       row.push(td);
       i += 1;
@@ -1174,7 +1174,7 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   Object.keys(daysOfWeek).forEach((key) => {
     const th = document.createElement("span");
-    th.classList.add(CALENDAR_DAY_OF_WEEK_CLASS, "grid-col")
+    th.classList.add(CALENDAR_DAY_OF_WEEK_CLASS, "grid-col");
     th.setAttribute("scope", "presentation");
     th.setAttribute("aria-label", key);
     th.textContent = daysOfWeek[key];
