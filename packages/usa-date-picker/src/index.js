@@ -1152,15 +1152,12 @@ const renderCalendar = (el, _dateToDisplay) => {
     `;
 
   const table = document.createElement("div");
-  // table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.classList.add(CALENDAR_TABLE_CLASS, "grid-container");
+  table.classList.add(CALENDAR_TABLE_CLASS);
   // table.setAttribute("role", "presentation");
 
   const tableHead = document.createElement("div");
   tableHead.classList.add("grid-row");
   table.insertAdjacentElement("beforeend", tableHead);
-  // const tableHeadRow = document.createElement("div");
-  // tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
   const daysOfWeek = {
     Sunday: "S",
@@ -1181,9 +1178,9 @@ const renderCalendar = (el, _dateToDisplay) => {
     tableHead.insertAdjacentElement("beforeend", th);
   });
 
-  const tableBody = createTableBody(datesGrid);
-  tableBody.classList.add("table-body", "grid-container");
-  table.insertAdjacentElement("beforeend", tableBody);
+  datesGrid.forEach(element => {
+    table.insertAdjacentElement("beforeend", element);
+  })
 
   // Container for Years, Months, and Days
   const datePickerCalendarContainer =
