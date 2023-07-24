@@ -597,8 +597,43 @@ const listToGridHtml = (htmlArray, rowSize) => {
   return grid;
 };
 
+/**
+ * Create a grid string from an array of html strings
+ *
+ * @param {string[]} htmlArray the array of html items
+ * @param {number} rowSize the length of a row
+ * @returns {string} the grid string
+ */
+const listToGridHtmlFlex = (htmlArray, rowSize) => {
+  const grid = [];
+  let row = [];
+
+  let i = 0;
+  while (i < htmlArray.length) {
+    row = [];
+
+    const tr = document.createElement("div");
+    while (i < htmlArray.length && row.length < rowSize) {
+      const td = document.createElement("div");
+      td.classList.add("grid-col")
+      td.insertAdjacentElement("beforeend", htmlArray[i]);
+      row.push(td);
+      i += 1;
+    }
+
+    row.forEach((element) => {
+      tr.classList.add("grid-row");
+      tr.insertAdjacentElement("beforeend", element);
+    });
+
+    grid.push(tr);
+  }
+
+  return grid;
+};
+
 const createTableBody = (grid) => {
-  const tableBody = document.createElement("tbody");
+  const tableBody = document.createElement("div");
   grid.forEach((element) => {
     tableBody.insertAdjacentElement("beforeend", element);
   });
@@ -884,7 +919,7 @@ const enhanceDatePicker = (el) => {
     "beforeend",
     Sanitizer.escapeHTML`
     <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar"></button>
-    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
+    <div class="${DATE_PICKER_CALENDAR_CLASS}" aria-modal="true" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
 
@@ -1061,7 +1096,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
-  const datesGrid = listToGridHtml(days, 7);
+  const datesGrid = listToGridHtmlFlex(days, 7);
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.dataset.value = currentFormattedDate;
@@ -1116,14 +1151,16 @@ const renderCalendar = (el, _dateToDisplay) => {
     </div>
     `;
 
-  const table = document.createElement("table");
-  table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "presentation");
+  const table = document.createElement("div");
+  // table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.classList.add(CALENDAR_TABLE_CLASS, "grid-container");
+  // table.setAttribute("role", "presentation");
 
-  const tableHead = document.createElement("thead");
+  const tableHead = document.createElement("div");
+  tableHead.classList.add("grid-row");
   table.insertAdjacentElement("beforeend", tableHead);
-  const tableHeadRow = document.createElement("tr");
-  tableHead.insertAdjacentElement("beforeend", tableHeadRow);
+  // const tableHeadRow = document.createElement("div");
+  // tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
   const daysOfWeek = {
     Sunday: "S",
@@ -1136,15 +1173,16 @@ const renderCalendar = (el, _dateToDisplay) => {
   };
 
   Object.keys(daysOfWeek).forEach((key) => {
-    const th = document.createElement("th");
-    th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
+    const th = document.createElement("span");
+    th.classList.add(CALENDAR_DAY_OF_WEEK_CLASS, "grid-col")
     th.setAttribute("scope", "presentation");
     th.setAttribute("aria-label", key);
     th.textContent = daysOfWeek[key];
-    tableHeadRow.insertAdjacentElement("beforeend", th);
+    tableHead.insertAdjacentElement("beforeend", th);
   });
 
   const tableBody = createTableBody(datesGrid);
+  tableBody.classList.add("table-body", "grid-container");
   table.insertAdjacentElement("beforeend", tableBody);
 
   // Container for Years, Months, and Days
@@ -1386,9 +1424,8 @@ const displayMonthSelection = (el, monthToDisplay) => {
   monthsHtml.setAttribute("tabindex", "-1");
   monthsHtml.setAttribute("class", CALENDAR_MONTH_PICKER_CLASS);
 
-  const table = document.createElement("table");
+  const table = document.createElement("div");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "presentation");
 
   const monthsGrid = listToGridHtml(months, 3);
   const tableBody = createTableBody(monthsGrid);
@@ -1500,13 +1537,12 @@ const displayYearSelection = (el, yearToDisplay) => {
   yearsCalendarWrapper.setAttribute("class", CALENDAR_YEAR_PICKER_CLASS);
 
   // create table parent
-  const yearsTableParent = document.createElement("table");
-  yearsTableParent.setAttribute("role", "presentation");
+  const yearsTableParent = document.createElement("div");
   yearsTableParent.setAttribute("class", CALENDAR_TABLE_CLASS);
 
   // create table body and table row
-  const yearsHTMLTableBody = document.createElement("tbody");
-  const yearsHTMLTableBodyRow = document.createElement("tr");
+  const yearsHTMLTableBody = document.createElement("div");
+  const yearsHTMLTableBodyRow = document.createElement("div");
 
   // create previous button
   const previousYearsBtn = document.createElement("button");
@@ -1535,9 +1571,8 @@ const displayYearSelection = (el, yearToDisplay) => {
   nextYearsBtn.innerHTML = Sanitizer.escapeHTML`&nbsp`;
 
   // create the actual years table
-  const yearsTable = document.createElement("table");
+  const yearsTable = document.createElement("div");
   yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
-  yearsTable.setAttribute("role", "presentation");
 
   // create the years child table
   const yearsGrid = listToGridHtml(years, 3);
@@ -1547,19 +1582,18 @@ const displayYearSelection = (el, yearToDisplay) => {
   yearsTable.insertAdjacentElement("beforeend", yearsTableBody);
 
   // create the prev button td and append the prev button
-  const yearsHTMLTableBodyDetailPrev = document.createElement("td");
+  const yearsHTMLTableBodyDetailPrev = document.createElement("div");
   yearsHTMLTableBodyDetailPrev.insertAdjacentElement(
     "beforeend",
     previousYearsBtn
   );
 
   // create the years td and append the years child table
-  const yearsHTMLTableBodyYearsDetail = document.createElement("td");
-  yearsHTMLTableBodyYearsDetail.setAttribute("colspan", "3");
+  const yearsHTMLTableBodyYearsDetail = document.createElement("div");
   yearsHTMLTableBodyYearsDetail.insertAdjacentElement("beforeend", yearsTable);
 
   // create the next button td and append the next button
-  const yearsHTMLTableBodyDetailNext = document.createElement("td");
+  const yearsHTMLTableBodyDetailNext = document.createElement("div");
   yearsHTMLTableBodyDetailNext.insertAdjacentElement("beforeend", nextYearsBtn);
 
   // append the three td to the years child table row
