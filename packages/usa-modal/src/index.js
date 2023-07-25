@@ -47,8 +47,8 @@ const onMenuClose = () => {
 /**
  *  Toggle the visibility of a modal window.
  *
- * @param {KeyboardEvent} event the keydown event
- * @returns {boolean} safeActive if mobile is open
+ * @param {KeyboardEvent} event the keydown event.
+ * @returns {boolean} safeActive if mobile is open.
  */
 function toggleModal(event) {
   let originalOpener;
@@ -172,6 +172,7 @@ function toggleModal(event) {
 
 /**
  * Creates a placeholder with data attributes for cleanup function.
+ * The cleanup function uses this placeholder to easily restore the original Modal HTML on teardown.
  *
  * @param {HTMLDivElement} baseComponent - Modal HTML from the DOM.
  * @returns {HTMLDivElement} Placeholder used for cleanup function.
@@ -199,10 +200,10 @@ const createPlaceHolder = (baseComponent) => {
  * Moves necessary attributes from Modal HTML to wrapper element.
  *
  * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM.
- * @param {HTMLDivElement} targetWrapper - Modal component wrapper element.
+ * @param {HTMLDivElement} modalContentWrapper - Modal component wrapper element.
  * @returns Modal wrapper with correct attributes.
  */
-const setModalAttributes = (baseComponent, targetWrapper) => {
+const setModalAttributes = (baseComponent, modalContentWrapper) => {
   const modalID = baseComponent.getAttribute("id");
   const ariaLabelledBy = baseComponent.getAttribute("aria-labelledby");
   const ariaDescribedBy = baseComponent.getAttribute("aria-describedby");
@@ -215,17 +216,17 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
     throw new Error(`${modalID} is missing aria-desribedby attribute`);
 
   // Set attributes
-  targetWrapper.setAttribute("role", "dialog");
-  targetWrapper.setAttribute("id", modalID);
-  targetWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
-  targetWrapper.setAttribute("aria-describedby", ariaDescribedBy);
+  modalContentWrapper.setAttribute("role", "dialog");
+  modalContentWrapper.setAttribute("id", modalID);
+  modalContentWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
+  modalContentWrapper.setAttribute("aria-describedby", ariaDescribedBy);
 
   if (forceUserAction) {
-    targetWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
+    modalContentWrapper.setAttribute(FORCE_ACTION_ATTRIBUTE, forceUserAction);
   }
 
   // Add aria-controls
-  const modalClosers = targetWrapper.querySelectorAll(CLOSERS);
+  const modalClosers = modalContentWrapper.querySelectorAll(CLOSERS);
   modalClosers.forEach((el) => {
     el.setAttribute("aria-controls", modalID);
   });
@@ -236,32 +237,34 @@ const setModalAttributes = (baseComponent, targetWrapper) => {
   baseComponent.removeAttribute("aria-describedby");
   baseComponent.setAttribute("tabindex", "-1");
 
-  return targetWrapper;
+  return modalContentWrapper;
 };
 
 /**
- * Takes in Modal HTML and builds component w/ correct structure.
+ * Creates a hidden modal content wrapper.
+ * Rebuilds the original Modal HTML in the new wrapper and adds a page overlay.
+ * Then moves original Modal HTML attributes to the new wrapper.
  *
- * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM.
+ * @param {HTMLDivElement} baseComponent - Original Modal HTML in the DOM.
  * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content.
  */
 const rebuildModal = (baseComponent) => {
   const modalContent = baseComponent;
-  const modalWrapper = document.createElement("div");
+  const modalContentWrapper = document.createElement("div");
   const overlayDiv = document.createElement("div");
 
   // Add classes
-  modalWrapper.classList.add(HIDDEN_CLASS, WRAPPER_CLASSNAME);
+  modalContentWrapper.classList.add(HIDDEN_CLASS, WRAPPER_CLASSNAME);
   overlayDiv.classList.add(OVERLAY_CLASSNAME);
 
   // Rebuild the modal element
-  modalWrapper.append(overlayDiv);
+  modalContentWrapper.append(overlayDiv);
   overlayDiv.append(modalContent);
 
   // Add attributes
-  setModalAttributes(modalContent, modalWrapper);
+  setModalAttributes(modalContent, modalContentWrapper);
 
-  return modalWrapper;
+  return modalContentWrapper;
 };
 
 /**
@@ -290,7 +293,7 @@ const setUpModal = (baseComponent) => {
 };
 
 /**
- * Removes dynamically created Modal and Wrapper elements.
+ * Removes dynamically created Modal and Wrapper elements and restores original Modal HTML.
  *
  * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
  */
