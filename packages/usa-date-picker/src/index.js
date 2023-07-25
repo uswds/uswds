@@ -614,10 +614,11 @@ const listToGridHtmlFlex = (htmlArray, rowSize) => {
 
     const tr = document.createElement("div");
     while (i < htmlArray.length && row.length < rowSize) {
-      const td = document.createElement("div");
-      td.classList.add("grid-col");
-      td.insertAdjacentElement("beforeend", htmlArray[i]);
-      row.push(td);
+      // * Pushing just button to row array, not nested button in div
+      // const td = document.createElement("div");
+      // td.classList.add("grid-col");
+      // td.insertAdjacentElement("beforeend", htmlArray[i]);
+      row.push(htmlArray[i]);
       i += 1;
     }
 
@@ -1065,6 +1066,8 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("type", "button");
     btn.setAttribute("tabindex", tabindex);
     btn.setAttribute("class", classes.join(" "));
+    // * Add grid col class
+    btn.classList.add("grid-col");
     btn.setAttribute("data-day", day);
     btn.setAttribute("data-month", month + 1);
     btn.setAttribute("data-year", year);
