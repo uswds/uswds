@@ -580,10 +580,8 @@ const listToGridHtml = (htmlArray, rowSize) => {
     row = [];
 
     const tr = document.createElement("tr");
-    tr.setAttribute("role", "row");
     while (i < htmlArray.length && row.length < rowSize) {
       const td = document.createElement("td");
-      td.setAttribute("role", "gridcell");
       td.insertAdjacentElement("beforeend", htmlArray[i]);
       row.push(td);
       i += 1;
@@ -886,7 +884,7 @@ const enhanceDatePicker = (el) => {
     "beforeend",
     Sanitizer.escapeHTML`
     <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar"></button>
-    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
+    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="application" aria-modal="true" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
 
@@ -1120,7 +1118,6 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "application");
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
@@ -1390,7 +1387,6 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "application");
 
   const monthsGrid = listToGridHtml(months, 3);
   const tableBody = createTableBody(monthsGrid);
@@ -1503,7 +1499,6 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   // create table parent
   const yearsTableParent = document.createElement("table");
-  yearsTableParent.setAttribute("role", "presentation");
   yearsTableParent.setAttribute("class", CALENDAR_TABLE_CLASS);
 
   // create table body and table row
