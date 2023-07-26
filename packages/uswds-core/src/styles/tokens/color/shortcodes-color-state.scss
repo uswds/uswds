@@ -30,6 +30,9 @@ $tokens-color-state: (
     set-theme-color(settings.$theme-color-disabled-light, no-warn),
   "disabled": set-theme-color(settings.$theme-color-disabled, no-warn),
   "disabled-dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn),
+  "disabled-text": set-theme-color(settings.$theme-color-disabled-text, no-warn),
+  "disabled-text-reverse": set-theme-color(settings.$theme-color-disabled-text-reverse, no-warn),
+  "text-on-disabled": set-theme-color(settings.$theme-color-text-on-disabled, no-warn),
   "emergency": set-theme-color(settings.$theme-color-emergency, no-warn),
   "emergency-dark":
     set-theme-color(settings.$theme-color-emergency-dark, no-warn),
