@@ -1534,7 +1534,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   // create the actual years table
   const yearsTable = document.createElement("table");
   yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
-  yearsTable.setAttribute("role", "presentation");
+  yearsTable.setAttribute("role", "dialog");
 
   // create the years child table
   const yearsGrid = listToGridHtml(years, 3);
