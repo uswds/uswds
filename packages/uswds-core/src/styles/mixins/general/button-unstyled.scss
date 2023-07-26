@@ -51,7 +51,7 @@
   &:disabled:hover,
   &[aria-disabled="true"]:hover,
   &[aria-disabled="true"]:focus {
-    color: color($theme-color-disabled-text);
+    color: color("disabled-text");
 
     @media (forced-colors: active) {
       color: color(GrayText);

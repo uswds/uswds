@@ -5,7 +5,7 @@
 
 @mixin u-disabled(
   $bg-color: "disabled",
-  $text-color: $theme-color-text-on-disabled
+  $text-color: "text-on-disabled"
 ) {
   background-color: color($bg-color);
   color: color($text-color);

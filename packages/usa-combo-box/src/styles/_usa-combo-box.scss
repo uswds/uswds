@@ -63,16 +63,16 @@ $close: map-merge(
     @include u-disabled-high-contrast-border;
 
     // Fix for Safari
-    -webkit-text-fill-color: color($theme-color-text-on-disabled);
+    -webkit-text-fill-color: color("text-on-disabled");
 
     // Placeholder overrides to ensure color contrast compliance accross browsers
     &::placeholder {
       opacity: 1;
-      color: color($theme-color-text-on-disabled);
+      color: color("text-on-disabled");
     }
 
     & ~ .usa-combo-box__input-button-separator {
-      background-color: color($theme-color-text-on-disabled);
+      background-color: color("text-on-disabled");
       cursor: not-allowed;
     }
   }

@@ -182,7 +182,7 @@
 .usa-file-input--disabled {
   .usa-file-input__instructions,
   .usa-file-input__choose {
-    color: color($theme-color-text-on-disabled);
+    color: color("text-on-disabled");
   }
 
   .usa-file-input__box {

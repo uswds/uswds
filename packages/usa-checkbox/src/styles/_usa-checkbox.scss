@@ -21,7 +21,7 @@
       cursor: not-allowed;
     }
     @include format-label {
-      color: color($theme-color-disabled-text);
+      color: color("disabled-text");
       cursor: not-allowed;
 
       @media (forced-colors: active) {
