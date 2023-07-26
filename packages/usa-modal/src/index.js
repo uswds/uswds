@@ -299,8 +299,8 @@ const setUpModal = (baseComponent) => {
  */
 const cleanUpModal = (baseComponent) => {
   const modalContent = baseComponent;
-  const modalWrapper = modalContent.parentElement.parentElement;
-  const modalID = modalWrapper.getAttribute("id");
+  const modalContentWrapper = modalContent.parentElement.parentElement;
+  const modalID = modalContentWrapper.getAttribute("id");
 
   // if there is no modalID, return early
   if (!modalID) {
@@ -326,7 +326,7 @@ const cleanUpModal = (baseComponent) => {
     );
   }
 
-  modalWrapper.parentElement.removeChild(modalWrapper);
+  modalContentWrapper.parentElement.removeChild(modalContentWrapper);
 };
 
 modal = behavior(
