@@ -94,6 +94,9 @@ $project-state-colors: (
     "light": set-theme-color(settings.$theme-color-disabled-light, no-warn),
     "default": set-theme-color(settings.$theme-color-disabled, no-warn),
     "dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn),
+    "text": set-theme-color(settings.$theme-color-disabled-text, no-warn),
+    "text-reverse": set-theme-color(settings.$theme-color-text-reverse, no-warn),
+    "text-on-disabled": set-theme-color(settings.$theme-color-text-on-disabled, no-warn),
   ),
   "emergency": (
     "default": set-theme-color(settings.$theme-color-emergency, no-warn),
