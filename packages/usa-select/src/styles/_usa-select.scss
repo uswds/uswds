@@ -28,6 +28,12 @@
   &[multiple] {
     height: auto;
     background-image: none;
+    padding-right: 0;
+  }
+
+  option {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &:disabled,
