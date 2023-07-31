@@ -1387,6 +1387,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.setAttribute("role", "presentation");
 
   const monthsGrid = listToGridHtml(months, 3);
   const tableBody = createTableBody(monthsGrid);
@@ -1534,6 +1535,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   // create the actual years table
   const yearsTable = document.createElement("table");
   yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
+  yearsTable.setAttribute("role", "presentation");
 
   // create the years child table
   const yearsGrid = listToGridHtml(years, 3);
