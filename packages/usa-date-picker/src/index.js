@@ -884,7 +884,7 @@ const enhanceDatePicker = (el) => {
     "beforeend",
     Sanitizer.escapeHTML`
     <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar"></button>
-    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="presentation" hidden></div>
+    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="application" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
 
@@ -1534,7 +1534,6 @@ const displayYearSelection = (el, yearToDisplay) => {
   // create the actual years table
   const yearsTable = document.createElement("table");
   yearsTable.setAttribute("class", CALENDAR_TABLE_CLASS);
-  yearsTable.setAttribute("role", "dialog");
 
   // create the years child table
   const yearsGrid = listToGridHtml(years, 3);
