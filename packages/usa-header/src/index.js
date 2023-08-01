@@ -79,23 +79,21 @@ const toggleNonNavItems = (active) => {
 };
 
 /**
- * Lock the window position when the mobile menu is activated.
- * This prevents a Safari-only bug by preserving the vertical scrollbar
- * and instead locking scroll by forcing current window position.
+ * Lock the current window position when the mobile menu is open.
+ *
+ * This is a Safari-only bug fix that preserves the current window width
+ * by showing the vertical scrollbar but preventing scroll.
  * More detail in https://github.com/uswds/uswds/issues/5371
  */
 const toggleScrollLock = (body) => {
   const xPos = window.scrollX;
   const yPos = window.scrollY;
-  const isMenuOpen = body.classList.contains(ACTIVE_CLASS);
+  const isMenuActive = body.classList.contains(ACTIVE_CLASS);
 
-  if (isMenuOpen) {
-    // If menu is open, lock the window in its current position
+  if (isMenuActive) {
     window.onscroll = () => window.scroll(xPos, yPos);
-    // Preserve the vertical scrollbar with CSS to maintain original window width
     document.body.style.overflow = "auto";
   } else {
-    // If menu is closed, allow scrolling
     window.onscroll = "";
   }
 };
