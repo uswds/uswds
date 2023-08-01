@@ -9,7 +9,7 @@
     data-scroll-offset="0"
     data-root-margin="0px 0px 0px 0px"
     data-threshold="1"
-    {% if customContentSelector %}
+    {% if addDataMainContentSelector %}
       data-main-content-selector=".main-content"
     {% endif %}
   ></aside>
@@ -27,13 +27,13 @@
             <div class="usa-summary-box__text">
             <p>Test if <code>data-main-content-selector</code> pulls headers from only the <code>.main-content</code> region.</p>
             <ol>
-                <li>When <code>data-main-content-selector</code> is turned on, you should see this link in the in-page nav link list:
+                <li>When <code>addDataMainContentSelector</code> is true, you should see only this link in the in-page nav link list:
                   <ul class="usa-list">
                       <li>"This heading should be included in both scenarios"</li>
                   </ul>
                   <p>This happens because the other header is outside of the region designated in <code>data-main-content-selector</code>.</p>
                 </li>
-                <li>When <code>data-main-content-selector</code> is turned off, you should see the following links in the in-page nav link list:
+                <li>When <code>addDataMainContentSelector</code> is false, you should see the following links in the in-page nav link list:
                   <ul>
                       <li>"This heading should be included in both scenarios" </li>
                       <li>"This heading should be included only if custom content selector is off" </li>
