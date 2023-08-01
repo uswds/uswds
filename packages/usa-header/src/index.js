@@ -78,6 +78,12 @@ const toggleNonNavItems = (active) => {
   }
 };
 
+function disableTouchScroll(e){
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
+}
+
 /**
  * Lock the current window position when the mobile menu is open.
  *
@@ -92,6 +98,8 @@ const toggleScrollLock = (body) => {
 
   if (isMenuActive) {
     window.onscroll = () => window.scroll(xPos, yPos);
+    document.querySelector('body').addEventListener('touchmove', disableTouchScroll, {passive: false});
+
     document.body.style.overflow = "auto";
   } else {
     window.onscroll = "";
