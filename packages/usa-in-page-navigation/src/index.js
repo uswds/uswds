@@ -42,15 +42,16 @@ const setActive = (el) => {
 };
 
 /**
- * Return a NodeList of section headings from the main content region
+ * Collect all h2 and h3 headings from the designated main content region.
+ * These will be added to the component link list.
  *
- * @return {NodeList} - Collection section headings
+ * @param {HTMLElement} mainContentSelector The designated main content region
+ *
+ * @return {NodeList} - Collection of section headings from the designated content region
  */
-const getSectionHeadings = (el) => {
-  // Collect all h2 and h3 headings from the designated main content region in a nodeList
-  const mainContent = el.dataset.mainContentSelector || MAIN_ELEMENT;
+const getSectionHeadings = (mainContentSelector) => {
   const sectionHeadings = document.querySelectorAll(
-    `${mainContent} h2, ${mainContent} h3`
+    `${mainContentSelector} h2, ${mainContentSelector} h3`
   );
 
   return sectionHeadings;
@@ -171,6 +172,9 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavThreshold = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.threshold || IN_PAGE_NAV_THRESHOLD
   }`;
+  const inPageNavContentSelector = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
+  }`;
 
   const options = {
     root: null,
@@ -178,7 +182,7 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings(inPageNavEl);
+  const sectionHeadings = getSectionHeadings(inPageNavContentSelector);
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
