@@ -2,6 +2,7 @@
 
 .usa-memorable-date {
   display: flex;
+  flex-wrap: wrap;
 
   [type="number"] {
     -moz-appearance: textfield;
