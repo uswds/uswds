@@ -78,7 +78,7 @@ const toggleNonNavItems = (active) => {
   }
 };
 
-function disableTouchScroll(e){
+const disableTouchScroll = (e) => {
   e.preventDefault();
   e.stopPropagation();
   return false;
@@ -98,11 +98,12 @@ const toggleScrollLock = (body) => {
 
   if (isMenuActive) {
     window.onscroll = () => window.scroll(xPos, yPos);
-    document.querySelector('body').addEventListener('touchmove', disableTouchScroll, {passive: false});
+    body.addEventListener('touchmove', disableTouchScroll, {passive: false});
 
     document.body.style.overflow = "auto";
   } else {
     window.onscroll = "";
+    body.removeEventListener('touchmove', disableTouchScroll, {passive: false});
   }
 };
 
