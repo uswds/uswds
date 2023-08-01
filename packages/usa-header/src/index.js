@@ -78,32 +78,36 @@ const toggleNonNavItems = (active) => {
   }
 };
 
+/**
+ * Disable scroll on touch devices
+ */
 const disableTouchScroll = (e) => {
   e.preventDefault();
   e.stopPropagation();
   return false;
-}
+};
 
 /**
  * Lock the current window position when the mobile menu is open.
  *
  * This is a Safari-only bug fix that preserves the current window width
- * by showing the vertical scrollbar but preventing scroll.
+ * by showing the vertical scrollbar but preventing scroll by locking current position.
  * More detail in https://github.com/uswds/uswds/issues/5371
  */
 const toggleScrollLock = (body) => {
-  const xPos = window.scrollX;
-  const yPos = window.scrollY;
+  const xCurrentPos = window.scrollX;
+  const yCurrentPos = window.scrollY;
   const isMenuActive = body.classList.contains(ACTIVE_CLASS);
 
   if (isMenuActive) {
-    window.onscroll = () => window.scroll(xPos, yPos);
-    body.addEventListener('touchmove', disableTouchScroll, {passive: false});
-
     document.body.style.overflow = "auto";
+    window.onscroll = () => window.scroll(xCurrentPos, yCurrentPos);
+    body.addEventListener("touchmove", disableTouchScroll, { passive: false });
   } else {
     window.onscroll = "";
-    body.removeEventListener('touchmove', disableTouchScroll, {passive: false});
+    body.removeEventListener("touchmove", disableTouchScroll, {
+      passive: false,
+    });
   }
 };
 
