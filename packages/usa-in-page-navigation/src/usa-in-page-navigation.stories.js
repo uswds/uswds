@@ -12,13 +12,13 @@ const TestCustomContentTemplate = (args) => TestCustomContentComponent(args);
 export const Default = Template.bind({});
 Default.args = Content;
 
-export const TestDataMainContentSelectorTrue = TestCustomContentTemplate.bind();
-TestDataMainContentSelectorTrue.args = {
-  addDataMainContentSelector: true,
+export const TestCustomContentSelectorTrue = TestCustomContentTemplate.bind();
+TestCustomContentSelectorTrue.args = {
+  customContentSelector: true,
 };
 
-export const TestDataMainContentSelectorFalse =
+export const TestCustomContentSelectorFalse =
   TestCustomContentTemplate.bind();
-TestDataMainContentSelectorFalse.args = {
-  addDataMainContentSelector: false,
+TestCustomContentSelectorFalse.args = {
+  customContentSelector: false,
 };
