@@ -124,6 +124,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assertHidden(theList, false);
     });
 
+    it("includes headers added to the data-main-content-selector region", () => {
+      const isLinkCreated =
+        document.querySelectorAll("#header-in-content-region").length > 0;
+      assert.equal(isLinkCreated, true);
+    });
+
+    it("excludes headers added outside the data-main-content-selector region", () => {
+      const isLinkCreated =
+        document.querySelectorAll("#header-not-in-content-region").length > 0;
+      assert.equal(isLinkCreated, false);
+    });
+
     it("assigns id to section headings", () => {
       // Tests that new anchor children are created in the fixture template in
       // the expected locations.
