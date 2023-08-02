@@ -5,10 +5,11 @@
 @use "../utilities" as *;
 @use "../typography/typeset" as *;
 
-$table-background-color: get-color-token-from-bg(
-  $theme-table-background-color,
-  $context: "Table background color"
-);
+$table-background-color: $theme-table-background-color;
+
+@if $table-background-color == "default" {
+  $table-background-color: get-default("bg-color");
+}
 
 $table-text-color: get-color-token-from-bg(
   $bg-color: $theme-table-background-color,
