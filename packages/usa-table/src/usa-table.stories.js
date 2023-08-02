@@ -14,6 +14,11 @@ export default {
       control: { type: "boolean" },
       defaultValue: true,
     },
+    stickyHeader: {
+      name: "Sticky header",
+      control: { type: "boolean" },
+      defaultValue: true,
+    },
   },
 };
 

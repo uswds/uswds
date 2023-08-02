@@ -1,6 +1,5 @@
 {
   "scrollable": false,
-  "stickyheader": false,
   "modifier": "usa-table--striped",
   "caption": "Bordered table with horizontal stripes",
   "thead": [

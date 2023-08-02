@@ -2,7 +2,7 @@
   <div class="usa-table-container--scrollable" tabindex="0">
 {% endif %}
 
-<table class="usa-table {{stickyheader ? 'usa-table--sticky-header' : ''}} {{ modifier }}">
+<table class="usa-table {{stickyHeader ? 'usa-table--sticky-header' : ''}} {{ modifier }}">
   {% if caption %}
     <caption>{{ caption }}</caption>
   {% endif %}
@@ -44,7 +44,7 @@
         {% endfor %}
       </tr>
     {% endfor %}
-    {% if stickyheader %}
+    {% if stickyHeader %}
       {% for row in tbody %}
         <tr>
           {% for cell in row %}
@@ -57,7 +57,7 @@
         </tr>
       {% endfor %}
     {% endif %}
-    {% if stickyheader %}
+    {% if stickyHeader %}
       {% for row in tbody %}
         <tr>
           {% for cell in row %}
