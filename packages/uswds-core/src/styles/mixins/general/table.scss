@@ -7,7 +7,7 @@
 
 $table-background-color: get-color-token-from-bg(
   $theme-table-background-color,
-  $context: "Table background color",
+  $context: "Table background color"
 );
 
 $table-text-color: get-color-token-from-bg(
