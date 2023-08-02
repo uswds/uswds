@@ -4,7 +4,6 @@ import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
-import SortableContent from "./usa-table--sortable/usa-table~sortable.json";
 
 export default {
   title: "Components/Table",
@@ -12,12 +11,17 @@ export default {
     multipleHeaderRows: {
       name: "Multiple header rows",
       control: { type: "boolean" },
-      defaultValue: true,
+      defaultValue: false,
+    },
+    scrollable: {
+      name: "Scrollable",
+      control: { type: "boolean" },
+      defaultValue: false,
     },
     stickyHeader: {
       name: "Sticky header",
       control: { type: "boolean" },
-      defaultValue: true,
+      defaultValue: false,
     },
   },
 };
@@ -38,10 +42,10 @@ export const StickyHeader = Template.bind({});
 StickyHeader.args = {
   ...DefaultContent,
   ...StickyHeaderContent,
+  stickyHeader: true,
 };
 
 export const Sortable = SortableTemplate.bind({});
-Sortable.args = SortableContent;
 Sortable.argTypes = {
   multipleHeaderRows: {
     table: { disable: true },
