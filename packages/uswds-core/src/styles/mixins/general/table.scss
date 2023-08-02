@@ -5,6 +5,11 @@
 @use "../utilities" as *;
 @use "../typography/typeset" as *;
 
+$table-background-color: get-color-token-from-bg(
+  $theme-table-background-color,
+  $context: "Table background color",
+);
+
 $table-text-color: get-color-token-from-bg(
   $bg-color: $theme-table-background-color,
   $preferred-text-token: $theme-table-text-color,
@@ -84,7 +89,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin table-button-default-styles {
   @include button-unstyled;
   @include u-square(4);
-  background-color: color($theme-table-background-color);
+  background-color: color($table-background-color);
   background-position: center center;
   background-size: units(3);
   color: color($theme-table-unsorted-icon-color);
@@ -237,7 +242,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
   th,
   td {
-    background-color: color($theme-table-background-color);
+    background-color: color($table-background-color);
     border: 1px solid color($theme-table-border-color);
     font-weight: fw("normal");
     padding: units(1) units(2);
@@ -297,7 +302,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--borderless {
   thead {
     th {
-      background-color: color($theme-table-background-color);
+      background-color: color($table-background-color);
       border-top: 0;
       color: color($table-text-color);
 
@@ -364,7 +369,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 
   td,
   th {
-    border: 1px solid #1b1b1b;
+    border: 1px solid color($theme-table-border-color);
     border-left: none;
     border-top: none;
 
@@ -393,7 +398,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     border: none;
 
     thead th {
-      background-color: color($theme-table-background-color);
+      background-color: color($table-background-color);
     }
 
     td,
