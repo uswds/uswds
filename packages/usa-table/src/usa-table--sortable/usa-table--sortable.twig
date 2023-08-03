@@ -89,10 +89,14 @@
     <!-- this content will change when sort changes -->
   </div>
   <p class="margin-bottom-3">Data for illustration purposes only.</p>
+{% if scrollable %}
 </div>
+{% endif %}
 
+{% if scrollable %}
 <div class="usa-table-container--scrollable" tabindex="0">
-  <table class="usa-table usa-table--striped">
+{% endif %}
+  <table class="usa-table usa-table--striped {{stickyHeader ? 'usa-table--sticky-header' : ''}}">
     <caption>Sortable striped table with various content types</caption>
     <thead>
       <tr>
@@ -160,10 +164,14 @@
     </tbody>
   </table>
   <div class="usa-sr-only usa-table__announcement-region" aria-live="polite"></div>
+{% if scrollable %}
 </div>
+{% endif %}
 
+{% if scrollable %}
 <div class="usa-table-container--scrollable" tabindex="0">
-  <table class="usa-table usa-table--borderless">
+{% endif %}
+  <table class="usa-table usa-table--borderless {{stickyHeader ? 'usa-table--sticky-header' : ''}}">
     <caption>Sortable borderless table with various content types</caption>
     <thead>
       <tr>
