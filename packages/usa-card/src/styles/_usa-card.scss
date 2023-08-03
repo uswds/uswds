@@ -214,6 +214,11 @@
     @include u-padding-bottom($theme-card-padding-y);
   }
 
+  .usa-card__header--exdent {
+    @include u-margin-top(-$theme-card-border-width);
+    @include u-radius-top($theme-card-border-radius);
+  }
+
   .usa-card__media--inset {
     @include u-padding-top(0);
   }
