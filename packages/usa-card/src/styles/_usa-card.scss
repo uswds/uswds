@@ -224,8 +224,11 @@
   }
 
   .usa-card__media {
-    @include u-margin-top(0);
     @include u-order(0);
+
+    &--exdent {
+      @include u-margin-top(0);
+    }
   }
 
   .usa-card__img {
