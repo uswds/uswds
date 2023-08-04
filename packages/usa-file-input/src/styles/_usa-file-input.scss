@@ -182,11 +182,11 @@
 .usa-file-input--disabled {
   .usa-file-input__instructions,
   .usa-file-input__choose {
-    color: color("text-on-disabled");
+    color: color("disabled-dark");
   }
 
   .usa-file-input__box {
-    background-color: color("disabled");
+    background-color: color("disabled-lighter");
   }
 
   .usa-file-input__input[type] {
@@ -200,7 +200,7 @@
   }
 
   .usa-file-input--drag .usa-file-input__box {
-    background-color: color("disabled");
+    background-color: color("disabled-lighter");
   }
 
   @media (forced-colors: active) {
