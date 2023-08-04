@@ -1,3 +1,15 @@
+{% if multipleHeaderRows %}
+  {% set headerLoopCount = 0..1 %}
+{% else %}
+  {% set headerLoopCount = 0..0 %}
+{% endif %}
+
+{% if stickyHeader %}
+  {% set bodyLoopCount = 0..6 %}
+{% else %}
+  {% set bodyLoopCount = 0..0 %}
+{% endif %}
+
 {% if scrollable %}
   <div class="usa-table-container--scrollable" tabindex="0">
 {% endif %}
@@ -14,57 +26,28 @@
   {% endif %}
 
   <thead>
-    <tr>
-      {% for th in thead %}
-        <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
-      {% endfor %}
-    </tr>
-    {% if multipleHeaderRows %}
+    {% for i in headerLoopCount %}
       <tr>
         {% for th in thead %}
           <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
         {% endfor %}
       </tr>
-    {% endif %}
+    {% endfor %}
   </thead>
   <tbody>
-    {% for row in tbody %}
-      <tr>
-        {% for cell in row %}
-          {% if not cell.scope %}
-            <td>{{ cell.title }}</td>
-          {% else %}
-            <th scope="{{ cell.scope }}">{{ cell.title }}</th>
-          {% endif %}
-        {% endfor %}
-      </tr>
+    {% for i in bodyLoopCount %}
+      {% for row in tbody %}
+        <tr>
+          {% for cell in row %}
+            {% if not cell.scope %}
+              <td>{{ cell.title }}</td>
+            {% else %}
+              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
     {% endfor %}
-    {% if stickyHeader %}
-      {% for row in tbody %}
-        <tr>
-          {% for cell in row %}
-            {% if not cell.scope %}
-              <td>{{ cell.title }}</td>
-            {% else %}
-              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
-            {% endif %}
-          {% endfor %}
-        </tr>
-      {% endfor %}
-    {% endif %}
-    {% if stickyHeader %}
-      {% for row in tbody %}
-        <tr>
-          {% for cell in row %}
-            {% if not cell.scope %}
-              <td>{{ cell.title }}</td>
-            {% else %}
-              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
-            {% endif %}
-          {% endfor %}
-        </tr>
-      {% endfor %}
-    {% endif %}
   </tbody>
 </table>
 
