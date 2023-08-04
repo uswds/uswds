@@ -90,7 +90,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin table-button-default-styles {
   @include button-unstyled;
   @include u-square(4);
-  background-color: color($table-background-color);
   background-position: center center;
   background-size: units(3);
   color: color($theme-table-unsorted-icon-color);
