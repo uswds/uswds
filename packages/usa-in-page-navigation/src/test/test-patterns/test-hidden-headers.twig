@@ -1,45 +1,52 @@
-{% macro inpagenav(items, base_class) %}
+<div class="usa-in-page-nav-container">
+    <aside
+      class="usa-in-page-nav"
+      data-title-text="On this page"
+      data-title-heading-level="h4"
+      data-scroll-offset="0"
+      data-root-margin="0px 0px 0px 0px"
+      data-threshold="1">
+    </aside>
 
-  {% set list_item_class = 'usa-in-page-nav__item' %}
-  {% set current_class = 'usa-current' %}
-
-  <aside class="usa-in-page-nav"
-    data-title-text="On this page"
-    data-title-heading-level="h4"
-    data-scroll-offset="0"
-    data-root-margin="0px 0px 0px 0px"
-    data-threshold="1"
-  ></aside>
-
-  <main class="usa-prose">
-    <div
-        class="usa-summary-box"
-        role="region"
-        aria-labelledby="summary-box-key-information"
-    >
-        <div class="usa-summary-box__body">
-            <h1 class="usa-summary-box__heading" id="summary-box-key-information">
-                Test if in-page nav excludes hidden headers
-            </h1>
-            <div class="usa-summary-box__text">
-                <p>The in-page nav link list should show only two "This heading is visible" headers.</p>
+    <main class="usa-prose">
+        <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
+            <div class="usa-summary-box__body">
+                <h1 class="usa-summary-box__heading" id="summary-box-key-information">
+                    Test if in-page nav excludes hidden headers
+                </h1>
+                <div class="usa-summary-box__text">
+                    <p>
+                        The in-page nav link list should show only two "This heading is
+                        visible" headers.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- This header exists outside of the class defined in data-main-content-selector -->
-    <h2>This heading is visible</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. </p>
-    <h3>This heading is visible</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. </p>
-    <h2 style="display:none">This heading is hidden with display:none</h2>
-    <h2 style="visibility:hidden">This heading is hidden with visibility:hidden</h2>
-  </main>
-
-{% endmacro %}
-
-{% import _self as inpagenav %}
-
-<div class="usa-in-page-nav-container">
-  {{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
+        <h2>This heading is visible</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+            ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+            lorem non turpis.
+        </p>
+        <h3>This heading is visible</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+            ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+            lorem non turpis.
+        </p>
+        <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+            <pre>Display: none;</pre>
+            <h2 style="display: none">This heading is hidden with display:none</h2>
+        </div>
+        <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+            <pre>Visibility: hidden;</pre>
+            <h2 style="visibility: hidden">
+                This heading is hidden with visibility:hidden
+            </h2>
+        </div>
+        <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+            <pre>Opacity: 0;</pre>
+            <h2 style="opacity: 0">This heading is hidden with opacity:0</h2>
+        </div>
+    </main>
 </div>
