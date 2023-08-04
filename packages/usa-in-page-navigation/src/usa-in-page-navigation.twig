@@ -20,14 +20,10 @@
       {% for item in items %}
         {% if item.is_subheading %}
           <h3>{{ item.section_heading }}</h3>
-        {% elseif not item.hidden_style%}
+        {% else %}
           <h2>{{ item.section_heading }}</h2>
-        {% elseif hiddenHeader %}
-          <h2 style="{{ item.hidden_style }}">{{ item.section_heading }}</h2>
         {% endif %}
-        {% if item.content %}
-          {{ item.content }}
-        {% endif %}
+        {{ item.content }}
       {% endfor %}
     {% endif %}
   </main>
