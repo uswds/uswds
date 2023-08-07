@@ -16,8 +16,3 @@ export const TestCustomContentSelectorTrue = TestCustomContentTemplate.bind();
 TestCustomContentSelectorTrue.args = {
   customContentSelector: true,
 };
-
-export const TestCustomContentSelectorFalse = TestCustomContentTemplate.bind();
-TestCustomContentSelectorFalse.args = {
-  customContentSelector: false,
-};
