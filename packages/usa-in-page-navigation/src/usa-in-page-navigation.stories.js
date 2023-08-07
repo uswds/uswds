@@ -12,7 +12,7 @@ const TestCustomContentTemplate = (args) => TestCustomContentComponent(args);
 export const Default = Template.bind({});
 Default.args = Content;
 
-export const TestCustomContentSelectorTrue = TestCustomContentTemplate.bind();
-TestCustomContentSelectorTrue.args = {
+export const TestCustomContentSelector = TestCustomContentTemplate.bind();
+TestCustomContentSelector.args = {
   customContentSelector: true,
 };
