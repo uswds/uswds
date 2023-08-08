@@ -46,7 +46,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       window.location.hash = "";
     });
 
-    it("creates only one link item in the nav list (for the header inside the custom content region)", () => {
+    it("creates only one link item in the nav list", () => {
       assert.equal(listLinks.length === 1, true);
     });
 
