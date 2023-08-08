@@ -4,7 +4,9 @@ const path = require("path");
 const sinon = require("sinon");
 const behavior = require("../index");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/in-page-nav-custom-content.template.html"));
+const TEMPLATE = fs.readFileSync(
+  path.join(__dirname, "/in-page-nav-custom-content.template.html")
+);
 const PRIMARY_CONTENT_SELECTOR =
   ".usa-in-page-nav-container .usa-in-page-nav .usa-in-page-nav__list";
 
@@ -35,7 +37,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       behavior.on(containerSelector());
 
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
-      listLinks = Array.from(theList.getElementsByTagName('a'));
+      listLinks = Array.from(theList.getElementsByTagName("a"));
     });
 
     afterEach(() => {
