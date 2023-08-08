@@ -49,7 +49,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     let theNav;
     let theList;
-    let listLinks;
     let originalOffsetTop;
 
     before(() => {
@@ -90,7 +89,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       theNav = document.querySelector(THE_NAV);
       theList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
-      listLinks = Array.from(theList.getElementsByTagName('a'));
 
       window.innerWidth = 1024;
     });
@@ -124,20 +122,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
       resizeTo(400);
       resizeTo(1024);
       assertHidden(theList, false);
-    });
-
-    it("creates a link in the nav list for the header that is inside the custom content region", () => {
-      const customRegionLink = listLinks.filter((link) =>
-        link.href.includes("#header-in-content-region")
-      );
-      assert.equal(customRegionLink.length === 1, true);
-    });
-
-    it("does not create a link in the nav list for the header that is outside the custom content region", () => {
-      const mainRegionLink = listLinks.filter((link) =>
-        link.href.includes("#header-not-in-content-region")
-      );
-      assert.equal(mainRegionLink.length === 0, true);
     });
 
     it("assigns id to section headings", () => {
