@@ -8,11 +8,6 @@ import StickyHeaderContent from "./usa-table~stickyheader.json";
 export default {
   title: "Components/Table",
   argTypes: {
-    multipleHeaderRows: {
-      name: "Multiple header rows",
-      control: { type: "boolean" },
-      defaultValue: false,
-    },
     scrollable: {
       name: "Scrollable",
       control: { type: "boolean" },
@@ -20,6 +15,11 @@ export default {
     },
     stickyHeader: {
       name: "Sticky header",
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    multipleHeaderRows: {
+      name: "Multiple header rows",
       control: { type: "boolean" },
       defaultValue: false,
     },
