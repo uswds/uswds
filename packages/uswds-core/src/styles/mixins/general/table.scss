@@ -365,11 +365,9 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--sticky-header {
   border: 1px solid color($theme-table-border-color);
   border-collapse: separate;
-  border-spacing: 0;
 
   td,
   th {
-    border: 1px solid color($theme-table-border-color);
     border-left: none;
     border-top: none;
 
@@ -388,10 +386,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   thead {
     position: sticky;
     top: $theme-table-sticky-top-offset;
-
-    th {
-      background-color: color($theme-table-header-background-color);
-    }
   }
 
   &.usa-table--borderless {
