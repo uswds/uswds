@@ -18,8 +18,10 @@ https://designsystem.digital.gov/design-tokens
 */
 
 // Accordion
-$theme-accordion-border-width: 0.5 !default;
+$theme-accordion-background-color: "default" !default;
 $theme-accordion-border-color: "base-lightest" !default;
+$theme-accordion-border-width: 0.5 !default;
+$theme-accordion-button-background-color: "base-lightest" !default;
 $theme-accordion-font-family: "body" !default;
 
 // Alert

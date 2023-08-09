@@ -10,12 +10,16 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  args: {
+    disabled_state: "none",
+  },
 };
 
 const PrefixTemplate = (args) => prefix(args);
 const SuffixTemplate = (args) => suffix(args);
 
 export const Prefix = PrefixTemplate.bind({});
+
 export const PrefixDisabled = PrefixTemplate.bind({});
 PrefixDisabled.args = {
   disabled_state: "disabled",

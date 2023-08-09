@@ -30,7 +30,7 @@ $u-color: (
         get-palettes($global-color-palettes),
         $color-manual-values
       ),
-    settings: $color-settings,
+    settings: $color-settings-complete,
     property: "color",
     type: "utility",
   ),

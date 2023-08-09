@@ -50,7 +50,7 @@
         {% endif %}
       {% else %}
         <a
-          href="{{ item.href }}"
+          href="{{ item.href | default("javascript:void(0);") }}"
           {% if menu_level == 0 %} class="usa-nav-link" {% endif %}
         >
           {% if megamenu %}

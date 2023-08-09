@@ -28,11 +28,18 @@
   &[multiple] {
     height: auto;
     background-image: none;
+    padding-right: 0;
+  }
+
+  option {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &:disabled,
   &[aria-disabled="true"] {
     @include u-disabled;
+    @include u-disabled-high-contrast-border;
   }
 
   // Necessary to show chevron in forced colors mode in modern browsers

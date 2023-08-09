@@ -25,7 +25,7 @@ $u-right: (
     base: "right",
     modifiers: null,
     values: map-collect(get-palettes($right-palettes), $right-manual-values),
-    settings: $right-settings,
+    settings: $right-settings-complete,
     property: "right",
     type: "utility",
   ),

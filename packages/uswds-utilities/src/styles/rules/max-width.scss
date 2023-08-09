@@ -24,7 +24,7 @@ $u-max-width: (
     modifiers: null,
     values:
       map-collect(get-palettes($max-width-palettes), $max-width-manual-values),
-    settings: $max-width-settings,
+    settings: $max-width-settings-complete,
     property: "max-width",
     type: "utility",
   ),

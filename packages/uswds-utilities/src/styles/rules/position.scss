@@ -24,7 +24,7 @@ $u-position: (
     modifiers: null,
     values:
       map-collect(get-palettes($position-palettes), $position-manual-values),
-    settings: $position-settings,
+    settings: $position-settings-complete,
     property: "position",
     type: "utility",
   ),
