@@ -1,4 +1,5 @@
 import Component from "./usa-button.twig";
+import LinkTest from "./test/test-patterns/test-button-links.twig";
 import {
   DefaultContent,
   AccentCoolContent,
@@ -35,6 +36,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
+const LinkTemplate = (args) => LinkTest(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -62,3 +64,9 @@ Secondary.args = SecondaryContent;
 
 export const Unstyled = Template.bind({});
 Unstyled.args = UnstyledContent;
+
+export const LinksAsButtons = LinkTemplate.bind({});
+LinksAsButtons.args = {
+  ...DefaultContent,
+  text: "Link styled as a button",
+}
