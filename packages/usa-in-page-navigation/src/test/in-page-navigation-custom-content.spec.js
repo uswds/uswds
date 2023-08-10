@@ -41,8 +41,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       navList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
       navListLinks = Array.from(navList.getElementsByTagName("a"));
-      customContentSelector = document.querySelector(THE_NAV).getAttribute('data-main-content-selector');
-      customContentHeaderList =  document.querySelector(customContentSelector).querySelectorAll("h2, h3");
+      customContentSelector = document
+        .querySelector(THE_NAV)
+        .getAttribute("data-main-content-selector");
+      customContentHeaderList = document
+        .querySelector(customContentSelector)
+        .querySelectorAll("h2, h3");
     });
 
     afterEach(() => {
@@ -52,7 +56,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("pulls the headers from the designated custom content region into the nav list", () => {
-      assert.equal(customContentHeaderList.length === navListLinks.length, true);
+      assert.equal(
+        customContentHeaderList.length === navListLinks.length,
+        true
+      );
     });
 
     it("creates a link in the nav list for the header that is inside the custom content region", () => {
