@@ -1,8 +1,4 @@
-{% macro inpagenav(items, base_class) %}
-
-  {% set list_item_class = 'usa-in-page-nav__item' %}
-  {% set current_class = 'usa-current' %}
-
+<div class="usa-in-page-nav-container">
   <aside class="usa-in-page-nav"
     data-title-text="On this page"
     data-title-heading-level="h4"
@@ -26,11 +22,4 @@
     <p>When <code>customContentSelector</code> is false, you should see <b>both</b> headings.
     This is because the component is looking for headers inside the default <code>main</code> element.</p>
   </main>
-
-{% endmacro %}
-
-{% import _self as inpagenav %}
-
-<div class="usa-in-page-nav-container">
-  {{ inpagenav.inpagenav(items, 'usa-in-page-navigation') }}
 </div>
