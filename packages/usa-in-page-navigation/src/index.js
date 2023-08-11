@@ -42,19 +42,32 @@ const setActive = (el) => {
 };
 
 /**
- * Collect all h2 and h3 headings from the designated main content region.
+ * Return an array of all visible h2 and h3 headings from the designated main content region.
  * These will be added to the component link list.
  *
  * @param {HTMLElement} mainContentSelector The designated main content region
  *
- * @return {NodeList} - Collection of section headings from the designated content region
+ * @return {Array} - An array of visible headings from the designated content region
  */
 const getSectionHeadings = (mainContentSelector) => {
   const sectionHeadings = document.querySelectorAll(
     `${mainContentSelector} h2, ${mainContentSelector} h3`
   );
 
-  return sectionHeadings;
+  // Convert nodeList to an array to allow for filtering
+  const headingArray = Array.from(sectionHeadings);
+
+  // Find all headings with hidden styling and remove them from the array
+  const visibleHeadingArray = headingArray.filter((heading) => {
+    const headingStyle = window.getComputedStyle(heading);
+    const visibleHeading =
+      headingStyle.getPropertyValue("display") !== "none" &&
+      headingStyle.getPropertyValue("visibility") !== "hidden";
+
+    return visibleHeading;
+  });
+
+  return visibleHeadingArray;
 };
 
 /**
