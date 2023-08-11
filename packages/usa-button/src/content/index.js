@@ -7,3 +7,4 @@ export { default as OutlineContent } from "./usa-button~outline.json";
 export { default as OutlineInverseContent } from "./usa-button~outline-inverse.json";
 export { default as SecondaryContent } from "./usa-button~secondary.json";
 export { default as UnstyledContent } from "./usa-button~unstyled.json";
+export { default as LinkContent } from "./usa-button~link.json";

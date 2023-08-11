@@ -10,6 +10,7 @@ import {
   OutlineInverseContent,
   SecondaryContent,
   UnstyledContent,
+  LinkContent
 } from "./content";
 
 export default {
@@ -66,7 +67,4 @@ export const Unstyled = Template.bind({});
 Unstyled.args = UnstyledContent;
 
 export const LinksAsButtons = LinkTemplate.bind({});
-LinksAsButtons.args = {
-  ...DefaultContent,
-  text: "Link styled as a button",
-}
+LinksAsButtons.args = LinkContent;
