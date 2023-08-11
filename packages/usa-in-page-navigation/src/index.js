@@ -42,15 +42,29 @@ const setActive = (el) => {
 };
 
 /**
- * Return a node list of section headings
+ * Return an array of visible section headings in the main content region
  *
- * @return {HTMLElement[]} - An array of DOM nodes
+ * @return {Array} - An array of visible section headings
  */
 const getSectionHeadings = () => {
   const sectionHeadings = document.querySelectorAll(
     `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
   );
-  return sectionHeadings;
+
+  // Convert nodeList to an array to allow for filtering
+  const headingArray = Array.from(sectionHeadings);
+
+  // Find all headings with hidden styling and remove them from the array
+  const visibleHeadingArray = headingArray.filter((heading) => {
+    const headingStyle = window.getComputedStyle(heading);
+    const visibleHeading =
+      headingStyle.getPropertyValue("display") !== "none" &&
+      headingStyle.getPropertyValue("visibility") !== "hidden";
+
+    return visibleHeading;
+  });
+
+  return visibleHeadingArray;
 };
 
 /**
