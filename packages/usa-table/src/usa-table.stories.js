@@ -1,5 +1,6 @@
 import Component from "./usa-table.twig";
 import SortableComponent from "./usa-table--sortable/usa-table--sortable.twig";
+import SortableContent from "./usa-table--sortable/usa-table--sortable.json";
 import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
@@ -47,8 +48,8 @@ StickyHeader.args = {
 
 export const Sortable = SortableTemplate.bind({});
 Sortable.args = {
-  scrollable: true,
-};
+  ...SortableContent
+}
 Sortable.argTypes = {
   multipleHeaderRows: {
     table: { disable: true },
