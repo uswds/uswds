@@ -1,6 +1,5 @@
 {
   "modifier": "",
   "text": "Link styled as button",
-  "is_demo": true,
-  "aria_disabled": false
+  "is_demo": true
 }
