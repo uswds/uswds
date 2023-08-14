@@ -68,3 +68,10 @@ Unstyled.args = UnstyledContent;
 
 export const LinksAsButtons = LinkTemplate.bind({});
 LinksAsButtons.args = LinkContent;
+LinksAsButtons.argTypes = {
+  type: { 
+    table: { 
+      disable: true 
+    } 
+  }
+}
