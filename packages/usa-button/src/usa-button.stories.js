@@ -10,7 +10,7 @@ import {
   OutlineInverseContent,
   SecondaryContent,
   UnstyledContent,
-  LinkContent
+  LinkContent,
 } from "./content";
 
 export default {
@@ -69,9 +69,9 @@ Unstyled.args = UnstyledContent;
 export const LinksAsButtons = LinkTemplate.bind({});
 LinksAsButtons.args = LinkContent;
 LinksAsButtons.argTypes = {
-  type: { 
-    table: { 
-      disable: true 
-    } 
-  }
-}
+  type: {
+    table: {
+      disable: true,
+    },
+  },
+};
