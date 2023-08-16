@@ -81,6 +81,12 @@ const toggleNonNavItems = (active) => {
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
+  const isSafari = navigator.userAgent.indexOf("Safari") !== -1;
+  const isNotChrome = navigator.userAgent.indexOf("Chrome") === -1;
+
+  if (isSafari && isNotChrome) {
+    body.classList.add("is-safari");
+  }
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 

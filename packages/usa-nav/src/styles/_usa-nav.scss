@@ -476,15 +476,12 @@ $expand-less-icon: map-merge(
 
 // Safari-only fix that forces a vertical scrollbar when mobile header is opened.
 // Applies only to the 16px before the width declared in $theme-header-max-width.
-// This fix preserves the scrollbar to prevent the menu from unexpectedly closing
-// due to the mismatch of how Safari calculates window width when scroll bars are present.
-@supports (background: -webkit-named-image(i)) {
-  // 1rem is the approximate value of the Safari scrollbar
-  $safari-header-bug-min-width: calc(units($theme-header-max-width) - 1rem);
+// More details in https://github.com/uswds/uswds/pull/5443
+// Note: 1rem is the approximate width of the Safari scrollbar
+$safari-header-bug-min-width: calc(units($theme-header-max-width) - 1rem);
 
-  @media (min-width: $safari-header-bug-min-width) {
-    .usa-js-mobile-nav--active {
-      overflow: scroll;
-    }
+@media (min-width: $safari-header-bug-min-width) {
+  .usa-js-mobile-nav--active.is-safari {
+    overflow: scroll;
   }
 }
