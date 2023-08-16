@@ -7,6 +7,8 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
+const IN_PAGE_NAV_HEADINGS = "h2 h3";
+const IN_PAGE_NAV_VALID_HEADINGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 const IN_PAGE_NAV_TITLE_TEXT = "On this page";
 const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
@@ -49,12 +51,22 @@ const setActive = (el) => {
  *
  * @return {Array} - An array of visible headings from the designated content region
  */
-const getSectionHeadings = (mainContentSelector) => {
-  const sectionHeadings = document.querySelectorAll(
-    `${mainContentSelector} h2, ${mainContentSelector} h3`
-  );
+const getSectionHeadings = (mainContentSelector, headings) => {
+  const headingList = headings.indexOf(" ") ? headings.split(" ") : headings;
+  const headingArr = [];
 
-  // Convert nodeList to an array to allow for filtering
+  headingList.forEach((heading) => {
+    if (!IN_PAGE_NAV_VALID_HEADINGS.includes(heading)) {
+      throw new Error(
+        `Invalid heading type: ${heading}. Please use one or more of the following: ${IN_PAGE_NAV_VALID_HEADINGS}`
+      );
+    }
+    headingArr.push(`${mainContentSelector} ${heading}`);
+  });
+
+  const headingListNew = headingArr.join(",");
+  const sectionHeadings = document.querySelectorAll(headingListNew);
+
   const headingArray = Array.from(sectionHeadings);
 
   // Find all headings with hidden styling and remove them from the array
@@ -176,6 +188,8 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
+  const inPageNavHeadings =
+    inPageNavEl.dataset.headings || IN_PAGE_NAV_HEADINGS;
   const inPageNavTitleHeadingLevel = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL
   }`;
@@ -195,7 +209,7 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings(inPageNavContentSelector);
+  const sectionHeadings = getSectionHeadings(inPageNavContentSelector, inPageNavHeadings);
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
