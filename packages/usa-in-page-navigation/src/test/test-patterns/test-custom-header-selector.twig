@@ -1,24 +1,25 @@
 <div class="usa-in-page-nav-container">
   <aside class="usa-in-page-nav"
+    data-subheadings="h3 h3"
       {% if includeHeaders == "All" %}
-        data-headings="h1 h2 h3 h4 h5 h6"
+        data-heading-selector="h3 h4 h5"
         {% elseif includeHeaders == "Default"  %}
         {% elseif includeHeaders == "h1"  %}
-          data-headings="h1"
+          data-heading-selector="h1"
         {% elseif includeHeaders == "h2" %}
-          data-headings="h2"
+          data-heading-selector="h2"
         {% elseif includeHeaders == "h3" %}
-          data-headings="h3"
+          data-heading-selector="h3"
         {% elseif includeHeaders == "h4" %}
-          data-headings="h4"
+          data-heading-selector="h4"
         {% elseif includeHeaders == "h5" %}
-          data-headings="h5"
+          data-heading-selector="h5"
         {% elseif includeHeaders == "h6" %}
-          data-headings="h6"
+          data-heading-selector="h6"
         {% elseif includeHeaders == "Empty" %}
-          data-headings=""
+          data-heading-selector=""
         {% elseif includeHeaders == "Error" %}
-          data-headings="j1"
+          data-heading-selector="j1"
       {% endif %} >
   </aside>
 

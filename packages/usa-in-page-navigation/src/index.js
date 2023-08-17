@@ -202,7 +202,7 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
   const inPageNavHeadings =
-    inPageNavEl.dataset.headings || IN_PAGE_NAV_HEADINGS;
+    inPageNavEl.dataset.headingSelector || IN_PAGE_NAV_HEADINGS;
   const inPageNavTitleHeadingLevel = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL
   }`;
