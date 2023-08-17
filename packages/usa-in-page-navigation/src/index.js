@@ -209,7 +209,10 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings(inPageNavContentSelector, inPageNavHeadings);
+  const sectionHeadings = getSectionHeadings(
+    inPageNavContentSelector,
+    inPageNavHeadings
+  );
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
