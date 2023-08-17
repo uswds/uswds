@@ -44,7 +44,7 @@ const setActive = (el) => {
 };
 
 /**
- * Return an array of all visible h2 and h3 headings from the designated main content region.
+ * Return an array of all designated visible headings from the designated main content region.
  * These will be added to the component link list.
  *
  * @param {HTMLElement} mainContentSelector The designated main content region
@@ -81,6 +81,19 @@ const getSectionHeadings = (mainContentSelector, headings) => {
 
   return visibleHeadingArray;
 };
+
+/**
+ * Return the highest-level header tag included in the link list
+ *
+ * @param {HTMLElement} sectionHeadings The array of headings selected for inclusion in the link list
+ *
+ * @return {tagName} - The tag name for the highest level of header in the link list
+ */
+
+const getTopLevelHeading = (sectionHeadings) =>{
+  const topHeading = sectionHeadings[0].tagName.toLowerCase();
+  return topHeading;
+}
 
 /**
  * Return a node list of section anchor tags
@@ -233,9 +246,12 @@ const createInPageNav = (inPageNavEl) => {
     const anchorTag = document.createElement("a");
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
+    const topHeadingLevel = getTopLevelHeading(sectionHeadings);
 
-    listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
-    if (tag === "h3") {
+
+    if (tag === topHeadingLevel) {
+      listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
+    } else {
       listItem.classList.add(SUB_ITEM_CLASS);
     }
 
