@@ -90,10 +90,10 @@ const getSectionHeadings = (mainContentSelector, headings) => {
  * @return {tagName} - The tag name for the highest level of header in the link list
  */
 
-const getTopLevelHeading = (sectionHeadings) =>{
+const getTopLevelHeading = (sectionHeadings) => {
   const topHeading = sectionHeadings[0].tagName.toLowerCase();
   return topHeading;
-}
+};
 
 /**
  * Return a node list of section anchor tags
@@ -247,7 +247,6 @@ const createInPageNav = (inPageNavEl) => {
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
     const topHeadingLevel = getTopLevelHeading(sectionHeadings);
-
 
     if (tag === topHeadingLevel) {
       listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
