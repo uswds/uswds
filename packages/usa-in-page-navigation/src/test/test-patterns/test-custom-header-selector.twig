@@ -2,6 +2,7 @@
   <aside class="usa-in-page-nav"
       {% if includeHeaders == "All" %}
         data-headings="h1 h2 h3 h4 h5 h6"
+        {% elseif includeHeaders == "Default"  %}
         {% elseif includeHeaders == "h1"  %}
           data-headings="h1"
         {% elseif includeHeaders == "h2" %}
@@ -14,6 +15,10 @@
           data-headings="h5"
         {% elseif includeHeaders == "h6" %}
           data-headings="h6"
+        {% elseif includeHeaders == "Empty" %}
+          data-headings=""
+        {% elseif includeHeaders == "Error" %}
+          data-headings="j1"
       {% endif %} >
   </aside>
 

@@ -26,9 +26,9 @@ TestCustomHeaderSelector.argTypes = {
   includeHeaders: {
     defaultValue: "All",
     name: "Include these headers in link list",
-    options: ["All", "h1", "h2", "h3", "h4", "h5", "h6"],
+    options: ["Default", "All", "h1", "h2", "h3", "h4", "h5", "h6", "Error", "Empty"],
     control: { type: "inline-radio" },
   },
-}
+};
 
 export const TestHiddenHeaders = TestHiddenHeaderTemplate.bind();
