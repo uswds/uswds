@@ -1,11 +1,15 @@
 @use "../../functions/utilities/color" as *;
 @use "../../settings" as *;
 @use "../../variables/border-high-contrast" as *;
+@use "../helpers/set-text-and-bg.scss" as *;
 // Overrides background-color and cursor styles of elements to display as disabled
 
 @mixin u-disabled($bg-color: "disabled-lighter", $text-color: "disabled-dark") {
-  background-color: color($bg-color);
-  color: color($text-color);
+  @include set-text-and-bg(
+    $bg-color,
+    $text-color
+  );
+
   cursor: not-allowed;
   opacity: 1; // Override disabled default opacity shift (Necessary for Chromium, iOS Safari)
 
@@ -13,8 +17,10 @@
   &:active,
   &:focus,
   &.usa-focus {
-    background-color: color($bg-color);
-    color: color($text-color);
+    @include set-text-and-bg(
+      $bg-color,
+      $text-color
+    );
   }
 
   @media (forced-colors: active) {
