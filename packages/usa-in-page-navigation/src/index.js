@@ -67,13 +67,13 @@ const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
     contentHeadingTypes.push(`${selectedContentRegion} ${headingType}`);
   });
 
-  const contentHeadings = Array.from(
+  const sectionHeadings = Array.from(
     document.querySelectorAll(contentHeadingTypes)
   );
 
   // Find all headings with hidden styling and remove them from the array
-  const visibleContentHeadings = contentHeadings.filter((contentHeading) => {
-    const headingStyle = window.getComputedStyle(contentHeading);
+  const visibleSectionHeadings = sectionHeadings.filter((heading) => {
+    const headingStyle = window.getComputedStyle(heading);
     const visibleHeading =
       headingStyle.getPropertyValue("display") !== "none" &&
       headingStyle.getPropertyValue("visibility") !== "hidden";
@@ -81,7 +81,7 @@ const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
     return visibleHeading;
   });
 
-  return visibleContentHeadings;
+  return visibleSectionHeadings;
 };
 
 /**
