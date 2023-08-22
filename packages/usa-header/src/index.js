@@ -81,9 +81,11 @@ const toggleNonNavItems = (active) => {
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
+
+  // Detect Safari and add a body class for a Safari-only CSS bug fix.
+  // More details in https://github.com/uswds/uswds/pull/5443
   const isSafari = navigator.userAgent.indexOf("Safari") !== -1;
   const isNotChrome = navigator.userAgent.indexOf("Chrome") === -1;
-
   if (isSafari && isNotChrome) {
     body.classList.add("is-safari");
   }
