@@ -2,7 +2,7 @@
   <aside class="usa-in-page-nav"
     {% if includeHeaders == "All" %}
       data-heading-selector="h1 h2 h3 h4 h5 h6"
-      {% elseif includeHeaders == "Default" %}
+      {% elseif includeHeaders == "Default value" %}
       {% elseif includeHeaders == "h1" %}
         data-heading-selector="h1"
       {% elseif includeHeaders == "h2" %}
@@ -15,9 +15,9 @@
         data-heading-selector="h5"
       {% elseif includeHeaders == "h6" %}
         data-heading-selector="h6"
-      {% elseif includeHeaders == "Empty" %}
+      {% elseif includeHeaders == "Empty value" %}
         data-heading-selector=""
-      {% elseif includeHeaders == "Error" %}
+      {% elseif includeHeaders == "Error in value" %}
         data-heading-selector="j1"
     {% endif %} >
   </aside>
