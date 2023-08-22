@@ -44,34 +44,36 @@ const setActive = (el) => {
 };
 
 /**
- * Return an array of all designated visible headings from the designated main content region.
- * These will be added to the component link list.
+ * Return an array of visible headings from the designated content region.
+ * These items will be added to the component link list.
  *
- * @param {HTMLElement} mainContentSelector The designated main content region
+ * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
+ * @param {HTMLElement} selectedHeadingTypes The list of heading types that should be included in the link list
  *
  * @return {Array} - An array of visible headings from the designated content region
  */
-const getSectionHeadings = (mainContentSelector, headings) => {
-  const headingList = headings.indexOf(" ") ? headings.split(" ") : headings;
-  const headingArr = [];
+const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
+  const headingTypes = selectedHeadingTypes.indexOf(" ")
+    ? selectedHeadingTypes.split(" ")
+    : selectedHeadingTypes;
+  const contentHeadingTypes = [];
 
-  headingList.forEach((heading) => {
-    if (!IN_PAGE_NAV_VALID_HEADINGS.includes(heading)) {
+  headingTypes.forEach((headingType) => {
+    if (!IN_PAGE_NAV_VALID_HEADINGS.includes(headingType)) {
       throw new Error(
-        `Invalid heading type: ${heading}. Please use one or more of the following: ${IN_PAGE_NAV_VALID_HEADINGS}`
+        `Invalid heading type: ${headingType}. Please use one or more of the following: ${IN_PAGE_NAV_VALID_HEADINGS}`
       );
     }
-    headingArr.push(`${mainContentSelector} ${heading}`);
+    contentHeadingTypes.push(`${selectedContentRegion} ${headingType}`);
   });
 
-  const headingListNew = headingArr.join(",");
-  const sectionHeadings = document.querySelectorAll(headingListNew);
-
-  const headingArray = Array.from(sectionHeadings);
+  const contentHeadings = Array.from(
+    document.querySelectorAll(contentHeadingTypes)
+  );
 
   // Find all headings with hidden styling and remove them from the array
-  const visibleHeadingArray = headingArray.filter((heading) => {
-    const headingStyle = window.getComputedStyle(heading);
+  const visibleContentHeadings = contentHeadings.filter((contentHeading) => {
+    const headingStyle = window.getComputedStyle(contentHeading);
     const visibleHeading =
       headingStyle.getPropertyValue("display") !== "none" &&
       headingStyle.getPropertyValue("visibility") !== "hidden";
@@ -79,7 +81,7 @@ const getSectionHeadings = (mainContentSelector, headings) => {
     return visibleHeading;
   });
 
-  return visibleHeadingArray;
+  return visibleContentHeadings;
 };
 
 /**
@@ -201,8 +203,6 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
-  const inPageNavHeadings =
-    inPageNavEl.dataset.headingSelector || IN_PAGE_NAV_HEADINGS;
   const inPageNavTitleHeadingLevel = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleHeadingLevel || IN_PAGE_NAV_TITLE_HEADING_LEVEL
   }`;
@@ -215,6 +215,8 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavContentSelector = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
   }`;
+  const inPageNavHeadingSelector =
+    inPageNavEl.dataset.headingSelector || IN_PAGE_NAV_HEADINGS;
 
   const options = {
     root: null,
@@ -224,7 +226,7 @@ const createInPageNav = (inPageNavEl) => {
 
   const sectionHeadings = getSectionHeadings(
     inPageNavContentSelector,
-    inPageNavHeadings
+    inPageNavHeadingSelector
   );
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
