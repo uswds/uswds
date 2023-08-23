@@ -2,7 +2,7 @@ name: Feature Request 💡
 description:
   Suggest a new idea for the design system.
 title: 'USWDS - Feature: [YOUR TITLE]'
-labels: ['Type: Feature Request','Status: Triage']
+labels: ['Type: Feature Request']
 body:
   - type: markdown
     attributes:

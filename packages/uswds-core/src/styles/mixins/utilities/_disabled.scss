@@ -3,10 +3,7 @@
 @use "../../variables/border-high-contrast" as *;
 // Overrides background-color and cursor styles of elements to display as disabled
 
-@mixin u-disabled(
-  $bg-color: "disabled",
-  $text-color: $theme-color-text-on-disabled
-) {
+@mixin u-disabled($bg-color: "disabled-lighter", $text-color: "disabled-dark") {
   background-color: color($bg-color);
   color: color($text-color);
   cursor: not-allowed;
