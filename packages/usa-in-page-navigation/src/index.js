@@ -48,7 +48,7 @@ const setActive = (el) => {
  * These items will be added to the component link list.
  *
  * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
- * @param {HTMLElement} selectedHeadingTypes The list of heading types that should be included in the link list
+ * @param {String} selectedHeadingTypes The list of heading types that should be included in the link list
  *
  * @return {Array} - An array of visible headings from the designated content region
  */
