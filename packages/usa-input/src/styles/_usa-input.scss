@@ -9,7 +9,7 @@
     @include u-disabled;
     @include u-disabled-high-contrast-border;
     // Fix for Safari
-    -webkit-text-fill-color: color($theme-color-text-on-disabled);
+    -webkit-text-fill-color: color("disabled-dark");
   }
 }
 
