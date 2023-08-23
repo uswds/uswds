@@ -56,22 +56,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
       window.location.hash = "";
     });
 
-    it("pulls only the heading types listed in data-heading-selector", () => {
+    it("creates links in the nav list for the heading level listed in data-heading-selector", () => {
       assert.equal(selectedHeadingList.length === navListLinks.length, true);
     });
 
-    it("creates a link in the nav list for the designated header", () => {
-      const h2Link = navListLinks.filter((link) =>
+    it("creates a link in the nav list specifically for the designated header", () => {
+      const selectedHeadingLink = navListLinks.filter((link) =>
         link.href.includes(`#${dataHeadingSelector}-heading`)
       );
-      assert.equal(h2Link.length === 1, true);
-    });
-
-    it("does not create a link in the nav list for the h3 header", () => {
-      const h3link = navListLinks.filter((link) =>
-        link.href.includes("#h3-heading")
-      );
-      assert.equal(h3link.length === 0, true);
+      assert.equal(selectedHeadingLink.length === 1, true);
     });
   });
 });
