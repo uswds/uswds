@@ -187,7 +187,7 @@
 .usa-card__media--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
-  @include u-margin-x(-$theme-card-border-width);
+  margin-inline: units($theme-card-border-width) * -1;
 }
 
 .usa-card__header--exdent,
@@ -199,7 +199,7 @@
 }
 
 .usa-card__media--exdent {
-  @include u-margin-top(-$theme-card-border-width);
+  margin-top: units($theme-card-border-width) * -1;
 
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
@@ -215,8 +215,8 @@
   }
 
   .usa-card__header--exdent {
-    @include u-margin-top(-$theme-card-border-width);
     @include u-radius-top($theme-card-border-radius);
+    margin-top: units($theme-card-border-width) * -1;
   }
 
   .usa-card__media--inset {
@@ -272,9 +272,7 @@
     }
 
     .usa-card__media--exdent {
-      @include u-margin-left(-$theme-card-border-width);
-      @include u-margin-right(0);
-      @include u-margin-y(-$theme-card-border-width);
+      margin: units($theme-card-border-width) * -1;
 
       .usa-card__img {
         @include u-radius-left($theme-card-border-radius);
@@ -340,14 +338,9 @@
         @include u-margin-right($theme-card-flag-image-width);
       }
 
-      .usa-card__media--exdent {
-        @include u-margin-right(-$theme-card-border-width);
-        @include u-margin-left(0);
-
-        .usa-card__img {
-          @include u-radius(0);
-          @include u-radius-right($theme-card-border-radius);
-        }
+      .usa-card__img {
+        @include u-radius(0);
+        @include u-radius-right($theme-card-border-radius);
       }
     }
   }
