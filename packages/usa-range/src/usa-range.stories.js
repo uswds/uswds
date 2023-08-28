@@ -8,6 +8,25 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    optional_unit: {
+      name: "Unit",
+      control: { type: "text" },
+    },
+    min: {
+      name: "Min",
+      control: { type: "number" },
+      defaultValue: 0,
+    },
+    max: {
+      name: "Max",
+      control: { type: "number" },
+      defaultValue: 100
+    },
+    step: {
+      name: "Step",
+      control: { type: "number" },
+      defaultValue: 20
+    },
   },
 };
 
@@ -24,3 +43,8 @@ export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
+
+export const UnitTest = Template.bind({});
+UnitTest.args = {
+  optional_unit: "Percent"
+}
