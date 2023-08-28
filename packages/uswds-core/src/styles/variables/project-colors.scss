@@ -91,9 +91,11 @@ $project-state-colors: (
     "darker": set-theme-color(settings.$theme-color-info-darker, no-warn),
   ),
   "disabled": (
+    "lighter": set-theme-color(settings.$theme-color-disabled-lighter, no-warn),
     "light": set-theme-color(settings.$theme-color-disabled-light, no-warn),
     "default": set-theme-color(settings.$theme-color-disabled, no-warn),
     "dark": set-theme-color(settings.$theme-color-disabled-dark, no-warn),
+    "darker": set-theme-color(settings.$theme-color-disabled-darker, no-warn),
   ),
   "emergency": (
     "default": set-theme-color(settings.$theme-color-emergency, no-warn),
