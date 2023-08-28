@@ -17,7 +17,6 @@ $input-select-margin-right: 1.5;
 
 %block-input-styles {
   @include u-border(1px, "base-dark");
-  @include u-disabled-high-contrast-border;
   appearance: none;
   border-radius: 0;
   color: color("ink"); // standardize on firefox

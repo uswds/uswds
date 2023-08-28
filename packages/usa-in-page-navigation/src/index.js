@@ -42,15 +42,32 @@ const setActive = (el) => {
 };
 
 /**
- * Return a node list of section headings
+ * Return an array of all visible h2 and h3 headings from the designated main content region.
+ * These will be added to the component link list.
  *
- * @return {HTMLElement[]} - An array of DOM nodes
+ * @param {HTMLElement} mainContentSelector The designated main content region
+ *
+ * @return {Array} - An array of visible headings from the designated content region
  */
-const getSectionHeadings = () => {
+const getSectionHeadings = (mainContentSelector) => {
   const sectionHeadings = document.querySelectorAll(
-    `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
+    `${mainContentSelector} h2, ${mainContentSelector} h3`
   );
-  return sectionHeadings;
+
+  // Convert nodeList to an array to allow for filtering
+  const headingArray = Array.from(sectionHeadings);
+
+  // Find all headings with hidden styling and remove them from the array
+  const visibleHeadingArray = headingArray.filter((heading) => {
+    const headingStyle = window.getComputedStyle(heading);
+    const visibleHeading =
+      headingStyle.getPropertyValue("display") !== "none" &&
+      headingStyle.getPropertyValue("visibility") !== "hidden";
+
+    return visibleHeading;
+  });
+
+  return visibleHeadingArray;
 };
 
 /**
@@ -168,6 +185,9 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavThreshold = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.threshold || IN_PAGE_NAV_THRESHOLD
   }`;
+  const inPageNavContentSelector = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
+  }`;
 
   const options = {
     root: null,
@@ -175,7 +195,7 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings();
+  const sectionHeadings = getSectionHeadings(inPageNavContentSelector);
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
