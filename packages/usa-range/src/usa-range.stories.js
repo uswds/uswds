@@ -20,12 +20,12 @@ export default {
     max: {
       name: "Max",
       control: { type: "number" },
-      defaultValue: 100
+      defaultValue: 100,
     },
     step: {
       name: "Step",
       control: { type: "number" },
-      defaultValue: 20
+      defaultValue: 20,
     },
   },
 };
@@ -46,5 +46,5 @@ AriaDisabled.args = {
 
 export const UnitTest = Template.bind({});
 UnitTest.args = {
-  optional_unit: "Percent"
-}
+  optional_unit: "Percent",
+};

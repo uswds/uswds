@@ -41,14 +41,12 @@ const rangeEvents = {
   },
 };
 
-const range = behavior(rangeEvents,
-  {
-    init(root) {
-      selectOrMatches(RANGE, root).forEach((rangeSlider) => {
-        enhanceSRContext(rangeSlider);
-      });
-    },
-  }
-);
+const range = behavior(rangeEvents, {
+  init(root) {
+    selectOrMatches(RANGE, root).forEach((rangeSlider) => {
+      enhanceSRContext(rangeSlider);
+    });
+  },
+});
 
 module.exports = range;
