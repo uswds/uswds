@@ -98,6 +98,13 @@ $uswds-notifications:
 + "\A - Guidance [usa-form]: We now suggest identifying both required "
 + "\A   and optional fields in forms. Label required fields with a red"
 + "\A   asterisk and optional fields with the word \"optional\"."
++ "\A --------------------------------------------------------------------"
++ "\A 3.6.0"
++ "\A - Settings: This release updates USWDS disabled color settings"
++ "\A   and tokens to conform to our standard naming convention."
++ "\A   If your project configures disabled color settings"
++ "\A   or uses disabled color tokens, you probably need to update your"
++ "\A   code. Details: github.com/uswds/uswds/releases/tag/v3.6.0"
 + "\A ";
 
 /* prettier-ignore */
