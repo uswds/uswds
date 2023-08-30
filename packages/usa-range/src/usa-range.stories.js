@@ -25,7 +25,7 @@ export default {
     step: {
       name: "Step",
       control: { type: "number" },
-      defaultValue: 20,
+      defaultValue: 10,
     },
   },
 };
