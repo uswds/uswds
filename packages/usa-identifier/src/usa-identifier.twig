@@ -30,11 +30,18 @@
       <section class="usa-identifier__identity" aria-label="{{ masthead.description }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
-          <span aria-hidden="true">
+          {% if lang == "en" %}
+            <span aria-hidden="true">
+          {% endif %}
             {{ masthead.content }}
-          </span>
+          {% if lang == "en" %}
+            </span>
+          {% endif %}
           <a href="{{ placeholder_link }}"
-            aria-label="{{ masthead.disclaimer_aria_label }} {{ masthead.parent.name |e }}">
+            {% if lang == "en" %}
+              aria-label="Official website of {{ masthead.parent.name |e }}"
+            {% endif %}
+          >
             {{ masthead.parent.name |e }}
           </a>
           {% if masthead.agency.url %}
