@@ -5,6 +5,7 @@
   "masthead": {
     "aria_label": "Agency identifier,",
     "description": "Agency description,",
+    "disclaimer_aria_label": "Official website of the",
     "content": "An official website of the",
     "parent": {
       "name": "<Parent agency>",
