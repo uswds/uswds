@@ -1,0 +1,101 @@
+{
+  "variables": [
+    {
+      "name": "$theme-image-path",
+      "value": "../img",
+      "compiledValue": ""
+    },
+    {
+      "name": "$theme-show-compile-warnings",
+      "value": "true",
+      "compiledValue": "true"
+    },
+    {
+      "name": "$theme-show-notifications",
+      "value": "true",
+      "compiledValue": "true"
+    },
+    {
+      "name": "$theme-namespace",
+      "value": "()",
+      "compiledValue": ""
+    },
+    {
+      "name": "$theme-namespace-complete",
+      "value": "map.deep-merge( ( \"grid\": ( namespace: \"grid-\", output: true, ), \"utility\": ( namespace: \"u-\", output: false, ), ), $theme-namespace )",
+      "mapValue": [
+        {
+          "name": "grid",
+          "value": "( namespace: \"grid-\", output: true, )",
+          "mapValue": [
+            {
+              "name": "namespace",
+              "value": "grid-"
+            },
+            {
+              "name": "output",
+              "value": "true"
+            }
+          ],
+          "compiledValue": "(namespace: \"grid-\", output: true)"
+        },
+        {
+          "name": "utility",
+          "value": "( namespace: \"u-\", output: false, )",
+          "mapValue": [
+            {
+              "name": "namespace",
+              "value": "u-"
+            },
+            {
+              "name": "output",
+              "value": "false"
+            }
+          ],
+          "compiledValue": "(namespace: \"u-\", output: false)"
+        }
+      ],
+      "compiledValue": "(\"grid\": (namespace: \"grid-\", output: true), \"utility\": (namespace: \"u-\", output: false))"
+    },
+    {
+      "name": "$theme-prefix-separator",
+      "value": "\\\\:",
+      "compiledValue": ""
+    },
+    {
+      "name": "$theme-layout-grid-use-important",
+      "value": "false",
+      "compiledValue": "false"
+    },
+    {
+      "name": "$theme-global-border-box-sizing",
+      "value": "true",
+      "compiledValue": "true"
+    },
+    {
+      "name": "$theme-focus-color",
+      "value": "blue-40v",
+      "compiledValue": "blue-40v"
+    },
+    {
+      "name": "$theme-focus-offset",
+      "value": "0",
+      "compiledValue": "0"
+    },
+    {
+      "name": "$theme-focus-style",
+      "value": "solid",
+      "compiledValue": "solid"
+    },
+    {
+      "name": "$theme-focus-width",
+      "value": "0.5",
+      "compiledValue": "0.5"
+    },
+    {
+      "name": "$theme-icon-image-size",
+      "value": "2",
+      "compiledValue": "2"
+    }
+  ]
+}

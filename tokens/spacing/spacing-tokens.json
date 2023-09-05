@@ -1,0 +1,11 @@
+{
+  "system-spacing": {
+    "smaller": {
+      "1px": { "value": "1px", "themeable": false },
+      "2px": { "value": "2px"}
+    },
+    "small": {
+      "05": { "value": "spacing-multiple(0.5)"}
+    }
+  }
+}
