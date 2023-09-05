@@ -485,5 +485,6 @@ $safari-header-bug-min-width: calc(
 @media (min-width: $safari-header-bug-min-width) {
   .usa-js-mobile-nav--active.is-safari {
     overflow: scroll;
+    position: fixed;
   }
 }
