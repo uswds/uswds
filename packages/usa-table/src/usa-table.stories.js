@@ -43,7 +43,6 @@ export const StickyHeader = Template.bind({});
 StickyHeader.args = {
   ...DefaultContent,
   ...StickyHeaderContent,
-  stickyHeader: true,
 };
 
 export const Sortable = SortableTemplate.bind({});

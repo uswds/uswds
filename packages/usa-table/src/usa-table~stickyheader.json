@@ -1,4 +1,5 @@
 {
   "modifier": "usa-table--sticky-header",
-  "caption": "Sticky header table"
+  "caption": "Sticky header table",
+  "stickyHeader": true
 }
