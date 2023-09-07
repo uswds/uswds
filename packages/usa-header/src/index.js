@@ -89,7 +89,10 @@ const toggleNav = (active) => {
   const isSafari = navigator.userAgent.indexOf("Safari") !== -1;
   const isNotChrome = navigator.userAgent.indexOf("Chrome") === -1;
   if (isSafari && isNotChrome) {
-    body.style.setProperty('--scrolltop', `${-(document.documentElement.scrollTop)}px`);
+    body.style.setProperty(
+      "--scrolltop",
+      `${-document.documentElement.scrollTop}px`
+    );
     body.classList.add("is-safari");
   }
 
