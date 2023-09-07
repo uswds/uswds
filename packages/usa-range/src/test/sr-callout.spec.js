@@ -46,21 +46,26 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("adds screen reader callout on initialization", () => {
         assert.ok(valueText, "adds aria-valuetext attribute");
-        assert.strictEqual(valueText, "20 percent of 100", "initial value is incorrect")
-      })
+        assert.strictEqual(
+          valueText,
+          "20 percent of 100",
+          "initial value is incorrect"
+        );
+      });
 
       it("updates aria-valuetext to match new slider value on input", () => {
-
-        slider.value = '30';
+        slider.value = "30";
         EVENTS.input(slider);
-        
-        assert.strictEqual(
-          slider.value, '30'
-        );
+
+        assert.strictEqual(slider.value, "30");
 
         valueText = slider.getAttribute("aria-valuetext");
-        assert.strictEqual(valueText, "30 percent of 100", "Screen reader value does not match range value");
+        assert.strictEqual(
+          valueText,
+          "30 percent of 100",
+          "Screen reader value does not match range value"
+        );
       });
-    })
+    });
   });
 });
