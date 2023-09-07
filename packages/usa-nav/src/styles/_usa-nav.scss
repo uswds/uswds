@@ -482,8 +482,10 @@ $safari-header-bug-min-width: calc(
   units($theme-header-max-width) - px-to-rem(15px)
 );
 
-.usa-js-mobile-nav--active.is-safari {
-  overflow-y: scroll;
-  position: fixed;
-  top: var(--scrolltop, 0);
+@media (min-width: $safari-header-bug-min-width) {
+  .usa-js-mobile-nav--active.is-safari {
+    overflow-y: scroll;
+    position: fixed;
+    top: var(--scrolltop, 0);
+  }
 }
