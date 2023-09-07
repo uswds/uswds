@@ -10,53 +10,11 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send a click event
+ * send an input event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.click = (el) => {
-  const evt = new MouseEvent("click", {
-    view: el.ownerDocument.defaultView,
-    bubbles: true,
-    cancelable: true,
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown ArrowLeft event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownArrowLeft = (el = document.activeElement) => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "ArrowLeft",
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown ArrowRight event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownArrowRight = (el = document.activeElement) => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "ArrowRight",
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown Tab event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownTab = (el = document) => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "Tab",
-    keyCode: 9,
-  });
-  el.dispatchEvent(evt);
+EVENTS.input = (el) => {
+  el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
 const rangeSliderSelector = () => document.querySelector(".usa-range");
@@ -68,39 +26,41 @@ const tests = [
 
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`Range slider component initialized at ${name}`, () => {
-    const { body } = document;
+    describe("range slider component", () => {
+      const { body } = document;
 
-    let slider;
-    let valueText;
+      let slider;
+      let valueText;
 
-    beforeEach(() => {
-      body.innerHTML = TEMPLATE;
-      range.on(containerSelector());
+      beforeEach(() => {
+        body.innerHTML = TEMPLATE;
+        range.on(containerSelector());
 
-      slider = rangeSliderSelector();
-      valueText = slider.getAttribute("aria-valuetext");
-    });
+        slider = rangeSliderSelector();
+        valueText = slider.getAttribute("aria-valuetext");
+      });
 
-    afterEach(() => {
-      body.textContent = "";
-    });
+      afterEach(() => {
+        body.textContent = "";
+      });
 
-    it("updates aria-valuenow on input", () => {
-      document.getElementById("usa-range").focus();
+      it("adds screen reader callout on initialization", () => {
+        assert.ok(valueText, "adds aria-valuetext attribute");
+        assert.strictEqual(valueText, "20 percent of 100", "initial value is incorrect")
+      })
 
-      
-      EVENTS.keydownArrowRight();
-      
-      assert.ok(
-        document.activeElement.classList.contains("usa-range"),
-        "focuses correct item"
-      );
-      
-      assert.strictEqual(
-        document.activeElement.value, 30
-      )
+      it("updates aria-valuetext to match new slider value on input", () => {
 
-      assert.strictEqual(valueText, "30 percent of 100");
-    });
+        slider.value = '30';
+        EVENTS.input(slider);
+        
+        assert.strictEqual(
+          slider.value, '30'
+        );
+
+        valueText = slider.getAttribute("aria-valuetext");
+        assert.strictEqual(valueText, "30 percent of 100", "Screen reader value does not match range value");
+      });
+    })
   });
 });
