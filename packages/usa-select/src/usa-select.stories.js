@@ -1,4 +1,5 @@
 import Component from "./usa-select.twig";
+import MultipleTest from "./test/test-patterns/usa-select--multiple.twig";
 
 export default {
   title: "Components/Form Inputs/Select",
@@ -12,6 +13,7 @@ export default {
 };
 
 const Template = (args) => Component(args);
+const MultipleTemplate = (args) => MultipleTest(args);
 
 export const Select = Template.bind({});
 
@@ -25,7 +27,7 @@ AriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
 
-export const Multiple = Template.bind({});
+export const Multiple = MultipleTemplate.bind({});
 Multiple.args = {
   multiple: true,
   size: 0,

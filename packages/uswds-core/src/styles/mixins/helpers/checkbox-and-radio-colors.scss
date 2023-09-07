@@ -32,8 +32,8 @@
     1
   );
   $input-border-alpha: -0;
-  $color-input-disabled: color($theme-color-disabled-text);
-  $color-input-disabled--weak: color($theme-color-disabled);
+  $color-input-disabled: color("disabled");
+  $color-input-disabled--weak: color("disabled-lighter");
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
