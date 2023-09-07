@@ -82,13 +82,14 @@ const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
 
-  // Detect Safari and add a body class for a Safari-only CSS bug fix.
+  // Detect Safari and add body class and top position for a Safari-only CSS bug fix.
   // Note: Both Safari and Chrome report the Safari userAgent, so
   // this script specifically checks for "not Chrome".
   // More details in https://github.com/uswds/uswds/pull/5443
   const isSafari = navigator.userAgent.indexOf("Safari") !== -1;
   const isNotChrome = navigator.userAgent.indexOf("Chrome") === -1;
   if (isSafari && isNotChrome) {
+    body.style.setProperty('--scrolltop', `${-(document.documentElement.scrollTop)}px`);
     body.classList.add("is-safari");
   }
 
