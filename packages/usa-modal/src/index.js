@@ -125,10 +125,11 @@ function toggleModal(event) {
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
   // to the body element
-  body.style.paddingRight =
-    body.style.paddingRight === TEMPORARY_PADDING
-      ? INITIAL_PADDING
-      : TEMPORARY_PADDING;
+  if(body.style.paddingRight === TEMPORARY_PADDING){
+    body.removeAttribute("style");
+  } else{
+    body.style.paddingRight = TEMPORARY_PADDING;
+  }
 
   // Handle the focus actions
   if (safeActive && openFocusEl) {
@@ -165,7 +166,6 @@ function toggleModal(event) {
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
-
   return safeActive;
 }
 
