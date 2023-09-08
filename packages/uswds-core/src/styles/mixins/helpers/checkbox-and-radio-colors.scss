@@ -32,8 +32,8 @@
     1
   );
   $input-border-alpha: -0;
-  $color-input-disabled: color("disabled");
-  $color-input-disabled--weak: color("disabled-lighter");
+  $color-input-disabled: color("gray-20");
+  $color-input-disabled--weak: color("gray-10");
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
@@ -70,7 +70,7 @@
     &:disabled,
     &[aria-disabled="true"] {
       @include format-label {
-        color: $color-input-disabled;
+        color: color("gray-50");
 
         @media (forced-colors: active) {
           color: GrayText;
