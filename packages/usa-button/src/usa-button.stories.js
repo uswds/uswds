@@ -74,6 +74,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   ...DefaultContent,
   icon_included: true,
+  // Specifying name to preselect value in StorybookJS control.
   icon_name: "add_circle_outline",
 };
 
