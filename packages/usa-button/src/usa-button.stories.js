@@ -23,10 +23,10 @@ export default {
       name: "Variant",
     },
     text: {
-      name: "Text string",
+      name: "Text",
     },
     is_demo: {
-      name: "Show all button states",
+      name: "View all states",
       defaultValue: true,
       type: "boolean",
     },
