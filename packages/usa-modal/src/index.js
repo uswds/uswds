@@ -125,9 +125,9 @@ function toggleModal(event) {
   // Account for content shifting from body overflow: hidden
   // We only check paddingRight in case apps are adding other properties
   // to the body element
-  if(body.style.paddingRight === TEMPORARY_PADDING){
+  if (body.style.paddingRight === TEMPORARY_PADDING) {
     body.removeAttribute("style");
-  } else{
+  } else {
     body.style.paddingRight = TEMPORARY_PADDING;
   }
 
