@@ -37,7 +37,7 @@ export default {
       control: { type: "radio" },
     },
     icon_included: {
-      name: "Icon included",
+      name: "Add icon",
       defaultValue: false,
       type: "boolean",
     },
