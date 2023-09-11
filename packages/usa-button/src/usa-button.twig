@@ -25,7 +25,7 @@
 {% endset %}
 
 {% if is_demo and 'usa-button--big' not in modifier %}
-  {{ button.usaButton('Default', modifier) }}
+  {{ button.usaButton('Default', modifier, type) }}
   {{ button.usaButton('Hover', modifier, type, "usa-button--hover") }}
   {{ button.usaButton('Active', modifier, type, "usa-button--active") }}
   {{ button.usaButton('Focus', modifier, type, "usa-focus") }}
@@ -34,12 +34,11 @@
   {{ button.usaButton('Unstyled button', modifier, type, 'usa-button--unstyled') }}
 
 {% else %}
-  {{ button.usaButton('Default', modifier) }}
+  {{ button.usaButton('Default', modifier, type) }}
 
   {% if is_demo and 'usa-button--big' in modifier %}
-    {{ button.usaButton('Big button', modifier) }}
     {{ button.usaButton('Disabled', modifier, type, null, 'disabled') }}
-    {{ button.usaButton('aria-disabled', modifier, type, null, 'aria-disabled') }}
+    {{ button.usaButton('aria-disabled', modifier, type, null, 'aria-disabled="true"') }}
     {{ button.usaButton('Unstyled button', modifier, type, 'usa-button--unstyled') }}
   {% endif %}
 {% endif %}
