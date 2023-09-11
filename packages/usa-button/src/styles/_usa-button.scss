@@ -18,9 +18,9 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   column-gap: units($theme-button-column-gap);
   display: inline-flex;
   font-weight: font-weight("bold");
+  justify-content: center;
   margin-right: units(1);
   padding: units(1.5) units(2.5);
-  text-align: center;
   text-decoration: none;
   width: 100%;
 
