@@ -79,14 +79,13 @@
       @include format-input {
         background-color: color($input-bg-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
-        color("disabled");
+          color("disabled");
       }
     }
     &--tile {
       @include format-label {
         background-color: color($input-bg-color);
-        border: units($theme-input-tile-border-width) solid
-          $tile-border-color;
+        border: units($theme-input-tile-border-width) solid $tile-border-color;
         color: color($input-text-color);
       }
       &:checked {
