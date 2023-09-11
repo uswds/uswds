@@ -38,6 +38,7 @@ describe("navigation toggle", () => {
   let menuButton;
   let accordionButton;
   let navLink;
+  let finishAnimation;
 
   const isVisible = (el) => el.classList.contains("is-visible");
 
@@ -54,6 +55,12 @@ describe("navigation toggle", () => {
     accordionButton = nav.querySelector(".usa-accordion__button");
     navLink = nav.querySelector("a");
     sandbox = sinon.createSandbox();
+
+    finishAnimation = () => {
+      [nav, overlay].forEach((ele) => {
+        ele.dispatchEvent(new CustomEvent("animationend"));
+      });
+    };
   });
 
   afterEach(() => {
@@ -79,9 +86,23 @@ describe("navigation toggle", () => {
     assert.strictEqual(isVisible(overlay), true);
   });
 
+  it("animates the nav closed", () => {
+    menuButton.click();
+    closeButton.click();
+    assert.strictEqual(nav.classList.contains("is-closing"), true);
+    assert.strictEqual(overlay.classList.contains("is-closing"), true);
+    assert.strictEqual(isVisible(nav), true);
+    assert.strictEqual(isVisible(overlay), true);
+    finishAnimation();
+    assert.strictEqual(nav.classList.contains("is-closing"), false);
+    assert.strictEqual(isVisible(nav), false);
+    assert.strictEqual(isVisible(overlay), false);
+  });
+
   it("hides the nav when the close button is clicked", () => {
     menuButton.click();
     closeButton.click();
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
   });
@@ -89,6 +110,7 @@ describe("navigation toggle", () => {
   it("hides the nav when the overlay is clicked", () => {
     menuButton.click();
     overlay.click();
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
   });
@@ -96,6 +118,7 @@ describe("navigation toggle", () => {
   it("hides the nav when a nav link is clicked", () => {
     menuButton.click();
     navLink.click();
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
   });
 
@@ -125,6 +148,7 @@ describe("navigation toggle", () => {
     menuButton.click();
     sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 0 });
     window.dispatchEvent(new CustomEvent("resize"));
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
   });
 
@@ -156,6 +180,7 @@ describe("navigation toggle", () => {
     menuButton.click();
     navControl.focus();
     EVENTS.escape(navControl);
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
     assert.strictEqual(document.activeElement, menuButton);
@@ -165,6 +190,7 @@ describe("navigation toggle", () => {
     menuButton.click();
     navLink.click();
     EVENTS.focusOut(navLink);
+    finishAnimation();
     assert.strictEqual(isVisible(nav), false);
   });
 
