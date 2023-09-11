@@ -32,8 +32,8 @@
     1
   );
   $input-border-alpha: -0;
-  $color-input-disabled: color("gray-20");
-  $color-input-disabled--weak: color("gray-10");
+  $tile-border-color: color("gray-20");
+  $tile-border-color--disabled: color("gray-10");
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
@@ -70,7 +70,7 @@
     &:disabled,
     &[aria-disabled="true"] {
       @include format-label {
-        color: color("gray-50");
+        color: color("disabled");
 
         @media (forced-colors: active) {
           color: GrayText;
@@ -79,14 +79,14 @@
       @include format-input {
         background-color: color($input-bg-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
-          $color-input-disabled;
+        color("disabled");
       }
     }
     &--tile {
       @include format-label {
         background-color: color($input-bg-color);
         border: units($theme-input-tile-border-width) solid
-          $color-input-disabled;
+          $tile-border-color;
         color: color($input-text-color);
       }
       &:checked {
@@ -105,7 +105,7 @@
       &:disabled,
       &[aria-disabled="true"] {
         @include format-label {
-          border-color: $color-input-disabled--weak;
+          border-color: $tile-border-color--disabled;
         }
 
         &:checked {
@@ -135,7 +135,7 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          background-color: $color-input-disabled;
+          background-color: color("disabled");
           @media (forced-colors: active) {
             background-color: color(GrayText);
           }
@@ -161,8 +161,8 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          background-color: $color-input-disabled;
-          box-shadow: 0 0 0 2px $color-input-disabled,
+          background-color: color("disabled");
+          box-shadow: 0 0 0 2px color("disabled"),
             inset 0 0 0 2px color($input-bg-color);
 
           @media (forced-colors: active) {
