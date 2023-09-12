@@ -38,8 +38,8 @@
     (math.div($system-base-cap-height, $this-cap))
   );
   $normalized-line-height: math.div(
-    math.round($normalized-line-height * 10),
-    10
+    math.round($normalized-line-height * 100),
+    100
   );
 
   @return $normalized-line-height;
