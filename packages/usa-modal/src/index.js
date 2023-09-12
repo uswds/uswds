@@ -28,13 +28,6 @@ let modal;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
-const INITIAL_PADDING = window
-  .getComputedStyle(document.body)
-  .getPropertyValue("padding-right");
-const TEMPORARY_PADDING = `${
-  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
-  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
-}px`;
 
 /**
  *  Is bound to escape key, closes modal when
@@ -49,7 +42,7 @@ const onMenuClose = () => {
  * @param {KeyboardEvent} event the keydown event
  * @returns {boolean} safeActive if mobile is open
  */
-function toggleModal(event) {
+function toggleModal(event, temporaryBodyPadding) {
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
@@ -87,11 +80,11 @@ function toggleModal(event) {
     // If it doesn't have an ID, make one
     // Store id as data attribute on modal
     if (clickedElement.hasAttribute(OPENER_ATTRIBUTE)) {
-      if (this.getAttribute("id") === null) {
+      if (clickedElement.getAttribute("id") === null) {
         originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
-        this.setAttribute("id", originalOpener);
+        clickedElement.setAttribute("id", originalOpener);
       } else {
-        originalOpener = this.getAttribute("id");
+        originalOpener = clickedElement.getAttribute("id");
       }
       targetModal.setAttribute("data-opener", originalOpener);
     }
@@ -122,13 +115,12 @@ function toggleModal(event) {
     body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
 
-  // Account for content shifting from body overflow: hidden
-  // We only check paddingRight in case apps are adding other properties
-  // to the body element
-  if (body.style.paddingRight === TEMPORARY_PADDING) {
+  // Temporarily increase body padding to include the width of the scrollbar.
+  // This accounts for the content shift when the scrollbar is removed on modal open.
+  if (body.style.paddingRight === temporaryBodyPadding) {
     body.removeAttribute("style");
   } else {
-    body.style.paddingRight = TEMPORARY_PADDING;
+    body.style.paddingRight = temporaryBodyPadding;
   }
 
   // Handle the focus actions
@@ -166,6 +158,7 @@ function toggleModal(event) {
     returnFocus.focus();
     modal.focusTrap.update(safeActive);
   }
+
   return safeActive;
 }
 
@@ -283,6 +276,16 @@ modal = {
     selectOrMatches(MODAL, root).forEach((modalWindow) => {
       const modalId = modalWindow.id;
       setUpModal(modalWindow);
+      // Check for any initial body padding
+      // and add the width of the scrollbar
+      // This is used when the modal is open
+      const initialBodyPadding = window
+        .getComputedStyle(document.body)
+        .getPropertyValue("padding-right");
+      const temporaryBodyPadding = `${
+        parseInt(initialBodyPadding.replace(/px/, ""), 10) +
+        parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+      }px`;
 
       // this will query all openers and closers including the overlay
       document
@@ -301,7 +304,9 @@ modal = {
           // as opening a menu if "dialog" is not supported.
           // item.setAttribute("aria-haspopup", "dialog");
 
-          item.addEventListener("click", toggleModal);
+          item.addEventListener("click", (event) =>
+            toggleModal(event, temporaryBodyPadding)
+          );
         });
     });
   },
