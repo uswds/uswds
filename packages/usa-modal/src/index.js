@@ -276,9 +276,11 @@ modal = {
     selectOrMatches(MODAL, root).forEach((modalWindow) => {
       const modalId = modalWindow.id;
       setUpModal(modalWindow);
-      // Check for any initial body padding
-      // and add the width of the scrollbar
-      // This is used when the modal is open
+
+      // Set the value for temporary body padding
+      // that will be applied when the modal is open.
+      // Value is created by checking for initial body padding
+      // and adding the width of the scrollbar.
       const initialBodyPadding = window
         .getComputedStyle(document.body)
         .getPropertyValue("padding-right");
