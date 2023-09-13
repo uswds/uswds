@@ -665,7 +665,7 @@ $this-function: "is-color-dark()";
       @include expect {
         .usa-prose > {
           p {
-            line-height: 1.5;
+            line-height: 1.52;
             max-width: 68ex;
           }
           h1 {
