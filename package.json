@@ -52,7 +52,6 @@
   },
   "scripts": {
     "build": "gulp",
-    "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint packages/**/**/*.js",
     "lint:sass": "gulp lintSass",
