@@ -170,13 +170,13 @@ const createVisibleInstructions = (fileInputEl) => {
   let dragText = "";
   let chooseText = "";
 
-  if(fileInputEl.hasAttribute("data-default-drag-text-singular")) {
+  if (fileInputEl.hasAttribute("data-default-drag-text-singular")) {
     dragTextSingular = fileInputEl.dataset.defaultDragTextSingular;
   } else {
     dragTextSingular = defaultDragTextSingular;
   }
 
-  if(fileInputEl.hasAttribute("data-default-drag-text-plural")) {
+  if (fileInputEl.hasAttribute("data-default-drag-text-plural")) {
     dragTextPlural = fileInputEl.dataset.defaultDragTextPlural;
   } else {
     dragTextPlural = defaultDragTextPlural;
@@ -184,7 +184,7 @@ const createVisibleInstructions = (fileInputEl) => {
 
   dragText = acceptsMultiple ? dragTextPlural : dragTextSingular;
 
-  if(fileInputEl.hasAttribute("data-default-choose-text")) {
+  if (fileInputEl.hasAttribute("data-default-choose-text")) {
     chooseText = fileInputEl.dataset.defaultChooseText;
   } else {
     chooseText = defaultChooseText;
@@ -234,19 +234,21 @@ const createSROnlyStatus = (fileInputEl) => {
   let fileStatusTextPlural = "";
   let fileStatusText = "";
 
-  if(fileInputEl.hasAttribute("data-default-drag-text-singular")) {
+  if (fileInputEl.hasAttribute("data-default-drag-text-singular")) {
     fileStatusTextSingular = fileInputEl.dataset.fileStatusTextSingular;
   } else {
     fileStatusTextSingular = DEFAULT_FILE_STATUS_TEXT_SINGULAR;
   }
 
-  if(fileInputEl.hasAttribute("data-default-drag-text-plural")) {
+  if (fileInputEl.hasAttribute("data-default-drag-text-plural")) {
     fileStatusTextPlural = fileInputEl.dataset.fileStatusTextPlural;
   } else {
     fileStatusTextPlural = DEFAULT_FILE_STATUS_TEXT_PLURAL;
   }
 
-  fileStatusText = acceptsMultiple ? fileStatusTextPlural : fileStatusTextSingular;
+  fileStatusText = acceptsMultiple
+    ? fileStatusTextPlural
+    : fileStatusTextSingular;
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
