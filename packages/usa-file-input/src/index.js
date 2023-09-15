@@ -31,7 +31,8 @@ const SPACER_GIF =
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
-let DEFAULT_FILE_STATUS_TEXT = "";
+let DEFAULT_FILE_STATUS_TEXT_SINGULAR = "";
+let DEFAULT_FILE_STATUS_TEXT_PLURAL = "";
 
 /**
  * The properties and elements within the file input.
@@ -122,20 +123,6 @@ const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
- * Determines if the singular or plural item label should be used
- * Determination is based on the presence of the `multiple` attribute
- *
- * @param {HTMLInputElement} fileInputEl - The input element.
- * @returns {HTMLDivElement} The singular or plural version of "item"
- */
-const getItemsLabel = (fileInputEl) => {
-  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
-  const itemsLabel = acceptsMultiple ? "files" : "file";
-
-  return itemsLabel;
-};
-
-/**
  * Scaffold the file input component with a parent wrapper and
  * Create a target area overlay for drag and drop functionality
  *
@@ -172,10 +159,36 @@ const createTargetArea = (fileInputEl) => {
  */
 const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
-  const itemsLabel = getItemsLabel(fileInputEl);
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
+  const defaultDragTextSingular = `Drag file here or`;
+  const defaultDragTextPlural = `Drag files here or`;
+
+  const defaultChooseText = "choose from folder";
+  let dragTextSingular = "";
+  let dragTextPlural = "";
+  let dragText = "";
+  let chooseText = "";
+
+  if(fileInputEl.hasAttribute("data-default-drag-text-singular")) {
+    dragTextSingular = fileInputEl.dataset.defaultDragTextSingular;
+  } else {
+    dragTextSingular = defaultDragTextSingular;
+  }
+
+  if(fileInputEl.hasAttribute("data-default-drag-text-plural")) {
+    dragTextPlural = fileInputEl.dataset.defaultDragTextPlural;
+  } else {
+    dragTextPlural = defaultDragTextPlural;
+  }
+
+  dragText = acceptsMultiple ? dragTextPlural : dragTextSingular;
+
+  if(fileInputEl.hasAttribute("data-default-choose-text")) {
+    chooseText = fileInputEl.dataset.defaultChooseText;
+  } else {
+    chooseText = defaultChooseText;
+  }
 
   // Create instructions text for aria-label
   DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
@@ -210,18 +223,37 @@ const createVisibleInstructions = (fileInputEl) => {
  */
 const createSROnlyStatus = (fileInputEl) => {
   const statusEl = document.createElement("div");
-  const itemsLabel = getItemsLabel(fileInputEl);
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
 
-  DEFAULT_FILE_STATUS_TEXT = `No ${itemsLabel} selected.`;
+  DEFAULT_FILE_STATUS_TEXT_SINGULAR = `No file selected.`;
+  DEFAULT_FILE_STATUS_TEXT_PLURAL = `No files selected.`;
+
+  let fileStatusTextSingular = "";
+  let fileStatusTextPlural = "";
+  let fileStatusText = "";
+
+  if(fileInputEl.hasAttribute("data-default-drag-text-singular")) {
+    fileStatusTextSingular = fileInputEl.dataset.fileStatusTextSingular;
+  } else {
+    fileStatusTextSingular = DEFAULT_FILE_STATUS_TEXT_SINGULAR;
+  }
+
+  if(fileInputEl.hasAttribute("data-default-drag-text-plural")) {
+    fileStatusTextPlural = fileInputEl.dataset.fileStatusTextPlural;
+  } else {
+    fileStatusTextPlural = DEFAULT_FILE_STATUS_TEXT_PLURAL;
+  }
+
+  fileStatusText = acceptsMultiple ? fileStatusTextPlural : fileStatusTextSingular;
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
   statusEl.setAttribute("aria-live", "polite");
 
   // Add initial file status message
-  statusEl.textContent = DEFAULT_FILE_STATUS_TEXT;
+  statusEl.textContent = fileStatusText;
 
   // Add the status element to the DOM
   fileInputParent.insertBefore(statusEl, fileInputTarget);
