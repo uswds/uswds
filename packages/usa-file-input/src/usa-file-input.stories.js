@@ -1,5 +1,6 @@
 import Component from "./usa-file-input.twig";
 import TestComponent from "./test/test-patterns/test-usa-file-input.twig";
+import TestComponentCustomText from "./test/test-patterns/test-usa-file-input-custom-text.twig";
 import {
   DefaultContent,
   ErrorContent,
@@ -21,6 +22,7 @@ export default {
 
 const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
+const TestTemplateCustomText = (args) => TestComponentCustomText(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -53,4 +55,9 @@ export const TestMultipleInputs = TestTemplate.bind({});
 TestMultipleInputs.args = {
   DefaultContent,
   SpecificContent,
+};
+
+export const TestCustomText = TestTemplateCustomText.bind({});
+TestCustomText.args = {
+  multiple_inputs: false,
 };
