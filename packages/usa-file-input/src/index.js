@@ -31,8 +31,7 @@ const SPACER_GIF =
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
-let DEFAULT_FILE_STATUS_TEXT_SINGULAR = "";
-let DEFAULT_FILE_STATUS_TEXT_PLURAL = "";
+let FILE_STATUS_TEXT = "";
 
 /**
  * The properties and elements within the file input.
@@ -161,25 +160,19 @@ const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
-  const defaultDragTextSingular = `Drag file here or`;
-  const defaultDragTextPlural = `Drag files here or`;
 
   const defaultChooseText = "choose from folder";
-  let dragTextSingular = "";
-  let dragTextPlural = "";
+  let dragTextSingular = "Drag file here or";
+  let dragTextPlural = "Drag files here or";
   let dragText = "";
   let chooseText = "";
 
   if (fileInputEl.hasAttribute("data-default-drag-text-singular")) {
     dragTextSingular = fileInputEl.dataset.defaultDragTextSingular;
-  } else {
-    dragTextSingular = defaultDragTextSingular;
   }
 
   if (fileInputEl.hasAttribute("data-default-drag-text-plural")) {
     dragTextPlural = fileInputEl.dataset.defaultDragTextPlural;
-  } else {
-    dragTextPlural = defaultDragTextPlural;
   }
 
   dragText = acceptsMultiple ? dragTextPlural : dragTextSingular;
@@ -226,27 +219,18 @@ const createSROnlyStatus = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+  let fileStatusTextSingular = "No file selected.";
+  let fileStatusTextPlural = `No files selected.`;
 
-  DEFAULT_FILE_STATUS_TEXT_SINGULAR = `No file selected.`;
-  DEFAULT_FILE_STATUS_TEXT_PLURAL = `No files selected.`;
-
-  let fileStatusTextSingular = "";
-  let fileStatusTextPlural = "";
-  let fileStatusText = "";
-
-  if (fileInputEl.hasAttribute("data-default-drag-text-singular")) {
-    fileStatusTextSingular = fileInputEl.dataset.fileStatusTextSingular;
-  } else {
-    fileStatusTextSingular = DEFAULT_FILE_STATUS_TEXT_SINGULAR;
+  if (fileInputEl.hasAttribute("data-default-status-text-singular")) {
+    fileStatusTextSingular = fileInputEl.dataset.statusTextSingular;
   }
 
-  if (fileInputEl.hasAttribute("data-default-drag-text-plural")) {
-    fileStatusTextPlural = fileInputEl.dataset.fileStatusTextPlural;
-  } else {
-    fileStatusTextPlural = DEFAULT_FILE_STATUS_TEXT_PLURAL;
+  if (fileInputEl.hasAttribute("data-default-status-text-plural")) {
+    fileStatusTextPlural = fileInputEl.dataset.statusTextPlural;
   }
 
-  fileStatusText = acceptsMultiple
+  FILE_STATUS_TEXT = acceptsMultiple
     ? fileStatusTextPlural
     : fileStatusTextSingular;
 
@@ -255,7 +239,7 @@ const createSROnlyStatus = (fileInputEl) => {
   statusEl.setAttribute("aria-live", "polite");
 
   // Add initial file status message
-  statusEl.textContent = fileStatusText;
+  statusEl.textContent = FILE_STATUS_TEXT;
 
   // Add the status element to the DOM
   fileInputParent.insertBefore(statusEl, fileInputTarget);
@@ -336,7 +320,7 @@ const removeOldPreviews = (dropTarget, instructions) => {
  */
 const updateStatusMessage = (statusElement, fileNames, fileStore) => {
   const statusEl = statusElement;
-  let statusMessage = DEFAULT_FILE_STATUS_TEXT;
+  let statusMessage = FILE_STATUS_TEXT;
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
