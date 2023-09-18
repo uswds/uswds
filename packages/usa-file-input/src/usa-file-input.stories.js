@@ -59,5 +59,5 @@ TestMultipleInputs.args = {
 
 export const TestCustomText = TestTemplateCustomText.bind({});
 TestCustomText.args = {
-  multiple_inputs: false,
+  multiple: false,
 };
