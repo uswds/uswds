@@ -6,12 +6,15 @@
     name="file-input-specific"
     aria-describedby="file-input-specific-hint"
     accept=".pdf,.txt"
-    {% if multiple_inputs == true %}multiple="multiple"{% endif %}
-    data-default-drag-text-singular="Arrastre archivo aquí o"
-    data-default-drag-text-plural="Arrastre archivos aquí o"
-    data-default-choose-text="elegir de la carpeta"
-    data-default-status-text-singular="Ningún archivo seleccionado"
-    data-default-status-text-plural="No hay archivos seleccionados"
-    data-default-change-text="Cambiar archivo"
+    {% if multiple == true %}multiple="multiple"{% endif %}
+    data-drag-text-singular="Arrastre archivo aquí o"
+    data-drag-text-plural="Arrastre archivos aquí o"
+    data-choose-text="elegir de la carpeta"
+    data-status-text-singular="Ningún archivo seleccionado"
+    data-status-text-plural="No hay archivos seleccionados"
+    data-change-file-text-singular="Cambiar archivo"
+    data-change-file-text-plural="Cambiar archivos"
+    data-selected-file-text-singular="Archivo seleccionado"
+    data-selected-file-text-plural="archivos seleccionados"
   />
 </div>

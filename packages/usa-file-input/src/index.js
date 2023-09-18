@@ -161,26 +161,23 @@ const createVisibleInstructions = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
 
-  const defaultChooseText = "choose from folder";
   let dragTextSingular = "Drag file here or";
   let dragTextPlural = "Drag files here or";
   let dragText = "";
-  let chooseText = "";
+  let chooseText = "choose from folder";
 
-  if (fileInputEl.hasAttribute("data-default-drag-text-singular")) {
-    dragTextSingular = fileInputEl.dataset.defaultDragTextSingular;
+  if (fileInputEl.hasAttribute("data-drag-text-singular")) {
+    dragTextSingular = fileInputEl.dataset.dragTextSingular;
   }
 
-  if (fileInputEl.hasAttribute("data-default-drag-text-plural")) {
-    dragTextPlural = fileInputEl.dataset.defaultDragTextPlural;
+  if (fileInputEl.hasAttribute("data-drag-text-plural")) {
+    dragTextPlural = fileInputEl.dataset.dragTextPlural;
   }
 
   dragText = acceptsMultiple ? dragTextPlural : dragTextSingular;
 
-  if (fileInputEl.hasAttribute("data-default-choose-text")) {
-    chooseText = fileInputEl.dataset.defaultChooseText;
-  } else {
-    chooseText = defaultChooseText;
+  if (fileInputEl.hasAttribute("data-choose-text")) {
+    chooseText = fileInputEl.dataset.chooseText;
   }
 
   // Create instructions text for aria-label
@@ -222,11 +219,11 @@ const createSROnlyStatus = (fileInputEl) => {
   let fileStatusTextSingular = "No file selected.";
   let fileStatusTextPlural = `No files selected.`;
 
-  if (fileInputEl.hasAttribute("data-default-status-text-singular")) {
+  if (fileInputEl.hasAttribute("data-status-text-singular")) {
     fileStatusTextSingular = fileInputEl.dataset.statusTextSingular;
   }
 
-  if (fileInputEl.hasAttribute("data-default-status-text-plural")) {
+  if (fileInputEl.hasAttribute("data-status-text-plural")) {
     fileStatusTextPlural = fileInputEl.dataset.statusTextPlural;
   }
 
@@ -348,14 +345,35 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
   const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
   const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS}`);
-  let changeItemText = "Change file";
+  let changeFileTextSingular = "Change file";
+  let changeFileTextPlural = "Change files";
+  let selectedFileTextSingular = "Selected file";
+  let selectedFileTextPlural = "files selected";
+  let changeFileText = "";
   let previewHeadingText = "";
 
+  if (fileInputEl.hasAttribute("data-change-file-text-singular")) {
+    changeFileTextSingular = fileInputEl.dataset.changeFileTextSingular;
+  }
+
+  if (fileInputEl.hasAttribute("data-change-file-text-plural")) {
+    changeFileTextPlural = fileInputEl.dataset.changeFileTextPlural;
+  }
+
+  if (fileInputEl.hasAttribute("data-selected-file-text-singular")) {
+    selectedFileTextSingular = fileInputEl.dataset.selectedFileTextSingular;
+  }
+
+  if (fileInputEl.hasAttribute("data-selected-file-text-plural")) {
+    selectedFileTextPlural = fileInputEl.dataset.selectedFileTextPlural;
+  }
+
   if (fileNames.length === 1) {
-    previewHeadingText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
+    changeFileText = changeFileTextSingular;
+    previewHeadingText = Sanitizer.escapeHTML`${selectedFileTextSingular} <span class="usa-file-input__choose">${changeFileText}</span>`;
   } else if (fileNames.length > 1) {
-    changeItemText = "Change files";
-    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
+    changeFileText = changeFileTextPlural;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${selectedFileTextPlural} <span class="usa-file-input__choose">${changeFileText}</span>`;
   }
 
   // Hides null state content and sets preview heading
@@ -365,7 +383,7 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   dropTarget.insertBefore(filePreviewsHeading, instructions);
 
   // Update aria label to match the visible action text
-  fileInputEl.setAttribute("aria-label", changeItemText);
+  fileInputEl.setAttribute("aria-label", changeFileText);
 };
 
 /**
