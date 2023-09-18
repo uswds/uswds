@@ -10,11 +10,11 @@ const TEMPLATE = fs.readFileSync(
 const EVENTS = {};
 
 /**
- * send an input event
+ * send an change event
  * @param {HTMLElement} el the element to sent the event to
  */
-EVENTS.input = (el) => {
-  el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
+EVENTS.change = (el) => {
+  el.dispatchEvent(new KeyboardEvent("change", { bubbles: true }));
 };
 
 const rangeSliderSelector = () => document.querySelector(".usa-range");
@@ -53,9 +53,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
-      it("updates aria-valuetext to match new slider value on input", () => {
+      it("updates aria-valuetext to match new slider value on change", () => {
         slider.value = "30";
-        EVENTS.input(slider);
+        EVENTS.change(slider);
 
         assert.strictEqual(slider.value, "30");
 

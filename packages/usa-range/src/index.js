@@ -34,7 +34,7 @@ const enhanceSRContext = (baseComponent) => {
 };
 
 const rangeEvents = {
-  input: {
+  change: {
     [RANGE]() {
       updateCallout(this);
     },
