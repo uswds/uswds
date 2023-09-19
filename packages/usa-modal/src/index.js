@@ -96,11 +96,11 @@ function toggleModal(event) {
     // If it doesn't have an ID, make one
     // Store id as data attribute on modal
     if (clickedElement.hasAttribute(OPENER_ATTRIBUTE)) {
-      if (clickedElement.getAttribute("id") === null) {
+      if (this.getAttribute("id") === null) {
         originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
-        clickedElement.setAttribute("id", originalOpener);
+        this.setAttribute("id", originalOpener);
       } else {
-        originalOpener = clickedElement.getAttribute("id");
+        originalOpener = this.getAttribute("id");
       }
       targetModal.setAttribute("data-opener", originalOpener);
     }
