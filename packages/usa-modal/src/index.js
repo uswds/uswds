@@ -25,6 +25,8 @@ const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
 let modal;
+let INITIAL_BODY_PADDING;
+let TEMPORARY_BODY_PADDING;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
@@ -37,12 +39,26 @@ const onMenuClose = () => {
 };
 
 /**
+ * Set the value for temporary body padding that will be applied when the modal is open.
+ * Value is created by checking for initial body padding and adding the width of the scrollbar.
+ */
+const getTemporaryBodyPadding = () => {
+  INITIAL_BODY_PADDING = window
+    .getComputedStyle(document.body)
+    .getPropertyValue("padding-right");
+  TEMPORARY_BODY_PADDING = `${
+    parseInt(INITIAL_BODY_PADDING.replace(/px/, ""), 10) +
+    parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+  }px`;
+}
+
+/**
  *  Toggle the visibility of a modal window
  *
  * @param {KeyboardEvent} event the keydown event
  * @returns {boolean} safeActive if mobile is open
  */
-function toggleModal(event, temporaryBodyPadding) {
+function toggleModal(event) {
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
@@ -117,10 +133,10 @@ function toggleModal(event, temporaryBodyPadding) {
 
   // Temporarily increase body padding to include the width of the scrollbar.
   // This accounts for the content shift when the scrollbar is removed on modal open.
-  if (body.style.paddingRight === temporaryBodyPadding) {
+  if (body.style.paddingRight === TEMPORARY_BODY_PADDING) {
     body.removeAttribute("style");
   } else {
-    body.style.paddingRight = temporaryBodyPadding;
+    body.style.paddingRight = TEMPORARY_BODY_PADDING;
   }
 
   // Handle the focus actions
@@ -179,6 +195,9 @@ const setUpModal = (baseComponent) => {
     : false;
   // Create placeholder where modal is for cleanup
   const originalLocationPlaceHolder = document.createElement("div");
+
+  getTemporaryBodyPadding();
+
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
   originalLocationPlaceHolder.setAttribute("aria-hidden", "true");
@@ -277,18 +296,6 @@ modal = {
       const modalId = modalWindow.id;
       setUpModal(modalWindow);
 
-      // Set the value for temporary body padding
-      // that will be applied when the modal is open.
-      // Value is created by checking for initial body padding
-      // and adding the width of the scrollbar.
-      const initialBodyPadding = window
-        .getComputedStyle(document.body)
-        .getPropertyValue("padding-right");
-      const temporaryBodyPadding = `${
-        parseInt(initialBodyPadding.replace(/px/, ""), 10) +
-        parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
-      }px`;
-
       // this will query all openers and closers including the overlay
       document
         .querySelectorAll(`[aria-controls="${modalId}"]`)
@@ -306,9 +313,7 @@ modal = {
           // as opening a menu if "dialog" is not supported.
           // item.setAttribute("aria-haspopup", "dialog");
 
-          item.addEventListener("click", (event) =>
-            toggleModal(event, temporaryBodyPadding)
-          );
+          item.addEventListener("click", toggleModal);
         });
     });
   },
