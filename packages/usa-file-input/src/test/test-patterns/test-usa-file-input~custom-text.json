@@ -1,4 +1,5 @@
 {
+  "multiple": false,
   "drag_text_singular": "Arrastre archivo aquí o",
   "drag_text_plural": "Arrastre archivos aquí o",
   "choose_text": "elegir de la carpeta",
