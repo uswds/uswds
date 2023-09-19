@@ -42,7 +42,7 @@ const onMenuClose = () => {
  * Set the value for temporary body padding that will be applied when the modal is open.
  * Value is created by checking for initial body padding and adding the width of the scrollbar.
  */
-const getTemporaryBodyPadding = () => {
+const setTemporaryBodyPadding = () => {
   INITIAL_BODY_PADDING = window
     .getComputedStyle(document.body)
     .getPropertyValue("padding-right");
@@ -50,7 +50,7 @@ const getTemporaryBodyPadding = () => {
     parseInt(INITIAL_BODY_PADDING.replace(/px/, ""), 10) +
     parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
   }px`;
-}
+};
 
 /**
  *  Toggle the visibility of a modal window
@@ -196,7 +196,7 @@ const setUpModal = (baseComponent) => {
   // Create placeholder where modal is for cleanup
   const originalLocationPlaceHolder = document.createElement("div");
 
-  getTemporaryBodyPadding();
+  setTemporaryBodyPadding();
 
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";
