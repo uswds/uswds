@@ -29,6 +29,9 @@ const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
 
+const CURRENT_PAGE = window.location.href;
+const MOBILE_WIDTH = 480; // mobile-large breakpoint
+
 let navigation;
 let navActive;
 let nonNavElements;
@@ -158,6 +161,25 @@ const handleEscape = (event) => {
   focusNavButton(event);
 };
 
+/**
+ * Takes clicked link and current url, removes any hash from the link, and compares them.
+ * If link destination is determined to be the same page; return true.
+ * If link destination is determined to be on a separate page; return false.
+ * 
+ * @param {HTMLAnchorElement} targetLink - Target link clicked in header.
+ * @returns {boolean}
+ */
+const isChildSection = (targetLink) => {
+  const baseURL = CURRENT_PAGE.split('#');
+  const linkDestination = targetLink.href;
+  const linkBaseURL = linkDestination.split('#');
+  if (baseURL[0] === linkBaseURL[0]) {
+    return true
+  } 
+
+  return false
+}
+
 navigation = behavior(
   {
     [CLICK]: {
@@ -166,11 +188,13 @@ navigation = behavior(
         if (navActive !== this) {
           hideActiveNavDropdown();
         }
-        // store a reference to the last clicked nav link element, so we
+        // If not mobile, store a reference to the last clicked nav link element, so we
         // can hide the dropdown if another element on the page is clicked
-        if (!navActive) {
-          navActive = this;
-          toggle(navActive, true);
+        if (window.innerWidth < MOBILE_WIDTH) {
+          if (!navActive) {
+            navActive = this;
+            toggle(navActive, true);
+          } 
         }
 
         // Do this so the event handler on the body doesn't fire
@@ -180,21 +204,25 @@ navigation = behavior(
       [OPENERS]: toggleNav,
       [CLOSERS]: toggleNav,
       [NAV_LINKS]() {
-        // A navigation link has been clicked! We want to collapse any
+        // A navigation link has been clicked! 
+        // When the links destination is on the current page we want to collapse any
         // hierarchical navigation UI it's a part of, so that the user
         // can focus on whatever they've just selected.
+        // If the link is on a separate page, navigation will not close.
 
         // Some navigation links are inside accordions; when they're
         // clicked, we want to collapse those accordions.
-        const acc = this.closest(accordion.ACCORDION);
+        if (isChildSection(this)) {
+          const acc = this.closest(accordion.ACCORDION);
 
-        if (acc) {
-          accordion.getButtons(acc).forEach((btn) => accordion.hide(btn));
-        }
+          if (acc) {
+            accordion.getButtons(acc).forEach((btn) => accordion.hide(btn));
+          }
 
-        // If the mobile navigation menu is active, we want to hide it.
-        if (isActive()) {
-          navigation.toggleNav.call(navigation, false);
+          // If the mobile navigation menu is active, we want to hide it.
+          if (isActive()) {
+            navigation.toggleNav.call(navigation, false);
+          }
         }
       },
     },
