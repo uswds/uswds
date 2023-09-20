@@ -7,14 +7,16 @@
     aria-describedby="file-input-specific-hint"
     accept=".pdf,.txt"
     {% if multiple == true %}multiple="multiple"{% endif %}
-    data-drag-text-singular="{{ drag_text_singular }}"
-    data-drag-text-plural="{{ drag_text_plural }}"
+    data-drag-text="{{ drag_text }}"
     data-choose-text="{{ choose_text }}"
+    data-status-text="{{ status_text }}"
+    data-change-file-text="{{ change_file_text }}"
+    data-selected-file-text="{{ selected_file_text}}"
+    {% if include_plural == true %}
+    data-drag-text-plural="{{ drag_text_plural }}"
     data-status-text-singular="{{ status_text_singular }}"
-    data-status-text-plural="{{ status_text_plural }}"
-    data-change-file-text-singular="{{ change_file_text_singular }}"
-    data-change-file-text-plural="{{ change_file_text_plural }}"
     data-selected-file-text-singular="{{ selected_file_text_singular }}"
-    data-selected-file-text-plural="{{ selected_file_text_plural }}"
+    data-change-file-text-singular="{{ change_file_text_singular }}"
+    {% endif %}
   />
 </div>

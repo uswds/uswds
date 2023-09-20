@@ -160,23 +160,36 @@ const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
+  const hasCustomDragText = fileInputEl.hasAttribute("data-drag-text");
+  const customDragText = fileInputEl.dataset.dragText;
+  const hasCustomDragTextPlural = fileInputEl.hasAttribute(
+    "data-drag-text-plural"
+  );
+  const customDragTextPlural = fileInputEl.dataset.dragTextPlural;
+  const hasCustomChooseText = fileInputEl.hasAttribute("data-choose-text");
 
   let dragTextSingular = "Drag file here or";
   let dragTextPlural = "Drag files here or";
   let dragText = "";
   let chooseText = "choose from folder";
 
-  if (fileInputEl.hasAttribute("data-drag-text-singular")) {
-    dragTextSingular = fileInputEl.dataset.dragTextSingular;
+  if (hasCustomDragText) {
+    dragTextSingular = customDragText;
   }
 
-  if (fileInputEl.hasAttribute("data-drag-text-plural")) {
-    dragTextPlural = fileInputEl.dataset.dragTextPlural;
+  if (hasCustomDragTextPlural) {
+    dragTextPlural = customDragTextPlural;
+  } else if (hasCustomDragText) {
+    dragTextPlural = customDragText;
   }
 
-  dragText = acceptsMultiple ? dragTextPlural : dragTextSingular;
+  if (acceptsMultiple) {
+    dragText = dragTextPlural;
+  } else {
+    dragText = dragTextSingular;
+  }
 
-  if (fileInputEl.hasAttribute("data-choose-text")) {
+  if (hasCustomChooseText) {
     chooseText = fileInputEl.dataset.chooseText;
   }
 
@@ -216,20 +229,34 @@ const createSROnlyStatus = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+  const hasCustomStatusText = fileInputEl.hasAttribute("data-status-text");
+  const customStatusText = fileInputEl.dataset.statusText;
+  const hasCustomStatusTextSingular = fileInputEl.hasAttribute(
+    "data-status-text-plural"
+  );
+  const customStatusTextSingular = fileInputEl.dataset.statusTextPlural;
   let fileStatusTextSingular = "No file selected.";
   let fileStatusTextPlural = `No files selected.`;
 
-  if (fileInputEl.hasAttribute("data-status-text-singular")) {
-    fileStatusTextSingular = fileInputEl.dataset.statusTextSingular;
+  if (hasCustomStatusText) {
+    fileStatusTextSingular = customStatusText;
   }
 
-  if (fileInputEl.hasAttribute("data-status-text-plural")) {
-    fileStatusTextPlural = fileInputEl.dataset.statusTextPlural;
+  if (hasCustomStatusTextSingular) {
+    fileStatusTextPlural = customStatusTextSingular;
   }
 
-  FILE_STATUS_TEXT = acceptsMultiple
-    ? fileStatusTextPlural
-    : fileStatusTextSingular;
+  if (hasCustomStatusTextSingular) {
+    fileStatusTextPlural = customStatusTextSingular;
+  } else if (hasCustomStatusText) {
+    fileStatusTextPlural = customStatusText;
+  }
+
+  if (acceptsMultiple) {
+    FILE_STATUS_TEXT = fileStatusTextPlural;
+  } else {
+    FILE_STATUS_TEXT = fileStatusTextSingular;
+  }
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
@@ -345,6 +372,24 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
   const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
   const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS}`);
+  const hasCustomChangeFileText = fileInputEl.hasAttribute(
+    "data-change-file-text"
+  );
+  const customChangeFileText = fileInputEl.dataset.changeFileText;
+  const hasCustomChangeFileTextSingular = fileInputEl.hasAttribute(
+    "data-change-file-text-singular"
+  );
+  const customChangeFileTextSingular =
+    fileInputEl.dataset.changeFileTextSingular;
+  const hasCustomSelectedFileText = fileInputEl.hasAttribute(
+    "data-selected-file-text"
+  );
+  const customSelectedFileText = fileInputEl.dataset.selectedFileText;
+  const hasCustomSelectedFileTextSingular = fileInputEl.hasAttribute(
+    "data-selected-file-text-plural"
+  );
+  const customSelectedFileTextSingular =
+    fileInputEl.dataset.selectedFileTextPlural;
   let changeFileTextSingular = "Change file";
   let changeFileTextPlural = "Change files";
   let selectedFileTextSingular = "Selected file";
@@ -352,20 +397,24 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   let changeFileText = "";
   let previewHeadingText = "";
 
-  if (fileInputEl.hasAttribute("data-change-file-text-singular")) {
-    changeFileTextSingular = fileInputEl.dataset.changeFileTextSingular;
+  if (hasCustomChangeFileText) {
+    changeFileTextPlural = customChangeFileText;
   }
 
-  if (fileInputEl.hasAttribute("data-change-file-text-plural")) {
-    changeFileTextPlural = fileInputEl.dataset.changeFileTextPlural;
+  if (hasCustomChangeFileTextSingular) {
+    changeFileTextSingular = customChangeFileTextSingular;
+  } else if (hasCustomChangeFileText) {
+    changeFileTextSingular = customChangeFileText;
   }
 
-  if (fileInputEl.hasAttribute("data-selected-file-text-singular")) {
-    selectedFileTextSingular = fileInputEl.dataset.selectedFileTextSingular;
+  if (hasCustomSelectedFileText) {
+    selectedFileTextPlural = customSelectedFileText;
   }
 
-  if (fileInputEl.hasAttribute("data-selected-file-text-plural")) {
-    selectedFileTextPlural = fileInputEl.dataset.selectedFileTextPlural;
+  if (hasCustomSelectedFileTextSingular) {
+    selectedFileTextSingular = customSelectedFileTextSingular;
+  } else if (hasCustomSelectedFileText) {
+    selectedFileTextSingular = customSelectedFileText;
   }
 
   if (fileNames.length === 1) {

@@ -1,12 +1,13 @@
 {
   "multiple": false,
-  "drag_text_singular": "Arrastre archivo aquí o",
+  "include_plural": false,
+  "drag_text": "Arrastre archivo aquí o",
   "drag_text_plural": "Arrastre archivos aquí o",
   "choose_text": "elegir de la carpeta",
+  "status_text": "No hay archivos seleccionados",
   "status_text_singular": "Ningún archivo seleccionado",
-  "status_text_plural": "No hay archivos seleccionados",
+  "change_file_text": "Cambiar archivos",
   "change_file_text_singular": "Cambiar archivo",
-  "change_file_text_plural": "Cambiar archivos",
-  "selected_file_text_singular": "Archivo seleccionado",
-  "selected_file_text_plural": "archivos seleccionados"
+  "selected_file_text": "Archivos seleccionados",
+  "selected_file_text_singular": "Archivo seleccionado"
 }
