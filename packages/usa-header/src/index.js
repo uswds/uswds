@@ -89,13 +89,10 @@ const setSafariScrollPosition = (body) => {
   const isNotChrome = !navigator.userAgent.includes("Chrome");
   const currentScrollPosition = `-${window.scrollY}px`;
   if (isSafari && isNotChrome) {
-    body.style.setProperty(
-      "--scrolltop",
-      currentScrollPosition
-    );
+    body.style.setProperty("--scrolltop", currentScrollPosition);
     body.classList.add("is-safari");
   }
-}
+};
 
 const toggleNav = (active) => {
   const { body } = document;
