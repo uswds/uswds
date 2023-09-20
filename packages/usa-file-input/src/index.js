@@ -32,6 +32,8 @@ const SPACER_GIF =
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
 let FILE_STATUS_TEXT = "";
+let SELECTED_FILE_TEXT_SINGULAR = "file selected";
+let SELECTED_FILE_TEXT_PLURAL = "files selected";
 
 /**
  * The properties and elements within the file input.
@@ -229,33 +231,33 @@ const createSROnlyStatus = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
-  const hasCustomStatusText = fileInputEl.hasAttribute("data-status-text");
-  const customStatusText = fileInputEl.dataset.statusText;
-  const hasCustomStatusTextSingular = fileInputEl.hasAttribute(
-    "data-status-text-plural"
+  const hasCustomNoFileText = fileInputEl.hasAttribute("data-no-file-text");
+  const customNoFileText = fileInputEl.dataset.noFileText;
+  const hasCustomNoFileTextPlural = fileInputEl.hasAttribute(
+    "data-no-file-text-plural"
   );
-  const customStatusTextSingular = fileInputEl.dataset.statusTextPlural;
-  let fileStatusTextSingular = "No file selected.";
-  let fileStatusTextPlural = `No files selected.`;
+  const customNoFileTextPlural = fileInputEl.dataset.noFileTextPlural;
+  let noFileTextSingular = "No file selected.";
+  let noFileTextPlural = `No files selected.`;
 
-  if (hasCustomStatusText) {
-    fileStatusTextSingular = customStatusText;
+  if (hasCustomNoFileText) {
+    noFileTextSingular = customNoFileText;
   }
 
-  if (hasCustomStatusTextSingular) {
-    fileStatusTextPlural = customStatusTextSingular;
+  if (hasCustomNoFileTextPlural) {
+    noFileTextPlural = customNoFileTextPlural;
   }
 
-  if (hasCustomStatusTextSingular) {
-    fileStatusTextPlural = customStatusTextSingular;
-  } else if (hasCustomStatusText) {
-    fileStatusTextPlural = customStatusText;
+  if (hasCustomNoFileTextPlural) {
+    noFileTextPlural = customNoFileTextPlural;
+  } else if (hasCustomNoFileText) {
+    noFileTextPlural = customNoFileText;
   }
 
   if (acceptsMultiple) {
-    FILE_STATUS_TEXT = fileStatusTextPlural;
+    FILE_STATUS_TEXT = noFileTextPlural;
   } else {
-    FILE_STATUS_TEXT = fileStatusTextSingular;
+    FILE_STATUS_TEXT = noFileTextSingular;
   }
 
   // Adds class names and other attributes
@@ -342,17 +344,45 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {Object} fileNames - The selected files found in the fileList object.
  * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
  */
-const updateStatusMessage = (statusElement, fileNames, fileStore) => {
+const updateStatusMessage = (
+  statusElement,
+  fileNames,
+  fileStore,
+  fileInputEl
+) => {
   const statusEl = statusElement;
+  const hasCustomSelectedFileText = fileInputEl.hasAttribute(
+    "data-selected-file-text"
+  );
+  const customSelectedFileText = fileInputEl.dataset.selectedFileText;
+  const hasCustomSelectedFileTextPlural = fileInputEl.hasAttribute(
+    "data-selected-file-text-plural"
+  );
+  const customSelectedFileTextPlural =
+    fileInputEl.dataset.selectedFileTextPlural;
   let statusMessage = FILE_STATUS_TEXT;
+
+  if (hasCustomSelectedFileText) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
+  }
+
+  if (hasCustomSelectedFileTextPlural) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
+  }
+
+  if (hasCustomSelectedFileTextPlural) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
+  } else if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+  }
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
-    statusMessage = `You have selected the file: ${fileStore}`;
+    statusMessage = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
   } else if (fileNames.length > 1) {
-    statusMessage = `You have selected ${
+    statusMessage = `${
       fileNames.length
-    } files: ${fileStore.join(", ")}`;
+    } ${SELECTED_FILE_TEXT_PLURAL}: ${fileStore.join(", ")}`;
   }
 
   // Add delay to encourage screen reader readout
@@ -385,15 +415,14 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
     "data-selected-file-text"
   );
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
-  const hasCustomSelectedFileTextSingular = fileInputEl.hasAttribute(
+  const hasCustomSelectedFileTextPlural = fileInputEl.hasAttribute(
     "data-selected-file-text-plural"
   );
-  const customSelectedFileTextSingular =
+  const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
   let changeFileTextSingular = "Change file";
   let changeFileTextPlural = "Change files";
-  let selectedFileTextSingular = "Selected file";
-  let selectedFileTextPlural = "files selected";
+
   let changeFileText = "";
   let previewHeadingText = "";
 
@@ -408,21 +437,21 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   }
 
   if (hasCustomSelectedFileText) {
-    selectedFileTextPlural = customSelectedFileText;
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
   }
 
-  if (hasCustomSelectedFileTextSingular) {
-    selectedFileTextSingular = customSelectedFileTextSingular;
+  if (hasCustomSelectedFileTextPlural) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
   } else if (hasCustomSelectedFileText) {
-    selectedFileTextSingular = customSelectedFileText;
+    SELECTED_FILE_TEXT_PLURAL = hasCustomSelectedFileText;
   }
 
   if (fileNames.length === 1) {
     changeFileText = changeFileTextSingular;
-    previewHeadingText = Sanitizer.escapeHTML`${selectedFileTextSingular} <span class="usa-file-input__choose">${changeFileText}</span>`;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR} <span class="usa-file-input__choose">${changeFileText}</span>`;
   } else if (fileNames.length > 1) {
     changeFileText = changeFileTextPlural;
-    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${selectedFileTextPlural} <span class="usa-file-input__choose">${changeFileText}</span>`;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_PLURAL} <span class="usa-file-input__choose">${changeFileText}</span>`;
   }
 
   // Hides null state content and sets preview heading
@@ -528,7 +557,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     addPreviewHeading(fileInputEl, fileNames);
   }
 
-  updateStatusMessage(statusElement, fileNames, fileStore);
+  updateStatusMessage(statusElement, fileNames, fileStore, fileInputEl);
 };
 
 /**
