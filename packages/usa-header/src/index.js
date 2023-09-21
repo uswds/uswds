@@ -30,7 +30,7 @@ const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
 
 const CURRENT_PAGE = window.location.href;
-const MOBILE_WIDTH = 480; // mobile-large breakpoint
+const DESKTOP_WIDTH = 1024; // desktop breakpoint
 
 let navigation;
 let navActive;
@@ -184,13 +184,14 @@ navigation = behavior(
   {
     [CLICK]: {
       [NAV_CONTROL]() {
+        // Check if desktop header or collapsed.
+        if (window.innerWidth >= DESKTOP_WIDTH) {
         // If another nav is open, close it
-        if (navActive !== this) {
-          hideActiveNavDropdown();
-        }
-        // If not mobile, store a reference to the last clicked nav link element, so we
+          if (navActive !== this) {
+            hideActiveNavDropdown();
+          }
+        // store a reference to the last clicked nav link element, so we
         // can hide the dropdown if another element on the page is clicked
-        if (window.innerWidth < MOBILE_WIDTH) {
           if (!navActive) {
             navActive = this;
             toggle(navActive, true);
