@@ -70,5 +70,5 @@ TestCustomText.args = {
   change_file_text: "Cambiar archivos",
   change_file_text_singular: "Cambiar archivo",
   selected_file_text: "archivo seleccionado",
-  selected_file_text_plural: "archivos seleccionados"
+  selected_file_text_plural: "archivos seleccionados",
 };
