@@ -437,7 +437,7 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   }
 
   if (hasCustomSelectedFileText) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
   }
 
   if (hasCustomSelectedFileTextPlural) {
