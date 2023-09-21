@@ -35,6 +35,7 @@ let DRAG_TEXT = "";
 let CHANGE_FILE_TEXT = "";
 let CHOOSE_TEXT = "choose from folder";
 let FILE_STATUS_TEXT = "";
+const ERROR_TEXT = "This is not a valid file type.";
 
 let CHANGE_FILE_TEXT_SINGULAR = "Change file";
 let CHANGE_FILE_TEXT_PLURAL = "Change files";
@@ -179,6 +180,7 @@ const createVisibleInstructions = (fileInputEl) => {
   );
   const customDragTextPlural = fileInputEl.dataset.dragTextPlural;
   const hasCustomChooseText = fileInputEl.hasAttribute("data-choose-text");
+  const customChooseText = fileInputEl.dataset.chooseText;
 
   if (hasCustomDragText) {
     DRAG_TEXT_SINGULAR = customDragText;
@@ -197,7 +199,7 @@ const createVisibleInstructions = (fileInputEl) => {
   }
 
   if (hasCustomChooseText) {
-    CHOOSE_TEXT = fileInputEl.dataset.chooseText;
+    CHOOSE_TEXT = customChooseText;
   }
 
   // Create instructions text for aria-label
@@ -245,10 +247,6 @@ const createSROnlyStatus = (fileInputEl) => {
 
   if (hasCustomNoFileText) {
     NO_FILE_TEXT_SINGULAR = customNoFileText;
-  }
-
-  if (hasCustomNoFileTextPlural) {
-    NO_FILE_TEXT_PLURAL = customNoFileTextPlural;
   }
 
   if (hasCustomNoFileTextPlural) {
@@ -363,7 +361,6 @@ const updateStatusMessage = (
   );
   const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
-  let statusMessage = FILE_STATUS_TEXT;
 
   if (hasCustomSelectedFileText) {
     SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
@@ -381,16 +378,16 @@ const updateStatusMessage = (
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
-    statusMessage = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
+    FILE_STATUS_TEXT = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
   } else if (fileNames.length > 1) {
-    statusMessage = `${
+    FILE_STATUS_TEXT = `${
       fileNames.length
     } ${SELECTED_FILE_TEXT_PLURAL}: ${fileStore.join(", ")}`;
   }
 
   // Add delay to encourage screen reader readout
   setTimeout(() => {
-    statusEl.textContent = statusMessage;
+    statusEl.textContent = FILE_STATUS_TEXT;
   }, 1000);
 };
 
@@ -622,8 +619,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+      errorMessage.textContent = fileInputEl.dataset.errorMessage || ERROR_TEXT;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;

@@ -71,4 +71,5 @@ TestCustomText.args = {
   change_file_text_singular: "Cambiar archivo",
   selected_file_text: "archivo seleccionado",
   selected_file_text_plural: "archivos seleccionados",
+  error_message: "Este no es un tipo de archivo válido.",
 };
