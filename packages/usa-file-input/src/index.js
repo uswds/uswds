@@ -31,7 +31,17 @@ const SPACER_GIF =
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
+let DRAG_TEXT = "";
+let CHANGE_FILE_TEXT = "";
+let CHOOSE_TEXT = "choose from folder";
 let FILE_STATUS_TEXT = "";
+
+let CHANGE_FILE_TEXT_SINGULAR = "Change file";
+let CHANGE_FILE_TEXT_PLURAL = "Change files";
+let DRAG_TEXT_SINGULAR = "Drag file here or";
+let DRAG_TEXT_PLURAL = "Drag files here or";
+let NO_FILE_TEXT_SINGULAR = "No file selected.";
+let NO_FILE_TEXT_PLURAL = `No files selected.`;
 let SELECTED_FILE_TEXT_SINGULAR = "file selected";
 let SELECTED_FILE_TEXT_PLURAL = "files selected";
 
@@ -170,33 +180,28 @@ const createVisibleInstructions = (fileInputEl) => {
   const customDragTextPlural = fileInputEl.dataset.dragTextPlural;
   const hasCustomChooseText = fileInputEl.hasAttribute("data-choose-text");
 
-  let dragTextSingular = "Drag file here or";
-  let dragTextPlural = "Drag files here or";
-  let dragText = "";
-  let chooseText = "choose from folder";
-
   if (hasCustomDragText) {
-    dragTextSingular = customDragText;
+    DRAG_TEXT_SINGULAR = customDragText;
   }
 
   if (hasCustomDragTextPlural) {
-    dragTextPlural = customDragTextPlural;
+    DRAG_TEXT_PLURAL = customDragTextPlural;
   } else if (hasCustomDragText) {
-    dragTextPlural = customDragText;
+    DRAG_TEXT_PLURAL = customDragText;
   }
 
   if (acceptsMultiple) {
-    dragText = dragTextPlural;
+    DRAG_TEXT = DRAG_TEXT_PLURAL;
   } else {
-    dragText = dragTextSingular;
+    DRAG_TEXT = DRAG_TEXT_SINGULAR;
   }
 
   if (hasCustomChooseText) {
-    chooseText = fileInputEl.dataset.chooseText;
+    CHOOSE_TEXT = fileInputEl.dataset.chooseText;
   }
 
   // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
+  DEFAULT_ARIA_LABEL_TEXT = `${DRAG_TEXT} ${CHOOSE_TEXT}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
@@ -204,7 +209,7 @@ const createVisibleInstructions = (fileInputEl) => {
 
   // Add initial instructions for input usage
   fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${DRAG_TEXT}</span> <span class="${CHOOSE_CLASS}">${CHOOSE_TEXT}</span>`;
 
   // Add the instructions element to the DOM
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
@@ -237,27 +242,25 @@ const createSROnlyStatus = (fileInputEl) => {
     "data-no-file-text-plural"
   );
   const customNoFileTextPlural = fileInputEl.dataset.noFileTextPlural;
-  let noFileTextSingular = "No file selected.";
-  let noFileTextPlural = `No files selected.`;
 
   if (hasCustomNoFileText) {
-    noFileTextSingular = customNoFileText;
+    NO_FILE_TEXT_SINGULAR = customNoFileText;
   }
 
   if (hasCustomNoFileTextPlural) {
-    noFileTextPlural = customNoFileTextPlural;
+    NO_FILE_TEXT_PLURAL = customNoFileTextPlural;
   }
 
   if (hasCustomNoFileTextPlural) {
-    noFileTextPlural = customNoFileTextPlural;
+    NO_FILE_TEXT_PLURAL = customNoFileTextPlural;
   } else if (hasCustomNoFileText) {
-    noFileTextPlural = customNoFileText;
+    NO_FILE_TEXT_PLURAL = customNoFileText;
   }
 
   if (acceptsMultiple) {
-    FILE_STATUS_TEXT = noFileTextPlural;
+    FILE_STATUS_TEXT = NO_FILE_TEXT_PLURAL;
   } else {
-    FILE_STATUS_TEXT = noFileTextSingular;
+    FILE_STATUS_TEXT = NO_FILE_TEXT_SINGULAR;
   }
 
   // Adds class names and other attributes
@@ -420,20 +423,16 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   );
   const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
-  let changeFileTextSingular = "Change file";
-  let changeFileTextPlural = "Change files";
-
-  let changeFileText = "";
   let previewHeadingText = "";
 
   if (hasCustomChangeFileText) {
-    changeFileTextPlural = customChangeFileText;
+    CHANGE_FILE_TEXT_PLURAL = customChangeFileText;
   }
 
   if (hasCustomChangeFileTextSingular) {
-    changeFileTextSingular = customChangeFileTextSingular;
+    CHANGE_FILE_TEXT_SINGULAR = customChangeFileTextSingular;
   } else if (hasCustomChangeFileText) {
-    changeFileTextSingular = customChangeFileText;
+    CHANGE_FILE_TEXT_SINGULAR = customChangeFileText;
   }
 
   if (hasCustomSelectedFileText) {
@@ -447,11 +446,11 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   }
 
   if (fileNames.length === 1) {
-    changeFileText = changeFileTextSingular;
-    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR} <span class="usa-file-input__choose">${changeFileText}</span>`;
+    CHANGE_FILE_TEXT = CHANGE_FILE_TEXT_SINGULAR;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR} <span class="usa-file-input__choose">${CHANGE_FILE_TEXT}</span>`;
   } else if (fileNames.length > 1) {
-    changeFileText = changeFileTextPlural;
-    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_PLURAL} <span class="usa-file-input__choose">${changeFileText}</span>`;
+    CHANGE_FILE_TEXT = CHANGE_FILE_TEXT_PLURAL;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_PLURAL} <span class="usa-file-input__choose">${CHANGE_FILE_TEXT}</span>`;
   }
 
   // Hides null state content and sets preview heading
@@ -461,7 +460,7 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   dropTarget.insertBefore(filePreviewsHeading, instructions);
 
   // Update aria label to match the visible action text
-  fileInputEl.setAttribute("aria-label", changeFileText);
+  fileInputEl.setAttribute("aria-label", CHANGE_FILE_TEXT);
 };
 
 /**
