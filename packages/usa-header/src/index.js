@@ -30,7 +30,6 @@ const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
 
 const CURRENT_PAGE = window.location.href;
-const DESKTOP_WIDTH = 1024; // desktop breakpoint
 
 let navigation;
 let navActive;
@@ -184,8 +183,8 @@ navigation = behavior(
   {
     [CLICK]: {
       [NAV_CONTROL]() {
-        // Check if desktop header or collapsed.
-        if (window.innerWidth >= DESKTOP_WIDTH) {
+        // Prevent actions for mobile nav so accordions do not close when their child links are clicked.
+        if (!isActive()) {
           // If another nav is open, close it
           if (navActive !== this) {
             hideActiveNavDropdown();
