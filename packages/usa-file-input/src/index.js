@@ -368,10 +368,6 @@ const updateStatusMessage = (
 
   if (hasCustomSelectedFileTextPlural) {
     SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
-  }
-
-  if (hasCustomSelectedFileTextPlural) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
   } else if (customSelectedFileText) {
     SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
   }
