@@ -134,7 +134,7 @@ function toggleModal(event) {
   // Temporarily increase body padding to include the width of the scrollbar.
   // This accounts for the content shift when the scrollbar is removed on modal open.
   if (body.style.paddingRight === TEMPORARY_BODY_PADDING) {
-    body.removeAttribute("style");
+    body.style.removeProperty("padding-right");
   } else {
     body.style.paddingRight = TEMPORARY_BODY_PADDING;
   }
