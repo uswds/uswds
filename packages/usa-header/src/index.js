@@ -165,20 +165,20 @@ const handleEscape = (event) => {
  * Takes clicked link and current url, removes any hash from the link, and compares them.
  * If link destination is determined to be the same page; return true.
  * If link destination is determined to be on a separate page; return false.
- * 
+ *
  * @param {HTMLAnchorElement} targetLink - Target link clicked in header.
  * @returns {boolean}
  */
 const isChildSection = (targetLink) => {
-  const baseURL = CURRENT_PAGE.split('#');
+  const baseURL = CURRENT_PAGE.split("#");
   const linkDestination = targetLink.href;
-  const linkBaseURL = linkDestination.split('#');
+  const linkBaseURL = linkDestination.split("#");
   if (baseURL[0] === linkBaseURL[0]) {
-    return true
-  } 
+    return true;
+  }
 
-  return false
-}
+  return false;
+};
 
 navigation = behavior(
   {
@@ -186,16 +186,16 @@ navigation = behavior(
       [NAV_CONTROL]() {
         // Check if desktop header or collapsed.
         if (window.innerWidth >= DESKTOP_WIDTH) {
-        // If another nav is open, close it
+          // If another nav is open, close it
           if (navActive !== this) {
             hideActiveNavDropdown();
           }
-        // store a reference to the last clicked nav link element, so we
-        // can hide the dropdown if another element on the page is clicked
+          // store a reference to the last clicked nav link element, so we
+          // can hide the dropdown if another element on the page is clicked
           if (!navActive) {
             navActive = this;
             toggle(navActive, true);
-          } 
+          }
         }
 
         // Do this so the event handler on the body doesn't fire
@@ -205,7 +205,7 @@ navigation = behavior(
       [OPENERS]: toggleNav,
       [CLOSERS]: toggleNav,
       [NAV_LINKS]() {
-        // A navigation link has been clicked! 
+        // A navigation link has been clicked!
         // When the links destination is on the current page we want to collapse any
         // hierarchical navigation UI it's a part of, so that the user
         // can focus on whatever they've just selected.

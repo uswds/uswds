@@ -152,14 +152,14 @@ describe("navigation toggle", () => {
     accordionButton.click();
     sectionLink.click();
     assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
-  })
+  });
 
   it("in mobile: keeps nav open when nav link is clicked", () => {
     menuButton.click();
     assert.strictEqual(isVisible(nav), true);
     navLink.click();
     assert.strictEqual(isVisible(nav), true);
-  })
+  });
 
   it("collapses dropdowns when the Escape key is hit", () => {
     accordionButton.click();
