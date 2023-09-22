@@ -34,6 +34,9 @@ let navActive;
 let nonNavElements;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+// Detect Safari
+// Note: Chrome also reports the Safari userAgent so this check specifically excludes Chrome.
+const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
@@ -79,18 +82,25 @@ const toggleNonNavItems = (active) => {
 };
 
 /**
- * Detect Safari and add body class and top position for a Safari-only CSS bug fix.
- * Note: Both Safari and Chrome report the Safari userAgent,
- * so this script specifically checks for "not Chrome".
+ * Detect Safari and add body class for a Safari-only CSS bug fix.
+ * More details in https://github.com/uswds/uswds/pull/5443
+ */
+const addSafariClass = () => {
+  if (isSafari) {
+    document.body.classList.add("is-safari");
+  }
+};
+
+/**
+ * Set the value for the --scrolltop CSS var when the mobile menu is open.
+ * This allows the CSS to lock the current scroll position in Safari
+ * when overflow-y is set to scroll.
  * More details in https://github.com/uswds/uswds/pull/5443
  */
 const setSafariScrollPosition = (body) => {
-  const isSafari = navigator.userAgent.includes("Safari");
-  const isNotChrome = !navigator.userAgent.includes("Chrome");
   const currentScrollPosition = `-${window.scrollY}px`;
-  if (isSafari && isNotChrome) {
+  if (isSafari) {
     body.style.setProperty("--scrolltop", currentScrollPosition);
-    body.classList.add("is-safari");
   }
 };
 
@@ -239,6 +249,7 @@ navigation = behavior(
         });
       }
 
+      addSafariClass();
       resize();
       window.addEventListener("resize", resize, false);
     },
