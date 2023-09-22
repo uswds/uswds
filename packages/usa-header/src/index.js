@@ -35,8 +35,10 @@ let nonNavElements;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 // Detect Safari
-// Note: Chrome also reports the Safari userAgent so this check specifically excludes Chrome.
-const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
+// Note: Chrome also reports the Safari userAgent so this specifically excludes Chrome.
+const isSafari =
+  navigator.userAgent.includes("Safari") &&
+  !navigator.userAgent.includes("Chrome");
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
