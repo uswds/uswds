@@ -1,12 +1,12 @@
 {
-  "source": ["./tokens/spacing/spacing-tokens.json"],
+  "source": ["./packages/uswds-tokens/colors/red.json"],
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "prefix": "theme",
-      "buildPath": "packages/uswds-core/src/styles/settings/",
+      "prefix": "system",
+      "buildPath": "packages/uswds-core/src/styles/tokens/color/",
       "files": [{
-        "destination": "_TEST-settings-spacing.scss",
+        "destination": "_TEST-red.scss",
         "format": "scss/map-deep"
       }]
     }

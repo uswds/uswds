@@ -1,0 +1,55 @@
+
+/**
+ * Do not edit directly
+ * Generated on Fri, 22 Sep 2023 20:12:22 GMT
+ */
+
+$system-color-red-5: #f9eeee !default;
+$system-color-red-10: #f8e1de !default;
+$system-color-red-20: #f7bbb1 !default;
+$system-color-red-30: #f2938c !default;
+$system-color-red-40: #e9695f !default;
+$system-color-red-50: #d83933 !default;
+$system-color-red-60: #a23737 !default;
+$system-color-red-70: #6f3331 !default;
+$system-color-red-80: #3e2927 !default;
+$system-color-red-90: #1b1616 !default;
+$system-color-red-vivid-5: #fff3f2 !default;
+$system-color-red-vivid-10: #fde0db !default;
+$system-color-red-vivid-20: #fdb8ae !default;
+$system-color-red-vivid-30: #ff8d7b !default;
+$system-color-red-vivid-40: #fb5a47 !default;
+$system-color-red-vivid-50: #e52207 !default;
+$system-color-red-vivid-60: #b50909 !default;
+$system-color-red-vivid-70: #8b0a03 !default;
+$system-color-red-vivid-80: #5c1111 !default;
+$system-color-red-vivid-90: #000000 !default;
+
+$tokens: (
+  'color': (
+    'red': (
+      '5': $system-color-red-5,
+      '10': $system-color-red-10,
+      '20': $system-color-red-20,
+      '30': $system-color-red-30,
+      '40': $system-color-red-40,
+      '50': $system-color-red-50,
+      '60': $system-color-red-60,
+      '70': $system-color-red-70,
+      '80': $system-color-red-80,
+      '90': $system-color-red-90,
+      'vivid': (
+        '5': $system-color-red-vivid-5,
+        '10': $system-color-red-vivid-10,
+        '20': $system-color-red-vivid-20,
+        '30': $system-color-red-vivid-30,
+        '40': $system-color-red-vivid-40,
+        '50': $system-color-red-vivid-50,
+        '60': $system-color-red-vivid-60,
+        '70': $system-color-red-vivid-70,
+        '80': $system-color-red-vivid-80,
+        '90': $system-color-red-vivid-90
+      )
+    )
+  )
+);
