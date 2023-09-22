@@ -474,8 +474,9 @@ $expand-less-icon: map-merge(
   overflow: hidden;
 }
 
-// Safari-only fix that forces a vertical scrollbar when mobile header is opened.
-// Fix is only needed in the 15px immediately preceding $theme-header-max-width.
+// Safari-only fix that forces a vertical scrollbar when mobile menu is open.
+// Only needed in the 15px immediately preceding $theme-header-max-width.
+//
 // Note: 15px is the current width of the Safari scrollbar.
 // More details in https://github.com/uswds/uswds/pull/5443
 $safari-header-bug-min-width: calc(
