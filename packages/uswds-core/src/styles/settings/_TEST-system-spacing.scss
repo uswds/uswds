@@ -1,0 +1,21 @@
+
+/**
+ * Do not edit directly
+ * Generated on Mon, 25 Sep 2023 19:53:28 GMT
+ */
+
+$system-system-spacing-smaller-1px: 1px;
+$system-system-spacing-smaller-2px: 2px !default;
+$system-system-spacing-small-05: spacing-multiple(0.5) !default;
+
+$tokens: (
+  'system-spacing': (
+    'smaller': (
+      '1px': $system-system-spacing-smaller-1px,
+      '2px': $system-system-spacing-smaller-2px
+    ),
+    'small': (
+      '05': $system-system-spacing-small-05
+    )
+  )
+);
