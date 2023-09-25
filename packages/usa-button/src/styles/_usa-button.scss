@@ -15,7 +15,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   border: 0;
   border-radius: radius($theme-button-border-radius);
   cursor: pointer;
-  column-gap: units($theme-button-column-gap);
+  column-gap: units($theme-button-icon-gap);
   display: inline-flex;
   font-weight: font-weight("bold");
   justify-content: center;
