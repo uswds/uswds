@@ -36,7 +36,7 @@ export default {
       options: ["button", "reset", "submit"],
       control: { type: "radio" },
     },
-    icon_included: {
+    add_icon: {
       name: "Add icon",
       defaultValue: false,
       type: "boolean",
@@ -48,7 +48,7 @@ export default {
         options: iconNames,
         defaultValue: "add_circle_outline",
       },
-      if: { arg: "icon_included" },
+      if: { arg: "add_icon" },
     },
   },
 };
@@ -73,7 +73,7 @@ Big.args = BigContent;
 export const Icon = Template.bind({});
 Icon.args = {
   ...DefaultContent,
-  icon_included: true,
+  add_icon: true,
   // Specifying name to preselect value in StorybookJS control.
   icon_name: "add_circle_outline",
 };
