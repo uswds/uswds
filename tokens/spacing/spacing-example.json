@@ -1,7 +1,7 @@
 {
   "border": {
     "radius": {
-    "sm": { "value": "2px", "themeable": true },
+      "sm": { "value": "2px", "themeable": true },
       "md": { "value": "0.5", "themeable": true },
       "lg": { "value": "1", "themeable": true , "comment": "take 2" }
     }
