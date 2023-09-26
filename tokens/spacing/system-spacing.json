@@ -1,5 +1,5 @@
 {
-  "system-spacing": {
+  "spacing": {
     "smaller": {
       "1px": { "value": "1px", "themeable": false },
       "2px": { "value": "2px"}
