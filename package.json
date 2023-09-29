@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -52,7 +52,6 @@
   },
   "scripts": {
     "build": "gulp",
-    "format-tokens": "node ./src/utils/style-format.js --file './packages/uswds-tokens/colors' --output './packages/uswds-core/src/styles/tokens/color'",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint packages/**/**/*.js",
     "lint:sass": "gulp lintSass",
