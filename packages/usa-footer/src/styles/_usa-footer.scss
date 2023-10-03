@@ -208,6 +208,10 @@ $-chevron-expand-more: map-merge(
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
+
+    > .grid-row {
+      justify-content: space-between;
+    }
   }
 
   a {
