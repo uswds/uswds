@@ -346,6 +346,7 @@ const updateStatusMessage = (
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
   const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
+  let fileStatusText = FILE_STATUS_TEXT;
 
   if (customSelectedFileText) {
     SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
@@ -359,16 +360,16 @@ const updateStatusMessage = (
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
-    FILE_STATUS_TEXT = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
+    fileStatusText = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
   } else if (fileNames.length > 1) {
-    FILE_STATUS_TEXT = `${
+    fileStatusText = `${
       fileNames.length
     } ${SELECTED_FILE_TEXT_PLURAL}: ${fileStore.join(", ")}`;
   }
 
   // Add delay to encourage screen reader readout
   setTimeout(() => {
-    statusEl.textContent = FILE_STATUS_TEXT;
+    statusEl.textContent = fileStatusText;
   }, 1000);
 };
 
