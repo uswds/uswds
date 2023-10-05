@@ -40,8 +40,8 @@ let CHANGE_FILE_TEXT_PLURAL = "Change files";
 let CHOOSE_TEXT = "choose from folder";
 let DRAG_TEXT_SINGULAR = "Drag file here or";
 let DRAG_TEXT_PLURAL = "Drag files here or";
-let NO_FILE_TEXT_SINGULAR = "No file selected";
-let NO_FILE_TEXT_PLURAL = "No files selected";
+let NO_FILE_TEXT_SINGULAR = "No file selected.";
+let NO_FILE_TEXT_PLURAL = "No files selected.";
 let SELECTED_FILE_TEXT_SINGULAR = "file selected";
 let SELECTED_FILE_TEXT_PLURAL = "files selected";
 
@@ -173,17 +173,17 @@ const createVisibleInstructions = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
   const customDragText = fileInputEl.dataset.dragText;
-  const customDragTextPlural = fileInputEl.dataset.dragTextPlural;
+  const customDragTextSingular = fileInputEl.dataset.dragTextSingular;
   const customChooseText = fileInputEl.dataset.chooseText;
 
   if (customDragText) {
-    DRAG_TEXT_SINGULAR = customDragText;
+    DRAG_TEXT_PLURAL = customDragText;
   }
 
-  if (customDragTextPlural) {
-    DRAG_TEXT_PLURAL = customDragTextPlural;
+  if (customDragTextSingular) {
+    DRAG_TEXT_SINGULAR = customDragTextSingular;
   } else if (customDragText) {
-    DRAG_TEXT_PLURAL = customDragText;
+    DRAG_TEXT_SINGULAR = customDragText;
   }
 
   if (acceptsMultiple) {
@@ -233,16 +233,16 @@ const createSROnlyStatus = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
   const customNoFileText = fileInputEl.dataset.noFileText;
-  const customNoFileTextPlural = fileInputEl.dataset.noFileTextPlural;
+  const customNoFileTextSingular = fileInputEl.dataset.noFileTextSingular;
 
   if (customNoFileText) {
-    NO_FILE_TEXT_SINGULAR = customNoFileText;
+    NO_FILE_TEXT_PLURAL = customNoFileText;
   }
 
-  if (customNoFileTextPlural) {
-    NO_FILE_TEXT_PLURAL = customNoFileTextPlural;
+  if (customNoFileTextSingular) {
+    NO_FILE_TEXT_SINGULAR = customNoFileTextSingular;
   } else if (customNoFileText) {
-    NO_FILE_TEXT_PLURAL = customNoFileText;
+    NO_FILE_TEXT_SINGULAR = customNoFileText;
   }
 
   if (acceptsMultiple) {
@@ -343,18 +343,18 @@ const updateStatusMessage = (
 ) => {
   const statusEl = statusElement;
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
-  const customSelectedFileTextPlural =
-    fileInputEl.dataset.selectedFileTextPlural;
+  const customSelectedFileTextSingular =
+    fileInputEl.dataset.selectedFileTextSingular;
   let fileStatusText = FILE_STATUS_TEXT;
 
   if (customSelectedFileText) {
-    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
   }
 
-  if (customSelectedFileTextPlural) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
+  if (customSelectedFileTextSingular) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileTextSingular;
   } else if (customSelectedFileText) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
   }
 
   // If files added, update the status message with file name(s)
@@ -387,8 +387,8 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   const customChangeFileTextSingular =
     fileInputEl.dataset.changeFileTextSingular;
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
-  const customSelectedFileTextPlural =
-    fileInputEl.dataset.selectedFileTextPlural;
+  const customSelectedFileTextSingular =
+    fileInputEl.dataset.selectedFileTextSingular;
   let previewHeadingText = "";
 
   if (customChangeFileText) {
@@ -402,13 +402,13 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   }
 
   if (customSelectedFileText) {
-    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
   }
 
-  if (customSelectedFileTextPlural) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
+  if (customSelectedFileTextSingular) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileTextSingular;
   } else if (customSelectedFileText) {
-    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
   }
 
   if (fileNames.length === 1) {

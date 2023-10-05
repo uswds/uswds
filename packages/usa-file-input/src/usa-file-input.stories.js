@@ -61,15 +61,15 @@ TestMultipleInputs.args = {
 export const TestCustomText = TestTemplateCustomText.bind({});
 TestCustomText.args = {
   multiple: false,
-  include_plural: false,
-  drag_text: "Arrastre archivo aquí o",
-  drag_text_plural: "Arrastre archivos aquí o",
-  choose_text: "elegir de la carpeta",
-  no_file_text: "No hay archivos seleccionados",
-  no_file_text_singular: "Ningún archivo seleccionado",
+  include_singular: false,
   change_file_text: "Cambiar archivos",
   change_file_text_singular: "Cambiar archivo",
-  selected_file_text: "archivo seleccionado",
-  selected_file_text_plural: "archivos seleccionados",
+  choose_text: "elegir de la carpeta",
+  drag_text: "Arrastre archivos aquí o",
+  drag_text_singular: "Arrastre archivo aquí o",
   error_message: "Este no es un tipo de archivo válido.",
+  no_file_text: "No hay archivos seleccionados",
+  no_file_text_singular: "Ningún archivo seleccionado",
+  selected_file_text: "archivos seleccionados",
+  selected_file_text_singular: "archivo seleccionado",
 };
