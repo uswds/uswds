@@ -28,21 +28,20 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
-let DEFAULT_ARIA_LABEL_TEXT = "";
+
+const ERROR_TEXT = "This is not a valid file type.";
+let ARIA_LABEL_TEXT = "";
 let DRAG_TEXT = "";
 let CHANGE_FILE_TEXT = "";
-let CHOOSE_TEXT = "choose from folder";
 let FILE_STATUS_TEXT = "";
-const ERROR_TEXT = "This is not a valid file type.";
-
 let CHANGE_FILE_TEXT_SINGULAR = "Change file";
 let CHANGE_FILE_TEXT_PLURAL = "Change files";
+let CHOOSE_TEXT = "choose from folder";
 let DRAG_TEXT_SINGULAR = "Drag file here or";
 let DRAG_TEXT_PLURAL = "Drag files here or";
-let NO_FILE_TEXT_SINGULAR = "No file selected.";
-let NO_FILE_TEXT_PLURAL = `No files selected.`;
+let NO_FILE_TEXT_SINGULAR = "No file selected";
+let NO_FILE_TEXT_PLURAL = "No files selected";
 let SELECTED_FILE_TEXT_SINGULAR = "file selected";
 let SELECTED_FILE_TEXT_PLURAL = "files selected";
 
@@ -198,14 +197,14 @@ const createVisibleInstructions = (fileInputEl) => {
   }
 
   // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${DRAG_TEXT} ${CHOOSE_TEXT}`;
+  ARIA_LABEL_TEXT = `${DRAG_TEXT} ${CHOOSE_TEXT}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
 
   // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
+  fileInputEl.setAttribute("aria-label", ARIA_LABEL_TEXT);
   instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${DRAG_TEXT}</span> <span class="${CHOOSE_CLASS}">${CHOOSE_TEXT}</span>`;
 
   // Add the instructions element to the DOM
@@ -518,7 +517,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   if (fileNames.length === 0) {
     // Reset input aria-label with default message
-    fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
+    fileInputEl.setAttribute("aria-label", ARIA_LABEL_TEXT);
   } else {
     addPreviewHeading(fileInputEl, fileNames);
   }
