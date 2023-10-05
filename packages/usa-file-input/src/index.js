@@ -173,22 +173,17 @@ const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
-  const hasCustomDragText = fileInputEl.hasAttribute("data-drag-text");
   const customDragText = fileInputEl.dataset.dragText;
-  const hasCustomDragTextPlural = fileInputEl.hasAttribute(
-    "data-drag-text-plural"
-  );
   const customDragTextPlural = fileInputEl.dataset.dragTextPlural;
-  const hasCustomChooseText = fileInputEl.hasAttribute("data-choose-text");
   const customChooseText = fileInputEl.dataset.chooseText;
 
-  if (hasCustomDragText) {
+  if (customDragText) {
     DRAG_TEXT_SINGULAR = customDragText;
   }
 
-  if (hasCustomDragTextPlural) {
+  if (customDragTextPlural) {
     DRAG_TEXT_PLURAL = customDragTextPlural;
-  } else if (hasCustomDragText) {
+  } else if (customDragText) {
     DRAG_TEXT_PLURAL = customDragText;
   }
 
@@ -198,7 +193,7 @@ const createVisibleInstructions = (fileInputEl) => {
     DRAG_TEXT = DRAG_TEXT_SINGULAR;
   }
 
-  if (hasCustomChooseText) {
+  if (customChooseText) {
     CHOOSE_TEXT = customChooseText;
   }
 
@@ -238,20 +233,16 @@ const createSROnlyStatus = (fileInputEl) => {
   const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
-  const hasCustomNoFileText = fileInputEl.hasAttribute("data-no-file-text");
   const customNoFileText = fileInputEl.dataset.noFileText;
-  const hasCustomNoFileTextPlural = fileInputEl.hasAttribute(
-    "data-no-file-text-plural"
-  );
   const customNoFileTextPlural = fileInputEl.dataset.noFileTextPlural;
 
-  if (hasCustomNoFileText) {
+  if (customNoFileText) {
     NO_FILE_TEXT_SINGULAR = customNoFileText;
   }
 
-  if (hasCustomNoFileTextPlural) {
+  if (customNoFileTextPlural) {
     NO_FILE_TEXT_PLURAL = customNoFileTextPlural;
-  } else if (hasCustomNoFileText) {
+  } else if (customNoFileText) {
     NO_FILE_TEXT_PLURAL = customNoFileText;
   }
 
@@ -352,21 +343,15 @@ const updateStatusMessage = (
   fileInputEl
 ) => {
   const statusEl = statusElement;
-  const hasCustomSelectedFileText = fileInputEl.hasAttribute(
-    "data-selected-file-text"
-  );
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
-  const hasCustomSelectedFileTextPlural = fileInputEl.hasAttribute(
-    "data-selected-file-text-plural"
-  );
   const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
 
-  if (hasCustomSelectedFileText) {
+  if (customSelectedFileText) {
     SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
   }
 
-  if (hasCustomSelectedFileTextPlural) {
+  if (customSelectedFileTextPlural) {
     SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
   } else if (customSelectedFileText) {
     SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
@@ -398,44 +383,32 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
   const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
   const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS}`);
-  const hasCustomChangeFileText = fileInputEl.hasAttribute(
-    "data-change-file-text"
-  );
   const customChangeFileText = fileInputEl.dataset.changeFileText;
-  const hasCustomChangeFileTextSingular = fileInputEl.hasAttribute(
-    "data-change-file-text-singular"
-  );
   const customChangeFileTextSingular =
     fileInputEl.dataset.changeFileTextSingular;
-  const hasCustomSelectedFileText = fileInputEl.hasAttribute(
-    "data-selected-file-text"
-  );
   const customSelectedFileText = fileInputEl.dataset.selectedFileText;
-  const hasCustomSelectedFileTextPlural = fileInputEl.hasAttribute(
-    "data-selected-file-text-plural"
-  );
   const customSelectedFileTextPlural =
     fileInputEl.dataset.selectedFileTextPlural;
   let previewHeadingText = "";
 
-  if (hasCustomChangeFileText) {
+  if (customChangeFileText) {
     CHANGE_FILE_TEXT_PLURAL = customChangeFileText;
   }
 
-  if (hasCustomChangeFileTextSingular) {
+  if (customChangeFileTextSingular) {
     CHANGE_FILE_TEXT_SINGULAR = customChangeFileTextSingular;
-  } else if (hasCustomChangeFileText) {
+  } else if (customChangeFileText) {
     CHANGE_FILE_TEXT_SINGULAR = customChangeFileText;
   }
 
-  if (hasCustomSelectedFileText) {
+  if (customSelectedFileText) {
     SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
   }
 
-  if (hasCustomSelectedFileTextPlural) {
+  if (customSelectedFileTextPlural) {
     SELECTED_FILE_TEXT_PLURAL = customSelectedFileTextPlural;
-  } else if (hasCustomSelectedFileText) {
-    SELECTED_FILE_TEXT_PLURAL = hasCustomSelectedFileText;
+  } else if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
   }
 
   if (fileNames.length === 1) {
