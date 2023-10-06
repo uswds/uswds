@@ -1,6 +1,6 @@
 {
   "modifier": "",
-  "default_classes": "tablet:grid-col-4",
+  "default_classes": "tablet-lg:grid-col-6 widescreen:grid-col-4",
   "cards": [
     {
       "title": "Card",

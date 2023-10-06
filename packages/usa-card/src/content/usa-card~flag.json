@@ -4,7 +4,7 @@
   "cards": [
     {
       "title": "Default flag",
-      "classes_override": "desktop:grid-col-6",
+      "classes_override": "widescreen:grid-col-6",
       "flag_direction": "",
       "media": {
         "media_classes": "",
@@ -16,7 +16,7 @@
     },
     {
       "title": "Flag media right inset",
-      "classes_override": "desktop:grid-col-6",
+      "classes_override": "widescreen:grid-col-6",
       "flag_direction": "right",
       "media": {
         "media_classes": "usa-card__media--inset",
