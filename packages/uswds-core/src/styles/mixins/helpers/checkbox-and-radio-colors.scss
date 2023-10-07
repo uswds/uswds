@@ -60,7 +60,9 @@
     }
   }
   .usa-#{$input-type}__input {
-    &:checked {
+    &:checked,
+    &:indeterminate,
+    &[data-indeterminate] {
       @include format-input {
         background-color: color($input-active-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
@@ -88,7 +90,9 @@
         border: units($theme-input-tile-border-width) solid $tile-border-color;
         color: color($input-text-color);
       }
-      &:checked {
+      &:checked,
+      &:indeterminate,
+      &[data-indeterminate] {
         @include format-label {
           background-color: color.adjust(
             color($input-active-color),
@@ -107,7 +111,9 @@
           border-color: $tile-border-color--disabled;
         }
 
-        &:checked {
+        &:checked,
+        &:indeterminate,
+        &[data-indeterminate] {
           @include format-label {
             background-color: color($input-bg-color);
           }
@@ -132,11 +138,26 @@
         }
       }
       &:checked:disabled,
-      &:checked[aria-disabled="true"] {
+      &:checked[aria-disabled="true"],
+      &:indeterminate:disabled,
+      &:indeterminate[aria-disabled="true"],
+      &[data-indeterminate]:disabled,
+      &[data-indeterminate][aria-disabled="true"] {
         @include format-input {
           background-color: color("disabled");
           @media (forced-colors: active) {
             background-color: color(GrayText);
+          }
+        }
+      }
+      &:indeterminate,
+      &[data-indeterminate] {
+        &,
+        &:checked {
+          @include format-input {
+            @include add-background-svg("checkbox-indeterminate");
+            background-size: 75%;
+            background-position: center;
           }
         }
       }
