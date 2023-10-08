@@ -25,10 +25,6 @@
   border-left: units($theme-alert-bar-width) solid color("base-light");
   color: color($banner-text-color-token);
 
-  * + & {
-    margin-top: units(2);
-  }
-
   .usa-alert__body {
     @include border-box-sizing;
     @include typeset($theme-alert-font-family);
