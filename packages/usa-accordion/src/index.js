@@ -6,7 +6,7 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
-const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
+const BUTTON = `.${PREFIX}-accordion__button[aria-controls]:not(.usa-banner__button)`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "data-allow-multiple";
 
