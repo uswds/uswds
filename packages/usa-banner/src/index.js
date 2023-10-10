@@ -8,6 +8,10 @@ const HEADER = `.${PREFIX}-banner__header`;
 const EXPANDED_CLASS = `${PREFIX}-banner__header--expanded`;
 const BANNER_BUTTON = `${HEADER} [aria-controls]`;
 
+/**
+ * Toggle Banner display and class.
+ * @param {Event} event
+ */
 const toggleBanner = function toggleEl(event) {
   event.preventDefault();
   const trigger = event.target.closest(BANNER_BUTTON);
