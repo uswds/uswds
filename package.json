@@ -162,15 +162,15 @@
     "path": "0.12.7",
     "postcss": "8.4.31",
     "postcss-csso": "6.0.1",
-    "postcss-discard-comments": "5.0.1",
-    "postcss-loader": "6.1.1",
-    "postcss-preset-env": "7.4.2",
+    "postcss-discard-comments": "6.0.0",
+    "postcss-loader": "7.3.3",
+    "postcss-preset-env": "9.2.0",
     "postcss-sass-loader": "1.1.0",
     "prettier": "3.0.3",
     "react-dom": "17.0.2",
     "resolve-url-loader": "4.0.0",
     "sass-embedded": "1.69.2",
-    "sass-loader": "12.1.0",
+    "sass-loader": "13.3.2",
     "sass-true": "6.0.1",
     "sinon": "12.0.1",
     "snyk": "1.1234.0",
@@ -183,7 +183,7 @@
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0",
     "webpack": "5.88.2",
-    "webpack-cli": "4.9.1"
+    "webpack-cli": "5.1.4"
   },
   "workspaces": [
     "packages/uswds-core"
