@@ -26,16 +26,11 @@ const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
 let modal;
+let INITIAL_BODY_PADDING;
+let TEMPORARY_BODY_PADDING;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
-const INITIAL_PADDING = window
-  .getComputedStyle(document.body)
-  .getPropertyValue("padding-right");
-const TEMPORARY_PADDING = `${
-  parseInt(INITIAL_PADDING.replace(/px/, ""), 10) +
-  parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
-}px`;
 
 /**
  *  Closes modal when bound to a button and pressed.
@@ -45,7 +40,21 @@ const onMenuClose = () => {
 };
 
 /**
- *  Toggle the visibility of a modal window.
+ * Set the value for temporary body padding that will be applied when the modal is open.
+ * Value is created by checking for initial body padding and adding the width of the scrollbar.
+ */
+const setTemporaryBodyPadding = () => {
+  INITIAL_BODY_PADDING = window
+    .getComputedStyle(document.body)
+    .getPropertyValue("padding-right");
+  TEMPORARY_BODY_PADDING = `${
+    parseInt(INITIAL_BODY_PADDING.replace(/px/, ""), 10) +
+    parseInt(SCROLLBAR_WIDTH.replace(/px/, ""), 10)
+  }px`;
+};
+
+/**
+ *  Toggle the visibility of a modal window
  *
  * @param {KeyboardEvent} event the keydown event.
  * @returns {boolean} safeActive if mobile is open.
@@ -123,13 +132,13 @@ function toggleModal(event) {
     body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
 
-  // Account for content shifting from body overflow: hidden
-  // We only check paddingRight in case apps are adding other properties
-  // to the body element
-  body.style.paddingRight =
-    body.style.paddingRight === TEMPORARY_PADDING
-      ? INITIAL_PADDING
-      : TEMPORARY_PADDING;
+  // Temporarily increase body padding to include the width of the scrollbar.
+  // This accounts for the content shift when the scrollbar is removed on modal open.
+  if (body.style.paddingRight === TEMPORARY_BODY_PADDING) {
+    body.style.removeProperty("padding-right");
+  } else {
+    body.style.paddingRight = TEMPORARY_BODY_PADDING;
+  }
 
   // Handle the focus actions
   if (safeActive && openFocusEl) {
@@ -181,6 +190,8 @@ const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
   const originalLocationPlaceHolder = document.createElement("div");
   const modalAttributes = Array.from(baseComponent.attributes);
+
+  setTemporaryBodyPadding();
 
   originalLocationPlaceHolder.setAttribute(`data-placeholder-for`, modalID);
   originalLocationPlaceHolder.style.display = "none";

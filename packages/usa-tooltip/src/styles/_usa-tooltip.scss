@@ -26,6 +26,7 @@ $triangle-size: 5px;
   color: color($theme-tooltip-font-color);
   display: none;
   font-size: size("ui", $theme-tooltip-font-size);
+  opacity: 0; // Required for recalculating position.
   padding: units(1);
   pointer-events: none;
   width: auto;
