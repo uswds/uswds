@@ -14,10 +14,20 @@ const RANGE = `.${RANGE_CLASSNAME}`;
  */
 const updateCallout = (targetRange) => {
   const rangeSlider = targetRange;
+  const optionalPrep = rangeSlider.getAttribute("data-optional-preposition");
   const unit = rangeSlider.getAttribute("data-optional-unit");
   const val = rangeSlider.value;
   const max = rangeSlider.getAttribute("max");
-  const callout = `${val} ${unit || ""} of ${max}`;
+
+  let prep;
+
+  if (rangeSlider.getAttribute("data-optional-preposition")) {
+    prep =  optionalPrep
+  } else {
+    prep = "of"
+  }
+
+  const callout = `${val} ${unit || ""} ${prep} ${max}`;
 
   rangeSlider.setAttribute("aria-valuetext", callout);
 };

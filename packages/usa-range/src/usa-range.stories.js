@@ -33,6 +33,10 @@ export default {
 const Template = (args) => Component(args);
 
 export const Range = Template.bind({});
+Range.args = {
+  optional_unit: "",
+  optional_preposition: ""
+}
 
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -42,9 +46,4 @@ Disabled.args = {
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   disabled_state: "aria-disabled",
-};
-
-export const UnitTest = Template.bind({});
-UnitTest.args = {
-  optional_unit: "Percent",
 };
