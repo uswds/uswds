@@ -22,17 +22,6 @@ const updateCallout = (targetRange) => {
   rangeSlider.setAttribute("aria-valuetext", callout);
 };
 
-/**
- * Checks for optional unit data attribute. If attribute is present, updates aria-valuetext and adds input event listener.
- *
- * @param {HTMLInputElement} baseComponent - Range slider html input element in DOM.
- */
-const enhanceSRContext = (baseComponent) => {
-  const rangeSlider = baseComponent;
-
-  updateCallout(rangeSlider);
-};
-
 const rangeEvents = {
   change: {
     [RANGE]() {
@@ -44,7 +33,7 @@ const rangeEvents = {
 const range = behavior(rangeEvents, {
   init(root) {
     selectOrMatches(RANGE, root).forEach((rangeSlider) => {
-      enhanceSRContext(rangeSlider);
+      updateCallout(rangeSlider);
     });
   },
 });
