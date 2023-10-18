@@ -42,5 +42,9 @@
     &:active {
       color: color($theme-link-reverse-active-color);
     }
+
+    &:visited {
+      color: color($theme-link-reverse-color);
+    }
   }
 }
