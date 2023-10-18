@@ -7,7 +7,7 @@ const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 
 /**
- * Called when range slider has optional unit data attribute.
+ * Called when range slider includes the data-optional-unit attribute.
  * Collects necessary attributes, then constructs and appends aria-valuetext attribute for screen reader context.
  *
  * @param {HTMLInputElement} targetRange - The range slider input element
