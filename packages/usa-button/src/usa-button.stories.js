@@ -69,7 +69,7 @@ export const TestLinksAsButtons = TestTemplateLinks.bind({});
 TestLinksAsButtons.args = {
   modifier: "",
   text: "Link styled as button",
-  is_demo: true
+  is_demo: true,
 };
 TestLinksAsButtons.argTypes = {
   type: {
