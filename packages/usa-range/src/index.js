@@ -22,9 +22,9 @@ const updateCallout = (targetRange) => {
   let prep;
 
   if (rangeSlider.getAttribute("data-optional-preposition")) {
-    prep =  optionalPrep
+    prep = optionalPrep;
   } else {
-    prep = "of"
+    prep = "of";
   }
 
   const callout = `${val} ${unit || ""} ${prep} ${max}`;

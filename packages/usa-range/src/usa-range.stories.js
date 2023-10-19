@@ -35,8 +35,8 @@ const Template = (args) => Component(args);
 export const Range = Template.bind({});
 Range.args = {
   optional_unit: "",
-  optional_preposition: ""
-}
+  optional_preposition: "",
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
