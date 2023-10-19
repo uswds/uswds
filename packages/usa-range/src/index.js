@@ -46,6 +46,7 @@ const range = behavior(rangeEvents, {
       updateCallout(rangeSlider);
     });
   },
+  updateCallout,
 });
 
 module.exports = range;
