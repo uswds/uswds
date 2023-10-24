@@ -11,6 +11,13 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
+// For left content alignment at desktop widths,
+// remove half of the width of the alert bar from the site margin
+$alert-content-left-spacing: calc(
+  units($theme-site-margins-width) - (units($theme-alert-bar-width) / 2)
+);
+$alert-icon-text-gap: units(1);
+
 // Base alert styles
 @mixin alert-styles {
   $bgcolor: "base-lightest";
@@ -35,10 +42,6 @@
     @include u-margin-x("auto");
     @include u-maxw($theme-site-alert-max-width);
     @include u-padding-y($theme-alert-padding-y);
-    @include u-padding-x($theme-site-margins-mobile-width);
-    @include at-media($theme-site-margins-breakpoint) {
-      padding-left: 2 * $alert-icon-optical-padding;
-    }
 
     position: relative;
   }
@@ -48,6 +51,16 @@
 
     &:only-child {
       @include u-padding-y(0);
+    }
+  }
+
+  .usa-alert__heading,
+  .usa-alert__text {
+    margin-left: calc(units($theme-site-margins-mobile-width) + units($theme-alert-icon-size) + $alert-icon-text-gap);
+    @include at-media($theme-site-margins-breakpoint) {
+      margin-left: calc(
+        $alert-content-left-spacing + units($theme-alert-icon-size) + $alert-icon-text-gap
+      );
     }
   }
 
@@ -70,9 +83,14 @@
 // Set status styles for alert wrapper/background
 @mixin alert-status-wrapper-styles($name) {
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $border-width: if($name != "emergency", $theme-alert-bar-width, 0);
 
   background-color: color($bgcolor);
   border-left-color: color($name);
+
+  @include at-media-max($theme-site-margins-breakpoint) {
+    border-left-width: units($border-width);
+  }
 }
 
 // Set status styles for alert content
@@ -87,12 +105,6 @@
   );
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
-
-  padding-left: units($theme-alert-icon-size) + ($alert-icon-optical-padding);
-  @include at-media($theme-site-margins-breakpoint) {
-    padding-left: units($theme-site-margins-width) * 2;
-    padding-right: units($theme-site-margins-width) * 2;
-  }
 
   .usa-link {
     @include set-link-from-bg(
@@ -117,15 +129,11 @@
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
     display: block;
-    // padding - optical spacing value
-    left: units($theme-site-margins-mobile-width) -
-      units($theme-alert-bar-width);
+    left: units($theme-site-margins-mobile-width);
     position: absolute;
     top: units($theme-alert-padding-y) * 0.75;
     @include at-media($theme-site-margins-breakpoint) {
-      left: calc(
-        units($theme-site-margins-width) - units($theme-alert-bar-width)
-      );
+      left: $alert-content-left-spacing;
     }
   }
 }
@@ -136,12 +144,16 @@
     &:before {
       display: none;
     }
+  }
+}
 
-    padding-left: units(
-      $theme-site-margins-mobile-width - $theme-alert-bar-width
-    );
+@mixin alert-styles-no-icon-content {
+  .usa-alert__text,
+  .usa-alert__heading {
+    margin-left: units($theme-site-margins-mobile-width);
+
     @include at-media($theme-site-margins-breakpoint) {
-      padding-left: 2 * $alert-icon-optical-padding;
+      margin-left: $alert-content-left-spacing;
     }
   }
 }
@@ -156,6 +168,10 @@
     @supports (mask: url("")) {
       mask-size: $alert-slim-icon-size;
     }
+
+    @include at-media($theme-site-margins-breakpoint) {
+      left: $alert-content-left-spacing;
+    }
   }
 }
 
@@ -163,11 +179,14 @@
   .usa-alert__body {
     @include u-padding-y(1);
     @include add-slim-alert-icon;
+  }
 
-    padding-left: $alert-slim-icon-size + $alert-icon-optical-padding;
+  .usa-alert__heading,
+  .usa-alert__text {
+    margin-left: calc(units($theme-site-margins-mobile-width) + $alert-slim-icon-size + $alert-icon-text-gap);
     @include at-media($theme-site-margins-breakpoint) {
-      padding-left: calc(
-        units($theme-site-margins-width) + $alert-slim-icon-size
+      margin-left: calc(
+        $alert-content-left-spacing + $alert-slim-icon-size + $alert-icon-text-gap
       );
     }
   }
