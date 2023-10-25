@@ -13,7 +13,7 @@
 
 // For left content alignment at desktop widths,
 // remove half of the width of the alert bar from the site margin
-$alert-content-left-spacing: calc(
+$alert-content-margin-width: calc(
   units($theme-site-margins-width) - (units($theme-alert-bar-width) / 2)
 );
 $alert-icon-text-gap: units(1);
@@ -62,7 +62,7 @@ $alert-icon-text-gap: units(1);
     );
     @include at-media($theme-site-margins-breakpoint) {
       margin-left: calc(
-        $alert-content-left-spacing + units($theme-alert-icon-size) +
+        $alert-content-margin-width + units($theme-alert-icon-size) +
           $alert-icon-text-gap
       );
     }
@@ -137,7 +137,7 @@ $alert-icon-text-gap: units(1);
     position: absolute;
     top: units($theme-alert-padding-y) * 0.75;
     @include at-media($theme-site-margins-breakpoint) {
-      left: $alert-content-left-spacing;
+      left: $alert-content-margin-width;
     }
   }
 }
@@ -157,7 +157,7 @@ $alert-icon-text-gap: units(1);
     margin-left: units($theme-site-margins-mobile-width);
 
     @include at-media($theme-site-margins-breakpoint) {
-      margin-left: $alert-content-left-spacing;
+      margin-left: $alert-content-margin-width;
     }
   }
 }
@@ -174,7 +174,7 @@ $alert-icon-text-gap: units(1);
     }
 
     @include at-media($theme-site-margins-breakpoint) {
-      left: $alert-content-left-spacing;
+      left: $alert-content-margin-width;
     }
   }
 }
@@ -193,7 +193,7 @@ $alert-icon-text-gap: units(1);
     );
     @include at-media($theme-site-margins-breakpoint) {
       margin-left: calc(
-        $alert-content-left-spacing + $alert-slim-icon-size +
+        $alert-content-margin-width + $alert-slim-icon-size +
           $alert-icon-text-gap
       );
     }
