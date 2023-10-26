@@ -14,14 +14,14 @@ const RANGE = `.${RANGE_CLASSNAME}`;
  */
 const updateCallout = (targetRange) => {
   const rangeSlider = targetRange;
-  const optionalPrep = rangeSlider.getAttribute("data-optional-preposition");
-  const unit = rangeSlider.getAttribute("data-optional-unit");
+  const optionalPrep = rangeSlider.getAttribute("data-text-preposition");
+  const unit = rangeSlider.getAttribute("data-text-unit");
   const val = rangeSlider.value;
   const max = rangeSlider.getAttribute("max");
 
   let prep;
 
-  if (rangeSlider.getAttribute("data-optional-preposition")) {
+  if (rangeSlider.getAttribute("data-text-preposition")) {
     prep = optionalPrep;
   } else {
     prep = "of";

@@ -8,8 +8,12 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
-    optional_unit: {
+    text_unit: {
       name: "Unit",
+      control: { type: "text" },
+    },
+    text_preposition: {
+      name: "Preposition",
       control: { type: "text" },
     },
     min: {
@@ -34,8 +38,8 @@ const Template = (args) => Component(args);
 
 export const Range = Template.bind({});
 Range.args = {
-  optional_unit: "",
-  optional_preposition: "",
+  text_unit: "",
+  text_preposition: "",
 };
 
 export const Disabled = Template.bind({});

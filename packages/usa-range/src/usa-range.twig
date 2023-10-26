@@ -9,8 +9,8 @@
     step="{{ step }}"
     value="20"
     role="slider"
-    {% if optional_unit %}data-optional-unit="{{ optional_unit }}"{%- endif %}
-    {% if optional_preposition %}data-optional-preposition="{{ optional_preposition }}"{%- endif %}
+    {% if text_unit %}data-text-unit="{{ text_unit }}"{%- endif %}
+    {% if text_preposition %}data-text-preposition="{{ text_preposition }}"{%- endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
