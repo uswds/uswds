@@ -13,7 +13,7 @@ export default {
       control: { type: "text" },
     },
     text_preposition: {
-      name: "Preposition",
+      name: "Preposition (of, for, in, de, etc.)",
       control: { type: "text" },
     },
     min: {
