@@ -45,7 +45,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("adds screen reader callout on initialization", () => {
-        assert.ok(valueText, "adds aria-valuetext attribute with updated preposition");
+        assert.ok(
+          valueText,
+          "adds aria-valuetext attribute with updated preposition"
+        );
         assert.strictEqual(
           valueText,
           "20 por ciento de 100",
