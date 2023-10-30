@@ -87,10 +87,6 @@ $-chevron-expand-more: map-merge(
     @include u-padding-x(0);
   }
 
-  &:hover {
-    text-decoration: underline;
-  }
-
   // Disclosure button functionality happens at mobile widths
   &--button {
     @include place-icon($-chevron-expand-more, "before", 0.5);
