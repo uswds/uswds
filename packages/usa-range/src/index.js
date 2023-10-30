@@ -10,10 +10,10 @@ const RANGE = `.${RANGE_CLASSNAME}`;
  * Update range callout for screen readers using the optional data attributes.
  *
  * Get optional data attributes, construct and appends aria-valuetext attribute.
- * 
+ *
  * @example
- * 
- * <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" role="slider" data-text-unit="degrees"> 
+ *
+ * <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" role="slider" data-text-unit="degrees">
  *
  * Callout returns "20 degrees of 100."
  *
