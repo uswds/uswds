@@ -6,7 +6,7 @@ orbs:
 references:
   container: &container
     docker:
-      - image: cimg/node:16.15.0-browsers
+      - image: cimg/node:20.9.0-browsers
         environment:
           CHROME_PATH: $(which google-chrome-stable)
 
