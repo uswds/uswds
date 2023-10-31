@@ -3,19 +3,19 @@
 {% endif %}
 
 {% if is_demo and 'usa-button--big' not in modifier %}
-  <button type="{{ type }}" class="usa-button {{ modifier }}">Default</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--hover">Hover</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--active">Active</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-focus">Focus</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }}" disabled>Disabled</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }}" style="font-weight:{{fontWeight}}">Default</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-button--hover" style="font-weight:{{fontWeight}}">Hover</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-button--active" style="font-weight:{{fontWeight}}">Active</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-focus" style="font-weight:{{fontWeight}}">Focus</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}" disabled>Disabled</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}" aria-disabled="true">aria-disabled</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-button--unstyled" style="font-weight:{{fontWeight}}">Unstyled button</button>
 {% else %}
-  <button type="{{ type }}" class="usa-button {{ modifier }}">{{ text }}</button>
+  <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}">{{ text }}</button>
   {% if is_demo and 'usa-button--big' in modifier %}
-    <button type="{{ type }}" class="usa-button {{ modifier }}" disabled>Disabled</button>
-    <button type="{{ type }}" class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
-    <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+    <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }}" style="font-weight:{{fontWeight}}" disabled>Disabled</button>
+    <button type="{{ type }}" class="usa-button {{ modifier }}{{ margin }}" style="font-weight:{{fontWeight}}" aria-disabled="true">aria-disabled</button>
+    <button type="{{ type }}" class="usa-button {{ modifier }} {{ margin }} usa-button--unstyled" style="font-weight:{{fontWeight}}">Unstyled button</button>
   {% endif %}
 {% endif %}
 
