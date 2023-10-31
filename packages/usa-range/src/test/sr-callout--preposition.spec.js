@@ -51,7 +51,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
         assert.strictEqual(
           valueText,
-          "20 por ciento de 100",
+          "20 de 100",
           "initial value is incorrect"
         );
       });
@@ -65,7 +65,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         valueText = slider.getAttribute("aria-valuetext");
         assert.strictEqual(
           valueText,
-          "30 por ciento de 100",
+          "30 de 100",
           "Screen reader value does not match range value"
         );
       });

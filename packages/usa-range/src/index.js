@@ -28,7 +28,13 @@ const updateCallout = (targetRange) => {
   const val = rangeSlider.value;
   const max = rangeSlider.getAttribute("max");
 
-  const callout = `${val} ${unit || ""} ${prep} ${max}`;
+  let callout;
+
+  if (unit) {
+    callout = `${val} ${unit} ${prep} ${max}`;
+  } else {
+    callout = `${val} ${prep} ${max}`;
+  }
 
   rangeSlider.setAttribute("aria-valuetext", callout);
 };
