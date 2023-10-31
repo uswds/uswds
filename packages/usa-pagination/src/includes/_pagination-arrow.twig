@@ -15,7 +15,7 @@
       aria-label="{{ link_attrs.aria_label }}"
     >
       {% if direction is same as('previous') %}
-        <svg class="usa-icon" aria-hidden="true" role="img">
+        <svg class="usa-icon" role="img">
           {# Global variable not applying #}
           <use xlink:href="./img/sprite.svg#navigate_before"></use>
         </svg>
@@ -24,7 +24,7 @@
         {{ pagination[direction]['label'] }}
       </span>
       {% if direction is same as('next') %}
-        <svg class="usa-icon" aria-hidden="true" role="img">
+        <svg class="usa-icon" role="img">
           {# Global variable not applying #}
           <use xlink:href="./img/sprite.svg#navigate_next"></use>
         </svg>
