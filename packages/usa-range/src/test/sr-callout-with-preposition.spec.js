@@ -45,10 +45,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("adds aria-valuetext attribute with updated preposition", () => {
-        assert.ok(
-          valueText,
-          "aria-valuetext attribute is added"
-        );
+        assert.ok(valueText, "aria-valuetext attribute is added");
         assert.strictEqual(
           valueText,
           "20 de 100",
