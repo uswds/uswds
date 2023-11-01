@@ -4,7 +4,7 @@ const assert = require("assert");
 const range = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "./sr-callout--preposition.spec.html")
+  path.join(__dirname, "./sr-callout-with-preposition.spec.html")
 );
 
 const EVENTS = {};
@@ -25,7 +25,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe(`Range slider component initialized at ${name}`, () => {
+  describe(`Range slider with updated preposition initialized at ${name}`, () => {
     describe("range slider component", () => {
       const { body } = document;
 
@@ -44,10 +44,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
         body.textContent = "";
       });
 
-      it("adds screen reader callout on initialization", () => {
+      it("adds aria-valuetext attribute with updated preposition", () => {
         assert.ok(
           valueText,
-          "adds aria-valuetext attribute with updated preposition"
+          "aria-valuetext attribute is added"
         );
         assert.strictEqual(
           valueText,
@@ -56,7 +56,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
-      it("updates aria-valuetext to match new slider value on change", () => {
+      it("updates aria-valuetext with updated preposition to match new slider value on change", () => {
         slider.value = "30";
         EVENTS.change(slider);
 

@@ -25,7 +25,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe(`Range slider component initialized at ${name}`, () => {
+  describe(`Range slider with aria-valuetext initialized at ${name}`, () => {
     describe("range slider component", () => {
       const { body } = document;
 
@@ -44,8 +44,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
         body.textContent = "";
       });
 
-      it("adds screen reader callout on initialization", () => {
-        assert.ok(valueText, "adds aria-valuetext attribute");
+      it("adds aria-valuetext attribute", () => {
+        assert.ok(valueText, "aria-valuetext attribute is added");
         assert.strictEqual(
           valueText,
           "20 percent of 100",
