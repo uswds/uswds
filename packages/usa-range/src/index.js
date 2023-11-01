@@ -26,7 +26,7 @@ const updateCallout = (targetRange) => {
   const prep = optionalPrep || defaultPrep;
   const unit = rangeSlider.dataset.textUnit;
   const val = rangeSlider.value;
-  const max = rangeSlider.getAttribute("max");
+  const max = rangeSlider.getAttribute("max") || 100;
 
   let callout;
 
