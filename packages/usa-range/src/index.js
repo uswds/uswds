@@ -16,9 +16,9 @@ const RANGE = `.${RANGE_CLASSNAME}`;
  * <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" data-text-unit="degrees">
  *
  * Callout returns "20 degrees of 100."
- * 
+ *
  * <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" data-text-preposition="de">
- * 
+ *
  * Callout returns "20 de 100."
  *
  * @param {HTMLInputElement} targetRange - The range slider input element
