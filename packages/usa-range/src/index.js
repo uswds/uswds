@@ -26,6 +26,8 @@ const updateCallout = (targetRange) => {
   const prep = optionalPrep || defaultPrep;
   const unit = rangeSlider.dataset.textUnit;
   const val = rangeSlider.value;
+  // Note: 100 is the max attribute's native default value on range inputs
+  // Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
   const max = rangeSlider.getAttribute("max") || 100;
 
   let callout;
