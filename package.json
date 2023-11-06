@@ -150,7 +150,6 @@
     "gulp-sourcemaps": "3.0.0",
     "gulp-svgstore": "9.0.0",
     "gulp-uglify": "3.0.2",
-    "handlebars-helpers": "0.10.0",
     "html-webpack-plugin": "5.5.3",
     "jsdom": "19.0.0",
     "jsdom-global": "3.0.2",
