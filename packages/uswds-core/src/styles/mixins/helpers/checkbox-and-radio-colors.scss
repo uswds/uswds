@@ -40,6 +40,7 @@
     false
   );
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
+  $input-indeterminate: if($input-darkmode, "checkbox-indeterminate-alt", "checkbox-indeterminate");
 
   .usa-#{$input-type} {
     background: color($input-bg-color);
@@ -155,7 +156,7 @@
         &,
         &:checked {
           @include format-input {
-            @include add-background-svg("checkbox-indeterminate");
+            @include add-background-svg($input-indeterminate);
             background-position: center center;
             background-size: units(1.5) auto;
           }
