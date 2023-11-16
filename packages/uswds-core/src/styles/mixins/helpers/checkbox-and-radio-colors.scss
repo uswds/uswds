@@ -156,8 +156,8 @@
         &:checked {
           @include format-input {
             @include add-background-svg("checkbox-indeterminate");
-            background-size: 75%;
-            background-position: center;
+            background-position: center center;
+            background-size: units(1.5) auto;
           }
         }
       }
