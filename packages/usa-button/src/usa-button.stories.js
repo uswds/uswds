@@ -68,7 +68,7 @@ Unstyled.args = UnstyledContent;
 export const TestLinksAsButtons = TestTemplateLinks.bind({});
 TestLinksAsButtons.args = {
   modifier: "",
-  text: "Link styled as button"
+  text: "Link styled as button",
 };
 TestLinksAsButtons.argTypes = {
   type: {
