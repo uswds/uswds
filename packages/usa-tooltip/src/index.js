@@ -329,7 +329,7 @@ const onTooltipDeactivate = (event) => {
  * Setup the tooltip component
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
-const setUpAttributes = (tooltipTrigger) => {
+const setup = (tooltipTrigger) => {
   const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
   const tooltipContent = tooltipTrigger.getAttribute("title");
   const wrapper = document.createElement("span");
@@ -373,18 +373,12 @@ const setUpAttributes = (tooltipTrigger) => {
   // place the text in the tooltip
   tooltipBody.textContent = tooltipContent;
 
-  return { tooltipBody, position, tooltipContent, wrapper };
-};
-
-/**
- * Set up tooltip trigger event handlers.
- * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
- */
-const setUpEvents = (tooltipTrigger) => {
   tooltipTrigger.addEventListener("mouseover", onTooltipActivate);
   tooltipTrigger.addEventListener("focusin", onTooltipActivate);
   tooltipTrigger.addEventListener("mouseout", onTooltipDeactivate);
   tooltipTrigger.addEventListener("focusout", onTooltipDeactivate);
+
+  return { tooltipBody, position, tooltipContent, wrapper };
 };
 
 // Setup our function to run on various events
@@ -392,12 +386,9 @@ const tooltip = behavior(
   {},
   {
     init(root) {
-      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
-        setUpAttributes(tooltipTrigger);
-        setUpEvents(tooltipTrigger);
-      });
+      selectOrMatches(TOOLTIP, root).forEach(setup);
     },
-    setup: setUpAttributes,
+    setup,
     getTooltipElements,
     show: showToolTip,
     hide: hideToolTip,
