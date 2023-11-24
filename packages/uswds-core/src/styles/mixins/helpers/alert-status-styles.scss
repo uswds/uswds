@@ -12,7 +12,8 @@
 @use "../helpers/set-link-from-bg" as *;
 
 $alert-bar-alignment-adjust: units($theme-alert-bar-width) / 2;
-$alert-wrapper-margin: calc(
+$alert-icon-gap: units(1);
+$site-alert-alignment: calc(
   units($theme-site-margins-width) - $alert-bar-alignment-adjust
 );
 
@@ -36,9 +37,7 @@ $alert-wrapper-margin: calc(
     @include u-margin-x("auto");
     @include u-maxw($theme-site-alert-max-width);
     @include u-padding-y($theme-alert-padding-y);
-    padding-left: calc(
-      units($theme-site-margins-width) - $alert-bar-alignment-adjust
-    );
+    padding-right: units($theme-alert-padding-x);
     position: relative;
 
     &:before {
