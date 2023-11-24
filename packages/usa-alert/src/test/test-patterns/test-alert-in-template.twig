@@ -1,51 +1,53 @@
+
+
 {% set alerts = [
   {
-    'header': 'Info alert',
+    'header': 'Alert',
     'alertModifier': 'usa-alert--info',
     'siteModifier': 'usa-site-alert--info',
     'title': 'Informative status',
     'aria': 'Site alert info'
   },
   {
-    'header': 'Info alert - slim',
+    'header': 'Alert - slim',
     'alertModifier': 'usa-alert--info usa-alert--slim',
     'siteModifier': 'usa-site-alert--info usa-site-alert--slim',
     'aria': 'Site alert info,'
   },
   {
-    'header': 'Info alert - no icon',
+    'header': 'Alert - no icon',
     'alertModifier': 'usa-alert--info usa-alert--no-icon',
     'siteModifier': 'usa-site-alert--info usa-site-alert--no-icon',
     'title': 'No icon',
     'aria': 'Site alert info,,'
   },
   {
-    'header': 'Info alert - slim, no icon',
+    'header': 'Alert - slim, no icon',
     'alertModifier': 'usa-alert--info usa-alert--slim usa-alert--no-icon',
     'siteModifier': 'usa-site-alert--info usa-site-alert--slim usa-site-alert--no-icon',
     'aria': 'Site alert info,,,'
   },
   {
-    'header': 'Emergency alert',
+    'header': 'Alert - Emergency alert',
     'alertModifier': 'usa-alert--emergency',
     'siteModifier': 'usa-site-alert--emergency',
     'title': 'Informative status',
     'aria': 'Emergency alert info'
   },
   {
-    'header': 'Emergency alert - slim',
+    'header': 'Alert - slim',
     'alertModifier': 'usa-alert--emergency usa-alert--slim',
     'siteModifier': 'usa-site-alert--emergency usa-site-alert--slim',
     'aria': 'Emergency alert info,'
   },
   {
-    'header': 'Emergency alert - slim, no icon',
+    'header': 'Alert - slim, no icon',
     'alertModifier': 'usa-alert--emergency usa-alert--slim usa-alert--no-icon',
     'siteModifier': 'usa-site-alert--emergency usa-site-alert--slim usa-site-alert--no-icon',
     'aria': 'Emergency alert info,,'
   },
   {
-    'header': 'Emergency alert - no icon',
+    'header': 'Alert - no icon',
     'alertModifier': 'usa-alert--emergency usa-alert--no-icon',
     'siteModifier': 'usa-site-alert--emergency usa-site-alert--no-icon',
     'aria': 'Emergency alert info,,,'
@@ -54,33 +56,34 @@
 
 {% include '@components/usa-banner/src/usa-banner.twig' %}
 
-{% for alert in alerts %}
-  <h3>{{ alert.header }}</h3>
-  <div class="usa-alert {{ alert.alertModifier }}">
-    <div class="usa-alert__body">
-      {% if alert.title %}<h4 class="usa-alert__heading">{{ alert.title }}</h4>{% endif %}
-      <p class="usa-alert__text">
-        Lorem ipsum dolor sit amet,
-        <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-        elit, sed do eiusmod.
-      </p>
+{% include '@components/usa-site-alert/src/usa-site-alert.twig' %}
+
+<div class="usa-section">
+  <div class="grid-container">
+    <div class="grid-row grid-gap">
+      <div class="usa-layout-docs__sidenav desktop:grid-col-3">
+        {% include '@components/usa-sidenav/src/usa-sidenav.twig' %}
+      </div>
+
+      <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+
+        {% for alert in alerts %}
+          <div class="usa-alert {{ alert.alertModifier }}">
+            <div class="usa-alert__body">
+              {% if alert.title %}<h4 class="usa-alert__heading">{{ alert.title }}</h4>{% endif %}
+              <p class="usa-alert__text">
+                Lorem ipsum dolor sit amet,
+                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                elit, sed do eiusmod.
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+
+        {% include "@components/usa-type-setting/src/usa-type-setting--line-length.twig" %}
+      </main>
     </div>
   </div>
-  <hr/>
-  <section
-    class="usa-site-alert {{ alert.siteModifier }}"
-    aria-label="{{ alert.aria }}"
-  >
-    <div class="usa-alert">
-      <div class="usa-alert__body">
-        {% if alert.title %}<h3 class="usa-alert__heading">{{ alert.title }}</h3>{% endif %}
-        <p class="usa-alert__text">
-          Additional context and followup information including
-          <a class="usa-link" href="javascript:void(0);">a link</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-{% endfor %}
+</div>
 
-{% include '@components/usa-footer/src/usa-footer.twig' with footer %}
+{% include '@components/usa-footer/src/usa-footer.twig' %}
