@@ -61,12 +61,12 @@ export const AlertComponentsComparison = ComparisonTemplate.bind({});
 AlertComponentsComparison.args = {
   ...BannerContent,
   ...FooterContent,
-}
+};
 
 export const AlertInTemplate = onPageTemplate.bind({});
 AlertInTemplate.args = {
   ...BannerContent,
   ...FooterContent,
   ...SidenavContent,
-  ...SiteAlertContent
-}
+  ...SiteAlertContent,
+};
