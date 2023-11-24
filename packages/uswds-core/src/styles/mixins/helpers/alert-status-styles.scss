@@ -31,12 +31,13 @@
     @include u-margin-x("auto");
     @include u-maxw($theme-site-alert-max-width);
     @include u-padding-y($theme-alert-padding-y);
-    @include u-padding-x($theme-site-margins-mobile-width);
-    @include at-media($theme-site-margins-breakpoint) {
-      padding-left: 2 * $alert-icon-optical-padding;
-    }
-
+    padding-left: calc(units($theme-site-margins-width) - $alert-bar-alignment-adjust);
     position: relative;
+
+    &:before {
+      left: calc(units($theme-site-margins-mobile-width) -
+      $alert-bar-alignment-adjust);
+    }
   }
 
   .usa-alert__text {
@@ -84,12 +85,6 @@
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
 
-  padding-left: units($theme-alert-icon-size) + ($alert-icon-optical-padding);
-  @include at-media($theme-site-margins-breakpoint) {
-    padding-left: units($theme-site-margins-width) * 2;
-    padding-right: units($theme-site-margins-width) * 2;
-  }
-
   .usa-link {
     @include set-link-from-bg(
       $bgcolor,
@@ -113,16 +108,8 @@
     @include add-color-icon($this-icon-object, $bgcolor);
     content: "";
     display: block;
-    // padding - optical spacing value
-    left: units($theme-site-margins-mobile-width) -
-      units($theme-alert-bar-width);
     position: absolute;
     top: units($theme-alert-padding-y) * 0.75;
-    @include at-media($theme-site-margins-breakpoint) {
-      left: calc(
-        units($theme-site-margins-width) - units($theme-alert-bar-width)
-      );
-    }
   }
 }
 
@@ -131,13 +118,6 @@
   .usa-alert__body {
     &:before {
       display: none;
-    }
-
-    padding-left: units(
-      $theme-site-margins-mobile-width - $theme-alert-bar-width
-    );
-    @include at-media($theme-site-margins-breakpoint) {
-      padding-left: 2 * $alert-icon-optical-padding;
     }
   }
 }
@@ -159,12 +139,5 @@
   .usa-alert__body {
     @include u-padding-y(1);
     @include add-slim-alert-icon;
-
-    padding-left: $alert-slim-icon-size + $alert-icon-optical-padding;
-    @include at-media($theme-site-margins-breakpoint) {
-      padding-left: calc(
-        units($theme-site-margins-width) + $alert-slim-icon-size
-      );
-    }
   }
 }
