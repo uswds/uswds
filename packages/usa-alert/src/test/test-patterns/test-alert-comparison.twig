@@ -58,9 +58,9 @@
   <h3>{{ alert.header }}</h3>
   <div class="usa-alert {{ alert.alertModifier }}">
     <div class="usa-alert__body">
-      {% if alert.title %}<h4 class="usa-alert__heading">{{ alert.title }}</h4>{% endif %}
+      {% if alert.title %}<h4 class="usa-alert__heading">Alert - {{ alert.title }}</h4>{% endif %}
       <p class="usa-alert__text">
-        Lorem ipsum dolor sit amet,
+        Alert - Lorem ipsum dolor sit amet,
         <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
         elit, sed do eiusmod.
       </p>
@@ -73,9 +73,9 @@
   >
     <div class="usa-alert">
       <div class="usa-alert__body">
-        {% if alert.title %}<h3 class="usa-alert__heading">{{ alert.title }}</h3>{% endif %}
+        {% if alert.title %}<h3 class="usa-alert__heading">Site alert - {{ alert.title }}</h3>{% endif %}
         <p class="usa-alert__text">
-          Additional context and followup information including
+          Site alert - Additional context and followup information including
           <a class="usa-link" href="javascript:void(0);">a link</a>.
         </p>
       </div>
