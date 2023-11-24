@@ -11,6 +11,11 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
+$alert-bar-alignment-adjust: units($theme-alert-bar-width) / 2;
+$alert-wrapper-margin: calc(
+  units($theme-site-margins-width) - $alert-bar-alignment-adjust
+);
+
 // Base alert styles
 @mixin alert-styles {
   $bgcolor: "base-lightest";
@@ -31,12 +36,15 @@
     @include u-margin-x("auto");
     @include u-maxw($theme-site-alert-max-width);
     @include u-padding-y($theme-alert-padding-y);
-    padding-left: calc(units($theme-site-margins-width) - $alert-bar-alignment-adjust);
+    padding-left: calc(
+      units($theme-site-margins-width) - $alert-bar-alignment-adjust
+    );
     position: relative;
 
     &:before {
-      left: calc(units($theme-site-margins-mobile-width) -
-      $alert-bar-alignment-adjust);
+      left: calc(
+        units($theme-site-margins-mobile-width) - $alert-bar-alignment-adjust
+      );
     }
   }
 
