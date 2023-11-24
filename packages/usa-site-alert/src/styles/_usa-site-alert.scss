@@ -32,9 +32,7 @@ $site-alert-icons: (
 
     .usa-alert__heading,
     .usa-alert__text {
-      padding-left: calc(
-        units($theme-alert-icon-size) + $alert-icon-gap
-      );
+      padding-left: calc(units($theme-alert-icon-size) + $alert-icon-gap);
     }
   }
 }
