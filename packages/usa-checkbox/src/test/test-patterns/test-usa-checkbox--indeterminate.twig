@@ -7,7 +7,8 @@
       type="checkbox"
       name="historical-figures"
       value="sojourner-truth"
-      checked 
+      checked
+      data-indeterminate 
       {% if disabled_state == "disabled" %}disabled{% endif %} 
       {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
     >
@@ -44,6 +45,7 @@
       type="checkbox"
       name="historical-figures"
       value="george-washington-carver"
+      data-indeterminate
       disabled
     >
     <label class="usa-checkbox__label"

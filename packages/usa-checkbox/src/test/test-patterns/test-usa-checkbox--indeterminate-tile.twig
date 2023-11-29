@@ -2,12 +2,13 @@
   <legend class="usa-legend">Select any historical figure</legend>
   <div class="usa-checkbox">
     <input
-      class="usa-checkbox__input"
+      class="usa-checkbox__input usa-checkbox__input--tile"
       id="check-historical-truth"
       type="checkbox"
       name="historical-figures"
       value="sojourner-truth"
-      checked 
+      checked
+      data-indeterminate 
       {% if disabled_state == "disabled" %}disabled{% endif %} 
       {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
     >
@@ -15,7 +16,7 @@
   </div>
   <div class="usa-checkbox">
     <input
-      class="usa-checkbox__input"
+      class="usa-checkbox__input usa-checkbox__input--tile"
       id="check-historical-douglass"
       type="checkbox"
       name="historical-figures"
@@ -27,7 +28,7 @@
   </div>
   <div class="usa-checkbox">
     <input
-      class="usa-checkbox__input"
+      class="usa-checkbox__input usa-checkbox__input--tile"
       id="check-historical-washington"
       type="checkbox"
       name="historical-figures"
@@ -39,11 +40,12 @@
   </div>
   <div class="usa-checkbox">
     <input
-      class="usa-checkbox__input"
+      class="usa-checkbox__input usa-checkbox__input--tile"
       id="check-historical-carver"
       type="checkbox"
       name="historical-figures"
       value="george-washington-carver"
+      data-indeterminate
       disabled
     >
     <label class="usa-checkbox__label"
