@@ -349,3 +349,8 @@ template {
 [hidden] {
   display: none;
 }
+
+[hidden="until-found"] {
+  display: revert;
+  content-visibility: hidden;
+}
