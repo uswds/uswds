@@ -1,5 +1,5 @@
 import Component from "./usa-button.twig";
-import LinkButton from "./usa-button-links.twig";
+import LinkButton from "./usa-button--links/usa-button--links.twig";
 import {
   DefaultContent,
   AccentCoolContent,
