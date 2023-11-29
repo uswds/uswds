@@ -1,6 +1,8 @@
 import Component from "./usa-checkbox.twig";
 import TileComponent from "./usa-checkbox--tile.twig";
 import TestComponent from "./test/test-patterns/test-usa-checkbox.twig";
+import testIndeterminate from "./test/test-patterns/test-usa-checkbox--indeterminate.twig";
+import testIndeterminateTile from "./test/test-patterns/test-usa-checkbox--indeterminate-tile.twig";
 
 export default {
   title: "Components/Form Inputs/Checkbox",
@@ -16,6 +18,8 @@ export default {
 const Template = (args) => Component(args);
 const TileTemplate = (args) => TileComponent(args);
 const TestTemplate = (args) => TestComponent(args);
+const IndeterminateTemplate = (args) => testIndeterminate(args);
+const IndeterminateTileTemplate = (args) => testIndeterminateTile(args);
 
 export const Default = Template.bind({});
 
@@ -47,3 +51,7 @@ Test.argTypes = {
     table: { disable: true },
   },
 };
+
+export const Indeterminate = IndeterminateTemplate.bind({});
+
+export const IndeterminateTile = IndeterminateTileTemplate.bind({});
