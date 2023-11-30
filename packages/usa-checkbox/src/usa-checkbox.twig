@@ -49,4 +49,33 @@
     <label class="usa-checkbox__label"
     for="check-historical-carver">George Washington Carver</label>
   </div>
+  <div class="usa-checkbox">
+    <input
+      class="usa-checkbox__input"
+      id="check-historical-dubois"
+      type="checkbox"
+      name="historical-figures"
+      value="web-dubois"
+      data-indeterminate
+      {% if disabled_state == "disabled" %}disabled{% endif %} 
+      {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+    >
+    <label class="usa-checkbox__label"
+    for="check-historical-dubois">W.E.B. DuBois</label>
+  </div>
+  <div class="usa-checkbox">
+    <input
+      class="usa-checkbox__input"
+      id="check-historical-marshall"
+      type="checkbox"
+      name="historical-figures"
+      value="thurgood-marshall"
+      checked
+      data-indeterminate
+      {% if disabled_state == "disabled" %}disabled{% endif %} 
+      {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+    >
+    <label class="usa-checkbox__label"
+    for="check-historical-marshall">Thurgood Marshall</label>
+  </div>
 </fieldset>
