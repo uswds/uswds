@@ -139,6 +139,7 @@ $expand-less-icon: map-merge(
   // At $theme-header-width and wider...
   @include at-media($theme-header-min-width) {
     display: flex;
+    align-items: center;
   }
 
   // all nav items in the nav
@@ -214,6 +215,8 @@ $expand-less-icon: map-merge(
       background-image: none;
 
       span {
+        display: inline-block;
+        
         &::after {
           position: absolute;
           top: 50%;
