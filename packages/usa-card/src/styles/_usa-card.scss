@@ -78,9 +78,9 @@
 // Header
 // ---------------------------------
 .usa-card__header {
-  @include u-padding-bottom(math.div($theme-card-padding-y, 2));
   @include u-padding-top($theme-card-padding-perimeter);
   @include u-padding-x($theme-card-padding-perimeter);
+  padding-bottom: math.div(units($theme-card-padding-y), 2);
 
   &:last-child {
     @include u-padding-bottom($theme-card-padding-perimeter);
@@ -129,7 +129,8 @@
 .usa-card__body {
   @include u-flex("fill");
   @include u-padding-x($theme-card-padding-perimeter);
-  @include u-padding-y(math.div($theme-card-padding-y, 2));
+  padding-bottom: math.div(units($theme-card-padding-y), 2);
+  padding-top: math.div(units($theme-card-padding-y), 2);
   // IE 11
   flex-basis: auto;
 
@@ -151,8 +152,8 @@
 // ---------------------------------
 .usa-card__footer {
   @include u-padding-bottom($theme-card-padding-perimeter);
-  @include u-padding-top(math.div($theme-card-padding-y, 2));
   @include u-padding-x($theme-card-padding-perimeter);
+  padding-top: math.div(units($theme-card-padding-y), 2);
 }
 
 .usa-card__footer .usa-button:only-of-type {
@@ -187,7 +188,7 @@
 .usa-card__media--exdent,
 .usa-card__body--exdent,
 .usa-card__footer--exdent {
-  @include u-margin-x(-$theme-card-border-width);
+  margin-inline: units($theme-card-border-width) * -1;
 }
 
 .usa-card__header--exdent,
@@ -199,7 +200,7 @@
 }
 
 .usa-card__media--exdent {
-  @include u-margin-top(-$theme-card-border-width);
+  margin-top: units($theme-card-border-width) * -1;
 
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
@@ -215,8 +216,8 @@
   }
 
   .usa-card__header--exdent {
-    @include u-margin-top(-$theme-card-border-width);
     @include u-radius-top($theme-card-border-radius);
+    margin-top: units($theme-card-border-width) * -1;
   }
 
   .usa-card__media--inset {
@@ -225,6 +226,10 @@
 
   .usa-card__media {
     @include u-order(0);
+
+    &--exdent {
+      @include u-margin-top(0);
+    }
   }
 
   .usa-card__img {
@@ -268,9 +273,7 @@
     }
 
     .usa-card__media--exdent {
-      @include u-margin-left(-$theme-card-border-width);
-      @include u-margin-right(0);
-      @include u-margin-y(-$theme-card-border-width);
+      margin: units($theme-card-border-width) * -1;
 
       .usa-card__img {
         @include u-radius-left($theme-card-border-radius);
@@ -288,11 +291,11 @@
 
     &.usa-card--header-first {
       .usa-card__header {
-        @include u-padding-bottom(math.div($theme-card-padding-y, 2));
+        padding-bottom: math.div(units($theme-card-padding-y), 2);
       }
 
       .usa-card__body {
-        @include u-padding-top(math.div($theme-card-padding-y, 2));
+        padding-top: math.div(units($theme-card-padding-y), 2);
       }
 
       .usa-card__media--inset {
@@ -336,14 +339,9 @@
         @include u-margin-right($theme-card-flag-image-width);
       }
 
-      .usa-card__media--exdent {
-        @include u-margin-right(-$theme-card-border-width);
-        @include u-margin-left(0);
-
-        .usa-card__img {
-          @include u-radius(0);
-          @include u-radius-right($theme-card-border-radius);
-        }
+      .usa-card__img {
+        @include u-radius(0);
+        @include u-radius-right($theme-card-border-radius);
       }
     }
   }

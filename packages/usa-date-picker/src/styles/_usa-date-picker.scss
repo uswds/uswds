@@ -59,13 +59,18 @@ $navigate_far_next: map-merge(
 }
 
 %usa-date-picker__button--disabled {
-  cursor: auto;
+  cursor: not-allowed;
+  opacity: opacity(60);
 
   &:hover {
     background-color: initial;
+  }
 
-    @media (forced-colors: active) {
-      background-color: initial;
+  @media (forced-colors: active) {
+    background-color: color(GrayText);
+
+    &:hover {
+      background-color: color(GrayText);
     }
   }
 }
@@ -199,6 +204,13 @@ $navigate_far_next: map-merge(
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (forced-colors: active) {
+    &:not([disabled]):hover {
+      outline: $border-high-contrast;
+      outline-offset: -2px;
+    }
+  }
 }
 
 // Date Picker - Date Selection View
@@ -458,7 +470,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      border: $border-high-contrast;
       background-color: transparent;
     }
   }
@@ -472,7 +484,7 @@ $navigate_far_next: map-merge(
     background-image: none;
 
     &:hover {
-      outline: 2px solid transparent;
+      border: $border-high-contrast;
       background-color: transparent;
     }
   }
@@ -512,4 +524,5 @@ $navigate_far_next: map-merge(
     }
   }
 }
+
 /* stylelint-enable selector-class-pattern */

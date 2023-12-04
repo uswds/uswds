@@ -49,15 +49,10 @@
 }
 
 .usa-file-input__instructions {
-  display: inline-block;
   padding: units(4) units(2);
   pointer-events: none;
   position: relative;
   z-index: 3;
-
-  &.display-none {
-    display: none;
-  }
 }
 
 .usa-file-input__box {
@@ -94,7 +89,7 @@
 }
 
 .usa-file-input--drag .usa-file-input__box {
-  background-color: color("primary-lighter") !important;
+  background-color: color("primary-lighter");
 }
 
 .usa-file-input--drag .usa-file-input__preview {
@@ -185,17 +180,38 @@
 
 // Disabled state
 .usa-file-input--disabled {
-  pointer-events: none;
-
-  .usa-file-input__instructions {
-    opacity: 0.5;
+  .usa-file-input__instructions,
+  .usa-file-input__choose {
+    color: color("disabled-dark");
   }
 
   .usa-file-input__box {
-    background-color: color("disabled-light");
+    background-color: color("disabled-lighter");
   }
 
   .usa-file-input__input[type] {
-    cursor: default;
+    cursor: not-allowed;
+  }
+
+  .usa-file-input__target {
+    &:hover {
+      border-color: color("base-light");
+    }
+  }
+
+  .usa-file-input--drag .usa-file-input__box {
+    background-color: color("disabled-lighter");
+  }
+
+  @media (forced-colors: active) {
+    .usa-file-input__instructions,
+    .usa-file-input__choose {
+      color: color(GrayText);
+    }
+
+    .usa-file-input__target,
+    .usa-file-input__target:hover {
+      border-color: color(GrayText);
+    }
   }
 }

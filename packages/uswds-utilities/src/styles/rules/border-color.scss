@@ -31,7 +31,7 @@ $u-border-color: (
         get-palettes($global-color-palettes),
         $border-color-manual-values
       ),
-    settings: $border-color-settings,
+    settings: $border-color-settings-complete,
     type: "utility",
   ),
 );

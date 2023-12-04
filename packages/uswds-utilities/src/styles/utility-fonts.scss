@@ -23,7 +23,7 @@ $if-important: "";
         "default" or
         list.index($output-these-utilities, "font")
     ) and
-    map.get($font-settings, "output") ==
+    map.get($font-settings-complete, "output") ==
     true
 ) {
   @each $face, $stack in $project-font-stacks {

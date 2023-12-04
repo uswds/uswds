@@ -27,7 +27,7 @@ $u-text-indent: (
         get-palettes($text-indent-palettes),
         $text-indent-manual-values
       ),
-    settings: $text-indent-settings,
+    settings: $text-indent-settings-complete,
     property: "text-indent",
     type: "utility",
   ),

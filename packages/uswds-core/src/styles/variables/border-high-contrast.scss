@@ -1,0 +1,5 @@
+@use "../tokens/color/high-contrast-mode-colors";
+@use "../functions/utilities/color" as *;
+
+$border-high-contrast: 2px solid transparent;
+$border-high-contrast-disabled: 2px solid color(GrayText);

@@ -5,6 +5,5 @@
   "error": true,
   "error_message": "Display a helpful error message",
   "accept": "",
-  "multiple": "",
-  "disabled": false
+  "multiple": ""
 }

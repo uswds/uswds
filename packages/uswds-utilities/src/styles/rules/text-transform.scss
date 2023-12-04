@@ -27,7 +27,7 @@ $u-text-transform: (
         get-palettes($text-transform-palettes),
         $text-transform-manual-values
       ),
-    settings: $text-transform-settings,
+    settings: $text-transform-settings-complete,
     property: "text-transform",
     type: "utility",
   ),

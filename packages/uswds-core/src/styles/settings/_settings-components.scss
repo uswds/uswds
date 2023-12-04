@@ -18,8 +18,10 @@ https://designsystem.digital.gov/design-tokens
 */
 
 // Accordion
-$theme-accordion-border-width: 0.5 !default;
+$theme-accordion-background-color: "default" !default;
 $theme-accordion-border-color: "base-lightest" !default;
+$theme-accordion-border-width: 0.5 !default;
+$theme-accordion-button-background-color: "base-lightest" !default;
 $theme-accordion-font-family: "body" !default;
 
 // Alert
@@ -122,6 +124,10 @@ $theme-in-page-nav-main-content-max-width: "desktop" !default;
 $theme-in-page-nav-margin-left: 4 !default;
 $theme-in-page-nav-margin-top: 2.5 !default;
 $theme-in-page-nav-top: 4 !default;
+
+// Link
+$theme-external-link-sr-label-tab-new: "External, opens in a new tab." !default;
+$theme-external-link-sr-label-tab-same: "External." !default;
 
 // Modal
 $theme-modal-border-radius: "lg" !default;
