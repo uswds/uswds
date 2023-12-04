@@ -210,7 +210,8 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded] {
+    &[aria-expanded],
+    &[aria-expanded]:hover {
       background-image: none;
 
       @media (forced-colors: active) {
