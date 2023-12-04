@@ -267,7 +267,6 @@ $expand-less-icon: map-merge(
         @include place-icon($-remove-icon, "after");
 
         &::after {
-
           position: absolute;
           right: 0;
 
