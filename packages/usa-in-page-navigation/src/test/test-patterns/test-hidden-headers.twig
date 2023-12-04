@@ -1,0 +1,52 @@
+<div class="usa-in-page-nav-container">
+  <aside
+    class="usa-in-page-nav"
+    data-title-text="On this page"
+    data-title-heading-level="h4"
+    data-scroll-offset="0"
+    data-root-margin="0px 0px 0px 0px"
+    data-threshold="1">
+  </aside>
+
+  <main class="usa-prose">
+    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
+      <div class="usa-summary-box__body">
+        <h1 class="usa-summary-box__heading" id="summary-box-key-information">
+          Test if in-page nav excludes hidden headers
+        </h1>
+        <div class="usa-summary-box__text">
+          <p>
+            The in-page nav link list should show only two "This heading is
+            visible" headers.
+          </p>
+        </div>
+      </div>
+    </div>
+    <h2>This heading is visible</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+      ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+      lorem non turpis.
+    </p>
+    <h3>This heading is visible</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+      ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+      lorem non turpis.
+    </p>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Display: none;</pre>
+      <h2 style="display: none">This heading is hidden with display:none</h2>
+    </div>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Visibility: hidden;</pre>
+      <h2 style="visibility: hidden">
+        This heading is hidden with visibility:hidden
+      </h2>
+    </div>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Opacity: 0;</pre>
+      <h2 style="opacity: 0">This heading is hidden with opacity:0</h2>
+    </div>
+  </main>
+</div>

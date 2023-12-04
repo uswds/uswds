@@ -16,6 +16,16 @@
 
   i {
     visibility: hidden;
+
+    @media (forced-colors: active) {
+      color: color(ButtonText);
+      font-style: normal;
+      visibility: visible;
+    }
+  }
+
+  @media (forced-colors: active) {
+    border: none;
   }
 }
 

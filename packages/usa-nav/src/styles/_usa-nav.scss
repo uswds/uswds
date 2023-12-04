@@ -210,9 +210,16 @@ $expand-less-icon: map-merge(
     }
 
     &[aria-expanded] {
-      /* stylelint-disable-line selector-no-qualifying-type */
       background-image: none;
 
+      @media (forced-colors: active) {
+        &::before {
+          content: none;
+        }
+      }
+    }
+
+    &[aria-expanded="false"] {
       span {
         &::after {
           position: absolute;
@@ -258,7 +265,12 @@ $expand-less-icon: map-merge(
     &[aria-expanded="true"] {
       span {
         @include place-icon($-remove-icon, "after");
+
         &::after {
+
+          position: absolute;
+          right: 0;
+
           @media (forced-colors: active) {
             background-color: ButtonText;
           }
@@ -388,10 +400,10 @@ $expand-less-icon: map-merge(
     @include at-media($theme-header-min-width) {
       a {
         color: color("white");
-        padding: 0;
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
         padding: units(1);
+
         &:focus {
           outline-offset: units("neg-05");
         }
@@ -462,4 +474,22 @@ $expand-less-icon: map-merge(
 
 .usa-js-mobile-nav--active {
   overflow: hidden;
+}
+
+// Safari-only fix that forces a vertical scrollbar when mobile menu is open.
+// Only needed in the 15px immediately preceding $theme-header-max-width.
+//
+// Note: 15px is the current width of the Safari scrollbar.
+// More details in https://github.com/uswds/uswds/pull/5443
+$safari-header-bug-min-width: calc(
+  units($theme-header-max-width) - px-to-rem(15px)
+);
+
+@media (min-width: $safari-header-bug-min-width) {
+  .usa-js-mobile-nav--active.is-safari {
+    overflow-y: scroll;
+    position: fixed;
+    // --scrolltop set with JS with zero as fallback.
+    top: var(--scrolltop, 0);
+  }
 }

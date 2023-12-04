@@ -13,5 +13,8 @@ Default.args = Content;
 export const Megamenu = Template.bind({});
 Megamenu.args = {
   ...Content,
-  megamenu: true,
+  nav: {
+    ...Content.nav,
+    megamenu: true,
+  },
 };

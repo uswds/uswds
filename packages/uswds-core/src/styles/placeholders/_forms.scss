@@ -1,6 +1,7 @@
 @use "../settings" as *;
 @use "../functions" as *;
 @use "../mixins" as *;
+@use "../variables/border-high-contrast.scss" as *;
 
 // Helpers
 $input-select-margin-right: 1.5;

@@ -1,0 +1,35 @@
+@use "sass:color";
+@use "../utilities/color" as *;
+@use "../color/get-color-token-from-bg" as *;
+
+/// is-color-dark()
+///
+/// Check if color token passed is light or dark.
+///
+/// @param {string} $color - A color token.
+/// @return {boolean} - Returns true if color is dark.
+@function is-color-dark($color) {
+  // Gets the most accessible color recommendation.
+  $token-from-bg: get-color-token-from-bg($color);
+
+  // If returned color is white, then the background must be dark.
+  @return if(color.lightness(color($token-from-bg)) > 50%, true, false);
+}
+
+// @debug is-color-dark("yellow-20v");
+// @return false;
+
+// @debug is-color-dark(#face00);
+// @return false;
+
+// @debug is-color-dark(#f00000);
+// @return false;
+
+// @debug is-color-dark("ink");
+// @return true;
+
+// @debug is-color-dark("accent-cool");
+// @return false;
+
+// @debug is-color-dark("white");
+// @return false;

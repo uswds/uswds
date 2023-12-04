@@ -714,6 +714,18 @@ const disable = (el) => {
 };
 
 /**
+ * Check for aria-disabled on initialization
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const ariaDisable = (el) => {
+  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
+
+  toggleBtnEl.setAttribute("aria-disabled", true);
+  externalInputEl.setAttribute("aria-disabled", true);
+};
+
+/**
  * Enable the date picker component
  *
  * @param {HTMLElement} el An element within the date picker component
@@ -872,7 +884,7 @@ const enhanceDatePicker = (el) => {
     "beforeend",
     Sanitizer.escapeHTML`
     <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-haspopup="true" aria-label="Toggle calendar"></button>
-    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="dialog" aria-modal="true" hidden></div>
+    <div class="${DATE_PICKER_CALENDAR_CLASS}" role="application" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
   );
 
@@ -894,6 +906,11 @@ const enhanceDatePicker = (el) => {
   if (internalInputEl.disabled) {
     disable(datePickerEl);
     internalInputEl.disabled = false;
+  }
+
+  if (internalInputEl.hasAttribute("aria-disabled")) {
+    ariaDisable(datePickerEl);
+    internalInputEl.removeAttribute("aria-disabled");
   }
 };
 
@@ -1072,11 +1089,11 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
           <button
             type="button"
-            class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month"
+            class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Select month"
           >${monthLabel}</button>
           <button
             type="button"
-            class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
+            class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Select year"
           >${focusedYear}</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
@@ -1101,7 +1118,6 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
-  table.setAttribute("role", "presentation");
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
@@ -1121,7 +1137,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   Object.keys(daysOfWeek).forEach((key) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
-    th.setAttribute("scope", "presentation");
+    th.setAttribute("scope", "col");
     th.setAttribute("aria-label", key);
     th.textContent = daysOfWeek[key];
     tableHeadRow.insertAdjacentElement("beforeend", th);
@@ -1484,7 +1500,6 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   // create table parent
   const yearsTableParent = document.createElement("table");
-  yearsTableParent.setAttribute("role", "presentation");
   yearsTableParent.setAttribute("class", CALENDAR_TABLE_CLASS);
 
   // create table body and table row
@@ -2232,6 +2247,7 @@ const datePicker = behavior(datePickerEvents, {
   },
   getDatePickerContext,
   disable,
+  ariaDisable,
   enable,
   isDateInputInvalid,
   setCalendarValue,

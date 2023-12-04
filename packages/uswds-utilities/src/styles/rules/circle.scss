@@ -26,7 +26,7 @@ $u-circle: (
     base: "circle",
     modifiers: null,
     values: map-collect(get-palettes($circle-palettes), $circle-manual-values),
-    settings: $circle-settings,
+    settings: $circle-settings-complete,
     property: (
       height,
       width,

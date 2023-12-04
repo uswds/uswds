@@ -24,6 +24,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       let inputEl;
       let dragText;
       let box;
+      let statusMessage;
 
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
@@ -33,6 +34,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         inputEl = body.querySelector(".usa-file-input__input");
         box = body.querySelector(".usa-file-input__box");
         dragText = body.querySelector(".usa-file-input__drag-text");
+        statusMessage = body.querySelector(".usa-sr-only");
       });
 
       afterEach(() => {
@@ -66,7 +68,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it('pluralizes "files" if there is a "multiple" attribute', () => {
-        assert.strictEqual(dragText.innerHTML, "Drag files here or ");
+        assert.strictEqual(dragText.innerHTML, "Drag files here or");
+      });
+
+      it("creates a status message element", () => {
+        assert.strictEqual(statusMessage.getAttribute("class"), "usa-sr-only");
+      });
+
+      it("adds a default status message", () => {
+        assert.strictEqual(statusMessage.innerHTML, "No files selected.");
       });
     });
   });

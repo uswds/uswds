@@ -140,20 +140,6 @@ future version of Sass' warning.
       $media-prefix
     );
   }
-
-  // And add the responsive prefixes, if applicable
-
-  /*
-  @if map-deep-get($utility, settings, responsive) {
-    @include render-media-queries(
-      $utility,
-      $selector,
-      $property,
-      $value,
-      $val-props
-    );
-  }
-  */
 }
 
 /*
@@ -369,7 +355,7 @@ through all possible variants
 
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @each $media-key, $media-value in $our-breakpoints {
-    @if map.get($theme-utility-breakpoints, $media-key) {
+    @if map.get($theme-utility-breakpoints-complete, $media-key) {
       @include at-media($media-key) {
         @include these-utilities($utilities, $media-key);
       }
