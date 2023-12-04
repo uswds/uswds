@@ -210,6 +210,8 @@ $expand-less-icon: map-merge(
       }
     }
 
+    // Remove icon set from usa-accordion.
+    // Also removed in _usa-banner.scss.
     &[aria-expanded],
     &[aria-expanded]:hover {
       background-image: none;
