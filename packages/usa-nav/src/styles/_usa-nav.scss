@@ -209,7 +209,10 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded] {
+    // Remove icon set from usa-accordion.
+    // Also removed in _usa-banner.scss.
+    &[aria-expanded],
+    &[aria-expanded]:hover {
       background-image: none;
 
       @media (forced-colors: active) {
@@ -219,7 +222,7 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded="false"] {
+    &[aria-expanded] {
       span {
         &::after {
           position: absolute;
