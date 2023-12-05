@@ -226,7 +226,7 @@ $expand-less-icon: map-merge(
     &[aria-expanded] {
       span {
         display: inline-block;
-        
+
         &::after {
           position: absolute;
           top: 50%;
