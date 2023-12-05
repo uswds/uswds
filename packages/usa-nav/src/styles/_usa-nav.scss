@@ -223,7 +223,7 @@ $expand-less-icon: map-merge(
       }
     }
 
-    &[aria-expanded="false"] {
+    &[aria-expanded] {
       span {
         display: inline-block;
         
