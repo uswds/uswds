@@ -33,18 +33,6 @@
   }
 
   a {
-    color: color($theme-link-reverse-color);
-
-    &:hover {
-      color: color($theme-link-reverse-hover-color);
-    }
-
-    &:active {
-      color: color($theme-link-reverse-active-color);
-    }
-
-    &:visited {
-      color: color($theme-link-reverse-color);
-    }
+    @include set-link-from-bg("primary-darker");
   }
 }
