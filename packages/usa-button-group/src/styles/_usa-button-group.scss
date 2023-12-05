@@ -14,7 +14,8 @@
   padding-left: 0;
 
   @include at-media("mobile-lg") {
-    align-items: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
     flex-direction: row;
   }
 }
@@ -29,6 +30,7 @@
   }
 
   .usa-button {
+    height: 100%;
     margin-left: 0;
     margin-right: 0;
   }
@@ -47,8 +49,6 @@
   }
 
   .usa-button {
-    @include u-display("flex");
-    @include u-flex("align-center", "justify-center");
     position: relative;
     width: calc(100% + #{units($theme-button-stroke-width)});
 
@@ -68,8 +68,6 @@
   }
 
   .usa-button-group__item {
-    @include u-display("flex");
-    @include grid-col("auto");
     margin-left: 0;
     margin-right: 0;
     width: 100%;
