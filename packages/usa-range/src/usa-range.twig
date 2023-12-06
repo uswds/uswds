@@ -4,14 +4,12 @@
     id="usa-range"
     class="usa-range"
     type="range"
-    min="0"
-    max="100"
-    step="10"
+    min="{{ min }}"
+    max="{{ max }}"
+    step="{{ step }}"
     value="20"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    aria-valuenow="20"
-    role="slider"
+    {% if text_unit %}data-text-unit="{{ text_unit }}"{%- endif %}
+    {% if text_preposition %}data-text-preposition="{{ text_preposition }}"{%- endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
