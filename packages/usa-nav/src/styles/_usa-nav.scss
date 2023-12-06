@@ -479,15 +479,18 @@ $expand-less-icon: map-merge(
 //
 // Note: 15px is the current width of the Safari scrollbar.
 // More details in https://github.com/uswds/uswds/pull/5443
-$safari-header-bug-min-width: calc(
-  units($theme-header-min-width) - px-to-rem(15px)
-);
 
-@media (min-width: $safari-header-bug-min-width) {
-  .usa-js-mobile-nav--active.is-safari {
-    overflow-y: scroll;
-    position: fixed;
-    // --scrolltop set with JS with zero as fallback.
-    top: var(--scrolltop, 0);
+@if $theme-header-min-width != "none" {
+  $safari-header-bug-min-width: calc(
+    units($theme-header-min-width) - px-to-rem(15px)
+  );
+
+  @media (min-width: $safari-header-bug-min-width) {
+    .usa-js-mobile-nav--active.is-safari {
+      overflow-y: scroll;
+      position: fixed;
+      // --scrolltop set with JS with zero as fallback.
+      top: var(--scrolltop, 0);
+    }
   }
 }
