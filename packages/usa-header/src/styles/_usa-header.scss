@@ -284,6 +284,7 @@ $z-index-overlay: 400;
     @include at-media($theme-header-min-width) {
       left: 0;
       padding-left: units($theme-site-margins-width);
+      padding-right: units($theme-site-margins-width);
     }
   }
 }

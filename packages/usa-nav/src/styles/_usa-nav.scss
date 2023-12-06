@@ -391,6 +391,7 @@ $expand-less-icon: map-merge(
 
   @include at-media($theme-header-min-width) {
     @include add-list-reset;
+    @include u-padding-y(1);
     background-color: color("primary-darker");
     width: units("card-lg");
     position: absolute;
@@ -404,10 +405,10 @@ $expand-less-icon: map-merge(
   .usa-nav__submenu-item {
     @include at-media($theme-header-min-width) {
       a {
+        @include u-padding-x(2);
         color: color("white");
         line-height: line-height($theme-navigation-font-family, 3);
         display: block;
-        padding: units(1);
 
         &:focus {
           outline-offset: units("neg-05");
