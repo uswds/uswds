@@ -1,5 +1,7 @@
 @use "uswds-core" as *;
 
+$background-context: "Background";
+
 .usa-dark-background {
   background-color: color("base-darker");
 
@@ -9,6 +11,10 @@
   }
 
   a {
-    @include set-link-from-bg("base-darker");
+    @include set-link-from-bg(
+      "base-darker",
+      $theme-link-reverse-color,
+      $context: $background-context
+    );
   }
 }
