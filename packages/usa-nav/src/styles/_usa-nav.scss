@@ -479,7 +479,8 @@ $expand-less-icon: map-merge(
 //
 // Note: 15px is the current width of the Safari scrollbar.
 // More details in https://github.com/uswds/uswds/pull/5443
-@if $theme-header-min-width != "none" {
+@if $theme-header-min-width != "none" and not $theme-header-min-width == "auto"
+{
   $safari-header-bug-min-width: calc(
     units($theme-header-min-width) - px-to-rem(15px)
   );
