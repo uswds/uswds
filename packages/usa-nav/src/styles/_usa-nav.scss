@@ -139,7 +139,7 @@ $expand-less-icon: map-merge(
   // At $theme-header-width and wider...
   @include at-media($theme-header-min-width) {
     display: flex;
-    align-items: center;
+    align-items: stretch;
   }
 
   // all nav items in the nav
@@ -194,6 +194,7 @@ $expand-less-icon: map-merge(
       @include primary-nav-link;
       font-size: font-size($theme-navigation-font-family, "2xs");
       font-weight: font-weight("bold");
+      height: 100%;
     }
 
     @media (forced-colors: active) {
