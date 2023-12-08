@@ -140,6 +140,7 @@ $expand-less-icon: map-merge(
   // At $theme-header-width and wider...
   @include at-media($theme-header-min-width) {
     display: flex;
+    align-items: stretch;
   }
 
   // all nav items in the nav
@@ -162,13 +163,21 @@ $expand-less-icon: map-merge(
     > a {
       @include at-media($theme-header-min-width) {
         @include primary-nav-link;
+        align-items: center;
         color: color($nav-link-color);
-        display: block;
+        display: flex;
         font-weight: font-weight("bold");
 
         &:hover {
           color: color("primary");
         }
+      }
+    }
+
+    > button,
+    > a {
+      @include at-media($theme-header-min-width) {
+        height: 100%;
       }
     }
   }
@@ -304,6 +313,7 @@ $expand-less-icon: map-merge(
   .usa-accordion__button {
     span {
       @include at-media($theme-header-min-width) {
+        display: inline-block;
         margin-right: 0;
         padding-right: units(2);
       }
