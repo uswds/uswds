@@ -230,7 +230,7 @@ $banner-icon-close: (
   @include button-unstyled;
   @include u-pin("left");
   @include u-pin("y");
-  @include u-text("primary", underline, baseline);
+  @include u-text("primary", underline);
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color,
