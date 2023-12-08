@@ -1,11 +1,29 @@
 {
   "spacing": {
+    "neg-prefix": { "value": "neg"},
     "smaller": {
       "1px": { "value": "1px", "themeable": false },
       "2px": { "value": "2px"}
     },
     "small": {
-      "05": { "value": "spacing-multiple(0.5)"}
+      "05": { "value": "spacing-multiple(0.5)", "comment": "4px"},
+      "1": { "value":  "spacing-multipe(1)", "comment": "8px"},
+      "105": { "value":  "spacing-multipe(1.5)", "comment": "12px"},
+      "2": { "value":  "spacing-multipe(2)", "comment": "16px"},
+      "205": { "value":  "spacing-multipe(2.5)", "comment": "20px"},
+      "3": { "value":  "spacing-multipe(3)", "comment": "24px"}
+    },
+    "smaller-negative": {
+      "{spacing.neg-prefix}-1px": "-1px",
+      "{spacing.neg-prefix}-2px": "-2px"
+    },
+    "small-negative": {
+      "{spacing.neg-prefix}-05": { "value": "spacing-multiple(-0.5)", "comment": "-4px" },
+      "{spacing.neg-prefix}-1": { "value": "spacing-multiple(-1)", "comment": "-8px" },
+      "{spacing.neg-prefix}-105": { "value": "spacing-multiple(-1.5)", "comment": "-12px" },
+      "{spacing.neg-prefix}-2": { "value": "spacing-multiple(-2)", "comment": "-16px" },
+      "{spacing.neg-prefix}-205": { "value": "spacing-multiple(-2.5)", "comment": "-20px" },
+      "{spacing.neg-prefix}-3": { "value": "spacing-multiple(-3)", "comment": "-24px" }
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "source": ["./tokens/spacing/spacing-example.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "prefix": "theme",
+      "buildPath": "packages/uswds-core/src/styles/settings/",
+      "files": [{
+        "destination": "_TEST-settings-spacing.scss",
+        "format": "scss/variables"
+      }]
+    }
+  }
+}

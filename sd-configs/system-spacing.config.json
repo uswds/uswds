@@ -1,0 +1,14 @@
+{
+  "source": ["./tokens/spacing/system-spacing.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "prefix": "system",
+      "buildPath": "packages/uswds-core/src/styles/settings/",
+      "files": [{
+        "destination": "_TEST-system-spacing.scss",
+        "format": "scss/map-deep"
+      }]
+    }
+  }
+}
