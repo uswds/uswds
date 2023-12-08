@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "uswds-core" as *;
 
 // Navigation helpers
@@ -476,19 +477,26 @@ $expand-less-icon: map-merge(
 }
 
 // Safari-only fix that forces a vertical scrollbar when mobile menu is open.
-// Only needed in the 15px immediately preceding $theme-header-max-width.
+// Only needed in the 15px immediately preceding $theme-header-min-width.
 //
 // Note: 15px is the current width of the Safari scrollbar.
-// More details in https://github.com/uswds/uswds/pull/5443
-$safari-header-bug-min-width: calc(
-  units($theme-header-max-width) - px-to-rem(15px)
-);
+// Note: This fix only applies when $theme-header-min-width is defined with a system breakpoint
+//   because the header visually breaks with other values.
+//   This bypass prevents compilation errors with values like "none" or 1px.
 
-@media (min-width: $safari-header-bug-min-width) {
-  .usa-js-mobile-nav--active.is-safari {
-    overflow-y: scroll;
-    position: fixed;
-    // --scrolltop set with JS with zero as fallback.
-    top: var(--scrolltop, 0);
+$our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+
+@if map-has-key($our-breakpoints, $theme-header-min-width) {
+  $safari-header-bug-min-width: calc(
+    units($theme-header-min-width) - px-to-rem(15px)
+  );
+
+  @media (min-width: $safari-header-bug-min-width) {
+    .usa-js-mobile-nav--active.is-safari {
+      overflow-y: scroll;
+      position: fixed;
+      // --scrolltop set with JS with zero as fallback.
+      top: var(--scrolltop, 0);
+    }
   }
 }
