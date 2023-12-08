@@ -162,13 +162,21 @@ $expand-less-icon: map-merge(
     > a {
       @include at-media($theme-header-min-width) {
         @include primary-nav-link;
+        align-items: center;
         color: color($nav-link-color);
-        display: block;
+        display: flex;
         font-weight: font-weight("bold");
 
         &:hover {
           color: color("primary");
         }
+      }
+    }
+
+    > button,
+    > a {
+      @include at-media($theme-header-min-width) {
+        height: 100%;
       }
     }
   }
@@ -194,7 +202,6 @@ $expand-less-icon: map-merge(
       @include primary-nav-link;
       font-size: font-size($theme-navigation-font-family, "2xs");
       font-weight: font-weight("bold");
-      height: 100%;
     }
 
     @media (forced-colors: active) {
@@ -226,8 +233,6 @@ $expand-less-icon: map-merge(
 
     &[aria-expanded] {
       span {
-        display: inline-block;
-
         &::after {
           position: absolute;
           top: 50%;
@@ -307,6 +312,7 @@ $expand-less-icon: map-merge(
   .usa-accordion__button {
     span {
       @include at-media($theme-header-min-width) {
+        display: inline-block;
         margin-right: 0;
         padding-right: units(2);
       }
