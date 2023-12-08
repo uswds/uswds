@@ -177,8 +177,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     context("with initial hash URL", () => {
       before(() => {
-        sinon.stub(window, "location").value({ hash: undefined });
-        sinon.stub(window.location, "hash").get(() => "#section-1");
+        window.location.hash = "#section-1";
       });
 
       it("scrolls to section on initialization", () => {
