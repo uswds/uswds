@@ -3,11 +3,16 @@
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "prefix": "system",
       "buildPath": "packages/uswds-core/src/styles/tokens/color/",
       "files": [{
         "destination": "_TEST-red.scss",
-        "format": "scss/map-deep"
+        "format": "scss/map-deep",
+        "filter": {
+          "attributes": { "category": "theme"}
+        },
+        "options": {
+          "outputReferences": false
+        }
       }]
     }
   }
