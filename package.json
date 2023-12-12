@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.6.1",
+  "version": "3.7.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -151,7 +151,7 @@
     "gulp-svgstore": "9.0.0",
     "gulp-uglify": "3.0.2",
     "html-webpack-plugin": "5.5.3",
-    "jsdom": "19.0.0",
+    "jsdom": "22.1.0",
     "jsdom-global": "3.0.2",
     "lodash.merge": "4.6.2",
     "merge-stream": "2.0.0",
