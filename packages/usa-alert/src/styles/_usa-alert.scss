@@ -13,6 +13,10 @@ $alert-icons: (
 
 .usa-alert {
   @include alert-styles;
+
+  * + & {
+    margin-top: units(2);
+  }
 }
 
 @each $name, $icon in $alert-icons {
