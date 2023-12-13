@@ -65,8 +65,11 @@ $-chevron-expand-more: map-merge(
     // Columns
     [class*="grid-col"] {
       @include u-position(relative);
-      @include u-width(full);
       box-sizing: border-box;
+    }
+
+    .grid-col {
+      @include u-width(full);
     }
 
     .grid-col-auto {
@@ -76,6 +79,10 @@ $-chevron-expand-more: map-merge(
     // Columns: Mobile Large
     /* stylelint-disable */
     @include at-media("mobile-lg") {
+      .mobile-lg\:grid-col {
+        @include u-width(full);
+      }
+
       .mobile-lg\:grid-col-auto {
         @include grid-col("auto");
       }
@@ -99,6 +106,10 @@ $-chevron-expand-more: map-merge(
 
     // Columns: Tablet
     @include at-media("tablet") {
+      .tablet\:grid-col {
+        @include u-width(full);
+      }
+
       .tablet\:grid-col-4 {
         @include grid-col(4);
       }
@@ -110,6 +121,10 @@ $-chevron-expand-more: map-merge(
 
     // Columns: Desktop
     @include at-media("desktop") {
+      .desktop\:grid-col {
+        @include u-width(full);
+      }
+
       .desktop\:grid-col-auto {
         @include grid-col("auto");
       }
