@@ -22,11 +22,7 @@ $-chevron-expand-more: map-merge(
   )
 );
 
- // Grid styles ported over to remove dependency
- .grid-container {
-  @include grid-container($theme-footer-max-width);
-}
-
+// Grid styles ported over to remove dependency
 .grid-row {
   @include grid-row;
 }
@@ -119,6 +115,10 @@ $-chevron-expand-more: map-merge(
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
   overflow: hidden;
+
+  > .grid-container {
+    @include grid-container($theme-footer-max-width);
+  }
 }
 .usa-footer__return-to-top {
   @include u-padding-y(2.5);
