@@ -501,7 +501,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 - **Spacing units** are set with the `units()` function as described in [the USWDS 3.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
-[18F’s CSS Guide](https://engineering.18f.gov/css/)
+[18F’s CSS Guide](https://guides.18f.gov/engineering/languages-runtimes/css/)
 
 ## Browser support
 
