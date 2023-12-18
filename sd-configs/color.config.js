@@ -1,29 +1,31 @@
-const StyleDictionary = require('style-dictionary');
+// import tokens from "packages/uswds-tokens/colors/blue.json"
+// const tokens = require("../packages/uswds-tokens/colors/blue.json");
 
-const myStyleDictionary = StyleDictionary.extend({
-  source: ["./packages/uswds-tokens/colors/color.json"],
-  transform: {
-    myTransform: {
-      type: 'name',
-      transformer: (token) => console.log(token)
-    }
-  },
+const tokens = require("../packages/uswds-core/src/styles/tokens/color")
+
+// const StyleDictionary = require('style-dictionary');
+
+module.exports = {
+  source: ["packages/uswds-tokens/colors/*.json"],
   platforms: {
-    scss: {
+    // scss: {
+    //   transformGroup: "scss",
+    //   buildPath: "packages/uswds-core/src/styles/tokens/color/",
+    //   files: [
+    //     {
+    //       destination: "TEST-colors.scss",
+    //       format: "scss/variables"
+    //     },
+    //   ],
+    // },
+
+    "scss/category": {
       transformGroup: "scss",
       buildPath: "packages/uswds-core/src/styles/tokens/color/",
-      files: [{
-        destination: "_TEST-settings-color.scss",
+      files: tokens.map((tokenCategory) => ({
+        destination: `_${tokenCategory}.scss`,
         format: "scss/variables",
-        filter: {
-          attributes: { "category": "theme"}
-        },
-        options: {
-          outputReferences: false
-        }
-      }]
-    }
-  }
-})
-
-myStyleDictionary.buildPlatform('scss');
+      })),
+    },
+  },
+}
