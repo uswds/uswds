@@ -184,8 +184,5 @@
     "vinyl-source-stream": "2.0.0",
     "webpack": "5.89.0",
     "webpack-cli": "5.1.4"
-  },
-  "workspaces": [
-    "packages/uswds-core"
-  ]
+  }
 }
