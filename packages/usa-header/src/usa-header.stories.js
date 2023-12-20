@@ -1,5 +1,6 @@
 import Component from "./usa-header.twig";
 import ComponentExtended from "./usa-header--extended/usa-header--extended.twig";
+
 import DefaultContent from "./usa-header.json";
 import MegamenuContent from "./usa-header~megamenu.json";
 import ExtendedContent from "./usa-header--extended/usa-header--extended.json";
@@ -32,19 +33,7 @@ Megamenu.args = {
 };
 
 export const Extended = ExtendedTemplate.bind({});
-Extended.args = {
-  ...ExtendedContent,
-  navSecondaryContent: {
-    ...navSecondaryContent,
-    search: true,
-  },
-};
+Extended.args = ExtendedContent;
 
 export const ExtendedMegamenu = ExtendedTemplate.bind({});
-ExtendedMegamenu.args = {
-  ...ExtendedMegamenuContent,
-  navSecondaryContent: {
-    ...navSecondaryContent,
-    search: true,
-  },
-};
+ExtendedMegamenu.args = ExtendedMegamenuContent;
