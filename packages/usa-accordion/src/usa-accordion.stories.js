@@ -1,16 +1,23 @@
 import Component from "./usa-accordion.twig";
 import { DefaultContent, BorderedContent, MultiContent } from "./content";
 
-import IconTest from "./test/test-patterns/test-accordion-icon.twig";
+import TestAccordionsTemplate from "./test/test-patterns/test-accordions.twig";
+
+// Content imports
 import HeaderContent from "../../usa-header/src/usa-header.json";
+import HeaderExtendedContent from "../../usa-header/src/usa-header--extended/usa-header--extended.json";
+import HeaderExtendedMegamenuContent from "../../usa-header/src/usa-header--extended/usa-header--extended-megamenu.json";
+import HeaderMegamenuContent from "../../usa-header/src/usa-header~megamenu.json";
+
 import BannerContent from "../../usa-banner/src/content/usa-banner.json";
 
+// StorybookJS Setup
 export default {
   title: "Components/Accordion",
 };
 
 const Template = (args) => Component(args);
-const TestTemplate = (args) => IconTest(args);
+const TestTemplate = (args) => TestAccordionsTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -21,9 +28,12 @@ Bordered.args = BorderedContent;
 export const Multiselectable = Template.bind({});
 Multiselectable.args = MultiContent;
 
-export const TestIcons = TestTemplate.bind({});
-TestIcons.args = {
+export const Test = TestTemplate.bind({});
+Test.args = {
   ...DefaultContent,
-  ...HeaderContent,
   ...BannerContent,
+  header: HeaderContent,
+  headerExtended: HeaderExtendedContent,
+  headerMegamenu: HeaderMegamenuContent,
+  headerMegamenuExtended: HeaderExtendedMegamenuContent,
 };
