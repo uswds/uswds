@@ -168,6 +168,7 @@
     "prettier": "2.8.8",
     "react-dom": "17.0.2",
     "resolve-url-loader": "4.0.0",
+    "sass": "1.69.5",
     "sass-embedded": "1.69.5",
     "sass-loader": "13.3.2",
     "sass-true": "6.0.1",
