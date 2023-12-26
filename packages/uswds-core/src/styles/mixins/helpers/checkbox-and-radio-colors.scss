@@ -22,6 +22,7 @@
   $input-type: null
 ) {
   $input-text-color: get-color-token-from-bg($bg-color);
+  $input-text-color-disabled: get-color-token-from-bg("default", "disabled");
   $input-bg-color: if(
     $bg-color == "default",
     $theme-body-background-color,
@@ -70,7 +71,8 @@
     &:disabled,
     &[aria-disabled="true"] {
       @include format-label {
-        color: color("disabled");
+        color: color($input-text-color-disabled);
+        cursor: not-allowed;
 
         @media (forced-colors: active) {
           color: GrayText;
