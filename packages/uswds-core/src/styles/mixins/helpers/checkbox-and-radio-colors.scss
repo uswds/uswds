@@ -22,7 +22,7 @@
   $input-type: null
 ) {
   $input-text-color: get-color-token-from-bg($bg-color);
-  $input-text-color-disabled: get-color-token-from-bg("default", "disabled");
+  $input-text-color-disabled: get-color-token-from-bg($bg-color, "disabled", "gray-50");
   $input-bg-color: if(
     $bg-color == "default",
     $theme-body-background-color,
