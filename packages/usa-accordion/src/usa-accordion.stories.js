@@ -32,8 +32,37 @@ export const Test = TestTemplate.bind({});
 Test.args = {
   ...DefaultContent,
   ...BannerContent,
-  header: HeaderContent,
-  headerExtended: HeaderExtendedContent,
-  headerMegamenu: HeaderMegamenuContent,
-  headerMegamenuExtended: HeaderExtendedMegamenuContent,
+  header: {
+    ...HeaderContent,
+    site_title: "Basic header",
+    nav: {
+      ...HeaderContent.nav,
+      aria_label: "Test navigation",
+    },
+    search: null,
+  },
+  headerExtended: {
+    ...HeaderExtendedContent,
+    site_title: "Extended header",
+    nav: {
+      ...HeaderExtendedContent.nav,
+      aria_label: "Test extended navigation",
+    },
+    search: null,
+    secondaryNav: false,
+  },
+  headerMegamenu: {
+    ...HeaderMegamenuContent,
+    site_title: "Megamenu header",
+    aria_label: "Test megamenu navigation",
+    search: null,
+    secondaryNav: false,
+  },
+  headerMegamenuExtended: {
+    ...HeaderExtendedMegamenuContent,
+    site_title: "Extended megamenu header",
+    aria_label: "Test extended megamenu navigation",
+    search: null,
+    secondaryNav: false,
+  },
 };
