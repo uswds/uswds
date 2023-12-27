@@ -54,14 +54,20 @@ Test.args = {
   headerMegamenu: {
     ...HeaderMegamenuContent,
     site_title: "Megamenu header",
-    aria_label: "Test megamenu navigation",
+    nav: {
+      ...HeaderMegamenuContent.nav,
+      aria_label: "Test megamenu navigation",
+    },
     search: null,
     secondaryNav: false,
   },
   headerMegamenuExtended: {
     ...HeaderExtendedMegamenuContent,
     site_title: "Extended megamenu header",
-    aria_label: "Test extended megamenu navigation",
+    nav: {
+      ...HeaderExtendedMegamenuContent.nav,
+      aria_label: "Test extended megamenu navigation",
+    },
     search: null,
     secondaryNav: false,
   },

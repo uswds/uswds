@@ -1,25 +1,24 @@
 <div class="padding-8">
-  <h3>Banner</h3>
-  {% include '@components/usa-banner/src/usa-banner.twig' %}
+  <article class="margin-bottom-6">
+    {% include '@components/usa-banner/src/usa-banner.twig' %}
+  </article>
 
-  <h3>Accordion</h3>
-  {% include '@components/usa-accordion/src/usa-accordion.twig' with DefaultContent %}
+  <article class="margin-bottom-6">
+    {% include '@components/usa-accordion/src/usa-accordion.twig' with DefaultContent %}
+  </article>
 
-
-  <h3>Headers</h3>
-
-  <div class="margin-bottom-6">
+  <article class="margin-bottom-6">
     {% include '@components/usa-header/src/usa-header.twig' with header %}
-  </div>
+  </article>
 
-  <div class="margin-bottom-6">
+  <article class="margin-bottom-6">
     {% include '@components/usa-header/src/usa-header--extended/usa-header--extended.twig' with headerExtended %}
-  </div>
+  </article>
 
 
-  <div class="margin-bottom-6">
+  <article class="margin-bottom-6">
     {% include '@components/usa-header/src/usa-header.twig' with headerMegamenu %}
-  </div>
+  </article>
 
   {% include '@components/usa-header/src/usa-header--extended/usa-header--extended.twig' with headerMegamenuExtended %}
 </div>
