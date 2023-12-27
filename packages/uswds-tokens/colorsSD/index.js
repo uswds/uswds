@@ -1,7 +1,9 @@
-const { readdirSync, statSync } = require("fs");
+const { readdirSync } = require("fs");
 
-const { join } = require("path");
+// Gets all files from directory that are not index.js, removes file extenstion.
+const getJSON = (path) => 
+  readdirSync(path)
+  .filter((file) => file !== "index.js")
+  .map((file) => file.slice(0, -5))
 
-const dirs = (p) =>
-  readdirSync(p).filter((f) => statSync(join(p, f)).isDirectory());
-module.exports = dirs(__dirname);
+module.exports = getJSON(__dirname);
