@@ -1,7 +1,7 @@
 <div class="usa-logo">
   <em class="usa-logo__text">
     <a href="{{ href|default('/') }}" title="{{ site_title|default('Home') }}" >
-      {{ site_title |e|default('Home') }}
+        {{ site_title | escape | default('Home') }}
     </a>
   </em>
 </div>
