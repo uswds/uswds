@@ -4,7 +4,9 @@
   <nav aria-label="{{ nav.aria_label }}" class="usa-nav">
     <div class="usa-nav__inner">
       {% include "@components/usa-nav/src/usa-nav__primary/usa-nav__primary.twig" %}
-      {% include "@components/usa-nav/src/usa-nav__secondary/usa-nav__secondary.twig" with secondaryNav %}
+      {% if secondaryNav %}
+        {% include "@components/usa-nav/src/usa-nav__secondary/usa-nav__secondary.twig" with secondaryNav %}
+      {% endif %}
     </div>
   </nav>
 </header>
