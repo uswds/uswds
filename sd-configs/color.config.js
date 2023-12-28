@@ -1,12 +1,12 @@
-const colors = require("../packages/uswds-tokens/colorsSD")
+const colorTokens = require("../packages/uswds-tokens/colors")
 
 module.exports = {
-  source: ["packages/uswds-tokens/colorsSD/**/*.json"],
+  source: ["packages/uswds-tokens/colors/*.json"],
   platforms: {
     "scss/category": {
       transformGroup: "scss",
-      buildPath: "packages/uswds-core/src/styles/tokens/colorSD/",
-      files: colors.map((tokenCategory) => ({
+      buildPath: "packages/uswds-core/src/styles/tokens/color/",
+      files: colorTokens.map((tokenCategory) => ({
         destination: `_${tokenCategory}.scss`,
         format: "scss/map-deep",
         mapName: `system-color-${tokenCategory}`,
