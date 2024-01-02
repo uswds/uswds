@@ -1,12 +1,13 @@
 {
-  "source": ["./packages/uswds-tokens/colors/color.json"],
+  "source": ["./packages/uswds-tokens/colorsSD/_TEST-color.json"],
   "platforms": {
     "scss": {
       "transformGroup": "scss",
       "buildPath": "packages/uswds-core/src/styles/tokens/color/",
       "files": [{
+        "mapName": "color",
         "destination": "_TEST-settings-color.scss",
-        "format": "scss/variables",
+        "format": "scss/map-deep",
         "filter": {
           "attributes": { "category": "theme"}
         },

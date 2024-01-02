@@ -1,5 +1,8 @@
-// Do not edit directly
-// Generated on Tue, 12 Dec 2023 21:39:17 GMT
+
+/**
+ * Do not edit directly
+ * Generated on Tue, 02 Jan 2024 19:23:26 GMT
+ */
 
 $theme-color-primary-family: blue !default;
 $theme-color-primary-lightest: false !default;
@@ -19,3 +22,32 @@ $theme-color-secondary-vivid: #e52207 !default;
 $theme-color-secondary-dark: #b50909 !default;
 $theme-color-secondary-darker: #8b0a03 !default;
 $theme-color-secondary-darkest: false !default;
+
+$color: (
+  'theme': (
+    'color': (
+      'primary': (
+        'family': $theme-color-primary-family,
+        'lightest': $theme-color-primary-lightest,
+        'lighter': $theme-color-primary-lighter,
+        'light': $theme-color-primary-light,
+        'default': $theme-color-primary-default,
+        'vivid': $theme-color-primary-vivid,
+        'dark': $theme-color-primary-dark,
+        'darker': $theme-color-primary-darker,
+        'darkest': $theme-color-primary-darkest
+      ),
+      'secondary': (
+        'family': $theme-color-secondary-family,
+        'lightest': $theme-color-secondary-lightest,
+        'lighter': $theme-color-secondary-lighter,
+        'light': $theme-color-secondary-light,
+        'default': $theme-color-secondary-default,
+        'vivid': $theme-color-secondary-vivid,
+        'dark': $theme-color-secondary-dark,
+        'darker': $theme-color-secondary-darker,
+        'darkest': $theme-color-secondary-darkest
+      )
+    )
+  )
+);
