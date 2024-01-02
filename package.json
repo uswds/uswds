@@ -155,6 +155,7 @@
     "html-webpack-plugin": "5.4.0",
     "jsdom": "19.0.0",
     "jsdom-global": "3.0.2",
+    "lodash": "^4.17.21",
     "lodash.merge": "4.6.2",
     "merge-stream": "2.0.0",
     "mocha": "10.2.0",

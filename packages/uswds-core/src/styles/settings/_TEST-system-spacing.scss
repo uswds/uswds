@@ -1,4 +1,3 @@
-
 /**
  * Do not edit directly
  * Generated on Thu, 07 Dec 2023 22:51:37 GMT
@@ -13,39 +12,57 @@ $system-spacing-small-3: spacing-multipe(3) !default; // 24px
 $system-spacing-small-105: spacing-multipe(1.5) !default; // 12px
 $system-spacing-small-205: spacing-multipe(2.5) !default; // 20px
 $system-spacing-small-05: spacing-multiple(0.5) !default; // 4px
-$system-spacing-small-negative-spacing-neg-prefix-05: spacing-multiple(-0.5) !default; // -4px
-$system-spacing-small-negative-spacing-neg-prefix-1: spacing-multiple(-1) !default; // -8px
-$system-spacing-small-negative-spacing-neg-prefix-105: spacing-multiple(-1.5) !default; // -12px
-$system-spacing-small-negative-spacing-neg-prefix-2: spacing-multiple(-2) !default; // -16px
-$system-spacing-small-negative-spacing-neg-prefix-205: spacing-multiple(-2.5) !default; // -20px
-$system-spacing-small-negative-spacing-neg-prefix-3: spacing-multiple(-3) !default; // -24px
+$system-spacing-small-negative-spacing-neg-prefix-05: spacing-multiple(
+  -0.5
+) !default; // -4px
+$system-spacing-small-negative-spacing-neg-prefix-1: spacing-multiple(
+  -1
+) !default; // -8px
+$system-spacing-small-negative-spacing-neg-prefix-105: spacing-multiple(
+  -1.5
+) !default; // -12px
+$system-spacing-small-negative-spacing-neg-prefix-2: spacing-multiple(
+  -2
+) !default; // -16px
+$system-spacing-small-negative-spacing-neg-prefix-205: spacing-multiple(
+  -2.5
+) !default; // -20px
+$system-spacing-small-negative-spacing-neg-prefix-3: spacing-multiple(
+  -3
+) !default; // -24px
 
 $tokens: (
-  'spacing': (
-    'neg-prefix': $system-spacing-neg-prefix,
-    'smaller': (
-      '1px': $system-spacing-smaller-1px,
-      '2px': $system-spacing-smaller-2px
+  "spacing": (
+    "neg-prefix": $system-spacing-neg-prefix,
+    "smaller": (
+      "1px": $system-spacing-smaller-1px,
+      "2px": $system-spacing-smaller-2px,
     ),
-    'small': (
-      '1': $system-spacing-small-1,
-      '2': $system-spacing-small-2,
-      '3': $system-spacing-small-3,
-      '105': $system-spacing-small-105,
-      '205': $system-spacing-small-205,
-      '05': $system-spacing-small-05
+    "small": (
+      "1": $system-spacing-small-1,
+      "2": $system-spacing-small-2,
+      "3": $system-spacing-small-3,
+      "105": $system-spacing-small-105,
+      "205": $system-spacing-small-205,
+      "05": $system-spacing-small-05,
     ),
-    'smaller-negative': (
-      '{spacing.neg-prefix}-1px': '-1px',
-      '{spacing.neg-prefix}-2px': '-2px'
+    "smaller-negative": (
+      "{spacing.neg-prefix}-1px": "-1px",
+      "{spacing.neg-prefix}-2px": "-2px",
     ),
-    'small-negative': (
-      '{spacing.neg-prefix}-05': $system-spacing-small-negative-spacing-neg-prefix-05,
-      '{spacing.neg-prefix}-1': $system-spacing-small-negative-spacing-neg-prefix-1,
-      '{spacing.neg-prefix}-105': $system-spacing-small-negative-spacing-neg-prefix-105,
-      '{spacing.neg-prefix}-2': $system-spacing-small-negative-spacing-neg-prefix-2,
-      '{spacing.neg-prefix}-205': $system-spacing-small-negative-spacing-neg-prefix-205,
-      '{spacing.neg-prefix}-3': $system-spacing-small-negative-spacing-neg-prefix-3
-    )
-  )
+    "small-negative": (
+      "{spacing.neg-prefix}-05":
+        $system-spacing-small-negative-spacing-neg-prefix-05,
+      "{spacing.neg-prefix}-1":
+        $system-spacing-small-negative-spacing-neg-prefix-1,
+      "{spacing.neg-prefix}-105":
+        $system-spacing-small-negative-spacing-neg-prefix-105,
+      "{spacing.neg-prefix}-2":
+        $system-spacing-small-negative-spacing-neg-prefix-2,
+      "{spacing.neg-prefix}-205":
+        $system-spacing-small-negative-spacing-neg-prefix-205,
+      "{spacing.neg-prefix}-3":
+        $system-spacing-small-negative-spacing-neg-prefix-3,
+    ),
+  ),
 );

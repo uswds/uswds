@@ -1,0 +1,49 @@
+<%
+//
+// Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+%>
+<%
+    // output the list of tokens as a Sass nested map
+    // (the values are pointing to the variables)
+    //
+    print(`$${file.mapName||'tokens'}: ${processJsonNode(dictionary.properties, 0)};\n`);
+
+    // recursive function to process a properties JSON node
+    //
+    function processJsonNode(obj, depth) {
+        var output = '';
+        if (obj === null) {
+            output += `''`
+        } else if (typeof obj === "string" || obj === false) {
+            output += `${obj}`
+        } else if (obj.hasOwnProperty('value')) {
+            // if we have found a leaf (a property with a value) append the value
+            output += `${obj.name}`;
+        } else {
+            // if we have found a group of properties, use the Sass group "(...)" syntax and loop -recursively- on the children
+            output += '(\n'
+            output += Object.keys(obj).map(function(newKey) {
+            var newProp = obj[newKey];
+            var indent = '  '.repeat(depth+1);
+            if (!isNaN(Number(newKey))){
+              return `${indent}${newKey}: ${processJsonNode(newProp.value, depth + 1)}`;
+            } else {
+              return `${indent}"${newKey}": ${processJsonNode(newProp, depth + 1)}`;
+            }
+            }).join(',\n');
+            output += '\n' + '  '.repeat(depth) + ')';
+        }
+        return output;
+    }
+%>
