@@ -6,7 +6,7 @@ const colorTokens = require("../packages/uswds-tokens/colors")
 const USWDSTokens = StyleDictionary.extend({
   source: ["packages/uswds-tokens/colors/*.json"],
   platforms: {
-    "scss/category": {
+    "scss/colors": {
       transformGroup: "scss",
       buildPath: "packages/uswds-core/src/styles/tokens/color/",
       files: colorTokens.map((tokenCategory) => ({
@@ -28,4 +28,4 @@ USWDSTokens.registerFormat({
   formatter: _.template(fs.readFileSync(`${__dirname  }/templates/scss-color-map.template`))
 });
 
-USWDSTokens.buildPlatform('scss/category');
+USWDSTokens.buildPlatform('scss/colors');
