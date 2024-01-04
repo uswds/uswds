@@ -42,6 +42,18 @@
     @include at-media($theme-header-min-width) {
       // needs this round() to avoid a compile bug
       @include u-flex(math.round(math.div(12, $theme-megamenu-columns)));
+
+      .usa-nav__submenu-item a {
+        @include u-padding-x(1);
+      }
+
+      // Remove padding from first and last columns on desktop view.
+      &:first-child .usa-nav__submenu-item a {
+        padding-left: 0;
+      }
+      &:last-child .usa-nav__submenu-item a {
+        padding-right: 0;
+      }
     }
   }
 }

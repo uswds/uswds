@@ -195,7 +195,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 ### Install the package directly from GitHub
 If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
-1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.7.0/uswds-uswds-3.7.0.tgz) directly from the latest USWDS release and uncompress that file.
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.7.1/uswds-uswds-3.7.1.tgz) directly from the latest USWDS release and uncompress that file.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
@@ -490,8 +490,8 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 ## CSS architecture
 
 - The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
-- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://engineering.18f.gov/css/#naming)**.
-- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://engineering.18f.gov/css/#formatting)**.
+- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://guides.18f.gov/engineering/languages-runtimes/css/#naming)**.
+- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://guides.18f.gov/engineering/languages-runtimes/css/#formatting)**.
 - CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
 - Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
 - Uses **modular CSS** for scalable, modular, and flexible code.
@@ -501,7 +501,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 - **Spacing units** are set with the `units()` function as described in [the USWDS 3.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
-[18F’s CSS Guide](https://engineering.18f.gov/css/)
+[18F’s CSS Guide](https://guides.18f.gov/engineering/languages-runtimes/css/)
 
 ## Browser support
 
