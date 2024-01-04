@@ -5,11 +5,13 @@
       "transformGroup": "scss",
       "buildPath": "packages/uswds-core/src/styles/tokens/color/",
       "files": [{
-        "mapName": "color",
         "destination": "_TEST-settings-color.scss",
-        "format": "scss/map-deep",
+        "format": "scss/variables",
+        "mapName": "tokens-color-theme",
         "filter": {
-          "attributes": { "category": "theme"}
+          "attributes": {
+            "category": "theme"
+          }
         },
         "options": {
           "outputReferences": false

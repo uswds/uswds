@@ -1,5 +1,5 @@
 {
-  "system": {
+  "color": {
     "blue": {
       "5": {"value": "#eff6fb", "themeable": false },
       "5v": { "value": "#e8f5ff" , "themeable": false },
@@ -93,23 +93,23 @@
     "primary": {
       "family": { "value": "blue"},
       "lightest": { "value": false},
-      "lighter": { "value": "{system.blue.10}" },
-      "light": { "value": "{system.blue.30}" },
-      "default": { "value": "{system.blue.50}" },
-      "vivid": { "value": "{system.blue.50v}"},
-      "dark": { "value": "{system.blue.60v}"},
-      "darker": { "value": "{system.blue.70v}"},
+      "lighter": { "value": "{color.blue.10}" },
+      "light": { "value": "{color.blue.30}" },
+      "default": { "value": "{color.blue.50}" },
+      "vivid": { "value": "{color.blue.50v}"},
+      "dark": { "value": "{color.blue.60v}"},
+      "darker": { "value": "{color.blue.70v}"},
       "darkest": { "value": false}
     },
     "secondary": {
       "family": { "value": "red"},
       "lightest": { "value": false},
-      "lighter": { "value": "{system.red.10}" },
-      "light": { "value": "{system.red.30}" },
-      "default": { "value": "{system.red.50}" },
-      "vivid": { "value": "{system.red.50v}"},
-      "dark": { "value": "{system.red.60v}"},
-      "darker": { "value": "{system.red.70v}"},
+      "lighter": { "value": "{color.red.10}" },
+      "light": { "value": "{color.red.30}" },
+      "default": { "value": "{color.red.50}" },
+      "vivid": { "value": "{color.red.50v}"},
+      "dark": { "value": "{color.red.60v}"},
+      "darker": { "value": "{color.red.70v}"},
       "darkest": { "value": false}
     }
   }
