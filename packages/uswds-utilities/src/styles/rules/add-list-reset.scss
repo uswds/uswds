@@ -3,14 +3,14 @@
 LIST RESET
 ----------------------------------------
 usage:
-  .list-reset
+  .add-list-reset
 ----------------------------------------
 output:
   list-style: none;
   padding-left: 0;
 ----------------------------------------
 example:
-  .list-reset {
+  .add-list-reset {
     list-style: none;
     padding-left: 0; }
 ----------------------------------------

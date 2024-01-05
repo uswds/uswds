@@ -3,13 +3,13 @@
 flex-direction
 ----------------------------------------
 usage:
-  .flex-direction-[value]
+  .flex-[value]
 ----------------------------------------
 output:
-  flex-direction: [value]
+  flex-direction: [value];
 ----------------------------------------
 example:
-  .flex-direction-row {
+  .flex-row {
     flex-direction: row; }
 ----------------------------------------
 */

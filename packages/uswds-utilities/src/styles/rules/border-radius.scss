@@ -3,16 +3,16 @@
 border-radius
 ----------------------------------------
 usage:
-  .border-radius-[key]
+  .radius-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .border-radius-0 {
+  .radius-0 {
     border-radius: 0; }
 
-  .border-radius-pill {
+  .radius-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
