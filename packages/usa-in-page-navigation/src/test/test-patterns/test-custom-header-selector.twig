@@ -1,3 +1,15 @@
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-10 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test if the data-heading-selector attribute pulls the correct headers into the component</p>
+  <p>Use the story controls to select which headers should be pulled into the component. For example:
+  <ul>
+    <li>Selecting "Default" should pull h2 and h3 headers into the in-page navigation.</li>
+    <li>Selecting "All" should pull all headers (h1-h6) into the in-page navigation.</li>
+    <li>Selecting "h4" should pull only h4 headers into the in-page navigation.</li>
+    <li>Selecting "Empty value" should  pull same headers as default.</li>
+    <li>Selecting "Error in value" should show nothing in the component.</li>
+  </ul>
+</div>
+
 <div class="usa-in-page-nav-container">
   <aside class="usa-in-page-nav"
     {% if includeHeaders == "All" %}
