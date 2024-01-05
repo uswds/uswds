@@ -9,13 +9,13 @@ const USWDSTokens = StyleDictionary.extend({
     "scss/colors": {
       transformGroup: "scss",
       buildPath: "packages/uswds-core/src/styles/tokens/color/",
-      files: colorTokens.map((tokenCategory) => ({
-        destination: `_${tokenCategory}.scss`,
-        mapName: `system-color-${tokenCategory}`,
+      files: colorTokens.map((colorToken) => ({
+        destination: `_${colorToken}.scss`,
+        mapName: `system-color-${colorToken}`,
         format: "custom/format/color-map",
         filter: {
           attributes: {
-            category: tokenCategory
+            category: colorToken
           }
         }
       })),
