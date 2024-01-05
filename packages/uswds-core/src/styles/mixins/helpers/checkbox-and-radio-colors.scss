@@ -85,7 +85,7 @@
       @include format-input {
         background-color: color($input-bg-color);
         box-shadow: 0 0 0 units($theme-input-select-border-width)
-          color("disabled");
+          color($input-text-color-disabled);
       }
     }
     &--tile {
@@ -140,7 +140,7 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          background-color: color("disabled");
+          background-color: color($input-text-color-disabled);
           @media (forced-colors: active) {
             background-color: color(GrayText);
           }
@@ -166,8 +166,8 @@
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
         @include format-input {
-          background-color: color("disabled");
-          box-shadow: 0 0 0 2px color("disabled"),
+          background-color: color($input-text-color-disabled);
+          box-shadow: 0 0 0 2px color($input-text-color-disabled),
             inset 0 0 0 2px color($input-bg-color);
 
           @media (forced-colors: active) {
