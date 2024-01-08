@@ -131,5 +131,5 @@
 }
 
 .usa-in-page-nav__item {
-  font-weight: bold;
+  @include u-font-weight("bold");
 }
