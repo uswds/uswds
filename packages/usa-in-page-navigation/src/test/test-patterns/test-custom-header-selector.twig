@@ -5,33 +5,26 @@
     <li>Selecting "Default" should pull h2 and h3 headers into the in-page navigation.</li>
     <li>Selecting "All" should pull all headers (h1-h6) into the in-page navigation.</li>
     <li>Selecting "h4" should pull only h4 headers into the in-page navigation.</li>
-    <li>Selecting "Empty value" should  pull same headers as default.</li>
-    <li>Selecting "Error in value" should show nothing in the component.</li>
+    <li>
+      Selecting "Error - Invalid heading type" should prevent the in-page navigation component from building
+      and return an error message in the console.
+    </li>
   </ul>
 </div>
 
+{% set all_headers = "h1 h2 h3 h4 h5 h6" %}
+{% if headingType != "Default" %}
+  {% if headingType == "All" %}
+    {% set headerValue = all_headers %}
+  {% elseif headingType == "Error - Invalid heading type" %}
+    {% set headerValue = "j1" %}
+  {% else %}
+    {% set headerValue = headingType %}
+  {% endif %}
+{% endif %}
+
 <div class="usa-in-page-nav-container">
-  <aside class="usa-in-page-nav"
-    {% if includeHeaders == "All" %}
-      data-heading-selector="h1 h2 h3 h4 h5 h6"
-      {% elseif includeHeaders == "Default value" %}
-      {% elseif includeHeaders == "h1" %}
-        data-heading-selector="h1"
-      {% elseif includeHeaders == "h2" %}
-        data-heading-selector="h2"
-      {% elseif includeHeaders == "h3" %}
-        data-heading-selector="h3"
-      {% elseif includeHeaders == "h4" %}
-        data-heading-selector="h4"
-      {% elseif includeHeaders == "h5" %}
-        data-heading-selector="h5"
-      {% elseif includeHeaders == "h6" %}
-        data-heading-selector="h6"
-      {% elseif includeHeaders == "Empty value" %}
-        data-heading-selector=""
-      {% elseif includeHeaders == "Error in value" %}
-        data-heading-selector="j1"
-    {% endif %} >
+  <aside class="usa-in-page-nav" data-heading-selector="{{ headerValue | default("") }}">
   </aside>
   <main class="usa-prose">
     <h1>H1 heading</h1>

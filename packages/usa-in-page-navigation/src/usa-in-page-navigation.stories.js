@@ -23,11 +23,11 @@ TestCustomContentSelector.args = {
 
 export const TestCustomHeaderSelector = TestCustomHeaderTemplate.bind();
 TestCustomHeaderSelector.argTypes = {
-  includeHeaders: {
+  headingType: {
     defaultValue: "All",
     name: "Include these headers in link list",
     options: [
-      "Default value",
+      "Default",
       "All",
       "h1",
       "h2",
@@ -35,10 +35,9 @@ TestCustomHeaderSelector.argTypes = {
       "h4",
       "h5",
       "h6",
-      "Error in value",
-      "Empty value",
+      "Error - Invalid heading type",
     ],
-    control: { type: "inline-radio" },
+    control: { type: "select" },
   },
 };
 
