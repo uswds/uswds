@@ -925,7 +925,7 @@
       },
       {
         "name": "twitter",
-        "meta": "social media"
+        "meta": "social media x"
       },
       {
         "name": "undo",
@@ -982,6 +982,10 @@
       {
         "name": "work",
         "meta": "briefcase"
+      },
+      {
+        "name": "x",
+        "meta": "social media twitter"
       },
       {
         "name": "youtube",
