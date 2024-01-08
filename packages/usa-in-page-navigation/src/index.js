@@ -234,7 +234,7 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
   }`;
   const inPageNavHeadingSelector =
-    inPageNavEl.dataset.headingSelector || IN_PAGE_NAV_HEADINGS;
+    inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS;
 
   const options = {
     root: null,

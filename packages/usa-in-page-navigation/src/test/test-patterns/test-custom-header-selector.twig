@@ -1,5 +1,5 @@
 <div class="usa-prose measure-5 padding-2 border-1px border-gray-10 margin-bottom-4">
-  <p class="font-body-lg text-bold margin-top-0">Test if the data-heading-selector attribute pulls the correct headers into the component</p>
+  <p class="font-body-lg text-bold margin-top-0">Test if the data-heading-elements attribute pulls the correct headers into the component</p>
   <p>Use the story controls to select which headers should be pulled into the component. For example:
   <ul>
     <li>Selecting "Default" should pull h2 and h3 headers into the in-page navigation.</li>
@@ -24,7 +24,7 @@
 {% endif %}
 
 <div class="usa-in-page-nav-container">
-  <aside class="usa-in-page-nav" data-heading-selector="{{ headerValue | default("") }}">
+  <aside class="usa-in-page-nav" data-heading-elements="{{ headerValue | default("") }}">
   </aside>
   <main class="usa-prose">
     <h1>H1 heading</h1>

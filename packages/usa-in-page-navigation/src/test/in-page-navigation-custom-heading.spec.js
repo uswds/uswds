@@ -41,7 +41,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       behavior.on(containerSelector());
 
       theNav = document.querySelector(THE_NAV);
-      dataHeadingSelector = theNav.getAttribute("data-heading-selector");
+      dataHeadingSelector = theNav.getAttribute("data-heading-elements");
 
       navList = document.querySelector(PRIMARY_CONTENT_SELECTOR);
       navListLinks = Array.from(navList.getElementsByTagName("a"));
@@ -56,7 +56,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       window.location.hash = "";
     });
 
-    it("creates links in the nav list for the heading level listed in data-heading-selector", () => {
+    it("creates links in the nav list for the heading level listed in data-heading-elements", () => {
       assert.equal(selectedHeadingList.length === navListLinks.length, true);
     });
 
