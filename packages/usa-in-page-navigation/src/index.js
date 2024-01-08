@@ -52,7 +52,10 @@ const setActive = (el) => {
  *
  * @return {Array} - An array of designated heading types from the designated content region
  */
-const createSectionHeadingsArray = (selectedContentRegion, selectedHeadingTypes) => {
+const createSectionHeadingsArray = (
+  selectedContentRegion,
+  selectedHeadingTypes
+) => {
   // Convert designated headings list to an array
   const selectedHeadingTypesArray = selectedHeadingTypes.indexOf(" ")
     ? selectedHeadingTypes.split(" ")
@@ -86,8 +89,14 @@ const createSectionHeadingsArray = (selectedContentRegion, selectedHeadingTypes)
  *
  * @return {Array} - An array of visible headings from the designated content region
  */
-const getVisibleSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
-  const sectionHeadings = createSectionHeadingsArray(selectedContentRegion, selectedHeadingTypes);
+const getVisibleSectionHeadings = (
+  selectedContentRegion,
+  selectedHeadingTypes
+) => {
+  const sectionHeadings = createSectionHeadingsArray(
+    selectedContentRegion,
+    selectedHeadingTypes
+  );
 
   // Find all headings with hidden styling and remove them from the array
   const visibleSectionHeadings = sectionHeadings.filter((heading) => {
