@@ -44,21 +44,22 @@ const setActive = (el) => {
 };
 
 /**
- * Return an array of visible headings from the designated content region.
- * These items will be added to the component nav list.
+ * Return an array of the designated heading types found in the designated content region.
+ * Throw an error if an invalid header element is designated.
  *
  * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
- * @param {String} selectedHeadingTypes The list of heading types that should be included in the link list
+ * @param {String} selectedHeadingTypes The list of heading types that should be included in the nav list
  *
- * @return {Array} - An array of visible headings from the designated content region
+ * @return {Array} - An array of designated heading types from the designated content region
  */
-const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
-  const headingTypes = selectedHeadingTypes.indexOf(" ")
+const createSectionHeadingsArray = (selectedContentRegion, selectedHeadingTypes) => {
+  // Convert designated headings list to an array
+  const selectedHeadingTypesArray = selectedHeadingTypes.indexOf(" ")
     ? selectedHeadingTypes.split(" ")
     : selectedHeadingTypes;
-  const contentHeadingTypes = [];
+  const contentRegion = document.querySelector(selectedContentRegion);
 
-  headingTypes.forEach((headingType) => {
+  selectedHeadingTypesArray.forEach((headingType) => {
     if (!IN_PAGE_NAV_VALID_HEADINGS.includes(headingType)) {
       throw new Error(
         `In-page navigation: data-header-selector attribute defined with an invalid heading type: "${headingType}".
@@ -66,12 +67,27 @@ const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
         Do not use commas or other punctuation in the attribute definition.`
       );
     }
-    contentHeadingTypes.push(`${selectedContentRegion} ${headingType}`);
   });
 
-  const sectionHeadings = Array.from(
-    document.querySelectorAll(contentHeadingTypes)
+  const sectionHeadingsArray = Array.from(
+    contentRegion.querySelectorAll(selectedHeadingTypesArray)
   );
+
+  return sectionHeadingsArray;
+};
+
+/**
+ * Return an array of the visible headings from sectionHeadingsArray.
+ * This function removes headings that are hidden with display:none or visibility:none style rules.
+ * These items will be added to the component nav list.
+ *
+ * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
+ * @param {String} selectedHeadingTypes The list of heading types that should be included in the nav list
+ *
+ * @return {Array} - An array of visible headings from the designated content region
+ */
+const getVisibleSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
+  const sectionHeadings = createSectionHeadingsArray(selectedContentRegion, selectedHeadingTypes);
 
   // Find all headings with hidden styling and remove them from the array
   const visibleSectionHeadings = sectionHeadings.filter((heading) => {
@@ -226,7 +242,7 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings(
+  const sectionHeadings = getVisibleSectionHeadings(
     inPageNavContentSelector,
     inPageNavHeadingSelector
   );
