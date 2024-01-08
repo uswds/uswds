@@ -45,7 +45,7 @@ const setActive = (el) => {
 
 /**
  * Return an array of visible headings from the designated content region.
- * These items will be added to the component link list.
+ * These items will be added to the component nav list.
  *
  * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
  * @param {String} selectedHeadingTypes The list of heading types that should be included in the link list
@@ -61,7 +61,9 @@ const getSectionHeadings = (selectedContentRegion, selectedHeadingTypes) => {
   headingTypes.forEach((headingType) => {
     if (!IN_PAGE_NAV_VALID_HEADINGS.includes(headingType)) {
       throw new Error(
-        `Invalid heading type: ${headingType}. Please use one or more of the following: ${IN_PAGE_NAV_VALID_HEADINGS}`
+        `In-page navigation: data-header-selector attribute defined with an invalid heading type: "${headingType}".
+        Define the attribute with one or more of the following: "${IN_PAGE_NAV_VALID_HEADINGS}".
+        Do not use commas or other punctuation in the attribute definition.`
       );
     }
     contentHeadingTypes.push(`${selectedContentRegion} ${headingType}`);
