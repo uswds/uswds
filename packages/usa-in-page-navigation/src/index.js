@@ -242,8 +242,9 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavContentSelector = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
   }`;
-  const inPageNavHeadingSelector =
-    inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS;
+  const inPageNavHeadingSelector = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS
+  }`;
 
   const options = {
     root: null,
