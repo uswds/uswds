@@ -19,9 +19,9 @@ const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
+const IN_PAGE_NAV_PRIMARY_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--primary`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
 const IN_PAGE_NAV_TITLE_CLASS = `${IN_PAGE_NAV_CLASS}__heading`;
-const SUB_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--sub-item`;
 const MAIN_ELEMENT = "main";
 
 /**
@@ -276,14 +276,13 @@ const createInPageNav = (inPageNavEl) => {
     const textContentOfLink = el.textContent;
     const tag = el.tagName.toLowerCase();
     const topHeadingLevel = getTopLevelHeading(sectionHeadings);
+    const headingId = getHeadingId(el);
+
+    listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
 
     if (tag === topHeadingLevel) {
-      listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
-    } else {
-      listItem.classList.add(SUB_ITEM_CLASS);
+      listItem.classList.add(IN_PAGE_NAV_PRIMARY_ITEM_CLASS);
     }
-
-    const headingId = getHeadingId(el);
 
     navLinks.setAttribute("href", `#${headingId}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
