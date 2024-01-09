@@ -51,12 +51,10 @@ $icon-offset: $icon-width + ($input-padding * 2);
     }
   }
 
-  @media (forced-colors: active) {
-    // If input is disabled, set usa-input-group border
-    &:has(input:disabled),
-    &:has(input[aria-disabled="true"]) {
-      @include u-disabled-high-contrast-border;
-    }
+  // If input is disabled, set usa-input-group border
+  &:has(input:disabled),
+  &:has(input[aria-disabled="true"]) {
+    @include u-disabled-high-contrast-border;
   }
 }
 

@@ -87,7 +87,6 @@ $breadcrumb-back-icon-aspect: (
 .usa-breadcrumb__list-item {
   @include sr-only;
   @include u-display("inline");
-  @include u-white-space("no-wrap");
 
   @include at-media-max($theme-breadcrumb-min-width) {
     @include u-white-space("wrap");

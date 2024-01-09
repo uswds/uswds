@@ -154,7 +154,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   tr {
     border-bottom: units(0.5) solid color($theme-table-border-color);
     border-top-width: 0;
-    display: block;
     width: 100%;
     th:first-child,
     td:first-child {

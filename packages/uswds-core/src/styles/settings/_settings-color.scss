@@ -116,12 +116,11 @@ $theme-color-info-darker: "blue-cool-60" !default;
 
 // Disabled colors
 $theme-color-disabled-family: "gray" !default;
-$theme-color-disabled-light: "gray-10" !default;
-$theme-color-disabled: "gray-20" !default;
-$theme-color-disabled-dark: "gray-30" !default;
-$theme-color-disabled-text: "gray-50";
-$theme-color-disabled-text-reverse: "gray-40";
-$theme-color-text-on-disabled: "gray-70";
+$theme-color-disabled-lighter: "gray-20" !default;
+$theme-color-disabled-light: "gray-40" !default;
+$theme-color-disabled: "gray-50" !default;
+$theme-color-disabled-dark: "gray-70" !default;
+$theme-color-disabled-darker: "gray-90" !default;
 
 // Emergency colors
 $theme-color-emergency: "red-warm-60v" !default;
