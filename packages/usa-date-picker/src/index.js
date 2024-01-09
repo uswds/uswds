@@ -80,30 +80,41 @@ const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
-const MONTH_LABELS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+const MONTH_DATE_SEED = Array.from({ length: 12 }).map(
+  (_, i) => new Date(0, i)
+);
 
-const DAY_OF_WEEK_LABELS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const DAY_OF_WEEK_DATE_SEED = Array.from({ length: 7 }).map(
+  (_, i) => new Date(0, 0, i)
+);
+
+let monthLabels;
+let dayOfWeeklabels;
+let dayOfWeeksAbv;
+
+function setCalendarLabels() {
+  monthLabels = MONTH_DATE_SEED.map((date) =>
+    date.toLocaleString("es", { month: "long" })
+  );
+
+  dayOfWeeklabels = DAY_OF_WEEK_DATE_SEED.map((date) =>
+    date.toLocaleString("es", {
+      weekday: "long",
+    })
+  );
+
+  dayOfWeeksAbv = DAY_OF_WEEK_DATE_SEED.map((date) =>
+    date.toLocaleString("es", {
+      weekday: "narrow",
+    })
+  );
+}
+
+setCalendarLabels();
+
+window.addEventListener("languagechange", () => {
+  setCalendarLabels();
+});
 
 const ENTER_KEYCODE = 13;
 
@@ -958,7 +969,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
   const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
 
-  const monthLabel = MONTH_LABELS[focusedMonth];
+  const monthLabel = monthLabels[focusedMonth];
 
   const generateDateHtml = (dateToRender) => {
     const classes = [CALENDAR_DATE_CLASS];
@@ -1023,8 +1034,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
 
-    const monthStr = MONTH_LABELS[month];
-    const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
+    const monthStr = monthLabels[month];
+    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1124,22 +1135,12 @@ const renderCalendar = (el, _dateToDisplay) => {
   const tableHeadRow = document.createElement("tr");
   tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
-  const daysOfWeek = {
-    Sunday: "S",
-    Monday: "M",
-    Tuesday: "T",
-    Wednesday: "W",
-    Thursday: "Th",
-    Friday: "Fr",
-    Saturday: "S",
-  };
-
-  Object.keys(daysOfWeek).forEach((key) => {
+  dayOfWeeklabels.forEach((dayOfWeek, i) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
-    th.setAttribute("aria-label", key);
-    th.textContent = daysOfWeek[key];
+    th.setAttribute("aria-label", dayOfWeek);
+    th.textContent = dayOfWeeksAbv[i];
     tableHeadRow.insertAdjacentElement("beforeend", th);
   });
 
@@ -1343,7 +1344,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
   const selectedMonth = calendarDate.getMonth();
   const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
 
-  const months = MONTH_LABELS.map((month, index) => {
+  const months = monthLabels.map((month, index) => {
     const monthToCheck = setMonth(calendarDate, index);
 
     const isDisabled = isDatesMonthOutsideMinOrMax(
