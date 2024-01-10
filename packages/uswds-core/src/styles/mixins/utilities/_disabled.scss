@@ -2,8 +2,19 @@
 @use "../../settings" as *;
 @use "../../variables/border-high-contrast" as *;
 @use "../helpers/set-text-and-bg.scss" as *;
-// Overrides background-color and cursor styles of elements to display as disabled
 
+/// Adds compliant disabled colors and cursor styles to elements to read as disabled.
+/// Falls back to standard disabled tokens if params fail color contrast check.
+///
+/// @param {String} $bg-color - Desired background color token.
+/// @param {String} $text-color - Desired text color token.
+///
+/// @output Theme adjusted disabled styles.
+///
+/// @example scss - Description
+///   .foo {
+///       @include u-disabled("disabled-darker", "white");
+///   }
 @mixin u-disabled($bg-color: "disabled-lighter", $text-color: "disabled-dark") {
   @include set-text-and-bg($bg-color, $text-color);
 
@@ -30,6 +41,14 @@
   }
 }
 
+/// Adds high contrast border using the GrayText system token.
+///
+/// @output Border size, style, and color
+///
+/// @example scss - Description
+///   .foo {
+///       @include u-disabled-high-contrast-border;
+///   }
 @mixin u-disabled-high-contrast-border {
   @media (forced-colors: active) {
     border: $border-high-contrast-disabled;
