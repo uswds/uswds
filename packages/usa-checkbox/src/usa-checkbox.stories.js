@@ -13,8 +13,8 @@ export default {
     indeterminate: {
       name: "Indeterminate option",
       control: { type: "boolean" },
-      defaultValue: false
-    }
+      defaultValue: false,
+    },
   },
 };
 
@@ -52,22 +52,22 @@ Test.argTypes = {
     table: { disable: true },
   },
   indeterminate: {
-    table: { disable: true }
-  }
+    table: { disable: true },
+  },
 };
 
 export const Indeterminate = Template.bind({});
 Indeterminate.argTypes = {
   indeterminate: {
     defaultValue: true,
-    table: { disable: true }
-  }
-}
+    table: { disable: true },
+  },
+};
 
 export const IndeterminateTile = TileTemplate.bind({});
 IndeterminateTile.argTypes = {
   indeterminate: {
     defaultValue: true,
-    table: { disable: true }
-  }
-}
+    table: { disable: true },
+  },
+};
