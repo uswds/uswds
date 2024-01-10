@@ -14,12 +14,12 @@ export default {
       control: { type: "boolean" },
       defaultValue: false,
     },
-    stickyHeader: {
+    sticky_header: {
       name: "Sticky header",
       control: { type: "boolean" },
       defaultValue: false,
     },
-    multipleHeaderRows: {
+    multiple_header_rows: {
       name: "Multiple header rows",
       control: { type: "boolean" },
       defaultValue: false,
@@ -50,7 +50,7 @@ Sortable.args = {
   ...SortableContent,
 };
 Sortable.argTypes = {
-  multipleHeaderRows: {
+  multiple_header_rows: {
     table: { disable: true },
   },
 };
