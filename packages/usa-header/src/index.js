@@ -14,7 +14,7 @@ const NAV = `.${PREFIX}-nav`;
 const NAV_CONTAINER = `.${PREFIX}-nav-container`;
 const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
-const NAV_CONTROL = `button.${PREFIX}-nav__link`;
+const NAV_ACCORDION = `button.${PREFIX}-nav__link`;
 const NAV_LINKS = `${NAV} a`;
 const NON_NAV_HIDDEN_ATTRIBUTE = `data-nav-hidden`;
 const OPENERS = `.${PREFIX}-menu-btn`;
@@ -176,8 +176,8 @@ const focusNavButton = (event) => {
   const parentNavItem = event.target.closest(NAV_PRIMARY_ITEM);
 
   // Only shift focus if within dropdown
-  if (!event.target.matches(NAV_CONTROL)) {
-    const navControl = parentNavItem.querySelector(NAV_CONTROL);
+  if (!event.target.matches(NAV_ACCORDION)) {
+    const navControl = parentNavItem.querySelector(NAV_ACCORDION);
     if (navControl) {
       navControl.focus();
     }
