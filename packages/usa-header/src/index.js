@@ -196,7 +196,7 @@ const handleEscape = (event) => {
  * If link destination is determined to be on a separate page; return false.
  *
  * @param {HTMLAnchorElement} targetLink - Target link clicked in header.
- * @returns {boolean}
+ * @returns {boolean} Return `true` if target is same page.
  */
 const isChildSection = (targetLink) => {
   const baseURL = CURRENT_PAGE.split("#");
@@ -209,26 +209,57 @@ const isChildSection = (targetLink) => {
   return false;
 };
 
+/**
+ * Sets activeNav to clicked accordion, closes any other open navs.
+ *
+ * @param {HTMLButtonElement} clickedAccordion - Clicked NAV_ACCORDION
+ */
+const updateActiveNav = (clickedAccordion) => {
+  // If another nav is open, close it.
+  if (navActive !== clickedAccordion) {
+    hideActiveNavDropdown();
+  }
+
+  // If no active nav, set navActive to clicked nav.
+  if (!navActive) {
+    navActive = clickedAccordion;
+    toggle(navActive, true);
+  }
+};
+
+/**
+ * Checks if nav link is on the curent page, then closes the mobile nav menu if it is.
+ *
+ * @param {HTMLAnchorElement} navLink - Nav link clicked in header.
+ */
+const handleMobileNav = (navLink) => {
+  if (isChildSection(navLink) && isActive()) {
+    navigation.toggleNav.call(navigation, false);
+  }
+};
+
+/**
+ * Collapse nav accordions when focus leaves primary nav
+ */
+const closeOnFocusOut = (event) => {
+  const nav = event.target.closest(NAV_PRIMARY);
+
+  if (!nav.contains(event.relatedTarget)) {
+    hideActiveNavDropdown();
+  }
+};
+
 navigation = behavior(
   {
     [CLICK]: {
-      [NAV_CONTROL]() {
-        // Prevent actions for mobile nav so accordions do not close when their child links are clicked.
-        if (!isActive()) {
-          // If another nav is open, close it
-          if (navActive !== this) {
-            hideActiveNavDropdown();
-          }
-          // store a reference to the last clicked nav link element, so we
-          // can hide the dropdown if another element on the page is clicked
-          if (!navActive) {
-            navActive = this;
-            toggle(navActive, true);
-          }
-        }
+      [NAV_ACCORDION]() {
+        updateActiveNav(this);
 
         // Do this so the event handler on the body doesn't fire
         return false;
+      },
+      [NAV_LINKS]() {
+        handleMobileNav(this);
       },
       [BODY]: hideActiveNavDropdown,
       [OPENERS]: toggleNav,
@@ -260,13 +291,7 @@ navigation = behavior(
       [NAV_PRIMARY]: keymap({ Escape: handleEscape }),
     },
     focusout: {
-      [NAV_PRIMARY](event) {
-        const nav = event.target.closest(NAV_PRIMARY);
-
-        if (!nav.contains(event.relatedTarget)) {
-          hideActiveNavDropdown();
-        }
-      },
+      [NAV_PRIMARY]: closeOnFocusOut,
     },
   },
   {
