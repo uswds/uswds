@@ -10,7 +10,7 @@ export default {
   title: "Components/Table",
   argTypes: {
     scrollable: {
-      name: "Scrollable (Note: Turning this on will disable sticky headers)",
+      name: "Scrollable (Turning this on will disable sticky headers)",
       control: { type: "boolean" },
       defaultValue: false,
     },
