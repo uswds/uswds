@@ -10,7 +10,7 @@ export default {
   title: "Components/Table",
   argTypes: {
     scrollable: {
-      name: "Scrollable (must be turned off for sticky headers to work)",
+      name: "Scrollable (Note: Turning this on will disable sticky headers)",
       control: { type: "boolean" },
       defaultValue: false,
     },
@@ -20,7 +20,7 @@ export default {
       defaultValue: false,
     },
     multiple_header_rows: {
-      name: "Multiple header rows",
+      name: "Multiple header rows (For sticky header tests: Confirm that both thead rows are visible when sticky)",
       control: { type: "boolean" },
       defaultValue: false,
     },
