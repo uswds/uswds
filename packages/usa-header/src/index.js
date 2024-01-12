@@ -196,10 +196,9 @@ const handleEscape = (event) => {
  * @returns {boolean} Return `true` if target is same page.
  */
 const isChildSection = (targetLink) => {
-  const baseURL = CURRENT_PAGE.split("#");
-  const linkDestination = targetLink.href;
-  const linkBaseURL = linkDestination.split("#");
-  if (baseURL[0] === linkBaseURL[0]) {
+  const baseURL = new URL(CURRENT_PAGE);
+  const linkDestination = new URL(targetLink.href);
+  if (baseURL.pathname === linkDestination.pathname) {
     return true;
   }
 
