@@ -40,7 +40,11 @@
     false
   );
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
-  $input-indeterminate: if($input-darkmode, "checkbox-indeterminate-alt", "checkbox-indeterminate");
+  $input-indeterminate: if(
+    $input-darkmode,
+    "checkbox-indeterminate-alt",
+    "checkbox-indeterminate"
+  );
 
   .usa-#{$input-type} {
     background: color($input-bg-color);

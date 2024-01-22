@@ -10,6 +10,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    indeterminate: {
+      name: "Indeterminate option",
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
   },
 };
 
@@ -44,6 +49,25 @@ AriaDisabledTile.args = {
 export const Test = TestTemplate.bind({});
 Test.argTypes = {
   disabled_state: {
+    table: { disable: true },
+  },
+  indeterminate: {
+    table: { disable: true },
+  },
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.argTypes = {
+  indeterminate: {
+    defaultValue: true,
+    table: { disable: true },
+  },
+};
+
+export const IndeterminateTile = TileTemplate.bind({});
+IndeterminateTile.argTypes = {
+  indeterminate: {
+    defaultValue: true,
     table: { disable: true },
   },
 };
