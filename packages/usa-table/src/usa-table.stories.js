@@ -7,7 +7,6 @@ import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
 import TestMultipleStickyRowsComponent from "./test/test-patterns/test-usa-table--multiple-sticky-headers.twig";
 
-
 export default {
   title: "Components/Table",
   argTypes: {
@@ -26,7 +25,8 @@ export default {
 
 const Template = (args) => Component(args);
 const SortableTemplate = (args) => SortableComponent(args);
-const TestMultipleStickyRowsTemplate = (args) => TestMultipleStickyRowsComponent(args);
+const TestMultipleStickyRowsTemplate = (args) =>
+  TestMultipleStickyRowsComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -48,7 +48,9 @@ Sortable.args = {
   ...SortableContent,
 };
 
-export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind({});
+export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
+  {}
+);
 TestStickyHeaderMultipleRows.argTypes = {
   sticky_header: {
     defaultValue: true,
@@ -56,4 +58,4 @@ TestStickyHeaderMultipleRows.argTypes = {
   scrollable: {
     table: { disable: true },
   },
-}
+};
