@@ -5,6 +5,8 @@ import DefaultContent from "./usa-table.json";
 import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
+import TestMultipleStickyRowsComponent from "./test/test-patterns/test-usa-table--multiple-sticky-headers.twig";
+
 
 export default {
   title: "Components/Table",
@@ -19,16 +21,12 @@ export default {
       control: { type: "boolean" },
       defaultValue: false,
     },
-    multiple_header_rows: {
-      name: "Multiple header rows (For sticky header tests: Confirm that both thead rows are visible when sticky)",
-      control: { type: "boolean" },
-      defaultValue: false,
-    },
   },
 };
 
 const Template = (args) => Component(args);
 const SortableTemplate = (args) => SortableComponent(args);
+const TestMultipleStickyRowsTemplate = (args) => TestMultipleStickyRowsComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -49,8 +47,13 @@ export const Sortable = SortableTemplate.bind({});
 Sortable.args = {
   ...SortableContent,
 };
-Sortable.argTypes = {
-  multiple_header_rows: {
+
+export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind({});
+TestStickyHeaderMultipleRows.argTypes = {
+  sticky_header: {
+    defaultValue: true,
+  },
+  scrollable: {
     table: { disable: true },
   },
-};
+}
