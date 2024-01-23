@@ -1,7 +1,11 @@
+{% if sticky_header %}
+  {% set sticky_header_class = "usa-table--sticky-header" %}
+{% endif %}
+
 {% if scrollable %}
 <div class="usa-table-container--scrollable" tabindex="0">
 {% endif %}
-  <table class="usa-table {{sticky_header ? 'usa-table--sticky-header' : ''}}">
+  <table class="usa-table {{ sticky_header ? sticky_header_class }}">
     <caption>Recently admitted US states (sortable table example)</caption>
     <thead>
       <tr>
