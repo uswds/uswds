@@ -224,7 +224,7 @@ const updateActiveNav = (clickedAccordion) => {
 };
 
 /**
- * Checks if nav link is on the curent page, then closes the mobile nav menu if it is.
+ * Check if nav link is on the current page, if so close the mobile nav menu.
  *
  * @param {HTMLAnchorElement} navLink - Nav link clicked in header.
  */
