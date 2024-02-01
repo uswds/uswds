@@ -229,7 +229,7 @@ const updateActiveNav = (clickedAccordion) => {
  * @param {HTMLAnchorElement} navLink - Nav link clicked in header.
  */
 const handleMobileNav = (navLink) => {
-  if (isChildSection(navLink) && isActive()) {
+  if (isChildSection(navLink)) {
     navigation.toggleNav.call(navigation, false);
   }
 };
