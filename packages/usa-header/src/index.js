@@ -190,19 +190,19 @@ const handleEscape = (event) => {
 };
 
 /**
- * Takes clicked link and current url, removes any hash from the link, and compares them.
+ * Takes current url and the url from the clicked link, then compares link origin and path without any hash to
+ * deterimine if the link is to a subsection of current page.
  *
  * @param {HTMLAnchorElement} targetLink - Target link clicked in header.
- * @returns {boolean} Return `true` if target is same page.
+ * @returns {boolean} Return `true` if target is same page || Return `false` if target is on a different page.
  */
 const isChildSection = (targetLink) => {
   const baseURL = new URL(CURRENT_PAGE);
   const linkDestination = new URL(targetLink.href);
-  if (baseURL.pathname === linkDestination.pathname) {
-    return true;
-  }
+  const currentURLPath = baseURL.origin + baseURL.pathname;
+  const linkURLPath = linkDestination.origin + linkDestination.pathname;
 
-  return false;
+  return currentURLPath === linkURLPath;
 };
 
 /**
