@@ -11,7 +11,7 @@
 ///
 /// @output Theme adjusted disabled styles.
 ///
-/// @example scss - Description
+/// @example scss
 ///   .foo {
 ///       @include u-disabled("disabled-darker", "white");
 ///   }
@@ -43,12 +43,13 @@
 
 /// Adds high contrast border using the GrayText system token.
 ///
-/// @output Border size, style, and color
+/// @output Border size, style, and color.
 ///
-/// @example scss - Description
+/// @example scss
 ///   .foo {
 ///       @include u-disabled-high-contrast-border;
 ///   }
+///
 @mixin u-disabled-high-contrast-border {
   @media (forced-colors: active) {
     border: $border-high-contrast-disabled;
