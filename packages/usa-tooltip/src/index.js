@@ -171,7 +171,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.left = `${
       tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
     }px`;
-    e.style.margin = `${topMargin / -2}px 0 0 0`;
+    e.style.margin = `${-topMargin / 2}px 0 0 0`;
   };
 
   /**
