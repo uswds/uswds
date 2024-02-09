@@ -1,3 +1,5 @@
+import "./Banner";
+
 import component from "./usa-banner.twig";
 import {
   DefaultContent,
@@ -35,3 +37,5 @@ MilSpanish.args = {
   ...defaults,
   ...MilContentLangEs,
 };
+
+export const BannerWCTest = () => `<usa-banner></usa-banner>`;
