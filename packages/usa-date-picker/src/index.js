@@ -5,7 +5,6 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const activeElement = require("../../uswds-core/src/js/utils/active-element");
-const isIosDevice = require("../../uswds-core/src/js/utils/is-ios-device");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
@@ -61,7 +60,6 @@ const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
-const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
