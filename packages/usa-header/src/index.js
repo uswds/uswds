@@ -28,8 +28,6 @@ const NON_NAV_HIDDEN = `[${NON_NAV_HIDDEN_ATTRIBUTE}]`;
 const ACTIVE_CLASS = "usa-js-mobile-nav--active";
 const VISIBLE_CLASS = "is-visible";
 
-const CURRENT_PAGE = window.location.href;
-
 let navigation;
 let navActive;
 let nonNavElements;
@@ -196,9 +194,9 @@ const handleEscape = (event) => {
  * @returns {boolean} Return `true` if target is same page || Return `false` if target is on a different page.
  */
 const isChildSection = (targetLink) => {
-  const baseURL = new URL(CURRENT_PAGE);
+  const currentPage = window.location;
   const linkDestination = new URL(targetLink.href);
-  const currentURLPath = baseURL.origin + baseURL.pathname;
+  const currentURLPath = currentPage.origin + currentPage.pathname;
   const linkURLPath = linkDestination.origin + linkDestination.pathname;
 
   return currentURLPath === linkURLPath;
