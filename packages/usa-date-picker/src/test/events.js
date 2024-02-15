@@ -219,19 +219,6 @@ EVENTS.keydownShiftPageDown = (el = document.activeElement) => {
 };
 
 /**
- * send a mouseover event
- * @param {HTMLElement} el the element to sent the event to
- *
- */
-EVENTS.mouseover = (el) => {
-  const evt = new MouseEvent("mouseover", {
-    bubbles: true,
-    cancelable: true,
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
  * send a keydown Tab event
  * @param {HTMLElement} el the element to sent the event to
  */
