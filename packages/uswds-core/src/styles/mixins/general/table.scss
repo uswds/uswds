@@ -143,6 +143,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     border-bottom-width: 0;
     display: block;
     width: 100%;
+    font-weight: fw("normal");
+    background-color: inherit;
   }
 
   tr {
@@ -183,8 +185,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 }
 
 @mixin table-stacked-header-styles {
-  tr {
-    td:first-child,
+    tr {
+        td:first-child,
     th:first-child {
       @include typeset(
         $theme-body-font-family,
@@ -326,6 +328,16 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     /* stylelint-enable selector-class-pattern */
   }
 
+  tbody {
+    th {
+      background-color: transparent;
+    }
+  }
+
+  th {
+    background-color: transparent;
+  }
+
   th,
   td {
     border-left: 0;
@@ -343,8 +355,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--striped {
   tbody {
     tr:nth-child(odd) {
-      td,
-      th {
+      td {
         background-color: color($theme-table-stripe-background-color);
         color: $table-stripe-text-color;
         &[data-sort-active] {
