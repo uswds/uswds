@@ -185,8 +185,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 }
 
 @mixin table-stacked-header-styles {
-    tr {
-        td:first-child,
+  tr {
+    td:first-child,
     th:first-child {
       @include typeset(
         $theme-body-font-family,
