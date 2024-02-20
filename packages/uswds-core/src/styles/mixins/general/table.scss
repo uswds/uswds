@@ -231,13 +231,23 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   tbody {
     th {
       text-align: left;
+      background-color: color($theme-table-header-background-color);
+      color: $table-header-text-color;
+      font-weight: fw("bold");
     }
+  }
+  th {
+    background-color: color($theme-table-header-background-color);
+    color: $table-header-text-color;
+    font-weight: fw("bold");
+  }
+  td {
+    background-color: color($theme-body-background-color);
+    font-weight: fw("normal");
   }
   th,
   td {
-    background-color: color($theme-body-background-color);
     border: 1px solid color($theme-table-border-color);
-    font-weight: fw("normal");
     padding: units(1) units(2);
   }
 
