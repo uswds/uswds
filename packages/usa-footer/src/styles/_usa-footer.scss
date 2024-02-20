@@ -25,33 +25,33 @@ $-chevron-expand-more: map-merge(
 // Grid styles ported over to remove dependency
 .grid-row {
   @include grid-row;
+
+  .grid-gap-1 {
+    @include grid-gap(1);
+  }
+
+  .grid-gap-2 {
+    @include grid-gap(2);
+  }
+
+  .grid-gap-4 {
+    @include grid-gap(4);
+  }
+
+  // Gaps: Mobile Large
+  /* stylelint-disable */
+  @include at-media("mobile-lg") {
+    .mobile-lg\:grid-gap-2 {
+      @include grid-gap(2);
+    }
+  }
+  /* stylelint-enable */
 }
 
 // Gaps
 .grid-gap {
   @include grid-gap;
 }
-
-.grid-gap-1 {
-  @include grid-gap(1);
-}
-
-.grid-gap-2 {
-  @include grid-gap(2);
-}
-
-.grid-gap-4 {
-  @include grid-gap(4);
-}
-
-// Gaps: Mobile Large
-/* stylelint-disable */
-@include at-media("mobile-lg") {
-  .mobile-lg\:grid-gap-2 {
-    @include grid-gap(2);
-  }
-}
-/* stylelint-enable */
 
 // Columns
 [class*="grid-col"] {
