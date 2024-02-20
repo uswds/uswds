@@ -9,7 +9,7 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("packages/usa-date-range-picker/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src("packages/usa-*/**/*.spec.js").pipe(mocha(mochaConfig));
   },
 
   sassTests() {
