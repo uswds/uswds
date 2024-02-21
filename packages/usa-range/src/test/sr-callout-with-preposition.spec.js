@@ -4,7 +4,7 @@ const assert = require("assert");
 const range = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "./sr-callout-with-preposition.spec.html")
+  path.join(__dirname, "./sr-callout-with-preposition.spec.html"),
 );
 
 const EVENTS = {};
@@ -49,7 +49,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           valueText,
           "20 de 100",
-          "initial value is incorrect"
+          "initial value is incorrect",
         );
       });
 
@@ -63,7 +63,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           valueText,
           "30 de 100",
-          "Screen reader value does not match range value"
+          "Screen reader value does not match range value",
         );
       });
     });

@@ -4,7 +4,7 @@ const assert = require("assert");
 const CharacterCount = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/valid-template-multiple-validators.template.html")
+  path.join(__dirname, "/valid-template-multiple-validators.template.html"),
 );
 
 const EVENTS = {};
@@ -85,7 +85,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         input.validationMessage,
-        CharacterCount.VALIDATION_MESSAGE
+        CharacterCount.VALIDATION_MESSAGE,
       );
 
       input.value = "abcde";

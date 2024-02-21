@@ -47,7 +47,7 @@
           var value = arguments[i + 1] || "";
           result += String(value).replace(
             Sanitizer._entity,
-            Sanitizer.getEntity
+            Sanitizer.getEntity,
           );
         }
       }
@@ -66,7 +66,7 @@
 
       var escaped = Sanitizer.escapeHTML.apply(
         Sanitizer,
-        [strings].concat(values)
+        [strings].concat(values),
       );
       return {
         __html: escaped,

@@ -4,7 +4,7 @@ const assert = require("assert");
 const InputMask = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/input-mask.template.html")
+  path.join(__dirname, "/input-mask.template.html"),
 );
 
 const EVENTS = {};

@@ -259,10 +259,10 @@ const enhanceFileInput = (fileInputEl) => {
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
-    `.${PREVIEW_HEADING_CLASS}`
+    `.${PREVIEW_HEADING_CLASS}`,
   );
   const currentErrorMessage = dropTarget.querySelector(
-    `.${ACCEPTED_FILE_MESSAGE_CLASS}`
+    `.${ACCEPTED_FILE_MESSAGE_CLASS}`,
   );
 
   /**
@@ -386,7 +386,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
         "afterend",
         Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
           <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
-        <div>`
+        <div>`,
       );
     };
 
@@ -396,7 +396,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       if (fileName.indexOf(".pdf") > 0) {
         previewImage.setAttribute(
           "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`,
         );
       } else if (
         fileName.indexOf(".doc") > 0 ||
@@ -404,7 +404,7 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       ) {
         previewImage.setAttribute(
           "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`,
         );
       } else if (
         fileName.indexOf(".xls") > 0 ||
@@ -412,17 +412,17 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
       ) {
         previewImage.setAttribute(
           "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`,
         );
       } else if (fileName.indexOf(".mov") > 0 || fileName.indexOf(".mp4") > 0) {
         previewImage.setAttribute(
           "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`,
         );
       } else {
         previewImage.setAttribute(
           "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`
+          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`,
         );
       }
 
@@ -548,7 +548,7 @@ const fileInput = behavior(
           function handleDragOver() {
             this.classList.add(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -556,7 +556,7 @@ const fileInput = behavior(
           function handleDragLeave() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -564,13 +564,13 @@ const fileInput = behavior(
           function handleDrop() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         fileInputEl.addEventListener(
           "change",
           (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
-          false
+          false,
         );
       });
     },
@@ -579,7 +579,7 @@ const fileInput = behavior(
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
         fileInputTopElement.parentElement.replaceChild(
           fileInputEl,
-          fileInputTopElement
+          fileInputTopElement,
         );
         // eslint-disable-next-line no-param-reassign
         fileInputEl.className = DROPZONE_CLASS;
@@ -589,7 +589,7 @@ const fileInput = behavior(
     disable,
     ariaDisable,
     enable,
-  }
+  },
 );
 
 module.exports = fileInput;

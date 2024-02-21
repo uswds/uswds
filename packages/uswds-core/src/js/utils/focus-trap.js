@@ -59,8 +59,8 @@ module.exports = (context, additionalKeyBindings = {}) => {
         Tab: tabEventHandler.tabAhead,
         "Shift+Tab": tabEventHandler.tabBack,
       },
-      additionalKeyBindings
-    )
+      additionalKeyBindings,
+    ),
   );
 
   const focusTrap = behavior(
@@ -82,7 +82,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
           this.off();
         }
       },
-    }
+    },
   );
 
   return focusTrap;

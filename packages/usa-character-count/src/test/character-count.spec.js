@@ -6,7 +6,7 @@ const CharacterCount = require("../index");
 const { VALIDATION_MESSAGE, MESSAGE_INVALID_CLASS } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/character-count.template.html")
+  path.join(__dirname, "/character-count.template.html"),
 );
 
 const EVENTS = {};
@@ -55,13 +55,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("hides the requirements hint for screen readers", () => {
       assert.strictEqual(
         requirementsMessage.classList.contains("usa-sr-only"),
-        true
+        true,
       );
     });
 
     it("creates a visual status message on init", () => {
       const visibleStatus = document.querySelectorAll(
-        ".usa-character-count__status"
+        ".usa-character-count__status",
       );
 
       assert.strictEqual(visibleStatus.length, 1);
@@ -69,7 +69,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("creates a screen reader status message on init", () => {
       const srStatus = document.querySelectorAll(
-        ".usa-character-count__sr-status"
+        ".usa-character-count__sr-status",
       );
 
       assert.strictEqual(srStatus.length, 1);
@@ -78,7 +78,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("adds initial status message for the character count component", () => {
       assert.strictEqual(
         statusMessageVisual.innerHTML,
-        "20 characters allowed"
+        "20 characters allowed",
       );
       assert.strictEqual(statusMessageSR.innerHTML, "20 characters allowed");
     });
@@ -106,7 +106,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
-        "1 character over limit"
+        "1 character over limit",
       );
     });
 
@@ -117,7 +117,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         statusMessageVisual.innerHTML,
-        "5 characters over limit"
+        "5 characters over limit",
       );
     });
 
@@ -129,7 +129,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(input.validationMessage, "");
       assert.strictEqual(
         statusMessageVisual.classList.contains(MESSAGE_INVALID_CLASS),
-        false
+        false,
       );
     });
 
@@ -141,7 +141,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
       assert.strictEqual(
         statusMessageVisual.classList.contains(MESSAGE_INVALID_CLASS),
-        true
+        true,
       );
     });
 

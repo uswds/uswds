@@ -4,7 +4,7 @@ const assert = require("assert");
 const DatePicker = require("../index");
 
 const INVALID_TEMPLATE_NO_INPUT = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-input.template.html")
+  path.join(__dirname, "/invalid-template-no-input.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");

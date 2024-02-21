@@ -115,7 +115,7 @@ const toggleNav = (active) => {
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
   select(TOGGLES).forEach((el) =>
-    el.classList.toggle(VISIBLE_CLASS, safeActive)
+    el.classList.toggle(VISIBLE_CLASS, safeActive),
   );
 
   navigation.focusTrap.update(safeActive);
@@ -261,7 +261,7 @@ navigation = behavior(
     },
     focusTrap: null,
     toggleNav,
-  }
+  },
 );
 
 module.exports = navigation;

@@ -5,7 +5,7 @@ const DatePicker = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker.template.html")
+  path.join(__dirname, "/date-picker.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -37,18 +37,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
       assert.ok(
         document.activeElement.classList.contains(
-          "usa-date-picker__calendar__date--focused"
+          "usa-date-picker__calendar__date--focused",
         ),
-        "focuses correct item"
+        "focuses correct item",
       );
 
       EVENTS.keydownTab();
 
       assert.ok(
         document.activeElement.classList.contains(
-          "usa-date-picker__calendar__previous-year"
+          "usa-date-picker__calendar__previous-year",
         ),
-        "focuses correct item"
+        "focuses correct item",
       );
     });
 
@@ -57,18 +57,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.keydownTab();
       assert.ok(
         document.activeElement.classList.contains(
-          "usa-date-picker__calendar__previous-year"
+          "usa-date-picker__calendar__previous-year",
         ),
-        "focuses correct item"
+        "focuses correct item",
       );
 
       EVENTS.keydownShiftTab();
 
       assert.ok(
         document.activeElement.classList.contains(
-          "usa-date-picker__calendar__date--focused"
+          "usa-date-picker__calendar__date--focused",
         ),
-        "focuses correct item"
+        "focuses correct item",
       );
     });
   });

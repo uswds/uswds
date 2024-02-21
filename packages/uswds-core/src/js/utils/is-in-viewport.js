@@ -2,7 +2,7 @@
 function isElementInViewport(
   el,
   win = window,
-  docEl = document.documentElement
+  docEl = document.documentElement,
 ) {
   const rect = el.getBoundingClientRect();
 
