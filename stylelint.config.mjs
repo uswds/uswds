@@ -1,4 +1,4 @@
-{
+export default {
   "extends": [
     "@18f/identity-stylelint-config"
   ],
