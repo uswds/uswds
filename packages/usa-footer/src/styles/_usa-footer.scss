@@ -26,22 +26,22 @@ $-chevron-expand-more: map-merge(
 .grid-row {
   @include grid-row;
 
-  .grid-gap-1 {
+  &.grid-gap-1 {
     @include grid-gap(1);
   }
 
-  .grid-gap-2 {
+  &.grid-gap-2 {
     @include grid-gap(2);
   }
 
-  .grid-gap-4 {
+  &.grid-gap-4 {
     @include grid-gap(4);
   }
 
   // Gaps: Mobile Large
   /* stylelint-disable */
   @include at-media("mobile-lg") {
-    .mobile-lg\:grid-gap-2 {
+    &.mobile-lg\:grid-gap-2 {
       @include grid-gap(2);
     }
   }
