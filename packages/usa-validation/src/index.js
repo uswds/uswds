@@ -62,10 +62,10 @@ const validator = behavior(
   {
     init(root) {
       selectOrMatches(VALIDATE_INPUT, root).forEach((input) =>
-        enhanceValidation(input)
+        enhanceValidation(input),
       );
     },
-  }
+  },
 );
 
 module.exports = validator;

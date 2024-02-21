@@ -79,7 +79,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const offsetMargin = (target, propertyValue) =>
     parseInt(
       window.getComputedStyle(target).getPropertyValue(propertyValue),
-      10
+      10,
     );
 
   // offsetLeft = the left position, and margin of the element, the left
@@ -98,7 +98,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const calculateMarginOffset = (
     marginPosition,
     tooltipBodyOffset,
-    trigger
+    trigger,
   ) => {
     const offset =
       offsetMargin(trigger, `margin-${marginPosition}`) > 0
@@ -119,13 +119,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     setPositionClass("top");
@@ -145,7 +145,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     setPositionClass("bottom");
@@ -163,7 +163,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     setPositionClass("right");
@@ -184,7 +184,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     // we have to check for some utility margins
@@ -193,7 +193,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       tooltipTrigger.offsetLeft > e.offsetWidth
         ? tooltipTrigger.offsetLeft - e.offsetWidth
         : e.offsetWidth,
-      tooltipTrigger
+      tooltipTrigger,
     );
 
     setPositionClass("left");
@@ -394,7 +394,7 @@ const tooltip = behavior(
     getTooltipElements,
     show: showToolTip,
     hide: hideToolTip,
-  }
+  },
 );
 
 module.exports = tooltip;
