@@ -1,4 +1,5 @@
 {
+  "scrollable": true,
   "modifier": "usa-table--compact",
   "caption": "Compact scrollable table"
 }
