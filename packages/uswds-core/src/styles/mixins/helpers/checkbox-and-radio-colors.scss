@@ -142,6 +142,22 @@
           }
         }
       }
+      &:indeterminate,
+      &[data-indeterminate] {
+        &,
+        &:checked {
+          @include format-input {
+            @include add-background-svg($input-indeterminate);
+            background-position: center center;
+            background-size: units(1.5) auto;
+
+            @media (forced-colors: active) {
+              @include add-background-svg("checkbox-indeterminate-alt");
+              background-color: color(SelectedItem);
+            }
+          }
+        }
+      }
       &:checked:disabled,
       &:checked[aria-disabled="true"],
       &:indeterminate:disabled,
@@ -152,17 +168,6 @@
           background-color: color("disabled");
           @media (forced-colors: active) {
             background-color: color(GrayText);
-          }
-        }
-      }
-      &:indeterminate,
-      &[data-indeterminate] {
-        &,
-        &:checked {
-          @include format-input {
-            @include add-background-svg($input-indeterminate);
-            background-position: center center;
-            background-size: units(1.5) auto;
           }
         }
       }
