@@ -1,7 +1,7 @@
 {
+  "scrollable": true,
   "modifier": "",
   "caption": "Scrollable table",
-  "scrollable": true,
   "thead": [
     {
       "title": "Document title",

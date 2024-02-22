@@ -1,5 +1,4 @@
 {
-  "scrollable": true,
   "modifier": "usa-table--striped",
   "caption": "Scrollable table with horizontal stripes"
 }
