@@ -14,7 +14,7 @@ const NAV = `.${PREFIX}-nav`;
 const NAV_CONTAINER = `.${PREFIX}-nav-container`;
 const NAV_PRIMARY = `.${PREFIX}-nav__primary`;
 const NAV_PRIMARY_ITEM = `.${PREFIX}-nav__primary-item`;
-const NAV_ACCORDION = `button.${PREFIX}-nav__link`;
+const NAV_CONTROL = `button.${PREFIX}-nav__link`;
 const NAV_LINKS = `${NAV} a`;
 const NON_NAV_HIDDEN_ATTRIBUTE = `data-nav-hidden`;
 const OPENERS = `.${PREFIX}-menu-btn`;
@@ -174,8 +174,8 @@ const focusNavButton = (event) => {
   const parentNavItem = event.target.closest(NAV_PRIMARY_ITEM);
 
   // Only shift focus if within dropdown
-  if (!event.target.matches(NAV_ACCORDION)) {
-    const navControl = parentNavItem.querySelector(NAV_ACCORDION);
+  if (!event.target.matches(NAV_CONTROL)) {
+    const navControl = parentNavItem.querySelector(NAV_CONTROL);
     if (navControl) {
       navControl.focus();
     }
@@ -205,7 +205,7 @@ const isChildSection = (targetLink) => {
 /**
  * Sets activeNav to clicked accordion, closes any other open navs.
  *
- * @param {HTMLButtonElement} clickedAccordion - Clicked NAV_ACCORDION
+ * @param {HTMLButtonElement} clickedAccordion - Clicked NAV_CONTROL
  */
 const updateActiveNav = (clickedAccordion) => {
   // If another nav is open, close it.
@@ -245,7 +245,7 @@ const closeOnFocusOut = (event) => {
 navigation = behavior(
   {
     [CLICK]: {
-      [NAV_ACCORDION]() {
+      [NAV_CONTROL]() {
         updateActiveNav(this);
 
         // Do this so the event handler on the body doesn't fire
