@@ -5,11 +5,12 @@ body:
     attributes:
       value: |
         Thanks for sharing your new component suggestion for the U.S. Web Design System (USWDS).
-        </p><p>
+        
         We ask for a lot of detail in this form, but it’s okay to start with basic information. Only the fields marked with an asterisk (*) are required at this time. You can work with the community to add more detail after you start this discussion. It helps if you link to supporting evidence and research wherever you can.
-        </p><p>
-        <a href="https://github.com/uswds/uswds/discussions/5764">Learn more about the component proposal process</a>.
-        <h2>About this component</h2>
+        
+        [Learn more about the component proposal process](https://github.com/uswds/uswds/discussions/5764).
+        
+        ## About this component
   - type: textarea
     id: name
     attributes:
