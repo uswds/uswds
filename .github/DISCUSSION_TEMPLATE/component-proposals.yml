@@ -10,7 +10,7 @@ body:
         
         [Learn more about the component proposal process](https://github.com/uswds/uswds/discussions/5764).
         
-        ## About this component
+        ## The basics
   - type: textarea
     id: name
     attributes:
@@ -25,7 +25,7 @@ body:
     attributes:
       label: 'Component description'
       description: |
-        Briefly describe the component.
+        Briefly tell us the purpose of this component.
       value:
     validations:
       required: true
@@ -38,6 +38,10 @@ body:
       value:
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Component details
   - type: textarea
     id: design
     attributes:
