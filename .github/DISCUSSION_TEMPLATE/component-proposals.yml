@@ -54,7 +54,7 @@ body:
   - type: textarea
     id: implementation
     attributes:
-      label: 'Real-life examples'
+      label: 'Real-world examples'
       description: |
         Link to examples of other sites — preferably government sites — that use this kind of component.
       value:
