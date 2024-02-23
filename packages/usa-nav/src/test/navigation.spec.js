@@ -33,6 +33,7 @@ describe("navigation toggle", () => {
   let header;
   let nav;
   let navControl;
+  let navPrimary;
   let overlay;
   let closeButton;
   let menuButton;
@@ -49,6 +50,7 @@ describe("navigation toggle", () => {
     header = body.querySelector(".usa-header");
     nav = body.querySelector(".usa-nav");
     navControl = body.querySelector(".usa-nav__link");
+    navPrimary = body.querySelector(".usa-nav__primary");
     overlay = body.querySelector(".usa-overlay");
     closeButton = body.querySelector(".usa-nav__close");
     menuButton = body.querySelector(".usa-menu-btn");
@@ -174,6 +176,14 @@ describe("navigation toggle", () => {
     assert.strictEqual(isVisible(nav), false);
     assert.strictEqual(isVisible(overlay), false);
     assert.strictEqual(document.activeElement, menuButton);
+  });
+
+  it("collapses dropdowns when focus leaves nav", () => {
+    menuButton.click();
+    accordionButton.click();
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "true");
+    EVENTS.focusOut(navPrimary);
+    assert.strictEqual(accordionButton.getAttribute("aria-expanded"), "false");
   });
 
   describe("off()", () => {
