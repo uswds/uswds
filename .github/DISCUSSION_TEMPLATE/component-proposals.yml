@@ -4,9 +4,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for sharing your new component suggestion for the U.S. Web Design System (USWDS).
+        Thank you for suggesting a new component for the U.S. Web Design System (USWDS).
         
-        We ask for a lot of detail in this form, but it’s okay to start with basic information. Only the fields marked with an asterisk (*) are required at this time. You can work with the community to add more detail after you start this discussion. It helps if you link to supporting evidence and research wherever you can.
+        To get the discussion started, you just need to fill out the three fields marked with an asterisk (*). Then collaborate with the community to add supporting evidence and research, and get feedback. The work you do now can help the USWDS team create a formal component proposal.
         
         [Learn more about the component proposal process](https://github.com/uswds/uswds/discussions/5764).
         
