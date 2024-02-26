@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-disabled.template.html")
+  path.join(__dirname, "/date-picker-disabled.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -22,7 +22,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let button;
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -44,7 +44,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         true,
-        "the calendar is hidden"
+        "the calendar is hidden",
       );
     });
 
@@ -55,7 +55,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "the calendar is shown"
+        "the calendar is shown",
       );
     });
   });

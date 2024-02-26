@@ -4,7 +4,7 @@ const assert = require("assert");
 const ComboBox = require("../index");
 
 const INVALID_TEMPLATE_NO_MESSAGE = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-select.template.html")
+  path.join(__dirname, "/invalid-template-no-select.template.html"),
 );
 
 describe("character count component without message", () => {

@@ -51,7 +51,7 @@ const setActive = (el) => {
  */
 const getSectionHeadings = (mainContentSelector) => {
   const sectionHeadings = document.querySelectorAll(
-    `${mainContentSelector} h2, ${mainContentSelector} h3`
+    `${mainContentSelector} h2, ${mainContentSelector} h3`,
   );
 
   // Convert nodeList to an array to allow for filtering
@@ -77,7 +77,7 @@ const getSectionHeadings = (mainContentSelector) => {
  */
 const getSectionAnchors = () => {
   const sectionAnchors = document.querySelectorAll(
-    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
+    `.${IN_PAGE_NAV_ANCHOR_CLASS}`,
   );
   return sectionAnchors;
 };
@@ -273,7 +273,7 @@ const handleEnterFromLink = (event) => {
       "blur",
       once(() => {
         target.setAttribute("tabindex", -1);
-      })
+      }),
     );
   } else {
     // throw an error?
@@ -303,7 +303,7 @@ const inPageNavigation = behavior(
         scrollToCurrentSection();
       });
     },
-  }
+  },
 );
 
 module.exports = inPageNavigation;

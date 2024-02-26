@@ -4,7 +4,7 @@ const assert = require("assert");
 const ComboBox = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box-default-value.template.html")
+  path.join(__dirname, "/combo-box-default-value.template.html"),
 );
 
 const tests = [
@@ -42,12 +42,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.value,
           "Blackberry",
-          "updates the default value of the input"
+          "updates the default value of the input",
         );
         assert.strictEqual(
           select.value,
           "blackberry",
-          "updates the default value of the select"
+          "updates the default value of the select",
         );
       });
     });

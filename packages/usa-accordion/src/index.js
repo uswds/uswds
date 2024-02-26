@@ -94,7 +94,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-  }
+  },
 );
 
 module.exports = accordion;

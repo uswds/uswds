@@ -23,7 +23,7 @@ module.exports = function validate(el) {
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const validatorParent = el.parentNode;
       const statusSummaryContainer = validatorParent.querySelector(
-        `[data-validation-status]`
+        `[data-validation-status]`,
       );
 
       const checked = validatorPattern.test(el.value);

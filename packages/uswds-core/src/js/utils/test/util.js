@@ -26,6 +26,6 @@ exports.render = (data, includePaths) =>
         } else {
           resolve();
         }
-      }
+      },
     );
   });

@@ -83,7 +83,7 @@ const search = behavior(
       // forget the last button clicked
       lastButton = undefined;
     },
-  }
+  },
 );
 
 module.exports = search;

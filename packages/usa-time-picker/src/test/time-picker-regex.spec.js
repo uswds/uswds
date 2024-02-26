@@ -14,13 +14,13 @@ describe("time picker regex", () => {
     assert.strictEqual(
       test(inputQuery, testValue),
       true,
-      `${inputQuery} should find ${testValue}`
+      `${inputQuery} should find ${testValue}`,
     );
   const notOk = (inputQuery, testValue) =>
     assert.strictEqual(
       test(inputQuery, testValue),
       false,
-      `${inputQuery} should not find ${testValue}`
+      `${inputQuery} should not find ${testValue}`,
     );
 
   it("should match a starts with selection", () => {

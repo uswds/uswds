@@ -20,7 +20,7 @@
             : target.cloneNode(!0),
           g = document.createElementNS(
             svg.namespaceURI || "http://www.w3.org/2000/svg",
-            "g"
+            "g",
           );
         clone.childNodes.length;
 

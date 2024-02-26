@@ -4,7 +4,7 @@ const assert = require("assert");
 const ComboBox = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box-placeholder.template.html")
+  path.join(__dirname, "/combo-box-placeholder.template.html"),
 );
 
 const tests = [
@@ -40,7 +40,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.placeholder,
           "Select one...",
-          "transfers placeholder attribute from combo box"
+          "transfers placeholder attribute from combo box",
         );
       });
     });

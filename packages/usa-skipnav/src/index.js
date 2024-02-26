@@ -11,7 +11,7 @@ function setTabindex() {
   // href already begins with '#'
   const id = encodeURI(this.getAttribute("href"));
   const target = document.getElementById(
-    id === "#" ? MAINCONTENT : id.slice(1)
+    id === "#" ? MAINCONTENT : id.slice(1),
   );
 
   if (target) {
@@ -22,7 +22,7 @@ function setTabindex() {
       "blur",
       once(() => {
         target.setAttribute("tabindex", -1);
-      })
+      }),
     );
   } else {
     // throw an error?

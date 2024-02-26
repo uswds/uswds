@@ -99,7 +99,7 @@ languageSelector = behavior(
       languageActive = false;
     },
     focusTrap: null,
-  }
+  },
 );
 
 module.exports = languageSelector;
