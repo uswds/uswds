@@ -19,12 +19,6 @@
     <caption>{{ caption }}</caption>
   {% endif %}
 
-  {% if scrollable %}
-    <col>
-    <colgroup span="2"></colgroup>
-    <colgroup span="2"></colgroup>
-  {% endif %}
-
   <thead>
     {% for i in header_loop_count %}
       <tr>
@@ -53,5 +47,4 @@
 
 {% if scrollable %}
   </div>
-  <p>* in billions of dollars. Data for illustration purposes only.</p>
 {% endif %}
