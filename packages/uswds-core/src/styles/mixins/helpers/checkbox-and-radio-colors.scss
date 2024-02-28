@@ -129,6 +129,19 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
+      &:indeterminate,
+      &[data-indeterminate] {
+        @include format-input {
+          @include add-background-svg($input-indeterminate);
+          background-position: center center;
+          background-size: units(1.5) auto;
+
+          @media (forced-colors: active) {
+            @include add-background-svg("checkbox-indeterminate-alt");
+            background-color: color(SelectedItem);
+          }
+        }
+      }
       &:checked,
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
@@ -139,22 +152,6 @@
         @media (forced-colors: active) {
           @include format-input {
             @include add-background-svg("correct8-alt");
-          }
-        }
-      }
-      &:indeterminate,
-      &[data-indeterminate] {
-        &,
-        &:checked {
-          @include format-input {
-            @include add-background-svg($input-indeterminate);
-            background-position: center center;
-            background-size: units(1.5) auto;
-
-            @media (forced-colors: active) {
-              @include add-background-svg("checkbox-indeterminate-alt");
-              background-color: color(SelectedItem);
-            }
           }
         }
       }
