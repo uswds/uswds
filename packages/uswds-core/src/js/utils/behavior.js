@@ -1,36 +1,77 @@
-const assign = require("object-assign");
-const Behavior = require("receptor/behavior");
+/**
+ * @typedef {(target?: HTMLElement) => any} BehaviorLifecycle
+ */
 
 /**
- * @name sequence
- * @param {...Function} seq an array of functions
- * @return { closure } callHooks
+ * @typedef {Record<string, any> & { init?: BehaviorLifecycle, teardown?: BehaviorLifecycle }} BehaviorProps
  */
-// We use a named function here because we want it to inherit its lexical scope
-// from the behavior props object, not from the module
-const sequence = (...seq) =>
-  function callHooks(target = document.body) {
-    seq.forEach((method) => {
-      if (typeof this[method] === "function") {
-        this[method].call(this, target);
-      }
-    });
+
+/**
+ * @typedef {BehaviorProps & {
+ *   on: BehaviorLifecycle,
+ *   off: BehaviorLifecycle,
+ *   add: BehaviorLifecycle,
+ *   remove: BehaviorLifecycle,
+ * }} Behavior
+ */
+
+/**
+ * @typedef {(
+ *   this: HTMLElement,
+ *   event: K extends keyof HTMLElementEventMap ? HTMLElementEventMap[K] : Event
+ * ) => any} EventHandler
+ * @template {string} K
+ */
+
+/**
+ * @typedef {EventHandler<K> | Record<string, EventHandler<K>>} EventHandlerOrSelectorMap
+ * @template {string} K
+ */
+
+/**
+ * @typedef {Record<K, EventHandlerOrSelectorMap<K>>} Events
+ * @template {string} K
+ */
+
+/**
+ * @param {Events<K>} events
+ * @param {Partial<BehaviorProps>} props
+ * @template {string} K
+ *
+ * @return {Behavior}
+ */
+module.exports = (events, props) => {
+  const listeners = Object.entries(events).flatMap(([eventTypes, handlers]) =>
+    eventTypes.split(" ").map(
+      (eventType) =>
+        /** @type {[keyof HTMLElementEventMap, EventHandler<any>]} */ ([
+          eventType,
+          typeof handlers === "function"
+            ? handlers
+            : (event) =>
+                Object.entries(handlers).some(([selector, handler]) => {
+                  const target = event.target && event.target.closest(selector);
+                  return target && handler.call(target, event) === false;
+                }),
+        ])
+    )
+  );
+
+  const on = (target = document.body) => {
+    if (props && props.init) {
+      props.init(target);
+    }
+
+    listeners.forEach((args) => target.addEventListener(...args));
   };
 
-/**
- * @name behavior
- * @param {object} events
- * @param {object?} props
- * @return {receptor.behavior}
- */
-module.exports = (events, props) =>
-  Behavior(
-    events,
-    assign(
-      {
-        on: sequence("init", "add"),
-        off: sequence("teardown", "remove"),
-      },
-      props,
-    ),
-  );
+  const off = (target = document.body) => {
+    if (props && props.teardown) {
+      props.teardown(target);
+    }
+
+    listeners.forEach((args) => target.removeEventListener(...args));
+  };
+
+  return { on, add: on, off, remove: off, ...props };
+};
