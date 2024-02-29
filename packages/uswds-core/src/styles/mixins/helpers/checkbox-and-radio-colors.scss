@@ -16,6 +16,24 @@
   @include -checkbox-and-radio-colors($input-type: "radio", $args...);
 }
 
+@mixin selected-tile-colors($input-active-color) {
+  background-color: color.adjust(
+    color($input-active-color),
+    $alpha: -0.9
+    );
+  border-color: color($input-active-color);
+
+  @media (forced-colors: active) {
+    border: ButtonText solid units("05");
+  }
+}
+
+@mixin selected-input-colors($input-active-color) {
+  background-color: color($input-active-color);
+  box-shadow: 0 0 0 units($theme-input-select-border-width)
+    color($input-active-color);
+}
+
 @mixin -checkbox-and-radio-colors(
   $bg-color: $theme-input-background-color,
   $selected-color: "default",
@@ -65,13 +83,9 @@
     }
   }
   .usa-#{$input-type}__input {
-    &:checked,
-    &:indeterminate,
-    &[data-indeterminate] {
+    &:checked {
       @include format-input {
-        background-color: color($input-active-color);
-        box-shadow: 0 0 0 units($theme-input-select-border-width)
-          color($input-active-color);
+        @include selected-input-colors($input-active-color)
       }
     }
     &:disabled,
@@ -95,19 +109,9 @@
         border: units($theme-input-tile-border-width) solid $tile-border-color;
         color: color($input-text-color);
       }
-      &:checked,
-      &:indeterminate,
-      &[data-indeterminate] {
+      &:checked {
         @include format-label {
-          background-color: color.adjust(
-            color($input-active-color),
-            $alpha: -0.9
-          );
-          border-color: color($input-active-color);
-
-          @media (forced-colors: active) {
-            border: ButtonText solid units("05");
-          }
+          @include selected-tile-colors($input-active-color);
         }
       }
       &:disabled,
@@ -129,16 +133,27 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
+      // Unchecked radio buttons receive :indeterminate pseudo-class.
+      // Because of this, we need to explicetly target checkbox :indeterminate styles.
       &:indeterminate,
       &[data-indeterminate] {
         @include format-input {
           @include add-background-svg($input-indeterminate);
+          @include selected-input-colors($input-active-color);
           background-position: center center;
           background-size: units(1.5) auto;
 
           @media (forced-colors: active) {
             @include add-background-svg("checkbox-indeterminate-alt");
             background-color: color(SelectedItem);
+          }
+        }
+      }
+      &--tile {
+        &:indeterminate,
+        &[data-indeterminate] {
+          @include format-label {
+            @include selected-tile-colors($input-active-color);
           }
         }
       }
