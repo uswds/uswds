@@ -17,10 +17,7 @@
 }
 
 @mixin selected-tile-colors($input-active-color) {
-  background-color: color.adjust(
-    color($input-active-color),
-    $alpha: -0.9
-    );
+  background-color: color.adjust(color($input-active-color), $alpha: -0.9);
   border-color: color($input-active-color);
 
   @media (forced-colors: active) {
@@ -85,7 +82,7 @@
   .usa-#{$input-type}__input {
     &:checked {
       @include format-input {
-        @include selected-input-colors($input-active-color)
+        @include selected-input-colors($input-active-color);
       }
     }
     &:disabled,
