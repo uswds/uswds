@@ -49,6 +49,8 @@
   $input-border-alpha: -0;
   $tile-border-color: color("gray-20");
   $tile-border-color--disabled: color("gray-10");
+  $tile-box-shadow--disabled: 0 0 0 units($theme-input-select-border-width)
+    color("disabled");
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
@@ -96,8 +98,7 @@
       }
       @include format-input {
         background-color: color($input-bg-color);
-        box-shadow: 0 0 0 units($theme-input-select-border-width)
-          color("disabled");
+        box-shadow: $tile-box-shadow--disabled;
       }
     }
     &--tile {
@@ -143,6 +144,17 @@
           @media (forced-colors: active) {
             @include add-background-svg("checkbox-indeterminate-alt");
             background-color: color(SelectedItem);
+          }
+        }
+
+        &:disabled,
+        &[aria-disabled="true"] {
+          @include format-input {
+            box-shadow: $tile-box-shadow--disabled;
+          }
+
+          @include format-label {
+            border-color: $tile-border-color--disabled;
           }
         }
       }
