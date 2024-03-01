@@ -9,6 +9,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    indeterminate: {
+      name: "Indeterminate",
+      control: { type: "boolean" },
+      defaultValue: false
+    }
   },
 };
 
