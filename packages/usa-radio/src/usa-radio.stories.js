@@ -10,7 +10,7 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
     indeterminate: {
-      name: "Indeterminate",
+      name: "Indeterminate option",
       control: { type: "boolean" },
       defaultValue: false
     }
