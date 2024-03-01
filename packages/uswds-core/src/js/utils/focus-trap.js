@@ -1,5 +1,5 @@
 const assign = require("object-assign");
-const keymap = require("receptor/keymap");
+const keymap = require("./keymap");
 const behavior = require("./behavior");
 const select = require("./select");
 const activeElement = require("./active-element");
