@@ -1,51 +1,49 @@
+{% set settings = {
+  "aria_label": "Side navigation",
+  "items": [
+    {
+      "label": "Parent link",
+      "current": false
+    },
+    {
+      "label": "Current page",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link",
+          "subnav": [
+            {
+              "label": "Grandchild link"
+            },
+            {
+              "label": "Grandchild link",
+              "current": true
+            },
+            {
+              "label": "Grandchild link"
+            }
+          ]
+        },
+        {
+          "label": "Child link"
+        }
+      ]
+    },
+    {
+      "label": "Parent link",
+      "current": false
+    }
+  ]
+}%}
+
 <div class="usa-section">
   <div class="grid-container">
     <div class="grid-row grid-gap">
       <div class="usa-layout-docs__sidenav display-none desktop:display-block desktop:grid-col-3">
-        <nav aria-label="Secondary navigation">
-          <ul class="usa-sidenav">
-            <li class="usa-sidenav__item">
-              <a href="">Parent link</a>
-            </li>
-            <li class="usa-sidenav__item">
-              <a href="" class="usa-current">Current page</a>
-              <ul class="usa-sidenav__sublist">
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="" class="usa-current">Child link</a>
-                  <ul class="usa-sidenav__sublist">
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="" class="usa-current">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-              </ul>
-            </li>
-            <li class="usa-sidenav__item">
-              <a href="">Parent link</a>
-            </li>
-          </ul>
-        </nav>
+        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with settings %}  
       </div>
 
       <main class="desktop:grid-col-9 usa-prose" id="main-content">
@@ -63,50 +61,7 @@
     </div>
       
     <div class="usa-layout-docs__sidenav desktop:display-none">
-      <nav aria-label="Secondary navigation">
-        <ul class="usa-sidenav">
-          <li class="usa-sidenav__item">
-            <a href="">Parent link</a>
-          </li>
-          <li class="usa-sidenav__item">
-            <a href="" class="usa-current">Current page</a>
-            <ul class="usa-sidenav__sublist">
-              <li class="usa-sidenav__item">
-                <a href="">Child link</a>
-              </li>
-              <li class="usa-sidenav__item">
-                <a href="" class="usa-current">Child link</a>
-                <ul class="usa-sidenav__sublist">
-                  <li class="usa-sidenav__item">
-                    <a href="">Grandchild link</a>
-                  </li>
-                  <li class="usa-sidenav__item">
-                    <a href="">Grandchild link</a>
-                  </li>
-                  <li class="usa-sidenav__item">
-                    <a href="" class="usa-current">Grandchild link</a>
-                  </li>
-                  <li class="usa-sidenav__item">
-                    <a href="">Grandchild link</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="usa-sidenav__item">
-                <a href="">Child link</a>
-              </li>
-              <li class="usa-sidenav__item">
-                <a href="">Child link</a>
-              </li>
-              <li class="usa-sidenav__item">
-                <a href="">Child link</a>
-              </li>
-            </ul>
-          </li>
-          <li class="usa-sidenav__item">
-            <a href="">Parent link</a>
-          </li>
-        </ul>
-      </nav>
+      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with settings %}  
     </div>
   </div>
 </div>
