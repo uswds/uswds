@@ -22,6 +22,8 @@
     class="usa-file-input"
     type="file"
     name="{{ id }}"
+    data-dragText="Hello World"
+    data-chooseText="This is custom text"
     {% if hint or accept or multiple or disabled_state -%}
     {% if hint -%}aria-describedby="{{ aria_hint }}"{%- endif -%}
     {% if accept -%}accept="{{ accept }}"{%- endif -%}
