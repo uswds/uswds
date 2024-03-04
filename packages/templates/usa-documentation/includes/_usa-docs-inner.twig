@@ -1,4 +1,4 @@
-{% set settings = {
+{% set sidenav_settings = {
   "aria_label": "Secondary navigation",
   "items": [
     {
@@ -44,7 +44,7 @@
   <div class="grid-container">
     <div class="grid-row grid-gap">
       <div class="usa-layout-docs__sidenav display-none desktop:display-block desktop:grid-col-3">
-        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with settings %}  
+        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}  
       </div>
 
       <main class="desktop:grid-col-9 usa-prose" id="main-content">
@@ -62,7 +62,7 @@
     </div>
       
     <div class="usa-layout-docs__sidenav desktop:display-none">
-      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with settings %}  
+      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}  
     </div>
   </div>
 </div>
