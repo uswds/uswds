@@ -12,8 +12,8 @@ export default {
     indeterminate: {
       name: "Indeterminate option (toggle to reset)",
       control: { type: "boolean" },
-      defaultValue: false
-    }
+      defaultValue: false,
+    },
   },
 };
 
