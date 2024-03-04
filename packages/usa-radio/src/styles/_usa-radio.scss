@@ -15,16 +15,6 @@
     }
   }
 
-  &:disabled,
-  &[aria-disabled="true"] {
-    @include format-input {
-      cursor: not-allowed;
-    }
-    @include format-label {
-      cursor: not-allowed;
-    }
-  }
-
   // Checkboxes and radios with tap-friendly targets
   &--tile {
     @include format-label {

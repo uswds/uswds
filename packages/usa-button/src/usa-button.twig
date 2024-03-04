@@ -1,21 +1,45 @@
+{% macro usaButton(label, modifier, type, additional_class, additional_attributes) %}
+  <button
+    class="usa-button {{ modifier }} {{ additional_class | default("") }}"
+    type="{{ type ? type : "button" }}"
+    {{ additional_attributes }}
+  >
+    {{- label -}}
+    {% if add_icon %}{{- icon -}}{% endif %}
+  </button>
+{% endmacro %}
+
+{# Twig loader requirement for macro to work. #}
+{% import _self as button %}
+
 {% if 'usa-button--outline usa-button--inverse' in modifier %}
   <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif %}
 
+{% set icon %}
+  <!-- @TODO: Allow size to be passed as a argument. -->
+  <!-- Example: usa-icon--size-{3-9} -->
+  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href="./img/sprite.svg#{{ icon_name | default("add_circle_outline") }}"></use>
+  </svg>
+{% endset %}
+
 {% if is_demo and 'usa-button--big' not in modifier %}
-  <button type="{{ type }}" class="usa-button {{ modifier }}">Default</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--hover">Hover</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--active">Active</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-focus">Focus</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }}" disabled>Disabled</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
-  <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+  {{ button.usaButton('Default', modifier, type) }}
+  {{ button.usaButton('Hover', modifier, type, "usa-button--hover") }}
+  {{ button.usaButton('Active', modifier, type, "usa-button--active") }}
+  {{ button.usaButton('Focus', modifier, type, "usa-focus") }}
+  {{ button.usaButton('Disabled', modifier, type, null, 'disabled') }}
+  {{ button.usaButton('aria-disabled', modifier, type, null, 'aria-disabled="true"') }}
+  {{ button.usaButton('Unstyled button', modifier, type, 'usa-button--unstyled') }}
+
 {% else %}
-  <button type="{{ type }}" class="usa-button {{ modifier }}">{{ text }}</button>
+  {{ button.usaButton('Default', modifier, type) }}
+
   {% if is_demo and 'usa-button--big' in modifier %}
-    <button type="{{ type }}" class="usa-button {{ modifier }}" disabled>Disabled</button>
-    <button type="{{ type }}" class="usa-button {{ modifier }}" aria-disabled="true">aria-disabled</button>
-    <button type="{{ type }}" class="usa-button {{ modifier }} usa-button--unstyled">Unstyled button</button>
+    {{ button.usaButton('Disabled', modifier, type, null, 'disabled') }}
+    {{ button.usaButton('aria-disabled', modifier, type, null, 'aria-disabled="true"') }}
+    {{ button.usaButton('Unstyled button', modifier, type, 'usa-button--unstyled') }}
   {% endif %}
 {% endif %}
 
