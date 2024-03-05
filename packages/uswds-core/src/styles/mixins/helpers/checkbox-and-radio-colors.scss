@@ -145,8 +145,8 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
-      // Unchecked radio buttons receive :indeterminate pseudo-class.
-      // Because of this, we need to explicetly target checkbox :indeterminate styles.
+      // Adding indeterminate styles here avoids style conflicts from setting in .usa-#{$input-type}__input due to 
+      // radio buttons receiving :indeterminate state when none are selected.
       &:indeterminate,
       &[data-indeterminate] {
         @include format-input {
