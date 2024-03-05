@@ -20,7 +20,7 @@
 // Used by :checked checkbox and radio labels as well as :indeterminate checkboxes.
 //
 // @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
-@mixin selected-tile-colors($input-active-color) {
+@mixin active-tile-colors($input-active-color) {
   background-color: color.adjust(color($input-active-color), $alpha: -0.9);
   border-color: color($input-active-color);
 
@@ -33,7 +33,7 @@
 // Used by :checked checkbox and radio inputs as well as :indeterminate checkboxes.
 //
 // @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
-@mixin selected-input-colors($input-active-color) {
+@mixin active-input-colors($input-active-color) {
   background-color: color($input-active-color);
   box-shadow: 0 0 0 units($theme-input-select-border-width)
     color($input-active-color);
