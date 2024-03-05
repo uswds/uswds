@@ -145,7 +145,7 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
-      // Adding indeterminate styles here avoids style conflicts from setting in .usa-#{$input-type}__input due to 
+      // Adding indeterminate styles here avoids style conflicts from setting in .usa-#{$input-type}__input due to
       // radio buttons receiving :indeterminate state when none are selected.
       &:indeterminate,
       &[data-indeterminate] {
