@@ -9,7 +9,7 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
-    indeterminate: {
+    indeterminate_state: {
       name: "Indeterminate option (toggle to reset)",
       control: { type: "boolean" },
       defaultValue: false
@@ -46,14 +46,14 @@ TileAriaDisabled.args = {
 
 export const Indeterminate = Template.bind({});
 Indeterminate.argTypes = {
-  indeterminate: {
+  indeterminate_state: {
     defaultValue: true,
   },
 };
 
 export const IndeterminateTile = TileTemplate.bind({});
 IndeterminateTile.argTypes = {
-  indeterminate: {
+  indeterminate_state: {
     defaultValue: true,
   },
 };
