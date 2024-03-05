@@ -12,8 +12,8 @@ export default {
     indeterminate_state: {
       name: "Toggle indeterminate state",
       control: { type: "boolean" },
-      defaultValue: false
-    }
+      defaultValue: false,
+    },
   },
 };
 
