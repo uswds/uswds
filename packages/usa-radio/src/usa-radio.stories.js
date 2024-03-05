@@ -10,7 +10,7 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
     indeterminate_state: {
-      name: "Indeterminate option (toggle to reset)",
+      name: "Toggle indeterminate state",
       control: { type: "boolean" },
       defaultValue: false
     }
