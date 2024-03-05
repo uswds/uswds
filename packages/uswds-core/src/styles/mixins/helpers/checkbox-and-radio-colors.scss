@@ -16,7 +16,7 @@
   @include -checkbox-and-radio-colors($input-type: "radio", $args...);
 }
 
-// Applies active state colors to tile variant backgrounds and borders. 
+// Applies active state colors to tile variant backgrounds and borders.
 // Used by :checked checkbox and radio labels as well as :indeterminate checkboxes.
 //
 // @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
@@ -29,7 +29,7 @@
   }
 }
 
-// Applies active state colors to input backgrounds and borders. 
+// Applies active state colors to input backgrounds and borders.
 // Used by :checked checkbox and radio inputs as well as :indeterminate checkboxes.
 //
 // @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
