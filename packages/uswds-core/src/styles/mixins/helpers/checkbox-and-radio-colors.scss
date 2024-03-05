@@ -16,6 +16,10 @@
   @include -checkbox-and-radio-colors($input-type: "radio", $args...);
 }
 
+// Applies active state colors to tile variant backgrounds and borders. 
+// Used by :checked checkbox and radio labels as well as :indeterminate checkboxes.
+//
+// @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
 @mixin selected-tile-colors($input-active-color) {
   background-color: color.adjust(color($input-active-color), $alpha: -0.9);
   border-color: color($input-active-color);
@@ -25,6 +29,10 @@
   }
 }
 
+// Applies active state colors to input backgrounds and borders. 
+// Used by :checked checkbox and radio inputs as well as :indeterminate checkboxes.
+//
+// @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
 @mixin selected-input-colors($input-active-color) {
   background-color: color($input-active-color);
   box-shadow: 0 0 0 units($theme-input-select-border-width)
@@ -89,7 +97,7 @@
   .usa-#{$input-type}__input {
     &:checked {
       @include format-input {
-        @include selected-input-colors($input-active-color);
+        @include active-input-colors($input-active-color);
       }
     }
     &:disabled,
@@ -115,7 +123,7 @@
       }
       &:checked {
         @include format-label {
-          @include selected-tile-colors($input-active-color);
+          @include active-tile-colors($input-active-color);
         }
       }
       &:disabled,
@@ -143,7 +151,7 @@
       &[data-indeterminate] {
         @include format-input {
           @include add-background-svg($input-indeterminate);
-          @include selected-input-colors($input-active-color);
+          @include active-input-colors($input-active-color);
           background-position: center center;
           background-size: units(1.5) auto;
 
@@ -168,7 +176,7 @@
         &:indeterminate,
         &[data-indeterminate] {
           @include format-label {
-            @include selected-tile-colors($input-active-color);
+            @include active-tile-colors($input-active-color);
           }
         }
       }
