@@ -167,7 +167,7 @@
     "postcss-preset-env": "9.3.0",
     "prettier": "2.8.8",
     "react-dom": "17.0.2",
-    "resolve-url-loader": "4.0.0",
+    "resolve-url-loader": "5.0.0",
     "sass": "1.69.5",
     "sass-embedded": "1.69.5",
     "sass-loader": "13.3.2",
