@@ -16,6 +16,29 @@
   @include -checkbox-and-radio-colors($input-type: "radio", $args...);
 }
 
+// Applies active state colors to tile variant backgrounds and borders.
+// Used by :checked checkbox and radio labels as well as :indeterminate checkboxes.
+//
+// @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
+@mixin active-tile-colors($input-active-color) {
+  background-color: color.adjust(color($input-active-color), $alpha: -0.9);
+  border-color: color($input-active-color);
+
+  @media (forced-colors: active) {
+    border: ButtonText solid units("05");
+  }
+}
+
+// Applies active state colors to input backgrounds and borders.
+// Used by :checked checkbox and radio inputs as well as :indeterminate checkboxes.
+//
+// @parameter $input-active-color - active input color determined by -checkbox-and-radio-colors mixin.
+@mixin active-input-colors($input-active-color) {
+  background-color: color($input-active-color);
+  box-shadow: 0 0 0 units($theme-input-select-border-width)
+    color($input-active-color);
+}
+
 @mixin -checkbox-and-radio-colors(
   $bg-color: $theme-input-background-color,
   $selected-color: "default",
@@ -39,12 +62,19 @@
   $input-border-alpha: -0;
   $tile-border-color: color("gray-20");
   $tile-border-color--disabled: color("gray-10");
+  $tile-box-shadow--disabled: 0 0 0 units($theme-input-select-border-width)
+    color($input-text-color-disabled);
   $input-darkmode: if(
     color.lightness(color($input-bg-color)) < 50%,
     true,
     false
   );
   $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
+  $input-indeterminate: if(
+    $input-darkmode,
+    "checkbox-indeterminate-alt",
+    "checkbox-indeterminate"
+  );
 
   .usa-#{$input-type} {
     background: color($input-bg-color);
@@ -67,9 +97,7 @@
   .usa-#{$input-type}__input {
     &:checked {
       @include format-input {
-        background-color: color($input-active-color);
-        box-shadow: 0 0 0 units($theme-input-select-border-width)
-          color($input-active-color);
+        @include active-input-colors($input-active-color);
       }
     }
     &:disabled,
@@ -84,8 +112,7 @@
       }
       @include format-input {
         background-color: color($input-bg-color);
-        box-shadow: 0 0 0 units($theme-input-select-border-width)
-          color($input-text-color-disabled);
+        box-shadow: $tile-box-shadow--disabled;
       }
     }
     &--tile {
@@ -96,15 +123,7 @@
       }
       &:checked {
         @include format-label {
-          background-color: color.adjust(
-            color($input-active-color),
-            $alpha: -0.9
-          );
-          border-color: color($input-active-color);
-
-          @media (forced-colors: active) {
-            border: ButtonText solid units("05");
-          }
+          @include active-tile-colors($input-active-color);
         }
       }
       &:disabled,
@@ -113,7 +132,9 @@
           border-color: $tile-border-color--disabled;
         }
 
-        &:checked {
+        &:checked,
+        &:indeterminate,
+        &[data-indeterminate] {
           @include format-label {
             background-color: color($input-bg-color);
           }
@@ -124,6 +145,41 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
+      // Adding indeterminate styles here avoids style conflicts from setting in .usa-#{$input-type}__input due to
+      // radio buttons receiving :indeterminate state when none are selected.
+      &:indeterminate,
+      &[data-indeterminate] {
+        @include format-input {
+          @include add-background-svg($input-indeterminate);
+          @include active-input-colors($input-active-color);
+          background-position: center center;
+          background-size: units(1.5) auto;
+
+          @media (forced-colors: active) {
+            @include add-background-svg("checkbox-indeterminate-alt");
+            background-color: color(SelectedItem);
+          }
+        }
+
+        &:disabled,
+        &[aria-disabled="true"] {
+          @include format-input {
+            box-shadow: $tile-box-shadow--disabled;
+          }
+
+          @include format-label {
+            border-color: $tile-border-color--disabled;
+          }
+        }
+      }
+      &--tile {
+        &:indeterminate,
+        &[data-indeterminate] {
+          @include format-label {
+            @include active-tile-colors($input-active-color);
+          }
+        }
+      }
       &:checked,
       &:checked:disabled,
       &:checked[aria-disabled="true"] {
@@ -138,7 +194,11 @@
         }
       }
       &:checked:disabled,
-      &:checked[aria-disabled="true"] {
+      &:checked[aria-disabled="true"],
+      &:indeterminate:disabled,
+      &:indeterminate[aria-disabled="true"],
+      &[data-indeterminate]:disabled,
+      &[data-indeterminate][aria-disabled="true"] {
         @include format-input {
           background-color: color($input-text-color-disabled);
           @media (forced-colors: active) {
