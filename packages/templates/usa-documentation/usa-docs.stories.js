@@ -9,3 +9,9 @@ const Template = (args) => Component(args);
 
 export const DocumentationPage = Template.bind({});
 DocumentationPage.args = DefaultContent;
+
+export const TestDocumentationReorder = Template.bind({});
+TestDocumentationReorder.args = {
+  ...DefaultContent,
+  sidenav_reorder: false
+};

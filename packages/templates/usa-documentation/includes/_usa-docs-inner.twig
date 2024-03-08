@@ -40,14 +40,26 @@
   ]
 }%}
 
+{% set desktop_sidenav_classes = "display-none desktop:display-block desktop:grid-col-3" %}
+
 <div class="usa-section">
   <div class="grid-container">
     <div class="grid-row grid-gap">
-      <div class="usa-layout-docs__sidenav display-none desktop:display-block desktop:grid-col-3">
-        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}  
+      <div class="usa-layout-docs__sidenav {{ sidenav_reorder ? "" : desktop_sidenav_classes }}">
+        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}
       </div>
 
       <main class="desktop:grid-col-9 usa-prose" id="main-content">
+        {% if sidenav_reorder %}
+          <style>
+            .usa-layout-docs__sidenav {
+              outline: 1px dashed orange;
+            }
+          </style>
+
+          To test changes set <code>$theme-sidenav-reorder: true</code> in theme settings & in StorybookJS. The sidenav will be placed <em>after</em> main content and a compile warning should display.
+        {% endif %}
+
         <h1>Page heading (h1)</h1>
         <p class="usa-intro">The page heading communicates the main focus of the page. Make your page heading descriptive and keep it succinct.</p>
         <h2 id="section-heading-h2">Section heading (h2)</h2>
@@ -60,10 +72,12 @@
         <p>Read the full documentation on our side navigation on the component page.</p>
       </main>
     </div>
-      
+
+    {# Hide additional sidenav if we're using pre-3.8.0 behavior.#}
+    {% if not sidenav_reorder %}
     <div class="usa-layout-docs__sidenav desktop:display-none">
-      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}  
+      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}
     </div>
+    {% endif %}
   </div>
 </div>
-
