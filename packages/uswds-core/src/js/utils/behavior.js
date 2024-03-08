@@ -3,7 +3,7 @@
  */
 
 /**
- * @typedef {Record<string, any> & { init: BehaviorLifecycle, teardown: BehaviorLifecycle }} BehaviorProps
+ * @typedef {Record<string, any> & { init?: BehaviorLifecycle, teardown?: BehaviorLifecycle }} BehaviorProps
  */
 
 /**
@@ -20,38 +20,41 @@
  *   this: HTMLElement,
  *   event: K extends keyof HTMLElementEventMap ? HTMLElementEventMap[K] : Event
  * ) => any} EventHandler
- * @template K
+ * @template {string} K
  */
 
 /**
  * @typedef {EventHandler<K> | Record<string, EventHandler<K>>} EventHandlerOrSelectorMap
- * @template K
+ * @template {string} K
  */
 
 /**
  * @typedef {Record<K, EventHandlerOrSelectorMap<K>>} Events
- * @template K
+ * @template {string} K
  */
 
 /**
  * @param {Events<K>} events
  * @param {Partial<BehaviorProps>} props
- * @template K
+ * @template {string} K
  *
  * @return {Behavior}
  */
 module.exports = (events, props) => {
   const listeners = Object.entries(events).flatMap(([eventTypes, handlers]) =>
-    eventTypes.split(" ").map((eventType) => [
-      eventType,
-      typeof handlers === "function"
-        ? handlers
-        : (event) =>
-            Object.entries(handlers).some(([selector, handler]) => {
-              const target = event.target && event.target.closest(selector);
-              return target && handler.call(target, event) === false;
-            }),
-    ])
+    eventTypes.split(" ").map(
+      (eventType) =>
+        /** @type {[keyof HTMLElementEventMap, EventHandler<any>]} */ ([
+          eventType,
+          typeof handlers === "function"
+            ? handlers
+            : (event) =>
+                Object.entries(handlers).some(([selector, handler]) => {
+                  const target = event.target && event.target.closest(selector);
+                  return target && handler.call(target, event) === false;
+                }),
+        ])
+    )
   );
 
   const on = (target = document.body) => {
