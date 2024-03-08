@@ -13,5 +13,5 @@ DocumentationPage.args = DefaultContent;
 export const TestDocumentationReorder = Template.bind({});
 TestDocumentationReorder.args = {
   ...DefaultContent,
-  sidenav_reorder: false
+  sidenav_reorder: false,
 };
