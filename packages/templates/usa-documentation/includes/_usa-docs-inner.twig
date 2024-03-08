@@ -42,10 +42,14 @@
 
 {% set desktop_sidenav_classes = "display-none desktop:display-block desktop:grid-col-3" %}
 
+{% if sidenav_reorder %}
+  {% set desktop_sidenav_classes = "" %}
+{% endif %}
+
 <div class="usa-section">
   <div class="grid-container">
     <div class="grid-row grid-gap">
-      <div class="usa-layout-docs__sidenav {{ sidenav_reorder ? "" : desktop_sidenav_classes }}">
+      <div class="usa-layout-docs__sidenav {{ desktop_sidenav_classes }}">
         {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}
       </div>
 
@@ -57,7 +61,7 @@
             }
           </style>
 
-          To test changes set <code>$theme-sidenav-reorder: true</code> in theme settings & in StorybookJS. The sidenav will be placed <em>after</em> main content and a compile warning should display.
+          Ensure <code>$theme-sidenav-reorder: true</code> in theme settings & in StorybookJS. The sidenav will be placed <em>after</em> main content and a compile warning should display.
         {% endif %}
 
         <h1>Page heading (h1)</h1>
