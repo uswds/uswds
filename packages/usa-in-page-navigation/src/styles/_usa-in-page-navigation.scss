@@ -126,10 +126,9 @@
 .usa-in-page-nav__item {
   @include typeset($theme-in-page-nav-font-family, "2xs", 2);
   border: none;
-  font-weight: bold;
   position: relative;
 
-  &.usa-in-page-nav__item--sub-item {
-    font-weight: normal;
+  &--primary {
+    @include u-font-weight("bold");
   }
 }

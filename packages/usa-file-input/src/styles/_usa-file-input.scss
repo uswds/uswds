@@ -182,7 +182,7 @@
 .usa-file-input--disabled {
   .usa-file-input__instructions,
   .usa-file-input__choose {
-    color: color("disabled-dark");
+    @include set-text-from-bg("disabled-lighter", "disabled-dark");
   }
 
   .usa-file-input__box {

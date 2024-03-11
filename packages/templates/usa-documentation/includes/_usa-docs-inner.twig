@@ -1,55 +1,70 @@
+{% set sidenav_settings = {
+  "aria_label": "Secondary navigation",
+  "items": [
+    {
+      "label": "Parent link",
+      "current": false
+    },
+    {
+      "label": "Current page",
+      "current": true,
+      "subnav": [
+        {
+          "label": "Child link"
+        },
+        {
+          "label": "Child link",
+          "current": true,
+          "subnav": [
+            {
+              "label": "Grandchild link"
+            },
+            {
+              "label": "Grandchild link",
+              "current": true
+            },
+            {
+              "label": "Grandchild link"
+            }
+          ]
+        },
+        {
+          "label": "Child link"
+        }
+      ]
+    },
+    {
+      "label": "Parent link",
+      "current": false
+    }
+  ]
+}%}
+
+{% set desktop_sidenav_classes = "display-none desktop:display-block desktop:grid-col-3" %}
+
+{# If true, revert to the old single sidenav behavior. #}
+{% if sidenav_reorder %}
+  {% set desktop_sidenav_classes = "" %}
+{% endif %}
+
 <div class="usa-section">
   <div class="grid-container">
     <div class="grid-row grid-gap">
-      <div class="usa-layout-docs__sidenav desktop:grid-col-3">
-        <nav aria-label="Secondary navigation">
-          <ul class="usa-sidenav">
-            <li class="usa-sidenav__item">
-              <a href="">Parent link</a>
-            </li>
-            <li class="usa-sidenav__item">
-              <a href="" class="usa-current">Current page</a>
-              <ul class="usa-sidenav__sublist">
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="" class="usa-current">Child link</a>
-                  <ul class="usa-sidenav__sublist">
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="" class="usa-current">Grandchild link</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                      <a href="">Grandchild link</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-                <li class="usa-sidenav__item">
-                  <a href="">Child link</a>
-                </li>
-              </ul>
-            </li>
-            <li class="usa-sidenav__item">
-              <a href="">Parent link</a>
-            </li>
-          </ul>
-        </nav>
-
+      <div class="usa-layout-docs__sidenav {{ desktop_sidenav_classes }}">
+        {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}
       </div>
 
-      <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+      <main class="desktop:grid-col-9 usa-prose" id="main-content">
+        {% if sidenav_reorder %}
+          <style>
+            .usa-layout-docs__sidenav {
+              outline: 1px dashed orange;
+            }
+          </style>
+
+          Ensure <code>$theme-sidenav-reorder: true</code> in theme settings & in StorybookJS. The sidenav will be placed <em>after</em> main content and a compile warning should display.
+        {% endif %}
+
         <h1>Page heading (h1)</h1>
         <p class="usa-intro">The page heading communicates the main focus of the page. Make your page heading descriptive and keep it succinct.</p>
         <h2 id="section-heading-h2">Section heading (h2)</h2>
@@ -62,5 +77,12 @@
         <p>Read the full documentation on our side navigation on the component page.</p>
       </main>
     </div>
+
+    {# Hide additional sidenav if we're using pre-3.8.0 behavior. #}
+    {% if not sidenav_reorder %}
+    <div class="usa-layout-docs__sidenav desktop:display-none">
+      {% include "@components/usa-sidenav/src/usa-sidenav.twig" with sidenav_settings %}
+    </div>
+    {% endif %}
   </div>
 </div>

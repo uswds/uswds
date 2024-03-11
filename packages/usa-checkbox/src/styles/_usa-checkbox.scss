@@ -15,21 +15,6 @@
     }
   }
 
-  &:disabled,
-  &[aria-disabled="true"] {
-    @include format-input {
-      cursor: not-allowed;
-    }
-    @include format-label {
-      color: color("disabled");
-      cursor: not-allowed;
-
-      @media (forced-colors: active) {
-        color: color(GrayText);
-      }
-    }
-  }
-
   // Checkboxes and radios with tap-friendly targets
   &--tile {
     @include format-label {
@@ -58,7 +43,7 @@
       }
 
       @media (forced-colors: active) {
-        background-color: color(ButtonText);
+        background-color: color(SelectedItem);
       }
     }
   }

@@ -5,8 +5,14 @@
 @use "../utilities" as *;
 @use "../typography/typeset" as *;
 
+$table-background-color: $theme-table-background-color;
+
+@if $table-background-color == "default" {
+  $table-background-color: get-default("bg-color");
+}
+
 $table-text-color: get-color-token-from-bg(
-  $bg-color: $theme-body-background-color,
+  $bg-color: $theme-table-background-color,
   $preferred-text-token: $theme-table-text-color,
   $context: "Table text",
 );
@@ -235,7 +241,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
   th,
   td {
-    background-color: color($theme-body-background-color);
+    background-color: color($table-background-color);
     border: 1px solid color($theme-table-border-color);
     font-weight: fw("normal");
     padding: units(1) units(2);
@@ -295,7 +301,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--borderless {
   thead {
     th {
-      background-color: transparent;
+      background-color: color($table-background-color);
       border-top: 0;
       color: color($table-text-color);
 
@@ -353,6 +359,46 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--stacked-header {
   @include table-stacked-styles;
   @include table-stacked-header-styles;
+}
+
+@mixin usa-table--sticky-header {
+  border: 1px solid color($theme-table-border-color);
+  border-collapse: separate;
+
+  td,
+  th {
+    border-left: none;
+    border-top: none;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  tbody tr:last-child {
+    td,
+    th {
+      border-bottom: none;
+    }
+  }
+
+  thead {
+    position: sticky;
+    top: $theme-table-sticky-top-offset;
+  }
+
+  &.usa-table--borderless {
+    border: none;
+
+    thead th {
+      background-color: color($table-background-color);
+    }
+
+    td,
+    th {
+      border-right: none;
+    }
+  }
 }
 
 @mixin usa-table-container--scrollable {
