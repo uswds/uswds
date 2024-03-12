@@ -1785,7 +1785,7 @@ const handleShiftPageDownFromDate = adjustCalendar((date) => addYears(date, 1));
 const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
 
 /**
- * display the calendar for the mouseover date.
+ * Renders calendar with disabled dates and date range preview on hover.
  *
  * @param {MouseEvent} event The mouseover event
  * @param {HTMLButtonElement} dateEl A date element within the date picker component
@@ -1801,8 +1801,7 @@ const handleMouseoverFromDate = (dateEl) => {
   if (hoverDate === currentCalendarDate) return;
 
   const dateToDisplay = parseDateString(hoverDate);
-  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  renderCalendar(calendarEl, dateToDisplay);
 };
 
 // #endregion Calendar Date Event Handling
@@ -1895,22 +1894,6 @@ const handlePageDownFromMonth = adjustMonthSelectionScreen(() => 11);
  * @param {KeyboardEvent} event the keydown event
  */
 const handlePageUpFromMonth = adjustMonthSelectionScreen(() => 0);
-
-/**
- * update the focus on a month when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} monthEl A month element within the date picker component
- */
-const handleMouseoverFromMonth = (monthEl) => {
-  if (monthEl.disabled) return;
-  if (monthEl.classList.contains(CALENDAR_MONTH_FOCUSED_CLASS)) return;
-
-  const focusMonth = parseInt(monthEl.dataset.value, 10);
-
-  const newCalendar = displayMonthSelection(monthEl, focusMonth);
-  newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
-};
 
 // #endregion Calendar Month Event Handling
 
@@ -2006,22 +1989,6 @@ const handlePageUpFromYear = adjustYearSelectionScreen(
 const handlePageDownFromYear = adjustYearSelectionScreen(
   (year) => year + YEAR_CHUNK
 );
-
-/**
- * update the focus on a year when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} dateEl A year element within the date picker component
- */
-const handleMouseoverFromYear = (yearEl) => {
-  if (yearEl.disabled) return;
-  if (yearEl.classList.contains(CALENDAR_YEAR_FOCUSED_CLASS)) return;
-
-  const focusYear = parseInt(yearEl.dataset.value, 10);
-
-  const newCalendar = displayYearSelection(yearEl, focusYear);
-  newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
-};
 
 // #endregion Calendar Year Event Handling
 
@@ -2229,12 +2196,6 @@ if (!isIosDevice()) {
   datePickerEvents.mouseover = {
     [CALENDAR_DATE_CURRENT_MONTH]() {
       handleMouseoverFromDate(this);
-    },
-    [CALENDAR_MONTH]() {
-      handleMouseoverFromMonth(this);
-    },
-    [CALENDAR_YEAR]() {
-      handleMouseoverFromYear(this);
     },
   };
 }
