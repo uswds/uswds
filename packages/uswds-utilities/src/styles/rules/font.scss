@@ -5,14 +5,14 @@ font
 sets font-size and font-family
 ----------------------------------------
 usage:
-  .size-[key]-[key]
+  .font-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .size-sans-s3 {
+  .font-sans-md {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,

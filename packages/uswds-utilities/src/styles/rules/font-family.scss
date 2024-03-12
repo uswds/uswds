@@ -3,13 +3,13 @@
 font-family
 ----------------------------------------
 usage:
-  .family-[key]
+  .font-family-[key]
 ----------------------------------------
 output:
-  font-family: [value]
+  font-family: [value];
 ----------------------------------------
 example:
-  .family-sans {
+  .font-family-sans {
     font-family: 'United Sans webfont',
                 system,
                 -apple-system,
