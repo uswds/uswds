@@ -5,17 +5,8 @@ $triangle-size: 5px;
 
 /* Tooltips */
 .usa-tooltip {
-  display: inline-block;
   position: relative;
-}
-
-.usa-tooltip__trigger {
   cursor: pointer;
-
-  > svg {
-    display: block;
-    pointer-events: none;
-  }
 }
 
 .usa-tooltip__body,
