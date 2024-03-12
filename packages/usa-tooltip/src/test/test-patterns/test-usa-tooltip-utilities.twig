@@ -116,3 +116,19 @@
     <button type="button" class="{{ tooltip.classes }}" data-position="right" title="A longer Top tooltip that is longer than appx 320px" data-classes="{{ tooltip.util_classes }}" title="">Show on Right</button>
   </div>
 </div>
+<h2>For a button including an icon</h2>
+<hr/>
+<p>In this scenario:
+  <ul>
+    <li>Icons shouldn't interfere with the display of the tooltip</li>
+    <li>Icons should not visualy regress by tooltip trigger markup</li>
+  </ul>
+</p>
+<div class="padding-8">
+  <button type="button" class="{{ tooltip.classes }}" data-position="top" data-classes="{{ tooltip.util_classes }}" title="Top">
+    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+      <use xlink:href="./img/sprite.svg#arrow_upward"></use>
+    </svg>
+    Show on top
+  </button>
+</div>

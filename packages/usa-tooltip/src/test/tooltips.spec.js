@@ -48,8 +48,30 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
     });
 
+    it("tooltip is visible when mousing over", () => {
+      const event = new MouseEvent("mouseover", { bubbles: true });
+      tooltipTrigger.dispatchEvent(event);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is visible when mousing over child", () => {
+      const icon = document.createElement("img");
+      tooltipTrigger.appendChild(icon);
+      const event = new MouseEvent("mouseover", { bubbles: true });
+      icon.dispatchEvent(event);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
     it("tooltip is hidden on blur", () => {
       tooltipTrigger.blur();
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip is hidden when mousing out", () => {
+      const mouseOverEvent = new MouseEvent("mouseover", { bubbles: true });
+      const mouseOutEvent = new MouseEvent("mouseout", { bubbles: true });
+      tooltipTrigger.dispatchEvent(mouseOverEvent);
+      tooltipTrigger.dispatchEvent(mouseOutEvent);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
