@@ -22,3 +22,10 @@ overrides:
         no-unsanitized/property: off
         }
       }
+  - files: ['uswds-init.js']
+    rules:
+      # Strict necessary because not compiled as ES module
+      strict: off
+      # Flagged addEventListener is not "used by mistake", intending global
+      # See: https://www.npmjs.com/package/confusing-browser-globals
+      no-restricted-globals: off
