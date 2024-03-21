@@ -113,19 +113,18 @@ $banner-icon-close: (
 }
 
 .usa-banner__lock-image {
+  @include u-display("inline-block");
   $lock-h: 64; // unitless height of svg
   $lock-w: 52; // unitless width of svg
   $lock-aspect: math.div($lock-w, $lock-h);
   $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
-
   height: $icon-height;
   width: $icon-height * $lock-aspect;
-  path {
-    fill: currentColor;
-
-    @media (forced-colors: active) {
-      fill: CanvasText;
-    }
+  mask-image: url("#{$theme-image-path}/lock.svg");
+  mask-size: 100%;
+  background-color: currentColor;
+  @media (forced-colors: active) {
+    background-color: CanvasText;
   }
 }
 
