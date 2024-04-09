@@ -65,7 +65,7 @@ const createSectionHeadingsArray = (
   selectedHeadingTypesArray.forEach((headingType) => {
     if (!IN_PAGE_NAV_VALID_HEADINGS.includes(headingType)) {
       throw new Error(
-        `In-page navigation: data-header-selector attribute defined with an invalid heading type: "${headingType}".
+        `In-page navigation: data-heading-elements attribute defined with an invalid heading type: "${headingType}".
         Define the attribute with one or more of the following: "${IN_PAGE_NAV_VALID_HEADINGS}".
         Do not use commas or other punctuation in the attribute definition.`
       );
