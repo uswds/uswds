@@ -6,13 +6,18 @@ usage:
   .add-list-reset
 ----------------------------------------
 output:
-  list-style: none;
-  padding-left: 0;
+  margin-bottom:0;
+  margin-top:0;
+  padding-left:0;
+  list-style:none;
 ----------------------------------------
 example:
-  .add-list-reset {
-    list-style: none;
-    padding-left: 0; }
+  .add-list-reset{
+    margin-bottom:0;
+    margin-top:0;
+    padding-left:0;
+    list-style:none;
+  }
 ----------------------------------------
 */
 
