@@ -231,6 +231,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     @include button-unstyled;
   }
 
+  // Disabled styles must come after variants to avoid regression due to specificity.
   &:disabled,
   &[aria-disabled="true"] {
     @include button-disabled;
