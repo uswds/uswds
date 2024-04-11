@@ -3,10 +3,10 @@
 padding
 ----------------------------------------
 usage:
-  .padding-[modifier]*-[value]
+  .padding-[modifier]*-[key]
 ----------------------------------------
 output:
-  padding: [value];
+  padding[-modifier]: [value];
 ----------------------------------------
 example:
   .padding-0 {

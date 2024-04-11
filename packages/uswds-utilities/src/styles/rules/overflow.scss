@@ -6,7 +6,7 @@ usage:
   .overflow-[modifier]*-[key]
 ----------------------------------------
 output:
-  overflow-[modifier]: [value];
+  overflow[-modifier]: [value];
 ----------------------------------------
 example:
   .overflow-y-hidden {
