@@ -104,3 +104,10 @@ LinksStyledAsButtons.argTypes = {
     },
   },
 };
+
+const WCTemplate = (args) => `<usa-button text="${args.text}"></usa-button>`;
+
+export const WCButton = WCTemplate.bind({});
+WCButton.args = {
+  text: "Hello world",
+};
