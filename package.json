@@ -59,6 +59,7 @@
     "prepare": "npx gulp",
     "preversion": "npm test",
     "release": "gulp release",
+    "prefederalist": "cd ./web-components/ && npm install && npm run build",
     "federalist": "npm run build && npm run build:storybook",
     "start": "npm run start:storybook",
     "test": "snyk test && npm run lint && gulp typecheck && gulp test",
