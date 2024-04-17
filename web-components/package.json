@@ -34,9 +34,13 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
+    "@stencil-community/postcss": "^2.2.0",
     "@stencil/core": "^4.7.0",
+    "@stencil/sass": "^3.0.11",
+    "@types/autoprefixer": "^10.2.0",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
+    "autoprefixer": "^10.4.19",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.9.0"
