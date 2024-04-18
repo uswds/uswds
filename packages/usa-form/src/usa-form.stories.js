@@ -54,3 +54,4 @@ DisabledFormElements.argTypes = {
     table: { disable: false },
   },
 };
+DisabledFormElements.title = "TESTING";
