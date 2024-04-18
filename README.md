@@ -214,7 +214,9 @@ If you’re using a framework or package manager that doesn’t support npm, you
 
    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-   **Note:** Files in the downloadable USWDS package will show a "last modified" date of October 26, 1985. This is [intentional](https://github.com/npm/npm/issues/20439#issuecomment-385121133). This default date is set by npm on all its packages to ensure builds will be identical.
+    <p class="site-note">
+      <strong>Note:</strong> Files in the downloadable USWDS package will show a "last modified" date of October 26, 1985. This is <a href="https://github.com/npm/npm/issues/20439#issuecomment-385121133">intentional</a>. This default date is set by npm on all its packages to ensure builds will be identical.
+    </p>
 
 ## Using USWDS CSS and JavaScript in your project
 
