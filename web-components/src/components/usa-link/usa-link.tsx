@@ -10,12 +10,12 @@ export class UsaLink {
    * The link text.
    */
   @Prop() text: string;
-  @Prop() url: string;
+  @Prop() href: string;
 
   render() {
     return (
       <Host>
-        <a class="usa-link" href={this.url}>{ this.text }</a>
+        <a class="usa-link" href={this.href}>{ this.text }</a>
       </Host>
     );
   }

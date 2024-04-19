@@ -9,8 +9,8 @@
 
 | Property | Attribute | Description    | Type     | Default     |
 | -------- | --------- | -------------- | -------- | ----------- |
+| `href`   | `href`    |                | `string` | `undefined` |
 | `text`   | `text`    | The link text. | `string` | `undefined` |
-| `url`    | `url`     |                | `string` | `undefined` |
 
 
 ----------------------------------------------

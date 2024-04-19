@@ -8,11 +8,11 @@ const Template = (args) => Component(args);
 
 export const Link = Template.bind({});
 
-const WCTemplate = (args) => `<usa-link text="${args.text}" url="${args.url}"></usa-link>`;
+const WCTemplate = (args) => `<usa-link text="${args.text}" href="${args.href}"></usa-link>`;
 
 export const WCLink = WCTemplate.bind({});
 WCLink.args = {
   text: "This is some link text 🤙",
-  url: "http://designsystem.digital.gov"
+  href: "http://designsystem.digital.gov"
 };
 

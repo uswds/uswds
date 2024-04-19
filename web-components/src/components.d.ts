@@ -13,11 +13,11 @@ export namespace Components {
         "text": string;
     }
     interface UsaLink {
+        "href": string;
         /**
           * The link text.
          */
         "text": string;
-        "url": string;
     }
 }
 declare global {
@@ -46,11 +46,11 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface UsaLink {
+        "href"?: string;
         /**
           * The link text.
          */
         "text"?: string;
-        "url"?: string;
     }
     interface IntrinsicElements {
         "usa-button": UsaButton;
