@@ -1,5 +1,6 @@
 import Component from "./usa-button-group.twig";
 import TestTextWrappingComponent from "./test/test-patterns/usa-button-group--test-text-wrapping.twig";
+import TestNestedGroupsComponent from "./test/test-patterns/usa-button-group--test-nested.twig";
 import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
@@ -24,6 +25,7 @@ export default {
 
 const Template = (args) => Component(args);
 const TestTextWrappingTemplate = (args) => TestTextWrappingComponent(args);
+const TestNestedGroupsTemplate = (args) => TestNestedGroupsComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -32,3 +34,4 @@ export const Segmented = Template.bind({});
 Segmented.args = SegmentedContent;
 
 export const TestTextWrapping = TestTextWrappingTemplate.bind({});
+export const TestNestedButtonGroups = TestNestedGroupsTemplate.bind({});
