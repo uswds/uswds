@@ -6,77 +6,63 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface UsaButton {
         /**
           * The button text.
          */
         "text": string;
     }
+    interface UsaLink {
+        "link": string;
+        /**
+          * The link text.
+         */
+        "text": string;
+    }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLUsaButtonElement extends Components.UsaButton, HTMLStencilElement {
     }
     var HTMLUsaButtonElement: {
         prototype: HTMLUsaButtonElement;
         new (): HTMLUsaButtonElement;
     };
+    interface HTMLUsaLinkElement extends Components.UsaLink, HTMLStencilElement {
+    }
+    var HTMLUsaLinkElement: {
+        prototype: HTMLUsaLinkElement;
+        new (): HTMLUsaLinkElement;
+    };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "usa-button": HTMLUsaButtonElement;
+        "usa-link": HTMLUsaLinkElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface UsaButton {
         /**
           * The button text.
          */
         "text"?: string;
     }
+    interface UsaLink {
+        "link"?: string;
+        /**
+          * The link text.
+         */
+        "text"?: string;
+    }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "usa-button": UsaButton;
+        "usa-link": UsaLink;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "usa-button": LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
+            "usa-link": LocalJSX.UsaLink & JSXBase.HTMLAttributes<HTMLUsaLinkElement>;
         }
     }
 }
