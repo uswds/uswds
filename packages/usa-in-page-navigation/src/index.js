@@ -188,19 +188,28 @@ const getSectionId = (value) => {
 };
 
 /**
+ * Recursively calculate a heading element's offset from the top of the page.
+ *
+ * @param {HTMLElement} el A heading element
+ */
+const getTotalElementOffset = (el) =>
+  el.offsetTop + (el.offsetParent && getTotalElementOffset(el.offsetParent));
+
+/**
  * Scroll smoothly to a section based on the passed in element
  *
- * @param {HTMLElement} - Id value with the number sign removed
+ * @param {HTMLElement} el A heading element
  */
 const handleScrollToSection = (el) => {
   const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
   const inPageNavScrollOffset =
     inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
+  const offsetTop = getTotalElementOffset(el);
+
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop - inPageNavScrollOffset,
-    block: "start",
+    top: offsetTop - inPageNavScrollOffset,
   });
 
   if (window.location.hash.slice(1) !== el.id) {
