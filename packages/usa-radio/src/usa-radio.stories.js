@@ -9,6 +9,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
+      defaultValue: false
+    },
     indeterminate_state: {
       name: "Toggle indeterminate state",
       control: { type: "boolean" },
@@ -56,4 +61,14 @@ IndeterminateTile.argTypes = {
   indeterminate_state: {
     defaultValue: true,
   },
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  error_state: true,
+};
+
+export const ErrorTile = TileTemplate.bind({});
+ErrorTile.args = {
+  error_state: true,
 };

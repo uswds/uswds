@@ -24,6 +24,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
+      defaultValue: false
+    },
   },
 };
 
@@ -102,6 +107,25 @@ export const AriaDisabled = Template.bind({});
 AriaDisabled.argTypes = {
   disabled_state: {
     defaultValue: "aria-disabled",
+  },
+  defaultDate: {
+    table: { disable: true },
+  },
+  rangeDate: {
+    table: { disable: true },
+  },
+  restrictedDateStart: {
+    table: { disable: true },
+  },
+  restrictedDateEnd: {
+    table: { disable: true },
+  },
+};
+
+export const Error = Template.bind({});
+Error.argTypes = {
+  error_state: {
+    defaultValue: true,
   },
   defaultDate: {
     table: { disable: true },

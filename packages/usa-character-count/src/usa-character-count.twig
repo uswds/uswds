@@ -1,10 +1,11 @@
 <form class="usa-form">
   <div class="usa-character-count">
-    <div class="usa-form-group">
-      <label class="usa-label" for="with-hint-input">Text input</label>
+    <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+      <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="with-hint-input">Character count</label>
       <span id="with-hint-input-hint" class="usa-hint">This is an input with a character counter.</span>
+      {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
       <input
-        class="usa-input usa-character-count__field"
+        class="usa-input usa-character-count__field {% if error_state %}usa-label--error{% endif %}"
         id="with-hint-input"
         maxlength="25"
         name="with-hint-input"
@@ -19,11 +20,12 @@
 
 <form class="usa-form">
   <div class="usa-character-count">
-    <div class="usa-form-group">
-      <label class="usa-label" for="with-hint-textarea">Textarea</label>
+    <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+      <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="with-hint-textarea">Textarea</label>
       <span id="with-hint-textarea-hint" class="usa-hint">This is a textarea with a character counter.</span>
+      {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
       <textarea
-        class="usa-textarea usa-character-count__field"
+        class="usa-textarea usa-character-count__field {% if error_state %}usa-label--error{% endif %}"
         id="with-hint-textarea"
         maxlength="50"
         name="with-hint-textarea"

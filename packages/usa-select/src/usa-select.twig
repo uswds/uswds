@@ -1,16 +1,19 @@
 <form class="usa-form">
-  <label class="usa-label" for="options">Dropdown label</label>
-  <select class="usa-select"
-    name="options"
-    id="options"
-    {% if multiple %}multiple{% endif %}
-    {% if size %}size="{{ size }}"{% endif %}
-    {% if disabled_state == 'disabled' %} disabled {%- endif %}
-    {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}  
-  >
-    <option value>- Select -</option>
-    <option value="value1">Option A</option>
-    <option value="value2">Option B</option>
-    <option value="value3">Option C</option>
-  </select>
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="options">Dropdown label</label>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <select class="usa-select {% if error_state %}usa-input--error{% endif %}"
+      name="options"
+      id="options"
+      {% if multiple %}multiple{% endif %}
+      {% if size %}size="{{ size }}"{% endif %}
+      {% if disabled_state == 'disabled' %} disabled {%- endif %}
+      {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}  
+    >
+      <option value>- Select -</option>
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+  {% if error_state %}</div>{% endif %}
 </form>

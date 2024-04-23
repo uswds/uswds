@@ -24,6 +24,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
+      defaultValue: false
+    },
   },
 };
 
@@ -80,6 +85,9 @@ Disabled.argTypes = {
   restrictedDateEnd: {
     table: { disable: true },
   },
+  error_state: {
+    table: { disable: true},
+  },
 };
 
 export const AriaDisabled = Template.bind({});
@@ -91,6 +99,37 @@ AriaDisabled.argTypes = {
     table: { disable: true },
   },
   defaultDateEnd: {
+    table: { disable: true },
+  },
+  restrictedDateStart: {
+    table: { disable: true },
+  },
+  restrictedDateEnd: {
+    table: { disable: true },
+  },
+  error_state: {
+    table: { disable: true},
+  },
+};
+
+export const Error = Template.bind({});
+Error.argTypes = {
+  error_state: {
+    defaultValue: true,
+  },
+  disabled_state: {
+    table: { disable: true }
+  },
+  defaultDateStart: {
+    table: { disable: true },
+  },
+  defaultDateEnd: {
+    table: { disable: true },
+  },
+  defaultDate: {
+    table: { disable: true },
+  },
+  rangeDate: {
     table: { disable: true },
   },
   restrictedDateStart: {

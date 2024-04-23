@@ -1,6 +1,7 @@
-<div class="usa-form-group">
-  <label class="usa-label" id="appointment-time-label" for="appointment-time">Appointment time</label>
+<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time">Appointment time</label>
   <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
+  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-time-picker">
     <input
       class="usa-input"
