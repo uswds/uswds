@@ -18,7 +18,7 @@
 </form>
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <fieldset class="usa-fieldset margin-top-2">
+  <fieldset class="usa-fieldset {% if error_state %}usa-form-group--error{% endif %} margin-top-2">
     <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Checkbox{% if error_state %} has an error{% endif %}</legend>
     {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-checkbox">
@@ -280,6 +280,7 @@
 
 <form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="options">Select{% if error_state %} has an error{% endif %}</label>
+  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <select
     class="usa-select {% if error_state %}usa-input--error{% endif %}"
     name="options"
