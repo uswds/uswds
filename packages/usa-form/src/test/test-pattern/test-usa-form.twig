@@ -89,7 +89,7 @@
 </div>
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="fruit">Input{% if error_state %} has an error{% endif %}</label>
+  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="fruit">Combo box{% if error_state %} has an error{% endif %}</label>
   {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-combo-box">
     <select
@@ -182,6 +182,7 @@
 
 <form class="usa-form">
   {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-suffix">Input suffix{% if error_state %} has an error{% endif %}</label>
     {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-input-group usa-input-group--sm {% if error_state %}usa-input--error{% endif %}">
       <input
@@ -320,7 +321,7 @@
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time"
-    >Time picker</label
+    >Time picker{% if error_state %} has an error{% endif %}</label
   >
   <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
   {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
