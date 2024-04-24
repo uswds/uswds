@@ -18,7 +18,7 @@
 </form>
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <fieldset class="usa-fieldset {% if error_state %}usa-form-group--error{% endif %} margin-top-2">
+  <fieldset class="usa-fieldset margin-top-2">
     <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Checkbox{% if error_state %} has an error{% endif %}</legend>
     {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-checkbox">
@@ -139,57 +139,62 @@
   />
 </div>
 
-<form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="ssn">Input mask{% if error_state %} has an error{% endif %}</label>
-  <div class="usa-hint" id="ssnHint">For example, 123 45 6789</div>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-  <input
-    id="ssn"
-    inputmode="numeric"
-    name="ssn"
-    placeholder="___ __ ____"
-    pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
-    class="usa-input usa-masked {% if error_state %}usa-input--error{% endif %}"
-    aria-describedby="ssnHint"
-    {% if disabled_state == 'disabled' %} disabled
-    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-  />
+<form class="usa-form">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="ssn">Input mask{% if error_state %} has an error{% endif %}</label>
+    <div class="usa-hint" id="ssnHint">For example, 123 45 6789</div>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <input
+      id="ssn"
+      inputmode="numeric"
+      name="ssn"
+      placeholder="___ __ ____"
+      pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
+      class="usa-input usa-masked {% if error_state %}usa-input--error{% endif %}"
+      aria-describedby="ssnHint"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+  {% if error_state %}</div>{% endif %}
 </form>
 
-<form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-prefix">Input prefix{% if error_state %} has an error{% endif %}</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-  <div class="usa-input-group {% if error_state %}usa-input--error{% endif %}">
-    <div class="usa-input-prefix" aria-hidden="true">
-      <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
-        <use xlink:href="./img/sprite.svg#credit_card"></use>
-      </svg>
+<form class="usa-form">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-prefix">Input prefix{% if error_state %} has an error{% endif %}</label>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <div class="usa-input-group {% if error_state %}usa-input--error{% endif %}">
+      <div class="usa-input-prefix" aria-hidden="true">
+        <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
+          <use xlink:href="./img/sprite.svg#credit_card"></use>
+        </svg>
+      </div>
+      <input
+        id="example-input-prefix"
+        class="usa-input"
+        pattern="[0-9]*"
+        inputmode="numeric"
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      />
     </div>
-    <input
-      id="example-input-prefix"
-      class="usa-input"
-      pattern="[0-9]*"
-      inputmode="numeric"
-      {% if disabled_state == 'disabled' %} disabled
-      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-    />
-  </div>
+  {% if error_state %}</div>{% endif %}
 </form>
 
-<form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-suffix">Input suffix{% if error_state %} has an error{% endif %}</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-  <div class="usa-input-group usa-input-group--sm {% if error_state %}usa-input--error{% endif %}">
-    <input
-      id="example-input-suffix"
-      class="usa-input"
-      pattern="[0-9]*"
-      inputmode="numeric"
-      {% if disabled_state == 'disabled' %} disabled
-      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-    />
-    <div class="usa-input-suffix" aria-hidden="true">lbs.</div>
-  </div>
+<form class="usa-form">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <div class="usa-input-group usa-input-group--sm {% if error_state %}usa-input--error{% endif %}">
+      <input
+        id="example-input-suffix"
+        class="usa-input"
+        pattern="[0-9]*"
+        inputmode="numeric"
+        {% if disabled_state == 'disabled' %} disabled
+        {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      />
+      <div class="usa-input-suffix" aria-hidden="true">lbs.</div>
+    </div>
+  {% if error_state %}</div>{% endif %}
 </form>
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
@@ -258,41 +263,45 @@
   </fieldset>
 </div>
 
-<form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="usa-range">Range slider{% if error_state %} has an error{% endif %}</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-  <input
-    id="usa-range"
-    class="usa-range"
-    type="range"
-    min="0"
-    max="100"
-    step="10"
-    value="20"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    aria-valuenow="20"
-    role="slider"
-    {% if disabled_state == 'disabled' %} disabled
-    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-  />
+<form class="usa-form">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="usa-range">Range slider{% if error_state %} has an error{% endif %}</label>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <input
+      id="usa-range"
+      class="usa-range"
+      type="range"
+      min="0"
+      max="100"
+      step="10"
+      value="20"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="20"
+      role="slider"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    />
+  {% if error_state %}</div>{% endif %}
 </form>
 
-<form class="usa-form usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="options">Select{% if error_state %} has an error{% endif %}</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-  <select
-    class="usa-select {% if error_state %}usa-input--error{% endif %}"
-    name="options"
-    id="options"
-    {% if disabled_state == 'disabled' %} disabled
-    {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-    >
-    <option value>- Select -</option>
-    <option value="value1">Option A</option>
-    <option value="value2">Option B</option>
-    <option value="value3">Option C</option>
-  </select>
+<form class="usa-form">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="options">Select{% if error_state %} has an error{% endif %}</label>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <select
+      class="usa-select {% if error_state %}usa-input--error{% endif %}"
+      name="options"
+      id="options"
+      {% if disabled_state == 'disabled' %} disabled
+      {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+      >
+      <option value>- Select -</option>
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+  {% if error_state %}</div>{% endif %}
 </form>
 
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
@@ -305,7 +314,7 @@
     type="text"
     {% if disabled_state == 'disabled' %} disabled
     {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-    >
+  >
 </div>
 
 
