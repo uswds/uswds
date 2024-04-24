@@ -1,10 +1,11 @@
-<style>
-.usa-button-group__item {
-  margin-top:0;
-  margin-bottom:0;
-  display: flex;
-}
-</style>
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-20 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test nested button groups</p>
+  <p>Confirm that buttons inside nested button groups are:</p>
+  <ul>
+    <li>The same height as their sibling buttons</li>
+    <li>The same height as their parent buttons</li>
+  </ul>
+</div>
 
 <h3>Nested button group</h3>
 <ul class="usa-button-group">
@@ -35,7 +36,7 @@
     <a href="#" class="usa-button usa-button--outline maxw-15">Button with long text </a>
   </li>
   <li class="usa-button-group__item">
-    <ul class="usa-button-group">
+    <ul class="usa-button-group usa-button-group--segmented">
       <li class="usa-button-group__item">
         <a href="#" class="usa-button usa-button--outline maxw-10">Nested Button</a>
       </li>
