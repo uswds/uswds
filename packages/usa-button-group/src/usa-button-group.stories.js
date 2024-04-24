@@ -34,4 +34,15 @@ export const Segmented = Template.bind({});
 Segmented.args = SegmentedContent;
 
 export const TestTextWrapping = TestTextWrappingTemplate.bind({});
+TestTextWrapping.argTypes = {
+  disabled_state: {
+    table: { disable: true },
+  },
+};
+
 export const TestNestedButtonGroups = TestNestedGroupsTemplate.bind({});
+TestNestedButtonGroups.argTypes = {
+  disabled_state: {
+    table: { disable: true },
+  },
+};
