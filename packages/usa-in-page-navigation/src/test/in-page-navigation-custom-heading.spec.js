@@ -5,7 +5,7 @@ const sinon = require("sinon");
 const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/in-page-navigation-custom-heading.template.html")
+  path.join(__dirname, "/in-page-navigation-custom-heading.template.html"),
 );
 const THE_NAV = ".usa-in-page-nav";
 const PRIMARY_CONTENT_SELECTOR =
@@ -62,7 +62,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("creates a link in the nav list specifically for the designated header", () => {
       const selectedHeadingLink = navListLinks.filter((link) =>
-        link.href.includes(`#${dataHeadingSelector}-heading`)
+        link.href.includes(`#${dataHeadingSelector}-heading`),
       );
       assert.equal(selectedHeadingLink.length === 1, true);
     });
