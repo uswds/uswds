@@ -60,8 +60,8 @@ DisabledFormElements.argTypes = {
   },
 };
 
-export const ErrorFormElements = CollectionTemplate.bind({});
-ErrorFormElements.argTypes = {
+export const TestErrorFormElements = CollectionTemplate.bind({});
+TestErrorFormElements.argTypes = {
   error_state: {
     defaultValue: true,
     table: { disable: false },
