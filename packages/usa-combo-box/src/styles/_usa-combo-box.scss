@@ -68,7 +68,6 @@ $close: map-merge(
     // Placeholder overrides to ensure color contrast compliance accross browsers
     &::placeholder {
       opacity: 1;
-      color: color("disabled-dark");
     }
 
     & ~ .usa-combo-box__input-button-separator {

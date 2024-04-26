@@ -1,0 +1,14 @@
+<div>
+  <ul class="usa-checklist" id="textarea_validation_list">
+    <li class="usa-checklist__item" data-validator="empty">Cannot by empty</li>
+  </ul>
+  <label class="usa-label" for="comment">Comment</label>
+  <textarea
+    class="usa-textarea"
+    id="comment"
+    name="comment"
+    aria-describedby="textarea_validation_list"
+    data-validate-empty="\S"
+    data-validation-element="textarea_validation_list"
+  ></textarea>
+</div>

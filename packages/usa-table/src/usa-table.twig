@@ -1,41 +1,50 @@
+{% if multiple_header_rows %}
+  {% set header_loop_count = 0..1 %}
+{% else %}
+  {% set header_loop_count = 0..0 %}
+{% endif %}
+
+{% set body_loop_count = 0..0 %}
+{% if sticky_header %}
+  {% set body_loop_count = 0..6 %}
+  {% set sticky_header_class = 'usa-table--sticky-header' %}
+{% endif %}
+
 {% if scrollable %}
   <div class="usa-table-container--scrollable" tabindex="0">
 {% endif %}
 
-<table class="usa-table {{ modifier }}">
+<table class="usa-table {{sticky_header ? sticky_header_class }} {{ modifier }}">
   {% if caption %}
     <caption>{{ caption }}</caption>
   {% endif %}
 
-  {% if scrollable %}
-    <col>
-    <colgroup span="2"></colgroup>
-    <colgroup span="2"></colgroup>
-  {% endif %}
-
   <thead>
-    <tr>
-      {% for th in thead %}
-        <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
-      {% endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in tbody %}
+    {% for i in header_loop_count %}
       <tr>
-        {% for cell in row %}
-          {% if not cell.scope %}
-            <td>{{ cell.title }}</td>
-          {% else %}
-            <th scope="{{ cell.scope }}">{{ cell.title }}</th>
-          {% endif %}
+        {% for th in thead %}
+          <th scope="{{ th.scope|default('col') }}">{{ th.title }}</th>
         {% endfor %}
       </tr>
+    {% endfor %}
+  </thead>
+  <tbody>
+    {% for i in body_loop_count %}
+      {% for row in tbody %}
+        <tr>
+          {% for cell in row %}
+            {% if not cell.scope %}
+              <td>{{ cell.title }}</td>
+            {% else %}
+              <th scope="{{ cell.scope }}">{{ cell.title }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
     {% endfor %}
   </tbody>
 </table>
 
 {% if scrollable %}
   </div>
-  <p>* in billions of dollars. Data for illustration purposes only.</p>
 {% endif %}

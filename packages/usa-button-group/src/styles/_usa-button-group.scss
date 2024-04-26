@@ -14,7 +14,8 @@
   padding-left: 0;
 
   @include at-media("mobile-lg") {
-    align-items: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
     flex-direction: row;
   }
 }
@@ -29,6 +30,7 @@
   }
 
   .usa-button {
+    height: 100%;
     margin-left: 0;
     margin-right: 0;
   }
