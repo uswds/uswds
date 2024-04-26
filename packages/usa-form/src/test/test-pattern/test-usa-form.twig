@@ -1,3 +1,10 @@
+{# *
+* While we could add the usa-form-group--error class to <form class="usa-form"> elements, we should 
+* avoid doing this and only add it to usa-form-group elements.
+*
+* Setting the error on the form element would add the error class to the entire form and not just 
+* the form question that holds the error.
+*#}
 <form class="usa-form">
   <div class="usa-character-count">
     <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
@@ -17,6 +24,11 @@
   </div>
 </form>
 
+
+{# *
+* usa-legend and usa-label output the same base styles. Because of this, we can add the 
+* usa-label--error class without any additional changes or unexpected style conflicts.
+*#}
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset margin-top-2">
     <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Checkbox</legend>
@@ -52,7 +64,10 @@
   </fieldset>
 </div>
 
-
+{# *
+* In order for the red border to highlight the form input with an error, the elements must be 
+* nested within a div with the usa-form-group and usa-form-group--error classes.
+*#}
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset margin-top-2">
   <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Radio</legend>
@@ -88,6 +103,11 @@
   </fieldset>
 </div>
 
+{# ! 
+! Adding the usa-input--error class to the combo box nested select element does not carry the class over to 
+! its dynamically placed input element. The class remains on the hidden select element. This is true for time picker's 
+! combo box element as well.
+!#}
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="fruit">Combo box</label>
   {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
@@ -139,6 +159,13 @@
   />
 </div>
 
+{# ! 
+! Input mask breaks due to DOM structure changing. Related to: #5517.
+!
+! This initialization error also causes subsequent JS files to not initialize properly. 
+! On this page, time picker does not initialize. Removing input-mask or the error states will allow time 
+! picker to properly initialize.
+!#}
 <form class="usa-form">
   {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
     <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="ssn">Input mask</label>
@@ -158,6 +185,11 @@
   {% if error_state %}</div>{% endif %}
 </form>
 
+{# * 
+* Input prefix/suffix input group
+* For input prefix/suffix, the usa-input--error class must be put on the usa-input-group element in order for 
+* the styles to display as expected
+*#}
 <form class="usa-form">
   {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
     <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-prefix">Input prefix</label>
@@ -318,7 +350,10 @@
   >
 </div>
 
-
+{# !
+! Due to Combo box's dynamic input element not receiving the same classes as it's select placeholder, 
+! the error input classes are not set on initialization
+!#}
 <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
   <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time"
     >Time picker</label
