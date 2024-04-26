@@ -113,7 +113,7 @@
   {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-combo-box">
     <select
-      class="usa-select usa-input--error"
+      class="usa-select {% if error_state %}usa-input--error{% endif %}"
       name="fruit"
       id="fruit"
       {% if disabled_state == 'disabled' %} disabled
