@@ -24,9 +24,20 @@
     height: 100%;
 
     .usa-button-group__item {
-      margin-top: 0;
-      margin-bottom: 0;
       display: flex;
+
+      @include at-media("mobile-lg") {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    // Styles for nested segmented button groups
+    &--segmented {
+      .usa-button-group__item {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
   }
 }
