@@ -14,18 +14,25 @@
 // permissions and limitations under the License.
 %>
 <%
+    // Modified version of map-deep.template provided by style-dictionary.
+    //
     // output the list of tokens as a Sass nested map
     // (the values are pointing to the variables)
+    //
+    // Numbers keys will be output without quotes and paired with their value.
+    // Strings values with a nested maps will be output with quotes and their nested maps will be
+    // evaluated.
     //
     print(`$${file.mapName||'tokens'}: ${processJsonNode(dictionary.properties, 0)};\n`);
 
     // recursive function to process a properties JSON node
     //
     function processJsonNode(obj, depth) {
-        var output = '';
+        let output = '';
         if (obj === null) {
             output += `''`
         } else if (typeof obj === "string" || obj === false) {
+            // Allows the output of `false` values
             output += `${obj}`
         } else if (obj.hasOwnProperty('value')) {
             // if we have found a leaf (a property with a value) append the value
@@ -34,8 +41,10 @@
             // if we have found a group of properties, use the Sass group "(...)" syntax and loop -recursively- on the children
             output += '(\n'
             output += Object.keys(obj).map(function(newKey) {
-            var newProp = obj[newKey];
-            var indent = '  '.repeat(depth+1);
+            let newProp = obj[newKey];
+            let indent = '  '.repeat(depth+1);
+            // if newKey is a number, do not wrap with quotation marks, process newProp value
+            // else wrap with quotation marks and process nested newProp object.
             if (!isNaN(Number(newKey))){
               return `${indent}${newKey}: ${processJsonNode(newProp.value, depth + 1)}`;
             } else {
