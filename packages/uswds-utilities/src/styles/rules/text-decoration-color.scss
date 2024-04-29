@@ -3,14 +3,15 @@
 text-decoration-color
 ----------------------------------------
 usage:
-  .text-decoration-color-[key]
+  .underline-[key]
 ----------------------------------------
 output:
-  text-decoration-color: [value]
+  text-decoration-color: [value];
 ----------------------------------------
 example:
-  .text-decoration-color-black {
-    text-decoration-color: #000; }
+  .underline-red {
+    text-decoration-color: #e52207;
+  }
 ----------------------------------------
 */
 
