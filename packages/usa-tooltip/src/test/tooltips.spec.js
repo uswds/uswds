@@ -20,19 +20,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = TEMPLATE;
       tooltip.on(containerSelector());
       tooltipBody = body.querySelector(".usa-tooltip__body");
-      tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipTrigger = body.querySelector(".usa-tooltip");
     });
 
     afterEach(() => {
       tooltip.off(containerSelector());
       body.textContent = "";
-    });
-
-    it("trigger is created", () => {
-      assert.strictEqual(
-        tooltipTrigger.getAttribute("class"),
-        "usa-button usa-tooltip__trigger"
-      );
     });
 
     it("title attribute on trigger is removed", () => {
@@ -48,8 +41,30 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
     });
 
+    it("tooltip is visible when mousing over", () => {
+      const event = new MouseEvent("mouseover", { bubbles: true });
+      tooltipTrigger.dispatchEvent(event);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is visible when mousing over child", () => {
+      const icon = document.createElement("img");
+      tooltipTrigger.appendChild(icon);
+      const event = new MouseEvent("mouseover", { bubbles: true });
+      icon.dispatchEvent(event);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
     it("tooltip is hidden on blur", () => {
       tooltipTrigger.blur();
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip is hidden when mousing out", () => {
+      const mouseOverEvent = new MouseEvent("mouseover", { bubbles: true });
+      const mouseOutEvent = new MouseEvent("mouseout", { bubbles: true });
+      tooltipTrigger.dispatchEvent(mouseOverEvent);
+      tooltipTrigger.dispatchEvent(mouseOutEvent);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
@@ -58,7 +73,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = `<button class="usa-button usa-tooltip" title="Apricot &lt;img src='' onerror=alert('ouch')&gt;">Button</button>`;
       tooltip.on();
       tooltipBody = body.querySelector(".usa-tooltip__body");
-      tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipTrigger = body.querySelector(".usa-tooltip");
       tooltip.on(body);
 
       // confirm we are not on the original template
