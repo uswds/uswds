@@ -169,8 +169,8 @@ const updateCountMessage = (inputEl) => {
     inputEl.setCustomValidity("");
   }
 
-  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
   inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
+  statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
 /**
@@ -223,6 +223,9 @@ const characterCount = behavior(
     init(root) {
       select(INPUT, root).forEach((input) => enhanceCharacterCount(input));
     },
+    FORM_GROUP_ERROR_CLASS,
+    LABEL_ERROR_CLASS,
+    INPUT_ERROR_CLASS,
     MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE,
     STATUS_MESSAGE_CLASS,
