@@ -170,6 +170,7 @@ const updateCountMessage = (inputEl) => {
   }
 
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
+  inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
 };
 
 /**
