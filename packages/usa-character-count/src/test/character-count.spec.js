@@ -182,7 +182,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       label.classList.add(LABEL_ERROR_CLASS);
 
       EVENTS.focusout(input);
-      
+
       assert.strictEqual(
         formGroup.classList.contains(FORM_GROUP_ERROR_CLASS),
         false
