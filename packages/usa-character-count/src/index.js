@@ -35,13 +35,13 @@ const getCharacterCountElements = (inputEl) => {
     throw new Error(`${INPUT} is missing outer ${CHARACTER_COUNT}`);
   }
 
-  const labelEl = characterCountEl.querySelector(LABEL);
-
   const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
 
   if (!formGroupEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${FORM_GROUP}`);
   }
+
+  const labelEl = characterCountEl.querySelector(LABEL);
 
   if (!labelEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${LABEL}`);
