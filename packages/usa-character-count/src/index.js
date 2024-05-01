@@ -36,9 +36,9 @@ const getCharacterCountElements = (inputEl) => {
   }
 
   const labelEl = characterCountEl.querySelector(LABEL);
-  
+
   const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
-  
+
   if (!formGroupEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${FORM_GROUP}`);
   }
@@ -46,13 +46,13 @@ const getCharacterCountElements = (inputEl) => {
   if (!labelEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${LABEL}`);
   }
-  
+
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
   if (!messageEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
-  
+
   return { characterCountEl, formGroupEl, labelEl, messageEl };
 };
 
@@ -175,7 +175,7 @@ const updateCountMessage = (inputEl) => {
 
 /**
  * Updates character count form elements to match error status of input.
- * 
+ *
  * @description On focusout, it will update the input label and form group to match the current state of the input element.
  * Called on focusout instead of input to prevent content shift while typing.
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
@@ -186,7 +186,7 @@ const toggleErrorState = (inputEl) => {
 
   labelEl.classList.toggle(LABEL_ERROR_CLASS, errorState);
   formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, errorState);
-}
+};
 
 /**
  * Initialize component
@@ -216,8 +216,8 @@ const characterCount = behavior(
     focusout: {
       [INPUT]() {
         toggleErrorState(this);
-      }
-    }
+      },
+    },
   },
   {
     init(root) {
