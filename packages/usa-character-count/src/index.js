@@ -5,7 +5,14 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
 const CHARACTER_COUNT = `.${CHARACTER_COUNT_CLASS}`;
+const FORM_GROUP_CLASS = `${PREFIX}-form-group`;
+const FORM_GROUP_ERROR_CLASS = `${FORM_GROUP_CLASS}--error`;
+const FORM_GROUP = `.${FORM_GROUP_CLASS}`;
+const LABEL_CLASS = `${PREFIX}-label`;
+const LABEL_ERROR_CLASS = `${LABEL_CLASS}--error`;
+const LABEL = `.${LABEL_CLASS}`;
 const INPUT = `.${PREFIX}-character-count__field`;
+const INPUT_ERROR_CLASS = `${PREFIX}-input--error`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__status--invalid`;
@@ -16,10 +23,10 @@ const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 const DEFAULT_STATUS_LABEL = `characters allowed`;
 
 /**
- * Returns the root and message element for an character count input
+ * Returns the root, form group, label, and message elements for an character count input
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- * @returns {CharacterCountElements} elements The root and message element.
+ * @returns {CharacterCountElements} elements The root form group, label, and message element.
  */
 const getCharacterCountElements = (inputEl) => {
   const characterCountEl = inputEl.closest(CHARACTER_COUNT);
@@ -28,13 +35,25 @@ const getCharacterCountElements = (inputEl) => {
     throw new Error(`${INPUT} is missing outer ${CHARACTER_COUNT}`);
   }
 
+  const labelEl = characterCountEl.querySelector(LABEL);
+  
+  const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
+  
+  if (!formGroupEl) {
+    throw new Error(`${CHARACTER_COUNT} is missing inner ${FORM_GROUP}`);
+  }
+
+  if (!labelEl) {
+    throw new Error(`${CHARACTER_COUNT} is missing inner ${LABEL}`);
+  }
+  
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
   if (!messageEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
-
-  return { characterCountEl, messageEl };
+  
+  return { characterCountEl, formGroupEl, labelEl, messageEl };
 };
 
 /**
