@@ -32,6 +32,7 @@ const getTooltipElements = (trigger) => {
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   tooltipBody.setAttribute("aria-hidden", "false");
+  attachGlobalListener();
 
   // This sets up the tooltip body. The opacity is 0, but
   // we can begin running the calculations below.
@@ -304,6 +305,7 @@ const hideToolTip = (tooltipBody) => {
   tooltipBody.classList.remove(SET_CLASS);
   tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
   tooltipBody.setAttribute("aria-hidden", "true");
+  removeGlobalListener();
 };
 
 /**
@@ -356,6 +358,24 @@ const setUpAttributes = (tooltipTrigger) => {
 
   return { tooltipBody, position, tooltipContent, wrapper };
 };
+
+const handleEscape = () => {
+  const activeTooltips = document.querySelectorAll(".is-set");
+  if ( event.keyCode === 27 ) {
+    console.log("Pressed escape");
+    activeTooltips.forEach((activeTooltip) => {
+      hideToolTip (activeTooltip);
+    });
+  }
+};
+
+const attachGlobalListener = () => {
+  document.addEventListener("keydown", handleEscape);
+}
+
+const removeGlobalListener = () => {
+  document.removeEventListener("keydown", handleEscape);
+}
 
 // Setup our function to run on various events
 const tooltip = behavior(
