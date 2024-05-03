@@ -27,3 +27,9 @@ src/stylesheets/lib
 
 # ignore sassdoc build
 sassdoc/
+
+# StencilJS files.
+.stencil/
+web-components/www/
+web-components/loader/
+web-components/dist
