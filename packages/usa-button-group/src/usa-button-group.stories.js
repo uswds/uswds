@@ -1,6 +1,6 @@
 import Component from "./usa-button-group.twig";
-import TestTextWrappingComponent from "./test/test-patterns/usa-button-group--test-text-wrapping.twig";
-import TestNestedGroupsComponent from "./test/test-patterns/usa-button-group--test-nested.twig";
+import TestTextWrappingComponent from "./test/test-patterns/test-usa-button-group--text-wrapping.twig";
+import TestNestedGroupsComponent from "./test/test-patterns/test-usa-button-group--nested.twig";
 import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
