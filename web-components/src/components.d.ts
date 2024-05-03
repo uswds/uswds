@@ -18,9 +18,9 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Whether internal or external link.
+          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute.
          */
-        "isExternal": boolean;
+        "inverse": boolean;
         /**
           * The link label.
          */
@@ -58,9 +58,9 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Whether internal or external link.
+          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute.
          */
-        "isExternal"?: boolean;
+        "inverse"?: boolean;
         /**
           * The link label.
          */

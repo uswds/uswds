@@ -1,5 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 
+// TODO: Validate links.
+// TODO: Detect external (non `.gov` links).
 @Component({
   tag: 'usa-link',
   styleUrl: 'usa-link.scss',
@@ -10,7 +12,6 @@ import { Component, Prop, h } from '@stencil/core';
 // The name of the ES6 class of the component SHOULD NOT have a prefix since classes are scoped. There is no risk of collision.
 // https://stenciljs.com/docs/style-guide#component-ts-class
 export class Link {
-
   /**
    * The link href.
    */
@@ -22,26 +23,21 @@ export class Link {
   @Prop() text: string;
 
   /**
+   * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute.
+   * ? This would be a considered a new "mode."
+   */
+  @Prop() inverse: boolean = false;
+
+  /**
    * Whether internal or external link.
    */
-  @Prop() isExternal: boolean = false;
+  @Prop() external: boolean = false;
 
-
-  // isExternal() {
-  //   const { href } = this;
-
-  //   if (href !== "undefined") {
-  //     return;
-  //   }
-
-  //   return !(/\.gov$/.test(href));
-  // }
-
-  // TODO: Add external & alt class.
   render() {
     return (
-      <a href={this.href} class="usa-link">
-        <slot>{this.text}</slot>
+      // TODO: Create issue for missing `usa-link--alt` styles.
+      <a href={this.href} class={`usa-link ${ this.inverse ? "usa-link--alt" : ""} ${ this.external ? "usa-link--external" : "" }`}>
+        <span><slot /></span>
       </a>
     );
   }
