@@ -24,8 +24,6 @@
     height: 100%;
 
     .usa-button-group__item {
-      display: flex;
-
       @include at-media("mobile-lg") {
         margin-top: 0;
         margin-bottom: 0;
