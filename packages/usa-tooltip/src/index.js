@@ -361,8 +361,7 @@ const setUpAttributes = (tooltipTrigger) => {
 
 const handleEscape = () => {
   const activeTooltips = document.querySelectorAll(".is-set");
-  if ( event.keyCode === 27 ) {
-    console.log("Pressed escape");
+  if ( event.key === 'Escape' ) {
     activeTooltips.forEach((activeTooltip) => {
       hideToolTip (activeTooltip);
     });
