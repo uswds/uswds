@@ -8,17 +8,34 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UsaButton {
         /**
+          * The big button variant. ? Currently, the only size option available.
+         */
+        "big": boolean;
+        /**
           * The button text.
          */
         "text": string;
+        /**
+          * The button type. ? Might not work. Using prop named `type` will return undefined.
+          * @type {string}
+         */
+        "type": 'button' | 'submit' | 'reset';
+        /**
+          * The color variant of the button.
+         */
+        "variant": 'accent-cool' | 'accent-warm' | 'base' | 'outline' | 'outline-inverse' | 'secondary' | 'unstyled';
     }
     interface UsaLink {
+        /**
+          * Whether internal or external link.
+         */
+        "external": boolean;
         /**
           * The link href.
          */
         "href"?: string;
         /**
-          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute.
+          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute. ? This would be a considered a new "mode."
          */
         "inverse": boolean;
         /**
@@ -48,17 +65,34 @@ declare global {
 declare namespace LocalJSX {
     interface UsaButton {
         /**
+          * The big button variant. ? Currently, the only size option available.
+         */
+        "big"?: boolean;
+        /**
           * The button text.
          */
         "text"?: string;
+        /**
+          * The button type. ? Might not work. Using prop named `type` will return undefined.
+          * @type {string}
+         */
+        "type"?: 'button' | 'submit' | 'reset';
+        /**
+          * The color variant of the button.
+         */
+        "variant"?: 'accent-cool' | 'accent-warm' | 'base' | 'outline' | 'outline-inverse' | 'secondary' | 'unstyled';
     }
     interface UsaLink {
+        /**
+          * Whether internal or external link.
+         */
+        "external"?: boolean;
         /**
           * The link href.
          */
         "href"?: string;
         /**
-          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute.
+          * Inverse link for dark backgrounds. Previously alt, but changed to avoid confusion with existing HTML alt attribute. ? This would be a considered a new "mode."
          */
         "inverse"?: boolean;
         /**
