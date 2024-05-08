@@ -357,7 +357,7 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
-const handleEscape = () => {
+const handleEscape = (event) => {
   const activeTooltips = document.querySelectorAll(".usa-tooltip__body.is-visible");
   if ( event.key === 'Escape' || event.key === 'Esc') {
     activeTooltips.forEach((activeTooltip) => {
