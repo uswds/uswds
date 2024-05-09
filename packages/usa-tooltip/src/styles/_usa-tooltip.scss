@@ -93,7 +93,7 @@ $triangle-size: 5px;
     height: $triangle-size;
     bottom: 100%;
     left: 0;
-    right:0;
+    right: 0;
   }
 }
 
@@ -133,7 +133,7 @@ $triangle-size: 5px;
 
   &:before {
     bottom: 0;
-    left:100%;
+    left: 100%;
     top: 0;
     width: $triangle-size;
   }

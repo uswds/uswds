@@ -361,7 +361,7 @@ const closeTooltip = (e) => {
   const { body } = getTooltipElements(e.target);
 
   hideToolTip(body);
-}
+};
 
 // Setup our function to run on various events
 const tooltip = behavior(
