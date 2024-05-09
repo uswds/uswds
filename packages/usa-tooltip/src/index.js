@@ -357,14 +357,11 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
-const handleEscape = (event) => {
-  const activeTooltips = document.querySelectorAll(".usa-tooltip__body.is-visible");
-  if ( event.key === 'Escape' || event.key === 'Esc') {
-    activeTooltips.forEach((activeTooltip) => {
-      hideToolTip(activeTooltip);
-    });
-  }
-};
+const closeTooltip = (e) => {
+  const { body } = getTooltipElements(e.target);
+
+  hideToolTip(body);
+}
 
 // Setup our function to run on various events
 const tooltip = behavior(
@@ -380,18 +377,15 @@ const tooltip = behavior(
         }
       },
       [TOOLTIP_TRIGGER](e) {
-        const { trigger, body } = getTooltipElements(e.target);
+        const { trigger, body, wrapper } = getTooltipElements(e.target);
 
         showToolTip(body, trigger, trigger.dataset.position);
-        window.addEventListener("keydown", handleEscape);
+        wrapper.addEventListener("mouseleave", closeTooltip);
       },
     },
-    "mouseout focusout": {
+    focusout: {
       [TOOLTIP_TRIGGER](e) {
-        const { body } = getTooltipElements(e.target);
-
-        hideToolTip(body);
-        window.removeEventListener("keydown", handleEscape);
+        closeTooltip(e);
       },
     },
   },
