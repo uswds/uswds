@@ -3,22 +3,21 @@
 font-family
 ----------------------------------------
 usage:
-  .family-[key]
+  .font-family-[key]
 ----------------------------------------
 output:
-  font-family: [value]
+  font-family: [value];
 ----------------------------------------
 example:
-  .family-sans {
-    font-family: 'United Sans webfont',
-                system,
-                -apple-system,
-                BlinkMacSystemFont,
-                'Roboto',
-                'Helvetica Neue',
-                'Helvetica',
-                'Arial',
-                sans-serif; }
+  .font-family-sans {
+    font-family:
+      Source Sans Pro Web,
+      Helvetica Neue,
+      Helvetica,
+      Roboto,
+      Arial,
+      sans-serif;
+  }
 ----------------------------------------
 */
 
