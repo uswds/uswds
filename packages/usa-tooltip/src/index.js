@@ -360,7 +360,7 @@ const setUpAttributes = (tooltipTrigger) => {
 };
 
 const handleEscape = () => {
-  const activeTooltips = document.querySelectorAll(".is-set");
+  const activeTooltips = document.querySelectorAll(".usa-tooltip__body.is-visible");
     activeTooltips.forEach((activeTooltip) => {
       hideToolTip(activeTooltip);
     });
