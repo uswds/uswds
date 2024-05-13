@@ -360,7 +360,7 @@ const setUpAttributes = (tooltipTrigger) => {
 
 /**
  * Hide all active tooltips when escape key is pressed.
- * @param {HTMLElement} event - Keydown event
+ * @param event - Keydown event
  */
 
 const handleEscape = (event) => {
