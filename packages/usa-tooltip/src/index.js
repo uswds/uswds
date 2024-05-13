@@ -357,6 +357,12 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
+
+/**
+ * Hide all active tooltips when escape key is pressed.
+ * @param {HTMLElement} event - Keydown event
+ */
+
 const handleEscape = (event) => {
   const activeTooltips = document.querySelectorAll(
     ".usa-tooltip__body.is-visible"
