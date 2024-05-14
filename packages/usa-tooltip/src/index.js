@@ -1,9 +1,11 @@
 // Tooltips
+const keymap = require("receptor/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
+const BODY = "body";
 const TOOLTIP = `.${PREFIX}-tooltip`;
 const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
@@ -357,21 +359,27 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
-
 /**
  * Hide all active tooltips when escape key is pressed.
  * @param event - Keydown event
  */
 
 const handleEscape = (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
   const activeTooltips = document.querySelectorAll(
     ".usa-tooltip__body.is-visible"
   );
-  if (event.key === "Escape" || event.key === "Esc") {
-    activeTooltips.forEach((activeTooltip) => {
-      hideToolTip(activeTooltip);
-    });
+
+  if (!activeTooltips) {
+    return;
   }
+
+  activeTooltips.forEach((activeTooltip) => {
+    hideToolTip(activeTooltip);
+  });
 };
 
 // Setup our function to run on various events
@@ -391,7 +399,6 @@ const tooltip = behavior(
         const { trigger, body } = getTooltipElements(e.target);
 
         showToolTip(body, trigger, trigger.dataset.position);
-        window.addEventListener("keydown", handleEscape);
       },
     },
     "mouseout focusout": {
@@ -399,8 +406,10 @@ const tooltip = behavior(
         const { body } = getTooltipElements(e.target);
 
         hideToolTip(body);
-        window.removeEventListener("keydown", handleEscape);
       },
+    },
+    keydown: {
+      [BODY]: keymap({ Escape: handleEscape }),
     },
   },
   {
