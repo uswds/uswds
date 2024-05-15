@@ -373,7 +373,7 @@ const handleEscape = (event) => {
     `.${TOOLTIP_BODY_CLASS}.${VISIBLE_CLASS}`
   );
 
-  if (!activeTooltips) {
+  if (activeTooltips.length === 0) {
     return;
   }
 
