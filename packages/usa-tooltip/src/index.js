@@ -399,15 +399,18 @@ const tooltip = behavior(
         setUpAttributes(tooltipTrigger);
 
         const wrapper = tooltipTrigger.closest(TOOLTIP);
-        wrapper.addEventListener('mouseleave', () =>{
-          hideTooltipOnMouseleave(tooltipTrigger)
-        })
+        wrapper.addEventListener("mouseleave", () => {
+          hideTooltipOnMouseleave(tooltipTrigger);
+        });
       });
     },
     teardown(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
         console.log(tooltipWrapper);
-        tooltipWrapper.removeEventListener('mouseleave', hideTooltipOnMouseleave)
+        tooltipWrapper.removeEventListener(
+          "mouseleave",
+          hideTooltipOnMouseleave
+        );
       });
     },
     setup: setUpAttributes,
