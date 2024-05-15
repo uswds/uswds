@@ -27,13 +27,12 @@ const EVENTS = {
 
     el.dispatchEvent(mouseoverEvent);
   },
-  mouseout(el) {
-    const mouseoutEvent = new Event("mouseout", {
-      bubbles: true,
+  mouseleave(el) {
+    const mouseleaveEvent = new Event("mouseleave", {
       cancelable: true,
     });
 
-    el.dispatchEvent(mouseoutEvent);
+    el.dispatchEvent(mouseleaveEvent);
   },
 };
 
@@ -42,12 +41,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
     const { body } = document;
     let tooltipBody;
     let tooltipTrigger;
+    let tooltipWrapper;
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
       tooltip.on(containerSelector());
       tooltipBody = body.querySelector(".usa-tooltip__body");
       tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipWrapper = body.querySelector(".usa-tooltip");
     });
 
     afterEach(() => {
@@ -85,8 +86,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
     });
 
-    it("tooltip is hidden on mouseout", () => {
-      EVENTS.mouseout(tooltipTrigger);
+    it("tooltip is hidden on mouseleave", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      EVENTS.mouseleave(tooltipWrapper);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
