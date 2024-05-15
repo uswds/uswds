@@ -355,10 +355,6 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "@uswds/uswds/js";
-const { characterCount, accordion } = USWDS; // deconstruct your components here
-
-// Alternatively
 import accordion from "@uswds/uswds/js/usa-accordion";
 ```
 
