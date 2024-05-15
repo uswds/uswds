@@ -10,6 +10,33 @@ const tests = [
   { name: "tooltip", selector: () => document.querySelector(".usa-tooltip") },
 ];
 
+const EVENTS = {
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+  mouseover(el) {
+    const mouseoverEvent = new Event("mouseover", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    el.dispatchEvent(mouseoverEvent);
+  },
+  mouseout(el) {
+    const mouseoutEvent = new Event("mouseout", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    el.dispatchEvent(mouseoutEvent);
+  },
+};
+
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`tooltips initialized at ${name}`, () => {
     const { body } = document;
@@ -51,6 +78,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("tooltip is hidden on blur", () => {
       tooltipTrigger.blur();
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip is visible on mouseover", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is hidden on mouseout", () => {
+      EVENTS.mouseout(tooltipTrigger);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip content is hoverable", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      EVENTS.mouseover(tooltipBody);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
     });
 
     it("should not allow for innerHTML of child elements ", () => {
