@@ -370,7 +370,7 @@ const handleEscape = (event) => {
   }
 
   const activeTooltips = document.querySelectorAll(
-    ".usa-tooltip__body.is-visible"
+    `.${TOOLTIP_BODY_CLASS}.${VISIBLE_CLASS}`
   );
 
   if (!activeTooltips) {
