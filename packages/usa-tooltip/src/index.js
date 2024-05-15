@@ -406,7 +406,6 @@ const tooltip = behavior(
     },
     teardown(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
-        console.log(tooltipWrapper);
         tooltipWrapper.removeEventListener(
           "mouseleave",
           hideTooltipOnMouseleave
