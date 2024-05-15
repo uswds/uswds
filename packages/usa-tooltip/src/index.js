@@ -357,9 +357,12 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
-const closeTooltip = (e) => {
-  const { body } = getTooltipElements(e.target);
-
+/**
+ * Close the tooltip on mouseleave
+ * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
+ */
+const hideTooltipOnMouseleave = (tooltipTrigger) => {
+  const { body } = getTooltipElements(tooltipTrigger);
   hideToolTip(body);
 };
 
@@ -384,7 +387,9 @@ const tooltip = behavior(
     },
     focusout: {
       [TOOLTIP_TRIGGER](e) {
-        closeTooltip(e);
+        const { body } = getTooltipElements(e.target);
+
+        hideToolTip(body);
       },
     },
   },
@@ -394,7 +399,9 @@ const tooltip = behavior(
         setUpAttributes(tooltipTrigger);
 
         const wrapper = tooltipTrigger.closest(TOOLTIP);
-        wrapper.addEventListener("mouseleave", closeTooltip);
+        wrapper.addEventListener('mouseleave', () =>{
+          hideTooltipOnMouseleave(tooltipTrigger)
+        })
       });
     },
     setup: setUpAttributes,
