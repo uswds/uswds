@@ -366,7 +366,7 @@ const setUpAttributes = (tooltipTrigger) => {
 const handleEscape = () => {
   const activeTooltips = selectOrMatches(`.${TOOLTIP_BODY_CLASS}.${SET_CLASS}`);
 
-  if (!activeTooltips) {
+  if (activeTooltips.length === 0) {
     return;
   }
 
