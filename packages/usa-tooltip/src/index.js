@@ -34,6 +34,7 @@ const getTooltipElements = (trigger) => {
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   tooltipBody.setAttribute("aria-hidden", "false");
+  console.log("🏄‍♀️ show tooltip");
 
   // This sets up the tooltip body. The opacity is 0, but
   // we can begin running the calculations below.
@@ -306,6 +307,8 @@ const hideToolTip = (tooltipBody) => {
   tooltipBody.classList.remove(SET_CLASS);
   tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
   tooltipBody.setAttribute("aria-hidden", "true");
+  console.log("👻 hide tooltip");
+
 };
 
 /**
@@ -361,19 +364,12 @@ const setUpAttributes = (tooltipTrigger) => {
 
 /**
  * Hide all active tooltips when escape key is pressed.
- * @param event - Keydown event
  */
 
-const handleEscape = (event) => {
-  if (event.key !== "Escape") {
-    return;
-  }
+const handleEscape = () => {
+  const activeTooltips = selectOrMatches(`.${TOOLTIP_BODY_CLASS}.${SET_CLASS}`);
 
-  const activeTooltips = document.querySelectorAll(
-    `.${TOOLTIP_BODY_CLASS}.${VISIBLE_CLASS}`
-  );
-
-  if (activeTooltips.length === 0) {
+  if (!activeTooltips) {
     return;
   }
 
