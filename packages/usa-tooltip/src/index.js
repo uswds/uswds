@@ -34,7 +34,6 @@ const getTooltipElements = (trigger) => {
  */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   tooltipBody.setAttribute("aria-hidden", "false");
-  console.log("🏄‍♀️ show tooltip");
 
   // This sets up the tooltip body. The opacity is 0, but
   // we can begin running the calculations below.
@@ -307,8 +306,6 @@ const hideToolTip = (tooltipBody) => {
   tooltipBody.classList.remove(SET_CLASS);
   tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
   tooltipBody.setAttribute("aria-hidden", "true");
-  console.log("👻 hide tooltip");
-
 };
 
 /**
