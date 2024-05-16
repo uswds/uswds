@@ -92,7 +92,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("tooltip is hidden on escape keydown", () => {
       tooltipTrigger.focus();
-      EVENTS.escape(body);
+      EVENTS.escape(tooltipTrigger);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
