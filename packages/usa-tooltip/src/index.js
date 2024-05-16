@@ -357,15 +357,6 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
-/**
- * Close the tooltip on mouseleave
- * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
- */
-const hideTooltipOnMouseleave = (tooltipTrigger) => {
-  const { body } = getTooltipElements(tooltipTrigger);
-  hideToolTip(body);
-};
-
 // Setup our function to run on various events
 const tooltip = behavior(
   {
@@ -398,18 +389,15 @@ const tooltip = behavior(
       selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
         setUpAttributes(tooltipTrigger);
 
-        const wrapper = tooltipTrigger.closest(TOOLTIP);
+        const { body, wrapper } = getTooltipElements(tooltipTrigger);
         wrapper.addEventListener("mouseleave", () => {
-          hideTooltipOnMouseleave(tooltipTrigger);
+          hideToolTip(body);
         });
       });
     },
     teardown(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
-        tooltipWrapper.removeEventListener(
-          "mouseleave",
-          hideTooltipOnMouseleave
-        );
+        tooltipWrapper.removeEventListener("mouseleave", hideToolTip);
       });
     },
     setup: setUpAttributes,
