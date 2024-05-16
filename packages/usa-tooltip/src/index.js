@@ -366,11 +366,11 @@ const setUpAttributes = (tooltipTrigger) => {
 const handleEscape = () => {
   const activeTooltips = selectOrMatches(`.${TOOLTIP_BODY_CLASS}.${SET_CLASS}`);
 
-  if (activeTooltips) {
-    activeTooltips.forEach((activeTooltip) => {
-      hideToolTip(activeTooltip);
-    });
+  if (!activeTooltips) {
+    return;
   }
+
+  activeTooltips.forEach((activeTooltip) => hideToolTip(activeTooltip));
 };
 
 // Setup our function to run on various events
