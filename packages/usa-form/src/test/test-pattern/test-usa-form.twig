@@ -7,12 +7,12 @@
 *#}
 <form class="usa-form">
   <div class="usa-character-count">
-    <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-      <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="with-hint-input">Character count</label>
+    <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
+      <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="with-hint-input">Character count</label>
       <span id="with-hint-input-hint" class="usa-hint">This is an input with a character counter.</span>
-      {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+      {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
       <input
-        class="usa-input usa-character-count__field {% if error_state %}usa-input--error{% endif %}"
+        class="usa-input usa-character-count__field {% if error_state == true %}usa-input--error{% endif %}"
         id="with-hint-input"
         maxlength="25"
         name="with-hint-input"
@@ -29,10 +29,10 @@
 * usa-legend and usa-label output the same base styles. Because of this, we can add the 
 * usa-label--error class without any additional changes or unexpected style conflicts.
 *#}
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset margin-top-2">
-    <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Checkbox</legend>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <legend class="usa-legend {% if error_state == true %}usa-label--error{% endif %}">Checkbox</legend>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-checkbox">
       <input
         class="usa-checkbox__input usa-input--error"
@@ -68,10 +68,10 @@
 * In order for the red border to highlight the form input with an error, the elements must be 
 * nested within a div with the usa-form-group and usa-form-group--error classes.
 *#}
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset margin-top-2">
-  <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Radio</legend>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  <legend class="usa-legend {% if error_state == true %}usa-label--error{% endif %}">Radio</legend>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-radio">
       <input
         class="usa-radio__input"
@@ -108,12 +108,12 @@
 ! its dynamically placed input element. The class remains on the hidden select element. This is true for time picker's 
 ! combo box element as well.
 !#}
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="fruit">Combo box</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="fruit">Combo box</label>
+  {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-combo-box">
     <select
-      class="usa-select {% if error_state %}usa-input--error{% endif %}"
+      class="usa-select {% if error_state == true %}usa-input--error{% endif %}"
       name="fruit"
       id="fruit"
       {% if disabled_state == 'disabled' %} disabled
@@ -125,15 +125,15 @@
   </div>
 </div>
 
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="appointment-date-label" for="appointment-date"
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" id="appointment-date-label" for="appointment-date"
     >Date picker</label
   >
   <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-date-picker">
     <input
-      class="usa-input {% if error_state %}usa-input--error{% endif %}"
+      class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
       id="appointment-date"
       name="appointment-date"
       aria-labelledby="appointment-date-label"
@@ -144,11 +144,11 @@
   </div>
 </div>
 
-<div class="usa-form-group {% if error_state %} usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="file-input-single"
+<div class="usa-form-group {% if error_state == true %} usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="file-input-single"
     >File input</label
   >
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <input
     id="file-input-single"
     class="usa-file-input"
@@ -167,22 +167,22 @@
 ! picker to properly initialize.
 !#}
 <form class="usa-form">
-  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
-    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="ssn">Input mask</label>
+  {% if error_state == true %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="ssn">Input mask</label>
     <div class="usa-hint" id="ssnHint">For example, 123 45 6789</div>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <input
       id="ssn"
       inputmode="numeric"
       name="ssn"
       placeholder="___ __ ____"
       pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
-      class="usa-input usa-masked {% if error_state %}usa-input--error{% endif %}"
+      class="usa-input usa-masked {% if error_state == true %}usa-input--error{% endif %}"
       aria-describedby="ssnHint"
       {% if disabled_state == 'disabled' %} disabled
       {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
     />
-  {% if error_state %}</div>{% endif %}
+  {% if error_state == true %}</div>{% endif %}
 </form>
 
 {# * 
@@ -191,10 +191,10 @@
 * the styles to display as expected
 *#}
 <form class="usa-form">
-  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
-    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-prefix">Input prefix</label>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-    <div class="usa-input-group {% if error_state %}usa-input--error{% endif %}">
+  {% if error_state == true %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="example-input-prefix">Input prefix</label>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <div class="usa-input-group {% if error_state == true %}usa-input--error{% endif %}">
       <div class="usa-input-prefix" aria-hidden="true">
         <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
           <use xlink:href="./img/sprite.svg#credit_card"></use>
@@ -209,14 +209,14 @@
         {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
       />
     </div>
-  {% if error_state %}</div>{% endif %}
+  {% if error_state == true %}</div>{% endif %}
 </form>
 
 <form class="usa-form">
-  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
-    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="example-input-suffix">Input suffix</label>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
-    <div class="usa-input-group usa-input-group--sm {% if error_state %}usa-input--error{% endif %}">
+  {% if error_state == true %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="example-input-suffix">Input suffix</label>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <div class="usa-input-group usa-input-group--sm {% if error_state == true %}usa-input--error{% endif %}">
       <input
         id="example-input-suffix"
         class="usa-input"
@@ -227,19 +227,19 @@
       />
       <div class="usa-input-suffix" aria-hidden="true">lbs.</div>
     </div>
-  {% if error_state %}</div>{% endif %}
+  {% if error_state == true %}</div>{% endif %}
 </form>
 
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset">
-    <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Memorable date</legend>
+    <legend class="usa-legend {% if error_state == true %}usa-label--error{% endif %}">Memorable date</legend>
     <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-memorable-date">
       <div class="usa-form-group usa-form-group--month usa-form-group--select">
         <label class="usa-label" for="date_of_birth_month">Month</label>
         <select
-          class="usa-select {% if error_state %}usa-input--error{% endif %}"
+          class="usa-select {% if error_state == true %}usa-input--error{% endif %}"
           id="date_of_birth_month"
           name="date_of_birth_month"
           aria-describedby="mdHint"
@@ -264,7 +264,7 @@
       <div class="usa-form-group usa-form-group--day">
         <label class="usa-label" for="date_of_birth_day">Day</label>
         <input
-          class="usa-input {% if error_state %}usa-input--error{% endif %}"
+          class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
           aria-describedby="mdHint"
           id="date_of_birth_day"
           name="date_of_birth_day"
@@ -279,7 +279,7 @@
       <div class="usa-form-group usa-form-group--year">
         <label class="usa-label" for="date_of_birth_year">Year</label>
         <input
-          class="usa-input {% if error_state %}usa-input--error{% endif %}"
+          class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
           aria-describedby="mdHint"
           id="date_of_birth_year"
           name="date_of_birth_year"
@@ -297,9 +297,9 @@
 </div>
 
 <form class="usa-form">
-  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
-    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="usa-range">Range slider</label>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  {% if error_state == true %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="usa-range">Range slider</label>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <input
       id="usa-range"
       class="usa-range"
@@ -315,15 +315,15 @@
       {% if disabled_state == 'disabled' %} disabled
       {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
     />
-  {% if error_state %}</div>{% endif %}
+  {% if error_state == true %}</div>{% endif %}
 </form>
 
 <form class="usa-form">
-  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
-    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="options">Select</label>
-    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  {% if error_state == true %}<div class="usa-form-group usa-form-group--error">{% endif %}
+    <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="options">Select</label>
+    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <select
-      class="usa-select {% if error_state %}usa-input--error{% endif %}"
+      class="usa-select {% if error_state == true %}usa-input--error{% endif %}"
       name="options"
       id="options"
       {% if disabled_state == 'disabled' %} disabled
@@ -334,14 +334,14 @@
       <option value="value2">Option B</option>
       <option value="value3">Option C</option>
     </select>
-  {% if error_state %}</div>{% endif %}
+  {% if error_state == true %}</div>{% endif %}
 </form>
 
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" for="input-type-text">Text input</label>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" for="input-type-text">Text input</label>
+  {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <input
-    class="usa-input {% if error_state %}usa-input--error{% endif %}"
+    class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
     id="input-type-text"
     name="input-type-text"
     type="text"
@@ -354,15 +354,15 @@
 ! Due to Combo box's dynamic input element not receiving the same classes as it's select placeholder, 
 ! the error input classes are not set on initialization
 !#}
-<div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
-  <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time"
+<div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
+  <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time"
     >Time picker</label
   >
   <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
-  {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+  {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-time-picker">
     <input
-      class="usa-input {% if error_state %}usa-input--error{% endif %}"
+      class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
       id="appointment-time"
       name="appointment-time"
       aria-describedby="appointment-time-label appointment-time-hint"
