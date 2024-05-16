@@ -18,7 +18,7 @@ const EVENTS = {
     });
 
     el.dispatchEvent(escapeKeyEvent);
-  }
+  },
 };
 
 tests.forEach(({ name, selector: containerSelector }) => {
