@@ -390,9 +390,7 @@ const tooltip = behavior(
         setUpAttributes(tooltipTrigger);
 
         const { body, wrapper } = getTooltipElements(tooltipTrigger);
-        wrapper.addEventListener("mouseleave", () => {
-          hideToolTip(body);
-        });
+        wrapper.addEventListener("mouseleave", () => hideToolTip(body));
       });
     },
     teardown(root) {
