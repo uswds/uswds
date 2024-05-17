@@ -34,7 +34,7 @@ $triangle-size: 5px;
   position: absolute;
   /* positioning is completed with JS */
 
-  &:after {
+  &::after {
     content: "";
     display: block;
     width: 0;
@@ -48,7 +48,10 @@ $triangle-size: 5px;
     margin-left: -$triangle-size;
   }
 
-  &:before {
+  // This pseudo element fills the gap between the tooltip trigger and body.
+  // Filling this gap allows the tooltip to stay open when the pointer moves
+  // from the tooltip trigger to the body.
+  &::before {
     content: "";
     display: block;
     position: absolute;
@@ -71,7 +74,7 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--top {
-  &:before {
+  &::before {
     height: $triangle-size;
     left: 0;
     right: 0;
@@ -80,7 +83,7 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--bottom {
-  &:after {
+  &::after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
     border-bottom: $triangle-size solid color($theme-tooltip-background-color);
@@ -89,7 +92,7 @@ $triangle-size: 5px;
     top: -$triangle-size;
   }
 
-  &:before {
+  &::before {
     height: $triangle-size;
     bottom: 100%;
     left: 0;
@@ -98,7 +101,7 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--right {
-  &:after {
+  &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
     border-right: $triangle-size solid color($theme-tooltip-background-color);
@@ -110,7 +113,7 @@ $triangle-size: 5px;
     margin: -$triangle-size 0 0 0;
   }
 
-  &:before {
+  &::before {
     bottom: 0;
     right: 100%;
     top: 0;
@@ -119,7 +122,7 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--left {
-  &:after {
+  &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
     border-left: $triangle-size solid color($theme-tooltip-background-color);
@@ -131,7 +134,7 @@ $triangle-size: 5px;
     margin: -$triangle-size 0 0 0;
   }
 
-  &:before {
+  &::before {
     bottom: 0;
     left: 100%;
     top: 0;
