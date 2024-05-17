@@ -11,14 +11,6 @@ const tests = [
 ];
 
 const EVENTS = {
-  escape(el) {
-    const escapeKeyEvent = new KeyboardEvent("keydown", {
-      key: "Escape",
-      bubbles: true,
-    });
-
-    el.dispatchEvent(escapeKeyEvent);
-  },
   mouseover(el) {
     const mouseoverEvent = new Event("mouseover", {
       bubbles: true,
