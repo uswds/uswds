@@ -6,7 +6,6 @@ $triangle-size: 5px;
 /// Create a spacer to increase target area for tooltip triangle.
 ///
 /// @param {String} $direction - The direction of the tooltip; can be top, bottom, left, right.
-/// @param {Length} $triangle-size [5px] - The size of the triangle.
 ///
 /// @example
 /// @include tooltip-spacer("top");
