@@ -1,5 +1,36 @@
 @use "uswds-core" as *;
 
+/// Create a spacer to increase target area for tooltip triangle.
+///
+/// @param {String} $direction - The direction of the tooltip; can be top, bottom, left, right.
+/// @param {Length} $triangle-size [5px] - The size of the triangle.
+///
+/// @example
+/// @include tooltip-spacer("top");
+///
+/// @output
+/// .usa-tooltip__body--top::before {
+///    top: 100%;
+///    height: 5px;
+///    left: 0;
+///    right: 0;
+///  }
+@mixin tooltip-spacer($direction) {
+  &::before {
+    #{$direction}: 100%;
+
+    @if ($direction == "left") or ($direction == "right") {
+      bottom: 0;
+      top: 0;
+      width: $triangle-size;
+    } @else {
+      height: $triangle-size;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
 // Variables
 $triangle-size: 5px;
 
@@ -74,15 +105,12 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--top {
-  &::before {
-    height: $triangle-size;
-    left: 0;
-    right: 0;
-    top: 100%;
-  }
+  @include tooltip-spacer("top");
 }
 
 .usa-tooltip__body--bottom {
+  @include tooltip-spacer("bottom");
+
   &::after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
@@ -91,16 +119,11 @@ $triangle-size: 5px;
     bottom: auto;
     top: -$triangle-size;
   }
-
-  &::before {
-    height: $triangle-size;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-  }
 }
 
 .usa-tooltip__body--right {
+  @include tooltip-spacer("right");
+
   &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
@@ -112,16 +135,11 @@ $triangle-size: 5px;
     left: -$triangle-size;
     margin: -$triangle-size 0 0 0;
   }
-
-  &::before {
-    bottom: 0;
-    right: 100%;
-    top: 0;
-    width: $triangle-size;
-  }
 }
 
 .usa-tooltip__body--left {
+  @include tooltip-spacer("left");
+
   &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
@@ -132,12 +150,5 @@ $triangle-size: 5px;
     bottom: 0;
     left: auto;
     margin: -$triangle-size 0 0 0;
-  }
-
-  &::before {
-    bottom: 0;
-    left: 100%;
-    top: 0;
-    width: $triangle-size;
   }
 }
