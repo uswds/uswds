@@ -1,5 +1,8 @@
 @use "uswds-core" as *;
 
+// Variables
+$triangle-size: 5px;
+
 /// Create a spacer to increase target area for tooltip triangle.
 ///
 /// @param {String} $direction - The direction of the tooltip; can be top, bottom, left, right.
@@ -30,9 +33,6 @@
     }
   }
 }
-
-// Variables
-$triangle-size: 5px;
 
 /* Tooltips */
 .usa-tooltip {
