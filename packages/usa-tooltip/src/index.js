@@ -5,7 +5,6 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
 const TOOLTIP = `.${PREFIX}-tooltip`;
-const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
 const TOOLTIP_CLASS = `${PREFIX}-tooltip`;
 const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
@@ -307,10 +306,30 @@ const hideToolTip = (tooltipBody) => {
 };
 
 /**
+ * Handles events to activate tooltip.
+ * @param {MouseEvent|KeyboardEvent} event Mouseover or focusin event initiating activation.
+ */
+const onTooltipActivate = (event) => {
+  const { trigger, body } = getTooltipElements(event.currentTarget);
+
+  showToolTip(body, trigger, trigger.dataset.position);
+};
+
+/**
+ * Handles events to deactivate tooltip.
+ * @param {MouseEvent|KeyboardEvent} event Mouseout or focusout event initiating deactivation.
+ */
+const onTooltipDeactivate = (event) => {
+  const { body } = getTooltipElements(event.currentTarget);
+
+  hideToolTip(body);
+};
+
+/**
  * Setup the tooltip component
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
-const setUpAttributes = (tooltipTrigger) => {
+const setup = (tooltipTrigger) => {
   const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
   const tooltipContent = tooltipTrigger.getAttribute("title");
   const wrapper = document.createElement("span");
@@ -354,43 +373,22 @@ const setUpAttributes = (tooltipTrigger) => {
   // place the text in the tooltip
   tooltipBody.textContent = tooltipContent;
 
+  tooltipTrigger.addEventListener("mouseover", onTooltipActivate);
+  tooltipTrigger.addEventListener("focusin", onTooltipActivate);
+  tooltipTrigger.addEventListener("mouseout", onTooltipDeactivate);
+  tooltipTrigger.addEventListener("focusout", onTooltipDeactivate);
+
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
 // Setup our function to run on various events
 const tooltip = behavior(
-  {
-    "mouseover focusin": {
-      [TOOLTIP](e) {
-        const trigger = e.target;
-        const elementType = trigger.nodeName;
-
-        // Initialize tooltip if it hasn't already
-        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
-          setUpAttributes(trigger);
-        }
-      },
-      [TOOLTIP_TRIGGER](e) {
-        const { trigger, body } = getTooltipElements(e.target);
-
-        showToolTip(body, trigger, trigger.dataset.position);
-      },
-    },
-    "mouseout focusout": {
-      [TOOLTIP_TRIGGER](e) {
-        const { body } = getTooltipElements(e.target);
-
-        hideToolTip(body);
-      },
-    },
-  },
+  {},
   {
     init(root) {
-      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
-        setUpAttributes(tooltipTrigger);
-      });
+      selectOrMatches(TOOLTIP, root).forEach(setup);
     },
-    setup: setUpAttributes,
+    setup,
     getTooltipElements,
     show: showToolTip,
     hide: hideToolTip,
