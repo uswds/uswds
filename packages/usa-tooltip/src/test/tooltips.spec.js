@@ -26,6 +26,14 @@ const EVENTS = {
 
     el.dispatchEvent(mouseleaveEvent);
   },
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
 };
 
 tests.forEach(({ name, selector: containerSelector }) => {
@@ -88,6 +96,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.mouseover(tooltipTrigger);
       EVENTS.mouseover(tooltipBody);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is hidden on escape keydown", () => {
+      tooltipTrigger.focus();
+      EVENTS.escape(tooltipTrigger);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
     it("should not allow for innerHTML of child elements ", () => {
