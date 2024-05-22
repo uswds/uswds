@@ -1,9 +1,11 @@
 // Tooltips
+const keymap = require("receptor/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
 
+const BODY = "body";
 const TOOLTIP = `.${PREFIX}-tooltip`;
 const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`;
 const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
@@ -357,6 +359,20 @@ const setUpAttributes = (tooltipTrigger) => {
   return { tooltipBody, position, tooltipContent, wrapper };
 };
 
+/**
+ * Hide all active tooltips when escape key is pressed.
+ */
+
+const handleEscape = () => {
+  const activeTooltips = selectOrMatches(`.${TOOLTIP_BODY_CLASS}.${SET_CLASS}`);
+
+  if (!activeTooltips) {
+    return;
+  }
+
+  activeTooltips.forEach((activeTooltip) => hideToolTip(activeTooltip));
+};
+
 // Setup our function to run on various events
 const tooltip = behavior(
   {
@@ -382,6 +398,9 @@ const tooltip = behavior(
 
         hideToolTip(body);
       },
+    },
+    keydown: {
+      [BODY]: keymap({ Escape: handleEscape }),
     },
   },
   {

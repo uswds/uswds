@@ -10,6 +10,17 @@ const tests = [
   { name: "tooltip", selector: () => document.querySelector(".usa-tooltip") },
 ];
 
+const EVENTS = {
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+};
+
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`tooltips initialized at ${name}`, () => {
     const { body } = document;
@@ -50,6 +61,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("tooltip is hidden on blur", () => {
       tooltipTrigger.blur();
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip is hidden on escape keydown", () => {
+      tooltipTrigger.focus();
+      EVENTS.escape(tooltipTrigger);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 
