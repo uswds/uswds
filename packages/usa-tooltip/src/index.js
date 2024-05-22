@@ -392,7 +392,7 @@ const tooltip = behavior(
         showToolTip(body, trigger, trigger.dataset.position);
       },
     },
-    "mouseout focusout": {
+    focusout: {
       [TOOLTIP_TRIGGER](e) {
         const { body } = getTooltipElements(e.target);
 
@@ -407,6 +407,14 @@ const tooltip = behavior(
     init(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
         setUpAttributes(tooltipTrigger);
+
+        const { body, wrapper } = getTooltipElements(tooltipTrigger);
+        wrapper.addEventListener("mouseleave", () => hideToolTip(body));
+      });
+    },
+    teardown(root) {
+      selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
+        tooltipWrapper.removeEventListener("mouseleave", hideToolTip);
       });
     },
     setup: setUpAttributes,
