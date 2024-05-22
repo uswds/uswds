@@ -7,7 +7,6 @@ const MASKED = `.${MASKED_CLASS}`;
 const MASK = `${PREFIX}-input-mask`;
 const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
-const CONTEXT = "form";
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -35,7 +34,7 @@ const createMaskedInputShell = (input) => {
   content.textContent = placeholder;
 
   shell.appendChild(content);
-  input.closest(CONTEXT).insertBefore(shell, input);
+  input.parentNode.insertBefore(shell, input);
   shell.appendChild(input);
 };
 

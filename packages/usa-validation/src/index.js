@@ -41,7 +41,6 @@ const createInitialStatus = (input) => {
       currentStatus = input.getAttribute("data-validation-incomplete");
     }
     const itemStatus = `${listItem.textContent} ${currentStatus} `;
-    listItem.setAttribute("tabindex", "0");
     listItem.setAttribute("aria-label", itemStatus);
   });
 };

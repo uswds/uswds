@@ -3,14 +3,15 @@
 text-transform
 ----------------------------------------
 usage:
-  .text-[value]
+  .text-[key]
 ----------------------------------------
 output:
-  text-transform: value;
+  text-transform: [value];
 ----------------------------------------
 example:
   .text-uppercase {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+  }
 ----------------------------------------
 */
 
