@@ -213,7 +213,8 @@
     .usa-radio__input {
       &:checked {
         @include format-input {
-          box-shadow: 0 0 0 units($theme-input-select-border-width)
+          box-shadow:
+            0 0 0 units($theme-input-select-border-width)
               color($input-active-color),
             inset 0 0 0 units($theme-input-select-border-width)
               color($input-bg-color);
@@ -227,7 +228,8 @@
       &:checked[aria-disabled="true"] {
         @include format-input {
           background-color: color($input-text-color-disabled);
-          box-shadow: 0 0 0 2px color($input-text-color-disabled),
+          box-shadow:
+            0 0 0 2px color($input-text-color-disabled),
             inset 0 0 0 2px color($input-bg-color);
 
           @media (forced-colors: active) {

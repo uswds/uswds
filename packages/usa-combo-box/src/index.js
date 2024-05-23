@@ -199,7 +199,7 @@ const enhanceComboBox = (_comboBoxEl) => {
    */
   if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
     throw new Error(
-      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`
+      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`,
     );
   } else {
     selectLabel.setAttribute("id", listIdLabel);
@@ -237,7 +237,7 @@ const enhanceComboBox = (_comboBoxEl) => {
     Object.keys(attr).forEach((key) => {
       const value = Sanitizer.escapeHTML`${attr[key]}`;
       input.setAttribute(key, value);
-    })
+    }),
   );
 
   comboBoxEl.insertAdjacentElement("beforeend", input);
@@ -264,7 +264,7 @@ const enhanceComboBox = (_comboBoxEl) => {
       <span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
-      </span>`
+      </span>`,
   );
 
   if (selectedOption) {
@@ -453,7 +453,7 @@ const displayList = (el) => {
   if (numOptions) {
     listEl.innerHTML = "";
     optionHtml.forEach((item) =>
-      listEl.insertAdjacentElement("beforeend", item)
+      listEl.insertAdjacentElement("beforeend", item),
     );
   } else {
     listEl.innerHTML = "";
@@ -691,7 +691,7 @@ const handleEnterFromListOption = (event) => {
  */
 const handleUpFromListOption = (event) => {
   const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
-    event.target
+    event.target,
   );
   const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
   const listShown = !listEl.hidden;
@@ -715,7 +715,7 @@ const handleUpFromListOption = (event) => {
  */
 const handleMouseover = (listOptionEl) => {
   const isCurrentlyFocused = listOptionEl.classList.contains(
-    LIST_OPTION_FOCUSED_CLASS
+    LIST_OPTION_FOCUSED_CLASS,
   );
 
   if (isCurrentlyFocused) return;
@@ -829,7 +829,7 @@ const comboBox = behavior(
     displayList,
     hideList,
     COMBO_BOX_CLASS,
-  }
+  },
 );
 
 module.exports = comboBox;

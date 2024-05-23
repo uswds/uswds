@@ -33,5 +33,5 @@ module.exports = behavior(
         toggle(button, expanded);
       });
     },
-  }
+  },
 );

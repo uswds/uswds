@@ -4,7 +4,7 @@ const assert = require("assert");
 const CharacterCount = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/valid-template-no-maxlength.template.html")
+  path.join(__dirname, "/valid-template-no-maxlength.template.html"),
 );
 
 const EVENTS = {};

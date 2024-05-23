@@ -59,7 +59,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("trigger is created", () => {
       assert.strictEqual(
         tooltipTrigger.getAttribute("class"),
-        "usa-button usa-tooltip__trigger"
+        "usa-button usa-tooltip__trigger",
       );
     });
 
