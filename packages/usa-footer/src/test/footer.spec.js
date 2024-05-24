@@ -6,7 +6,7 @@ const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
-  `${__dirname}/../../../../dist/css/uswds.min.css`
+  `${__dirname}/../../../../dist/css/uswds.min.css`,
 );
 
 const PRIMARY_CONTENT_SELECTOR =
@@ -29,7 +29,7 @@ const assertHidden = (el, hidden) => {
   assert.strictEqual(
     window.getComputedStyle(el).display === "none",
     hidden,
-    `not hidden: ${el.nodeName} (${el.className})`
+    `not hidden: ${el.nodeName} (${el.className})`,
   );
 };
 

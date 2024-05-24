@@ -3,6 +3,36 @@
 // Variables
 $triangle-size: 5px;
 
+/// Create a spacer to increase target area for tooltip triangle.
+///
+/// @param {String} $direction - The direction of the tooltip; can be top, bottom, left, right.
+///
+/// @example
+/// @include tooltip-spacer("top");
+///
+/// @output
+/// .usa-tooltip__body--top::before {
+///    top: 100%;
+///    height: 5px;
+///    left: 0;
+///    right: 0;
+///  }
+@mixin tooltip-spacer($direction) {
+  &::before {
+    #{$direction}: 100%;
+
+    @if ($direction == "left") or ($direction == "right") {
+      bottom: 0;
+      top: 0;
+      width: $triangle-size;
+    } @else {
+      height: $triangle-size;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
 /* Tooltips */
 .usa-tooltip {
   display: inline-block;
@@ -28,19 +58,17 @@ $triangle-size: 5px;
   font-size: size("ui", $theme-tooltip-font-size);
   opacity: 0; // Required for recalculating position.
   padding: units(1);
-  pointer-events: none;
   width: auto;
   white-space: pre;
   z-index: 100000;
   position: absolute;
   /* positioning is completed with JS */
 
-  &:after {
+  &::after {
     content: "";
     display: block;
     width: 0;
     height: 0;
-    pointer-events: none;
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
     border-top: $triangle-size solid color($theme-tooltip-background-color);
@@ -48,6 +76,15 @@ $triangle-size: 5px;
     bottom: -$triangle-size;
     left: 50%;
     margin-left: -$triangle-size;
+  }
+
+  // This pseudo element fills the gap between the tooltip trigger and body.
+  // Filling this gap allows the tooltip to stay open when the pointer moves
+  // from the tooltip trigger to the body.
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
   }
 }
 
@@ -66,8 +103,14 @@ $triangle-size: 5px;
   opacity: 1;
 }
 
+.usa-tooltip__body--top {
+  @include tooltip-spacer("top");
+}
+
 .usa-tooltip__body--bottom {
-  &:after {
+  @include tooltip-spacer("bottom");
+
+  &::after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
     border-bottom: $triangle-size solid color($theme-tooltip-background-color);
@@ -78,7 +121,9 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--right {
-  &:after {
+  @include tooltip-spacer("right");
+
+  &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
     border-right: $triangle-size solid color($theme-tooltip-background-color);
@@ -92,7 +137,9 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip__body--left {
-  &:after {
+  @include tooltip-spacer("left");
+
+  &::after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
     border-left: $triangle-size solid color($theme-tooltip-background-color);

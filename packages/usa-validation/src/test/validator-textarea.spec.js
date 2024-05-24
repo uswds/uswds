@@ -4,7 +4,7 @@ const assert = require("assert");
 const validator = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/template-textarea.html")
+  path.join(__dirname, "/template-textarea.html"),
 );
 
 const TEXTAREA_SELECTOR = "[data-validation-element]";
@@ -49,7 +49,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         if (validators) {
           assert.notStrictEqual(
             document.querySelector(VALIDATOR_SUMMARY),
-            null
+            null,
           );
         }
       });
