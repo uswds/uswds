@@ -3,7 +3,7 @@ const fs = require("fs");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  `${__dirname}/file-input-multiple.template.html`
+  `${__dirname}/file-input-multiple.template.html`,
 );
 
 const tests = [
@@ -45,21 +45,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("instructions are created", () => {
         assert.strictEqual(
           instructions.getAttribute("class"),
-          "usa-file-input__instructions"
+          "usa-file-input__instructions",
         );
       });
 
       it("target ui is created", () => {
         assert.strictEqual(
           dropZone.getAttribute("class"),
-          "usa-file-input__target"
+          "usa-file-input__target",
         );
       });
 
       it("input gets new class", () => {
         assert.strictEqual(
           inputEl.getAttribute("class"),
-          "usa-file-input__input"
+          "usa-file-input__input",
         );
       });
 

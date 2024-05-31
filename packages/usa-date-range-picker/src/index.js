@@ -43,10 +43,10 @@ const getDateRangePickerContext = (el) => {
   }
 
   const rangeStartEl = dateRangePickerEl.querySelector(
-    DATE_RANGE_PICKER_RANGE_START
+    DATE_RANGE_PICKER_RANGE_START,
   );
   const rangeEndEl = dateRangePickerEl.querySelector(
-    DATE_RANGE_PICKER_RANGE_END
+    DATE_RANGE_PICKER_RANGE_END,
   );
 
   return {
@@ -116,13 +116,13 @@ const enhanceDateRangePicker = (el) => {
 
   if (!rangeStart) {
     throw new Error(
-      `${DATE_RANGE_PICKER} is missing inner two '${DATE_PICKER}' elements`
+      `${DATE_RANGE_PICKER} is missing inner two '${DATE_PICKER}' elements`,
     );
   }
 
   if (!rangeEnd) {
     throw new Error(
-      `${DATE_RANGE_PICKER} is missing second '${DATE_PICKER}' element`
+      `${DATE_RANGE_PICKER} is missing second '${DATE_PICKER}' element`,
     );
   }
 
@@ -164,7 +164,7 @@ const dateRangePicker = behavior(
         enhanceDateRangePicker(dateRangePickerEl);
       });
     },
-  }
+  },
 );
 
 module.exports = dateRangePicker;

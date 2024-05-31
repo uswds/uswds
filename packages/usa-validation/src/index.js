@@ -41,7 +41,6 @@ const createInitialStatus = (input) => {
       currentStatus = input.getAttribute("data-validation-incomplete");
     }
     const itemStatus = `${listItem.textContent} ${currentStatus} `;
-    listItem.setAttribute("tabindex", "0");
     listItem.setAttribute("aria-label", itemStatus);
   });
 };
@@ -62,10 +61,10 @@ const validator = behavior(
   {
     init(root) {
       selectOrMatches(VALIDATE_INPUT, root).forEach((input) =>
-        enhanceValidation(input)
+        enhanceValidation(input),
       );
     },
-  }
+  },
 );
 
 module.exports = validator;
