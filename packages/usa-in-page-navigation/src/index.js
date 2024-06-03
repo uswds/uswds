@@ -334,7 +334,7 @@ const handleEnterFromLink = (event) => {
       () => {
         target.setAttribute("tabindex", -1);
       },
-      { once: true }
+      { once: true },
     );
   } else {
     // throw an error?

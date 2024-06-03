@@ -53,8 +53,8 @@ module.exports = (events, props) => {
                   const target = event.target && event.target.closest(selector);
                   return target && handler.call(target, event) === false;
                 }),
-        ])
-    )
+        ]),
+    ),
   );
 
   const on = (target = document.body) => {
