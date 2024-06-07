@@ -5,7 +5,7 @@ const ComboBox = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box-disabled.template.html")
+  path.join(__dirname, "/combo-box-disabled.template.html"),
 );
 
 const comboBoxSelector = () => document.querySelector(".usa-combo-box");
@@ -47,12 +47,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.disabled,
           true,
-          "transfers disabled attribute to combo box"
+          "transfers disabled attribute to combo box",
         );
         assert.strictEqual(
           select.disabled,
           false,
-          "removes disabled attribute from select"
+          "removes disabled attribute from select",
         );
       });
 

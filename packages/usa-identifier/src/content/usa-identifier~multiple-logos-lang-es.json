@@ -5,6 +5,7 @@
   "masthead": {
     "aria_label": "Identificador de la agencia,,,",
     "description": "Descripción de la agencia,,,",
+    "content_prefix": null,
     "content": "Un sitio web oficial de",
     "parent": {
       "name": "<Parent agency>",

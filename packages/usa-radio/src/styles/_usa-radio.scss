@@ -23,8 +23,9 @@
       padding: units(1.5) units(2) units(1.5) units(5);
 
       &::before {
-        left: units(5) - units($input-select-margin-right) -
-          units($theme-input-select-size);
+        left: units(5) - units($input-select-margin-right) - units(
+            $theme-input-select-size
+          );
       }
     }
   }
@@ -34,8 +35,8 @@
   &:checked {
     @include format-input {
       @media print {
-        box-shadow: inset 0 0 0 units($theme-input-select-border-width)
-            color("white"),
+        box-shadow:
+          inset 0 0 0 units($theme-input-select-border-width) color("white"),
           inset 0 0 0 units(2) color("primary"),
           0 0 0 units($theme-input-select-border-width) color("primary");
       }
@@ -60,8 +61,9 @@
     margin-left: units($theme-input-select-border-width);
     margin-top: math.div(
       line-height($theme-form-font-family, $theme-input-line-height) *
-        font-size($theme-form-font-family, $theme-body-font-size) -
-        units($theme-input-select-size),
+        font-size($theme-form-font-family, $theme-body-font-size) - units(
+          $theme-input-select-size
+        ),
       2
     );
     position: absolute;

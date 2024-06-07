@@ -5,7 +5,7 @@ const DatePicker = require("../../../usa-date-picker/src/index");
 const DateRangePicker = require("../index");
 
 const INVALID_TEMPLATE_ONE_INPUT = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-one-input.template.html")
+  path.join(__dirname, "/invalid-template-one-input.template.html"),
 );
 
 const dateRangePickerSelector = () =>
