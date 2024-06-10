@@ -23,9 +23,29 @@ const USWDSTokens = StyleDictionary.extend({
   },
 })
 
+const USWDSVars = StyleDictionary.extend({
+  source: ["packages/uswds-tokens/colors/*.json"],
+  platforms: {
+    "css": {
+      transformGroup: "css",
+      buildPath: "packages/uswds-core/src/styles/tokens/color/",
+      files: [
+        {
+          format: "css/variables",
+          destination: "color.css",
+          options: {
+            outputReferences: true
+          }
+        }
+      ]
+    }
+  }
+})
+
 USWDSTokens.registerFormat({
   name: 'custom/format/color-map',
   formatter: _.template(fs.readFileSync(`${__dirname  }/templates/scss-color-map.template`))
 });
 
 USWDSTokens.buildPlatform('scss/colors');
+USWDSVars.buildPlatform('css');

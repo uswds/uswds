@@ -1,0 +1,34 @@
+{
+  "base": {
+    "lightest": { "value": "{gray.5.value}" },
+    "lighter": { "value": "{gray-cool.10.value}" },
+    "light": { "value": "{gray-cool.30.value}" },
+    " ": { "value": "{gray-cool.50.value}" },
+    "dark": { "value": "{gray-cool.60.value}" },
+    "darker": { "value": "{gray-cool.70.value}" },
+    "darkest": { "value": "{gray.90.value}" },
+    "ink": { "value": "{gray.90.value}" }
+  },
+
+  "primary": {
+    "lightest": {"value": false},
+    "lighter": {"value": "{blue.10.value}"},
+    "light": {"value": "{blue.30.value}"},
+    " ": {"value": "{blue.vivid.60.value}"},
+    "vivid": {"value": "{blue-warm.vivid.60.value}"},
+    "dark": {"value": "{blue-warm.vivid.70.value}"},
+    "darker": {"value": "{blue-warm.vivid.80.value}"},
+    "darkest": {"value": false}
+  },
+
+  "secondary": {
+    "lightest": { "value": false},
+    "lighter": { "value": "{red-cool.10}"},
+    "light": { "value": "{red.30}"},
+    " ": { "value": "{red.50}"},
+    "vivid": { "value": "{red-cool.vivid.50.value}"},
+    "dark": { "value": "{red.vivid.60.value}"},
+    "darker": { "value": "{red.vivid.70.value}"},
+    "darkest": { "value": false}
+  }
+}
