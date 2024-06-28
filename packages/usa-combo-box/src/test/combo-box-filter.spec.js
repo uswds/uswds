@@ -5,7 +5,7 @@ const ComboBox = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box-filter.template.html")
+  path.join(__dirname, "/combo-box-filter.template.html"),
 );
 
 const tests = [
@@ -47,7 +47,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           2,
-          "should filter the item by the string starting with the option"
+          "should filter the item by the string starting with the option",
         );
       });
     });

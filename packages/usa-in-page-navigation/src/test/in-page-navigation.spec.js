@@ -8,7 +8,7 @@ const HIDE_MAX_WIDTH = 639;
 const OFFSET_PER_SECTION = 100;
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
-  `${__dirname}/../../../../dist/css/uswds.min.css`
+  `${__dirname}/../../../../dist/css/uswds.min.css`,
 );
 const THE_NAV = ".usa-in-page-nav";
 const PRIMARY_CONTENT_SELECTOR =
@@ -30,7 +30,7 @@ const assertHidden = (el, hidden) => {
   assert.strictEqual(
     window.getComputedStyle(el).display === "none",
     hidden,
-    `not hidden: ${el.nodeName} (${el.className})`
+    `not hidden: ${el.nodeName} (${el.className})`,
   );
 };
 
@@ -54,7 +54,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     before(() => {
       originalOffsetTop = Object.getOwnPropertyDescriptor(
         HTMLElement.prototype,
-        "offsetTop"
+        "offsetTop",
       );
       Object.defineProperty(HTMLElement.prototype, "offsetTop", {
         get() {
@@ -104,7 +104,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       Object.defineProperty(
         HTMLElement.prototype,
         "offsetTop",
-        originalOffsetTop
+        originalOffsetTop,
       );
       sinon.restore();
     });

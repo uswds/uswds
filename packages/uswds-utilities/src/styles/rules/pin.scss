@@ -3,16 +3,21 @@
 PIN
 ----------------------------------------
 usage:
-  .pin-all
-----------------------------------------
-output:
-  bottom: 0
-  left:0
-  right: 0
-  top: 0
+  .pin-[key]
 ----------------------------------------
 example:
-  .pin-all
+  .pin-all {
+    bottom:0;
+    left:0;
+    right:0;
+    top:0;
+    position:absolute;
+  }
+
+  .pin-left {
+    left:0;
+    position:absolute;
+  }
 ----------------------------------------
 */
 
