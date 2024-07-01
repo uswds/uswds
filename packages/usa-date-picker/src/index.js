@@ -1695,16 +1695,24 @@ const handleEscapeFromCalendar = (event) => {
 // #region Calendar Date Event Handling
 
 /**
- * Adjust the date and display the calendar if needed.
+ * Adjust the date and display the calendar to render keyboard focused date selection.
+ *
+ * To avoid keyboard behavior conflicts with mouseover dates, check for focused calendar element.
+ * If there is a focused date, calendar will re-render with that date.
+ *
  *
  * @param {function} adjustDateFn function that returns the adjusted date
  */
 const adjustCalendar = (adjustDateFn) => (event) => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target,
-  );
+  const { calendarEl, minDate, maxDate } = getDatePickerContext(event.target);
 
+  const focusedEl = document.activeElement;
+  const calendarDate = parseDateString(focusedEl.dataset.value);
   const date = adjustDateFn(calendarDate);
+
+  if (!calendarEl.contains(focusedEl)) {
+    return;
+  }
 
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
@@ -1801,7 +1809,18 @@ const handleMouseoverFromDate = (dateEl) => {
   if (hoverDate === currentCalendarDate) return;
 
   const dateToDisplay = parseDateString(hoverDate);
-  renderCalendar(calendarEl, dateToDisplay);
+  const focusedEl = document.activeElement;
+
+  // If the calendar contains a focused element, reapply focus after new calendar renders.
+  // Targeted using aria-label because they are unique and prevents error when
+  // focus is in the table header.
+  if (calendarEl.contains(focusedEl)) {
+    const focusElLabel = focusedEl.getAttribute("aria-label");
+    const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+    newCalendar.querySelector(`[aria-label="${focusElLabel}"]`).focus();
+  } else {
+    renderCalendar(calendarEl, dateToDisplay);
+  }
 };
 
 // #endregion Calendar Date Event Handling
