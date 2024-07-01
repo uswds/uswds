@@ -1010,6 +1010,48 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
+    it("should maintain focus selection when mouse hovers over calendar dates", () => {
+      input.value = "7/01/2024";
+      EVENTS.click(button);
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown",
+      );
+
+      assert.strictEqual(
+        document.activeElement.textContent,
+        "1",
+        "focuses correct date",
+      );
+
+      assert.strictEqual(
+        getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
+          .value,
+        "2024-07-01",
+        "initial focused date receives focus class",
+      );
+
+      EVENTS.mouseover(
+        getCalendarEl().querySelector(
+          '.usa-date-picker__calendar__date[data-value="2024-07-07"]',
+        ),
+      )
+
+      assert.strictEqual(
+        getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
+          .value,
+        "2024-07-07",
+        "focus class is moved to hovered date",
+      );
+
+      assert.strictEqual(
+        document.activeElement.textContent,
+        "1",
+        "original focus button maintains keyboard focus",
+      );
+    })
+
     it("should accept a parse-able date with a two digit year and display the calendar of that year in the current century", () => {
       input.value = "2/29/20";
       EVENTS.click(button);
