@@ -1036,7 +1036,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl().querySelector(
           '.usa-date-picker__calendar__date[data-value="2024-07-07"]',
         ),
-      )
+      );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
@@ -1050,7 +1050,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "1",
         "original focus button maintains keyboard focus",
       );
-    })
+    });
 
     it("should accept a parse-able date with a two digit year and display the calendar of that year in the current century", () => {
       input.value = "2/29/20";
