@@ -1,0 +1,19 @@
+<div class="padding-2">
+  <h3>Disabled</h3>
+  <textarea class="usa-textarea" disabled>I am unable to be copied from keyboard only interaction</textarea>
+</div>
+<div class="padding-2">
+  <h3>Aria-disabled</h3>
+  <textarea class="usa-textarea" aria-disabled="true"></textarea>
+</div>
+<div class="padding-2">
+  <h3>Aria-disabled + read only</h3>
+  <textarea class="usa-textarea" aria-disabled="true"
+  {% if readonly == true %}readonly{%- endif%}></textarea>
+</div>
+<div class="padding-2">
+  <h3>Aria-disabled + read only</h3>
+  <p>Added some text content to show that it is still able to be selected and copied.
+  <textarea class="usa-textarea" aria-disabled="true"
+  {% if readonly == true %}readonly{%- endif%}>Try selecting and copying me by focusing this text area, hitting cmd/ctrl + a, and cmd/ctrl + v!</textarea>
+</div>
