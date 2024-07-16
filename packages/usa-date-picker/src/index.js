@@ -5,6 +5,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const activeElement = require("../../uswds-core/src/js/utils/active-element");
+const isIosDevice = require("../../uswds-core/src/js/utils/is-ios-device");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
@@ -60,6 +61,7 @@ const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
@@ -911,6 +913,44 @@ const enhanceDatePicker = (el) => {
     internalInputEl.removeAttribute("aria-disabled");
   }
 };
+
+const handleMouseoverFromDate = (dateEl) => {
+  if (dateEl.disabled) return;
+
+  const hoverDate = parseDateString(dateEl.dataset.value)
+  const {
+    calendarEl,
+    selectedDate,
+    rangeDate
+  } = getDatePickerContext(dateEl);
+
+  if (selectedDate) return;
+
+  const rangeConclusionDate = hoverDate;
+  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
+  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
+
+  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
+  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1)
+
+  const calBtns = calendarEl.querySelectorAll(`.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`);
+
+
+  for (button of calBtns) {
+    const buttonDate = parseDateString(button.dataset.value);
+    if (
+      isDateWithinMinAndMax(
+        buttonDate,
+        withinRangeStartDate,
+        withinRangeEndDate
+      )
+    ) {
+      button.classList.add(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+    } else {
+      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS)
+    }
+  }
+}
 
 // #region Calendar - Date Selection View
 
@@ -2168,6 +2208,15 @@ const datePickerEvents = {
       updateCalendarIfVisible(this);
     },
   },
+};
+
+
+if (!isIosDevice()) {
+  datePickerEvents.mouseover = {
+    [CALENDAR_DATE_CURRENT_MONTH]() {
+      handleMouseoverFromDate(this);
+    }
+  };
 };
 
 const datePicker = behavior(datePickerEvents, {
