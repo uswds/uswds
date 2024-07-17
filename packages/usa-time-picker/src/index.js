@@ -96,14 +96,14 @@ const transformTimePicker = (el) => {
 
   const minTime = Math.max(
     MIN_TIME,
-    parseTimeString(timePickerEl.dataset.minTime) || MIN_TIME
+    parseTimeString(timePickerEl.dataset.minTime) || MIN_TIME,
   );
   const maxTime = Math.min(
     MAX_TIME,
-    parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME
+    parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME,
   );
   const step = Math.floor(
-    Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP)
+    Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP),
   );
 
   let defaultValue;
@@ -142,7 +142,7 @@ const timePicker = behavior(
       });
     },
     FILTER_DATASET,
-  }
+  },
 );
 
 module.exports = timePicker;

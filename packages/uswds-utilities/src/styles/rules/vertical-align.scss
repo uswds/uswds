@@ -3,14 +3,15 @@
 vertical-align
 ----------------------------------------
 usage:
-  .vertical-align-[value]
+  .text-[key]
 ----------------------------------------
 output:
-  vertical-align: [value]
+  vertical-align: [value];
 ----------------------------------------
 example:
-  .vertical-align-top {
-    vertical-align: top; }
+  .text-top {
+    vertical-align: top;
+  }
 ----------------------------------------
 */
 

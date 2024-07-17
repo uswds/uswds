@@ -14,8 +14,29 @@
   padding-left: 0;
 
   @include at-media("mobile-lg") {
-    align-items: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
     flex-direction: row;
+  }
+
+  // Styles for nested button groups
+  .usa-button-group {
+    height: 100%;
+
+    .usa-button-group__item {
+      @include at-media("mobile-lg") {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    // Styles for nested segmented button groups
+    &--segmented {
+      .usa-button-group__item {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -29,6 +50,7 @@
   }
 
   .usa-button {
+    height: 100%;
     margin-left: 0;
     margin-right: 0;
   }

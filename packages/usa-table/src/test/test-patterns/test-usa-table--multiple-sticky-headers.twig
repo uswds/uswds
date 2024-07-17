@@ -1,0 +1,199 @@
+{% if sticky_header %}
+  {% set sticky_header_class = "usa-table--sticky-header" %}
+{% endif %}
+
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-10 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test if all rows of a sticky table header stick to the top of the page</p>
+  <p>To complete this test:</p>
+  <ol>
+    <li>Scroll down until the table header sticks to the top of the page.</li>
+    <li>Confirm that <b>both</b> table header rows stick to the top of the page.</li>
+    <li>Confirm that none of the table content shows between the borders of the table header cells.</li>
+  </ol>
+</div>
+
+  <table class="usa-table {{ sticky_header ? sticky_header_class }}">
+    <col>
+    <colgroup span="2"></colgroup>
+    <colgroup span="2"></colgroup>
+    <thead>
+      <tr>
+        <th rowspan="2">Federal Budget<br> Baseline Projections</th>
+        <th colspan="2" scope="colgroup" class="text-center">2017</th>
+        <th colspan="2" scope="colgroup" class="text-center">2018</th>
+        <th colspan="2" scope="colgroup" class="text-center">2019</th>
+        <th colspan="2" scope="colgroup" class="text-center">2020</th>
+      </tr>
+      <tr>
+        <th scope="col" class="text-right">%GDP</th>
+        <th scope="col" class="text-right">USD*</th>
+        <th scope="col" class="text-right">%GDP</th>
+        <th scope="col" class="text-right">USD*</th>
+        <th scope="col" class="text-right">%GDP</th>
+        <th scope="col" class="text-right">USD*</th>
+        <th scope="col" class="text-right">%GDP</th>
+      </tr>
+    </thead>
+    <tr>
+      <th scope="row">Revenue</th>
+      <td class="font-mono-sm text-tabular text-right">17.2%</td>
+      <td class="font-mono-sm text-tabular text-right">3,316</td>
+      <td class="font-mono-sm text-tabular text-right">16.4%</td>
+      <td class="font-mono-sm text-tabular text-right">3,338</td>
+      <td class="font-mono-sm text-tabular text-right">16.3%</td>
+      <td class="font-mono-sm text-tabular text-right">3,490</td>
+      <td class="font-mono-sm text-tabular text-right">16.7%</td>
+    </tr>
+    <tr>
+      <th scope="row">Outlays</th>
+      <td class="font-mono-sm text-tabular text-right">20.6%</td>
+      <td class="font-mono-sm text-tabular text-right">3,982</td>
+      <td class="font-mono-sm text-tabular text-right">20.2%</td>
+      <td class="font-mono-sm text-tabular text-right">4,142</td>
+      <td class="font-mono-sm text-tabular text-right">21.0%</td>
+      <td class="font-mono-sm text-tabular text-right">4,470</td>
+      <td class="font-mono-sm text-tabular text-right">21.3%</td>
+    </tr>
+    <tr>
+      <th scope="row">Budget Deficit</th>
+      <td class="font-mono-sm text-tabular text-right">-3.5%</td>
+      <td class="font-mono-sm text-tabular text-right">-665</td>
+      <td class="font-mono-sm text-tabular text-right">-3.8%</td>
+      <td class="font-mono-sm text-tabular text-right">-804</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+      <td class="font-mono-sm text-tabular text-right">-981</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+    </tr>
+    <tr>
+      <th scope="row">Debt Held by Public</th>
+      <td class="font-mono-sm text-tabular text-right">76.0%</td>
+      <td class="font-mono-sm text-tabular text-right">14,665</td>
+      <td class="font-mono-sm text-tabular text-right">77.4%</td>
+      <td class="font-mono-sm text-tabular text-right">15,688</td>
+      <td class="font-mono-sm text-tabular text-right">79.2%</td>
+      <td class="font-mono-sm text-tabular text-right">16,762</td>
+      <td class="font-mono-sm text-tabular text-right">80.9%</td>
+    </tr>
+        <tr>
+      <th scope="row">Revenue</th>
+      <td class="font-mono-sm text-tabular text-right">17.2%</td>
+      <td class="font-mono-sm text-tabular text-right">3,316</td>
+      <td class="font-mono-sm text-tabular text-right">16.4%</td>
+      <td class="font-mono-sm text-tabular text-right">3,338</td>
+      <td class="font-mono-sm text-tabular text-right">16.3%</td>
+      <td class="font-mono-sm text-tabular text-right">3,490</td>
+      <td class="font-mono-sm text-tabular text-right">16.7%</td>
+    </tr>
+    <tr>
+      <th scope="row">Outlays</th>
+      <td class="font-mono-sm text-tabular text-right">20.6%</td>
+      <td class="font-mono-sm text-tabular text-right">3,982</td>
+      <td class="font-mono-sm text-tabular text-right">20.2%</td>
+      <td class="font-mono-sm text-tabular text-right">4,142</td>
+      <td class="font-mono-sm text-tabular text-right">21.0%</td>
+      <td class="font-mono-sm text-tabular text-right">4,470</td>
+      <td class="font-mono-sm text-tabular text-right">21.3%</td>
+    </tr>
+    <tr>
+      <th scope="row">Budget Deficit</th>
+      <td class="font-mono-sm text-tabular text-right">-3.5%</td>
+      <td class="font-mono-sm text-tabular text-right">-665</td>
+      <td class="font-mono-sm text-tabular text-right">-3.8%</td>
+      <td class="font-mono-sm text-tabular text-right">-804</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+      <td class="font-mono-sm text-tabular text-right">-981</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+    </tr>
+    <tr>
+      <th scope="row">Debt Held by Public</th>
+      <td class="font-mono-sm text-tabular text-right">76.0%</td>
+      <td class="font-mono-sm text-tabular text-right">14,665</td>
+      <td class="font-mono-sm text-tabular text-right">77.4%</td>
+      <td class="font-mono-sm text-tabular text-right">15,688</td>
+      <td class="font-mono-sm text-tabular text-right">79.2%</td>
+      <td class="font-mono-sm text-tabular text-right">16,762</td>
+      <td class="font-mono-sm text-tabular text-right">80.9%</td>
+    </tr>
+    <tr>
+      <th scope="row">Revenue</th>
+      <td class="font-mono-sm text-tabular text-right">17.2%</td>
+      <td class="font-mono-sm text-tabular text-right">3,316</td>
+      <td class="font-mono-sm text-tabular text-right">16.4%</td>
+      <td class="font-mono-sm text-tabular text-right">3,338</td>
+      <td class="font-mono-sm text-tabular text-right">16.3%</td>
+      <td class="font-mono-sm text-tabular text-right">3,490</td>
+      <td class="font-mono-sm text-tabular text-right">16.7%</td>
+    </tr>
+    <tr>
+      <th scope="row">Outlays</th>
+      <td class="font-mono-sm text-tabular text-right">20.6%</td>
+      <td class="font-mono-sm text-tabular text-right">3,982</td>
+      <td class="font-mono-sm text-tabular text-right">20.2%</td>
+      <td class="font-mono-sm text-tabular text-right">4,142</td>
+      <td class="font-mono-sm text-tabular text-right">21.0%</td>
+      <td class="font-mono-sm text-tabular text-right">4,470</td>
+      <td class="font-mono-sm text-tabular text-right">21.3%</td>
+    </tr>
+    <tr>
+      <th scope="row">Budget Deficit</th>
+      <td class="font-mono-sm text-tabular text-right">-3.5%</td>
+      <td class="font-mono-sm text-tabular text-right">-665</td>
+      <td class="font-mono-sm text-tabular text-right">-3.8%</td>
+      <td class="font-mono-sm text-tabular text-right">-804</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+      <td class="font-mono-sm text-tabular text-right">-981</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+    </tr>
+    <tr>
+      <th scope="row">Debt Held by Public</th>
+      <td class="font-mono-sm text-tabular text-right">76.0%</td>
+      <td class="font-mono-sm text-tabular text-right">14,665</td>
+      <td class="font-mono-sm text-tabular text-right">77.4%</td>
+      <td class="font-mono-sm text-tabular text-right">15,688</td>
+      <td class="font-mono-sm text-tabular text-right">79.2%</td>
+      <td class="font-mono-sm text-tabular text-right">16,762</td>
+      <td class="font-mono-sm text-tabular text-right">80.9%</td>
+    </tr>
+        <tr>
+      <th scope="row">Revenue</th>
+      <td class="font-mono-sm text-tabular text-right">17.2%</td>
+      <td class="font-mono-sm text-tabular text-right">3,316</td>
+      <td class="font-mono-sm text-tabular text-right">16.4%</td>
+      <td class="font-mono-sm text-tabular text-right">3,338</td>
+      <td class="font-mono-sm text-tabular text-right">16.3%</td>
+      <td class="font-mono-sm text-tabular text-right">3,490</td>
+      <td class="font-mono-sm text-tabular text-right">16.7%</td>
+    </tr>
+    <tr>
+      <th scope="row">Outlays</th>
+      <td class="font-mono-sm text-tabular text-right">20.6%</td>
+      <td class="font-mono-sm text-tabular text-right">3,982</td>
+      <td class="font-mono-sm text-tabular text-right">20.2%</td>
+      <td class="font-mono-sm text-tabular text-right">4,142</td>
+      <td class="font-mono-sm text-tabular text-right">21.0%</td>
+      <td class="font-mono-sm text-tabular text-right">4,470</td>
+      <td class="font-mono-sm text-tabular text-right">21.3%</td>
+    </tr>
+    <tr>
+      <th scope="row">Budget Deficit</th>
+      <td class="font-mono-sm text-tabular text-right">-3.5%</td>
+      <td class="font-mono-sm text-tabular text-right">-665</td>
+      <td class="font-mono-sm text-tabular text-right">-3.8%</td>
+      <td class="font-mono-sm text-tabular text-right">-804</td>
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+      <td class="font-mono-sm text-tabular text-right">-981</td>
+
+      <td class="font-mono-sm text-tabular text-right">-4.6%</td>
+    </tr>
+    <tr>
+      <th scope="row">Debt Held by Public</th>
+      <td class="font-mono-sm text-tabular text-right">76.0%</td>
+      <td class="font-mono-sm text-tabular text-right">14,665</td>
+      <td class="font-mono-sm text-tabular text-right">77.4%</td>
+      <td class="font-mono-sm text-tabular text-right">15,688</td>
+      <td class="font-mono-sm text-tabular text-right">79.2%</td>
+      <td class="font-mono-sm text-tabular text-right">16,762</td>
+      <td class="font-mono-sm text-tabular text-right">80.9%</td>
+    </tr>
+  </table>
+</div>

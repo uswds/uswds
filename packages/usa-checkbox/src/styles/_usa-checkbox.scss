@@ -15,21 +15,6 @@
     }
   }
 
-  &:disabled,
-  &[aria-disabled="true"] {
-    @include format-input {
-      cursor: not-allowed;
-    }
-    @include format-label {
-      color: color("disabled");
-      cursor: not-allowed;
-
-      @media (forced-colors: active) {
-        color: color(GrayText);
-      }
-    }
-  }
-
   // Checkboxes and radios with tap-friendly targets
   &--tile {
     @include format-label {
@@ -38,8 +23,9 @@
       padding: units(1.5) units(2) units(1.5) units(5);
 
       &::before {
-        left: units(5) - units($input-select-margin-right) -
-          units($theme-input-select-size);
+        left: units(5) - units($input-select-margin-right) - units(
+            $theme-input-select-size
+          );
       }
     }
   }
@@ -58,7 +44,7 @@
       }
 
       @media (forced-colors: active) {
-        background-color: color(ButtonText);
+        background-color: color(SelectedItem);
       }
     }
   }
@@ -82,8 +68,9 @@
     margin-top: math.div(
       (
         line-height($theme-form-font-family, $theme-input-line-height) *
-          font-size($theme-form-font-family, $theme-body-font-size) -
-          units($theme-input-select-size)
+          font-size($theme-form-font-family, $theme-body-font-size) - units(
+            $theme-input-select-size
+          )
       ),
       2
     );

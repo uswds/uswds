@@ -32,7 +32,6 @@ $-chevron-expand-more: map-merge(
     @include grid-container($theme-footer-max-width);
   }
 }
-
 .usa-footer__return-to-top {
   @include u-padding-y(2.5);
   line-height: line-height($theme-footer-font-family, 1);
@@ -191,6 +190,10 @@ $-chevron-expand-more: map-merge(
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
+
+    > .grid-row {
+      justify-content: space-between;
+    }
   }
 
   a {

@@ -1,0 +1,16 @@
+<form class="usa-form">
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend usa-legend--large">Enter a comment</legend>
+    <div class="usa-alert usa-alert--info usa-alert--validation">
+      <div class="usa-alert__body">
+        <h3 class="usa-alert__heading">Comment requirements</h3>
+        <ul class="usa-checklist" id="validate-comment">
+          <li class="usa-checklist__item" data-validator="empty">Cannot be empty</li>
+        </ul>
+      </div>
+    </div>
+    <label class="usa-label" for="comment">Comment</label>
+    <textarea class="usa-textarea" id="comment" name="comment" data-validate-empty="\S" data-validation-element="validate-comment"></textarea>
+    <input class="usa-button" type="submit" value="Submit code">
+  </fieldset>
+</form>

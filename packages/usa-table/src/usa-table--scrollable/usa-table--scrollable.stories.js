@@ -14,10 +14,19 @@ export const Default = Template.bind({});
 Default.args = ScrollableDefaultContent;
 
 export const Striped = Template.bind({});
-Striped.args = ScrollableStripedContent;
+Striped.args = {
+  ...ScrollableDefaultContent,
+  ...ScrollableStripedContent,
+};
 
 export const Compact = Template.bind({});
-Compact.args = ScrollableCompactContent;
+Compact.args = {
+  ...ScrollableDefaultContent,
+  ...ScrollableCompactContent,
+};
 
 export const CompactStriped = Template.bind({});
-CompactStriped.args = ScrollableCompactStripedContent;
+CompactStriped.args = {
+  ...ScrollableDefaultContent,
+  ...ScrollableCompactStripedContent,
+};

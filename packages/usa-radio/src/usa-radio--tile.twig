@@ -7,7 +7,8 @@
         id="historical-truth-2"  
         type="radio" 
         name="historical-figures-2" 
-        value="sojourner-truth" checked 
+        value="sojourner-truth" 
+        {% if not indeterminate_state %} checked {% endif %}
         {% if disabled_state == "disabled" %}disabled{% endif %} 
         {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
       >

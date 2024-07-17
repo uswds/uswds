@@ -6,7 +6,7 @@ const DateRangePicker = require("../index");
 const EVENTS = require("./events");
 
 const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-wrapper.template.html")
+  path.join(__dirname, "/invalid-template-no-wrapper.template.html"),
 );
 
 describe("Date range picker button without wrapping element", () => {
@@ -21,10 +21,10 @@ describe("Date range picker button without wrapping element", () => {
     DatePicker.on();
     DateRangePicker.on();
     rangeStartInputEl = body.querySelector(
-      ".usa-date-range-picker__range-start .usa-date-picker__external-input"
+      ".usa-date-range-picker__range-start .usa-date-picker__external-input",
     );
     rangeEndInputEl = body.querySelector(
-      ".usa-date-range-picker__range-end .usa-date-picker__external-input"
+      ".usa-date-range-picker__range-end .usa-date-picker__external-input",
     );
     expectedError = "";
     window.onerror = (message) => {

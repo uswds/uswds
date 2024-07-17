@@ -51,14 +51,14 @@ function toggleHtmlTag(isMobile) {
     newElement.setAttribute("class", currentElementClasses);
     newElement.classList.toggle(
       `${PREFIX}-footer__primary-link--button`,
-      isMobile
+      isMobile,
     );
     newElement.textContent = currentElement.textContent;
 
     if (isMobile) {
       newElement.setAttribute("data-tag", currentElement.tagName);
       const menuId = `${PREFIX}-footer-menu-list-${Math.floor(
-        Math.random() * 100000
+        Math.random() * 100000,
       )}`;
 
       newElement.setAttribute("aria-controls", menuId);
@@ -90,7 +90,7 @@ module.exports = behavior(
     init() {
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
-        `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
+        `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`,
       );
       this.mediaQueryList.addListener(resize);
     },
@@ -98,5 +98,5 @@ module.exports = behavior(
     teardown() {
       this.mediaQueryList.removeListener(resize);
     },
-  }
+  },
 );
