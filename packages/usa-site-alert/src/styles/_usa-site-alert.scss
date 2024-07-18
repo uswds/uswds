@@ -12,10 +12,10 @@ $site-alert-icons: (
     @include alert-styles;
 
     .usa-alert__body {
-      padding-left: $site-alert-alignment;
+      // padding-left: $site-alert-alignment;
       &:before {
         @include at-media($theme-site-margins-breakpoint) {
-          left: $site-alert-alignment;
+          // left: $site-alert-alignment;
         }
       }
     }
@@ -32,7 +32,7 @@ $site-alert-icons: (
 
     .usa-alert__heading,
     .usa-alert__text {
-      padding-left: calc(units($theme-alert-icon-size) + $alert-icon-gap);
+      // padding-left: calc(units($theme-alert-icon-size) + $alert-icon-gap);
     }
   }
 }
@@ -42,7 +42,7 @@ $site-alert-icons: (
 
   .usa-alert__heading,
   .usa-alert__text {
-    padding-left: calc($alert-slim-icon-size + $alert-icon-gap);
+    // padding-left: calc($alert-slim-icon-size + $alert-icon-gap);
   }
 }
 
