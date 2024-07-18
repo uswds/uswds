@@ -119,7 +119,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
 
 .usa-pagination__button {
   align-items: center;
-  border-color: color.adjust(color($pagination-current-color), $alpha: 0.6);
+  border-color: color.adjust(color($pagination-current-color), $alpha: -0.1);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
   border-width: units($theme-pagination-button-border-width);
