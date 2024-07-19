@@ -55,6 +55,8 @@ $theme-utility-breakpoints-complete: map.merge(
   $theme-utility-breakpoints
 ) !default;
 
+$theme-utility-breakpoints-custom: () !default;
+
 /*
 ----------------------------------------
 Global colors

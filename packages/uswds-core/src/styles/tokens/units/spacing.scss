@@ -1,5 +1,6 @@
 @use "neg-prefix" as *;
 @use "../../functions/units/spacing-multiple" as *;
+@use "../../settings" as *;
 
 $system-spacing: (
   "smaller": (
@@ -97,6 +98,9 @@ $system-spacing: (
     // 1200px
     "widescreen": spacing-multiple(175),
     // 1400px
+  ),
+  "custom": (
+    $theme-utility-breakpoints-custom
   ),
   "special": (
     0: spacing-multiple(0),

@@ -159,7 +159,8 @@ $system-properties: (
       map-collect(
         map.get($system-spacing, "large"),
         map.get($system-spacing, "larger"),
-        map.get($system-spacing, "largest")
+        map.get($system-spacing, "largest"),
+        map.get($system-spacing, "custom"),
       ),
     extended: (),
   ),
