@@ -957,11 +957,11 @@ const handleMouseoverFromDate = (dateEl) => {
     rangeDate,
   );
 
-  const calBtns = calendarEl.querySelectorAll(
+  const dateButtons = calendarEl.querySelectorAll(
     `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`,
   );
 
-  calBtns.forEach((button) => {
+  dateButtons.forEach((button) => {
     const buttonDate = parseDateString(button.dataset.value);
     if (
       isDateWithinMinAndMax(
