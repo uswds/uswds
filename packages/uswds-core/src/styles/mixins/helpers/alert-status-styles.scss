@@ -15,33 +15,27 @@ $alert-icon-gap: 1;
 $alert-slim-icon-size: 3;
 $alert-icon-size: units($theme-alert-icon-size);
 $alert-wrapper-left-align: calc(
-  units($theme-site-margins-width) +
-  units($theme-alert-padding-x)
+  units($theme-site-margins-width) + units($theme-alert-padding-x)
 );
 $alert-text-left-align: calc(
-  $alert-wrapper-left-align +
-  units($theme-alert-icon-size) +
-  units($alert-icon-gap)
+  $alert-wrapper-left-align + units($theme-alert-icon-size) +
+    units($alert-icon-gap)
 );
 $alert-text-left-align-slim: calc(
-  $alert-wrapper-left-align +
-  units($alert-slim-icon-size) +
-  units($alert-icon-gap)
+  $alert-wrapper-left-align + units($alert-slim-icon-size) +
+    units($alert-icon-gap)
 );
 // mobile styles
 $alert-wrapper-left-align-mobile: calc(
-  units($theme-alert-bar-width) +
-  units(2)
+  units($theme-alert-bar-width) + units(2)
 );
 $alert-text-left-align-mobile: calc(
-  $alert-wrapper-left-align-mobile +
-  units($theme-alert-icon-size) +
-  units($alert-icon-gap)
+  $alert-wrapper-left-align-mobile + units($theme-alert-icon-size) +
+    units($alert-icon-gap)
 );
 $alert-text-left-align-slim-mobile: calc(
-  $alert-wrapper-left-align-mobile +
-  units($alert-slim-icon-size) +
-  units($alert-icon-gap)
+  $alert-wrapper-left-align-mobile + units($alert-slim-icon-size) +
+    units($alert-icon-gap)
 );
 
 // Base alert styles
@@ -162,7 +156,9 @@ $alert-text-left-align-slim-mobile: calc(
     display: block;
     left: $alert-wrapper-left-align-mobile;
     position: absolute;
-    top: calc(units($theme-alert-padding-y) - units($theme-alert-icon-size)/6);
+    top: calc(
+      units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
+    );
 
     @include at-media($theme-site-margins-breakpoint) {
       left: $alert-wrapper-left-align;
