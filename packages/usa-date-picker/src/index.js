@@ -464,6 +464,13 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
   lastDayOfMonth(setMonth(date, 11)) < minDate ||
   (maxDate && startOfMonth(setMonth(date, 0)) > maxDate);
 
+/**
+ * Set the start, end, and within range values for date range variants.
+ * 
+ * @param {*} date - Date that concludes the date range.
+ * @param {*} rangeDate - Range date data attribute value of the date picker component.
+ * @returns 
+ */
 const setRangeDates = (date, rangeDate) => {
   const rangeConclusionDate = date;
   const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
@@ -929,6 +936,13 @@ const enhanceDatePicker = (el) => {
     internalInputEl.removeAttribute("aria-disabled");
   }
 };
+
+/**
+ * Set range date classes without re-rendering the calendar. Called when date button is hovered.
+ * Returns early if the date hovered is disabled or if there is a selected date already.
+ * 
+ * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
+ */
 
 const handleMouseoverFromDate = (dateEl) => {
   if (dateEl.disabled) return;
