@@ -1,28 +1,17 @@
 /*
 ========================================
-font
-----------------------------------------
-sets font-size and font-family
+font-size
 ----------------------------------------
 usage:
-  .size-[key]-[key]
+  .font-[key]-[key]
 ----------------------------------------
 output:
-  font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .size-sans-s3 {
-    font-face: '18Franklin-webfont',
-                system,
-                -apple-system,
-                BlinkMacSystemFont,
-                'Roboto',
-                'Helvetica Neue',
-                'Helvetica',
-                'Arial',
-                sans-serif;
-    font-size: 1rem; }
+  .font-sans-md {
+    font-size: 1.13rem;
+  }
 ----------------------------------------
 */
 

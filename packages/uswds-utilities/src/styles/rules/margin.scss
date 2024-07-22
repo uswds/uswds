@@ -6,15 +6,17 @@ usage:
   .margin-[modifier]*-[key]
 ----------------------------------------
 output:
-  margin: [value]
+  margin: [value];
 ----------------------------------------
 example:
   .margin-x-auto {
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+  }
 
-  .margin-g105 {
-    margin: .75rem; }
+  .margin-105 {
+    margin: .75rem;
+  }
 ----------------------------------------
 */
 

@@ -10,17 +10,45 @@ const tests = [
   { name: "tooltip", selector: () => document.querySelector(".usa-tooltip") },
 ];
 
+const EVENTS = {
+  mouseover(el) {
+    const mouseoverEvent = new Event("mouseover", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    el.dispatchEvent(mouseoverEvent);
+  },
+  mouseleave(el) {
+    const mouseleaveEvent = new Event("mouseleave", {
+      cancelable: true,
+    });
+
+    el.dispatchEvent(mouseleaveEvent);
+  },
+  escape(el) {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    el.dispatchEvent(escapeKeyEvent);
+  },
+};
+
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`tooltips initialized at ${name}`, () => {
     const { body } = document;
     let tooltipBody;
     let tooltipTrigger;
+    let tooltipWrapper;
 
     beforeEach(() => {
       body.innerHTML = TEMPLATE;
       tooltip.on(containerSelector());
       tooltipBody = body.querySelector(".usa-tooltip__body");
       tooltipTrigger = body.querySelector(".usa-tooltip__trigger");
+      tooltipWrapper = body.querySelector(".usa-tooltip");
     });
 
     afterEach(() => {
@@ -31,7 +59,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("trigger is created", () => {
       assert.strictEqual(
         tooltipTrigger.getAttribute("class"),
-        "usa-button usa-tooltip__trigger"
+        "usa-button usa-tooltip__trigger",
       );
     });
 
@@ -50,6 +78,29 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("tooltip is hidden on blur", () => {
       tooltipTrigger.blur();
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip is visible on mouseover", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is hidden on mouseleave", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      EVENTS.mouseleave(tooltipWrapper);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
+    });
+
+    it("tooltip content is hoverable", () => {
+      EVENTS.mouseover(tooltipTrigger);
+      EVENTS.mouseover(tooltipBody);
+      assert.strictEqual(tooltipBody.classList.contains("is-set"), true);
+    });
+
+    it("tooltip is hidden on escape keydown", () => {
+      tooltipTrigger.focus();
+      EVENTS.escape(tooltipTrigger);
       assert.strictEqual(tooltipBody.classList.contains("is-set"), false);
     });
 

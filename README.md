@@ -165,7 +165,7 @@ There are two ways to install the design system on a project:
 **We recommend using npm to make it as straightforward as possible to install the design system and update it as we release new versions.**
 
 ### Install using Node and npm
-npm is a package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files. npm packages make it easy to update and install the design system from the command line.
+Use the npm package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files. We rely on npm packages to easily update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
@@ -195,7 +195,7 @@ The `@uswds/uswds` module is now installed as a dependency. You can use the comp
 ### Install the package directly from GitHub
 If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
-1. Download the [USWDS package](https://github.com/uswds/uswds/releases/download/v3.7.1/uswds-uswds-3.7.1.tgz) directly from the latest USWDS release and uncompress that file.
+1. Download the [USWDS package](https://github.com/uswds/uswds/releases) directly from the latest USWDS release and uncompress that file.
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
@@ -214,6 +214,11 @@ If you’re using a framework or package manager that doesn’t support npm, you
 
    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
+    <!-- 
+      This note also exists on the USWDS Site download page, which is maintained in the USWDS-Site repo. 
+      If any changes are made, make sure to update there as well. 
+    -->
+    **Note:** Files in the downloadable USWDS package will show a "last modified" date of October 26, 1985. This is [intentional](https://github.com/npm/npm/issues/20439#issuecomment-385121133). This default date is set by npm on all its packages to ensure builds will be identical.
 
 ## Using USWDS CSS and JavaScript in your project
 

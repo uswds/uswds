@@ -141,6 +141,7 @@ $navigate_far_next: map-merge(
     position: relative;
 
     &:not([disabled]) {
+      &:focus,
       &:hover {
         background-color: Highlight;
       }
