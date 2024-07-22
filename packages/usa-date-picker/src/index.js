@@ -464,6 +464,22 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
   lastDayOfMonth(setMonth(date, 11)) < minDate ||
   (maxDate && startOfMonth(setMonth(date, 0)) > maxDate);
 
+const setRangeDates = (date, rangeDate) => {
+  const rangeConclusionDate = date;
+  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
+  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
+
+  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
+  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
+
+  return {
+    rangeStartDate,
+    rangeEndDate,
+    withinRangeStartDate,
+    withinRangeEndDate
+  }
+}
+
 /**
  * Parse a date with format M-D-YY
  *
@@ -926,12 +942,10 @@ const handleMouseoverFromDate = (dateEl) => {
 
   if (selectedDate) return;
 
-  const rangeConclusionDate = hoverDate;
-  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
-  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
-
-  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
-  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1)
+  const {
+    withinRangeStartDate,
+    withinRangeEndDate
+  } = setRangeDates(hoverDate, rangeDate);
 
   const calBtns = calendarEl.querySelectorAll(`.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`);
 
@@ -989,12 +1003,12 @@ const renderCalendar = (el, _dateToDisplay) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
-  const rangeConclusionDate = selectedDate || dateToDisplay;
-  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
-  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
-
-  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
-  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
+  const {
+    rangeStartDate,
+    rangeEndDate,
+    withinRangeStartDate,
+    withinRangeEndDate
+  } = setRangeDates(selectedDate || dateToDisplay, rangeDate)
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
