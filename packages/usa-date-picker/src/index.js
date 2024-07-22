@@ -466,10 +466,10 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
 
 /**
  * Set the start, end, and within range values for date range variants.
- * 
+ *
  * @param {*} date - Date that concludes the date range.
  * @param {*} rangeDate - Range date data attribute value of the date picker component.
- * @returns 
+ * @returns
  */
 const setRangeDates = (date, rangeDate) => {
   const rangeConclusionDate = date;
@@ -483,9 +483,9 @@ const setRangeDates = (date, rangeDate) => {
     rangeStartDate,
     rangeEndDate,
     withinRangeStartDate,
-    withinRangeEndDate
-  }
-}
+    withinRangeEndDate,
+  };
+};
 
 /**
  * Parse a date with format M-D-YY
@@ -940,45 +940,42 @@ const enhanceDatePicker = (el) => {
 /**
  * Set range date classes without re-rendering the calendar. Called when date button is hovered.
  * Returns early if the date hovered is disabled or if there is a selected date already.
- * 
+ *
  * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
  */
 
 const handleMouseoverFromDate = (dateEl) => {
   if (dateEl.disabled) return;
 
-  const hoverDate = parseDateString(dateEl.dataset.value)
-  const {
-    calendarEl,
-    selectedDate,
-    rangeDate
-  } = getDatePickerContext(dateEl);
+  const hoverDate = parseDateString(dateEl.dataset.value);
+  const { calendarEl, selectedDate, rangeDate } = getDatePickerContext(dateEl);
 
   if (selectedDate) return;
 
-  const {
-    withinRangeStartDate,
-    withinRangeEndDate
-  } = setRangeDates(hoverDate, rangeDate);
+  const { withinRangeStartDate, withinRangeEndDate } = setRangeDates(
+    hoverDate,
+    rangeDate,
+  );
 
-  const calBtns = calendarEl.querySelectorAll(`.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`);
+  const calBtns = calendarEl.querySelectorAll(
+    `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`,
+  );
 
-
-  for (button of calBtns) {
+  calBtns.forEach((button) => {
     const buttonDate = parseDateString(button.dataset.value);
     if (
       isDateWithinMinAndMax(
         buttonDate,
         withinRangeStartDate,
-        withinRangeEndDate
+        withinRangeEndDate,
       )
     ) {
       button.classList.add(CALENDAR_DATE_WITHIN_RANGE_CLASS);
     } else {
-      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS)
+      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS);
     }
-  }
-}
+  });
+};
 
 // #region Calendar - Date Selection View
 
@@ -1021,8 +1018,8 @@ const renderCalendar = (el, _dateToDisplay) => {
     rangeStartDate,
     rangeEndDate,
     withinRangeStartDate,
-    withinRangeEndDate
-  } = setRangeDates(selectedDate || dateToDisplay, rangeDate)
+    withinRangeEndDate,
+  } = setRangeDates(selectedDate || dateToDisplay, rangeDate);
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -2238,14 +2235,13 @@ const datePickerEvents = {
   },
 };
 
-
 if (!isIosDevice()) {
   datePickerEvents.mouseover = {
     [CALENDAR_DATE_CURRENT_MONTH]() {
       handleMouseoverFromDate(this);
-    }
+    },
   };
-};
+}
 
 const datePicker = behavior(datePickerEvents, {
   init(root) {
