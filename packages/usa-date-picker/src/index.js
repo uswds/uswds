@@ -465,11 +465,19 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
   (maxDate && startOfMonth(setMonth(date, 0)) > maxDate);
 
 /**
+ * @typedef {Object} DateRangeContext
+ * @property {Date} rangeStartDate
+ * @property {Date} rangeEndDate
+ * @property {Date} withinRangeStartDate
+ * @property {Date} withinRangeEndDate
+ */
+
+/**
  * Set the start, end, and within range values for date range variants.
- *
+
  * @param {Date} date - Date that concludes the date range.
  * @param {Date} rangeDate - Range date data attribute value of the date picker component.
- * @returns
+ * @returns {DateRangeContext} - Dates for range selection.
  */
 const setRangeDates = (date, rangeDate) => {
   const rangeConclusionDate = date;
