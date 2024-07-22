@@ -472,8 +472,6 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
  * @returns
  */
 const setRangeDates = (date, rangeDate) => {
-  console.log(date);
-  console.log(rangeDate);
   const rangeConclusionDate = date;
   const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
   const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
