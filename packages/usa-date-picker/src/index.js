@@ -937,46 +937,6 @@ const enhanceDatePicker = (el) => {
   }
 };
 
-/**
- * Set range date classes without re-rendering the calendar. Called when date button is hovered.
- * Returns early if the date hovered is disabled or if there is a selected date already.
- *
- * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
- */
-
-const handleMouseoverFromDate = (dateEl) => {
-  if (dateEl.disabled) return;
-
-  const hoverDate = parseDateString(dateEl.dataset.value);
-  const { calendarEl, selectedDate, rangeDate } = getDatePickerContext(dateEl);
-
-  if (selectedDate) return;
-
-  const { withinRangeStartDate, withinRangeEndDate } = setRangeDates(
-    hoverDate,
-    rangeDate,
-  );
-
-  const dateButtons = calendarEl.querySelectorAll(
-    `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`,
-  );
-
-  dateButtons.forEach((button) => {
-    const buttonDate = parseDateString(button.dataset.value);
-    if (
-      isDateWithinMinAndMax(
-        buttonDate,
-        withinRangeStartDate,
-        withinRangeEndDate,
-      )
-    ) {
-      button.classList.add(CALENDAR_DATE_WITHIN_RANGE_CLASS);
-    } else {
-      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS);
-    }
-  });
-};
-
 // #region Calendar - Date Selection View
 
 /**
@@ -1846,6 +1806,46 @@ const handleShiftPageDownFromDate = adjustCalendar((date) => addYears(date, 1));
  * @param {KeyboardEvent} event the keydown event
  */
 const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
+
+/**
+ * Set range date classes without re-rendering the calendar. Called when date button is hovered.
+ * Returns early if the date hovered is disabled or if there is a selected date already.
+ *
+ * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
+ */
+
+const handleMouseoverFromDate = (dateEl) => {
+  if (dateEl.disabled) return;
+
+  const hoverDate = parseDateString(dateEl.dataset.value);
+  const { calendarEl, selectedDate, rangeDate } = getDatePickerContext(dateEl);
+
+  if (selectedDate) return;
+
+  const { withinRangeStartDate, withinRangeEndDate } = setRangeDates(
+    hoverDate,
+    rangeDate,
+  );
+
+  const dateButtons = calendarEl.querySelectorAll(
+    `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`,
+  );
+
+  dateButtons.forEach((button) => {
+    const buttonDate = parseDateString(button.dataset.value);
+    if (
+      isDateWithinMinAndMax(
+        buttonDate,
+        withinRangeStartDate,
+        withinRangeEndDate,
+      )
+    ) {
+      button.classList.add(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+    } else {
+      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+    }
+  });
+};
 
 // #endregion Calendar Date Event Handling
 
