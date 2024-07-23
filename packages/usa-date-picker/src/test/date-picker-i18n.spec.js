@@ -24,7 +24,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     function changeLanguage(lang) {
       document.documentElement.lang = lang;
-      window.dispatchEvent(new Event("languagechange"));
     }
 
     beforeEach(() => {
