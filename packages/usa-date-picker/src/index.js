@@ -88,37 +88,7 @@ const DAY_OF_WEEK_DATE_SEED = Array.from({ length: 7 }).map(
   (_, i) => new Date(0, 0, i)
 );
 
-let monthLabels;
-let dayOfWeeklabels;
-let dayOfWeeksAbv;
-
-function setCalendarLabels() {
-  const lang = document.documentElement.lang || "en";
-
-  monthLabels = MONTH_DATE_SEED.map((date) =>
-    date.toLocaleString(lang, { month: "long" })
-  );
-
-  dayOfWeeklabels = DAY_OF_WEEK_DATE_SEED.map((date) =>
-    date.toLocaleString(lang, {
-      weekday: "long",
-    })
-  );
-
-  dayOfWeeksAbv = DAY_OF_WEEK_DATE_SEED.map((date) =>
-    date.toLocaleString(lang, {
-      weekday: "narrow",
-    })
-  );
-}
-
-setCalendarLabels();
-
-// NOTE: This event is NOT triggered when setting the document language programatically
-// If the user manually sets document.documentElement.lang they will need to manually dispatch this event
-window.addEventListener("languagechange", () => {
-  setCalendarLabels();
-});
+const CALENDAR_LABELS_BY_LANG = new Map();
 
 const ENTER_KEYCODE = 13;
 
@@ -698,6 +668,30 @@ const getDatePickerContext = (el) => {
     throw new Error("Minimum date cannot be after maximum date");
   }
 
+  const lang = document.documentElement.lang || "en";
+
+  // if the language is not found generate the list
+  if (!CALENDAR_LABELS_BY_LANG.has(lang)) {
+    CALENDAR_LABELS_BY_LANG.set(lang, {
+      monthLabels: MONTH_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, { month: "long" })
+      ),
+      dayOfWeeklabels: DAY_OF_WEEK_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, {
+          weekday: "long",
+        })
+      ),
+      dayOfWeeksAbv: DAY_OF_WEEK_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, {
+          weekday: "narrow",
+        })
+      ),
+    });
+  }
+
+  const { monthLabels, dayOfWeeklabels, dayOfWeeksAbv } =
+    CALENDAR_LABELS_BY_LANG.get(lang);
+
   return {
     calendarDate,
     minDate,
@@ -713,6 +707,9 @@ const getDatePickerContext = (el) => {
     rangeDate,
     defaultDate,
     statusEl,
+    monthLabels,
+    dayOfWeeklabels,
+    dayOfWeeksAbv,
   };
 };
 
@@ -947,6 +944,9 @@ const renderCalendar = (el, _dateToDisplay) => {
     maxDate,
     minDate,
     rangeDate,
+    monthLabels,
+    dayOfWeeklabels,
+    dayOfWeeksAbv,
   } = getDatePickerContext(el);
   const todaysDate = today();
   let dateToDisplay = _dateToDisplay || todaysDate;
@@ -1342,7 +1342,7 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+  const { calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
     getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
