@@ -1817,7 +1817,7 @@ const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
 
 /**
  * Set range date classes without re-rendering the calendar. Called when date button is hovered.
- * Returns early if the date hovered is disabled or if there is a selected date already.
+ * Returns early if the date hovered is disabled or if there is already a selected date.
  *
  * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
  */
