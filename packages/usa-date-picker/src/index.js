@@ -93,18 +93,20 @@ let dayOfWeeklabels;
 let dayOfWeeksAbv;
 
 function setCalendarLabels() {
+  const lang = document.documentElement.lang || "en";
+
   monthLabels = MONTH_DATE_SEED.map((date) =>
-    date.toLocaleString("es", { month: "long" })
+    date.toLocaleString(lang, { month: "long" })
   );
 
   dayOfWeeklabels = DAY_OF_WEEK_DATE_SEED.map((date) =>
-    date.toLocaleString("es", {
+    date.toLocaleString(lang, {
       weekday: "long",
     })
   );
 
   dayOfWeeksAbv = DAY_OF_WEEK_DATE_SEED.map((date) =>
-    date.toLocaleString("es", {
+    date.toLocaleString(lang, {
       weekday: "narrow",
     })
   );

@@ -9,6 +9,7 @@ const TEMPLATE = fs.readFileSync(
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
+
 const tests = [
   { name: "document.body", selector: () => document.body },
   { name: "date picker", selector: datePickerSelector },
