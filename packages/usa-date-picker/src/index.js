@@ -114,6 +114,8 @@ function setCalendarLabels() {
 
 setCalendarLabels();
 
+// NOTE: This event is NOT triggered when setting the document language programatically
+// If the user manually sets document.documentElement.lang they will need to manually dispatch this event
 window.addEventListener("languagechange", () => {
   setCalendarLabels();
 });
