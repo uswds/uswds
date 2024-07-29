@@ -119,7 +119,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
 
 .usa-pagination__button {
   align-items: center;
-  border-color: color.adjust(color($pagination-current-color), $alpha: -0.1);
+  border-color: color.adjust(color($pagination-current-color), $alpha: -0.8);
   border-radius: radius($theme-pagination-button-border-radius);
   border-style: solid;
   border-width: units($theme-pagination-button-border-width);
@@ -127,7 +127,7 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   display: inline-flex;
   justify-content: center;
   padding: units($pagination-margin-padding);
-  text-decoration: none;
+  text-decoration: underline;
   width: 100%;
 
   &:hover,
