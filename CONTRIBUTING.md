@@ -74,9 +74,11 @@ If you want to propose a code fix, even better! Here’s a few steps to help you
 3. If your proposed fix is not in the open issues backlog, create an [issue](https://github.com/uswds/uswds/issues/new/choose) for the change you’re proposing.  This helps us track our work. 
 4. Fork this repo into your GitHub account. Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/). 
 5. Create a branch from `develop` and name it in a way that lightly defines what you’re working on (for example, `add-styles`).
-7. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
-8. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. You can read more about linking pull requests on [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
-9. Submit your pull request against the `develop` branch. 
+6. Run `npm install` to build and then `npm start` to run locally. Check `package.json` for available development commands, e.g. `npm run prettier` to format the code.
+7. Run `gulp test` to run tests (`npm test` includes `snyk` which requires extra configuration and will be run automatically on your pull request).
+8. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
+9. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. You can read more about linking pull requests on [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+10. Submit your pull request against the `develop` branch. 
 
 If the pull request is accepted, we will schedule the issue and merge the pull request for you. 
 
