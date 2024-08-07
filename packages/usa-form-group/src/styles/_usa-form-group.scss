@@ -11,7 +11,13 @@
 
 // Block input elements
 .usa-form-group--error {
-  @include u-border-left(0.5, "error-dark");
-  padding-left: units(2);
   position: relative;
+
+  &::before {
+    @include u-border-left(0.5, "error-dark");
+    content: "";
+    height: 100%;
+    left: units("neg-105");
+    position: absolute;
+  }
 }
