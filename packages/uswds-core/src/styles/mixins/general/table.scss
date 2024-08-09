@@ -237,6 +237,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   tbody {
     th {
       text-align: left;
+      background-color: color($theme-table-header-background-color);
+      font-weight: fw("bold");
     }
   }
   th,
@@ -320,6 +322,11 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       }
     }
     /* stylelint-enable selector-class-pattern */
+  }
+  tbody {
+    th {
+      background-color: #fff;
+    }
   }
 
   th,
