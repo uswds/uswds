@@ -356,6 +356,12 @@ $table-unsorted-icon-color: get-color-token-from-bg(
         }
       }
     }
+    tr:nth-child(even) {
+      td,
+      th {
+        background-color: #fff;
+      }
+    }
   }
 }
 
