@@ -159,7 +159,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     td:first-child {
       border-top-width: 0;
     }
-    &:nth-child(odd) {
+    &:nth-child(odd),
+    &:nth-child(even) {
       td,
       th {
         background-color: inherit;
