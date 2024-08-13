@@ -260,11 +260,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         aria-labelledby="${listIdLabel}"
         hidden>
       </ul>
-      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>
-      <span id="${assistiveHintID}" class="usa-sr-only">
-        When autocomplete results are available use up and down arrows to review and enter to select.
-        Touch device users, explore by touch or with swipe gestures.
-      </span>`,
+      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
   );
 
   if (selectedOption) {
