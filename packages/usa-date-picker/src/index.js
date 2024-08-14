@@ -1295,7 +1295,11 @@ const selectDate = (calendarDateEl) => {
  * @param {HTMLButtonElement} el An element within the date picker component
  */
 const toggleCalendar = (el) => {
-  if (el.disabled || el.hasAttribute("aria-disabled")) return;
+  if (el.hasAttribute("aria-disabled")) {
+    el.setAttribute("readonly", true)
+    return;
+  }
+  if (el.disabled) return;
   const { calendarEl, inputDate, minDate, maxDate, defaultDate } =
     getDatePickerContext(el);
 
