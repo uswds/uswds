@@ -98,7 +98,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   align-items: center;
   color: color($pagination-link-token);
   display: inline-flex;
-  text-decoration: none;
 
   &[disabled] {
     opacity: 0.4 !important;
@@ -127,7 +126,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   display: inline-flex;
   justify-content: center;
   padding: units($pagination-margin-padding);
-  text-decoration: underline;
   width: 100%;
 
   &:hover,
