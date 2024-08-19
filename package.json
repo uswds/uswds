@@ -52,7 +52,7 @@
   },
   "scripts": {
     "build": "gulp",
-    "format-tokens": "node style-dictionary/color.config.js && npx prettier --write 'packages/uswds-core/src/styles/tokens/color/*.scss'",
+    "build:tokens": "node style-dictionary/color.config.js && npx prettier --write 'packages/uswds-core/src/styles/tokens/color/*.scss'",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint packages/**/**/*.js",
     "lint:sass": "gulp lintSass",
