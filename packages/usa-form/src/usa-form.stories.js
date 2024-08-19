@@ -10,13 +10,11 @@ import EsContent from "../../templates/usa-sign-in/usa-sign-in~lang-es.json";
 import MultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple.json";
 import EsMultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple~lang-es.json";
 
-import * as AlertComponent from "../../usa-alert/src/usa-alert.stories";
-
 const InfoContent = {
-  "modifier": "usa-alert--warning",
-  "title": "Heads up!",
-  "text": "This is a developer preview. The patterns presented on this page may not be suitable production level code."
-}
+  modifier: "usa-alert--warning",
+  title: "Heads up!",
+  text: "This is a developer preview. The patterns presented on this page may not be suitable production level code.",
+};
 
 export default {
   title: "Patterns/Forms",
@@ -75,9 +73,9 @@ TestErrorFormElements.argTypes = {
     table: { disable: false },
   },
   alert: {
-    table: {disable: true }
+    table: { disable: true },
   },
 };
 TestErrorFormElements.args = {
   alert: InfoContent,
-}
+};
