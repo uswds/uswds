@@ -1,7 +1,8 @@
 const StyleDictionary = require("style-dictionary");
 const _ = require("lodash");
 const fs = require('fs');
-const colorTokens = require("../packages/uswds-tokens/colors")
+const getJSON = require("./utils/getJSON");
+const colorTokens = getJSON("./packages/uswds-tokens/colors");
 
 const USWDSTokens = StyleDictionary.extend({
   source: ["packages/uswds-tokens/colors/*.json"],
