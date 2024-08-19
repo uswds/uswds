@@ -4,7 +4,7 @@ const fs = require('fs');
 const getJSON = require("./utils/getJSON");
 const colorTokens = getJSON("./packages/uswds-tokens/colors");
 
-const USWDSTokens = StyleDictionary.extend({
+const USWDS_COLORS = StyleDictionary.extend({
   source: ["packages/uswds-tokens/colors/*.json"],
   platforms: {
     "scss/colors": {
@@ -24,9 +24,9 @@ const USWDSTokens = StyleDictionary.extend({
   },
 })
 
-USWDSTokens.registerFormat({
+USWDS_COLORS.registerFormat({
   name: 'custom/format/color-map',
   formatter: template(fs.readFileSync(`${__dirname  }/templates/scss-color-map.template`))
 });
 
-USWDSTokens.buildPlatform('scss/colors');
+USWDS_COLORS.buildPlatform('scss/colors');
