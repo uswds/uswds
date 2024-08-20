@@ -71,9 +71,9 @@
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
     "prettier": "npm run prettier:html && npm run prettier:js && npm run prettier:sass",
     "prettier:check": "npx prettier -c ./packages/**/*.{scss,js}",
-    "prettier:html": "npx prettier --write './html-templates/**/**/*.html'",
-    "prettier:js": "npx prettier --write './packages/**/**/*.js'",
-    "prettier:sass": "npx prettier --write './packages/**/**/*.scss'",
+    "prettier:html": "npx prettier --write './html-templates/**/**/*.html' --ignore-path=.prettierignore",
+    "prettier:js": "npx prettier --write './packages/**/**/*.js' --ignore-path=.prettierignore",
+    "prettier:sass": "npx prettier --write './packages/**/**/*.scss' --ignore-path=.prettierignore",
     "start:storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o _site",
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
