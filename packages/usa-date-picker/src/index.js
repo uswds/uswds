@@ -721,6 +721,7 @@ const disable = (el) => {
 const ariaDisable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
+  el.setAttribute("readonly", "")
   toggleBtnEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("aria-disabled", true);
 };
@@ -1295,11 +1296,7 @@ const selectDate = (calendarDateEl) => {
  * @param {HTMLButtonElement} el An element within the date picker component
  */
 const toggleCalendar = (el) => {
-  if (el.hasAttribute("aria-disabled")) {
-    el.setAttribute("readonly", true)
-    return;
-  }
-  if (el.disabled) return;
+  if (el.disabled || el.hasAttribute("aria-disabled")) return;
   const { calendarEl, inputDate, minDate, maxDate, defaultDate } =
     getDatePickerContext(el);
 
