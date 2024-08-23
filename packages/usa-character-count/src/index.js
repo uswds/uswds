@@ -142,7 +142,8 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 const updateCountMessage = (inputEl) => {
-  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const { characterCountEl, labelEl, formGroupEl } =
+    getCharacterCountElements(inputEl);
   const currentLength = inputEl.value.length;
   const maxLength = parseInt(
     characterCountEl.getAttribute("data-maxlength"),
@@ -170,6 +171,9 @@ const updateCountMessage = (inputEl) => {
   }
 
   inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
+  labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
+  formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
+
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
@@ -211,11 +215,6 @@ const characterCount = behavior(
     input: {
       [INPUT]() {
         updateCountMessage(this);
-      },
-    },
-    focusout: {
-      [INPUT]() {
-        toggleErrorState(this);
       },
     },
   },
