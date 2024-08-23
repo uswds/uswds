@@ -81,7 +81,7 @@ describe("language selector component", () => {
   it("contains aria-controls of language-options", () => {
     assert.strictEqual(
       languageButton.getAttribute("aria-controls"),
-      "language-options"
+      "language-options",
     );
   });
 

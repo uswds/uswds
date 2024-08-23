@@ -88,7 +88,7 @@ const createStatusMessages = (characterCountEl) => {
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
   srStatusMessage.classList.add(
     `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
-    "usa-sr-only"
+    "usa-sr-only",
   );
 
   statusMessage.setAttribute("aria-hidden", true);
@@ -147,11 +147,11 @@ const updateCountMessage = (inputEl) => {
   const currentLength = inputEl.value.length;
   const maxLength = parseInt(
     characterCountEl.getAttribute("data-maxlength"),
-    10
+    10,
   );
   const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = characterCountEl.querySelector(
-    STATUS_MESSAGE_SR_ONLY
+    STATUS_MESSAGE_SR_ONLY,
   );
   const currentStatusMessage = getCountMessage(currentLength, maxLength);
 
@@ -218,7 +218,7 @@ const characterCount = behavior(
     createStatusMessages,
     getCountMessage,
     updateCountMessage,
-  }
+  },
 );
 
 module.exports = characterCount;

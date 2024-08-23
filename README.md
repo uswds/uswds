@@ -165,7 +165,7 @@ There are two ways to install the design system on a project:
 **We recommend using npm to make it as straightforward as possible to install the design system and update it as we release new versions.**
 
 ### Install using Node and npm
-npm is a package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files. npm packages make it easy to update and install the design system from the command line.
+Use the npm package manager for Node-based projects. USWDS maintains the [`@uswds/uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files. We rely on npm packages to easily update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
@@ -214,6 +214,11 @@ If you’re using a framework or package manager that doesn’t support npm, you
 
    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
+    <!-- 
+      This note also exists on the USWDS Site download page, which is maintained in the USWDS-Site repo. 
+      If any changes are made, make sure to update there as well. 
+    -->
+    **Note:** Files in the downloadable USWDS package will show a "last modified" date of October 26, 1985. This is [intentional](https://github.com/npm/npm/issues/20439#issuecomment-385121133). This default date is set by npm on all its packages to ensure builds will be identical.
 
 ## Using USWDS CSS and JavaScript in your project
 
@@ -507,7 +512,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
 
-As of USWDS 3.0.0 we no longer officially support Internet Explorer 11 (IE11). We will continue to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x — when we finally drop IE11, we'll make a note in the release notes and in this documentation.
+As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and will continue to remove more of these polyfills in subsequent releases.
 
 ## Accessibility
 
