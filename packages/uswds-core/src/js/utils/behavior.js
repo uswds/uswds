@@ -31,6 +31,6 @@ module.exports = (events, props) =>
         on: sequence("init", "add"),
         off: sequence("teardown", "remove"),
       },
-      props
-    )
+      props,
+    ),
   );

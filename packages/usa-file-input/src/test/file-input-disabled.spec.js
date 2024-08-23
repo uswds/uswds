@@ -3,7 +3,7 @@ const fs = require("fs");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  `${__dirname}/file-input-disabled.template.html`
+  `${__dirname}/file-input-disabled.template.html`,
 );
 
 const tests = [
@@ -36,7 +36,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         const expectedClass = "usa-file-input--disabled";
         assert.strictEqual(
           component.getAttribute("class").includes(expectedClass),
-          true
+          true,
         );
       });
     });

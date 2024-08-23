@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-range-date.template.html")
+  path.join(__dirname, "/date-picker-range-date.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -23,7 +23,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let button;
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -49,7 +49,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--range-date").dataset
           .value,
         "2020-05-22",
-        "shows the correct date as the range date"
+        "shows the correct date as the range date",
       );
     });
 
@@ -61,7 +61,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--range-date"),
         null,
-        "the range date is not present"
+        "the range date is not present",
       );
     });
 
@@ -72,38 +72,38 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="22"]'
+          '.usa-date-picker__calendar__date[data-day="22"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "should not show the range date as within range"
+        "should not show the range date as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="23"]'
+          '.usa-date-picker__calendar__date[data-day="23"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         true,
-        "shows date within range as within range"
+        "shows date within range as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="24"]'
+          '.usa-date-picker__calendar__date[data-day="24"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         true,
-        "shows date within range as within range"
+        "shows date within range as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="25"]'
+          '.usa-date-picker__calendar__date[data-day="25"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "should not show the current calendar date as within range"
+        "should not show the current calendar date as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="26"]'
+          '.usa-date-picker__calendar__date[data-day="26"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "does not show dates outside of the range as within range"
+        "does not show dates outside of the range as within range",
       );
     });
 
@@ -114,46 +114,46 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="22"]'
+          '.usa-date-picker__calendar__date[data-day="22"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "should not show the range date as within range"
+        "should not show the range date as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="21"]'
+          '.usa-date-picker__calendar__date[data-day="21"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         true,
-        "shows date within range as within range"
+        "shows date within range as within range",
       );
 
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="20"]'
+          '.usa-date-picker__calendar__date[data-day="20"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         true,
-        "shows date within range as within range"
+        "shows date within range as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="19"]'
+          '.usa-date-picker__calendar__date[data-day="19"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         true,
-        "shows date within range as within range"
+        "shows date within range as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="18"]'
+          '.usa-date-picker__calendar__date[data-day="18"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "should not show the current calendar date as within range"
+        "should not show the current calendar date as within range",
       );
       assert.strictEqual(
         getCalendarEl(
-          '.usa-date-picker__calendar__date[data-day="17"]'
+          '.usa-date-picker__calendar__date[data-day="17"]',
         ).classList.contains("usa-date-picker__calendar__date--within-range"),
         false,
-        "does not show dates outside of the range as within range"
+        "does not show dates outside of the range as within range",
       );
     });
   });
