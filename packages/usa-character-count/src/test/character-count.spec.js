@@ -25,14 +25,6 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
-/**
- * send focusout event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.focusout = (el) => {
-  el.dispatchEvent(new KeyboardEvent("focusout", { bubbles: true }));
-};
-
 const characterCountSelector = () =>
   document.querySelector(".usa-character-count");
 const tests = [
@@ -157,37 +149,16 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.input(input);
 
       assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
+      assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), true);
       assert.strictEqual(input.classList.contains(INPUT_ERROR_CLASS), true);
+      assert.strictEqual(
+        formGroup.classList.contains(FORM_GROUP_ERROR_CLASS),
+        true,
+      );
       assert.strictEqual(
         statusMessageVisual.classList.contains(MESSAGE_INVALID_CLASS),
         true
       );
-    });
-
-    it("should add form group error classes on focusout when the input has error class", () => {
-      input.classList.add(INPUT_ERROR_CLASS);
-
-      EVENTS.focusout(input);
-
-      assert.strictEqual(
-        formGroup.classList.contains(FORM_GROUP_ERROR_CLASS),
-        true
-      );
-      assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), true);
-    });
-
-    it("should remove form group error classes on focusout when the input does not have error class", () => {
-      assert.strictEqual(input.classList.contains(INPUT_ERROR_CLASS), false);
-      formGroup.classList.add(FORM_GROUP_ERROR_CLASS);
-      label.classList.add(LABEL_ERROR_CLASS);
-
-      EVENTS.focusout(input);
-
-      assert.strictEqual(
-        formGroup.classList.contains(FORM_GROUP_ERROR_CLASS),
-        false
-      );
-      assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), false);
     });
 
     it("should not allow for innerHTML of child elements ", () => {

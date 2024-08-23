@@ -4,7 +4,7 @@ const assert = require("assert");
 const CharacterCount = require("../index");
 
 const INVALID_TEMPLATE_NO_FORM_GROUP = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-form-group.template.html")
+  path.join(__dirname, "/invalid-template-no-form-group.template.html"),
 );
 
 const tests = [
