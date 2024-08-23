@@ -178,21 +178,6 @@ const updateCountMessage = (inputEl) => {
 };
 
 /**
- * Updates character count form elements to match error status of input.
- *
- * @description On focusout, it will update the input label and form group to match the current state of the input element.
- * Called on focusout instead of input to prevent content shift while typing.
- * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- */
-const toggleErrorState = (inputEl) => {
-  const { labelEl, formGroupEl } = getCharacterCountElements(inputEl);
-  const errorState = inputEl.classList.contains(INPUT_ERROR_CLASS);
-
-  labelEl.classList.toggle(LABEL_ERROR_CLASS, errorState);
-  formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, errorState);
-};
-
-/**
  * Initialize component
  *
  * @description On init this function will create elements and update any
