@@ -721,9 +721,9 @@ const disable = (el) => {
 const ariaDisable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
-  externalInputEl.setAttribute("readonly", "")
   toggleBtnEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("aria-disabled", true);
+  externalInputEl.setAttribute("readonly", "")
 };
 
 /**
@@ -734,10 +734,12 @@ const ariaDisable = (el) => {
 const enable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
-  el.removeAttribute("readonly");
-  externalInputEl.removeAttribute("aria-disabled");
   toggleBtnEl.disabled = false;
+  toggleBtnEl.removeAttribute("aria-disabled");
+
   externalInputEl.disabled = false;
+  externalInputEl.removeAttribute("aria-disabled");
+  externalInputEl.removeAttribute("readonly");
 };
 
 // #region Validation
