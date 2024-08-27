@@ -714,7 +714,7 @@ const disable = (el) => {
 };
 
 /**
- * Add the readonly attribute to input element and the aria-disabled attribute to the toggle calendar button and external input elements. 
+ * Add the readonly attribute to input element and the aria-disabled attribute to the toggle calendar button and external input elements.
  *
  * @param {HTMLElement} el - The date picker element
  */
@@ -723,7 +723,7 @@ const ariaDisable = (el) => {
 
   toggleBtnEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("aria-disabled", true);
-  externalInputEl.setAttribute("readonly", "")
+  externalInputEl.setAttribute("readonly", "");
 };
 
 /**
