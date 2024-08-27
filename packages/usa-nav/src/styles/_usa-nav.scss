@@ -130,8 +130,6 @@ $expand-less-icon: map-merge(
   @include at-media-max($theme-header-min-width) {
     @include nav-list("nav");
     margin-top: units(3);
-    order: 2;
-
     a {
       @include u-padding-y(1.5);
     }
