@@ -84,8 +84,8 @@ Here are a few other utility commands you may find useful:
 
 1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues.
 2. If your bug has already been submitted, feel free to comment and provide additional context (if different than the original submission).
-3. If your proposed fix is not in the open issues backlog, create an [issue](https://github.com/uswds/uswds/issues/new/choose) for the change you’re proposing.  This helps us track our work.
-4. Follow steps in [Getting started with USWDS code](#getting-started-with-uswds-code) to setup locally.
+3. If your proposed fix is not in the open issues backlog, create an [issue](https://github.com/uswds/uswds/issues/new/choose) for the change you’re proposing. This helps us track our work.
+4. Follow the steps in the [Getting started with USWDS code](#getting-started-with-uswds-code) section above to get setup locally.
 5. Create a branch from `develop` and name it in a way that lightly defines what you’re working on (for example, `add-styles`).
 7. Once you’re ready to submit a pull request, fill out the [pull request template](https://github.com/uswds/uswds/compare).
 8. Link your pull request to the issue you created. This important step helps us know which issue this solution fixes. Tip: You can link the pull request in the body of the pull request template using the GitHub comment `closes #issue-no` or `resolves #issue-no`. You can read more about linking pull requests on [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
