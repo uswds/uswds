@@ -63,7 +63,7 @@ If your idea is not in the [current issues backlog](https://github.com/uswds/usw
 
 #### Getting started with USWDS code
 
-1. Fist, fork this repo into your GitHub account. Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/).
+1. First, fork this repo into your GitHub account. Read more about forking a repo on [GitHub](https://help.github.com/articles/fork-a-repo/).
 1. Open your local copy of the repository then run the following command in terminal to install project dependencies:
     ```sh
     npm install
