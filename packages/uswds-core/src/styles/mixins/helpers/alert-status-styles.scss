@@ -1,6 +1,4 @@
 @use "sass:math";
-
-// @use "../../variables/project-alerts" as *;
 @use "../../settings" as *;
 @use "../../functions" as *;
 @use "./at-media" as *;
@@ -16,8 +14,12 @@ $alert-slim-icon-size: 3;
 $alert-slim-icon-padding: 1;
 
 // shared icon styles
-$alert-x-align-text-with-icon: calc(units($theme-alert-icon-size) + units($alert-icon-gap));
-$alert-x-align-text-with-slim-icon: calc(units($alert-slim-icon-size) + units($alert-icon-gap));
+$alert-x-align-text-with-icon: calc(
+  units($theme-alert-icon-size) + units($alert-icon-gap)
+);
+$alert-x-align-text-with-slim-icon: calc(
+  units($alert-slim-icon-size) + units($alert-icon-gap)
+);
 
 // Base alert styles
 @mixin alert-styles {
@@ -103,7 +105,9 @@ $alert-x-align-text-with-slim-icon: calc(units($alert-slim-icon-size) + units($a
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
 
-  margin-left: calc(units($theme-alert-bar-width) + units($theme-alert-padding-x));
+  margin-left: calc(
+    units($theme-alert-bar-width) + units($theme-alert-padding-x)
+  );
 
   .usa-alert__heading,
   .usa-alert__text {
@@ -142,7 +146,6 @@ $alert-x-align-text-with-slim-icon: calc(units($alert-slim-icon-size) + units($a
     top: calc(
       units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
     );
-
   }
 }
 
@@ -165,7 +168,7 @@ $alert-x-align-text-with-slim-icon: calc(units($alert-slim-icon-size) + units($a
 }
 
 // Variant - slim
-@mixin add-slim-alert-icon  {
+@mixin add-slim-alert-icon {
   &:before {
     @supports (mask: url("")) {
       mask-size: units($alert-slim-icon-size);
