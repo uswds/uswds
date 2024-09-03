@@ -1,19 +1,13 @@
 @use "sass:math";
 @use "uswds-core" as *;
 
-// Alert variables ---------- //
-$site-alert-icons: (
-  info: "info",
-  emergency: "error",
-);
-
 .usa-site-alert {
   .usa-alert {
     @include alert-styles;
   }
 }
 
-@each $name, $icon in $site-alert-icons {
+@each $name, $icon in $alert-icons {
   .usa-site-alert--#{$name} .usa-alert {
     @include alert-status-wrapper-styles($name);
 

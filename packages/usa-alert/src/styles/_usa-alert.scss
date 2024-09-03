@@ -2,15 +2,6 @@
 
 @use "uswds-core" as *;
 
-// Alert variables ---------- //
-$alert-icons: (
-  success: "check_circle",
-  warning: "warning",
-  error: "error",
-  info: "info",
-  emergency: "error",
-);
-
 .usa-alert {
   @include alert-styles;
 
