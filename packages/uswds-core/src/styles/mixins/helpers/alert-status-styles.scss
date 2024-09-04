@@ -46,7 +46,13 @@ $alert-x-align-text-with-slim-icon: calc(
     @include border-box-sizing;
     @include typeset($theme-alert-font-family);
     @include u-padding-y($theme-alert-padding-y);
+    margin-left: units($theme-alert-padding-x);
     position: relative;
+  }
+
+  .usa-alert__heading,
+  .usa-alert__text {
+    margin-right: units(3);
   }
 
   .usa-alert__text {
@@ -94,12 +100,9 @@ $alert-x-align-text-with-slim-icon: calc(
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
 
-  margin-left: units($theme-alert-padding-x);
-
   .usa-alert__heading,
   .usa-alert__text {
     margin-left: $alert-x-align-text-with-icon;
-    margin-right: units(3);
 
     @include at-media($theme-site-margins-breakpoint) {
       margin-left: $alert-x-align-text-with-icon;
