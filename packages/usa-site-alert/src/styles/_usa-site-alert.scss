@@ -18,7 +18,7 @@
       // Align content with site margins at desktop
       @include at-media($theme-site-margins-breakpoint) {
         @include u-margin-x("auto");
-        left: units($theme-site-margins-width);
+        left: calc(units($theme-site-margins-width) - units($theme-alert-bar-width) / 2);
       }
     }
   }

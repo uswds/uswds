@@ -40,28 +40,13 @@ $alert-x-align-text-with-slim-icon: calc(
 
   background-color: color($bgcolor);
   color: color($banner-text-color-token);
-  position: relative;
-
-  &::before {
-    content: "";
-    background: color("base-light");
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: units($theme-alert-bar-width);
-    z-index: 1;
-  }
+  border-left: units($theme-alert-bar-width) solid color("base-light");
 
   .usa-alert__body {
     @include border-box-sizing;
     @include typeset($theme-alert-font-family);
     @include u-padding-y($theme-alert-padding-y);
     position: relative;
-
-    &:before {
-      left: 0;
-    }
   }
 
   .usa-alert__text {
@@ -93,10 +78,7 @@ $alert-x-align-text-with-slim-icon: calc(
   $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
 
   background-color: color($bgcolor);
-
-  &::before {
-    background: color($name);
-  }
+  border-left-color: color($name);
 }
 
 // Set status styles for alert content
@@ -112,9 +94,7 @@ $alert-x-align-text-with-slim-icon: calc(
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
 
-  margin-left: calc(
-    units($theme-alert-bar-width) + units($theme-alert-padding-x)
-  );
+  margin-left: units($theme-alert-padding-x);
 
   .usa-alert__heading,
   .usa-alert__text {
