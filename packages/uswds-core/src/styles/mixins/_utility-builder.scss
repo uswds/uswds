@@ -359,10 +359,6 @@ through all possible variants
       @include at-media($media-key) {
         @include these-utilities($utilities, $media-key);
       }
-    } @else if (map-has-key($theme-utility-breakpoints-custom, $media-key)) {
-      @include at-media($media-key) {
-        @include these-utilities($utilities, $media-key);
-      }
     }
   }
 }
