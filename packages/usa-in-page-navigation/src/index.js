@@ -14,6 +14,7 @@ const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
+const IN_PAGE_NAV_MINIMUM_HEADING_COUNT = 0;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -222,6 +223,21 @@ const scrollToCurrentSection = () => {
 };
 
 /**
+ * Function to check if the number of <h2> headings meets the minimum required count.
+ *
+ * @param {Array} sectionHeadings - Array of all visible section headings.
+ * @param {Number} minimumHeadingCount - The minimum number of <h2> headings required.
+ * @returns {Boolean} - Returns true if the count of <h2> headings exceeds the minimum, otherwise false.
+ */
+const shouldRenderInPageNav = (sectionHeadings, minimumHeadingCount) => {
+  // Filter only the <h2> headings
+  const h2Headings = sectionHeadings.filter(heading => heading.tagName.toLowerCase() === 'h2');
+
+  // Return true if the number of <h2> headings exceeds the minimum required count
+  return h2Headings.length >= minimumHeadingCount;
+};
+
+/**
  * Create the in-page navigation component
  *
  * @param {HTMLElement} inPageNavEl The in-page nav element
@@ -246,16 +262,31 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS
   }`;
 
+  const inPageNavMinimumHeadingCount = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
+  }`;
+
+  console.log("inPageNavMinimumHeadingCount: ",inPageNavMinimumHeadingCount)
+
+  const sectionHeadings = getVisibleSectionHeadings(
+    inPageNavContentSelector,
+    inPageNavHeadingSelector,
+  );
+
+  console.log("sectionHeadings: ",sectionHeadings);
+
+  // Use the new function to check if the in-page nav should be rendered
+  if (!shouldRenderInPageNav(sectionHeadings, inPageNavMinimumHeadingCount)) {
+    // If not enough <h2> headings, don't render the in-page navigation
+    return;
+  }
+
   const options = {
     root: null,
     rootMargin: inPageNavRootMargin,
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getVisibleSectionHeadings(
-    inPageNavContentSelector,
-    inPageNavHeadingSelector,
-  );
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
