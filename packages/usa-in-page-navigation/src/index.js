@@ -223,18 +223,17 @@ const scrollToCurrentSection = () => {
 };
 
 /**
- * Function to check if the number of <h2> headings meets the minimum required count.
+ * Function to check if the number of specified headings meets the minimum required count.
  *
  * @param {Array} sectionHeadings - Array of all visible section headings.
- * @param {Number} minimumHeadingCount - The minimum number of <h2> headings required.
- * @returns {Boolean} - Returns true if the count of <h2> headings exceeds the minimum, otherwise false.
+ * @param {Number} minimumHeadingCount - The minimum number of specified headings required.
+ * @param {Array} headingLevels - Array of headings considered as valid for the count.
+ * @returns {Boolean} - Returns true if the count of specified headings meets the minimum, otherwise false.
  */
-const shouldRenderInPageNav = (sectionHeadings, minimumHeadingCount) => {
-  // Filter only the <h2> headings
-  const h2Headings = sectionHeadings.filter(heading => heading.tagName.toLowerCase() === 'h2');
-
-  // Return true if the number of <h2> headings exceeds the minimum required count
-  return h2Headings.length >= minimumHeadingCount;
+const shouldRenderInPageNav = (sectionHeadings, minimumHeadingCount, headingLevels) => {
+  // Filter headings that are included in the headingLevels
+  const validHeadings = sectionHeadings.filter(heading => headingLevels.includes(heading.tagName.toLowerCase()));
+  return validHeadings.length >= minimumHeadingCount;
 };
 
 /**
@@ -266,19 +265,15 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
   }`;
 
-  console.log("inPageNavMinimumHeadingCount: ",inPageNavMinimumHeadingCount)
+  const headingLevels = inPageNavHeadingSelector.split(" ").map(h => h.toLowerCase());
 
   const sectionHeadings = getVisibleSectionHeadings(
     inPageNavContentSelector,
     inPageNavHeadingSelector,
   );
 
-  console.log("sectionHeadings: ",sectionHeadings);
-
-  // Use the new function to check if the in-page nav should be rendered
-  if (!shouldRenderInPageNav(sectionHeadings, inPageNavMinimumHeadingCount)) {
-    // If not enough <h2> headings, don't render the in-page navigation
-    return;
+  if (!shouldRenderInPageNav(sectionHeadings, inPageNavMinimumHeadingCount, headingLevels)) {
+    return; 
   }
 
   const options = {
