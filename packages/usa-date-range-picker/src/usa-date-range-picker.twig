@@ -2,14 +2,15 @@
     {% if restrictedDateStart %} data-min-date="{{ restrictedDateStart }}"{% endif %}
     {% if restrictedDateEnd %} data-max-date="{{ restrictedDateEnd }}"{% endif %}
 >
-  <div class="usa-form-group">
-    <label class="usa-label" id="event-date-start-label" for="event-date-start">Event start date</label>
+  <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="event-date-start-label" for="event-date-start">Event start date</label>
     <div class="usa-hint" id="event-date-start-hint">mm/dd/yyyy</div>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-date-picker"
       {% if defaultDateStart %} data-default-value="{{ defaultDateStart }}"{% endif %}
     >
       <input
-        class="usa-input"
+        class="usa-input {% if error_state %}usa-input--error{% endif %}"
         id="event-date-start"
         name="event-date-start"
         type="text"
@@ -20,14 +21,15 @@
     </div>
   </div>
 
-  <div class="usa-form-group">
-    <label class="usa-label" id="event-date-end-label" for="event-date-end">Event end date</label>
+  <div class="usa-form-group {% if error_state %}usa-form-group--error{% endif %}">
+    <label class="usa-label {% if error_state %}usa-label--error{% endif %}" id="event-date-end-label" for="event-date-end">Event end date</label>
     <div class="usa-hint" id="event-date-end-hint">mm/dd/yyyy</div>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-date-picker"
       {% if defaultDateEnd %} data-default-value="{{ defaultDateEnd }}"{% endif %}
     >
       <input
-        class="usa-input"
+        class="usa-input {% if error_state %}usa-input--error{% endif %}"
         id="event-date-end"
         name="event-date-end"
         type="text"

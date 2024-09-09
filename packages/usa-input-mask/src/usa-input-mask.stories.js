@@ -14,6 +14,11 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
+      defaultValue: false
+    },
   },
 };
 
@@ -41,4 +46,9 @@ export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   ...AlphanumericContent,
   disabled_state: "aria-disabled",
+};
+export const Error = Template.bind({});
+Error.args = {
+  error_state: true,
+  ...AlphanumericContent,
 };

@@ -1,51 +1,54 @@
-<fieldset class="usa-fieldset">
-  <legend class="usa-legend usa-legend">Select one historical figure</legend>
-  <div class="usa-radio">
-    <input 
-      class="usa-radio__input" 
-      id="historical-truth" 
-      type="radio" 
-      name="historical-figures" 
-      value="sojourner-truth" 
-      {% if not indeterminate_state %}checked{% endif %}
-      {% if disabled_state == "disabled" %}disabled{% endif %} 
-      {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
-    >
-    <label class="usa-radio__label" for="historical-truth">Sojourner Truth</label>
-  </div>
-  <div class="usa-radio">
-    <input 
-      class="usa-radio__input" 
-      id="historical-douglass" 
-      type="radio" 
-      name="historical-figures" 
-      value="frederick-douglass" 
-      {% if disabled_state == "disabled" %}disabled{% endif %} 
-      {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
-    >
-    <label class="usa-radio__label" for="historical-douglass">Frederick Douglass</label>
-  </div>
-  <div class="usa-radio">
-    <input 
-      class="usa-radio__input" 
-      id="historical-washington" 
-      type="radio" 
-      name="historical-figures" 
-      value="booker-t-washington"
-      {% if disabled_state == "disabled" %}disabled{% endif %} 
-      {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
-    >
-    <label class="usa-radio__label" for="historical-washington">Booker T. Washington</label>
-  </div>
-  <div class="usa-radio">
-    <input 
-      class="usa-radio__input" 
-      id="historical-carver" 
-      type="radio" 
-      name="historical-figures" 
-      value="george-washington-carver" 
-      disabled
-    >
-    <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
-  </div>
-</fieldset>
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend {% if error_state %}usa-label--error{% endif %}">Select one historical figure</legend>
+    {% if error_state %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <div class="usa-radio">
+      <input 
+        class="usa-radio__input" 
+        id="historical-truth" 
+        type="radio" 
+        name="historical-figures" 
+        value="sojourner-truth" 
+        {% if not indeterminate_state %}checked{% endif %}
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+      >
+      <label class="usa-radio__label" for="historical-truth">Sojourner Truth</label>
+    </div>
+    <div class="usa-radio">
+      <input 
+        class="usa-radio__input" 
+        id="historical-douglass" 
+        type="radio" 
+        name="historical-figures" 
+        value="frederick-douglass" 
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+      >
+      <label class="usa-radio__label" for="historical-douglass">Frederick Douglass</label>
+    </div>
+    <div class="usa-radio">
+      <input 
+        class="usa-radio__input" 
+        id="historical-washington" 
+        type="radio" 
+        name="historical-figures" 
+        value="booker-t-washington"
+        {% if disabled_state == "disabled" %}disabled{% endif %} 
+        {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+      >
+      <label class="usa-radio__label" for="historical-washington">Booker T. Washington</label>
+    </div>
+    <div class="usa-radio">
+      <input 
+        class="usa-radio__input" 
+        id="historical-carver" 
+        type="radio" 
+        name="historical-figures" 
+        value="george-washington-carver" 
+        disabled
+      >
+      <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
+    </div>
+  </fieldset>
+{% if error_state %}</div>{% endif %}

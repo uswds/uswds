@@ -9,6 +9,11 @@ export default {
       control: "radio",
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
+      defaultValue: false
+    },
   },
   args: {
     disabled_state: "none",
@@ -29,12 +34,24 @@ PrefixAriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
 
+export const PrefixError = PrefixTemplate.bind({});
+PrefixError.args = {
+  error_state: true
+}
+
 export const Suffix = SuffixTemplate.bind({});
+
 export const SuffixDisabled = SuffixTemplate.bind({});
 SuffixDisabled.args = {
   disabled_state: "disabled",
 };
+
 export const SuffixAriaDisabled = SuffixTemplate.bind({});
 SuffixAriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
+
+export const SuffixError = SuffixTemplate.bind({});
+SuffixError.args = {
+  error_state: true
+}
