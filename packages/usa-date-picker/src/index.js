@@ -1695,16 +1695,24 @@ const handleEscapeFromCalendar = (event) => {
 // #region Calendar Date Event Handling
 
 /**
- * Adjust the date and display the calendar if needed.
+ * Adjust the date and display the calendar to render keyboard focused date selection.
+ *
+ * To avoid keyboard behavior conflicts with mouseover dates, check for focused calendar element.
+ * If there is a focused date, calendar will re-render with that date.
+ *
  *
  * @param {function} adjustDateFn function that returns the adjusted date
  */
 const adjustCalendar = (adjustDateFn) => (event) => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target,
-  );
+  const { calendarEl, minDate, maxDate } = getDatePickerContext(event.target);
 
+  const focusedEl = document.activeElement;
+  const calendarDate = parseDateString(focusedEl.dataset.value);
   const date = adjustDateFn(calendarDate);
+
+  if (!calendarEl.contains(focusedEl)) {
+    return;
+  }
 
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
@@ -1785,7 +1793,7 @@ const handleShiftPageDownFromDate = adjustCalendar((date) => addYears(date, 1));
 const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
 
 /**
- * display the calendar for the mouseover date.
+ * Renders calendar with disabled dates and date range preview on hover.
  *
  * @param {MouseEvent} event The mouseover event
  * @param {HTMLButtonElement} dateEl A date element within the date picker component
@@ -1801,8 +1809,18 @@ const handleMouseoverFromDate = (dateEl) => {
   if (hoverDate === currentCalendarDate) return;
 
   const dateToDisplay = parseDateString(hoverDate);
-  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  const focusedEl = document.activeElement;
+
+  // If the calendar contains a focused element, reapply focus after new calendar renders.
+  // Targeted using aria-label because they are unique and prevents error when
+  // focus is in the table header.
+  if (calendarEl.contains(focusedEl)) {
+    const focusElLabel = focusedEl.getAttribute("aria-label");
+    const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+    newCalendar.querySelector(`[aria-label="${focusElLabel}"]`).focus();
+  } else {
+    renderCalendar(calendarEl, dateToDisplay);
+  }
 };
 
 // #endregion Calendar Date Event Handling
@@ -1895,22 +1913,6 @@ const handlePageDownFromMonth = adjustMonthSelectionScreen(() => 11);
  * @param {KeyboardEvent} event the keydown event
  */
 const handlePageUpFromMonth = adjustMonthSelectionScreen(() => 0);
-
-/**
- * update the focus on a month when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} monthEl A month element within the date picker component
- */
-const handleMouseoverFromMonth = (monthEl) => {
-  if (monthEl.disabled) return;
-  if (monthEl.classList.contains(CALENDAR_MONTH_FOCUSED_CLASS)) return;
-
-  const focusMonth = parseInt(monthEl.dataset.value, 10);
-
-  const newCalendar = displayMonthSelection(monthEl, focusMonth);
-  newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
-};
 
 // #endregion Calendar Month Event Handling
 
@@ -2006,22 +2008,6 @@ const handlePageUpFromYear = adjustYearSelectionScreen(
 const handlePageDownFromYear = adjustYearSelectionScreen(
   (year) => year + YEAR_CHUNK,
 );
-
-/**
- * update the focus on a year when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} dateEl A year element within the date picker component
- */
-const handleMouseoverFromYear = (yearEl) => {
-  if (yearEl.disabled) return;
-  if (yearEl.classList.contains(CALENDAR_YEAR_FOCUSED_CLASS)) return;
-
-  const focusYear = parseInt(yearEl.dataset.value, 10);
-
-  const newCalendar = displayYearSelection(yearEl, focusYear);
-  newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
-};
 
 // #endregion Calendar Year Event Handling
 
@@ -2229,12 +2215,6 @@ if (!isIosDevice()) {
   datePickerEvents.mouseover = {
     [CALENDAR_DATE_CURRENT_MONTH]() {
       handleMouseoverFromDate(this);
-    },
-    [CALENDAR_MONTH]() {
-      handleMouseoverFromMonth(this);
-    },
-    [CALENDAR_YEAR]() {
-      handleMouseoverFromYear(this);
     },
   };
 }

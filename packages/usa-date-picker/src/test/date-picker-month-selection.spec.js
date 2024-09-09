@@ -153,20 +153,5 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "focuses correct month",
       );
     });
-
-    it("should update the focus when moving over a non-selected valid month", () => {
-      EVENTS.mouseover(
-        getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__month[data-label="October"]',
-        ),
-      );
-
-      assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
-          .label,
-        "October",
-        "focuses correct month",
-      );
-    });
   });
 });
