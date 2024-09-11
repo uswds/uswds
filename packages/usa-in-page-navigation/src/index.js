@@ -223,7 +223,7 @@ const scrollToCurrentSection = () => {
 };
 
 /**
- * Function to check if the number of specified headings meets the minimum required count.
+ * Check if the number of specified headings meets the minimum required count.
  *
  * @param {Array} sectionHeadings - Array of all visible section headings.
  * @param {Number} minimumHeadingCount - The minimum number of specified headings required.
