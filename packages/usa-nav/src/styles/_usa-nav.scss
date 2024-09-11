@@ -130,7 +130,7 @@ $expand-less-icon: map-merge(
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-header-min-width) {
     @include nav-list("nav");
-    
+
     a {
       @include u-padding-y(1.5);
     }
