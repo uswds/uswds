@@ -16,6 +16,6 @@
   position: relative;
 
   @include at-media("desktop") {
-    margin-left: units(-1);
+    margin-left: -10px;
   }
 }
