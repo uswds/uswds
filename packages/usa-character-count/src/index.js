@@ -10,7 +10,6 @@ const FORM_GROUP_ERROR_CLASS = `${FORM_GROUP_CLASS}--error`;
 const FORM_GROUP = `.${FORM_GROUP_CLASS}`;
 const LABEL_CLASS = `${PREFIX}-label`;
 const LABEL_ERROR_CLASS = `${LABEL_CLASS}--error`;
-const LABEL = `.${LABEL_CLASS}`;
 const INPUT = `.${PREFIX}-character-count__field`;
 const INPUT_ERROR_CLASS = `${PREFIX}-input--error`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
@@ -37,15 +36,8 @@ const getCharacterCountElements = (inputEl) => {
 
   const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
 
-  if (!formGroupEl) {
-    throw new Error(`${CHARACTER_COUNT} is missing inner ${FORM_GROUP}`);
-  }
-
-  const labelEl = characterCountEl.querySelector(LABEL);
-
-  if (!labelEl) {
-    throw new Error(`${CHARACTER_COUNT} is missing inner ${LABEL}`);
-  }
+  const inputID = inputEl.getAttribute("id");
+  const labelEl = document.querySelector(`label[for=${inputID}]`);
 
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
@@ -53,7 +45,7 @@ const getCharacterCountElements = (inputEl) => {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
 
-  return { characterCountEl, formGroupEl, labelEl, messageEl };
+  return { characterCountEl, formGroupEl, inputID, labelEl, messageEl };
 };
 
 /**
@@ -171,8 +163,10 @@ const updateCountMessage = (inputEl) => {
   }
 
   inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
-  labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
-  formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
+  if (labelEl)
+    labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
+  if (formGroupEl)
+    formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
 
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
