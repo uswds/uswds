@@ -22,7 +22,11 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
       @content;
     }
   } @else if map.has-key($custom-breakpoints, $quoted-bp) {
-    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "rem" or unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) ==
+      "rem" or
+      unit(map.get($custom-breakpoints, $quoted-bp)) ==
+      "px"
+    {
       $bp: map.get($custom-breakpoints, $quoted-bp);
       @media all and (min-width: #{$bp}) {
         @content;
@@ -43,13 +47,17 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
       $bp: rem-to-user-em(map.get($our-breakpoints, $quoted-bp)) - 0.01em;
     } @else {
       $bp: rem-to-px(map.get($our-breakpoints, $quoted-bp)) - 1px;
-    } 
+    }
     @media all and (max-width: #{$bp}) {
       @content;
     }
   } @else if map.has-key($custom-breakpoints, $quoted-bp) {
-    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "rem" or unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
-      $bp: map.get($custom-breakpoints, $quoted-bp) - .1;
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) ==
+      "rem" or
+      unit(map.get($custom-breakpoints, $quoted-bp)) ==
+      "px"
+    {
+      $bp: map.get($custom-breakpoints, $quoted-bp) - 0.1;
       @media all and (max-width: #{$bp}) {
         @content;
       }
