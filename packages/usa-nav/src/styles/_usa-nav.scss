@@ -114,6 +114,7 @@ $expand-less-icon: map-merge(
     margin-top: units(2);
     @include at-media($theme-header-min-width) {
       margin-left: units(2);
+      margin-top: 0;
     }
   }
 
