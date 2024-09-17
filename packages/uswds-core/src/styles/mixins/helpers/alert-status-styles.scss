@@ -1,7 +1,6 @@
 @use "sass:math";
 @use "../../settings" as *;
 @use "../../functions" as *;
-@use "./at-media" as *;
 @use "./border-box-sizing" as *;
 @use "./set-text-and-bg" as *;
 @use "../general/icon" as *;
@@ -98,10 +97,6 @@ $alert-x-align-text-with-slim-icon: calc(
   .usa-alert__heading,
   .usa-alert__text {
     margin-left: $alert-x-align-text-with-icon;
-
-    @include at-media($theme-site-margins-breakpoint) {
-      margin-left: $alert-x-align-text-with-icon;
-    }
   }
 
   .usa-link {
@@ -144,10 +139,6 @@ $alert-x-align-text-with-slim-icon: calc(
     .usa-alert__heading,
     .usa-alert__text {
       margin-left: 0;
-
-      @include at-media($theme-site-margins-breakpoint) {
-        margin-left: 0;
-      }
     }
   }
 }
@@ -159,8 +150,8 @@ $alert-x-align-text-with-slim-icon: calc(
       mask-size: units($alert-slim-icon-size);
     }
     height: units($alert-slim-icon-size);
-    width: units($alert-slim-icon-size);
     top: units($alert-slim-icon-padding);
+    width: units($alert-slim-icon-size);
   }
 }
 
@@ -172,10 +163,6 @@ $alert-x-align-text-with-slim-icon: calc(
     .usa-alert__heading,
     .usa-alert__text {
       margin-left: $alert-x-align-text-with-slim-icon;
-
-      @include at-media($theme-site-margins-breakpoint) {
-        margin-left: $alert-x-align-text-with-slim-icon;
-      }
     }
   }
 }
