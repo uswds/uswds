@@ -57,14 +57,14 @@ Warning.args = WarningContent;
 
 export const Test = TestTemplate.bind({});
 
-export const AlertComponentsComparison = ComparisonTemplate.bind({});
-AlertComponentsComparison.args = {
+export const TestAlertSiteAlertComparison = ComparisonTemplate.bind({});
+TestAlertSiteAlertComparison.args = {
   ...BannerContent,
   ...FooterContent,
 };
 
-export const AlertInTemplate = onPageTemplate.bind({});
-AlertInTemplate.args = {
+export const TestAlertsInTemplate = onPageTemplate.bind({});
+TestAlertsInTemplate.args = {
   ...BannerContent,
   ...FooterContent,
   ...SidenavContent,
