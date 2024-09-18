@@ -5,6 +5,10 @@
 .usa-alert {
   @include alert-styles;
 
+  .usa-alert__body {
+    @include u-margin-x($theme-alert-padding-x);
+  }
+
   * + & {
     margin-top: units(2);
   }

@@ -6,8 +6,10 @@
     @include alert-styles;
 
     .usa-alert__body {
-      // Align content with site margins at desktop
       @include u-maxw($theme-site-alert-max-width);
+      @include u-margin-x(2.5);
+
+      // Align content with site margins at desktop
       @include at-media($theme-site-margins-breakpoint) {
         @include u-margin-x("auto");
         left: calc(
