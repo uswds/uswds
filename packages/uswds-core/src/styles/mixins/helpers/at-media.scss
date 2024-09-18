@@ -22,20 +22,20 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
       @content;
     }
   } @else if map.has-key($custom-breakpoints, $quoted-bp) {
-    @if unit(map.get($custom-breakpoints, $quoted-bp)) ==
-      "rem" or
-      unit(map.get($custom-breakpoints, $quoted-bp)) ==
-      "px"
-    {
-      $bp: map.get($custom-breakpoints, $quoted-bp);
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
+      @if $theme-respect-user-font-size {
+        $bp: px-to-user-em(map.get($custom-breakpoints, $quoted-bp));
+      } @else {
+        $bp: map.get($custom-breakpoints, $quoted-bp);
+      }
       @media all and (min-width: #{$bp}) {
         @content;
       }
     } @else {
-      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be either rem or px.';
+      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be set in px.';
     }
   } @else {
-    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}';
+    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}.';
   }
 }
 
@@ -52,17 +52,17 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
       @content;
     }
   } @else if map.has-key($custom-breakpoints, $quoted-bp) {
-    @if unit(map.get($custom-breakpoints, $quoted-bp)) ==
-      "rem" or
-      unit(map.get($custom-breakpoints, $quoted-bp)) ==
-      "px"
-    {
-      $bp: map.get($custom-breakpoints, $quoted-bp) - 0.1;
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
+      @if $theme-respect-user-font-size {
+        $bp: px-to-user-em(map.get($custom-breakpoints, $quoted-bp)) - 0.01em;
+      } @else {
+        $bp: map.get($custom-breakpoints, $quoted-bp) - 1px;
+      }
       @media all and (max-width: #{$bp}) {
         @content;
       }
     } @else {
-      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be either rem or px.';
+      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be set in px.';
     }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
