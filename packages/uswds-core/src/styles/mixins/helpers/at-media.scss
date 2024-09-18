@@ -35,7 +35,7 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
       @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be set in px.';
     }
   } @else {
-    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}.';
+    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}';
   }
 }
 
