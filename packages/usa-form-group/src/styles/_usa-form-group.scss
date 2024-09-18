@@ -1,5 +1,11 @@
 @use "uswds-core" as *;
 
+$form-error-border-width: 2px; 
+$form-error-border-padding: units(1);
+$form-error-negative-margin: -( 
+  $form-error-border-width + rem-to-px($form-error-border-padding)
+);
+
 .usa-form-group {
   margin-top: units(3);
 
@@ -11,11 +17,11 @@
 
 // Block input elements
 .usa-form-group--error {
-  @include u-border-left(2px, "error-dark");
-  padding-left: units(1);
+  @include u-border-left($form-error-border-width, "error-dark");
+  padding-left: $form-error-border-padding;
   position: relative;
 
   @include at-media("desktop") {
-    margin-left: -10px;
+    margin-left: $form-error-negative-margin;
   }
 }
