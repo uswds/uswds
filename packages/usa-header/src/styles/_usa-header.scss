@@ -28,7 +28,7 @@ $z-index-overlay: 400;
 
   // The search <form>
   .usa-search {
-    margin-top: units(1);    
+    margin-top: units(1);
     @include at-media($theme-header-min-width) {
       float: right;
     }
