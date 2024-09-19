@@ -25,7 +25,7 @@ const DEFAULT_STATUS_LABEL = `characters allowed`;
  * Returns the root, form group, label, and message elements for an character count input
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- * @returns {CharacterCountElements} elements The root form group, label, and message element.
+ * @returns {CharacterCountElements} elements The root form group, input ID, label, and message element.
  */
 const getCharacterCountElements = (inputEl) => {
   const characterCountEl = inputEl.closest(CHARACTER_COUNT);
@@ -161,13 +161,16 @@ const updateCountMessage = (inputEl) => {
   if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
     inputEl.setCustomValidity("");
   }
-
-  inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
-  if (labelEl)
-    labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
-  if (formGroupEl)
+  
+  if (formGroupEl) {
     formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
-
+  }
+  
+  if (labelEl) {
+    labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
+  }
+  
+  inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
