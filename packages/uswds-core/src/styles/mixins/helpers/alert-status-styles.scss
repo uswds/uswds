@@ -26,7 +26,9 @@ $alert-x-align-text-with-icon: calc(
 $alert-x-align-text-with-slim-icon: calc(
   units($alert-slim-icon-size) + units($alert-icon-gap)
 );
-
+$alert-icon-top-align: calc(
+  units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
+);
 // Base alert styles
 @mixin alert-styles {
   $bgcolor: "base-lightest";
@@ -92,9 +94,12 @@ $alert-x-align-text-with-slim-icon: calc(
   );
   @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
   @include set-text-and-bg($bgcolor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(units($theme-alert-icon-size) + $alert-icon-top-align * 2);
 
-  .usa-alert__heading,
-  .usa-alert__text {
+  > * {
     margin-left: $alert-x-align-text-with-icon;
   }
 
@@ -122,9 +127,9 @@ $alert-x-align-text-with-slim-icon: calc(
     content: "";
     display: block;
     position: absolute;
-    top: calc(
-      units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
-    );
+    // Adjusts the left position to accommodate the empty space built into the icon svg
+    // left: calc(units($theme-alert-icon-size) * -1/12);
+    top: $alert-icon-top-align;
   }
 }
 
@@ -135,10 +140,11 @@ $alert-x-align-text-with-slim-icon: calc(
       display: none;
     }
 
-    .usa-alert__heading,
-    .usa-alert__text {
+    > * {
       margin-left: 0;
     }
+
+    min-height: 0;
   }
 }
 
@@ -158,9 +164,9 @@ $alert-x-align-text-with-slim-icon: calc(
   .usa-alert__body {
     @include u-padding-y($alert-slim-icon-padding);
     @include add-slim-alert-icon;
+    min-height: 0;
 
-    .usa-alert__heading,
-    .usa-alert__text {
+    > * {
       margin-left: $alert-x-align-text-with-slim-icon;
     }
   }
