@@ -127,8 +127,8 @@ $alert-icon-top-align: calc(
     content: "";
     display: block;
     position: absolute;
-    // Adjusts the left position to accommodate the empty space built into the icon svg
-    // left: calc(units($theme-alert-icon-size) * -1/12);
+    // Adjusts the left position to accommodate the empty space built into the icon svgs
+    left: calc(units($theme-alert-icon-size) * -1/12);
     top: $alert-icon-top-align;
   }
 }
