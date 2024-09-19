@@ -40,8 +40,8 @@ $alert-icon-top-align: calc(
   );
 
   background-color: color($bgcolor);
-  color: color($banner-text-color-token);
   border-left: units($theme-alert-bar-width) solid color("base-light");
+  color: color($banner-text-color-token);
 
   .usa-alert__body {
     @include border-box-sizing;
