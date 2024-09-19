@@ -1,3 +1,11 @@
+{% if error_state %}
+  {% include "@components/usa-alert/src/usa-alert.twig" with {
+    modifier: "usa-alert--warning",
+    title: "Heads up!",
+    text: "This is a developer preview. The patterns presented on this page may not be suitable for production or reflect our most recent research-informed recommendations.",
+  } %}
+{% endif %}
+
 {# *
 * While we could add the usa-form-group--error class to <form class="usa-form"> elements, we should 
 * avoid doing this and only add it to usa-form-group elements.
