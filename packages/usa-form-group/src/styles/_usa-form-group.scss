@@ -1,10 +1,9 @@
 @use "uswds-core" as *;
 
-$form-error-border-width: 2px; 
+$form-error-border-width: 2px;
 $form-error-border-padding: units(1);
-$form-error-negative-margin: -( 
-  $form-error-border-width + rem-to-px($form-error-border-padding)
-);
+$form-error-negative-margin: -($form-error-border-width +
+      rem-to-px($form-error-border-padding));
 
 .usa-form-group {
   margin-top: units(3);
