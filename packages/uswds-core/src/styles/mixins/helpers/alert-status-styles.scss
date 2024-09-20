@@ -26,6 +26,7 @@ $alert-x-align-text-with-icon: calc(
 $alert-x-align-text-with-slim-icon: calc(
   units($alert-slim-icon-size) + units($alert-icon-gap)
 );
+// Optical vertical alignment for icon
 $alert-icon-top-align: calc(
   units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
 );
