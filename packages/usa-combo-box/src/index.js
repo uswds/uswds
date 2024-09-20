@@ -346,7 +346,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
   // Ensure query is escaped and anchored at the start
   const escapedQuery = escapeRegExp(query);
   
-  let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
+  const find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
     const queryFilter = extras[key];
     if (key !== "query" && queryFilter) {
