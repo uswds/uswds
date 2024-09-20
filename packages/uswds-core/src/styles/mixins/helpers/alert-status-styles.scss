@@ -137,6 +137,8 @@ $alert-icon-top-align: calc(
 // Variant - no icon
 @mixin alert-styles-no-icon {
   .usa-alert__body {
+    min-height: 0;
+
     &:before {
       display: none;
     }
@@ -144,8 +146,6 @@ $alert-icon-top-align: calc(
     > * {
       margin-left: 0;
     }
-
-    min-height: 0;
   }
 }
 
