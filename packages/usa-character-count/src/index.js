@@ -161,15 +161,15 @@ const updateCountMessage = (inputEl) => {
   if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
     inputEl.setCustomValidity("");
   }
-  
+
   if (formGroupEl) {
     formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
   }
-  
+
   if (labelEl) {
     labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
   }
-  
+
   inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
