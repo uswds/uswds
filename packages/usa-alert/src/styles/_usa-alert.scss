@@ -18,7 +18,9 @@ $alert-icons: (
     @include u-padding-x($theme-alert-padding-x);
 
     &::before {
-      left: calc(units($theme-alert-padding-x) + $alert-icon-optical-adjust-left);
+      left: calc(
+        units($theme-alert-padding-x) + $alert-icon-optical-adjust-left
+      );
     }
   }
 
@@ -41,7 +43,9 @@ $alert-icons: (
   @include alert-styles-slim;
 
   .usa-alert__body::before {
-    left: calc(units($theme-alert-padding-x) + $alert-slim-icon-optical-adjust-left);
+    left: calc(
+      units($theme-alert-padding-x) + $alert-slim-icon-optical-adjust-left
+    );
   }
 }
 

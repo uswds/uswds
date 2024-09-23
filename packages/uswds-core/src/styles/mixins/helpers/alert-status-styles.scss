@@ -18,7 +18,9 @@ $alert-icon-optical-adjust-top: calc(
   units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
 );
 $alert-icon-optical-adjust-left: calc(units($theme-alert-icon-size) * -1 / 12);
-$alert-slim-icon-optical-adjust-left: calc(units($alert-slim-icon-size) * -1 / 12);
+$alert-slim-icon-optical-adjust-left: calc(
+  units($alert-slim-icon-size) * -1 / 12
+);
 
 // Base alert styles
 @mixin alert-styles {
@@ -88,12 +90,12 @@ $alert-slim-icon-optical-adjust-left: calc(units($alert-slim-icon-size) * -1 / 1
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(units($theme-alert-icon-size) + $alert-icon-optical-adjust-top * 2);
+  min-height: calc(
+    units($theme-alert-icon-size) + $alert-icon-optical-adjust-top * 2
+  );
 
   > * {
-    margin-left: calc(
-      units($theme-alert-icon-size) + units($alert-icon-gap)
-    );;
+    margin-left: calc(units($theme-alert-icon-size) + units($alert-icon-gap));
   }
 
   .usa-link {
@@ -158,9 +160,7 @@ $alert-slim-icon-optical-adjust-left: calc(units($alert-slim-icon-size) * -1 / 1
     min-height: 0;
 
     > * {
-      margin-left: calc(
-        units($alert-slim-icon-size) + units($alert-icon-gap)
-      );
+      margin-left: calc(units($alert-slim-icon-size) + units($alert-icon-gap));
     }
   }
 }
