@@ -8,7 +8,7 @@
 @use "../typography/typeset.scss" as *;
 @use "../helpers/set-link-from-bg" as *;
 
-$alert-icon-gap: 1.5;
+$alert-icon-gap: 1;
 $alert-slim-icon-size: 3;
 $alert-slim-icon-padding: 1;
 $alert-icons: (
@@ -19,17 +19,14 @@ $alert-icons: (
   emergency: "error",
 );
 
-// shared icon styles
-$alert-x-align-text-with-icon: calc(
-  units($theme-alert-icon-size) + units($alert-icon-gap)
-);
-$alert-x-align-text-with-slim-icon: calc(
-  units($alert-slim-icon-size) + units($alert-icon-gap)
-);
-// Optical vertical alignment for icon
-$alert-icon-top-align: calc(
+// Optical adjustment for icons
+// Adjusts the position to accommodate the 1/12 empty space built into the icon SVGs
+$alert-icon-optical-adjust-top: calc(
   units($theme-alert-padding-y) - units($theme-alert-icon-size) / 6
 );
+$alert-icon-optical-adjust-left: calc(units($theme-alert-icon-size) * -1 / 12);
+$alert-slim-icon-optical-adjust-left: calc(units($alert-slim-icon-size) * -1 / 12);
+
 // Base alert styles
 @mixin alert-styles {
   $bgcolor: "base-lightest";
@@ -98,10 +95,12 @@ $alert-icon-top-align: calc(
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(units($theme-alert-icon-size) + $alert-icon-top-align * 2);
+  min-height: calc(units($theme-alert-icon-size) + $alert-icon-optical-adjust-top * 2);
 
   > * {
-    margin-left: $alert-x-align-text-with-icon;
+    margin-left: calc(
+      units($theme-alert-icon-size) + units($alert-icon-gap)
+    );;
   }
 
   .usa-link {
@@ -128,9 +127,7 @@ $alert-icon-top-align: calc(
     content: "";
     display: block;
     position: absolute;
-    // Adjusts the left position to accommodate the empty space built into the icon svgs
-    left: calc(units($theme-alert-icon-size) * -1 / 12);
-    top: $alert-icon-top-align;
+    top: $alert-icon-optical-adjust-top;
   }
 }
 
@@ -168,7 +165,9 @@ $alert-icon-top-align: calc(
     min-height: 0;
 
     > * {
-      margin-left: $alert-x-align-text-with-slim-icon;
+      margin-left: calc(
+        units($alert-slim-icon-size) + units($alert-icon-gap)
+      );
     }
   }
 }

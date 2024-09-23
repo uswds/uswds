@@ -8,6 +8,11 @@
     .usa-alert__body {
       @include u-maxw($theme-site-alert-max-width);
       @include u-margin-x(2.5);
+      @include u-padding-x(0);
+
+      &::before {
+        left: $alert-icon-optical-adjust-left;
+      }
 
       // Align content with site margins at desktop
       @include at-media($theme-site-margins-breakpoint) {
@@ -32,6 +37,10 @@
 
 .usa-site-alert--slim .usa-alert {
   @include alert-styles-slim;
+
+  .usa-alert__body::before {
+    left: $alert-slim-icon-optical-adjust-left;
+  }
 }
 
 .usa-site-alert--no-icon .usa-alert {
