@@ -17,7 +17,7 @@ import {
   SlimContent,
   SuccessContent,
   WarningContent,
-  TestAlertContent
+  TestAlertContent,
 } from "./content";
 
 export default {
