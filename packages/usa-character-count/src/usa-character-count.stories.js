@@ -28,7 +28,14 @@ AriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
 
+// Disabling a11y tests from `npm run test:a11y` because we're demo'ing the failure intentionally.
 export const TestNoLabel = TestNoLabelTemplate.bind({});
+TestNoLabel.parameters = {
+  axe: {
+    mode: "off",
+  },
+};
+
 TestNoLabel.argTypes = {
   disabled_state: {
     table: { disable: true },
@@ -36,6 +43,11 @@ TestNoLabel.argTypes = {
 };
 
 export const TestNoFormGroup = TestNoFromGroupTemplate.bind({});
+TestNoFormGroup.parameters = {
+  axe: {
+    mode: "off",
+  },
+};
 TestNoFormGroup.argTypes = {
   disabled_state: {
     table: { disable: true },
