@@ -6,7 +6,6 @@ import BannerContent from "../../usa-banner/src/content/usa-banner.json";
 import FooterContent from "../../usa-footer/src/usa-footer.json";
 import SiteAlertContent from "../../usa-site-alert/src/content/usa-site-alert~info.json";
 import SidenavContent from "../../usa-sidenav/src/usa-sidenav.json";
-import TestAlertContent from "./test/test-patterns/test-alert-content.json";
 
 import {
   DefaultContent,
@@ -18,6 +17,7 @@ import {
   SlimContent,
   SuccessContent,
   WarningContent,
+  TestAlertContent
 } from "./content";
 
 export default {
