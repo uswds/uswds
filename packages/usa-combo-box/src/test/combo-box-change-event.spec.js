@@ -165,7 +165,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should emit change events when selecting the focused list item in the list when pressing enter on a focused item", () => {
         select.value = "grapefruit";
-        input.value = "emo";
+        input.value = "Lemo";
 
         EVENTS.input(input);
         EVENTS.keydownArrowDown(input);
@@ -199,7 +199,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should emit change events when pressing escape from a focused item", () => {
         select.value = "grapefruit";
-        input.value = "dew";
+        input.value = "Honeydew";
 
         EVENTS.input(input);
         assert.ok(

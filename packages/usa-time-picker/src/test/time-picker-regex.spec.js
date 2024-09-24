@@ -1,6 +1,34 @@
 const assert = require("assert");
-const { generateDynamicRegExp } = require("../../../usa-combo-box/src/index");
 const { FILTER_DATASET } = require("../index");
+
+
+const generateDynamicRegExp = (filter, query = "", extras = {}) => {
+  const escapeRegExp = (text) =>
+    text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  
+  let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
+    const key = $1.trim();
+    const queryFilter = extras[key];
+    if (key !== "query" && queryFilter) {
+      const matcher = new RegExp(queryFilter, "i");
+      const matches = query.match(matcher);
+
+      if (matches) {
+        return escapeRegExp(matches[1]);
+      }
+
+      return "";
+    }
+      
+    return escapeRegExp(query);
+  });
+
+    find = `^(?:${find})$`;
+
+  return new RegExp(find, "i");
+};
+
+
 
 describe("time picker regex", () => {
   const { filter, ...dataset } = FILTER_DATASET;

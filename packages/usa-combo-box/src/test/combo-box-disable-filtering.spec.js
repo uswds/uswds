@@ -41,7 +41,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("should display the full list and focus the first found item", () => {
-        input.value = "oo";
+        input.value = "blo";
 
         EVENTS.input(input);
 
