@@ -32,7 +32,7 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
         @content;
       }
     } @else {
-      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be set in px.';
+      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))} and can not be generated. Custom breakpoints must be set in px.';
     }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}';
@@ -62,7 +62,7 @@ $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
         @content;
       }
     } @else {
-      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))}. Custom breakpoints must be set in px.';
+      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))} and can not be generated. Custom breakpoints must be set in px.';
     }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
