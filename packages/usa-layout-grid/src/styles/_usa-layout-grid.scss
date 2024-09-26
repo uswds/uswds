@@ -16,7 +16,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // container with custom widths
-@each $width-key, $width-value in $system-breakpoints {
+@each $width-key, $width-value in $all-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
     $props: append-important($grid-global, $width-key);
     @include grid-container($props);
@@ -24,7 +24,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // responsive containers...
-@each $mq-key, $mq-value in $system-breakpoints {
+@each $mq-key, $mq-value in $all-breakpoints {
   @if map.get($theme-utility-breakpoints-complete, $mq-key) {
     @include at-media($mq-key) {
       .#{$mq-key}#{$separator}#{$namespace-grid}container {
@@ -33,7 +33,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
       }
 
       // ...with custom widths
-      @each $width-key, $width-value in $system-breakpoints {
+      @each $width-key, $width-value in $all-breakpoints {
         .#{$mq-key}#{$separator}#{$namespace-grid}container-#{$width-key} {
           $props: append-important($grid-global, $width-key);
           @include grid-container($props);
