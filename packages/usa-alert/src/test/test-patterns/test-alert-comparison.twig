@@ -2,31 +2,12 @@
 
 {% for alert in alerts %}
   <h3>{{ alert.header }}</h3>
-  <div class="usa-alert {{ alert.alertModifier }}">
-    <div class="usa-alert__body">
-      {% if alert.title %}<h4 class="usa-alert__heading">Alert - {{ alert.title }}</h4>{% endif %}
-      <p class="usa-alert__text">
-        Alert - Lorem ipsum dolor sit amet,
-        <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-        elit, sed do eiusmod.
-      </p>
-    </div>
-  </div>
-  <hr/>
-  <section
-    class="usa-site-alert {{ alert.siteModifier }}"
-    aria-label="{{ alert.aria }}"
-  >
-    <div class="usa-alert">
-      <div class="usa-alert__body">
-        {% if alert.title %}<h3 class="usa-alert__heading">Site alert - {{ alert.title }}</h3>{% endif %}
-        <p class="usa-alert__text">
-          Site alert - Additional context and followup information including
-          <a class="usa-link" href="javascript:void(0);">a link</a>.
-        </p>
-      </div>
-    </div>
-  </section>
+  {% include '@components/usa-alert/src/usa-alert.twig' with alert %}
+{% endfor %}
+
+{% for siteAlert in siteAlerts %}
+  <h3>{{ siteAlert.header }}</h3>
+  {% include '@components/usa-site-alert/src/usa-site-alert.twig' with siteAlert %}
 {% endfor %}
 
 {% include '@components/usa-footer/src/usa-footer.twig' with footer %}
