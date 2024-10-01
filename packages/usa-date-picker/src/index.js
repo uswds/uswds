@@ -798,10 +798,9 @@ const validateDateInput = (el) => {
   }
 };
 
-
 /**
  * Formats the input value as a date in "mm/dd/yyyy" format.
- * 
+ *
  * This function:
  * - Removes all non-digit characters from the input.
  * - Limits the input length to a maximum of 8 digits (for month, day, and year).
@@ -813,15 +812,18 @@ const validateDateInput = (el) => {
  */
 const formatDateInput = (input) => {
   const checkValue = (str, max) => {
-    if (str.charAt(0) !== '0' || str === '00') {
+    if (str.charAt(0) !== "0" || str === "00") {
       var num = parseInt(str);
       if (isNaN(num) || num <= 0 || num > max) num = 1;
-      str = num > parseInt(max.toString().charAt(0)) && num.toString().length === 1 ? '0' + num : num.toString();
+      str =
+        num > parseInt(max.toString().charAt(0)) && num.toString().length === 1
+          ? "0" + num
+          : num.toString();
     }
     return str;
   };
-  
-  let value = input.value.replace(/\D/g, ''); 
+
+  let value = input.value.replace(/\D/g, "");
 
   if (value.length > 8) {
     value = value.substring(0, 8);
@@ -829,31 +831,30 @@ const formatDateInput = (input) => {
 
   let month = value.substring(0, 2);
   let day = value.substring(2, 4);
-  let year = value.substring(4, 8); 
+  let year = value.substring(4, 8);
 
   if (month) {
-    month = checkValue(month, 12); 
+    month = checkValue(month, 12);
   }
 
   if (day) {
-    day = checkValue(day, 31); 
+    day = checkValue(day, 31);
   }
 
-  let output = '';
-  if (month) output += month + '/';
-  if (day) output += day + '/';
+  let output = "";
+  if (month) output += month + "/";
+  if (day) output += day + "/";
   if (year) output += year;
 
-  input.value = output; 
+  input.value = output;
 };
-
 
 /**
  * Removes the last character from the input's value if it is a slash ('/').
- * 
+ *
  * @param {HTMLInputElement} el - The input element to modify.
  */
-const handleRemoveInput = (el) => {
+const removeTrailingSlash = (el) => {
   const inputValue = el.value;
   if (inputValue.length === 0) return;
   const lastCharacter = inputValue.slice(-1);
@@ -861,8 +862,6 @@ const handleRemoveInput = (el) => {
     el.value = inputValue.slice(0, -1);
   }
 };
-
-
 
 // #endregion Validation
 
@@ -2208,7 +2207,7 @@ const datePickerEvents = {
     },
     [DATE_PICKER_EXTERNAL_INPUT](event) {
       if (event.keyCode === BACKSPACE_KEYCODE) {
-        handleRemoveInput(this);
+        removeTrailingSlash(this);
       }
     },
     [CALENDAR_DATE]: keymap({
