@@ -6,10 +6,36 @@ $site-alert-icons: (
   info: "info",
   emergency: "error",
 );
+$site-alert-padding-x-mobile: 2.5;
+$site-alert-padding-x: calc(
+  units($theme-site-margins-width) - units($theme-alert-bar-width) / 2
+);
 
 .usa-site-alert {
   .usa-alert {
     @include alert-styles;
+
+    .usa-alert__body {
+      @include u-maxw($theme-site-alert-max-width);
+      @include u-padding-x($site-alert-padding-x-mobile);
+
+      &::before {
+        left: calc(
+          units($site-alert-padding-x-mobile) + $alert-icon-optical-adjust-left
+        );
+      }
+
+      // Align content with site margins at desktop
+      @include at-media($theme-site-margins-breakpoint) {
+        @include u-margin-x("auto");
+        padding-left: $site-alert-padding-x;
+        padding-right: $site-alert-padding-x;
+
+        &::before {
+          left: calc($site-alert-padding-x + $alert-icon-optical-adjust-left);
+        }
+      }
+    }
   }
 }
 
@@ -25,6 +51,16 @@ $site-alert-icons: (
 
 .usa-site-alert--slim .usa-alert {
   @include alert-styles-slim;
+
+  .usa-alert__body::before {
+    left: calc(
+      units($site-alert-padding-x-mobile) + $alert-slim-icon-optical-adjust-left
+    );
+
+    @include at-media($theme-site-margins-breakpoint) {
+      left: calc($site-alert-padding-x + $alert-slim-icon-optical-adjust-left);
+    }
+  }
 }
 
 .usa-site-alert--no-icon .usa-alert {
