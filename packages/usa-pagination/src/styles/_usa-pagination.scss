@@ -98,7 +98,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   align-items: center;
   color: color($pagination-link-token);
   display: inline-flex;
-  text-decoration: none;
 
   &[disabled] {
     opacity: 0.4 !important;
@@ -109,7 +108,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   &:focus,
   &:active {
     color: color($pagination-hover-token);
-    text-decoration: underline;
   }
 
   &:visited {
@@ -127,7 +125,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   display: inline-flex;
   justify-content: center;
   padding: units($pagination-margin-padding);
-  text-decoration: none;
   width: 100%;
 
   &:hover,
@@ -162,7 +159,6 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   &:active {
     background-color: color($pagination-current-color);
     color: color($text-color);
-    text-decoration: none;
 
     @media (forced-colors: active) {
       color: buttontext;
