@@ -96,9 +96,9 @@ If the pull request is accepted, we will schedule the issue and merge the pull r
 #### Submitting a pull request for a feature request or enhancement:
 
 1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues.
-2. If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request or enhancement and any other supporting information.
+1. If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request or enhancement and any other supporting information.
 Tip: If you want to find other feature requests open for upvoting, check out our [feature requests sorted by upvotes](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Status%3A+Voting+Open+%F0%9F%91%8D%22+sort%3Areactions-%2B1-desc).
-3. If your proposed fix is not in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean we don’t want you to create a pull request. We simply want to start the process with an online conversation first. Plus, other community members might have supporting thoughts to add to your proposal. If you’ve already got a pull request, no worries. Go ahead and attach it to the issue.
+1. If your proposed fix is not in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean we don’t want you to create a pull request. We simply want to start the process with an online conversation first. Plus, other community members might have supporting thoughts to add to your proposal. If you’ve already got a pull request, no worries. Go ahead and attach it to the issue.
 
 ### Proposing something else?
 
@@ -108,8 +108,8 @@ If you’d like to contribute something else that doesn’t fall into any of the
 
 Once you’ve submitted a contribution, we'll triage it based on the following considerations:
 1. **Size:** Can we accomplish this in a sprint or will this take longer?
-2. **Severity:** What type of functionality is impacted? Is there a workaround?
-3. **Priority:** Does this align with our vision and roadmap goals?
+1. **Severity:** What type of functionality is impacted? Is there a workaround?
+1. **Priority:** Does this align with our vision and roadmap goals?
 
 Note: We prioritize issues that affect accessibility.
 
