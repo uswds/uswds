@@ -7,3 +7,4 @@ export { default as NoIconContent } from "./usa-alert~no-icon.json";
 export { default as SlimContent } from "./usa-alert~slim.json";
 export { default as SuccessContent } from "./usa-alert~success.json";
 export { default as WarningContent } from "./usa-alert~warning.json";
+export { default as TestAlertContent } from "./test-usa-alert-content.json";

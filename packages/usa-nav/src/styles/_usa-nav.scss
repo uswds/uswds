@@ -111,8 +111,11 @@ $expand-less-icon: map-merge(
   }
 
   .usa-search {
+    margin-top: units(2);
+
     @include at-media($theme-header-min-width) {
       margin-left: units(2);
+      margin-top: 0;
     }
   }
 
@@ -129,8 +132,6 @@ $expand-less-icon: map-merge(
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-header-min-width) {
     @include nav-list("nav");
-    margin-top: units(3);
-    order: 2;
 
     a {
       @include u-padding-y(1.5);
@@ -198,6 +199,7 @@ $expand-less-icon: map-merge(
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
     text-decoration: none;
+    width: 100%;
 
     @include at-media($theme-header-min-width) {
       @include primary-nav-link;
@@ -341,7 +343,6 @@ $expand-less-icon: map-merge(
   }
 
   .usa-search {
-    margin-top: units(2);
     width: 100%;
 
     @include at-media($theme-header-min-width) {
