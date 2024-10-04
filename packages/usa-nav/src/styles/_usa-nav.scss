@@ -199,6 +199,7 @@ $expand-less-icon: map-merge(
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
     text-decoration: none;
+    width: 100%;
 
     @include at-media($theme-header-min-width) {
       @include primary-nav-link;
