@@ -29,7 +29,16 @@ The Google Material Icons in `packages/usa-icon/src/img/material-icons-deprecate
 
 ### Files licensed under the MIT license
 
-The files in `packages/uswds-elements/lib` are from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+The files in `packages/uswds-elements/lib` are modified from:
+
+- [`normalize.css`](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+- [`modern-normalize`](https://github.com/sindresorhus/modern-normalize/tree/main), copyright Sindre Sorhus, Nicolas Gallagher, and Jonathan Neal, under the [MIT license](https://github.com/sindresorhus/modern-normalize/blob/main/license).
+
+### Files licensed under the CC0 1.0 Universal license
+
+The files in `packages/uswds-elements/lib` are modified from:
+
+- [`@csstools/normalize.css`](https://github.com/csstools/normalize.css), copyright Jonathan Neal, under the [CC0 1.0 Universal license](https://github.com/csstools/normalize.css/blob/main/LICENSE.md).
 
 #### Full license text for the MIT licensed files:
 
