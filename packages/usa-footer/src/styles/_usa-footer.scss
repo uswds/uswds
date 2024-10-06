@@ -26,7 +26,6 @@ $-chevron-expand-more: map-merge(
 .usa-footer {
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
-  overflow: hidden;
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
