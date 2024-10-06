@@ -147,7 +147,7 @@ $accordion-button-open-hc-icon: map-merge(
 }
 
 .usa-accordion--bordered {
-  .usa-accordion__content {
+  .usa-accordion__content:where(:not([hidden])) {
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
@@ -177,8 +177,11 @@ $accordion-button-open-hc-icon: map-merge(
     $context: $accordion-context
   );
   margin-top: 0;
-  overflow: auto;
-  padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
+
+  &:where(:not([hidden])) {
+    overflow: auto;
+    padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
+  }
 
   > *:first-child {
     margin-top: 0;
