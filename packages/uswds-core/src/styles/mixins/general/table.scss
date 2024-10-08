@@ -159,7 +159,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     td:first-child {
       border-top-width: 0;
     }
-    &:nth-child(odd) {
+    &:nth-child(odd),
+    &:nth-child(even) {
       td,
       th {
         background-color: inherit;
@@ -237,6 +238,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   tbody {
     th {
       text-align: left;
+      background-color: color($theme-table-header-background-color);
+      font-weight: fw("bold");
     }
   }
   th,
@@ -321,6 +324,11 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     }
     /* stylelint-enable selector-class-pattern */
   }
+  tbody {
+    th {
+      background-color: #fff;
+    }
+  }
 
   th,
   td {
@@ -347,6 +355,12 @@ $table-unsorted-icon-color: get-color-token-from-bg(
           background-color: color($theme-table-sorted-stripe-background-color);
           color: $table-sorted-stripe-text-color;
         }
+      }
+    }
+    tr:nth-child(even) {
+      td,
+      th {
+        background-color: #fff;
       }
     }
   }
