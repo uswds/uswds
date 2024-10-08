@@ -215,7 +215,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.ok(!list.hidden, "should display the option list");
         assert.strictEqual(
           list.children.length,
-          44,
+          4,
           "should filter the item by the string being present in the option",
         );
       });
@@ -384,7 +384,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should select the focused list item in the list when pressing enter on a focused item", () => {
         select.value = "pineapple";
-        input.value = "berry";
+        input.value = "black";
         EVENTS.input(input);
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
@@ -410,7 +410,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should select the focused list item in the list when pressing space on a focused item", () => {
         select.value = "cantaloupe";
-        input.value = "berry";
+        input.value = "black";
         EVENTS.input(input);
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
@@ -435,7 +435,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("should not select the focused list item in the list when blurring component from a focused item", () => {
-        input.value = "la";
+        input.value = "Bla";
         EVENTS.input(input);
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
@@ -456,13 +456,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("should focus the last item in the list when pressing down many times from the input", () => {
-        input.value = "la";
+        input.value = "Pla";
 
         EVENTS.input(input);
         assert.ok(!list.hidden, "should display the option list");
         assert.strictEqual(
           list.children.length,
-          2,
+          1,
           "should filter the item by the string being present in the option",
         );
         EVENTS.keydownArrowDown(input);
@@ -485,7 +485,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should not select the focused item in the list when pressing escape from the focused item", () => {
         select.value = "pineapple";
-        input.value = "la";
+        input.value = "Bla";
 
         EVENTS.input(input);
         assert.ok(
@@ -515,13 +515,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
 
       it("should focus the input and hide the list when pressing up from the first item in the list", () => {
-        input.value = "la";
+        input.value = "Bla";
 
         EVENTS.input(input);
         assert.ok(!list.hidden, "should display the option list");
         assert.strictEqual(
           list.children.length,
-          2,
+          1,
           "should filter the item by the string being present in the option",
         );
         EVENTS.keydownArrowDown(input);

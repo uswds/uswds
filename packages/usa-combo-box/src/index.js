@@ -337,7 +337,10 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
   const escapeRegExp = (text) =>
     text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 
-  let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
+  // Ensure query is escaped and anchored at the start
+  const escapedQuery = escapeRegExp(query);
+
+  const find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
     const queryFilter = extras[key];
     if (key !== "query" && queryFilter) {
@@ -350,10 +353,10 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
 
       return "";
     }
-    return escapeRegExp(query);
-  });
 
-  find = `^(?:${find})$`;
+    // Use the query here and enforce a start of string match
+    return `^${escapedQuery}`;
+  });
 
   return new RegExp(find, "i");
 };
