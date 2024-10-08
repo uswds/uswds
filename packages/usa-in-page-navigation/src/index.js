@@ -230,9 +230,15 @@ const scrollToCurrentSection = () => {
  * @param {Array} headingLevels - Array of headings considered as valid for the count.
  * @returns {Boolean} - Returns true if the count of specified headings meets the minimum, otherwise false.
  */
-const shouldRenderInPageNav = (sectionHeadings, minimumHeadingCount, headingLevels) => {
+const shouldRenderInPageNav = (
+  sectionHeadings,
+  minimumHeadingCount,
+  headingLevels,
+) => {
   // Filter headings that are included in the headingLevels
-  const validHeadings = sectionHeadings.filter(heading => headingLevels.includes(heading.tagName.toLowerCase()));
+  const validHeadings = sectionHeadings.filter((heading) =>
+    headingLevels.includes(heading.tagName.toLowerCase()),
+  );
   return validHeadings.length >= minimumHeadingCount;
 };
 
@@ -265,15 +271,23 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
   }`;
 
-  const headingLevels = inPageNavHeadingSelector.split(" ").map(h => h.toLowerCase());
+  const headingLevels = inPageNavHeadingSelector
+    .split(" ")
+    .map((h) => h.toLowerCase());
 
   const sectionHeadings = getVisibleSectionHeadings(
     inPageNavContentSelector,
     inPageNavHeadingSelector,
   );
 
-  if (!shouldRenderInPageNav(sectionHeadings, inPageNavMinimumHeadingCount, headingLevels)) {
-    return; 
+  if (
+    !shouldRenderInPageNav(
+      sectionHeadings,
+      inPageNavMinimumHeadingCount,
+      headingLevels,
+    )
+  ) {
+    return;
   }
 
   const options = {

@@ -92,11 +92,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       window.innerWidth = 1024;
     });
-    
+
     afterEach(() => {
       sinon.resetHistory();
       if (theNav) {
-        behavior.off(containerSelector(body));
+        const container = containerSelector(body);
+        if (container) {
+          behavior.off(container);
+        }
       }
       body.innerHTML = "";
       window.location.hash = "";
@@ -182,27 +185,35 @@ tests.forEach(({ name, selector: containerSelector }) => {
         body.innerHTML = TEMPLATE;
         theNav = document.querySelector(THE_NAV);
       });
-    
+
       afterEach(() => {
         body.innerHTML = "";
         window.location.hash = "";
       });
-    
+
       it("does not render the in-page navigation when minimum heading count is too high", () => {
         theNav.setAttribute("data-minimum-heading-count", "20");
         behavior.off(containerSelector(body));
         behavior.on(containerSelector(body));
-        assert.strictEqual(theNav.hasChildNodes(), false, "In-page navigation should not have child nodes when the count is too high");
+        assert.strictEqual(
+          theNav.hasChildNodes(),
+          false,
+          "In-page navigation should not have child nodes when the count is too high",
+        );
       });
-    
+
       it("does render the in-page navigation when minimum heading count is low", () => {
         theNav.setAttribute("data-minimum-heading-count", "3");
         behavior.off(containerSelector(body));
         behavior.on(containerSelector(body));
-        assert.strictEqual(theNav.hasChildNodes(), true, "In-page navigation should have child nodes when the count is low");
+        assert.strictEqual(
+          theNav.hasChildNodes(),
+          true,
+          "In-page navigation should have child nodes when the count is low",
+        );
       });
     });
-    
+
     context("with initial hash URL", () => {
       before(() => {
         window.location.hash = "#section-1";
