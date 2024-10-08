@@ -186,22 +186,21 @@ $breadcrumb-back-icon-aspect: (
 }
 
 .usa-breadcrumb__link--no-style {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
 
   &:visited {
-    color: inherit; 
+    color: inherit;
   }
-  
+
   &:hover {
-    color: inherit; 
+    color: inherit;
   }
 
   span {
-    text-decoration: none; 
+    text-decoration: none;
   }
 }
-
 
 // ---------------------------------
 // Variations
