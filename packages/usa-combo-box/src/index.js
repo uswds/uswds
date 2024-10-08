@@ -345,7 +345,7 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
 
   // Ensure query is escaped and anchored at the start
   const escapedQuery = escapeRegExp(query);
-  
+
   const find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
     const queryFilter = extras[key];
@@ -361,13 +361,11 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
     }
 
     // Use the query here and enforce a start of string match
-    return `^${escapedQuery}`; 
+    return `^${escapedQuery}`;
   });
 
   return new RegExp(find, "i");
 };
-
-
 
 /**
  * Display the option list of a combo box component.

@@ -1,11 +1,10 @@
 const assert = require("assert");
 const { FILTER_DATASET } = require("../index");
 
-
 const generateDynamicRegExp = (filter, query = "", extras = {}) => {
   const escapeRegExp = (text) =>
     text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-  
+
   let find = filter.replace(/{{(.*?)}}/g, (m, $1) => {
     const key = $1.trim();
     const queryFilter = extras[key];
@@ -19,16 +18,14 @@ const generateDynamicRegExp = (filter, query = "", extras = {}) => {
 
       return "";
     }
-      
+
     return escapeRegExp(query);
   });
 
-    find = `^(?:${find})$`;
+  find = `^(?:${find})$`;
 
   return new RegExp(find, "i");
 };
-
-
 
 describe("time picker regex", () => {
   const { filter, ...dataset } = FILTER_DATASET;
