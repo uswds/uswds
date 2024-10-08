@@ -811,16 +811,19 @@ const validateDateInput = (el) => {
  * @param {HTMLInputElement} input - The input element containing the date string.
  */
 const formatDateInput = (input) => {
-  const checkValue = (str, max) => {
-    if (str.charAt(0) !== "0" || str === "00") {
-      var num = parseInt(str);
-      if (isNaN(num) || num <= 0 || num > max) num = 1;
-      str =
-        num > parseInt(max.toString().charAt(0)) && num.toString().length === 1
-          ? "0" + num
-          : num.toString();
+  const checkValue = (str, maxLimit) => {
+    let localStr = str;
+    if (localStr.charAt(0) !== "0" || localStr === "00") {
+      const num = parseInt(localStr, 10);
+      const validNum =
+        Number.isNaN(num) || num <= 0 || num > maxLimit ? 1 : num;
+      localStr =
+        validNum > parseInt(maxLimit.toString().charAt(0), 10) &&
+        validNum.toString().length === 1
+          ? `0${validNum}`
+          : validNum.toString();
     }
-    return str;
+    return localStr;
   };
 
   let value = input.value.replace(/\D/g, "");
@@ -831,7 +834,7 @@ const formatDateInput = (input) => {
 
   let month = value.substring(0, 2);
   let day = value.substring(2, 4);
-  let year = value.substring(4, 8);
+  const year = value.substring(4, 8);
 
   if (month) {
     month = checkValue(month, 12);
@@ -842,10 +845,11 @@ const formatDateInput = (input) => {
   }
 
   let output = "";
-  if (month) output += month + "/";
-  if (day) output += day + "/";
+  if (month) output += `${month}/`;
+  if (day) output += `${day}/`;
   if (year) output += year;
 
+  /* eslint-disable-next-line no-param-reassign */
   input.value = output;
 };
 
@@ -859,6 +863,7 @@ const removeTrailingSlash = (el) => {
   if (inputValue.length === 0) return;
   const lastCharacter = inputValue.slice(-1);
   if (lastCharacter === "/") {
+    /* eslint-disable-next-line no-param-reassign */
     el.value = inputValue.slice(0, -1);
   }
 };
