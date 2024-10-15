@@ -12,6 +12,17 @@ const tabHandler = (context) => {
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
 
+  const observer = new MutationObserver(() => {
+    focusableElements = select(FOCUSABLE, context);
+    firstTabStop = focusableElements[0];
+    lastTabStop = focusableElements[focusableElements.length - 1];
+  });
+
+  observer.observe(context, {
+    childList: true,
+    subtree: true,
+  });
+
   // Special rules for when the user is tabbing forward from the last focusable element,
   // or when tabbing backwards from the first focusable element
   function tabAhead(event) {
@@ -40,6 +51,7 @@ const tabHandler = (context) => {
     lastTabStop,
     tabAhead,
     tabBack,
+    observe,
   };
 };
 
@@ -65,7 +77,24 @@ module.exports = (context, additionalKeyBindings = {}) => {
 
   const focusTrap = behavior(
     {
-      keydown: keyMappings,
+      keydown: keymap(
+        assign(
+          {
+            Tab: (event) => {
+              const currentElement = activeElement();
+              const currentIndex = focusableElements.indexOf(currentElement);
+              const nextIndex = currentIndex + (event.shiftKey ? -1 : 1);
+              const nextElement = focusableElements[nextIndex];
+  
+              if (nextElement) {
+                event.preventDefault();
+                nextElement.focus();
+              }
+            },
+          },
+          additionalKeyBindings,
+        ),
+      ),
     },
     {
       init() {
@@ -81,6 +110,9 @@ module.exports = (context, additionalKeyBindings = {}) => {
         } else {
           this.off();
         }
+      },
+      destroy() {
+        tabEventHandler.observer.disconnect();
       },
     },
   );
