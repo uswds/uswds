@@ -172,7 +172,6 @@ const enhanceComboBox = (_comboBoxEl) => {
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
-  const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
   const { defaultValue } = comboBoxEl.dataset;
   const { placeholder } = comboBoxEl.dataset;
@@ -226,7 +225,6 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("aria-owns", listId);
   input.setAttribute("aria-controls", listId);
   input.setAttribute("aria-autocomplete", "list");
-  input.setAttribute("aria-describedby", assistiveHintID);
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("autocapitalize", "off");
   input.setAttribute("autocomplete", "off");
@@ -260,11 +258,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         aria-labelledby="${listIdLabel}"
         hidden>
       </ul>
-      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>
-      <span id="${assistiveHintID}" class="usa-sr-only">
-        When autocomplete results are available use up and down arrows to review and enter to select.
-        Touch device users, explore by touch or with swipe gestures.
-      </span>`,
+      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
   );
 
   if (selectedOption) {

@@ -1,0 +1,22 @@
+{% include '@components/usa-banner/src/usa-banner.twig' %}
+
+{% include '@components/usa-site-alert/src/usa-site-alert.twig' %}
+
+<div class="usa-section">
+  <div class="grid-container">
+    <div class="grid-row grid-gap">
+      <div class="usa-layout-docs__sidenav desktop:grid-col-3">
+        {% include '@components/usa-sidenav/src/usa-sidenav.twig' %}
+      </div>
+
+      <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+        {% for alert in alerts %}
+          {% include '@components/usa-alert/src/usa-alert.twig' with alert %}
+        {% endfor %}
+        {% include "@components/usa-type-setting/src/usa-type-setting--line-length.twig" %}
+      </main>
+    </div>
+  </div>
+</div>
+
+{% include '@components/usa-footer/src/usa-footer.twig' %}
