@@ -52,6 +52,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "build:tokens": "node style-dictionary/color.config.js && npx prettier --write 'packages/uswds-core/src/styles/tokens/color/*.scss'",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint packages/**/**/*.js",
     "lint:sass": "gulp lintSass",
@@ -148,6 +149,7 @@
     "html-webpack-plugin": "5.6.0",
     "jsdom": "22.1.0",
     "jsdom-global": "3.0.2",
+    "lodash": "4.17.21",
     "lodash.merge": "4.6.2",
     "merge-stream": "2.0.0",
     "mocha": "10.7.3",
@@ -167,6 +169,7 @@
     "sass-true": "6.0.1",
     "sinon": "12.0.1",
     "snyk": "1.1293.0",
+    "style-dictionary": "3.9.2",
     "style-loader": "3.3.3",
     "stylelint": "16.9.0",
     "svgo": "3.3.2",
