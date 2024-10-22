@@ -1,7 +1,6 @@
 const StyleDictionary = require("style-dictionary");
-const { template } = require("lodash");
-const fs = require('fs');
 const getJSON = require("./utils/getJSON");
+
 const colorTokens = getJSON("./packages/uswds-tokens/colors");
 
 const USWDS_COLORS = StyleDictionary.extend({
@@ -13,7 +12,10 @@ const USWDS_COLORS = StyleDictionary.extend({
       files: colorTokens.map((colorToken) => ({
         destination: `_${colorToken}.scss`,
         mapName: `system-color-${colorToken}`,
-        format: "custom/format/color-map",
+        format: "scss/map-deep",
+        options: {
+          themeable: false,
+        },
         filter: {
           attributes: {
             category: colorToken
@@ -23,10 +25,5 @@ const USWDS_COLORS = StyleDictionary.extend({
     },
   },
 })
-
-USWDS_COLORS.registerFormat({
-  name: 'custom/format/color-map',
-  formatter: template(fs.readFileSync(`${__dirname  }/templates/scss-color-map.template`))
-});
 
 USWDS_COLORS.buildPlatform('scss/colors');

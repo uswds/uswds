@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$red-5: #f9eeee;
+$red-10: #f8e1de;
+$red-20: #f7bbb1;
+$red-30: #f2938c;
+$red-40: #e9695f;
+$red-50: #d83933;
+$red-60: #a23737;
+$red-70: #6f3331;
+$red-80: #3e2927;
+$red-90: #1b1616;
+$red-vivid-5: #fff3f2;
+$red-vivid-10: #fde0db;
+$red-vivid-20: #fdb8ae;
+$red-vivid-30: #ff8d7b;
+$red-vivid-40: #fb5a47;
+$red-vivid-50: #e52207;
+$red-vivid-60: #b50909;
+$red-vivid-70: #8b0a03;
+$red-vivid-80: #5c1111;
+$red-vivid-90: false;
+
 $system-color-red: (
   "red": (
-    5: #f9eeee,
-    10: #f8e1de,
-    20: #f7bbb1,
-    30: #f2938c,
-    40: #e9695f,
-    50: #d83933,
-    60: #a23737,
-    70: #6f3331,
-    80: #3e2927,
-    90: #1b1616,
+    "5": $red-5,
+    "10": $red-10,
+    "20": $red-20,
+    "30": $red-30,
+    "40": $red-40,
+    "50": $red-50,
+    "60": $red-60,
+    "70": $red-70,
+    "80": $red-80,
+    "90": $red-90,
     "vivid": (
-      5: #fff3f2,
-      10: #fde0db,
-      20: #fdb8ae,
-      30: #ff8d7b,
-      40: #fb5a47,
-      50: #e52207,
-      60: #b50909,
-      70: #8b0a03,
-      80: #5c1111,
-      90: false,
+      "5": $red-vivid-5,
+      "10": $red-vivid-10,
+      "20": $red-vivid-20,
+      "30": $red-vivid-30,
+      "40": $red-vivid-40,
+      "50": $red-vivid-50,
+      "60": $red-vivid-60,
+      "70": $red-vivid-70,
+      "80": $red-vivid-80,
+      "90": $red-vivid-90,
     ),
   ),
 );

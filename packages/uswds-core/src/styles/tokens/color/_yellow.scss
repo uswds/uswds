@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$yellow-5: #faf3d1;
+$yellow-10: #f5e6af;
+$yellow-20: #e6c74c;
+$yellow-30: #c9ab48;
+$yellow-40: #a88f48;
+$yellow-50: #8a7237;
+$yellow-60: #6b5a39;
+$yellow-70: #504332;
+$yellow-80: #332d27;
+$yellow-90: #1a1614;
+$yellow-vivid-5: #fff5c2;
+$yellow-vivid-10: #fee685;
+$yellow-vivid-20: #face00;
+$yellow-vivid-30: #ddaa01;
+$yellow-vivid-40: #b38c00;
+$yellow-vivid-50: #947100;
+$yellow-vivid-60: #776017;
+$yellow-vivid-70: #5c4809;
+$yellow-vivid-80: #422d19;
+$yellow-vivid-90: false;
+
 $system-color-yellow: (
   "yellow": (
-    5: #faf3d1,
-    10: #f5e6af,
-    20: #e6c74c,
-    30: #c9ab48,
-    40: #a88f48,
-    50: #8a7237,
-    60: #6b5a39,
-    70: #504332,
-    80: #332d27,
-    90: #1a1614,
+    "5": $yellow-5,
+    "10": $yellow-10,
+    "20": $yellow-20,
+    "30": $yellow-30,
+    "40": $yellow-40,
+    "50": $yellow-50,
+    "60": $yellow-60,
+    "70": $yellow-70,
+    "80": $yellow-80,
+    "90": $yellow-90,
     "vivid": (
-      5: #fff5c2,
-      10: #fee685,
-      20: #face00,
-      30: #ddaa01,
-      40: #b38c00,
-      50: #947100,
-      60: #776017,
-      70: #5c4809,
-      80: #422d19,
-      90: false,
+      "5": $yellow-vivid-5,
+      "10": $yellow-vivid-10,
+      "20": $yellow-vivid-20,
+      "30": $yellow-vivid-30,
+      "40": $yellow-vivid-40,
+      "50": $yellow-vivid-50,
+      "60": $yellow-vivid-60,
+      "70": $yellow-vivid-70,
+      "80": $yellow-vivid-80,
+      "90": $yellow-vivid-90,
     ),
   ),
 );

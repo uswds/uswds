@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$red-warm-5: #f6efea;
+$red-warm-10: #f4e3db;
+$red-warm-20: #ecc0a7;
+$red-warm-30: #dca081;
+$red-warm-40: #d27a56;
+$red-warm-50: #c3512c;
+$red-warm-60: #805039;
+$red-warm-70: #524236;
+$red-warm-80: #332d29;
+$red-warm-90: #1f1c18;
+$red-warm-vivid-5: #fff5ee;
+$red-warm-vivid-10: #fce1d4;
+$red-warm-vivid-20: #f6bd9c;
+$red-warm-vivid-30: #f39268;
+$red-warm-vivid-40: #ef5e25;
+$red-warm-vivid-50: #d54309;
+$red-warm-vivid-60: #9c3d10;
+$red-warm-vivid-70: #63340f;
+$red-warm-vivid-80: #3e2a1e;
+$red-warm-vivid-90: false;
+
 $system-color-red-warm: (
   "red-warm": (
-    5: #f6efea,
-    10: #f4e3db,
-    20: #ecc0a7,
-    30: #dca081,
-    40: #d27a56,
-    50: #c3512c,
-    60: #805039,
-    70: #524236,
-    80: #332d29,
-    90: #1f1c18,
+    "5": $red-warm-5,
+    "10": $red-warm-10,
+    "20": $red-warm-20,
+    "30": $red-warm-30,
+    "40": $red-warm-40,
+    "50": $red-warm-50,
+    "60": $red-warm-60,
+    "70": $red-warm-70,
+    "80": $red-warm-80,
+    "90": $red-warm-90,
     "vivid": (
-      5: #fff5ee,
-      10: #fce1d4,
-      20: #f6bd9c,
-      30: #f39268,
-      40: #ef5e25,
-      50: #d54309,
-      60: #9c3d10,
-      70: #63340f,
-      80: #3e2a1e,
-      90: false,
+      "5": $red-warm-vivid-5,
+      "10": $red-warm-vivid-10,
+      "20": $red-warm-vivid-20,
+      "30": $red-warm-vivid-30,
+      "40": $red-warm-vivid-40,
+      "50": $red-warm-vivid-50,
+      "60": $red-warm-vivid-60,
+      "70": $red-warm-vivid-70,
+      "80": $red-warm-vivid-80,
+      "90": $red-warm-vivid-90,
     ),
   ),
 );

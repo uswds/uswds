@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$indigo-cool-5: #eef0f9;
+$indigo-cool-10: #e1e6f9;
+$indigo-cool-20: #bbc8f5;
+$indigo-cool-30: #96abee;
+$indigo-cool-40: #6b8ee8;
+$indigo-cool-50: #496fd8;
+$indigo-cool-60: #3f57a6;
+$indigo-cool-70: #374274;
+$indigo-cool-80: #292d42;
+$indigo-cool-90: #151622;
+$indigo-cool-vivid-5: #edf0ff;
+$indigo-cool-vivid-10: #dee5ff;
+$indigo-cool-vivid-20: #b8c8ff;
+$indigo-cool-vivid-30: #94adff;
+$indigo-cool-vivid-40: #628ef4;
+$indigo-cool-vivid-50: #4866ff;
+$indigo-cool-vivid-60: #3e4ded;
+$indigo-cool-vivid-70: #222fbf;
+$indigo-cool-vivid-80: #1b2b85;
+$indigo-cool-vivid-90: false;
+
 $system-color-indigo-cool: (
   "indigo-cool": (
-    5: #eef0f9,
-    10: #e1e6f9,
-    20: #bbc8f5,
-    30: #96abee,
-    40: #6b8ee8,
-    50: #496fd8,
-    60: #3f57a6,
-    70: #374274,
-    80: #292d42,
-    90: #151622,
+    "5": $indigo-cool-5,
+    "10": $indigo-cool-10,
+    "20": $indigo-cool-20,
+    "30": $indigo-cool-30,
+    "40": $indigo-cool-40,
+    "50": $indigo-cool-50,
+    "60": $indigo-cool-60,
+    "70": $indigo-cool-70,
+    "80": $indigo-cool-80,
+    "90": $indigo-cool-90,
     "vivid": (
-      5: #edf0ff,
-      10: #dee5ff,
-      20: #b8c8ff,
-      30: #94adff,
-      40: #628ef4,
-      50: #4866ff,
-      60: #3e4ded,
-      70: #222fbf,
-      80: #1b2b85,
-      90: false,
+      "5": $indigo-cool-vivid-5,
+      "10": $indigo-cool-vivid-10,
+      "20": $indigo-cool-vivid-20,
+      "30": $indigo-cool-vivid-30,
+      "40": $indigo-cool-vivid-40,
+      "50": $indigo-cool-vivid-50,
+      "60": $indigo-cool-vivid-60,
+      "70": $indigo-cool-vivid-70,
+      "80": $indigo-cool-vivid-80,
+      "90": $indigo-cool-vivid-90,
     ),
   ),
 );

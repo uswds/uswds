@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$magenta-5: #f9f0f2;
+$magenta-10: #f6e1e8;
+$magenta-20: #f0bbcc;
+$magenta-30: #e895b3;
+$magenta-40: #e0699f;
+$magenta-50: #c84281;
+$magenta-60: #8b4566;
+$magenta-70: #66364b;
+$magenta-80: #402731;
+$magenta-90: #1b1617;
+$magenta-vivid-5: #fff2f5;
+$magenta-vivid-10: #ffddea;
+$magenta-vivid-20: #ffb4cf;
+$magenta-vivid-30: #ff87b2;
+$magenta-vivid-40: #fd4496;
+$magenta-vivid-50: #d72d79;
+$magenta-vivid-60: #ab2165;
+$magenta-vivid-70: #731f44;
+$magenta-vivid-80: #4f172e;
+$magenta-vivid-90: false;
+
 $system-color-magenta: (
   "magenta": (
-    5: #f9f0f2,
-    10: #f6e1e8,
-    20: #f0bbcc,
-    30: #e895b3,
-    40: #e0699f,
-    50: #c84281,
-    60: #8b4566,
-    70: #66364b,
-    80: #402731,
-    90: #1b1617,
+    "5": $magenta-5,
+    "10": $magenta-10,
+    "20": $magenta-20,
+    "30": $magenta-30,
+    "40": $magenta-40,
+    "50": $magenta-50,
+    "60": $magenta-60,
+    "70": $magenta-70,
+    "80": $magenta-80,
+    "90": $magenta-90,
     "vivid": (
-      5: #fff2f5,
-      10: #ffddea,
-      20: #ffb4cf,
-      30: #ff87b2,
-      40: #fd4496,
-      50: #d72d79,
-      60: #ab2165,
-      70: #731f44,
-      80: #4f172e,
-      90: false,
+      "5": $magenta-vivid-5,
+      "10": $magenta-vivid-10,
+      "20": $magenta-vivid-20,
+      "30": $magenta-vivid-30,
+      "40": $magenta-vivid-40,
+      "50": $magenta-vivid-50,
+      "60": $magenta-vivid-60,
+      "70": $magenta-vivid-70,
+      "80": $magenta-vivid-80,
+      "90": $magenta-vivid-90,
     ),
   ),
 );

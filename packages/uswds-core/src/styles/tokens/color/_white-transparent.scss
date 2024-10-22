@@ -1,14 +1,30 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$white-transparent-5: rgba(255, 255, 255, 0.01);
+$white-transparent-10: rgba(255, 255, 255, 0.1);
+$white-transparent-20: rgba(255, 255, 255, 0.2);
+$white-transparent-30: rgba(255, 255, 255, 0.3);
+$white-transparent-40: rgba(255, 255, 255, 0.4);
+$white-transparent-50: rgba(255, 255, 255, 0.5);
+$white-transparent-60: rgba(255, 255, 255, 0.6);
+$white-transparent-70: rgba(255, 255, 255, 0.7);
+$white-transparent-80: rgba(255, 255, 255, 0.8);
+$white-transparent-90: rgba(255, 255, 255, 0.9);
+
 $system-color-white-transparent: (
   "white-transparent": (
-    5: rgba(255, 255, 255, 0.01),
-    10: rgba(255, 255, 255, 0.1),
-    20: rgba(255, 255, 255, 0.2),
-    30: rgba(255, 255, 255, 0.3),
-    40: rgba(255, 255, 255, 0.4),
-    50: rgba(255, 255, 255, 0.5),
-    60: rgba(255, 255, 255, 0.6),
-    70: rgba(255, 255, 255, 0.7),
-    80: rgba(255, 255, 255, 0.8),
-    90: rgba(255, 255, 255, 0.9),
+    "5": $white-transparent-5,
+    "10": $white-transparent-10,
+    "20": $white-transparent-20,
+    "30": $white-transparent-30,
+    "40": $white-transparent-40,
+    "50": $white-transparent-50,
+    "60": $white-transparent-60,
+    "70": $white-transparent-70,
+    "80": $white-transparent-80,
+    "90": $white-transparent-90,
   ),
 );

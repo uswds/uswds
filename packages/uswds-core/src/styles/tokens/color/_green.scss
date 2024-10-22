@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$green-5: #eaf4dd;
+$green-10: #dfeacd;
+$green-20: #b8d293;
+$green-30: #9bb672;
+$green-40: #7d9b4e;
+$green-50: #607f35;
+$green-60: #4c6424;
+$green-70: #3c4a29;
+$green-80: #293021;
+$green-90: #161814;
+$green-vivid-5: #ddf9c7;
+$green-vivid-10: #c5ee93;
+$green-vivid-20: #98d035;
+$green-vivid-30: #7fb135;
+$green-vivid-40: #719f2a;
+$green-vivid-50: #538200;
+$green-vivid-60: #466c04;
+$green-vivid-70: #2f4a0b;
+$green-vivid-80: #243413;
+$green-vivid-90: false;
+
 $system-color-green: (
   "green": (
-    5: #eaf4dd,
-    10: #dfeacd,
-    20: #b8d293,
-    30: #9bb672,
-    40: #7d9b4e,
-    50: #607f35,
-    60: #4c6424,
-    70: #3c4a29,
-    80: #293021,
-    90: #161814,
+    "5": $green-5,
+    "10": $green-10,
+    "20": $green-20,
+    "30": $green-30,
+    "40": $green-40,
+    "50": $green-50,
+    "60": $green-60,
+    "70": $green-70,
+    "80": $green-80,
+    "90": $green-90,
     "vivid": (
-      5: #ddf9c7,
-      10: #c5ee93,
-      20: #98d035,
-      30: #7fb135,
-      40: #719f2a,
-      50: #538200,
-      60: #466c04,
-      70: #2f4a0b,
-      80: #243413,
-      90: false,
+      "5": $green-vivid-5,
+      "10": $green-vivid-10,
+      "20": $green-vivid-20,
+      "30": $green-vivid-30,
+      "40": $green-vivid-40,
+      "50": $green-vivid-50,
+      "60": $green-vivid-60,
+      "70": $green-vivid-70,
+      "80": $green-vivid-80,
+      "90": $green-vivid-90,
     ),
   ),
 );

@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$mint-cool-5: #e0f7f6;
+$mint-cool-10: #c4eeeb;
+$mint-cool-20: #9bd4cf;
+$mint-cool-30: #6fbab3;
+$mint-cool-40: #4f9e99;
+$mint-cool-50: #40807e;
+$mint-cool-60: #376462;
+$mint-cool-70: #2a4b45;
+$mint-cool-80: #203131;
+$mint-cool-90: #111818;
+$mint-cool-vivid-5: #d5fbf3;
+$mint-cool-vivid-10: #7efbe1;
+$mint-cool-vivid-20: #29e1cb;
+$mint-cool-vivid-30: #1dc2ae;
+$mint-cool-vivid-40: #00a398;
+$mint-cool-vivid-50: #008480;
+$mint-cool-vivid-60: #0f6460;
+$mint-cool-vivid-70: #0b4b3f;
+$mint-cool-vivid-80: #123131;
+$mint-cool-vivid-90: false;
+
 $system-color-mint-cool: (
   "mint-cool": (
-    5: #e0f7f6,
-    10: #c4eeeb,
-    20: #9bd4cf,
-    30: #6fbab3,
-    40: #4f9e99,
-    50: #40807e,
-    60: #376462,
-    70: #2a4b45,
-    80: #203131,
-    90: #111818,
+    "5": $mint-cool-5,
+    "10": $mint-cool-10,
+    "20": $mint-cool-20,
+    "30": $mint-cool-30,
+    "40": $mint-cool-40,
+    "50": $mint-cool-50,
+    "60": $mint-cool-60,
+    "70": $mint-cool-70,
+    "80": $mint-cool-80,
+    "90": $mint-cool-90,
     "vivid": (
-      5: #d5fbf3,
-      10: #7efbe1,
-      20: #29e1cb,
-      30: #1dc2ae,
-      40: #00a398,
-      50: #008480,
-      60: #0f6460,
-      70: #0b4b3f,
-      80: #123131,
-      90: false,
+      "5": $mint-cool-vivid-5,
+      "10": $mint-cool-vivid-10,
+      "20": $mint-cool-vivid-20,
+      "30": $mint-cool-vivid-30,
+      "40": $mint-cool-vivid-40,
+      "50": $mint-cool-vivid-50,
+      "60": $mint-cool-vivid-60,
+      "70": $mint-cool-vivid-70,
+      "80": $mint-cool-vivid-80,
+      "90": $mint-cool-vivid-90,
     ),
   ),
 );
