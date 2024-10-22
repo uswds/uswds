@@ -382,10 +382,12 @@ const displayList = (el) => {
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
   const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
-  const options = [];
+  const optionsComplete = [];
+  const optionsAlphabetical = [];
+  const optionsContains = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
-    const optionId = `${listOptionBaseId}${options.length}`;
+    const optionId = `${listOptionBaseId}${optionsComplete.length}`;
 
     if (
       optionEl.value &&
@@ -401,12 +403,19 @@ const displayList = (el) => {
       if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
         firstFoundId = optionId;
       }
-      options.push(optionEl);
+
+      if (optionEl.value.startsWith(inputValue)) {
+        optionsAlphabetical.push(optionEl);
+      } else {
+        optionsContains.push(optionEl);
+      }
     }
   }
 
-  const numOptions = options.length;
-  const optionHtml = options.map((option, index) => {
+  optionsComplete.push(...optionsAlphabetical, ...optionsContains);
+
+  const numOptions = optionsComplete.length;
+  const optionHtml = optionsComplete.map((option, index) => {
     const optionId = `${listOptionBaseId}${index}`;
     const classes = [LIST_OPTION_CLASS];
     let tabindex = "-1";
@@ -425,7 +434,7 @@ const displayList = (el) => {
 
     const li = document.createElement("li");
 
-    li.setAttribute("aria-setsize", options.length);
+    li.setAttribute("aria-setsize", optionsComplete.length);
     li.setAttribute("aria-posinset", index + 1);
     li.setAttribute("aria-selected", ariaSelected);
     li.setAttribute("id", optionId);
