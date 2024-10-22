@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$blue-warm-5: #ecf1f7;
+$blue-warm-10: #e1e7f1;
+$blue-warm-20: #bbcae4;
+$blue-warm-30: #98afd2;
+$blue-warm-40: #7292c7;
+$blue-warm-50: #4a77b4;
+$blue-warm-60: #345d96;
+$blue-warm-70: #2f4668;
+$blue-warm-80: #252f3e;
+$blue-warm-90: #13171f;
+$blue-warm-vivid-5: #edf5ff;
+$blue-warm-vivid-10: #d4e5ff;
+$blue-warm-vivid-20: #adcdff;
+$blue-warm-vivid-30: #81aefc;
+$blue-warm-vivid-40: #5994f6;
+$blue-warm-vivid-50: #2672de;
+$blue-warm-vivid-60: #0050d8;
+$blue-warm-vivid-70: #1a4480;
+$blue-warm-vivid-80: #162e51;
+$blue-warm-vivid-90: false;
+
 $system-color-blue-warm: (
   "blue-warm": (
-    5: #ecf1f7,
-    10: #e1e7f1,
-    20: #bbcae4,
-    30: #98afd2,
-    40: #7292c7,
-    50: #4a77b4,
-    60: #345d96,
-    70: #2f4668,
-    80: #252f3e,
-    90: #13171f,
+    "5": $blue-warm-5,
+    "10": $blue-warm-10,
+    "20": $blue-warm-20,
+    "30": $blue-warm-30,
+    "40": $blue-warm-40,
+    "50": $blue-warm-50,
+    "60": $blue-warm-60,
+    "70": $blue-warm-70,
+    "80": $blue-warm-80,
+    "90": $blue-warm-90,
     "vivid": (
-      5: #edf5ff,
-      10: #d4e5ff,
-      20: #adcdff,
-      30: #81aefc,
-      40: #5994f6,
-      50: #2672de,
-      60: #0050d8,
-      70: #1a4480,
-      80: #162e51,
-      90: false,
+      "5": $blue-warm-vivid-5,
+      "10": $blue-warm-vivid-10,
+      "20": $blue-warm-vivid-20,
+      "30": $blue-warm-vivid-30,
+      "40": $blue-warm-vivid-40,
+      "50": $blue-warm-vivid-50,
+      "60": $blue-warm-vivid-60,
+      "70": $blue-warm-vivid-70,
+      "80": $blue-warm-vivid-80,
+      "90": $blue-warm-vivid-90,
     ),
   ),
 );

@@ -1,18 +1,38 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$gray-warm-1: #fcfcfb;
+$gray-warm-2: #f9f9f7;
+$gray-warm-3: #f6f6f2;
+$gray-warm-4: #f5f5f0;
+$gray-warm-5: #f0f0ec;
+$gray-warm-10: #e6e6e2;
+$gray-warm-20: #cac9c0;
+$gray-warm-30: #afaea2;
+$gray-warm-40: #929285;
+$gray-warm-50: #76766a;
+$gray-warm-60: #5d5d52;
+$gray-warm-70: #454540;
+$gray-warm-80: #2e2e2a;
+$gray-warm-90: #171716;
+
 $system-color-gray-warm: (
   "gray-warm": (
-    1: #fcfcfb,
-    2: #f9f9f7,
-    3: #f6f6f2,
-    4: #f5f5f0,
-    5: #f0f0ec,
-    10: #e6e6e2,
-    20: #cac9c0,
-    30: #afaea2,
-    40: #929285,
-    50: #76766a,
-    60: #5d5d52,
-    70: #454540,
-    80: #2e2e2a,
-    90: #171716,
+    "1": $gray-warm-1,
+    "2": $gray-warm-2,
+    "3": $gray-warm-3,
+    "4": $gray-warm-4,
+    "5": $gray-warm-5,
+    "10": $gray-warm-10,
+    "20": $gray-warm-20,
+    "30": $gray-warm-30,
+    "40": $gray-warm-40,
+    "50": $gray-warm-50,
+    "60": $gray-warm-60,
+    "70": $gray-warm-70,
+    "80": $gray-warm-80,
+    "90": $gray-warm-90,
   ),
 );

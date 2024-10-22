@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$orange-warm-5: #faeee5;
+$orange-warm-10: #fbe0d0;
+$orange-warm-20: #f7bca2;
+$orange-warm-30: #f3966d;
+$orange-warm-40: #e17141;
+$orange-warm-50: #bd5727;
+$orange-warm-60: #914734;
+$orange-warm-70: #633a32;
+$orange-warm-80: #3d2925;
+$orange-warm-90: #1c1615;
+$orange-warm-vivid-5: #fff3ea;
+$orange-warm-vivid-10: #ffe2d1;
+$orange-warm-vivid-20: #fbbaa7;
+$orange-warm-vivid-30: #fc906d;
+$orange-warm-vivid-40: #ff580a;
+$orange-warm-vivid-50: #cf4900;
+$orange-warm-vivid-60: #a72f10;
+$orange-warm-vivid-70: #782312;
+$orange-warm-vivid-80: #3d231d;
+$orange-warm-vivid-90: false;
+
 $system-color-orange-warm: (
   "orange-warm": (
-    5: #faeee5,
-    10: #fbe0d0,
-    20: #f7bca2,
-    30: #f3966d,
-    40: #e17141,
-    50: #bd5727,
-    60: #914734,
-    70: #633a32,
-    80: #3d2925,
-    90: #1c1615,
+    "5": $orange-warm-5,
+    "10": $orange-warm-10,
+    "20": $orange-warm-20,
+    "30": $orange-warm-30,
+    "40": $orange-warm-40,
+    "50": $orange-warm-50,
+    "60": $orange-warm-60,
+    "70": $orange-warm-70,
+    "80": $orange-warm-80,
+    "90": $orange-warm-90,
     "vivid": (
-      5: #fff3ea,
-      10: #ffe2d1,
-      20: #fbbaa7,
-      30: #fc906d,
-      40: #ff580a,
-      50: #cf4900,
-      60: #a72f10,
-      70: #782312,
-      80: #3d231d,
-      90: false,
+      "5": $orange-warm-vivid-5,
+      "10": $orange-warm-vivid-10,
+      "20": $orange-warm-vivid-20,
+      "30": $orange-warm-vivid-30,
+      "40": $orange-warm-vivid-40,
+      "50": $orange-warm-vivid-50,
+      "60": $orange-warm-vivid-60,
+      "70": $orange-warm-vivid-70,
+      "80": $orange-warm-vivid-80,
+      "90": $orange-warm-vivid-90,
     ),
   ),
 );

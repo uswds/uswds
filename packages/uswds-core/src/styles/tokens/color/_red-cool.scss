@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$red-cool-5: #f8eff1;
+$red-cool-10: #f3e1e4;
+$red-cool-20: #ecbec6;
+$red-cool-30: #e09aa6;
+$red-cool-40: #e16b80;
+$red-cool-50: #cd425b;
+$red-cool-60: #9e394b;
+$red-cool-70: #68363f;
+$red-cool-80: #40282c;
+$red-cool-90: #1e1517;
+$red-cool-vivid-5: #fff2f5;
+$red-cool-vivid-10: #f8dfe2;
+$red-cool-vivid-20: #f8b9c5;
+$red-cool-vivid-30: #fd8ba0;
+$red-cool-vivid-40: #f45d79;
+$red-cool-vivid-50: #e41d3d;
+$red-cool-vivid-60: #b21d38;
+$red-cool-vivid-70: #822133;
+$red-cool-vivid-80: #4f1c24;
+$red-cool-vivid-90: false;
+
 $system-color-red-cool: (
   "red-cool": (
-    5: #f8eff1,
-    10: #f3e1e4,
-    20: #ecbec6,
-    30: #e09aa6,
-    40: #e16b80,
-    50: #cd425b,
-    60: #9e394b,
-    70: #68363f,
-    80: #40282c,
-    90: #1e1517,
+    "5": $red-cool-5,
+    "10": $red-cool-10,
+    "20": $red-cool-20,
+    "30": $red-cool-30,
+    "40": $red-cool-40,
+    "50": $red-cool-50,
+    "60": $red-cool-60,
+    "70": $red-cool-70,
+    "80": $red-cool-80,
+    "90": $red-cool-90,
     "vivid": (
-      5: #fff2f5,
-      10: #f8dfe2,
-      20: #f8b9c5,
-      30: #fd8ba0,
-      40: #f45d79,
-      50: #e41d3d,
-      60: #b21d38,
-      70: #822133,
-      80: #4f1c24,
-      90: false,
+      "5": $red-cool-vivid-5,
+      "10": $red-cool-vivid-10,
+      "20": $red-cool-vivid-20,
+      "30": $red-cool-vivid-30,
+      "40": $red-cool-vivid-40,
+      "50": $red-cool-vivid-50,
+      "60": $red-cool-vivid-60,
+      "70": $red-cool-vivid-70,
+      "80": $red-cool-vivid-80,
+      "90": $red-cool-vivid-90,
     ),
   ),
 );

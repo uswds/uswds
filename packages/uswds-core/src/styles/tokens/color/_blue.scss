@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$blue-5: #eff6fb;
+$blue-10: #d9e8f6;
+$blue-20: #aacdec;
+$blue-30: #73b3e7;
+$blue-40: #4f97d1;
+$blue-50: #2378c3;
+$blue-60: #2c608a;
+$blue-70: #274863;
+$blue-80: #1f303e;
+$blue-90: #11181d;
+$blue-vivid-5: #e8f5ff;
+$blue-vivid-10: #cfe8ff;
+$blue-vivid-20: #a1d3ff;
+$blue-vivid-30: #58b4ff;
+$blue-vivid-40: #2491ff;
+$blue-vivid-50: #0076d6;
+$blue-vivid-60: #005ea2;
+$blue-vivid-70: #0b4778;
+$blue-vivid-80: #112f4e;
+$blue-vivid-90: false;
+
 $system-color-blue: (
   "blue": (
-    5: #eff6fb,
-    10: #d9e8f6,
-    20: #aacdec,
-    30: #73b3e7,
-    40: #4f97d1,
-    50: #2378c3,
-    60: #2c608a,
-    70: #274863,
-    80: #1f303e,
-    90: #11181d,
+    "5": $blue-5,
+    "10": $blue-10,
+    "20": $blue-20,
+    "30": $blue-30,
+    "40": $blue-40,
+    "50": $blue-50,
+    "60": $blue-60,
+    "70": $blue-70,
+    "80": $blue-80,
+    "90": $blue-90,
     "vivid": (
-      5: #e8f5ff,
-      10: #cfe8ff,
-      20: #a1d3ff,
-      30: #58b4ff,
-      40: #2491ff,
-      50: #0076d6,
-      60: #005ea2,
-      70: #0b4778,
-      80: #112f4e,
-      90: false,
+      "5": $blue-vivid-5,
+      "10": $blue-vivid-10,
+      "20": $blue-vivid-20,
+      "30": $blue-vivid-30,
+      "40": $blue-vivid-40,
+      "50": $blue-vivid-50,
+      "60": $blue-vivid-60,
+      "70": $blue-vivid-70,
+      "80": $blue-vivid-80,
+      "90": $blue-vivid-90,
     ),
   ),
 );

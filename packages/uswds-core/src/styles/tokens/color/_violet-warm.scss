@@ -1,26 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 22 Oct 2024 19:52:21 GMT
+ */
+
+$violet-warm-5: #f8f0f9;
+$violet-warm-10: #f6dff8;
+$violet-warm-20: #e2bee4;
+$violet-warm-30: #d29ad8;
+$violet-warm-40: #bf77c8;
+$violet-warm-50: #b04abd;
+$violet-warm-60: #864381;
+$violet-warm-70: #5c395a;
+$violet-warm-80: #382936;
+$violet-warm-90: #1b151b;
+$violet-warm-vivid-5: #fef2ff;
+$violet-warm-vivid-10: #fbdcff;
+$violet-warm-vivid-20: #f4b2ff;
+$violet-warm-vivid-30: #ee83ff;
+$violet-warm-vivid-40: #d85bef;
+$violet-warm-vivid-50: #be32d0;
+$violet-warm-vivid-60: #93348c;
+$violet-warm-vivid-70: #711e6c;
+$violet-warm-vivid-80: #481441;
+$violet-warm-vivid-90: false;
+
 $system-color-violet-warm: (
   "violet-warm": (
-    5: #f8f0f9,
-    10: #f6dff8,
-    20: #e2bee4,
-    30: #d29ad8,
-    40: #bf77c8,
-    50: #b04abd,
-    60: #864381,
-    70: #5c395a,
-    80: #382936,
-    90: #1b151b,
+    "5": $violet-warm-5,
+    "10": $violet-warm-10,
+    "20": $violet-warm-20,
+    "30": $violet-warm-30,
+    "40": $violet-warm-40,
+    "50": $violet-warm-50,
+    "60": $violet-warm-60,
+    "70": $violet-warm-70,
+    "80": $violet-warm-80,
+    "90": $violet-warm-90,
     "vivid": (
-      5: #fef2ff,
-      10: #fbdcff,
-      20: #f4b2ff,
-      30: #ee83ff,
-      40: #d85bef,
-      50: #be32d0,
-      60: #93348c,
-      70: #711e6c,
-      80: #481441,
-      90: false,
+      "5": $violet-warm-vivid-5,
+      "10": $violet-warm-vivid-10,
+      "20": $violet-warm-vivid-20,
+      "30": $violet-warm-vivid-30,
+      "40": $violet-warm-vivid-40,
+      "50": $violet-warm-vivid-50,
+      "60": $violet-warm-vivid-60,
+      "70": $violet-warm-vivid-70,
+      "80": $violet-warm-vivid-80,
+      "90": $violet-warm-vivid-90,
     ),
   ),
 );
