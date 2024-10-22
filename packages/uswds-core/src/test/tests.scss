@@ -654,6 +654,25 @@ $this-function: "is-color-dark()";
   }
 }
 
+$this-function: "get-system-color()";
+@include describe("[function] #{$this-function}") {
+  @include it("It should accept quoted color-value params.") {
+    $test: get-system-color("blue", "60");
+    $expect: #2c608a;
+    @include assert-equal($test, $expect);
+  }
+  @include it("It should accept unquoted color-value params.") {
+    $test: get-system-color("blue", 60);
+    $expect: #2c608a;
+    @include assert-equal($test, $expect);
+  }
+  @include it("It should correctly access vivid color values.") {
+    $test: get-system-color("mint", 50, "vivid");
+    $expect: #008659;
+    @include assert-equal($test, $expect);
+  }
+}
+
 // usa-prose
 @include describe(".usa-prose") {
   @include it("Adds top margin to prose children") {
