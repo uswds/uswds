@@ -79,9 +79,9 @@ variable that is, itself, a list
   @return $output;
 }
 
-@debug "It should accept quoted or unquoted color-value params. Expect: #2c608a";
-@debug get-system-color("blue", 60);
-@debug get-system-color("blue", "60");
+// @debug "It should accept quoted or unquoted color-value params. Expect: #2c608a";
+// @debug get-system-color("blue", 60);
+// @debug get-system-color("blue", "60");
 
-@debug "It should correctly access vivid color values. Expect: #008659";
-@debug get-system-color("mint", 50, "vivid");
+// @debug "It should correctly access vivid color values. Expect: #008659";
+// @debug get-system-color("mint", 50, "vivid");
