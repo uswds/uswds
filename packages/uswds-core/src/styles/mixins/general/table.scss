@@ -343,8 +343,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--striped {
   tbody {
     tr:nth-child(odd) {
-      td,
-      th {
+      td
+      {
         background-color: color($theme-table-stripe-background-color);
         color: $table-stripe-text-color;
         &[data-sort-active] {
