@@ -160,8 +160,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       border-top-width: 0;
     }
     &:nth-child(odd) {
-      td,
-      th {
+      td
+      {
         background-color: inherit;
       }
     }
@@ -327,7 +327,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   tbody th,
   th,
   td {
-    background-color: #fff;
     border-left: 0;
     border-right: 0;
   }
