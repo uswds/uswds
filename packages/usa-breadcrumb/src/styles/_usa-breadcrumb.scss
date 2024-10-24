@@ -185,6 +185,14 @@ $breadcrumb-back-icon-aspect: (
   }
 }
 
+.usa-breadcrumb__link[aria-current="page"] {
+  @include add-link-styles(
+    $theme-text-color,
+    $hover: $theme-text-color,
+    $active: $theme-text-color
+  );
+}
+
 // ---------------------------------
 // Variations
 // ---------------------------------
