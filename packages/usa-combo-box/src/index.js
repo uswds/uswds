@@ -382,40 +382,41 @@ const displayList = (el) => {
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
   const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
-  const optionsComplete = [];
+  let options = [];
   const optionsAlphabetical = [];
   const optionsContains = [];
-  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    const optionEl = selectEl.options[i];
-    const optionId = `${listOptionBaseId}${optionsComplete.length}`;
 
+  const optionList = [...selectEl.options];
+
+  optionList.forEach((option) => {
     if (
-      optionEl.value &&
-      (disableFiltering ||
-        isPristine ||
-        !inputValue ||
-        regex.test(optionEl.text))
+      option.value &&
+      (disableFiltering || isPristine || !inputValue || regex.test(option.text))
     ) {
-      if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = optionId;
-      }
+      const optionId = `${listOptionBaseId}${options.length}`;
 
-      if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
+      if (disableFiltering) {
+        options.push(option);
+      } else {
+        if (option.value.startsWith(inputValue)) {
+          optionsAlphabetical.push(option);
+        } else {
+          optionsContains.push(option);
+        }
+        options = [...optionsAlphabetical, ...optionsContains];
+      }
+      if (disableFiltering && !firstFoundId && regex.test(option.text)) {
         firstFoundId = optionId;
       }
 
-      if (optionEl.value.startsWith(inputValue)) {
-        optionsAlphabetical.push(optionEl);
-      } else {
-        optionsContains.push(optionEl);
+      if (selectEl.value && option.value === selectEl.value) {
+        selectedItemId = optionId;
       }
     }
-  }
+  });
 
-  optionsComplete.push(...optionsAlphabetical, ...optionsContains);
-
-  const numOptions = optionsComplete.length;
-  const optionHtml = optionsComplete.map((option, index) => {
+  const numOptions = options.length;
+  const optionHtml = options.map((option, index) => {
     const optionId = `${listOptionBaseId}${index}`;
     const classes = [LIST_OPTION_CLASS];
     let tabindex = "-1";
@@ -434,7 +435,7 @@ const displayList = (el) => {
 
     const li = document.createElement("li");
 
-    li.setAttribute("aria-setsize", optionsComplete.length);
+    li.setAttribute("aria-setsize", options.length);
     li.setAttribute("aria-posinset", index + 1);
     li.setAttribute("aria-selected", ariaSelected);
     li.setAttribute("id", optionId);
