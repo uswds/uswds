@@ -220,10 +220,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     background-clip: padding-box;
     color: $table-header-text-color;
     font-weight: fw("bold");
-    line-height: line-height(
-      $theme-body-font-family,
-      $theme-input-line-height
-    );
+    line-height: line-height($theme-body-font-family, $theme-input-line-height);
   }
 
   thead td,
