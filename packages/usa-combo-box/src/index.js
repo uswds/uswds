@@ -400,7 +400,7 @@ const displayList = (el) => {
     if (disableFiltering || isPristine) {
       options.push(option);
     } else {
-      if (option.value.startsWith(inputValue)) {
+      if (option.text.toLowerCase().startsWith(inputValue)) {
         optionsAlphabetical.push(option);
       } else {
         optionsContains.push(option);
