@@ -38,6 +38,11 @@ AriaDisabled.args = {
   state: "aria-disabled",
 };
 
+export const Error = Template.bind({});
+Error.args = {
+  state: "error",
+};
+
 export const StateShowcase = ShowcaseTemplate.bind({});
 StateShowcase.argTypes = {
   state: {
