@@ -393,7 +393,6 @@ const displayList = (el) => {
       option.value &&
       (disableFiltering || isPristine || !inputValue || regex.test(option.text))
     ) {
-      const optionId = `${listOptionBaseId}${options.length}`;
 
       if (disableFiltering) {
         options.push(option);
@@ -405,6 +404,9 @@ const displayList = (el) => {
         }
         options = [...optionsAlphabetical, ...optionsContains];
       }
+      
+      const optionId = `${listOptionBaseId}${options.indexOf(option)}`;      
+
       if (disableFiltering && !firstFoundId && regex.test(option.text)) {
         firstFoundId = optionId;
       }
