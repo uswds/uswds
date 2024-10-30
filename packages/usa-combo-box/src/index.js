@@ -385,33 +385,56 @@ const displayList = (el) => {
   let options = [];
   const optionsAlphabetical = [];
   const optionsContains = [];
-
   const optionList = [...selectEl.options];
 
-  optionList.forEach((option) => {
-    if (
-      option.value &&
-      (disableFiltering || isPristine || !inputValue || regex.test(option.text))
-    ) {
-
-      if (disableFiltering) {
-        options.push(option);
+  /**
+   * Builds options array.
+   *
+   * If disableFiltering or a selection has been made: do not filter.
+   * Else filter options and sort by alphabetical matches followed by
+   * options that contain the query.
+   *
+   * @param {HTMLOptionElement} option - Option element from select array
+   */
+  const buildOptionsArray = (option) => {
+    if (disableFiltering || isPristine) {
+      options.push(option);
+    } else {
+      if (option.value.startsWith(inputValue)) {
+        optionsAlphabetical.push(option);
       } else {
-        if (option.value.startsWith(inputValue)) {
-          optionsAlphabetical.push(option);
-        } else {
-          optionsContains.push(option);
-        }
-        options = [...optionsAlphabetical, ...optionsContains];
+        optionsContains.push(option);
       }
-      
-      const optionId = `${listOptionBaseId}${options.indexOf(option)}`;      
+      options = [...optionsAlphabetical, ...optionsContains];
+    }
+  };
 
-      if (disableFiltering && !firstFoundId && regex.test(option.text)) {
+  const inputValueMatches = (option) => regex.test(option.text);
+
+  const isIncludedOption = (option) =>
+    option.value &&
+    (disableFiltering ||
+      isPristine ||
+      !inputValue ||
+      inputValueMatches(option));
+
+  const isFirstMatch = (option) =>
+    disableFiltering && !firstFoundId && inputValueMatches(option);
+
+  const isSelectedMatch = (option) =>
+    selectEl.value && option.value === selectEl.value;
+
+  optionList.forEach((option) => {
+    if (isIncludedOption(option)) {
+      buildOptionsArray(option);
+
+      const optionId = `${listOptionBaseId}${options.indexOf(option)}`;
+
+      if (isFirstMatch(option)) {
         firstFoundId = optionId;
       }
 
-      if (selectEl.value && option.value === selectEl.value) {
+      if (isSelectedMatch(option)) {
         selectedItemId = optionId;
       }
     }
