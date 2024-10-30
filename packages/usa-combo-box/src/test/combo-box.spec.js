@@ -234,13 +234,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.firstChild.dataset.value,
           "tangelo",
-          "should filter items starting with the query alphabetically"
-        )
-        assert.strictEqual (
+          "should filter items starting with the query alphabetically",
+        );
+        assert.strictEqual(
           list.lastChild.dataset.value,
           "rambutan",
-          "should filter items that contain the query, after items that start with the query"
-        )
+          "should filter items that contain the query, after items that start with the query",
+        );
       });
 
       it("should reset input values when an incomplete item is remaining on blur", () => {
