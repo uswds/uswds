@@ -30,7 +30,7 @@
       if (use) {
         for (var i = 0; use.attributes.length > i; i++) {
           var attr = use.attributes[i];
-          "xlink:href" !== attr.name &&
+          "href" !== attr.name &&
             "href" !== attr.name &&
             g.setAttribute(attr.name, attr.value);
         }
