@@ -20,6 +20,11 @@ export default {
       control: { type: "boolean" },
       defaultValue: false,
     },
+    table_footer: {
+      name: "Include table footer",
+      control: { type: "boolean" },
+      defaultValue: false,
+    }
   },
 };
 
@@ -47,6 +52,11 @@ export const Sortable = SortableTemplate.bind({});
 Sortable.args = {
   ...SortableContent,
 };
+Sortable.argTypes = {
+  table_footer: {
+    table: { disable: true }
+  }
+}
 
 export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
   {},
@@ -59,3 +69,11 @@ TestStickyHeaderMultipleRows.argTypes = {
     table: { disable: true },
   },
 };
+
+export const TestTableFooter = Template.bind({});
+TestTableFooter.args = DefaultContent;
+TestTableFooter.argTypes = {
+  table_footer: {
+    defaultValue: true,
+  }
+}

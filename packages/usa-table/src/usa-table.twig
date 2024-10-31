@@ -43,13 +43,15 @@
       {% endfor %}
     {% endfor %}
   </tbody>
+  {% if table_footer %}
     <tfoot>
-    <tr>
-      <th>Test header</th>
-      <th>Test header</th>
-      <th>Test header</th>
-    </tr>
-  </tfoot>
+      <tr>
+        <th>Footer header</th>
+        <td>Footer data</td>
+        <td>Footer data</td>
+      </tr>
+    </tfoot>
+  {% endif %}
 </table>
 
 {% if scrollable %}
