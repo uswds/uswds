@@ -198,7 +198,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
         $theme-h4-font-size,
         $theme-heading-line-height
       );
-      border-top: units(0.5) solid color($theme-table-border-color);
       background-color: color($theme-table-header-background-color);
       color: $table-header-text-color;
       font-weight: fw("bold");
@@ -229,14 +228,10 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     );
   }
 
-  thead td,
+  td,
   th {
     background-color: color($theme-table-header-background-color);
     color: $table-header-text-color;
-  }
-
-  th,
-  td {
     border: 1px solid color($theme-table-border-color);
     padding: units(1) units(2);
   }
