@@ -198,6 +198,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
         $theme-h4-font-size,
         $theme-heading-line-height
       );
+      border-top: units(0.5) solid color($theme-table-border-color);
       background-color: color($theme-table-header-background-color);
       color: $table-header-text-color;
       font-weight: fw("bold");
@@ -205,11 +206,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       &:before {
         display: none;
       }
-    }
-    td:last-child,
-    th:last-child {
-      border-top: units(0.5) solid color($theme-table-border-color);
-  
     }
   }
 }
@@ -304,7 +300,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--borderless {
   th {
     background-color: color($table-background-color);
-    border-top: 0;
+    border-top: 1px solid color($theme-table-border-color);
     color: color($table-text-color);
 
     &[aria-sort] {
