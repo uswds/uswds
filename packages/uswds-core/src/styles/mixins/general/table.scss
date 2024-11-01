@@ -190,9 +190,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin table-stacked-header-styles {
   tr {
     td:first-child,
-    th:first-child,
-    td:last-child,
-    th:last-child {
+    th:first-child {
       @include typeset(
         $theme-body-font-family,
         $theme-h4-font-size,
@@ -221,17 +219,19 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   th {
     background-clip: padding-box;
     color: $table-header-text-color;
-    font-weight: fw("bold");
-    line-height: line-height(
-      $theme-body-font-family,
-      $theme-input-line-height
-    );
+    line-height: line-height($theme-body-font-family, $theme-input-line-height);
   }
 
-  td,
+  thead td,
+  tfoot td,
   th {
     background-color: color($theme-table-header-background-color);
     color: $table-header-text-color;
+    font-weight: fw("bold");
+  }
+
+  th,
+  td {
     border: 1px solid color($theme-table-border-color);
     padding: units(1) units(2);
   }
@@ -293,8 +293,13 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 }
 
 @mixin usa-table--borderless {
-  th {
+  th,
+  thead td,
+  tfoot td {
     background-color: color($table-background-color);
+  }
+
+  th {
     border-top: 1px solid color($theme-table-border-color);
     color: color($table-text-color);
 
@@ -365,9 +370,12 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     }
   }
 
-  tfoot th {
-    border-top: 1px solid color($theme-table-border-color);
-    border-bottom: none;
+  tfoot {
+    td,
+    th {
+      border-top: 1px solid color($theme-table-border-color);
+      border-bottom: none;
+    }
   }
   
   tbody tr:last-child {
