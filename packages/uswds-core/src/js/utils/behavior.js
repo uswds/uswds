@@ -57,8 +57,8 @@
  * @return {Behavior} Component initializer.
  */
 module.exports = (events, props) => {
-  // Normalize event handlers to to an array of arguments to be passed to either `addEventListener`
-  // or `removeEventListener` during component initialization.
+  // Normalize event handlers to an array of arguments to be passed to either `addEventListener` or
+  // `removeEventListener` during component initialization.
   const listeners = Object.entries(events).flatMap(([eventTypes, handlers]) =>
     // Each event handler can be defined for one or more space-separated event names.
     eventTypes.split(" ").map(
