@@ -221,10 +221,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   th {
     background-clip: padding-box;
     color: $table-header-text-color;
-    line-height: line-height(
-      $theme-body-font-family,
-      $theme-input-line-height
-    );
+    line-height: line-height($theme-body-font-family, $theme-input-line-height);
   }
 
   thead td,
@@ -375,10 +372,12 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     }
   }
 
-  tfoot th,
-  tfoot td {
-    border-top: 1px solid color($theme-table-border-color);
-    border-bottom: none;
+  tfoot {
+    td,
+    th {
+      border-top: 1px solid color($theme-table-border-color);
+      border-bottom: none;
+    }
   }
 
   tbody tr:last-child {

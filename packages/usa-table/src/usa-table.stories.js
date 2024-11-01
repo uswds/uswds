@@ -24,7 +24,7 @@ export default {
       name: "Include table footer",
       control: { type: "boolean" },
       defaultValue: false,
-    }
+    },
   },
 };
 
@@ -54,9 +54,9 @@ Sortable.args = {
 };
 Sortable.argTypes = {
   table_footer: {
-    table: { disable: true }
-  }
-}
+    table: { disable: true },
+  },
+};
 
 export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
   {},
@@ -70,5 +70,5 @@ TestStickyHeaderMultipleRows.argTypes = {
   },
   table_footer: {
     table: { disable: true },
-  }
+  },
 };
