@@ -68,12 +68,7 @@ TestStickyHeaderMultipleRows.argTypes = {
   scrollable: {
     table: { disable: true },
   },
-};
-
-export const TestTableFooter = Template.bind({});
-TestTableFooter.args = DefaultContent;
-TestTableFooter.argTypes = {
   table_footer: {
-    defaultValue: true,
+    table: { disable: true },
   }
-}
+};
