@@ -313,7 +313,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       fill: color(next-token($table-text-color, "darker"));
     }
   }
-  /* stylelint-disable selector-class-pattern */
+  /* stylelint-enable selector-class-pattern */
   th,
   td {
     border-left: 0;
