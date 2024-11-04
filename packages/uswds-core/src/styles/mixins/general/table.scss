@@ -216,15 +216,11 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   margin: units(2.5) 0;
   text-align: left;
 
-  th {
-    background-clip: padding-box;
-    color: $table-header-text-color;
-    line-height: line-height($theme-body-font-family, $theme-input-line-height);
-  }
-
   thead td,
   tfoot td,
   th {
+    background-clip: padding-box;
+    line-height: line-height($theme-body-font-family, $theme-input-line-height);
     background-color: color($theme-table-header-background-color);
     color: $table-header-text-color;
     font-weight: fw("bold");
@@ -377,7 +373,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       border-bottom: none;
     }
   }
-  
+
   tbody tr:last-child {
     td,
     th {
