@@ -507,12 +507,14 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
-      const errorMessageText = fileInputEl.dataset.errormessage || "Error: This is not a valid file type.";
+      const errorMessageText =
+        fileInputEl.dataset.errormessage ||
+        "Error: This is not a valid file type.";
 
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent = errorMessageText
+      errorMessage.textContent = errorMessageText;
 
       fileInputEl.setAttribute(
         "aria-label",
