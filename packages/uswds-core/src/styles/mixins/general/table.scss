@@ -160,7 +160,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
       border-top-width: 0;
     }
     &:nth-child(odd) {
-      td {
+      td,
+      th {
         background-color: inherit;
       }
     }
@@ -296,7 +297,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   th {
-    border-top: 1px solid color($theme-table-border-color);
+    border-top: 0;
     color: color($table-text-color);
 
     &[aria-sort] {
