@@ -144,6 +144,10 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     display: none;
   }
 
+  th {
+    background: color($table-background-color);
+  }
+
   th,
   td {
     border-bottom-width: 0;
