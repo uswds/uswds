@@ -222,7 +222,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   text-align: left;
 
   thead td,
-  tfoot td,
   th {
     background-clip: padding-box;
     line-height: line-height($theme-body-font-family, $theme-input-line-height);
