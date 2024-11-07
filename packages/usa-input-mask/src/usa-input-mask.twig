@@ -1,5 +1,4 @@
 <form class="usa-form">
-<div class="usa-form-group">
   <label class="usa-label" for="{{ id }}">{{ label }}</label>
   <div class="usa-hint" id="{{ id }}Hint">{{ hint }}</div>
   <input 
@@ -15,6 +14,6 @@
       {% if disabled_state == 'disabled' %} disabled {%- endif %}
       {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
-  <span id="inputMaskError" class="usa-error-message usa-hide-error" role="alert">{{ errormessage }}</span>
+  <span id="{{ id }}Error" class="usa-error-message usa-hide-error" role="alert">{{ errormessage }}</span>
   </div>
 </form>

@@ -12,6 +12,19 @@ const PLACEHOLDER = "placeholder";
 const maskedNumber = "_#dDmMyY9";
 const maskedLetter = "A";
 
+const getMaskInputContext = (el) => {
+  if (!el) {
+    throw new Error(`Element is missing outer ${el}`);
+  }
+
+  const inputId = el.id;
+  const errorId = inputId + 'Error';
+
+  return {
+    errorId
+  };
+};
+
 // replaces each masked input with a shell containing the input and it's mask.
 const createMaskedInputShell = (input) => {
   const placeholder = input.getAttribute(`${PLACEHOLDER}`);
@@ -70,6 +83,7 @@ const handleCurrentValue = (el) => {
     const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
+    const { errorId }  = getMaskInputContext(el);
 
     if (
       (matchesNumber && isInt) ||
@@ -77,7 +91,7 @@ const handleCurrentValue = (el) => {
     ) {
       newValue += strippedVal[charIndex];
       charIndex += 1;
-        document.getElementById('inputMaskError').className = "usa-error-message usa-hide-error";
+        document.getElementById(errorId).className = "usa-error-message usa-hide-error";
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
@@ -86,10 +100,10 @@ const handleCurrentValue = (el) => {
       //might need to hide and unhide to alert user again for screen readers later on
       // document.getElementById('inputMaskError').className = "hide-error-message";
       
-      document.getElementById('inputMaskError').className = "usa-error-message";
+      document.getElementById(errorId).className = "usa-error-message";
       return newValue;
     } else {
-      document.getElementById('inputMaskError').className = "usa-error-message usa-hide-error";
+      document.getElementById(errorId).className = "usa-error-message usa-hide-error";
       newValue += placeholder[i];
     }
     // break if no characters left and the pattern is non-special character
