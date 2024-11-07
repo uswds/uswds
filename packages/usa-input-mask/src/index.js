@@ -77,13 +77,19 @@ const handleCurrentValue = (el) => {
     ) {
       newValue += strippedVal[charIndex];
       charIndex += 1;
+        document.getElementById('inputMaskError').className = "usa-error-message usa-hide-error";
     } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
+      //might need to hide and unhide to alert user again for screen readers later on
+      // document.getElementById('inputMaskError').className = "hide-error-message";
+      
+      document.getElementById('inputMaskError').className = "usa-error-message";
       return newValue;
     } else {
+      document.getElementById('inputMaskError').className = "usa-error-message usa-hide-error";
       newValue += placeholder[i];
     }
     // break if no characters left and the pattern is non-special character

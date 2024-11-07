@@ -1,4 +1,5 @@
 <form class="usa-form">
+<div class="usa-form-group">
   <label class="usa-label" for="{{ id }}">{{ label }}</label>
   <div class="usa-hint" id="{{ id }}Hint">{{ hint }}</div>
   <input 
@@ -9,9 +10,11 @@
       placeholder="{{ placeholder }}" 
       pattern="{{ pattern }}" 
       class="usa-input usa-masked" 
-      aria-describedby="{{ id }}Hint"
+      aria-describedby="{{ id }}Error"
       {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
       {% if disabled_state == 'disabled' %} disabled {%- endif %}
       {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
+  <span id="{{ id }}Error" class="usa-error-message usa-hide-error" role="alert">{{ errormessage }}</span>
+  </div>
 </form>
