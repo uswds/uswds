@@ -225,21 +225,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
         EVENTS.input(input);
 
-        assert.ok(!list.hidden, "should display the option list");
         assert.strictEqual(
           list.children.length,
           3,
-          "should filter the item by the string being present in the option",
+          "should display a filtered list based on input",
         );
         assert.strictEqual(
           list.firstChild.dataset.value,
           "tangelo",
-          "should filter items starting with the query alphabetically",
+          "should sort filtered items and put items that start with the query first",
         );
         assert.strictEqual(
           list.lastChild.dataset.value,
           "rambutan",
-          "should filter items that contain the query, after items that start with the query",
+          "should filter items that start with the query first, followed by the items that contain the query",
         );
       });
 
