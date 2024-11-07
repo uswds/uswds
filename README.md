@@ -275,7 +275,6 @@ The design system requires autoprefixing to work properly. Don't add vendor pref
 ```
 > 2%
 last 2 versions
-IE 11
 not dead
 ```
 
