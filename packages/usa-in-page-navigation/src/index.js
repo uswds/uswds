@@ -1,4 +1,3 @@
-const once = require("receptor/once");
 const keymap = require("receptor/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
@@ -332,9 +331,10 @@ const handleEnterFromLink = (event) => {
     target.focus();
     target.addEventListener(
       "blur",
-      once(() => {
+      () => {
         target.setAttribute("tabindex", -1);
-      }),
+      },
+      { once: true },
     );
   } else {
     // throw an error?
