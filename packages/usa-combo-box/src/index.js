@@ -383,49 +383,87 @@ const displayList = (el) => {
   const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
   let options = [];
-  const optionsAlphabetical = [];
+  const optionsStartsWith = [];
   const optionsContains = [];
   const optionList = [...selectEl.options];
 
   /**
-   * Builds options array.
+   * Builds and sorts options array.
    *
-   * If disableFiltering or a selection has been made: do not filter.
-   * Else filter options and sort by alphabetical matches followed by
+   * Option param is passed through regex test before passing into this function.
+   * When filtering is enabled, the array will be sorted by options that start with the query, followed by
    * options that contain the query.
+   *
+   * These array items will populate the list that is displayed to the user after a search query is entered.
+   * Array attributes are also used to set option IDs and aria-setsize attributes.
    *
    * @param {HTMLOptionElement} option - Option element from select array
    */
   const buildOptionsArray = (option) => {
     if (disableFiltering || isPristine) {
       options.push(option);
-    } else {
-      if (option.text.toLowerCase().startsWith(inputValue)) {
-        optionsAlphabetical.push(option);
-      } else {
-        optionsContains.push(option);
-      }
-      options = [...optionsAlphabetical, ...optionsContains];
+      return;
     }
+
+    const matchStartsWith = option.text.toLowerCase().startsWith(inputValue);
+
+    if (matchStartsWith) {
+      optionsStartsWith.push(option);
+    } else {
+      optionsContains.push(option);
+    }
+
+    options = [...optionsStartsWith, ...optionsContains];
   };
 
-  const inputValueMatches = (option) => regex.test(option.text);
+  /**
+   * Compares option text to query using generated regex filter.
+   * 
+   * @param {HTMLOptionElement} option 
+   * @returns {boolean} - True when option text matches user input query.
+   */
+  const optionMatchesQuery = (option) => regex.test(option.text);
 
-  const isIncludedOption = (option) =>
+  /**
+   * Logic check to determine if options array needs to be updated.
+   * 
+   * @param {HTMLOptionElement} option 
+   * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection, 
+   * there is no inputValue, or if option matches user query
+   * 
+   */
+  const arrayNeedsUpdate = (option) =>
     option.value &&
     (disableFiltering ||
       isPristine ||
       !inputValue ||
-      inputValueMatches(option));
+      optionMatchesQuery(option));
 
+  /**
+   * Checks if firstFoundId should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @return {boolean} - Returns true if filtering is disabled, no firstFoundId is assigned, and the option matches the query.
+   */
   const isFirstMatch = (option) =>
-    disableFiltering && !firstFoundId && inputValueMatches(option);
+    disableFiltering && !firstFoundId && optionMatchesQuery(option);
 
-  const isSelectedMatch = (option) =>
+  /**
+   * Checks if isCurrentSelection should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - Returns true if option.value matches selectEl.value.
+   */
+  const isCurrentSelection = (option) =>
     selectEl.value && option.value === selectEl.value;
 
+  /**
+   * Iterate through select items and test if it should be included in the display list.
+   *
+   * If so, add to options array, assign ID, firstFoundId, and selectItemId if necessary.
+   */
   optionList.forEach((option) => {
-    if (isIncludedOption(option)) {
+    if (arrayNeedsUpdate(option)) {
       buildOptionsArray(option);
 
       const optionId = `${listOptionBaseId}${options.indexOf(option)}`;
@@ -434,7 +472,7 @@ const displayList = (el) => {
         firstFoundId = optionId;
       }
 
-      if (isSelectedMatch(option)) {
+      if (isCurrentSelection(option)) {
         selectedItemId = optionId;
       }
     }
