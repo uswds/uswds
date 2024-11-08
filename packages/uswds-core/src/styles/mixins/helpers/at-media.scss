@@ -5,9 +5,11 @@
 
 // Mobile-first media query helper
 
+$our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+$custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
+
 @mixin at-media($bp) {
   $quoted-bp: smart-quote($bp);
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @if $quoted-bp == "none" {
     @content;
   } @else if map.has-key($our-breakpoints, $quoted-bp) {
@@ -19,6 +21,19 @@
     @media all and (min-width: #{$bp}) {
       @content;
     }
+  } @else if map.has-key($custom-breakpoints, $quoted-bp) {
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
+      @if $theme-respect-user-font-size {
+        $bp: px-to-user-em(map.get($custom-breakpoints, $quoted-bp));
+      } @else {
+        $bp: map.get($custom-breakpoints, $quoted-bp);
+      }
+      @media all and (min-width: #{$bp}) {
+        @content;
+      }
+    } @else {
+      @warn 'Custom breakpoint `#{$quoted-bp}` was defined with the unit #{unit(map.get($custom-breakpoints, $quoted-bp))} and can not be generated. Values for `$theme-utility-breakpoints-custom` must be set with `px` units.';
+    }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}';
   }
@@ -27,17 +42,29 @@
 // Max-width media query
 @mixin at-media-max($bp) {
   $quoted-bp: smart-quote($bp);
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @if map-has-key($our-breakpoints, $quoted-bp) {
     @if $theme-respect-user-font-size {
       $bp: rem-to-user-em(map.get($our-breakpoints, $quoted-bp)) - 0.01em;
     } @else {
       $bp: rem-to-px(map.get($our-breakpoints, $quoted-bp)) - 1px;
     }
+    @media all and (max-width: #{$bp}) {
+      @content;
+    }
+  } @else if map.has-key($custom-breakpoints, $quoted-bp) {
+    @if unit(map.get($custom-breakpoints, $quoted-bp)) == "px" {
+      @if $theme-respect-user-font-size {
+        $bp: px-to-user-em(map.get($custom-breakpoints, $quoted-bp)) - 0.01em;
+      } @else {
+        $bp: map.get($custom-breakpoints, $quoted-bp) - 1px;
+      }
+      @media all and (max-width: #{$bp}) {
+        @content;
+      }
+    } @else {
+      @warn 'Custom breakpoint `#{$quoted-bp}` has the unit #{unit(map.get($custom-breakpoints, $quoted-bp))} and can not be generated. Custom breakpoints must be set in px.';
+    }
   } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
-  }
-  @media all and (max-width: #{$bp}) {
-    @content;
   }
 }

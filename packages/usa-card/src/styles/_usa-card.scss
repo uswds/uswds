@@ -57,7 +57,7 @@
 .usa-card__container {
   @include border-box-sizing;
   @include set-text-and-bg("white");
-  @include typeset;
+  @include typeset($theme-card-font-family);
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-display("flex");
   @include u-height("full");
