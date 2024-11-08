@@ -13,15 +13,18 @@ const maskedNumber = "_#dDmMyY9";
 const maskedLetter = "A";
 
 const getMaskInputContext = (el) => {
-  if (!el) {
-    throw new Error(`Element is missing outer ${el}`);
-  }
+  const inputEl = el;
 
-  const inputId = el.id;
+  if (!inputEl) {
+    throw new Error(`Element is missing outer ${inputEl}`);
+  }
+  const inputId = inputEl.id;
   const errorId = inputId + 'Error';
 
   return {
-    errorId
+    inputEl,
+    errorId,
+    inputId
   };
 };
 
@@ -92,7 +95,7 @@ const handleCurrentValue = (el) => {
       newValue += strippedVal[charIndex];
       charIndex += 1;
         document.getElementById(errorId).className = "usa-error-message usa-hide-error";
-    } else if (
+      } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
@@ -101,6 +104,7 @@ const handleCurrentValue = (el) => {
       // document.getElementById('inputMaskError').className = "hide-error-message";
       
       document.getElementById(errorId).className = "usa-error-message";
+      document.getElementById(errorId).textContent = "New error next!";
       return newValue;
     } else {
       document.getElementById(errorId).className = "usa-error-message usa-hide-error";
