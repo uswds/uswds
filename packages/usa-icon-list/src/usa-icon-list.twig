@@ -5,16 +5,18 @@
 ] %}
 
 <ul class="{{ list_classes | join(' ') | trim }}">
-  {% for item in items %}
-  <li class="usa-icon-list__item">
-    <div class="usa-icon-list__icon {% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
-      <svg class="usa-icon{% if item.icon.utilities %} {{ item.icon.utilities }}{% endif %}" aria-hidden="true" role="img" {% if item.icon.alt_text %} aria-label={{ item.icon.alt_text }}{% endif %} >
+  {% for key, item in items %}
+    <li class="usa-icon-list__item">
+      <div class="usa-icon-list__icon {% if item.icon.color %} text-{{ item.icon.color }}{% endif %}">
+        <svg class="usa-icon{% if item.icon.utilities %} {{ item.icon.utilities }}{% endif %}"{% if item.icon.title %} aria-labelledby="usa-icon__title_{{ key }}"{% endif %} aria-hidden="{% if item.icon.title %}false{% else %}true{% endif %}" role="img">
+        {% if item.icon.title %}<title id="usa-icon__title_{{ key }}">{{ item.icon.title }}</title>{% endif %}
+        
         <use xlink:href="{{ img_path }}/sprite.svg#{{ item.icon.name }}"></use>
-      </svg>
-    </div>
-    <div class="usa-icon-list__content">
-      {{ item.content }}
-    </div>
-  </li>
+        </svg>
+      </div>
+      <div class="usa-icon-list__content">
+        {{ item.content }}
+      </div>
+    </li>
   {% endfor %}
 </ul>

@@ -4,7 +4,7 @@
       "icon": {
         "name": "check_circle",
         "color": "green",
-        "alt_text": "Yes"
+        "title": "Yes"
       },
       "content": "Wash your hands for 20 seconds with soap"
     },
@@ -12,7 +12,7 @@
       "icon": {
         "name": "check_circle",
         "color": "green",
-        "alt_text": "Yes"
+        "title": "Yes"
       },
       "content": "Stay six feet away from others"
     },
@@ -20,7 +20,7 @@
       "icon": {
         "name": "cancel",
         "color": "red",
-        "alt_text": "No"
+        "title": "No"
       },
       "content": "Avoid large gatherings"
     }
