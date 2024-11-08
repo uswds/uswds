@@ -30,6 +30,10 @@
   @include at-media("tablet") {
     display: block;
   }
+
+  &:not(:has(*)) {
+    display: none;
+  }
 }
 
 .usa-in-page-nav__nav {
