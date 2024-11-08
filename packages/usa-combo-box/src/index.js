@@ -418,19 +418,19 @@ const displayList = (el) => {
 
   /**
    * Compares option text to query using generated regex filter.
-   * 
-   * @param {HTMLOptionElement} option 
+   *
+   * @param {HTMLOptionElement} option
    * @returns {boolean} - True when option text matches user input query.
    */
   const optionMatchesQuery = (option) => regex.test(option.text);
 
   /**
    * Logic check to determine if options array needs to be updated.
-   * 
-   * @param {HTMLOptionElement} option 
-   * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection, 
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection,
    * there is no inputValue, or if option matches user query
-   * 
+   *
    */
   const arrayNeedsUpdate = (option) =>
     option.value &&
