@@ -47,7 +47,7 @@
 .usa-radio__label {
   @extend %block-input-general;
   cursor: pointer;
-  display: inherit;
+  display: inline-block;
   font-weight: font-weight("normal");
   margin-top: units(1.5);
   padding-left: units($input-select-margin-right) +
