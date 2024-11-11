@@ -49,6 +49,9 @@ $lang-selector-icons: (
       font-size: font-size($theme-header-font-family, "3xs");
       height: units(4);
       min-width: units($theme-button-small-width);
+      &.usa-button--unstyled {
+        margin-top: units(0.5);
+      }
     }
   }
 }
@@ -92,20 +95,12 @@ $lang-selector-icons: (
 
 .usa-nav-container {
   .usa-language-container {
-    align-self: center;
-    margin-left: units(0);
-    position: absolute;
-    right: units(10);
-    top: units(2);
-
-    @include at-media($theme-header-min-width) {
-      align-self: flex-end;
-      margin-left: units(1.5);
-      margin-bottom: units(1.5);
-      position: relative;
-      right: inherit;
-      top: units(-2px);
-    }
+    align-self: flex-end;
+    margin-left: units(1.5);
+    margin-bottom: units(1.5);
+    position: relative;
+    right: inherit;
+    top: units(-2px);
   }
 }
 
