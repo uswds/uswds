@@ -48,7 +48,6 @@ $lang-selector-icons: (
       @include u-padding-y(0);
       font-size: font-size($theme-header-font-family, "3xs");
       height: units(4);
-      margin-top: 0.3rem;
       min-width: units($theme-button-small-width);
     }
   }
@@ -102,7 +101,7 @@ $lang-selector-icons: (
     @include at-media($theme-header-min-width) {
       align-self: flex-end;
       margin-left: units(1.5);
-      margin-bottom: units(1);
+      margin-bottom: units(1.5);
       position: relative;
       right: inherit;
       top: units(-2px);
