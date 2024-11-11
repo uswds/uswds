@@ -1,5 +1,41 @@
 @use "uswds-core" as *;
 
+$lang-selector-link-color: color("white");
+$lang-selector-arrow-icon-size: 2;
+$lang-selector-globe-large-icon-size: 2.5;
+
+$lang-selector-icons: (
+  "default": (
+    "color": "white",
+    "svg-height": 24,
+    "svg-width": 24,
+  ),
+  "caret": (
+    "height": units($lang-selector-arrow-icon-size),
+  ),
+  "globe": (
+    "height": units($lang-selector-arrow-icon-size),
+    "name": "language",
+  ),
+  "globe-large": (
+    "height": units($lang-selector-globe-large-icon-size),
+    "name": "language",
+  ),
+  "expand": (
+    "height": units($lang-selector-arrow-icon-size),
+    "name": "expand_more",
+  ),
+  "collapse": (
+    "height": units($lang-selector-arrow-icon-size),
+    "name": "expand_less",
+  )
+);
+
+@function lang-selector-icon($icon-name) {
+  $icon-config: map-merge(map-get($lang-selector-icons, "default"), map-get($lang-selector-icons, $icon-name));
+  @return $icon-config;
+}
+
 .usa-language {
   @include u-flex("row", "align-center", "justify-end");
   display: flex;
@@ -21,6 +57,38 @@
 .usa-language-container {
   @include u-flex("align-center", "justify-end");
   display: flex;
+  .usa-button {
+    span {
+      display: flex; 
+      align-items: center; 
+      @include place-icon(lang-selector-icon("globe-large"), "before");
+      &::before {
+        margin-right: units(1);
+      }
+    }
+  }
+}
+
+.usa-button.usa-language__link {
+  margin-right: units(0);
+  span {
+    display: flex; 
+    align-items: center; 
+    @include place-icon(lang-selector-icon("globe"), "before");
+    &::before {
+      margin-right: units(1);
+    }
+    @include place-icon(lang-selector-icon("expand"), "after");
+    &::after {
+      margin-left: units(1);
+    }
+  }
+  &[aria-expanded="true"] span {
+    @include place-icon(lang-selector-icon("collapse"), "after");
+    &::after {
+      margin-left: units(1);
+    }
+  }
 }
 
 .usa-nav-container {
@@ -40,10 +108,6 @@
       top: units(-2px);
     }
   }
-}
-
-.usa-language__link {
-  margin-right: units(0);
 }
 
 .usa-language__primary {

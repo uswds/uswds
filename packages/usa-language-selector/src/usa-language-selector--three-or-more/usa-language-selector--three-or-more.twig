@@ -2,7 +2,7 @@
   <ul class="usa-language__primary usa-accordion">
     <li class="usa-language__primary-item">
       <button type="button" class="usa-button usa-language__link{{ focus ? " usa-focus" }}" {% if role %} role="{{ role }}" {% endif %} aria-expanded="false" aria-controls="language-options">
-        {{ label | default('Languages') }}
+        <span class="flex-align-center">{{ label | default('Languages') }}</span>
       </button>
       {% if languages %}
         <ul id="language-options" class="usa-language__submenu" hidden="true">
