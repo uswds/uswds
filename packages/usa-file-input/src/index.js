@@ -458,6 +458,8 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
  * @param {HTMLDivElement} dropTarget - The drag and drop target area.
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
+  const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
+  const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
   const acceptedFilesAttr = fileInputEl.getAttribute("accept");
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
@@ -515,11 +517,9 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.textContent = errorMessageText;
+      statusElement.setAttribute("aria-role", "alert");
+      statusElement.textContent = `Screen reader status ${errorMessageText}`;
 
-      fileInputEl.setAttribute(
-        "aria-label",
-        `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`,
-      );
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
