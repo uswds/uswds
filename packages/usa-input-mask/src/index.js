@@ -18,13 +18,23 @@ const getMaskInputContext = (el) => {
   if (!inputEl) {
     throw new Error(`Element is missing outer ${inputEl}`);
   }
+
   const inputId = inputEl.id;
   const errorId = inputId + 'Error';
+  // const errorMsgAlphabetical = inputEl.data-errorMsgAlpha;
+  // const errorMsgNumerical = inputEl.data-errorMsgNum;
+  // const errorMsgAlphanumeric = inputEl.data-errorMsgAlphaNum;
+  const errorMsgAlphabetical = "Please enter a letter here";
+  const errorMsgNumerical = "Please enter a number here";
+  const errorMsgAlphanumeric = "Please enter a number or letter here";
 
   return {
     inputEl,
     errorId,
-    inputId
+    inputId,
+    errorMsgAlphabetical,
+    errorMsgNumerical,
+    errorMsgAlphanumeric,
   };
 };
 
@@ -87,24 +97,56 @@ const handleCurrentValue = (el) => {
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
     const { errorId }  = getMaskInputContext(el);
+    const { errorMsgAlphabetical, errorMsgNumerical, errorMsgAlphanumeric }  = getMaskInputContext(el);
+    let errorMsg;
 
+    // if (matchesNumber) {
+    //   errorMsg = errorMsgNumerical;
+    // } else if (matchesletter) {
+    //   erorMsg = errorMsgAlphabetical
+    // } else {
+    //   errorMsg = "Please enter an accepted value here"
+    // }
+
+    // document.getElementById(errorId).textContent = errorMsg;
+
+    //checking if not a special character?
     if (
-      (matchesNumber && isInt) ||
-      (isCharsetPresent && matchesLetter && isLet)
+      matchesNumber && isInt
     ) {
       newValue += strippedVal[charIndex];
       charIndex += 1;
+
+        //check 
         document.getElementById(errorId).className = "usa-error-message usa-hide-error";
+        //maybe get mask requirement by checking the pattern for this index?
       } else if (
+        isCharsetPresent && matchesLetter && isLet
+      ) {
+        newValue += strippedVal[charIndex];
+        charIndex += 1;
+  
+        document.getElementById(errorId).className = "usa-error-message usa-hide-error";
+        } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
       //might need to hide and unhide to alert user again for screen readers later on
       // document.getElementById('inputMaskError').className = "hide-error-message";
-      
+
+      // set the error message based on the mask requirement
+      if (!isCharsetPresent && !isInt && matchesNumber) {
+        errorMsg = errorMsgNumerical;
+      } else if (isCharsetPresent && ((matchesLetter && !isLet))) {
+        errorMsg = errorMsgAlphabetical;
+      } else if (isCharsetPresent && (matchesNumber && !isInt)) {
+        errorMsg = errorMsgNumerical;
+      }
+      document.getElementById(errorId).textContent = errorMsg;
+
+      //add class to show error message
       document.getElementById(errorId).className = "usa-error-message";
-      document.getElementById(errorId).textContent = "New error next!";
       return newValue;
     } else {
       document.getElementById(errorId).className = "usa-error-message usa-hide-error";
@@ -118,6 +160,10 @@ const handleCurrentValue = (el) => {
 
   return newValue;
 };
+
+const getMaskRequirement = (pattern, index) => {
+
+}
 
 const handleValueChange = (el) => {
   const inputEl = el;

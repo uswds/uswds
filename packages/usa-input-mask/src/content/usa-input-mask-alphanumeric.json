@@ -7,5 +7,8 @@
   "placeholder": "___ ___",
   "pattern": "\\w\\d\\w \\d\\w\\d",
   "datacharset": "A#A #A#",
-  "errormessage": "Helpful error message Alphanumeric"
+  "errormessage": "Helpful error message Alphanumeric",
+  "dataErrorAlphabetical": "Please enter a letter here",
+  "dataErrorNumerical": "Please enter a number here",
+  "dataErrorAlphanumeric": "Please enter a letter or number here"
 }
