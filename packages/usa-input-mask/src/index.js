@@ -88,6 +88,8 @@ const handleCurrentValue = (el) => {
   let newValue = "";
   let i;
   let charIndex;
+  const { errorId } = getMaskInputContext(el);
+  const { errorMsgAlphabetical, errorMsgNumerical, errorMsgAlphanumeric } = getMaskInputContext(el);
 
   const strippedVal = strippedValue(isCharsetPresent, value);
 
@@ -96,60 +98,24 @@ const handleCurrentValue = (el) => {
     const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
-    const { errorId }  = getMaskInputContext(el);
-    const { errorMsgAlphabetical, errorMsgNumerical, errorMsgAlphanumeric }  = getMaskInputContext(el);
-    let errorMsg;
 
-    // if (matchesNumber) {
-    //   errorMsg = errorMsgNumerical;
-    // } else if (matchesletter) {
-    //   erorMsg = errorMsgAlphabetical
-    // } else {
-    //   errorMsg = "Please enter an accepted value here"
-    // }
-
-    // document.getElementById(errorId).textContent = errorMsg;
-
-    //checking if not a special character?
     if (
       matchesNumber && isInt
     ) {
       newValue += strippedVal[charIndex];
       charIndex += 1;
-
-        //check 
-        document.getElementById(errorId).className = "usa-error-message usa-hide-error";
-        //maybe get mask requirement by checking the pattern for this index?
-      } else if (
-        isCharsetPresent && matchesLetter && isLet
-      ) {
-        newValue += strippedVal[charIndex];
-        charIndex += 1;
-  
-        document.getElementById(errorId).className = "usa-error-message usa-hide-error";
-        } else if (
+    } else if (
+      isCharsetPresent && matchesLetter && isLet
+    ) {
+      newValue += strippedVal[charIndex];
+      charIndex += 1;
+    } else if (
       (!isCharsetPresent && !isInt && matchesNumber) ||
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
-      //might need to hide and unhide to alert user again for screen readers later on
-      // document.getElementById('inputMaskError').className = "hide-error-message";
-
-      // set the error message based on the mask requirement
-      if (!isCharsetPresent && !isInt && matchesNumber) {
-        errorMsg = errorMsgNumerical;
-      } else if (isCharsetPresent && ((matchesLetter && !isLet))) {
-        errorMsg = errorMsgAlphabetical;
-      } else if (isCharsetPresent && (matchesNumber && !isInt)) {
-        errorMsg = errorMsgNumerical;
-      }
-      document.getElementById(errorId).textContent = errorMsg;
-
-      //add class to show error message
-      document.getElementById(errorId).className = "usa-error-message";
       return newValue;
     } else {
-      document.getElementById(errorId).className = "usa-error-message usa-hide-error";
       newValue += placeholder[i];
     }
     // break if no characters left and the pattern is non-special character
@@ -157,24 +123,38 @@ const handleCurrentValue = (el) => {
       break;
     }
   }
-
   return newValue;
 };
-
-const getMaskRequirement = (pattern, index) => {
-
-}
 
 const handleValueChange = (el) => {
   const inputEl = el;
   const id = inputEl.getAttribute("id");
-  inputEl.value = handleCurrentValue(inputEl);
+  const { errorId } = getMaskInputContext(el);
+  const previousValue = inputEl.value;
+  const currentValue = handleCurrentValue(inputEl);
+  inputEl.value = currentValue;
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
+
+  handleErrorState(previousValue, currentValue, errorId);;
 };
+
+const handleErrorState = (previousValue, newValue, errorId) => {
+  //add if keypress was backspace, hide error message
+  if (previousValue.length <= newValue.length) {
+    console.log('value has been updates, hide any error messages')
+    document.getElementById(errorId).className = "usa-error-message usa-hide-error";
+  } else if (previousValue.length >= newValue.length) {
+    console.log('previous value and new value do not match, trigger error')
+    document.getElementById(errorId).className = "usa-error-message";
+  }
+
+  //get mask input expectation to handle error message text
+  // document.getElementById(errorId).textContent = "Error message here";
+}
 
 const inputMaskEvents = {
   keyup: {
