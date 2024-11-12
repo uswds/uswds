@@ -238,7 +238,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.lastChild.dataset.value,
           "rambutan",
-          "should filter items that start with the query first, followed by the items that contain the query",
+          "should sort filtered items and put items that contain the query last",
         );
       });
 

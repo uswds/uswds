@@ -393,6 +393,7 @@ const displayList = (el) => {
    * Option param is passed through regex test before passing into this function.
    * When filtering is enabled, the array will be sorted by options that start with the query, followed by
    * options that contain the query.
+   * When filtering is disabled, all options will be included in the array unsorted.
    *
    * These array items will populate the list that is displayed to the user after a search query is entered.
    * Array attributes are also used to set option IDs and aria-setsize attributes.
@@ -430,7 +431,6 @@ const displayList = (el) => {
    * @param {HTMLOptionElement} option
    * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection,
    * there is no inputValue, or if option matches user query
-   *
    */
   const arrayNeedsUpdate = (option) =>
     option.value &&
@@ -458,9 +458,9 @@ const displayList = (el) => {
     selectEl.value && option.value === selectEl.value;
 
   /**
-   * Iterate through select items and test if it should be included in the display list.
-   *
-   * If so, add to options array, assign ID, firstFoundId, and selectItemId if necessary.
+   * Update the array of options that should be displayed on the page.
+   * Assign an ID to each displayed option.
+   * Identify and assign the option that should receive focus.
    */
   optionList.forEach((option) => {
     if (arrayNeedsUpdate(option)) {
