@@ -488,6 +488,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
+    errorMessage.setAttribute("role", "alert");
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
@@ -512,9 +513,9 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
-      dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+      fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+      dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
