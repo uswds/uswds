@@ -122,6 +122,7 @@ const handleCurrentValue = (el) => {
     } else {
       newValue += placeholder[i];
     }
+    // break if no characters left and the pattern is non-special character
     if (strippedVal[charIndex] === undefined) {
       break;
     }
