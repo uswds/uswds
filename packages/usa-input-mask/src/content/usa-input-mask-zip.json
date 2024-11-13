@@ -6,6 +6,5 @@
   "inputmode": "numeric",
   "placeholder": "_____-____",
   "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
-  "errormessage": "Helpful error message zip",
   "dataErrorNumerical": "Please enter a number here"
 }

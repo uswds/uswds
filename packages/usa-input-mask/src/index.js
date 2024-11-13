@@ -24,6 +24,7 @@ const getMaskInputContext = (el) => {
   // const errorMsgAlphabetical = inputEl.data-errorMsgAlpha;
   // const errorMsgNumerical = inputEl.data-errorMsgNum;
   // const errorMsgAlphanumeric = inputEl.data-errorMsgAlphaNum;
+  const errorMsg = "Please enter a valid character";
   const errorMsgAlphabetical = "Please enter a letter here";
   const errorMsgNumerical = "Please enter a number here";
   const errorMsgAlphanumeric = "Please enter a number or letter here";
@@ -32,6 +33,7 @@ const getMaskInputContext = (el) => {
     inputEl,
     errorId,
     inputId,
+    errorMsg,
     errorMsgAlphabetical,
     errorMsgNumerical,
     errorMsgAlphanumeric,
@@ -88,8 +90,7 @@ const handleCurrentValue = (el) => {
   let newValue = "";
   let i;
   let charIndex;
-  const { errorId } = getMaskInputContext(el);
-  const { errorMsgAlphabetical, errorMsgNumerical, errorMsgAlphanumeric } = getMaskInputContext(el);
+  let matchType;
 
   const strippedVal = strippedValue(isCharsetPresent, value);
 
@@ -98,6 +99,12 @@ const handleCurrentValue = (el) => {
     const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
+    
+    if (matchesNumber) {
+      matchType = 'number'
+    } else if (matchesLetter) {
+      matchType = 'letter'
+    }
 
     if (
       matchesNumber && isInt
@@ -114,46 +121,57 @@ const handleCurrentValue = (el) => {
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
-      return newValue;
+      return { newValue, matchType };
     } else {
       newValue += placeholder[i];
     }
-    // break if no characters left and the pattern is non-special character
     if (strippedVal[charIndex] === undefined) {
       break;
     }
   }
-  return newValue;
+  return { newValue, matchType };
 };
 
 const handleValueChange = (el) => {
   const inputEl = el;
-  const id = inputEl.getAttribute("id");
-  const { errorId } = getMaskInputContext(el);
   const previousValue = inputEl.value;
-  const currentValue = handleCurrentValue(inputEl);
-  inputEl.value = currentValue;
+  const matchType = handleCurrentValue(inputEl).matchType;
+  const id = inputEl.getAttribute("id");
+  const newValue = handleCurrentValue(inputEl).newValue;
+  console.log('newValue: ', newValue)
+  inputEl.value = newValue;
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(previousValue, currentValue, errorId);;
+  handleErrorState(previousValue, newValue, matchType, el);
 };
 
-const handleErrorState = (previousValue, newValue, errorId) => {
-  //add if keypress was backspace, hide error message
+const handleErrorState = (previousValue, newValue, matchType, el) => {
+  const { errorId, errorMsgAlphabetical, errorMsgNumerical, errorMsg } = getMaskInputContext(el);
+
   if (previousValue.length <= newValue.length) {
-    console.log('value has been updates, hide any error messages')
     document.getElementById(errorId).className = "usa-error-message usa-hide-error";
   } else if (previousValue.length >= newValue.length) {
-    console.log('previous value and new value do not match, trigger error')
     document.getElementById(errorId).className = "usa-error-message";
   }
 
-  //get mask input expectation to handle error message text
-  // document.getElementById(errorId).textContent = "Error message here";
+  switch(matchType) {
+    case 'letter':
+      document.getElementById(errorId).textContent = errorMsgAlphabetical;
+      break;
+    case 'number':
+      document.getElementById(errorId).textContent = errorMsgNumerical;
+    // case 'alphanumeric':
+    //   document.getElementById(errorId).textContent = errorMsgAlphanumeric;
+    // case 'specialcharacter':
+    //   document.getElementById(errorId).textContent = errorMsgSpecialCharacter;
+      break;
+    default:
+      document.getElementById(errorId).textContent = errorMsg;
+  }
 }
 
 const inputMaskEvents = {
