@@ -80,8 +80,10 @@ $-chevron-expand-more: map-merge(
   @include u-padding-y(2);
   @include u-text("ink", "bold");
   display: block;
+  border-top: 1px solid color("base-light");
 
   @include at-media("mobile-lg") {
+    border: none;
     @include u-padding-x(0);
   }
 
@@ -157,14 +159,6 @@ $-chevron-expand-more: map-merge(
   @include at-media("mobile-lg") {
     @include u-flex("justify-end");
     margin-top: units(1);
-  }
-}
-
-.usa-footer__primary-content {
-  border-top: 1px solid color("base-light");
-
-  @include at-media("mobile-lg") {
-    border: none;
   }
 }
 
