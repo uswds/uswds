@@ -104,12 +104,8 @@ const handleCurrentValue = (el) => {
     }
 
     if (
-      matchesNumber && isInt
-    ) {
-      newValue += strippedVal[charIndex];
-      charIndex += 1;
-    } else if (
-      isCharsetPresent && matchesLetter && isLet
+      (matchesNumber && isInt) ||
+      (isCharsetPresent && matchesLetter && isLet)
     ) {
       newValue += strippedVal[charIndex];
       charIndex += 1;
