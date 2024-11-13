@@ -7,7 +7,7 @@
   "placeholder": "___ ___",
   "pattern": "\\w\\d\\w \\d\\w\\d",
   "datacharset": "A#A #A#",
+  "dataErrorMessage": "Please enter a valid character",
   "dataErrorAlphabetical": "Please enter a letter here",
-  "dataErrorNumerical": "Please enter a number here",
-  "dataErrorAlphanumeric": "Please enter a letter or number here"
+  "dataErrorNumerical": "Please enter a number here"
 }

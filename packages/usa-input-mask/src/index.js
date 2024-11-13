@@ -21,22 +21,19 @@ const getMaskInputContext = (el) => {
 
   const inputId = inputEl.id;
   const errorId = inputId + 'Error';
-  // const errorMsgAlphabetical = inputEl.data-errorMsgAlpha;
-  // const errorMsgNumerical = inputEl.data-errorMsgNum;
-  // const errorMsgAlphanumeric = inputEl.data-errorMsgAlphaNum;
-  const errorMsg = "Please enter a valid character";
-  const errorMsgAlphabetical = "Please enter a letter here";
-  const errorMsgNumerical = "Please enter a number here";
-  const errorMsgAlphanumeric = "Please enter a number or letter here";
+  const errorMsg = inputEl.getAttribute("data-errormessage");
+  const errorMsgAlpha = inputEl.getAttribute("data-errormessage-alpha");
+  const errorMsgNum = inputEl.getAttribute("data-errormessage-num");
 
   return {
     inputEl,
     errorId,
     inputId,
     errorMsg,
-    errorMsgAlphabetical,
-    errorMsgNumerical,
-    errorMsgAlphanumeric,
+    errorMsgAlpha,
+    errorMsgNum,
+    // errorMsgAlphanumeric,
+    // errorMsgSpecialCharacter,
   };
 };
 
@@ -138,7 +135,6 @@ const handleValueChange = (el) => {
   const matchType = handleCurrentValue(inputEl).matchType;
   const id = inputEl.getAttribute("id");
   const newValue = handleCurrentValue(inputEl).newValue;
-  console.log('newValue: ', newValue)
   inputEl.value = newValue;
 
   const maskVal = setValueOfMask(el);
@@ -150,7 +146,7 @@ const handleValueChange = (el) => {
 };
 
 const handleErrorState = (previousValue, newValue, matchType, el) => {
-  const { errorId, errorMsgAlphabetical, errorMsgNumerical, errorMsg } = getMaskInputContext(el);
+  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } = getMaskInputContext(el);
 
   if (previousValue.length <= newValue.length) {
     document.getElementById(errorId).className = "usa-error-message usa-hide-error";
@@ -160,10 +156,10 @@ const handleErrorState = (previousValue, newValue, matchType, el) => {
 
   switch(matchType) {
     case 'letter':
-      document.getElementById(errorId).textContent = errorMsgAlphabetical;
+      document.getElementById(errorId).textContent = errorMsgAlpha;
       break;
     case 'number':
-      document.getElementById(errorId).textContent = errorMsgNumerical;
+      document.getElementById(errorId).textContent = errorMsgNum;
     // case 'alphanumeric':
     //   document.getElementById(errorId).textContent = errorMsgAlphanumeric;
     // case 'specialcharacter':

@@ -6,5 +6,6 @@
   "inputmode": "numeric",
   "placeholder": "___-___-____",
   "pattern": "\\d{3}-\\d{3}-\\d{4}",
+  "dataErrorMessage": "Please enter a valid character",
   "dataErrorNumerical": "Please enter a number here"
 }
