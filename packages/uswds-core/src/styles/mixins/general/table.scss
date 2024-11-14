@@ -228,9 +228,6 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     line-height: line-height($theme-body-font-family, $theme-input-line-height);
     background-color: color($theme-table-header-background-color);
     color: $table-header-text-color;
-    + tfoot {
-      font-weight: fw("bold");
-    }
   }
 
   th,
