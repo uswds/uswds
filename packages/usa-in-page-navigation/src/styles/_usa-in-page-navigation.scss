@@ -31,7 +31,7 @@
     display: block;
   }
 
-  &:not(:has(*)) {
+  &:empty {
     display: none;
   }
 }
