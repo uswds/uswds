@@ -28,6 +28,7 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const DEFAULT_ERROR_LABEL_TEXT = "Error: This is not a valid file type.";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
@@ -484,6 +485,9 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
+    const userErrorText = fileInputEl.dataset.errormessage;
+    const errorMessageText = userErrorText || DEFAULT_ERROR_LABEL_TEXT;
+
     errorMessage.setAttribute("aria-hidden", true);
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
@@ -507,10 +511,6 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
-      const errorMessageText =
-        fileInputEl.dataset.errormessage ||
-        "Error: This is not a valid file type.";
-
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
