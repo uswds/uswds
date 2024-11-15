@@ -16,6 +16,10 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_message: {
+      name: "Error message",
+      control: { type: "text" },
+    }
   },
 };
 
