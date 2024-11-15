@@ -1,17 +1,15 @@
 const { readdirSync } = require("fs");
 const path = require("path");
 
-
-
-/** Returns an array of available token JSON file names. 
- *  Used by style-dictionary configs to iteratively build tokens.
+/**
+ * Returns a list token JSON file names without extensions from a specified directory.
  * 
  * @param {string} dir - Directory of token JSON files.
- * @returns  Array of token file names without file extension.
+ * @returns {Array} An array of token file names without extensions.
  */
 module.exports = (dir) => {
   const dirPath = path.resolve(dir);
   return readdirSync(dirPath)
     .filter((file) => file.endsWith(".json"))
-    .map((file) => file.slice(0, -5));
+    .map((file) => file.replace(".json", ""));
 }
