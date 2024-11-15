@@ -94,11 +94,11 @@ const handleCurrentValue = (el) => {
     const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
-    
+
     if (matchesNumber) {
-      matchType = 'number'
+      matchType = "number";
     } else if (matchesLetter) {
-      matchType = 'letter'
+      matchType = "letter";
     }
 
     if (
@@ -125,25 +125,27 @@ const handleCurrentValue = (el) => {
 };
 
 const handleErrorState = (previousValue, newValue, matchType, inputEl) => {
-  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } = getMaskInputContext(inputEl);
+  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } =
+    getMaskInputContext(inputEl);
 
   if (previousValue.length <= newValue.length) {
-    document.getElementById(errorId).className = "usa-error-message usa-hide-error";
+    document.getElementById(errorId).className =
+      "usa-error-message usa-hide-error";
   } else if (previousValue.length >= newValue.length) {
     document.getElementById(errorId).className = "usa-error-message";
   }
 
-  switch(matchType) {
-    case 'letter':
+  switch (matchType) {
+    case "letter":
       document.getElementById(errorId).textContent = errorMsgAlpha;
       break;
-    case 'number':
+    case "number":
       document.getElementById(errorId).textContent = errorMsgNum;
       break;
     default:
       document.getElementById(errorId).textContent = errorMsg;
   }
-}
+};
 
 const handleValueChange = (el) => {
   const inputEl = el;
