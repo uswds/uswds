@@ -19,6 +19,12 @@ export default {
     error_message: {
       name: "Error message",
       control: { type: "text" },
+      defaultValue: ""
+    },
+    accepted_files_message: {
+      name: "Accepted files message",
+      control: { type: "text" },
+      defaultValue: ""
     }
   },
 };
