@@ -516,10 +516,9 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.textContent = errorMessageText;
 
-      fileInputEl.setAttribute(
-        "aria-label",
-        `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`,
-      );
+      const ariaLabelText = `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`;
+
+      fileInputEl.setAttribute("aria-label", ariaLabelText);
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
