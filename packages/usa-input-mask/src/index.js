@@ -20,7 +20,7 @@ const getMaskInputContext = (el) => {
   }
 
   const inputId = inputEl.id;
-  const errorId = inputId + 'Error';
+  const errorId = `${inputId}Error`;
   const errorMsg = inputEl.getAttribute("data-errormessage");
   const errorMsgAlpha = inputEl.getAttribute("data-errormessage-alpha");
   const errorMsgNum = inputEl.getAttribute("data-errormessage-num");
@@ -32,8 +32,6 @@ const getMaskInputContext = (el) => {
     errorMsg,
     errorMsgAlpha,
     errorMsgNum,
-    // errorMsgAlphanumeric,
-    // errorMsgSpecialCharacter,
   };
 };
 
@@ -126,24 +124,8 @@ const handleCurrentValue = (el) => {
   return { newValue, matchType };
 };
 
-const handleValueChange = (el) => {
-  const inputEl = el;
-  const previousValue = inputEl.value;
-  const matchType = handleCurrentValue(inputEl).matchType;
-  const id = inputEl.getAttribute("id");
-  const newValue = handleCurrentValue(inputEl).newValue;
-  inputEl.value = newValue;
-
-  const maskVal = setValueOfMask(el);
-  const maskEl = document.getElementById(`${id}Mask`);
-  maskEl.textContent = "";
-  maskEl.replaceChildren(maskVal[0], maskVal[1]);
-
-  handleErrorState(previousValue, newValue, matchType, el);
-};
-
-const handleErrorState = (previousValue, newValue, matchType, el) => {
-  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } = getMaskInputContext(el);
+const handleErrorState = (previousValue, newValue, matchType, inputEl) => {
+  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } = getMaskInputContext(inputEl);
 
   if (previousValue.length <= newValue.length) {
     document.getElementById(errorId).className = "usa-error-message usa-hide-error";
@@ -157,15 +139,27 @@ const handleErrorState = (previousValue, newValue, matchType, el) => {
       break;
     case 'number':
       document.getElementById(errorId).textContent = errorMsgNum;
-    // case 'alphanumeric':
-    //   document.getElementById(errorId).textContent = errorMsgAlphanumeric;
-    // case 'specialcharacter':
-    //   document.getElementById(errorId).textContent = errorMsgSpecialCharacter;
       break;
     default:
       document.getElementById(errorId).textContent = errorMsg;
   }
 }
+
+const handleValueChange = (el) => {
+  const inputEl = el;
+  const previousValue = inputEl.value;
+  const { matchType } = handleCurrentValue(inputEl);
+  const id = inputEl.getAttribute("id");
+  const { newValue } = handleCurrentValue(inputEl);
+  inputEl.value = newValue;
+
+  const maskVal = setValueOfMask(el);
+  const maskEl = document.getElementById(`${id}Mask`);
+  maskEl.textContent = "";
+  maskEl.replaceChildren(maskVal[0], maskVal[1]);
+
+  handleErrorState(previousValue, newValue, matchType, inputEl);
+};
 
 const inputMaskEvents = {
   keyup: {
