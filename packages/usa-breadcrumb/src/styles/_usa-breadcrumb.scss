@@ -96,7 +96,6 @@ $breadcrumb-back-icon-aspect: (
       @include not-sr-only;
 
       .usa-breadcrumb__link {
-        @include button-unstyled;
         @include exdent-icon;
         @include place-icon(
           $icon-breadcrumb-back,
@@ -104,14 +103,6 @@ $breadcrumb-back-icon-aspect: (
           0,
           baseline,
           $theme-breadcrumb-background-color
-        );
-
-        // Override link colors from button-unstyled()
-
-        @include set-link-from-bg(
-          $theme-breadcrumb-background-color,
-          $theme-breadcrumb-link-color,
-          $context: $breadcrumb-context
         );
 
         @include u-display("inline-block");

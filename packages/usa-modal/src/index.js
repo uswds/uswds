@@ -66,10 +66,10 @@ function toggleModal(event) {
   const safeActive = !isActive();
   const modalId = clickedElement
     ? clickedElement.getAttribute("aria-controls")
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
   const targetModal = safeActive
     ? document.getElementById(modalId)
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
 
   // if there is no modal we return early
   if (!targetModal) {
@@ -78,7 +78,7 @@ function toggleModal(event) {
 
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(".usa-modal");
+    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const returnFocus = document.getElementById(
     targetModal.getAttribute("data-opener"),
   );

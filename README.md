@@ -54,7 +54,7 @@ As of USWDS 3.0.0, our codebase is centered around functional packages, typicall
 
 - **Fonts** are located in both `dist/fonts` and `packages/uswds-core/src/assets/fonts`. The fonts in `dist` are simply a copy of the files in `uswds-core`.
 - **Images** and icons are located in: `dist/img`. The source for component-specific images can be found in a package's `src/img` directory.
-- **JavaScript** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities and polyfills are located in the `uswds-core` package: `packages/uswds-core/src/js`
+- **JavaScript** for components is located in `packages/[package]/src/index.js`. General JavaScript utilities are located in the `uswds-core` package: `packages/uswds-core/src/js`
 - **Sass** component-specific stylesheets are located in: `packages/[package]/src/styles`. Many components also have a component entry point at `packages/[package]/_index.scss` that includes references to all a component's dependencies as well. **Compiled CSS** is located in `dist/css`.
 - **Template** markup for the components is located in: `packages/[package]/src/[package.twig]` in the site root. These, however, are written in the templating language Twig. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 
@@ -275,7 +275,6 @@ The design system requires autoprefixing to work properly. Don't add vendor pref
 ```
 > 2%
 last 2 versions
-IE 11
 not dead
 ```
 
@@ -512,7 +511,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
 
-As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and will continue to remove more of these polyfills in subsequent releases.
+As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and removed the remaining polyfills in [USWDS 3.10.0](https://github.com/uswds/uswds/releases/tag/v3.10.0).
 
 ## Accessibility
 
