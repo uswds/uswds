@@ -169,7 +169,7 @@ Use the npm package manager for Node-based projects. USWDS maintains the [`@uswd
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
-   - Node v12.13.2 (current LTS), [Installation guides](https://nodejs.org/en/download)
+   - Node (see [.nvmrc](https://github.com/uswds/uswds/blob/develop/.nvmrc) for version number), [Installation guides](https://nodejs.org/en/download)
 
    **Note for Windows users:** If you are using Windows and are unfamiliar with Node or npm, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
