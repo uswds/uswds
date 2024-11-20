@@ -188,7 +188,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       afterEach(() => {
         body.innerHTML = "";
-        window.location.hash = "";
       });
 
       it("does not render the in-page navigation when minimum heading count is too high", () => {
@@ -202,14 +201,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
-      it("does render the in-page navigation when minimum heading count is low", () => {
+      it("does render the in-page navigation when default minimum heading count of 3 has not been reached", () => {
         theNav.setAttribute("data-minimum-heading-count", "3");
         behavior.off(containerSelector(body));
         behavior.on(containerSelector(body));
         assert.strictEqual(
           theNav.hasChildNodes(),
           true,
-          "In-page navigation should have child nodes when the count is low",
+          "In-page navigation should have child nodes when the minimum heading count of 3 has not been reached",
         );
       });
     });
