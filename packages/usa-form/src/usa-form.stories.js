@@ -67,3 +67,9 @@ TestErrorFormElements.argTypes = {
     table: { disable: false },
   },
 };
+TestErrorFormElements.decorators = [
+  (Story) =>
+    `<div class="padding-205">
+      ${Story()}
+    </div>`,
+];
