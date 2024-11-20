@@ -66,6 +66,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       const mock = new MockFile();
       const file = mock.create("pic.jpg", size, "image/jpeg");
       const fileList = makeFileList(file);
+      const defaultErrorMessage = "Error: This is not a valid file type."
       const customErrorMessage = "Please upload a valid file";
 
       let dropZone;
@@ -137,6 +138,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
           true,
         );
       });
+
+      it("should display an error message", () => {
+        // add to our elements FileList
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+
+        // Error message appended to DOM after change event.
+        errorMessage = body.querySelector(".usa-file-input__accepted-files-message");
+        ariaLabel = inputEl.getAttribute("aria-label");
+
+        assert.strictEqual(errorMessage.textContent, defaultErrorMessage);
+        assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
+      });
+      
 
       it("should use custom error message", () => {
         inputEl.dataset.errormessage = customErrorMessage;
