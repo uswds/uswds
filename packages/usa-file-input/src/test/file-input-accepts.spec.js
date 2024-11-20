@@ -66,12 +66,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
       const mock = new MockFile();
       const file = mock.create("pic.jpg", size, "image/jpeg");
       const fileList = makeFileList(file);
+      const customErrorMessage = "Please upload a valid file";
 
       let dropZone;
       let instructions;
       let inputEl;
       let dragText;
       let box;
+      let errorMessage;
+      let ariaLabel;
 
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
@@ -134,6 +137,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
           true,
         );
       });
+
+      it("should use custom error message", () => {
+        inputEl.dataset.errormessage = customErrorMessage;
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+
+        // Error message appended to DOM after change event.
+        errorMessage = body.querySelector(".usa-file-input__accepted-files-message");
+        ariaLabel = inputEl.getAttribute("aria-label");
+        
+        assert.strictEqual(errorMessage.textContent, customErrorMessage);
+        assert.strictEqual(ariaLabel.startsWith(customErrorMessage), true);
+      })
     });
   });
 });
