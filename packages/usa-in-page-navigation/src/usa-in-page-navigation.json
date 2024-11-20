@@ -1,6 +1,7 @@
 {
   "aria_label": "In-page navigation",
   "heading": "Sample in-page navigation page",
+  "minimum_heading_count": 3,
   "items": [
     {
       "id": 0,
