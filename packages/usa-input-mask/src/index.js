@@ -24,6 +24,7 @@ const getMaskInputContext = (el) => {
   const errorMsg = inputEl.getAttribute("data-errorMessage");
   const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical");
   const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
+  const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull");
 
   return {
     inputEl,
@@ -32,6 +33,7 @@ const getMaskInputContext = (el) => {
     errorMsg,
     errorMsgAlpha,
     errorMsgNum,
+    errorMsgFull
   };
 };
 
@@ -64,10 +66,12 @@ const createMaskedInputShell = (input) => {
 const setValueOfMask = (el) => {
   const { value } = el;
   const placeholderVal = `${el.dataset.placeholder.substr(value.length)}`;
+  const inputValueLength = placeholderVal.length + value.length;
 
   const theIEl = document.createElement("i");
   theIEl.textContent = value;
-  return [theIEl, placeholderVal];
+
+  return [theIEl, placeholderVal, inputValueLength];
 };
 
 const strippedValue = (isCharsetPresent, value) =>
@@ -124,29 +128,36 @@ const handleCurrentValue = (el) => {
   return { newValue, matchType };
 };
 
-const handleErrorState = (previousValue, newValue, matchType, inputEl) => {
-  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg } =
+const handleErrorState = (previousValue, newValue, matchType, inputEl, inputValueLength) => {
+  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg, errorMsgFull } =
     getMaskInputContext(inputEl);
+  let messageType = newValue.length === inputValueLength ? "input full" : matchType;
 
-  if (previousValue.length <= newValue.length) {
-    document.getElementById(errorId).hidden = true;
-  } else if (previousValue.length >= newValue.length) {
-    document.getElementById(errorId).hidden = false;
-  }
 
-  switch (matchType) {
-    case "letter":
-      document.getElementById(errorId).textContent = errorMsgAlpha;
-      break;
-    case "number":
-      document.getElementById(errorId).textContent = errorMsgNum;
-      break;
-    default:
-      document.getElementById(errorId).textContent = errorMsg;
-  }
+    if (newValue.length == inputValueLength)  {
+      document.getElementById(errorId).hidden = false;
+    } else if (previousValue.length <= newValue.length) {
+      document.getElementById(errorId).hidden = true;
+    } else if (previousValue.length >= newValue.length)  {
+      document.getElementById(errorId).hidden = false;
+    }
+
+    switch (messageType) {
+      case "letter":
+        document.getElementById(errorId).textContent = errorMsgAlpha;
+        break;
+      case "number":
+        document.getElementById(errorId).textContent = errorMsgNum;
+        break;
+      case "input full":
+        document.getElementById(errorId).textContent = errorMsgFull;
+        break;
+      default:
+        document.getElementById(errorId).textContent = errorMsg;
+    }
 };
 
-const handleValueChange = (el, event) => {
+const handleValueChange = (el) => {
   const inputEl = el;
   const previousValue = inputEl.value;
   const { matchType } = handleCurrentValue(inputEl);
@@ -155,11 +166,12 @@ const handleValueChange = (el, event) => {
   inputEl.value = newValue;
 
   const maskVal = setValueOfMask(el);
+  const inputValueLength = maskVal[2];
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(previousValue, newValue, matchType, inputEl);    
+  handleErrorState(previousValue, newValue, matchType, inputEl, inputValueLength);    
 };
 
 const inputMaskEvents = {

@@ -7,7 +7,8 @@
   "placeholder": "___ ___",
   "pattern": "\\w\\d\\w \\d\\w\\d",
   "datacharset": "A#A #A#",
-  "data_errorMessage": "Please enter a valid character",
-  "data_errorMessageAlphabetical": "Please enter a letter here",
-  "data_errorMessageNumerical": "Please enter a number here"
+  "data_errorMessage": "Error: please enter a valid character",
+  "data_errorMessageAlphabetical": "Error: please enter a letter",
+  "data_errorMessageNumerical": "Error: please enter a number",
+  "data_errorMessageInputFull": "Maximum character count reached"
 }

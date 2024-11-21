@@ -6,6 +6,7 @@
   "inputmode": "numeric",
   "placeholder": "___-___-____",
   "pattern": "\\d{3}-\\d{3}-\\d{4}",
-  "data_errorMessage": "Please enter a valid character",
-  "data_errorMessageNumerical": "Please enter a number here"
+  "data_errorMessage": "Error: please enter a valid character",
+  "data_errorMessageNumerical": "Error: please enter a number",
+  "data_errorMessageInputFull": "Maximum character count reached"
 }

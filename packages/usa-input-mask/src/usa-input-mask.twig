@@ -16,10 +16,11 @@
       {% if data_errorMessage %}data-errorMessage="{{ data_errorMessage }}"{% endif %}
       {% if data_errorMessageAlphabetical %}data-errorMessageAlphabetical="{{ data_errorMessageAlphabetical }}"{% endif %}
       {% if data_errorMessageNumerical %}data-errorMessageNumerical="{{ data_errorMessageNumerical }}"{% endif %}
-  >
+      {% if data_errorMessageInputFull %}data-errorMessageInputFull="{{ data_errorMessageInputFull }}"{% endif %}
+      >
   <span 
       id="{{ id }}Error" 
-      class="usa-error-message" 
+      class="usa-error-message"
       role="alert"
   ></span>
   </div>
