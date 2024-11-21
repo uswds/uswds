@@ -5,7 +5,13 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
 const CHARACTER_COUNT = `.${CHARACTER_COUNT_CLASS}`;
+const FORM_GROUP_CLASS = `${PREFIX}-form-group`;
+const FORM_GROUP_ERROR_CLASS = `${FORM_GROUP_CLASS}--error`;
+const FORM_GROUP = `.${FORM_GROUP_CLASS}`;
+const LABEL_CLASS = `${PREFIX}-label`;
+const LABEL_ERROR_CLASS = `${LABEL_CLASS}--error`;
 const INPUT = `.${PREFIX}-character-count__field`;
+const INPUT_ERROR_CLASS = `${PREFIX}-input--error`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__status--invalid`;
@@ -16,10 +22,10 @@ const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 const DEFAULT_STATUS_LABEL = `characters allowed`;
 
 /**
- * Returns the root and message element for an character count input
+ * Returns the root, form group, label, and message elements for an character count input
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- * @returns {CharacterCountElements} elements The root and message element.
+ * @returns {CharacterCountElements} elements The root form group, input ID, label, and message element.
  */
 const getCharacterCountElements = (inputEl) => {
   const characterCountEl = inputEl.closest(CHARACTER_COUNT);
@@ -28,13 +34,18 @@ const getCharacterCountElements = (inputEl) => {
     throw new Error(`${INPUT} is missing outer ${CHARACTER_COUNT}`);
   }
 
+  const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
+
+  const inputID = inputEl.getAttribute("id");
+  const labelEl = document.querySelector(`label[for=${inputID}]`);
+
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
   if (!messageEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
 
-  return { characterCountEl, messageEl };
+  return { characterCountEl, formGroupEl, inputID, labelEl, messageEl };
 };
 
 /**
@@ -69,7 +80,7 @@ const createStatusMessages = (characterCountEl) => {
   statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
   srStatusMessage.classList.add(
     `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
-    "usa-sr-only"
+    "usa-sr-only",
   );
 
   statusMessage.setAttribute("aria-hidden", true);
@@ -123,15 +134,16 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 const updateCountMessage = (inputEl) => {
-  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const { characterCountEl, labelEl, formGroupEl } =
+    getCharacterCountElements(inputEl);
   const currentLength = inputEl.value.length;
   const maxLength = parseInt(
     characterCountEl.getAttribute("data-maxlength"),
-    10
+    10,
   );
   const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = characterCountEl.querySelector(
-    STATUS_MESSAGE_SR_ONLY
+    STATUS_MESSAGE_SR_ONLY,
   );
   const currentStatusMessage = getCountMessage(currentLength, maxLength);
 
@@ -150,6 +162,15 @@ const updateCountMessage = (inputEl) => {
     inputEl.setCustomValidity("");
   }
 
+  if (formGroupEl) {
+    formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
+  }
+
+  if (labelEl) {
+    labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
+  }
+
+  inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
@@ -183,6 +204,9 @@ const characterCount = behavior(
     init(root) {
       select(INPUT, root).forEach((input) => enhanceCharacterCount(input));
     },
+    FORM_GROUP_ERROR_CLASS,
+    LABEL_ERROR_CLASS,
+    INPUT_ERROR_CLASS,
     MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE,
     STATUS_MESSAGE_CLASS,
@@ -191,7 +215,7 @@ const characterCount = behavior(
     createStatusMessages,
     getCountMessage,
     updateCountMessage,
-  }
+  },
 );
 
 module.exports = characterCount;

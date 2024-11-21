@@ -82,7 +82,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("moves the modal to the bottom of the DOM", () => {
         assert.strictEqual(
           body.lastElementChild.classList.contains("usa-modal-wrapper"),
-          true
+          true,
         );
       });
 
@@ -112,7 +112,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("makes all other page content invisible to screen readers", () => {
         const activeContent = document.querySelectorAll(
-          "body > :not([aria-hidden])"
+          "body > :not([aria-hidden])",
         );
 
         assert.strictEqual(activeContent.length, 1);
@@ -149,7 +149,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("restores other page content screen reader visibility", () => {
         closeButton.click();
         const activeContent = document.querySelectorAll(
-          "body > :not([aria-hidden])"
+          "body > :not([aria-hidden])",
         );
         const staysHidden = document.getElementById("stays-hidden");
         assert.strictEqual(activeContent.length, 4);

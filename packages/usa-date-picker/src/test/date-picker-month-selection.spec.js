@@ -5,7 +5,7 @@ const DatePicker = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker.template.html")
+  path.join(__dirname, "/date-picker.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -24,7 +24,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -39,7 +39,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "6/20/2020";
       EVENTS.click(button);
       EVENTS.click(
-        getCalendarEl(".usa-date-picker__calendar__month-selection")
+        getCalendarEl(".usa-date-picker__calendar__month-selection"),
       );
     });
 
@@ -53,7 +53,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "June",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -62,7 +62,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--selected").dataset
           .label,
         "June",
-        "selects correct month"
+        "selects correct month",
       );
     });
 
@@ -73,7 +73,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "March",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -84,7 +84,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "September",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -95,7 +95,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "May",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -106,7 +106,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "July",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -117,7 +117,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "April",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -128,7 +128,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "June",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -139,7 +139,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "January",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
 
@@ -150,22 +150,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
           .label,
         "December",
-        "focuses correct month"
-      );
-    });
-
-    it("should update the focus when moving over a non-selected valid month", () => {
-      EVENTS.mouseover(
-        getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__month[data-label="October"]'
-        )
-      );
-
-      assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__month--focused").dataset
-          .label,
-        "October",
-        "focuses correct month"
+        "focuses correct month",
       );
     });
   });
