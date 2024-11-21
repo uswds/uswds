@@ -190,14 +190,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
         body.innerHTML = "";
       });
 
-      it("does not render the in-page navigation when minimum heading count is too high", () => {
+      it("does not render the in-page navigation when minimum heading count of 20 has not been reached", () => {
         theNav.setAttribute("data-minimum-heading-count", "20");
         behavior.off(containerSelector(body));
         behavior.on(containerSelector(body));
         assert.strictEqual(
           theNav.hasChildNodes(),
           false,
-          "In-page navigation should not have child nodes when the count is too high",
+          "In-page navigation should not have child nodes when the heading count is lower than the minimum of 20",
         );
       });
 
