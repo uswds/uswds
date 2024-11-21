@@ -129,10 +129,9 @@ const handleErrorState = (previousValue, newValue, matchType, inputEl) => {
     getMaskInputContext(inputEl);
 
   if (previousValue.length <= newValue.length) {
-    document.getElementById(errorId).className =
-      "usa-error-message usa-hide-error";
+    document.getElementById(errorId).hidden = true;
   } else if (previousValue.length >= newValue.length) {
-    document.getElementById(errorId).className = "usa-error-message";
+    document.getElementById(errorId).hidden = false;
   }
 
   switch (matchType) {

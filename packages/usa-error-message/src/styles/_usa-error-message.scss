@@ -3,10 +3,5 @@
 .usa-error-message {
   @include u-padding-y(0.5);
   color: color("error-dark");
-  display: block;
   font-weight: font-weight("bold");
-}
-
-.usa-error-message.usa-hide-error {
-  display: none;
 }
