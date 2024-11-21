@@ -146,7 +146,7 @@ const handleErrorState = (previousValue, newValue, matchType, inputEl) => {
   }
 };
 
-const handleValueChange = (el) => {
+const handleValueChange = (el, event) => {
   const inputEl = el;
   const previousValue = inputEl.value;
   const { matchType } = handleCurrentValue(inputEl);
@@ -159,13 +159,13 @@ const handleValueChange = (el) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(previousValue, newValue, matchType, inputEl);
+  handleErrorState(previousValue, newValue, matchType, inputEl);    
 };
 
 const inputMaskEvents = {
   keyup: {
-    [MASKED]() {
-      handleValueChange(this);
+    [MASKED](e) {
+      e.key != 'Shift' ? handleValueChange(this) : null;
     },
   },
 };
