@@ -13,9 +13,9 @@
       {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
       {% if disabled_state == 'disabled' %} disabled {%- endif %}
       {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
-      {% if dataErrorMessage %}data-errormessage="{{ dataErrorMessage }}"{% endif %}
-      {% if dataErrorAlphabetical %}data-errormessage-alpha="{{ dataErrorAlphabetical }}"{% endif %}
-      {% if dataErrorNumerical %}data-errormessage-num="{{ dataErrorNumerical }}"{% endif %}
+      {% if data_errorMessage %}data-errorMessage="{{ data_errorMessage }}"{% endif %}
+      {% if data_errorMessageAlphabetical %}data-errorMessageAlphabetical="{{ data_errorMessageAlphabetical }}"{% endif %}
+      {% if data_errorMessageNumerical %}data-errorMessageNumerical="{{ data_errorMessageNumerical }}"{% endif %}
   >
   <span 
       id="{{ id }}Error" 

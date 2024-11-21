@@ -21,9 +21,9 @@ const getMaskInputContext = (el) => {
 
   const inputId = inputEl.id;
   const errorId = `${inputId}Error`;
-  const errorMsg = inputEl.getAttribute("data-errormessage");
-  const errorMsgAlpha = inputEl.getAttribute("data-errormessage-alpha");
-  const errorMsgNum = inputEl.getAttribute("data-errormessage-num");
+  const errorMsg = inputEl.getAttribute("data-errorMessage");
+  const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical");
+  const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
 
   return {
     inputEl,
