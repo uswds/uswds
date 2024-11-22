@@ -32,7 +32,6 @@ $-chevron-expand-more: map-merge(
     @include grid-container($theme-footer-max-width);
   }
 }
-
 .usa-footer__return-to-top {
   @include u-padding-y(2.5);
   line-height: line-height($theme-footer-font-family, 1);
@@ -77,27 +76,14 @@ $-chevron-expand-more: map-merge(
   line-height: line-height($theme-footer-font-family, 2);
 }
 
-.usa-footer__primary-link a,
-.usa-footer__secondary-link a {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .usa-footer__primary-link {
   @include u-padding-x($theme-site-margins-mobile-width);
   @include u-padding-y(2);
-  @include u-text("ink", "no-underline", "bold");
+  @include u-text("ink", "bold");
   display: block;
 
   @include at-media("mobile-lg") {
     @include u-padding-x(0);
-  }
-
-  &:hover {
-    text-decoration: underline;
   }
 
   // Disclosure button functionality happens at mobile widths
@@ -166,11 +152,7 @@ $-chevron-expand-more: map-merge(
   line-height: line-height($theme-footer-font-family, 2);
 
   a {
-    @include u-text("ink", "no-underline");
-
-    &:hover {
-      text-decoration: underline;
-    }
+    @include u-text("ink");
   }
 
   @include at-media("mobile-lg") {
@@ -208,6 +190,10 @@ $-chevron-expand-more: map-merge(
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
+
+    > .grid-row {
+      justify-content: space-between;
+    }
   }
 
   a {

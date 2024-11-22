@@ -259,10 +259,10 @@ const enhanceFileInput = (fileInputEl) => {
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
-    `.${PREVIEW_HEADING_CLASS}`
+    `.${PREVIEW_HEADING_CLASS}`,
   );
   const currentErrorMessage = dropTarget.querySelector(
-    `.${ACCEPTED_FILE_MESSAGE_CLASS}`
+    `.${ACCEPTED_FILE_MESSAGE_CLASS}`,
   );
 
   /**
@@ -350,6 +350,22 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   fileInputEl.setAttribute("aria-label", changeItemText);
 };
 
+/** Add an error listener to the image preview to set a fallback image
+ * @param {HTMLImageElement} previewImage - The image element
+ * @param {String} fallbackClass - The CSS class of the fallback image
+ */
+const setPreviewFallback = (previewImage, fallbackClass) => {
+  previewImage.addEventListener(
+    "error",
+    () => {
+      const localPreviewImage = previewImage; // to avoid no-param-reassign from ESLint
+      localPreviewImage.src = SPACER_GIF;
+      localPreviewImage.classList.add(fallbackClass);
+    },
+    { once: true },
+  );
+};
+
 /**
  * When new files are applied to file input, this function generates previews
  * and removes old ones.
@@ -386,44 +402,32 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
         "afterend",
         Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
           <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
-        <div>`
+        <div>`,
       );
     };
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
       const previewImage = document.getElementById(imageId);
-      if (fileName.indexOf(".pdf") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`
-        );
+      const fileExtension = fileName.split(".").pop();
+      if (fileExtension === "pdf") {
+        setPreviewFallback(previewImage, PDF_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".doc") > 0 ||
-        fileName.indexOf(".pages") > 0
+        fileExtension === "doc" ||
+        fileExtension === "docx" ||
+        fileExtension === "pages"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, WORD_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".xls") > 0 ||
-        fileName.indexOf(".numbers") > 0
+        fileExtension === "xls" ||
+        fileExtension === "xlsx" ||
+        fileExtension === "numbers"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`
-        );
-      } else if (fileName.indexOf(".mov") > 0 || fileName.indexOf(".mp4") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, EXCEL_PREVIEW_CLASS);
+      } else if (fileExtension === "mov" || fileExtension === "mp4") {
+        setPreviewFallback(previewImage, VIDEO_PREVIEW_CLASS);
       } else {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, GENERIC_PREVIEW_CLASS);
       }
 
       // Removes loader and displays preview
@@ -548,7 +552,7 @@ const fileInput = behavior(
           function handleDragOver() {
             this.classList.add(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -556,7 +560,7 @@ const fileInput = behavior(
           function handleDragLeave() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -564,13 +568,13 @@ const fileInput = behavior(
           function handleDrop() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         fileInputEl.addEventListener(
           "change",
           (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
-          false
+          false,
         );
       });
     },
@@ -579,7 +583,7 @@ const fileInput = behavior(
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
         fileInputTopElement.parentElement.replaceChild(
           fileInputEl,
-          fileInputTopElement
+          fileInputTopElement,
         );
         // eslint-disable-next-line no-param-reassign
         fileInputEl.className = DROPZONE_CLASS;
@@ -589,7 +593,7 @@ const fileInput = behavior(
     disable,
     ariaDisable,
     enable,
-  }
+  },
 );
 
 module.exports = fileInput;

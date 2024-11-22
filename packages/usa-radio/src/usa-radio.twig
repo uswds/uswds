@@ -7,7 +7,7 @@
       type="radio" 
       name="historical-figures" 
       value="sojourner-truth" 
-      checked 
+      {% if not indeterminate_state %}checked{% endif %}
       {% if disabled_state == "disabled" %}disabled{% endif %} 
       {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
     >

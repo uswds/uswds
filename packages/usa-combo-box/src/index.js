@@ -172,7 +172,6 @@ const enhanceComboBox = (_comboBoxEl) => {
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
-  const assistiveHintID = `${selectId}--assistiveHint`;
   const additionalAttributes = [];
   const { defaultValue } = comboBoxEl.dataset;
   const { placeholder } = comboBoxEl.dataset;
@@ -199,7 +198,7 @@ const enhanceComboBox = (_comboBoxEl) => {
    */
   if (!selectLabel || !selectLabel.matches(`label[for="${selectId}"]`)) {
     throw new Error(
-      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`
+      `${COMBO_BOX} for ${selectId} is either missing a label or a "for" attribute`,
     );
   } else {
     selectLabel.setAttribute("id", listIdLabel);
@@ -226,7 +225,6 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("aria-owns", listId);
   input.setAttribute("aria-controls", listId);
   input.setAttribute("aria-autocomplete", "list");
-  input.setAttribute("aria-describedby", assistiveHintID);
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("autocapitalize", "off");
   input.setAttribute("autocomplete", "off");
@@ -237,7 +235,7 @@ const enhanceComboBox = (_comboBoxEl) => {
     Object.keys(attr).forEach((key) => {
       const value = Sanitizer.escapeHTML`${attr[key]}`;
       input.setAttribute(key, value);
-    })
+    }),
   );
 
   comboBoxEl.insertAdjacentElement("beforeend", input);
@@ -260,11 +258,7 @@ const enhanceComboBox = (_comboBoxEl) => {
         aria-labelledby="${listIdLabel}"
         hidden>
       </ul>
-      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>
-      <span id="${assistiveHintID}" class="usa-sr-only">
-        When autocomplete results are available use up and down arrows to review and enter to select.
-        Touch device users, explore by touch or with swipe gestures.
-      </span>`
+      <div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
   );
 
   if (selectedOption) {
@@ -388,28 +382,101 @@ const displayList = (el) => {
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
   const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
-  const options = [];
-  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    const optionEl = selectEl.options[i];
-    const optionId = `${listOptionBaseId}${options.length}`;
+  let options = [];
+  const optionsStartsWith = [];
+  const optionsContains = [];
+  const optionList = [...selectEl.options];
 
-    if (
-      optionEl.value &&
-      (disableFiltering ||
-        isPristine ||
-        !inputValue ||
-        regex.test(optionEl.text))
-    ) {
-      if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = optionId;
-      }
+  /**
+   * Builds and sorts options array.
+   *
+   * Option param is passed through regex test before passing into this function.
+   * When filtering is enabled, the array will be sorted by options that start with the query, followed by
+   * options that contain the query.
+   * When filtering is disabled, all options will be included in the array unsorted.
+   *
+   * These array items will populate the list that is displayed to the user after a search query is entered.
+   * Array attributes are also used to set option IDs and aria-setsize attributes.
+   *
+   * @param {HTMLOptionElement} option - Option element from select array
+   */
+  const buildOptionsArray = (option) => {
+    if (disableFiltering || isPristine) {
+      options.push(option);
+      return;
+    }
 
-      if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
+    const matchStartsWith = option.text.toLowerCase().startsWith(inputValue);
+
+    if (matchStartsWith) {
+      optionsStartsWith.push(option);
+    } else {
+      optionsContains.push(option);
+    }
+
+    options = [...optionsStartsWith, ...optionsContains];
+  };
+
+  /**
+   * Compares option text to query using generated regex filter.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - True when option text matches user input query.
+   */
+  const optionMatchesQuery = (option) => regex.test(option.text);
+
+  /**
+   * Logic check to determine if options array needs to be updated.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection,
+   * there is no inputValue, or if option matches user query
+   */
+  const arrayNeedsUpdate = (option) =>
+    option.value &&
+    (disableFiltering ||
+      isPristine ||
+      !inputValue ||
+      optionMatchesQuery(option));
+
+  /**
+   * Checks if firstFoundId should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @return {boolean} - Returns true if filtering is disabled, no firstFoundId is assigned, and the option matches the query.
+   */
+  const isFirstMatch = (option) =>
+    disableFiltering && !firstFoundId && optionMatchesQuery(option);
+
+  /**
+   * Checks if isCurrentSelection should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - Returns true if option.value matches selectEl.value.
+   */
+  const isCurrentSelection = (option) =>
+    selectEl.value && option.value === selectEl.value;
+
+  /**
+   * Update the array of options that should be displayed on the page.
+   * Assign an ID to each displayed option.
+   * Identify and assign the option that should receive focus.
+   */
+  optionList.forEach((option) => {
+    if (arrayNeedsUpdate(option)) {
+      buildOptionsArray(option);
+
+      const optionId = `${listOptionBaseId}${options.indexOf(option)}`;
+
+      if (isFirstMatch(option)) {
         firstFoundId = optionId;
       }
-      options.push(optionEl);
+
+      if (isCurrentSelection(option)) {
+        selectedItemId = optionId;
+      }
     }
-  }
+  });
 
   const numOptions = options.length;
   const optionHtml = options.map((option, index) => {
@@ -453,7 +520,7 @@ const displayList = (el) => {
   if (numOptions) {
     listEl.innerHTML = "";
     optionHtml.forEach((item) =>
-      listEl.insertAdjacentElement("beforeend", item)
+      listEl.insertAdjacentElement("beforeend", item),
     );
   } else {
     listEl.innerHTML = "";
@@ -691,7 +758,7 @@ const handleEnterFromListOption = (event) => {
  */
 const handleUpFromListOption = (event) => {
   const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxContext(
-    event.target
+    event.target,
   );
   const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
   const listShown = !listEl.hidden;
@@ -715,7 +782,7 @@ const handleUpFromListOption = (event) => {
  */
 const handleMouseover = (listOptionEl) => {
   const isCurrentlyFocused = listOptionEl.classList.contains(
-    LIST_OPTION_FOCUSED_CLASS
+    LIST_OPTION_FOCUSED_CLASS,
   );
 
   if (isCurrentlyFocused) return;
@@ -829,7 +896,7 @@ const comboBox = behavior(
     displayList,
     hideList,
     COMBO_BOX_CLASS,
-  }
+  },
 );
 
 module.exports = comboBox;

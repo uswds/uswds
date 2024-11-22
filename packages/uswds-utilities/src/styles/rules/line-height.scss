@@ -3,14 +3,15 @@
 line-height
 ----------------------------------------
 usage:
-  .line-height-[value]
+  .line-height-[modifier]-[key]
 ----------------------------------------
 output:
   line-height: [value];
 ----------------------------------------
 example:
   .line-height-sans-2 {
-    line-height: 1.15; }
+    line-height: 1.1;
+  }
 ----------------------------------------
 */
 

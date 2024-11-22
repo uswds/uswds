@@ -1,0 +1,49 @@
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-20 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test nested button groups</p>
+  <p>Confirm that buttons inside nested button groups are:</p>
+  <ul>
+    <li>The same height as their sibling buttons</li>
+    <li>The same height as their parent buttons</li>
+  </ul>
+</div>
+
+<h3>Nested button group</h3>
+<ul class="usa-button-group">
+  <li class="usa-button-group__item">
+    <button type="button" class="usa-button usa-button--outline">Button</button>
+  </li>
+  <li class="usa-button-group__item">
+    <button type="button" class="usa-button usa-button--outline mobile-lg:width-15">Button with long text </button>
+  </li>
+  <li class="usa-button-group__item">
+    <ul class="usa-button-group">
+      <li class="usa-button-group__item ">
+        <a href="#" class="usa-button usa-button--outline mobile-lg:width-10">Nested Link</a>
+      </li>
+      <li class="usa-button-group__item">
+        <button type="button" class="usa-button">Nested Button</button>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Nested button group - Segmented</h3>
+<ul class="usa-button-group usa-button-group--segmented">
+  <li class="usa-button-group__item">
+    <button type="button" class="usa-button usa-button--outline">Button</button>
+  </li>
+  <li class="usa-button-group__item">
+    <button type="button" class="usa-button usa-button--outline">Button with long text </button>
+  </li>
+  <li class="usa-button-group__item">
+    <ul class="usa-button-group usa-button-group--segmented">
+      <li class="usa-button-group__item">
+        <a href="#" class="usa-button usa-button--outline">Nested Link</a>
+      </li>
+      <li class="usa-button-group__item">
+        <button type="button" class="usa-button">Nested Button</button>
+      </li>
+    </ul>
+  </li>
+</ul>
+

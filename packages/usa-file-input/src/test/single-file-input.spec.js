@@ -3,7 +3,7 @@ const fs = require("fs");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  `${__dirname}/file-input-single.template.html`
+  `${__dirname}/file-input-single.template.html`,
 );
 
 const tests = [

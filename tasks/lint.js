@@ -40,7 +40,7 @@ function typecheck() {
 };
 
 async function lintSass(callback) {
-  const { errored, output } = await stylelint.lint({
+  const { errored, report } = await stylelint.lint({
     files: [
       `${PROJECT_SASS_SRC}/**/*.scss`,
       `!${PROJECT_SASS_SRC}/uswds/**/*.scss`,
@@ -49,7 +49,7 @@ async function lintSass(callback) {
     formatter: "string",
   });
 
-  callback(errored ? new Error(output) : null);
+  callback(errored ? new Error(report) : null);
 }
 
 module.exports = {

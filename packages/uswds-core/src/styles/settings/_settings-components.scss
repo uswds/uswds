@@ -53,8 +53,9 @@ $theme-breadcrumb-padding-x: 0 !default;
 $theme-breadcrumb-separator-color: "base" !default;
 
 // Button
-$theme-button-font-family: "ui" !default;
 $theme-button-border-radius: "md" !default;
+$theme-button-font-family: "ui" !default;
+$theme-button-icon-gap: 1 !default;
 $theme-button-small-width: 6 !default;
 $theme-button-stroke-width: 2px !default;
 
@@ -171,6 +172,7 @@ $theme-search-min-width: 27ch !default;
 // Sidenav
 $theme-sidenav-current-border-width: 0.5 !default;
 $theme-sidenav-font-family: "ui" !default;
+$theme-sidenav-reorder: false !default;
 
 // Site Alert
 $theme-site-alert-max-width: "desktop" !default;
@@ -203,6 +205,7 @@ $theme-summary-box-link-color: default !default;
 $theme-summary-box-text-color: default !default;
 
 // Table
+$theme-table-background-color: default !default;
 $theme-table-border-color: "ink" !default;
 $theme-table-header-background-color: "base-lighter" !default;
 $theme-table-header-text-color: default !default;
@@ -213,6 +216,7 @@ $theme-table-sorted-header-background-color: "accent-cool-light" !default;
 $theme-table-sorted-background-color: "accent-cool-lighter" !default;
 $theme-table-sorted-stripe-background-color: "blue-cool-10v" !default;
 $theme-table-sorted-icon-color: default !default;
+$theme-table-sticky-top-offset: -1px !default;
 $theme-table-unsorted-icon-color: "base" !default;
 
 // Tooltips

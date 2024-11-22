@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-min-date-max-date.template.html")
+  path.join(__dirname, "/date-picker-min-date-max-date.template.html"),
 );
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
@@ -27,7 +27,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let expectedError;
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -55,7 +55,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
@@ -64,7 +64,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -74,18 +74,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__previous-month").disabled,
         true,
-        "the previous month button is disabled"
+        "the previous month button is disabled",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
         true,
-        "the previous year button is disabled"
+        "the previous year button is disabled",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
@@ -95,7 +95,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-30",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -105,18 +105,18 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__next-month").disabled,
         true,
-        "the next month button is disabled"
+        "the next month button is disabled",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__next-year").disabled,
         true,
-        "the next year button is disabled"
+        "the next year button is disabled",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
@@ -126,7 +126,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-01",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -136,7 +136,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
@@ -145,7 +145,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -155,7 +155,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
@@ -164,7 +164,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -174,13 +174,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
         true,
-        "the button is disabled"
+        "the button is disabled",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
@@ -189,7 +189,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-30",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -199,7 +199,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
@@ -208,7 +208,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -218,7 +218,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
@@ -227,7 +227,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -237,7 +237,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
@@ -246,7 +246,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -256,7 +256,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
@@ -265,7 +265,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-17",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -273,28 +273,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "12/01/2020";
       EVENTS.click(button);
       EVENTS.click(
-        getCalendarEl(".usa-date-picker__calendar__month-selection")
+        getCalendarEl(".usa-date-picker__calendar__month-selection"),
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__month[data-label="May"]'
-        )
+          '.usa-date-picker__calendar__month[data-label="May"]',
+        ),
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__date-picker"),
-        "the date picker is shown"
+        "the date picker is shown",
       );
     });
 
@@ -302,20 +302,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "10/31/2020";
       EVENTS.click(button);
       EVENTS.click(
-        getCalendarEl(".usa-date-picker__calendar__month-selection")
+        getCalendarEl(".usa-date-picker__calendar__month-selection"),
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
 
       EVENTS.click(
-        getCalendarEl('.usa-date-picker__calendar__month[data-label="January"]')
+        getCalendarEl(
+          '.usa-date-picker__calendar__month[data-label="January"]',
+        ),
       );
 
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
     });
 
@@ -323,28 +325,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "01/30/2021";
       EVENTS.click(button);
       EVENTS.click(
-        getCalendarEl(".usa-date-picker__calendar__month-selection")
+        getCalendarEl(".usa-date-picker__calendar__month-selection"),
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__month[data-label="June"]'
-        )
+          '.usa-date-picker__calendar__month[data-label="June"]',
+        ),
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__date-picker"),
-        "the date picker is shown"
+        "the date picker is shown",
       );
     });
 
@@ -352,22 +354,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "02/29/2021";
       EVENTS.click(button);
       EVENTS.click(
-        getCalendarEl(".usa-date-picker__calendar__month-selection")
+        getCalendarEl(".usa-date-picker__calendar__month-selection"),
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
 
       EVENTS.click(
         getCalendarEl(
-          '.usa-date-picker__calendar__month[data-label="December"]'
-        )
+          '.usa-date-picker__calendar__month[data-label="December"]',
+        ),
       );
 
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__month-picker"),
-        "the month picker is shown"
+        "the month picker is shown",
       );
     });
 
@@ -377,22 +379,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__year-selection"));
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
 
       EVENTS.click(
-        getCalendarEl('.usa-date-picker__calendar__year[data-value="2020"]')
+        getCalendarEl('.usa-date-picker__calendar__year[data-value="2020"]'),
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__date-picker"),
-        "the date picker is shown"
+        "the date picker is shown",
       );
     });
 
@@ -402,22 +404,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__year-selection"));
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
 
       EVENTS.click(
-        getCalendarEl('.usa-date-picker__calendar__year[data-value="2021"]')
+        getCalendarEl('.usa-date-picker__calendar__year[data-value="2021"]'),
       );
 
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__date-picker"),
-        "the date picker is shown"
+        "the date picker is shown",
       );
     });
 
@@ -427,16 +429,16 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__year-selection"));
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
 
       EVENTS.click(
-        getCalendarEl('.usa-date-picker__calendar__year[data-value="2018"]')
+        getCalendarEl('.usa-date-picker__calendar__year[data-value="2018"]'),
       );
 
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
     });
 
@@ -446,16 +448,16 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(getCalendarEl(".usa-date-picker__calendar__year-selection"));
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
 
       EVENTS.click(
-        getCalendarEl('.usa-date-picker__calendar__year[data-value="2023"]')
+        getCalendarEl('.usa-date-picker__calendar__year[data-value="2023"]'),
       );
 
       assert.ok(
         getCalendarEl(".usa-date-picker__calendar__year-picker"),
-        "the year picker is shown"
+        "the year picker is shown",
       );
     });
 
@@ -465,19 +467,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__date[data-day="22"]'
-        )
+          '.usa-date-picker__calendar__date[data-day="22"]',
+        ),
       );
 
       assert.strictEqual(
         input.value,
         "05/22/2020",
-        "The value has been filled in"
+        "The value has been filled in",
       );
     });
 
@@ -487,19 +489,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__date[data-day="20"]'
-        )
+          '.usa-date-picker__calendar__date[data-day="20"]',
+        ),
       );
 
       assert.strictEqual(
         input.value,
         "06/20/2020",
-        "The value has been filled in"
+        "The value has been filled in",
       );
     });
 
@@ -509,19 +511,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__date[data-day="15"]'
-        )
+          '.usa-date-picker__calendar__date[data-day="15"]',
+        ),
       );
 
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
     });
 
@@ -531,19 +533,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.click(
         getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__date[data-day="25"]'
-        )
+          '.usa-date-picker__calendar__date[data-day="25"]',
+        ),
       );
 
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
     });
 
@@ -553,7 +555,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowLeft();
@@ -562,7 +564,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -572,7 +574,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowUp();
@@ -581,7 +583,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -591,7 +593,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownPageUp();
@@ -600,7 +602,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -610,7 +612,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownShiftPageUp();
@@ -619,7 +621,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -629,7 +631,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowLeft();
@@ -638,7 +640,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -648,7 +650,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownHome();
@@ -657,7 +659,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -667,7 +669,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowUp();
@@ -676,7 +678,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -686,7 +688,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownPageUp();
@@ -695,7 +697,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -705,7 +707,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownShiftPageUp();
@@ -714,7 +716,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -724,7 +726,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowRight();
@@ -733,7 +735,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -743,7 +745,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowDown();
@@ -752,7 +754,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -762,7 +764,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownPageDown();
@@ -771,7 +773,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -781,7 +783,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownShiftPageDown();
@@ -790,7 +792,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -800,7 +802,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowRight();
@@ -809,7 +811,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -820,7 +822,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownEnd();
@@ -829,7 +831,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-21",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -839,7 +841,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownArrowDown();
@@ -848,7 +850,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -858,7 +860,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownPageDown();
@@ -867,7 +869,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -877,7 +879,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
 
       EVENTS.keydownShiftPageDown();
@@ -886,7 +888,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -939,13 +941,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -956,13 +958,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2021-06-20",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -974,13 +976,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-02-14",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
 
@@ -993,7 +995,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-01-20",
-        "focuses correct date"
+        "focuses correct date",
       );
 
       input.value = "6/20/2020";
@@ -1003,7 +1005,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-02-14",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
   });

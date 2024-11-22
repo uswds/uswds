@@ -6,7 +6,8 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
-const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
+const BANNER_BUTTON = `.${PREFIX}-banner__button`;
+const BUTTON = `.${PREFIX}-accordion__button[aria-controls]:not(${BANNER_BUTTON})`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "data-allow-multiple";
 
@@ -93,7 +94,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-  }
+  },
 );
 
 module.exports = accordion;

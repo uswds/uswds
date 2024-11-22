@@ -1,17 +1,26 @@
 @use "uswds-core" as *;
 
-// Flexbox positioning to move sidenav below main content on small screens
+$sidenav-reorder-warning: "$theme-sidenav-reorder is enabled and has accessibility concerns. This behavior has a negative impact on users of assistive technologies.";
+
 .usa-layout-docs__sidenav {
-  order: 2;
   padding-top: units(4);
 
   @include at-media("desktop") {
     padding-top: 0;
   }
-}
 
-.usa-layout-docs__main {
-  @include at-media("desktop") {
-    order: 2;
+  // Revert to >3.8.0 behavior and give a warning.
+  @if $theme-sidenav-reorder {
+    @warn $sidenav-reorder-warning;
+
+    &:first-of-type {
+      @include grid-col(12);
+      order: 2;
+
+      @include at-media("desktop") {
+        @include grid-col(3);
+        order: 0;
+      }
+    }
   }
 }

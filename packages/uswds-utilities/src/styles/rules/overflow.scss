@@ -3,14 +3,15 @@
 overflow
 ----------------------------------------
 usage:
-  .overflow-[modifier]
+  .overflow-[modifier]*-[key]
 ----------------------------------------
 output:
-  overflow[-modifier]: [value] solid;
+  overflow[-modifier]: [value];
 ----------------------------------------
 example:
   .overflow-y-hidden {
-    overflow-y: hidden; }
+    overflow-y: hidden;
+  }
 ----------------------------------------
 */
 

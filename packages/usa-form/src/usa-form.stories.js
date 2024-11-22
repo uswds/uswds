@@ -17,7 +17,11 @@ export default {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
-      defaultValue: "disabled",
+      table: { disable: true },
+    },
+    error_state: {
+      name: "Error state",
+      control: { type: "boolean" },
       table: { disable: true },
     },
   },
@@ -51,6 +55,15 @@ SignInMultipleSpanish.args = EsMultipleContent;
 export const DisabledFormElements = CollectionTemplate.bind({});
 DisabledFormElements.argTypes = {
   disabled_state: {
+    defaultValue: "disabled",
+    table: { disable: false },
+  },
+};
+
+export const TestErrorFormElements = CollectionTemplate.bind({});
+TestErrorFormElements.argTypes = {
+  error_state: {
+    defaultValue: true,
     table: { disable: false },
   },
 };

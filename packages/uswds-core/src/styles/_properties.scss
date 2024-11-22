@@ -161,7 +161,7 @@ $system-properties: (
         map.get($system-spacing, "larger"),
         map.get($system-spacing, "largest")
       ),
-    extended: (),
+    extended: $theme-utility-breakpoints-custom,
   ),
   circle: (
     standard:
@@ -326,7 +326,8 @@ $system-properties: (
         map.get($system-spacing, "smaller-negative"),
         map.get($system-spacing, "small-negative"),
         map.get($partial-values, "zero-zero"),
-        map.get($partial-values, "auto")
+        map.get($partial-values, "auto"),
+        map.get($partial-values, "full-percent")
       ),
     extended: (),
   ),
@@ -610,7 +611,8 @@ $system-properties: (
         map.get($system-spacing, "smaller-negative"),
         map.get($system-spacing, "small-negative"),
         map.get($partial-values, "zero-zero"),
-        map.get($partial-values, "auto")
+        map.get($partial-values, "auto"),
+        map.get($partial-values, "full-percent")
       ),
     extended: (),
   ),
@@ -674,7 +676,8 @@ $system-properties: (
         map.get($system-spacing, "smaller-negative"),
         map.get($system-spacing, "small-negative"),
         map.get($partial-values, "zero-zero"),
-        map.get($partial-values, "auto")
+        map.get($partial-values, "auto"),
+        map.get($partial-values, "full-percent")
       ),
     extended: (),
   ),

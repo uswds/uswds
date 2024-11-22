@@ -685,4 +685,50 @@ $this-function: "is-color-dark()";
   }
 }
 
+@include describe("[mixin] add-link-styles()") {
+  @include it("Adds link styles from a SASS list of color tokens") {
+    @include assert {
+      @include output {
+        $link-colors: ("primary", "primary-vivid", "primary-darker");
+        @include add-link-styles($link-colors);
+      }
+      @include expect {
+        &:link {
+          color: #005ea2;
+        }
+        &:visited {
+          color: #005ea2;
+        }
+        &:hover {
+          color: #0050d8;
+        }
+        &:active {
+          color: #162e51;
+        }
+      }
+    }
+  }
+  @include it("Adds link styles from color tokens") {
+    @include assert {
+      @include output {
+        @include add-link-styles("ink", "primary", "primary-darker");
+      }
+      @include expect {
+        &:link {
+          color: #1b1b1b;
+        }
+        &:visited {
+          color: #1b1b1b;
+        }
+        &:hover {
+          color: #005ea2;
+        }
+        &:active {
+          color: #162e51;
+        }
+      }
+    }
+  }
+}
+
 // Debug
