@@ -17,10 +17,15 @@ module.exports = (button, expanded) => {
     throw new Error(`No toggle target found with id: "${id}"`);
   }
 
+  // Return boolean if browser supports "until-found".
+  const testHiddenUntilFound = () => !!("onbeforematch" in document.body);
+
+  const hiddenAttributeValue = testHiddenUntilFound() ? "until-found" : "";
+
   if (safeExpanded) {
     controls.removeAttribute(HIDDEN);
   } else {
-    controls.setAttribute(HIDDEN, "");
+    controls.setAttribute(HIDDEN, hiddenAttributeValue);
   }
 
   return safeExpanded;

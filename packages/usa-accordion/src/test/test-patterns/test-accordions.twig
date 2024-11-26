@@ -1,0 +1,24 @@
+<div class="padding-8">
+  <article class="margin-bottom-6">
+    {% include '@components/usa-banner/src/usa-banner.twig' %}
+  </article>
+
+  <article class="margin-bottom-6">
+    {% include '@components/usa-accordion/src/usa-accordion.twig' with DefaultContent %}
+  </article>
+
+  <article class="margin-bottom-6">
+    {% include '@components/usa-header/src/usa-header.twig' with header %}
+  </article>
+
+  <article class="margin-bottom-6">
+    {% include '@components/usa-header/src/usa-header--extended/usa-header--extended.twig' with headerExtended %}
+  </article>
+
+
+  <article class="margin-bottom-6">
+    {% include '@components/usa-header/src/usa-header.twig' with headerMegamenu %}
+  </article>
+
+  {% include '@components/usa-header/src/usa-header--extended/usa-header--extended.twig' with headerMegamenuExtended %}
+</div>
