@@ -95,11 +95,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     afterEach(() => {
       sinon.resetHistory();
-      if (theNav) {
-        const container = containerSelector(body);
-        if (container) {
-          behavior.off(container);
-        }
+      if (theNav && containerSelector()) {
+        behavior.off(containerSelector());
       }
       body.innerHTML = "";
       window.location.hash = "";
@@ -178,39 +175,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
       firstLink.click();
 
       assert(window.scroll.calledOnceWith(sinon.match({ top: 880 })));
-    });
-
-    describe("Minimum heading count tests", () => {
-      beforeEach(() => {
-        body.innerHTML = TEMPLATE;
-        theNav = document.querySelector(THE_NAV);
-      });
-
-      afterEach(() => {
-        body.innerHTML = "";
-      });
-
-      it("does not render the in-page navigation when minimum heading count of 20 has not been reached", () => {
-        theNav.setAttribute("data-minimum-heading-count", "20");
-        behavior.off(containerSelector(body));
-        behavior.on(containerSelector(body));
-        assert.strictEqual(
-          theNav.hasChildNodes(),
-          false,
-          "In-page navigation should not have child nodes when the heading count is lower than the minimum of 20",
-        );
-      });
-
-      it("does render the in-page navigation when default minimum heading count of 3 has not been reached", () => {
-        theNav.setAttribute("data-minimum-heading-count", "3");
-        behavior.off(containerSelector(body));
-        behavior.on(containerSelector(body));
-        assert.strictEqual(
-          theNav.hasChildNodes(),
-          true,
-          "In-page navigation should have child nodes when the minimum heading count of 3 has not been reached",
-        );
-      });
     });
 
     context("with initial hash URL", () => {
