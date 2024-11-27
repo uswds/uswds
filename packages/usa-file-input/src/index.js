@@ -513,8 +513,8 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
-      dropTarget.insertBefore(errorMessage, fileInputEl);
       errorMessage.textContent = errorMessageText;
+      dropTarget.insertBefore(errorMessage, fileInputEl);
 
       const ariaLabelText = `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`;
 
