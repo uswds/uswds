@@ -27,6 +27,12 @@ export const Input = Template.bind({});
 Input.args = {
   state: "default",
 };
+Input.decorators = [
+  (Story) =>
+    `<div class="padding-x-205">
+      ${Story()}
+    </div>`,
+];
 
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -42,6 +48,12 @@ export const Error = Template.bind({});
 Error.args = {
   state: "error",
 };
+Error.decorators = [
+  (Story) =>
+    `<div class="padding-x-205">
+      ${Story()}
+    </div>`,
+];
 
 export const StateShowcase = ShowcaseTemplate.bind({});
 StateShowcase.argTypes = {
@@ -49,3 +61,9 @@ StateShowcase.argTypes = {
     table: { disable: true },
   },
 };
+StateShowcase.decorators = [
+  (Story) =>
+    `<div class="padding-x-205">
+      ${Story()}
+    </div>`,
+];
