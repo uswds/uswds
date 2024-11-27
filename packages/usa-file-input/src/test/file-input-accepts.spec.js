@@ -74,7 +74,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       let inputEl;
       let dragText;
       let box;
-      let errorMessage;
+      let visibleErrorMessage;
       let ariaLabel;
 
       const addFiles = () => {
@@ -148,12 +148,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         addFiles();
 
         // Error message appended to DOM after change event.
-        errorMessage = body.querySelector(
+        visibleErrorMessage = body.querySelector(
           ".usa-file-input__accepted-files-message",
         );
         ariaLabel = inputEl.getAttribute("aria-label");
 
-        assert.strictEqual(errorMessage.textContent, defaultErrorMessage);
+        assert.strictEqual(visibleErrorMessage.textContent, defaultErrorMessage);
         assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
       });
 
@@ -162,12 +162,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         addFiles();
 
         // Error message appended to DOM after change event.
-        errorMessage = body.querySelector(
+        visibleErrorMessage = body.querySelector(
           ".usa-file-input__accepted-files-message",
         );
         ariaLabel = inputEl.getAttribute("aria-label");
 
-        assert.strictEqual(errorMessage.textContent, customErrorMessage);
+        assert.strictEqual(visibleErrorMessage.textContent, customErrorMessage);
         assert.strictEqual(ariaLabel.startsWith(customErrorMessage), true);
       });
     });
