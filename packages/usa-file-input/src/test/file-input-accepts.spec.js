@@ -157,7 +157,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
       });
 
-      it("should use custom error message", () => {
+      it("should allow a custom error message", () => {
         inputEl.dataset.errormessage = customErrorMessage;
         addFiles();
 
