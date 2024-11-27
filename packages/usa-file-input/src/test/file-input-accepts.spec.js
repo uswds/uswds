@@ -143,7 +143,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
-      it("should display an error message", () => {
+      it("should provide a default error state", () => {
         // add to our elements FileList
         addFiles();
 
