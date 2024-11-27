@@ -81,7 +81,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         inputEl.files = fileList;
         const e = new Event("change");
         inputEl.dispatchEvent(e);
-      }
+      };
 
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
@@ -153,7 +153,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
         ariaLabel = inputEl.getAttribute("aria-label");
 
-        assert.strictEqual(visibleErrorMessage.textContent, defaultErrorMessage);
+        assert.strictEqual(
+          visibleErrorMessage.textContent,
+          defaultErrorMessage,
+        );
         assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
       });
 
