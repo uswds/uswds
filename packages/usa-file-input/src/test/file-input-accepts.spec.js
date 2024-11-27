@@ -77,6 +77,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       let errorMessage;
       let ariaLabel;
 
+      const addFiles = () => {
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+      }
+
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
         fileInput.on(containerSelector());
@@ -130,9 +136,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("mock file should not be allowed", () => {
         // add to our elements FileList
-        inputEl.files = fileList;
-        const e = new Event("change");
-        inputEl.dispatchEvent(e);
+        addFiles();
         assert.strictEqual(
           dropZone.classList.contains(INVALID_FILE_CLASS),
           true,
@@ -141,9 +145,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should display an error message", () => {
         // add to our elements FileList
-        inputEl.files = fileList;
-        const e = new Event("change");
-        inputEl.dispatchEvent(e);
+        addFiles();
 
         // Error message appended to DOM after change event.
         errorMessage = body.querySelector(
@@ -157,9 +159,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("should use custom error message", () => {
         inputEl.dataset.errormessage = customErrorMessage;
-        inputEl.files = fileList;
-        const e = new Event("change");
-        inputEl.dispatchEvent(e);
+        addFiles();
 
         // Error message appended to DOM after change event.
         errorMessage = body.querySelector(
