@@ -22,11 +22,11 @@
     class="usa-file-input"
     type="file"
     name="{{ id }}"
-    {% if hint %} aria-describedby="{{ aria_hint }}"{% endif %}
-    {% if accept %} accept="{{ accept }}"{% endif %}
-    {% if multiple %} multiple{% endif %}
-    {% if disabled_state == 'disabled' %} disabled{% endif %}
-    {% if disabled_state == "aria-disabled" %} aria-disabled="true"{% endif %}
-    {% if accepted_files_message %} data-errorMessage="{{ accepted_files_message }}"{% endif %}
+    {% if hint %}aria-describedby="{{ aria_hint }}"{% endif %}
+    {% if accept %}accept="{{ accept }}"{% endif %}
+    {% if multiple %}multiple{% endif %}
+    {% if disabled_state == 'disabled' %}disabled{% endif %}
+    {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
+    {% if accepted_files_message %}data-errorMessage="{{ accepted_files_message }}"{% endif %}
   />
 </div>
