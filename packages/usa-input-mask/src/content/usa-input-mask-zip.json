@@ -8,5 +8,8 @@
   "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
   "data_errorMessage": "Error: please enter a valid character",
   "data_errorMessageNumerical": "Error: please enter a number here",
-  "data_errorMessageInputFull": "Maximum character count reached"
+  "data_errorMessageInputFull": "Maximum character count reached",
+  "data_errorMessageSrOnly": "Error: please enter a valid character",
+  "data_errorMessageNumericalSrOnly": "Error: please enter a number here",
+  "data_errorMessageInputFullSrOnly": "Maximum character count reached"
 }

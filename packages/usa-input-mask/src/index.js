@@ -25,6 +25,10 @@ const getMaskInputContext = (el) => {
   const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical");
   const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
   const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull");
+  const errorMsgSrOnly = inputEl.getAttribute("data-errorMessageSrOnly");
+  const errorMsgAlphaSrOnly = inputEl.getAttribute("data-errorMessageAlphabeticalSrOnly");
+  const errorMsgNumSrOnly = inputEl.getAttribute("data-errorMessageNumericalSrOnly");
+  const errorMsgFullSrOnly = inputEl.getAttribute("data-errorMessageInputFullSrOnly");
 
   return {
     inputEl,
@@ -33,7 +37,11 @@ const getMaskInputContext = (el) => {
     errorMsg,
     errorMsgAlpha,
     errorMsgNum,
-    errorMsgFull
+    errorMsgFull,
+    errorMsgSrOnly,
+    errorMsgAlphaSrOnly,
+    errorMsgNumSrOnly,
+    errorMsgFullSrOnly
   };
 };
 
@@ -129,31 +137,40 @@ const handleCurrentValue = (el) => {
 };
 
 const handleErrorState = (previousValue, newValue, matchType, inputEl, inputValueLength) => {
-  const { errorId, errorMsgAlpha, errorMsgNum, errorMsg, errorMsgFull } =
+  const { errorId, errorMsg, errorMsgNum, errorMsgAlpha, errorMsgFull,
+    errorMsgSrOnly, errorMsgNumSrOnly, errorMsgAlphaSrOnly, errorMsgFullSrOnly
+   } =
     getMaskInputContext(inputEl);
-  let messageType = newValue.length === inputValueLength ? "input full" : matchType;
+  const errorMessageEl = document.getElementById(errorId);
+  const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
+  //check if the input max character count is reached *needs refinement*
+  let messageType = previousValue.length === newValue.length ? "input full" : matchType;
 
     if (newValue.length == inputValueLength)  {
-      document.getElementById(errorId).hidden = false;
+      errorMessageEl.hidden = false;
     } else if (previousValue.length <= newValue.length) {
-      document.getElementById(errorId).hidden = true;
+      errorMessageEl.hidden = true;
     } else if (previousValue.length >= newValue.length)  {
-      document.getElementById(errorId).hidden = false;
+      errorMessageEl.hidden = false;
     }
 
     switch (messageType) {
       case "letter":
-        document.getElementById(errorId).textContent = errorMsgAlpha;
+        errorMessageEl.textContent = errorMsgAlpha;
+        errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
         break;
       case "number":
-        document.getElementById(errorId).textContent = errorMsgNum;
+        errorMessageEl.textContent = errorMsgNum;
+        errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
         break;
       case "input full":
-        document.getElementById(errorId).textContent = errorMsgFull;
+        errorMessageEl.textContent = errorMsgFull;
+        errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
         break;
       default:
-        document.getElementById(errorId).textContent = errorMsg;
+        errorMessageEl.textContent = errorMsg;
+        errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
     }
 };
 
