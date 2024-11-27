@@ -69,7 +69,7 @@ TestErrorFormElements.argTypes = {
 };
 TestErrorFormElements.decorators = [
   (Story) =>
-    `<div class="padding-205">
+    `<div class="padding-x-205">
       ${Story()}
     </div>`,
 ];
