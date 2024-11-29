@@ -13,30 +13,10 @@
   }
 }
 
-.usa-input,
-.usa-input-group {
-  &--2xs {
-    max-width: 5ex;
-  }
-  &--xs {
-    max-width: 9ex;
-  }
-  &--sm,
-  &--small {
-    max-width: 13ex;
-  }
-  &--md,
-  &--medium {
-    max-width: 20ex;
-  }
-  &--lg {
-    max-width: 30ex;
-  }
-  &--xl {
-    max-width: 40ex;
-  }
-  &--2xl {
-    max-width: 50ex;
+// Create input max width utility classes
+@each $name, $width in $system-input-widths {
+  .usa-input--#{$name} {
+    max-width: #{$width};
   }
 }
 
