@@ -24,11 +24,11 @@
       {% if data_errorMessageNumericalSrOnly %}data-errorMessageNumericalSrOnly="{{ data_errorMessageNumericalSrOnly }}"{% endif %}
       {% if data_errorMessageInputFullSrOnly %}data-errorMessageInputFullSrOnly="{{ data_errorMessageInputFullSrOnly }}"{% endif %}
       >
-  <span id="{{ id }}ErrorSrOnly" class="usa-sr-only"></span>
+  <span id="{{ id }}ErrorSrOnly" class="usa-sr-only" role="alert"></span>
   <span 
       id="{{ id }}Error" 
       class="usa-error-message"
-      role="alert"
+      aria-hidden= "true"
   ></span>
   </div>
 </form>

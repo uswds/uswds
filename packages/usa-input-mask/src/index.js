@@ -149,7 +149,6 @@ const handleErrorState = (
   newValue,
   matchType,
   inputEl,
-  inputValueLength,
   maxLengthReached,
 ) => {
   const {
@@ -172,19 +171,22 @@ const handleErrorState = (
   if (maxLengthReached) {
     //max length reached
     errorMessageEl.hidden = false;
+    errorMessageSrOnlyEl.hidden = false;
   } else if (previousValue.length <= newValue.length) {
     //input accepted
     errorMessageEl.hidden = true;
+    errorMessageSrOnlyEl.hidden = true;
   } else if (previousValue.length >= newValue.length) {
     //input rejected
     errorMessageEl.hidden = false;
+    errorMessageSrOnlyEl.hidden = false;
   }
 
   //set error messages text
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
-      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
+      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
       break;
     case "number":
       errorMessageEl.textContent = errorMsgNum;
@@ -192,11 +194,11 @@ const handleErrorState = (
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
-      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
+      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
       break;
     default:
       errorMessageEl.textContent = errorMsg;
-      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
+      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
   }
 };
 
