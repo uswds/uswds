@@ -26,9 +26,15 @@ const getMaskInputContext = (el) => {
   const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
   const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull");
   const errorMsgSrOnly = inputEl.getAttribute("data-errorMessageSrOnly");
-  const errorMsgAlphaSrOnly = inputEl.getAttribute("data-errorMessageAlphabeticalSrOnly");
-  const errorMsgNumSrOnly = inputEl.getAttribute("data-errorMessageNumericalSrOnly");
-  const errorMsgFullSrOnly = inputEl.getAttribute("data-errorMessageInputFullSrOnly");
+  const errorMsgAlphaSrOnly = inputEl.getAttribute(
+    "data-errorMessageAlphabeticalSrOnly",
+  );
+  const errorMsgNumSrOnly = inputEl.getAttribute(
+    "data-errorMessageNumericalSrOnly",
+  );
+  const errorMsgFullSrOnly = inputEl.getAttribute(
+    "data-errorMessageInputFullSrOnly",
+  );
 
   return {
     inputEl,
@@ -41,7 +47,7 @@ const getMaskInputContext = (el) => {
     errorMsgSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgNumSrOnly,
-    errorMsgFullSrOnly
+    errorMsgFullSrOnly,
   };
 };
 
@@ -136,47 +142,66 @@ const handleCurrentValue = (el) => {
   return { newValue, matchType };
 };
 
-const handleErrorState = (previousValue, newValue, matchType, inputEl, inputValueLength) => {
-  const { errorId, errorMsg, errorMsgNum, errorMsgAlpha, errorMsgFull,
-    errorMsgSrOnly, errorMsgNumSrOnly, errorMsgAlphaSrOnly, errorMsgFullSrOnly
-   } =
-    getMaskInputContext(inputEl);
+const handleErrorState = (
+  previousValue,
+  newValue,
+  matchType,
+  inputEl,
+  inputValueLength,
+  maxLengthReached,
+) => {
+  const {
+    errorId,
+    errorMsg,
+    errorMsgNum,
+    errorMsgAlpha,
+    errorMsgFull,
+    errorMsgSrOnly,
+    errorMsgNumSrOnly,
+    errorMsgAlphaSrOnly,
+    errorMsgFullSrOnly,
+  } = getMaskInputContext(inputEl);
   const errorMessageEl = document.getElementById(errorId);
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
-  //check if the input max character count is reached *needs refinement*
-  let messageType = previousValue.length === newValue.length ? "input full" : matchType;
+  let messageType = maxLengthReached ? "input full" : matchType;
 
-    if (newValue.length == inputValueLength)  {
-      errorMessageEl.hidden = false;
-    } else if (previousValue.length <= newValue.length) {
-      errorMessageEl.hidden = true;
-    } else if (previousValue.length >= newValue.length)  {
-      errorMessageEl.hidden = false;
-    }
+  //hide or show error message
+  if (maxLengthReached) {
+    //max length reached
+    errorMessageEl.hidden = false;
+  } else if (previousValue.length <= newValue.length) {
+    //input accepted
+    errorMessageEl.hidden = true;
+  } else if (previousValue.length >= newValue.length) {
+    //input rejected
+    errorMessageEl.hidden = false;
+  }
 
-    switch (messageType) {
-      case "letter":
-        errorMessageEl.textContent = errorMsgAlpha;
-        errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
-        break;
-      case "number":
-        errorMessageEl.textContent = errorMsgNum;
-        errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
-        break;
-      case "input full":
-        errorMessageEl.textContent = errorMsgFull;
-        errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
-        break;
-      default:
-        errorMessageEl.textContent = errorMsg;
-        errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
-    }
+  //set error messages text
+  switch (messageType) {
+    case "letter":
+      errorMessageEl.textContent = errorMsgAlpha;
+      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
+      break;
+    case "number":
+      errorMessageEl.textContent = errorMsgNum;
+      errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
+      break;
+    case "input full":
+      errorMessageEl.textContent = errorMsgFull;
+      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
+      break;
+    default:
+      errorMessageEl.textContent = errorMsg;
+      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
+  }
 };
 
-const handleValueChange = (el) => {
+const handleValueChange = (el, keydownLength) => {
   const inputEl = el;
   const previousValue = inputEl.value;
+  const maxLengthReached = keydownLength == previousValue.length;
   const { matchType } = handleCurrentValue(inputEl);
   const id = inputEl.getAttribute("id");
   const { newValue } = handleCurrentValue(inputEl);
@@ -188,13 +213,27 @@ const handleValueChange = (el) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(previousValue, newValue, matchType, inputEl, inputValueLength);    
+  handleErrorState(
+    previousValue,
+    newValue,
+    matchType,
+    inputEl,
+    inputValueLength,
+    maxLengthReached,
+  );
 };
+
+let keydownLength;
 
 const inputMaskEvents = {
   keyup: {
-    [MASKED](e) {
-      e.key != 'Shift' ? handleValueChange(this) : null;
+    [MASKED]() {
+      this.key != "Shift" ? handleValueChange(this, keydownLength) : null;
+    },
+  },
+  keydown: {
+    [MASKED]() {
+      keydownLength = this.value.length;
     },
   },
 };
