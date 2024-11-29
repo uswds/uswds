@@ -17,6 +17,12 @@
     text-decoration: none;
   }
 
+  .usa-range,
+  .usa-select {
+    // max width not needed since .usa-form has one of its own
+    max-width: none;
+  }
+
   .usa-button {
     margin-top: units(1);
 
