@@ -14,9 +14,24 @@
       pattern="\w\d\w \d\w\d"
       class="usa-input usa-masked"
       aria-describedby="alphanumericHint"
-      maxlength="10"
+      maxlength="7"
       data-placeholder="___ ___"
       data-charset="A#A #A#"
+      data-errormessage="Error: please enter a valid character" 
+      data-errormessagealphabetical="Error: please enter a letter" 
+      data-errormessagenumerical="Error: please enter a number" 
+      data-errormessageinputfull="Maximum character count reached" 
+      data-errormessagesronly="Error: please enter a valid character" 
+      data-errormessagealphabeticalsronly="Error: please enter a letter" 
+      data-errormessagenumericalsronly="Error: please enter a number" 
+      data-errormessageinputfullsronly="Maximum character count reached" 
     />
+
   </span>
+  <span id="alphanumericErrorSrOnly" class="usa-sr-only"></span>
+  <span 
+      id="alphanumericError" 
+      class="usa-error-message"
+      role="alert"
+  ></span>
 </div>
