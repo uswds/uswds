@@ -8,6 +8,8 @@ const MASK = `${PREFIX}-input-mask`;
 const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
 
+let keydownLength;
+
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
 const maskedLetter = "A";
@@ -201,7 +203,8 @@ const handleErrorState = (
 const handleValueChange = (el, keydownLength) => {
   const inputEl = el;
   const previousValue = inputEl.value;
-  const maxLengthReached = keydownLength == previousValue.length;
+  const maxLengthReached =
+    keydownLength == previousValue.length && !(previousValue.length === 0);
   const { matchType } = handleCurrentValue(inputEl);
   const id = inputEl.getAttribute("id");
   const { newValue } = handleCurrentValue(inputEl);
@@ -222,8 +225,6 @@ const handleValueChange = (el, keydownLength) => {
     maxLengthReached,
   );
 };
-
-let keydownLength;
 
 const inputMaskEvents = {
   keyup: {
