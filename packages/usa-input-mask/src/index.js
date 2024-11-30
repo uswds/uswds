@@ -198,7 +198,7 @@ const handleErrorState = (
   newValue,
   matchType,
   inputEl,
-  maxLengthReached
+  maxLengthReached,
 ) => {
   const {
     errorId,
@@ -217,8 +217,11 @@ const handleErrorState = (
   const formatCharAdded = lastChar === keyPressed;
 
   //need to clean the spans off dom before adding !!!!! <---- FIX
-  
+
   // create visual error message and add to DOM
+  if (document.getElementById(errorId)) {
+    document.getElementById(errorId).remove();
+  }
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
   errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
@@ -226,7 +229,10 @@ const handleErrorState = (
   inputEl.parentNode.appendChild(errorMsgSpan);
   const errorMessageEl = document.getElementById(errorId);
 
-  // create sr only error message and add to DOM
+  // create sr only error message and add to DOM, remove first if it already exists
+  if (document.getElementById(`${errorId}SrOnly`)) {
+    document.getElementById(`${errorId}SrOnly`).remove();
+  }
   const errorMsgSpanSrOnly = document.createElement("span");
   errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
   errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
@@ -276,7 +282,7 @@ const handleErrorState = (
 };
 
 /**
- *  Gets the processed input value and puts it inside the mask element. 
+ *  Gets the processed input value and puts it inside the mask element.
  *  Triggers error handling.
  *
  * @param {HTMLElement} inputEl - The input element
@@ -310,7 +316,7 @@ const handleValueChange = (el, key) => {
     newValue,
     matchType,
     inputEl,
-    maxLengthReached
+    maxLengthReached,
   );
 };
 
@@ -322,7 +328,7 @@ const inputMaskEvents = {
   },
   keydown: {
     [MASKED]() {
-      this.key != "Shift" ? keydownLength = this.value.length : null;
+      this.key != "Shift" ? (keydownLength = this.value.length) : null;
     },
   },
 };
