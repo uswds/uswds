@@ -216,9 +216,7 @@ const handleErrorState = (
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar === keyPressed;
 
-  //need to clean the spans off dom before adding !!!!! <---- FIX
-
-  // create visual error message and add to DOM
+  // create visual error message and add to DOM, remove first if it already exists
   if (document.getElementById(errorId)) {
     document.getElementById(errorId).remove();
   }
