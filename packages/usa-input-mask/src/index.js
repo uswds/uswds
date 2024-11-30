@@ -167,11 +167,21 @@ const handleCurrentValue = (el) => {
  * Updates the error message announcement for screen readers after a 1000ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader error message element
- * @param {string} errorMsg - A string of the error message
+ * @param {boolean} status - A boolean of error's hidden status
  */
 const srUpdateErrorStatus = debounce((msgEl, status) => {
-  console.log('debounce runs')
   msgEl.hidden = status;
+}, 1000);
+
+/**
+ * Updates the error message announcement for screen readers after a 1000ms delay.
+ *
+ * @param {HTMLElement} msgEl - The screen reader error message element
+ * @param {string} errorMsg - A string of the error message
+ */
+const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
+  const srStatusMessage = msgEl;
+  srStatusMessage.textContent = errorMsg;
 }, 1000);
 
 /**
@@ -249,19 +259,19 @@ const handleErrorState = (
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
-      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
       break;
     case "number":
       errorMessageEl.textContent = errorMsgNum;
-      errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgNumSrOnly);
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
-      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
       break;
     default:
       errorMessageEl.textContent = errorMsg;
-      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgSrOnly);
   }
 };
 
