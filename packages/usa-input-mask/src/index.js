@@ -201,7 +201,7 @@ const handleErrorState = (
     errorMsgFullSrOnly,
   } = getMaskInputContext(inputEl);
 
-  //create visual error message and add to DOM
+  // create visual error message and add to DOM
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
   errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
@@ -209,7 +209,7 @@ const handleErrorState = (
   inputEl.parentNode.appendChild(errorMsgSpan);
   const errorMessageEl = document.getElementById(errorId);
 
-  //create sr only error message and add to DOM
+  // create sr only error message and add to DOM
   const errorMsgSpanSrOnly = document.createElement("span");
   errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
   errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
@@ -217,24 +217,24 @@ const handleErrorState = (
   inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
-  let messageType = maxLengthReached ? "input full" : matchType;
+  const messageType = maxLengthReached ? "input full" : matchType;
 
-  //hide or show error message
+  // hide or show error message
   if (maxLengthReached) {
-    //max length reached
+    // max length reached
     errorMessageEl.hidden = false;
     errorMessageSrOnlyEl.hidden = false;
   } else if (previousValue.length <= newValue.length) {
-    //input accepted
+    // input accepted
     errorMessageEl.hidden = true;
     errorMessageSrOnlyEl.hidden = true;
   } else if (previousValue.length >= newValue.length) {
-    //input rejected
+    // input rejected
     errorMessageEl.hidden = false;
     errorMessageSrOnlyEl.hidden = false;
   }
 
-  //set error messages text
+  // set error messages text
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
@@ -261,41 +261,43 @@ const handleErrorState = (
  * @param {HTMLElement} inputEl - The input element
  * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
  */
-const handleValueChange = (el, keydownLength) => {
-  const inputEl = el;
+const handleValueChange = (el, keyPressed) => {
+  if (keyPressed !== "Shift") {
+    const inputEl = el;
 
-  //record value before new character is accepted or rejected
-  const previousValue = inputEl.value;
+    // record value before new character is accepted or rejected
+    const previousValue = inputEl.value;
 
-  //check if max character count has been reached
-  const maxLengthReached =
-    keydownLength == previousValue.length && !(previousValue.length === 0);
+    // check if max character count has been reached
+    const maxLengthReached =
+      keydownLength === previousValue.length && !(previousValue.length === 0);
 
-  //get expected character type
-  const { matchType } = handleCurrentValue(inputEl);
+    // get expected character type
+    const { matchType } = handleCurrentValue(inputEl);
 
-  //get and set processed new value
-  const { newValue } = handleCurrentValue(inputEl);
-  inputEl.value = newValue;
+    // get and set processed new value
+    const { newValue } = handleCurrentValue(inputEl);
+    inputEl.value = newValue;
 
-  const maskVal = setValueOfMask(el);
-  const maskEl = document.getElementById(`${inputEl.id}Mask`);
-  maskEl.textContent = "";
-  maskEl.replaceChildren(maskVal[0], maskVal[1]);
+    const maskVal = setValueOfMask(el);
+    const maskEl = document.getElementById(`${inputEl.id}Mask`);
+    maskEl.textContent = "";
+    maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(
-    previousValue,
-    newValue,
-    matchType,
-    inputEl,
-    maxLengthReached,
-  );
+    handleErrorState(
+      previousValue,
+      newValue,
+      matchType,
+      inputEl,
+      maxLengthReached,
+    );
+  }
 };
 
 const inputMaskEvents = {
   keyup: {
     [MASKED]() {
-      this.key != "Shift" ? handleValueChange(this, keydownLength) : null;
+      handleValueChange(this, this.key);
     },
   },
   keydown: {
