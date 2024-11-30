@@ -12,6 +12,7 @@ const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let keydownLength;
+let keyPressed;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -187,7 +188,7 @@ const handleErrorState = (
   newValue,
   matchType,
   inputEl,
-  maxLengthReached,
+  maxLengthReached
 ) => {
   const {
     errorId,
@@ -200,6 +201,10 @@ const handleErrorState = (
     errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
   } = getMaskInputContext(inputEl);
+
+  // check if the new character was a format character added by the mask
+  const lastChar = newValue.charAt(newValue.length - 1);
+  const formatCharAdded = lastChar === keyPressed;
 
   // create visual error message and add to DOM
   const errorMsgSpan = document.createElement("span");
@@ -224,14 +229,18 @@ const handleErrorState = (
     // max length reached
     errorMessageEl.hidden = false;
     errorMessageSrOnlyEl.hidden = false;
-  } else if (previousValue.length <= newValue.length) {
-    // input accepted
-    errorMessageEl.hidden = true;
-    errorMessageSrOnlyEl.hidden = true;
-  } else if (previousValue.length >= newValue.length) {
-    // input rejected
+  } else if (previousValue.length === newValue.length && !formatCharAdded) {
+    // input rejected but a format character was added
     errorMessageEl.hidden = false;
     errorMessageSrOnlyEl.hidden = false;
+  } else if (previousValue.length > newValue.length) {
+    // input rejected and no character was added
+    errorMessageEl.hidden = false;
+    errorMessageSrOnlyEl.hidden = false;
+  } else if (previousValue.length <= newValue.length) {
+    // input accepted with new character added
+    errorMessageEl.hidden = true;
+    errorMessageSrOnlyEl.hidden = true;
   }
 
   // set error messages text
@@ -261,9 +270,10 @@ const handleErrorState = (
  * @param {HTMLElement} inputEl - The input element
  * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
  */
-const handleValueChange = (el, keyPressed) => {
-  if (keyPressed !== "Shift") {
+const handleValueChange = (el, key) => {
+  if (key !== "Shift") {
     const inputEl = el;
+    keyPressed = key;
 
     // record value before new character is accepted or rejected
     const previousValue = inputEl.value;
@@ -289,7 +299,7 @@ const handleValueChange = (el, keyPressed) => {
       newValue,
       matchType,
       inputEl,
-      maxLengthReached,
+      maxLengthReached
     );
   }
 };
