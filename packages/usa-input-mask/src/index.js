@@ -169,9 +169,9 @@ const handleCurrentValue = (el) => {
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {string} errorMsg - A string of the error message
  */
-const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
-  const srErrorMsg = msgEl;
-  srErrorMsg.textContent = errorMsg;
+const srUpdateErrorStatus = debounce((msgEl, status) => {
+  console.log('debounce runs')
+  msgEl.hidden = status;
 }, 1000);
 
 /**
@@ -206,6 +206,8 @@ const handleErrorState = (
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar === keyPressed;
 
+  //need to clean the spans off dom before adding !!!!! <---- FIX
+  
   // create visual error message and add to DOM
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
@@ -228,38 +230,38 @@ const handleErrorState = (
   if (maxLengthReached) {
     // max length reached
     errorMessageEl.hidden = false;
-    errorMessageSrOnlyEl.hidden = false;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
   } else if (previousValue.length === newValue.length && !formatCharAdded) {
     // input rejected but a format character was added
     errorMessageEl.hidden = false;
-    errorMessageSrOnlyEl.hidden = false;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
   } else if (previousValue.length > newValue.length) {
     // input rejected and no character was added
     errorMessageEl.hidden = false;
-    errorMessageSrOnlyEl.hidden = false;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
   } else if (previousValue.length <= newValue.length) {
     // input accepted with new character added
     errorMessageEl.hidden = true;
-    errorMessageSrOnlyEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   }
 
   // set error messages text
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
+      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
       break;
     case "number":
       errorMessageEl.textContent = errorMsgNum;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgNumSrOnly);
+      errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
+      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
       break;
     default:
       errorMessageEl.textContent = errorMsg;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgSrOnly);
+      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
   }
 };
 
@@ -271,35 +273,35 @@ const handleErrorState = (
  * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
  */
 const handleValueChange = (el, key) => {
-    const inputEl = el;
-    keyPressed = key;
+  const inputEl = el;
+  keyPressed = key;
 
-    // record value before new character is accepted or rejected
-    const previousValue = inputEl.value;
+  // record value before new character is accepted or rejected
+  const previousValue = inputEl.value;
 
-    // check if max character count has been reached
-    const maxLengthReached =
-      keydownLength === previousValue.length && !(previousValue.length === 0);
+  // check if max character count has been reached
+  const maxLengthReached =
+    keydownLength === previousValue.length && !(previousValue.length === 0);
 
-    // get expected character type
-    const { matchType } = handleCurrentValue(inputEl);
+  // get expected character type
+  const { matchType } = handleCurrentValue(inputEl);
 
-    // get and set processed new value
-    const { newValue } = handleCurrentValue(inputEl);
-    inputEl.value = newValue;
+  // get and set processed new value
+  const { newValue } = handleCurrentValue(inputEl);
+  inputEl.value = newValue;
 
-    const maskVal = setValueOfMask(el);
-    const maskEl = document.getElementById(`${inputEl.id}Mask`);
-    maskEl.textContent = "";
-    maskEl.replaceChildren(maskVal[0], maskVal[1]);
+  const maskVal = setValueOfMask(el);
+  const maskEl = document.getElementById(`${inputEl.id}Mask`);
+  maskEl.textContent = "";
+  maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-    handleErrorState(
-      previousValue,
-      newValue,
-      matchType,
-      inputEl,
-      maxLengthReached
-    );
+  handleErrorState(
+    previousValue,
+    newValue,
+    matchType,
+    inputEl,
+    maxLengthReached
+  );
 };
 
 const inputMaskEvents = {
