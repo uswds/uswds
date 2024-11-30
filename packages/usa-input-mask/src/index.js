@@ -271,7 +271,6 @@ const handleErrorState = (
  * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
  */
 const handleValueChange = (el, key) => {
-  if (key !== "Shift") {
     const inputEl = el;
     keyPressed = key;
 
@@ -301,18 +300,17 @@ const handleValueChange = (el, key) => {
       inputEl,
       maxLengthReached
     );
-  }
 };
 
 const inputMaskEvents = {
   keyup: {
-    [MASKED]() {
-      handleValueChange(this, this.key);
+    [MASKED](e) {
+      this.key != "Shift" ? handleValueChange(this, e.key) : null;
     },
   },
   keydown: {
     [MASKED]() {
-      keydownLength = this.value.length;
+      this.key != "Shift" ? keydownLength = this.value.length : null;
     },
   },
 };
