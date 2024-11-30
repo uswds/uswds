@@ -162,7 +162,21 @@ const handleErrorState = (
     errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
   } = getMaskInputContext(inputEl);
+
+  //create visual error message and add to DOM
+  const errorMsgSpan = document.createElement("span");
+  errorMsgSpan.setAttribute("id", errorId);
+  errorMsgSpan.setAttribute("class", "usa-error-message");
+  errorMsgSpan.setAttribute("aria-hidden", "true");
+  inputEl.parentNode.appendChild(errorMsgSpan);
   const errorMessageEl = document.getElementById(errorId);
+
+  //create sr only error message and add to DOM
+  const errorMsgSpanSrOnly = document.createElement("span");
+  errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
+  errorMsgSpanSrOnly.setAttribute("class", "usa-sr-only");
+  errorMsgSpanSrOnly.setAttribute("role", "alert");
+  inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
   let messageType = maxLengthReached ? "input full" : matchType;
@@ -213,7 +227,6 @@ const handleValueChange = (el, keydownLength) => {
   inputEl.value = newValue;
 
   const maskVal = setValueOfMask(el);
-  const inputValueLength = maskVal[2];
   const maskEl = document.getElementById(`${id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
@@ -223,7 +236,6 @@ const handleValueChange = (el, keydownLength) => {
     newValue,
     matchType,
     inputEl,
-    inputValueLength,
     maxLengthReached,
   );
 };
