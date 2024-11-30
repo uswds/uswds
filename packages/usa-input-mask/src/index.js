@@ -1,5 +1,6 @@
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
+const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
@@ -7,6 +8,8 @@ const MASKED = `.${MASKED_CLASS}`;
 const MASK = `${PREFIX}-input-mask`;
 const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
+const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
+const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let keydownLength;
 
@@ -144,6 +147,17 @@ const handleCurrentValue = (el) => {
   return { newValue, matchType };
 };
 
+/**
+ * Updates the character count status for screen readers after a 1000ms delay.
+ *
+ * @param {HTMLElement} msgEl - The screen reader status message element
+ * @param {string} statusMessage - A string of the current character status
+ */
+const srUpdateStatus = debounce((msgEl, statusMessage) => {
+  const srStatusMessage = msgEl;
+  srStatusMessage.textContent = statusMessage;
+}, 1000);
+
 const handleErrorState = (
   previousValue,
   newValue,
@@ -166,7 +180,7 @@ const handleErrorState = (
   //create visual error message and add to DOM
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
-  errorMsgSpan.setAttribute("class", "usa-error-message");
+  errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgSpan.setAttribute("aria-hidden", "true");
   inputEl.parentNode.appendChild(errorMsgSpan);
   const errorMessageEl = document.getElementById(errorId);
@@ -174,7 +188,7 @@ const handleErrorState = (
   //create sr only error message and add to DOM
   const errorMsgSpanSrOnly = document.createElement("span");
   errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
-  errorMsgSpanSrOnly.setAttribute("class", "usa-sr-only");
+  errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
   errorMsgSpanSrOnly.setAttribute("role", "alert");
   inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
@@ -200,19 +214,19 @@ const handleErrorState = (
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
-      errorMessageSrOnlyEl.textContent = errorMsgAlphaSrOnly;
+      srUpdateStatus(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
       break;
     case "number":
       errorMessageEl.textContent = errorMsgNum;
-      errorMessageSrOnlyEl.textContent = errorMsgNumSrOnly;
+      srUpdateStatus(errorMessageSrOnlyEl, errorMsgNumSrOnly);
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
-      errorMessageSrOnlyEl.textContent = errorMsgFullSrOnly;
+      srUpdateStatus(errorMessageSrOnlyEl, errorMsgFullSrOnly);
       break;
     default:
       errorMessageEl.textContent = errorMsg;
-      errorMessageSrOnlyEl.textContent = errorMsgSrOnly;
+      srUpdateStatus(errorMessageSrOnlyEl, errorMsgSrOnly);
   }
 };
 
