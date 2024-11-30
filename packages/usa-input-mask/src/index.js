@@ -56,7 +56,11 @@ const getMaskInputContext = (el) => {
   };
 };
 
-// replaces each masked input with a shell containing the input and it's mask.
+/**
+ *  Replaces each masked input with a shell containing the input and it's mask.
+ *
+ * @param {HTMLElement} input - The input element
+ */
 const createMaskedInputShell = (input) => {
   const placeholder = input.getAttribute(`${PLACEHOLDER}`);
   if (placeholder) {
@@ -82,6 +86,11 @@ const createMaskedInputShell = (input) => {
   shell.appendChild(input);
 };
 
+/**
+ *  Returns a combination of the input value and what is left of the placeholder inside the new element.
+ *
+ * @param {HTMLElement} inputEl - The input element
+ */
 const setValueOfMask = (el) => {
   const { value } = el;
   const placeholderVal = `${el.dataset.placeholder.substr(value.length)}`;
@@ -100,6 +109,12 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
+/**
+ *  Checks if the new input character meets mask requirement.
+ *  Returns the new input value with the new character added if it's accepted.
+ *
+ * @param {HTMLElement} el - The input element
+ */
 const handleCurrentValue = (el) => {
   const isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
@@ -148,16 +163,25 @@ const handleCurrentValue = (el) => {
 };
 
 /**
- * Updates the character count status for screen readers after a 1000ms delay.
+ * Updates the error message announcement for screen readers after a 1000ms delay.
  *
- * @param {HTMLElement} msgEl - The screen reader status message element
- * @param {string} statusMessage - A string of the current character status
+ * @param {HTMLElement} msgEl - The screen reader error message element
+ * @param {string} errorMsg - A string of the error message
  */
-const srUpdateStatus = debounce((msgEl, statusMessage) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.textContent = statusMessage;
+const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
+  const srErrorMsg = msgEl;
+  srErrorMsg.textContent = errorMsg;
 }, 1000);
 
+/**
+ * Creates the sr only and visual error messages, handles their hidden status and content.
+ *
+ * @param {string} previousValue - The input value before the new character is accepted or rejected
+ * @param {string} newValue - The input value after the new character is accepted or rejected
+ * @param {string} matchType - The character type that the input should be to be accepted
+ * @param {HTMLElement} inputEl - The input element
+ * @param {boolean} maxLengthReached - Returns true when input value is full but user keeps typing
+ */
 const handleErrorState = (
   previousValue,
   newValue,
@@ -214,34 +238,48 @@ const handleErrorState = (
   switch (messageType) {
     case "letter":
       errorMessageEl.textContent = errorMsgAlpha;
-      srUpdateStatus(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
       break;
     case "number":
       errorMessageEl.textContent = errorMsgNum;
-      srUpdateStatus(errorMessageSrOnlyEl, errorMsgNumSrOnly);
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgNumSrOnly);
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
-      srUpdateStatus(errorMessageSrOnlyEl, errorMsgFullSrOnly);
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
       break;
     default:
       errorMessageEl.textContent = errorMsg;
-      srUpdateStatus(errorMessageSrOnlyEl, errorMsgSrOnly);
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgSrOnly);
   }
 };
 
+/**
+ *  Gets the processed input value and puts it inside the mask element. 
+ *  Triggers error handling.
+ *
+ * @param {HTMLElement} inputEl - The input element
+ * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
+ */
 const handleValueChange = (el, keydownLength) => {
   const inputEl = el;
+
+  //record value before new character is accepted or rejected
   const previousValue = inputEl.value;
+
+  //check if max character count has been reached
   const maxLengthReached =
     keydownLength == previousValue.length && !(previousValue.length === 0);
+
+  //get expected character type
   const { matchType } = handleCurrentValue(inputEl);
-  const id = inputEl.getAttribute("id");
+
+  //get and set processed new value
   const { newValue } = handleCurrentValue(inputEl);
   inputEl.value = newValue;
 
   const maskVal = setValueOfMask(el);
-  const maskEl = document.getElementById(`${id}Mask`);
+  const maskEl = document.getElementById(`${inputEl.id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
