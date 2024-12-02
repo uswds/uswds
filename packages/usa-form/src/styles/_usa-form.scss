@@ -17,8 +17,7 @@
     text-decoration: none;
   }
 
-  .usa-range,
-  .usa-select {
+  :where(.usa-input, .usa-textarea, .usa-select, .usa-range) {
     // max width not needed since .usa-form has one of its own
     max-width: none;
   }
