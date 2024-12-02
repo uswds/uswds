@@ -80,6 +80,8 @@ $-chevron-expand-more: map-merge(
   @include u-padding-y(2);
   @include u-text("ink", "bold");
   display: block;
+  // Border reset for button variants of footer primary links.
+  border: 0;
   border-top: 1px solid color("base-light");
 
   @include at-media("mobile-lg") {
@@ -91,7 +93,6 @@ $-chevron-expand-more: map-merge(
   &--button {
     @include place-icon($-chevron-expand-more, "before", 0.5);
     width: 100%;
-    border: 0;
     cursor: pointer;
 
     &:not([disabled]):focus {
