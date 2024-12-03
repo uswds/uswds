@@ -174,8 +174,10 @@ const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const itemsLabel = getItemsLabel(fileInputEl);
   const instructions = document.createElement("div");
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
+
+  // Use user provided text if available. If user provided count on the user to handle pluralization
+  const dragText = fileInputEl.dataset.dragtext || `Drag ${itemsLabel} here or`;
+  const chooseText = fileInputEl.dataset.choosetext || "choose from folder";
 
   // Create instructions text for aria-label
   DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
