@@ -11,8 +11,8 @@ export default {
     },
     utilities: {
       name: "Input group utility classes",
-      control: {type: "text"}
-    }
+      control: { type: "text" },
+    },
   },
   args: {
     disabled_state: "none",

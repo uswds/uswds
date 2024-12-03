@@ -19,8 +19,8 @@ export default {
     },
     utilities: {
       name: "Input/textarea utility classes",
-      control: {type: "text"}
-    }
+      control: { type: "text" },
+    },
   },
 };
 
