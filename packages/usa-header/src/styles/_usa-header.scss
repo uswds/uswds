@@ -28,6 +28,7 @@ $z-index-overlay: 400;
 
   // The search <form>
   .usa-search {
+    margin-top: units(1);
     @include at-media($theme-header-min-width) {
       float: right;
     }
@@ -150,7 +151,7 @@ $z-index-overlay: 400;
     .usa-nav {
       @include u-flex("row", "align-center", "justify-end");
       display: flex;
-      padding: 0 0 units(0.5) units(1);
+      padding: 0 0 units(1) units(1);
       width: 100%;
     }
 

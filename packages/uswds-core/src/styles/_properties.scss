@@ -161,7 +161,7 @@ $system-properties: (
         map.get($system-spacing, "larger"),
         map.get($system-spacing, "largest")
       ),
-    extended: (),
+    extended: $theme-utility-breakpoints-custom,
   ),
   circle: (
     standard:

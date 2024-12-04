@@ -1,4 +1,3 @@
-const assign = require("object-assign");
 const Behavior = require("receptor/behavior");
 
 /**
@@ -24,13 +23,8 @@ const sequence = (...seq) =>
  * @return {receptor.behavior}
  */
 module.exports = (events, props) =>
-  Behavior(
-    events,
-    assign(
-      {
-        on: sequence("init", "add"),
-        off: sequence("teardown", "remove"),
-      },
-      props
-    )
-  );
+  Behavior(events, {
+    on: sequence("init", "add"),
+    off: sequence("teardown", "remove"),
+    ...props,
+  });

@@ -49,7 +49,7 @@ Sortable.args = {
 };
 
 export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
-  {}
+  {},
 );
 TestStickyHeaderMultipleRows.argTypes = {
   sticky_header: {

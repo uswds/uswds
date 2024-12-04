@@ -66,10 +66,10 @@ function toggleModal(event) {
   const safeActive = !isActive();
   const modalId = clickedElement
     ? clickedElement.getAttribute("aria-controls")
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
   const targetModal = safeActive
     ? document.getElementById(modalId)
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
 
   // if there is no modal we return early
   if (!targetModal) {
@@ -78,9 +78,9 @@ function toggleModal(event) {
 
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(".usa-modal");
+    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const returnFocus = document.getElementById(
-    targetModal.getAttribute("data-opener")
+    targetModal.getAttribute("data-opener"),
   );
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
@@ -200,7 +200,7 @@ const createPlaceHolder = (baseComponent) => {
   modalAttributes.forEach((attribute) => {
     originalLocationPlaceHolder.setAttribute(
       `data-original-${attribute.name}`,
-      attribute.value
+      attribute.value,
     );
   });
 
@@ -319,7 +319,7 @@ const cleanUpModal = (baseComponent) => {
   }
 
   const originalLocationPlaceHolder = document.querySelector(
-    `[data-placeholder-for="${modalID}"]`
+    `[data-placeholder-for="${modalID}"]`,
   );
 
   if (originalLocationPlaceHolder) {
@@ -333,7 +333,7 @@ const cleanUpModal = (baseComponent) => {
 
     originalLocationPlaceHolder.after(modalContent);
     originalLocationPlaceHolder.parentElement.removeChild(
-      originalLocationPlaceHolder
+      originalLocationPlaceHolder,
     );
   }
 
@@ -368,7 +368,7 @@ modal = behavior(
             // modalTrigger.setAttribute("aria-haspopup", "dialog");
 
             modalTrigger.addEventListener("click", toggleModal);
-          }
+          },
         );
       });
     },
@@ -379,13 +379,13 @@ modal = behavior(
 
         selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
           (modalTrigger) =>
-            modalTrigger.removeEventListener("click", toggleModal)
+            modalTrigger.removeEventListener("click", toggleModal),
         );
       });
     },
     focusTrap: null,
     toggleModal,
-  }
+  },
 );
 
 module.exports = modal;

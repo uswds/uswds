@@ -3,6 +3,15 @@
 @use "../../mixins/utilities" as *;
 @use "../typography/typeset" as *;
 
+///
+/// Removes button styles and adds link styles.
+/// Includes hover, active, disabled, and focus states for accessibility.
+///
+/// @example
+/// .my-unstyled-button {
+///   @include button-unstyled;
+/// }
+///
 @mixin button-unstyled {
   @include typeset-link;
   background-color: transparent;
@@ -14,6 +23,7 @@
   text-align: left;
   margin: 0;
   padding: 0;
+  width: auto;
 
   &:hover,
   &.usa-button--hover,

@@ -1,6 +1,11 @@
 import Component from "./usa-alert.twig";
 import TestComponent from "./test/test-patterns/test-usa-alert-lists.twig";
 import ComparisonComponent from "./test/test-patterns/test-alert-comparison.twig";
+import onPageComponent from "./test/test-patterns/test-alert-in-template.twig";
+import BannerContent from "../../usa-banner/src/content/usa-banner.json";
+import FooterContent from "../../usa-footer/src/usa-footer.json";
+import SiteAlertContent from "../../usa-site-alert/src/content/usa-site-alert~info.json";
+import SidenavContent from "../../usa-sidenav/src/usa-sidenav.json";
 
 import {
   DefaultContent,
@@ -12,6 +17,7 @@ import {
   SlimContent,
   SuccessContent,
   WarningContent,
+  TestAlertContent,
 } from "./content";
 
 export default {
@@ -21,6 +27,7 @@ export default {
 const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
 const ComparisonTemplate = (args) => ComparisonComponent(args);
+const onPageTemplate = (args) => onPageComponent(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -51,4 +58,18 @@ Warning.args = WarningContent;
 
 export const Test = TestTemplate.bind({});
 
-export const AlertComparison = ComparisonTemplate.bind({});
+export const TestAlertSiteAlertComparison = ComparisonTemplate.bind({});
+TestAlertSiteAlertComparison.args = {
+  ...BannerContent,
+  ...FooterContent,
+  ...TestAlertContent,
+};
+
+export const TestAlertsInTemplate = onPageTemplate.bind({});
+TestAlertsInTemplate.args = {
+  ...BannerContent,
+  ...FooterContent,
+  ...SidenavContent,
+  ...SiteAlertContent,
+  ...TestAlertContent,
+};
