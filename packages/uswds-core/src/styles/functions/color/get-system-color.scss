@@ -35,7 +35,6 @@
 
   @if meta.type-of($color-family) == "list" {
     @if list.length($color-family) > 2 {
-      @debug true;
       $color-variant: list.nth($color-family, 3);
     }
     $color-grade: list.nth($color-family, 2);
@@ -80,7 +79,6 @@
     $color-grade
   );
 
-  @debug ($output);
   @return $output;
 }
 
