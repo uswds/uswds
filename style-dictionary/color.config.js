@@ -14,10 +14,14 @@ const USWDS_COLORS = StyleDictionary.extend({
         mapName: `system-color-${colorToken}`,
         format: "scss/map-deep",
         options: {
+          // Prevents system settings from being overridable. 
+          // Removing or setting to true will add !default to the output token scss vars
           themeable: false,
         },
         filter: {
           attributes: {
+            // This filter makes it so each output scss file only contains the relevant color
+            // token and not a map of all the tokens combined.
             category: colorToken
           }
         }

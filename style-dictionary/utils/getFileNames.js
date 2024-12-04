@@ -2,7 +2,7 @@ const { readdirSync } = require("fs");
 const path = require("path");
 
 /**
- * Returns a list token JSON file names without extensions from a specified directory.
+ * Returns an array of token JSON file names (without extensions) from a specified directory.
  * 
  * @param {string} dir - Directory of token JSON files.
  * @returns {Array} An array of token file names without extensions.
