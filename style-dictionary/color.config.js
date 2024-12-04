@@ -1,7 +1,8 @@
 const StyleDictionary = require("style-dictionary");
 const getFileNames = require("./utils/getFileNames");
 
-const colorTokens = getFileNames("./packages/uswds-tokens/colors");
+const colorTokenJSONPath = "./packages/uswds-tokens/colors"
+const colorTokens = getFileNames(colorTokenJSONPath);
 
 const USWDS_COLORS = StyleDictionary.extend({
   source: ["packages/uswds-tokens/colors/*.json"],
@@ -17,6 +18,10 @@ const USWDS_COLORS = StyleDictionary.extend({
           // Prevents system settings from being overridable. 
           // Removing or setting to true will add !default to the output token scss vars
           themeable: false,
+          fileHeader: (defaultMessage) => [
+            `This file was generated from ${colorTokenJSONPath}/${colorToken}.json`,
+            ...defaultMessage,
+          ]
         },
         filter: {
           attributes: {
