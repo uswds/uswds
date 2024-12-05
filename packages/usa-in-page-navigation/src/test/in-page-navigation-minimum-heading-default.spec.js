@@ -4,7 +4,7 @@ const path = require("path");
 const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/in-page-navigation-minimum-heading-default.html"),
+  path.join(__dirname, "/in-page-navigation-minimum-heading-default.template.html"),
 );
 const THE_NAV = ".usa-in-page-nav";
 
