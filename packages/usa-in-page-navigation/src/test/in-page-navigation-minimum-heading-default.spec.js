@@ -31,13 +31,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.innerHTML = "";
     });
 
-    it("does not render the in-page navigation when default heading count of 3 has not been reached", () => {
+    it("does not render the in-page navigation when default heading count of 2 has not been reached", () => {
       behavior.off(containerSelector(body));
       behavior.on(containerSelector(body));
       assert.strictEqual(
         theNav.hasChildNodes(),
         false,
-        "In-page navigation should not have child nodes when the default minimum heading count of 3 has been reached",
+        "In-page navigation should not have child nodes when the default minimum heading count of 2 has been reached",
       );
     });
   });
