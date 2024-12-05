@@ -55,7 +55,7 @@ const setActive = (el) => {
  */
 const createSectionHeadingsArray = (
   selectedContentRegion,
-  selectedHeadingTypes
+  selectedHeadingTypes,
 ) => {
   // Convert designated headings list to an array
   const selectedHeadingTypesArray = selectedHeadingTypes.indexOf(" ")
@@ -68,13 +68,13 @@ const createSectionHeadingsArray = (
       throw new Error(
         `In-page navigation: data-heading-elements attribute defined with an invalid heading type: "${headingType}".
         Define the attribute with one or more of the following: "${IN_PAGE_NAV_VALID_HEADINGS}".
-        Do not use commas or other punctuation in the attribute definition.`
+        Do not use commas or other punctuation in the attribute definition.`,
       );
     }
   });
 
   const sectionHeadingsArray = Array.from(
-    contentRegion.querySelectorAll(selectedHeadingTypesArray)
+    contentRegion.querySelectorAll(selectedHeadingTypesArray),
   );
 
   return sectionHeadingsArray;
@@ -92,11 +92,11 @@ const createSectionHeadingsArray = (
  */
 const getVisibleSectionHeadings = (
   selectedContentRegion,
-  selectedHeadingTypes
+  selectedHeadingTypes,
 ) => {
   const sectionHeadings = createSectionHeadingsArray(
     selectedContentRegion,
-    selectedHeadingTypes
+    selectedHeadingTypes,
   );
 
   // Find all headings with hidden styling and remove them from the array
@@ -132,7 +132,7 @@ const getTopLevelHeading = (sectionHeadings) => {
  */
 const getSectionAnchors = () => {
   const sectionAnchors = document.querySelectorAll(
-    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
+    `.${IN_PAGE_NAV_ANCHOR_CLASS}`,
   );
   return sectionAnchors;
 };
@@ -233,11 +233,11 @@ const scrollToCurrentSection = () => {
 const shouldRenderInPageNav = (
   sectionHeadings,
   minimumHeadingCount,
-  acceptedHeadingLevels
+  acceptedHeadingLevels,
 ) => {
   // Filter headings that are included in the acceptedHeadingLevels
   const validHeadings = sectionHeadings.filter((heading) =>
-    acceptedHeadingLevels.includes(heading.tagName.toLowerCase())
+    acceptedHeadingLevels.includes(heading.tagName.toLowerCase()),
   );
   return validHeadings.length >= minimumHeadingCount;
 };
@@ -277,14 +277,14 @@ const createInPageNav = (inPageNavEl) => {
 
   const sectionHeadings = getVisibleSectionHeadings(
     inPageNavContentSelector,
-    inPageNavHeadingSelector
+    inPageNavHeadingSelector,
   );
 
   if (
     !shouldRenderInPageNav(
       sectionHeadings,
       inPageNavMinimumHeadingCount,
-      acceptedHeadingLevels
+      acceptedHeadingLevels,
     )
   ) {
     return;
@@ -374,7 +374,7 @@ const handleEnterFromLink = (event) => {
       "blur",
       once(() => {
         target.setAttribute("tabindex", -1);
-      })
+      }),
     );
   } else {
     // throw an error?
@@ -404,7 +404,7 @@ const inPageNavigation = behavior(
         scrollToCurrentSection();
       });
     },
-  }
+  },
 );
 
 module.exports = inPageNavigation;
