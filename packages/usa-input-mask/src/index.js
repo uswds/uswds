@@ -11,8 +11,9 @@ const PLACEHOLDER = "placeholder";
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
-let keydownLength;
+let lastValueLength;
 let keyPressed;
+let maxLengthReached;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -188,18 +189,16 @@ const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
 /**
  * Creates the sr only and visual error messages, handles their hidden status and content.
  *
- * @param {string} previousValue - The input value before the new character is accepted or rejected
+ * @param {string} valueAttempt - The input value before the new character is accepted or rejected
  * @param {string} newValue - The input value after the new character is accepted or rejected
  * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
- * @param {boolean} maxLengthReached - Returns true when input value is full but user keeps typing
  */
 const handleErrorState = (
-  previousValue,
+  valueAttempt,
   newValue,
   matchType,
-  inputEl,
-  maxLengthReached,
+  inputEl
 ) => {
   const {
     errorId,
@@ -246,15 +245,15 @@ const handleErrorState = (
     // max length reached
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (previousValue.length === newValue.length && !formatCharAdded) {
+  } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
     // input rejected but a format character was added
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (previousValue.length > newValue.length) {
+  } else if (valueAttempt.length > newValue.length) {
     // input rejected and no character was added
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (previousValue.length <= newValue.length) {
+  } else if (valueAttempt.length <= newValue.length) {
     // input accepted with new character added
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
@@ -285,18 +284,21 @@ const handleErrorState = (
  *  Triggers error handling.
  *
  * @param {HTMLElement} inputEl - The input element
- * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
+ * @param {number} lastValueLength - Input value length on key down, before the input is accepted or rejected.
  */
 const handleValueChange = (e) => {
   const inputEl = e.srcElement;
   keyPressed = e.key;
 
   // record potential new value before new character is accepted or rejected
-  const previousValue = inputEl.value;
+  const valueAttempt = inputEl.value;
 
   // check if max character count has been reached
-  const maxLengthReached =
-    keydownLength === previousValue.length && !(previousValue.length === 0);
+  if (keyPressed !== "Backspace") {
+    maxLengthReached = lastValueLength === inputEl.maxLength;
+  } else {
+    maxLengthReached = false;
+  }
 
   // get expected character type
   const { matchType } = handleCurrentValue(inputEl);
@@ -304,7 +306,9 @@ const handleValueChange = (e) => {
   // get and set processed new value
   const { newValue } = handleCurrentValue(inputEl);
   inputEl.value = newValue;
-  keydownLength = newValue.length;
+
+  // save new value length as lastValueLength for next input check
+  lastValueLength = newValue.length;
 
   const maskVal = setValueOfMask(inputEl);
   const maskEl = document.getElementById(`${inputEl.id}Mask`);
@@ -312,11 +316,10 @@ const handleValueChange = (e) => {
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
   handleErrorState(
-    previousValue,
+    valueAttempt,
     newValue,
     matchType,
-    inputEl,
-    maxLengthReached,
+    inputEl
   );
 };
 
@@ -331,7 +334,7 @@ const inputMaskEvents = {
     [MASKED](e) {
       keyUpCheck(e);
     },
-  }
+  },
 };
 
 const inputMask = behavior(inputMaskEvents, {
