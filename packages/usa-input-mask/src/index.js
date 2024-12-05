@@ -170,7 +170,8 @@ const handleCurrentValue = (el) => {
  * @param {boolean} status - A boolean of error's hidden status
  */
 const srUpdateErrorStatus = debounce((msgEl, status) => {
-  msgEl.hidden = status;
+  const srStatusMessage = msgEl;
+  srStatusMessage.hidden = status;
 }, 1000);
 
 /**
@@ -286,11 +287,11 @@ const handleErrorState = (
  * @param {HTMLElement} inputEl - The input element
  * @param {number} keydownLength - Input value length on key down, before the input is accepted or rejected.
  */
-const handleValueChange = (el, key) => {
-  const inputEl = el;
-  keyPressed = key;
+const handleValueChange = (e) => {
+  const inputEl = e.srcElement;
+  keyPressed = e.key;
 
-  // record value before new character is accepted or rejected
+  // record potential new value before new character is accepted or rejected
   const previousValue = inputEl.value;
 
   // check if max character count has been reached
@@ -303,8 +304,9 @@ const handleValueChange = (el, key) => {
   // get and set processed new value
   const { newValue } = handleCurrentValue(inputEl);
   inputEl.value = newValue;
+  keydownLength = newValue.length;
 
-  const maskVal = setValueOfMask(el);
+  const maskVal = setValueOfMask(inputEl);
   const maskEl = document.getElementById(`${inputEl.id}Mask`);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
@@ -318,17 +320,18 @@ const handleValueChange = (el, key) => {
   );
 };
 
+const keyUpCheck = (e) => {
+  if (e.key !== "Shift") {
+    handleValueChange(e);
+  }
+};
+
 const inputMaskEvents = {
   keyup: {
     [MASKED](e) {
-      this.key != "Shift" ? handleValueChange(this, e.key) : null;
+      keyUpCheck(e);
     },
-  },
-  keydown: {
-    [MASKED]() {
-      this.key != "Shift" ? (keydownLength = this.value.length) : null;
-    },
-  },
+  }
 };
 
 const inputMask = behavior(inputMaskEvents, {
