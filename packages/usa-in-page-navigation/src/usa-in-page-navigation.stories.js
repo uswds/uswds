@@ -50,23 +50,13 @@ TestMinimumHeaders.argTypes = {
   headerLevels: {
     defaultValue: "1",
     name: "Number of headers on page",
-    options: [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
+    options: ["1", "2", "3", "4"],
     control: { type: "select" },
   },
   minimumHeaderCount: {
     defaultValue: "1",
     name: "Minimum number of headers required to show navigation",
-    options: [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
+    options: ["1", "2", "3", "4"],
     control: { type: "select" },
   },
 };

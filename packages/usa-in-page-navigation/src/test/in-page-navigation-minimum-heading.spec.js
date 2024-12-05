@@ -4,7 +4,7 @@ const path = require("path");
 const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/in-page-navigation-minimum-heading.template.html"),
+  path.join(__dirname, "/in-page-navigation-minimum-heading.template.html")
 );
 const THE_NAV = ".usa-in-page-nav";
 
@@ -38,7 +38,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         theNav.hasChildNodes(),
         true,
-        "In-page navigation should have child nodes when the custom set minimum heading count of 1 has been reached",
+        "In-page navigation should have child nodes when the custom set minimum heading count of 1 has been reached"
       );
     });
 
@@ -49,17 +49,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         theNav.hasChildNodes(),
         false,
-        "In-page navigation should not have child nodes when the custom set heading count is lower than the minimum of 4",
+        "In-page navigation should not have child nodes when the custom set heading count is lower than the minimum of 4"
       );
     });
-    
+
     it("does render the in-page navigation when default heading count of 2 has been reached", () => {
       behavior.off(containerSelector(body));
       behavior.on(containerSelector(body));
       assert.strictEqual(
         theNav.hasChildNodes(),
         true,
-        "In-page navigation should have child nodes when the default minimum heading count of 2 has been reached",
+        "In-page navigation should have child nodes when the default minimum heading count of 2 has been reached"
       );
     });
   });
