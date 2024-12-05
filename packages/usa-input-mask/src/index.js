@@ -194,12 +194,7 @@ const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
  * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
  */
-const handleErrorState = (
-  valueAttempt,
-  newValue,
-  matchType,
-  inputEl
-) => {
+const handleErrorState = (valueAttempt, newValue, matchType, inputEl) => {
   const {
     errorId,
     errorMsg,
@@ -315,12 +310,7 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(
-    valueAttempt,
-    newValue,
-    matchType,
-    inputEl
-  );
+  handleErrorState(valueAttempt, newValue, matchType, inputEl);
 };
 
 const keyUpCheck = (e) => {
