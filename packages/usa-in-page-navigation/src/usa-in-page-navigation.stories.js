@@ -49,7 +49,7 @@ export const TestMinimumHeaders = TestMinimumHeaderTemplate.bind();
 TestMinimumHeaders.argTypes = {
   headerLevels: {
     defaultValue: "1",
-    name: "Numer of headers on page",
+    name: "Number of headers on page",
     options: [
       "1",
       "2",
