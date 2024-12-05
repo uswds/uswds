@@ -318,6 +318,7 @@ const setUpAttributes = (tooltipTrigger) => {
   const wrapper = document.createElement("span");
   const tooltipBody = document.createElement("span");
   const ariaSpan = document.createElement("span");
+  const contentSpan = document.createElement("span");
   const additionalClasses = tooltipTrigger.getAttribute("data-classes");
   let position = tooltipTrigger.getAttribute("data-position");
 
@@ -354,11 +355,12 @@ const setUpAttributes = (tooltipTrigger) => {
   tooltipBody.setAttribute("role", "tooltip");
   tooltipBody.setAttribute("aria-hidden", "true");
 
-  // place the text in the tooltip
-  tooltipBody.textContent = tooltipContent;
+  // place the text span in the tooltip
+  contentSpan.textContent = tooltipContent;
+  tooltipBody.appendChild(contentSpan);
 
   // insert aria span before text content to be read first
-  ariaSpan.setAttribute("aria-label", "Tooltip :");
+  ariaSpan.setAttribute("aria-label", "Tooltip");
   tooltipBody.insertBefore(ariaSpan, tooltipBody.firstChild);
 
   return { tooltipBody, position, tooltipContent, wrapper };
