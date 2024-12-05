@@ -43,6 +43,8 @@ TestCustomHeaderSelector.argTypes = {
   },
 };
 
+export const TestHiddenHeaders = TestHiddenHeaderTemplate.bind();
+
 export const TestMinimumHeaders = TestMinimumHeaderTemplate.bind();
 TestMinimumHeaders.argTypes = {
   headerLevels: {
