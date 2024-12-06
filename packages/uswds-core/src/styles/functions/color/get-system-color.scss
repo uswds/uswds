@@ -1,12 +1,15 @@
-/*
-----------------------------------------
-get-system-color()
-----------------------------------------
-Derive a system color from its
-family, value, and vivid or a passed
-variable that is, itself, a list
-----------------------------------------
-*/
+/// ----------------------------------------
+/// get-system-color()
+/// ----------------------------------------
+/// Derive a system color from its
+/// family, value, and vivid or a passed
+/// variable that is, itself, a list
+///
+/// @param {string} $color-family - Name of color family
+/// @param {string or number} $color-grade - Grade value of color
+/// @param {variant} $color-variant (optional) - Used to specify vivid variants
+/// @return {color} - Returns requested system color value
+/// ----------------------------------------
 
 @use "sass:meta";
 @use "sass:list";
@@ -37,8 +40,10 @@ variable that is, itself, a list
     $color-grade: list.nth($color-family, 2);
     $color-family: list.nth($color-family, 1);
   }
-
   $color-family: general.smart-quote($color-family);
+  // Allows function to take quoted or unquoted color grade key values
+
+  $color-grade: #{$color-grade};
   $color-variant: general.smart-quote($color-variant);
 
   // If the arg being passed to the fn
@@ -76,3 +81,10 @@ variable that is, itself, a list
 
   @return $output;
 }
+
+// @debug "It should accept quoted or unquoted color-value params. Expect: #2c608a";
+// @debug get-system-color("blue", 60);
+// @debug get-system-color("blue", "60");
+
+// @debug "It should correctly access vivid color values. Expect: #008659";
+// @debug get-system-color("mint", 50, "vivid");

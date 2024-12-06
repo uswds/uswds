@@ -52,6 +52,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "build:tokens": "node style-dictionary/color.config.js && npx prettier --write 'packages/uswds-core/src/styles/tokens/color/*.scss'",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint packages/**/**/*.js",
     "lint:sass": "gulp lintSass",
@@ -166,6 +167,7 @@
     "sass-true": "6.0.1",
     "sinon": "12.0.1",
     "snyk": "1.1294.1",
+    "style-dictionary": "3.9.2",
     "style-loader": "3.3.3",
     "stylelint": "16.10.0",
     "svgo": "3.3.2",
