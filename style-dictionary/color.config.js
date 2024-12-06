@@ -18,6 +18,8 @@ const USWDS_COLORS = StyleDictionary.extend({
           // Prevents system settings from being overridable. 
           // Removing or setting to true will add !default to the output token scss vars
           themeable: false,
+          // Creates a custom file header that points users to the JSON source for
+          // each output token file.
           fileHeader: (defaultMessage) => [
             `This file was generated from ${colorTokenJSONPath}/${colorToken}.json`,
             ...defaultMessage,
