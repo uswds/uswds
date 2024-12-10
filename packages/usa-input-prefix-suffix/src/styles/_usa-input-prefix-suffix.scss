@@ -60,7 +60,8 @@ $icon-offset: $icon-width + ($input-padding * 2);
 
 // Create input group max width utility classes
 @each $name, $width in $system-input-widths {
-  .usa-input-group--#{$name} {
+  .usa-input-group--#{$name},
+  .usa-form .usa-input-group--#{$name} {
     max-width: #{$width};
   }
 }

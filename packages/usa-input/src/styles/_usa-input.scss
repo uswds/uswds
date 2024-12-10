@@ -15,7 +15,8 @@
 
 // Create input max width utility classes
 @each $name, $width in $system-input-widths {
-  .usa-input--#{$name} {
+  .usa-input--#{$name},
+  .usa-form .usa-input--#{$name} {
     max-width: #{$width};
   }
 }
