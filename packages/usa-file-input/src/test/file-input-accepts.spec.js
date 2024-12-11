@@ -143,7 +143,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
-      it("should provide a default error state", () => {
+      it("should provide a default error message for invalid file type", () => {
         // add to our elements FileList
         addFiles();
 
@@ -160,7 +160,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
       });
 
-      it("should allow a custom error message", () => {
+      it("should allow a custom error message for invalid file type", () => {
         inputEl.dataset.errormessage = customErrorMessage;
         addFiles();
 
