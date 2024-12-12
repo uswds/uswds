@@ -165,7 +165,7 @@ through all possible variants
         ($media-key and map-deep-get($utility, settings, responsive))
       {
         @if map-deep-get($utility, settings, output) {
-          // set intital variants
+          // set initial variants
           // $property-default is a single value for all these utilities
 
           $base-props: null;
@@ -250,7 +250,7 @@ through all possible variants
               // to get the props we need to build our rule.
 
               // Modifiers are held in a MAP,
-              // where each individual modifer has the keypair
+              // where each individual modifier has the keypair
               // [slug]:[value]
 
               // So, check for modifiers.
@@ -304,7 +304,7 @@ through all possible variants
 
                     $selector: $b;
                   } @else {
-                    // otherwise, selctor is joined with a hyphen.
+                    // otherwise, selector is joined with a hyphen.
 
                     $selector: $b + "-" + $v;
 
