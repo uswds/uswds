@@ -17,11 +17,10 @@
     text-decoration: none;
   }
 
-  .usa-input,
-  .usa-range,
-  .usa-select,
-  .usa-textarea {
-    // max width not needed since .usa-form has one of its own
+  // Clear max-width in children since .usa-form has one of its own.
+  // Used :where() to reduce specificity and
+  // prevent usa-form styles from overriding `usa-input--[width] and `usa-input-group--[width]` classes.
+  :where(.usa-input, .usa-textarea, .usa-select, .usa-range) {
     max-width: none;
   }
 
