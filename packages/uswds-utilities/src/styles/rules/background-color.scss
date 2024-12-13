@@ -24,8 +24,7 @@ $u-background-color: (
     base: "bg",
     modifiers: null,
     property: "background-color",
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($background-color-palettes),
         get-palettes("palette-color-required"),
         get-palettes($global-color-palettes),

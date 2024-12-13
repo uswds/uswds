@@ -15,7 +15,8 @@ the desired final units (currently rem)
   $grid-to-rem: math.div(
       (grid-base.$system-spacing-grid-base * $unit),
       root.$root-font-size-equiv
-    ) * 1rem;
+    ) *
+    1rem;
 
   @return $grid-to-rem;
 }

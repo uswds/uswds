@@ -27,8 +27,7 @@ $u-font-weight: (
   font-weight: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($font-weight-palettes),
         $font-weight-manual-values
       ),
