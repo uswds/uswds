@@ -28,6 +28,7 @@
     {% if multiple -%} multiple{%- endif -%}
     {% if disabled_state == 'disabled' %} disabled{%- endif %}
     {% if disabled_state == "aria-disabled" -%} aria-disabled="true"{%- endif -%}
+    {% if error_message -%}data-errorMessage="{{ error_message }}"{%- endif -%}
     {% endif %}
   />
 </div>

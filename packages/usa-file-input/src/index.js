@@ -462,6 +462,8 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
  * @param {HTMLDivElement} dropTarget - The drag and drop target area.
  */
 const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
+  const inputParent = dropTarget.closest(`.${DROPZONE_CLASS}`);
+  const statusElement = inputParent.querySelector(`.${SR_ONLY_CLASS}`);
   const acceptedFilesAttr = fileInputEl.getAttribute("accept");
   dropTarget.classList.remove(INVALID_FILE_CLASS);
 
@@ -488,6 +490,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
+    errorMessage.setAttribute("aria-hidden", true);
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
@@ -510,11 +513,17 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
 
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
+      const errorMessageText =
+        fileInputEl.dataset.errormessage ||
+        "Error: This is not a valid file type.";
+
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+      errorMessage.textContent = errorMessageText;
+      statusElement.setAttribute("aria-role", "alert");
+      statusElement.textContent = `Screen reader status ${errorMessageText}`;
+
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
