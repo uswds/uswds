@@ -145,7 +145,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   th {
-    background: color($table-background-color);
+    background-color: color($table-background-color);
   }
 
   th,
