@@ -28,10 +28,22 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
-let DEFAULT_ARIA_LABEL_TEXT = "";
-let DEFAULT_FILE_STATUS_TEXT = "";
+
+const ERROR_TEXT = "This is not a valid file type.";
+let ARIA_LABEL_TEXT = "";
+let DRAG_TEXT = "";
+let CHANGE_FILE_TEXT = "";
+let FILE_STATUS_TEXT = "";
+let CHANGE_FILE_TEXT_SINGULAR = "Change file";
+let CHANGE_FILE_TEXT_PLURAL = "Change files";
+let CHOOSE_TEXT = "choose from folder";
+let DRAG_TEXT_SINGULAR = "Drag file here or";
+let DRAG_TEXT_PLURAL = "Drag files here or";
+let NO_FILE_TEXT_SINGULAR = "No file selected.";
+let NO_FILE_TEXT_PLURAL = "No files selected.";
+let SELECTED_FILE_TEXT_SINGULAR = "file selected";
+let SELECTED_FILE_TEXT_PLURAL = "files selected";
 
 /**
  * The properties and elements within the file input.
@@ -122,20 +134,6 @@ const createUniqueID = (name) =>
   `${name}-${Math.floor(Date.now().toString() / 1000)}`;
 
 /**
- * Determines if the singular or plural item label should be used
- * Determination is based on the presence of the `multiple` attribute
- *
- * @param {HTMLInputElement} fileInputEl - The input element.
- * @returns {HTMLDivElement} The singular or plural version of "item"
- */
-const getItemsLabel = (fileInputEl) => {
-  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
-  const itemsLabel = acceptsMultiple ? "files" : "file";
-
-  return itemsLabel;
-};
-
-/**
  * Scaffold the file input component with a parent wrapper and
  * Create a target area overlay for drag and drop functionality
  *
@@ -172,21 +170,42 @@ const createTargetArea = (fileInputEl) => {
  */
 const createVisibleInstructions = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
-  const itemsLabel = getItemsLabel(fileInputEl);
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const instructions = document.createElement("div");
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
+  const customDragText = fileInputEl.dataset.dragText;
+  const customDragTextSingular = fileInputEl.dataset.dragTextSingular;
+  const customChooseText = fileInputEl.dataset.chooseText;
+
+  if (customDragText) {
+    DRAG_TEXT_PLURAL = customDragText;
+  }
+
+  if (customDragTextSingular) {
+    DRAG_TEXT_SINGULAR = customDragTextSingular;
+  } else if (customDragText) {
+    DRAG_TEXT_SINGULAR = customDragText;
+  }
+
+  if (acceptsMultiple) {
+    DRAG_TEXT = DRAG_TEXT_PLURAL;
+  } else {
+    DRAG_TEXT = DRAG_TEXT_SINGULAR;
+  }
+
+  if (customChooseText) {
+    CHOOSE_TEXT = customChooseText;
+  }
 
   // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
+  ARIA_LABEL_TEXT = `${DRAG_TEXT} ${CHOOSE_TEXT}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
 
   // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  fileInputEl.setAttribute("aria-label", ARIA_LABEL_TEXT);
+  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${DRAG_TEXT}</span> <span class="${CHOOSE_CLASS}">${CHOOSE_TEXT}</span>`;
 
   // Add the instructions element to the DOM
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
@@ -210,18 +229,34 @@ const createVisibleInstructions = (fileInputEl) => {
  */
 const createSROnlyStatus = (fileInputEl) => {
   const statusEl = document.createElement("div");
-  const itemsLabel = getItemsLabel(fileInputEl);
+  const acceptsMultiple = fileInputEl.hasAttribute("multiple");
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
+  const customNoFileText = fileInputEl.dataset.noFileText;
+  const customNoFileTextSingular = fileInputEl.dataset.noFileTextSingular;
 
-  DEFAULT_FILE_STATUS_TEXT = `No ${itemsLabel} selected.`;
+  if (customNoFileText) {
+    NO_FILE_TEXT_PLURAL = customNoFileText;
+  }
+
+  if (customNoFileTextSingular) {
+    NO_FILE_TEXT_SINGULAR = customNoFileTextSingular;
+  } else if (customNoFileText) {
+    NO_FILE_TEXT_SINGULAR = customNoFileText;
+  }
+
+  if (acceptsMultiple) {
+    FILE_STATUS_TEXT = NO_FILE_TEXT_PLURAL;
+  } else {
+    FILE_STATUS_TEXT = NO_FILE_TEXT_SINGULAR;
+  }
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
   statusEl.setAttribute("aria-live", "polite");
 
   // Add initial file status message
-  statusEl.textContent = DEFAULT_FILE_STATUS_TEXT;
+  statusEl.textContent = FILE_STATUS_TEXT;
 
   // Add the status element to the DOM
   fileInputParent.insertBefore(statusEl, fileInputTarget);
@@ -300,22 +335,40 @@ const removeOldPreviews = (dropTarget, instructions) => {
  * @param {Object} fileNames - The selected files found in the fileList object.
  * @param {Array} fileStore - The array of uploaded file names created from the fileNames object.
  */
-const updateStatusMessage = (statusElement, fileNames, fileStore) => {
+const updateStatusMessage = (
+  statusElement,
+  fileNames,
+  fileStore,
+  fileInputEl
+) => {
   const statusEl = statusElement;
-  let statusMessage = DEFAULT_FILE_STATUS_TEXT;
+  const customSelectedFileText = fileInputEl.dataset.selectedFileText;
+  const customSelectedFileTextSingular =
+    fileInputEl.dataset.selectedFileTextSingular;
+  let fileStatusText = FILE_STATUS_TEXT;
+
+  if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+  }
+
+  if (customSelectedFileTextSingular) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileTextSingular;
+  } else if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
+  }
 
   // If files added, update the status message with file name(s)
   if (fileNames.length === 1) {
-    statusMessage = `You have selected the file: ${fileStore}`;
+    fileStatusText = `${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR}: ${fileStore}`;
   } else if (fileNames.length > 1) {
-    statusMessage = `You have selected ${
+    fileStatusText = `${
       fileNames.length
-    } files: ${fileStore.join(", ")}`;
+    } ${SELECTED_FILE_TEXT_PLURAL}: ${fileStore.join(", ")}`;
   }
 
   // Add delay to encourage screen reader readout
   setTimeout(() => {
-    statusEl.textContent = statusMessage;
+    statusEl.textContent = fileStatusText;
   }, 1000);
 };
 
@@ -330,14 +383,40 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   const filePreviewsHeading = document.createElement("div");
   const dropTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
   const instructions = dropTarget.querySelector(`.${INSTRUCTIONS_CLASS}`);
-  let changeItemText = "Change file";
+  const customChangeFileText = fileInputEl.dataset.changeFileText;
+  const customChangeFileTextSingular =
+    fileInputEl.dataset.changeFileTextSingular;
+  const customSelectedFileText = fileInputEl.dataset.selectedFileText;
+  const customSelectedFileTextSingular =
+    fileInputEl.dataset.selectedFileTextSingular;
   let previewHeadingText = "";
 
+  if (customChangeFileText) {
+    CHANGE_FILE_TEXT_PLURAL = customChangeFileText;
+  }
+
+  if (customChangeFileTextSingular) {
+    CHANGE_FILE_TEXT_SINGULAR = customChangeFileTextSingular;
+  } else if (customChangeFileText) {
+    CHANGE_FILE_TEXT_SINGULAR = customChangeFileText;
+  }
+
+  if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_PLURAL = customSelectedFileText;
+  }
+
+  if (customSelectedFileTextSingular) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileTextSingular;
+  } else if (customSelectedFileText) {
+    SELECTED_FILE_TEXT_SINGULAR = customSelectedFileText;
+  }
+
   if (fileNames.length === 1) {
-    previewHeadingText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
+    CHANGE_FILE_TEXT = CHANGE_FILE_TEXT_SINGULAR;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_SINGULAR} <span class="usa-file-input__choose">${CHANGE_FILE_TEXT}</span>`;
   } else if (fileNames.length > 1) {
-    changeItemText = "Change files";
-    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;
+    CHANGE_FILE_TEXT = CHANGE_FILE_TEXT_PLURAL;
+    previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} ${SELECTED_FILE_TEXT_PLURAL} <span class="usa-file-input__choose">${CHANGE_FILE_TEXT}</span>`;
   }
 
   // Hides null state content and sets preview heading
@@ -347,7 +426,7 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   dropTarget.insertBefore(filePreviewsHeading, instructions);
 
   // Update aria label to match the visible action text
-  fileInputEl.setAttribute("aria-label", changeItemText);
+  fileInputEl.setAttribute("aria-label", CHANGE_FILE_TEXT);
 };
 
 /** Add an error listener to the image preview to set a fallback image
@@ -442,12 +521,12 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
 
   if (fileNames.length === 0) {
     // Reset input aria-label with default message
-    fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
+    fileInputEl.setAttribute("aria-label", ARIA_LABEL_TEXT);
   } else {
     addPreviewHeading(fileInputEl, fileNames);
   }
 
-  updateStatusMessage(statusElement, fileNames, fileStore);
+  updateStatusMessage(statusElement, fileNames, fileStore, fileInputEl);
 };
 
 /**
@@ -513,8 +592,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+      errorMessage.textContent = fileInputEl.dataset.errorMessage || ERROR_TEXT;
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;

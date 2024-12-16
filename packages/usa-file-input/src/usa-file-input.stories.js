@@ -1,5 +1,7 @@
 import Component from "./usa-file-input.twig";
 import TestComponent from "./test/test-patterns/test-usa-file-input.twig";
+import TestComponentCustomText from "./test/test-patterns/test-usa-file-input-custom-text.twig";
+
 import {
   DefaultContent,
   ErrorContent,
@@ -21,6 +23,7 @@ export default {
 
 const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
+const TestTemplateCustomText = (args) => TestComponentCustomText(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
@@ -53,4 +56,20 @@ export const TestMultipleInputs = TestTemplate.bind({});
 TestMultipleInputs.args = {
   DefaultContent,
   SpecificContent,
+};
+
+export const TestCustomText = TestTemplateCustomText.bind({});
+TestCustomText.args = {
+  multiple: false,
+  include_singular: false,
+  change_file_text: "Cambiar archivos",
+  change_file_text_singular: "Cambiar archivo",
+  choose_text: "elegir de la carpeta",
+  drag_text: "Arrastre archivos aquí o",
+  drag_text_singular: "Arrastre archivo aquí o",
+  error_message: "Este no es un tipo de archivo válido.",
+  no_file_text: "No hay archivos seleccionados",
+  no_file_text_singular: "Ningún archivo seleccionado",
+  selected_file_text: "archivos seleccionados",
+  selected_file_text_singular: "archivo seleccionado",
 };
