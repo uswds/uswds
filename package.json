@@ -175,5 +175,8 @@
     "vinyl-source-stream": "2.0.0",
     "webpack": "5.97.1",
     "webpack-cli": "5.1.4"
+  },
+  "overrides": {
+    "nwsapi": "2.2.13"
   }
 }

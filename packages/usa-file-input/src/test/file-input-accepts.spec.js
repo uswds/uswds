@@ -66,12 +66,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
       const mock = new MockFile();
       const file = mock.create("pic.jpg", size, "image/jpeg");
       const fileList = makeFileList(file);
+      const defaultErrorMessage = "Error: This is not a valid file type.";
+      const customErrorMessage = "Please upload a valid file";
 
       let dropZone;
       let instructions;
       let inputEl;
       let dragText;
       let box;
+      let visibleErrorMessage;
+      let ariaLabel;
+
+      const addFiles = () => {
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+      };
 
       beforeEach(() => {
         body.innerHTML = TEMPLATE;
@@ -126,13 +136,42 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("mock file should not be allowed", () => {
         // add to our elements FileList
-        inputEl.files = fileList;
-        const e = new Event("change");
-        inputEl.dispatchEvent(e);
+        addFiles();
         assert.strictEqual(
           dropZone.classList.contains(INVALID_FILE_CLASS),
           true,
         );
+      });
+
+      it("should provide a default error message for invalid file type", () => {
+        // add to our elements FileList
+        addFiles();
+
+        // Error message appended to DOM after change event.
+        visibleErrorMessage = body.querySelector(
+          ".usa-file-input__accepted-files-message",
+        );
+        ariaLabel = inputEl.getAttribute("aria-label");
+
+        assert.strictEqual(
+          visibleErrorMessage.textContent,
+          defaultErrorMessage,
+        );
+        assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
+      });
+
+      it("should allow a custom error message for invalid file type", () => {
+        inputEl.dataset.errormessage = customErrorMessage;
+        addFiles();
+
+        // Error message appended to DOM after change event.
+        visibleErrorMessage = body.querySelector(
+          ".usa-file-input__accepted-files-message",
+        );
+        ariaLabel = inputEl.getAttribute("aria-label");
+
+        assert.strictEqual(visibleErrorMessage.textContent, customErrorMessage);
+        assert.strictEqual(ariaLabel.startsWith(customErrorMessage), true);
       });
     });
   });
