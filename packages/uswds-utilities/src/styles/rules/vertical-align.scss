@@ -23,8 +23,7 @@ $u-vertical-align: (
   vertical-align: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($vertical-align-palettes),
         $vertical-align-manual-values
       ),

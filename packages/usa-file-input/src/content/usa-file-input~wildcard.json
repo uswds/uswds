@@ -3,7 +3,7 @@
   "label": "Input accepts any kind of image",
   "hint": "Select any type of image format",
   "error": false,
-  "error_message": "",
+  "error_hint_text": "",
   "accept": "image/*",
   "multiple": true
 }

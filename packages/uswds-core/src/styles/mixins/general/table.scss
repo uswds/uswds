@@ -144,6 +144,10 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     display: none;
   }
 
+  th {
+    background-color: color($table-background-color);
+  }
+
   th,
   td {
     border-bottom-width: 0;
@@ -217,34 +221,24 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   margin: units(2.5) 0;
   text-align: left;
 
-  thead {
-    th {
-      background-clip: padding-box;
-      color: $table-header-text-color;
-      font-weight: fw("bold");
-      line-height: line-height(
-        $theme-body-font-family,
-        $theme-input-line-height
-      );
-    }
+  thead td,
+  tfoot td,
+  th {
+    background-clip: padding-box;
+    line-height: line-height($theme-body-font-family, $theme-input-line-height);
+    background-color: color($theme-table-header-background-color);
+    color: $table-header-text-color;
+  }
 
-    th,
-    td {
-      background-color: color($theme-table-header-background-color);
-      color: $table-header-text-color;
-    }
-  }
-  tbody {
-    th {
-      text-align: left;
-    }
-  }
   th,
   td {
-    background-color: color($table-background-color);
     border: 1px solid color($theme-table-border-color);
-    font-weight: fw("normal");
     padding: units(1) units(2);
+  }
+
+  td {
+    background-color: color($table-background-color);
+    font-weight: fw("normal");
   }
 
   caption {
@@ -299,29 +293,31 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 }
 
 @mixin usa-table--borderless {
-  thead {
-    th {
-      background-color: color($table-background-color);
-      border-top: 0;
-      color: color($table-text-color);
-
-      &[aria-sort] {
-        color: $table-sorted-header-text-color;
-      }
-    }
-    /* stylelint-disable selector-class-pattern */
-    th[data-sortable]:not([aria-sort]) {
-      .usa-table__header__button .usa-icon > g.unsorted {
-        fill: color($table-text-color);
-      }
-
-      .usa-table__header__button:hover .usa-icon > g.unsorted {
-        fill: color(next-token($table-text-color, "darker"));
-      }
-    }
-    /* stylelint-enable selector-class-pattern */
+  th,
+  thead td,
+  tfoot td {
+    background-color: color($table-background-color);
   }
 
+  th {
+    border-top: 0;
+    color: color($table-text-color);
+
+    &[aria-sort] {
+      color: $table-sorted-header-text-color;
+    }
+  }
+  /* stylelint-disable selector-class-pattern */
+  th[data-sortable]:not([aria-sort]) {
+    .usa-table__header__button .usa-icon > g.unsorted {
+      fill: color($table-text-color);
+    }
+
+    .usa-table__header__button:hover .usa-icon > g.unsorted {
+      fill: color(next-token($table-text-color, "darker"));
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
   th,
   td {
     border-left: 0;
@@ -339,8 +335,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
 @mixin usa-table--striped {
   tbody {
     tr:nth-child(odd) {
-      td,
-      th {
+      td {
         background-color: color($theme-table-stripe-background-color);
         color: $table-stripe-text-color;
         &[data-sort-active] {
@@ -375,6 +370,14 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     }
   }
 
+  tfoot {
+    td,
+    th {
+      border-top: 1px solid color($theme-table-border-color);
+      border-bottom: none;
+    }
+  }
+
   tbody tr:last-child {
     td,
     th {
@@ -390,7 +393,7 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   &.usa-table--borderless {
     border: none;
 
-    thead th {
+    th {
       background-color: color($table-background-color);
     }
 
