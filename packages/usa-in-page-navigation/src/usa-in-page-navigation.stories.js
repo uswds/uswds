@@ -2,6 +2,7 @@ import Component from "./usa-in-page-navigation.twig";
 import TestCustomContentComponent from "./test/test-patterns/test-custom-content-selector.twig";
 import TestCustomHeaderComponent from "./test/test-patterns/test-custom-header-selector.twig";
 import TestHiddenHeaderComponent from "./test/test-patterns/test-hidden-headers.twig";
+import TestNestedHeaderComponent from "./test/test-patterns/test-nested-headers.twig";
 import Content from "./usa-in-page-navigation.json";
 
 export default {
@@ -12,6 +13,7 @@ const Template = (args) => Component(args);
 const TestCustomContentTemplate = (args) => TestCustomContentComponent(args);
 const TestCustomHeaderTemplate = (args) => TestCustomHeaderComponent(args);
 const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent(args);
+const TestNestedHeaderTemplate = (args) => TestNestedHeaderComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
@@ -42,3 +44,5 @@ TestCustomHeaderSelector.argTypes = {
 };
 
 export const TestHiddenHeaders = TestHiddenHeaderTemplate.bind();
+
+export const TestNestedHeaders = TestNestedHeaderTemplate.bind();
