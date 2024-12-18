@@ -18,7 +18,7 @@ const tabHandler = (context) => {
   });
 
   function updateFocusableElements() {
-    focusableElements = select(FOCUSABLE, context);
+    focusableElements = Array.from(select(FOCUSABLE, context));
   }
   
   const firstTabStop = () => focusableElements[0];
@@ -29,21 +29,21 @@ const tabHandler = (context) => {
   function tabAhead(event) {
     if (activeElement() === lastTabStop()) {
       event.preventDefault();
-      firstTabStop.focus();
+      firstTabStop().focus();
     }
   }
 
   function tabBack(event) {
     if (activeElement() === firstTabStop()) {
       event.preventDefault();
-      lastTabStop.focus();
+      lastTabStop().focus();
     }
     // This checks if you want to set the initial focus to a container
     // instead of an element within, and the user tabs back.
     // Then we set the focus to the first
     else if (!focusableElements.includes(activeElement())) {
       event.preventDefault();
-      firstTabStop.focus();
+      firstTabStop().focus();
     }
   }
 
@@ -85,8 +85,8 @@ module.exports = (context, additionalKeyBindings = {}) => {
       init() {
         // TODO: is this desireable behavior? Should the trap always do this by default or should
         // the component getting decorated handle this?
-        if (tabEventHandler.firstTabStop) {
-          tabEventHandler.firstTabStop.focus();
+        if (tabEventHandler.firstTabStop()) {
+          tabEventHandler.firstTabStop().focus();
         }
       },
       update(isActive) {
