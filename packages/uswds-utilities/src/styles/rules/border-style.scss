@@ -23,8 +23,7 @@ $u-border-style: (
   border-style: (
     base: "border",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($border-style-palettes),
         $border-style-manual-values
       ),
