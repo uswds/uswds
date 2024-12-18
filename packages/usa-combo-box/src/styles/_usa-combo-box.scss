@@ -65,7 +65,7 @@ $close: map-merge(
     // Fix for Safari
     -webkit-text-fill-color: color("disabled-dark");
 
-    // Placeholder overrides to ensure color contrast compliance accross browsers
+    // Placeholder overrides to ensure color contrast compliance across browsers
     &::placeholder {
       opacity: 1;
     }

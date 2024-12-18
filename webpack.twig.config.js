@@ -14,7 +14,7 @@ if (!fs.existsSync(outputDir)){
   });
 }
 
-// syncronously check if a file exists
+// synchronously check if a file exists
 function checkFileExistsSync(filepath){
   let flag = true;
   try{
@@ -35,7 +35,7 @@ function buildFileObj(dir, file, dataFile){
 
   function buildModifierData(dataSource) {
     const regexDashes = /--([\s\S]*)$/
-    const regexTilda = /~([\s\S]*)$/
+    const regexTilde = /~([\s\S]*)$/
     let modifiedData;
 
     if (dataSource.indexOf('--') > -1) {
@@ -47,7 +47,7 @@ function buildFileObj(dir, file, dataFile){
       }
 
     if (dataSource.indexOf('~') > -1) {
-      const rootDataFile = dataSource.replace(regexTilda, '.json')
+      const rootDataFile = dataSource.replace(regexTilde, '.json')
 
       modifiedData = merge(
           JSON.parse(fs.readFileSync(rootDataFile, 'utf-8')),
@@ -89,7 +89,7 @@ function walk(dir, ext) {
       path.basename(file).indexOf('_') !== 0
     ) {
       /* Is a file */
-      // in each directory, we need to build modifers
+      // in each directory, we need to build modifiers
       // if a directory contains a content directory we update dir here
       // once we are done migrating components, we should update since we won't
       // have as many use cases
