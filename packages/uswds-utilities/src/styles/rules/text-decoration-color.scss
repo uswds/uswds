@@ -23,8 +23,7 @@ $u-text-decoration-color: (
   text-decoration-color: (
     base: "underline",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($text-decoration-color-palettes),
         get-palettes($global-color-palettes),
         $text-decoration-color-manual-values

@@ -2,6 +2,7 @@
   <label class="usa-label{% if state == "error" %} usa-label--error{%- endif %}" for="input-type-text">Text input label</label>
   {% if state == "error" %} <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>{%- endif %}
   <input class="usa-input
+    {% if utilities %} {{ utilities }}{% endif %}
     {% if state == "focus" %} usa-focus{%- endif%}
     {% if state == "error" %} usa-input--error" aria-describedby="input-error-message{%- endif%}
     {% if state == "success" %} usa-input--success{%- endif%}"
@@ -15,6 +16,7 @@
     <span class="usa-error-message" id="textarea-error-message" role="alert">Helpful error message</span>
   {%- endif %}
   <textarea class="usa-textarea
+    {% if utilities %} {{ utilities }}{% endif %}
     {% if state == "focus" %} usa-focus{%- endif%}
     {% if state == "error" %} usa-input--error" aria-describedby="textarea-error-message{%- endif%}
     {% if state == "success" %} usa-input--success{%- endif%}"
