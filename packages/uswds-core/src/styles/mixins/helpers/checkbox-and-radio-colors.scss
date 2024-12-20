@@ -65,7 +65,7 @@
   $tile-box-shadow--disabled: 0 0 0 units($theme-input-select-border-width)
     color($input-text-color-disabled);
   $input-darkmode: if(
-    color.lightness(color($input-bg-color)) < 50%,
+    color.channel(color($input-bg-color), "lightness", $space: hsl) < 50%,
     true,
     false
   );

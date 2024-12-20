@@ -17,10 +17,26 @@
 
 @function luminance($color) {
   $lum: (
-      list.nth($luminance-color-component-values, red($color) + 1) * 0.2126
+      list.nth(
+          $luminance-color-component-values,
+          color.channel($color, "red", $space: rgb) + 1
+        ) *
+        0.2126
     ) +
-    (list.nth($luminance-color-component-values, green($color) + 1) * 0.7152) +
-    (list.nth($luminance-color-component-values, blue($color) + 1) * 0.0722);
+    (
+      list.nth(
+          $luminance-color-component-values,
+          color.channel($color, "green", $space: rgb) + 1
+        ) *
+        0.7152
+    ) +
+    (
+      list.nth(
+          $luminance-color-component-values,
+          color.channel($color, "blue", $space: rgb) + 1
+        ) *
+        0.0722
+    );
 
   @return math.div(math.round($lum * 1000), 1000);
 }
