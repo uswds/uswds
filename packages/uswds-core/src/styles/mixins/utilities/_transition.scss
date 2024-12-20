@@ -7,7 +7,7 @@
 
 @mixin u-transition($prop, $easing: $project-easing, $essential: false) {
   @if meta.type-of($easing) == "string" {
-    $easing: unquote($easing);
+    $easing: string.unquote($easing);
   }
 
   transition: string.unquote($prop) $easing;
