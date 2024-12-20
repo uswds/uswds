@@ -14,6 +14,7 @@ const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
+const IN_PAGE_NAV_MINIMUM_HEADING_COUNT = 2;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -222,6 +223,26 @@ const scrollToCurrentSection = () => {
 };
 
 /**
+ * Check if the number of specified headings meets the minimum required count.
+ *
+ * @param {Array} sectionHeadings - Array of all visible section headings.
+ * @param {Number} minimumHeadingCount - The minimum number of specified headings required.
+ * @param {Array} acceptedHeadingLevels - Array of headings considered as valid for the count.
+ * @returns {Boolean} - Returns true if the count of specified headings meets the minimum, otherwise false.
+ */
+const shouldRenderInPageNav = (
+  sectionHeadings,
+  minimumHeadingCount,
+  acceptedHeadingLevels,
+) => {
+  // Filter headings that are included in the acceptedHeadingLevels
+  const validHeadings = sectionHeadings.filter((heading) =>
+    acceptedHeadingLevels.includes(heading.tagName.toLowerCase()),
+  );
+  return validHeadings.length >= minimumHeadingCount;
+};
+
+/**
  * Create the in-page navigation component
  *
  * @param {HTMLElement} inPageNavEl The in-page nav element
@@ -246,16 +267,35 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS
   }`;
 
+  const inPageNavMinimumHeadingCount = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
+  }`;
+
+  const acceptedHeadingLevels = inPageNavHeadingSelector
+    .split(" ")
+    .map((h) => h.toLowerCase());
+
+  const sectionHeadings = getVisibleSectionHeadings(
+    inPageNavContentSelector,
+    inPageNavHeadingSelector,
+  );
+
+  if (
+    !shouldRenderInPageNav(
+      sectionHeadings,
+      inPageNavMinimumHeadingCount,
+      acceptedHeadingLevels,
+    )
+  ) {
+    return;
+  }
+
   const options = {
     root: null,
     rootMargin: inPageNavRootMargin,
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getVisibleSectionHeadings(
-    inPageNavContentSelector,
-    inPageNavHeadingSelector,
-  );
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
