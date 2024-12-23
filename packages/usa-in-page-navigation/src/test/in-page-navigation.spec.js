@@ -95,9 +95,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     afterEach(() => {
       sinon.resetHistory();
-      if (theNav && containerSelector()) {
-        behavior.off(containerSelector());
-      }
+      behavior.off(containerSelector());
       body.innerHTML = "";
       window.location.hash = "";
     });

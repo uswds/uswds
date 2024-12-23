@@ -59,7 +59,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         theNav.hasChildNodes(),
         true,
-        "In-page navigation should have child nodes when the default minimum heading count of 2 has been reached",
+        "In-page navigation should have child nodes when the default minimum heading count of 2 has not been reached",
       );
     });
   });
