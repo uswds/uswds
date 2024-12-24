@@ -24,6 +24,7 @@ module.exports = {
           outputStyle: "expanded",
           // @TODO: Remove `silenceDeprecations` before merge.
           silenceDeprecations: ["color-functions", "import", "global-builtin"],
+          verbose: true,
         }).on("error", function handleError(error) {
           dutil.logError(error);
           this.emit("end");
