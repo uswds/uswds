@@ -39,7 +39,8 @@ Show updates and notifications.
 */
 
 $theme-show-compile-warnings: true !default;
-$theme-show-notifications: true !default;
+// @TODO: Revert back to `true` before merge.
+$theme-show-notifications: false !default;
 
 /*
 ----------------------------------------
