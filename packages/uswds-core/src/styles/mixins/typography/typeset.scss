@@ -36,8 +36,10 @@ Sets:
 }
 
 @mixin typeset-heading-base {
+  & {
+    clear: both;
+  }
   @include u-margin-y(0);
-  clear: both;
 }
 
 @mixin typeset-heading {
@@ -53,8 +55,10 @@ Sets:
 }
 
 @mixin typeset-p-base {
-  line-height: line-height($theme-body-font-family, $theme-body-line-height);
-  max-width: measure($theme-text-measure);
+  & {
+    line-height: line-height($theme-body-font-family, $theme-body-line-height);
+    max-width: measure($theme-text-measure);
+  }
 }
 
 // typeset element mixins
@@ -72,8 +76,10 @@ Sets:
 }
 
 @mixin typeset-link {
-  color: color($theme-link-color);
-  text-decoration: underline;
+  & {
+    color: color($theme-link-color);
+    text-decoration: underline;
+  }
 
   &:visited {
     color: color($theme-link-visited-color);

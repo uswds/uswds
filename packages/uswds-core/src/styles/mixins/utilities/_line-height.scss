@@ -15,5 +15,8 @@
   }
   $family: list.nth($value, 1);
   $scale: list.nth($value, 2);
-  line-height: lh($family, $scale) #{$important};
+
+  & {
+    line-height: lh($family, $scale) #{$important};
+  }
 }
