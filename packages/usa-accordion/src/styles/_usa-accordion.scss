@@ -57,9 +57,19 @@ $accordion-button-open-hc-icon: map-merge(
 
 // Opened styles
 @mixin accordion-button-styles {
+  @include button-unstyled;
+  @include set-text-and-bg(
+    $theme-accordion-button-background-color,
+    $context: $accordion-context
+  );
+  @include set-icon-from-bg(
+    $theme-accordion-button-background-color,
+    "usa-icons/remove",
+    "usa-icons-bg/remove--white"
+  );
+
   //
-  //* Because of the new recommendation, we have regressions in accordion.
-  //* This is because mixins that were being overriden are now at the end.
+  //* Move declarations after mixins to preserve overrides.
   //
   //
   & {
@@ -73,17 +83,6 @@ $accordion-button-open-hc-icon: map-merge(
     text-decoration: none;
     width: 100%;
   }
-
-  @include button-unstyled;
-  @include set-text-and-bg(
-    $theme-accordion-button-background-color,
-    $context: $accordion-context
-  );
-  @include set-icon-from-bg(
-    $theme-accordion-button-background-color,
-    "usa-icons/remove",
-    "usa-icons-bg/remove--white"
-  );
 
   &:hover {
     text-decoration: none;
