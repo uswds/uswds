@@ -179,9 +179,8 @@ function toggleModalButton(event) {
   return safeActive;
 }
 
-//user calls with: ???
-  //modal.toggleModal("show")
-  //modal.toggleModal("hide")
+//user calls with
+  //modal.toggleModal("example-id")
 function toggleModal(modalId) {
   console.log('toggle modal no button', modalId)
 };
