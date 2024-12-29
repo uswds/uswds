@@ -36,7 +36,7 @@ const SCROLLBAR_WIDTH = ScrollBarWidth();
  *  Closes modal when bound to a button and pressed.
  */
 const onMenuClose = () => {
-  modal.toggleModal.call(modal, false);
+  modal.toggleModalButton.call(modal, false);
 };
 
 /**
@@ -59,7 +59,7 @@ const setTemporaryBodyPadding = () => {
  * @param {KeyboardEvent} event the keydown event.
  * @returns {boolean} safeActive if mobile is open.
  */
-function toggleModal(event) {
+function toggleModalButton(event) {
   let originalOpener;
   let clickedElement = event.target;
   const { body } = document;
@@ -178,6 +178,17 @@ function toggleModal(event) {
 
   return safeActive;
 }
+
+//user calls with: ???
+  //modal.toggleModal("show")
+  //modal.toggleModal("hide")
+function toggleModal(modalId) {
+  console.log('toggle modal no button', modalId)
+};
+
+function showModal() { console.log('show') };
+
+function hideModal() { console.log('hide') };
 
 /**
  * Creates a placeholder with data attributes for cleanup function.
@@ -367,7 +378,7 @@ modal = behavior(
             // as opening a menu if "dialog" is not supported.
             // modalTrigger.setAttribute("aria-haspopup", "dialog");
 
-            modalTrigger.addEventListener("click", toggleModal);
+            modalTrigger.addEventListener("click", toggleModalButton);
           },
         );
       });
@@ -379,12 +390,15 @@ modal = behavior(
 
         selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
           (modalTrigger) =>
-            modalTrigger.removeEventListener("click", toggleModal),
+            modalTrigger.removeEventListener("click", toggleModalButton),
         );
       });
     },
     focusTrap: null,
-    toggleModal,
+    toggleModalButton,
+    toggle: toggleModal,
+    show: showModal,
+    hide: hideModal,
   },
 );
 
