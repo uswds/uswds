@@ -1,6 +1,34 @@
 @use "sass:meta";
 @use "sass:list";
+@use "../../functions/utilities/color" as *;
 
+/// Adds link default and state (visited, hover, active) styles.
+///
+/// @param {List} $color - A list of colors for default, hover, and active.
+/// @param {String} $hover [null] - The link's hover color.
+/// @param {String} $active [null] - The link's active color.
+///
+/// @example
+/// @include add-link-styles(
+///   $theme-text-color,
+///   $hover: "primary",
+///   $active: "primary-darker"
+/// );
+///
+/// @output
+/// &:link{
+///   color:#1b1b1b;
+/// }
+/// &:visited{
+///   color:#1b1b1b;
+/// }
+/// &:hover{
+///   color:#005ea2;
+/// }
+/// &:active{
+///   color:#162e51;
+/// }
+///
 @mixin add-link-styles($color, $hover: null, $active: null) {
   @if meta.type-of($color) == "list" {
     $active: list.nth($color, 3);

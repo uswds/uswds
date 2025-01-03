@@ -28,6 +28,7 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const DEFAULT_ERROR_LABEL_TEXT = "Error: This is not a valid file type.";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
@@ -350,6 +351,22 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   fileInputEl.setAttribute("aria-label", changeItemText);
 };
 
+/** Add an error listener to the image preview to set a fallback image
+ * @param {HTMLImageElement} previewImage - The image element
+ * @param {String} fallbackClass - The CSS class of the fallback image
+ */
+const setPreviewFallback = (previewImage, fallbackClass) => {
+  previewImage.addEventListener(
+    "error",
+    () => {
+      const localPreviewImage = previewImage; // to avoid no-param-reassign from ESLint
+      localPreviewImage.src = SPACER_GIF;
+      localPreviewImage.classList.add(fallbackClass);
+    },
+    { once: true },
+  );
+};
+
 /**
  * When new files are applied to file input, this function generates previews
  * and removes old ones.
@@ -393,37 +410,25 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
       const previewImage = document.getElementById(imageId);
-      if (fileName.indexOf(".pdf") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`,
-        );
+      const fileExtension = fileName.split(".").pop();
+      if (fileExtension === "pdf") {
+        setPreviewFallback(previewImage, PDF_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".doc") > 0 ||
-        fileName.indexOf(".pages") > 0
+        fileExtension === "doc" ||
+        fileExtension === "docx" ||
+        fileExtension === "pages"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`,
-        );
+        setPreviewFallback(previewImage, WORD_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".xls") > 0 ||
-        fileName.indexOf(".numbers") > 0
+        fileExtension === "xls" ||
+        fileExtension === "xlsx" ||
+        fileExtension === "numbers"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`,
-        );
-      } else if (fileName.indexOf(".mov") > 0 || fileName.indexOf(".mp4") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`,
-        );
+        setPreviewFallback(previewImage, EXCEL_PREVIEW_CLASS);
+      } else if (fileExtension === "mov" || fileExtension === "mp4") {
+        setPreviewFallback(previewImage, VIDEO_PREVIEW_CLASS);
       } else {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`,
-        );
+        setPreviewFallback(previewImage, GENERIC_PREVIEW_CLASS);
       }
 
       // Removes loader and displays preview
@@ -484,6 +489,10 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
+    const userErrorText = fileInputEl.dataset.errormessage;
+    const errorMessageText = userErrorText || DEFAULT_ERROR_LABEL_TEXT;
+
+    errorMessage.setAttribute("aria-hidden", true);
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
@@ -508,9 +517,12 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
       fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      errorMessage.textContent = errorMessageText;
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+
+      const ariaLabelText = `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`;
+
+      fileInputEl.setAttribute("aria-label", ariaLabelText);
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;

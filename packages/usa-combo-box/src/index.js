@@ -382,28 +382,101 @@ const displayList = (el) => {
   const filter = comboBoxEl.dataset.filter || DEFAULT_FILTER;
   const regex = generateDynamicRegExp(filter, inputValue, comboBoxEl.dataset);
 
-  const options = [];
-  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    const optionEl = selectEl.options[i];
-    const optionId = `${listOptionBaseId}${options.length}`;
+  let options = [];
+  const optionsStartsWith = [];
+  const optionsContains = [];
+  const optionList = [...selectEl.options];
 
-    if (
-      optionEl.value &&
-      (disableFiltering ||
-        isPristine ||
-        !inputValue ||
-        regex.test(optionEl.text))
-    ) {
-      if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = optionId;
-      }
+  /**
+   * Builds and sorts options array.
+   *
+   * Option param is passed through regex test before passing into this function.
+   * When filtering is enabled, the array will be sorted by options that start with the query, followed by
+   * options that contain the query.
+   * When filtering is disabled, all options will be included in the array unsorted.
+   *
+   * These array items will populate the list that is displayed to the user after a search query is entered.
+   * Array attributes are also used to set option IDs and aria-setsize attributes.
+   *
+   * @param {HTMLOptionElement} option - Option element from select array
+   */
+  const buildOptionsArray = (option) => {
+    if (disableFiltering || isPristine) {
+      options.push(option);
+      return;
+    }
 
-      if (disableFiltering && !firstFoundId && regex.test(optionEl.text)) {
+    const matchStartsWith = option.text.toLowerCase().startsWith(inputValue);
+
+    if (matchStartsWith) {
+      optionsStartsWith.push(option);
+    } else {
+      optionsContains.push(option);
+    }
+
+    options = [...optionsStartsWith, ...optionsContains];
+  };
+
+  /**
+   * Compares option text to query using generated regex filter.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - True when option text matches user input query.
+   */
+  const optionMatchesQuery = (option) => regex.test(option.text);
+
+  /**
+   * Logic check to determine if options array needs to be updated.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - True when option has value && if filtering is disabled, combo box has an active selection,
+   * there is no inputValue, or if option matches user query
+   */
+  const arrayNeedsUpdate = (option) =>
+    option.value &&
+    (disableFiltering ||
+      isPristine ||
+      !inputValue ||
+      optionMatchesQuery(option));
+
+  /**
+   * Checks if firstFoundId should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @return {boolean} - Returns true if filtering is disabled, no firstFoundId is assigned, and the option matches the query.
+   */
+  const isFirstMatch = (option) =>
+    disableFiltering && !firstFoundId && optionMatchesQuery(option);
+
+  /**
+   * Checks if isCurrentSelection should be assigned, which is then used to set itemToFocus.
+   *
+   * @param {HTMLOptionElement} option
+   * @returns {boolean} - Returns true if option.value matches selectEl.value.
+   */
+  const isCurrentSelection = (option) =>
+    selectEl.value && option.value === selectEl.value;
+
+  /**
+   * Update the array of options that should be displayed on the page.
+   * Assign an ID to each displayed option.
+   * Identify and assign the option that should receive focus.
+   */
+  optionList.forEach((option) => {
+    if (arrayNeedsUpdate(option)) {
+      buildOptionsArray(option);
+
+      const optionId = `${listOptionBaseId}${options.indexOf(option)}`;
+
+      if (isFirstMatch(option)) {
         firstFoundId = optionId;
       }
-      options.push(optionEl);
+
+      if (isCurrentSelection(option)) {
+        selectedItemId = optionId;
+      }
     }
-  }
+  });
 
   const numOptions = options.length;
   const optionHtml = options.map((option, index) => {

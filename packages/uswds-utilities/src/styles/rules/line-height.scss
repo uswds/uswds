@@ -23,8 +23,7 @@ $u-line-height: (
   line-height: (
     base: "line-height",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($line-height-palettes),
         $line-height-manual-values
       ),

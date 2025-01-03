@@ -7,13 +7,11 @@
 @use "../../tokens/color" as *;
 
 $border-utilities: (
-  "width":
-    map-collect(
+  "width": map-collect(
       map-deep-get($system-properties, border-width, standard),
       map-deep-get($system-properties, border-width, extended)
     ),
-  "style":
-    map-collect(
+  "style": map-collect(
       map-deep-get($system-properties, border-style, standard),
       map-deep-get($system-properties, border-style, extended)
     ),

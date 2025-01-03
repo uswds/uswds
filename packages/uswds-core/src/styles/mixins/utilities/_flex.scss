@@ -6,33 +6,27 @@
 // Outputs flex
 
 $flex-utililies: (
-  "align-items":
-    map-collect(
+  "align-items": map-collect(
       map-deep-get($system-properties, "align-items", standard),
       map-deep-get($system-properties, "align-items", extended)
     ),
-  "align-self":
-    map-collect(
+  "align-self": map-collect(
       map-deep-get($system-properties, "align-self", standard),
       map-deep-get($system-properties, "align-self", extended)
     ),
-  "flex":
-    map-collect(
+  "flex": map-collect(
       map-deep-get($system-properties, "flex", standard),
       map-deep-get($system-properties, "flex", extended)
     ),
-  "flex-direction":
-    map-collect(
+  "flex-direction": map-collect(
       map-deep-get($system-properties, "flex-direction", standard),
       map-deep-get($system-properties, "flex-direction", extended)
     ),
-  "flex-wrap":
-    map-collect(
+  "flex-wrap": map-collect(
       map-deep-get($system-properties, "flex-wrap", standard),
       map-deep-get($system-properties, "flex-wrap", extended)
     ),
-  "justify-content":
-    map-collect(
+  "justify-content": map-collect(
       map-deep-get($system-properties, "justify-content", standard),
       map-deep-get($system-properties, "justify-content", extended)
     ),

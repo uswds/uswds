@@ -220,6 +220,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
+      it("should sort matches by options that start with the query, then options that contain the query", () => {
+        input.value = "tan";
+
+        EVENTS.input(input);
+
+        assert.strictEqual(
+          list.children.length,
+          3,
+          "should display a filtered list based on input",
+        );
+        assert.strictEqual(
+          list.firstChild.dataset.value,
+          "tangelo",
+          "should sort filtered items and put items that start with the query first",
+        );
+        assert.strictEqual(
+          list.lastChild.dataset.value,
+          "rambutan",
+          "should sort filtered items and put items that contain the query last",
+        );
+      });
+
       it("should reset input values when an incomplete item is remaining on blur", () => {
         select.value = "apricot";
         input.value = "a";
