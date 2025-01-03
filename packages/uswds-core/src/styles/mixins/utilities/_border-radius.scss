@@ -26,8 +26,10 @@
     }
     $important: " !important";
   }
-  border-bottom-left-radius: get-uswds-value("border-radius", $value) #{$important};
-  border-bottom-right-radius: get-uswds-value("border-radius", $value) #{$important};
+  border-bottom-left-radius: get-uswds-value("border-radius", $value)
+    #{$important};
+  border-bottom-right-radius: get-uswds-value("border-radius", $value)
+    #{$important};
 }
 
 @mixin u-radius-left($value...) {
@@ -40,7 +42,8 @@
     }
     $important: " !important";
   }
-  border-bottom-left-radius: get-uswds-value("border-radius", $value) #{$important};
+  border-bottom-left-radius: get-uswds-value("border-radius", $value)
+    #{$important};
   border-top-left-radius: get-uswds-value("border-radius", $value) #{$important};
 }
 
@@ -54,8 +57,10 @@
     }
     $important: " !important";
   }
-  border-bottom-right-radius: get-uswds-value("border-radius", $value) #{$important};
-  border-top-right-radius: get-uswds-value("border-radius", $value) #{$important};
+  border-bottom-right-radius: get-uswds-value("border-radius", $value)
+    #{$important};
+  border-top-right-radius: get-uswds-value("border-radius", $value)
+    #{$important};
 }
 
 @mixin u-radius-top($value...) {
@@ -69,5 +74,6 @@
     $important: " !important";
   }
   border-top-left-radius: get-uswds-value("border-radius", $value) #{$important};
-  border-top-right-radius: get-uswds-value("border-radius", $value) #{$important};
+  border-top-right-radius: get-uswds-value("border-radius", $value)
+    #{$important};
 }

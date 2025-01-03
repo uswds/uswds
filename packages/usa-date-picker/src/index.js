@@ -465,6 +465,37 @@ const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) =>
   (maxDate && startOfMonth(setMonth(date, 0)) > maxDate);
 
 /**
+ * @typedef {Object} DateRangeContext
+ * @property {Date} rangeStartDate
+ * @property {Date} rangeEndDate
+ * @property {Date} withinRangeStartDate
+ * @property {Date} withinRangeEndDate
+ */
+
+/**
+ * Set the start, end, and within range values for date range variants.
+
+ * @param {Date} date - Date that concludes the date range.
+ * @param {Date} rangeDate - Range date data attribute value of the date picker component.
+ * @returns {DateRangeContext} - Dates for range selection.
+ */
+const setRangeDates = (date, rangeDate) => {
+  const rangeConclusionDate = date;
+  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
+  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
+
+  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
+  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
+
+  return {
+    rangeStartDate,
+    rangeEndDate,
+    withinRangeStartDate,
+    withinRangeEndDate,
+  };
+};
+
+/**
  * Parse a date with format M-D-YY
  *
  * @param {string} dateString the date string to parse
@@ -714,15 +745,16 @@ const disable = (el) => {
 };
 
 /**
- * Check for aria-disabled on initialization
+ * Add the readonly attribute to input element and the aria-disabled attribute to the toggle calendar button and external input elements.
  *
- * @param {HTMLElement} el An element within the date picker component
+ * @param {HTMLElement} el - The date picker element
  */
 const ariaDisable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("aria-disabled", true);
+  externalInputEl.setAttribute("readonly", "");
 };
 
 /**
@@ -734,7 +766,11 @@ const enable = (el) => {
   const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = false;
+  toggleBtnEl.removeAttribute("aria-disabled");
+
   externalInputEl.disabled = false;
+  externalInputEl.removeAttribute("aria-disabled");
+  externalInputEl.removeAttribute("readonly");
 };
 
 // #region Validation
@@ -951,12 +987,12 @@ const renderCalendar = (el, _dateToDisplay) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
-  const rangeConclusionDate = selectedDate || dateToDisplay;
-  const rangeStartDate = rangeDate && min(rangeConclusionDate, rangeDate);
-  const rangeEndDate = rangeDate && max(rangeConclusionDate, rangeDate);
-
-  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
-  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
+  const {
+    rangeStartDate,
+    rangeEndDate,
+    withinRangeStartDate,
+    withinRangeEndDate,
+  } = setRangeDates(selectedDate || dateToDisplay, rangeDate);
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -1295,7 +1331,7 @@ const selectDate = (calendarDateEl) => {
  * @param {HTMLButtonElement} el An element within the date picker component
  */
 const toggleCalendar = (el) => {
-  if (el.disabled) return;
+  if (el.disabled || el.hasAttribute("aria-disabled")) return;
   const { calendarEl, inputDate, minDate, maxDate, defaultDate } =
     getDatePickerContext(el);
 
@@ -1785,24 +1821,43 @@ const handleShiftPageDownFromDate = adjustCalendar((date) => addYears(date, 1));
 const handleShiftPageUpFromDate = adjustCalendar((date) => subYears(date, 1));
 
 /**
- * display the calendar for the mouseover date.
+ * Set range date classes without re-rendering the calendar. Called when date button is hovered.
+ * Returns early if the date hovered is disabled or if there is already a selected date.
  *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} dateEl A date element within the date picker component
+ * @param {HTMLElement} dateEl - Calendar date button within the date picker component.
  */
+
 const handleMouseoverFromDate = (dateEl) => {
   if (dateEl.disabled) return;
 
-  const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
+  const hoverDate = parseDateString(dateEl.dataset.value);
+  const { calendarEl, selectedDate, rangeDate } = getDatePickerContext(dateEl);
 
-  const currentCalendarDate = calendarEl.dataset.value;
-  const hoverDate = dateEl.dataset.value;
+  if (selectedDate) return;
 
-  if (hoverDate === currentCalendarDate) return;
+  const { withinRangeStartDate, withinRangeEndDate } = setRangeDates(
+    hoverDate,
+    rangeDate,
+  );
 
-  const dateToDisplay = parseDateString(hoverDate);
-  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
-  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  const dateButtons = calendarEl.querySelectorAll(
+    `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`,
+  );
+
+  dateButtons.forEach((button) => {
+    const buttonDate = parseDateString(button.dataset.value);
+    if (
+      isDateWithinMinAndMax(
+        buttonDate,
+        withinRangeStartDate,
+        withinRangeEndDate,
+      )
+    ) {
+      button.classList.add(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+    } else {
+      button.classList.remove(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+    }
+  });
 };
 
 // #endregion Calendar Date Event Handling
@@ -1895,22 +1950,6 @@ const handlePageDownFromMonth = adjustMonthSelectionScreen(() => 11);
  * @param {KeyboardEvent} event the keydown event
  */
 const handlePageUpFromMonth = adjustMonthSelectionScreen(() => 0);
-
-/**
- * update the focus on a month when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} monthEl A month element within the date picker component
- */
-const handleMouseoverFromMonth = (monthEl) => {
-  if (monthEl.disabled) return;
-  if (monthEl.classList.contains(CALENDAR_MONTH_FOCUSED_CLASS)) return;
-
-  const focusMonth = parseInt(monthEl.dataset.value, 10);
-
-  const newCalendar = displayMonthSelection(monthEl, focusMonth);
-  newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
-};
 
 // #endregion Calendar Month Event Handling
 
@@ -2006,22 +2045,6 @@ const handlePageUpFromYear = adjustYearSelectionScreen(
 const handlePageDownFromYear = adjustYearSelectionScreen(
   (year) => year + YEAR_CHUNK,
 );
-
-/**
- * update the focus on a year when the mouse moves.
- *
- * @param {MouseEvent} event The mouseover event
- * @param {HTMLButtonElement} dateEl A year element within the date picker component
- */
-const handleMouseoverFromYear = (yearEl) => {
-  if (yearEl.disabled) return;
-  if (yearEl.classList.contains(CALENDAR_YEAR_FOCUSED_CLASS)) return;
-
-  const focusYear = parseInt(yearEl.dataset.value, 10);
-
-  const newCalendar = displayYearSelection(yearEl, focusYear);
-  newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
-};
 
 // #endregion Calendar Year Event Handling
 
@@ -2229,12 +2252,6 @@ if (!isIosDevice()) {
   datePickerEvents.mouseover = {
     [CALENDAR_DATE_CURRENT_MONTH]() {
       handleMouseoverFromDate(this);
-    },
-    [CALENDAR_MONTH]() {
-      handleMouseoverFromMonth(this);
-    },
-    [CALENDAR_YEAR]() {
-      handleMouseoverFromYear(this);
     },
   };
 }

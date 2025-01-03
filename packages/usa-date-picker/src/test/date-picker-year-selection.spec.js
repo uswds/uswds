@@ -151,20 +151,5 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "focuses correct year",
       );
     });
-
-    it("should update the focus when moving over a non-selected valid year", () => {
-      EVENTS.mouseover(
-        getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__year[data-value="2022"]',
-        ),
-      );
-
-      assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
-          .value,
-        "2022",
-        "focuses correct year",
-      );
-    });
   });
 });

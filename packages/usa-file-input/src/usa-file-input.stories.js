@@ -16,6 +16,16 @@ export default {
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_hint_text: {
+      name: "Error message - hint",
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    invalid_file_text: {
+      name: "Error text - Invalid file type (data-errorMessage)",
+      control: { type: "text" },
+      defaultValue: "",
+    },
   },
 };
 

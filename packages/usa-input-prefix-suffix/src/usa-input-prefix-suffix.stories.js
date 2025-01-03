@@ -9,6 +9,10 @@ export default {
       control: "radio",
       options: ["none", "disabled", "aria-disabled"],
     },
+    utilities: {
+      name: "Input group utility classes",
+      control: { type: "text" },
+    },
   },
   args: {
     disabled_state: "none",

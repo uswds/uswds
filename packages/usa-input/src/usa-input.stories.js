@@ -17,6 +17,10 @@ export default {
       ],
       defaultValue: "default",
     },
+    utilities: {
+      name: "Input/textarea utility classes",
+      control: { type: "text" },
+    },
   },
 };
 
@@ -36,6 +40,11 @@ Disabled.args = {
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   state: "aria-disabled",
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  state: "error",
 };
 
 export const StateShowcase = ShowcaseTemplate.bind({});
