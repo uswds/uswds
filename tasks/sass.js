@@ -20,10 +20,10 @@ module.exports = {
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
-          includePaths: [
+          loadPaths: [
             "./packages",
           ],
-          outputStyle: "expanded",
+          style: "expanded",
         }).on("error", function handleError(error) {
           dutil.logError(error);
           this.emit("end");
