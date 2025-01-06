@@ -934,7 +934,7 @@ const enhanceDatePicker = (el) => {
    * @param {KeyboardEvent} event The keydown event object.
    * @param {InputEvent} event The input event object.
    */
-  externalInputEl.addEventListener("keydown", function(event) {
+  externalInputEl.addEventListener("keydown", function (event) {
     if (event.key === "Backspace") {
       if (this.selectionStart === this.selectionEnd) {
         // If no text is selected, delete the preceding character
@@ -942,13 +942,17 @@ const enhanceDatePicker = (el) => {
         const inputValue = this.value;
         const cursorPosition = this.selectionStart;
         const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
-  
+
         if (lastChar === "/") {
           // Remove slash and the preceding number
-          this.value = inputValue.slice(0, cursorPosition - 2) + inputValue.slice(cursorPosition);
+          this.value =
+            inputValue.slice(0, cursorPosition - 2) +
+            inputValue.slice(cursorPosition);
         } else {
           // Remove only the preceding number
-          this.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
+          this.value =
+            inputValue.slice(0, cursorPosition - 1) +
+            inputValue.slice(cursorPosition);
         }
       }
     }
