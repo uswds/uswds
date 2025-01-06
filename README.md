@@ -557,7 +557,7 @@ Much of the guidance in USWDS leans on open source designs, code, and patterns f
 - Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
 - UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
 - Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
-- Pivotal Labs [Component Library](https://github.com/pivotal-cf/pivotal-ui)
+- Pivotal Labs [Component Library](https://pivotal-cf.github.io/pivotal-ui/)
 
 ## Licenses and attribution
 
