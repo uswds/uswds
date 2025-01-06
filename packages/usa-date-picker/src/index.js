@@ -927,6 +927,24 @@ const enhanceDatePicker = (el) => {
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
   );
 
+  // Adds slashes as user types in date
+  externalInputEl.addEventListener("keydown", function(event) {
+    if (event.key === "Backspace") {
+      event.preventDefault();
+      const inputValue = this.value.replace(/\//g, "");
+      this.value = inputValue.slice(0, -1);
+    }
+  });
+  
+  externalInputEl.addEventListener("input", function() {
+    const inputValue = this.value.replace(/\//g, "");
+    if (inputValue.length === 2) {
+      this.value = inputValue + "/";
+    } else if (inputValue.length === 5) {
+      this.value = inputValue.slice(0, 2) + "/" + inputValue.slice(2, 4) + "/" + inputValue.slice(4);
+    }
+  });
+
   internalInputEl.setAttribute("aria-hidden", "true");
   internalInputEl.setAttribute("tabindex", "-1");
   internalInputEl.style.display = "none";
