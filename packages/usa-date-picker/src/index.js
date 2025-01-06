@@ -931,8 +931,17 @@ const enhanceDatePicker = (el) => {
   externalInputEl.addEventListener("keydown", function(event) {
     if (event.key === "Backspace") {
       event.preventDefault();
-      const inputValue = this.value.replace(/\//g, "");
-      this.value = inputValue.slice(0, -1);
+      const inputValue = this.value;
+      const cursorPosition = this.selectionStart;
+      const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
+  
+      if (lastChar === "/") {
+        // Remove the slash and the preceding number
+        this.value = inputValue.slice(0, cursorPosition - 2) + inputValue.slice(cursorPosition);
+      } else {
+        // Remove only the preceding number
+        this.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
+      }
     }
   });
   
