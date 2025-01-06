@@ -20,6 +20,11 @@ First time contributor? We’re here to help guide you through a successful cont
 
 Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.
 
+> [!important]
+> For security reasons, all commits to this repo must have a verified signature. Use the following guides to set up your verification signature:
+> - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification) (preferred)
+> - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
+
 If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you have any questions, don’t hesitate to [reach out to us](mailto:uswds@gsa.gov).
 
 ### Reporting bugs and issues
