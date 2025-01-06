@@ -927,7 +927,13 @@ const enhanceDatePicker = (el) => {
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
   );
 
-  // Adds slashes as user types in date
+/**
+ * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
+ * 
+ * @param {HTMLElement} externalInputEl The input element to format.
+ * @param {KeyboardEvent} event The keydown event object.
+ * @param {InputEvent} event The input event object.
+ */
   externalInputEl.addEventListener("keydown", function(event) {
     if (event.key === "Backspace") {
       event.preventDefault();
@@ -936,7 +942,7 @@ const enhanceDatePicker = (el) => {
       const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
   
       if (lastChar === "/") {
-        // Remove the slash and the preceding number
+        // Remove slash and the preceding number
         this.value = inputValue.slice(0, cursorPosition - 2) + inputValue.slice(cursorPosition);
       } else {
         // Remove only the preceding number
@@ -947,10 +953,25 @@ const enhanceDatePicker = (el) => {
   
   externalInputEl.addEventListener("input", function() {
     const inputValue = this.value.replace(/\//g, "");
-    if (inputValue.length === 2) {
-      this.value = inputValue + "/";
-    } else if (inputValue.length === 5) {
-      this.value = inputValue.slice(0, 2) + "/" + inputValue.slice(2, 4) + "/" + inputValue.slice(4);
+    if (inputValue.length === 1 && this.value.includes("/")) {
+      const month = parseInt(inputValue, 10);
+      this.value = String(month).padStart(2, "0") + "/";
+    } else if (inputValue.length === 2) {
+      const month = parseInt(inputValue, 10);
+      this.value = String(month).padStart(2, "0") + "/";
+    } else if (inputValue.length === 3 && this.value.endsWith("/")) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 3), 10);
+      this.value = String(month).padStart(2, "0") + "/" + String(day).padStart(2, "0") + "/";
+    } else if (inputValue.length === 4) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 4), 10);
+      this.value = String(month).padStart(2, "0") + "/" + String(day).padStart(2, "0") + "/";
+    } else if (inputValue.length === 6) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 4), 10);
+      const year = inputValue.slice(4);
+      this.value = String(month).padStart(2, "0") + "/" + String(day).padStart(2, "0") + "/" + year;
     }
   });
 
