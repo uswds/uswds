@@ -42,7 +42,10 @@ const updateCallout = (targetRange) => {
     callout = `${val} ${prep} ${max}`;
   }
 
+  const rangeField = document.getElementById('sliderValue');
+
   rangeSlider.setAttribute("aria-valuetext", callout);
+  rangeField.setAttribute("value", val);
 };
 
 const rangeEvents = {

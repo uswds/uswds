@@ -1,5 +1,6 @@
 <form class="usa-form">
   <label class="usa-label" for="usa-range">Range slider</label>
+  <input type="text" id="sliderValue" value="{{ value }}">
   <input
     id="usa-range"
     class="usa-range"
@@ -12,5 +13,6 @@
     {% if text_preposition %}data-text-preposition="{{ text_preposition }}"{%- endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    {{ "help" }}
   >
 </form>

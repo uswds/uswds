@@ -37,8 +37,8 @@
   @extend %block-input-styles;
   appearance: none;
   border: none;
-  padding-left: 1px;
-  width: 100%;
+  padding: 0;
+  width: 85%;
 
   &:focus {
     outline: none;
@@ -129,4 +129,17 @@
       @include u-disabled;
     }
   }
+}
+
+#sliderValue {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  width: 15%;
+  border: 0px;
+  float:right;
+}
+
+.range-value {
+  width:100%;
+  display: inline-block;
 }
