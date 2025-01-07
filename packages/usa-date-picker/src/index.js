@@ -956,44 +956,40 @@ const enhanceDatePicker = (el) => {
         }
       }
     }
-  };
+  }
 
   function reformatInputValue() {
     const inputValue = this.value.replace(/\//g, "");
     if (inputValue.length === 1 && this.value.includes("/")) {
       const month = parseInt(inputValue, 10);
-      this.value = `${String(month).padStart(2, "0")  }/`;
+      this.value = `${String(month).padStart(2, "0")}/`;
     } else if (inputValue.length === 2) {
       const month = parseInt(inputValue, 10);
-      this.value = `${String(month).padStart(2, "0")  }/`;
+      this.value = `${String(month).padStart(2, "0")}/`;
     } else if (inputValue.length === 3 && this.value.endsWith("/")) {
       const month = parseInt(inputValue.slice(0, 2), 10);
       const day = parseInt(inputValue.slice(2, 3), 10);
-      this.value =
-        `${String(month).padStart(2, "0") 
-        }/${ 
-        String(day).padStart(2, "0") 
-        }/`;
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/`;
     } else if (inputValue.length === 4) {
       const month = parseInt(inputValue.slice(0, 2), 10);
       const day = parseInt(inputValue.slice(2, 4), 10);
-      this.value =
-        `${String(month).padStart(2, "0") 
-        }/${ 
-        String(day).padStart(2, "0") 
-        }/`;
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/`;
     } else if (inputValue.length === 6) {
       const month = parseInt(inputValue.slice(0, 2), 10);
       const day = parseInt(inputValue.slice(2, 4), 10);
       const year = inputValue.slice(4);
-      this.value =
-        `${String(month).padStart(2, "0") 
-        }/${ 
-        String(day).padStart(2, "0") 
-        }/${ 
-        year}`;
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/${year}`;
     }
-  };
+  }
 
   externalInputEl.addEventListener("keydown", handleBackspaceFormatting);
   externalInputEl.addEventListener("input", reformatInputValue);
