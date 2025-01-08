@@ -13,7 +13,6 @@ const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let lastValueLength;
 let keyPressed;
-const validKeys = /[a-zA-Z0-9]/;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -324,7 +323,6 @@ const handleValueChange = (e) => {
   keyPressed = e.key;
   let maxLengthReached;
   const inputEl = e.srcElement;
-  const validKeyPress = validKeys.test(keyPressed);
 
   // record potential new value before new character is accepted or rejected
   const valueAttempt = inputEl.value;
@@ -337,7 +335,7 @@ const handleValueChange = (e) => {
   }
 
   // get processed new value and expected character type
-  const { newValue, matchType } = handleCurrentValue(inputEl, validKeyPress);
+  const { newValue, matchType } = handleCurrentValue(inputEl);
   inputEl.value = newValue;
 
   // save new value length as lastValueLength for next input check
