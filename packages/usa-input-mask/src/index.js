@@ -2,7 +2,6 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { split } = require("postcss/lib/list");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
@@ -14,7 +13,7 @@ const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let lastValueLength;
 let keyPressed;
-const validKeys = new RegExp(/[a-zA-Z0-9]/);
+const validKeys = /[a-zA-Z0-9]/;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -113,11 +112,11 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
 const checkMaskType = (len, placeholder, value) => {
-  let array = [];
+  const array = [];
+  const valueLength = value.length;
   let matchType;
-  let valueLength = value.length;
 
-  for (i = 0, charIndex = 0; i < len; i += 1) {
+  for (let i = 0; i < placeholder.length; i += 1) {
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
 
@@ -132,9 +131,9 @@ const checkMaskType = (len, placeholder, value) => {
 
   matchType = array[valueLength - 1];
 
-  //if index lands on a "format character" forward to next matchType in array
+  // if index lands on a "format character" forward to next matchType in array
   if (matchType === "format character") {
-    matchType = array[valueLength]; 
+    matchType = array[valueLength];
   }
 
   return { matchType };
@@ -331,7 +330,7 @@ const handleValueChange = (e) => {
   }
 
   // get processed new value and expected character type
-  let { newValue, matchType } = handleCurrentValue(inputEl, validKeyPress);
+  const { newValue, matchType } = handleCurrentValue(inputEl, validKeyPress);
   inputEl.value = newValue;
 
   // save new value length as lastValueLength for next input check
