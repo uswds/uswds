@@ -286,12 +286,7 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(
-    valueAttempt,
-    newValue,
-    inputEl,
-    maxLengthReached,
-  );
+  handleErrorState(valueAttempt, newValue, inputEl, maxLengthReached);
 };
 
 const inputMaskEvents = {
