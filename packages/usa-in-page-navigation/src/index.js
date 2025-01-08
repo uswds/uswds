@@ -189,12 +189,22 @@ const getSectionId = (value) => {
 };
 
 /**
- * Recursively calculate a heading element's offset from the top of the page.
+ * Calculates the total offset of an element from the top of the page.
  *
- * @param {HTMLElement} el A heading element
+ * @param {HTMLElement} el A heading element to calculate the offset for.
+ * @returns {number} The total element offset from the top of its parent.
  */
-const getTotalElementOffset = (el) =>
-  el.offsetTop + (el.offsetParent && getTotalElementOffset(el.offsetParent));
+const getTotalElementOffset = (el) => {
+  const calculateOffset = (currentEl) => {
+    if (!currentEl.offsetParent) {
+      return currentEl.offsetTop;
+    }
+
+    return currentEl.offsetTop + calculateOffset(currentEl.offsetParent);
+  };
+
+  return calculateOffset(el);
+};
 
 /**
  * Scroll smoothly to a section based on the passed in element
