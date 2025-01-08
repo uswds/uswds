@@ -263,7 +263,6 @@ const handleErrorState = (
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
   const messageType = maxLengthReached ? "input full" : matchType;
-  console.log("messageType: ", messageType);
 
   // hide or show error message
   if (maxLengthReached) {
@@ -343,32 +342,17 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  if (validKeyPress && e.key !== "Shift") {
-    console.log('key press: ', e.key)
-    console.log("matchType: ", matchType);
-    handleErrorState(
-      valueAttempt,
-      newValue,
-      matchType,
-      inputEl,
-      maxLengthReached,
-    );
-  } else {
-    // Issue is: 
-    // 1: Figuring out what to put here
-    // 2: This runs when it should BUT
-    // handleValueChange() gets ran AGAIN after this where it lands on the if statement above
-    // This will still cause the the wrong error message to show again
-    // This is happening because the final e.key press is sometimes a number 
-    // (like using shift + 2 to type @, final key press is sometimes 2)
-
-    // similar issue is triggered by spamming the CAPS lock button because handleValueChange() runs with no input
-    console.log('run else')
-  }
+  handleErrorState(
+    valueAttempt,
+    newValue,
+    matchType,
+    inputEl,
+    maxLengthReached,
+  );
 };
 
 const keyUpCheck = (e) => {
-  if (e.key !== "Shift") {
+  if (e.key !== "CapsLock" && e.location === 0) {
     handleValueChange(e);
   }
 };
@@ -376,7 +360,7 @@ const keyUpCheck = (e) => {
 const inputMaskEvents = {
   keyup: {
     [MASKED](e) {
-      handleValueChange(e);
+      keyUpCheck(e);
     },
   },
 };
