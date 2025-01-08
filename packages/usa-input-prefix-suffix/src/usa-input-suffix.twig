@@ -1,6 +1,6 @@
 <form class="usa-form">
   <label class="usa-label" for="example-input-suffix">Weight, in pounds</label>
-  <div class="usa-input-group usa-input-group--sm">
+  <div class="usa-input-group {{ utilities | default('usa-input-group--sm') }}">
     <input type="text" id="example-input-suffix" class="usa-input" pattern="[0-9]*" inputmode="numeric"
     {% if disabled_state == "disabled"%} disabled{%- endif %}
     {% if disabled_state == "aria-disabled"%} aria-disabled="true"{%- endif %}

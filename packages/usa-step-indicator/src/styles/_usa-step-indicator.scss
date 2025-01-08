@@ -92,9 +92,8 @@ $step-indicator-counter-size-sm: 3;
     );
     // Add margin based on segment size
     margin-top: calc(
-      #{units($theme-step-indicator-segment-height)} + #{units(
-          $step-indicator-label-margin-top
-        )}
+      #{units($theme-step-indicator-segment-height)} +
+        #{units($step-indicator-label-margin-top)}
     );
     padding-right: units(4);
     text-align: left;
@@ -203,10 +202,10 @@ $step-indicator-counter-size-sm: 3;
         text-align: center;
         top: calc(
           (
-              #{units($step-indicator-counter-size)} - #{units(
-                  $theme-step-indicator-segment-height
-                )}
-            ) / -2
+              #{units($step-indicator-counter-size)} -
+                #{units($theme-step-indicator-segment-height)}
+            ) /
+            -2
         );
         z-index: z(100);
       }
@@ -244,11 +243,12 @@ $step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($step-indicator-counter-size)} + #{units(
-                    $theme-step-indicator-segment-height
-                  )}
-              ) / 2
-          ) + #{units($step-indicator-label-margin-top)}
+                #{units($step-indicator-counter-size)} +
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          ) +
+          #{units($step-indicator-label-margin-top)}
       );
     }
   }
@@ -313,10 +313,10 @@ $step-indicator-counter-size-sm: 3;
         padding: calc(#{units(0.5)} + 1px);
         top: calc(
           (
-              #{units($step-indicator-counter-size-sm)} - #{units(
-                  $theme-step-indicator-segment-height
-                )}
-            ) / -2
+              #{units($step-indicator-counter-size-sm)} -
+                #{units($theme-step-indicator-segment-height)}
+            ) /
+            -2
         );
       }
 
@@ -335,11 +335,12 @@ $step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($step-indicator-counter-size-sm)} + #{units(
-                    $theme-step-indicator-segment-height
-                  )}
-              ) / 2
-          ) + #{units($step-indicator-label-margin-top)}
+                #{units($step-indicator-counter-size-sm)} +
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          ) +
+          #{units($step-indicator-label-margin-top)}
       );
     }
   }
