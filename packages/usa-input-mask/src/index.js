@@ -111,7 +111,14 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
-const checkMaskType = (len, placeholder, value) => {
+/**
+ *  Creates an array of what the required character type is expected to be for each character in the complete input value.
+ *  Checks what the current index is to return the current required character type.
+ *
+ * @param {string} placeholder - String of placeholder letters or numbers that defines what the mask is expecting
+ * @param {string} value - Input mask value (including the newest input attempt even if it will be rejected)
+ */
+const checkMaskType = (placeholder, value) => {
   const array = [];
   const valueLength = value.length;
   let matchType;
@@ -145,12 +152,12 @@ const checkMaskType = (len, placeholder, value) => {
  *
  * @param {HTMLElement} el - The input element
  */
-const handleCurrentValue = (el, validKeyPress) => {
+const handleCurrentValue = (el) => {
   const isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
-  const { matchType } = checkMaskType(len, placeholder, value, validKeyPress);
+  const { matchType } = checkMaskType(placeholder, value);
   let newValue = "";
   let i;
   let charIndex;
@@ -187,7 +194,7 @@ const handleCurrentValue = (el, validKeyPress) => {
 };
 
 /**
- * Updates the error message announcement for screen readers after a 1000ms delay.
+ * Triggers the error message announcement for screen readers after a 1000ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {boolean} status - A boolean of error's hidden status
@@ -198,7 +205,7 @@ const srUpdateErrorStatus = debounce((msgEl, status) => {
 }, 1000);
 
 /**
- * Updates the error message announcement for screen readers after a 1000ms delay.
+ * Updates the error message text content for screen readers after a 1000ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {string} errorMsg - A string of the error message
@@ -215,6 +222,7 @@ const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
  * @param {string} newValue - The input value after the new character is accepted or rejected
  * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
+ * @param {boolean} maxLengthReached - Returns true when the input mask is at max length
  */
 const handleErrorState = (
   valueAttempt,
@@ -310,8 +318,7 @@ const handleErrorState = (
  *  Gets the processed input value and puts it inside the mask element.
  *  Triggers error handling.
  *
- * @param {HTMLElement} inputEl - The input element
- * @param {number} lastValueLength - Input value length on key down, before the input is accepted or rejected.
+ * @param {HTMLElement} e - The input element
  */
 const handleValueChange = (e) => {
   keyPressed = e.key;
