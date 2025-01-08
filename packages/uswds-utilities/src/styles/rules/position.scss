@@ -23,8 +23,10 @@ $u-position: (
   position: (
     base: "position",
     modifiers: null,
-    values:
-      map-collect(get-palettes($position-palettes), $position-manual-values),
+    values: map-collect(
+        get-palettes($position-palettes),
+        $position-manual-values
+      ),
     settings: $position-settings-complete,
     property: "position",
     type: "utility",

@@ -7,10 +7,10 @@
 {% endif %}
 
 {# *
-* While we could add the usa-form-group--error class to <form class="usa-form"> elements, we should 
+* While we could add the usa-form-group--error class to <form class="usa-form"> elements, we should
 * avoid doing this and only add it to usa-form-group elements.
 *
-* Setting the error on the form element would add the error class to the entire form and not just 
+* Setting the error on the form element would add the error class to the entire form and not just
 * the form question that holds the error.
 *#}
 <form class="usa-form">
@@ -34,7 +34,7 @@
 
 
 {# *
-* usa-legend and usa-label output the same base styles. Because of this, we can add the 
+* usa-legend and usa-label output the same base styles. Because of this, we can add the
 * usa-label--error class without any additional changes or unexpected style conflicts.
 *#}
 <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
@@ -73,7 +73,7 @@
 </div>
 
 {# *
-* In order for the red border to highlight the form input with an error, the elements must be 
+* In order for the red border to highlight the form input with an error, the elements must be
 * nested within a div with the usa-form-group and usa-form-group--error classes.
 *#}
 <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
@@ -111,9 +111,9 @@
   </fieldset>
 </div>
 
-{# ! 
-! Adding the usa-input--error class to the combo box nested select element does not carry the class over to 
-! its dynamically placed input element. The class remains on the hidden select element. This is true for time picker's 
+{# !
+! Adding the usa-input--error class to the combo box nested select element does not carry the class over to
+! its dynamically placed input element. The class remains on the hidden select element. This is true for time picker's
 ! combo box element as well.
 !#}
 <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
@@ -167,11 +167,11 @@
   />
 </div>
 
-{# ! 
+{# !
 ! Input mask breaks due to DOM structure changing. Related to: #5517.
 !
-! This initialization error also causes subsequent JS files to not initialize properly. 
-! On this page, time picker does not initialize. Removing input-mask or the error states will allow time 
+! This initialization error also causes subsequent JS files to not initialize properly.
+! On this page, time picker does not initialize. Removing input-mask or the error states will allow time
 ! picker to properly initialize.
 !#}
 <form class="usa-form">
@@ -193,9 +193,9 @@
   {% if error_state == true %}</div>{% endif %}
 </form>
 
-{# * 
+{# *
 * Input prefix/suffix input group
-* For input prefix/suffix, the usa-input--error class must be put on the usa-input-group element in order for 
+* For input prefix/suffix, the usa-input--error class must be put on the usa-input-group element in order for
 * the styles to display as expected
 *#}
 <form class="usa-form">
@@ -205,7 +205,7 @@
     <div class="usa-input-group {% if error_state == true %}usa-input--error{% endif %}">
       <div class="usa-input-prefix" aria-hidden="true">
         <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
-          <use xlink:href="./img/sprite.svg#credit_card"></use>
+          <use href="./img/sprite.svg#credit_card"></use>
         </svg>
       </div>
       <input
@@ -359,14 +359,14 @@
 </div>
 
 {# !
-! Due to Combo box's dynamic input element not receiving the same classes as it's select placeholder, 
+! Due to Combo box's dynamic input element not receiving the same classes as it's select placeholder,
 ! the error input classes are not set on initialization
 !#}
 <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
   <label class="usa-label {% if error_state == true %}usa-label--error{% endif %}" id="appointment-time-label" for="appointment-time"
     >Time picker</label
   >
-  <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
+  <div class="usa-hint" id="appointment-time-hint">Select a time from the dropdown. Type into the input to filter options.</div>
   {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
   <div class="usa-time-picker">
     <input
