@@ -2,6 +2,7 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+const { split } = require("postcss/lib/list");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
@@ -13,7 +14,7 @@ const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let lastValueLength;
 let keyPressed;
-let maxLengthReached;
+const validKeys = new RegExp(/[a-zA-Z0-9]/);
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -111,21 +112,49 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
+const checkMaskType = (len, placeholder, value) => {
+  let array = [];
+  let matchType;
+  let valueLength = value.length;
+
+  for (i = 0, charIndex = 0; i < len; i += 1) {
+    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
+    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
+
+    if (matchesNumber) {
+      array.push("number");
+    } else if (matchesLetter) {
+      array.push("letter");
+    } else {
+      array.push("format character");
+    }
+  }
+
+  matchType = array[valueLength - 1];
+
+  //if index lands on a "format character" forward to next matchType in array
+  if (matchType === "format character") {
+    matchType = array[valueLength]; 
+  }
+
+  return { matchType };
+};
+
 /**
  *  Checks if the new input character meets mask requirement.
  *  Returns the new input value with the new character added if it's accepted.
  *
  * @param {HTMLElement} el - The input element
  */
-const handleCurrentValue = (el) => {
+const handleCurrentValue = (el, validKeyPress) => {
   const isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
+  const { matchType } = checkMaskType(len, placeholder, value, validKeyPress);
   let newValue = "";
   let i;
   let charIndex;
-  let matchType;
 
   const strippedVal = strippedValue(isCharsetPresent, value);
 
@@ -134,12 +163,6 @@ const handleCurrentValue = (el) => {
     const isLet = isLetter(strippedVal[charIndex]);
     const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
     const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
-
-    if (matchesNumber) {
-      matchType = "number";
-    } else if (matchesLetter) {
-      matchType = "letter";
-    }
 
     if (
       (matchesNumber && isInt) ||
@@ -194,7 +217,13 @@ const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
  * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
  */
-const handleErrorState = (valueAttempt, newValue, matchType, inputEl) => {
+const handleErrorState = (
+  valueAttempt,
+  newValue,
+  matchType,
+  inputEl,
+  maxLengthReached,
+) => {
   const {
     errorId,
     errorMsg,
@@ -234,12 +263,17 @@ const handleErrorState = (valueAttempt, newValue, matchType, inputEl) => {
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
   const messageType = maxLengthReached ? "input full" : matchType;
+  console.log("messageType: ", messageType);
 
   // hide or show error message
   if (maxLengthReached) {
     // max length reached
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
+  } else if (keyPressed === "Backspace") {
+    // clear error
+    errorMessageEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
     // input rejected but a format character was added
     errorMessageEl.hidden = false;
@@ -282,8 +316,10 @@ const handleErrorState = (valueAttempt, newValue, matchType, inputEl) => {
  * @param {number} lastValueLength - Input value length on key down, before the input is accepted or rejected.
  */
 const handleValueChange = (e) => {
-  const inputEl = e.srcElement;
   keyPressed = e.key;
+  let maxLengthReached;
+  const inputEl = e.srcElement;
+  const validKeyPress = validKeys.test(keyPressed);
 
   // record potential new value before new character is accepted or rejected
   const valueAttempt = inputEl.value;
@@ -295,11 +331,8 @@ const handleValueChange = (e) => {
     maxLengthReached = false;
   }
 
-  // get expected character type
-  const { matchType } = handleCurrentValue(inputEl);
-
-  // get and set processed new value
-  const { newValue } = handleCurrentValue(inputEl);
+  // get processed new value and expected character type
+  let { newValue, matchType } = handleCurrentValue(inputEl, validKeyPress);
   inputEl.value = newValue;
 
   // save new value length as lastValueLength for next input check
@@ -310,7 +343,26 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(valueAttempt, newValue, matchType, inputEl);
+  if (validKeyPress && e.key !== "Shift") {
+    console.log('key press: ', e.key)
+    console.log("matchType: ", matchType);
+    handleErrorState(
+      valueAttempt,
+      newValue,
+      matchType,
+      inputEl,
+      maxLengthReached,
+    );
+  } else {
+    // Issue is: 
+    // 1: Figuring out what to put here
+    // 2: This runs when it should BUT
+    // handleValueChange() gets ran AGAIN after this where it lands on the if statement above
+    // This will still cause the the wrong error message to show again
+    // This is happening because the final e.key press is sometimes a number 
+    // (like using shift + 2 to type @, final key press is sometimes 2)
+    console.log('run else')
+  }
 };
 
 const keyUpCheck = (e) => {
@@ -322,7 +374,7 @@ const keyUpCheck = (e) => {
 const inputMaskEvents = {
   keyup: {
     [MASKED](e) {
-      keyUpCheck(e);
+      handleValueChange(e);
     },
   },
 };
