@@ -44,8 +44,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    describe("shows the correct error message when value is a number but it expects a letter", () => {
-      it("shows the error message", () => {
+    describe("displays the correct error message when input attempt is a number but it expects a letter", () => {
+      it("displays the error message", () => {
         input.value = "1";
 
         EVENTS.input(input);
@@ -53,8 +53,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(shell.hidden, false);
       });
 
-      it("uses the correct message", () => {
-        input.value = "A";
+      it("displays the correct message", () => {
+        input.value = "1";
 
         EVENTS.input(input);
         shell = root.querySelector("#alphanumericError");
@@ -62,8 +62,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
-    describe("shows the correct error message when value is a letter but it expects a number", () => {
-      it("shows the error message", () => {
+    describe("displays the correct error message when value is a letter but it expects a number", () => {
+      it("displays the error message", () => {
         input.value = "AA";
 
         EVENTS.input(input);
@@ -71,7 +71,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(shell.hidden, false);
       });
 
-      it("uses the correct message", () => {
+      it("displays the correct message", () => {
         input.value = "AA";
 
         EVENTS.input(input);
