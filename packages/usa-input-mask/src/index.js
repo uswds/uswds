@@ -10,6 +10,14 @@ const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
+const ERROR_MESSAGE_DEFAULT = 'Error: please enter a valid character';
+const ERROR_MESSAGE_SR_DEFAULT = 'Error: please enter a valid character';
+const ERROR_MESSAGE_FULL_DEFAULT = 'Maximum character count reached';
+const ERROR_MESSAGE_FULL_SR_DEFAULT = 'Maximum character count reached';
+const ERROR_MESSAGE_ALPHA_DEFAULT = 'Error: please enter a letter';
+const ERROR_MESSAGE_ALPHA_SR_DEFAULT = 'Error: please enter a letter';
+const ERROR_MESSAGE_NUMERIC_DEFAULT = 'Error: please enter a number';
+const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = 'Error: please enter a number';
 
 let lastValueLength;
 let keyPressed;
@@ -27,20 +35,20 @@ const getMaskInputContext = (el) => {
 
   const inputId = inputEl.id;
   const errorId = `${inputId}Error`;
-  const errorMsg = inputEl.getAttribute("data-errorMessage");
-  const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical");
-  const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
-  const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull");
-  const errorMsgSrOnly = inputEl.getAttribute("data-errorMessageSrOnly");
+  const errorMsg = inputEl.getAttribute("data-errorMessage") || ERROR_MESSAGE_DEFAULT;
+  const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical") || ERROR_MESSAGE_ALPHA_DEFAULT;
+  const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical") || ERROR_MESSAGE_NUMERIC_DEFAULT;
+  const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull") || ERROR_MESSAGE_FULL_DEFAULT;
+  const errorMsgSrOnly = inputEl.getAttribute("data-errorMessageSrOnly") || ERROR_MESSAGE_SR_DEFAULT;
   const errorMsgAlphaSrOnly = inputEl.getAttribute(
     "data-errorMessageAlphabeticalSrOnly",
-  );
+  ) || ERROR_MESSAGE_ALPHA_SR_DEFAULT;
   const errorMsgNumSrOnly = inputEl.getAttribute(
     "data-errorMessageNumericalSrOnly",
-  );
+  ) || ERROR_MESSAGE_NUMERIC_SR_DEFAULT;
   const errorMsgFullSrOnly = inputEl.getAttribute(
     "data-errorMessageInputFullSrOnly",
-  );
+  ) || ERROR_MESSAGE_FULL_SR_DEFAULT;
 
   return {
     inputEl,
