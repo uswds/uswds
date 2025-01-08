@@ -30,16 +30,8 @@ const getMaskInputContext = (el) => {
   const inputId = inputEl.id;
   const errorId = `${inputId}Error`;
   const errorMsg = inputEl.getAttribute("data-errorMessage");
-  const errorMsgAlpha = inputEl.getAttribute("data-errorMessageAlphabetical");
-  const errorMsgNum = inputEl.getAttribute("data-errorMessageNumerical");
   const errorMsgFull = inputEl.getAttribute("data-errorMessageInputFull");
   const errorMsgSrOnly = inputEl.getAttribute("data-errorMessageSrOnly");
-  const errorMsgAlphaSrOnly = inputEl.getAttribute(
-    "data-errorMessageAlphabeticalSrOnly",
-  );
-  const errorMsgNumSrOnly = inputEl.getAttribute(
-    "data-errorMessageNumericalSrOnly",
-  );
   const errorMsgFullSrOnly = inputEl.getAttribute(
     "data-errorMessageInputFullSrOnly",
   );
@@ -49,12 +41,8 @@ const getMaskInputContext = (el) => {
     errorId,
     inputId,
     errorMsg,
-    errorMsgAlpha,
-    errorMsgNum,
     errorMsgFull,
     errorMsgSrOnly,
-    errorMsgAlphaSrOnly,
-    errorMsgNumSrOnly,
     errorMsgFullSrOnly,
   };
 };
@@ -112,34 +100,6 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
-const checkMaskType = (len, placeholder, value) => {
-  let array = [];
-  let matchType;
-  let valueLength = value.length;
-
-  for (i = 0, charIndex = 0; i < len; i += 1) {
-    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
-    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
-
-    if (matchesNumber) {
-      array.push("number");
-    } else if (matchesLetter) {
-      array.push("letter");
-    } else {
-      array.push("format character");
-    }
-  }
-
-  matchType = array[valueLength - 1];
-
-  //if index lands on a "format character" forward to next matchType in array
-  if (matchType === "format character") {
-    matchType = array[valueLength]; 
-  }
-
-  return { matchType };
-};
-
 /**
  *  Checks if the new input character meets mask requirement.
  *  Returns the new input value with the new character added if it's accepted.
@@ -151,7 +111,6 @@ const handleCurrentValue = (el, validKeyPress) => {
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
-  const { matchType } = checkMaskType(len, placeholder, value, validKeyPress);
   let newValue = "";
   let i;
   let charIndex;
@@ -175,7 +134,7 @@ const handleCurrentValue = (el, validKeyPress) => {
       (isCharsetPresent &&
         ((matchesLetter && !isLet) || (matchesNumber && !isInt)))
     ) {
-      return { newValue, matchType };
+      return { newValue };
     } else {
       newValue += placeholder[i];
     }
@@ -184,7 +143,7 @@ const handleCurrentValue = (el, validKeyPress) => {
       break;
     }
   }
-  return { newValue, matchType };
+  return { newValue };
 };
 
 /**
@@ -214,25 +173,19 @@ const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
  *
  * @param {string} valueAttempt - The input value before the new character is accepted or rejected
  * @param {string} newValue - The input value after the new character is accepted or rejected
- * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
  */
 const handleErrorState = (
   valueAttempt,
   newValue,
-  matchType,
   inputEl,
   maxLengthReached,
 ) => {
   const {
     errorId,
     errorMsg,
-    errorMsgNum,
-    errorMsgAlpha,
     errorMsgFull,
     errorMsgSrOnly,
-    errorMsgNumSrOnly,
-    errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
   } = getMaskInputContext(inputEl);
 
@@ -262,8 +215,7 @@ const handleErrorState = (
   inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
   const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 
-  const messageType = maxLengthReached ? "input full" : matchType;
-  console.log("messageType: ", messageType);
+  const messageType = maxLengthReached ? "input full" : null;
 
   // hide or show error message
   if (maxLengthReached) {
@@ -290,14 +242,6 @@ const handleErrorState = (
 
   // set error messages text
   switch (messageType) {
-    case "letter":
-      errorMessageEl.textContent = errorMsgAlpha;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
-      break;
-    case "number":
-      errorMessageEl.textContent = errorMsgNum;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgNumSrOnly);
-      break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
       srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
@@ -332,7 +276,7 @@ const handleValueChange = (e) => {
   }
 
   // get processed new value and expected character type
-  let { newValue, matchType } = handleCurrentValue(inputEl, validKeyPress);
+  let { newValue } = handleCurrentValue(inputEl, validKeyPress);
   inputEl.value = newValue;
 
   // save new value length as lastValueLength for next input check
@@ -343,34 +287,12 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  if (validKeyPress && e.key !== "Shift") {
-    console.log('key press: ', e.key)
-    console.log("matchType: ", matchType);
-    handleErrorState(
-      valueAttempt,
-      newValue,
-      matchType,
-      inputEl,
-      maxLengthReached,
-    );
-  } else {
-    // Issue is: 
-    // 1: Figuring out what to put here
-    // 2: This runs when it should BUT
-    // handleValueChange() gets ran AGAIN after this where it lands on the if statement above
-    // This will still cause the the wrong error message to show again
-    // This is happening because the final e.key press is sometimes a number 
-    // (like using shift + 2 to type @, final key press is sometimes 2)
-
-    // similar issue is triggered by spamming the CAPS lock button because handleValueChange() runs with no input
-    console.log('run else')
-  }
-};
-
-const keyUpCheck = (e) => {
-  if (e.key !== "Shift") {
-    handleValueChange(e);
-  }
+  handleErrorState(
+    valueAttempt,
+    newValue,
+    inputEl,
+    maxLengthReached,
+  );
 };
 
 const inputMaskEvents = {
