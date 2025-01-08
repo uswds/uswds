@@ -2,7 +2,6 @@ const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { split } = require("postcss/lib/list");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
@@ -14,7 +13,7 @@ const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 
 let lastValueLength;
 let keyPressed;
-const validKeys = new RegExp(/[a-zA-Z0-9]/);
+const validKeys = /[a-zA-Z0-9]/;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -106,7 +105,7 @@ const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
  *
  * @param {HTMLElement} el - The input element
  */
-const handleCurrentValue = (el, validKeyPress) => {
+const handleCurrentValue = (el) => {
   const isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
@@ -276,7 +275,7 @@ const handleValueChange = (e) => {
   }
 
   // get processed new value and expected character type
-  let { newValue } = handleCurrentValue(inputEl, validKeyPress);
+  const { newValue } = handleCurrentValue(inputEl, validKeyPress);
   inputEl.value = newValue;
 
   // save new value length as lastValueLength for next input check
