@@ -28,7 +28,6 @@ If you want to see some other contributions before submitting your own, check ou
 > - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
 > - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
 
-
 ### Reporting bugs and issues
 
 If something isn’t working the way it's supposed to, here’s how you can let us know:
