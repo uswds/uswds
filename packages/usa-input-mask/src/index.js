@@ -361,6 +361,8 @@ const handleValueChange = (e) => {
     // This will still cause the the wrong error message to show again
     // This is happening because the final e.key press is sometimes a number 
     // (like using shift + 2 to type @, final key press is sometimes 2)
+
+    // similar issue is triggered by spamming the CAPS lock button because handleValueChange() runs with no input
     console.log('run else')
   }
 };
