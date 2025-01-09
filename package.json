@@ -162,7 +162,7 @@
     "resolve-url-loader": "5.0.0",
     "sass": "1.83.0",
     "sass-embedded": "1.83.0",
-    "sass-loader": "13.3.2",
+    "sass-loader": "16.0.4",
     "sass-true": "6.0.1",
     "sinon": "12.0.1",
     "snyk": "1.1294.3",

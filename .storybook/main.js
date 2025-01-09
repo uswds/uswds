@@ -98,11 +98,8 @@ module.exports = {
             options: {
               sourceMap: true,
               sassOptions: {
-                includePaths: [
-                  "./packages",
-                  "./node_modules/@uswds"
-                ],
-                implementation: require("sass-embedded")
+                loadPaths: ["./packages", "./node_modules/@uswds"],
+                implementation: require("sass-embedded"),
               },
             },
           },
