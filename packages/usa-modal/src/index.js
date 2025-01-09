@@ -54,7 +54,108 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
- *  Toggle the visibility of a modal window
+ *  Show modal window via javascript
+ *
+ * @param {string} modalEl the id or element of target modal
+ */
+function showModal(modalEl) {
+  const targetModal =
+    typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
+  const { body } = document;
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
+    ? targetModal.querySelector(INITIAL_FOCUS)
+    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
+  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
+
+  body.classList.add(ACTIVE_CLASS);
+  targetModal.classList.add(VISIBLE_CLASS);
+  targetModal.classList.remove(HIDDEN_CLASS);
+
+  // Temporarily increase body padding to accommodate the scrollbar width
+  body.style.paddingRight = TEMPORARY_BODY_PADDING;
+
+  // Handle focus trap and interactions
+  if (openFocusEl) {
+    modal.focusTrap = FocusTrap(
+      targetModal,
+      forceUserAction ? {} : { Escape: onMenuClose },
+    );
+    modal.focusTrap.update(true);
+    openFocusEl.focus();
+  }
+
+  // Hide non-modal elements from screen readers
+  document.querySelectorAll(NON_MODALS).forEach((nonModal) => {
+    nonModal.setAttribute("aria-hidden", "true");
+    nonModal.setAttribute(NON_MODAL_HIDDEN_ATTRIBUTE, "");
+  });
+}
+
+/**
+ *  Hide modal window via javascript
+ *
+ * @param {string} modalEl the id or element of target modal
+ */
+function hideModal(modalEl) {
+  const { body } = document;
+  const targetModal =
+    typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
+  const returnFocus = document.getElementById(
+    targetModal.getAttribute("data-opener"),
+  );
+
+  // Remove active state from modal and body
+  body.classList.remove(ACTIVE_CLASS);
+  targetModal.classList.remove(VISIBLE_CLASS);
+  targetModal.classList.add(HIDDEN_CLASS);
+
+  // Reset body padding
+  body.style.removeProperty("padding-right");
+
+  // Show non-modal elements to screen readers again
+  document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
+    nonModal.removeAttribute("aria-hidden");
+    nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
+  });
+
+  // Return focus to the element that opened the modal
+  if (returnFocus) {
+    returnFocus.focus();
+  }
+
+  // Update focus trap status
+  modal.focusTrap.update(false);
+}
+
+/**
+ *  Toggle the visibility of a modal window via javascript
+ *
+ * @param {string} modalId the id of target modal
+ * @returns {boolean} safeActive if mobile is open
+ */
+function toggleModal(modalId) {
+  // Find the modal element by its id
+  const targetModal = document.getElementById(modalId);
+
+  // If no modal found, exit early
+  if (!targetModal) {
+    return false;
+  }
+
+  const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
+
+  // If the modal is active, hide it, otherwise show it
+  if (safeActive) {
+    showModal(targetModal);
+  } else {
+    hideModal(targetModal);
+  }
+
+  return safeActive;
+}
+
+/**
+ *  Toggle the visibility of a modal window via an event listener
  *
  * @param {KeyboardEvent} event the keydown event.
  * @returns {boolean} safeActive if mobile is open.
@@ -178,16 +279,6 @@ function toggleModalButton(event) {
 
   return safeActive;
 }
-
-//user calls with
-  //modal.toggleModal("example-id")
-function toggleModal(modalId) {
-  console.log('toggle modal no button', modalId)
-};
-
-function showModal() { console.log('show') };
-
-function hideModal() { console.log('hide') };
 
 /**
  * Creates a placeholder with data attributes for cleanup function.
