@@ -1,6 +1,6 @@
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
-const debounce = require("../../uswds-core/src/js/utils/debounce");
+// const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
@@ -19,6 +19,8 @@ const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_NUMERIC_DEFAULT = "Error: please enter a number";
 const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: please enter a number";
 
+let errorMessageEl;
+let errorMessageSrOnlyEl;
 let lastValueLength;
 let keyPressed;
 let shiftComboPressed;
@@ -215,10 +217,14 @@ const handleCurrentValue = (el) => {
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {boolean} status - A boolean of error's hidden status
  */
-const srUpdateErrorStatus = debounce((msgEl, status) => {
+// const srUpdateErrorStatus = debounce((msgEl, status) => {
+//   const srStatusMessage = msgEl;
+//   srStatusMessage.hidden = status;
+// }, 1000);
+const srUpdateErrorStatus = (msgEl, status) => {
   const srStatusMessage = msgEl;
   srStatusMessage.hidden = status;
-}, 1000);
+};
 
 /**
  * Updates the error message text content for screen readers after a 1000ms delay.
@@ -226,10 +232,14 @@ const srUpdateErrorStatus = debounce((msgEl, status) => {
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {string} errorMsg - A string of the error message
  */
-const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
+// const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
+//   const srStatusMessage = msgEl;
+//   srStatusMessage.textContent = errorMsg;
+// }, 1000);
+const srUpdateErrorMsg = (msgEl, errorMsg) => {
   const srStatusMessage = msgEl;
   srStatusMessage.textContent = errorMsg;
-}, 1000);
+};
 
 /**
  * Creates the sr only and visual error messages, handles their hidden status and content.
@@ -263,27 +273,23 @@ const handleErrorState = (
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar === keyPressed;
 
-  // create visual error message and add to DOM, remove first if it already exists
-  if (document.getElementById(errorId)) {
-    document.getElementById(errorId).remove();
-  }
+  // create visual error message and add to DOM
+  if (!document.getElementById(errorId)) {
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
   errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgSpan.setAttribute("aria-hidden", "true");
   inputEl.parentNode.appendChild(errorMsgSpan);
-  const errorMessageEl = document.getElementById(errorId);
+  errorMessageEl = document.getElementById(errorId);
 
-  // create sr only error message and add to DOM, remove first if it already exists
-  if (document.getElementById(`${errorId}SrOnly`)) {
-    document.getElementById(`${errorId}SrOnly`).remove();
-  }
+  // create sr only error message and add to DOM
   const errorMsgSpanSrOnly = document.createElement("span");
   errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
   errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
   errorMsgSpanSrOnly.setAttribute("role", "alert");
   inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
-  const errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
+  errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
+  }
 
   const messageType = maxLengthReached ? "input full" : matchType;
 
