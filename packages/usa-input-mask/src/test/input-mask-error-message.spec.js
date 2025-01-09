@@ -14,6 +14,7 @@ const EVENTS = {};
  * @param {HTMLElement} el the element to sent the event to
  */
 EVENTS.input = (el) => {
+  el.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true }));
   el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 };
 
@@ -44,7 +45,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
-    describe("does not display error message when value passes", () => {
+    describe("does not display error message when correct value passes", () => {
       it("does not display error message when letter value passes", () => {
         input.value = "A";
         EVENTS.input(input);

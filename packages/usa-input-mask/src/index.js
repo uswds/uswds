@@ -1,6 +1,6 @@
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
-// const debounce = require("../../uswds-core/src/js/utils/debounce");
+const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const MASKED_CLASS = `${PREFIX}-masked`;
@@ -87,6 +87,9 @@ const createMaskedInputShell = (input) => {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
     input.removeAttribute(`${PLACEHOLDER}`);
+    input.addEventListener("paste", (event) => {
+      event.preventDefault();
+    });
   } else {
     return;
   }
@@ -217,14 +220,10 @@ const handleCurrentValue = (el) => {
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {boolean} status - A boolean of error's hidden status
  */
-// const srUpdateErrorStatus = debounce((msgEl, status) => {
-//   const srStatusMessage = msgEl;
-//   srStatusMessage.hidden = status;
-// }, 1000);
-const srUpdateErrorStatus = (msgEl, status) => {
+const srUpdateErrorStatus = debounce((msgEl, status) => {
   const srStatusMessage = msgEl;
   srStatusMessage.hidden = status;
-};
+}, 1000);
 
 /**
  * Updates the error message text content for screen readers after a 1000ms delay.
@@ -232,14 +231,10 @@ const srUpdateErrorStatus = (msgEl, status) => {
  * @param {HTMLElement} msgEl - The screen reader error message element
  * @param {string} errorMsg - A string of the error message
  */
-// const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
-//   const srStatusMessage = msgEl;
-//   srStatusMessage.textContent = errorMsg;
-// }, 1000);
-const srUpdateErrorMsg = (msgEl, errorMsg) => {
+const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
   const srStatusMessage = msgEl;
   srStatusMessage.textContent = errorMsg;
-};
+}, 1000);
 
 /**
  * Creates the sr only and visual error messages, handles their hidden status and content.
@@ -275,20 +270,20 @@ const handleErrorState = (
 
   // create visual error message and add to DOM
   if (!document.getElementById(errorId)) {
-  const errorMsgSpan = document.createElement("span");
-  errorMsgSpan.setAttribute("id", errorId);
-  errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
-  errorMsgSpan.setAttribute("aria-hidden", "true");
-  inputEl.parentNode.appendChild(errorMsgSpan);
-  errorMessageEl = document.getElementById(errorId);
+    const errorMsgSpan = document.createElement("span");
+    errorMsgSpan.setAttribute("id", errorId);
+    errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
+    errorMsgSpan.setAttribute("aria-hidden", "true");
+    inputEl.parentNode.appendChild(errorMsgSpan);
+    errorMessageEl = document.getElementById(errorId);
 
-  // create sr only error message and add to DOM
-  const errorMsgSpanSrOnly = document.createElement("span");
-  errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
-  errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
-  errorMsgSpanSrOnly.setAttribute("role", "alert");
-  inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
-  errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
+    // create sr only error message and add to DOM
+    const errorMsgSpanSrOnly = document.createElement("span");
+    errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
+    errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
+    errorMsgSpanSrOnly.setAttribute("role", "alert");
+    inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
+    errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
   }
 
   const messageType = maxLengthReached ? "input full" : matchType;
