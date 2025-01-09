@@ -21,6 +21,7 @@ const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: please enter a number";
 
 let lastValueLength;
 let keyPressed;
+let shiftComboPressed;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -295,6 +296,10 @@ const handleErrorState = (
     // clear error
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+  } else if (matchType === "letter" && shiftComboPressed) {
+    // hides error when input should be a letter and key combo is a letter
+    errorMessageEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
     // input rejected but a format character was added
     errorMessageEl.hidden = false;
@@ -368,7 +373,7 @@ const handleValueChange = (e) => {
     matchType,
     inputEl,
     maxLengthReached,
-  );
+  ); 
 };
 
 const keyUpCheck = (e) => {
@@ -377,12 +382,25 @@ const keyUpCheck = (e) => {
   }
 };
 
+const keyDownCheck = (e) => {
+  if (e.shiftKey && /^[a-zA-Z]$/.test(e.key)) {
+    shiftComboPressed = true;
+  } else {
+    shiftComboPressed = false;
+  }
+}
+
 const inputMaskEvents = {
   keyup: {
     [MASKED](e) {
       keyUpCheck(e);
     },
   },
+  keydown: {
+    [MASKED](e) {
+      keyDownCheck(e);
+    },
+  }
 };
 
 const inputMask = behavior(inputMaskEvents, {
