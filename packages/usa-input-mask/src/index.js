@@ -373,7 +373,7 @@ const handleValueChange = (e) => {
     matchType,
     inputEl,
     maxLengthReached,
-  ); 
+  );
 };
 
 const keyUpCheck = (e) => {
@@ -388,7 +388,7 @@ const keyDownCheck = (e) => {
   } else {
     shiftComboPressed = false;
   }
-}
+};
 
 const inputMaskEvents = {
   keyup: {
@@ -400,7 +400,7 @@ const inputMaskEvents = {
     [MASKED](e) {
       keyDownCheck(e);
     },
-  }
+  },
 };
 
 const inputMask = behavior(inputMaskEvents, {
