@@ -44,16 +44,34 @@ tests.forEach(({ name, selector: containerSelector }) => {
       body.textContent = "";
     });
 
+    describe("does not display error message when value passes", () => {
+      it("does not display error message when letter value passes", () => {
+        input.value = "A";
+        EVENTS.input(input);
+
+        shell = root.querySelector("#alphanumericError");
+        assert.strictEqual(shell.hasAttribute("hidden"), true);
+      });
+
+      it("does not display error message when number value passes", () => {
+        input.value = "A1";
+
+        EVENTS.input(input);
+        shell = root.querySelector("#alphanumericError");
+        assert.strictEqual(shell.hasAttribute("hidden"), true);
+      });
+    });
+
     describe("displays the correct error message when input attempt is a number but it expects a letter", () => {
       it("displays the error message", () => {
         input.value = "1";
 
         EVENTS.input(input);
         shell = root.querySelector("#alphanumericError");
-        assert.strictEqual(shell.hidden, false);
+        assert.strictEqual(shell.hasAttribute("hidden"), false);
       });
 
-      it("displays the correct message", () => {
+      it("error message is correct", () => {
         input.value = "1";
 
         EVENTS.input(input);
@@ -68,15 +86,33 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
         EVENTS.input(input);
         shell = root.querySelector("#alphanumericError");
-        assert.strictEqual(shell.hidden, false);
+        assert.strictEqual(shell.hasAttribute("hidden"), false);
       });
 
-      it("displays the correct message", () => {
+      it("error message is correct", () => {
         input.value = "AA";
 
         EVENTS.input(input);
         shell = root.querySelector("#alphanumericError");
         assert.strictEqual(shell.textContent, "Error: please enter a number");
+      });
+    });
+
+    describe("displays the correct error message when value is a letter but it expects a number", () => {
+      it("displays the error message", () => {
+        input.value = "!";
+
+        EVENTS.input(input);
+        shell = root.querySelector("#alphanumericError");
+        assert.strictEqual(shell.hasAttribute("hidden"), false);
+      });
+
+      it("error message is correct", () => {
+        input.value = "!";
+
+        EVENTS.input(input);
+        shell = root.querySelector("#alphanumericError");
+        assert.strictEqual(shell.textContent, "Error: please enter a letter");
       });
     });
   });
