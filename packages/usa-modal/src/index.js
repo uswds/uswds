@@ -33,15 +33,15 @@ const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 
 /**
- *  Closes modal when bound to a button and pressed.
+ * Closes the modal when the bound button is pressed.
  */
 const onMenuClose = () => {
   modal.toggleModalButton.call(modal, false);
 };
 
 /**
- * Set the value for temporary body padding that will be applied when the modal is open.
- * Value is created by checking for initial body padding and adding the width of the scrollbar.
+ * Sets the temporary body padding that will be applied when the modal is open.
+ * The value is calculated by checking the initial body padding and adding the width of the scrollbar.
  */
 const setTemporaryBodyPadding = () => {
   INITIAL_BODY_PADDING = window
@@ -54,9 +54,9 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
- *  Show modal window via javascript
+ * Displays the modal window via JavaScript.
  *
- * @param {string} modalEl the id or element of target modal
+ * @param {string} modalEl The id or element of the target modal.
  */
 function showModal(modalEl) {
   const targetModal =
@@ -92,9 +92,9 @@ function showModal(modalEl) {
 }
 
 /**
- *  Hide modal window via javascript
+ * Hides the modal window via JavaScript.
  *
- * @param {string} modalEl the id or element of target modal
+ * @param {string} modalEl The id or element of the target modal.
  */
 function hideModal(modalEl) {
   const { body } = document;
@@ -128,23 +128,23 @@ function hideModal(modalEl) {
 }
 
 /**
- *  Toggle the visibility of a modal window via javascript
+ * Toggles the visibility of a modal window via JavaScript.
  *
- * @param {string} modalId the id of target modal
- * @returns {boolean} safeActive if mobile is open
+ * @param {string} modalId The id of the target modal.
+ * @returns {boolean} safeActive A boolean indicating whether the modal is open.
  */
 function toggleModal(modalId) {
   // Find the modal element by its id
   const targetModal = document.getElementById(modalId);
 
-  // If there is no modal we return early
+  // If there is no modal, return early
   if (!targetModal) {
     return false;
   }
 
   const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
 
-  // If the modal is active, hide it, otherwise show it
+  // If the modal is active, hide it; otherwise, show it
   if (safeActive) {
     showModal(targetModal);
   } else {
@@ -155,10 +155,10 @@ function toggleModal(modalId) {
 }
 
 /**
- *  Toggle the visibility of a modal window via an event listener
+ * Toggles the visibility of a modal window via an event listener.
  *
- * @param {KeyboardEvent} event the keydown event.
- * @returns {boolean} safeActive if mobile is open.
+ * @param {KeyboardEvent} event The keydown event.
+ * @returns {boolean} safeActive A boolean indicating whether the modal is open.
  */
 function toggleModalButton(event) {
   let originalOpener;
@@ -172,24 +172,21 @@ function toggleModalButton(event) {
     ? document.getElementById(modalId)
     : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
 
-  // if there is no modal we return early
+  // If there is no modal, return early
   if (!targetModal) {
     return false;
   }
 
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
-  // Sets the clicked element to the close button
-  // so esc key always closes modal
+  // Set the clicked element to the close button so the escape key always closes the modal
   if (event.type === "keydown" && targetModal !== null) {
     clickedElement = targetModal.querySelector(CLOSE_BUTTON);
   }
 
-  // When we're not hitting the escape key…
+  // If the clicked element is inside the modal but not a close button
   if (clickedElement) {
-    // Make sure we click the opener
-    // If it doesn't have an ID, make one
-    // Store id as data attribute on modal
+    // Ensure the opener is clicked
     if (clickedElement.hasAttribute(OPENER_ATTRIBUTE)) {
       if (this.getAttribute("id") === null) {
         originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
@@ -200,15 +197,13 @@ function toggleModalButton(event) {
       targetModal.setAttribute("data-opener", originalOpener);
     }
 
-    // This basically stops the propagation if the element
-    // is inside the modal and not a close button or
-    // element inside a close button
+    // Stop propagation if the element is inside the modal and not a close button
     if (clickedElement.closest(`.${MODAL_CLASSNAME}`)) {
       if (
         clickedElement.hasAttribute(CLOSER_ATTRIBUTE) ||
         clickedElement.closest(`[${CLOSER_ATTRIBUTE}]`)
       ) {
-        // do nothing. move on.
+        // Do nothing. Move on.
       } else {
         return false;
       }
@@ -222,9 +217,7 @@ function toggleModalButton(event) {
     hideModal(targetModal);
   }
 
-  // If user is forced to take an action, adding
-  // a class to the body that prevents clicking underneath
-  // overlay
+  // If the user is forced to take an action, prevent clicking underneath the overlay
   if (forceUserAction) {
     body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
@@ -233,11 +226,11 @@ function toggleModalButton(event) {
 }
 
 /**
- * Creates a placeholder with data attributes for cleanup function.
- * The cleanup function uses this placeholder to easily restore the original Modal HTML on teardown.
+ * Creates a placeholder with data attributes for the cleanup function.
+ * The cleanup function uses this placeholder to easily restore the original modal HTML.
  *
- * @param {HTMLDivElement} baseComponent - Modal HTML from the DOM.
- * @returns {HTMLDivElement} Placeholder used for cleanup function.
+ * @param {HTMLDivElement} baseComponent The modal HTML element from the DOM.
+ * @returns {HTMLDivElement} The placeholder used by the cleanup function.
  */
 const createPlaceHolder = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
@@ -261,11 +254,11 @@ const createPlaceHolder = (baseComponent) => {
 };
 
 /**
- * Moves necessary attributes from Modal HTML to wrapper element.
+ * Moves necessary attributes from the modal HTML to the wrapper element.
  *
- * @param {HTMLDivElement} baseComponent - Modal HTML in the DOM.
- * @param {HTMLDivElement} modalContentWrapper - Modal component wrapper element.
- * @returns Modal wrapper with correct attributes.
+ * @param {HTMLDivElement} baseComponent The modal HTML in the DOM.
+ * @param {HTMLDivElement} modalContentWrapper The modal component wrapper element.
+ * @returns The modal wrapper with the correct attributes.
  */
 const setModalAttributes = (baseComponent, modalContentWrapper) => {
   const modalID = baseComponent.getAttribute("id");
@@ -274,10 +267,10 @@ const setModalAttributes = (baseComponent, modalContentWrapper) => {
   const forceUserAction = baseComponent.hasAttribute(FORCE_ACTION_ATTRIBUTE);
 
   if (!ariaLabelledBy)
-    throw new Error(`${modalID} is missing aria-labelledby attribute`);
+    throw new Error(`${modalID} is missing the aria-labelledby attribute`);
 
   if (!ariaDescribedBy)
-    throw new Error(`${modalID} is missing aria-desribedby attribute`);
+    throw new Error(`${modalID} is missing the aria-describedby attribute`);
 
   // Set attributes
   modalContentWrapper.setAttribute("role", "dialog");
@@ -306,11 +299,11 @@ const setModalAttributes = (baseComponent, modalContentWrapper) => {
 
 /**
  * Creates a hidden modal content wrapper.
- * Rebuilds the original Modal HTML in the new wrapper and adds a page overlay.
- * Then moves original Modal HTML attributes to the new wrapper.
+ * Rebuilds the original modal HTML inside the new wrapper and adds a page overlay.
+ * Then, moves the original modal HTML attributes to the new wrapper.
  *
- * @param {HTMLDivElement} baseComponent - Original Modal HTML in the DOM.
- * @returns Modal component - Modal wrapper w/ nested Overlay and Modal Content.
+ * @param {HTMLDivElement} baseComponent The original modal HTML in the DOM.
+ * @returns The modal component wrapper with the nested overlay and modal content.
  */
 const rebuildModal = (baseComponent) => {
   const modalContent = baseComponent;
@@ -332,41 +325,41 @@ const rebuildModal = (baseComponent) => {
 };
 
 /**
- *  Builds modal window from base HTML and appends to the end of the DOM.
+ * Builds the modal window from the base HTML and appends it to the end of the DOM.
  *
- * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
+ * @param {HTMLDivElement} baseComponent The modal div element in the DOM.
  */
 const setUpModal = (baseComponent) => {
   const modalID = baseComponent.getAttribute("id");
 
   if (!modalID) {
-    throw new Error(`Modal markup is missing ID`);
+    throw new Error("Modal markup is missing an ID");
   }
 
-  // Create placeholder where modal is for cleanup
+  // Create a placeholder for cleanup
   const originalLocationPlaceHolder = createPlaceHolder(baseComponent);
   baseComponent.after(originalLocationPlaceHolder);
 
-  // Build modal component
+  // Build the modal component
   const modalComponent = rebuildModal(baseComponent);
 
-  // Move all modals to the end of the DOM. Doing this allows us to
-  // more easily find the elements to hide from screen readers
+  // Move all modals to the end of the DOM.
+  // This makes it easier to find the elements to hide from screen readers
   // when the modal is open.
   document.body.appendChild(modalComponent);
 };
 
 /**
- * Removes dynamically created Modal and Wrapper elements and restores original Modal HTML.
+ * Removes dynamically created modal and wrapper elements and restores the original modal HTML.
  *
- * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
+ * @param {HTMLDivElement} baseComponent The modal div element in the DOM.
  */
 const cleanUpModal = (baseComponent) => {
   const modalContent = baseComponent;
   const modalContentWrapper = modalContent.parentElement.parentElement;
   const modalID = modalContentWrapper.getAttribute("id");
 
-  // if there is no modalID, return early
+  // If there is no modalID, return early
   if (!modalID) {
     return;
   }
@@ -379,7 +372,7 @@ const cleanUpModal = (baseComponent) => {
     const modalAttributes = Array.from(originalLocationPlaceHolder.attributes);
     modalAttributes.forEach((attribute) => {
       if (attribute.name.startsWith("data-original-")) {
-        // data-original- is 14 long
+        // data-original- is 14 characters long
         modalContent.setAttribute(attribute.name.substr(14), attribute.value);
       }
     });
@@ -402,7 +395,7 @@ modal = behavior(
 
         setUpModal(modalWindow);
 
-        // Query all openers and closers including the overlay
+        // Query all openers and closers, including the overlay
         selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
           (modalTrigger) => {
             // If modalTrigger is an anchor...
