@@ -15,7 +15,6 @@ const NON_MODAL_HIDDEN_ATTRIBUTE = `data-modal-hidden`;
 const MODAL = `.${MODAL_CLASSNAME}`;
 const INITIAL_FOCUS = `.${WRAPPER_CLASSNAME} *[data-focus]`;
 const CLOSE_BUTTON = `${WRAPPER_CLASSNAME} *[${CLOSER_ATTRIBUTE}]`;
-const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
 const NON_MODALS = `body > *:not(.${WRAPPER_CLASSNAME}):not([aria-hidden])`;
 const NON_MODALS_HIDDEN = `[${NON_MODAL_HIDDEN_ATTRIBUTE}]`;
