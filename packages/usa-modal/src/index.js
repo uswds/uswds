@@ -137,7 +137,7 @@ function toggleModal(modalId) {
   // Find the modal element by its id
   const targetModal = document.getElementById(modalId);
 
-  // If no modal found, exit early
+  // If there is no modal we return early
   if (!targetModal) {
     return false;
   }
@@ -177,13 +177,6 @@ function toggleModalButton(event) {
     return false;
   }
 
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
-    ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
-  const returnFocus = document.getElementById(
-    targetModal.getAttribute("data-opener"),
-  );
-  const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
   // Sets the clicked element to the close button
@@ -222,59 +215,18 @@ function toggleModalButton(event) {
     }
   }
 
-  body.classList.toggle(ACTIVE_CLASS, safeActive);
-  targetModal.classList.toggle(VISIBLE_CLASS, safeActive);
-  targetModal.classList.toggle(HIDDEN_CLASS, !safeActive);
+  // Toggle visibility
+  if (safeActive) {
+    showModal(targetModal);
+  } else {
+    hideModal(targetModal);
+  }
 
   // If user is forced to take an action, adding
   // a class to the body that prevents clicking underneath
   // overlay
   if (forceUserAction) {
     body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
-  }
-
-  // Temporarily increase body padding to include the width of the scrollbar.
-  // This accounts for the content shift when the scrollbar is removed on modal open.
-  if (body.style.paddingRight === TEMPORARY_BODY_PADDING) {
-    body.style.removeProperty("padding-right");
-  } else {
-    body.style.paddingRight = TEMPORARY_BODY_PADDING;
-  }
-
-  // Handle the focus actions
-  if (safeActive && openFocusEl) {
-    // The modal window is opened. Focus is set to close button.
-
-    // Binds escape key if we're not forcing
-    // the user to take an action
-    if (forceUserAction) {
-      modal.focusTrap = FocusTrap(targetModal);
-    } else {
-      modal.focusTrap = FocusTrap(targetModal, {
-        Escape: onMenuClose,
-      });
-    }
-
-    // Handles focus setting and interactions
-    modal.focusTrap.update(safeActive);
-    openFocusEl.focus();
-
-    // Hides everything that is not the modal from screen readers
-    document.querySelectorAll(NON_MODALS).forEach((nonModal) => {
-      nonModal.setAttribute("aria-hidden", "true");
-      nonModal.setAttribute(NON_MODAL_HIDDEN_ATTRIBUTE, "");
-    });
-  } else if (!safeActive && menuButton && returnFocus) {
-    // The modal window is closed.
-    // Non-modals now accesible to screen reader
-    document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
-      nonModal.removeAttribute("aria-hidden");
-      nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
-    });
-
-    // Focus is returned to the opener
-    returnFocus.focus();
-    modal.focusTrap.update(safeActive);
   }
 
   return safeActive;
