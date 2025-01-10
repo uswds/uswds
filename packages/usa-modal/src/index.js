@@ -53,7 +53,7 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
- * Displays the modal window via JavaScript.
+ * Make the modal window visible.
  *
  * @param {string} modalEl The id or element of the target modal.
  */
@@ -91,7 +91,7 @@ function showModal(modalEl) {
 }
 
 /**
- * Hides the modal window via JavaScript.
+ * Hides the modal window visibility.
  *
  * @param {string} modalEl The id or element of the target modal.
  */
@@ -143,7 +143,7 @@ function toggleModal(modalId) {
 
   const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
 
-  // If the modal is active, hide it; otherwise, show it
+  // If the modal is active, hide it, otherwise, show it
   if (safeActive) {
     showModal(targetModal);
   } else {
