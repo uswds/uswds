@@ -384,9 +384,11 @@ const handleValueChange = (e) => {
 };
 
 const keyUpCheck = (e) => {
-  // this solution solved 1 bug but caused another, commenting out until it is improved
-  // if (e.key !== "CapsLock" && e.location === 0) {
-  if (e.key !== "CapsLock") {
+// run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
+// at a standard location, to avoid errors from CapsLock or Shift key combos triggering the function twice
+  if (backspacePressed) {
+    handleValueChange(e);
+  } else if (e.key !== "CapsLock" && e.location === 0) {
     handleValueChange(e);
   }
 };
