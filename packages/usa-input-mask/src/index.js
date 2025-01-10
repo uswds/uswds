@@ -155,6 +155,7 @@ const checkMaskType = (placeholder, value) => {
     } else if (matchesLetter) {
       array.push("letter");
     } else {
+      // keep note of where format characters are (hyphens, spaces, etc) so index is always accurate
       array.push("format character");
     }
   }
