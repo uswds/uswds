@@ -27,8 +27,12 @@ module.exports = (map) => (event) =>
     // will result in `parts` only containing the modifiers to be checked.
     const key = parts.pop();
 
+    // Verify that the modifiers on the event are exactly equal to the modifiers specified in the
+    // key combination.
     const isModifierMatch = ["Shift", "Alt", "Ctrl", "Meta"]
+      // For any modifier active in the event (or vice-versa, expected in the key combination)...
       .filter((mod) => event.getModifierState(mod) || parts.includes(mod))
+      // Ensure that it is expected in the key combination (or vice-versa, active in the event).
       .every((mod) => event.getModifierState(mod) && parts.includes(mod));
 
     if (key === event.key && isModifierMatch) {
