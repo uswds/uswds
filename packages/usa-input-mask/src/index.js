@@ -24,6 +24,8 @@ let errorMessageSrOnlyEl;
 let lastValueLength;
 let keyPressed;
 let shiftComboPressed;
+let inputAddedByPaste;
+let backspacePressed;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -87,8 +89,8 @@ const createMaskedInputShell = (input) => {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
     input.removeAttribute(`${PLACEHOLDER}`);
-    input.addEventListener("paste", (event) => {
-      event.preventDefault();
+    input.addEventListener("paste", () => {
+      inputAddedByPaste = true;
     });
   } else {
     return;
@@ -293,12 +295,16 @@ const handleErrorState = (
     // max length reached
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (keyPressed === "Backspace") {
+  } else if (backspacePressed) {
     // clear error
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (matchType === "letter" && shiftComboPressed) {
     // hides error when input should be a letter and key combo is a letter
+    errorMessageEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+  } else if (valueAttempt.length === newValue.length && inputAddedByPaste) {
+    // input accepted when added with copy/paste
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
@@ -350,7 +356,7 @@ const handleValueChange = (e) => {
   const valueAttempt = inputEl.value;
 
   // check if max character count has been reached
-  if (keyPressed !== "Backspace") {
+  if (!backspacePressed) {
     maxLengthReached = lastValueLength === inputEl.maxLength;
   } else {
     maxLengthReached = false;
@@ -378,7 +384,9 @@ const handleValueChange = (e) => {
 };
 
 const keyUpCheck = (e) => {
-  if (e.key !== "CapsLock" && e.location === 0) {
+  // this solution solved 1 bug but caused another, commenting out until it is improved
+  // if (e.key !== "CapsLock" && e.location === 0) {
+  if (e.key !== "CapsLock") {
     handleValueChange(e);
   }
 };
@@ -388,6 +396,12 @@ const keyDownCheck = (e) => {
     shiftComboPressed = true;
   } else {
     shiftComboPressed = false;
+  }
+
+  if (e.key === 'Backspace' || (e.metaKey && e.key === 'Backspace')) {
+    backspacePressed = true;
+  } else {
+    backspacePressed = false;
   }
 };
 
