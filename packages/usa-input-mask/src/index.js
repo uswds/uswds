@@ -14,14 +14,15 @@ const ERROR_MESSAGE_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_SR_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_FULL_DEFAULT = "Maximum character count reached";
 const ERROR_MESSAGE_FULL_SR_DEFAULT = "Maximum character count reached";
-const ERROR_MESSAGE_PASTE_DEFAULT = "Error: Input was not accepted or partially accepted.";
-const ERROR_MESSAGE_PASTE_SR_DEFAULT = "Error: Input was not accepted or partially accepted.";
+const ERROR_MESSAGE_PASTE_DEFAULT =
+  "Error: Input was not accepted or partially accepted.";
+const ERROR_MESSAGE_PASTE_SR_DEFAULT =
+  "Error: Input was not accepted or partially accepted.";
 const ERROR_MESSAGE_ALPHA_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_NUMERIC_DEFAULT = "Error: please enter a number";
 const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: please enter a number";
 
-let errorMessageEl;
 let errorMessageSrOnlyEl;
 let lastValueLength;
 let keyPressed;
@@ -29,7 +30,6 @@ let shiftComboPressed;
 let inputAddedByPaste;
 let clipboardData = "";
 let backspacePressed;
-let isCharsetPresent;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -44,7 +44,7 @@ const getMaskInputContext = (el) => {
 
   const inputId = inputEl.id;
   const errorId = `${inputId}Error`;
-  const errorMsg =
+  const errorMsgDefault =
     inputEl.getAttribute("data-errorMessage") || ERROR_MESSAGE_DEFAULT;
   const errorMsgAlpha =
     inputEl.getAttribute("data-errorMessageAlphabetical") ||
@@ -58,7 +58,7 @@ const getMaskInputContext = (el) => {
   const errorMsgPaste =
     inputEl.getAttribute("data-errorMessagePaste") ||
     ERROR_MESSAGE_PASTE_DEFAULT;
-  const errorMsgSrOnly =
+  const errorMsgDefaultSrOnly =
     inputEl.getAttribute("data-errorMessageSrOnly") || ERROR_MESSAGE_SR_DEFAULT;
   const errorMsgAlphaSrOnly =
     inputEl.getAttribute("data-errorMessageAlphabeticalSrOnly") ||
@@ -77,16 +77,16 @@ const getMaskInputContext = (el) => {
     inputEl,
     errorId,
     inputId,
-    errorMsg,
+    errorMsgDefault,
     errorMsgAlpha,
     errorMsgNum,
     errorMsgFull,
     errorMsgPaste,
-    errorMsgSrOnly,
+    errorMsgDefaultSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgNumSrOnly,
     errorMsgFullSrOnly,
-    errorMsgPasteSrOnly
+    errorMsgPasteSrOnly,
   };
 };
 
@@ -103,7 +103,7 @@ const createMaskedInputShell = (input) => {
     input.removeAttribute(`${PLACEHOLDER}`);
     input.addEventListener("paste", (e) => {
       inputAddedByPaste = true;
-      clipboardData = e.clipboardData.getData('text');
+      clipboardData = e.clipboardData.getData("text");
     });
   } else {
     return;
@@ -140,7 +140,7 @@ const setValueOfMask = (el) => {
   return [theIEl, placeholderVal, inputValueLength];
 };
 
-const strippedValue = (isCharsetPresent, value) => 
+const strippedValue = (isCharsetPresent, value) =>
   isCharsetPresent ? value.replace(/\W/g, "") : value.replace(/\D/g, "");
 
 const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
@@ -190,7 +190,7 @@ const checkMaskType = (placeholder, value) => {
  * @param {HTMLElement} el - The input element
  */
 const handleCurrentValue = (el) => {
-  isCharsetPresent = el.dataset.charset;
+  const isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
@@ -228,6 +228,29 @@ const handleCurrentValue = (el) => {
     }
   }
   return { newValue, matchType };
+};
+
+/**
+ * Creates the SR only and visual error messages and adds them to the DOM
+ *
+ * @param {string} errorId - The ID of the error message element
+ * @param {string} inputEl - The input element
+ */
+const createErrorMessageEl = (errorId, inputEl) => {
+  // visual error message
+  const errorMsgSpan = document.createElement("span");
+  errorMsgSpan.setAttribute("id", errorId);
+  errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
+  errorMsgSpan.setAttribute("aria-hidden", "true");
+  inputEl.parentNode.appendChild(errorMsgSpan);
+
+  // SR only error message
+  const errorMsgSpanSrOnly = document.createElement("span");
+  errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
+  errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
+  errorMsgSpanSrOnly.setAttribute("role", "alert");
+  inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
+  errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 };
 
 /**
@@ -270,114 +293,103 @@ const handleErrorState = (
 ) => {
   const {
     errorId,
-    errorMsg,
+    errorMsgDefault,
     errorMsgNum,
     errorMsgAlpha,
     errorMsgFull,
     errorMsgPaste,
-    errorMsgSrOnly,
+    errorMsgDefaultSrOnly,
     errorMsgNumSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
-    errorMsgPasteSrOnly
+    errorMsgPasteSrOnly,
   } = getMaskInputContext(inputEl);
 
+  // create visual and SR only error message elements and add to DOM
+  if (!document.getElementById(errorId)) {
+    createErrorMessageEl(errorId, inputEl);
+  }
+
   // check if value attempt was accepted or rejected
-  const strippedValueAttempt = strippedValue(isCharsetPresent, valueAttempt);
-  const strippedNewValue = strippedValue(isCharsetPresent, newValue);
+  const strippedValueAttempt = strippedValue(true, valueAttempt);
+  const strippedNewValue = strippedValue(true, newValue);
   const strippedClipboard = strippedValue(true, clipboardData);
-  let valueAccepted = strippedValueAttempt === strippedNewValue;
+  const valueAccepted = strippedValueAttempt === strippedNewValue;
 
   // check if the new character was a format character added by the mask
   const lastChar = newValue.charAt(newValue.length - 1);
-  const formatCharAdded = lastChar === keyPressed;
+  const formatCharAdded = lastChar !== keyPressed;
 
-  // create visual error message and add to DOM
-  if (!document.getElementById(errorId)) {
-    const errorMsgSpan = document.createElement("span");
-    errorMsgSpan.setAttribute("id", errorId);
-    errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
-    errorMsgSpan.setAttribute("aria-hidden", "true");
-    inputEl.parentNode.appendChild(errorMsgSpan);
-    errorMessageEl = document.getElementById(errorId);
+  // set default messages as failsafe
+  let errorTextContent = errorMsgDefault;
+  let errorMessageSrOnly = errorMsgDefaultSrOnly;
+  let hiddenStatus = false;
 
-    // create sr only error message and add to DOM
-    const errorMsgSpanSrOnly = document.createElement("span");
-    errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
-    errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
-    errorMsgSpanSrOnly.setAttribute("role", "alert");
-    inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
-    errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
+  // set error message content
+  if (matchType === "letter") {
+    errorTextContent = errorMsgAlpha;
+    errorMessageSrOnly = errorMsgAlphaSrOnly;
+  } else if (matchType === "number") {
+    errorTextContent = errorMsgNum;
+    errorMessageSrOnly = errorMsgNumSrOnly;
   }
 
-  let messageType = matchType;
-
-  // hide or show error message
+  // update error message hidden status
+  // backspacing clears error
   if (backspacePressed) {
-    // clear error
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
-  } else if (maxLengthReached) {
+    hiddenStatus = true;
+
     // max length reached
-    errorMessageEl.hidden = false;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-    messageType = "input full"
-  } else if (inputAddedByPaste && strippedNewValue === strippedClipboard) {
-    // input accepted when added with copy/paste
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
-    // reset paste tracking
-    inputAddedByPaste = false;
-  } else if ((inputAddedByPaste && strippedNewValue !== strippedClipboard) || (!valueAccepted && inputAddedByPaste)) {
-    // only part or none of input was added with copy/paste
-    errorMessageEl.hidden = false;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-    messageType = "paste fail"
-    // reset paste tracking
-    inputAddedByPaste = false;
-  } else if (!valueAccepted && inputAddedByPaste) {
-    // input cut short when added with copy/paste
-    errorMessageEl.hidden = false;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-    messageType = "paste fail"
-    // reset paste tracking
-    inputAddedByPaste = false;
-  } else if (matchType === "letter" && shiftComboPressed) {
+  } else if (maxLengthReached) {
+    hiddenStatus = false;
+    // set error message content
+    errorTextContent = errorMsgFull;
+    errorMessageSrOnly = errorMsgFullSrOnly;
+
     // hides error when input should be a letter and key combo is a letter
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
-  } else if (!valueAccepted || (valueAccepted && !formatCharAdded)) {
+  } else if (matchType === "letter" && shiftComboPressed) {
+    hiddenStatus = true;
+
+    // input accepted when added with copy/paste
+  } else if (inputAddedByPaste && strippedNewValue === strippedClipboard) {
+    hiddenStatus = true;
+    // reset inputAddedByPaste
+    inputAddedByPaste = false;
+
+    // only part or none of input was added with copy/paste
+  } else if (
+    (inputAddedByPaste && strippedNewValue !== strippedClipboard) ||
+    (!valueAccepted && inputAddedByPaste)
+  ) {
+    hiddenStatus = false;
+    // set error message content
+    errorTextContent = errorMsgPaste;
+    errorMessageSrOnly = errorMsgPasteSrOnly;
+    // reset inputAddedByPaste
+    inputAddedByPaste = false;
+
     // new character rejected
-    errorMessageEl.hidden = false;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
+  } else if (!valueAccepted) {
+    hiddenStatus = false;
+
+    // valueAccepted returned true because a format character was added
+    // but last character attempt was rejected
+  } else if (valueAccepted && formatCharAdded) {
+    hiddenStatus = false;
+
+    // new character accepted, hide error
   } else if (valueAccepted) {
-    // new character accepted
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+    hiddenStatus = true;
   }
 
-  // set error messages text
-  switch (messageType) {
-    case "letter":
-      errorMessageEl.textContent = errorMsgAlpha;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgAlphaSrOnly);
-      break;
-    case "number":
-      errorMessageEl.textContent = errorMsgNum;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgNumSrOnly);
-      break;
-    case "input full":
-      errorMessageEl.textContent = errorMsgFull;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
-      break;
-    case "paste fail":
-      errorMessageEl.textContent = errorMsgPaste;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgPasteSrOnly);
-      break;
-    default:
-      errorMessageEl.textContent = errorMsg;
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgSrOnly);
-  }
+  // update visual error message content and status
+  const errorMessageEl = document.getElementById(errorId);
+  errorMessageEl.hidden = hiddenStatus;
+  errorMessageEl.textContent = errorTextContent;
+
+  // update SR only error message content and status
+  srUpdateErrorStatus(errorMessageSrOnlyEl, hiddenStatus);
+  srUpdateErrorMsg(errorMessageSrOnlyEl, errorMessageSrOnly);
 };
 
 /**
@@ -423,8 +435,8 @@ const handleValueChange = (e) => {
 };
 
 const keyUpCheck = (e) => {
-// run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
-// at a standard location, to avoid errors from CapsLock or Shift key combos triggering the function twice
+  // run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
+  // at a standard location, to avoid errors from CapsLock or Shift key combos triggering the function twice
   if (backspacePressed) {
     handleValueChange(e);
   } else if (e.key !== "CapsLock" && e.location === 0) {
@@ -439,7 +451,7 @@ const keyDownCheck = (e) => {
     shiftComboPressed = false;
   }
 
-  if (e.key === 'Backspace' || (e.metaKey && e.key === 'Backspace')) {
+  if (e.key === "Backspace" || (e.metaKey && e.key === "Backspace")) {
     backspacePressed = true;
   } else {
     backspacePressed = false;
