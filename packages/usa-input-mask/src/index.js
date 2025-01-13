@@ -140,7 +140,7 @@ const setValueOfMask = (el) => {
   return [theIEl, placeholderVal, inputValueLength];
 };
 
-const strippedValue = (isCharsetPresent, value) =>
+const strippedValue = (isCharsetPresent, value) => 
   isCharsetPresent ? value.replace(/\W/g, "") : value.replace(/\D/g, "");
 
 const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
@@ -285,8 +285,7 @@ const handleErrorState = (
   // check if value attempt was accepted or rejected
   const strippedValueAttempt = strippedValue(isCharsetPresent, valueAttempt);
   const strippedNewValue = strippedValue(isCharsetPresent, newValue);
-  console.log(clipboardData);
-  const strippedClipboard = strippedValue(isCharsetPresent, clipboardData);
+  const strippedClipboard = strippedValue(true, clipboardData);
   let valueAccepted = strippedValueAttempt === strippedNewValue;
 
   // check if the new character was a format character added by the mask
