@@ -100,7 +100,7 @@ const getMaskInputContext = (el) => {
 };
 
 /**
- *  Replaces each masked input with a shell containing the input and it's mask.
+ *  Replaces each masked input with a shell containing the input and its mask.
  *
  * @param {HTMLElement} input - The input element
  */
@@ -110,9 +110,11 @@ const createMaskedInputShell = (input) => {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
     input.removeAttribute(`${PLACEHOLDER}`);
-    input.addEventListener("paste", (e) => {
+    input.addEventListener("paste", async () => {
       inputAddedByPaste = true;
-      clipboardData = e.clipboardData.getData("text");
+      
+      // use Clipboard API for security
+      clipboardData = await navigator.clipboard.readText();
     });
   } else {
     return;
