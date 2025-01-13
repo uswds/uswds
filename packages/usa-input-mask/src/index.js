@@ -26,6 +26,7 @@ let keyPressed;
 let shiftComboPressed;
 let inputAddedByPaste;
 let backspacePressed;
+let isCharsetPresent;
 
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
@@ -177,7 +178,7 @@ const checkMaskType = (placeholder, value) => {
  * @param {HTMLElement} el - The input element
  */
 const handleCurrentValue = (el) => {
-  const isCharsetPresent = el.dataset.charset;
+  isCharsetPresent = el.dataset.charset;
   const placeholder = isCharsetPresent || el.dataset.placeholder;
   const { value } = el;
   const len = placeholder.length;
@@ -267,6 +268,11 @@ const handleErrorState = (
     errorMsgFullSrOnly,
   } = getMaskInputContext(inputEl);
 
+  // check if value attempt was accepted or rejected
+  const strippedValueAttempt = strippedValue(isCharsetPresent, valueAttempt);
+  const strippedNewValue = strippedValue(isCharsetPresent, newValue);
+  let valueAccepted = strippedValueAttempt === strippedNewValue;
+
   // check if the new character was a format character added by the mask
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar === keyPressed;
@@ -289,23 +295,34 @@ const handleErrorState = (
     errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
   }
 
-  const messageType = maxLengthReached ? "input full" : matchType;
+  let messageType = matchType;
 
+  console.log(strippedValueAttempt, strippedNewValue, valueAccepted, maxLengthReached)
   // hide or show error message
   if (maxLengthReached) {
     // max length reached
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (backspacePressed) {
+    messageType = "input full"
+  } else if (valueAccepted && inputAddedByPaste) {
+    // input accepted when added with copy/paste
+    errorMessageEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+    // reset paste tracking
+    inputAddedByPaste = false;
+  } else if (!valueAccepted && inputAddedByPaste) {
+    // input cut short when added with copy/paste
+    errorMessageEl.hidden = false;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
+    messageType = "paste fail"
+    // reset paste tracking
+    inputAddedByPaste = false;
+   } else if (backspacePressed) {
     // clear error
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (matchType === "letter" && shiftComboPressed) {
     // hides error when input should be a letter and key combo is a letter
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
-  } else if (valueAttempt.length === newValue.length && inputAddedByPaste) {
-    // input accepted when added with copy/paste
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
@@ -334,6 +351,10 @@ const handleErrorState = (
       break;
     case "input full":
       errorMessageEl.textContent = errorMsgFull;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
+      break;
+    case "paste fail":
+      errorMessageEl.textContent = "Your input may have been cut short.";
       srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
       break;
     default:
