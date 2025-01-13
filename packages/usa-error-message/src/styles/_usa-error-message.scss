@@ -4,4 +4,5 @@
   @include u-padding-y(0.5);
   color: color("error-dark");
   font-weight: font-weight("bold");
+  display: block;
 }

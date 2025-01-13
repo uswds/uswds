@@ -27,7 +27,7 @@ let lastValueLength;
 let keyPressed;
 let shiftComboPressed;
 let inputAddedByPaste;
-let clipboardData;
+let clipboardData = "";
 let backspacePressed;
 let isCharsetPresent;
 
@@ -285,6 +285,7 @@ const handleErrorState = (
   // check if value attempt was accepted or rejected
   const strippedValueAttempt = strippedValue(isCharsetPresent, valueAttempt);
   const strippedNewValue = strippedValue(isCharsetPresent, newValue);
+  console.log(clipboardData);
   const strippedClipboard = strippedValue(isCharsetPresent, clipboardData);
   let valueAccepted = strippedValueAttempt === strippedNewValue;
 
