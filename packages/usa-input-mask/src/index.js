@@ -14,6 +14,8 @@ const ERROR_MESSAGE_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_SR_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_FULL_DEFAULT = "Maximum character count reached";
 const ERROR_MESSAGE_FULL_SR_DEFAULT = "Maximum character count reached";
+const ERROR_MESSAGE_PASTE_DEFAULT = "Error: Input was not accepted or partially accepted.";
+const ERROR_MESSAGE_PASTE_SR_DEFAULT = "Error: Input was not accepted or partially accepted.";
 const ERROR_MESSAGE_ALPHA_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_NUMERIC_DEFAULT = "Error: please enter a number";
@@ -25,6 +27,7 @@ let lastValueLength;
 let keyPressed;
 let shiftComboPressed;
 let inputAddedByPaste;
+let clipboardData;
 let backspacePressed;
 let isCharsetPresent;
 
@@ -52,6 +55,9 @@ const getMaskInputContext = (el) => {
   const errorMsgFull =
     inputEl.getAttribute("data-errorMessageInputFull") ||
     ERROR_MESSAGE_FULL_DEFAULT;
+  const errorMsgPaste =
+    inputEl.getAttribute("data-errorMessagePaste") ||
+    ERROR_MESSAGE_PASTE_DEFAULT;
   const errorMsgSrOnly =
     inputEl.getAttribute("data-errorMessageSrOnly") || ERROR_MESSAGE_SR_DEFAULT;
   const errorMsgAlphaSrOnly =
@@ -63,6 +69,9 @@ const getMaskInputContext = (el) => {
   const errorMsgFullSrOnly =
     inputEl.getAttribute("data-errorMessageInputFullSrOnly") ||
     ERROR_MESSAGE_FULL_SR_DEFAULT;
+  const errorMsgPasteSrOnly =
+    inputEl.getAttribute("data-errorMessagePasteSrOnly") ||
+    ERROR_MESSAGE_PASTE_SR_DEFAULT;
 
   return {
     inputEl,
@@ -72,10 +81,12 @@ const getMaskInputContext = (el) => {
     errorMsgAlpha,
     errorMsgNum,
     errorMsgFull,
+    errorMsgPaste,
     errorMsgSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgNumSrOnly,
     errorMsgFullSrOnly,
+    errorMsgPasteSrOnly
   };
 };
 
@@ -90,8 +101,9 @@ const createMaskedInputShell = (input) => {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
     input.removeAttribute(`${PLACEHOLDER}`);
-    input.addEventListener("paste", () => {
+    input.addEventListener("paste", (e) => {
       inputAddedByPaste = true;
+      clipboardData = e.clipboardData.getData('text');
     });
   } else {
     return;
@@ -262,15 +274,18 @@ const handleErrorState = (
     errorMsgNum,
     errorMsgAlpha,
     errorMsgFull,
+    errorMsgPaste,
     errorMsgSrOnly,
     errorMsgNumSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
+    errorMsgPasteSrOnly
   } = getMaskInputContext(inputEl);
 
   // check if value attempt was accepted or rejected
   const strippedValueAttempt = strippedValue(isCharsetPresent, valueAttempt);
   const strippedNewValue = strippedValue(isCharsetPresent, newValue);
+  const strippedClipboard = strippedValue(isCharsetPresent, clipboardData);
   let valueAccepted = strippedValueAttempt === strippedNewValue;
 
   // check if the new character was a format character added by the mask
@@ -297,17 +312,27 @@ const handleErrorState = (
 
   let messageType = matchType;
 
-  console.log(strippedValueAttempt, strippedNewValue, valueAccepted, maxLengthReached)
   // hide or show error message
-  if (maxLengthReached) {
+  if (backspacePressed) {
+    // clear error
+    errorMessageEl.hidden = true;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+  } else if (maxLengthReached) {
     // max length reached
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
     messageType = "input full"
-  } else if (valueAccepted && inputAddedByPaste) {
+  } else if (inputAddedByPaste && strippedNewValue === strippedClipboard) {
     // input accepted when added with copy/paste
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
+    // reset paste tracking
+    inputAddedByPaste = false;
+  } else if ((inputAddedByPaste && strippedNewValue !== strippedClipboard) || (!valueAccepted && inputAddedByPaste)) {
+    // only part or none of input was added with copy/paste
+    errorMessageEl.hidden = false;
+    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
+    messageType = "paste fail"
     // reset paste tracking
     inputAddedByPaste = false;
   } else if (!valueAccepted && inputAddedByPaste) {
@@ -317,24 +342,16 @@ const handleErrorState = (
     messageType = "paste fail"
     // reset paste tracking
     inputAddedByPaste = false;
-   } else if (backspacePressed) {
-    // clear error
-    errorMessageEl.hidden = true;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   } else if (matchType === "letter" && shiftComboPressed) {
     // hides error when input should be a letter and key combo is a letter
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
-  } else if (valueAttempt.length === newValue.length && !formatCharAdded) {
-    // input rejected but a format character was added
+  } else if (!valueAccepted || (valueAccepted && !formatCharAdded)) {
+    // new character rejected
     errorMessageEl.hidden = false;
     srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (valueAttempt.length > newValue.length) {
-    // input rejected and no character was added
-    errorMessageEl.hidden = false;
-    srUpdateErrorStatus(errorMessageSrOnlyEl, false);
-  } else if (valueAttempt.length <= newValue.length) {
-    // input accepted with new character added
+  } else if (valueAccepted) {
+    // new character accepted
     errorMessageEl.hidden = true;
     srUpdateErrorStatus(errorMessageSrOnlyEl, true);
   }
@@ -354,8 +371,8 @@ const handleErrorState = (
       srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
       break;
     case "paste fail":
-      errorMessageEl.textContent = "Your input may have been cut short.";
-      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgFullSrOnly);
+      errorMessageEl.textContent = errorMsgPaste;
+      srUpdateErrorMsg(errorMessageSrOnlyEl, errorMsgPasteSrOnly);
       break;
     default:
       errorMessageEl.textContent = errorMsg;
