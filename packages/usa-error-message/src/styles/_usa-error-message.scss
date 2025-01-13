@@ -5,4 +5,8 @@
   color: color("error-dark");
   font-weight: font-weight("bold");
   display: block;
+
+  &[hidden] {
+    display: none;
+  }
 }
