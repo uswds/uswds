@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-i18n.template.html")
+  path.join(__dirname, "/date-picker-default-date.template.html")
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -62,7 +62,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(selectedMonth.innerHTML, "mayo");
     });
 
-    it("should display the correct aria label in the document language", () => {
+    it("should display the correct aria-label in the document language", () => {
       changeLanguage("es");
 
       EVENTS.click(button);
@@ -159,7 +159,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.deepEqual(daysOfTheWeek, ["D", "L", "M", "X", "J", "V", "S"]);
     });
 
-    it("should display the aria label in the document language", () => {
+    it("should display the aria-label in the document language", () => {
       changeLanguage("es");
 
       EVENTS.click(button);
