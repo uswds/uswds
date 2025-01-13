@@ -7,6 +7,26 @@ const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `.${RANGE_CLASSNAME}__wrapper`;
 
+/** Update slidervalue hint for sighted users */
+
+const updateSliderValueHint = (val) => {
+  const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
+  const sliderValueHint = rangeForm.querySelector(".sliderValueHint");
+  if (sliderValueHint) {
+    sliderValueHint.value = val;
+  } else {
+    const newSliderValueHint = document.createElement("input");
+    newSliderValueHint.className = "sliderValueHint";
+    newSliderValueHint.type = "text";
+    newSliderValueHint.style.width = "35px";
+    newSliderValueHint.style.border = 0;
+    newSliderValueHint.style.margin = "8px 0 0 5px";
+    newSliderValueHint.readOnly = true;
+    newSliderValueHint.value = val;
+    rangeForm.appendChild(newSliderValueHint);
+  }
+};
+
 /**
  * Update range callout for screen readers using the optional data attributes.
  *
@@ -24,6 +44,7 @@ const RANGE_WRAPPER_CLASS = `.${RANGE_CLASSNAME}__wrapper`;
  *
  * @param {HTMLInputElement} targetRange - The range slider input element
  */
+
 const updateCallout = (targetRange) => {
   const rangeSlider = targetRange;
   const defaultPrep = "of";
@@ -55,24 +76,6 @@ const rangeEvents = {
     },
   },
 };
-
-const updateSliderValueHint = (val) => {
-  const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS); 
-  const sliderValueHint = rangeForm.querySelector('.sliderValueHint');
-  if (sliderValueHint) {
-    sliderValueHint.value = val;
-  } else {
-    const newSliderValueHint = document.createElement('input');
-    newSliderValueHint.className = "sliderValueHint";
-    newSliderValueHint.type = "text";
-    newSliderValueHint.style.width = "35px";
-    newSliderValueHint.style.border = 0;
-    newSliderValueHint.style.margin = "8px 0 0 5px";
-    newSliderValueHint.readOnly = true;
-    newSliderValueHint.value = val;
-    rangeForm.appendChild(newSliderValueHint);
-  }
-}
 
 const range = behavior(rangeEvents, {
   init(root) {
