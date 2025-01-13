@@ -31,6 +31,15 @@ let inputAddedByPaste;
 let clipboardData = "";
 let backspacePressed;
 
+const navigationKeys = [
+  "Home",
+  "End",
+  "ArrowLeft",
+  "ArrowRight",
+  "PageUp",
+  "PageDown",
+];
+
 // User defined Values
 const maskedNumber = "_#dDmMyY9";
 const maskedLetter = "A";
@@ -425,13 +434,15 @@ const handleValueChange = (e) => {
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 
-  handleErrorState(
-    valueAttempt,
-    newValue,
-    matchType,
-    inputEl,
-    maxLengthReached,
-  );
+  if (!navigationKeys.includes(keyPressed)) {
+    handleErrorState(
+      valueAttempt,
+      newValue,
+      matchType,
+      inputEl,
+      maxLengthReached,
+    );
+  }
 };
 
 const keyUpCheck = (e) => {
