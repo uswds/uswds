@@ -5,6 +5,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
+const RANGE_WRAPPER_CLASS = `.${RANGE_CLASSNAME}__wrapper`;
 
 /**
  * Update range callout for screen readers using the optional data attributes.
@@ -42,10 +43,9 @@ const updateCallout = (targetRange) => {
     callout = `${val} ${prep} ${max}`;
   }
 
-  const rangeField = document.getElementById('sliderValue');
-
   rangeSlider.setAttribute("aria-valuetext", callout);
-  rangeField.setAttribute("value", val);
+
+  updateSliderValueHint(val);
 };
 
 const rangeEvents = {
@@ -55,6 +55,24 @@ const rangeEvents = {
     },
   },
 };
+
+const updateSliderValueHint = (val) => {
+  const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS); 
+  const sliderValueHint = rangeForm.querySelector('.sliderValueHint');
+  if (sliderValueHint) {
+    sliderValueHint.value = val;
+  } else {
+    const newSliderValueHint = document.createElement('input');
+    newSliderValueHint.className = "sliderValueHint";
+    newSliderValueHint.type = "text";
+    newSliderValueHint.style.width = "35px";
+    newSliderValueHint.style.border = 0;
+    newSliderValueHint.style.margin = "8px 0 0 5px";
+    newSliderValueHint.readOnly = true;
+    newSliderValueHint.value = val;
+    rangeForm.appendChild(newSliderValueHint);
+  }
+}
 
 const range = behavior(rangeEvents, {
   init(root) {

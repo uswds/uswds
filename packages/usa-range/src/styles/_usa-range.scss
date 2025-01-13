@@ -32,13 +32,21 @@
   border: units(1px) solid color("base");
 }
 
+// Range slider and hint
+.usa-range__wrapper {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
 .usa-range {
   @extend %block-input-general;
   @extend %block-input-styles;
   appearance: none;
   border: none;
-  padding: 0;
-  width: 85%;
+  padding-left: 1px;
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -129,17 +137,4 @@
       @include u-disabled;
     }
   }
-}
-
-#sliderValue {
-  @extend %block-input-general;
-  @extend %block-input-styles;
-  width: 15%;
-  border: 0px;
-  float:right;
-}
-
-.range-value {
-  width:100%;
-  display: inline-block;
 }
