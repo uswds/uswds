@@ -943,12 +943,18 @@ const enhanceDatePicker = (el) => {
         const cursorPosition = this.selectionStart;
         const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
 
-        if (lastChar === "/" || (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")) {
+        if (
+          lastChar === "/" ||
+          (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")
+        ) {
           // Remove preceding number and slash
-          this.value = 
-            inputValue.slice(0, cursorPosition - 1 - 
-            (inputValue[cursorPosition - 2] === "/" ? 1 : 0)) + 
-            inputValue.slice(cursorPosition);
+          this.value =
+            inputValue.slice(
+              0,
+              cursorPosition -
+                1 -
+                (inputValue[cursorPosition - 2] === "/" ? 1 : 0),
+            ) + inputValue.slice(cursorPosition);
         } else {
           // Remove only the preceding number
           this.value =
