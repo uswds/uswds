@@ -356,6 +356,7 @@ Importing a modular component.
 
 ```js
 import accordion from "@uswds/uswds/js/usa-accordion";
+import characterCount from "@uswds/uswds/js/usa-character-count";
 ```
 
 ⚠️Requires webpack 5+
