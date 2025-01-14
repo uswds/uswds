@@ -40,7 +40,7 @@ const navigationKeys = [
   "PageDown",
 ];
 
-// User defined Values
+// User-defined values
 const maskedNumber = "_#dDmMyY9";
 const maskedLetter = "A";
 
@@ -100,7 +100,7 @@ const getMaskInputContext = (el) => {
 };
 
 /**
- *  Replaces each masked input with a shell containing the input and its mask.
+ * Replaces each masked input with a shell containing the input and its mask.
  *
  * @param {HTMLElement} input - The input element
  */
@@ -112,8 +112,8 @@ const createMaskedInputShell = (input) => {
     input.removeAttribute(`${PLACEHOLDER}`);
     input.addEventListener("paste", async () => {
       inputAddedByPaste = true;
-      
-      // use Clipboard API for security
+
+      // Use Clipboard API for security
       clipboardData = await navigator.clipboard.readText();
     });
   } else {
@@ -136,7 +136,7 @@ const createMaskedInputShell = (input) => {
 };
 
 /**
- *  Returns a combination of the input value and what is left of the placeholder inside the new element.
+ * Returns a combination of the input value and the remaining placeholder inside the new element.
  *
  * @param {HTMLElement} inputEl - The input element
  */
@@ -159,8 +159,8 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
 /**
- *  Creates an array of what the required character type is expected to be for each character in the complete input value.
- *  Checks what the current index is to return the current required character type.
+ * Creates an array of required character types for each character in the complete input value.
+ * Checks the current index to return the expected character type.
  *
  * @param {string} placeholder - String of placeholder letters or numbers that defines what the mask is expecting
  * @param {string} value - Input mask value (including the newest input attempt even if it will be rejected)
@@ -179,14 +179,15 @@ const checkMaskType = (placeholder, value) => {
     } else if (matchesLetter) {
       array.push("letter");
     } else {
-      // keep note of where format characters are (hyphens, spaces, etc) so index is always accurate
+      // Keep track of where format characters (hyphens, spaces, etc.) are
+      // to ensure the index remains accurate
       array.push("format character");
     }
   }
 
   matchType = array[valueLength - 1];
 
-  // if index lands on a "format character" forward to next matchType in array
+  // If the index lands on a "format character", move to the next matchType in the array
   if (matchType === "format character") {
     matchType = array[valueLength];
   }
@@ -195,8 +196,8 @@ const checkMaskType = (placeholder, value) => {
 };
 
 /**
- *  Checks if the new input character meets mask requirement.
- *  Returns the new input value with the new character added if it's accepted.
+ * Checks if the new input character meets the mask's requirement.
+ * Returns the new input value with the new character added if accepted.
  *
  * @param {HTMLElement} el - The input element
  */
@@ -233,7 +234,7 @@ const handleCurrentValue = (el) => {
     } else {
       newValue += placeholder[i];
     }
-    // break if no characters left and the pattern is non-special character
+    // Break if no characters are left and the pattern is non-special character
     if (strippedVal[charIndex] === undefined) {
       break;
     }
@@ -242,20 +243,20 @@ const handleCurrentValue = (el) => {
 };
 
 /**
- * Creates the SR only and visual error messages and adds them to the DOM
+ * Creates visual and SR-only error messages and adds them to the DOM.
  *
  * @param {string} errorId - The ID of the error message element
  * @param {string} inputEl - The input element
  */
 const createErrorMessageEl = (errorId, inputEl) => {
-  // visual error message
+  // Visual error message
   const errorMsgSpan = document.createElement("span");
   errorMsgSpan.setAttribute("id", errorId);
   errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgSpan.setAttribute("aria-hidden", "true");
   inputEl.parentNode.appendChild(errorMsgSpan);
 
-  // SR only error message
+  // SR-only error message
   const errorMsgSpanSrOnly = document.createElement("span");
   errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
   errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
@@ -272,18 +273,19 @@ const createErrorMessageEl = (errorId, inputEl) => {
  * @param {boolean} status - Error message active status
  */
 const srUpdateErrorMsg = debounce((errorMsg, msgEl, status) => {
-  msgEl.textContent = errorMsg;
-  msgEl.hidden = status;
+  const errorMessageEl = msgEl;
+  errorMessageEl.textContent = errorMsg;
+  errorMessageEl.hidden = status;
 }, 1000);
 
 /**
- * Creates the sr only and visual error messages, handles their hidden status and content.
+ * Sets the error message text content and hidden status.
  *
  * @param {string} valueAttempt - The input value before the new character is accepted or rejected
  * @param {string} newValue - The input value after the new character is accepted or rejected
  * @param {string} matchType - The character type that the input should be to be accepted
  * @param {HTMLElement} inputEl - The input element
- * @param {boolean} maxLengthReached - Returns true when the input mask is at max length
+ * @param {boolean} maxLengthReached - Returns true when the input mask has reached the max length
  */
 const handleErrorState = (
   valueAttempt,
@@ -306,27 +308,27 @@ const handleErrorState = (
     errorMsgPasteSrOnly,
   } = getMaskInputContext(inputEl);
 
-  // create visual and SR only error message elements and add to DOM
+  // Create visual and SR-only error message elements and add to DOM
   if (!document.getElementById(errorId)) {
     createErrorMessageEl(errorId, inputEl);
   }
 
-  // check if value attempt was accepted or rejected
+  // Check if value attempt was accepted or rejected
   const strippedValueAttempt = strippedValue(true, valueAttempt);
   const strippedNewValue = strippedValue(true, newValue);
   const strippedClipboard = strippedValue(true, clipboardData);
   const valueAccepted = strippedValueAttempt === strippedNewValue;
 
-  // check if the new character was a format character added by the mask
+  // Check if the new character was a format character added by the mask
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar !== keyPressed;
 
-  // set default messages as failsafe
+  // Set default messages as a failsafe
   let errorTextContent = errorMsgDefault;
   let errorMessageSrOnly = errorMsgDefaultSrOnly;
   let hiddenStatus = false;
 
-  // set error message content
+  // Set error message content
   if (matchType === "letter") {
     errorTextContent = errorMsgAlpha;
     errorMessageSrOnly = errorMsgAlphaSrOnly;
@@ -335,66 +337,66 @@ const handleErrorState = (
     errorMessageSrOnly = errorMsgNumSrOnly;
   }
 
-  // update error message hidden status
-  // backspacing clears error
+  // Update error message hidden status
+  // Backspacing clears error
   if (backspacePressed) {
     hiddenStatus = true;
 
-    // max length reached
+    // Max length reached
   } else if (maxLengthReached) {
     hiddenStatus = false;
-    // set error message content
+    // Set error message content
     errorTextContent = errorMsgFull;
     errorMessageSrOnly = errorMsgFullSrOnly;
 
-    // hides error when input should be a letter and key combo is a letter
+    // Hides error when input should be a letter and key combo is a letter
   } else if (matchType === "letter" && shiftComboPressed) {
     hiddenStatus = true;
 
-    // input accepted when added with copy/paste
+    // Input accepted when added with copy/paste
   } else if (inputAddedByPaste && strippedNewValue === strippedClipboard) {
     hiddenStatus = true;
-    // reset inputAddedByPaste
+    // Reset inputAddedByPaste
     inputAddedByPaste = false;
 
-    // only part or none of input was added with copy/paste
+    // Only part or none of the input was added with copy/paste
   } else if (
     (inputAddedByPaste && strippedNewValue !== strippedClipboard) ||
     (!valueAccepted && inputAddedByPaste)
   ) {
     hiddenStatus = false;
-    // set error message content
+    // Set error message content
     errorTextContent = errorMsgPaste;
     errorMessageSrOnly = errorMsgPasteSrOnly;
-    // reset inputAddedByPaste
+    // Reset inputAddedByPaste
     inputAddedByPaste = false;
 
-    // new character rejected
+    // New character rejected
   } else if (!valueAccepted) {
     hiddenStatus = false;
 
-    // valueAccepted returned true because a format character was added
-    // but last character attempt was rejected
+    // ValueAccepted returned true because a format character was added,
+    // but the last character attempt was rejected
   } else if (valueAccepted && formatCharAdded) {
     hiddenStatus = false;
 
-    // new character accepted, hide error
+    // New character accepted, hide error
   } else if (valueAccepted) {
     hiddenStatus = true;
   }
 
-  // update visual error message content and status
+  // Update visual error message content and status
   const errorMessageEl = document.getElementById(errorId);
   errorMessageEl.hidden = hiddenStatus;
   errorMessageEl.textContent = errorTextContent;
 
-  // update SR only error message content and status
+  // Update SR-only error message content and status
   srUpdateErrorMsg(errorMessageSrOnly, errorMessageSrOnlyEl, hiddenStatus);
 };
 
 /**
- *  Gets the processed input value and puts it inside the mask element.
- *  Triggers error handling.
+ * Gets the processed input value and places it inside the mask element.
+ * Triggers error handling.
  *
  * @param {HTMLElement} e - The input element
  */
@@ -403,21 +405,21 @@ const handleValueChange = (e) => {
   let maxLengthReached;
   const inputEl = e.srcElement;
 
-  // record potential new value before new character is accepted or rejected
+  // Record potential new value before new character is accepted or rejected
   const valueAttempt = inputEl.value;
 
-  // check if max character count has been reached
+  // Check if max character count has been reached
   if (!backspacePressed) {
     maxLengthReached = lastValueLength === inputEl.maxLength;
   } else {
     maxLengthReached = false;
   }
 
-  // get processed new value and expected character type
+  // Get processed new value and expected character type
   const { newValue, matchType } = handleCurrentValue(inputEl);
   inputEl.value = newValue;
 
-  // save new value length as lastValueLength for next input check
+  // Save new value length as lastValueLength for next input check
   lastValueLength = newValue.length;
 
   const maskVal = setValueOfMask(inputEl);
@@ -437,7 +439,7 @@ const handleValueChange = (e) => {
 };
 
 const keyUpCheck = (e) => {
-  // run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
+  // Run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
   // at a standard location, to avoid errors from CapsLock or Shift key combos triggering the function twice
   if (backspacePressed) {
     handleValueChange(e);
