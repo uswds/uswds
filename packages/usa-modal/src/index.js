@@ -55,18 +55,15 @@ const setTemporaryBodyPadding = () => {
 
 /**
  * Toggle active state from modal and body.
- * Adjusts padding.
+ * Adjusts temporary body padding.
  *
- * @param {HTMLElement} targetModal Modal element
+ * @param {HTMLElement} targetModal The modal element.
  */
 function handleActive(targetModal) {
   if (body.classList.contains(ACTIVE_CLASS)) {
     body.classList.remove(ACTIVE_CLASS);
     targetModal.classList.remove(VISIBLE_CLASS);
     targetModal.classList.add(HIDDEN_CLASS);
-
-    // Reset body padding
-    body.style.removeProperty("padding-right");
   } else {
     body.classList.add(ACTIVE_CLASS);
     targetModal.classList.add(VISIBLE_CLASS);
@@ -116,11 +113,10 @@ function handleForceUserAction(targetModal) {
 /**
  * Make the modal window visible.
  *
- * @param {string} modalEl The id or element of the target modal.
+ * @param {string} modalEl The id of the target modal.
  */
 function showModal(modalEl) {
-  const targetModal =
-    typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
+  const targetModal = document.getElementById(modalEl);
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
@@ -153,11 +149,10 @@ function showModal(modalEl) {
 /**
  * Hides the modal window visibility.
  *
- * @param {string} modalEl The id or element of the target modal.
+ * @param {string} modalEl The id of the target modal.
  */
 function hideModal(modalEl) {
-  const targetModal =
-    typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
+  const targetModal = document.getElementById(modalEl);
   const returnFocus = document.getElementById(
     targetModal.getAttribute("data-opener"),
   );
@@ -188,7 +183,6 @@ function hideModal(modalEl) {
  * Toggles the visibility of a modal window via JavaScript.
  *
  * @param {string} modalId The id of the target modal.
- * @returns {boolean} safeActive A boolean indicating whether the modal is open.
  */
 function toggleModal(modalId) {
   // Find the modal element by its id
@@ -199,23 +193,22 @@ function toggleModal(modalId) {
     return false;
   }
 
-  const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
+  const safeActive = targetModal.classList.contains(VISIBLE_CLASS);
 
-  // If the modal is active, hide it, otherwise, show it
-  if (safeActive) {
-    showModal(targetModal);
+  // Toggle visibility
+  if (!safeActive) {
+    showModal(modalId);
   } else {
-    hideModal(targetModal);
+    hideModal(modalId);
   }
 
-  return safeActive;
+  return toggleModal;
 }
 
 /**
  * Toggles the visibility of a modal window via an event listener.
  *
  * @param {KeyboardEvent} event The keydown event.
- * @returns {boolean} safeActive A boolean indicating whether the modal is open.
  */
 function toggleModalButton(event) {
   let originalOpener;
@@ -266,9 +259,9 @@ function toggleModalButton(event) {
 
   // Toggle visibility
   if (safeActive) {
-    showModal(targetModal);
+    showModal(targetModal.id);
   } else {
-    hideModal(targetModal);
+    hideModal(targetModal.id);
   }
 
   return safeActive;
