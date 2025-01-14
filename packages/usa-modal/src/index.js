@@ -108,7 +108,6 @@ function showModal(modalEl) {
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
-  const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
 
   handleActive(targetModal);
 
@@ -122,10 +121,6 @@ function showModal(modalEl) {
     );
     modal.focusTrap.update(true);
     openFocusEl.focus();
-  }
-
-  if (forceUserAction) {
-    body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
 }
 
@@ -161,6 +156,7 @@ function hideModal(modalEl) {
  * @returns {boolean} safeActive A boolean indicating whether the modal is open.
  */
 function toggleModal(modalId) {
+  // Find the modal element by its id
   const targetModal = document.getElementById(modalId);
 
   // If there is no modal, return early
@@ -169,7 +165,7 @@ function toggleModal(modalId) {
   }
 
   const safeActive = !targetModal.classList.contains(VISIBLE_CLASS);
-  
+
   // If the modal is active, hide it, otherwise, show it
   if (safeActive) {
     showModal(targetModal);
