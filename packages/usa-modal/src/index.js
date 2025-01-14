@@ -71,8 +71,11 @@ function handleActive(targetModal) {
     body.classList.add(ACTIVE_CLASS);
     targetModal.classList.add(VISIBLE_CLASS);
     targetModal.classList.remove(HIDDEN_CLASS);
+  }
 
-    // Temporarily increase body padding to accommodate the scrollbar width
+  if (body.style.paddingRight === TEMPORARY_BODY_PADDING) {
+    body.style.removeProperty("padding-right");
+  } else {
     body.style.paddingRight = TEMPORARY_BODY_PADDING;
   }
 }
@@ -97,6 +100,20 @@ function handleNonModals(nonModals) {
 }
 
 /**
+ * Prevents user from clicking outside of modal if the user is forced to take an action.
+ *
+ * @param {HTMLElement} targetModal The element of the target modal.
+ */
+function handleForceUserAction(targetModal) {
+  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
+  const safeActive = targetModal.classList.contains(VISIBLE_CLASS);
+
+  if (forceUserAction) {
+    body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
+  }
+}
+
+/**
  * Make the modal window visible.
  *
  * @param {string} modalEl The id or element of the target modal.
@@ -108,6 +125,11 @@ function showModal(modalEl) {
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
+
+  // If there is no modal, return early
+  if (!targetModal) {
+    return false;
+  }
 
   handleActive(targetModal);
 
@@ -122,6 +144,10 @@ function showModal(modalEl) {
     modal.focusTrap.update(true);
     openFocusEl.focus();
   }
+
+  handleForceUserAction(targetModal);
+
+  return targetModal;
 }
 
 /**
@@ -136,6 +162,11 @@ function hideModal(modalEl) {
     targetModal.getAttribute("data-opener"),
   );
 
+  // If there is no modal, return early
+  if (!targetModal) {
+    return false;
+  }
+
   handleActive(targetModal);
 
   handleNonModals(NON_MODALS_HIDDEN);
@@ -145,8 +176,12 @@ function hideModal(modalEl) {
     returnFocus.focus();
   }
 
+  handleForceUserAction(targetModal);
+
   // Update focus trap status
   modal.focusTrap.update(false);
+
+  return targetModal;
 }
 
 /**
@@ -198,8 +233,6 @@ function toggleModalButton(event) {
     return false;
   }
 
-  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
-
   // Set the clicked element to the close button so the escape key always closes the modal
   if (event.type === "keydown" && targetModal !== null) {
     clickedElement = targetModal.querySelector(CLOSE_BUTTON);
@@ -236,11 +269,6 @@ function toggleModalButton(event) {
     showModal(targetModal);
   } else {
     hideModal(targetModal);
-  }
-
-  // If the user is forced to take an action, prevent clicking underneath the overlay
-  if (forceUserAction) {
-    body.classList.toggle(PREVENT_CLICK_CLASS, safeActive);
   }
 
   return safeActive;
