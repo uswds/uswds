@@ -579,6 +579,9 @@ const parseDateString = (
  * @param {string} dateFormat the format of the date string
  * @returns {string} the formatted date string
  */
+
+// Add date input formatting here
+
 const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
   const padZeros = (value, length) => `0000${value}`.slice(-length);
 
@@ -923,6 +926,73 @@ const enhanceDatePicker = (el) => {
     <div class="${DATE_PICKER_CALENDAR_CLASS}" role="application" hidden></div>
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
   );
+
+  /**
+   * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
+   *
+   * @param {HTMLElement} externalInputEl The input element to format.
+   * @param {KeyboardEvent} event The keydown event object.
+   * @param {InputEvent} event The input event object.
+   */
+  function handleBackspaceFormatting(event) {
+    if (event.key === "Backspace") {
+      if (this.selectionStart === this.selectionEnd) {
+        // If no text is selected, delete the preceding character
+        event.preventDefault();
+        const inputValue = this.value;
+        const cursorPosition = this.selectionStart;
+        const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
+
+        if (lastChar === "/") {
+          // Remove slash and the preceding number
+          this.value =
+            inputValue.slice(0, cursorPosition - 2) +
+            inputValue.slice(cursorPosition);
+        } else {
+          // Remove only the preceding number
+          this.value =
+            inputValue.slice(0, cursorPosition - 1) +
+            inputValue.slice(cursorPosition);
+        }
+      }
+    }
+  }
+
+  function reformatInputValue() {
+    const inputValue = this.value.replace(/\//g, "");
+    if (inputValue.length === 1 && this.value.includes("/")) {
+      const month = parseInt(inputValue, 10);
+      this.value = `${String(month).padStart(2, "0")}/`;
+    } else if (inputValue.length === 2) {
+      const month = parseInt(inputValue, 10);
+      this.value = `${String(month).padStart(2, "0")}/`;
+    } else if (inputValue.length === 3 && this.value.endsWith("/")) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 3), 10);
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/`;
+    } else if (inputValue.length === 4) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 4), 10);
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/`;
+    } else if (inputValue.length === 6) {
+      const month = parseInt(inputValue.slice(0, 2), 10);
+      const day = parseInt(inputValue.slice(2, 4), 10);
+      const year = inputValue.slice(4);
+      this.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+        2,
+        "0",
+      )}/${year}`;
+    }
+  }
+
+  externalInputEl.addEventListener("keydown", handleBackspaceFormatting);
+  externalInputEl.addEventListener("input", reformatInputValue);
 
   internalInputEl.setAttribute("aria-hidden", "true");
   internalInputEl.setAttribute("tabindex", "-1");
