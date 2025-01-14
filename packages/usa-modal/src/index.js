@@ -24,6 +24,7 @@ const PREVENT_CLICK_CLASS = "usa-js-no-click";
 const VISIBLE_CLASS = "is-visible";
 const HIDDEN_CLASS = "is-hidden";
 
+const { body } = document;
 let modal;
 let INITIAL_BODY_PADDING;
 let TEMPORARY_BODY_PADDING;
@@ -53,6 +54,49 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
+ * Toggle active state from modal and body.
+ * Adjusts padding.
+ *
+ * @param {HTMLElement} targetModal Modal element
+ */
+function handleActive(targetModal) {
+  if (body.classList.contains(ACTIVE_CLASS)) {
+    body.classList.remove(ACTIVE_CLASS);
+    targetModal.classList.remove(VISIBLE_CLASS);
+    targetModal.classList.add(HIDDEN_CLASS);
+
+    // Reset body padding
+    body.style.removeProperty("padding-right");
+  } else {
+    body.classList.add(ACTIVE_CLASS);
+    targetModal.classList.add(VISIBLE_CLASS);
+    targetModal.classList.remove(HIDDEN_CLASS);
+
+    // Temporarily increase body padding to accommodate the scrollbar width
+    body.style.paddingRight = TEMPORARY_BODY_PADDING;
+  }
+}
+
+/**
+ * Show/hide non-modal elements to screen readers
+ *
+ * @param {HTMLElement} targetModal Modal element
+ */
+function handleNonModals(nonModals) {
+  document.querySelectorAll(nonModals).forEach((nonModal) => {
+    if (nonModal.hasAttribute("aria-hidden")) {
+      // Show non-modal elements to screen readers again
+      nonModal.removeAttribute("aria-hidden");
+      nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
+    } else {
+      // Hide non-modal elements from screen readers
+      nonModal.setAttribute("aria-hidden", "true");
+      nonModal.setAttribute(NON_MODAL_HIDDEN_ATTRIBUTE, "");
+    }
+  });
+}
+
+/**
  * Make the modal window visible.
  *
  * @param {string} modalEl The id or element of the target modal.
@@ -60,18 +104,14 @@ const setTemporaryBodyPadding = () => {
 function showModal(modalEl) {
   const targetModal =
     typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
-  const { body } = document;
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
-  body.classList.add(ACTIVE_CLASS);
-  targetModal.classList.add(VISIBLE_CLASS);
-  targetModal.classList.remove(HIDDEN_CLASS);
+  handleActive(targetModal);
 
-  // Temporarily increase body padding to accommodate the scrollbar width
-  body.style.paddingRight = TEMPORARY_BODY_PADDING;
+  handleNonModals(NON_MODALS);
 
   // Handle focus trap and interactions
   if (openFocusEl) {
@@ -82,12 +122,6 @@ function showModal(modalEl) {
     modal.focusTrap.update(true);
     openFocusEl.focus();
   }
-
-  // Hide non-modal elements from screen readers
-  document.querySelectorAll(NON_MODALS).forEach((nonModal) => {
-    nonModal.setAttribute("aria-hidden", "true");
-    nonModal.setAttribute(NON_MODAL_HIDDEN_ATTRIBUTE, "");
-  });
 }
 
 /**
@@ -96,26 +130,15 @@ function showModal(modalEl) {
  * @param {string} modalEl The id or element of the target modal.
  */
 function hideModal(modalEl) {
-  const { body } = document;
   const targetModal =
     typeof modalEl === "string" ? document.getElementById(modalEl) : modalEl;
   const returnFocus = document.getElementById(
     targetModal.getAttribute("data-opener"),
   );
 
-  // Remove active state from modal and body
-  body.classList.remove(ACTIVE_CLASS);
-  targetModal.classList.remove(VISIBLE_CLASS);
-  targetModal.classList.add(HIDDEN_CLASS);
+  handleActive(targetModal);
 
-  // Reset body padding
-  body.style.removeProperty("padding-right");
-
-  // Show non-modal elements to screen readers again
-  document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
-    nonModal.removeAttribute("aria-hidden");
-    nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
-  });
+  handleNonModals(NON_MODALS_HIDDEN);
 
   // Return focus to the element that opened the modal
   if (returnFocus) {
@@ -162,7 +185,6 @@ function toggleModal(modalId) {
 function toggleModalButton(event) {
   let originalOpener;
   let clickedElement = event.target;
-  const { body } = document;
   const safeActive = !isActive();
   const modalId = clickedElement
     ? clickedElement.getAttribute("aria-controls")
