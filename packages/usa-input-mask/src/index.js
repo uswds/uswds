@@ -265,25 +265,15 @@ const createErrorMessageEl = (errorId, inputEl) => {
 };
 
 /**
- * Triggers the error message announcement for screen readers after a 1000ms delay.
- *
- * @param {HTMLElement} msgEl - The screen reader error message element
- * @param {boolean} status - A boolean of error's hidden status
- */
-const srUpdateErrorStatus = debounce((msgEl, status) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.hidden = status;
-}, 1000);
-
-/**
  * Updates the error message text content for screen readers after a 1000ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader error message element
- * @param {string} errorMsg - A string of the error message
+ * @param {string} errorMsg - Error message text content
+ * @param {boolean} status - Error message active status
  */
-const srUpdateErrorMsg = debounce((msgEl, errorMsg) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.textContent = errorMsg;
+const srUpdateErrorMsg = debounce((errorMsg, msgEl, status) => {
+  msgEl.textContent = errorMsg;
+  msgEl.hidden = status;
 }, 1000);
 
 /**
@@ -399,8 +389,7 @@ const handleErrorState = (
   errorMessageEl.textContent = errorTextContent;
 
   // update SR only error message content and status
-  srUpdateErrorStatus(errorMessageSrOnlyEl, hiddenStatus);
-  srUpdateErrorMsg(errorMessageSrOnlyEl, errorMessageSrOnly);
+  srUpdateErrorMsg(errorMessageSrOnly, errorMessageSrOnlyEl, hiddenStatus);
 };
 
 /**
