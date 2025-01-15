@@ -14,19 +14,17 @@ const getHideText = (showText) =>
   showText.replace(/\bShow\b/i, (show) => `${show[0] === "S" ? "H" : "h"}ide`);
 
 const resolveIdRefs = (id) => {
-  const ids = id.trim()
-    .split(/\s+/);
+  const ids = id.trim().split(/\s+/);
 
-  return ids
-    .map((i) => {
-      const el = document.getElementById(i);
-      if (!el) {
-        const err = `no element with id: ${i}`;
-        throw new Error(err);
-      }
-      return el;
-    })
-}
+  return ids.map((i) => {
+    const el = document.getElementById(i);
+    if (!el) {
+      const err = `no element with id: ${i}`;
+      throw new Error(err);
+    }
+    return el;
+  });
+};
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
