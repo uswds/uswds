@@ -580,8 +580,6 @@ const parseDateString = (
  * @returns {string} the formatted date string
  */
 
-// Add date input formatting here
-
 const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
   const padZeros = (value, length) => `0000${value}`.slice(-length);
 
@@ -927,37 +925,36 @@ const enhanceDatePicker = (el) => {
     <div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`,
   );
 
-  /**
-   * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
-   *
-   * @param {HTMLElement} externalInputEl The input element to format.
-   * @param {KeyboardEvent} event The keydown event object.
-   * @param {InputEvent} event The input event object.
-   */
-  function handleBackspaceFormatting(event) {
-    if (event.key === "Backspace") {
-      if (this.selectionStart === this.selectionEnd) {
-        // If no text is selected, delete the preceding character
-        event.preventDefault();
-        const inputValue = this.value;
-        const cursorPosition = this.selectionStart;
-        const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
+/**
+ * Formats the input value as the user types, ensuring proper backspace behavior (removing preceding characters or numbers).
+ *
+ * @param {KeyboardEvent} event The keydown event object.
+ */
+const handleBackspaceFormatting = (event) => {
+  const { target } = event;
 
-        if (lastChar === "/") {
-          // Remove slash and the preceding number
-          this.value =
-            inputValue.slice(0, cursorPosition - 2) +
-            inputValue.slice(cursorPosition);
-        } else {
-          // Remove only the preceding number
-          this.value =
-            inputValue.slice(0, cursorPosition - 1) +
-            inputValue.slice(cursorPosition);
-        }
+  if (event.key === "Backspace") {
+    if (target.selectionStart === target.selectionEnd) {
+      // If no text is selected, delete the preceding character
+      event.preventDefault();
+      const inputValue = target.value;
+      const cursorPosition = target.selectionStart;
+      const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
+
+      if (lastChar === "/" || (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")) {
+        // Remove preceding number and slash
+        target.value = inputValue.slice(0, cursorPosition - 1 - (inputValue[cursorPosition - 2] === "/" ? 1 : 0)) + inputValue.slice(cursorPosition);
+      } else {
+        // Remove only the preceding number
+        target.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
       }
     }
   }
+}
 
+  /**
+   * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
+   */
   function reformatInputValue() {
     const inputValue = this.value.replace(/\//g, "");
     if (inputValue.length === 1 && this.value.includes("/")) {
@@ -991,7 +988,7 @@ const enhanceDatePicker = (el) => {
     }
   }
 
-  externalInputEl.addEventListener("keydown", handleBackspaceFormatting);
+  externalInputEl.addEventListener("keydown", handleBackspaceFormatting.bind(this));
   externalInputEl.addEventListener("input", reformatInputValue);
 
   internalInputEl.setAttribute("aria-hidden", "true");
