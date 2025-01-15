@@ -14,10 +14,9 @@ const ERROR_MESSAGE_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_SR_DEFAULT = "Error: please enter a valid character";
 const ERROR_MESSAGE_FULL_DEFAULT = "Maximum character count reached";
 const ERROR_MESSAGE_FULL_SR_DEFAULT = "Maximum character count reached";
-const ERROR_MESSAGE_PASTE_DEFAULT =
-  "Error: Input was not accepted or partially accepted.";
+const ERROR_MESSAGE_PASTE_DEFAULT = "Some pasted characters were not accepted.";
 const ERROR_MESSAGE_PASTE_SR_DEFAULT =
-  "Error: Input was not accepted or partially accepted.";
+  "Error: Some pasted characters were not accepted.";
 const ERROR_MESSAGE_ALPHA_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: please enter a letter";
 const ERROR_MESSAGE_NUMERIC_DEFAULT = "Error: please enter a number";
@@ -165,7 +164,7 @@ const checkMaskType = (placeholder, value) => {
   const valueLength = value.length;
   let array = [];
 
-  array = [...placeholder].map(char => {
+  array = [...placeholder].map((char) => {
     const matchesNumber = maskedNumber.includes(char);
     const matchesLetter = maskedLetter.includes(char);
 
@@ -189,6 +188,31 @@ const checkMaskType = (placeholder, value) => {
 
   return { matchType };
 };
+
+/**
+ * Compares the new input value to the clipboard text data and returns the longest common prefix between them.
+ *
+ * @param {string} str1 - The new input value
+ * @param {string} str2 - The clipboard text data
+ * @returns {string} The longest common prefix between str1 and str2.
+ *
+ */
+function stripPasteValue(str1, str2) {
+  let value = "";
+  const stringOne = strippedValue(true, str1);
+  const stringTwo = strippedValue(true, str2);
+  const minLength = Math.min(stringOne.length, stringTwo.length);
+
+  for (let i = 0; i < minLength; i++) {
+    if (stringOne[i] === stringTwo[i]) {
+      value += str1[i];
+    } else {
+      break;
+    }
+  }
+
+  return value;
+}
 
 /**
  * Checks if the new input character meets the mask's requirement.
@@ -236,6 +260,12 @@ const handleCurrentValue = (el) => {
       break;
     }
   }
+
+  // If a pasted input is invalid, strip it
+  if (newValue.length !== len && inputAddedByPaste) {
+    newValue = stripPasteValue(newValue, clipboardData);
+  }
+
   return { newValue, matchType };
 };
 
@@ -468,6 +498,11 @@ const inputMaskEvents = {
   keydown: {
     [MASKED](e) {
       keyDownCheck(e);
+    },
+    paste: {
+      [MASKED](e) {
+        handleValueChange(e);
+      },
     },
   },
 };
