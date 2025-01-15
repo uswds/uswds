@@ -6,18 +6,19 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
+const HINT_WRAPPER_CLASS = `${RANGE}__hint`
 
 /** Update range hint for sighted users */
 
 const rangeHint = (val) => {
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
   if (val) {
-    const rangeHint = rangeForm.querySelector(".rangeHint");
-    rangeHint.value = val;
+    const rangeHintVal = rangeForm.querySelector(HINT_WRAPPER_CLASS);
+    rangeHintVal.value = val;
   } else {
-    const rangeHint = document.createElement("input");
-    rangeHint.className = "rangeHint";
-    rangeForm.appendChild(rangeHint);
+    const rangeHintVal = document.createElement("input");
+    rangeHintVal.className = "usa-range__hint";
+    rangeForm.appendChild(rangeHintVal);
   }
 };
 
