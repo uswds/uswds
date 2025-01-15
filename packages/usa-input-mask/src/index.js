@@ -54,34 +54,28 @@ const getMaskInputContext = (el) => {
 
   const inputId = inputEl.id;
   const errorId = `${inputId}Error`;
-  const errorMsgDefault =
-    inputEl.getAttribute("data-errorMessage") || ERROR_MESSAGE_DEFAULT;
+  const errorMsgDefault = inputEl.dataset.errorMessage || ERROR_MESSAGE_DEFAULT;
   const errorMsgAlpha =
-    inputEl.getAttribute("data-errorMessageAlphabetical") ||
-    ERROR_MESSAGE_ALPHA_DEFAULT;
+    inputEl.dataset.errorMessageAlphabetical || ERROR_MESSAGE_ALPHA_DEFAULT;
   const errorMsgNum =
-    inputEl.getAttribute("data-errorMessageNumerical") ||
-    ERROR_MESSAGE_NUMERIC_DEFAULT;
+    inputEl.dataset.errorMessageNumerical || ERROR_MESSAGE_NUMERIC_DEFAULT;
   const errorMsgFull =
-    inputEl.getAttribute("data-errorMessageInputFull") ||
-    ERROR_MESSAGE_FULL_DEFAULT;
+    inputEl.dataset.errorMessageInputFull || ERROR_MESSAGE_FULL_DEFAULT;
   const errorMsgPaste =
-    inputEl.getAttribute("data-errorMessagePaste") ||
-    ERROR_MESSAGE_PASTE_DEFAULT;
+    inputEl.dataset.errorMessagePaste || ERROR_MESSAGE_PASTE_DEFAULT;
   const errorMsgDefaultSrOnly =
-    inputEl.getAttribute("data-errorMessageSrOnly") || ERROR_MESSAGE_SR_DEFAULT;
+    inputEl.dataset.errorMessageSrOnly || ERROR_MESSAGE_SR_DEFAULT;
   const errorMsgAlphaSrOnly =
-    inputEl.getAttribute("data-errorMessageAlphabeticalSrOnly") ||
+    inputEl.dataset.errorMessageAlphabeticalSrOnly ||
     ERROR_MESSAGE_ALPHA_SR_DEFAULT;
   const errorMsgNumSrOnly =
-    inputEl.getAttribute("data-errorMessageNumericalSrOnly") ||
+    inputEl.dataset.errorMessageNumericalSrOnly ||
     ERROR_MESSAGE_NUMERIC_SR_DEFAULT;
   const errorMsgFullSrOnly =
-    inputEl.getAttribute("data-errorMessageInputFullSrOnly") ||
+    inputEl.dataset.errorMessageInputFullSrOnly ||
     ERROR_MESSAGE_FULL_SR_DEFAULT;
   const errorMsgPasteSrOnly =
-    inputEl.getAttribute("data-errorMessagePasteSrOnly") ||
-    ERROR_MESSAGE_PASTE_SR_DEFAULT;
+    inputEl.dataset.errorMessagePasteSrOnly || ERROR_MESSAGE_PASTE_SR_DEFAULT;
 
   return {
     inputEl,
@@ -168,26 +162,25 @@ const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
  * @returns {string} matchType - The required character type (e.g., 'letter' or 'number') for the current position in the mask.
  */
 const checkMaskType = (placeholder, value) => {
-  const array = [];
   const valueLength = value.length;
-  let matchType;
+  let array = [];
 
-  for (let i = 0; i < placeholder.length; i += 1) {
-    const matchesNumber = maskedNumber.indexOf(placeholder[i]) >= 0;
-    const matchesLetter = maskedLetter.indexOf(placeholder[i]) >= 0;
+  array = [...placeholder].map(char => {
+    const matchesNumber = maskedNumber.includes(char);
+    const matchesLetter = maskedLetter.includes(char);
 
     if (matchesNumber) {
-      array.push("number");
+      return "number";
     } else if (matchesLetter) {
-      array.push("letter");
+      return "letter";
     } else {
       // Keep track of where format characters (hyphens, spaces, etc.) are
       // to ensure the index remains accurate
-      array.push("format character");
+      return "format character";
     }
-  }
+  });
 
-  matchType = array[valueLength - 1];
+  let matchType = array[valueLength - 1];
 
   // If the index lands on a "format character", move to the next matchType in the array
   if (matchType === "format character") {
@@ -254,18 +247,18 @@ const handleCurrentValue = (el) => {
  */
 const createErrorMessageEl = (errorId, inputEl) => {
   // Visual error message
-  const errorMsgSpan = document.createElement("span");
-  errorMsgSpan.setAttribute("id", errorId);
-  errorMsgSpan.setAttribute("class", ERROR_MESSAGE_CLASS);
-  errorMsgSpan.setAttribute("aria-hidden", "true");
-  inputEl.parentNode.appendChild(errorMsgSpan);
+  const errorMsgElement = document.createElement("span");
+  errorMsgElement.setAttribute("id", errorId);
+  errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
+  errorMsgElement.setAttribute("aria-hidden", "true");
+  inputEl.parentNode.appendChild(errorMsgElement);
 
   // SR-only error message
-  const errorMsgSpanSrOnly = document.createElement("span");
-  errorMsgSpanSrOnly.setAttribute("id", `${errorId}SrOnly`);
-  errorMsgSpanSrOnly.setAttribute("class", SR_ONLY_CLASS);
-  errorMsgSpanSrOnly.setAttribute("role", "alert");
-  inputEl.parentNode.appendChild(errorMsgSpanSrOnly);
+  const errorMsgElementSrOnly = document.createElement("span");
+  errorMsgElementSrOnly.setAttribute("id", `${errorId}SrOnly`);
+  errorMsgElementSrOnly.setAttribute("class", SR_ONLY_CLASS);
+  errorMsgElementSrOnly.setAttribute("role", "alert");
+  inputEl.parentNode.appendChild(errorMsgElementSrOnly);
   errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
 };
 
