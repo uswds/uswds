@@ -38,6 +38,7 @@ const navigationKeys = [
   "ArrowRight",
   "PageUp",
   "PageDown",
+  "Tab",
 ];
 
 // User-defined values
@@ -159,11 +160,12 @@ const isInteger = (value) => !Number.isNaN(parseInt(value, 10));
 const isLetter = (value) => (value ? value.match(/[A-Z]/i) : false);
 
 /**
- * Creates an array of required character types for each character in the complete input value.
- * Checks the current index to return the expected character type.
+ * Creates an array of the required character types for each position in the input value.
+ * Checks the current index and returns the expected character type for that position.
  *
- * @param {string} placeholder - String of placeholder letters or numbers that defines what the mask is expecting
- * @param {string} value - Input mask value (including the newest input attempt even if it will be rejected)
+ * @param {string} placeholder - Defines the expected character types (letters or numbers) for the mask.
+ * @param {string} value - The most recent input attempt, even if it will be rejected.
+ * @returns {string} matchType - The required character type (e.g., 'letter' or 'number') for the current position in the mask.
  */
 const checkMaskType = (placeholder, value) => {
   const array = [];
@@ -200,6 +202,8 @@ const checkMaskType = (placeholder, value) => {
  * Returns the new input value with the new character added if accepted.
  *
  * @param {HTMLElement} el - The input element
+ * @return {string} newValue - The full input value after the most recent character is added or rejected.
+ * @return {string} matchType - The required character type (e.g., 'letter' or 'number') for the current position in the mask.
  */
 const handleCurrentValue = (el) => {
   const isCharsetPresent = el.dataset.charset;
