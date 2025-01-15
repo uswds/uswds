@@ -5,25 +5,19 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
-const RANGE_WRAPPER_CLASS = `.${RANGE_CLASSNAME}__wrapper`;
+const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
 
-/** Update slidervalue hint for sighted users */
+/** Update range hint for sighted users */
 
-const updateSliderValueHint = (val) => {
+const rangeHint = (val) => {
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
-  const sliderValueHint = rangeForm.querySelector(".sliderValueHint");
-  if (sliderValueHint) {
-    sliderValueHint.value = val;
+  if (val) {
+    const rangeHint = rangeForm.querySelector(".rangeHint");
+    rangeHint.value = val;
   } else {
-    const newSliderValueHint = document.createElement("input");
-    newSliderValueHint.className = "sliderValueHint";
-    newSliderValueHint.type = "text";
-    newSliderValueHint.style.width = "35px";
-    newSliderValueHint.style.border = 0;
-    newSliderValueHint.style.margin = "8px 0 0 5px";
-    newSliderValueHint.readOnly = true;
-    newSliderValueHint.value = val;
-    rangeForm.appendChild(newSliderValueHint);
+    const rangeHint = document.createElement("input");
+    rangeHint.className = "rangeHint";
+    rangeForm.appendChild(rangeHint);
   }
 };
 
@@ -55,18 +49,14 @@ const updateCallout = (targetRange) => {
   // Note: 100 is the max attribute's native default value on range inputs
   // Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
   const max = rangeSlider.getAttribute("max") || 100;
-
   let callout;
-
   if (unit) {
     callout = `${val} ${unit} ${prep} ${max}`;
   } else {
     callout = `${val} ${prep} ${max}`;
   }
-
   rangeSlider.setAttribute("aria-valuetext", callout);
-
-  updateSliderValueHint(val);
+  rangeHint(val);
 };
 
 const rangeEvents = {
@@ -80,6 +70,7 @@ const rangeEvents = {
 const range = behavior(rangeEvents, {
   init(root) {
     selectOrMatches(RANGE, root).forEach((rangeSlider) => {
+      rangeHint();
       updateCallout(rangeSlider);
     });
   },

@@ -37,7 +37,12 @@
   max-width: 20rem;
   display: flex;
   flex-direction: row;
-  position: relative;
+  .rangeHint {
+    border: none;
+    width: 10%;
+    margin:5px 0 0 4px;
+    height: 2.5em;
+  }
 }
 
 .usa-range {
