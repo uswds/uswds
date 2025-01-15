@@ -6,7 +6,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
-const HINT_WRAPPER_CLASS = `${RANGE}__hint`
+const HINT_WRAPPER_CLASS = `${RANGE}__hint`;
 
 /** Update range hint for sighted users */
 
