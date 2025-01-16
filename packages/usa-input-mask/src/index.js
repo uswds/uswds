@@ -10,17 +10,17 @@ const MASK_CONTENT = `${MASK}--content`;
 const PLACEHOLDER = "placeholder";
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
-const ERROR_MESSAGE_DEFAULT = "Error: please enter a valid character";
-const ERROR_MESSAGE_SR_DEFAULT = "Error: please enter a valid character";
-const ERROR_MESSAGE_FULL_DEFAULT = "Maximum character count reached";
-const ERROR_MESSAGE_FULL_SR_DEFAULT = "Maximum character count reached";
+const ERROR_MESSAGE_DEFAULT = "You must enter a valid character";
+const ERROR_MESSAGE_SR_DEFAULT = "Error: You must enter a valid character";
+const ERROR_MESSAGE_FULL_DEFAULT = "You have reached the maximum number of characters allowed";
+const ERROR_MESSAGE_FULL_SR_DEFAULT = "Error: You have reached the maximum number of characters allowed.";
 const ERROR_MESSAGE_PASTE_DEFAULT = "Some pasted characters were not accepted.";
 const ERROR_MESSAGE_PASTE_SR_DEFAULT =
   "Error: Some pasted characters were not accepted.";
-const ERROR_MESSAGE_ALPHA_DEFAULT = "Error: please enter a letter";
-const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: please enter a letter";
-const ERROR_MESSAGE_NUMERIC_DEFAULT = "Error: please enter a number";
-const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: please enter a number";
+const ERROR_MESSAGE_ALPHA_DEFAULT = "You must enter a letter";
+const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: You must enter a letter";
+const ERROR_MESSAGE_NUMERIC_DEFAULT = "You must enter a number";
+const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: You must enter a number";
 
 let errorMessageSrOnlyEl;
 let lastValueLength;
