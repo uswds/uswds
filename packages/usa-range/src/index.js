@@ -18,7 +18,14 @@ const rangeHint = (val) => {
   } else {
     const rangeHintVal = document.createElement("input");
     rangeHintVal.className = "usa-range__hint";
-    rangeForm.appendChild(rangeHintVal);
+
+    const rangeInput = document.getElementById("usa-range");
+    const rangeWrapper = document.createElement("div");
+    rangeWrapper.className = "usa-range__wrapper";
+    rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
+
+    rangeWrapper.appendChild(rangeInput);
+    rangeWrapper.appendChild(rangeHintVal);
   }
 };
 
