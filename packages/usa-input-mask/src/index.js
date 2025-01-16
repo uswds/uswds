@@ -12,8 +12,10 @@ const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 const ERROR_MESSAGE_DEFAULT = "You must enter a valid character";
 const ERROR_MESSAGE_SR_DEFAULT = "Error: You must enter a valid character";
-const ERROR_MESSAGE_FULL_DEFAULT = "You have reached the maximum number of characters allowed";
-const ERROR_MESSAGE_FULL_SR_DEFAULT = "Error: You have reached the maximum number of characters allowed.";
+const ERROR_MESSAGE_FULL_DEFAULT =
+  "You have reached the maximum number of characters allowed";
+const ERROR_MESSAGE_FULL_SR_DEFAULT =
+  "Error: You have reached the maximum number of characters allowed.";
 const ERROR_MESSAGE_PASTE_DEFAULT = "Some pasted characters were not accepted.";
 const ERROR_MESSAGE_PASTE_SR_DEFAULT =
   "Error: Some pasted characters were not accepted.";
@@ -141,8 +143,9 @@ const createMaskedInputShell = (input) => {
  * @param {string} errorId - The ID of the error message element
  * @param {string} inputEl - The input element
  */
-const createErrorMessageEl = (errorId, inputEl) => {
-  const { errorMsgDefault, errorMsgDefaultSrOnly } = getMaskInputContext(inputEl);
+const createErrorMessageEl = (inputEl) => {
+  const { errorMsgDefault, errorMsgDefaultSrOnly } =
+    getMaskInputContext(inputEl);
 
   // Visual error message
   const errorMsgElement = document.createElement("div");
@@ -205,13 +208,12 @@ const checkMaskType = (placeholder, value) => {
 
     if (matchesNumber) {
       return "number";
-    } else if (matchesLetter) {
-      return "letter";
-    } else {
-      // Keep track of where format characters (hyphens, spaces, etc.) are
-      // to ensure the index remains accurate
-      return "format character";
     }
+    if (matchesLetter) {
+      return "letter";
+    }
+    // If not a number or letter, it's a format character
+    return "format character";
   });
 
   let matchType = array[valueLength - 1];
@@ -238,12 +240,18 @@ function stripPasteValue(str1, str2) {
   const stringTwo = strippedValue(true, str2);
   const minLength = Math.min(stringOne.length, stringTwo.length);
 
-  for (let i = 0; i < minLength; i++) {
-    if (stringOne[i] === stringTwo[i]) {
-      value += str1[i];
-    } else {
-      break;
-    }
+  // Find the index of the first mismatch between the two strings
+  const firstMismatchIndex = [...Array(minLength).keys()].find(
+    (i) => stringOne[i] !== stringTwo[i],
+  );
+
+  // If there is a mismatch, return the part of str1 up to the mismatch
+  if (firstMismatchIndex !== undefined) {
+    value = str1.slice(0, firstMismatchIndex);
+
+    // Else, there is no mismatch, return the whole common part of both strings
+  } else {
+    value = str1.slice(0, minLength);
   }
 
   return value;
@@ -409,7 +417,7 @@ const handleErrorState = (
     // New character accepted, hide error
   } else if (valueAccepted) {
     hiddenStatus = true;
-  } 
+  }
 
   // Update visual error message content and status
   const errorMessageEl = document.getElementById(errorId);
@@ -497,8 +505,8 @@ const inputMaskEvents = {
   keydown: {
     [MASKED](e) {
       keyDownCheck(e);
-    }
-  }
+    },
+  },
 };
 
 const inputMask = behavior(inputMaskEvents, {
@@ -507,7 +515,7 @@ const inputMask = behavior(inputMaskEvents, {
       createMaskedInputShell(maskedInput);
 
       errorId = `${maskedInput.id}Error`;
-      createErrorMessageEl(errorId, maskedInput);
+      createErrorMessageEl(maskedInput);
     });
   },
 });
