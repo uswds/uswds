@@ -504,13 +504,8 @@ const inputMaskEvents = {
   keydown: {
     [MASKED](e) {
       keyDownCheck(e);
-    },
-    paste: {
-      [MASKED](e) {
-        handleValueChange(e);
-      },
-    },
-  },
+    }
+  }
 };
 
 const inputMask = behavior(inputMaskEvents, {
