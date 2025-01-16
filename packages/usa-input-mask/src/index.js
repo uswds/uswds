@@ -32,6 +32,7 @@ let backspacePressed;
 let errorTextContent;
 let errorMessageSrOnly;
 let hiddenStatus = false;
+let errorId;
 
 const navigationKeys = [
   "Home",
@@ -60,8 +61,6 @@ const getMaskInputContext = (el) => {
     throw new Error(`Element is missing outer ${inputEl}`);
   }
 
-  const inputId = inputEl.id;
-  const errorId = `${inputId}Error`;
   const errorMsgDefault = inputEl.dataset.errorMessage || ERROR_MESSAGE_DEFAULT;
   const errorMsgAlpha =
     inputEl.dataset.errorMessageAlphabetical || ERROR_MESSAGE_ALPHA_DEFAULT;
@@ -86,9 +85,6 @@ const getMaskInputContext = (el) => {
     inputEl.dataset.errorMessagePasteSrOnly || ERROR_MESSAGE_PASTE_SR_DEFAULT;
 
   return {
-    inputEl,
-    errorId,
-    inputId,
     errorMsgDefault,
     errorMsgAlpha,
     errorMsgNum,
@@ -335,7 +331,6 @@ const handleErrorState = (
   maxLengthReached,
 ) => {
   const {
-    errorId,
     errorMsgNum,
     errorMsgAlpha,
     errorMsgFull,
@@ -345,11 +340,6 @@ const handleErrorState = (
     errorMsgFullSrOnly,
     errorMsgPasteSrOnly,
   } = getMaskInputContext(inputEl);
-
-  // Create visual and SR-only error message elements and add to DOM
-  if (!document.getElementById(errorId)) {
-    createErrorMessageEl(errorId, inputEl);
-  }
 
   // Check if value attempt was accepted or rejected
   const strippedValueAttempt = strippedValue(true, valueAttempt);
@@ -512,6 +502,9 @@ const inputMask = behavior(inputMaskEvents, {
   init(root) {
     selectOrMatches(MASKED, root).forEach((maskedInput) => {
       createMaskedInputShell(maskedInput);
+
+      errorId = `${maskedInput.id}Error`;
+      createErrorMessageEl(errorId, maskedInput);
     });
   },
 });
