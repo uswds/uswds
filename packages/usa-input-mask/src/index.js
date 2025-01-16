@@ -29,6 +29,9 @@ let shiftComboPressed;
 let inputAddedByPaste;
 let clipboardData = "";
 let backspacePressed;
+let errorTextContent;
+let errorMessageSrOnly;
+let hiddenStatus = false;
 
 const navigationKeys = [
   "Home",
@@ -40,8 +43,14 @@ const navigationKeys = [
   "Tab",
 ];
 
-// User-defined values
+// User-defined values:
+// maskedNumber = "_#dDmMyY9"; represents the following:
+// _ can match any character (placeholder)
+// # can match any digit (0-9)
+// d, D, m, M, y, Y can be placeholders for digits or ranges
+// 9 can be a digit (0-9)
 const maskedNumber = "_#dDmMyY9";
+// maskedLetter = "A"; represents a mask that matches any letter (uppercase, lowercase).
 const maskedLetter = "A";
 
 const getMaskInputContext = (el) => {
@@ -99,7 +108,11 @@ const getMaskInputContext = (el) => {
  * @param {HTMLElement} input - The input element
  */
 const createMaskedInputShell = (input) => {
+  const { errorMsgDefault, errorMsgDefaultSrOnly } = getMaskInputContext(input);
   const placeholder = input.getAttribute(`${PLACEHOLDER}`);
+  // Set default messages as a failsafe
+  errorTextContent = errorMsgDefault;
+  errorMessageSrOnly = errorMsgDefaultSrOnly;
   if (placeholder) {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
@@ -277,7 +290,7 @@ const handleCurrentValue = (el) => {
  */
 const createErrorMessageEl = (errorId, inputEl) => {
   // Visual error message
-  const errorMsgElement = document.createElement("span");
+  const errorMsgElement = document.createElement("div");
   errorMsgElement.setAttribute("id", errorId);
   errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgElement.setAttribute("aria-hidden", "true");
@@ -323,12 +336,10 @@ const handleErrorState = (
 ) => {
   const {
     errorId,
-    errorMsgDefault,
     errorMsgNum,
     errorMsgAlpha,
     errorMsgFull,
     errorMsgPaste,
-    errorMsgDefaultSrOnly,
     errorMsgNumSrOnly,
     errorMsgAlphaSrOnly,
     errorMsgFullSrOnly,
@@ -349,11 +360,6 @@ const handleErrorState = (
   // Check if the new character was a format character added by the mask
   const lastChar = newValue.charAt(newValue.length - 1);
   const formatCharAdded = lastChar !== keyPressed;
-
-  // Set default messages as a failsafe
-  let errorTextContent = errorMsgDefault;
-  let errorMessageSrOnly = errorMsgDefaultSrOnly;
-  let hiddenStatus = false;
 
   // Set error message content
   if (matchType === "letter") {
