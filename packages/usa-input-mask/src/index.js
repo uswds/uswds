@@ -104,11 +104,8 @@ const getMaskInputContext = (el) => {
  * @param {HTMLElement} input - The input element
  */
 const createMaskedInputShell = (input) => {
-  const { errorMsgDefault, errorMsgDefaultSrOnly } = getMaskInputContext(input);
   const placeholder = input.getAttribute(`${PLACEHOLDER}`);
-  // Set default messages as a failsafe
-  errorTextContent = errorMsgDefault;
-  errorMessageSrOnly = errorMsgDefaultSrOnly;
+
   if (placeholder) {
     input.setAttribute("maxlength", placeholder.length);
     input.setAttribute("data-placeholder", placeholder);
@@ -136,6 +133,35 @@ const createMaskedInputShell = (input) => {
   shell.appendChild(content);
   input.parentNode.insertBefore(shell, input);
   shell.appendChild(input);
+};
+
+/**
+ * Creates visual and SR-only error messages and adds them to the DOM.
+ *
+ * @param {string} errorId - The ID of the error message element
+ * @param {string} inputEl - The input element
+ */
+const createErrorMessageEl = (errorId, inputEl) => {
+  const { errorMsgDefault, errorMsgDefaultSrOnly } = getMaskInputContext(inputEl);
+
+  // Visual error message
+  const errorMsgElement = document.createElement("div");
+  errorMsgElement.setAttribute("id", errorId);
+  errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
+  errorMsgElement.setAttribute("aria-hidden", "true");
+  inputEl.parentNode.appendChild(errorMsgElement);
+
+  // SR-only error message
+  const errorMsgElementSrOnly = document.createElement("span");
+  errorMsgElementSrOnly.setAttribute("id", `${errorId}SrOnly`);
+  errorMsgElementSrOnly.setAttribute("class", SR_ONLY_CLASS);
+  errorMsgElementSrOnly.setAttribute("role", "alert");
+  inputEl.parentNode.appendChild(errorMsgElementSrOnly);
+  errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
+
+  // Set default messages
+  errorTextContent = errorMsgDefault;
+  errorMessageSrOnly = errorMsgDefaultSrOnly;
 };
 
 /**
@@ -279,29 +305,6 @@ const handleCurrentValue = (el) => {
 };
 
 /**
- * Creates visual and SR-only error messages and adds them to the DOM.
- *
- * @param {string} errorId - The ID of the error message element
- * @param {string} inputEl - The input element
- */
-const createErrorMessageEl = (errorId, inputEl) => {
-  // Visual error message
-  const errorMsgElement = document.createElement("div");
-  errorMsgElement.setAttribute("id", errorId);
-  errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
-  errorMsgElement.setAttribute("aria-hidden", "true");
-  inputEl.parentNode.appendChild(errorMsgElement);
-
-  // SR-only error message
-  const errorMsgElementSrOnly = document.createElement("span");
-  errorMsgElementSrOnly.setAttribute("id", `${errorId}SrOnly`);
-  errorMsgElementSrOnly.setAttribute("class", SR_ONLY_CLASS);
-  errorMsgElementSrOnly.setAttribute("role", "alert");
-  inputEl.parentNode.appendChild(errorMsgElementSrOnly);
-  errorMessageSrOnlyEl = document.getElementById(`${errorId}SrOnly`);
-};
-
-/**
  * Updates the error message text content for screen readers after a 1000ms delay.
  *
  * @param {HTMLElement} msgEl - The screen reader error message element
@@ -406,7 +409,7 @@ const handleErrorState = (
     // New character accepted, hide error
   } else if (valueAccepted) {
     hiddenStatus = true;
-  }
+  } 
 
   // Update visual error message content and status
   const errorMessageEl = document.getElementById(errorId);
