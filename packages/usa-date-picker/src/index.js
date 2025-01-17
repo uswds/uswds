@@ -930,27 +930,67 @@ const enhanceDatePicker = (el) => {
  *
  * @param {KeyboardEvent} event The keydown event object.
  */
-// const handleBackspaceFormatting = (event) => {
-//   const { target } = event;
+const handleBackspaceFormatting = (event) => {
+  const { target } = event;
 
-//   if (event.key === "Backspace") {
-//     if (target.selectionStart === target.selectionEnd) {
-//       // If no text is selected, delete the preceding character
-//       event.preventDefault();
-//       const inputValue = target.value;
-//       const cursorPosition = target.selectionStart;
-//       const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
+  if (event.key === "Backspace") {
+    if (target.selectionStart === target.selectionEnd) {
+      // If no text is selected, delete the preceding character
+      event.preventDefault();
+      const inputValue = target.value;
+      const cursorPosition = target.selectionStart;
+      const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
 
-//       if (lastChar === "/" || (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")) {
-//         // Remove preceding number and slash
-//         target.value = inputValue.slice(0, cursorPosition - 1 - (inputValue[cursorPosition - 2] === "/" ? 1 : 0)) + inputValue.slice(cursorPosition);
-//       } else {
-//         // Remove only the preceding number
-//         target.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
-//       }
-//     }
-//   }
-// }
+      if (lastChar === "/" || (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")) {
+        // Remove preceding number and slash
+        target.value = inputValue.slice(0, cursorPosition - 1 - (inputValue[cursorPosition - 2] === "/" ? 1 : 0)) + inputValue.slice(cursorPosition);
+      } else {
+        // Remove only the preceding number
+        target.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
+      }
+    }
+  }
+}
+
+/**
+ * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
+ */
+const reformatInputValue = (event) => {
+  const { target } = event;
+  const inputValue = target.value.replace(/\//g, "");
+  if (inputValue.length === 1 && target.value.includes("/")) {
+    const month = parseInt(inputValue, 10);
+    target.value = `${String(month).padStart(2, "0")}/`;
+  } else if (inputValue.length === 2) {
+    const month = parseInt(inputValue, 10);
+    target.value = `${String(month).padStart(2, "0")}/`;
+  } else if (inputValue.length === 3 && target.value.endsWith("/")) {
+    const month = parseInt(inputValue.slice(0, 2), 10);
+    const day = parseInt(inputValue.slice(2, 3), 10);
+    target.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+      2,
+      "0",
+    )}/`;
+  } else if (inputValue.length === 4) {
+    const month = parseInt(inputValue.slice(0, 2), 10);
+    const day = parseInt(inputValue.slice(2, 4), 10);
+    target.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+      2,
+      "0",
+    )}/`;
+  } else if (inputValue.length === 6) {
+    const month = parseInt(inputValue.slice(0, 2), 10);
+    const day = parseInt(inputValue.slice(2, 4), 10);
+    const year = inputValue.slice(4);
+    target.value = `${String(month).padStart(2, "0")}/${String(day).padStart(
+      2,
+      "0",
+    )}/${year}`;
+  }
+};
+
+externalInputEl.addEventListener("keydown", handleBackspaceFormatting.bind(this));
+externalInputEl.addEventListener("input", reformatInputValue);
 
   internalInputEl.setAttribute("aria-hidden", "true");
   internalInputEl.setAttribute("tabindex", "-1");
@@ -976,44 +1016,6 @@ const enhanceDatePicker = (el) => {
     ariaDisable(datePickerEl);
     internalInputEl.removeAttribute("aria-disabled");
   }
-};
-
-// Reformat Input Element
-/**
- * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
- */
-const reformatInputValue = (inputElement) => {
-  let inputValue = inputElement.value.replace(/\//g, "")
-  if (inputValue.length === 1 && inputValue.includes("/")) {
-    const month = parseInt(inputValue, 10);
-    inputValue = `${String(month).padStart(2, "0")}/`;
-  } else if (inputValue.length === 2) {
-    const month = parseInt(inputValue, 10);
-    inputValue = `${String(month).padStart(2, "0")}/`;
-  } else if (inputValue.length === 3 && inputValue.endsWith("/")) {
-    const month = parseInt(inputValue.slice(0, 2), 10);
-    const day = parseInt(inputValue.slice(2, 3), 10);
-    inputValue = `${String(month).padStart(2, "0")}/${String(day).padStart(
-      2,
-      "0",
-    )}/`;
-  } else if (inputValue.length === 4) {
-    const month = parseInt(inputValue.slice(0, 2), 10);
-    const day = parseInt(inputValue.slice(2, 4), 10);
-    inputValue = `${String(month).padStart(2, "0")}/${String(day).padStart(
-      2,
-      "0",
-    )}/`;
-  } else if (inputValue.length === 6) {
-    const month = parseInt(inputValue.slice(0, 2), 10);
-    const day = parseInt(inputValue.slice(2, 4), 10);
-    const year = inputValue.slice(4);
-    inputValue = `${String(month).padStart(2, "0")}/${String(day).padStart(
-      2,
-      "0",
-    )}/${year}`;
-  }
-  return inputValue;
 };
 
 // #region Calendar - Date Selection View
@@ -2308,8 +2310,6 @@ const datePickerEvents = {
   },
   input: {
     [DATE_PICKER_EXTERNAL_INPUT]() {
-      const formattedValue = reformatInputValue(this);
-      this.value = formattedValue;
       reconcileInputValues(this);
       updateCalendarIfVisible(this);
     },
