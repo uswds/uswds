@@ -579,7 +579,6 @@ const parseDateString = (
  * @param {string} dateFormat the format of the date string
  * @returns {string} the formatted date string
  */
-
 const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
   const padZeros = (value, length) => `0000${value}`.slice(-length);
 
