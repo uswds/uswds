@@ -152,6 +152,7 @@ const createErrorMessageEl = (inputEl) => {
   errorMsgElement.setAttribute("id", errorId);
   errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgElement.setAttribute("aria-hidden", "true");
+  errorMsgElement.hidden = true;
   inputEl.parentNode.appendChild(errorMsgElement);
 
   // SR-only error message
