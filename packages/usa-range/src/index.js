@@ -18,6 +18,7 @@ const rangeHint = (val) => {
   } else {
     const rangeHintVal = document.createElement("input");
     rangeHintVal.className = "usa-range__hint";
+    rangeHintVal.ariaLabel = "Current Range Value";
 
     const rangeInput = document.getElementById("usa-range");
     const rangeWrapper = document.createElement("div");
