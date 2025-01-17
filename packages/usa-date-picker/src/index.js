@@ -926,36 +926,13 @@ const enhanceDatePicker = (el) => {
   );
 
 /**
- * Formats the input value as the user types, ensuring proper backspace behavior (removing preceding characters or numbers).
- *
- * @param {KeyboardEvent} event The keydown event object.
- */
-const handleBackspaceFormatting = (event) => {
-  const { target } = event;
-
-  if (event.key === "Backspace") {
-    if (target.selectionStart === target.selectionEnd) {
-      // If no text is selected, delete the preceding character
-      event.preventDefault();
-      const inputValue = target.value;
-      const cursorPosition = target.selectionStart;
-      const lastChar = inputValue.slice(cursorPosition - 1, cursorPosition);
-
-      if (lastChar === "/" || (cursorPosition > 1 && inputValue[cursorPosition - 2] === "/")) {
-        // Remove preceding number and slash
-        target.value = inputValue.slice(0, cursorPosition - 1 - (inputValue[cursorPosition - 2] === "/" ? 1 : 0)) + inputValue.slice(cursorPosition);
-      } else {
-        // Remove only the preceding number
-        target.value = inputValue.slice(0, cursorPosition - 1) + inputValue.slice(cursorPosition);
-      }
-    }
-  }
-}
-
-/**
  * Formats the input date as the user types, ensuring proper formatting and behavior (adding leading zeros and slashes).
  */
 const reformatInputValue = (event) => {
+  if (event.inputType === "deleteContentBackward") {
+    return;
+  }
+
   const { target } = event;
   const inputValue = target.value.replace(/\//g, "");
   if (inputValue.length === 1 && target.value.includes("/")) {
@@ -989,7 +966,6 @@ const reformatInputValue = (event) => {
   }
 };
 
-externalInputEl.addEventListener("keydown", handleBackspaceFormatting.bind(this));
 externalInputEl.addEventListener("input", reformatInputValue);
 
   internalInputEl.setAttribute("aria-hidden", "true");
