@@ -21,6 +21,7 @@
       border-radius: radius($theme-input-tile-border-radius);
       margin-top: units(1);
       padding: units(1.5) units(2) units(1.5) units(5);
+      display: inherit;
 
       &::before {
         left: units(5) - units($input-select-margin-right) - units(
@@ -53,7 +54,7 @@
 .usa-checkbox__label {
   @extend %block-input-general;
   cursor: pointer;
-  display: inherit;
+  display: inline-block;
   font-weight: font-weight("normal");
   margin-top: units(1.5);
   padding-left: units($input-select-margin-right) +
