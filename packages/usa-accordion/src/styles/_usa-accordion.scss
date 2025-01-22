@@ -37,18 +37,22 @@ $accordion-button-open-hc-icon: map-merge(
 
 // Accordion Styles
 @mixin accordion-list-styles {
+  & {
+    color: color("ink");
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
   @include unstyled-list;
-  color: color("ink");
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
 
 @mixin accordion-hc-icon-styles {
-  height: 100%;
-  position: absolute;
-  right: units(2.5);
-  top: 0;
+  & {
+    height: 100%;
+    position: absolute;
+    right: units(2.5);
+    top: 0;
+  }
 }
 
 // Opened styles
@@ -63,17 +67,26 @@ $accordion-button-open-hc-icon: map-merge(
     "usa-icons/remove",
     "usa-icons-bg/remove--white"
   );
-  background-position: right units(2.5) center;
-  background-size: units(3);
-  cursor: pointer;
-  display: inline-block;
-  font-weight: font-weight("bold");
-  margin: 0;
-  padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
-  text-decoration: none;
-  width: 100%;
+
+  //
+  //* Move declarations after mixins to preserve overrides.
+  //
+  //
+  & {
+    background-position: right units(2.5) center;
+    background-size: units(3);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: font-weight("bold");
+    margin: 0;
+    padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
+    text-decoration: none;
+    width: 100%;
+  }
 
   &:hover {
+    text-decoration: none;
+
     @include set-text-and-bg(
       $accordion-button-background-active-color,
       $context: $accordion-context
@@ -83,7 +96,6 @@ $accordion-button-open-hc-icon: map-merge(
       "usa-icons/remove",
       "usa-icons-bg/remove--white"
     );
-    text-decoration: none;
   }
 
   @media (forced-colors: active) {
@@ -91,20 +103,23 @@ $accordion-button-open-hc-icon: map-merge(
     position: relative;
 
     &::before {
+      content: "";
       @include add-color-icon($accordion-button-open-hc-icon);
       @include accordion-hc-icon-styles();
-      content: "";
     }
   }
 }
 
 @mixin accordion-button-unopened-styles {
+  & {
+    background-size: units(3);
+  }
+
   @include set-icon-from-bg(
     $theme-accordion-button-background-color,
     "usa-icons/add",
     "usa-icons-bg/add--white"
   );
-  background-size: units(3);
 
   &:hover {
     @include set-icon-from-bg(
@@ -163,8 +178,8 @@ $accordion-button-open-hc-icon: map-merge(
 // kludge to override .usa-prose styles
 // TODO: work this into a mixin
 .usa-prose .usa-accordion__heading {
-  @include typeset($theme-accordion-font-family, $theme-body-font-size, 1);
   margin: 0;
+  @include typeset($theme-accordion-font-family, $theme-body-font-size, 1);
 
   &:not(:first-child) {
     margin-top: units(1);
@@ -172,13 +187,13 @@ $accordion-button-open-hc-icon: map-merge(
 }
 
 .usa-accordion__content {
+  margin-top: 0;
+  overflow: auto;
+  padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
   @include set-text-and-bg(
     $theme-accordion-background-color,
     $context: $accordion-context
   );
-  margin-top: 0;
-  overflow: auto;
-  padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
 
   > *:first-child {
     margin-top: 0;

@@ -143,15 +143,17 @@
     "usa-icons/#{$filename-base}.svg"
   );
 
-  background-image: url("#{$path}/#{$filename-ie11}");
-  background-repeat: no-repeat;
-  background-position: $position-x $position-y;
-  background-size: $width $height;
-  display: inline-block;
-  height: if($container-height, $container-height, $height);
-  width: if($container-width, $container-width, $width);
-  @if $rotate {
-    transform: rotate($rotate);
+  & {
+    background-image: url("#{$path}/#{$filename-ie11}");
+    background-repeat: no-repeat;
+    background-position: $position-x $position-y;
+    background-size: $width $height;
+    display: inline-block;
+    height: if($container-height, $container-height, $height);
+    width: if($container-width, $container-width, $width);
+    @if $rotate {
+      transform: rotate($rotate);
+    }
   }
 
   // Mask supported styles
@@ -187,7 +189,6 @@
     null
   );
   &::#{$direction} {
-    @include add-color-icon($icon-object, $contrast-bg);
     content: "";
     vertical-align: $vertical-align;
 
@@ -196,6 +197,8 @@
     } @else {
       margin-right: units($margin);
     }
+
+    @include add-color-icon($icon-object, $contrast-bg);
   }
 
   @if $color-hover {

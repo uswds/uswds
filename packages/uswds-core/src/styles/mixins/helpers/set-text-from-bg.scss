@@ -18,5 +18,8 @@
     $wcag-target,
     $context
   );
-  color: color($accessible-color-token) #{$important};
+
+  & {
+    color: color($accessible-color-token) #{$important};
+  }
 }

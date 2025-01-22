@@ -9,7 +9,9 @@ Get a font-family stack
 */
 
 @mixin u-font-family($family) {
-  font-family: ff($family);
+  & {
+    font-family: ff($family);
+  }
 }
 
 /*
@@ -23,7 +25,9 @@ system scale or project scale
 */
 
 @mixin u-font-size($family, $scale) {
-  font-size: font-size($family, $scale);
+  & {
+    font-size: font-size($family, $scale);
+  }
 }
 
 /*
@@ -39,6 +43,8 @@ system scale or project scale
 */
 
 @mixin u-font($family, $scale) {
-  font-family: ff($family);
-  font-size: font-size($family, $scale);
+  & {
+    font-family: ff($family);
+    font-size: font-size($family, $scale);
+  }
 }

@@ -12,7 +12,11 @@
   $important: null
 ) {
   $important: if($important, " !important", null);
+  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
 
+  & {
+    background-color: color($bg-color) #{$important};
+  }
   @include set-text-from-bg(
     $bg-color,
     $preferred-text-color,
@@ -21,6 +25,4 @@
     $context,
     $important: $important
   );
-  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
-  background-color: color($bg-color) #{$important};
 }
