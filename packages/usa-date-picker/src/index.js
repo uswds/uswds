@@ -82,12 +82,12 @@ const VALIDATION_MESSAGE = "Please enter a valid date";
 
 // An array of Dates that represent each month in the year
 const MONTH_DATE_SEED = Array.from({ length: 12 }).map(
-  (_, i) => new Date(0, i)
+  (_, i) => new Date(0, i),
 );
 
 // An array of Dates that represent each day of the week
 const DAY_OF_WEEK_DATE_SEED = Array.from({ length: 7 }).map(
-  (_, i) => new Date(0, 0, i)
+  (_, i) => new Date(0, 0, i),
 );
 
 const CALENDAR_LABELS_BY_LANG = new Map();
@@ -707,17 +707,17 @@ const getDatePickerContext = (el) => {
   if (!CALENDAR_LABELS_BY_LANG.has(lang)) {
     CALENDAR_LABELS_BY_LANG.set(lang, {
       monthLabels: MONTH_DATE_SEED.map((date) =>
-        date.toLocaleString(lang, { month: "long" })
+        date.toLocaleString(lang, { month: "long" }),
       ),
       dayOfWeeklabels: DAY_OF_WEEK_DATE_SEED.map((date) =>
         date.toLocaleString(lang, {
           weekday: "long",
-        })
+        }),
       ),
       dayOfWeeksAbv: DAY_OF_WEEK_DATE_SEED.map((date) =>
         date.toLocaleString(lang, {
           weekday: "narrow",
-        })
+        }),
       ),
     });
   }
