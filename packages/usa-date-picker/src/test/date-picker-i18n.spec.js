@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-default-date.template.html")
+  path.join(__dirname, "/date-picker-default-date.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -44,7 +44,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const selectedMonth = root.querySelector(
-        ".usa-date-picker__calendar__month-selection"
+        ".usa-date-picker__calendar__month-selection",
       );
 
       assert.strictEqual(selectedMonth.innerHTML, "May");
@@ -56,7 +56,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const selectedMonth = root.querySelector(
-        ".usa-date-picker__calendar__month-selection"
+        ".usa-date-picker__calendar__month-selection",
       );
 
       assert.strictEqual(selectedMonth.innerHTML, "mayo");
@@ -68,12 +68,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const selectedMonth = root.querySelector(
-        ".usa-date-picker__calendar__month-selection"
+        ".usa-date-picker__calendar__month-selection",
       );
 
       assert.strictEqual(
         selectedMonth.getAttribute("aria-label"),
-        "mayo. Select month"
+        "mayo. Select month",
       );
     });
 
@@ -81,13 +81,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const selectedMonth = root.querySelector(
-        ".usa-date-picker__calendar__month-selection"
+        ".usa-date-picker__calendar__month-selection",
       );
 
       EVENTS.click(selectedMonth);
 
       const months = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__table button")
+        root.querySelectorAll(".usa-date-picker__calendar__table button"),
       ).map((btn) => btn.innerHTML);
 
       assert.deepEqual(months, [
@@ -112,13 +112,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const selectedMonth = root.querySelector(
-        ".usa-date-picker__calendar__month-selection"
+        ".usa-date-picker__calendar__month-selection",
       );
 
       EVENTS.click(selectedMonth);
 
       const months = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__table button")
+        root.querySelectorAll(".usa-date-picker__calendar__table button"),
       ).map((btn) => btn.innerHTML);
 
       assert.deepEqual(months, [
@@ -141,7 +141,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const daysOfTheWeek = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__day-of-week")
+        root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
       ).map((btn) => btn.innerHTML);
 
       assert.deepEqual(daysOfTheWeek, ["S", "M", "T", "W", "T", "F", "S"]);
@@ -153,7 +153,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const daysOfTheWeek = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__day-of-week")
+        root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
       ).map((btn) => btn.innerHTML);
 
       assert.deepEqual(daysOfTheWeek, ["D", "L", "M", "X", "J", "V", "S"]);
@@ -165,7 +165,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       const daysOfTheWeek = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__day-of-week")
+        root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
       ).map((btn) => btn.getAttribute("aria-label"));
 
       assert.deepEqual(daysOfTheWeek, [
