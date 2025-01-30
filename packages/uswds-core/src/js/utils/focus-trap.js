@@ -6,8 +6,7 @@ const activeElement = require("./active-element");
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const getFocusableElements = (context) =>
-  Array.from(select(FOCUSABLE, context));
+const getFocusableElements = (context) => Array.from(select(FOCUSABLE, context));
 const firstTabStop = (context) => getFocusableElements(context)[0];
 const lastTabStop = (context) => getFocusableElements(context).at(-1);
 
