@@ -192,6 +192,20 @@ $uswds-notifications:
 + "\A   WCAG 3.3.2."
 + "\A   ✏️ Teams should replace the words `hh:mm` in the time picker hint text with "
 + "\A     `Select a time from the dropdown. Type into the input to filter options.`"
++ "\A "
++ "\A --------------------------------------------------------------------"
++ "\A 3.11.0"
++ "\A Release notes: github.com/uswds/uswds/releases/tag/v3.11.0"
++ "\A "
++ "\A - Assets, Markup: [usa-button, usa-collection, usa-icon-list, usa-file-input, "
++ "\A   usa-icon, usa-input-prefix-suffix, usa-modal, usa-pagination]"
++ "\A   Replaced deprecated `xlink:href` references with `href`."
++ "\A   ✏️ Teams should replace `xlink:href` references with `href` "
++ "\A     in their components and pull in the updated `loader.svg` file."
++ "\A - Accessibility: [usa-file-input] Fixed a bug that prevented screen readers "
++ "\A   from announcing the invalid file type error message."
++ "\A - Accessibility: [usa-footer] Removed `overflow: hidden` from `usa-footer` "
++ "\A   to allow the full focus outline to show."
 + "\A ";
 
 /* prettier-ignore */
