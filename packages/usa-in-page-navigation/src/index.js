@@ -189,19 +189,38 @@ const getSectionId = (value) => {
 };
 
 /**
+ * Calculates the total offset of an element from the top of the page.
+ *
+ * @param {HTMLElement} el A heading element to calculate the offset for.
+ * @returns {number} The total element offset from the top of its parent.
+ */
+const getTotalElementOffset = (el) => {
+  const calculateOffset = (currentEl) => {
+    if (!currentEl.offsetParent) {
+      return currentEl.offsetTop;
+    }
+
+    return currentEl.offsetTop + calculateOffset(currentEl.offsetParent);
+  };
+
+  return calculateOffset(el);
+};
+
+/**
  * Scroll smoothly to a section based on the passed in element
  *
- * @param {HTMLElement} - Id value with the number sign removed
+ * @param {HTMLElement} el A heading element
  */
 const handleScrollToSection = (el) => {
   const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
   const inPageNavScrollOffset =
     inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
+  const offsetTop = getTotalElementOffset(el);
+
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop - inPageNavScrollOffset,
-    block: "start",
+    top: offsetTop - inPageNavScrollOffset,
   });
 
   if (window.location.hash.slice(1) !== el.id) {

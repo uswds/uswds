@@ -3,6 +3,7 @@ import TestCustomContentComponent from "./test/test-patterns/test-custom-content
 import TestCustomHeaderComponent from "./test/test-patterns/test-custom-header-selector.twig";
 import TestHiddenHeaderComponent from "./test/test-patterns/test-hidden-headers.twig";
 import TestMinimumHeaderComponent from "./test/test-patterns/test-minimum-header.twig";
+import TestNestedHeaderComponent from "./test/test-patterns/test-nested-headers.twig";
 import Content from "./usa-in-page-navigation.json";
 
 export default {
@@ -14,6 +15,7 @@ const TestCustomContentTemplate = (args) => TestCustomContentComponent(args);
 const TestCustomHeaderTemplate = (args) => TestCustomHeaderComponent(args);
 const TestHiddenHeaderTemplate = (args) => TestHiddenHeaderComponent(args);
 const TestMinimumHeaderTemplate = (args) => TestMinimumHeaderComponent(args);
+const TestNestedHeaderTemplate = (args) => TestNestedHeaderComponent(args);
 
 export const Default = Template.bind({});
 Default.args = Content;
@@ -60,3 +62,4 @@ TestMinimumHeaders.argTypes = {
     control: { type: "select" },
   },
 };
+export const TestNestedHeaders = TestNestedHeaderTemplate.bind();
