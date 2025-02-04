@@ -34,7 +34,7 @@ MockFile.prototype.create = (name, size, mimeType) => {
 };
 
 /**
- * Leverages JSdom library to instatiate a FileList
+ * Leverages JSdom library to instantiate a FileList
  * @param  {...any} files
  * @returns {Object} of FileList Type
  */

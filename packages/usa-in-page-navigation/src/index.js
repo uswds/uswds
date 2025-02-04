@@ -14,6 +14,7 @@ const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
+const IN_PAGE_NAV_MINIMUM_HEADING_COUNT = 2;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
@@ -188,19 +189,38 @@ const getSectionId = (value) => {
 };
 
 /**
+ * Calculates the total offset of an element from the top of the page.
+ *
+ * @param {HTMLElement} el A heading element to calculate the offset for.
+ * @returns {number} The total element offset from the top of its parent.
+ */
+const getTotalElementOffset = (el) => {
+  const calculateOffset = (currentEl) => {
+    if (!currentEl.offsetParent) {
+      return currentEl.offsetTop;
+    }
+
+    return currentEl.offsetTop + calculateOffset(currentEl.offsetParent);
+  };
+
+  return calculateOffset(el);
+};
+
+/**
  * Scroll smoothly to a section based on the passed in element
  *
- * @param {HTMLElement} - Id value with the number sign removed
+ * @param {HTMLElement} el A heading element
  */
 const handleScrollToSection = (el) => {
   const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
   const inPageNavScrollOffset =
     inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
+  const offsetTop = getTotalElementOffset(el);
+
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop - inPageNavScrollOffset,
-    block: "start",
+    top: offsetTop - inPageNavScrollOffset,
   });
 
   if (window.location.hash.slice(1) !== el.id) {
@@ -219,6 +239,26 @@ const scrollToCurrentSection = () => {
       handleScrollToSection(anchorTag);
     }
   }
+};
+
+/**
+ * Check if the number of specified headings meets the minimum required count.
+ *
+ * @param {Array} sectionHeadings - Array of all visible section headings.
+ * @param {Number} minimumHeadingCount - The minimum number of specified headings required.
+ * @param {Array} acceptedHeadingLevels - Array of headings considered as valid for the count.
+ * @returns {Boolean} - Returns true if the count of specified headings meets the minimum, otherwise false.
+ */
+const shouldRenderInPageNav = (
+  sectionHeadings,
+  minimumHeadingCount,
+  acceptedHeadingLevels,
+) => {
+  // Filter headings that are included in the acceptedHeadingLevels
+  const validHeadings = sectionHeadings.filter((heading) =>
+    acceptedHeadingLevels.includes(heading.tagName.toLowerCase()),
+  );
+  return validHeadings.length >= minimumHeadingCount;
 };
 
 /**
@@ -246,16 +286,35 @@ const createInPageNav = (inPageNavEl) => {
     inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS
   }`;
 
+  const inPageNavMinimumHeadingCount = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
+  }`;
+
+  const acceptedHeadingLevels = inPageNavHeadingSelector
+    .split(" ")
+    .map((h) => h.toLowerCase());
+
+  const sectionHeadings = getVisibleSectionHeadings(
+    inPageNavContentSelector,
+    inPageNavHeadingSelector,
+  );
+
+  if (
+    !shouldRenderInPageNav(
+      sectionHeadings,
+      inPageNavMinimumHeadingCount,
+      acceptedHeadingLevels,
+    )
+  ) {
+    return;
+  }
+
   const options = {
     root: null,
     rootMargin: inPageNavRootMargin,
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getVisibleSectionHeadings(
-    inPageNavContentSelector,
-    inPageNavHeadingSelector,
-  );
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
