@@ -2,9 +2,17 @@
 @use "sass:string";
 @use "../../variables/project-easing" as *;
 
-// Outputs transition with project default easing and media query to disable inessential animation
-// when reduced motion is preferred.
-
+/// Transitions with default easing and option to disable inessential
+/// animations when reduced motion is preferred.
+///
+/// @param {String} $prop - Property to transition (e.g., 'top', 'opacity', 'all').
+/// @param {String | Variable} $easing [$project-easing] - Easing function.
+/// @param {Boolean} $essential [false] - Toggle essential transitions.
+///
+/// @example
+///   @include u-transition('top');
+///   @include u-transition('opacity', 'ease-in-out');
+///   @include u-transition('all', cubic-bezier(0.17, 0.67, 0.83, 0.67), true);
 @mixin u-transition($prop, $easing: $project-easing, $essential: false) {
   @if meta.type-of($easing) == "string" {
     $easing: string.unquote($easing);
