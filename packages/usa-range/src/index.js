@@ -8,15 +8,21 @@ const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
 const HINT_WRAPPER_CLASS = `${RANGE}__hint`;
 
-/** Update range hint for sighted users */
-
+/**
+ * Update span field with the range slider's value.
+ *
+ * @param {number} val - The value selected by the user on the range slider
+ * 
+ * @comment This is the visual representation of the value of the range slider. 
+ * this value is available using screen readers.
+ */
 const rangeHint = (val) => {
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
   if (val) {
     const rangeHintVal = rangeForm.querySelector(HINT_WRAPPER_CLASS);
-    rangeHintVal.value = val;
+    rangeHintVal.textContent = val;
   } else {
-    const rangeHintVal = document.createElement("input");
+    const rangeHintVal = document.createElement("span");
     rangeHintVal.className = "usa-range__hint";
     rangeHintVal.ariaLabel = "Current Range Value";
 
