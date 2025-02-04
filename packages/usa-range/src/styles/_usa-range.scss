@@ -32,14 +32,13 @@
   border: units(1px) solid color("base");
 }
 
-// Range slider and hint
 .usa-range__wrapper {
   display: flex;
   flex-direction: row;
   .usa-range__hint {
+    @extend %block-input-styles;
+    border: none;
     width: 12%;
-    margin-left:10px;
-    padding-top: 15px;
   }
 }
 

@@ -23,12 +23,13 @@ const rangeHint = (val) => {
     rangeHintVal.textContent = val;
   } else {
     const rangeHintVal = document.createElement("span");
-    rangeHintVal.className = "usa-range__hint";
+    rangeHintVal.className = HINT_WRAPPER_CLASS.replace(/^\./, "");
     rangeHintVal.ariaLabel = "Current Range Value";
 
     const rangeInput = document.getElementById("usa-range");
     const rangeWrapper = document.createElement("div");
-    rangeWrapper.className = "usa-range__wrapper";
+    rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, "");
+    
     rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
     rangeWrapper.appendChild(rangeInput);
