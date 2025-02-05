@@ -86,7 +86,7 @@ const rangeEvents = {
 const range = behavior(rangeEvents, {
   init(root) {
     selectOrMatches(RANGE, root).forEach((rangeSlider) => {
-      rangeValue();
+      augmentRangeSlider();
       updateCallout(rangeSlider);
     });
   },
