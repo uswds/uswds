@@ -6,7 +6,7 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
-const HINT_WRAPPER_CLASS = `${RANGE}__hint`;
+const VALUE_WRAPPER_CLASS = `${RANGE}__value`;
 
 /**
  * Update span field with the range slider's value.
@@ -16,15 +16,15 @@ const HINT_WRAPPER_CLASS = `${RANGE}__hint`;
  * @comment This is the visual representation of the value of the range slider. 
  * this value is available using screen readers.
  */
-const rangeHint = (val) => {
+const rangeValue = (val) => {
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
   if (val) {
-    const rangeHintVal = rangeForm.querySelector(HINT_WRAPPER_CLASS);
-    rangeHintVal.textContent = val;
+    const rangeValueVal = rangeForm.querySelector(VALUE_WRAPPER_CLASS);
+    rangeValueVal.textContent = val;
   } else {
-    const rangeHintVal = document.createElement("span");
-    rangeHintVal.className = HINT_WRAPPER_CLASS.replace(/^\./, "");
-    rangeHintVal.ariaLabel = "Current Range Value";
+    const rangeValueVal = document.createElement("span");
+    rangeValueVal.className = VALUE_WRAPPER_CLASS.replace(/^\./, "");
+    rangeValueVal.ariaLabel = "Current Range Value";
 
     const rangeInput = document.getElementById("usa-range");
     const rangeWrapper = document.createElement("div");
@@ -33,7 +33,7 @@ const rangeHint = (val) => {
     rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
     rangeWrapper.appendChild(rangeInput);
-    rangeWrapper.appendChild(rangeHintVal);
+    rangeWrapper.appendChild(rangeValueVal);
   }
 };
 
@@ -72,7 +72,7 @@ const updateCallout = (targetRange) => {
     callout = `${val} ${prep} ${max}`;
   }
   rangeSlider.setAttribute("aria-valuetext", callout);
-  rangeHint(val);
+  rangeValue(val);
 };
 
 const rangeEvents = {
@@ -86,7 +86,7 @@ const rangeEvents = {
 const range = behavior(rangeEvents, {
   init(root) {
     selectOrMatches(RANGE, root).forEach((rangeSlider) => {
-      rangeHint();
+      rangeValue();
       updateCallout(rangeSlider);
     });
   },

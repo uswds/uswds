@@ -35,7 +35,7 @@
 .usa-range__wrapper {
   display: flex;
   flex-direction: row;
-  .usa-range__hint {
+  .usa-range__value {
     @extend %block-input-styles;
     border: none;
     width: 12%;
