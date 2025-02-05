@@ -16,15 +16,15 @@ const VALUE_WRAPPER_CLASS = `${RANGE}__value`;
  * @comment This is the visual representation of the value of the range slider. 
  * this value is available using screen readers.
  */
-const rangeValue = (val) => {
+const augmentRangeSlider = (val) => {
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
   if (val) {
-    const rangeValueVal = rangeForm.querySelector(VALUE_WRAPPER_CLASS);
-    rangeValueVal.textContent = val;
+    const rangeSliderVal = rangeForm.querySelector(VALUE_WRAPPER_CLASS);
+    rangeSliderVal.textContent = val;
   } else {
-    const rangeValueVal = document.createElement("span");
-    rangeValueVal.className = VALUE_WRAPPER_CLASS.replace(/^\./, "");
-    rangeValueVal.ariaLabel = "Current Range Value";
+    const rangeSliderVal = document.createElement("span");
+    rangeSliderVal.className = VALUE_WRAPPER_CLASS.replace(/^\./, "");
+    rangeSliderVal.ariaLabel = "Current Range Slider Value";
 
     const rangeInput = document.getElementById("usa-range");
     const rangeWrapper = document.createElement("div");
@@ -33,7 +33,7 @@ const rangeValue = (val) => {
     rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
     rangeWrapper.appendChild(rangeInput);
-    rangeWrapper.appendChild(rangeValueVal);
+    rangeWrapper.appendChild(rangeSliderVal);
   }
 };
 
@@ -72,7 +72,7 @@ const updateCallout = (targetRange) => {
     callout = `${val} ${prep} ${max}`;
   }
   rangeSlider.setAttribute("aria-valuetext", callout);
-  rangeValue(val);
+  augmentRangeSlider(val);
 };
 
 const rangeEvents = {
