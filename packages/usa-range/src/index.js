@@ -7,12 +7,11 @@ const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
 const VALUE_WRAPPER_CLASS = `${RANGE}__value`;
-
 /**
  * Dynamically create a span field with the range slider's initial value.
- * 
- * @comment This is the visual representation of the value of the range slider 
- * and appears in an adjacent span. This runs on init. 
+ *
+ * @comment This is the visual representation of the value of the range slider
+ * and appears in an adjacent span. This runs on init.
  */
 const createEnhancedRangeSlider = (targetRange) => {
   const rangeSlider = targetRange;
@@ -23,14 +22,13 @@ const createEnhancedRangeSlider = (targetRange) => {
 
   const rangeInput = document.getElementById(RANGE.replace(/^\./, ""));
   const rangeWrapper = document.createElement("div");
-  rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, ""); 
-    
+  rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, "");
+
   rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
   rangeWrapper.appendChild(rangeInput);
   rangeWrapper.appendChild(rangeSliderVal);
 };
-
 /**
  * Update range callout for screen readers using the optional data attributes.
  *
@@ -38,7 +36,6 @@ const createEnhancedRangeSlider = (targetRange) => {
  *
  * @example
  *
- * 
  * <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" data-text-unit="degrees">
  *
  * Callout returns "20 degrees of 100."
