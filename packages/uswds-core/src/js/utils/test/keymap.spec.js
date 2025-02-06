@@ -23,7 +23,7 @@ describe("keymap", () => {
     assert(onTab.calledOnceWithExactly(event));
   });
 
-  it("does not call handler if combo does not include modifier from keypress", () => {
+  it("does not call handler if keypress includes unexpected modifier", () => {
     const onTab = sinon.stub();
     const handler = keymap({ Tab: onTab });
     document.body.addEventListener("keydown", handler);
@@ -33,7 +33,7 @@ describe("keymap", () => {
     assert(onTab.notCalled);
   });
 
-  it("calls handler if all modifiers in combo are pressed", () => {
+  it("calls handler if all expected modifiers are pressed", () => {
     const onTab = sinon.stub();
     const handler = keymap({ "Shift+Tab": onTab });
     document.body.addEventListener("keydown", handler);
