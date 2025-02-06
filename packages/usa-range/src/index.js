@@ -21,9 +21,9 @@ const createEnhancedRangeSlider = (targetRange) => {
   rangeSliderVal.className = VALUE_WRAPPER_CLASS.replace(/^\./, "");
   rangeSliderVal.textContent = val;
 
-  const rangeInput = document.getElementById("usa-range");
+  const rangeInput = document.getElementById(RANGE.replace(/^\./, ""));
   const rangeWrapper = document.createElement("div");
-  rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, "");
+  rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, ""); 
     
   rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
