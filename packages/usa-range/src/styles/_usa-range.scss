@@ -35,10 +35,13 @@
 .usa-range__wrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
   .usa-range__value {
     @extend %block-input-styles;
+    @extend %block-input-general;
     border: none;
-    width: 12%;
+    width: auto;
+    height: auto;
   }
 }
 
