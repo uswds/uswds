@@ -26,9 +26,9 @@ const joinSassAssets = createJoinFunction(
   createJoinImplementation(pathGenerator),
 );
 
-module.exports = {
-  core: {
-    builder: "webpack5",
+const config = {
+  framework: {
+    name: "@storybook/html-webpack5",
   },
   stories: [
     "../packages/**/*.stories.mdx",
@@ -38,6 +38,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
+    "@storybook/addon-webpack5-compiler-babel",
   ],
   staticDirs: ["../dist"],
   webpackFinal: async (config, { configType }) => {
@@ -137,3 +138,5 @@ module.exports = {
     return config;
   },
 };
+
+export default config;
