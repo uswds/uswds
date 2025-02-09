@@ -7,22 +7,24 @@ const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
 const RANGE_WRAPPER_CLASS = `${RANGE}__wrapper`;
 const VALUE_WRAPPER_CLASS = `${RANGE}__value`;
+
+const RANGE_WRAPPER = `${RANGE_CLASSNAME}__wrapper`;
+const VALUE_WRAPPER = `${RANGE_CLASSNAME}__value`;
 /**
  * Dynamically create a span field with the range slider's initial value.
  *
  * @comment This is the visual representation of the value of the range slider
  * and appears in an adjacent span. This runs on init.
  */
-const createEnhancedRangeSlider = (targetRange) => {
-  const rangeSlider = targetRange;
-  const val = rangeSlider.value;
+const createEnhancedRangeSlider = (el) => {
+  const rangeSliderEl = el;
   const rangeSliderVal = document.createElement("span");
-  rangeSliderVal.className = VALUE_WRAPPER_CLASS.replace(/^\./, "");
-  rangeSliderVal.textContent = val;
+  rangeSliderVal.className = VALUE_WRAPPER;
+  rangeSliderVal.textContent = rangeSliderEl.value;;
 
-  const rangeInput = document.getElementById(RANGE.replace(/^\./, ""));
+  const rangeInput = document.getElementById(RANGE_CLASSNAME);
   const rangeWrapper = document.createElement("div");
-  rangeWrapper.className = RANGE_WRAPPER_CLASS.replace(/^\./, "");
+  rangeWrapper.className = RANGE_WRAPPER;
 
   rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
 
@@ -68,12 +70,11 @@ const updateCallout = (targetRange) => {
  * Update range <span> value (the range slider value for sighted users).
  * @param {HTMLInputElement} targetRange - The range slider input element
  */
-const updateVisualCallout = (targetRange) => {
-  const rangeSlider = targetRange;
-  const val = rangeSlider.value;
+const updateVisualCallout = (el) => {
+  const rangeSliderEl = el.closest(RANGE);
   const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
   const rangeSliderVal = rangeForm.querySelector(VALUE_WRAPPER_CLASS);
-  rangeSliderVal.textContent = val;
+  rangeSliderVal.textContent = rangeSliderEl.value;
 };
 
 const rangeEvents = {
