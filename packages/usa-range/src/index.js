@@ -20,7 +20,7 @@ const createEnhancedRangeSlider = (el) => {
   const rangeSliderEl = el;
   const rangeSliderVal = document.createElement("span");
   rangeSliderVal.className = VALUE_WRAPPER;
-  rangeSliderVal.textContent = rangeSliderEl.value;;
+  rangeSliderVal.textContent = rangeSliderEl.value;
 
   const rangeInput = document.getElementById(RANGE_CLASSNAME);
   const rangeWrapper = document.createElement("div");
