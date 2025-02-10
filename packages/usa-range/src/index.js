@@ -71,10 +71,11 @@ const updateCallout = (targetRange) => {
  * @param {HTMLInputElement} targetRange - The range slider input element
  */
 const updateVisualCallout = (el) => {
-  const rangeSliderEl = el.closest(RANGE);
-  const rangeForm = document.querySelector(RANGE_WRAPPER_CLASS);
-  const rangeSliderVal = rangeForm.querySelector(VALUE_WRAPPER_CLASS);
-  rangeSliderVal.textContent = rangeSliderEl.value;
+  const rangeSliderEl = el;
+  // const parentDiv = rangeSliderEl.closest(RANGE_WRAPPER_CLASS);
+  // const rangeSliderVal = parentDiv.querySelector(VALUE_WRAPPER_CLASS);
+  const rangeSliderSpan = rangeSliderEl.closest(VALUE_WRAPPER_CLASS);
+  rangeSliderSpan.textContent = rangeSliderEl.value;
 };
 
 const rangeEvents = {
