@@ -22,13 +22,13 @@ const createEnhancedRangeSlider = (el) => {
   rangeSliderVal.className = VALUE_WRAPPER;
   rangeSliderVal.textContent = rangeSliderEl.value;
 
-  const rangeInput = document.getElementById(RANGE_CLASSNAME);
+  
   const rangeWrapper = document.createElement("div");
   rangeWrapper.className = RANGE_WRAPPER;
 
-  rangeInput.parentNode.insertBefore(rangeWrapper, rangeInput);
+  rangeSliderEl.parentNode.insertBefore(rangeWrapper, rangeSliderEl);
 
-  rangeWrapper.appendChild(rangeInput);
+  rangeWrapper.appendChild(rangeSliderEl);
   rangeWrapper.appendChild(rangeSliderVal);
 };
 /**
