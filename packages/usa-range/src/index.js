@@ -72,10 +72,9 @@ const updateCallout = (targetRange) => {
  */
 const updateVisualCallout = (el) => {
   const rangeSliderEl = el;
-  // const parentDiv = rangeSliderEl.closest(RANGE_WRAPPER_CLASS);
-  // const rangeSliderVal = parentDiv.querySelector(VALUE_WRAPPER_CLASS);
-  const rangeSliderSpan = rangeSliderEl.closest(VALUE_WRAPPER_CLASS);
-  rangeSliderSpan.textContent = rangeSliderEl.value;
+  const parentDiv = rangeSliderEl.closest(RANGE_WRAPPER_CLASS);
+  const rangeSliderVal = parentDiv.querySelector(VALUE_WRAPPER_CLASS);
+  rangeSliderVal.textContent = rangeSliderEl.value;
 };
 
 const rangeEvents = {
