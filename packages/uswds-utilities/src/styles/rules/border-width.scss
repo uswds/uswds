@@ -37,8 +37,7 @@ $u-border-width: (
       "bottom-width": "-bottom-width",
       "left-width": "-left-width",
     ),
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($border-width-palettes),
         $border-width-manual-values
       ),

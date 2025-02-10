@@ -46,8 +46,7 @@ $u-border-radius: (
       ),
     ),
     property: "",
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($border-radius-palettes),
         $border-radius-manual-values
       ),

@@ -3,7 +3,7 @@ module.exports = {
   // browser supported touch events; if it did, `CLICK` was set to
   // `touchstart`.  However, this had downsides:
   //
-  // * It pre-empted mobile browsers' default behavior of detecting
+  // * It pre-emptied mobile browsers' default behavior of detecting
   //   whether a touch turned into a scroll, thereby preventing
   //   users from using some of our components as scroll surfaces.
   //

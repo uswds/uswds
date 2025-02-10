@@ -17,39 +17,11 @@
     text-decoration: none;
   }
 
-  .usa-input,
-  .usa-range,
-  .usa-select,
-  .usa-textarea {
-    // max width not needed since .usa-form has one of its own
+  // Clear max-width in children since .usa-form has one of its own.
+  // Used :where() to reduce specificity and
+  // prevent usa-form styles from overriding `usa-input--[width] and `usa-input-group--[width]` classes.
+  :where(.usa-input, .usa-textarea, .usa-select, .usa-range) {
     max-width: none;
-  }
-
-  .usa-input,
-  .usa-input-group {
-    &--2xs {
-      max-width: 5ex;
-    }
-    &--xs {
-      max-width: 9ex;
-    }
-    &--sm,
-    &--small {
-      max-width: 13ex;
-    }
-    &--md,
-    &--medium {
-      max-width: 20ex;
-    }
-    &--lg {
-      max-width: 30ex;
-    }
-    &--xl {
-      max-width: 40ex;
-    }
-    &--2xl {
-      max-width: 50ex;
-    }
   }
 
   .usa-button {
