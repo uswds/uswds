@@ -53,9 +53,9 @@ describe("keymap", () => {
     assert(onTab.notCalled);
   });
 
-  it("does not call event if keypress contains modifiers handler does not", () => {
+  it("does not call event if keypress contains different modifier than handler", () => {
     const onTab = sinon.stub();
-    const handler = keymap({ Tab: onTab });
+    const handler = keymap({ "Ctrl+Tab": onTab });
     document.body.addEventListener("keydown", handler);
     const event = new KeyboardEvent("keydown", { key: "Tab", shiftKey: true });
     document.body.dispatchEvent(event);
