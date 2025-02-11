@@ -52,9 +52,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("creates a visual status message on init", () => {
-      const visibleStatus = document.getElementById("#alphanumericError");
-
-      assert.strictEqual(visibleStatus.length, 1);
+      const visibleStatus = document.getElementById("alphanumericError");
+      assert.ok(visibleStatus); // Check it exists
+      assert.ok(visibleStatus.innerHTML); // Check content exists
     });
 
     it("creates a screen reader status message on init", () => {
