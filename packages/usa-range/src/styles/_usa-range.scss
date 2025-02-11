@@ -37,11 +37,12 @@
   flex-direction: row;
   align-items: center;
   .usa-range__value {
-    @extend %block-input-styles;
     @extend %block-input-general;
+    @extend %block-input-styles;
+    width: 2rem;
+    margin-left: 3px;
+    text-align: right;
     border: none;
-    width: auto;
-    height: auto;
   }
 }
 
@@ -51,6 +52,7 @@
   appearance: none;
   border: none;
   padding-left: 1px;
+  padding-right: 1px;
   width: 100%;
 
   &:focus {
