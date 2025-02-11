@@ -1,0 +1,22 @@
+<div class="usa-in-page-nav-container">
+  <aside
+    class="usa-in-page-nav"
+    data-minimum-heading-count="{{ minimumHeaderCount }}"
+  ></aside>
+  <main>
+    <h2>Heading level 2</h2>
+    <p>Section content</p>
+    {% if headerLevels >= 2 %}
+    <h3>Heading level 3</h3>
+    <p>Section content</p>
+    {% endif %}
+    {% if headerLevels >= 3 %}
+    <h3>Heading level 3</h3>
+    <p>Section content</p>
+    {% endif %}
+    {% if headerLevels >= 4 %}
+    <h3>Heading level 3</h3>
+    <p>Section content</p>
+    {% endif %}
+  </main>
+</div>

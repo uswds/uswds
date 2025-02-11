@@ -13,7 +13,11 @@
   $token-from-bg: get-color-token-from-bg($color);
 
   // If returned color is white, then the background must be dark.
-  @return if(color.lightness(color($token-from-bg)) > 50%, true, false);
+  @return if(
+    color.channel(color($token-from-bg), "lightness", $space: hsl) > 50%,
+    true,
+    false
+  );
 }
 
 // @debug is-color-dark("yellow-20v");
