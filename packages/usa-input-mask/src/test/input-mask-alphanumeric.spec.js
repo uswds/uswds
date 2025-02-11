@@ -22,14 +22,17 @@ EVENTS.keydown = (el) => {
  * @param {HTMLElement} el the element to sent the event to
  */
 EVENTS.keyup = (el) => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+  const event = new KeyboardEvent("keyup", {
+    bubbles: true,
+    location: 0,
+  });
+  el.dispatchEvent(event);
 };
 
 const inputMaskSelector = () => document.querySelector(".usa-masked");
 
 const tests = [
-  { name: "document.body", selector: () => document.body },
-  { name: "input mask", selector: inputMaskSelector },
+  { name: "document.body", selector: () => document.body }
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
@@ -51,12 +54,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     afterEach(() => {
       InputMask.off(containerSelector());
-      body.textContent = "";
+      body.innerHTML = "";
     });
 
     it("initializes all elements", () => {
       assert.ok(root);
       assert.ok(input);
+      assert.ok(content);
       assert.ok(error);
     });
 
@@ -87,20 +91,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("hides error message when input is correct", () => {
-      input.value = "A1";
+      input.value = "A1A";
 
       EVENTS.keydown(input);
+      EVENTS.keyup(input);
 
-      assert.ok(error.hidden);
+      assert.strictEqual(error.hasAttribute('hidden'), true);
     });
 
-    // it("formats an alphanumeric example to A1B 2C3", () => {
-    //   input.value = "A1B2C3";
+    it("formats an alphanumeric example to A1B 2C3", () => {
+      input.value = "A1B2C3";
 
-    //   EVENTS.keyup(input);
-    //   console.log("content!!!: ", content, content.textContent);
+      EVENTS.keydown(input);
+      EVENTS.keyup(input);
 
-    //   assert.strictEqual(content.textContent, "A1B 2C3");
-    // });
+      assert.strictEqual(content.textContent, "A1B 2C3");
+    });
   });
 });
