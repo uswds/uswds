@@ -1,21 +1,19 @@
 <form class="usa-form">
-  <div class="usa-form-group">
-    <label class="usa-label" for="alphanumeric">Alphanumeric</label>
-    <div class="usa-hint" id="alphanumericHint">
-      For example, A1B 2C3
-    </div>
-    <input
-      class="usa-input usa-input-mask"
-      forceupper="true"
-      id="alphanumeric"
-      inputmode="text"
-      name="alphanumeric"
-      type="text"
-      aria-describedby="alphanumericHint"
-      maxlength="7"
-      data-placeholder="___ ___"
-      data-charset="A#A #A#"
-      placeholder="___ __ ____"
-    />
+  <label class="usa-label" for="alphanumeric">Alphanumeric</label>
+  <div class="usa-hint" id="alphanumericHint">
+    For example, A1B 2C3
   </div>
+  <input
+    class="usa-input usa-masked"
+    forceupper="true"
+    id="alphanumeric"
+    inputmode="text"
+    name="alphanumeric"
+    type="text"
+    aria-describedby="alphanumericHint"
+    maxlength="7"
+    data-placeholder="___ ___"
+    data-charset="A#A #A#"
+    placeholder="___ __ ____"
+  />
 </form>
