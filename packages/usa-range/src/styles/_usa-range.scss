@@ -36,14 +36,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  .usa-range__value {
-    @extend %block-input-general;
-    @extend %block-input-styles;
-    width: 2rem;
-    margin-left: 3px;
-    text-align: right;
-    border: none;
-  }
+}
+
+.usa-range__value {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  max-width: 2rem;
+  margin-left: 3px;
+  border: none;
 }
 
 .usa-range {
