@@ -11,18 +11,18 @@ const PLACEHOLDER = "placeholder";
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const ERROR_MESSAGE_CLASS = `${PREFIX}-error-message`;
 const ERROR_MESSAGE_DEFAULT = "You must enter a valid character";
-const ERROR_MESSAGE_SR_DEFAULT = "Error: You must enter a valid character";
+const ERROR_MESSAGE_SR_DEFAULT = `Error: ${ERROR_MESSAGE_DEFAULT}`;;
 const ERROR_MESSAGE_FULL_DEFAULT =
   "You have reached the maximum number of characters allowed";
 const ERROR_MESSAGE_FULL_SR_DEFAULT =
-  "Error: You have reached the maximum number of characters allowed.";
+  `Error: ${ERROR_MESSAGE_FULL_DEFAULT}`;;
 const ERROR_MESSAGE_PASTE_DEFAULT = "Some pasted characters were not accepted.";
 const ERROR_MESSAGE_PASTE_SR_DEFAULT =
-  "Error: Some pasted characters were not accepted.";
+  `Error: ${ERROR_MESSAGE_PASTE_DEFAULT}`;;
 const ERROR_MESSAGE_ALPHA_DEFAULT = "You must enter a letter";
-const ERROR_MESSAGE_ALPHA_SR_DEFAULT = "Error: You must enter a letter";
+const ERROR_MESSAGE_ALPHA_SR_DEFAULT = `Error: ${ERROR_MESSAGE_ALPHA_DEFAULT}`;;
 const ERROR_MESSAGE_NUMERIC_DEFAULT = "You must enter a number";
-const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = "Error: You must enter a number";
+const ERROR_MESSAGE_NUMERIC_SR_DEFAULT = `Error: ${ERROR_MESSAGE_NUMERIC_DEFAULT}`;;
 
 let errorMessageSrOnlyEl;
 let lastValueLength;
@@ -436,6 +436,7 @@ const handleErrorState = (
  * @param {HTMLElement} e - The input element
  */
 const handleValueChange = (e) => {
+  console.log('hanlde val change')
   keyPressed = e.key;
   let maxLengthReached;
   const inputEl = e.srcElement;
@@ -473,6 +474,14 @@ const handleValueChange = (e) => {
   }
 };
 
+const runPaste = (e) => {
+  console.log('paste behavior works', e)
+}
+
+const runClick = (e) => {
+  console.log('click behavior works', e)
+}
+
 const keyUpCheck = (e) => {
   // Run handleValueChange() only when backspacing, clearing input, or pressing a non-CapsLock key
   // at a standard location, to avoid errors from CapsLock or Shift key combos triggering the function twice
@@ -508,6 +517,11 @@ const inputMaskEvents = {
       keyDownCheck(e);
     },
   },
+  paste: {
+    [MASKED](e) {
+      handleValueChange(e);    
+    }
+  }
 };
 
 const inputMask = behavior(inputMaskEvents, {
