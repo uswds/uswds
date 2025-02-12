@@ -164,9 +164,7 @@ function showModal(modalEl) {
     hideModal(activeModal.id);
   }
 
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
-    ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS) || targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
 
   handleActive(targetModal);
