@@ -31,9 +31,7 @@ EVENTS.keyup = (el) => {
 
 const inputMaskSelector = () => document.querySelector(".usa-masked");
 
-const tests = [
-  { name: "document.body", selector: () => document.body }
-];
+const tests = [{ name: "document.body", selector: () => document.body }];
 
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`input mask component initialized at ${name}`, () => {
@@ -70,7 +68,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     it("hides error message by default", () => {
-      assert.strictEqual(error.hasAttribute('hidden'), true);
+      assert.strictEqual(error.hasAttribute("hidden"), true);
     });
 
     it("informs the user only a letter character is allowed", () => {
@@ -79,7 +77,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.keydown(input);
       EVENTS.keyup(input);
 
-      assert.strictEqual(error.hasAttribute('hidden'), false);
+      assert.strictEqual(error.hasAttribute("hidden"), false);
       assert.strictEqual(error.innerHTML, "You must enter a letter");
     });
 
@@ -89,7 +87,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.keydown(input);
       EVENTS.keyup(input);
 
-      assert.strictEqual(error.hasAttribute('hidden'), false);
+      assert.strictEqual(error.hasAttribute("hidden"), false);
       assert.strictEqual(error.innerHTML, "You must enter a number");
     });
 

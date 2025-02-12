@@ -319,7 +319,7 @@ const handleCurrentValue = (el) => {
  * @param {string} errorMsg - Error message text content
  * @param {boolean} status - Error message active status
  */
-const srUpdateErrorMsg = debounce((errorMsg, msgEl, status) => {
+const srUpdateErrorMsg = debounce((errorMsg, msgEl) => {
   const errorMessageEl = msgEl;
   errorMessageEl.textContent = errorMsg;
 }, 1000);
