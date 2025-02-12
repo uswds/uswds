@@ -113,48 +113,6 @@ function handleForceUserAction(targetModal) {
 }
 
 /**
- * Make the modal window visible.
- *
- * @param {string} modalEl The id of the target modal.
- */
-function showModal(modalEl) {
-  const targetModal = document.getElementById(modalEl);
-  // If there is no modal, return early.
-  if (!targetModal) {
-    return false;
-  }
-
-  // Close any active modal that's not the one being opened.
-  const activeModal = document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
-  if (activeModal && activeModal.id !== modalEl) {
-    hideModal(activeModal.id);
-  }
-
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
-    ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
-  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
-
-  handleActive(targetModal);
-
-  handleNonModals(NON_MODALS);
-
-  // Handle focus trap and interactions
-  if (openFocusEl) {
-    modal.focusTrap = FocusTrap(
-      targetModal,
-      forceUserAction ? {} : { Escape: onMenuClose },
-    );
-    modal.focusTrap.update(true);
-    openFocusEl.focus();
-  }
-
-  handleForceUserAction(targetModal);
-
-  return targetModal;
-}
-
-/**
  * Hides the modal window visibility.
  *
  * @param {string} modalEl The id of the target modal.
@@ -182,6 +140,50 @@ function hideModal(modalEl) {
 
   // Update focus trap status
   modal.focusTrap.update(false);
+
+  return targetModal;
+}
+
+/**
+ * Make the modal window visible.
+ *
+ * @param {string} modalEl The id of the target modal.
+ */
+function showModal(modalEl) {
+  const targetModal = document.getElementById(modalEl);
+  // If there is no modal, return early.
+  if (!targetModal) {
+    return false;
+  }
+
+  // Close any active modal that's not the one being opened.
+  const activeModal = document.querySelector(
+    `.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`,
+  );
+  if (activeModal && activeModal.id !== modalEl) {
+    hideModal(activeModal.id);
+  }
+
+  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
+    ? targetModal.querySelector(INITIAL_FOCUS)
+    : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
+  const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
+
+  handleActive(targetModal);
+
+  handleNonModals(NON_MODALS);
+
+  // Handle focus trap and interactions
+  if (openFocusEl) {
+    modal.focusTrap = FocusTrap(
+      targetModal,
+      forceUserAction ? {} : { Escape: onMenuClose },
+    );
+    modal.focusTrap.update(true);
+    openFocusEl.focus();
+  }
+
+  handleForceUserAction(targetModal);
 
   return targetModal;
 }
