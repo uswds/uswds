@@ -15,6 +15,7 @@ const NON_MODAL_HIDDEN_ATTRIBUTE = `data-modal-hidden`;
 const MODAL = `.${MODAL_CLASSNAME}`;
 const INITIAL_FOCUS = `.${WRAPPER_CLASSNAME} *[data-focus]`;
 const CLOSE_BUTTON = `${WRAPPER_CLASSNAME} *[${CLOSER_ATTRIBUTE}]`;
+const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
 const NON_MODALS = `body > *:not(.${WRAPPER_CLASSNAME}):not([aria-hidden])`;
 const NON_MODALS_HIDDEN = `[${NON_MODAL_HIDDEN_ATTRIBUTE}]`;
@@ -58,9 +59,10 @@ const setTemporaryBodyPadding = () => {
  * Adjusts temporary body padding.
  *
  * @param {HTMLElement} targetModal The modal element.
+ * @param {string} [status] Optional status ("hide" to remove active state).
  */
-function handleActive(targetModal) {
-  if (body.classList.contains(ACTIVE_CLASS)) {
+function handleActive(targetModal, status) {
+  if (status === "hide") {
     body.classList.remove(ACTIVE_CLASS);
     targetModal.classList.remove(VISIBLE_CLASS);
     targetModal.classList.add(HIDDEN_CLASS);
@@ -117,15 +119,21 @@ function handleForceUserAction(targetModal) {
  */
 function showModal(modalEl) {
   const targetModal = document.getElementById(modalEl);
+  // If there is no modal, return early.
+  if (!targetModal) {
+    return false;
+  }
+
+  // Close any active modal that's not the one being opened.
+  const activeModal = document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
+  if (activeModal && activeModal.id !== modalEl) {
+    hideModal(activeModal.id);
+  }
+
   const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
     ? targetModal.querySelector(INITIAL_FOCUS)
     : targetModal.querySelector(`.${MODAL_CLASSNAME}`);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
-
-  // If there is no modal, return early
-  if (!targetModal) {
-    return false;
-  }
 
   handleActive(targetModal);
 
@@ -162,8 +170,7 @@ function hideModal(modalEl) {
     return false;
   }
 
-  handleActive(targetModal);
-
+  handleActive(targetModal, "hide");
   handleNonModals(NON_MODALS_HIDDEN);
 
   // Return focus to the element that opened the modal
@@ -211,7 +218,6 @@ function toggleModal(modalId) {
  * @param {KeyboardEvent} event The keydown event.
  */
 function toggleModalButton(event) {
-  let originalOpener;
   let clickedElement = event.target;
   const safeActive = !isActive();
   const modalId = clickedElement
@@ -220,6 +226,7 @@ function toggleModalButton(event) {
   const targetModal = safeActive
     ? document.getElementById(modalId)
     : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
+  const menuButton = body.querySelector(OPENERS);
 
   // If there is no modal, return early
   if (!targetModal) {
@@ -234,14 +241,18 @@ function toggleModalButton(event) {
   // If the clicked element is inside the modal but not a close button
   if (clickedElement) {
     // Ensure the opener is clicked
-    if (clickedElement.hasAttribute(OPENER_ATTRIBUTE)) {
-      if (this.getAttribute("id") === null) {
-        originalOpener = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
-        this.setAttribute("id", originalOpener);
-      } else {
-        originalOpener = this.getAttribute("id");
+    const opener = clickedElement.closest(`[${OPENER_ATTRIBUTE}]`);
+    if (opener) {
+      if (!opener.id) {
+        opener.id = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
       }
-      targetModal.setAttribute("data-opener", originalOpener);
+      targetModal.setAttribute("data-opener", opener.id);
+    } else if (!targetModal.getAttribute("data-opener") && menuButton) {
+      // Use the menuButton if no opener found on the clicked element
+      if (!menuButton.id) {
+        menuButton.id = `modal-${Math.floor(Math.random() * 900000) + 100000}`;
+      }
+      targetModal.setAttribute("data-opener", menuButton.id);
     }
 
     // Stop propagation if the element is inside the modal and not a close button
