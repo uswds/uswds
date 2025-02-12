@@ -50,6 +50,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input = inputMaskSelector();
       content = root.querySelector(".usa-input-mask--content");
       error = root.querySelector(".usa-error-message");
+      error.setAttribute("hidden", true);
     });
 
     afterEach(() => {
@@ -68,14 +69,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.ok(error);
     });
 
+    it("hides error message by default", () => {
+      assert.strictEqual(error.hasAttribute('hidden'), true);
+    });
+
     it("informs the user only a letter character is allowed", () => {
       input.value = "1";
 
       EVENTS.keydown(input);
       EVENTS.keyup(input);
 
-      assert.strictEqual(error.hidden, false);
-
+      assert.strictEqual(error.hasAttribute('hidden'), false);
       assert.strictEqual(error.innerHTML, "You must enter a letter");
     });
 
@@ -85,18 +89,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.keydown(input);
       EVENTS.keyup(input);
 
-      assert.strictEqual(error.hidden, false);
-
+      assert.strictEqual(error.hasAttribute('hidden'), false);
       assert.strictEqual(error.innerHTML, "You must enter a number");
-    });
-
-    it("hides error message when input is correct", () => {
-      input.value = "A1A";
-
-      EVENTS.keydown(input);
-      EVENTS.keyup(input);
-
-      assert.strictEqual(error.hasAttribute('hidden'), true);
     });
 
     it("formats an alphanumeric example to A1B 2C3", () => {

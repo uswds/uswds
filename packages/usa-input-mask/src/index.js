@@ -127,6 +127,7 @@ const createMaskedInputShell = (input) => {
   const content = document.createElement("span");
   content.classList.add(MASK_CONTENT);
   content.setAttribute("aria-hidden", "true");
+  content.setAttribute("hidden", "true");
   content.id = `${input.id}Mask`;
   content.textContent = placeholder;
 
@@ -150,7 +151,7 @@ const createErrorMessageEl = (inputEl) => {
   errorMsgElement.setAttribute("id", errorId);
   errorMsgElement.setAttribute("class", ERROR_MESSAGE_CLASS);
   errorMsgElement.setAttribute("aria-hidden", "true");
-  errorMsgElement.hidden = true;
+  errorMsgElement.setAttribute("hidden", "true");
   inputEl.parentNode.appendChild(errorMsgElement);
 
   // SR-only error message
@@ -321,7 +322,6 @@ const handleCurrentValue = (el) => {
 const srUpdateErrorMsg = debounce((errorMsg, msgEl, status) => {
   const errorMessageEl = msgEl;
   errorMessageEl.textContent = errorMsg;
-  errorMessageEl.hidden = status;
 }, 1000);
 
 /**
@@ -420,8 +420,12 @@ const handleErrorState = (
 
   // Update visual error message content and status
   const errorMessageEl = document.getElementById(errorId);
-  errorMessageEl.hidden = hiddenStatus;
   errorMessageEl.textContent = errorTextContent;
+  if (hiddenStatus) {
+    errorMessageEl.setAttribute("hidden", "true");
+  } else {
+    errorMessageEl.removeAttribute("hidden");
+  }
 
   // Update SR-only error message content and status
   srUpdateErrorMsg(errorMessageSrOnly, errorMessageSrOnlyEl, hiddenStatus);
