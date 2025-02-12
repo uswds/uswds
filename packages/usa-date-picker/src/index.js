@@ -1339,7 +1339,7 @@ const selectDate = (calendarDateEl) => {
  *
  * @param {HTMLElement} el An element within the calendar component
  */
-function checkWidth(el) {
+const checkWidth = (el) => {
   const parent = el.querySelector(`.${CALENDAR_ROW_CLASS}`);
   const child =
     el.querySelector(`.${CALENDAR_MONTH_LABEL_CLASS}`) ||
@@ -1361,7 +1361,7 @@ function checkWidth(el) {
       checkWidth(el);
     }, 500),
   );
-}
+};
 
 /**
  * Toggle the calendar.
