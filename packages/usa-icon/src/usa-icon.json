@@ -197,7 +197,7 @@
       },
       {
         "name": "closed_caption",
-        "meta": "cc video accessiblity"
+        "meta": "cc video accessibility"
       },
       {
         "name": "cloud",
@@ -805,19 +805,19 @@
       },
       {
         "name": "sentiment_neutral",
-        "meta": "face reate review feeling customer"
+        "meta": "face rate review feeling customer"
       },
       {
         "name": "sentiment_satisfied",
-        "meta": "face reate review feeling customer smile"
+        "meta": "face rate review feeling customer smile"
       },
       {
         "name": "sentiment_satisfied_alt",
-        "meta": "face reate review feeling customer smile"
+        "meta": "face rate review feeling customer smile"
       },
       {
         "name": "sentiment_very_dissatisfied",
-        "meta": "face reate review feeling customer frown"
+        "meta": "face rate review feeling customer frown"
       },
       {
         "name": "settings",

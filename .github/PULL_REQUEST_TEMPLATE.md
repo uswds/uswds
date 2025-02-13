@@ -16,6 +16,11 @@ Please keep in mind:
 - You can find more information about contributing in
   [contributing.md](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md)
   or you can reach out to us directly at uswds@gsa.gov.
+
+- For security reasons, all commits to this repository must have a verified signature.
+  Use one of the following GitHub guides to set up your commit verification signature:
+    - GPG commit signature verification: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification
+    - SSH commit signature verification: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification
  -->
 
 <!---

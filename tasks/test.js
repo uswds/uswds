@@ -9,11 +9,17 @@ const mochaConfig = {
 module.exports = {
   // run unit test.
   unitTests() {
-    return src("packages/usa-*/**/*.spec.js").pipe(mocha(mochaConfig));
+    return src([
+      // Component tests.
+      "packages/usa-*/**/*.spec.js",
+      // Core utils tests.
+      "packages/uswds-*/**/*.spec.js",
+      // SASS unit tests, run separately.
+      "!packages/uswds-core/src/test/sass.spec.js",
+    ]).pipe(mocha(mochaConfig));
   },
 
   sassTests() {
-    return src("packages/uswds-core/src/test/sass.spec.js")
-      .pipe(mocha());
+    return src("packages/uswds-core/src/test/sass.spec.js").pipe(mocha());
   },
 };
