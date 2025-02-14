@@ -41,6 +41,7 @@
 .usa-range__value {
   @extend %block-input-general;
   max-inline-size: 5%;
+  min-inline-size: 5%;
   padding-top: 5px;
   margin-left: 5px;
 }
