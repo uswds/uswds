@@ -14,10 +14,15 @@ exports.runGulp = (task) =>
   });
 
 exports.compileString = (styles, loadPaths) => {
-  sass.compileString(styles, {loadPaths, silenceDeprecations: ["mixed-decls", "import"]},
-  );
-}
+  sass.compileString(styles, {
+    loadPaths,
+    silenceDeprecations: ["mixed-decls", "import"],
+  });
+};
 
-exports.compile = (file,  loadPaths) => {
-  sass.compile(file, {loadPaths, silenceDeprecations: ["mixed-decls", "import"]});
-}
+exports.compile = (file, loadPaths) => {
+  sass.compile(file, {
+    loadPaths,
+    silenceDeprecations: ["mixed-decls", "import"],
+  });
+};
