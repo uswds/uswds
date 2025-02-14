@@ -22,4 +22,8 @@ module.exports = {
   sassTests() {
     return src("packages/uswds-core/src/test/sass.spec.js").pipe(mocha());
   },
+
+  buildTests() {
+    return src("src/test/build.spec.js").pipe(mocha(mochaConfig));
+  },
 };
