@@ -3,29 +3,26 @@ const path = require("path");
 const {
   runGulp,
   distScssPath,
-  render,
+  compileString,
+  compile
 } = require("../../packages/uswds-core/src/js/utils/test/util");
 
-const includePath = path.resolve(path.join(__dirname, "../"));
+const includePath = path.resolve("packages/");
 
 describe("include paths", () => {
   it('can be loaded with @import "uswds"', async () => {
-    setTimeout(() => {
-      render('@import "uswds";', [includePath]);
-    }, 20000);
+      compileString(`@import "uswds";`, [includePath]);
   });
 });
 
 describe("standalone dist scss", () => {
-  before(() => {
-    setTimeout(() => {
-      runGulp("copy-dist-sass");
-    }, 20000);
+  // Function expression required to use this.timeout() and prevent test from timing out
+  before(async function buildSass() {
+      this.timeout(10000)  
+      await runGulp("buildUSWDS");
   });
 
   it('can be loaded with @import "uswds"', () => {
-    setTimeout(() => {
-      render('@import "uswds";', [distScssPath]);
-    }, 20000);
+      compile(`${distScssPath}/uswds.scss`, [includePath]);
   });
 });
