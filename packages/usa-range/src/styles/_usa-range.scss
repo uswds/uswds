@@ -39,11 +39,11 @@
 }
 
 .usa-range__value {
-  @extend %block-input-general;
-  @extend %block-input-styles;
-  max-width: 2rem;
+  width: 2.15rem;
+  padding-top: 5px;
   margin-left: 3px;
-  border: none;
+  line-height: inherit;
+  text-align: right;
 }
 
 .usa-range {
