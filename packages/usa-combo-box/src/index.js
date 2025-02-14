@@ -171,6 +171,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   const selectId = selectEl.id;
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
+  const hintId = `${selectId}--hint`
   const listIdLabel = `${selectId}-label`;
   const additionalAttributes = [];
   const { defaultValue } = comboBoxEl.dataset;
@@ -224,6 +225,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("id", selectId);
   input.setAttribute("aria-owns", listId);
   input.setAttribute("aria-controls", listId);
+  input.setAttribute("aria-describedby", hintId);
   input.setAttribute("aria-autocomplete", "list");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("autocapitalize", "off");
