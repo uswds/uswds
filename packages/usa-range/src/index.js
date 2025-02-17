@@ -19,6 +19,7 @@ const VALUE_WRAPPER = `${RANGE_CLASSNAME}__value`;
 const createEnhancedRangeSlider = (el) => {
   const rangeSliderEl = el;
   const rangeSliderVal = document.createElement("span");
+  rangeSliderVal.setAttribute("aria-hidden", "true");
   rangeSliderVal.className = VALUE_WRAPPER;
   rangeSliderVal.textContent = rangeSliderEl.value;
 
