@@ -171,7 +171,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   const selectId = selectEl.id;
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
   const listId = `${selectId}--list`;
-  const hintId = `${selectId}-hint`
+  const hintId = `${selectId}-hint`;
   const listIdLabel = `${selectId}-label`;
   const additionalAttributes = [];
   const { defaultValue } = comboBoxEl.dataset;
