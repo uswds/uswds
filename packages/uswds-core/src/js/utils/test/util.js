@@ -13,6 +13,11 @@ exports.runGulp = (task) =>
       .on("exit", () => resolve());
   });
 
+/**
+ * Compiles a string of scss styles to css
+ * @param {string} styles - Scss style definitions to compile into css
+ * @param {*} loadPaths - Paths in which to look for stylesheets loaded by rules like @use and @import.
+ */
 exports.compileString = (styles, loadPaths) => {
   sass.compileString(styles, {
     loadPaths,
@@ -20,6 +25,11 @@ exports.compileString = (styles, loadPaths) => {
   });
 };
 
+/**
+ * Compiles a scss file to css
+ * @param {string} file - Path to file to compile into css
+ * @param {*} loadPaths - Paths in which to look for stylesheets loaded by rules like @use and @import.
+ */
 exports.compile = (file, loadPaths) => {
   sass.compile(file, {
     loadPaths,
