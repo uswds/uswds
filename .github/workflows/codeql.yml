@@ -26,5 +26,7 @@ jobs:
         run: npm run build
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
+        with:
+          config-file: ./.github/codeql/codeql-config.yml
       - name: Perform CodeQL analysis for dist
         uses: github/codeql-action/analyze@v3
