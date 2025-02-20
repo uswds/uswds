@@ -10,7 +10,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze compiled uswds
+    name: Analyze w/compiled uswds
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -26,6 +26,8 @@ jobs:
         run: npm install
       - name: Build USWDS JavaScript bundle
         run: npm run build
+      - name: Check that compiled files are in workspace
+        run: echo $(ls ./dist/js)
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
       - name: Perform CodeQL analysis for dist
