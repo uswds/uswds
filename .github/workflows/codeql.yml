@@ -8,7 +8,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze compiled uswds
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -24,6 +24,8 @@ jobs:
         run: npm install
       - name: Build USWDS JavaScript bundle
         run: npm run build
+      - name: Echo out files in directory
+        run: echo $(ls)
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
