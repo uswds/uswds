@@ -3,8 +3,12 @@ name: CodeQL Scan for USWDS
 on:
   push:
     branches: [ develop ]
+    paths:
+      - ./dist/js
   pull_request:
     branches: [ develop ]
+    paths:
+      - ./dist/js
 
 jobs:
   analyze:
@@ -24,14 +28,7 @@ jobs:
         run: npm install
       - name: Build USWDS JavaScript bundle
         run: npm run build
-      - uses: actions/upload-artifact@v4
-        name: Upload code
-        with:
-          name: uswds
-          path: .
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
       - name: Perform CodeQL analysis for dist
         uses: github/codeql-action/analyze@v3
-      - name: Generate Report
-        uses: github/codeql-action/upload-sarif@v3
