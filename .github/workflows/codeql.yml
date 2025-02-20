@@ -31,8 +31,6 @@ jobs:
           path: .
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
-        with:
-          languages: 'javascript'
       - name: Perform CodeQL analysis for dist
         uses: github/codeql-action/analyze@v3
       - name: Generate Report
