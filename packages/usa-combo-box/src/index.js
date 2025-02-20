@@ -6,7 +6,6 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 const { CLICK } = require("../../uswds-core/src/js/events");
 
 const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
-alert(`${PREFIX}`);
 const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;
 const SELECT_CLASS = `${COMBO_BOX_CLASS}__select`;
 const INPUT_CLASS = `${COMBO_BOX_CLASS}__input`;
@@ -171,8 +170,8 @@ const enhanceComboBox = (_comboBoxEl) => {
 
   const selectId = selectEl.id;
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
-  const selectDiv = document.querySelector(`div[class="usa-hint"]`);
-  const hintId = selectDiv.id;
+  const nextNode = selectLabel.nextElementSibling;
+  const hintId = nextNode.id;
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
   const additionalAttributes = [];
