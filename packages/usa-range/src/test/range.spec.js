@@ -72,42 +72,46 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "20",
           "the initial span is not set to 20.",
         );
-        
-        // we have two range sliders on this page, break them out so we can check them.  
+
+        // we have two range sliders on this page, break them out so we can check them.
         const sliders = document.querySelectorAll("input[type='range']");
-        
-        const slider1 = Array.from(sliders).find(slider => slider.getAttribute('min') === "20");
+
+        const slider1 = Array.from(sliders).find(
+          (slider) => slider.getAttribute("min") === "20",
+        );
         const wrapper1 = slider1.closest(".usa-range__wrapper");
         // only run this test for document.body
         if (name === "document.body") {
           if (wrapper1) {
             const span1 = wrapper1.querySelector("span");
-              assert.strictEqual(
-                spanElement.textContent,
-                "20",
-                "the initial span is not set to 20.",
-              );
+            assert.strictEqual(
+              spanElement.textContent,
+              "20",
+              "the initial span is not set to 20.",
+            );
           } else {
             console.error("Wrapper not found for slider1");
           }
           return;
-        };
+        }
 
-        const slider2 = Array.from(sliders).find(slider => slider.getAttribute('min') === "30");
+        const slider2 = Array.from(sliders).find(
+          (slider) => slider.getAttribute("min") === "30",
+        );
         const wrapper2 = slider2.closest(".usa-range__wrapper");
         // only run this test for document.body
         if (name === "document.body") {
           if (wrapper2) {
-              assert.strictEqual(
-                spanElement.textContent,
-                "30",
-                "the initial span is not set to 30.",
-              );
+            assert.strictEqual(
+              spanElement.textContent,
+              "30",
+              "the initial span is not set to 30.",
+            );
           } else {
             console.error("Wrapper not found for slider2");
-          };
+          }
           return;
-        };
+        }
       });
 
       it("Updates span element to match new slider value on change", () => {
