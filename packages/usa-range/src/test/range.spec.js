@@ -55,8 +55,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
           slider.value,
           "the span does not match the range slider value.",
         );
-      });  
-      
+      });
+
       it("Updates span element to match new slider value on change", () => {
         slider.value = "40";
         EVENTS.change(slider);
