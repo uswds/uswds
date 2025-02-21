@@ -170,8 +170,6 @@ const enhanceComboBox = (_comboBoxEl) => {
 
   const selectId = selectEl.id;
   const selectLabel = document.querySelector(`label[for="${selectId}"]`);
-  const nextNode = selectLabel.nextElementSibling;
-  const hintId = nextNode.id;
   const listId = `${selectId}--list`;
   const listIdLabel = `${selectId}-label`;
   const additionalAttributes = [];
@@ -213,7 +211,7 @@ const enhanceComboBox = (_comboBoxEl) => {
   selectEl.id = "";
   selectEl.value = "";
 
-  ["required", "aria-label", "aria-labelledby"].forEach((name) => {
+  ["required", "aria-label", "aria-labelledby", "aria-describedby"].forEach((name) => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push({ [name]: value });
@@ -226,7 +224,6 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("id", selectId);
   input.setAttribute("aria-owns", listId);
   input.setAttribute("aria-controls", listId);
-  input.setAttribute("aria-describedby", hintId);
   input.setAttribute("aria-autocomplete", "list");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("autocapitalize", "off");
