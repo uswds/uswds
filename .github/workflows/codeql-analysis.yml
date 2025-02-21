@@ -1,0 +1,34 @@
+name: CodeQL Scan for USWDS
+
+on:
+  push:
+    branches: [main, develop, protected]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '20 14 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze w/compiled uswds
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Build USWDS JavaScript bundle
+        run: npm run build
+      - name: Check that compiled files are in workspace
+        run: echo $(ls ./dist/js)
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+      - name: Perform CodeQL analysis for dist
+        uses: github/codeql-action/analyze@v3
