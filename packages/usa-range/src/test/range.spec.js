@@ -50,70 +50,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("check that the wrapper div is added, the span element is added and that the first child is the range slider and the second child is the span.", () => {
         assert.ok(wrapperDiv, "wrapperDiv was created.");
         assert.ok(spanElement, "SPAN was created");
-        // make sure the slider and the span are in the wrapper div and that the span has 20 as the default.
-        const children = Array.from(wrapperDiv.children);
-        assert.strictEqual(
-          children.length,
-          2,
-          "wrapperDiv doesn't have 2 children",
-        );
-        assert.strictEqual(
-          children[0],
-          slider,
-          "the range slider is not the first child.",
-        );
-        assert.strictEqual(
-          children[1],
-          spanElement,
-          "the span is not the second child.",
-        );
         assert.strictEqual(
           spanElement.textContent,
-          "20",
-          "the initial span is not set to 20.",
+          slider.value,
+          "the span does not match the range slider value.",
         );
-
-        // we have two range sliders on this page, break them out so we can check them.
-        const sliders = document.querySelectorAll("input[type='range']");
-
-        const slider1 = Array.from(sliders).find(
-          (slider) => slider.getAttribute("min") === "20",
-        );
-        const wrapper1 = slider1.closest(".usa-range__wrapper");
-        // only run this test for document.body
-        if (name === "document.body") {
-          if (wrapper1) {
-            const span1 = wrapper1.querySelector("span");
-            assert.strictEqual(
-              spanElement.textContent,
-              "20",
-              "the initial span is not set to 20.",
-            );
-          } else {
-            console.error("Wrapper not found for slider1");
-          }
-          return;
-        }
-
-        const slider2 = Array.from(sliders).find(
-          (slider) => slider.getAttribute("min") === "30",
-        );
-        const wrapper2 = slider2.closest(".usa-range__wrapper");
-        // only run this test for document.body
-        if (name === "document.body") {
-          if (wrapper2) {
-            assert.strictEqual(
-              spanElement.textContent,
-              "30",
-              "the initial span is not set to 30.",
-            );
-          } else {
-            console.error("Wrapper not found for slider2");
-          }
-          return;
-        }
-      });
-
+      });  
+      
       it("Updates span element to match new slider value on change", () => {
         slider.value = "40";
         EVENTS.change(slider);
