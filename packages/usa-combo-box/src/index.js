@@ -211,13 +211,15 @@ const enhanceComboBox = (_comboBoxEl) => {
   selectEl.id = "";
   selectEl.value = "";
 
-  ["required", "aria-label", "aria-labelledby", "aria-describedby"].forEach((name) => {
-    if (selectEl.hasAttribute(name)) {
-      const value = selectEl.getAttribute(name);
-      additionalAttributes.push({ [name]: value });
-      selectEl.removeAttribute(name);
-    }
-  });
+  ["required", "aria-label", "aria-labelledby", "aria-describedby"].forEach(
+    (name) => {
+      if (selectEl.hasAttribute(name)) {
+        const value = selectEl.getAttribute(name);
+        additionalAttributes.push({ [name]: value });
+        selectEl.removeAttribute(name);
+      }
+    },
+  );
 
   // sanitize doesn't like functions in template literals
   const input = document.createElement("input");
