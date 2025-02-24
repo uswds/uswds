@@ -39,7 +39,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
         slider = rangeSliderSelector();
         // get the closest slider with class .usa-range__wrapper
         wrapperDiv = slider.closest(".usa-range__wrapper");
-        // get the .usa-range__value for the span.
         spanElement = wrapperDiv.querySelector(".usa-range__value");
       });
 
@@ -47,7 +46,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         body.textContent = "";
       });
 
-      it("check that the wrapper div is added, the span element is added and that the first child is the range slider and the second child is the span.", () => {
+      it("check that the wrapper div and the span element are added and that they match the slider.", () => {
         assert.ok(wrapperDiv, "wrapperDiv was created.");
         assert.ok(spanElement, "SPAN was created");
         assert.strictEqual(
