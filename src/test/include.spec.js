@@ -10,8 +10,8 @@ const {
 const includePath = path.resolve("packages/");
 
 describe("include paths", () => {
-  it('can be loaded with @import "uswds"', async () => {
-      compileString(`@import "uswds";`, [includePath]);
+  it('can be loaded with @forward "uswds"', async () => {
+      compileString(`@forward "uswds";`, [includePath]);
   });
 });
 
@@ -22,7 +22,7 @@ describe("standalone dist scss", () => {
       await runGulp("buildUSWDS");
   });
 
-  it('can be loaded with @import "uswds"', () => {
+  it('can be loaded with @forward "uswds"', () => {
       compile(`${distScssPath}/uswds.scss`, [includePath]);
   });
 });
