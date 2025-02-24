@@ -21,7 +21,7 @@ exports.runGulp = (task) =>
 exports.compileString = (styles, loadPaths) => {
   sass.compileString(styles, {
     loadPaths,
-    silenceDeprecations: ["mixed-decls", "import"],
+    silenceDeprecations: ["mixed-decls"],
   });
 };
 
@@ -33,6 +33,6 @@ exports.compileString = (styles, loadPaths) => {
 exports.compile = (file, loadPaths) => {
   sass.compile(file, {
     loadPaths,
-    silenceDeprecations: ["mixed-decls", "import"],
+    silenceDeprecations: ["mixed-decls"],
   });
 };
