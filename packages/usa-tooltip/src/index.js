@@ -17,6 +17,22 @@ const TRIANGLE_SIZE = 5;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
+ * Debounce function to delay execution
+ * @param {Function} func - The function to debounce
+ * @param {Number} wait - The delay in milliseconds
+ * @returns {Function}
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(this, args);
+    }, wait);
+  };
+}
+
+/**
  *
  * @param {DOMElement} trigger - The tooltip trigger
  * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
@@ -32,7 +48,7 @@ const getTooltipElements = (trigger) => {
  * Shows the tooltip
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
-const showToolTip = (tooltipBody, tooltipTrigger, position) => {
+const showToolTip = debounce((tooltipBody, tooltipTrigger, position) => {
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -292,7 +308,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   setTimeout(() => {
     tooltipBody.classList.add(VISIBLE_CLASS);
   }, 20);
-};
+}, 500);
 
 /**
  * Removes all the properties to show and position the tooltip,
@@ -313,50 +329,82 @@ const hideToolTip = (tooltipBody) => {
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
 const setUpAttributes = (tooltipTrigger) => {
-  const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
-  const tooltipContent = tooltipTrigger.getAttribute("title");
-  const wrapper = document.createElement("span");
-  const tooltipBody = document.createElement("span");
-  const additionalClasses = tooltipTrigger.getAttribute("data-classes");
-  let position = tooltipTrigger.getAttribute("data-position");
+  // If the tooltip has already been instantiated, don't create another instance
+  if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
+    const wrapper = document.createElement("span");
+    const tooltipBody = document.createElement("span");
+    const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
+    const tooltipContent = tooltipTrigger.getAttribute("title");
+    const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+    let position = tooltipTrigger.getAttribute("data-position");
 
-  // Apply default position if not set as attribute
-  if (!position) {
-    position = "top";
-    tooltipTrigger.setAttribute("data-position", position);
+    // Apply default position if not set as attribute
+    if (!position) {
+      position = "top";
+      tooltipTrigger.setAttribute("data-position", position);
+    }
+
+    tooltipTrigger.setAttribute("aria-describedby", tooltipID);
+    tooltipTrigger.setAttribute("tabindex", "0");
+    tooltipTrigger.removeAttribute("title");
+    tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+    tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
+
+    // insert wrapper before el in the DOM tree
+    tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
+
+    // set up the wrapper
+    wrapper.appendChild(tooltipTrigger);
+    wrapper.classList.add(TOOLTIP_CLASS);
+    wrapper.appendChild(tooltipBody);
+
+    // Apply additional class names to wrapper element
+    if (additionalClasses) {
+      const classesArray = additionalClasses.split(" ");
+      classesArray.forEach((classname) => wrapper.classList.add(classname));
+    }
+
+    // set up the tooltip body
+    tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
+    tooltipBody.setAttribute("id", tooltipID);
+    tooltipBody.setAttribute("role", "tooltip");
+    tooltipBody.setAttribute("aria-hidden", "true");
+
+    // place the text in the tooltip
+    tooltipBody.textContent = tooltipContent;
+
+    return { tooltipBody, position, tooltipContent, wrapper };
+
+  } else {
+
+    const tooltipContent = tooltipTrigger.getAttribute("title");
+    const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+    let position = tooltipTrigger.getAttribute("data-position");
+    // Identify the existing span element that wraps the trigger
+    const wrapper = tooltipTrigger.parentNode;
+    // Identify the existing span element that contains the tooltip
+    const tooltipBody = tooltipTrigger.nextElementSibling;
+
+    // Apply default position if not set as attribute
+    if (!position) {
+      position = "top";
+      tooltipTrigger.setAttribute("data-position", position);
+    }
+    // Remove the dynamic tooltip text from trigger title
+    tooltipTrigger.removeAttribute("title");
+    if (tooltipTrigger.classList.contains(TOOLTIP_CLASS)) {
+      tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+    }
+    // Apply additional class names to wrapper element
+    if (additionalClasses) {
+      const classesArray = additionalClasses.split(" ");
+      classesArray.forEach((classname) => wrapper.classList.add(classname));
+    }
+    // place the text in the tooltip
+    tooltipBody.textContent = tooltipContent;
+
+    return { tooltipBody, position, tooltipContent, wrapper };
   }
-
-  // Set up tooltip attributes
-  tooltipTrigger.setAttribute("aria-describedby", tooltipID);
-  tooltipTrigger.setAttribute("tabindex", "0");
-  tooltipTrigger.removeAttribute("title");
-  tooltipTrigger.classList.remove(TOOLTIP_CLASS);
-  tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
-
-  // insert wrapper before el in the DOM tree
-  tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
-
-  // set up the wrapper
-  wrapper.appendChild(tooltipTrigger);
-  wrapper.classList.add(TOOLTIP_CLASS);
-  wrapper.appendChild(tooltipBody);
-
-  // Apply additional class names to wrapper element
-  if (additionalClasses) {
-    const classesArray = additionalClasses.split(" ");
-    classesArray.forEach((classname) => wrapper.classList.add(classname));
-  }
-
-  // set up the tooltip body
-  tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
-  tooltipBody.setAttribute("id", tooltipID);
-  tooltipBody.setAttribute("role", "tooltip");
-  tooltipBody.setAttribute("aria-hidden", "true");
-
-  // place the text in the tooltip
-  tooltipBody.textContent = tooltipContent;
-
-  return { tooltipBody, position, tooltipContent, wrapper };
 };
 
 /**
@@ -379,9 +427,10 @@ const tooltip = behavior(
     "mouseover focusin": {
       [TOOLTIP](e) {
         const trigger = e.target;
+        const elementType = trigger.nodeName;
 
         // Initialize tooltip if it hasn't already
-        if (trigger.hasAttribute("title")) {
+        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
           setUpAttributes(trigger);
         }
       },
