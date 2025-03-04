@@ -330,7 +330,7 @@ const hideToolTip = (tooltipBody) => {
  */
 const setUpAttributes = (tooltipTrigger) => {
   // If the tooltip has already been instantiated, don't create another instance
-  if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
+  const tooltipExists = (tooltipTrigger) => {
     const wrapper = document.createElement("span");
     const tooltipBody = document.createElement("span");
     const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
@@ -373,7 +373,10 @@ const setUpAttributes = (tooltipTrigger) => {
     // place the text in the tooltip
     tooltipBody.textContent = tooltipContent;
 
-  } else {
+    return { tooltipBody, position, tooltipContent, wrapper };
+
+  } 
+  const newTooltip = (tooltipTrigger) => {
 
     const tooltipContent = tooltipTrigger.getAttribute("title");
     const additionalClasses = tooltipTrigger.getAttribute("data-classes");
@@ -401,9 +404,13 @@ const setUpAttributes = (tooltipTrigger) => {
     // place the text in the tooltip
     tooltipBody.textContent = tooltipContent;
 
-    
+    return { tooltipBody, position, tooltipContent, wrapper };
   }
-  return { tooltipBody, position, tooltipContent, wrapper };
+  if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
+    tooltipExists();
+  } else {
+    newTooltip();
+  }
 };
 
 /**
