@@ -21,7 +21,7 @@ const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
  * @param {DOMElement} trigger - The tooltip trigger
  * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
  */
-const getTooltipElements = (trigger) => {
+const getTooltipElements = trigger => {
   const wrapper = trigger.parentNode;
   const body = wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
 
@@ -47,7 +47,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    *
    * @param {string} setPos - can be "top", "bottom", "right", "left"
    */
-  const setPositionClass = (setPos) => {
+  const setPositionClass = setPos => {
     tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--top`);
     tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--bottom`);
     tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--right`);
@@ -62,7 +62,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    *
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const resetPositionStyles = (e) => {
+  const resetPositionStyles = e => {
     // we don't override anything in the stylesheet when finding alt positions
     e.style.top = null;
     e.style.bottom = null;
@@ -81,7 +81,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const offsetMargin = (target, propertyValue) =>
     parseInt(
       window.getComputedStyle(target).getPropertyValue(propertyValue),
-      10,
+      10
     );
 
   // offsetLeft = the left position, and margin of the element, the left
@@ -100,7 +100,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const calculateMarginOffset = (
     marginPosition,
     tooltipBodyOffset,
-    trigger,
+    trigger
   ) => {
     const offset =
       offsetMargin(trigger, `margin-${marginPosition}`) > 0
@@ -114,20 +114,20 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Positions tooltip at the top
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const positionTop = (e) => {
+  const positionTop = e => {
     resetPositionStyles(e); // ensures we start from the same point
     // get details on the elements object with
 
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     setPositionClass("top");
@@ -141,13 +141,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Positions tooltip at the bottom
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const positionBottom = (e) => {
+  const positionBottom = e => {
     resetPositionStyles(e);
 
     const leftMargin = calculateMarginOffset(
       "left",
       e.offsetWidth,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     setPositionClass("bottom");
@@ -159,20 +159,20 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Positions tooltip at the right
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const positionRight = (e) => {
+  const positionRight = e => {
     resetPositionStyles(e);
 
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     setPositionClass("right");
     e.style.top = `50%`;
-    e.style.left = `${
-      tooltipTrigger.offsetLeft + tooltipTrigger.offsetWidth + TRIANGLE_SIZE
-    }px`;
+    e.style.left = `${tooltipTrigger.offsetLeft +
+      tooltipTrigger.offsetWidth +
+      TRIANGLE_SIZE}px`;
     e.style.margin = `-${topMargin / 2}px 0 0 0`;
   };
 
@@ -180,13 +180,13 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
    * Positions tooltip at the right
    * @param {HTMLElement} e - this is the tooltip body
    */
-  const positionLeft = (e) => {
+  const positionLeft = e => {
     resetPositionStyles(e);
 
     const topMargin = calculateMarginOffset(
       "top",
       e.offsetHeight,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     // we have to check for some utility margins
@@ -195,7 +195,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       tooltipTrigger.offsetLeft > e.offsetWidth
         ? tooltipTrigger.offsetLeft - e.offsetWidth
         : e.offsetWidth,
-      tooltipTrigger,
+      tooltipTrigger
     );
 
     setPositionClass("left");
@@ -223,7 +223,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
       positionTop,
       positionBottom,
       positionRight,
-      positionLeft,
+      positionLeft
     ];
 
     let hasVisiblePosition = false;
@@ -301,7 +301,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
  * DOM manipulation.
  * @param {HTMLElement} tooltipBody - The body of the tooltip
  */
-const hideToolTip = (tooltipBody) => {
+const hideToolTip = tooltipBody => {
   tooltipBody.classList.remove(VISIBLE_CLASS);
   tooltipBody.classList.remove(SET_CLASS);
   tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
@@ -312,7 +312,7 @@ const hideToolTip = (tooltipBody) => {
  * Setup the tooltip component
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
-const setUpAttributes = (tooltipTrigger) => {
+const setUpAttributes = tooltipTrigger => {
   // If the tooltip has already been instantiated, don't create another instance
   const tooltipExists = () => {
     const wrapper = document.createElement("span");
@@ -345,7 +345,7 @@ const setUpAttributes = (tooltipTrigger) => {
     // Apply additional class names to wrapper element
     if (additionalClasses) {
       const classesArray = additionalClasses.split(" ");
-      classesArray.forEach((classname) => wrapper.classList.add(classname));
+      classesArray.forEach(classname => wrapper.classList.add(classname));
     }
 
     // set up the tooltip body
@@ -358,10 +358,8 @@ const setUpAttributes = (tooltipTrigger) => {
     tooltipBody.textContent = tooltipContent;
 
     return { tooltipBody, position, tooltipContent, wrapper };
-
-  } 
+  };
   const newTooltip = () => {
-
     const tooltipContent = tooltipTrigger.getAttribute("title");
     const additionalClasses = tooltipTrigger.getAttribute("data-classes");
     let position = tooltipTrigger.getAttribute("data-position");
@@ -383,13 +381,13 @@ const setUpAttributes = (tooltipTrigger) => {
     // Apply additional class names to wrapper element
     if (additionalClasses) {
       const classesArray = additionalClasses.split(" ");
-      classesArray.forEach((classname) => wrapper.classList.add(classname));
+      classesArray.forEach(classname => wrapper.classList.add(classname));
     }
     // place the text in the tooltip
     tooltipBody.textContent = tooltipContent;
 
     return { tooltipBody, position, tooltipContent, wrapper };
-  }
+  };
   if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
     tooltipExists();
   } else {
@@ -408,7 +406,7 @@ const handleEscape = () => {
     return;
   }
 
-  activeTooltips.forEach((activeTooltip) => hideToolTip(activeTooltip));
+  activeTooltips.forEach(activeTooltip => hideToolTip(activeTooltip));
 };
 
 // Setup our function to run on various events
@@ -427,22 +425,22 @@ const tooltip = behavior(
         const { trigger, body } = getTooltipElements(e.target);
 
         showToolTip(body, trigger, trigger.dataset.position);
-      },
+      }
     },
     focusout: {
       [TOOLTIP_TRIGGER](e) {
         const { body } = getTooltipElements(e.target);
 
         hideToolTip(body);
-      },
+      }
     },
     keydown: {
-      [BODY]: keymap({ Escape: handleEscape }),
-    },
+      [BODY]: keymap({ Escape: handleEscape })
+    }
   },
   {
     init(root) {
-      selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
+      selectOrMatches(TOOLTIP, root).forEach(tooltipTrigger => {
         setUpAttributes(tooltipTrigger);
 
         const { body, wrapper } = getTooltipElements(tooltipTrigger);
@@ -450,15 +448,15 @@ const tooltip = behavior(
       });
     },
     teardown(root) {
-      selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
+      selectOrMatches(TOOLTIP, root).forEach(tooltipWrapper => {
         tooltipWrapper.removeEventListener("mouseleave", hideToolTip);
       });
     },
     setup: setUpAttributes,
     getTooltipElements,
     show: showToolTip,
-    hide: hideToolTip,
-  },
+    hide: hideToolTip
+  }
 );
 
 module.exports = tooltip;
