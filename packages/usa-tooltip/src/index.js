@@ -17,22 +17,6 @@ const TRIANGLE_SIZE = 5;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
- * Debounce function to delay execution
- * @param {Function} func - The function to debounce
- * @param {Number} wait - The delay in milliseconds
- * @returns {Function}
- */
-function debounce(func, wait) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func.apply(this, args);
-    }, wait);
-  };
-}
-
-/**
  *
  * @param {DOMElement} trigger - The tooltip trigger
  * @returns {object} Elements for initialized tooltip; includes trigger, wrapper, and body
@@ -48,7 +32,7 @@ const getTooltipElements = (trigger) => {
  * Shows the tooltip
  * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
  */
-const showToolTip = debounce((tooltipBody, tooltipTrigger, position) => {
+const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   tooltipBody.setAttribute("aria-hidden", "false");
 
   // This sets up the tooltip body. The opacity is 0, but
@@ -308,7 +292,7 @@ const showToolTip = debounce((tooltipBody, tooltipTrigger, position) => {
   setTimeout(() => {
     tooltipBody.classList.add(VISIBLE_CLASS);
   }, 20);
-}, 500);
+};
 
 /**
  * Removes all the properties to show and position the tooltip,
