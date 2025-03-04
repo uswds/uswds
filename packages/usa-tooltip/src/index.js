@@ -388,6 +388,7 @@ const setUpAttributes = tooltipTrigger => {
 
     return { tooltipBody, position, tooltipContent, wrapper };
   };
+  
   if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
     tooltipExists();
   } else {
