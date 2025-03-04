@@ -373,8 +373,6 @@ const setUpAttributes = (tooltipTrigger) => {
     // place the text in the tooltip
     tooltipBody.textContent = tooltipContent;
 
-    return { tooltipBody, position, tooltipContent, wrapper };
-
   } else {
 
     const tooltipContent = tooltipTrigger.getAttribute("title");
@@ -403,8 +401,9 @@ const setUpAttributes = (tooltipTrigger) => {
     // place the text in the tooltip
     tooltipBody.textContent = tooltipContent;
 
-    return { tooltipBody, position, tooltipContent, wrapper };
+    
   }
+  return { tooltipBody, position, tooltipContent, wrapper };
 };
 
 /**
@@ -427,10 +426,9 @@ const tooltip = behavior(
     "mouseover focusin": {
       [TOOLTIP](e) {
         const trigger = e.target;
-        const elementType = trigger.nodeName;
 
         // Initialize tooltip if it hasn't already
-        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
+        if (trigger.hasAttribute("title")) {
           setUpAttributes(trigger);
         }
       },
