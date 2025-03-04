@@ -330,7 +330,7 @@ const hideToolTip = (tooltipBody) => {
  */
 const setUpAttributes = (tooltipTrigger) => {
   // If the tooltip has already been instantiated, don't create another instance
-  const tooltipExists = (tooltipTrigger) => {
+  const tooltipExists = () => {
     const wrapper = document.createElement("span");
     const tooltipBody = document.createElement("span");
     const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
@@ -376,7 +376,7 @@ const setUpAttributes = (tooltipTrigger) => {
     return { tooltipBody, position, tooltipContent, wrapper };
 
   } 
-  const newTooltip = (tooltipTrigger) => {
+  const newTooltip = () => {
 
     const tooltipContent = tooltipTrigger.getAttribute("title");
     const additionalClasses = tooltipTrigger.getAttribute("data-classes");
