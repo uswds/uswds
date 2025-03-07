@@ -13,10 +13,9 @@ module.exports = {
   },
 
   // Copy Sass stylesheets to /dist directory
-  // TODO: Do we want to copy to the scss any more?
   copySass() {
     dutil.logMessage("copySass", "Copying Sass stylesheets to /dist/scss");
-    return src("src/**/**/*.scss").pipe(dest("dist/scss"));
+    return src("src/stylesheets/**/*.scss").pipe(dest("dist/scss"));
   },
 
   // Copy material icons to /dist/img/material-icons
