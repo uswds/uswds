@@ -313,50 +313,87 @@ const hideToolTip = (tooltipBody) => {
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
 const setUpAttributes = (tooltipTrigger) => {
-  const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
-  const tooltipContent = tooltipTrigger.getAttribute("title");
-  const wrapper = document.createElement("span");
-  const tooltipBody = document.createElement("span");
-  const additionalClasses = tooltipTrigger.getAttribute("data-classes");
-  let position = tooltipTrigger.getAttribute("data-position");
+  // If the tooltip has already been instantiated, don't create another instance
+  const tooltipExists = () => {
+    const wrapper = document.createElement("span");
+    const tooltipBody = document.createElement("span");
+    const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
+    const tooltipContent = tooltipTrigger.getAttribute("title");
+    const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+    let position = tooltipTrigger.getAttribute("data-position");
 
-  // Apply default position if not set as attribute
-  if (!position) {
-    position = "top";
-    tooltipTrigger.setAttribute("data-position", position);
+    // Apply default position if not set as attribute
+    if (!position) {
+      position = "top";
+      tooltipTrigger.setAttribute("data-position", position);
+    }
+
+    tooltipTrigger.setAttribute("aria-describedby", tooltipID);
+    tooltipTrigger.setAttribute("tabindex", "0");
+    tooltipTrigger.removeAttribute("title");
+    tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+    tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
+
+    // insert wrapper before el in the DOM tree
+    tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
+
+    // set up the wrapper
+    wrapper.appendChild(tooltipTrigger);
+    wrapper.classList.add(TOOLTIP_CLASS);
+    wrapper.appendChild(tooltipBody);
+
+    // Apply additional class names to wrapper element
+    if (additionalClasses) {
+      const classesArray = additionalClasses.split(" ");
+      classesArray.forEach((classname) => wrapper.classList.add(classname));
+    }
+
+    // set up the tooltip body
+    tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
+    tooltipBody.setAttribute("id", tooltipID);
+    tooltipBody.setAttribute("role", "tooltip");
+    tooltipBody.setAttribute("aria-hidden", "true");
+
+    // place the text in the tooltip
+    tooltipBody.textContent = tooltipContent;
+
+    return { tooltipBody, position, tooltipContent, wrapper };
+  };
+  const newTooltip = () => {
+    const tooltipContent = tooltipTrigger.getAttribute("title");
+    const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+    let position = tooltipTrigger.getAttribute("data-position");
+    // Identify the existing span element that wraps the trigger
+    const wrapper = tooltipTrigger.parentNode;
+    // Identify the existing span element that contains the tooltip
+    const tooltipBody = tooltipTrigger.nextElementSibling;
+
+    // Apply default position if not set as attribute
+    if (!position) {
+      position = "top";
+      tooltipTrigger.setAttribute("data-position", position);
+    }
+    // Remove the dynamic tooltip text from trigger title
+    tooltipTrigger.removeAttribute("title");
+    if (tooltipTrigger.classList.contains(TOOLTIP_CLASS)) {
+      tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+    }
+    // Apply additional class names to wrapper element
+    if (additionalClasses) {
+      const classesArray = additionalClasses.split(" ");
+      classesArray.forEach((classname) => wrapper.classList.add(classname));
+    }
+    // place the text in the tooltip
+    tooltipBody.textContent = tooltipContent;
+
+    return { tooltipBody, position, tooltipContent, wrapper };
+  };
+
+  if (!tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS)) {
+    tooltipExists();
+  } else {
+    newTooltip();
   }
-
-  // Set up tooltip attributes
-  tooltipTrigger.setAttribute("aria-describedby", tooltipID);
-  tooltipTrigger.setAttribute("tabindex", "0");
-  tooltipTrigger.removeAttribute("title");
-  tooltipTrigger.classList.remove(TOOLTIP_CLASS);
-  tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
-
-  // insert wrapper before el in the DOM tree
-  tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
-
-  // set up the wrapper
-  wrapper.appendChild(tooltipTrigger);
-  wrapper.classList.add(TOOLTIP_CLASS);
-  wrapper.appendChild(tooltipBody);
-
-  // Apply additional class names to wrapper element
-  if (additionalClasses) {
-    const classesArray = additionalClasses.split(" ");
-    classesArray.forEach((classname) => wrapper.classList.add(classname));
-  }
-
-  // set up the tooltip body
-  tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
-  tooltipBody.setAttribute("id", tooltipID);
-  tooltipBody.setAttribute("role", "tooltip");
-  tooltipBody.setAttribute("aria-hidden", "true");
-
-  // place the text in the tooltip
-  tooltipBody.textContent = tooltipContent;
-
-  return { tooltipBody, position, tooltipContent, wrapper };
 };
 
 /**
