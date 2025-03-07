@@ -18,9 +18,15 @@ Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new
 
 First time contributor? We’re here to help guide you through a successful contribution. We review all contributions before merging them into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway to get the conversation started.
 
-Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account.
+Before submitting a contribution, you’ll just need to create a GitHub account or sign in to your existing account. You'll also need to set up [signature verification on your commits](#setting-up-verified-commits).
 
 If you want to see some other contributions before submitting your own, check out [some good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22) from other community members. Again, if you have any questions, don’t hesitate to [reach out to us](mailto:uswds@gsa.gov).
+
+### Setting up verified commits
+> [!important]
+> For security reasons, all commits to this repository must have a verified signature. Use one of the following GitHub guides to set up your verification signature:
+> - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
+> - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
 
 ### Reporting bugs and issues
 
