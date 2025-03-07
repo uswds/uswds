@@ -4,8 +4,8 @@ const path = require("path");
 const pkg = require("../../package.json");
 const { runGulp, distCssPath } = require("../../packages/uswds-core/src/js/utils/test/util");
 
-before(() => {
-  setTimeout(() => runGulp("sass"), 20000);
+before(async () => {
+  await runGulp("compileSass");
 });
 
 describe("build output", () => {
