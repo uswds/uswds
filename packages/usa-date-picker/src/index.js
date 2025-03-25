@@ -2120,7 +2120,7 @@ const datePickerEvents = {
   mousedown: {
     [DATE_PICKER_BUTTON]() {
       preventFocusOut = true;
-    }
+    },
   },
   [CLICK]: {
     [DATE_PICKER_BUTTON]() {
