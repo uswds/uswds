@@ -364,42 +364,45 @@ const createTooltip = (tooltipTrigger) => {
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
 const updateTooltip = (tooltipTrigger) => {
-    // If the tooltip has already been instantiated, don't create another instance
-      const tooltipContent = tooltipTrigger.getAttribute("title");
-      const additionalClasses = tooltipTrigger.getAttribute("data-classes");
-      let position = tooltipTrigger.getAttribute("data-position");
-      // Identify the existing span element that wraps the trigger
-      const wrapper = tooltipTrigger.parentNode;
-      // Identify the existing span element that contains the tooltip
-      wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
+  // If the tooltip has already been instantiated, don't create another instance
+  const tooltipContent = tooltipTrigger.getAttribute("title");
+  const additionalClasses = tooltipTrigger.getAttribute("data-classes");
+  let position = tooltipTrigger.getAttribute("data-position");
+  // Identify the existing span element that wraps the trigger
+  const wrapper = tooltipTrigger.parentNode;
+  // Identify the existing span element that contains the tooltip
+  wrapper.querySelector(`.${TOOLTIP_BODY_CLASS}`);
 
-      // Apply default position if not set as attribute
-      if (!position) {
-        position = "top";
-        tooltipTrigger.setAttribute("data-position", position);
-      }
-      // Remove the dynamic tooltip text from trigger title
-      tooltipTrigger.removeAttribute("title");
-      if (tooltipTrigger.classList.contains(TOOLTIP_CLASS)) {
-        tooltipTrigger.classList.remove(TOOLTIP_CLASS);
-      }
-      // Apply additional class names to wrapper element
-      if (additionalClasses) {
-        const classesArray = additionalClasses.split(" ");
-        classesArray.forEach((classname) => wrapper.classList.add(classname));
-      }
-      // place the text in the tooltip
-      tooltipBody.textContent = tooltipContent;
+  // Apply default position if not set as attribute
+  if (!position) {
+    position = "top";
+    tooltipTrigger.setAttribute("data-position", position);
+  }
+  // Remove the dynamic tooltip text from trigger title
+  tooltipTrigger.removeAttribute("title");
+  if (tooltipTrigger.classList.contains(TOOLTIP_CLASS)) {
+    tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+  }
+  // Apply additional class names to wrapper element
+  if (additionalClasses) {
+    const classesArray = additionalClasses.split(" ");
+    classesArray.forEach((classname) => wrapper.classList.add(classname));
+  }
+  // place the text in the tooltip
+  tooltipBody.textContent = tooltipContent;
 
-      return { tooltipBody, position, tooltipContent, wrapper };
-    };
+  return { tooltipBody, position, tooltipContent, wrapper };
+};
 
 /**
  * Determine whether a new tooltip is being created or an existing one is being updated
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
 const setUpAttributes = (tooltipTrigger) => {
-  const isTooltipSetup = tooltipTrigger.parentNode && tooltipTrigger.parentNode.classList.contains(TOOLTIP_CLASS) && tooltipTrigger.parentNode.querySelector(`.${TOOLTIP_BODY_CLASS}`);
+  const isTooltipSetup =
+    tooltipTrigger.parentNode &&
+    tooltipTrigger.parentNode.classList.contains(TOOLTIP_CLASS) &&
+    tooltipTrigger.parentNode.querySelector(`.${TOOLTIP_BODY_CLASS}`);
   if (!isTooltipSetup) {
     createTooltip();
   } else {
