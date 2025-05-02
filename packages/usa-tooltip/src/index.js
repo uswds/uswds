@@ -362,8 +362,9 @@ const createTooltip = (tooltipTrigger) => {
 /**
  * Update an existing tooltip component
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
+ * @param {HTMLElement} tooltipBody - The body of the tooltip
  */
-const updateTooltip = (tooltipTrigger) => {
+const updateTooltip = (tooltipTrigger, tooltipBody) => {
   // If the tooltip has already been instantiated, don't create another instance
   const tooltipContent = tooltipTrigger.getAttribute("title");
   const additionalClasses = tooltipTrigger.getAttribute("data-classes");
