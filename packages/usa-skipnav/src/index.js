@@ -15,7 +15,6 @@ function setTabindex() {
   );
 
   if (target) {
-    target.style.outline = "0";
     target.setAttribute("tabindex", 0);
     target.focus();
     target.addEventListener(
