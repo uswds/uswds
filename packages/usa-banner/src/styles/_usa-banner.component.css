@@ -1,0 +1,100 @@
+:host {
+  --icon-lock: url("../img/lock.svg");
+  --icon-chevron-up: url("/packages/usa-icon/src/img/usa-icons-bg/expand_less--white.svg");
+  --icon-chevron-down: url("/packages/usa-icon/src/img/usa-icons-bg/expand_more--white.svg");
+  --icon-close: url("/packages/usa-icon/src/img/usa-icons-bg/close--white.svg");
+  --theme-banner-background-color: var(--usa-base-lightest, #f0f0f0);
+  --theme-banner-font-family: var(--usa-font-ui, system-ui, sans-serif);
+  --theme-banner-text-color: var(--usa-text-base, #1b1b1b);
+  --theme-banner-link-color: var(--theme-link-color, #005ea2);
+  --theme-banner-link-color-hover: var(--theme-link-hover-color, #1a4480);
+  --theme-banner-chevron-color: var(--theme-banner-link-color, #005ea2);
+  /* Missing theme-banner-max-width because we can't pass custom property to media queries. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.usa-banner {
+  background-color: var(--theme-banner-background-color);
+  color: var(--theme-banner-text-color);
+  font-family: var(--theme-banner-font-family);
+}
+
+.usa-banner__header,
+.usa-banner__content {
+  color: var(--theme-banner-text-color);
+}
+
+.usa-banner__inner {
+  flex-wrap: nowrap;
+}
+
+/* Allows banner action to inherit font variable. */
+.usa-banner .usa-accordion {
+  font-family: inherit;
+}
+
+.usa-banner__button {
+  color: var(--theme-banner-link-color);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.usa-banner__button:hover {
+  color: var(--theme-banner-link-hover-color);
+}
+
+/* In USWDS close icon is set via max-width media query, flipped it here. */
+.usa-banner__button::after,
+.usa-banner__header-action::after {
+  mask-image: var(--icon-chevron-down);
+}
+
+.usa-banner__button[aria-expanded="true"]::after {
+  mask-image: var(--icon-close);
+}
+
+/**
+  * HTTPS section lock icon.
+  *
+  * Rewrote styles to avoid reliance of SASS mixins & functions.
+  *
+  * Height and width taken from calculated output in USWDS 3 banner.
+  */
+.usa-banner__icon-lock {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 1.5ex;
+  background-image: var(--icon-lock);
+  mask-image: var(--icon-lock);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  vertical-align: middle;
+  width: 1.21875ex;
+}
+
+@media all and (min-width: 40em) {
+  :host {
+    --chevron-width: 1rem;
+  }
+
+  .usa-banner__button,
+  .usa-banner__button[aria-expanded="true"] {
+    padding-inline-end: var(--chevron-width);
+  }
+
+  .usa-banner__button::after {
+    background-color: var(--theme-banner-chevron-color);
+    top: 0;
+    right: 0;
+  }
+
+  .usa-banner__button[aria-expanded="true"]::after {
+    mask-image: var(--icon-chevron-up);
+  }
+}
