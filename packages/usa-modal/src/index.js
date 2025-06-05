@@ -165,7 +165,7 @@ function toggleModal(event) {
     });
   } else if (!safeActive && menuButton && returnFocus) {
     // The modal window is closed.
-    // Non-modals now accesible to screen reader
+    // Non-modals now accessible to screen reader
     document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
       nonModal.removeAttribute("aria-hidden");
       nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);

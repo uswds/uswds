@@ -359,11 +359,8 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "@uswds/uswds/js";
-const { characterCount, accordion } = USWDS; // deconstruct your components here
-
-// Alternatively
 import accordion from "@uswds/uswds/js/usa-accordion";
+import characterCount from "@uswds/uswds/js/usa-character-count";
 ```
 
 ⚠️Requires webpack 5+
@@ -553,11 +550,11 @@ If you have questions or concerns about our contributing workflow, please contac
 Much of the guidance in USWDS leans on open source designs, code, and patterns from other civic and government organizations, including:
 
 - Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
-- U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
+- U.S. Patent and Trademark Office’s [Design System](https://uspto.github.io/USPTO-Design-System/)
 - Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
 - UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
 - Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
-- Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
+- Pivotal Labs [Component Library](https://pivotal-cf.github.io/pivotal-ui/)
 
 ## Licenses and attribution
 
