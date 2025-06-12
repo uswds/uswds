@@ -120,8 +120,7 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
-    "lit": "^3.2.1",
-    "receptor": "1.0.0"
+    "lit": "^3.2.1"
   },
   "devDependencies": {
     "@18f/identity-stylelint-config": "4.1.0",
