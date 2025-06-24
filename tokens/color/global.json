@@ -1,0 +1,14 @@
+{
+  "$tokens-color-global": {
+    "transparent": {
+      "$value": "rgba(0,0,0,0)"
+    },
+    "black": {
+      "$value": "#000"
+    },
+    "white": {
+      "$value": "#fff"
+    }
+  },
+  "$type": "color"
+}
