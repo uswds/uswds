@@ -41,10 +41,24 @@ function getTokenFileName(path){
   return jsonFileName;
 }
 
+function transformStyleJson(tokenJson, tokenType) {
+  // Apply whatever massaging has to happen for particular token types
+
+  // rm extraneous key for system colors
+  const topLevelKey = Object.keys(tokenJson)[0];
+  if (topLevelKey.match(/^\$system\-color|\$tokens\-color/)) {
+    tokenJson = tokenJson[topLevelKey]
+  }
+
+  // Add $type for styledictionary/DTCG format
+  tokenJson['$type'] = tokenType;
+  return tokenJson;
+}
+
 export async function sassToJson(pathToScss, tokenType){
   const sassObj = await extractTokensFromSass(pathToScss)
-  const tokenJson = walkStyles(sassObj);
-  tokenJson['$type'] = tokenType;
+  let tokenJson = walkStyles(sassObj);
+  tokenJson = transformStyleJson(tokenJson, tokenType)
   const tokenFileName = getTokenFileName(pathToScss);
   console.info(`Converting ${tokenFileName}`);
   writeFileSync(`tokens/${tokenType}/${tokenFileName}`, JSON.stringify(tokenJson, null, 2));
