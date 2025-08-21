@@ -99,13 +99,16 @@ const config = {
             options: {
               sourceMap: true,
               sassOptions: {
-                loadPaths: ["./packages", "./node_modules/@uswds"],
+                loadPaths: ["./src/stylesheets", "./packages", "./node_modules/@uswds"],
                 implementation: require("sass-embedded"),
               },
             },
           },
         ],
-        include: path.resolve(__dirname, "../packages"),
+        include: [
+          path.resolve(__dirname, "../src/stylesheets"),
+          path.resolve(__dirname, "../packages"),
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
