@@ -523,11 +523,11 @@ If you find any issues with our accessibility conformance, please create an issu
 
 ## Long-term support of v1.x
 
-[Version 1.x](https://v1.designsystem.digital.gov) is no longer maintained.
+USWDS version 1.x is no longer maintained.
 
 ## Long-term support of v2.x
 
-Version 2.x is in maintenance mode and will continue to get important bugfixes and security patches until May 2023.
+USWDS version 2.x is no longer maintained.
 
 ## Need installation help?
 
