@@ -1,4 +1,3 @@
-const once = require("receptor/once");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
@@ -17,12 +16,9 @@ function setTabindex() {
   if (target) {
     target.setAttribute("tabindex", 0);
     target.focus();
-    target.addEventListener(
-      "blur",
-      once(() => {
-        target.setAttribute("tabindex", -1);
-      }),
-    );
+    target.addEventListener("blur", () => target.setAttribute("tabindex", -1), {
+      once: true,
+    });
   } else {
     // throw an error?
   }
