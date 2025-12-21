@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+ppname: NodeJS with Webpack
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
 
     - name: Build
       run: |
-        npm update
-        npm install 
-        npx webpack
+        npm update npm
+        npm install webpack 
+        npm run webpack
         
