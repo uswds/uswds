@@ -1,4 +1,4 @@
-ppname: NodeJS with Webpack
+name: NodeJS with Webpack
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: MacOS
 
     strategy:
       matrix:
