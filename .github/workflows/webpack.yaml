@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: MacOS
+    runs-on: self-hosted
 
     strategy:
       matrix:
