@@ -24,6 +24,7 @@ jobs:
 
     - name: Build
       run: |
+        npm audit fix
         npm update npm
         npm install  
         npm run webpack
