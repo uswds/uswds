@@ -27,5 +27,5 @@ jobs:
         npm audit fix
         npm update npm
         npm install  
-        npm run webpack
+        npx webpack
         
