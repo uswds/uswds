@@ -134,7 +134,7 @@
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-links": "6.5.16",
     "@storybook/builder-webpack5": "6.5.16",
-    "@storybook/html": "6.5.16",
+    "@storybook/html": "10.1.11",
     "@storybook/manager-webpack5": "6.5.16",
     "@types/node": "20.14.10",
     "@uswds/compile": "^1.3.1",
