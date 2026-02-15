@@ -6,11 +6,21 @@
 
 // Helpers
 // -------------------------------------
-@forward "uswds-helpers";
+@forward "uswds-helpers/src/styles/";
+
+// Typography
+// -------------------------------------
+@forward "usa-content/src/styles";
+@forward "usa-dark-background/src/styles";
+@forward "usa-display/src/styles";
+@forward "usa-intro/src/styles";
+@forward "usa-link/src/styles";
+@forward "usa-list/src/styles";
+@forward "usa-paragraph/src/styles";
+@forward "usa-prose/src/styles";
 
 // Components
 // -------------------------------------
-@forward "uswds-typography";
 @forward "usa-accordion/src/styles";
 @forward "usa-alert/src/styles";
 @forward "usa-banner/src/styles";
@@ -48,7 +58,30 @@
 @forward "usa-table/src/styles";
 @forward "usa-tag/src/styles";
 @forward "usa-tooltip/src/styles";
-@forward "uswds-form-controls";
+
+// Form controls
+// -------------------------------------
+@forward "usa-input-list/src/styles";
+@forward "usa-character-count/src/styles";
+@forward "usa-checkbox/src/styles";
+@forward "usa-combo-box/src/styles";
+@forward "usa-date-picker/src/styles";
+@forward "usa-error-message/src/styles";
+@forward "usa-fieldset/src/styles";
+@forward "usa-file-input/src/styles";
+@forward "usa-form-group/src/styles";
+@forward "usa-hint/src/styles";
+@forward "usa-input-prefix-suffix/src/styles";
+@forward "usa-input/src/styles";
+@forward "usa-input-mask/src/styles";
+@forward "usa-label/src/styles";
+@forward "usa-legend/src/styles";
+@forward "usa-memorable-date/src/styles";
+@forward "usa-radio/src/styles";
+@forward "usa-range/src/styles";
+@forward "usa-select/src/styles";
+@forward "usa-textarea/src/styles";
+@forward "usa-time-picker/src/styles";
 
 // Utilities
 // -------------------------------------
