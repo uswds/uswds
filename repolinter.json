@@ -1,0 +1,72 @@
+{
+  "extends": "https://raw.githubusercontent.com/DSACMS/repo-scaffolder/main/tier2/%7B%7Bcookiecutter.project_slug%7D%7D/repolinter.json",
+  "$schema": "https://raw.githubusercontent.com/todogroup/repolinter/master/rulesets/schema.json",
+  "version": 2,
+  "axioms": {
+    "linguist": "language",
+    "licensee": "license",
+    "packagers": "packager"
+  },
+  "rules": {
+    "readme-contains-documentation-index": {
+      "level": "error"
+    },
+    "readme-contains-repository-structure": {
+      "level": "error"
+    },
+    "readme-contains-development-and-software-delivery-lifecycle": {
+      "level": "error"
+    },
+    "readme-contains-branching-model": {
+      "level": "error"
+    },
+    "readme-contains-feedback": {
+      "level": "error"
+    },
+    "readme-contains-glossary": {
+      "level": "warning"
+    },
+    "contributing-contains-team-specific-guidelines": {
+      "level": "error"
+    },
+    "contributing-contains-testing-conventions": {
+      "level": "error"
+    },
+    "contributing-contains-writing-pull-requests": {
+      "level": "error"
+    },
+    "contributing-contains-reviewing-pull-requests": {
+      "level": "error"
+    },
+    "contributing-contains-shipping-releases": {
+      "level": "warning"
+    },
+    "contributing-contains-documentation": {
+      "level": "error"
+    },
+    "community-contains-roles-and-responsibilities": {
+      "level": "error"
+    },
+    "community-contains-maintainers-list": {
+      "level": "error"
+    },
+    "community-contains-approvers-list": {
+      "level": "error"
+    },
+    "community-contains-reviewers-list": {
+      "level": "error"
+    },
+    "community-contains-contributors": {
+      "level": "error"
+    },
+    "community-contains-alumni": {
+      "level": "warning"
+    },
+    "governance-file-exists": {
+      "level": "warning"
+    },
+    "governance-contains-governance": {
+      "level": "warning"
+    }
+  }
+}
