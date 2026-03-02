@@ -8,6 +8,8 @@ USWDS is for everyone — we’re an open source project that accepts contributi
 
 USWDS is committed to building a safe, welcoming, harassment-free culture for everyone. USWDS is a part of the Technology Transformation Services (TTS) within the General Services Administration (GSA) and we expect everyone to follow the [GSA TTS Code of Conduct](https://handbook.tts.gsa.gov/about-us/code-of-conduct/).
 
+By voluntarily participating in a USWDS community, you are agreeing to abide by the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/) and the [TTS Code of Conduct](https://handbook.tts.gsa.gov/code-of-conduct/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
+
 We encourage you to read this project’s Contribution Guide (you are here), its [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md) and its [README](https://github.com/uswds/uswds/blob/develop/README.md). If you want to read more about our open source policy or have questions, check out the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy) or send us an [email](mailto:uswds@gsa.gov).
 
 ## How you can contribute

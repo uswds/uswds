@@ -70,8 +70,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
 **Description:** A Contributor contributes directly to the repository and adds value to it. Contributions need not be code. People at the Contributor level may be new contributors, or they may only contribute occasionally.
 
 #### Responsibilities include: 
-- Following the repository CoC.
-- Following the repository contributing guidelines in CONTRIBUTING.md.
+- Following the repository [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+- Following the repository contributing guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 #### Requirements (one or several of the below): 
 - Report and resolve issues.
