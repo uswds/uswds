@@ -26,7 +26,7 @@ This issue is used to request role changes within the USWDS repository contribut
 -->
 
 #### Requirements for Promotions to Maintainer:
-- [ ] Must be actively contributing for at least 3 months to at least one project area:
+- [ ] Must be actively contributing for at least 3 months to at least one repository area:
     - [ ] Authored 2 merged PRs
     - [ ] Reviewed 2 PRs
     - [ ] Resolved 2 Issues
@@ -51,20 +51,20 @@ This issue is used to request role changes within the USWDS repository contribut
 - [ ] Answering questions from other community members
 - [ ] Testing releases and submit reviews
 - [ ] Running or help run events
-- [ ] Maintaining the project and community infrastructure
+- [ ] Maintaining the repository and community infrastructure
 <!-- TODO: Do we want a COMMUNICATIONS.md policy?
-- [ ] Promoting the project in public in line with the COMMUNICATIONS.md policy
+- [ ] Promoting the repository in public in line with the COMMUNICATIONS.md policy
 -->
 
 #### Maintainer Role:
 *As a maintainer, I acknowledge that I am responsible for*:
 - [ ] Reviewing a minimum of 4 PRs per 3 month cycle
 - [ ] Contributing at least 2 PRs per 3 month cycle
-- [ ] Exercising judgment for the good of the project, independent of their employer, friends, or team, in line with project GOVERNANCE.
-- [ ] Taking responsibility for a key project management area as indicated in CODEOWNERS.md
+- [ ] Exercising judgment for the good of the repository, independent of their employer, friends, or team, in line with repository GOVERNANCE.
+- [ ] Taking responsibility for a key repository management area as indicated in CODEOWNERS.md
 - [ ] Writing and refactoring submitted PRs
 - [ ] Participating in USWDS maintainer activities
-- [ ] Proposing contributions to strategy and policy of the project
+- [ ] Proposing contributions to strategy and policy of the repository
 - [ ] Participating in, and leading, community discussions
 - [ ] Mentoring new contributors
 - [ ] Mentoring other Maintainers
@@ -80,7 +80,7 @@ Please copy and paste the following as a comment on the issue:
 #### Review Checklist:
 - [ ] Requester meets role requirements
 - [ ] Supporting evidence is adequate
-- [ ] Role change aligns with project needs
+- [ ] Role change aligns with repository needs
 - [ ] Proper permissions/access will be granted
 
 #### Decision:

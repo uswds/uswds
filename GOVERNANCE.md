@@ -20,7 +20,7 @@ This project seeks to provide agencies responsibility for benefit eligibility de
 -->
 ## Community Principles
 
-- Community principles and processes can be found in our [COMMUNITY.md](./COMMUNITY.md) file in the project repository.
+- Community principles and processes can be found in our [COMMUNITY.md](./COMMUNITY.md) file in the repository.
 
 ## Development Principles
 

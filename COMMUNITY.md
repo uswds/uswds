@@ -14,17 +14,17 @@ Roles to include, but not limited to: Project Owner, Technical Lead, Developers/
 
 See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository.
 
-See [Community Guidelines](#USWDS-open-source-community-guidelines) on principles and guidelines for participating in this open source project.
+See [Community Guidelines](#USWDS-open-source-community-guidelines) on principles and guidelines for participating in this open source repository.
 
 ### Core Team
 
-<!-- TODO: List the individuals who are members of the core team. What groups/domains are they a part of? Does your project have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
+<!-- TODO: List the individuals who are members of the core team. What groups/domains are they a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
 - 
 
 ### Maintainers
 
-<!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your project have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
+<!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
 - 
 
@@ -41,21 +41,21 @@ See [Community Guidelines](#USWDS-open-source-community-guidelines) on principle
 
 ### Alumni
 
-We'd like to acknowledge the following individuals for their past contributions of this project:
+We'd like to acknowledge the following individuals for their past contributions of this repository:
 
-<!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this project who are no longer actively involved? Consider including their roles and dates for context. -->
+<!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this repository who are no longer actively involved? Consider including their roles and dates for context. -->
 
 - 
 
 ## Roles & Responsibilities
 
-The members of USWDS community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the project meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We are eagerly seeking individuals who are interested in joining the community and helping shape and support these roles.
+The members of USWDS community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the repository meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We are eagerly seeking individuals who are interested in joining the community and helping shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access Privileges                                                |
 | ---------- | :--------------------------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-| Contributor     | Active contributor in the community            | Multiple contributions to the project                                            | • Assigned issues <br> • Granted access to running CI/CD commands <br>  • Added in repository domain teams <br>                      |
-| Maintainer | Set direction and priorities for a sub-project | • Experience as a reviewer for 3 months <br> • Demonstrated responsibility and excellent technical judgement for project <br> | • Approves PRs to all areas of project <br> • Official Project Representative <br> • Has a vote in decision-making meetings <br>     |
+| Contributor     | Active contributor in the community            | Multiple contributions to the repository                                            | • Assigned issues <br> • Granted access to running CI/CD commands <br>  • Added in repository domain teams <br>                      |
+| Maintainer | Set direction and priorities for a sub-project | • Experience as a reviewer for 3 months <br> • Demonstrated responsibility and excellent technical judgement for repository <br> | • Approves PRs to all areas of repository <br> • Official Design System Representative <br> • Has a vote in decision-making meetings <br>     |
 | Alumni   | None, USWDS thanks the alumni for their service | • Must have been an active contributor or maintainer <br>   | • Assigned issues <br> • Granted access to running CI/CD commands <br> • Added in repository domain teams <br>  |
 
 <!-- TODO: Review table -->
@@ -67,11 +67,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
 
 ## Contributors
 
-**Description:** A Contributor contributes directly to the project and adds value to it. Contributions need not be code. People at the Contributor level may be new contributors, or they may only contribute occasionally.
+**Description:** A Contributor contributes directly to the repository and adds value to it. Contributions need not be code. People at the Contributor level may be new contributors, or they may only contribute occasionally.
 
 #### Responsibilities include: 
-- Following the project CoC.
-- Following the project contributing guidelines in CONTRIBUTING.md.
+- Following the repository CoC.
+- Following the repository contributing guidelines in CONTRIBUTING.md.
 
 #### Requirements (one or several of the below): 
 - Report and resolve issues.
@@ -81,34 +81,34 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
 - Answer questions from other community members.
 - Test releases and submit reviews.
 - Run or help run events.
-- Promote the project in public in line with the COMMUNICATIONS.md policy.
-- Help maintain the project and community infrastructure.
+- Promote the repository in public in line with the COMMUNICATIONS.md policy.
+- Help maintain the repository and community infrastructure.
 
 #### Privileges: 
 - Invitations to contributor events.
 - Access to community spaces and infrastructure.
-- Eligible to advance along the project's CONTRIBUTOR_LADDER.md.
+- Eligible to advance along the repository's CONTRIBUTOR_LADDER.md.
 - Other privileges defined by the community in the future.
 
 ## Maintainers
 
-**Description:** Maintainers are established contributors who are responsible for entire areas of the project. As such, they have the ability to approve PRs against specific areas of the project, and are expected to participate in reviewing and approving contributions to the project. 
+**Description:** Maintainers are established contributors who are responsible for entire areas of the repository. As such, they have the ability to approve PRs against specific areas of the repository, and are expected to participate in reviewing and approving contributions to the repository. 
 
 A Maintainer must meet the responsibilities and requirements of a contributor, plus:
 
 #### Responsibilities include: 
-- Reviewing at least 2 PRs per 3 months, especially PRs that involve specific parts of the project.
+- Reviewing at least 2 PRs per 3 months, especially PRs that involve specific parts of the repository.
 - Mentoring new contributors.
 - Writing and refactoring submitted PRs.
 - Participating in USWDS maintainer activities.
-- Proposing contributions to strategy and policy of the project.
+- Proposing contributions to strategy and policy of the repository.
 - Participating in, and leading, community discussions.
 - Mentoring other Maintainers.
-- Exercising judgment for the good of the project, independent of their employer, friends, or team, in line with project GOVERNANCE.
-- Become responsible for a key project management area as indicated in CODEOWNERS.md.
+- Exercising judgment for the good of the repository, independent of their employer, friends, or team, in line with repository GOVERNANCE.
+- Become responsible for a key repository management area as indicated in CODEOWNERS.md.
 
 #### Requirements:
-- Must be actively contributing for at least 3 months to at least one project area:
+- Must be actively contributing for at least 3 months to at least one repository area:
   - Authored 2 merged PRs
   - Reviewed 2 PRs
   - Resolved 2 Issues
@@ -116,9 +116,9 @@ A Maintainer must meet the responsibilities and requirements of a contributor, p
 - Can commit to contributing at least 2 PRs per 3 month cycle, as demonstrated by https://github.com/uswds/uswds/graphs/contributors.
 
 #### Additional privileges:
-- Approve PRs to their specific domain of the project.
-- Represent the project in public as a Maintainer in line with the COMMUNICATIONS.md policy.
-- Communicate with the USWDS team on behalf of the project.
+- Approve PRs to their specific domain of the repository.
+- Represent the repository in public as a Maintainer in line with the COMMUNICATIONS.md policy.
+- Communicate with the USWDS team on behalf of the repository.
 - Other privileges defined by the community in the future.
 
 #### Process of becoming a Maintainer
@@ -127,11 +127,11 @@ A Maintainer must meet the responsibilities and requirements of a contributor, p
 
 ## Core Team
 
-Members of the Core Team are federal employees or contractors who contribute to this project as part of their formal work duties. They serve as the main point of contact for development activity in the repository and have the same privileges and responsibilities as maintainers and codeowners.
+Members of the Core Team are federal employees or contractors who contribute to this repository as part of their formal work duties. They serve as the main point of contact for development activity in the repository and have the same privileges and responsibilities as maintainers and codeowners.
 
 ## Alumni
 
-**Description:** Alumni are established contributors or maintainers who have stepped away from the project for periods longer than 6 months. Contributors or maintainers may also wish to become alumni by voluntarily stepping down. Alumni have no further responsibilities to the project and we thank them for their contributions.
+**Description:** Alumni are established contributors or maintainers who have stepped away from the repository for periods longer than 6 months. Contributors or maintainers may also wish to become alumni by voluntarily stepping down. Alumni have no further responsibilities to the repository and we thank them for their contributions.
 
 #### Responsibilities:
 - None.
@@ -183,7 +183,7 @@ TODO: Add if your repo has a community chat - Be present when joining synchronou
 -->
 
 ### Inactivity
-It is important for contributors to be and stay active to set an example and show commitment to the project. Inactivity may lead to unexpected delays, contributor attrition, and a lost of trust in the project.
+It is important for contributors to be and stay active to set an example and show commitment to the repository. Inactivity may lead to unexpected delays, contributor attrition, and a lost of trust in the repository.
 - Inactivity is measured by: 
   - Periods of no contributions for longer than 6 months.
   - Periods of no communication for longer than 6 months.
