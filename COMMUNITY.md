@@ -147,7 +147,6 @@ Members of the Core Team are federal employees or contractors who contribute to 
     1. If and when commitment levels change, contributors can file an issue using the contributor_ladder.md issue template, and send a PR to the COMMUNITY.md file indicating their updated status.
 2. At least 1 current Maintainer must then approve and merge the PR.
 
-
 ## USWDS Open Source Community Guidelines
 
 This document contains principles and guidelines for participating in the USWDS open source community.
