@@ -10,23 +10,26 @@ Roles to include, but not limited to: Project Owner, Technical Lead, Developers/
 
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
-| USWDS Lead | Anne Petersen | GSA |
+| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA |
 
 See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository.
 
 See [Community guidelines](#USWDS-open-source-community-guidelines) on principles and guidelines for participating in this open source repository.
 
-### Core Team
+### Internal Team
 
-<!-- TODO: List the individuals who are members of the core team. What groups/domains are they a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
+<!-- TODO: List the individuals who are members of the internal team. What groups/domains are they a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
-- @annepetersen
+- [@annepetersen](https://github.com/annepetersen)
+- [@sknep](https://github.com/sknep)
+- [@ethangardner](https://github.com/ethangardner)
+- [@afeijoo](https://github.com/afeijoo)
 
 ### Maintainers
 
 <!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
-- @annepetersen
+- [@annepetersen](https://github.com/annepetersen)
 
 <!-- ### Contributors -->
 
@@ -41,7 +44,7 @@ See [Community guidelines](#USWDS-open-source-community-guidelines) on principle
 
 ### Alumni
 
-We'd like to acknowledge the following individuals for their past contributions of this repository:
+We'd like to acknowledge the following individuals for their past contributions of this repository (not a complete list):
 
 <!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this repository who are no longer actively involved? Consider including their roles and dates for context. -->
 
@@ -49,13 +52,13 @@ We'd like to acknowledge the following individuals for their past contributions 
 
 ## Roles & responsibilities
 
-The members of the USWDS community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the repository meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We're eagerly seeking individuals who are interested in joining the community and helping shape and support these roles.
+Members of the USWDS community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the product meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We're eagerly seeking individuals interested in joining the community to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
 | ---------- | :--------------------------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------- |
 | Contributor     | Active contributor in the community            | Multiple contributions to the repository                                            | • Assigned issues <br> • Granted access to running CI/CD commands <br>  • Added in repository domain teams <br>                      |
-| Maintainer | Set direction and priorities for a sub-project | • Experience as a reviewer for 3 months <br> • Demonstrated responsibility and excellent technical judgement for repository <br> | • Approves PRs to all areas of repository <br> • Has a vote in decision-making meetings <br>     |
+| Maintainer | Set direction and priorities for a sub-project | • Experience as a reviewer for 6 months <br> • Demonstrated responsibility and excellent technical judgement for repository <br> | • Approves PRs to all areas of repository <br> • Has a vote in decision-making meetings <br>     |
 | Alumni   | None: USWDS thanks our alumni for their service | • Must have been an active Contributor or Maintainer <br>   | • Assigned issues <br> • Granted access to running CI/CD commands <br> • Added in repository domain teams <br>  |
 
 <!-- TODO: Review table -->
@@ -120,11 +123,15 @@ A Maintainer must meet the responsibilities and requirements of a contributor, p
 
 #### Process of becoming a Maintainer
 1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-2. At least 1 current Maintainer from the Core Team must then approve the PR
+2. At least 1 current Maintainer from the Internal Team must then approve the PR
 
-## Core Team
+## Product Owner
 
-Members of the Core Team are federal employees or contractors who contribute to this repository as part of their formal work duties. They serve as the main point of contact for development activity in the repository and have the same privileges and responsibilities as Maintainers and Codeowners.
+Serves as the main point of contact for decision-making and development activity. They have the same privileges and responsibilities as Maintainers and Codeowners.
+
+## Internal Team
+
+Members of the Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or program as part of their formal work duties. They have the same privileges and responsibilities as Maintainers and Codeowners.
 
 ## Alumni
 
@@ -196,4 +203,4 @@ If and when Maintainers' and Contributors' commitment levels change, Contributor
 
 ### Acknowledgements
 
-The Community Guidelines sections were originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and we would like to acknowledge and thank the community for their contributions.
+The Community Guidelines sections were originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and most recently from the [Centers for Medicaid and Medicare Services Open Source Program Office Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we would like to acknowledge and thank everyone who contributed along the way.
