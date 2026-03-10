@@ -8,6 +8,10 @@
   @include usa-table--borderless;
 }
 
+.usa-table--borderless tbody th {
+  @include u-border-top(1px);
+}
+
 .usa-table--compact {
   @include usa-table--compact;
 }
