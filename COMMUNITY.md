@@ -33,6 +33,7 @@ See [Community guidelines](#USWDS-open-source-community-guidelines) on principle
 <!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
 - [@annepetersen](https://github.com/annepetersen)
+- [@heymatthenry](https://github.com/heymatthenry)
 
 <!-- ### Contributors -->
 
