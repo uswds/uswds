@@ -10,11 +10,14 @@ Roles to include, but not limited to: Project Owner, Technical Lead, Developers/
 
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
-| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA |
+| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA / TTS |
 
 See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository.
 
 See [Community guidelines](#USWDS-open-source-community-guidelines) on principles and guidelines for participating in this open source repository.
+
+### Full-time Federal Staff
+- [@annepetersen](https://github.com/annepetersen)
 
 ### Internal Team
 
@@ -106,8 +109,8 @@ A Maintainer must meet the responsibilities and requirements of a contributor, p
 - Proposing contributions to strategy and policy of the repository
 - Participating in, and leading, community discussions
 - Mentoring other Maintainers
-- Exercising judgment for the good of the USWDS product and repository, independent of any employer, friends, or team, in line with repository GOVERNANCE
-- Become responsible for a key repository management area as indicated in CODEOWNERS.md
+- Exercising judgment for the good of the USWDS product and repository, independent of any employer, friends, or team, in line with repository [GOVERNANCE.md](./GOVERNANCE.md)
+- Become responsible for a key repository management area as indicated in [CODEOWNERS.md](./CODEOWNERS.md)
 
 #### Requirements:
 - Must be actively contributing for at least 6 months to at least one repository area:
@@ -138,17 +141,17 @@ Members of the Internal Team are federal employees or contractors who contribute
 **Description:** Alumni are established Contributors or Maintainers who have stepped away from the repository for periods longer than 6 months. Contributors or Maintainers may also wish to become Alumni by voluntarily stepping down. Alumni have no further responsibilities to the repository and we thank them for their contributions.
 
 #### Responsibilities:
-- None.
+- None
 
 #### Requirements:
 - Must have had Contributor or Maintainer status
 
 #### Privileges:
-- Will be added to the Alumni list in the COMMUNITY.md file
+- Will be added to the Alumni list in the [COMMUNITY.md](./COMMUNITY.md) file
 
 #### Process of becoming an Alumni
 1. Any current maintainer may become Alumni by meeting the requirements, and opening a PR following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-    1. If and when commitment levels change, Contributors can file an issue using the contributor_ladder.md issue template, and send a PR to the COMMUNITY.md file indicating their updated status.
+    1. If and when commitment levels change, Contributors can file an issue using the contributor_ladder.md issue template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file indicating their updated status.
 2. At least 1 current Maintainer must then approve and merge the PR.
 
 ## USWDS Open Source Community guidelines
@@ -196,10 +199,10 @@ It is important for Contributors to be and stay active to set an example and sho
 ### Involuntary removal or demotion
 Involuntary removal/demotion of a Contributor happens when responsibilities and requirements aren't being met. This may include repeated patterns of inactivity, extended periods of inactivity, a period of failing to meet the requirements of your role, and/or a violation of the Code of Conduct. This process is important because it protects the community and its deliverables while also opening up opportunities for new Contributors to step in. 
 
-Involuntary removal or demotion is handled through Maintainers filing an issue using the contributor_ladder.md template, and sending a PR to the COMMUNITY.md file.
+Involuntary removal or demotion is handled through Maintainers filing an issue using the contributor_ladder.md template, and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file.
 
 ### Voluntary stepping down and Alumni status
-If and when Maintainers' and Contributors' commitment levels change, Contributors can file an issue using the contributor_ladder.md template, and send a PR to the COMMUNITY.md file indicating their updated status.
+If and when Maintainers' and Contributors' commitment levels change, Contributors can file an issue using the contributor_ladder.md template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file indicating their updated status.
 
 ### Acknowledgements
 
