@@ -74,7 +74,7 @@ This issue is used to request role changes within the USWDS repository contribut
 - [ ] No longer responsible for actively contributing to the repository :)
 
 ---
-### For Core Team only
+### For Internal Team only
 Please copy and paste the following as a comment on the issue:
 
 #### Review checklist:
