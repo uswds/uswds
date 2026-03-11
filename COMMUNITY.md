@@ -24,18 +24,18 @@ See [Community guidelines](#USWDS-open-source-community-guidelines) on principle
 <!-- TODO: List the individuals who are members of the internal team. What groups/domains are they a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
 - [@annepetersen](https://github.com/annepetersen)
+- [@iamjolly](https://github.com/iamjolly)
 - [@sknep](https://github.com/sknep)
 - [@ethangardner](https://github.com/ethangardner)
 - [@afeijoo](https://github.com/afeijoo)
 
-### Maintainers
+### Community Maintainers
 
 <!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
 
-- [@annepetersen](https://github.com/annepetersen)
 - [@heymatthenry](https://github.com/heymatthenry)
 
-<!-- ### Contributors -->
+<!-- ### Community Contributors -->
 
 <!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
 
