@@ -113,7 +113,7 @@ If you're comfortable with git, the short version is: fork the repo,
 add yourself to the contributor table in `COMMUNITY.md`, open a PR, 
 then open an issue and link them both together in their details.
 
-If you'd like a step-by-step walkthrough using the GitHub dashboard, 
+If you'd like a step-by-step walkthrough using only the GitHub dashboard without needing a local set-up, 
 follow the instructions below.
 
 If you run into any trouble, feel free to open an issue or reach out at uswds@gsa.gov.
