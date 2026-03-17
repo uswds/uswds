@@ -108,6 +108,7 @@ If the pull request is accepted, we will schedule the issue and merge the pull r
 Tip: If you want to find other feature requests open for upvoting, check out our [feature requests sorted by upvotes](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Status%3A+Voting+Open+%F0%9F%91%8D%22+sort%3Areactions-%2B1-desc).
 1. If your proposed fix is not in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean we don’t want you to create a pull request. We simply want to start the process with an online conversation first. Plus, other community members might have supporting thoughts to add to your proposal. If you’ve already got a pull request, no worries. Go ahead and attach it to the issue.
 ### Joining the USWDS Community as a Contributor
+> These instructions cover completing the process entirely through the GitHub dashboard, no local setup required.
 
 If you'd like to be recognized as a USWDS contributor, you'll need to complete two steps: open an issue to request the role and open a pull request to add yourself to the community file. These two items reference each other, so start with the issue first.
 
@@ -124,6 +125,7 @@ If you run into any trouble, feel free to open an issue or reach out at uswds@gs
 7. Make note of your issue number from the URL — you'll need it in Step 2 and at the end
 
 #### Step 2: Open a pull request
+> Already have the repo forked? Skip to item 2.
 
 1. Fork the USWDS repo at: `https://github.com/uswds/uswds/fork` and click **Create fork**
 2. Navigate to: `https://github.com/YOUR-USERNAME/uswds/edit/develop/COMMUNITY.md`
