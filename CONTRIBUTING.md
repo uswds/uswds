@@ -135,7 +135,7 @@ If you run into any trouble, feel free to open an issue or reach out at uswds@gs
 7. In the **Related issue** field, paste the link to your issue from Step 1
 8. Click **Create pull request** and copy the URL of your new PR
 
-#### Last step
+#### Step 3: Link Issue to PR
 
 Navigate to your issue at `https://github.com/uswds/uswds/issues/YOUR-ISSUE-NUMBER` and add the PR link from Step 2.
 
