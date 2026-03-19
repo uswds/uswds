@@ -125,6 +125,48 @@ These considerations help us decide if and when we can work on the issue. If the
 
 You can stay up to date on the status of your contributions through [GitHub email notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) (external link) and the assigned labels on the issue.
 
+## Joining the USWDS Community as a Contributor
+
+If you're comfortable with git, the short version is: fork the repo, 
+add yourself to the contributor table in `COMMUNITY.md`, open a PR, 
+then open an issue and link them both together in their details.
+
+If you'd like a step-by-step walkthrough using only the GitHub dashboard without needing a local set-up, 
+follow the instructions below.
+
+If you run into any trouble, feel free to open an issue or reach out at uswds@gsa.gov.
+
+### Step 1: Open an issue
+
+1. Navigate to: `https://github.com/uswds/uswds/issues/new?template=contributor_ladder.md`
+2. Title your issue using this format: `[ROLE CHANGE]: Change to Contributor - YourUsername`
+3. Fill in your GitHub username and set "Requested role" to Contributor
+4. Skip the PR link for now — you'll come back to add it after Step 2
+5. Check off the Contributor responsibilities that apply to you
+6. Click **Create** to submit
+7. Make note of your issue number from the URL — you'll need it in Step 2 and at the end
+
+### Step 2: Open a pull request
+> Already have the repo forked? Skip to item 2.
+
+1. Fork the USWDS repo at: `https://github.com/uswds/uswds/fork` and click **Create fork**
+2. Navigate to: `https://github.com/YOUR-USERNAME/uswds/edit/develop/COMMUNITY.md`
+3. Find the contributor table (around line 11) and add yourself as the last row:
+   `| Contributor | Your Name(https://github.com/YOUR-USERNAME) | Your Affiliation |`
+4. Scroll down and commit the change
+5. Navigate to: `https://github.com/uswds/uswds/compare/develop...YOUR-USERNAME:uswds:develop` and click **Create pull request**
+6. Title your PR: `USWDS - Community: Add [Your Name] as Contributor`
+7. In the **Related issue** field, paste the link to your issue from Step 1
+8. Click **Create pull request** and copy the URL of your new PR
+
+### Step 3: Link Issue to PR
+
+Navigate to your issue at `https://github.com/uswds/uswds/issues/YOUR-ISSUE-NUMBER` and add the PR link from Step 2.
+
+The USWDS team will review both and follow up with next steps.
+
+Feel free to open an issue or email uswds@gsa.gov if you have questions.
+
 ## Common terms
 
 There can be a lot of jargon when discussing how you can contribute to the Design System. We’ve included some common terms we use below.
