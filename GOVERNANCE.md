@@ -1,13 +1,12 @@
 # Governance
-<!-- TODO: Describe the mission and goal for the project
-https://designsystem.digital.gov/about/
+## Purpose
+[The U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) is a toolkit of principles, guidance, and code that makes it easier to build accessible, mobile-friendly, legally compliant government websites.
 
-This project seeks to provide agencies responsibility for benefit eligibility determinations with an affordable platform to obtain the data they need. We want this platform:
+There are many ways to build a website or service. USWDS has been designed to deliver [unique benefits](https://designsystem.digital.gov/about/key-benefits/) to government teams, such as [compliance from the start](https://designsystem.digital.gov/about/key-benefits/#compliance-from-the-start-2), [proven design solutions that users expect](https://designsystem.digital.gov/about/key-benefits/#proven-design-solutions-that-users-expect-2), [team alignment and common goals](https://designsystem.digital.gov/about/key-benefits/#team-alignment-and-common-goals-2), [mission focus](https://designsystem.digital.gov/about/key-benefits/#mission-focus-2), [a cross-functional design system community](https://designsystem.digital.gov/about/key-benefits/#a-cross-functional-design-system-community-2), and [effective stewardship of public resources](https://designsystem.digital.gov/about/key-benefits/#effective-stewardship-of-public-resources-2).
 
-- To show an applicant what data is being sent and get their explicit agreement
-- Avoid storing any unnecessary information about particular applicants
-- Integrate with existing workflows and infrastructures
- -->
+A broader view is primarily described on the [USWDS About page](https://designsystem.digital.gov/about/), which contains the USWDS mission, vision, polestar, and a brief history. See also [USWDS key benefits](https://designsystem.digital.gov/about/key-benefits/), [product values](https://designsystem.digital.gov/about/product-values/), [design principles](https://designsystem.digital.gov/design-principles/), and [engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md).  
+
+USWDS governance supports and strengthens these core principles, code, and guidance. 
 
 <!-- ## Glossary
 -->
@@ -17,7 +16,7 @@ This project seeks to provide agencies responsibility for benefit eligibility de
 <!-- ## Project scope
 -->
 <!-- TODO: Fill out this section.
-- The open source offering consists of all necessary assets to build a docker image along with the necessary documentation
+- The open source offering consists of all necessary assets to build a USWDS-based site or product, along with the necessary documentation
 - Community scope will shift over time, and to begin, we will engage with the USWDS community to define the initial scope, and an expanded short and medium term scope that we are working towards.
 -->
 ## Community principles
@@ -70,9 +69,9 @@ We ensure that this platform supports switching between different locales, but o
 
 ## Decision-making
 
-As with other Tier3 Open Source Community Projects, USWDS uses a 'co-planning' approach of community-informed roadmapping.
+As with other [Tier3 Open Source Community Projects](https://github.com/DSACMS/repo-scaffolder/blob/main/tier3/README.md), USWDS uses a 'co-planning' approach of community-informed roadmapping.
 
-The [COMMUNITY.md](./COMMUNITY.md) file outlines how Contributor/committer and Maintainer privileges are distributed and managed.
+The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are distributed and managed.
 
 [CONTRIBUTING.md](./CONTRIBUTING.md) defines the context, conditions, and processes by which contributions to the project are made.
 
