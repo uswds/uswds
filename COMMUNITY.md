@@ -1,27 +1,21 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is supported by a dedicated team of individuals fulfilling various roles to ensure its success, security, and alignment with government standards and agency goals.
+The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, Anne) with support and occasional contributions from members of a GSA-based Internal team, as well as USWDS Community Maintainers and Contributors (also referred to as the USWDS Open Source Community) — not to mention an even broader community of teams that have adopted USWDS but might not participate here. Together, the USWDS community helps ensure the design system's success, security, and alignment with government standards and legal requirements, community needs, and product and agency goals.
 
-## Project members
+## USWDS Open Source Community members
 
-<!-- TODO: Who are the points of contact in your project who are responsible/accountable for the project? This can often be an engineering or design manager or leader, who may or may not be the primary maintainers of the project.
-
-Roles to include, but not limited to: Project Owner, Technical Lead, Developers/Contributors, Community Manager, Security Team, Policy Advisor, Contracting Officer's Representative, Compliance Officer, Procurement Officer -->
+Members of the USWDS Open Source Community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, how to communicate with and support the broader USWDS community, and ensuring the product meets its legal responsibilities, principles, values, goals and objectives. Below is a list of the key members of the USWDS Open Source Community, and their specific roles and responsibilities. 
 
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
 | USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA / TTS |
 
-See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository.
+<!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
-See [Community guidelines](#USWDS-open-source-community-guidelines) on principles and guidelines for participating in this open source repository.
-
-### Full-time Federal Staff
+### USWDS Full-time Federal Staff
 - [@annepetersen](https://github.com/annepetersen)
 
-### Internal Team
-
-<!-- TODO: List the individuals who are members of the internal team. What groups/domains are they a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
+### USWDS Internal Team Maintainers
 
 - [@annepetersen](https://github.com/annepetersen)
 - [@iamjolly](https://github.com/iamjolly)
@@ -29,14 +23,13 @@ See [Community guidelines](#USWDS-open-source-community-guidelines) on principle
 - [@ethangardner](https://github.com/ethangardner)
 - [@afeijoo](https://github.com/afeijoo)
 
-### Community Maintainers
-
-<!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your repository have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
+### USWDS Community Maintainers
 
 - [@heymatthenry](https://github.com/heymatthenry)
 
-<!-- ### Community Contributors -->
+### USWDS Community Contributors
 
+(TBA)
 <!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
 
 <!--Total number of contributors: [TO DO]--> 
@@ -46,39 +39,54 @@ See [Community guidelines](#USWDS-open-source-community-guidelines) on principle
 <!-- readme: contributors -start -->
 <!-- readme: contributors -end -->
 
-### Alumni
-
-We'd like to acknowledge the following individuals for their past contributions of this repository (not a complete list):
+### USWDS Alumni (not a complete list)
 
 <!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this repository who are no longer actively involved? Consider including their roles and dates for context. -->
 
-- (TBA)
+(TBA)
+
+### USWDS current / former partners (not a complete list)
+
+Agency digital teams / team members from:
+- [18F](https://designsystem.digital.gov/about/#our-history-2)
+- Centers for Medicare & Medicaid Services (CMS)
+- [Consumer Financial Protection Bureau (CFPB)](https://designsystem.digital.gov/about/#our-history-2)
+- [Department of Education](https://designsystem.digital.gov/about/#our-history-2)
+- [Department of Veterans Affairs (VA)](https://designsystem.digital.gov/about/#our-history-2)
+- Digital Experience (DX) Council (interagency)
+- Federal Reserve Board System
+- [Food and Drug Administration (FDA)](https://designsystem.digital.gov/about/#our-history-2)
+- [General Services Administration (GSA)](https://designsystem.digital.gov/about/#our-history-2)
+- [Internal Revenue Service (IRS)](https://designsystem.digital.gov/about/#our-history-2)
+- National Institutes of Health (NIH)
+- Office of Management and Budget (OMB)
+- Office of Natural Resources Revenue (ONRR)
+- [Social Security Administration (SSA)](https://designsystem.digital.gov/about/#our-history-2)
+- U.S. Air Force
+- U.S. Citizenship and Immigration Services (USCIS)
+- U.S. Customs and Border Protection (CBP)
+- [U.S. Digital Service (USDS)](https://designsystem.digital.gov/about/#our-history-2)
+- U.S. Forest Service (USFS)
+- U.S. Geological Service (USGS)
 
 ## Roles & responsibilities
 
-Members of the USWDS community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the product meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We're eagerly seeking individuals interested in joining the community to help shape and support these roles.
+This section describes the USWDS Open Source Community's specific roles and responsibilities. We're eagerly seeking individuals interested in joining to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
 | ---------- | :--------------------------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-| Contributor     | Active contributor in the community            | Multiple contributions to the repository                                            | • Assigned issues <br> • Granted access to running CI/CD commands <br>  • Added in repository domain teams <br>                      |
-| Maintainer | Set direction and priorities for a sub-project | • Experience as a reviewer for 6 months <br> • Demonstrated responsibility and excellent technical judgement for repository <br> | • Approves PRs to all areas of repository <br> • Has a vote in decision-making meetings <br>     |
-| Alumni   | None: USWDS thanks our alumni for their service | • Must have been an active Contributor or Maintainer <br>   | • Assigned issues <br> • Granted access to running CI/CD commands <br> • Added in repository domain teams <br>  |
+| Contributor     | Active contributor to the USWDS community            | Multiple contributions to the repository or broader community                                           | • Assigned issues <br> • Granted access to running CI/CD commands <br>                      |
+| Maintainer | Set direction and priorities for an area of USWDS | • Experience as a reviewer for 6 months <br> • Demonstrated responsibility and excellent technical judgement for USWDS <br> | • Approves PRs to all areas of repository <br> • Has a vote in decision-making meetings <br>     |
+| Alumni   | None: USWDS thanks our alumni for their service | Must have been an active Contributor or Maintainer <br>   | • Can be assigned issues <br> • Can be added to repository domain teams <br>  |
 
-<!-- TODO: Review table -->
+## USWDS Contributors
 
-<!-- TODO: If the repository's release process is outlined in CONTRIBUTING.md, provide a reference to it:
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
--->
-
-## Contributors
-
-**Description:** A Contributor contributes directly to the repository and adds value to it. Contributions need not be code. People at the Contributor level may be new contributors, or they may only contribute occasionally.
+**Description:** A Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, or many other means of support. 
 
 #### Responsibilities include: 
 - Following the repository [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
-- Following the repository contributing guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Following the repository contributing guidelines: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 #### Requirements (one or several of the below, actively for at least 6 months): 
 - Report and resolve issues
@@ -91,120 +99,110 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
 - Help maintain the repository and community infrastructure
 
 #### Privileges: 
-- Invitations to contributor events
-- Access to community spaces and infrastructure
-- Eligible to advance along the repository's CONTRIBUTOR_LADDER.md
+- Invitations to USWDS Open Source Community events
+- Possibility of advancing in the repository's CONTRIBUTOR_LADDER.md
 - Other privileges defined by the community in the future
 
-## Maintainers
+#### Process of becoming a USWDS Contributor
+1. Any current participant in the USWDS community may become a new Contributor by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
+2. At least 1 current USWDS Maintainer must then approve the PR
 
-**Description:** Maintainers are established contributors who are responsible for entire areas of the repository. As such, they have the ability to approve PRs against specific areas of the repository, and are expected to participate in reviewing and approving contributions to the repository. 
+## USWDS Maintainers
 
-A Maintainer must meet the responsibilities and requirements of a contributor, plus:
+**Description:** Maintainers are established Contributors who are responsible for entire areas of the repository. As such, they have the ability to approve PRs, and are expected to participate in reviewing and approving contributions to their areas of repository. 
+
+A Maintainer must meet the responsibilities and requirements of a Contributor, plus:
 
 #### Responsibilities include: 
-- Reviewing at least 4 PRs per 3 months, especially PRs that involve specific parts of the repository
+- Reviewing at least 4 PRs per 3 months, especially PRs that involve the specific parts of the repository they're responsible for
 - Mentoring new Contributors
 - Writing and refactoring submitted PRs
 - Participating in USWDS Maintainer activities
-- Proposing contributions to strategy and policy of the repository
+- Proposing contributions to USWDS strategy and policy 
 - Participating in, and leading, community discussions
 - Mentoring other Maintainers
 - Exercising judgment for the good of the USWDS product and repository, independent of any employer, friends, or team, in line with repository [GOVERNANCE.md](./GOVERNANCE.md)
-- Become responsible for a key repository management area as indicated in [CODEOWNERS.md](./CODEOWNERS.md)
+- Becoming responsible for management of a key part of the repository  
 
 #### Requirements:
-- Must be actively contributing for at least 6 months to at least one repository area:
+- Must be actively contributing for at least 6 months:
   - Authored 2 merged PRs
   - Reviewed 2 PRs
   - Resolved 2 Issues
 - Can commit to reviewing a minimum of 4 PRs per 3 month cycle
-- Can commit to contributing at least 2 PRs per 3 month cycle, as demonstrated by https://github.com/uswds/uswds/graphs/contributors
+- Can commit to contributing at least 2 PRs per 3 month cycle 
 
 #### Additional privileges:
-- Approve PRs to their specific domain of the repository
+- Approve PRs, especially in their specific parts of the repository
 - Other privileges defined by the community in the future
 
-#### Process of becoming a Maintainer
+#### Process of becoming a USWDS Maintainer
 1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-2. At least 1 current Maintainer from the Internal Team must then approve the PR
+2. The USWDS Product Lead must then approve the PR
 
-## Product Owner
+## USWDS Product Owner
 
-Serves as the main point of contact for decision-making and development activity. They have the same privileges and responsibilities as Maintainers and Codeowners.
+Serves as the main point of contact for strategy, roadmap, decision-making, community, communication, and development activity and decisions. 
 
-## Internal Team
+## USWDS Internal Team
 
-Members of the Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or program as part of their formal work duties. They have the same privileges and responsibilities as Maintainers and Codeowners.
+Members of the USWDS Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or program as part of their formal work duties. They have the same privileges and responsibilities as Maintainers and Codeowners.
 
-## Alumni
+## USWDS Alumni
 
-**Description:** Alumni are established Contributors or Maintainers who have stepped away from the repository for periods longer than 6 months. Contributors or Maintainers may also wish to become Alumni by voluntarily stepping down. Alumni have no further responsibilities to the repository and we thank them for their contributions.
+**Description:** USWDS Alumni are former established USWDS Contributors or Maintainers who haven't contributed to USWDS for longer than 6 months. Contributors or Maintainers can also decide to become Alumni by voluntarily stepping down. Alumni have no further responsibilities to the repository and we thank them for their contributions.
 
 #### Responsibilities:
 - None
 
 #### Requirements:
-- Must have had Contributor or Maintainer status
+- Must have had USWDS Contributor or Maintainer status, or supported earlier USWDS development at a similar level
 
 #### Privileges:
-- Will be added to the Alumni list in the [COMMUNITY.md](./COMMUNITY.md) file
+- Will be added to the USWDS Alumni list in the [COMMUNITY.md](./COMMUNITY.md) file
 
 #### Process of becoming an Alumni
-1. Any current maintainer may become Alumni by meeting the requirements, and opening a PR following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-    1. If and when commitment levels change, Contributors can file an issue using the contributor_ladder.md issue template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file indicating their updated status.
-2. At least 1 current Maintainer must then approve and merge the PR.
+1. Any current Maintainer or Contributor can become Alumni by following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file changing their role to Alumni
+2. At least 1 current USWDS Maintainer or Internal Team Member must then approve and merge the PR
 
 ## USWDS Open Source Community guidelines
 
-This document contains principles and guidelines for participating in the USWDS open source community.
+### Foundations
 
-### Principles
-
-These principles guide our data, product, and process decisions, architecture, and approach.
+These guide USWDS product and process decisions, architecture, and approach.
 
 - [USWDS mission, vision, polestar](https://designsystem.digital.gov/about/)
 - [USWDS product values](https://designsystem.digital.gov/about/product-values/)
 - [USWDS design principles](https://designsystem.digital.gov/design-principles)
 - [USWDS engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md)
-- [USWDS architectural decision records](https://github.com/uswds/uswds-proposals/tree/main/decisions)
+- [USWDS architectural decision records (ADRs)](https://github.com/uswds/uswds-proposals/tree/main/decisions)
 
 ### Community guidelines
 
-All community members are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
+All USWDS community members must follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Information on contributing to this repository is available in our [Contributing file](CONTRIBUTING.md).
+You can learn more about contributing to this repository in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-When participating in USWDS open source community conversations and spaces, we ask individuals to follow the following guidelines:
+When participating in USWDS community conversations and spaces:
 
 - Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized
-<!-- Examples below:
-- When joining a conversation for the first time, please introduce yourself by providing a brief intro that includes:
-  - your related organization (if applicable)
-  - your superpower, and how you hope to use it for {{ cookiecutter.project_name }}
-- Embrace a culture of learning, and educate each other. We are all entering this conversation from different starting points and with different backgrounds. There are no dumb questions.
-- Take space and give space. We strive to create an equitable environment in which all are welcome and able to participate. We hope individuals feel comfortable voicing their opinions and providing contributions and will do our best to recognize and make space for individuals who may be struggling to find space here. Likewise, we expect individuals to recognize when they are taking up significant space and take a step back to allow room for others.
-TODO: Add if your repo has a community chat - Be present when joining synchronous conversations such as our community chat. Why be here if you're not going to _be here_?
-- Be respectful.
-- Default to positive. Assume others' contributions are legitimate and valuable and that they are made with good intention.
--->
 
 ### Inactivity
-It is important for Contributors to be and stay active to set an example and show commitment to the repository. Inactivity may lead to unexpected delays, Contributor attrition, and a loss of trust in the product and work.
+It's important for USWDS Contributors to stay active, to set a good example and demonstrate commitment. Inactivity may lead to unexpected delays, Contributor attrition, and a loss of trust in the product and work.
 - Inactivity is measured by: 
   - Periods of no contributions for longer than 6 months
   - Periods of no communication for longer than 6 months
 - Consequences of being inactive include: 
-  - Transfer to Alumni status
+  - Being moved to Alumni status
 
 ### Involuntary removal or demotion
-Involuntary removal/demotion of a Contributor happens when responsibilities and requirements aren't being met. This may include repeated patterns of inactivity, extended periods of inactivity, a period of failing to meet the requirements of your role, and/or a violation of the Code of Conduct. This process is important because it protects the community and its deliverables while also opening up opportunities for new Contributors to step in. 
+Involuntary removal/demotion happens when that person isn't meeting their responsibilities and role requirements. This can include repeated patterns of inactivity, extended periods of inactivity, a period of failing to meet the requirements of their role, and/or a violation of the Code of Conduct. This process protects the community and its work, while also opening up opportunities for others to step into new roles. 
 
-Involuntary removal or demotion is handled through Maintainers filing an issue using the contributor_ladder.md template, and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file.
+Involuntary removal or demotion is handled by Maintainers filing an issue using the contributor_ladder.md template, and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file. At least 2 current USWDS Maintainers must approve, and then 1 must merge the PR.
 
 ### Voluntary stepping down and Alumni status
-If and when Maintainers' and Contributors' commitment levels change, Contributors can file an issue using the contributor_ladder.md template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file indicating their updated status.
+If any USWDS Open Source Community member's commitment levels change, they can file an issue using the contributor_ladder.md template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file updating their role to Alumni.
 
 ### Acknowledgements
 
-The Community Guidelines sections were originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and most recently from the [Centers for Medicaid and Medicare Services Open Source Program Office Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we would like to acknowledge and thank everyone who contributed along the way.
+The Community Guidelines section here was originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and most recently from the [Centers for Medicaid and Medicare Services Open Source Program Office Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we'd like to acknowledge and thank everyone who contributed along the way.
