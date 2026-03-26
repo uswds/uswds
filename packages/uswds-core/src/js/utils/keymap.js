@@ -17,7 +17,11 @@
  * @param {KeymapConfig} map
  * @return {KeyboardEventHandler}
  */
-module.exports = (map) => (event) =>
+module.exports = (map) => (event) => {
+  // Bail early if the event has no key property (e.g. an InputEvent from a
+  // datalist selection routed through a keydown delegation chain).
+  if (!event.key) return;
+
   Object.keys(map).forEach((combo) => {
     // Each key combination can have one or more modifier, where each modifier is prefixed with the
     // modifier name and "+".
@@ -39,3 +43,4 @@ module.exports = (map) => (event) =>
       map[combo](event);
     }
   });
+};
