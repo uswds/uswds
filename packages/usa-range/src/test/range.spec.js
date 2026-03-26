@@ -56,6 +56,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
+      it("has a hint element associated via aria-describedby", () => {
+        const hintId = slider.getAttribute("aria-describedby");
+        assert.ok(hintId, "range slider has aria-describedby attribute");
+
+        const hintEl = document.getElementById(hintId);
+        assert.ok(hintEl, "hint element referenced by aria-describedby exists");
+        assert.ok(
+          hintEl.classList.contains("usa-hint"),
+          "hint element has the usa-hint class",
+        );
+        assert.ok(
+          hintEl.textContent.trim().length > 0,
+          "hint element contains instruction text",
+        );
+      });
+
       it("Updates span element to match new slider value on change", () => {
         slider.value = "40";
         EVENTS.change(slider);

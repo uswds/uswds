@@ -1,5 +1,8 @@
 <form class="usa-form">
   <label class="usa-label" for="usa-range">Range slider</label>
+  <span class="usa-hint" id="usa-range-hint">
+    {{- hint_text | default("Move the slider to the right to increase the value and to the left to decrease it.") -}}
+  </span>
   <input
     id="usa-range"
     class="usa-range"
@@ -8,6 +11,7 @@
     max="{{ max }}"
     step="{{ step }}"
     value="20"
+    aria-describedby="usa-range-hint"
     {% if text_unit %}data-text-unit="{{ text_unit }}"{%- endif %}
     {% if text_preposition %}data-text-preposition="{{ text_preposition }}"{%- endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}

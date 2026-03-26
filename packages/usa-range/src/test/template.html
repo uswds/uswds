@@ -1,4 +1,9 @@
 <form class="usa-form">
+  <label class="usa-label" for="usa-range">Range slider</label>
+  <span class="usa-hint" id="usa-range-hint"
+    >Move the slider to the right to increase the value and to the left to
+    decrease it.</span
+  >
   <input
     id="usa-range"
     class="usa-range"
@@ -7,6 +12,7 @@
     max="100"
     step="10"
     value="20"
+    aria-describedby="usa-range-hint"
     data-text-unit="percent"
-  >
+  />
 </form>

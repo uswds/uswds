@@ -16,6 +16,10 @@ export default {
       name: "Preposition (of, for, in, de, etc.)",
       control: { type: "text" },
     },
+    hint_text: {
+      name: "Hint text",
+      control: { type: "text" },
+    },
     min: {
       name: "Min",
       control: { type: "number" },
