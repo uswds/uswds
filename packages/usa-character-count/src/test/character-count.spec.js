@@ -85,6 +85,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(srStatus.length, 1);
     });
 
+    it("does not set aria-live on the sr status message synchronously", () => {
+      assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
+    });
+
+    it("sets aria-live on the sr status message after a delay", (done) => {
+      setTimeout(() => {
+        assert.strictEqual(
+          statusMessageSR.getAttribute("aria-live"),
+          "polite",
+        );
+        done();
+      }, 150);
+    });
+
     it("adds initial status message for the character count component", () => {
       assert.strictEqual(
         statusMessageVisual.innerHTML,

@@ -84,12 +84,19 @@ const createStatusMessages = (characterCountEl) => {
   );
 
   statusMessage.setAttribute("aria-hidden", true);
-  srStatusMessage.setAttribute("aria-live", "polite");
 
   statusMessage.textContent = defaultMessage;
   srStatusMessage.textContent = defaultMessage;
 
   characterCountEl.append(statusMessage, srStatusMessage);
+
+  // Defer aria-live to prevent iOS VoiceOver from announcing on page load.
+  // Browsers treat initial content of a newly-inserted aria-live region as
+  // a live update. Adding the attribute after the element is in the DOM
+  // and after a short delay avoids the false announcement.
+  setTimeout(() => {
+    srStatusMessage.setAttribute("aria-live", "polite");
+  }, 100);
 };
 
 /**
