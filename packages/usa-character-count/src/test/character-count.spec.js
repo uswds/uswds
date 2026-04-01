@@ -91,10 +91,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     it("sets aria-live on the sr status message after a delay", (done) => {
       setTimeout(() => {
-        assert.strictEqual(
-          statusMessageSR.getAttribute("aria-live"),
-          "polite",
-        );
+        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
         done();
       }, 150);
     });
