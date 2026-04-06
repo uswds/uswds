@@ -22,6 +22,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 - [@sknep](https://github.com/sknep)
 - [@ethangardner](https://github.com/ethangardner)
 - [@afeijoo](https://github.com/afeijoo)
+- [@chandracarney](https://github.com/chandracarney)
 
 ### USWDS Community Maintainers
 
