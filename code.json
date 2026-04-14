@@ -1,0 +1,61 @@
+{
+  "name": "uswds",
+  "version": "3.13.0",
+  "description": "The U.S. Web Design System helps the federal government build fast, accessible, mobile-friendly websites.",
+  "status": "Production",
+  "permissions": {
+    "licenses": [
+      {
+        "name": "Apache-2.0",
+        "URL": "https://github.com/uswds/uswds/blob/main/LICENSE.md"
+      },
+      {
+        "name": "CC0-1.0",
+        "URL": "https://github.com/uswds/uswds/blob/main/LICENSE.md"
+      }
+    ],
+    "usageType": [
+      "openSource"
+    ]
+  },
+  "organization": "U.S. General Services Administration",
+  "repositoryURL": "https://github.com/uswds/uswds",
+  "repositoryVisibility": "public",
+  "homepageURL": "https://designsystem.digital.gov/",
+  "vcs": "git",
+  "laborHours": 12717,
+  "reuseFrequency": {
+    "forks": 1059,
+    "clones": 1501
+  },
+  "languages": [
+    "SCSS",
+    "JavaScript",
+    "Twig",
+    "HTML",
+    "CSS",
+    "Shell"
+  ],
+  "maintenance": "internal",
+  "contractNumber": [
+    "0"
+  ],
+  "SBOM": "https://github.com/uswds/uswds/network/dependencies",
+  "date": {
+    "created": "2015-05-20T19:10:10Z",
+    "lastModified": "2026-03-26T01:01:05Z",
+    "metadataLastUpdated": "2026-03-26T15:10:52.866Z"
+  },
+  "tags": [
+    "design",
+    "design-systems",
+    "government",
+    "uswds"
+  ],
+  "contact": {
+    "email": "uswds@gsa.gov",
+    "name": "US Web Design System"
+  },
+  "feedbackMechanism": "https://github.com/uswds/uswds/issues",
+  "AIUseCaseID": "0"
+}
