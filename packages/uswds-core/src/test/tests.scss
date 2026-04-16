@@ -731,4 +731,71 @@ $this-function: "is-color-dark()";
   }
 }
 
+$this-function: "sort-map-by-value()";
+@include describe("[function] #{$this-function}") {
+  @include it("Sorts an unsorted breakpoint map in ascending order.") {
+    $test: sort-map-by-value(
+      (
+        "desktop": 64rem,
+        "mobile": 20rem,
+        "tablet": 40rem,
+      )
+    );
+    $expect: (
+      "mobile": 20rem,
+      "tablet": 40rem,
+      "desktop": 64rem,
+    );
+    @include assert-equal($test, $expect);
+  }
+
+  @include it("Sorts mixed unit values by normalized pixel value.") {
+    $test: sort-map-by-value(
+      (
+        "wide": 64em,
+        "narrow": 480px,
+        "medium": 40rem,
+      )
+    );
+    $expect: (
+      "narrow": 480px,
+      "medium": 40rem,
+      "wide": 64em,
+    );
+    @include assert-equal($test, $expect);
+  }
+
+  @include it("Preserves insertion order for breakpoints with equal values.") {
+    $test: sort-map-by-value(
+      (
+        "desktop": 1024px,
+        "widescreen": 1024px,
+        "mobile": 320px,
+      )
+    );
+    $expect: (
+      "mobile": 320px,
+      "desktop": 1024px,
+      "widescreen": 1024px,
+    );
+    @include assert-equal($test, $expect);
+  }
+
+  @include it("Returns the original map values in sorted key order.") {
+    $test: sort-map-by-value(
+      (
+        "desktop": 1024px,
+        "mobile": 320px,
+        "tablet": 640px,
+      )
+    );
+    $expect: (
+      "mobile": 320px,
+      "tablet": 640px,
+      "desktop": 1024px,
+    );
+    @include assert-equal($test, $expect);
+  }
+}
+
 // Debug
