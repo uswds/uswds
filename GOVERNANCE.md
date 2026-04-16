@@ -1,49 +1,51 @@
 # Governance
-<!-- TODO: Describe the mission and goal for the project
-https://designsystem.digital.gov/about/
+## Purpose
+[The U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) is a toolkit of principles, guidance, and code that makes it easier to build accessible, mobile-friendly, legally compliant government websites.
 
-This project seeks to provide agencies responsibility for benefit eligibility determinations with an affordable platform to obtain the data they need. We want this platform:
+There are many ways to build a website or service. USWDS has been designed to deliver [unique benefits](https://designsystem.digital.gov/about/key-benefits/) to government teams, such as [compliance from the start](https://designsystem.digital.gov/about/key-benefits/#compliance-from-the-start-2), [proven design solutions that users expect](https://designsystem.digital.gov/about/key-benefits/#proven-design-solutions-that-users-expect-2), [team alignment and common goals](https://designsystem.digital.gov/about/key-benefits/#team-alignment-and-common-goals-2), [mission focus](https://designsystem.digital.gov/about/key-benefits/#mission-focus-2), [a cross-functional design system community](https://designsystem.digital.gov/about/key-benefits/#a-cross-functional-design-system-community-2), and [effective stewardship of public resources](https://designsystem.digital.gov/about/key-benefits/#effective-stewardship-of-public-resources-2).
 
-- To show an applicant what data is being sent and get their explicit agreement
-- Avoid storing any unnecessary information about particular applicants
-- Integrate with existing workflows and infrastructures
- -->
+A broader view is primarily described on the [USWDS About page](https://designsystem.digital.gov/about/), which contains the USWDS mission, vision, polestar, and a brief history. See also [USWDS key benefits](https://designsystem.digital.gov/about/key-benefits/), [product values](https://designsystem.digital.gov/about/product-values/), [design principles](https://designsystem.digital.gov/design-principles/), and [engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md).  
 
-## Glossary
+USWDS governance supports and strengthens these core principles, code, and guidance. 
+
+<!-- ## Glossary
+-->
 <!-- TODO: Fill out this section.
 - Do me last\! Anything that’s a ‘proper noun’, similar to example here: [https://dsacms.github.io/ospo-guide/resources/glossary/\#custom-developed-code](https://dsacms.github.io/ospo-guide/resources/glossary/#custom-developed-code)
 -->
-## Project Scope
+<!-- ## Project scope
+-->
 <!-- TODO: Fill out this section.
-- The open source offering consists of all necessary assets to build a docker image along with the necessary documentation
+- The open source offering consists of all necessary assets to build a USWDS-based site or product, along with the necessary documentation
 - Community scope will shift over time, and to begin, we will engage with the USWDS community to define the initial scope, and an expanded short and medium term scope that we are working towards.
 -->
-## Community Principles
+## Community principles
 
-- Community principles and processes can be found in our [COMMUNITY.md](./COMMUNITY.md) file in the repository.
+Community principles and processes can be found in our [COMMUNITY.md](./COMMUNITY.md) file in this repository
 
-## Development Principles
+## Development principles
 
-[CONTRIBUTING.md](./CONTRIBUTING.md)
+- [USWDS engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## Contributor Ladder / Role Definitions
+## Contributor ladder / role definitions
 
 See [COMMUNITY.md](./COMMUNITY.md)
 
-## Standards and Release
+## Standards and release
 
-### Version Convention
+<!-- ### Version convention -->
 
 <!-- - We will follow semantic version: [https://semver.org/](https://semver.org/)
   - If a change breaks backwards compatibility, then it will increment the major version
   - If a change introduces a new feature, or deprecates an old feature than it will update the minor version
   - If a feature is tweaked or a very small one is added, or a bug fix is pushed, that will increment the page version -->
 
-### Release Lifecycle
+<!-- ### Release lifecycle -->
 
 <!-- TODO: Describe the existing process here.-->
 
-### Release Format & Platform
+<!-- ### Release format & platform -->
 
 <!-- TODO: Describe the existing process here
 - Generally, USWDS strives to adhere to the GSA Open Source Release Guidance outlined here: [https://dsacms.github.io/ospo-guide/outbound/release-guidelines/](https://dsacms.github.io/ospo-guide/outbound/release-guidelines/)
@@ -53,56 +55,58 @@ See [COMMUNITY.md](./COMMUNITY.md)
 - Releases will update the [CHANGELOG.md](http://CHANGELOG.md) file to appropriately describe important updates
 -->
 
-### Accessibility Standards
+### Accessibility standards
 
-Accessibility standards will follow the guidelines from USWDS: [https://designsystem.digital.gov/](https://designsystem.digital.gov/) and adhere to specifications from GSA: [https://www.gsa.gov/website-information/accessibility-statement](https://www.gsa.gov/website-information/accessibility-statement), currently that means working with [WCAG 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/), but we will update versions as GSA does.
+> Accessibility standards will follow the guidelines from USWDS: [https://designsystem.digital.gov/](https://designsystem.digital.gov/) and adhere to specifications from GSA: [https://www.gsa.gov/website-information/accessibility-statement](https://www.gsa.gov/website-information/accessibility-statement). Currently, that means meeting [WCAG 2.1 AA](https://www.w3.org/WAI/standards-guidelines/wcag/) at a minimum, accurately publishing our accessibility tests on each component page, and [compiling all component status tests](https://designsystem.digital.gov/components/status/). This encompasses:
+> - Section 508 compliance
+> - 21st Century Integrated Digital Experience Act (IDEA) compliance
 
-- Section 508 Compliance
-- 21st Century IDEA Act Compliance
-
-### Localization & Internalization Standards
+<!-- ### Localization & internalization standards -->
 
 <!-- TODO: Describe the existing process here
 We ensure that this platform supports switching between different locales, but only provide support for English and Spanish within this repository. We want to ensure that new languages can be added by anyone who wishes to extend the system by documenting the process.
 -->
 
-## Decision making
+## Decision-making
 
-### Changes to project scope
+As with other [Tier3 Open Source Community Projects](https://github.com/DSACMS/repo-scaffolder/blob/main/tier3/README.md), USWDS uses a 'co-planning' approach of community-informed roadmapping.
+
+The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are distributed and managed.
+
+[CONTRIBUTING.md](./CONTRIBUTING.md) defines the context, conditions, and processes by which contributions to the project are made.
+
+<!-- ### Changes to project scope -->
 
 <!-- TODO: Describe the existing process here
-As with other Tier3 Open Source Community Projects, USWDS is taking a 'co-planning' approach to do community-informed roadmapping.
-
-The COMMUNITY.md file outlines how committer and maintainer privileges are distributed and managed.
 
 DESIGN-PROPOSAL.md and ARCHITECTURE-PROPOSAL.md outline the process by which product and infrastructure suggestions are prioritized and decided.
 
 TECHRADAR.md outlines the overall technology stack and tooling constraints that the project operates within, and the process by which new major technologies are introduced to the project.
 
-CONTRIBUTING.md defines the context, conditions, and processes by which contributions to the project are made.
-
 ISSUE\_TEMPLATE\*.md and PULL\_REQUEST\_TEMPLATE.md define the mechanics of how changes are proposed and merged.
 -->
 
-### Bug Reports
+### Bug reports
 
 Bug reports should be made through GitHub Issues using the [bug report issue template](.github/ISSUE_TEMPLATE/bug_report.yaml).
 
-### Feature Requests
+### Feature requests
 
 Feature requests should be made through GitHub Issues using the [feature request issue template](.github/ISSUE_TEMPLATE/feature_request.yaml).
 
-### Tech Radar
+<!-- ### Tech Radar
+-->
 
-## Community Communication
+## Community communication
 
-### Accepting General Feedback
+### Accepting general feedback
 
-We will create an email address to accept feedback from users. Additionally, feedback can be given through [GitHub Issues](https://github.com/USWDS/uswds/issues).
+You can provide feedback through uswds@gsa.gov or [GitHub Issues](https://github.com/uswds/uswds/issues).
 
 ### Communicating roadmap
 
-Active work can be tracked by the public through repository [issues](https://github.com/USWDS/uswds/issues) and GitHub project boards. The project page will communicate planned milestones and labels on GitHub issues.
+Active work can be tracked by the public through the [USWDS product roadmap](https://designsystem.digital.gov/about/product-roadmap/)) and [repo project boards](https://github.com/orgs/uswds/projects/8/views/59). 
+<--! The project page will communicate planned milestones and labels on GitHub issues.-->
 
-### User-specific tech support
+<!-- ### User-specific tech support -->
 <!-- TODO: Define SLA for GitHub issues here -->
