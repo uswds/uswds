@@ -17,6 +17,7 @@ to largest regardless of insertion order.
 @use "sass:meta";
 @use "./strip-unit" as *;
 @use "./to-number" as *;
+@use "../units/root" as root;
 
 @function normalize-breakpoint-value($value) {
   $numeric: null;
@@ -32,7 +33,7 @@ to largest regardless of insertion order.
   $unit: math.unit($numeric);
 
   @if $unit == "em" or $unit == "rem" {
-    @return strip-unit($numeric) * 16;
+    @return strip-unit($numeric) * root.$root-font-size-equiv;
   }
 
   @return strip-unit($numeric);
