@@ -62,7 +62,7 @@ jobs:
       - name: Update PR
         if: steps.check_changes.outputs.has_changes == 'true' && steps.update_contributors.outputs.pr_id != ''
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
           PR_NUMBER="${{ steps.update_contributors.outputs.pr_id }}"
           
