@@ -30,7 +30,90 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 ### USWDS Community Contributors
 
-(TBA)
+<!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
+
+Total number of contributors: <!--CONTRIBUTOR COUNT START-->  <!--CONTRIBUTOR COUNT END-->
+
+<!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/natalialuzuriaga">
+                    <img src="https://avatars.githubusercontent.com/u/29980737?v=4" width="100;" alt="natalialuzuriaga"/>
+                    <br />
+                    <sub><b>Natalia Luzuriaga</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/aayatsali">
+                    <img src="https://avatars.githubusercontent.com/u/157442886?v=4" width="100;" alt="aayatsali"/>
+                    <br />
+                    <sub><b>Aayat</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/DinneK">
+                    <img src="https://avatars.githubusercontent.com/u/63877492?v=4" width="100;" alt="DinneK"/>
+                    <br />
+                    <sub><b>Dinne Kopelevich</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/decause-gov">
+                    <img src="https://avatars.githubusercontent.com/u/107957201?v=4" width="100;" alt="decause-gov"/>
+                    <br />
+                    <sub><b>decause-gov</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/IsaacMilarky">
+                    <img src="https://avatars.githubusercontent.com/u/24639268?v=4" width="100;" alt="IsaacMilarky"/>
+                    <br />
+                    <sub><b>Isaac Milarsky</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/sachin-panayil">
+                    <img src="https://avatars.githubusercontent.com/u/79382140?v=4" width="100;" alt="sachin-panayil"/>
+                    <br />
+                    <sub><b>Sachin Panayil</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/NoobNoob06">
+                    <img src="https://avatars.githubusercontent.com/u/108984067?v=4" width="100;" alt="NoobNoob06"/>
+                    <br />
+                    <sub><b>Keni</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/eamon-cms">
+                    <img src="https://avatars.githubusercontent.com/u/258314873?v=4" width="100;" alt="eamon-cms"/>
+                    <br />
+                    <sub><b>Eamon</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/cms-eo14168">
+                    <img src="https://avatars.githubusercontent.com/u/197958188?v=4" width="100;" alt="cms-eo14168"/>
+                    <br />
+                    <sub><b>cms-eo14168</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/cschilly">
+                    <img src="https://avatars.githubusercontent.com/u/259887029?v=4" width="100;" alt="cschilly"/>
+                    <br />
+                    <sub><b>cschilly</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: contributors -end -->
 
 ### USWDS Alumni
 
