@@ -8,6 +8,7 @@ $namespace-grid: ns("grid");
 
 $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
 $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
+$sorted-breakpoints: sort-map-by-value($all-breakpoints);
 
 // basic container
 .#{$namespace-grid}container {
@@ -16,7 +17,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // container with custom widths
-@each $width-key, $width-value in $all-breakpoints {
+@each $width-key, $width-value in $sorted-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
     $props: append-important($grid-global, $width-key);
     @include grid-container($props);
@@ -24,7 +25,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // responsive containers...
-@each $mq-key, $mq-value in $all-breakpoints {
+@each $mq-key, $mq-value in $sorted-breakpoints {
   @if map.get($theme-utility-breakpoints-complete, $mq-key) {
     @include at-media($mq-key) {
       .#{$mq-key}#{$separator}#{$namespace-grid}container {
@@ -33,7 +34,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
       }
 
       // ...with custom widths
-      @each $width-key, $width-value in $all-breakpoints {
+      @each $width-key, $width-value in $sorted-breakpoints {
         .#{$mq-key}#{$separator}#{$namespace-grid}container-#{$width-key} {
           $props: append-important($grid-global, $width-key);
           @include grid-container($props);
@@ -59,7 +60,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
   }
 
   // responsive column gaps
-  @each $mq-key, $mq-value in $all-breakpoints {
+  @each $mq-key, $mq-value in $sorted-breakpoints {
     @if map.get($theme-utility-breakpoints-complete, $mq-key) {
       @include at-media($mq-key) {
         @each $gap-key,
@@ -106,7 +107,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // responsive columns
-@each $mq-key, $mq-value in $all-breakpoints {
+@each $mq-key, $mq-value in $sorted-breakpoints {
   @if map.get($theme-utility-breakpoints-complete, $mq-key) {
     @include at-media($mq-key) {
       .#{$mq-key}#{$separator}#{$namespace-grid}col {
@@ -145,7 +146,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 }
 
 // responsive offsets
-@each $mq-key, $mq-value in $all-breakpoints {
+@each $mq-key, $mq-value in $sorted-breakpoints {
   @if map.get($theme-utility-breakpoints-complete, $mq-key) {
     @each $width-key, $width-value in $system-layout-grid-widths {
       @include at-media($mq-key) {
