@@ -26,28 +26,21 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 ### USWDS Community Maintainers
 
-- [@heymatthenry](https://github.com/heymatthenry)
+- [@heymatthenry](https://github.com/heymatthenry), [former USWDS Engineering Lead](https://github.com/uswds/uswds/issues/6578#issuecomment-4042112679)
 
 ### USWDS Community Contributors
 
 (TBA)
-<!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
 
-<!--Total number of contributors: [TO DO]--> 
-<!--CONTRIBUTOR COUNT START--> 
-<!--CONTRIBUTOR COUNT END-->
-
-<!-- readme: contributors -start -->
-<!-- readme: contributors -end -->
-
-### USWDS Alumni (not a complete list)
+### USWDS Alumni
 
 <!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this repository who are no longer actively involved? Consider including their roles and dates for context. -->
-
-- [@thisisdano](https://github.com/thisisdano)
+ (not a complete list)
+- [@thisisdano](https://github.com/thisisdano), [former USWDS Product Owner and Maintainer](https://github.com/uswds/uswds/issues/6599)
 - (many more TBA)
 
-### USWDS current / former partners (not a complete list)
+### USWDS current / former partners
+(not a complete list)
 
 Agency digital teams / team members from:
 - [18F](https://designsystem.digital.gov/about/#our-history-2)
@@ -189,7 +182,11 @@ You can learn more about contributing to this repository in [CONTRIBUTING.md](CO
 
 When participating in USWDS community conversations and spaces:
 
-- Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized
+- respect your peers
+- use plain language
+- be patient
+- practice constructive criticism
+- stay organized
 
 ### Inactivity
 USWDS Contributors must stay active, to set a good example and demonstrate commitment. Inactivity may lead to unexpected delays, Contributor attrition, and a loss of trust in the product and work.
@@ -210,3 +207,12 @@ If any USWDS Open Source Community member's commitment levels change, they can f
 ### Acknowledgements
 
 The Community Guidelines section here was originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and that and even more was forked from or contributed by the [Centers for Medicaid and Medicare Services Open Source Program Office](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file#what-does-the-open-source-program-office-ospo-at-cms-do) and their [Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we'd like to acknowledge and thank everyone who contributed along the way.
+
+<!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
+
+<!--Total number of contributors: [TO DO]--> 
+<!--CONTRIBUTOR COUNT START--> 
+<!--CONTRIBUTOR COUNT END-->
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
