@@ -21,6 +21,7 @@ module.exports = (map) => (event) => {
   // Bail out if this is not a KeyboardEvent (e.g. InputEvent from datalist
   // selection). Only KeyboardEvents have `key` and `getModifierState`.
   if (
+    !(event instanceof KeyboardEvent) ||
     typeof event.key === "undefined" ||
     typeof event.getModifierState !== "function"
   ) {
