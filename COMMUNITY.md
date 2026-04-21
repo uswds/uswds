@@ -6,23 +6,28 @@ The U.S. Web Design System (USWDS) is run by one full-time federal staff member 
 
 Members of the USWDS Open Source Community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, communicating with and supporting the broader USWDS community, and ensuring the design system meets its legal responsibilities, principles, values, goals and objectives. Below is a list of key members of the USWDS Open Source Community. 
 
+### USWDS Federal Staff Roles
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
-| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA / TTS |
+| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA / TTS / USWDS |
+| TTS Accessibility Lead | [Chandra Carney](https://github.com/chandracarney) | GSA / TTS |
 
 <!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
 ### USWDS Full-time Federal Staff (Admin)
 - [@annepetersen](https://github.com/annepetersen)
 
+### USWDS Part-time Federal Staff (Maintainer)
+- [@chandracarney](https://github.com/chandracarney)
+
 ### USWDS Internal Team (Maintainers)
 
 - [@annepetersen](https://github.com/annepetersen)
+- [@chandracarney](https://github.com/chandracarney)
+- [@ethangardner](https://github.com/ethangardner)
 - [@iamjolly](https://github.com/iamjolly)
 - [@sknep](https://github.com/sknep)
-- [@ethangardner](https://github.com/ethangardner)
 - [@afeijoo](https://github.com/afeijoo)
-- [@chandracarney](https://github.com/chandracarney)
 
 ### USWDS Community Maintainers
 
@@ -48,7 +53,7 @@ Agency digital teams / team members from:
 - [Consumer Financial Protection Bureau (CFPB)](https://designsystem.digital.gov/about/#our-history-2)
 - [Department of Education](https://designsystem.digital.gov/about/#our-history-2)
 - [Department of Veterans Affairs (VA)](https://designsystem.digital.gov/about/#our-history-2)
-- Digital Experience (DX) Council (interagency)
+- [Digital Experience (DX) Council](https://digital.gov/resources/an-introduction-to-the-digital-experience-council) (interagency)
 - Federal Reserve Board System
 - [Food and Drug Administration (FDA)](https://designsystem.digital.gov/about/#our-history-2)
 - [General Services Administration (GSA)](https://designsystem.digital.gov/about/#our-history-2)
@@ -85,24 +90,24 @@ The below are the current defined roles and responsibilities available in the US
 - Following the repository contributing guidelines: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 #### Requirements (one or several of the below, actively for at least 6 months): 
-- Report and resolve issues
+- Report, confirm, and resolve confirmed Issues
 - Submit and review PRs
-- Contribute to USWDS documentation or official communications
+- Contribute relevant research 
+- Support creation or revision of USWDS documentation or official communications
 - Participate in community discussions
 - Answer questions from other community members
 - Test releases and submit PR reviews
-- Confirm or create repository Issues that are accepted
 - Run or help run events
 - Help maintain the repository and community infrastructure
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
-- Possibility of advancing in the repository's CONTRIBUTOR_LADDER.md
+- Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
 - Other privileges defined by the community in the future
 
 #### Process of becoming a USWDS Contributor
-1. Any current participant in the USWDS community may become a new Contributor by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-2. At least 1 current USWDS Maintainer must then approve the PR
+1. Any current participant in the USWDS community may become a new Contributor by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
+2. At least 1 current USWDS Maintainer must approve the PR, including their reasoning for that decision
 
 ## USWDS Maintainers
 
@@ -111,7 +116,7 @@ The below are the current defined roles and responsibilities available in the US
 A Maintainer must meet the responsibilities and requirements of a Contributor, plus:
 
 #### Responsibilities include: 
-- Reviewing at least 4 PRs every 3 months, focusing on PRs in their subject matter area
+- Reviewing at least 4 PRs every 3 months, focusing on PRs in their subject matter area of expertise
 - Mentoring new Contributors
 - Writing and refactoring submitted PRs
 - Participating in USWDS Maintainer activities
@@ -134,12 +139,12 @@ A Maintainer must meet the responsibilities and requirements of a Contributor, p
 - Other privileges defined by the community in the future
 
 #### Process of becoming a USWDS Maintainer
-1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md)
-2. The USWDS Product Owner / Lead must then approve the PR
+1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
+2. The USWDS Product Owner / Lead must then approve the PR, including their reasoning for that decision
 
 ## USWDS Product Owner / Lead
 
-Serves as the main point of contact for strategy, roadmap, decision-making, community, communication, coordination of teams and areas, and development activity and decisions. 
+Serves as the main point of contact for strategy, roadmapping, decision-making, community, communication, coordination of teams and areas, and development activity and decisions. 
 
 ## USWDS Internal Team
 
@@ -157,6 +162,7 @@ Members of the USWDS Internal Team are federal employees or contractors who cont
 
 #### Privileges:
 - Will be added to the USWDS Alumni list in the [COMMUNITY.md](./COMMUNITY.md) file
+- Can choose to be included in USWDS Open Source Community communications, but will not be by default
 
 #### Process of becoming an Alumni
 1. Any current Maintainer or Contributor can become Alumni by following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file changing their role to Alumni
@@ -204,7 +210,7 @@ Involuntary removal or demotion is handled by Maintainers filing an issue using 
 ### Voluntary stepping down and Alumni status
 If any USWDS Open Source Community member's commitment levels change, they can file an issue using the contributor_ladder.md template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file updating their role to Alumni.
 
-### Acknowledgements
+## Acknowledgements
 
 The Community Guidelines section here was originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and that and even more was forked from or contributed by the [Centers for Medicaid and Medicare Services Open Source Program Office](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file#what-does-the-open-source-program-office-ospo-at-cms-do) and their [Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we'd like to acknowledge and thank everyone who contributed along the way.
 
