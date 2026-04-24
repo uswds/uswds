@@ -17,7 +17,17 @@
  * @param {KeymapConfig} map
  * @return {KeyboardEventHandler}
  */
-module.exports = (map) => (event) =>
+module.exports = (map) => (event) => {
+  // Bail out if this is not a KeyboardEvent (e.g. InputEvent from datalist
+  // selection). Only KeyboardEvents have `key` and `getModifierState`.
+  if (
+    !(event instanceof KeyboardEvent) ||
+    typeof event.key === "undefined" ||
+    typeof event.getModifierState !== "function"
+  ) {
+    return;
+  }
+
   Object.keys(map).forEach((combo) => {
     // Each key combination can have one or more modifier, where each modifier is prefixed with the
     // modifier name and "+".
@@ -39,3 +49,4 @@ module.exports = (map) => (event) =>
       map[combo](event);
     }
   });
+};
