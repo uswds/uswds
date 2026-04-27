@@ -59,18 +59,28 @@ jobs:
           committer_username: "github-actions[bot]"
           committer_email: "github-actions[bot]@users.noreply.github.com"
 
-      - name: Add role="presentation" to contributor table
+      - name: Checkout PR and apply post-processing changes
         if: steps.check_changes.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          PR_NUMBER="${{ steps.update_contributors.outputs.pr_id }}"
+          BRANCH=$(gh pr view $PR_NUMBER --json headRefName -q .headRefName)
+          git fetch origin $BRANCH
+          git checkout $BRANCH
+
           sed -i 's/<table>/<table role="presentation">/g' COMMUNITY.md
 
-      - name: Update contributor count
-        if: steps.check_changes.outputs.has_changes == 'true'
-        run: |
           COUNT=$(grep -oP '(?<=github\.com/)[^"]+(?=">)' COMMUNITY.md | \
             grep -v "^$" | sort | uniq | wc -l)
           
-          sed -i "s|<!--CONTRIBUTOR COUNT START-->.*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
+          sed -i -v "s|<!--CONTRIBUTOR COUNT START-->[^<]*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add COMMUNITY.md
+          git diff --cached --quiet || git commit -m "fix: add role=presentation to contributors table and update contributor count"
+          git push origin $BRANCH
 
       - name: Update PR
         if: steps.check_changes.outputs.has_changes == 'true' && steps.update_contributors.outputs.pr_id != ''
