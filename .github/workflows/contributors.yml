@@ -59,6 +59,19 @@ jobs:
           committer_username: "github-actions[bot]"
           committer_email: "github-actions[bot]@users.noreply.github.com"
 
+      - name: Add role="presentation" to contributor table
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          sed -i 's/<table>/<table role="presentation">/g' COMMUNITY.md
+
+      - name: Update contributor count
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          COUNT=$(grep -oP '(?<=github\.com/)[^"]+(?=">)' COMMUNITY.md | \
+            grep -v "^$" | sort | uniq | wc -l)
+          
+          sed -i "s|<!--CONTRIBUTOR COUNT START-->.*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
+
       - name: Update PR
         if: steps.check_changes.outputs.has_changes == 'true' && steps.update_contributors.outputs.pr_id != ''
         env:
