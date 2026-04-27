@@ -71,7 +71,7 @@ jobs:
           COUNT=$(grep -oP '(?<=github\.com/)[^"]+(?=">)' COMMUNITY.md | \
             grep -v "^$" | sort | uniq | wc -l)
           
-          sed -i -v "s|<!--CONTRIBUTOR COUNT START-->[^<]*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
+          sed -i -z "s|<!--CONTRIBUTOR COUNT START-->[^<]*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
 
       - name: Commit and push changes
         if: steps.check_changes.outputs.has_changes == 'true'
