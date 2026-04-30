@@ -1,10 +1,10 @@
 {
     "ignorePatterns" : [
         {
-          "pattern": "^https://npmjs.com"
+          "pattern": "^https://www.npmjs.com"
         },
         {
-          "pattern": "^https://ssa.gov"
+          "pattern": "^https://www.ssa.gov"
         }
     ],
     "replacementPatterns": [
