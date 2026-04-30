@@ -1,0 +1,16 @@
+{
+    "ignorePatterns" : [
+        {
+          "pattern": "^https://npmjs.com"
+        },
+        {
+          "pattern": "^https://ssa.gov"
+        }
+    ],
+    "replacementPatterns": [
+        {
+            "pattern": "^/",
+            "replacement": "{{BASEURL}}/"
+        }
+  ]
+}
