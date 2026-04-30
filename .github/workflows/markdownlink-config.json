@@ -1,16 +1,9 @@
 {
-    "ignorePatterns" : [
-        {
-          "pattern": "^https://www.npmjs.com"
-        },
-        {
-          "pattern": "^https://www.ssa.gov"
-        }
-    ],
     "replacementPatterns": [
         {
             "pattern": "^/",
             "replacement": "{{BASEURL}}/"
         }
-  ]
+  ],
+  "aliveStatusCodes": [200, 206, 403]
 }
