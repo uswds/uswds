@@ -246,6 +246,18 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     font-weight: fw("bold");
     margin-bottom: units(1.5);
     text-align: left;
+
+    // Override default sr-only styles to prevent table borders from combining when collapsing
+    &.usa-sr-only {
+      position: static;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 
   /* stylelint-disable selector-class-pattern */
