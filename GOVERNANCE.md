@@ -32,7 +32,7 @@ Community principles and processes can be found in [COMMUNITY.md](./COMMUNITY.md
 
 See [COMMUNITY.md](./COMMUNITY.md)
 
-## Standards and release
+## Standards
 
 <!-- ### Version convention -->
 
@@ -63,7 +63,7 @@ Consider the following questions when reviewing PRs:
     - Any commit [must be signed / verified](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md#setting-up-verified-commits) before it can be merged. 
 - Is the code performant?
     - DOM manipulation should be efficient and minimal.
-    - Favor native browser API’s over libraries.
+    - Favor native browser APIs over libraries.
 - Is the code readable?
     - Code should be easy to understand and self-documenting.
     - New functions should have easy-to-understand [JSDocs](https://devhints.io/jsdoc) or SassDocs comments.
@@ -85,7 +85,7 @@ Consider the following questions when reviewing PRs:
 
 ### Accessibility standards
 
-> Accessibility standards will follow the guidelines from USWDS: [https://designsystem.digital.gov/](https://designsystem.digital.gov/) and adhere to specifications from GSA: [https://www.gsa.gov/website-information/accessibility-statement](https://www.gsa.gov/website-information/accessibility-statement). Currently, that means meeting [WCAG 2.1 AA](https://www.w3.org/WAI/standards-guidelines/wcag/) at a minimum, accurately publishing our accessibility tests on each component page, and [compiling all component status tests](https://designsystem.digital.gov/components/status/). This encompasses:
+> Accessibility standards follow the guidelines from USWDS: [https://designsystem.digital.gov/](https://designsystem.digital.gov/) and adhere to specifications from GSA: [https://www.gsa.gov/website-information/accessibility-statement](https://www.gsa.gov/website-information/accessibility-statement). Currently, that means meeting [WCAG 2.1 AA](https://www.w3.org/WAI/standards-guidelines/wcag/) at a minimum, accurately publishing our accessibility tests on each component page, and [compiling all component status tests](https://designsystem.digital.gov/components/status/). This encompasses:
 > - Section 508 compliance
 > - 21st Century Integrated Digital Experience Act (IDEA) compliance
 
@@ -93,9 +93,9 @@ Consider the following questions when reviewing PRs:
 
 As with other [Tier3 Open Source Community Projects](https://github.com/DSACMS/repo-scaffolder/blob/main/tier3/README.md), USWDS uses a 'co-planning' approach of community-informed roadmapping.
 
-The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are approved and managed.
+The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are approved and managed, and how to join the USWDS Open Source Community.
 
-[CONTRIBUTING.md](./CONTRIBUTING.md) defines the context, conditions, and processes by which contributions to USWDS are made.
+[CONTRIBUTING.md](./CONTRIBUTING.md) describes how to make meaningful changes to USWDS through reporting bugs and issues, proposing feature requests or enhancements, submitting other code contributions, and further details about joining the USWDS Open Source Community, along with some common terms, plus licenses and attribution.
 
 <!-- ### Changes to project scope -->
 
