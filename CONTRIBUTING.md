@@ -88,6 +88,24 @@ Here are a few other utility commands you might find useful:
 - `npm run prettier`: Runs `prettier` against HTML, JavaScript, and Sass files
 - `npm test`: Runs all tests and linters
 
+### Creating a pull request (PR)
+The original issue creator is responsible for ushering the issue through its lifecycle. Every pull request (PR) must meet the following criteria:
+
+* PRs should contain a statement to be used in [Release Notes](https://github.com/uswds/uswds/releases/).   
+  	*Example:* ***`Brief statement in bold.`** `Followed by description of work that was done.`*  
+* Most PRs should be linked to an issue.  
+  * Example: `closes #issue_no` or `resolves #issue_no`.  
+* Be as descriptive as possible and use inline GitHub comments to improve clarity.   
+* Include a *How to Test* section.  
+
+**Examples of good PRs**
+
+* [USWDS \- Combo box: Enhance combo box results](https://github.com/uswds/uswds/pull/6122)  
+* [USWDS \- Step indicator: Remove aria-label from wrapper](https://github.com/uswds/uswds/pull/6146)  
+* [\[Beta\] Update package exports](https://github.com/uswds/uswds/pull/4624)  
+* [Improve utility settings](https://github.com/uswds/uswds/pull/4631)  
+* [Beta \- repair site integration issues](https://github.com/uswds/uswds/pull/4611)
+
 #### Submitting a pull request for a bug fix:
 
 1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues.
