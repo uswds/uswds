@@ -47,7 +47,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.twig$/,
-        use: "twigjs-loader",
+        use: require.resolve("../tasks/webpack-twig-loader"),
         resolve: {
           alias: {
             "@components": path.resolve(__dirname, "../packages"),
