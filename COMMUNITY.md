@@ -35,7 +35,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 ### USWDS Community Contributors
 
-(TBA)
+- [@JackRyan1989](https://github.com/JackRyan1989), Jack Ryan, Nava Software Engineer, CMS Contractor (CMS Design System)
 
 ### USWDS Alumni
 
