@@ -72,7 +72,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-The below are the current defined roles and responsibilities available in the USWDS Open Source Community. Expanding these teams is a current (April 2026) focus. If you care about USWDS, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+The below are the current defined roles and responsibilities available in the USWDS Open Source Community. Expanding these teams is a current (May 2026) focus. If you care about USWDS, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
