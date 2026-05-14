@@ -1,0 +1,42 @@
+@use "uswds-core/src/styles/functions/utilities" as *;
+
+:root {
+    --theme-color-base-lightest: #{color("base-lightest")};
+    --theme-color-base-lighter: #{color("base-lighter")};
+    --theme-color-base-light: #{color("base-light")};
+    --theme-color-base: #{color("base")};
+    --theme-color-base-dark: #{color("base-dark")};
+    --theme-color-base-darker: #{color("base-darker")};
+    --theme-color-base-darkest: #{color("base-darkest")};
+    // --theme-color-base-ink: #{color("base-ink")};
+}
+:root {
+    --theme-color-primary-lighter: #{color("primary-lighter")};
+    --theme-color-primary-light: #{color("primary-light")};
+    --theme-color-primary: #{color("primary")};
+    --theme-color-primary-vivid: #{color("primary-vivid")};
+    --theme-color-primary-dark: #{color("primary-dark")};
+    --theme-color-primary-darker: #{color("primary-darker")};
+}
+:root {
+    --theme-color-secondary-lighter: #{color("secondary-lighter")};
+    --theme-color-secondary-light: #{color("secondary-light")};
+    --theme-color-secondary: #{color("secondary")};
+    --theme-color-secondary-vivid: #{color("secondary-vivid")};
+    --theme-color-secondary-dark: #{color("secondary-dark")};
+    --theme-color-secondary-darker: #{color("secondary-darker")};
+}
+:root {
+    --theme-color-accent-warm-lighter: #{color("accent-warm-lighter")};
+    --theme-color-accent-warm-light: #{color("accent-warm-light")};
+    --theme-color-accent-warm: #{color("accent-warm")};
+    --theme-color-accent-warm-dark: #{color("accent-warm-dark")};
+    --theme-color-accent-warm-darker: #{color("accent-warm-darker")};
+}
+:root {
+    --theme-color-accent-cool-lighter: #{color("accent-cool-lighter")};
+    --theme-color-accent-cool-light: #{color("accent-cool-light")};
+    --theme-color-accent-cool: #{color("accent-cool")};
+    --theme-color-accent-cool-dark: #{color("accent-cool-dark")};
+    --theme-color-accent-cool-darker: #{color("accent-cool-darker")};
+}
