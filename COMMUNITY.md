@@ -35,7 +35,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 ### USWDS Community Contributors
 
-(TBA)
+- [@NSKbot](https://github.com/NSKbot)
 
 ### USWDS Alumni
 
