@@ -73,7 +73,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-The below are the current defined roles and responsibilities available in the USWDS Open Source Community. Expanding these teams is a current (April 2026) focus. If you care about USWDS, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+The below are the current defined roles and responsibilities available in the USWDS Open Source Community. Expanding these teams is a current (May 2026) focus. If you care about USWDS, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
@@ -84,7 +84,7 @@ The below are the current defined roles and responsibilities available in the US
 
 ## USWDS Contributors
 
-**Description:** A Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, pull request reviews, Issue creation or confirmation, community participation, or many other means of support. 
+**Description:** A Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, Pull Request reviews, Issue creation or confirmation, community participation, or many other means of support. 
 
 #### Responsibilities include: 
 - Following the repository [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
@@ -96,18 +96,23 @@ The below are the current defined roles and responsibilities available in the US
 - Contribute relevant research 
 - Support creation or revision of USWDS documentation or official communications
 - Participate in community discussions
-- Answer questions from other community members
+- Propose or participate in a team proposing new USWDS components, patterns, or features
+- Answer questions from other community members (in any venue, such as the [USWDS public Slack channel](https://designsystem.digital.gov/about/community/#join-the-community-2), [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions), or [live meetings](https://designsystem.digital.gov/about/monthly-calls/))
 - Test releases and submit PR reviews
-- Run or help run events
+- Run or help run USWDS events
 - Help maintain the repository and community infrastructure
+- Consult with and provide feedback to the USWDS Internal Team
+- Work on a USWDS-based design system
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
+- Direct communication with the USWDS Internal Team
+- Access to USWDS Open Source Community communications
 - Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
 - Other privileges defined by the community in the future
 
 #### Process of becoming a USWDS Contributor
-1. Any current participant in the USWDS community may become a new Contributor by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
+1. Any current participant in the USWDS community may become a new Contributor by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), making sure to include supporting information about how they meet the requirements
 2. At least 1 current USWDS Maintainer must approve the PR, including their reasoning for that decision
 
 ## USWDS Maintainers
