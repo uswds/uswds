@@ -101,7 +101,7 @@ The below are the current defined roles and responsibilities available in the US
 - Run or help run USWDS events
 - Help maintain the repository and community infrastructure
 - Consult with and provide feedback to the USWDS Internal Team
-- Work on a USWDS fork, other USWDS-based design system, or site or product based on USWDS
+- Work on a USWDS-based design system
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
