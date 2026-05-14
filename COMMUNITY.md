@@ -36,6 +36,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 ### USWDS Community Contributors
 
 (TBA)
+- [@msbtterswrth](https://github.com/msbtterswrth), Nava Senior Product Manger, Former VA, CMS Contractor
 
 ### USWDS Alumni
 
