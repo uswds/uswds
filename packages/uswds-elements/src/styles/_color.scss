@@ -8,7 +8,7 @@
     --theme-color-base-dark: #{color("base-dark")};
     --theme-color-base-darker: #{color("base-darker")};
     --theme-color-base-darkest: #{color("base-darkest")};
-    // --theme-color-base-ink: #{color("base-ink")};
+    --theme-color-base-ink: #{color("ink")};
 }
 :root {
     --theme-color-primary-lighter: #{color("primary-lighter")};
