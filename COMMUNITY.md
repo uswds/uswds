@@ -36,7 +36,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 ### USWDS Community Contributors
 
 - [@msbtterswrth](https://github.com/msbtterswrth), Nava Senior Product Manger, Former VA, CMS Contractor
-- [@NSKbot](https://github.com/NSKbot)
+- [@NSKbot](https://github.com/NSKbot), The Bridge Executive Director, Former CFPB/18F
 
 ### USWDS Alumni
 
