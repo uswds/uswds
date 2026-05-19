@@ -60,6 +60,8 @@ $range-focus-width: units(2px) + units(1px);
   width: 100%;
 
   &:focus {
+    border-radius: radius("pill");
+    box-shadow: 0 0 0 $range-focus-width color($theme-focus-color);
     outline: none;
 
     &::-webkit-slider-thumb {
