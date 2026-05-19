@@ -1,18 +1,17 @@
 @use "uswds-core" as *;
 
-$range-border-color: "base-dark";
+$range-border-color: #646464;
 $range-border-width: units(2px);
-$range-focus-width: units(2px) + units(1px);
 
 @mixin range-focus {
   background-color: color("white");
-  box-shadow: 0 0 0 $range-focus-width color($theme-focus-color);
+  box-shadow: 0 0 0 units(2px) color($theme-focus-color);
 }
 
 @mixin range-track {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: $range-border-width solid color($range-border-color);
+  border: $range-border-width solid $range-border-color;
   cursor: pointer;
   height: units(2);
   width: 100%;
@@ -22,7 +21,7 @@ $range-focus-width: units(2px) + units(1px);
   @include u-circle($theme-input-select-size);
   background: color("base-lightest");
   border: none;
-  box-shadow: 0 0 0 $range-border-width color($range-border-color);
+  box-shadow: 0 0 0 $range-border-width $range-border-color;
   cursor: pointer;
 
   @media (forced-colors: active) {
@@ -33,7 +32,7 @@ $range-focus-width: units(2px) + units(1px);
 @mixin range-ms-fill {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: $range-border-width solid color($range-border-color);
+  border: $range-border-width solid $range-border-color;
 }
 
 .usa-range__wrapper {
@@ -60,8 +59,6 @@ $range-focus-width: units(2px) + units(1px);
   width: 100%;
 
   &:focus {
-    border-radius: radius("pill");
-    box-shadow: 0 0 0 $range-focus-width color($theme-focus-color);
     outline: none;
 
     &::-webkit-slider-thumb {
