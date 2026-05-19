@@ -29,10 +29,22 @@ const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const DEFAULT_ERROR_LABEL_TEXT = "Error: This is not a valid file type.";
+const DRAG_AND_DROP_MEDIA_QUERY = "(hover: none), (pointer: coarse)";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
 let DEFAULT_FILE_STATUS_TEXT = "";
+
+const isLegacyDragUnsupported = () =>
+  /rv:11.0/i.test(navigator.userAgent) ||
+  /Edge\/\d./i.test(navigator.userAgent);
+
+const isCoarsePointerDevice = () =>
+  typeof window.matchMedia === "function" &&
+  window.matchMedia(DRAG_AND_DROP_MEDIA_QUERY).matches;
+
+const shouldShowDragText = () =>
+  !isLegacyDragUnsupported() && !isCoarsePointerDevice();
 
 /**
  * The properties and elements within the file input.
@@ -172,14 +184,20 @@ const createTargetArea = (fileInputEl) => {
  * @returns {HTMLDivElement} The container for visible interaction instructions.
  */
 const createVisibleInstructions = (fileInputEl) => {
-  const fileInputParent = fileInputEl.closest(DROPZONE);
   const itemsLabel = getItemsLabel(fileInputEl);
   const instructions = document.createElement("div");
   const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
+  const dragTextEl = document.createElement("span");
+  const chooseTextEl = document.createElement("span");
+  const dragTextIsVisible = shouldShowDragText();
+  const chooseText = dragTextIsVisible
+    ? "choose from folder"
+    : "Choose from folder";
 
   // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
+  DEFAULT_ARIA_LABEL_TEXT = dragTextIsVisible
+    ? `${dragText} ${chooseText}`
+    : chooseText;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
@@ -187,18 +205,20 @@ const createVisibleInstructions = (fileInputEl) => {
 
   // Add initial instructions for input usage
   fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  chooseTextEl.classList.add(CHOOSE_CLASS);
+  chooseTextEl.textContent = chooseText;
+
+  if (dragTextIsVisible) {
+    dragTextEl.classList.add(DRAG_TEXT_CLASS);
+    dragTextEl.textContent = dragText;
+    instructions.appendChild(dragTextEl);
+    instructions.appendChild(document.createTextNode(" "));
+  }
+
+  instructions.appendChild(chooseTextEl);
 
   // Add the instructions element to the DOM
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
-
-  // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
-  if (
-    /rv:11.0/i.test(navigator.userAgent) ||
-    /Edge\/\d./i.test(navigator.userAgent)
-  ) {
-    fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
-  }
 
   return instructions;
 };
