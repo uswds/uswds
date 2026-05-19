@@ -9,7 +9,6 @@
   padding: units(2);
 }
 
-$nav-link-color: "base-dark";
 $sliding-panel-width: "card-lg";
 $nav-link-accordion-icon-size: 2.5;
 $nav-link-arrow-icon-size: 2;
@@ -169,7 +168,7 @@ $expand-less-icon: map-merge(
       @include at-media($theme-header-min-width) {
         @include primary-nav-link;
         align-items: center;
-        color: color($nav-link-color);
+        color: color($theme-navigation-link-color);
         display: flex;
         font-weight: font-weight("bold");
 
@@ -198,7 +197,7 @@ $expand-less-icon: map-merge(
 
     @include button-unstyled;
     position: relative; // Anchor spans chevron pseudo element
-    color: color($nav-link-color);
+    color: color($theme-navigation-link-color);
     font-weight: font-weight("normal");
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
