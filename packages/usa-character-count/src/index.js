@@ -179,9 +179,10 @@ const updateCountMessage = (inputEl) => {
  *
  * @description On init this function will create elements and update any
  * attributes so it can tell the user how many characters are left.
- * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
+ * @param  {HTMLInputElement|HTMLTextAreaElement} el the components input
  */
-const enhanceCharacterCount = (inputEl) => {
+const enhanceCharacterCount = (el) => {
+  const inputEl = el;
   if (inputEl.dataset.enhanced) return;
 
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);

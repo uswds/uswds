@@ -896,6 +896,8 @@ const setCalendarValue = (el, dateString) => {
  */
 const enhanceDatePicker = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
+  if (datePickerEl.dataset.enhanced) return;
+
   const { defaultValue } = datePickerEl.dataset;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
@@ -962,6 +964,8 @@ const enhanceDatePicker = (el) => {
     ariaDisable(datePickerEl);
     internalInputEl.removeAttribute("aria-disabled");
   }
+
+  datePickerEl.dataset.enhanced = "true";
 };
 
 // #region Calendar - Date Selection View
@@ -2266,9 +2270,7 @@ if (!isIosDevice()) {
 const datePicker = behavior(datePickerEvents, {
   init(root) {
     selectOrMatches(DATE_PICKER, root).forEach((datePickerEl) => {
-      if (datePickerEl.dataset.enhanced) return;
       enhanceDatePicker(datePickerEl);
-      datePickerEl.dataset.enhanced = "true";
     });
   },
   getDatePickerContext,

@@ -4,7 +4,7 @@ import { DefaultContent, BorderedContent, MultiContent } from "./content";
 import IconTest from "./test/test-patterns/test-accordion-icon.twig";
 import HeaderContent from "../../usa-header/src/usa-header.json";
 import BannerContent from "../../usa-banner/src/content/usa-banner.json";
-import accordion from "./index.js";
+import accordion from "./index";
 
 export default {
   title: "Components/Accordion",
@@ -14,7 +14,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         accordion.on();
       });
 

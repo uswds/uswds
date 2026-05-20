@@ -42,7 +42,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
           characterCount.on();
           comboBox.on();
           datePicker.on();
