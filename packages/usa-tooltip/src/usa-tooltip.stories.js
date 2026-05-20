@@ -3,9 +3,23 @@ import TestComponent from "./test/test-patterns/test-usa-tooltip-utilities.twig"
 import TestNoWrapperComponent from "./test/test-patterns/test-usa-tooltip-no-wrapper.twig";
 import TestNonButtonComponent from "./test/test-patterns/test-usa-tooltip-non-button.twig";
 import UtilityComponent from "./usa-tooltip--utilities.twig";
+import tooltip from "./index.js";
 
 export default {
   title: "Components/Tooltip",
+  decorators: [
+    (Story) => {
+      tooltip.off?.();
+
+      const story = Story();
+
+      requestAnimationFrame(() => {
+        tooltip.on();
+      });
+
+      return story;
+    }
+  ]
 };
 
 const Template = (args) => Component(args);
