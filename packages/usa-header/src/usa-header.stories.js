@@ -7,6 +7,8 @@ import ExtendedMegamenuContent from "./usa-header--extended/usa-header--extended
 import navSecondaryContent from "../../usa-nav/src/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../../usa-search/src/content";
 import TitleContent from "../../usa-site-title/src/usa-site-title.json";
+import navigation from "./index.js";
+import accordion from "../../usa-accordion/src/index.js";
 
 export default {
   title: "Components/Header",
@@ -18,6 +20,21 @@ export default {
     },
     ...TitleContent,
   },
+  decorators: [
+    (Story) => {
+      accordion.off?.();
+      navigation.off?.();
+
+      const story = Story();
+
+      requestAnimationFrame(() => {
+        accordion.on();
+        navigation.on();
+      });
+
+      return story;
+    }
+  ]
 };
 
 const Template = (args) => Component(args);

@@ -1,4 +1,5 @@
 import Component from "./usa-date-picker.twig";
+import datePicker from "./index.js";
 
 export default {
   title: "Components/Form Inputs/Date Picker",
@@ -25,6 +26,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      datePicker.off?.();
+
+      const story = Story();
+
+      requestAnimationFrame(() => {
+        datePicker.on();
+      });
+
+      return story;
+    }
+  ]
 };
 
 const Template = (args) => Component(args);
