@@ -8,7 +8,7 @@ assignees: '@annepetersen'
 
 ## Role change request
 
-This issue is used to request role changes within the USWDS repository contributor ladder, including promotions from Contributor to Maintainer or transitions to Alumni status. Please fill out this issue to file the request AND then make a pull request to update the [COMMUNITY.md](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) file to list yourself in the appropriate section.
+This issue is used to request role changes within the [USWDS Open Source Community](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md), including promotions from Contributor to Maintainer or transitions to Alumni status. Please fill out this issue to file the request AND then make a pull request to update the [COMMUNITY.md](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) file to list yourself in the appropriate section. You can omit sections that don't apply to your request, but be sure to fill out _Justification_ and _Supporting evidence_ for any promotion requests.
 
 ### Requester information
 - **GitHub username:** @username
@@ -24,9 +24,14 @@ This issue is used to request role changes within the USWDS repository contribut
     - Change in commitment level 
     - Inactivity
 -->
+#### [Requirements for promotions](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md#roles--responsibilities) to USWDS Community Contributor:
+- [ ] Must be actively contributing to USWDS for at least 6 months
 
-#### Requirements for Promotions to USWDS Maintainer:
-- [ ] Must be actively contributing for at least 6 months to at least one repository area:
+**Supporting evidence**
+<!-- TODO: Provide links to contributions, PRs, issues, or other relevant evidence-->
+
+#### [Requirements for promotions](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md#roles--responsibilities) to USWDS Community Maintainer:
+- [ ] Must be actively contributing to USWDS repo(s) for at least 6 months:
     - [ ] Authored 2 merged PRs
     - [ ] Reviewed 2 PRs
     - [ ] Resolved 2 issues
@@ -35,7 +40,7 @@ This issue is used to request role changes within the USWDS repository contribut
 <!-- TODO: Provide links to contributions, PRs, issues, or other relevant evidence-->
 
 #### Requirements for demotions:
-- [ ] Voluntary step-down request
+- [ ] Voluntary step down request
 - [ ] Inactive for extended period (6 months)
 - [ ] Unable to fulfill current role responsibilities
 - [ ] Involuntary removal/demotion

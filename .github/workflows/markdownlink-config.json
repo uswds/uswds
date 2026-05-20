@@ -1,0 +1,9 @@
+{
+    "replacementPatterns": [
+        {
+            "pattern": "^/",
+            "replacement": "{{BASEURL}}/"
+        }
+  ],
+  "aliveStatusCodes": [200, 206, 403]
+}

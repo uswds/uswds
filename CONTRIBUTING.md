@@ -46,7 +46,7 @@ Before submitting a bug, try to recreate it and document the steps someone else 
 
 #### 3. Submit an issue
 
-If your bug or issue is not in [current issues](https://github.com/uswds/uswds/issues), submit a new issue using the [bug report template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Bug%2CStatus%3A+Triage%2CNeeds%3A+Confirmation&template=bug_report.yaml&title=USWDS+-+Bug%3A+%5BYOUR+TITLE%5D). Someone may reach out to you if further clarification or context would be helpful. That person may also need your help testing possible solutions, so checking back on it would be helpful.
+If your bug or issue isn't in [current issues](https://github.com/uswds/uswds/issues), submit a new issue using the [bug report template](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Bug%2CStatus%3A+Triage%2CNeeds%3A+Confirmation&template=bug_report.yaml&title=USWDS+-+Bug%3A+%5BYOUR+TITLE%5D). Someone may reach out to you if further clarification or context would be helpful. That person may also need your help testing possible solutions, so checking back on it would be helpful.
 
 If you have a code fix for the issue, go ahead and submit a [pull request](https://github.com/uswds/uswds-site/pulls), though it's helpful if you'd make sure to file the issue too (and connect the two), rather than jumping directly to the pull request.
 
@@ -88,6 +88,24 @@ Here are a few other utility commands you might find useful:
 - `npm run prettier`: Runs `prettier` against HTML, JavaScript, and Sass files
 - `npm test`: Runs all tests and linters
 
+### Creating a pull request (PR)
+The original issue creator is responsible for ushering the issue through its lifecycle. Every pull request (PR) must meet the following criteria:
+
+* PRs should contain a statement to be used in [Release Notes](https://github.com/uswds/uswds/releases/).   
+  	*Example:* ***`Brief statement in bold.`** `Followed by description of work that was done.`*  
+* Most PRs should be linked to an issue.  
+  * Example: `closes #issue_no` or `resolves #issue_no`.  
+* Be as descriptive as possible and use inline GitHub comments to improve clarity.   
+* Include a *How to Test* section.  
+
+**Examples of good PRs**
+
+* [USWDS \- Combo box: Enhance combo box results](https://github.com/uswds/uswds/pull/6122)  
+* [USWDS \- Step indicator: Remove aria-label from wrapper](https://github.com/uswds/uswds/pull/6146)  
+* [\[Beta\] Update package exports](https://github.com/uswds/uswds/pull/4624)  
+* [Improve utility settings](https://github.com/uswds/uswds/pull/4631)  
+* [Beta \- repair site integration issues](https://github.com/uswds/uswds/pull/4611)
+
 #### Submitting a pull request for a bug fix:
 
 1. Check our [open issues backlog](https://github.com/uswds/uswds/issues) for any duplicate or similar issues.
@@ -115,34 +133,30 @@ If you’d like to contribute something else that doesn’t fall into any of the
 ## How we prioritize
 
 Once you’ve submitted a contribution, someone will triage it based on the following considerations:
-1. **Size:** Can we accomplish this in a sprint or will this take longer?
+1. **Size:** Can we accomplish this in a sprint or will this take longer? Is it a big effort that will need to be broken up?
 1. **Severity:** What type of functionality is impacted? Is there a workaround?
 1. **Priority:** Does this align with USWDS vision and roadmap goals?
 
 Note: USWDS prioritizes issues that affect accessibility.
 
-These considerations help Contributors decide how to prioritize the issue.
+These considerations help Contributors and Maintainers decide how to prioritize the issue.
 
 You can stay up to date on the status of your contributions through [GitHub email notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) (external link) and the assigned labels on the issue.
 
 ## Joining the USWDS Community as a Contributor
 
-_If you're comfortable with git_, the short version is: fork the repo, 
-add yourself to the contributor table in `COMMUNITY.md`, open a PR, 
-then open an issue and link them both together in their details.
+_If you're comfortable with git_, the short version is: fork the repo, add yourself to the contributor table in `COMMUNITY.md`, open a PR, then open an issue and link them both together in their details.
 
 _If you'd like a step-by-step walkthrough_ using only the GitHub website without needing a local version, 
 follow the instructions below:
-
-_If you run into any trouble_, feel free to open an issue or reach out at [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
 ### Step 1: Open an issue
 
 1. Navigate to: `https://github.com/uswds/uswds/issues/new?template=contributor_ladder.md`
 2. Title your issue using this format: `[ROLE CHANGE]: Change to Contributor - YourUsername`
-3. Fill in your GitHub username and set "Requested role" to Contributor (or another role you might be applying for)
+3. Fill in your GitHub username and set "Requested role" to Contributor
 4. Skip the PR link for now — you'll come back and add it after Step 2
-5. Check off the role responsibilities that apply to you
+5. Check off the requirements and role responsibilities that apply to you and fill in your justification and supporting evidence
 6. Click **Create** to submit
 7. Make note of your issue number from the URL — you'll need it in Step 2 and at the end
 
@@ -151,11 +165,11 @@ _If you run into any trouble_, feel free to open an issue or reach out at [uswds
 
 1. Fork the USWDS repo at: `https://github.com/uswds/uswds/fork` and click **Create fork**
 2. Navigate to: `https://github.com/YOUR-USERNAME/uswds/edit/develop/COMMUNITY.md`
-3. Find the contributor table (currently around line 11) and add yourself as the new last row:
-   `| Contributor | Your Name(https://github.com/YOUR-USERNAME) | Your Affiliation |`
+3. Find the USWDS Community Contributors list (currently around line 36) and add yourself as the new last listed:
+   `[@your-username](https://github.com/YOUR-USERNAME)`
 4. Scroll down and Commit the change
 5. Navigate to: `https://github.com/uswds/uswds/compare/develop...YOUR-USERNAME:uswds:develop` and click **Create pull request**
-6. Title your PR: `USWDS - Community: Add [Your Name] as Contributor`
+6. Title your PR: `USWDS - Community: Add [Your Username] as Contributor`
 7. In the **Related issue** field, paste the link to your issue from Step 1
 8. Click **Create pull request** and copy the URL of your new resulting pull request
 
@@ -165,7 +179,7 @@ Navigate to your issue at `https://github.com/uswds/uswds/issues/YOUR-ISSUE-NUMB
 
 The USWDS internal team will review both and follow up with next steps.
 
-Feel free to open an issue or email [uswds@gsa.gov](mailto:uswds@gsa.gov) if you have questions.
+Please don't hesitate to open an issue or email [uswds@gsa.gov](mailto:uswds@gsa.gov) if you have questions or run into issues.
 
 ## Common terms
 
