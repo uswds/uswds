@@ -1,5 +1,5 @@
 import Component from "./usa-range.twig";
-import range from "./index.js";
+import range from "./index";
 
 export default {
   title: "Components/Form Inputs/Range",
@@ -39,7 +39,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         range.on();
       });
 

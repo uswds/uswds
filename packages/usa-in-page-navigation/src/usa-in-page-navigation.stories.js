@@ -5,7 +5,7 @@ import TestHiddenHeaderComponent from "./test/test-patterns/test-hidden-headers.
 import TestMinimumHeaderComponent from "./test/test-patterns/test-minimum-header.twig";
 import TestNestedHeaderComponent from "./test/test-patterns/test-nested-headers.twig";
 import Content from "./usa-in-page-navigation.json";
-import inPageNavigation from "./index.js";
+import inPageNavigation from "./index";
 
 export default {
   title: "Components/In-Page Navigation",
@@ -15,7 +15,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         inPageNavigation.on();
       });
 

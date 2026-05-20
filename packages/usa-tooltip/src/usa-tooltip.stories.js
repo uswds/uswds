@@ -3,7 +3,7 @@ import TestComponent from "./test/test-patterns/test-usa-tooltip-utilities.twig"
 import TestNoWrapperComponent from "./test/test-patterns/test-usa-tooltip-no-wrapper.twig";
 import TestNonButtonComponent from "./test/test-patterns/test-usa-tooltip-non-button.twig";
 import UtilityComponent from "./usa-tooltip--utilities.twig";
-import tooltip from "./index.js";
+import tooltip from "./index";
 
 export default {
   title: "Components/Tooltip",
@@ -13,7 +13,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         tooltip.on();
       });
 

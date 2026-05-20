@@ -1,7 +1,7 @@
 import Component from "./usa-modal.twig";
 import NestedFormsTest from "./test/test-patterns/test-usa-modal--nested-forms.twig";
 import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
-import modal from "./index.js";
+import modal from "./index";
 
 export default {
   title: "Components/Modal",
@@ -11,7 +11,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         modal.on();
       });
 

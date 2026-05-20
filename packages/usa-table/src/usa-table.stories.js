@@ -6,7 +6,7 @@ import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
 import TestMultipleStickyRowsComponent from "./test/test-patterns/test-usa-table--multiple-sticky-headers.twig";
-import table from "./index.js";
+import table from "./index";
 
 export default {
   title: "Components/Table",
@@ -28,7 +28,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         table.on();
       });
 

@@ -1,5 +1,5 @@
 import Component from "./usa-time-picker.twig";
-import timePicker from "./index.js";
+import timePicker from "./index";
 
 export default {
   title: "Components/Form Inputs/Time Picker",
@@ -16,7 +16,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
           timePicker.init();
       });
 

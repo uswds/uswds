@@ -1,5 +1,5 @@
 import Component from "./usa-date-range-picker.twig";
-import datePicker from "../../usa-date-picker/src/index.js";
+import datePicker from "../../usa-date-picker/src/index";
 
 export default {
   title: "Components/Form Inputs/Date Range Picker",
@@ -32,7 +32,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         datePicker.on();
       });
 

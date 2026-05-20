@@ -7,8 +7,8 @@ import ExtendedMegamenuContent from "./usa-header--extended/usa-header--extended
 import navSecondaryContent from "../../usa-nav/src/usa-nav__secondary/usa-nav__secondary.json";
 import { SmallContent as SmallSearchContent } from "../../usa-search/src/content";
 import TitleContent from "../../usa-site-title/src/usa-site-title.json";
-import navigation from "./index.js";
-import accordion from "../../usa-accordion/src/index.js";
+import navigation from "./index";
+import accordion from "../../usa-accordion/src/index";
 
 export default {
   title: "Components/Header",
@@ -27,7 +27,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         accordion.on();
         navigation.on();
       });

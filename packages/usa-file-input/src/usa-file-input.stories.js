@@ -7,7 +7,7 @@ import {
   SpecificContent,
   WildcardContent,
 } from "./content";
-import fileInput from "./index.js";
+import fileInput from "./index";
 
 export default {
   title: "Components/Form Inputs/File Input",
@@ -34,7 +34,7 @@ export default {
 
       const story = Story();
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         fileInput.init();
       });
 
