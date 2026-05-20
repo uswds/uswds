@@ -234,6 +234,7 @@ const createSROnlyStatus = (fileInputEl) => {
  * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
+
   const isInputDisabled =
     fileInputEl.hasAttribute("aria-disabled") ||
     fileInputEl.hasAttribute("disabled");
@@ -246,6 +247,9 @@ const enhanceFileInput = (fileInputEl) => {
   } else {
     createSROnlyStatus(fileInputEl);
   }
+
+  // Mark the wrapper, not the initial div
+  dropZoneEl.dataset.enhanced = "true";
 
   return { instructions, dropTarget };
 };
@@ -553,6 +557,8 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
+        if (fileInputEl.dataset.enhanced) return;
+
         const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
 
         dropTarget.addEventListener(

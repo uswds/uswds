@@ -1,4 +1,5 @@
 import Component from "./usa-time-picker.twig";
+import timePicker from "./index.js";
 
 export default {
   title: "Components/Form Inputs/Time Picker",
@@ -9,6 +10,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      timePicker.off?.();
+
+      const story = Story();
+
+      requestAnimationFrame(() => {
+          timePicker.init();
+      });
+
+      return story;
+    }
+  ]
 };
 
 const Template = (args) => Component(args);
