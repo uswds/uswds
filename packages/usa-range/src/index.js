@@ -89,8 +89,10 @@ const rangeEvents = {
 const range = behavior(rangeEvents, {
   init(root) {
     selectOrMatches(RANGE, root).forEach((rangeSlider) => {
+      if (rangeSlider.dataset.enhanced) return;
       createEnhancedRangeSlider(rangeSlider);
       updateCallout(rangeSlider);
+      rangeSlider.dataset.enhanced = "true";
     });
   },
   updateCallout,
