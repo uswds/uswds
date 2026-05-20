@@ -182,6 +182,8 @@ const updateCountMessage = (inputEl) => {
  * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
  */
 const enhanceCharacterCount = (inputEl) => {
+  if (inputEl.dataset.enhanced) return;
+
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -190,6 +192,8 @@ const enhanceCharacterCount = (inputEl) => {
 
   setDataLength(inputEl);
   createStatusMessages(characterCountEl);
+
+  inputEl.dataset.enhanced = "true";
 };
 
 const characterCount = behavior(

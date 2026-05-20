@@ -2266,7 +2266,9 @@ if (!isIosDevice()) {
 const datePicker = behavior(datePickerEvents, {
   init(root) {
     selectOrMatches(DATE_PICKER, root).forEach((datePickerEl) => {
+      if (datePickerEl.dataset.enhanced) return;
       enhanceDatePicker(datePickerEl);
+      datePickerEl.dataset.enhanced = "true";
     });
   },
   getDatePickerContext,
