@@ -234,7 +234,6 @@ const createSROnlyStatus = (fileInputEl) => {
  * @param {HTMLInputElement} fileInputEl - The original input element.
  */
 const enhanceFileInput = (fileInputEl) => {
-
   const isInputDisabled =
     fileInputEl.hasAttribute("aria-disabled") ||
     fileInputEl.hasAttribute("disabled");

@@ -17,12 +17,12 @@ export default {
       const story = Story();
 
       window.requestAnimationFrame(() => {
-          timePicker.init();
+        timePicker.init();
       });
 
       return story;
-    }
-  ]
+    },
+  ],
 };
 
 const Template = (args) => Component(args);

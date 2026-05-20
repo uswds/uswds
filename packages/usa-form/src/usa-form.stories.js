@@ -43,17 +43,17 @@ export default {
       const story = Story();
 
       window.requestAnimationFrame(() => {
-          characterCount.on();
-          comboBox.on();
-          datePicker.on();
-          fileInput.on();
-          range.on();
-          timePicker.on();
+        characterCount.on();
+        comboBox.on();
+        datePicker.on();
+        fileInput.on();
+        range.on();
+        timePicker.on();
       });
 
       return story;
-    }
-  ]
+    },
+  ],
 };
 
 const CollectionTemplate = (args) => FormCollected(args);

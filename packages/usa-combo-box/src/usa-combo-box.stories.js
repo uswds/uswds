@@ -25,8 +25,8 @@ export default {
       });
 
       return story;
-    }
-  ]
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
