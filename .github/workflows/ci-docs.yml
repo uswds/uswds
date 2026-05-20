@@ -1,0 +1,21 @@
+name: CI Documentation Checks
+
+on:
+  schedule:
+    # This runs every Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-markdown:
+    name: Lint markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+      - uses: tcort/github-action-markdown-link-check@d53a906aa6b22b8979d33bc86170567e619495ec # pin commit hash for v1.0.15 from gaurav-nelson/github-action-markdown-link-check
+        with:
+          use-quiet-mode: "yes"
+          config-file: .github/workflows/markdownlink-config.json
