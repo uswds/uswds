@@ -266,6 +266,8 @@ const shouldRenderInPageNav = (
  * @param {HTMLElement} inPageNavEl The in-page nav element
  */
 const createInPageNav = (inPageNavEl) => {
+  if (inPageNavEl.dataset.created) return;
+
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
@@ -363,6 +365,8 @@ const createInPageNav = (inPageNavEl) => {
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
   });
+
+  inPageNavEl.dataset.created = "true";
 };
 
 /**
