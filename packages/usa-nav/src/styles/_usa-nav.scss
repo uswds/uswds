@@ -173,7 +173,7 @@ $expand-less-icon: map-merge(
         font-weight: font-weight("bold");
 
         &:hover {
-          color: color("primary");
+          color: color($theme-navigation-link-hover-color);
         }
       }
     }
@@ -215,7 +215,7 @@ $expand-less-icon: map-merge(
     }
 
     &:hover {
-      color: color("primary");
+      color: color($theme-navigation-link-hover-color);
       background-color: color("base-lightest");
       text-decoration: none;
 
