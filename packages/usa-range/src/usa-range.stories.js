@@ -16,6 +16,14 @@ export default {
       name: "Preposition (of, for, in, de, etc.)",
       control: { type: "text" },
     },
+    range_min_label: {
+      name: "Minimum label",
+      control: { type: "text" },
+    },
+    range_max_label: {
+      name: "Maximum label",
+      control: { type: "text" },
+    },
     min: {
       name: "Min",
       control: { type: "number" },
@@ -40,6 +48,15 @@ export const Range = Template.bind({});
 Range.args = {
   text_unit: "",
   text_preposition: "",
+};
+
+export const WithRangeLimitLabels = Template.bind({});
+WithRangeLimitLabels.args = {
+  min: 0,
+  max: 100,
+  step: 10,
+  range_min_label: "0",
+  range_max_label: "100",
 };
 
 export const Disabled = Template.bind({});
