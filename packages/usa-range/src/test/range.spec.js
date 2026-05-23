@@ -76,12 +76,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         const hint = body.querySelector(".usa-hint");
         assert.ok(
           hint,
-          "Visual hint element (.usa-hint) should exist in the range slider component"
+          "Visual hint element (.usa-hint) should exist in the range slider component",
         );
         assert.strictEqual(
           hint.textContent.trim(),
           "Move the slider to change the value",
-          "Visual hint text should read: 'Move the slider to change the value'"
+          "Visual hint text should read: 'Move the slider to change the value'",
         );
       });
     });
