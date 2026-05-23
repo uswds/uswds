@@ -37,7 +37,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
         range.on(containerSelector());
 
         slider = rangeSliderSelector();
-        // get the closest slider with class .usa-range__wrapper
         wrapperDiv = slider.closest(".usa-range__wrapper");
         spanElement = wrapperDiv.querySelector(".usa-range__value");
       });
@@ -64,12 +63,25 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "40",
           "range slider value is not set to the value in the test.",
         );
-
-        // change the span element, make sure it updated and that the span and the range are equal.
         assert.strictEqual(
           slider.value,
           spanElement.textContent,
           "slider value does not match span value",
+        );
+      });
+
+      // NEW TEST — Added for issue - 6614
+      // Verifies visual hint is present for sighted users
+      it("displays a visual hint to guide sighted users on how to operate the slider", () => {
+        const hint = body.querySelector(".usa-hint");
+        assert.ok(
+          hint,
+          "Visual hint element (.usa-hint) should exist in the range slider component"
+        );
+        assert.strictEqual(
+          hint.textContent.trim(),
+          "Move the slider to change the value",
+          "Visual hint text should read: 'Move the slider to change the value'"
         );
       });
     });
