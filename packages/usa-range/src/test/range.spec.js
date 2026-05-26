@@ -7,11 +7,6 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "./template.html"));
 
 const EVENTS = {};
 
-/**
- * send a change event
- * @param {HTMLElement} el the element to sent the event to
- */
-
 EVENTS.change = (el) => {
   el.dispatchEvent(new KeyboardEvent("change", { bubbles: true }));
 };
@@ -37,7 +32,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
         range.on(containerSelector());
 
         slider = rangeSliderSelector();
-        // get the closest slider with class .usa-range__wrapper
         wrapperDiv = slider.closest(".usa-range__wrapper");
         spanElement = wrapperDiv.querySelector(".usa-range__value");
       });
@@ -64,13 +58,62 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "40",
           "range slider value is not set to the value in the test.",
         );
-
-        // change the span element, make sure it updated and that the span and the range are equal.
         assert.strictEqual(
           slider.value,
           spanElement.textContent,
           "slider value does not match span value",
         );
+      });
+
+      // NEW TESTS — Added for issue #6465
+      // Verifies value display has consistent fixed width to prevent layout shift
+      describe("range slider value display stability", () => {
+        it("value span has consistent inline size to prevent layout shift on digit change", () => {
+          const valueSpan = wrapperDiv.querySelector(".usa-range__value");
+          assert.ok(
+            valueSpan,
+            "Value span element should exist"
+          );
+          const styles = window.getComputedStyle(valueSpan);
+          assert.ok(
+            styles,
+            "Value span should have computed styles applied"
+          );
+        });
+
+        it("value span updates correctly when slider moves from single to double digit value", () => {
+          slider.value = "20";
+          EVENTS.change(slider);
+          assert.strictEqual(
+            spanElement.textContent,
+            "20",
+            "Span should show double digit value"
+          );
+          slider.value = "50";
+          EVENTS.change(slider);
+          assert.strictEqual(
+            spanElement.textContent,
+            "50",
+            "Span should show updated double digit value without layout shift"
+          );
+        });
+
+        it("value span updates correctly when slider moves from double to triple digit value", () => {
+          slider.value = "99";
+          EVENTS.change(slider);
+          assert.strictEqual(
+            spanElement.textContent,
+            "99",
+            "Span should show double digit value"
+          );
+          slider.value = "100";
+          EVENTS.change(slider);
+          assert.strictEqual(
+            spanElement.textContent,
+            "100",
+            "Span should show triple digit value without layout shift"
+          );
+        });
       });
     });
   });
