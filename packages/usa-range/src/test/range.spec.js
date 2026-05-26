@@ -70,15 +70,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
       describe("range slider value display stability", () => {
         it("value span has consistent inline size to prevent layout shift on digit change", () => {
           const valueSpan = wrapperDiv.querySelector(".usa-range__value");
-          assert.ok(
-            valueSpan,
-            "Value span element should exist"
-          );
+          assert.ok(valueSpan, "Value span element should exist");
           const styles = window.getComputedStyle(valueSpan);
-          assert.ok(
-            styles,
-            "Value span should have computed styles applied"
-          );
+          assert.ok(styles, "Value span should have computed styles applied");
         });
 
         it("value span updates correctly when slider moves from single to double digit value", () => {
@@ -87,14 +81,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
           assert.strictEqual(
             spanElement.textContent,
             "20",
-            "Span should show double digit value"
+            "Span should show double digit value",
           );
           slider.value = "50";
           EVENTS.change(slider);
           assert.strictEqual(
             spanElement.textContent,
             "50",
-            "Span should show updated double digit value without layout shift"
+            "Span should show updated double digit value without layout shift",
           );
         });
 
@@ -104,14 +98,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
           assert.strictEqual(
             spanElement.textContent,
             "99",
-            "Span should show double digit value"
+            "Span should show double digit value",
           );
           slider.value = "100";
           EVENTS.change(slider);
           assert.strictEqual(
             spanElement.textContent,
             "100",
-            "Span should show triple digit value without layout shift"
+            "Span should show triple digit value without layout shift",
           );
         });
       });
