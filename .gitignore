@@ -13,7 +13,6 @@ npm-debug.log*
 
 # ignore the generated dist directory
 dist/
-html-templates/
 
 # ignore compiled storybook directory
 storybook-static/
