@@ -38,6 +38,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 - [@msbtterswrth](https://github.com/msbtterswrth), Nava Senior Product Manger, Former VA, CMS Contractor
 - [@NSKbot](https://github.com/NSKbot), The Bridge Executive Director, Former CFPB/18F
 - [@mgifford](https://github.com/mgifford), CivicActions Open Standards and Practices Lead, Drupal Core Accessibility Maintainer, W3C Invited Expert
+- [@acolter](https://github.com/acolter), The Bridge Chief Operating Officer, Former Executive Director at 18F
 
 ### USWDS Alumni
 
