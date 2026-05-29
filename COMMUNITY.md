@@ -1,24 +1,22 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, Anne) with support and occasional contributions from the GSA/TTS-based USWDS Internal Team, as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community) — not to mention an even _broader_ community of teams that have adopted USWDS but might not participate here. Together, the USWDS community helps ensure the design system's success, security, and alignment with government standards and legal requirements, community and digital team needs, and product and agency goals.
+The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the GSA/TTS-based USWDS Internal Team, as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
+
+These don't account for all the inputs to the system since there's also an even _broader_ community of teams and individuals that have adopted or use USWDS but might not have access to GitHub, or might not choose to join the USWDS Open Source Community officially or otherwise participate here. 
+
+Together, the collective USWDS community has created a [thriving](https://designsystem.digital.gov/documentation/showcase/) [product ecosystem](https://designsystem.digital.gov/documentation/implementations/), while the USWDS Open Source Community more directly helps ensure the design system's success, security, and alignment with government standards and legal requirements, community and digital team needs, and product and agency goals.
 
 ## USWDS Open Source Community members
 
-Members of the USWDS Open Source Community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, communicating with and supporting the broader USWDS community, and ensuring the design system meets its legal responsibilities, principles, values, goals and objectives. Below is a list of key members of the USWDS Open Source Community. 
-
-### USWDS Federal Staff Roles
-| Role   | Name    | Affiliation    |
-| :----- | :------ | :------------- |
-| USWDS Lead and Product Owner | [Anne Petersen](https://github.com/annepetersen) | GSA / TTS / USWDS |
-| TTS Accessibility Lead | [Chandra Carney](https://github.com/chandracarney) | GSA / TTS |
+Members of the USWDS Open Source Community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, communicating with and supporting the broader USWDS community, and ensuring the design system meets its legal responsibilities, principles, values, goals and objectives. 
 
 <!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
 ### USWDS Full-time Federal Staff (Admin)
-- [@annepetersen](https://github.com/annepetersen)
+- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
 
 ### USWDS Part-time Federal Staff (Maintainer)
-- [@chandracarney](https://github.com/chandracarney)
+- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
 
 ### USWDS Internal Team (Maintainers)
 
@@ -74,18 +72,18 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-The below are the current defined roles and responsibilities available in the USWDS Open Source Community. Expanding these teams is a current (May 2026) focus. If you care about USWDS, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (June 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
 | ---------- | :--------------------------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-| Contributor     | Active contributor to the USWDS community            | Multiple contributions to the repository or broader community                                           | • Assigned issues <br> • Granted access to running CI/CD commands <br>                      |
+| Contributor     | Active contributor to the USWDS community            | Multiple contributions to the repository or broader community                                           | • Assigned issues <br> • Granted access to running CI/CD commands <br>                      | 
 | Maintainer | Set direction and priorities for an area of USWDS | • Experience as a reviewer for 6 months <br> • Demonstrated responsibility and excellent technical judgement for USWDS <br> | • Approves PRs to all areas of repository <br> • Has a vote in decision-making meetings <br>     |
 | Alumni   | None: USWDS thanks them all for their contributions and service | Must have been an active Contributor or Maintainer, or supported earlier USWDS development at a similar level <br>   | • Can be assigned issues <br> • Can be added to subject matter-specific teams <br>  |
 
 ## USWDS Contributors
 
-**Description:** A Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, Pull Request reviews, Issue creation or confirmation, community participation, or many other means of support. 
+**Description:** a Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, Pull Request reviews, Issue creation or confirmation, community participation, or many other means of support. 
 
 #### Responsibilities include: 
 - Following the repository [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
@@ -108,7 +106,8 @@ The below are the current defined roles and responsibilities available in the US
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
 - Direct communication with the USWDS Internal Team
-- Access to USWDS Open Source Community communications
+- A voice (but not a vote, that comes with Maintainer status) in USWDS directional decisions
+- Access to USWDS Open Source Community communications and conversations
 - Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
 - Other privileges defined by the community in the future
 
@@ -141,8 +140,9 @@ A Maintainer must meet the responsibilities and requirements of a Contributor, p
 - Reviews a minimum of 4 PRs every 3 months
 - Contributes at least 2 PRs every 3 months 
 
-#### Additional privileges:
+#### Additional privileges beyond prior levels:
 - Approve PRs, especially in their area of expertise
+- A vote in USWDS directional decisions
 - Other privileges defined by the community in the future
 
 #### Process of becoming a USWDS Maintainer
