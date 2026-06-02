@@ -1,4 +1,5 @@
 import Component from "./usa-date-range-picker.twig";
+import datePicker from "../../usa-date-picker/src/index";
 
 export default {
   title: "Components/Form Inputs/Date Range Picker",
@@ -25,6 +26,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      datePicker.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        datePicker.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
