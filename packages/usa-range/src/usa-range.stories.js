@@ -1,4 +1,5 @@
 import Component from "./usa-range.twig";
+import range from "./index";
 
 export default {
   title: "Components/Form Inputs/Range",
@@ -32,6 +33,19 @@ export default {
       defaultValue: 10,
     },
   },
+  decorators: [
+    (Story) => {
+      range.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        range.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
