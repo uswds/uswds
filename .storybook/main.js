@@ -26,9 +26,11 @@ const joinSassAssets = createJoinFunction(
   createJoinImplementation(pathGenerator),
 );
 
+/** @type { import('@storybook/html-webpack5').StorybookConfig } */
 module.exports = {
-  core: {
-    builder: "webpack5",
+  framework: {
+    name: "@storybook/html-webpack5",
+    options: {},
   },
   stories: [
     "../packages/**/*.stories.mdx",
@@ -40,6 +42,9 @@ module.exports = {
     "@storybook/addon-a11y",
   ],
   staticDirs: ["../dist"],
+  docs: {
+    autodocs: "tag",
+  },
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
@@ -47,7 +52,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.twig$/,
-        use: "twigjs-loader",
+        use: require.resolve("../tasks/webpack-twig-loader"),
         resolve: {
           alias: {
             "@components": path.resolve(__dirname, "../packages"),

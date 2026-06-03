@@ -4,6 +4,9 @@ import Component from "./usa-docs.twig";
 export default {
   title: "Pages/Documentation Page",
   args: DefaultContent,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const Template = (args) => Component(args);

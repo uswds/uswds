@@ -186,9 +186,12 @@ const updateCountMessage = (inputEl) => {
  *
  * @description On init this function will create elements and update any
  * attributes so it can tell the user how many characters are left.
- * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
+ * @param  {HTMLInputElement|HTMLTextAreaElement} el the components input
  */
-const enhanceCharacterCount = (inputEl) => {
+const enhanceCharacterCount = (el) => {
+  const inputEl = el;
+  if (inputEl.dataset.enhanced) return;
+
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -197,6 +200,8 @@ const enhanceCharacterCount = (inputEl) => {
 
   setDataLength(inputEl);
   createStatusMessages(characterCountEl);
+
+  inputEl.dataset.enhanced = "true";
 };
 
 const characterCount = behavior(
