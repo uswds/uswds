@@ -519,7 +519,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
-      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      fileInputEl.value = "";
       errorMessage.textContent = errorMessageText;
       dropTarget.insertBefore(errorMessage, fileInputEl);
 
@@ -598,7 +598,7 @@ const fileInput = behavior(
           fileInputEl,
           fileInputTopElement,
         );
-        // eslint-disable-next-line no-param-reassign
+
         fileInputEl.className = DROPZONE_CLASS;
       });
     },
