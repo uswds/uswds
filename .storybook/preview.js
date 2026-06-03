@@ -1,3 +1,4 @@
+import "../packages/uswds/_index.scss";
 import "../packages/uswds-core/src/js/start";
 
 /** @type { import('@storybook/html').Preview } */

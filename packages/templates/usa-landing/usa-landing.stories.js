@@ -3,6 +3,9 @@ import DefaultContent from "./usa-landing.json";
 
 export default {
   title: "Pages/Landing Page",
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const Template = (args) => Component(args);
