@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           fetch-depth: 0
 
@@ -49,7 +49,7 @@ jobs:
       - name: Update contributor list
         if: steps.check_changes.outputs.has_changes == 'true'
         id: update_contributors
-        uses: akhilmhdh/contributors-readme-action@v2.3.10
+        uses: akhilmhdh/contributors-readme-action@83ea0b4f1ac928fbfe88b9e8460a932a528eb79f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -68,7 +68,8 @@ jobs:
         run: |
           sed -i 's/<table>/<table role="presentation">/g' COMMUNITY.md
 
-          COUNT=$(grep -oP '(?<=github\.com/)[^"]+(?=">)' COMMUNITY.md | \
+          COUNT=$(sed -n '/<!-- readme: contributors -start -->/,/<!-- readme: contributors -end -->/p' COMMUNITY.md | \
+            grep -oP '(?<=github\.com/)[^"]+(?=">)' | \
             grep -v "^$" | sort | uniq | wc -l)
           
           sed -i -z "s|<!--CONTRIBUTOR COUNT START-->[^<]*<!--CONTRIBUTOR COUNT END-->|<!--CONTRIBUTOR COUNT START--> $COUNT <!--CONTRIBUTOR COUNT END-->|g" COMMUNITY.md
