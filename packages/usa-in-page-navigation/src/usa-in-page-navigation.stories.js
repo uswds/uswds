@@ -5,9 +5,23 @@ import TestHiddenHeaderComponent from "./test/test-patterns/test-hidden-headers.
 import TestMinimumHeaderComponent from "./test/test-patterns/test-minimum-header.twig";
 import TestNestedHeaderComponent from "./test/test-patterns/test-nested-headers.twig";
 import Content from "./usa-in-page-navigation.json";
+import inPageNavigation from "./index";
 
 export default {
   title: "Components/In-Page Navigation",
+  decorators: [
+    (Story) => {
+      inPageNavigation.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        inPageNavigation.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);

@@ -247,6 +247,9 @@ const enhanceFileInput = (fileInputEl) => {
     createSROnlyStatus(fileInputEl);
   }
 
+  // Mark the wrapper, not the initial div
+  dropZoneEl.dataset.enhanced = "true";
+
   return { instructions, dropTarget };
 };
 
@@ -553,6 +556,8 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
+        if (fileInputEl.dataset.enhanced) return;
+
         const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
 
         dropTarget.addEventListener(

@@ -7,6 +7,7 @@ import {
   SpecificContent,
   WildcardContent,
 } from "./content";
+import fileInput from "./index";
 
 export default {
   title: "Components/Form Inputs/File Input",
@@ -27,6 +28,19 @@ export default {
       defaultValue: "",
     },
   },
+  decorators: [
+    (Story) => {
+      fileInput.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        fileInput.init();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
