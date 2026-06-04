@@ -13,4 +13,13 @@
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
+  {% if range_min_label or range_max_label %}
+    <div
+      class="display-flex flex-justify font-sans-3xs margin-top-1 text-base width-full"
+      aria-hidden="true"
+    >
+      <span>{{ range_min_label }}</span>
+      <span>{{ range_max_label }}</span>
+    </div>
+  {% endif %}
 </form>
