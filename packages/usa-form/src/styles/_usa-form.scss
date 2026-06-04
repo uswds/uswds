@@ -35,7 +35,7 @@
     }
   }
   .usa-button-group {
-    margin-top: units(.5);
+    margin-top: units(0.5);
 
     @include at-media("mobile-lg") {
       margin-top: units(2.5);
