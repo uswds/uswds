@@ -1,8 +1,5 @@
 @use "uswds-core" as *;
 
-$range-border-color: #646464;
-$range-border-width: units(2px);
-
 @mixin range-focus {
   background-color: color("white");
   box-shadow: 0 0 0 units(2px) color($theme-focus-color);
@@ -11,7 +8,7 @@ $range-border-width: units(2px);
 @mixin range-track {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: $range-border-width solid $range-border-color;
+  border: units(2px) solid color("base-darker");
   cursor: pointer;
   height: units(2);
   width: 100%;
@@ -21,7 +18,7 @@ $range-border-width: units(2px);
   @include u-circle($theme-input-select-size);
   background: color("base-lightest");
   border: none;
-  box-shadow: 0 0 0 $range-border-width $range-border-color;
+  box-shadow: 0 0 0 units(2px) color("base-darker");
   cursor: pointer;
 
   @media (forced-colors: active) {
@@ -32,7 +29,7 @@ $range-border-width: units(2px);
 @mixin range-ms-fill {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: $range-border-width solid $range-border-color;
+  border: units(2px) solid color("base-darker");
 }
 
 .usa-range__wrapper {
