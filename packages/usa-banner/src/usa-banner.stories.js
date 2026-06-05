@@ -5,7 +5,7 @@ import {
   MilContent,
   MilContentLangEs,
 } from "./content";
-import banner from "./index";
+import bannerComponent from "./index";
 
 const defaults = DefaultContent;
 
@@ -13,12 +13,12 @@ export default {
   title: "Components/Banner",
   decorators: [
     (Story) => {
-      banner.off?.();
+      bannerComponent.off?.();
 
       const story = Story();
 
       window.requestAnimationFrame(() => {
-        banner.on?.();
+        bannerComponent.on?.();
       });
 
       return story;
