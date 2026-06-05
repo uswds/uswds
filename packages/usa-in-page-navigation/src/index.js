@@ -268,7 +268,7 @@ const shouldRenderInPageNav = (
 const createInPageNav = (el) => {
   const inPageNavEl = el;
 
-  if (inPageNavEl.dataset.created) return;
+  if (inPageNavEl.dataset.enhanced) return;
 
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
@@ -368,7 +368,7 @@ const createInPageNav = (el) => {
     observeSections.observe(tag);
   });
 
-  inPageNavEl.dataset.created = "true";
+  inPageNavEl.dataset.enhanced = "true";
 };
 
 /**
