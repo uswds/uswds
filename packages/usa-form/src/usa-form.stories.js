@@ -97,7 +97,7 @@ TestErrorFormElements.args = {
 };
 TestErrorFormElements.argTypes = {
   error_state: {
-    table: { disable: false },
+    table: { disable: true },
   },
 };
 TestErrorFormElements.decorators = [
