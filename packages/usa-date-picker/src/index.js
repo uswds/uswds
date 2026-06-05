@@ -591,11 +591,10 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  */
 const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
-  let row = [];
 
   let i = 0;
   while (i < htmlArray.length) {
-    row = [];
+    const row = [];
 
     const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
