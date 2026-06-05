@@ -83,6 +83,16 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "Move the slider to change the value",
           "Visual hint text should read: 'Move the slider to change the value'",
         );
+        assert.strictEqual(
+          hint.id,
+          "range-hint",
+          "Visual hint element should have id='range-hint'",
+        );
+        assert.strictEqual(
+          slider.getAttribute("aria-describedby"),
+          "range-hint",
+          "Range slider input should have aria-describedby='range-hint'",
+        );
       });
     });
   });

@@ -12,6 +12,7 @@
     {% if text_preposition %}data-text-preposition="{{ text_preposition }}"{%- endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
+    aria-describedby="range-hint"
   >
-  <span class="usa-hint">Move the slider to change the value</span>
+  <span class="usa-hint" id="range-hint">Move the slider to change the value</span>
 </form>
