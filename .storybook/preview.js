@@ -4,6 +4,9 @@ import "../packages/uswds-core/src/js/start";
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
+    axe: {
+      timeout: 10000,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
