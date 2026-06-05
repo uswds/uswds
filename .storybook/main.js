@@ -32,19 +32,9 @@ module.exports = {
     name: "@storybook/html-webpack5",
     options: {},
   },
-  stories: [
-    "../packages/**/*.stories.mdx",
-    "../packages/**/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-  ],
+  stories: ["../packages/**/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   staticDirs: ["../dist"],
-  docs: {
-    autodocs: "tag",
-  },
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
