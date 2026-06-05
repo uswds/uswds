@@ -67,3 +67,13 @@ export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
+
+export const WithNonZeroMin = Template.bind({});
+WithNonZeroMin.args = {
+  min: 50,
+};
+
+export const WithSmallStep = Template.bind({});
+WithSmallStep.args = {
+  step: 1,
+};

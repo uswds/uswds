@@ -5,6 +5,7 @@ import {
   ZipContent,
   AlphanumericContent,
 } from "./content";
+import inputMask from "./index";
 
 export default {
   title: "Components/Form Inputs/Text Input Mask",
@@ -15,6 +16,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      inputMask.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        inputMask.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
