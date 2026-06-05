@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { unsafeHTML } from "lit/directives/unsafe-html.js"; // eslint-disable-line import/extensions
-import { classMap } from "lit/directives/class-map.js"; // eslint-disable-line import/extensions
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { classMap } from "lit/directives/class-map.js";
 
 import bannerStyles from "../_index.scss?inline";
 import bannerComponentStyles from "./styles/_usa-banner.component.css?inline";
