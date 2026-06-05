@@ -30,6 +30,9 @@ const createMaskedInputShell = (input) => {
   const content = document.createElement("span");
   content.classList.add(MASK_CONTENT);
   content.setAttribute("aria-hidden", "true");
+  if (input.disabled || input.getAttribute("aria-disabled") === "true") {
+    content.setAttribute("aria-disabled", "true");
+  }
   content.id = `${input.id}Mask`;
   content.textContent = placeholder;
 
