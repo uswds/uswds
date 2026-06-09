@@ -100,19 +100,15 @@ const createStatusMessages = (characterCountEl) => {
  * @returns {string} A string description of how many characters are left
  */
 const getCountMessage = (currentLength, maxLength) => {
-  let newMessage = "";
-
   if (currentLength === 0) {
-    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
-  } else {
-    const difference = Math.abs(maxLength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = currentLength > maxLength ? "over limit" : "left";
-
-    newMessage = `${difference} ${characters} ${guidance}`;
+    return `${maxLength} ${DEFAULT_STATUS_LABEL}`;
   }
 
-  return newMessage;
+  const difference = Math.abs(maxLength - currentLength);
+  const characters = `character${difference === 1 ? "" : "s"}`;
+  const guidance = currentLength > maxLength ? "over limit" : "left";
+
+  return `${difference} ${characters} ${guidance}`;
 };
 
 /**
