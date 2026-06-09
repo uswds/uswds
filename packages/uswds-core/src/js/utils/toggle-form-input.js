@@ -52,7 +52,7 @@ module.exports = (el) => {
   const showText = el.getAttribute(SHOW_ATTR);
   const hideText = el.getAttribute(HIDE_ATTR) || getHideText(showText);
 
-  el.textContent = pressed ? showText : hideText; // eslint-disable-line no-param-reassign
+  el.textContent = pressed ? showText : hideText;
   el.setAttribute(PRESSED, pressed);
   return pressed;
 };
