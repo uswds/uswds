@@ -4,8 +4,9 @@ import "../packages/uswds-core/src/js/start";
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
-    axe: {
-      timeout: 30000,
+    a11y: {
+      // Disable automatic a11y scanning in the browser — handled by test-runner instead
+      manual: true,
     },
     controls: {
       matchers: {
