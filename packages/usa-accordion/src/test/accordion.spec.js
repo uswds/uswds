@@ -31,9 +31,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       root = accordionSelector();
       buttons = root.querySelectorAll(".usa-accordion__button");
-      /* eslint-disable */
+
       button = buttons[0];
-      /* eslint-enable */
+
       content = document.getElementById(button.getAttribute(CONTROLS));
     });
 
