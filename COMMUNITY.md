@@ -222,6 +222,8 @@ If any USWDS Open Source Community member's commitment levels change, they can f
 
 The Community Guidelines section here was originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and that and even more was forked from or contributed by the [Centers for Medicaid and Medicare Services Open Source Program Office](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file#what-does-the-open-source-program-office-ospo-at-cms-do) and their [Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we'd like to acknowledge and thank everyone who contributed along the way.
 
+## Past Contributors
+
 <!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
 
 <!--Total number of contributors: [TO DO]--> 
