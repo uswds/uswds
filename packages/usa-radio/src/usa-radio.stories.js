@@ -4,6 +4,7 @@ import Tile from "./usa-radio--tile.twig";
 export default {
   title: "Components/Form Inputs/Radio",
   args: {
+    disabled_state: "none",
     indeterminate_state: false,
   },
   argTypes: {

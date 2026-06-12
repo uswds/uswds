@@ -5,6 +5,7 @@ import TestComponent from "./test/test-patterns/test-usa-checkbox.twig";
 export default {
   title: "Components/Form Inputs/Checkbox",
   args: {
+    disabled_state: "none",
     indeterminate_state: false,
   },
   argTypes: {
@@ -53,7 +54,7 @@ Test.argTypes = {
   disabled_state: {
     table: { disable: true },
   },
-  indeterminate: {
+  indeterminate_state: {
     table: { disable: true },
   },
 };
