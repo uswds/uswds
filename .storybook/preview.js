@@ -1,21 +1,22 @@
+import "../packages/uswds/_index.scss";
 import "../packages/uswds-core/src/js/start";
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+/** @type { import('@storybook/html').Preview } */
+const preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
-  },
-  options: {
-    storySort: {
-      order: [
-        "Design Tokens",
-        "Components",
-        "Patterns",
-        "Pages",
-      ],
+    options: {
+      storySort: {
+        order: ["Design Tokens", "Components", "Patterns", "Pages"],
+      },
     },
   },
 };
+
+export default preview;

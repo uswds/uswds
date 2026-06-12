@@ -20,7 +20,7 @@ const tests = [
 ];
 
 tests.forEach(({ name, selector: containerSelector }) => {
-  describe("Minimum heading count tests", () => {
+  describe(`Minimum heading count tests (${name})`, () => {
     const { body } = document;
 
     let theNav;
