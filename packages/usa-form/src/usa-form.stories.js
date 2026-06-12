@@ -82,18 +82,22 @@ export const SignInMultipleSpanish = SignInMultipleTemplate.bind({});
 SignInMultipleSpanish.args = EsMultipleContent;
 
 export const DisabledFormElements = CollectionTemplate.bind({});
+DisabledFormElements.args = {
+  disabled_state: "disabled",
+};
 DisabledFormElements.argTypes = {
   disabled_state: {
-    defaultValue: "disabled",
     table: { disable: false },
   },
 };
 
 export const TestErrorFormElements = CollectionTemplate.bind({});
+TestErrorFormElements.args = {
+  error_state: true,
+};
 TestErrorFormElements.argTypes = {
   error_state: {
-    defaultValue: true,
-    table: { disable: false },
+    table: { disable: true },
   },
 };
 TestErrorFormElements.decorators = [

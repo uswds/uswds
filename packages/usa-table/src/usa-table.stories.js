@@ -10,16 +10,18 @@ import table from "./index";
 
 export default {
   title: "Components/Table",
+  args: {
+    scrollable: false,
+    sticky_header: false,
+  },
   argTypes: {
     scrollable: {
       name: "Scrollable (Turning this on will disable sticky headers)",
       control: { type: "boolean" },
-      defaultValue: false,
     },
     sticky_header: {
       name: "Sticky header",
       control: { type: "boolean" },
-      defaultValue: false,
     },
   },
   decorators: [
@@ -65,10 +67,10 @@ Sortable.args = {
 export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
   {},
 );
+TestStickyHeaderMultipleRows.args = {
+  sticky_header: true,
+};
 TestStickyHeaderMultipleRows.argTypes = {
-  sticky_header: {
-    defaultValue: true,
-  },
   scrollable: {
     table: { disable: true },
   },

@@ -5,9 +5,23 @@ import Slim from "./usa-footer--slim/usa-footer--slim.twig";
 import DefaultContent from "./usa-footer.json";
 import BigContent from "./usa-footer--big/usa-footer--big.json";
 import SlimContent from "./usa-footer--slim/usa-footer--slim.json";
+import footer from "./index";
 
 export default {
   title: "Components/Footer",
+  decorators: [
+    (Story) => {
+      footer.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        footer.on?.();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Medium(args);

@@ -3,6 +3,11 @@ import range from "./index";
 
 export default {
   title: "Components/Form Inputs/Range",
+  args: {
+    min: 0,
+    max: 100,
+    step: 10,
+  },
   argTypes: {
     disabled_state: {
       name: "Disabled state",
@@ -20,17 +25,14 @@ export default {
     min: {
       name: "Min",
       control: { type: "number" },
-      defaultValue: 0,
     },
     max: {
       name: "Max",
       control: { type: "number" },
-      defaultValue: 100,
     },
     step: {
       name: "Step",
       control: { type: "number" },
-      defaultValue: 10,
     },
   },
   decorators: [
@@ -64,4 +66,14 @@ Disabled.args = {
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   disabled_state: "aria-disabled",
+};
+
+export const WithNonZeroMin = Template.bind({});
+WithNonZeroMin.args = {
+  min: 50,
+};
+
+export const WithSmallStep = Template.bind({});
+WithSmallStep.args = {
+  step: 1,
 };
