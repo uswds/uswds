@@ -1,0 +1,26 @@
+name: 'Build Diff Comparison'
+description: 'Compare two build output directories and generate a markdown diff report'
+inputs:
+  base-dir:
+    description: 'Path to the base (develop) build output directory'
+    required: true
+  head-dir:
+    description: 'Path to the head (PR) build output directory'
+    required: true
+  output-dir:
+    description: 'Directory to write the diff report and patch files'
+    required: true
+  section-title:
+    description: 'Heading for the markdown report section'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Run diff comparison
+      shell: bash
+      run: |
+        bash "${{ github.action_path }}/build-diff.sh" \
+          "${{ inputs.base-dir }}" \
+          "${{ inputs.head-dir }}" \
+          "${{ inputs.output-dir }}" \
+          "${{ inputs.section-title }}"
