@@ -94,14 +94,12 @@ jobs:
             echo "## Build Output Comparison"
             echo ""
             cat direct-dist-diff/report.md
-            echo ""
             echo "---"
             echo ""
             cat compile-project-diff/report.md
-            echo ""
             echo "---"
             echo ""
-            echo "_Workflow run: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_"
+            echo "📦 [View detailed comparison artifacts](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           } > combined-report.md
 
       - name: Upload comparison artifacts

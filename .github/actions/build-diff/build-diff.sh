@@ -19,10 +19,6 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 # Configuration constants
-BINARY_EXTENSIONS="woff|woff2|ttf|eot|png|jpg|jpeg|gif|ico|webp"
-MAX_CHANGES_BEFORE_COLLAPSE=10
-MAX_DIFF_LINES_PER_FILE=10
-MAX_TOTAL_DIFF_LINES=30
 
 # Helper: format file size
 format_size() {
@@ -34,19 +30,6 @@ format_size() {
   else
     echo "${bytes} B"
   fi
-}
-
-# Helper: check if file is binary
-is_binary() {
-  local file="$1"
-  local ext="${file##*.}"
-  [[ "$ext" =~ ^($BINARY_EXTENSIONS)$ ]]
-}
-
-# Helper: format summary line
-format_summary() {
-  local total=$1 modified=$2 added=$3 deleted=$4 unchanged=$5
-  echo "**Summary**: $total files changed ($modified modified, $added added, $deleted deleted), $unchanged unchanged."
 }
 
 # Helper: format diff string with optional percentage
@@ -105,85 +88,41 @@ done < "$OUTPUT_DIR/all-files.txt"
 
 total_changes=$(( ${#added_files[@]} + ${#deleted_files[@]} + ${#modified_files[@]} ))
 
-# Build markdown table
+# Calculate total size delta
+total_base_size=0
+total_head_size=0
+
+for file in "${modified_files[@]}"; do
+  base_size=$(stat -c%s "$BASE_DIR/$file" 2>/dev/null || echo "0")
+  head_size=$(stat -c%s "$HEAD_DIR/$file" 2>/dev/null || echo "0")
+  total_base_size=$(( total_base_size + base_size ))
+  total_head_size=$(( total_head_size + head_size ))
+done
+
+for file in "${added_files[@]}"; do
+  head_size=$(stat -c%s "$HEAD_DIR/$file" 2>/dev/null || echo "0")
+  total_head_size=$(( total_head_size + head_size ))
+done
+
+for file in "${deleted_files[@]}"; do
+  base_size=$(stat -c%s "$BASE_DIR/$file" 2>/dev/null || echo "0")
+  total_base_size=$(( total_base_size + base_size ))
+done
+
+total_delta=$(( total_head_size - total_base_size ))
+
+# Build compact summary report
 {
   echo "### $SECTION_TITLE"
   echo ""
 
   if (( total_changes == 0 )); then
-    echo "> No differences found between builds."
-    echo ""
+    echo "✓ No changes"
   else
-    # If more than MAX_CHANGES_BEFORE_COLLAPSE changes, collapse the table
-    if (( total_changes > MAX_CHANGES_BEFORE_COLLAPSE )); then
-      format_summary "$total_changes" "${#modified_files[@]}" "${#added_files[@]}" "${#deleted_files[@]}" "${#unchanged_files[@]}"
-      echo ""
-      echo "<details><summary>Show detailed file list</summary>"
-      echo ""
-    fi
-
-    echo "| Status | File | Size (develop) | Size (PR) | Diff |"
-    echo "|--------|------|---------------|-----------|------|"
-
-    # Modified files
-    for file in "${modified_files[@]}"; do
-      base_size=$(stat -c%s "$BASE_DIR/$file" 2>/dev/null || echo "0")
-      head_size=$(stat -c%s "$HEAD_DIR/$file" 2>/dev/null || echo "0")
-      diff_bytes=$(( head_size - base_size ))
-      diff_str=$(format_diff_string "$diff_bytes" "$base_size")
-
-      echo "| \`modified\` | \`$file\` | $(format_size $base_size) | $(format_size $head_size) | $diff_str |"
-    done
-
-    # Added files
-    for file in "${added_files[@]}"; do
-      head_size=$(stat -c%s "$HEAD_DIR/$file" 2>/dev/null || echo "0")
-      echo "| \`added\` | \`$file\` | - | $(format_size $head_size) | +$(format_size $head_size) |"
-    done
-
-    # Deleted files
-    for file in "${deleted_files[@]}"; do
-      base_size=$(stat -c%s "$BASE_DIR/$file" 2>/dev/null || echo "0")
-      echo "| \`deleted\` | \`$file\` | $(format_size $base_size) | - | -$(format_size $base_size) |"
-    done
-
+    echo "**Files changed:** $total_changes (${#modified_files[@]} modified, ${#added_files[@]} added, ${#deleted_files[@]} deleted)"
     echo ""
-
-    if (( total_changes <= MAX_CHANGES_BEFORE_COLLAPSE )); then
-      format_summary "$total_changes" "${#modified_files[@]}" "${#added_files[@]}" "${#deleted_files[@]}" "${#unchanged_files[@]}"
-      echo ""
-    else
-      echo "</details>"
-      echo ""
-    fi
+    echo "**Size change:** $(format_diff_string $total_delta $total_base_size)"
   fi
+  echo ""
 } > "$OUTPUT_DIR/report.md"
 
-# Generate text diff for non-binary modified files
-{
-  for file in "${modified_files[@]}"; do
-    if ! is_binary "$file"; then
-      echo "--- develop/$file"
-      echo "+++ pr/$file"
-      diff -u "$BASE_DIR/$file" "$HEAD_DIR/$file" 2>/dev/null | tail -n +3 | head -${MAX_DIFF_LINES_PER_FILE} || true
-      echo ""
-    fi
-  done
-} > "$OUTPUT_DIR/text-diff.patch"
-
-# Append collapsible diff to report if non-empty
-if [[ -s "$OUTPUT_DIR/text-diff.patch" ]]; then
-  {
-    echo "<details><summary>📄 Text diffs</summary>"
-    echo ""
-    echo '```diff'
-    head -${MAX_TOTAL_DIFF_LINES} "$OUTPUT_DIR/text-diff.patch"
-    if (( $(wc -l < "$OUTPUT_DIR/text-diff.patch") > MAX_TOTAL_DIFF_LINES )); then
-      echo ""
-      echo "... (truncated after ${MAX_TOTAL_DIFF_LINES} lines)"
-    fi
-    echo '```'
-    echo ""
-    echo "</details>"
-  } >> "$OUTPUT_DIR/report.md"
-fi
