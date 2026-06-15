@@ -20,9 +20,9 @@ mkdir -p "$OUTPUT_DIR"
 
 # Configuration constants
 BINARY_EXTENSIONS="woff|woff2|ttf|eot|png|jpg|jpeg|gif|ico|webp"
-MAX_CHANGES_BEFORE_COLLAPSE=50
-MAX_DIFF_LINES_PER_FILE=50
-MAX_TOTAL_DIFF_LINES=200
+MAX_CHANGES_BEFORE_COLLAPSE=10
+MAX_DIFF_LINES_PER_FILE=10
+MAX_TOTAL_DIFF_LINES=30
 
 # Helper: format file size
 format_size() {
@@ -174,14 +174,13 @@ total_changes=$(( ${#added_files[@]} + ${#deleted_files[@]} + ${#modified_files[
 # Append collapsible diff to report if non-empty
 if [[ -s "$OUTPUT_DIR/text-diff.patch" ]]; then
   {
-    echo "<details><summary>Text diff for non-binary changed files (click to expand)</summary>"
+    echo "<details><summary>📄 Text diffs</summary>"
     echo ""
     echo '```diff'
-    # Limit to first MAX_TOTAL_DIFF_LINES lines to keep comment manageable
     head -${MAX_TOTAL_DIFF_LINES} "$OUTPUT_DIR/text-diff.patch"
     if (( $(wc -l < "$OUTPUT_DIR/text-diff.patch") > MAX_TOTAL_DIFF_LINES )); then
       echo ""
-      echo "... (truncated, see full diff in artifact)"
+      echo "... (truncated after ${MAX_TOTAL_DIFF_LINES} lines)"
     fi
     echo '```'
     echo ""
