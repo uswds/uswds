@@ -14,10 +14,13 @@ const Template = (args) => Component(args);
 export const DocumentationPage = Template.bind({});
 
 export const TestDocumentationReorder = Template.bind({});
+TestDocumentationReorder.args = {
+  ...DefaultContent,
+  sidenav_reorder: false,
+};
 TestDocumentationReorder.argTypes = {
   sidenav_reorder: {
     control: { type: "boolean" },
-    defaultValue: false,
     name: "Reorder with CSS",
   },
 };

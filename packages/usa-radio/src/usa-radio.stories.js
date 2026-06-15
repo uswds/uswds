@@ -3,6 +3,10 @@ import Tile from "./usa-radio--tile.twig";
 
 export default {
   title: "Components/Form Inputs/Radio",
+  args: {
+    disabled_state: "none",
+    indeterminate_state: false,
+  },
   argTypes: {
     disabled_state: {
       name: "Disabled state",
@@ -12,7 +16,6 @@ export default {
     indeterminate_state: {
       name: "Toggle indeterminate state",
       control: { type: "boolean" },
-      defaultValue: false,
     },
   },
 };
@@ -45,15 +48,11 @@ TileAriaDisabled.args = {
 };
 
 export const Indeterminate = Template.bind({});
-Indeterminate.argTypes = {
-  indeterminate_state: {
-    defaultValue: true,
-  },
+Indeterminate.args = {
+  indeterminate_state: true,
 };
 
 export const IndeterminateTile = TileTemplate.bind({});
-IndeterminateTile.argTypes = {
-  indeterminate_state: {
-    defaultValue: true,
-  },
+IndeterminateTile.args = {
+  indeterminate_state: true,
 };
