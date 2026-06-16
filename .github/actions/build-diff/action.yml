@@ -13,6 +13,10 @@ inputs:
   section-title:
     description: 'Heading for the markdown report section'
     required: true
+  ignore-patterns:
+    description: 'Space-separated glob patterns for files to exclude from comparison'
+    required: false
+    default: ''
 runs:
   using: 'composite'
   steps:
@@ -23,4 +27,5 @@ runs:
           "${{ inputs.base-dir }}" \
           "${{ inputs.head-dir }}" \
           "${{ inputs.output-dir }}" \
-          "${{ inputs.section-title }}"
+          "${{ inputs.section-title }}" \
+          "${{ inputs.ignore-patterns }}"

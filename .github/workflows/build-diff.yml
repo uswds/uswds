@@ -49,6 +49,7 @@ jobs:
           head-dir: pr-branch/dist
           output-dir: direct-dist-diff
           section-title: 'Direct `dist/` Comparison'
+          ignore-patterns: '*.map'
 
       - name: Pack PR branch
         working-directory: pr-branch
@@ -87,6 +88,7 @@ jobs:
           head-dir: compile-project-pr/assets
           output-dir: compile-project-diff
           section-title: '`@uswds/compile` Project Comparison'
+          ignore-patterns: '*.map'
 
       - name: Combine diff reports
         run: |

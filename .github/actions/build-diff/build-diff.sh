@@ -5,6 +5,7 @@ BASE_DIR="$1"
 HEAD_DIR="$2"
 OUTPUT_DIR="$3"
 SECTION_TITLE="$4"
+IGNORE_PATTERNS="${5:-}"
 
 if [[ ! -d "$BASE_DIR" ]]; then
   echo "Error: base directory does not exist: $BASE_DIR" >&2
@@ -71,6 +72,12 @@ while IFS= read -r file; do
     echo "Warning: skipping file with unsafe path: $file" >&2
     continue
   fi
+
+  for pattern in $IGNORE_PATTERNS; do
+    if [[ "$file" == $pattern ]]; then
+      continue 2
+    fi
+  done
 
   base_path="$BASE_DIR/$file"
   head_path="$HEAD_DIR/$file"
