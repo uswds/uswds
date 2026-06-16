@@ -68,6 +68,8 @@ jobs:
           cp -r pr-branch/.github/actions/build-diff/compile-project compile-project-pr
           cd compile-project-pr
           PR_TARBALL=$(ls ../tarballs/pr/*.tgz | head -1)
+          # Update the @uswds/uswds devDependency to use the local development tarball.
+          # This replaces the "file:placeholder" value defined in compile-project/package.json.
           npm pkg set "devDependencies.@uswds/uswds=file:${PR_TARBALL}"
           npm install
           npx gulp init
@@ -77,6 +79,8 @@ jobs:
           cp -r pr-branch/.github/actions/build-diff/compile-project compile-project-develop
           cd compile-project-develop
           DEV_TARBALL=$(ls ../tarballs/develop/*.tgz | head -1)
+          # Update the @uswds/uswds devDependency to use the local development tarball.
+          # This replaces the "file:placeholder" value defined in compile-project/package.json.
           npm pkg set "devDependencies.@uswds/uswds=file:${DEV_TARBALL}"
           npm install
           npx gulp init

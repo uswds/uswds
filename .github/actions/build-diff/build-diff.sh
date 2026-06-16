@@ -19,7 +19,8 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
-# Helper: format file size
+# Converts a numeric byte value into a human-readable string (B, KB, or MB).
+# Uses awk for floating point division to provide one decimal place of precision.
 format_size() {
   local bytes=$1
   if (( bytes >= 1048576 )); then
@@ -31,7 +32,8 @@ format_size() {
   fi
 }
 
-# Helper: format diff string with optional percentage
+# Formats diff string with optional percentage representing the change in file size
+# relative to the base
 format_diff_string() {
   local diff_bytes=$1
   local base_size=${2:-0}
@@ -65,6 +67,9 @@ declare -a deleted_files=()
 declare -a modified_files=()
 declare -a unchanged_files=()
 
+# Iterate through the list of all unique files found in both directories.
+# 'IFS=' prevents leading/trailing whitespace from being trimmed.
+# 'read -r' prevents backslash escapes from being interpreted.
 while IFS= read -r file; do
   if [[ "$file" == *..* ]] || [[ "$file" == /* ]]; then
     echo "Warning: skipping file with unsafe path: $file" >&2
