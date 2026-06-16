@@ -74,6 +74,12 @@ describe("language selector component", () => {
     assert.strictEqual(languageButton.getAttribute("aria-expanded"), "false");
   });
 
+  it("collapses dropdown when Escape is pressed from a submenu link", () => {
+    languageButton.click();
+    assert.doesNotThrow(() => EVENTS.escape(languageLink));
+    assert.strictEqual(languageButton.getAttribute("aria-expanded"), "false");
+  });
+
   it("contains a role of button", () => {
     assert.strictEqual(languageButton.getAttribute("role"), "button");
   });
