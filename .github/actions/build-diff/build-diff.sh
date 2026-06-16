@@ -19,8 +19,6 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
-# Configuration constants
-
 # Helper: format file size
 format_size() {
   local bytes=$1
@@ -37,7 +35,7 @@ format_size() {
 format_diff_string() {
   local diff_bytes=$1
   local base_size=${2:-0}
-  local formatted_size=$(format_size ${diff_bytes#-})
+  local formatted_size=$(format_size "${diff_bytes#-}")
 
   if (( base_size > 0 )); then
     local pct=$(awk "BEGIN {printf \"%.1f\", ($diff_bytes/$base_size)*100}")
