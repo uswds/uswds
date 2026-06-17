@@ -1,132 +1,83 @@
 const path = require("path");
-const {
-  createJoinFunction,
-  createJoinImplementation,
-  asGenerator,
-  defaultJoinGenerator,
-} = require("resolve-url-loader");
 
-const imageDirectory = path.resolve("dist/img");
-const fontsDirectory = path.resolve("dist/fonts");
+const packagesDir = path.resolve(__dirname, "../packages");
+const templatesDir = path.resolve(__dirname, "../packages/templates");
 
-// call default generator then append any additional paths
-const pathGenerator = asGenerator((item, ...rest) => [
-  ...defaultJoinGenerator(item, ...rest),
-  item.isAbsolute
-    ? null
-    : /\.(png|svg|jpg|jpeg|gif)$/.test(item.uri)
-      ? imageDirectory
-      : /\.(woff|woff2|eot|ttf|otf)$/.test(item.uri)
-        ? fontsDirectory
-        : null,
-]);
-
-const joinSassAssets = createJoinFunction(
-  "joinSassAssets",
-  createJoinImplementation(pathGenerator),
-);
-
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
+/** @type { import('@storybook/html-vite').StorybookConfig } */
 module.exports = {
   framework: {
-    name: "@storybook/html-webpack5",
+    name: "@storybook/html-vite",
     options: {},
   },
   stories: ["../packages/**/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
+  addons: ["@storybook/addon-a11y"],
   staticDirs: ["../dist"],
-  webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
-    config.module.rules.push(
-      {
-        test: /\.twig$/,
-        use: require.resolve("../tasks/webpack-twig-loader"),
-        resolve: {
-          alias: {
-            "@components": path.resolve(__dirname, "../packages"),
-            "@templates": path.resolve(__dirname, "../packages/templates"),
-          },
-        },
-      },
-      {
-        test: /\.s(c|a)ss$/i,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              esModule: false,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              postcssOptions: (loaderContext) => {
-                return {
-                  plugins: [
-                    ["postcss-import", { root: loaderContext.resourcePath }],
-                    ["postcss-discard-comments", { removeAll: true }],
-                    "postcss-preset-env",
-                    [
-                      "postcss-csso",
-                      { forceMediaMerge: false, comments: false },
-                    ],
-                  ],
-                };
-              },
-            },
-          },
-          {
-            loader: "resolve-url-loader",
-            options: {
-              join: joinSassAssets,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                loadPaths: ["./packages", "./node_modules/@uswds"],
-                implementation: require("sass-embedded"),
-              },
-            },
-          },
-        ],
-        include: path.resolve(__dirname, "../packages"),
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "javascript/auto",
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[ext]",
-          },
-        },
-        include: path.resolve(__dirname, "../packages"),
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "javascript/auto",
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[path][name].[ext]",
-          },
-        },
-        include: path.resolve(
-          __dirname,
-          "../packages/uswds-core/src/assets/fonts",
-        ),
-      },
+  async viteFinal(config) {
+    // Dynamically import the ESM plugins (CJS config can't use static import)
+    const { default: twigPlugin } = await import(
+      "../tasks/vite-plugin-twig.mjs"
     );
+    const { default: uswdsCjsPlugin } = await import(
+      "../tasks/vite-plugin-uswds-cjs.mjs"
+    );
+
+    // Register plugins for .twig compilation and CJS→ESM transform
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+      uswdsCjsPlugin({ packagesDir }),
+      twigPlugin({
+        namespaces: {
+          "@components": packagesDir,
+          "@templates": templatesDir,
+        },
+      }),
+    );
+
+    // SCSS configuration: override asset paths to use staticDirs-served paths.
+    // The default $theme-image-path: "../img" resolves relative to source SCSS
+    // files, which don't have assets next to them. By overriding to absolute
+    // paths, we rely on staticDirs serving dist/ at the root.
+    config.css = {
+      ...config.css,
+      preprocessorOptions: {
+        ...config.css?.preprocessorOptions,
+        scss: {
+          ...config.css?.preprocessorOptions?.scss,
+          api: "modern-compiler",
+          loadPaths: [
+            packagesDir,
+            path.resolve(__dirname, "../node_modules/@uswds"),
+          ],
+          additionalData:
+            '$theme-image-path: "/img";\n$theme-font-path: "/fonts";\n',
+        },
+      },
+    };
+
+    // Ensure twig (CJS-only) is pre-bundled for browser use in dev mode
+    config.optimizeDeps = {
+      ...config.optimizeDeps,
+      include: [...(config.optimizeDeps?.include || []), "twig"],
+    };
+
+    // Configure Rollup's commonjs plugin for production builds.
+    config.build = {
+      ...config.build,
+      commonjsOptions: {
+        ...config.build?.commonjsOptions,
+        defaultIsModuleExports: true,
+      },
+    };
+
+    // Resolve aliases for non-.twig imports
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
+        "@components": packagesDir,
+        "@templates": templatesDir,
+      },
+    };
 
     return config;
   },
