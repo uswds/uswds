@@ -64,8 +64,11 @@ export default function uswdsCjsPlugin(options = {}) {
       // Transform: const { a, b } = require("path") (single or multi-line)
       // CJS destructure imports a property from module.exports, NOT a named export.
       // Convert to: import _modN from "path"; const { a, b } = _modN;
+      // Note: the inner class excludes newlines ([^}\n]) so each line segment
+      // has exactly one match path — this prevents catastrophic backtracking
+      // (ReDoS) that an ambiguous [^}]* spanning newlines would cause.
       for (const match of code.matchAll(
-        /^const\s+(\{[^}]*(?:\n[^}]*)*\})\s*=\s*require\(([^)]+)\);?\s*$/gm,
+        /^const\s+(\{[^}\n]*(?:\n[^}\n]*)*\})\s*=\s*require\(([^)]+)\);?\s*$/gm,
       )) {
         const varName = `_mod${modCounter++}`;
         const collapsed = match[1].replace(/\s*\n\s*/g, " ");

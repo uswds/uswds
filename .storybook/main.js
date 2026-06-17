@@ -54,21 +54,6 @@ module.exports = {
       },
     };
 
-    // Ensure twig (CJS-only) is pre-bundled for browser use in dev mode
-    config.optimizeDeps = {
-      ...config.optimizeDeps,
-      include: [...(config.optimizeDeps?.include || []), "twig"],
-    };
-
-    // Configure Rollup's commonjs plugin for production builds.
-    config.build = {
-      ...config.build,
-      commonjsOptions: {
-        ...config.build?.commonjsOptions,
-        defaultIsModuleExports: true,
-      },
-    };
-
     // Resolve aliases for non-.twig imports
     config.resolve = {
       ...config.resolve,
