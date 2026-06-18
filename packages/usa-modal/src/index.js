@@ -162,9 +162,7 @@ function toggleModal(event) {
     // Handles focus setting and interactions
     modal.focusTrap.update(safeActive);
 
-    if (openFocusEl) {
-      openFocusEl.focus();
-    }
+    openFocusEl?.focus();
 
     // Hides everything that is not the modal from screen readers
     document.querySelectorAll(NON_MODALS).forEach((nonModal) => {

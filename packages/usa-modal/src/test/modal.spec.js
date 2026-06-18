@@ -177,5 +177,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
       });
     });
+
+    describe("Open focus target", () => {
+      it("focuses a [data-focus] element over the footer button", () => {
+        const customFocus = document.createElement("button");
+        customFocus.type = "button";
+        customFocus.setAttribute("data-focus", "");
+        customFocus.textContent = "Custom focus";
+    
+        modalWrapper.querySelector(".usa-modal__main").prepend(customFocus);
+        openButton1.click();
+    
+        assert.strictEqual(document.activeElement, customFocus);
+    });
+
+    it("focuses any button when the footer has no buttons", () => {
+        modalWrapper.querySelector(".usa-modal__footer").remove();
+        modalWrapper.querySelector(".usa-combo-box").remove();
+    
+        openButton1.click();
+    
+        assert.strictEqual(document.activeElement, closeButton);
+      });
+    });
   });
 });
