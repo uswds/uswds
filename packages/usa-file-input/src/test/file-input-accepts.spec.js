@@ -18,9 +18,8 @@ function MockFile() {}
 MockFile.prototype.create = (name, size, mimeType) => {
   function range(count) {
     let output = "";
-    // eslint-disable-next-line no-plusplus
+
     for (let i = 0; i < count; i++) {
-      // eslint-disable-line no-plusplus
       output += "a";
     }
     return output;
@@ -34,7 +33,7 @@ MockFile.prototype.create = (name, size, mimeType) => {
 };
 
 /**
- * Leverages JSdom library to instatiate a FileList
+ * Leverages JSdom library to instantiate a FileList
  * @param  {...any} files
  * @returns {Object} of FileList Type
  */

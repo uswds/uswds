@@ -359,11 +359,8 @@ Some components have additional methods based on that component's functionality.
 Importing a modular component.
 
 ```js
-import USWDS from "@uswds/uswds/js";
-const { characterCount, accordion } = USWDS; // deconstruct your components here
-
-// Alternatively
 import accordion from "@uswds/uswds/js/usa-accordion";
+import characterCount from "@uswds/uswds/js/usa-character-count";
 ```
 
 ⚠️Requires webpack 5+
@@ -494,8 +491,8 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 ## CSS architecture
 
 - The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
-- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://guides.18f.gov/engineering/languages-runtimes/css/#naming)**.
-- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://guides.18f.gov/engineering/languages-runtimes/css/#formatting)**.
+- The CSS organization and naming conventions follow **[18F’s Engineering Guide](https://guides.18f.org/engineering/languages-runtimes/css/#naming)**.
+- We format our code with [Prettier](https://prettier.io/), per the formatting section of the **[18F Engineering Guide](https://guides.18f.org/engineering/languages-runtimes/css/#formatting)**.
 - CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
 - Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
 - Uses **modular CSS** for scalable, modular, and flexible code.
@@ -505,7 +502,7 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 - **Spacing units** are set with the `units()` function as described in [the USWDS 3.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
-[18F’s CSS Guide](https://guides.18f.gov/engineering/languages-runtimes/css/)
+[18F’s CSS Guide](https://guides.18f.org/engineering/languages-runtimes/css/)
 
 ## Browser support
 
@@ -526,11 +523,11 @@ If you find any issues with our accessibility conformance, please create an issu
 
 ## Long-term support of v1.x
 
-[Version 1.x](https://v1.designsystem.digital.gov) is no longer maintained.
+USWDS version 1.x is no longer maintained.
 
 ## Long-term support of v2.x
 
-Version 2.x is in maintenance mode and will continue to get important bugfixes and security patches until May 2023.
+USWDS version 2.x is no longer maintained.
 
 ## Need installation help?
 
@@ -553,11 +550,11 @@ If you have questions or concerns about our contributing workflow, please contac
 Much of the guidance in USWDS leans on open source designs, code, and patterns from other civic and government organizations, including:
 
 - Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
-- U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
+- U.S. Patent and Trademark Office’s [Design System](https://uspto.github.io/USPTO-Design-System/)
 - Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
 - UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
 - Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
-- Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
+- Pivotal Labs [Component Library](https://pivotal-cf.github.io/pivotal-ui/)
 
 ## Licenses and attribution
 

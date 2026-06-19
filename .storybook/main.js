@@ -15,31 +15,26 @@ const pathGenerator = asGenerator((item, ...rest) => [
   item.isAbsolute
     ? null
     : /\.(png|svg|jpg|jpeg|gif)$/.test(item.uri)
-    ? imageDirectory
-    : /\.(woff|woff2|eot|ttf|otf)$/.test(item.uri)
-    ? fontsDirectory
-    : null,
+      ? imageDirectory
+      : /\.(woff|woff2|eot|ttf|otf)$/.test(item.uri)
+        ? fontsDirectory
+        : null,
 ]);
 
 const joinSassAssets = createJoinFunction(
   "joinSassAssets",
-  createJoinImplementation(pathGenerator)
+  createJoinImplementation(pathGenerator),
 );
 
+/** @type { import('@storybook/html-webpack5').StorybookConfig } */
 module.exports = {
-  core: {
-    builder: "webpack5",
+  framework: {
+    name: "@storybook/html-webpack5",
+    options: {},
   },
-  stories: [
-    "../packages/**/*.stories.mdx",
-    "../packages/**/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-  ],
-  staticDirs: ['../dist'],
+  stories: ["../packages/**/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
+  staticDirs: ["../dist"],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
@@ -47,7 +42,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.twig$/,
-        use: "twigjs-loader",
+        use: require.resolve("../tasks/webpack-twig-loader"),
         resolve: {
           alias: {
             "@components": path.resolve(__dirname, "../packages"),
@@ -98,11 +93,8 @@ module.exports = {
             options: {
               sourceMap: true,
               sassOptions: {
-                includePaths: [
-                  "./packages",
-                  "./node_modules/@uswds"
-                ],
-                implementation: require("sass-embedded")
+                loadPaths: ["./packages", "./node_modules/@uswds"],
+                implementation: require("sass-embedded"),
               },
             },
           },
@@ -116,7 +108,6 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name].[ext]",
-            //outputPath: "../dist/img",
           },
         },
         include: path.resolve(__dirname, "../packages"),
@@ -130,8 +121,11 @@ module.exports = {
             name: "[path][name].[ext]",
           },
         },
-        include: path.resolve(__dirname, "../packages/uswds-core/src/assets/fonts"),
-      }
+        include: path.resolve(
+          __dirname,
+          "../packages/uswds-core/src/assets/fonts",
+        ),
+      },
     );
 
     return config;

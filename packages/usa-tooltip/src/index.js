@@ -1,5 +1,5 @@
 // Tooltips
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
@@ -235,8 +235,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
         pos(element);
 
         if (!isElementInViewport(element)) {
-          // eslint-disable-next-line no-param-reassign
-          tryPositions((i += 1));
+          tryPositions(i + 1);
         } else {
           hasVisiblePosition = true;
         }
@@ -248,8 +247,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     if (!hasVisiblePosition) {
       element.classList.add(ADJUST_WIDTH_CLASS);
       if (attempt <= maxAttempts) {
-        // eslint-disable-next-line no-param-reassign
-        findBestPosition(element, (attempt += 1));
+        findBestPosition(element, attempt + 1);
       }
     }
   }
@@ -379,10 +377,9 @@ const tooltip = behavior(
     "mouseover focusin": {
       [TOOLTIP](e) {
         const trigger = e.target;
-        const elementType = trigger.nodeName;
 
         // Initialize tooltip if it hasn't already
-        if (elementType === "BUTTON" && trigger.hasAttribute("title")) {
+        if (trigger.hasAttribute("title")) {
           setUpAttributes(trigger);
         }
       },

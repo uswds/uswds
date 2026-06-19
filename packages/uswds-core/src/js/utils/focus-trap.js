@@ -1,4 +1,4 @@
-const { keymap } = require("receptor");
+const keymap = require("./keymap");
 const behavior = require("./behavior");
 const select = require("./select");
 const activeElement = require("./active-element");
@@ -64,7 +64,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
     },
     {
       init() {
-        // TODO: is this desireable behavior? Should the trap always do this by default or should
+        // TODO: is this desirable behavior? Should the trap always do this by default or should
         // the component getting decorated handle this?
         if (tabEventHandler.firstTabStop) {
           tabEventHandler.firstTabStop.focus();
