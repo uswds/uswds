@@ -267,6 +267,9 @@ const enhanceFileInput = (fileInputEl) => {
     createSROnlyStatus(fileInputEl);
   }
 
+  // Mark the wrapper, not the initial div
+  dropZoneEl.dataset.enhanced = "true";
+
   return { instructions, dropTarget };
 };
 
@@ -536,7 +539,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
-      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      fileInputEl.value = "";
       errorMessage.textContent = errorMessageText;
       dropTarget.insertBefore(errorMessage, fileInputEl);
 
@@ -573,6 +576,8 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
+        if (fileInputEl.dataset.enhanced) return;
+
         const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
 
         dropTarget.addEventListener(
@@ -613,7 +618,7 @@ const fileInput = behavior(
           fileInputEl,
           fileInputTopElement,
         );
-        // eslint-disable-next-line no-param-reassign
+
         fileInputEl.className = DROPZONE_CLASS;
       });
     },
