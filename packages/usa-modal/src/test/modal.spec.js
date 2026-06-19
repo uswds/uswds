@@ -184,19 +184,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
         customFocus.type = "button";
         customFocus.setAttribute("data-focus", "");
         customFocus.textContent = "Custom focus";
-    
+
         modalWrapper.querySelector(".usa-modal__main").prepend(customFocus);
         openButton1.click();
-    
-        assert.strictEqual(document.activeElement, customFocus);
-    });
 
-    it("focuses any button when the footer has no buttons", () => {
+        assert.strictEqual(document.activeElement, customFocus);
+      });
+
+      it("focuses any button when the footer has no buttons", () => {
         modalWrapper.querySelector(".usa-modal__footer").remove();
         modalWrapper.querySelector(".usa-combo-box").remove();
-    
+
         openButton1.click();
-    
+
         assert.strictEqual(document.activeElement, closeButton);
       });
     });
