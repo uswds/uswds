@@ -1,9 +1,13 @@
+import "../packages/uswds/_index.scss";
 import "../packages/uswds-core/src/js/start";
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    a11y: {
+      // Disable automatic a11y scanning in the browser — handled by test-runner instead
+      manual: true,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

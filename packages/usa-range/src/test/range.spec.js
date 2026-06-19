@@ -64,12 +64,34 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "40",
           "range slider value is not set to the value in the test.",
         );
-
         // change the span element, make sure it updated and that the span and the range are equal.
         assert.strictEqual(
           slider.value,
           spanElement.textContent,
           "slider value does not match span value",
+        );
+      });
+
+      it("displays a visual hint to guide sighted users on how to operate the slider", () => {
+        const hint = body.querySelector(".usa-hint");
+        assert.ok(
+          hint,
+          "Visual hint element (.usa-hint) should exist in the range slider component",
+        );
+        assert.strictEqual(
+          hint.textContent.trim(),
+          "Move the slider to change the value",
+          "Visual hint text should read: 'Move the slider to change the value'",
+        );
+        assert.strictEqual(
+          hint.id,
+          "range-hint",
+          "Visual hint element should have id='range-hint'",
+        );
+        assert.strictEqual(
+          slider.getAttribute("aria-describedby"),
+          "range-hint",
+          "Range slider input should have aria-describedby='range-hint'",
         );
       });
     });
