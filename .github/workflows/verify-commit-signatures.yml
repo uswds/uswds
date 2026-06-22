@@ -55,7 +55,7 @@ jobs:
           message: |
             Hi @${{ github.event.pull_request.user.login }} — thanks for your contribution!
 
-            There is one thing that may be holding this up: any contribution here must be a [verified commit](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md#setting-up-verified-commits). The following commit(s) on this PR are not yet verified:
+            There is one thing that may be holding this up: for security reasons, USWDS requires that all commits to this repo have a [verified commit](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md#setting-up-verified-commits). The following commit(s) on this PR aren't verified:
 
             ${{ steps.check.outputs.unverified_list }}
 
