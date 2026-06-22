@@ -1,0 +1,101 @@
+name: Verify commit signatures
+
+# pull_request_target runs in the base-repo context, giving the GITHUB_TOKEN
+# write access to labels and comments even for PRs from forks. We never check
+# out PR code here, so there is no supply-chain risk from the fork.
+on:
+  pull_request_target:
+
+permissions:
+  contents: read       # list PR commits via gh api
+  pull-requests: write # post/update comments and apply labels
+
+jobs:
+  check-signatures:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check verification status of all PR commits
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          CONTRIBUTOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          # gh api fetches all commits on the PR (--paginate follows next-page
+          # links so PRs with more than 30 commits are handled correctly).
+          # jq then filters to commits where `verification.verified` is `false` and
+          # formats each one as a markdown list item with the short SHA and the
+          # first line of the commit message.
+          UNVERIFIED=$(gh api \
+            "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/commits" \
+            --paginate \
+            | jq -r '
+              .[] |
+              select(.commit.verification.verified == false) |
+              "- `" + (.sha[:7]) + "` — " + (.commit.message | split("\n")[0])
+            ')
+
+          echo "unverified_list<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$UNVERIFIED" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$UNVERIFIED" ]; then
+            echo "all_verified=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "all_verified=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post reminder comment
+        if: steps.check.outputs.all_verified == 'false'
+        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        with:
+          header: verify-commits
+          message: |
+            Hi @${{ github.event.pull_request.user.login }} — thanks for your contribution!
+
+            There is one thing that may be holding this up: any contribution here must be a [verified commit](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md#setting-up-verified-commits). The following commit(s) on this PR are not yet verified:
+
+            ${{ steps.check.outputs.unverified_list }}
+
+            Here's what's needed:
+
+            1. **Set up signature verification in GitHub.** Use one of the following GitHub guides to set up your verification signature:
+               - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
+               - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
+
+            2. **Rebase your commits with your verified signature.** Once your signature is set up, complete the following steps in the terminal to update the verification status of your previous commits:
+               ```sh
+               git checkout ${{ github.event.pull_request.head.ref }}
+               git rebase origin/${{ github.event.pull_request.base.ref }}
+               git push --force-with-lease
+               ```
+
+            Please let us know if you have any questions. We appreciate your help here. This comment will update automatically once your commits are verified.
+
+      - name: Update comment when all commits are verified
+        if: steps.check.outputs.all_verified == 'true'
+        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        with:
+          header: verify-commits
+          message: |
+            ✅ All commits on this PR now have a verified signature. Thanks for making that change!
+
+      - name: Add label when commits are unverified
+        if: steps.check.outputs.all_verified == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit "$PR_NUMBER" --add-label "Needs: Author Response 🔴" \
+            --repo "$GITHUB_REPOSITORY"
+
+      - name: Remove label when all commits are verified
+        if: steps.check.outputs.all_verified == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit "$PR_NUMBER" --remove-label "Needs: Author Response 🔴" \
+            --repo "$GITHUB_REPOSITORY" || true
