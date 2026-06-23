@@ -26,19 +26,14 @@ const joinSassAssets = createJoinFunction(
   createJoinImplementation(pathGenerator),
 );
 
+/** @type { import('@storybook/html-webpack5').StorybookConfig } */
 module.exports = {
-  core: {
-    builder: "webpack5",
+  framework: {
+    name: "@storybook/html-webpack5",
+    options: {},
   },
-  stories: [
-    "../packages/**/*.stories.mdx",
-    "../packages/**/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-  ],
+  stories: ["../packages/**/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   staticDirs: ["../dist"],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -47,7 +42,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.twig$/,
-        use: "twigjs-loader",
+        use: require.resolve("../tasks/webpack-twig-loader"),
         resolve: {
           alias: {
             "@components": path.resolve(__dirname, "../packages"),
@@ -113,7 +108,6 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name].[ext]",
-            //outputPath: "../dist/img",
           },
         },
         include: path.resolve(__dirname, "../packages"),

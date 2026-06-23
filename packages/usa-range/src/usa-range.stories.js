@@ -1,7 +1,13 @@
 import Component from "./usa-range.twig";
+import range from "./index";
 
 export default {
   title: "Components/Form Inputs/Range",
+  args: {
+    min: 0,
+    max: 100,
+    step: 10,
+  },
   argTypes: {
     disabled_state: {
       name: "Disabled state",
@@ -19,19 +25,29 @@ export default {
     min: {
       name: "Min",
       control: { type: "number" },
-      defaultValue: 0,
     },
     max: {
       name: "Max",
       control: { type: "number" },
-      defaultValue: 100,
     },
     step: {
       name: "Step",
       control: { type: "number" },
-      defaultValue: 10,
     },
   },
+  decorators: [
+    (Story) => {
+      range.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        range.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
