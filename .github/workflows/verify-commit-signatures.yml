@@ -80,7 +80,7 @@ jobs:
         with:
           header: verify-commits
           message: |
-            ✅ All commits on this PR now have a verified signature. Thanks for making that change!
+            ✅ All commits on this PR have a verified signature. Thanks!
 
       - name: Add label when commits are unverified
         if: steps.check.outputs.all_verified == 'false'
