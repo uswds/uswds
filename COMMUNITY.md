@@ -84,7 +84,7 @@ Below are the current defined roles and responsibilities of the USWDS Open Sourc
 
 ## USWDS Contributors
 
-**Description:** a Contributor particpates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, Pull Request reviews, Issue creation or confirmation, community participation, or many other means of support. 
+**Description:** a Contributor participates directly in the USWDS Open Source Community and adds value to it. These contributions can be code, peer support, Pull Request reviews, Issue creation or confirmation, community participation, or many other means of support. 
 
 #### Responsibilities include: 
 - Following the repository [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
