@@ -92,41 +92,33 @@ jobs:
               }
             };
 
-            // ── 3. Resolve display names (avatar URLs come from the list) ───
-            const userCache = {};
-            for (const c of contributors) {
+            // ── 3. Resolve display names and render table cells ─────────────
+            const cells = [];
+            for (const contributor of contributors) {
+              let name = contributor.login, avatar = contributor.avatar_url;
               try {
-                const { data } = await github.rest.users.getByUsername({ username: c.login });
-                userCache[c.login] = { name: data.name || c.login, avatar: data.avatar_url };
-              } catch {
-                userCache[c.login] = { name: c.login, avatar: c.avatar_url };
-              }
-            }
+                const { data } = await github.rest.users.getByUsername({ username: contributor.login });
+                name   = data.name || contributor.login;
+                avatar = data.avatar_url;
+              } catch { /* fall back to list values */ }
 
-            // ── 4. Render the table ──────────────────────────────────────────
-            const td = ({ login, name, avatar }) => {
-              const safeLogin  = escapeHtml(login);
+              const safeLogin  = escapeHtml(contributor.login);
               const safeName   = escapeHtml(name);
               const safeAvatar = safeUrl(avatar);
-              return `
+              cells.push(`
                     <td align="center">
                         <a href="https://github.com/${safeLogin}">
                             <img src="${safeAvatar}" width="${IMAGE_SIZE};" alt="${safeLogin}"/>
                             <br />
                             <sub><b>${safeName}</b></sub>
                         </a>
-                    </td>`;
-            };
+                    </td>`);
+            }
 
-            const rows = Math.ceil(contributors.length / COLUMNS);
+            // ── 4. Build the table ───────────────────────────────────────────
             let tableRows = '';
-            for (let r = 0; r < rows; r++) {
-              const slice = contributors.slice(r * COLUMNS, r * COLUMNS + COLUMNS);
-              const cells = slice.map(({ login }) => {
-                const { name, avatar } = userCache[login];
-                return td({ login, name, avatar });
-              }).join('');
-              tableRows += `\t\t<tr>${cells}\n\t\t</tr>\n`;
+            for (let i = 0; i < cells.length; i += COLUMNS) {
+              tableRows += `\t\t<tr>${cells.slice(i, i + COLUMNS).join('')}\n\t\t</tr>\n`;
             }
 
             const block =
@@ -184,18 +176,14 @@ jobs:
           commit-message: "docs: update contributors list and add role=presentation to table"
           title: "docs: update contributors information"
           body: |
-            This PR was opened automatically by the **Update Contributors Information**
-            workflow after a push to `develop`.
+            This PR was opened automatically by the **Update Contributors Information** workflow after a push to `develop`.
 
             **What changed**
-            - Refreshed the contributors table in `COMMUNITY.md` from the GitHub
-              `/contributors` API endpoint (bots excluded).
+            - Refreshed the contributors table in `COMMUNITY.md` from the GitHub `/contributors` API endpoint (bots excluded).
             - Contributor count updated to **${{ steps.build.outputs.count }}**.
-            - The generated `<table>` carries `role="presentation"` so screen
-              readers do not announce it as a data table.
+            - The generated `<table>` carries `role="presentation"` so screen readers do not announce it as a data table.
 
-            All commits on this PR are cryptographically signed by
-            `github-actions[bot]` via the GitHub git-data API.
+            All commits on this PR are cryptographically signed by `github-actions[bot]` via the GitHub git-data API.
           labels: |
             documentation
 
