@@ -2,8 +2,8 @@ name: Update Contributors Information
 
 on:
   workflow_dispatch: {}
-  push:
-    branches: [develop]
+  schedule:
+    - cron: "0 22 * * *"
 
 # Allow only one contributors-update run at a time.
 # If a second push to develop arrives while a run is in flight, the older
@@ -26,6 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
         with:
+          ref: develop
           fetch-depth: 0
 
       - name: Build contributors block
