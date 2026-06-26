@@ -5,7 +5,6 @@
   @extend %block-input-styles;
   @include add-background-svg("usa-icons/unfold_more");
   appearance: none;
-  box-sizing: border-box;
   background-color: color("white");
   background-position: right units(1) center;
   background-size: units(2.5);
