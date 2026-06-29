@@ -216,18 +216,23 @@ Involuntary removal/demotion happens when someone isn't meeting their responsibi
 Involuntary removal or demotion is handled by Maintainers filing an issue using the contributor_ladder.md template, and sending a PR to the [COMMUNITY.md](./COMMUNITY.md) file. At least 2 current USWDS Maintainers must approve, and then 1 must merge the PR.
 
 ### Voluntary stepping down and Alumni status
-If any USWDS Open Source Community member's commitment levels change, they can file an issue using the contributor_ladder.md template, and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file updating their role to Alumni.
+If any USWDS Open Source Community member's commitment levels or other circumstances change, they can file an issue using the [contributor_ladder.md template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), and send a PR to the [COMMUNITY.md](./COMMUNITY.md) file updating their role to Alumni or removing themselves from this page entirely.
 
 ## Acknowledgements
 
 The Community Guidelines section here was originally forked from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool), and that and even more was forked from or contributed by the [Centers for Medicaid and Medicare Services Open Source Program Office](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file#what-does-the-open-source-program-office-ospo-at-cms-do) and their [Guide](https://github.com/DSACMS/ospo-guide?tab=readme-ov-file), and we'd like to acknowledge and thank everyone who contributed along the way.
 
-## Past Contributors
+## Past contributors
 
 <!-- TODO: A list of CONTRIBUTORS is generated below using contributors.yml located in the workflows directory. In order to automatically update the COMMUNITY.md, you must enter a secret into your Secrets and Variables under Actions within your repository settings. The name of the secret must be PUSH_TO_PROTECTED_BRANCH and the value must be a Personal Access Token with specific permissions. Please follow [this link](https://github.com/CasperWA/push-protected?tab=readme-ov-file#notes-on-token-and-user-permissions) for more information. -->
 
-<!--Total number of contributors: [TO DO]--> 
-<!--CONTRIBUTOR COUNT START--> 182 <!--CONTRIBUTOR COUNT END-->
+Below is an automated list of contributors to [_this particular_ repository](https://github.com/uswds/uswds), which is USWDS's primary current codebase, but certainly [not the only USWDS repository](https://github.com/uswds). This list doesn't reflect the many many many other incredibly key people who may never have touched this repo. 
+
+If anyone involved with USWDS in the past would like to be reflected on this page — whether or not you've ever touched GitHub — [please make a request](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md#uswds-alumni-role) ([further instructions here](https://github.com/uswds/uswds/blob/develop/CONTRIBUTING.md#joining-the-uswds-community-as-a-contributor)). [Alumni status](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md#uswds-alumni) here [doesn't involve further USWDS responsibilities](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md#uswds-alumni-1).
+
+None of us can do this alone. We never have. We never will. We [learn from each other](https://designsystem.digital.gov/design-principles/#listen), and [share with each other](https://designsystem.digital.gov/about/product-values/#share-what-we-do), and continuing _that_ will continue to make things better over time. Thanks for being here.
+
+Total number of contributors to this particular repository: <!--CONTRIBUTOR COUNT START--> 182 <!--CONTRIBUTOR COUNT END--> (!)
 
 <!-- readme: contributors -start -->
 <table role="presentation">
