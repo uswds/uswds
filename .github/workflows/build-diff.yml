@@ -124,6 +124,6 @@ jobs:
 
       - name: Post PR comment
         if: ${{ !env.ACT }}
-        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # pin v3.0.4
         with:
           path: combined-report.md
