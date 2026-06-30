@@ -30,7 +30,7 @@ import iconHttps from "./img/icon-https.svg";
  * @slot https-heading - Heading for HTTPs section.
  * @slot https-text - Body text for HTTPs section.
  *
- * @tagname usa-banner
+ * @element usa-banner
  */
 
 export default class UsaBanner extends LitElement {
