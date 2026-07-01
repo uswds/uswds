@@ -1,0 +1,129 @@
+name: Build Output Comparison
+# This workflow compares the build output of the current Pull Request branch against the `develop` branch.
+# It performs a direct comparison of the `dist/` directory and a secondary comparison using a simulated
+# `@uswds/compile` project. The resulting diff report is posted as a sticky comment on the PR,
+# helping developers and reviewers identify unexpected changes in the compiled assets.
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    branches: [develop]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  compare-builds:
+    name: Compare build output
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          path: pr-branch
+
+      - name: Checkout develop branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: develop
+          path: develop-branch
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24.x' # pin this to a version since .nvm might differ between branches
+
+      - name: Install and build PR branch
+        working-directory: pr-branch
+        run: npm ci
+
+      - name: Install and build develop branch
+        working-directory: develop-branch
+        run: npm ci
+
+      - name: Generate direct dist comparison
+        uses: ./pr-branch/.github/actions/build-diff
+        with:
+          base-dir: develop-branch/dist
+          head-dir: pr-branch/dist
+          output-dir: direct-dist-diff
+          section-title: 'Direct `dist/` Comparison'
+          ignore-patterns: '*.map'
+
+      - name: Pack PR branch
+        working-directory: pr-branch
+        run: |
+          mkdir -p ../tarballs/pr
+          npm pack --pack-destination ../tarballs/pr
+
+      - name: Pack develop branch
+        working-directory: develop-branch
+        run: |
+          mkdir -p ../tarballs/develop
+          npm pack --pack-destination ../tarballs/develop
+
+      - name: Setup compile project (PR)
+        run: |
+          cp -r pr-branch/.github/actions/build-diff/compile-project compile-project-pr
+          cd compile-project-pr
+          PR_TARBALL=$(ls ../tarballs/pr/*.tgz | head -1)
+          # Update the @uswds/uswds devDependency to use the local development tarball.
+          # This replaces the "file:placeholder" value defined in compile-project/package.json.
+          npm pkg set "devDependencies.@uswds/uswds=file:${PR_TARBALL}"
+          npm install
+          npx gulp init
+
+      - name: Setup compile project (develop)
+        run: |
+          cp -r pr-branch/.github/actions/build-diff/compile-project compile-project-develop
+          cd compile-project-develop
+          DEV_TARBALL=$(ls ../tarballs/develop/*.tgz | head -1)
+          # Update the @uswds/uswds devDependency to use the local development tarball.
+          # This replaces the "file:placeholder" value defined in compile-project/package.json.
+          npm pkg set "devDependencies.@uswds/uswds=file:${DEV_TARBALL}"
+          npm install
+          npx gulp init
+
+      - name: Generate compile project comparison
+        uses: ./pr-branch/.github/actions/build-diff
+        with:
+          base-dir: compile-project-develop/assets
+          head-dir: compile-project-pr/assets
+          output-dir: compile-project-diff
+          section-title: '`@uswds/compile` Project Comparison'
+          ignore-patterns: '*.map'
+
+      - name: Combine diff reports
+        run: |
+          {
+            echo "## Build Output Comparison"
+            echo ""
+            cat direct-dist-diff/report.md
+            echo "---"
+            echo ""
+            cat compile-project-diff/report.md
+            echo "---"
+            echo ""
+            echo "📦 [View detailed comparison artifacts](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+          } > combined-report.md
+
+      - name: Upload comparison artifacts
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: build-comparison
+          path: |
+            direct-dist-diff/
+            compile-project-diff/
+            pr-branch/dist/
+            develop-branch/dist/
+            compile-project-pr/assets/
+            compile-project-develop/assets/
+          retention-days: 14
+
+      - name: Post PR comment
+        if: ${{ !env.ACT }}
+        uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # pin v3.0.4
+        with:
+          path: combined-report.md
