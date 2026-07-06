@@ -4,8 +4,8 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 ## Runtime
 
-- **Node**: 22.22.1 (`.nvmrc`). CI: `cimg/node:24.16.0-browsers`.
-- **Build**: Gulp 4 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify.
+- **Node**: v24 (`.nvmrc`). CI: `cimg/node:24.16.0-browsers`.
+- **Build**: Gulp 4 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite is only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify. Do not assume Vite builds the whole project.
 - **SCSS**: `sass`/`sass-embedded` (modern API). `@uswds/compile` is consumer-side.
 
 ## Architecture
@@ -15,7 +15,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 - **Sass Entry**: `packages/uswds/_index.scss` (top-level barrel). Component `_index.scss` files import `uswds-core`.
 - **Root `src/`**: Only `src/stylesheets/uswds.scss` for compiled entry and root specs. Component sources under `packages/`.
 - **`dist/`**: Generated; do not edit. `gulp cleanDist` clears.
-- **Project Focus**: US federal (GSA/TTS) public-domain. Accessibility, performance, security critical.
+- **Project Focus**: US federal (GSA/TTS) open source project. Accessibility, performance, and security are critical. All updates must align with these requirements.
 
 ## Common Commands
 
