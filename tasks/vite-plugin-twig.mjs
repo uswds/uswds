@@ -18,7 +18,7 @@
 
 import path from "node:path";
 import { createRequire } from "node:module";
-import { buildSync } from "esbuild";
+import { build } from "esbuild";
 
 // twig.js is CJS-only; use createRequire to load it in an ESM context.
 const require = createRequire(import.meta.url);
@@ -34,23 +34,49 @@ const TWIG_RUNTIME_ID = "virtual:uswds-twig-runtime";
 const RESOLVED_TWIG_RUNTIME_ID = "\0" + TWIG_RUNTIME_ID;
 
 /**
+ * esbuild plugin that resolves the Node built-ins twig references (`fs`,
+ * `path`, `module`) to an empty module. twig only uses these in its optional
+ * filesystem template loader; Storybook renders from inline data, so the
+ * loader is never exercised.
+ *
+ * Marking them `external` instead would leave `require("fs")` calls in the ESM
+ * output, which esbuild's ESM interop turns into a `__require` shim that throws
+ * `Dynamic require of "fs" is not supported` at runtime. twig catches that and
+ * logs `Missing fs and path modules...` to the console on every load. Stubbing
+ * the modules to `undefined` lets twig's `try/catch` succeed silently, and its
+ * own `if (!fs || !path)` guard still correctly rejects filesystem loads.
+ */
+const stubNodeBuiltins = {
+  name: "stub-node-builtins",
+  setup(build) {
+    const filter = /^(fs|path|module)$/;
+    build.onResolve({ filter }, (args) => ({
+      path: args.path,
+      namespace: "stub-builtin",
+    }));
+    build.onLoad({ filter: /.*/, namespace: "stub-builtin" }, () => ({
+      contents: "export default undefined;",
+      loader: "js",
+    }));
+  },
+};
+
+/**
  * Pre-bundle the twig package into a single ESM module using esbuild.
  * esbuild resolves twig's internal require() graph (twig.factory → twig.core,
  * etc.) and emits a clean ESM module with a default export, which Rollup can
  * consume without the static-analysis failures of @rollup/plugin-commonjs.
- * @returns {string} ESM source code for the twig runtime
+ * @returns {Promise<string>} ESM source code for the twig runtime
  */
-function bundleTwigRuntime() {
+async function bundleTwigRuntime() {
   const twigEntry = require.resolve("twig");
-  const result = buildSync({
+  const result = await build({
     entryPoints: [twigEntry],
     bundle: true,
     format: "esm",
     platform: "browser",
     write: false,
-    // twig references Node built-ins in its fs loader; stub them since
-    // Storybook renders templates from inline data, not the filesystem.
-    external: ["fs", "path", "module"],
+    plugins: [stubNodeBuiltins],
     logLevel: "silent",
   });
   return result.outputFiles[0].text;
@@ -69,7 +95,9 @@ function bundleTwigRuntime() {
 export default function twigPlugin(options = {}) {
   const { namespaces = {} } = options;
   let root = process.cwd();
-  let twigRuntimeCode = null;
+  // Cache the bundling *promise* (not the resolved value) so concurrent load()
+  // calls dedupe onto a single esbuild run instead of racing to bundle twice.
+  let twigRuntimePromise = null;
 
   return {
     name: "uswds-twig",
@@ -107,12 +135,12 @@ export default function twigPlugin(options = {}) {
      * Serve the esbuild-bundled twig runtime for the virtual module.
      * Bundling is lazy + cached so it runs at most once per Vite process.
      */
-    load(id) {
+    async load(id) {
       if (id === RESOLVED_TWIG_RUNTIME_ID) {
-        if (twigRuntimeCode === null) {
-          twigRuntimeCode = bundleTwigRuntime();
+        if (twigRuntimePromise === null) {
+          twigRuntimePromise = bundleTwigRuntime();
         }
-        return twigRuntimeCode;
+        return twigRuntimePromise;
       }
       return null;
     },
@@ -262,7 +290,13 @@ async function processToken(pluginCtx, importerId, token, dependencies, root) {
   }
 }
 
-async function processDependency(pluginCtx, importerId, token, dependencies, root) {
+async function processDependency(
+  pluginCtx,
+  importerId,
+  token,
+  dependencies,
+  root,
+) {
   const originalPath = token.value;
 
   // Resolve the dependency path using Vite's resolver (respects our resolveId hook).
