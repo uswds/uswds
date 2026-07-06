@@ -112,7 +112,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("should close the calendar you click outside of an active calendar", () => {
+    it("should close the calendar when focus moves outside of an active calendar", () => {
       EVENTS.click(button);
       assert.strictEqual(
         getCalendarEl().hidden,
@@ -120,12 +120,34 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "The calendar is shown",
       );
 
-      EVENTS.focusout();
+      const outsideEl = document.createElement("button");
+      document.body.appendChild(outsideEl);
+      outsideEl.focus();
 
       assert.strictEqual(
         getCalendarEl().hidden,
         true,
         "The calendar is hidden",
+      );
+    });
+
+    it("should not close the calendar when focusout has no relatedTarget", () => {
+      EVENTS.click(button);
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown",
+      );
+
+      const focusedDate = getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__date--focused",
+      );
+      EVENTS.focusout(focusedDate);
+
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar stays open",
       );
     });
 

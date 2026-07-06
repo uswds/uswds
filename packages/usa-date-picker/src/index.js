@@ -2249,7 +2249,8 @@ const datePickerEvents = {
       validateDateInput(this);
     },
     [DATE_PICKER](event) {
-      if (!this.contains(event.relatedTarget)) {
+      const { relatedTarget } = event;
+      if (relatedTarget && !this.contains(relatedTarget)) {
         hideCalendar(this);
       }
     },
