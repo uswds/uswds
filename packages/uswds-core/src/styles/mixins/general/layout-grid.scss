@@ -1,5 +1,6 @@
 @use "sass:list";
 @use "sass:map";
+@use "sass:string";
 @use "../layout-grid" as *;
 @use "../../functions" as *;
 @use "../../mixins/helpers" as *;
@@ -29,7 +30,7 @@
   }
 
   @include u-margin-x(
-    unquote("#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}")
+    string.unquote("#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}")
   );
 
   > * {
@@ -39,7 +40,7 @@
 
   @include at-media("desktop") {
     @include u-margin-x(
-      unquote("#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}")
+      string.unquote("#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}")
     );
 
     > * {
@@ -51,7 +52,7 @@
 
 @mixin grid-gap($props...) {
   $props: unpack($props);
-  @if length($props) == 0 {
+  @if list.length($props) == 0 {
     @include grid-gap-responsive;
   } @else {
     $gap: smart-quote(list.nth($props, 1));
@@ -71,7 +72,7 @@
       @include u-margin-x(
         append-important(
           $props,
-          unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")
+          string.unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")
         )
       );
       > * {
@@ -86,7 +87,7 @@
   $props: unpack($props);
   @include this-border-box-sizing;
 
-  @if length($props) == 0 {
+  @if list.length($props) == 0 {
     @include u-flex(fill);
     @include u-width(auto);
   } @else {
