@@ -88,7 +88,7 @@ $icon-size: px-to-rem($this-system-token);
 $this-null: (
   "none": null,
 );
-$icon-list-breakpoints: map-merge($this-null, $system-breakpoints);
+$icon-list-breakpoints: map.merge($this-null, $system-breakpoints);
 @each $mq-key, $mq-value in $icon-list-breakpoints {
   // Set the prefix
   // An empty string if "none"
