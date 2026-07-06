@@ -33,10 +33,13 @@ module.exports = {
       }),
     );
 
-    // SCSS configuration: override asset paths to use staticDirs-served paths.
-    // The default $theme-image-path: "../img" resolves relative to source SCSS
-    // files, which don't have assets next to them. By overriding to absolute
-    // paths, we rely on staticDirs serving dist/ at the root.
+    // SCSS configuration. The USWDS defaults $theme-image-path: "../img" and
+    // $theme-font-path: "../fonts" emit relative url()s in the compiled CSS.
+    // Vite rebases those relative to the emitted CSS file (_site/assets/), so
+    // they resolve to _site/img and _site/fonts — which is where staticDirs
+    // ("../dist") serves them. Because the URLs stay relative, they also resolve
+    // correctly when Storybook is deployed under a non-root path (e.g. the
+    // cloud.gov preview URL).
     config.css = {
       ...config.css,
       preprocessorOptions: {
@@ -48,8 +51,6 @@ module.exports = {
             packagesDir,
             path.resolve(__dirname, "../node_modules/@uswds"),
           ],
-          additionalData:
-            '$theme-image-path: "/img";\n$theme-font-path: "/fonts";\n',
         },
       },
     };

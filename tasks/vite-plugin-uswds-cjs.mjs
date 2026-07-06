@@ -57,25 +57,55 @@ export default function uswdsCjsPlugin(options = {}) {
       for (const match of code.matchAll(
         /^const\s+(\w+)\s*=\s*require\(([^)]+)\);?\s*$/gm,
       )) {
-        s.overwrite(match.index, match.index + match[0].length, `import ${match[1]} from ${match[2]};`);
+        s.overwrite(
+          match.index,
+          match.index + match[0].length,
+          `import ${match[1]} from ${match[2]};`,
+        );
         hasChanges = true;
       }
 
       // Transform: const { a, b } = require("path") (single or multi-line)
       // CJS destructure imports a property from module.exports, NOT a named export.
       // Convert to: import _modN from "path"; const { a, b } = _modN;
-      // Note: the inner class excludes newlines ([^}\n]) so each line segment
-      // has exactly one match path — this prevents catastrophic backtracking
-      // (ReDoS) that an ambiguous [^}]* spanning newlines would cause.
-      for (const match of code.matchAll(
-        /^const\s+(\{[^}\n]*(?:\n[^}\n]*)*\})\s*=\s*require\(([^)]+)\);?\s*$/gm,
-      )) {
+      //
+      // Implemented as an index scan rather than a single regex to avoid any
+      // nested-quantifier construct (e.g. `(?:\n[^}]*)*`) that a regex spanning
+      // the `{ ... }` body would introduce. Such constructs are a ReDoS risk
+      // (and are flagged by static analysis) even when written carefully. The
+      // scan below is unambiguous and provably linear: a cheap regex finds each
+      // `const {` opener, then we walk forward to the matching `}` and check for
+      // an `= require(...)` suffix.
+      for (const opener of code.matchAll(/(^|\n)[ \t]*const\s*\{/g)) {
+        // Start of the `const` keyword (skip the captured leading newline).
+        const stmtStart = opener.index + opener[1].length;
+        // Position just after the opening `{`.
+        const braceOpen = opener.index + opener[0].length;
+        const braceClose = code.indexOf("}", braceOpen);
+        if (braceClose === -1) continue;
+
+        // A brace body containing `{`, `}` or `;` is not a flat destructure
+        // pattern (e.g. nested object default, block statement) — skip it.
+        const body = code.slice(braceOpen, braceClose);
+        if (/[{};]/.test(body)) continue;
+
+        // After `}` we expect: optional space, `=`, `require(...)`, optional `;`,
+        // then end-of-line. Anchor with a bounded regex from braceClose.
+        const rest = code.slice(braceClose + 1);
+        const suffix = /^\s*=\s*require\(([^)]+)\);?[ \t]*(?:\r?\n|$)/.exec(
+          rest,
+        );
+        if (!suffix) continue;
+
+        const stmtEnd = braceClose + 1 + suffix[0].replace(/\r?\n$/, "").length;
         const varName = `_mod${modCounter++}`;
-        const collapsed = match[1].replace(/\s*\n\s*/g, " ");
+        const collapsed = code
+          .slice(braceOpen - 1, braceClose + 1)
+          .replace(/\s*\n\s*/g, " ");
         s.overwrite(
-          match.index,
-          match.index + match[0].length,
-          `import ${varName} from ${match[2]};\nconst ${collapsed} = ${varName};`,
+          stmtStart,
+          stmtEnd,
+          `import ${varName} from ${suffix[1]};\nconst ${collapsed} = ${varName};`,
         );
         hasChanges = true;
       }
@@ -136,10 +166,14 @@ export default function uswdsCjsPlugin(options = {}) {
       if (!hasChanges && !exportsChanged) return null;
 
       // Warn if CJS patterns remain after transformation
-      if (finalCode.includes("require(") || finalCode.includes("module.exports")) {
+      if (
+        finalCode.includes("require(") ||
+        finalCode.includes("module.exports")
+      ) {
         const remaining = [];
         if (finalCode.includes("require(")) remaining.push("require()");
-        if (finalCode.includes("module.exports")) remaining.push("module.exports");
+        if (finalCode.includes("module.exports"))
+          remaining.push("module.exports");
         this.warn(
           `Residual CJS patterns [${remaining.join(", ")}] in ${id} — may need manual conversion`,
         );
