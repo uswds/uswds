@@ -151,6 +151,30 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
+    it("should close the calendar when clicking outside of an active calendar", (done) => {
+      EVENTS.click(button);
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown",
+      );
+
+      setTimeout(() => {
+        const outsideEl = document.createElement("div");
+        document.body.appendChild(outsideEl);
+        outsideEl.dispatchEvent(
+          new MouseEvent("pointerdown", { bubbles: true, cancelable: true }),
+        );
+
+        assert.strictEqual(
+          getCalendarEl().hidden,
+          true,
+          "The calendar is hidden",
+        );
+        done();
+      }, 0);
+    });
+
     it("should close the calendar you press escape from the input", () => {
       EVENTS.click(button);
       assert.strictEqual(
