@@ -8,7 +8,6 @@ import {
   WildcardContent,
 } from "./content";
 import fileInput from "./index";
-
 export default {
   title: "Components/Form Inputs/File Input",
   args: {
@@ -33,48 +32,47 @@ export default {
   decorators: [
     (Story) => {
       fileInput.off?.();
-
       const story = Story();
-
       window.requestAnimationFrame(() => {
         fileInput.init();
       });
-
       return story;
     },
   ],
 };
-
 const Template = (args) => Component(args);
 const TestTemplate = (args) => TestComponent(args);
-
 export const Default = Template.bind({});
 Default.args = DefaultContent;
-
 export const Error = Template.bind({});
 Error.args = ErrorContent;
-
 export const Multiple = Template.bind({});
 Multiple.args = MultipleContent;
-
 export const Specific = Template.bind({});
 Specific.args = SpecificContent;
-
 export const Wildcard = Template.bind({});
 Wildcard.args = WildcardContent;
+
+export const CustomTranslatedString = Template.bind({});
+CustomTranslatedString.args = {
+  ...DefaultContent,
+  drag_text: "Arrastre el archivo aquí o",
+  choose_text: "elija de la carpeta",
+  change_file_text: "cambiar archivo",
+  selected_file_text: "Archivo seleccionado",
+  no_file_status_text: "No se ha seleccionado ningún archivo.",
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...DefaultContent,
   disabled_state: "disabled",
 };
-
 export const AriaDisabled = Template.bind({});
 AriaDisabled.args = {
   ...DefaultContent,
   disabled_state: "aria-disabled",
 };
-
 export const TestMultipleInputs = TestTemplate.bind({});
 TestMultipleInputs.args = {
   DefaultContent,

@@ -191,13 +191,13 @@ const createTargetArea = (fileInputEl) => {
 const updateVisibleInstructions = (fileInputEl, instructions) => {
   const instructionsEl = instructions;
   const itemsLabel = getItemsLabel(fileInputEl);
-  const dragText = `Drag ${itemsLabel} here or`;
+  const dragText = fileInputEl.dataset.textDrag || `Drag ${itemsLabel} here or`;
   const dragTextEl = document.createElement("span");
   const chooseTextEl = document.createElement("span");
   const dragTextIsVisible = shouldShowDragText();
-  const chooseText = dragTextIsVisible
-    ? "choose from folder"
-    : "Choose from folder";
+  const chooseText =
+    fileInputEl.dataset.textChoose ||
+    (dragTextIsVisible ? "choose from folder" : "Choose from folder");
 
   // Create instructions text for aria-label
   DEFAULT_ARIA_LABEL_TEXT = dragTextIsVisible
@@ -271,7 +271,8 @@ const createSROnlyStatus = (fileInputEl) => {
   const fileInputParent = fileInputEl.closest(DROPZONE);
   const fileInputTarget = fileInputEl.closest(`.${TARGET_CLASS}`);
 
-  DEFAULT_FILE_STATUS_TEXT = `No ${itemsLabel} selected.`;
+  DEFAULT_FILE_STATUS_TEXT =
+    fileInputEl.dataset.textNoFileStatus || `No ${itemsLabel} selected.`;
 
   // Adds class names and other attributes
   statusEl.classList.add(SR_ONLY_CLASS);
@@ -394,7 +395,10 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   let previewHeadingText = "";
 
   if (fileNames.length === 1) {
-    previewHeadingText = Sanitizer.escapeHTML`Selected file <span class="usa-file-input__choose">${changeItemText}</span>`;
+    changeItemText = fileInputEl.dataset.textChangeFile || "Change file";
+    const selectedText =
+      fileInputEl.dataset.textSelectedFile || "Selected file";
+    previewHeadingText = Sanitizer.escapeHTML`${selectedText} <span class="usa-file-input__choose">${changeItemText}</span>`;
   } else if (fileNames.length > 1) {
     changeItemText = "Change files";
     previewHeadingText = Sanitizer.escapeHTML`${fileNames.length} files selected <span class="usa-file-input__choose">${changeItemText}</span>`;

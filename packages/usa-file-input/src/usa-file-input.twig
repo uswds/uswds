@@ -1,7 +1,6 @@
 {% set name = "file-input" %}
 {% set aria_hint =  id ~ "-hint" %}
 {% set aria_error = id ~ "-alert" %}
-
 <div class="usa-form-group{% if error %} usa-form-group--error{% endif %}">
   <label
     class="usa-label{% if error %} usa-label--error{% endif %}"
@@ -28,5 +27,10 @@
     {% if disabled_state == 'disabled' %}disabled{% endif %}
     {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
     {% if invalid_file_text %}data-errorMessage="{{ invalid_file_text }}"{% endif %}
+    {% if drag_text %}data-text-drag="{{ drag_text }}"{% endif %}
+    {% if choose_text %}data-text-choose="{{ choose_text }}"{% endif %}
+    {% if change_file_text %}data-text-change-file="{{ change_file_text }}"{% endif %}
+    {% if selected_file_text %}data-text-selected-file="{{ selected_file_text }}"{% endif %}
+    {% if no_file_status_text %}data-text-no-file-status="{{ no_file_status_text }}"{% endif %}
   />
 </div>
