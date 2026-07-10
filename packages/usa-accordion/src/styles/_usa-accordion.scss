@@ -21,14 +21,14 @@ $accordion-icon-map-defaults: (
   height: units(3),
 );
 
-$accordion-button-unopen-hc-icon: map-merge(
+$accordion-button-unopen-hc-icon: map.merge(
   $accordion-icon-map-defaults,
   (
     "name": "add",
   )
 );
 
-$accordion-button-open-hc-icon: map-merge(
+$accordion-button-open-hc-icon: map.merge(
   $accordion-icon-map-defaults,
   (
     "name": "remove",
