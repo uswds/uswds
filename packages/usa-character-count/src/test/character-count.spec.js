@@ -179,3 +179,38 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
   });
 });
+
+describe("character count with special characters in input ID", () => {
+  const { body } = document;
+  const SPECIAL_ID_TEMPLATE = `
+    <div class="usa-character-count">
+      <div class="usa-form-group">
+        <label class="usa-label" for="character-count-:r0:">Label</label>
+        <input class="usa-character-count__field" id="character-count-:r0:" maxlength="20" />
+        <span class="usa-character-count__message"></span>
+      </div>
+    </div>
+  `;
+
+  afterEach(() => {
+    CharacterCount.off(document.body);
+    body.textContent = "";
+  });
+
+  it("initializes without error when the input ID contains colons", () => {
+    body.innerHTML = SPECIAL_ID_TEMPLATE;
+    assert.doesNotThrow(() => CharacterCount.on(document.body));
+  });
+
+  it("applies error class to the label found via for attribute", () => {
+    body.innerHTML = SPECIAL_ID_TEMPLATE;
+    CharacterCount.on(document.body);
+
+    const input = body.querySelector(".usa-character-count__field");
+    const label = body.querySelector(".usa-label");
+    input.value = "123456789012345678901";
+    EVENTS.input(input);
+
+    assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), true);
+  });
+});

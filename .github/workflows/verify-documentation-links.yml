@@ -1,4 +1,4 @@
-name: CI Documentation Checks
+name: Verify documentation links
 
 on:
   schedule:
