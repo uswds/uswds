@@ -21,13 +21,11 @@ import { createRequire } from "node:module";
 import { build } from "esbuild";
 
 // twig.js is CJS-only; use createRequire to load it in an ESM context.
+// NOTE: this Node-side instance is only used at BUILD time (compiling .twig
+// source to tokens in the transform hook). It is a separate copy from the
+// esbuild-bundled runtime that executes in the browser — see bundleTwigRuntime.
 const require = createRequire(import.meta.url);
 const Twig = require("twig");
-
-// Disable Twig's internal template cache. Vite handles caching at the
-// module level; leaving Twig's cache on causes "There is already a template
-// with the ID" errors during HMR.
-Twig.cache(false);
 
 // Virtual module ID that .twig files import the twig runtime from.
 const TWIG_RUNTIME_ID = "virtual:uswds-twig-runtime";
@@ -66,6 +64,13 @@ const stubNodeBuiltins = {
  * esbuild resolves twig's internal require() graph (twig.factory → twig.core,
  * etc.) and emits a clean ESM module with a default export, which Rollup can
  * consume without the static-analysis failures of @rollup/plugin-commonjs.
+ *
+ * The bundled module also disables twig's internal template cache. Each .twig
+ * module registers itself via `Twig.twig({ id, data })` when it executes. On
+ * HMR, Vite re-executes the changed module against the same still-alive runtime
+ * instance, which would re-register an already-registered id and throw
+ * "There is already a template with the ID …". Disabling the cache here (in the
+ * runtime that actually executes in the browser) makes re-registration a no-op.
  * @returns {Promise<string>} ESM source code for the twig runtime
  */
 async function bundleTwigRuntime() {
@@ -79,7 +84,22 @@ async function bundleTwigRuntime() {
     plugins: [stubNodeBuiltins],
     logLevel: "silent",
   });
-  return result.outputFiles[0].text;
+  // Disable the browser runtime's template cache so HMR re-registration of a
+  // template id does not throw. esbuild emits the twig instance as
+  // `export default <expr>;`; rebind it to a name so we can call cache(false)
+  // on the exact instance that .twig modules import and register into.
+  const bundled = result.outputFiles[0].text;
+  const EXPORT_RE = /^export default (.+);$/m;
+  if (!EXPORT_RE.test(bundled)) {
+    throw new Error(
+      "vite-plugin-twig: could not locate esbuild's `export default` in the " +
+        "bundled twig runtime; the cache-disabling patch cannot be applied.",
+    );
+  }
+  return bundled.replace(
+    EXPORT_RE,
+    "const __twig = $1;\n__twig.cache(false);\nexport default __twig;",
+  );
 }
 
 /**

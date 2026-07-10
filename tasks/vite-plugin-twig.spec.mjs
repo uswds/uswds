@@ -12,7 +12,9 @@
 
 import assert from "node:assert";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { writeFile, mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import twigPlugin from "./vite-plugin-twig.mjs";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
@@ -174,6 +176,38 @@ describe("vite-plugin-twig", () => {
       const plugin = makePlugin();
       const ctx = makeContext(plugin);
       assert.strictEqual(await plugin.load.call(ctx, "/some/other.js"), null);
+    });
+
+    it("disables the browser runtime template cache (HMR guard)", async () => {
+      // Regression: without cache(false) on the bundled runtime, re-executing
+      // a .twig module during HMR re-registers its template id and throws
+      // "There is already a template with the ID …". The patch must land on
+      // the exact instance exported by the runtime.
+      const plugin = makePlugin();
+      const ctx = makeContext(plugin);
+      const code = await plugin.load.call(ctx, RESOLVED_TWIG_RUNTIME_ID);
+      assert.match(code, /\.cache\(false\)/);
+    });
+
+    it("re-registering a template id does not throw (HMR simulation)", async () => {
+      // Import the actual bundled runtime and prove the fix end-to-end:
+      // registering the same id twice (as HMR does) must be a no-op, not throw.
+      const plugin = makePlugin();
+      const ctx = makeContext(plugin);
+      const code = await plugin.load.call(ctx, RESOLVED_TWIG_RUNTIME_ID);
+
+      const dir = await mkdtemp(path.join(tmpdir(), "uswds-twig-rt-"));
+      const file = path.join(dir, "runtime.mjs");
+      try {
+        await writeFile(file, code);
+        const { default: Twig } = await import(pathToFileURL(file).href);
+        Twig.twig({ id: "hmr/dup.twig", data: "<p>first</p>" });
+        assert.doesNotThrow(() => {
+          Twig.twig({ id: "hmr/dup.twig", data: "<p>second</p>" });
+        }, "re-registering an existing template id must not throw with cache disabled");
+      } finally {
+        await rm(dir, { recursive: true, force: true });
+      }
     });
   });
 });
