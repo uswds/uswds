@@ -238,7 +238,7 @@ const setModalAttributes = (baseComponent, modalContentWrapper) => {
     throw new Error(`${modalID} is missing aria-labelledby attribute`);
 
   if (!ariaDescribedBy)
-    throw new Error(`${modalID} is missing aria-desribedby attribute`);
+    throw new Error(`${modalID} is missing aria-describedby attribute`);
 
   // Set attributes
   modalContentWrapper.setAttribute("role", "dialog");
