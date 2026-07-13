@@ -62,4 +62,14 @@ describe("keymap", () => {
 
     assert(onTab.notCalled);
   });
+
+  it("calls handler if Ctrl modifier is pressed", () => {
+    const onTab = sinon.stub();
+    const handler = keymap({ "Ctrl+Tab": onTab });
+    document.body.addEventListener("keydown", handler);
+    const event = new KeyboardEvent("keydown", { key: "Tab", ctrlKey: true });
+    document.body.dispatchEvent(event);
+
+    assert(onTab.calledOnceWithExactly(event));
+  });
 });
