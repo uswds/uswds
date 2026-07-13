@@ -967,6 +967,46 @@ const enhanceDatePicker = (el) => {
   datePickerEl.dataset.enhanced = "true";
 };
 
+const CALENDAR_OPEN_KEYBOARD_HINTS = [
+  "You can navigate by day using left and right arrows",
+  "Weeks by using up and down arrows",
+  "Months by using page up and page down keys",
+  "Years by using shift plus page up and shift plus page down",
+  "Home and end keys navigate to the beginning and end of a week",
+];
+
+const CALENDAR_OPEN_TOUCH_HINTS = [
+  "Swipe right or left to move between dates",
+  "Double-tap to select a date",
+  "Use previous month and next month to change months",
+  "Use the month and year buttons to choose a different month or year",
+];
+
+/**
+ * Whether the primary input is touch (mobile/tablet), not keyboard-first desktop.
+ *
+ * @returns {boolean}
+ */
+const isTouchPrimaryDevice = () => {
+  if (isIosDevice()) return true;
+
+  if (typeof window !== "undefined" && window.matchMedia) {
+    return window.matchMedia("(pointer: coarse)").matches;
+  }
+
+  return false;
+};
+
+/**
+ * Screen reader hints announced when the calendar first opens.
+ *
+ * @returns {string[]}
+ */
+const getCalendarOpenStatusHints = () =>
+  isTouchPrimaryDevice()
+    ? CALENDAR_OPEN_TOUCH_HINTS
+    : CALENDAR_OPEN_KEYBOARD_HINTS;
+
 // #region Calendar - Date Selection View
 
 /**
@@ -1213,13 +1253,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   }
 
   if (calendarWasHidden) {
-    statuses.push(
-      "You can navigate by day using left and right arrows",
-      "Weeks by using up and down arrows",
-      "Months by using page up and page down keys",
-      "Years by using shift plus page up and shift plus page down",
-      "Home and end keys navigate to the beginning and end of a week",
-    );
+    statuses.push(...getCalendarOpenStatusHints());
     statusEl.textContent = "";
   } else {
     statuses.push(`${monthLabel} ${focusedYear}`);

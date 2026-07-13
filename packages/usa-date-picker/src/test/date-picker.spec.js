@@ -65,6 +65,48 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
+    it("should announce keyboard instructions when opening the calendar on non-touch devices", () => {
+      EVENTS.click(button);
+
+      const status = root.querySelector(".usa-date-picker__status");
+
+      assert.ok(
+        status.textContent.includes("left and right arrows"),
+        "announces keyboard navigation hints",
+      );
+      assert.ok(
+        !status.textContent.includes("Swipe right or left"),
+        "does not announce touch navigation hints",
+      );
+    });
+
+    it("should announce touch instructions when opening the calendar on touch-primary devices", () => {
+      const originalMatchMedia = window.matchMedia;
+      window.matchMedia = (query) => ({
+        matches: query === "(pointer: coarse)",
+        media: query,
+        addListener: () => {},
+        removeListener: () => {},
+      });
+
+      try {
+        EVENTS.click(button);
+
+        const status = root.querySelector(".usa-date-picker__status");
+
+        assert.ok(
+          status.textContent.includes("Swipe right or left"),
+          "announces touch navigation hints",
+        );
+        assert.ok(
+          !status.textContent.includes("left and right arrows"),
+          "does not announce keyboard navigation hints",
+        );
+      } finally {
+        window.matchMedia = originalMatchMedia;
+      }
+    });
+
     it("should set aria-current='date' on today's date button", () => {
       EVENTS.click(button);
 
