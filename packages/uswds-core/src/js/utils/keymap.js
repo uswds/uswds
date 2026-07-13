@@ -17,6 +17,16 @@
  * @param {KeymapConfig} map
  * @return {KeyboardEventHandler}
  */
+// Maps the authoring-facing modifier name used in combo strings to the name recognized by
+// `KeyboardEvent.getModifierState()`. Every name matches except "Ctrl", whose DOM name is
+// "Control".
+const MODIFIER_STATE_NAMES = {
+  Shift: "Shift",
+  Alt: "Alt",
+  Ctrl: "Control",
+  Meta: "Meta",
+};
+
 module.exports = (map) => (event) => {
   // Bail out if this is not a KeyboardEvent (e.g. InputEvent from datalist
   // selection). Only KeyboardEvents have `key` and `getModifierState`.
@@ -38,12 +48,21 @@ module.exports = (map) => (event) => {
     const key = parts.pop();
 
     // Verify that the modifiers on the event are exactly equal to the modifiers specified in the
-    // key combination.
-    const isModifierMatch = ["Shift", "Alt", "Ctrl", "Meta"]
+    // key combination. `getModifierState` only recognizes the spec modifier name "Control", not
+    // "Ctrl", so map the authoring-facing name to the DOM name here.
+    const isModifierMatch = Object.keys(MODIFIER_STATE_NAMES)
       // For any modifier active in the event (or vice-versa, expected in the key combination)...
-      .filter((mod) => event.getModifierState(mod) || parts.includes(mod))
+      .filter(
+        (mod) =>
+          event.getModifierState(MODIFIER_STATE_NAMES[mod]) ||
+          parts.includes(mod),
+      )
       // Ensure that it is expected in the key combination (or vice-versa, active in the event).
-      .every((mod) => event.getModifierState(mod) && parts.includes(mod));
+      .every(
+        (mod) =>
+          event.getModifierState(MODIFIER_STATE_NAMES[mod]) &&
+          parts.includes(mod),
+      );
 
     if (key === event.key && isModifierMatch) {
       map[combo](event);
