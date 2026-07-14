@@ -1,14 +1,12 @@
 /**
- * A simple library to help you escape HTML using template strings.
+ * A simple library to help you escape HTML using template strings. This originated
+ * from https://web.archive.org/web/20150910040110/https://developer.mozilla.org/en-US/Firefox_OS/Security/Security_Automation
  *
- * It's the counterpart to our eslint "no-unsafe-innerhtml" plugin that helps us
- * avoid unsafe coding practices.
- * A full write-up of the Hows and Whys are documented
- * for developers at
- *  https://developer.mozilla.org/en-US/Firefox_OS/Security/Security_Automation
- * with additional background information and design docs at
- *  https://wiki.mozilla.org/User:Fbraun/Gaia/SafeinnerHTMLRoadmap
+ * It was converted from UMD to CommonJS, and unused methods were removed,
+ * but the spirit remains the same.
  *
+ * See additional background information and design docs at
+ * https://wiki.mozilla.org/User:Fbraun/Gaia/SafeinnerHTMLRoadmap
  */
 
 const Sanitizer = {
