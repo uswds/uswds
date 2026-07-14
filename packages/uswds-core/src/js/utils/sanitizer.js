@@ -36,7 +36,10 @@ const Sanitizer = {
     for (let i = 0; i < strings.length; i++) {
       result += strings[i];
       if (i + 1 < arguments.length) {
-        const value = arguments[i + 1] || "";
+        let value = arguments[i + 1];
+        if (value === null || value === undefined) {
+          value = "";
+        }
         result += String(value).replace(Sanitizer._entity, Sanitizer.getEntity);
       }
     }

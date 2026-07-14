@@ -20,6 +20,11 @@ describe("sanitizer", () => {
       assert.strictEqual(result, "&amp; &lt; &gt; &quot; &apos; &#x2F;");
     });
 
+    it("should escape all apostrophes in an interpolated value", () => {
+      const result = Sanitizer.escapeHTML`${"foo''bar"}`;
+      assert.strictEqual(result, "foo&apos;&apos;bar");
+    });
+
     it("escapes a script-injection attempt", () => {
       const value = '<script>alert("xss")</script>';
       const result = Sanitizer.escapeHTML`${value}`;
@@ -39,6 +44,21 @@ describe("sanitizer", () => {
     it("coerces non-string interpolated values via String()", () => {
       const result = Sanitizer.escapeHTML`count: ${42}`;
       assert.strictEqual(result, "count: 42");
+    });
+
+    it("preserves 0 as a string '0'", () => {
+      const result = Sanitizer.escapeHTML`count: ${0}`;
+      assert.strictEqual(result, "count: 0");
+    });
+
+    it("preserves false as a string 'false'", () => {
+      const result = Sanitizer.escapeHTML`value: ${false}`;
+      assert.strictEqual(result, "value: false");
+    });
+
+    it("coerces NaN to 'NaN'", () => {
+      const result = Sanitizer.escapeHTML`value: ${NaN}`;
+      assert.strictEqual(result, "value: NaN");
     });
 
     it("treats null interpolated values as an empty string", () => {
