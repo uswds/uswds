@@ -138,6 +138,47 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
+    it("should expose full day names to screen readers in day-of-week headers", () => {
+      EVENTS.click(button);
+
+      const dayOfWeekHeaders = Array.from(
+        getCalendarEl().querySelectorAll(
+          ".usa-date-picker__calendar__day-of-week",
+        ),
+      );
+
+      assert.deepEqual(
+        dayOfWeekHeaders.map(
+          (th) => th.querySelector(".usa-sr-only")?.textContent,
+        ),
+        [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+      );
+      dayOfWeekHeaders.forEach((th) => {
+        assert.ok(
+          th.querySelector("[aria-hidden='true']"),
+          "day-of-week header hides visible abbreviation from assistive tech",
+        );
+        assert.strictEqual(
+          th.getAttribute("abbr"),
+          null,
+          "day-of-week header should not use abbr",
+        );
+        assert.strictEqual(
+          th.getAttribute("aria-label"),
+          null,
+          "day-of-week header should not use aria-label",
+        );
+      });
+    });
+
     it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {
       EVENTS.click(button);
       assert.strictEqual(

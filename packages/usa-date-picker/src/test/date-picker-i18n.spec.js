@@ -142,7 +142,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       const daysOfTheWeek = Array.from(
         root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.innerHTML);
+      ).map((th) => th.querySelector("[aria-hidden='true']")?.textContent);
 
       assert.deepEqual(daysOfTheWeek, ["S", "M", "T", "W", "T", "F", "S"]);
     });
@@ -154,19 +154,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       const daysOfTheWeek = Array.from(
         root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.innerHTML);
+      ).map((th) => th.querySelector("[aria-hidden='true']")?.textContent);
 
       assert.deepEqual(daysOfTheWeek, ["D", "L", "M", "X", "J", "V", "S"]);
     });
 
-    it("should display the aria-label in the document language", () => {
+    it("should display the screen reader day name in the document language", () => {
       changeLanguage("es");
 
       EVENTS.click(button);
 
       const daysOfTheWeek = Array.from(
         root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.getAttribute("aria-label"));
+      ).map((th) => th.querySelector(".usa-sr-only")?.textContent);
 
       assert.deepEqual(daysOfTheWeek, [
         "domingo",
