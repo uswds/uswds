@@ -900,10 +900,10 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/awolfe76">
-                <img src="https://avatars.githubusercontent.com/u/2932572?v=4" width="100;" alt="awolfe76"/>
+            <a href="https://github.com/PeterDaveHello">
+                <img src="https://avatars.githubusercontent.com/u/3691490?v=4" width="100;" alt="PeterDaveHello"/>
                 <br />
-                <sub><b>Andrew Wolfe</b></sub>
+                <sub><b>Peter Dave Hello</b></sub>
             </a>
         </td>
         <td align="center">
@@ -995,6 +995,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/awolfe76">
+                <img src="https://avatars.githubusercontent.com/u/2932572?v=4" width="100;" alt="awolfe76"/>
+                <br />
+                <sub><b>Andrew Wolfe</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/sashashura">
                 <img src="https://avatars.githubusercontent.com/u/93376818?v=4" width="100;" alt="sashashura"/>
                 <br />
@@ -1022,27 +1029,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Brandon Ruffridge</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/cfarm">
                 <img src="https://avatars.githubusercontent.com/u/702526?v=4" width="100;" alt="cfarm"/>
                 <br />
                 <sub><b>Catherine Farman</b></sub>
-            </a>
-        </td>
-		</tr>
-		<tr>
-        <td align="center">
-            <a href="https://github.com/konklone">
-                <img src="https://avatars.githubusercontent.com/u/4592?v=4" width="100;" alt="konklone"/>
-                <br />
-                <sub><b>Eric Mill</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/PeterDaveHello">
-                <img src="https://avatars.githubusercontent.com/u/3691490?v=4" width="100;" alt="PeterDaveHello"/>
-                <br />
-                <sub><b>Peter Dave Hello</b></sub>
             </a>
         </td>
         <td align="center">
@@ -1067,15 +1060,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/fsierra">
-                <img src="https://avatars.githubusercontent.com/u/903042?v=4" width="100;" alt="fsierra"/>
-                <br />
-                <sub><b>Fabian Sierra</b></sub>
-            </a>
-        </td>
-		</tr>
-		<tr>
-        <td align="center">
             <a href="https://github.com/louh">
                 <img src="https://avatars.githubusercontent.com/u/2553268?v=4" width="100;" alt="louh"/>
                 <br />
@@ -1083,10 +1067,26 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/konklone">
+                <img src="https://avatars.githubusercontent.com/u/4592?v=4" width="100;" alt="konklone"/>
+                <br />
+                <sub><b>Eric Mill</b></sub>
+            </a>
+        </td>
+		</tr>
+		<tr>
+        <td align="center">
             <a href="https://github.com/jeffpw-goog">
                 <img src="https://avatars.githubusercontent.com/u/165937506?v=4" width="100;" alt="jeffpw-goog"/>
                 <br />
                 <sub><b>jeffpw-goog</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/fsierra">
+                <img src="https://avatars.githubusercontent.com/u/903042?v=4" width="100;" alt="fsierra"/>
+                <br />
+                <sub><b>Fabian Sierra</b></sub>
             </a>
         </td>
         <td align="center">
