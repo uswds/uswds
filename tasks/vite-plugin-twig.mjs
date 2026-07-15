@@ -26,6 +26,11 @@ import { build } from "esbuild";
 // esbuild-bundled runtime that executes in the browser — see bundleTwigRuntime.
 const require = createRequire(import.meta.url);
 const Twig = require("twig");
+// Disable the cache on the Node-side (build-time) instance too. During HMR,
+// transform() re-runs Twig.twig({ id, data }) on this instance; without
+// cache(false), re-registering an already-registered template id throws
+// "There is already a template with the ID …" on the server side.
+Twig.cache(false);
 
 // Virtual module ID that .twig files import the twig runtime from.
 const TWIG_RUNTIME_ID = "virtual:uswds-twig-runtime";
