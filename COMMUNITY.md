@@ -319,19 +319,19 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/cathybaptista">
-                <img src="https://avatars.githubusercontent.com/u/161740096?v=4" width="100;" alt="cathybaptista"/>
+            <a href="https://github.com/annepetersen">
+                <img src="https://avatars.githubusercontent.com/u/5359122?v=4" width="100;" alt="annepetersen"/>
                 <br />
-                <sub><b>Cathlene Baptista</b></sub>
+                <sub><b>Anne Petersen</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/annepetersen">
-                <img src="https://avatars.githubusercontent.com/u/5359122?v=4" width="100;" alt="annepetersen"/>
+            <a href="https://github.com/cathybaptista">
+                <img src="https://avatars.githubusercontent.com/u/161740096?v=4" width="100;" alt="cathybaptista"/>
                 <br />
-                <sub><b>Anne Petersen</b></sub>
+                <sub><b>Cathlene Baptista</b></sub>
             </a>
         </td>
         <td align="center">
