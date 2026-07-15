@@ -974,6 +974,53 @@ const enhanceDatePicker = (el) => {
 // #region Calendar - Date Selection View
 
 /**
+ * Remove the document listener that closes open calendars on outside click.
+ */
+const removeOutsideClickListener = () => {
+  if (outsideClickListener) {
+    document.removeEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
+    outsideClickListener = null;
+  }
+};
+
+/**
+ * Hide the calendar of a date picker component.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const hideCalendar = (el) => {
+  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
+
+  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
+  calendarEl.hidden = true;
+  statusEl.textContent = "";
+
+  if (!select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).length) {
+    removeOutsideClickListener();
+  }
+};
+
+/**
+ * Add a click listener to the document to hide the calendar when clicking outside the date picker component.
+ */
+const addOutsideClickListener = () => {
+  removeOutsideClickListener();
+
+  outsideClickListener = (event) => {
+    select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).forEach((datePickerEl) => {
+      if (!datePickerEl.contains(event.target)) {
+        hideCalendar(datePickerEl);
+      }
+    });
+  };
+
+  // Defer so the same click that opened the calendar doesn't close it
+  setTimeout(() => {
+    document.addEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
+  }, 0);
+};
+
+/**
  * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
@@ -1315,53 +1362,6 @@ const displayNextYear = (_buttonEl) => {
     nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
   }
   nextToFocus.focus();
-};
-
-/**
- * Remove the document listener that closes open calendars on outside click.
- */
-const removeOutsideClickListener = () => {
-  if (outsideClickListener) {
-    document.removeEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
-    outsideClickListener = null;
-  }
-};
-
-/**
- * Hide the calendar of a date picker component.
- *
- * @param {HTMLElement} el An element within the date picker component
- */
-const hideCalendar = (el) => {
-  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
-
-  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
-  calendarEl.hidden = true;
-  statusEl.textContent = "";
-
-  if (!select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).length) {
-    removeOutsideClickListener();
-  }
-};
-
-/**
- * Add a click listener to the document to hide the calendar when clicking outside the date picker component.
- */
-const addOutsideClickListener = () => {
-  removeOutsideClickListener();
-
-  outsideClickListener = (event) => {
-    select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).forEach((datePickerEl) => {
-      if (!datePickerEl.contains(event.target)) {
-        hideCalendar(datePickerEl);
-      }
-    });
-  };
-
-  // Defer so the same click that opened the calendar doesn't close it
-  setTimeout(() => {
-    document.addEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
-  }, 0);
 };
 
 /**
