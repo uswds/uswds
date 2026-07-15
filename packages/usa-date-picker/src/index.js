@@ -1061,7 +1061,6 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
-    const dayOfWeek = dateToRender.getDay();
 
     const formattedDate = formatDate(dateToRender);
 
