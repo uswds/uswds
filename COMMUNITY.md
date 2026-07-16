@@ -1,6 +1,6 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the GSA/TTS-based USWDS Internal Team, as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
+The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the [GSA/TTS-based USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making), as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
 
 These don't account for all the inputs to the system since there's also an even _broader_ community of teams and individuals that have adopted or use USWDS but might not have access to GitHub, or might not choose to join the USWDS Open Source Community officially or otherwise participate here. 
 
@@ -12,23 +12,13 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 <!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
-### USWDS Full-time Federal Staff (Admin)
-- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
-
-### USWDS Part-time Federal Staff (Maintainer)
-- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
-
-### USWDS Internal Team (Maintainers)
-
-- [@annepetersen](https://github.com/annepetersen)
-- [@chandracarney](https://github.com/chandracarney)
-- [@ethangardner](https://github.com/ethangardner)
-- [@iamjolly](https://github.com/iamjolly)
-- [@sknep](https://github.com/sknep)
-- [@afeijoo](https://github.com/afeijoo)
-
 ### USWDS Community Maintainers
 
+- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
+- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
+- [@ethangardner](https://github.com/ethangardner), USWDS Engineering Lead
+- [@jonathanbobel](https://github.com/jonathanbobel)
+- [@iamjolly](https://github.com/iamjolly)
 - [@heymatthenry](https://github.com/heymatthenry), [former USWDS Engineering Lead](https://github.com/uswds/uswds/issues/6578#issuecomment-4042112679)
 
 ### USWDS Community Contributors
@@ -74,7 +64,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (June 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (July 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
@@ -102,12 +92,12 @@ Below are the current defined roles and responsibilities of the USWDS Open Sourc
 - Test releases and submit PR reviews
 - Run or help run USWDS events
 - Help maintain the repository and community infrastructure
-- Consult with and provide feedback to the USWDS Internal Team
+- Consult with and provide feedback to the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - Work on a USWDS-based design system
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
-- Direct communication with the USWDS Internal Team
+- Direct communication with the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - A voice (but not a vote, that comes with Maintainer status) in USWDS directional decisions
 - Access to USWDS Open Source Community communications and conversations
 - Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
@@ -150,14 +140,6 @@ A Maintainer must meet the responsibilities and requirements of a Contributor, p
 #### Process of becoming a USWDS Maintainer
 1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
 2. The USWDS Product Owner / Lead must then approve the PR, including their reasoning for that decision
-
-## USWDS Product Owner / Lead
-
-Serves as the main point of contact for strategy, roadmapping, decision-making, community, communication, coordination of teams and areas, and development activity and decisions. 
-
-## USWDS Internal Team
-
-Members of the USWDS Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or the program itself as part of their formal work duties. They have the same privileges and responsibilities as Maintainers.
 
 ## USWDS Alumni
 
