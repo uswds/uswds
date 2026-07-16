@@ -609,26 +609,19 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/jkjustjoshing">
-                <img src="https://avatars.githubusercontent.com/u/813192?v=4" width="100;" alt="jkjustjoshing"/>
+            <a href="https://github.com/madmanlear">
+                <img src="https://avatars.githubusercontent.com/u/118579?v=4" width="100;" alt="madmanlear"/>
                 <br />
-                <sub><b>Josh Kramer</b></sub>
+                <sub><b>Chris</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/kodyjackson">
-                <img src="https://avatars.githubusercontent.com/u/180445400?v=4" width="100;" alt="kodyjackson"/>
+            <a href="https://github.com/danbrady">
+                <img src="https://avatars.githubusercontent.com/u/381190?v=4" width="100;" alt="danbrady"/>
                 <br />
-                <sub><b>kodyjackson</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/blacktm">
-                <img src="https://avatars.githubusercontent.com/u/887429?v=4" width="100;" alt="blacktm"/>
-                <br />
-                <sub><b>Tom Black</b></sub>
+                <sub><b>Dan Brady</b></sub>
             </a>
         </td>
         <td align="center">
@@ -639,47 +632,40 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/danbrady">
-                <img src="https://avatars.githubusercontent.com/u/381190?v=4" width="100;" alt="danbrady"/>
+            <a href="https://github.com/blacktm">
+                <img src="https://avatars.githubusercontent.com/u/887429?v=4" width="100;" alt="blacktm"/>
                 <br />
-                <sub><b>Dan Brady</b></sub>
+                <sub><b>Tom Black</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/madmanlear">
-                <img src="https://avatars.githubusercontent.com/u/118579?v=4" width="100;" alt="madmanlear"/>
+            <a href="https://github.com/kodyjackson">
+                <img src="https://avatars.githubusercontent.com/u/180445400?v=4" width="100;" alt="kodyjackson"/>
                 <br />
-                <sub><b>Chris</b></sub>
+                <sub><b>kodyjackson</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/chazchumley">
-                <img src="https://avatars.githubusercontent.com/u/1307376?v=4" width="100;" alt="chazchumley"/>
+            <a href="https://github.com/jkjustjoshing">
+                <img src="https://avatars.githubusercontent.com/u/813192?v=4" width="100;" alt="jkjustjoshing"/>
                 <br />
-                <sub><b>Chaz Chumley</b></sub>
+                <sub><b>Josh Kramer</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/lpsinger">
+                <img src="https://avatars.githubusercontent.com/u/728407?v=4" width="100;" alt="lpsinger"/>
+                <br />
+                <sub><b>Leo Singer</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/jessieay">
-                <img src="https://avatars.githubusercontent.com/u/601515?v=4" width="100;" alt="jessieay"/>
+            <a href="https://github.com/fpigeonjr">
+                <img src="https://avatars.githubusercontent.com/u/4629398?v=4" width="100;" alt="fpigeonjr"/>
                 <br />
-                <sub><b>Jessie A. Young</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/miguelsousa">
-                <img src="https://avatars.githubusercontent.com/u/2119742?v=4" width="100;" alt="miguelsousa"/>
-                <br />
-                <sub><b>Miguel Sousa</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/mgifford">
-                <img src="https://avatars.githubusercontent.com/u/116832?v=4" width="100;" alt="mgifford"/>
-                <br />
-                <sub><b>Mike Gifford</b></sub>
+                <sub><b>Frank Pigeon Jr.</b></sub>
             </a>
         </td>
         <td align="center">
@@ -690,17 +676,31 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/fpigeonjr">
-                <img src="https://avatars.githubusercontent.com/u/4629398?v=4" width="100;" alt="fpigeonjr"/>
+            <a href="https://github.com/mgifford">
+                <img src="https://avatars.githubusercontent.com/u/116832?v=4" width="100;" alt="mgifford"/>
                 <br />
-                <sub><b>Frank Pigeon Jr.</b></sub>
+                <sub><b>Mike Gifford</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/lpsinger">
-                <img src="https://avatars.githubusercontent.com/u/728407?v=4" width="100;" alt="lpsinger"/>
+            <a href="https://github.com/miguelsousa">
+                <img src="https://avatars.githubusercontent.com/u/2119742?v=4" width="100;" alt="miguelsousa"/>
                 <br />
-                <sub><b>Leo Singer</b></sub>
+                <sub><b>Miguel Sousa</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/jessieay">
+                <img src="https://avatars.githubusercontent.com/u/601515?v=4" width="100;" alt="jessieay"/>
+                <br />
+                <sub><b>Jessie A. Young</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/chazchumley">
+                <img src="https://avatars.githubusercontent.com/u/1307376?v=4" width="100;" alt="chazchumley"/>
+                <br />
+                <sub><b>Chaz Chumley</b></sub>
             </a>
         </td>
 		</tr>
