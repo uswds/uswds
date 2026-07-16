@@ -71,6 +71,7 @@
     "test:a11y": "storybook build -o _site && concurrently -k -s first -n \"SB,TEST\" \"http-server _site --port 6006 --silent\" \"wait-on --timeout 30000 http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
     "test:sass": "gulp sassTests",
     "test:unit": "gulp unitTests",
+    "test:sassInclude": "gulp includeTests",
     "version": "gulp release",
     "watch": "gulp watch",
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
