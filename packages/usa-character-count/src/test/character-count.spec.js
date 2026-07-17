@@ -9,6 +9,10 @@ const {
   INPUT_ERROR_CLASS,
   VALIDATION_MESSAGE,
   MESSAGE_INVALID_CLASS,
+  LIMIT_EXCEEDED_MESSAGE,
+  SR_STATUS_DEBOUNCE_MS,
+  SR_RECOVERY_DEBOUNCE_MS,
+  VALIDITY_SYNC_MS,
 } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
@@ -85,17 +89,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(srStatus.length, 1);
     });
 
-    it("does not set aria-live on the sr status message synchronously", () => {
-      assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
-    });
-
-    it("sets aria-live on the sr status message after a delay", (done) => {
-      setTimeout(() => {
-        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
-        done();
-      }, 150);
-    });
-
     it("adds initial status message for the character count component", () => {
       assert.strictEqual(
         statusMessageVisual.innerHTML,
@@ -154,12 +147,11 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("should show the component and input as invalid when the input is over the limit", () => {
+    it("should show the component and input as invalid when the input is over the limit", (done) => {
       input.value = "123456789012345678901";
 
       EVENTS.input(input);
 
-      assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
       assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), true);
       assert.strictEqual(input.classList.contains(INPUT_ERROR_CLASS), true);
       assert.strictEqual(
@@ -170,12 +162,67 @@ tests.forEach(({ name, selector: containerSelector }) => {
         statusMessageVisual.classList.contains(MESSAGE_INVALID_CLASS),
         true,
       );
+
+      setTimeout(() => {
+        assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
+        done();
+      }, VALIDITY_SYNC_MS + 50);
     });
 
     it("should not allow for innerHTML of child elements ", () => {
       Array.from(statusMessageVisual.childNodes).forEach((childNode) => {
         assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
       });
+    });
+
+    it("announces assertively after debounce when first crossing over the limit", (done) => {
+      input.value = "123456789012345678901";
+
+      EVENTS.input(input);
+
+      setTimeout(() => {
+        assert.strictEqual(
+          statusMessageSR.textContent,
+          `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
+        );
+        assert.strictEqual(
+          statusMessageSR.getAttribute("aria-live"),
+          "assertive",
+        );
+        done();
+      }, SR_STATUS_DEBOUNCE_MS + 50);
+    });
+
+    it("uses polite announcements while typing under the limit", (done) => {
+      input.value = "1";
+
+      EVENTS.input(input);
+
+      setTimeout(() => {
+        assert.strictEqual(statusMessageSR.textContent, "19 characters left");
+        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
+        done();
+      }, SR_STATUS_DEBOUNCE_MS + 50);
+    });
+
+    it("announces recovery quickly when backspacing under the limit", (done) => {
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      setTimeout(() => {
+        input.value = "1234567890123456789";
+        EVENTS.input(input);
+
+        setTimeout(() => {
+          assert.strictEqual(statusMessageSR.textContent, "1 character left");
+          assert.strictEqual(
+            statusMessageSR.getAttribute("aria-live"),
+            "polite",
+          );
+          assert.strictEqual(input.validationMessage, "");
+          done();
+        }, SR_RECOVERY_DEBOUNCE_MS + VALIDITY_SYNC_MS + 50);
+      }, VALIDITY_SYNC_MS + 50);
     });
   });
 });
