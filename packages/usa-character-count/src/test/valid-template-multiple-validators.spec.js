@@ -3,6 +3,11 @@ const path = require("path");
 const assert = require("assert");
 const CharacterCount = require("../index");
 
+const {
+  VALIDATION_MESSAGE,
+  VALIDITY_SYNC_MS,
+} = CharacterCount;
+
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/valid-template-multiple-validators.template.html"),
 );
@@ -78,21 +83,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(input.validationMessage, "Constraints not satisfied");
     });
 
-    it("should clear the validation message when input is only invalid by character count validation", () => {
+    it("should clear the validation message when input is only invalid by character count validation", (done) => {
       input.value = "abcdef";
 
       EVENTS.input(input);
 
-      assert.strictEqual(
-        input.validationMessage,
-        CharacterCount.VALIDATION_MESSAGE,
-      );
+      assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
 
       input.value = "abcde";
 
       EVENTS.input(input);
 
-      assert.strictEqual(input.validationMessage, "");
+      setTimeout(() => {
+        assert.strictEqual(input.validationMessage, "");
+        done();
+      }, VALIDITY_SYNC_MS + 50);
     });
   });
 });

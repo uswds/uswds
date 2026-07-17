@@ -147,11 +147,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("should show the component and input as invalid when the input is over the limit", (done) => {
+    it("should show the component and input as invalid when the input is over the limit", () => {
       input.value = "123456789012345678901";
 
       EVENTS.input(input);
 
+      assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
       assert.strictEqual(label.classList.contains(LABEL_ERROR_CLASS), true);
       assert.strictEqual(input.classList.contains(INPUT_ERROR_CLASS), true);
       assert.strictEqual(
@@ -162,11 +163,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
         statusMessageVisual.classList.contains(MESSAGE_INVALID_CLASS),
         true,
       );
-
-      setTimeout(() => {
-        assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
-        done();
-      }, VALIDITY_SYNC_MS + 50);
     });
 
     it("should not allow for innerHTML of child elements ", () => {

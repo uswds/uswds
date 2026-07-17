@@ -143,16 +143,22 @@ const validitySyncTimers = new WeakMap();
  */
 const scheduleValiditySync = (inputEl, isOverLimit) => {
   window.clearTimeout(validitySyncTimers.get(inputEl));
-  validitySyncTimers.set(
-    inputEl,
-    window.setTimeout(() => {
-      if (isOverLimit) {
-        inputEl.setCustomValidity(VALIDATION_MESSAGE);
-      } else {
-        inputEl.setCustomValidity("");
-      }
-    }, VALIDITY_SYNC_MS),
-  );
+
+  if (isOverLimit && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+    return;
+  }
+
+  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    validitySyncTimers.set(
+      inputEl,
+      window.setTimeout(() => {
+        if (inputEl.validationMessage === VALIDATION_MESSAGE) {
+          inputEl.setCustomValidity("");
+        }
+      }, VALIDITY_SYNC_MS),
+    );
+  }
 };
 
 /**
