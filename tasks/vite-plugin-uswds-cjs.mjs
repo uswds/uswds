@@ -8,10 +8,10 @@
  * This plugin performs a simple mechanical transformation:
  * - `const x = require("path")` → `import x from "path"`
  * - `const { a, b } = require("path")` → `import _modN from "path"; const { a, b } = _modN;`
- * - `module.exports = x` → `export default x`
+ * - `module.exports = x` (at column 0) → `export default x`
  * - `exports.name = value` → `export { value as name }`
  *
- * It only processes files under packages/ that are NOT .twig or .stories.js files.
+ * It only processes .js files under packages/ that are NOT .stories.js files.
  */
 
 import path from "node:path";
@@ -120,29 +120,6 @@ export default function uswdsCjsPlugin(options = {}) {
           "export default ",
         );
         hasChanges = true;
-      }
-
-      // Check for remaining module.exports (indented, e.g. inside UMD/IIFE)
-      const current = s.toString();
-      if (current.includes("module.exports")) {
-        // Handle UMD/IIFE: !(function(factory){ module.exports = factory(); })(function(){ ... })
-        const umdMatch = current.match(
-          /^!\(function\s*\([^)]*\)\s*\{[\s\S]*?module\.exports\s*=\s*\w+\(\);?\s*\}\)\((function\s*\([^)]*\)\s*\{[\s\S]*\})\);?\s*$/m,
-        );
-        if (umdMatch) {
-          // For UMD, replace the entire file content
-          s.overwrite(0, code.length, `export default (${umdMatch[1]})();`);
-          hasChanges = true;
-        } else {
-          // Fallback: replace any remaining module.exports
-          const fallbackMatch = current.match(/\s*module\.exports\s*=\s*/);
-          if (fallbackMatch && fallbackMatch.index !== undefined) {
-            const start = fallbackMatch.index;
-            const end = start + fallbackMatch[0].length;
-            s.overwrite(start, end, "\nexport default ");
-            hasChanges = true;
-          }
-        }
       }
 
       // Transform: exports.name = value

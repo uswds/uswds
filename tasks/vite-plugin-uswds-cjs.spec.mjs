@@ -99,16 +99,6 @@ describe("vite-plugin-uswds-cjs", () => {
       const out = transform(`exports.publicName = internalName;`);
       assert.match(out.code, /export \{ internalName as publicName \};/);
     });
-
-    it("converts a UMD/IIFE module.exports wrapper to export default", () => {
-      const out = transform(
-        `!(function (factory) { module.exports = factory(); })(function () { return 42; });`,
-      );
-      assert.match(
-        out.code,
-        /export default \(function \(\) \{ return 42; \}\)\(\);/,
-      );
-    });
   });
 
   describe("skip rules", () => {
