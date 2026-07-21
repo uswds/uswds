@@ -4,6 +4,7 @@
 # Ignore vs code directories
 *.code-workspace
 .vscode/
+.cursor/
 
 # ignore Node-specific files and directories
 node_modules/

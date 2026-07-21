@@ -11,8 +11,7 @@ const {
   MESSAGE_INVALID_CLASS,
   LIMIT_EXCEEDED_MESSAGE,
   SR_STATUS_DEBOUNCE_MS,
-  SR_RECOVERY_DEBOUNCE_MS,
-  VALIDITY_SYNC_MS,
+  AT_DEFER_MS,
 } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
@@ -87,6 +86,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
 
       assert.strictEqual(srStatus.length, 1);
+    });
+
+    it("does not set aria-live on the sr status message synchronously", () => {
+      assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
+    });
+
+    it("sets aria-live on the sr status message after a delay", (done) => {
+      setTimeout(() => {
+        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
+        done();
+      }, AT_DEFER_MS + 50);
     });
 
     it("adds initial status message for the character count component", () => {
@@ -209,16 +219,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
         input.value = "1234567890123456789";
         EVENTS.input(input);
 
-        setTimeout(() => {
-          assert.strictEqual(statusMessageSR.textContent, "1 character left");
-          assert.strictEqual(
-            statusMessageSR.getAttribute("aria-live"),
-            "polite",
-          );
-          assert.strictEqual(input.validationMessage, "");
-          done();
-        }, SR_RECOVERY_DEBOUNCE_MS + VALIDITY_SYNC_MS + 50);
-      }, VALIDITY_SYNC_MS + 50);
+        setTimeout(
+          () => {
+            assert.strictEqual(statusMessageSR.textContent, "1 character left");
+            assert.strictEqual(
+              statusMessageSR.getAttribute("aria-live"),
+              "polite",
+            );
+            assert.strictEqual(input.validationMessage, "");
+            done();
+          },
+          AT_DEFER_MS + AT_DEFER_MS + 50,
+        );
+      }, AT_DEFER_MS + 50);
     });
   });
 });

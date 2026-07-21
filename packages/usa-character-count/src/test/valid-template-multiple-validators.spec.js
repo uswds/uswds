@@ -3,10 +3,7 @@ const path = require("path");
 const assert = require("assert");
 const CharacterCount = require("../index");
 
-const {
-  VALIDATION_MESSAGE,
-  VALIDITY_SYNC_MS,
-} = CharacterCount;
+const { VALIDATION_MESSAGE, AT_DEFER_MS } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/valid-template-multiple-validators.template.html"),
@@ -97,7 +94,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       setTimeout(() => {
         assert.strictEqual(input.validationMessage, "");
         done();
-      }, VALIDITY_SYNC_MS + 50);
+      }, AT_DEFER_MS + 50);
     });
   });
 });
