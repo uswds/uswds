@@ -1,6 +1,6 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the GSA/TTS-based USWDS Internal Team, as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
+The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the [GSA/TTS-based USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making), as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
 
 These don't account for all the inputs to the system since there's also an even _broader_ community of teams and individuals that have adopted or use USWDS but might not have access to GitHub, or might not choose to join the USWDS Open Source Community officially or otherwise participate here. 
 
@@ -12,23 +12,13 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 <!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
-### USWDS Full-time Federal Staff (Admin)
-- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
-
-### USWDS Part-time Federal Staff (Maintainer)
-- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
-
-### USWDS Internal Team (Maintainers)
-
-- [@annepetersen](https://github.com/annepetersen)
-- [@chandracarney](https://github.com/chandracarney)
-- [@ethangardner](https://github.com/ethangardner)
-- [@iamjolly](https://github.com/iamjolly)
-- [@sknep](https://github.com/sknep)
-- [@afeijoo](https://github.com/afeijoo)
-
 ### USWDS Community Maintainers
 
+- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
+- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
+- [@ethangardner](https://github.com/ethangardner), USWDS Engineering Lead
+- [@jonathanbobel](https://github.com/jonathanbobel)
+- [@iamjolly](https://github.com/iamjolly)
 - [@heymatthenry](https://github.com/heymatthenry), [former USWDS Engineering Lead](https://github.com/uswds/uswds/issues/6578#issuecomment-4042112679)
 
 ### USWDS Community Contributors
@@ -74,7 +64,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (June 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (July 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
@@ -102,12 +92,12 @@ Below are the current defined roles and responsibilities of the USWDS Open Sourc
 - Test releases and submit PR reviews
 - Run or help run USWDS events
 - Help maintain the repository and community infrastructure
-- Consult with and provide feedback to the USWDS Internal Team
+- Consult with and provide feedback to the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - Work on a USWDS-based design system
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
-- Direct communication with the USWDS Internal Team
+- Direct communication with the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - A voice (but not a vote, that comes with Maintainer status) in USWDS directional decisions
 - Access to USWDS Open Source Community communications and conversations
 - Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
@@ -150,14 +140,6 @@ A Maintainer must meet the responsibilities and requirements of a Contributor, p
 #### Process of becoming a USWDS Maintainer
 1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
 2. The USWDS Product Owner / Lead must then approve the PR, including their reasoning for that decision
-
-## USWDS Product Owner / Lead
-
-Serves as the main point of contact for strategy, roadmapping, decision-making, community, communication, coordination of teams and areas, and development activity and decisions. 
-
-## USWDS Internal Team
-
-Members of the USWDS Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or the program itself as part of their formal work duties. They have the same privileges and responsibilities as Maintainers.
 
 ## USWDS Alumni
 
@@ -627,26 +609,19 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/jkjustjoshing">
-                <img src="https://avatars.githubusercontent.com/u/813192?v=4" width="100;" alt="jkjustjoshing"/>
+            <a href="https://github.com/madmanlear">
+                <img src="https://avatars.githubusercontent.com/u/118579?v=4" width="100;" alt="madmanlear"/>
                 <br />
-                <sub><b>Josh Kramer</b></sub>
+                <sub><b>Chris</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/kodyjackson">
-                <img src="https://avatars.githubusercontent.com/u/180445400?v=4" width="100;" alt="kodyjackson"/>
+            <a href="https://github.com/danbrady">
+                <img src="https://avatars.githubusercontent.com/u/381190?v=4" width="100;" alt="danbrady"/>
                 <br />
-                <sub><b>kodyjackson</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/blacktm">
-                <img src="https://avatars.githubusercontent.com/u/887429?v=4" width="100;" alt="blacktm"/>
-                <br />
-                <sub><b>Tom Black</b></sub>
+                <sub><b>Dan Brady</b></sub>
             </a>
         </td>
         <td align="center">
@@ -657,47 +632,40 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/danbrady">
-                <img src="https://avatars.githubusercontent.com/u/381190?v=4" width="100;" alt="danbrady"/>
+            <a href="https://github.com/blacktm">
+                <img src="https://avatars.githubusercontent.com/u/887429?v=4" width="100;" alt="blacktm"/>
                 <br />
-                <sub><b>Dan Brady</b></sub>
+                <sub><b>Tom Black</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/madmanlear">
-                <img src="https://avatars.githubusercontent.com/u/118579?v=4" width="100;" alt="madmanlear"/>
+            <a href="https://github.com/kodyjackson">
+                <img src="https://avatars.githubusercontent.com/u/180445400?v=4" width="100;" alt="kodyjackson"/>
                 <br />
-                <sub><b>Chris</b></sub>
+                <sub><b>kodyjackson</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/chazchumley">
-                <img src="https://avatars.githubusercontent.com/u/1307376?v=4" width="100;" alt="chazchumley"/>
+            <a href="https://github.com/jkjustjoshing">
+                <img src="https://avatars.githubusercontent.com/u/813192?v=4" width="100;" alt="jkjustjoshing"/>
                 <br />
-                <sub><b>Chaz Chumley</b></sub>
+                <sub><b>Josh Kramer</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/lpsinger">
+                <img src="https://avatars.githubusercontent.com/u/728407?v=4" width="100;" alt="lpsinger"/>
+                <br />
+                <sub><b>Leo Singer</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/jessieay">
-                <img src="https://avatars.githubusercontent.com/u/601515?v=4" width="100;" alt="jessieay"/>
+            <a href="https://github.com/fpigeonjr">
+                <img src="https://avatars.githubusercontent.com/u/4629398?v=4" width="100;" alt="fpigeonjr"/>
                 <br />
-                <sub><b>Jessie A. Young</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/miguelsousa">
-                <img src="https://avatars.githubusercontent.com/u/2119742?v=4" width="100;" alt="miguelsousa"/>
-                <br />
-                <sub><b>Miguel Sousa</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/mgifford">
-                <img src="https://avatars.githubusercontent.com/u/116832?v=4" width="100;" alt="mgifford"/>
-                <br />
-                <sub><b>Mike Gifford</b></sub>
+                <sub><b>Frank Pigeon Jr.</b></sub>
             </a>
         </td>
         <td align="center">
@@ -708,17 +676,31 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/fpigeonjr">
-                <img src="https://avatars.githubusercontent.com/u/4629398?v=4" width="100;" alt="fpigeonjr"/>
+            <a href="https://github.com/mgifford">
+                <img src="https://avatars.githubusercontent.com/u/116832?v=4" width="100;" alt="mgifford"/>
                 <br />
-                <sub><b>Frank Pigeon Jr.</b></sub>
+                <sub><b>Mike Gifford</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/lpsinger">
-                <img src="https://avatars.githubusercontent.com/u/728407?v=4" width="100;" alt="lpsinger"/>
+            <a href="https://github.com/miguelsousa">
+                <img src="https://avatars.githubusercontent.com/u/2119742?v=4" width="100;" alt="miguelsousa"/>
                 <br />
-                <sub><b>Leo Singer</b></sub>
+                <sub><b>Miguel Sousa</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/jessieay">
+                <img src="https://avatars.githubusercontent.com/u/601515?v=4" width="100;" alt="jessieay"/>
+                <br />
+                <sub><b>Jessie A. Young</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/chazchumley">
+                <img src="https://avatars.githubusercontent.com/u/1307376?v=4" width="100;" alt="chazchumley"/>
+                <br />
+                <sub><b>Chaz Chumley</b></sub>
             </a>
         </td>
 		</tr>
