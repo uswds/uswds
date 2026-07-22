@@ -1,6 +1,5 @@
 const select = require("../../uswds-core/src/js/utils/select");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
-const debounce = require("../../uswds-core/src/js/utils/debounce");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
@@ -21,7 +20,7 @@ const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
 const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 const DEFAULT_STATUS_LABEL = `characters allowed`;
 const LIMIT_EXCEEDED_MESSAGE = "Character limit exceeded.";
-const SR_STATUS_DEBOUNCE_MS = 1000;
+const SR_STATUS_DEBOUNCE_MS = 1200;
 const AT_DEFER_MS = 100;
 
 /**
@@ -139,15 +138,35 @@ const updateSrStatus = (msgEl, statusMessage, assertive = false) => {
 };
 
 /**
- * Updates the character count status for screen readers after a delay.
+ * @param {Function} callback
+ * @param {number} delay
+ * @returns {Function & { cancel: () => void }}
+ */
+const createDebounced = (callback, delay) => {
+  let timer = null;
+  const debounced = (...args) => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+  debounced.cancel = () => {
+    window.clearTimeout(timer);
+    timer = null;
+  };
+  return debounced;
+};
+
+/**
+ * Updates the character count status for screen readers after typing pauses.
  *
  * @param {HTMLElement} msgEl - The screen reader status message element
  * @param {string} statusMessage - A string of the current character status
- * @param {boolean} assertive - Whether to announce assertively (e.g. first cross over limit)
+ * @param {boolean} assertive - Whether to announce assertively when over the limit
  */
-const srUpdateStatus = debounce(updateSrStatus, SR_STATUS_DEBOUNCE_MS);
+const srUpdateStatus = createDebounced(updateSrStatus, SR_STATUS_DEBOUNCE_MS);
 
-const srUpdateStatusRecovery = debounce(updateSrStatus, AT_DEFER_MS);
+const srUpdateStatusRecovery = createDebounced(updateSrStatus, AT_DEFER_MS);
 
 const validitySyncTimers = new WeakMap();
 
@@ -200,20 +219,22 @@ const updateCountMessage = (inputEl) => {
 
   const isOverLimit = currentLength > maxLength;
   const wasOverLimit = inputEl.dataset.characterCountOverLimit === "true";
-  const firstCrossOver = isOverLimit && !wasOverLimit;
   const crossedUnderLimit = wasOverLimit && !isOverLimit;
 
   statusMessage.textContent = currentStatusMessage;
 
-  if (firstCrossOver) {
+  if (crossedUnderLimit) {
+    srUpdateStatus.cancel();
+    srUpdateStatusRecovery(srStatusMessage, currentStatusMessage);
+  } else if (isOverLimit) {
+    srUpdateStatusRecovery.cancel();
     srUpdateStatus(
       srStatusMessage,
       `${LIMIT_EXCEEDED_MESSAGE} ${currentStatusMessage}`,
       true,
     );
-  } else if (crossedUnderLimit) {
-    srUpdateStatusRecovery(srStatusMessage, currentStatusMessage);
   } else {
+    srUpdateStatusRecovery.cancel();
     srUpdateStatus(srStatusMessage, currentStatusMessage);
   }
 

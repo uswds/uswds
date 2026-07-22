@@ -181,7 +181,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
-    it("announces assertively after debounce when first crossing over the limit", (done) => {
+    it("announces assertively after debounce when over the limit", (done) => {
       input.value = "123456789012345678901";
 
       EVENTS.input(input);
@@ -190,6 +190,29 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           statusMessageSR.textContent,
           `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
+        );
+        assert.strictEqual(
+          statusMessageSR.getAttribute("aria-live"),
+          "assertive",
+        );
+        done();
+      }, SR_STATUS_DEBOUNCE_MS + 50);
+    });
+
+    it("waits for typing to pause before assertively announcing how far over the limit", (done) => {
+      input.value = "1234567890123456789";
+      EVENTS.input(input);
+
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      input.value = "1234567890123456789012";
+      EVENTS.input(input);
+
+      setTimeout(() => {
+        assert.strictEqual(
+          statusMessageSR.textContent,
+          `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
         );
         assert.strictEqual(
           statusMessageSR.getAttribute("aria-live"),
@@ -232,6 +255,26 @@ tests.forEach(({ name, selector: containerSelector }) => {
           AT_DEFER_MS + AT_DEFER_MS + 50,
         );
       }, AT_DEFER_MS + 50);
+    });
+
+    it("does not replay a stale over-limit announcement after backspacing to empty", (done) => {
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      input.value = "";
+      EVENTS.input(input);
+
+      setTimeout(() => {
+        assert.strictEqual(
+          statusMessageSR.textContent,
+          "20 characters allowed",
+        );
+        assert.strictEqual(
+          statusMessageSR.getAttribute("aria-live"),
+          "polite",
+        );
+        done();
+      }, SR_STATUS_DEBOUNCE_MS + AT_DEFER_MS + 50);
     });
   });
 });
