@@ -356,7 +356,10 @@ through all possible variants
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
   $all-breakpoints: map-collect($our-breakpoints, $custom-breakpoints);
-  @each $media-key, $media-value in $all-breakpoints {
+  // Sort breakpoints by value to ensure consistent ordering (mobile-first)
+  // regardless of whether they're standard or custom breakpoints
+  $sorted-breakpoints: sort-map-by-value($all-breakpoints);
+  @each $media-key, $media-value in $sorted-breakpoints {
     @if (map.get($theme-utility-breakpoints-complete, $media-key)) {
       @include at-media($media-key) {
         @include these-utilities($utilities, $media-key);

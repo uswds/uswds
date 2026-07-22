@@ -1,0 +1,85 @@
+/*
+----------------------------------------
+sort-map-by-value()
+----------------------------------------
+Sort a map by its values in ascending
+numeric order. Useful for ensuring
+breakpoints are iterated from smallest
+to largest regardless of insertion order.
+
+@param {Map} $map - Map to sort
+@return {Map} - Map sorted by values
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "./strip-unit" as *;
+@use "./to-number" as *;
+@use "../units/root" as root;
+
+@function normalize-breakpoint-value($value) {
+  $numeric: null;
+
+  @if meta.type-of($value) == "number" {
+    $numeric: $value;
+  } @else if meta.type-of($value) == "string" {
+    $numeric: to-number($value);
+  } @else {
+    @return $value;
+  }
+
+  $unit: math.unit($numeric);
+
+  @if $unit == "em" or $unit == "rem" {
+    @return strip-unit($numeric) * root.$root-font-size-equiv;
+  }
+
+  @return strip-unit($numeric);
+}
+
+@function sort-map-by-value($map) {
+  $sorted-map: ();
+  $sorted-keys: ();
+  $sorted-values: ();
+
+  // Convert map to parallel lists of keys and values
+  @each $key, $value in $map {
+    $numeric-value: normalize-breakpoint-value($value);
+
+    $sorted-keys: append($sorted-keys, $key);
+    $sorted-values: append($sorted-values, $numeric-value);
+  }
+
+  // Bubble sort the keys based on their corresponding values
+  // (Simple but effective for small breakpoint maps)
+  $length: length($sorted-keys);
+
+  @for $i from 1 through $length {
+    @for $j from $i through $length {
+      $val-i: nth($sorted-values, $i);
+      $val-j: nth($sorted-values, $j);
+
+      @if $val-j < $val-i {
+        // Swap values
+        $temp-val: $val-i;
+        $sorted-values: set-nth($sorted-values, $i, $val-j);
+        $sorted-values: set-nth($sorted-values, $j, $temp-val);
+
+        // Swap keys
+        $temp-key: nth($sorted-keys, $i);
+        $sorted-keys: set-nth($sorted-keys, $i, nth($sorted-keys, $j));
+        $sorted-keys: set-nth($sorted-keys, $j, $temp-key);
+      }
+    }
+  }
+
+  // Build the sorted map using the sorted keys in order
+  $sorted-map: ();
+  @each $key in $sorted-keys {
+    $sorted-map: map.set($sorted-map, $key, map.get($map, $key));
+  }
+
+  @return $sorted-map;
+}
