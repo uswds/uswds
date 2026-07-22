@@ -731,4 +731,109 @@ $this-function: "is-color-dark()";
   }
 }
 
+$this-function: "get-last()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the last item of a non-empty list.") {
+    $test: get-last((1, 2, 3));
+    $expect: 3;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns null for an empty list.") {
+    $test: get-last(());
+    $expect: null;
+    @include assert-equal($test, $expect);
+  }
+}
+
+$this-function: "de-list()";
+@include describe("[function] #{$this-function}") {
+  @include it("Unwraps a single-element list into its element.") {
+    $test: de-list((42));
+    $expect: 42;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a multi-element list unchanged.") {
+    $test: de-list((1, 2));
+    $expect: 1, 2;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a non-list value unchanged.") {
+    $test: de-list(5);
+    $expect: 5;
+    @include assert-equal($test, $expect);
+  }
+}
+
+$this-function: "to-number()";
+@include describe("[function] #{$this-function}") {
+  @include it("Converts a positive numeric string to a number.") {
+    $test: to-number("42");
+    $expect: 42;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Converts a negative numeric string to a negative number.") {
+    $test: to-number("-7");
+    $expect: -7;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns a number value unchanged.") {
+    $test: to-number(100);
+    $expect: 100;
+    @include assert-equal($test, $expect);
+  }
+}
+
+$this-function: "units()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the correct rem value for a numeric spacing token.") {
+    $test: units(2);
+    $expect: 1rem;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the correct rem value for a string spacing token.") {
+    $test: units("105");
+    $expect: 0.75rem;
+    @include assert-equal($test, $expect);
+  }
+}
+
+$this-function: "error-not-token()";
+@include describe("[function] #{$this-function}") {
+  @include it(
+    "Returns an error string without a token list when no map is provided."
+  ) {
+    $test: error-not-token("foo", "spacing unit");
+    $expect: "Error: 'foo' is not a valid USWDS spacing unit token. ";
+    @include assert-equal($test, $expect);
+  }
+  @include it(
+    "Returns an error string with a token list when a valid-token-map is provided."
+  ) {
+    $test: error-not-token(
+      "foo",
+      "spacing unit",
+      (
+        "a": 1,
+        "b": 2,
+      )
+    );
+    $expect: "Error: 'foo' is not a valid USWDS spacing unit token.  Valid tokens: a, b";
+    @include assert-equal($test, $expect);
+  }
+}
+
+$this-function: "color-token-family()";
+@include describe("[function] #{$this-function}") {
+  @include it("Returns the family from a system color token string.") {
+    $test: color-token-family("red-warm-50v");
+    $expect: "red-warm";
+    @include assert-equal($test, $expect);
+  }
+  @include it("Returns the family when passed a pre-decomposed list.") {
+    $test: color-token-family(("accent-cool", "light", false));
+    $expect: "accent-cool";
+    @include assert-equal($test, $expect);
+  }
+}
+
 // Debug

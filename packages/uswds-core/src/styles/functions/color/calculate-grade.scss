@@ -62,11 +62,16 @@ even non-token colors
         $this-grade,
         "max"
       );
-      $next-grade: if($i < $grade-count, list.nth($our-grades, $i + 1), false);
+      $next-grade: if(
+        sass($i < $grade-count): list.nth($our-grades, $i + 1); else: false
+      );
       $next-grade-min: if(
-        $next-grade,
-        general.map-deep-get($system-color-grades, $next-grade, "min"),
-        false
+        sass($next-grade): general.map-deep-get(
+            $system-color-grades,
+            $next-grade,
+            "min"
+          );
+          else: false
       );
       // If the lum fits the range, assign a USWDS grade
       // Otherwise, set a grade midway between two USWDS grades
