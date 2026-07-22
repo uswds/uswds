@@ -314,6 +314,13 @@ $this-function: "next-token()";
     $expect: "white";
     @include assert-equal($test, $expect);
   }
+  @include it(
+    "Returns `white` when lighter from grade 5 (grade-0 index path)."
+  ) {
+    $test: next-token("gray-5", "lighter");
+    $expect: "white";
+    @include assert-equal($test, $expect);
+  }
   @include it("Returns `white` when lighter from < grade 5.") {
     $test: next-token("gray-2", "lighter");
     $expect: "white";
@@ -779,6 +786,11 @@ $this-function: "to-number()";
   @include it("Returns a number value unchanged.") {
     $test: to-number(100);
     $expect: 100;
+    @include assert-equal($test, $expect);
+  }
+  @include it("Converts a decimal numeric string to a fractional number.") {
+    $test: to-number("1.5");
+    $expect: 1.5;
     @include assert-equal($test, $expect);
   }
 }
