@@ -11,7 +11,7 @@
 @mixin set-icon-from-bg($background-color, $icon-dark, $icon-light) {
   $is-background-dark: is-color-dark($background-color);
 
-  $icon: if($is-background-dark, $icon-light, $icon-dark);
+  $icon: if(sass($is-background-dark): $icon-light; else: $icon-dark);
 
   @include add-background-svg($icon);
 }
