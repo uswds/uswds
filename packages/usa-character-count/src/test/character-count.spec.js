@@ -277,17 +277,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "";
       EVENTS.input(input);
 
-      setTimeout(() => {
-        assert.strictEqual(
-          statusMessageSR.textContent,
-          "20 characters allowed",
-        );
-        assert.strictEqual(
-          statusMessageSR.getAttribute("aria-live"),
-          "polite",
-        );
-        done();
-      }, SR_STATUS_DEBOUNCE_MS + AT_DEFER_MS + 50);
+      setTimeout(
+        () => {
+          assert.strictEqual(
+            statusMessageSR.textContent,
+            "20 characters allowed",
+          );
+          assert.strictEqual(
+            statusMessageSR.getAttribute("aria-live"),
+            "polite",
+          );
+          done();
+        },
+        SR_STATUS_DEBOUNCE_MS + AT_DEFER_MS + 50,
+      );
     });
   });
 });
