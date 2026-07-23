@@ -88,6 +88,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(srStatus.length, 1);
     });
 
+    it("does not create duplicate status messages when initialized twice", () => {
+      CharacterCount.on(containerSelector());
+
+      assert.strictEqual(
+        document.querySelectorAll(".usa-character-count__status").length,
+        1,
+      );
+      assert.strictEqual(
+        document.querySelectorAll(".usa-character-count__sr-status").length,
+        1,
+      );
+    });
+
     it("does not set aria-live on the sr status message synchronously", () => {
       assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
     });

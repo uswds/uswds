@@ -82,6 +82,10 @@ const setDataLength = (inputEl) => {
  * one visual status and another for screen readers
  */
 const createStatusMessages = (characterCountEl) => {
+  if (characterCountEl.querySelector(STATUS_MESSAGE_SR_ONLY)) {
+    return;
+  }
+
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
   const maxLength = getMaxLength(characterCountEl);
@@ -262,6 +266,8 @@ const updateCountMessage = (inputEl) => {
  * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
  */
 const enhanceCharacterCount = (inputEl) => {
+  if (inputEl.dataset.enhanced) return;
+
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -276,6 +282,8 @@ const enhanceCharacterCount = (inputEl) => {
     inputEl.dataset.characterCountOverLimit =
       inputEl.value.length > maxLength ? "true" : "false";
   }
+
+  inputEl.dataset.enhanced = "true";
 };
 
 const characterCount = behavior(
