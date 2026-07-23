@@ -17,9 +17,11 @@ $type-scale: font-size($theme-icon-list-font-family, $theme-body-font-size);
 
 // Get fixed size for icon, based on non-normalized size token
 $this-system-token: if(
-  map.has-key($all-type-scale, $theme-body-font-size),
-  map.get($all-type-scale, $theme-body-font-size),
-  $theme-body-font-size
+  sass(map.has-key($all-type-scale, $theme-body-font-size)): map.get(
+      $all-type-scale,
+      $theme-body-font-size
+    );
+    else: $theme-body-font-size
 );
 
 $icon-size: px-to-rem($this-system-token);
@@ -46,7 +48,9 @@ $icon-size: px-to-rem($this-system-token);
   @each $color, $grades in $all-project-colors {
     @each $grade, $value in $grades {
       @if $value {
-        $prefix: if($grade != "default", "#{$color}-#{$grade}", $color);
+        $prefix: if(
+          sass($grade != "default"): "#{$color}-#{$grade}"; else: $color
+        );
         &--#{$prefix} {
           .usa-icon-list__icon {
             color: color($prefix);
