@@ -1,4 +1,4 @@
-import { expect } from "@storybook/test";
+import { expect } from "storybook/test";
 import Component from "./usa-breadcrumb.twig";
 import { DefaultContent, TruncateContent } from "./content";
 
