@@ -294,12 +294,21 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/ethangardner">
+                <img src="https://avatars.githubusercontent.com/u/51552?v=4" width="100;" alt="ethangardner"/>
+                <br />
+                <sub><b>Ethan Gardner</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/toolness">
                 <img src="https://avatars.githubusercontent.com/u/124687?v=4" width="100;" alt="toolness"/>
                 <br />
                 <sub><b>Atul Varma</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/annepetersen">
                 <img src="https://avatars.githubusercontent.com/u/5359122?v=4" width="100;" alt="annepetersen"/>
@@ -307,8 +316,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Anne Petersen</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/cathybaptista">
                 <img src="https://avatars.githubusercontent.com/u/161740096?v=4" width="100;" alt="cathybaptista"/>
@@ -321,13 +328,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/1779930?v=4" width="100;" alt="aduth"/>
                 <br />
                 <sub><b>Andrew Duthie</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/ethangardner">
-                <img src="https://avatars.githubusercontent.com/u/51552?v=4" width="100;" alt="ethangardner"/>
-                <br />
-                <sub><b>Ethan Gardner</b></sub>
             </a>
         </td>
         <td align="center">
@@ -470,12 +470,21 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/ericsorenson">
+                <img src="https://avatars.githubusercontent.com/u/248694?v=4" width="100;" alt="ericsorenson"/>
+                <br />
+                <sub><b>Eric Sorenson</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/natalialuzuriaga">
                 <img src="https://avatars.githubusercontent.com/u/29980737?v=4" width="100;" alt="natalialuzuriaga"/>
                 <br />
                 <sub><b>Natalia Luzuriaga</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/brunerae">
                 <img src="https://avatars.githubusercontent.com/u/90786981?v=4" width="100;" alt="brunerae"/>
@@ -483,8 +492,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Ashley</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/mherchel">
                 <img src="https://avatars.githubusercontent.com/u/1605905?v=4" width="100;" alt="mherchel"/>
@@ -511,13 +518,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/2058515?v=4" width="100;" alt="manichandra"/>
                 <br />
                 <sub><b>Manichandra</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/ericsorenson">
-                <img src="https://avatars.githubusercontent.com/u/248694?v=4" width="100;" alt="ericsorenson"/>
-                <br />
-                <sub><b>Eric Sorenson</b></sub>
             </a>
         </td>
         <td align="center">
@@ -551,13 +551,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/carlosvalle">
-                <img src="https://avatars.githubusercontent.com/u/7017869?v=4" width="100;" alt="carlosvalle"/>
-                <br />
-                <sub><b>Carlos Valle</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/nickjs">
                 <img src="https://avatars.githubusercontent.com/u/22133?v=4" width="100;" alt="nickjs"/>
                 <br />
@@ -565,19 +558,26 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/ravitejapioneerblaze-code">
-                <img src="https://avatars.githubusercontent.com/u/287091548?v=4" width="100;" alt="ravitejapioneerblaze-code"/>
+            <a href="https://github.com/carlosvalle">
+                <img src="https://avatars.githubusercontent.com/u/7017869?v=4" width="100;" alt="carlosvalle"/>
                 <br />
-                <sub><b>ravitejapioneerblaze-code</b></sub>
+                <sub><b>Carlos Valle</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/IHIutch">
+                <img src="https://avatars.githubusercontent.com/u/20825047?v=4" width="100;" alt="IHIutch"/>
+                <br />
+                <sub><b>Jonathan Hutchison</b></sub>
             </a>
         </td>
 		</tr>
 		<tr>
         <td align="center">
-            <a href="https://github.com/akuny">
-                <img src="https://avatars.githubusercontent.com/u/13356991?v=4" width="100;" alt="akuny"/>
+            <a href="https://github.com/yowill">
+                <img src="https://avatars.githubusercontent.com/u/406607?v=4" width="100;" alt="yowill"/>
                 <br />
-                <sub><b>andy kuny</b></sub>
+                <sub><b>Will Sullivan</b></sub>
             </a>
         </td>
         <td align="center">
@@ -588,17 +588,17 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/yowill">
-                <img src="https://avatars.githubusercontent.com/u/406607?v=4" width="100;" alt="yowill"/>
+            <a href="https://github.com/ravitejapioneerblaze-code">
+                <img src="https://avatars.githubusercontent.com/u/287091548?v=4" width="100;" alt="ravitejapioneerblaze-code"/>
                 <br />
-                <sub><b>Will Sullivan</b></sub>
+                <sub><b>ravitejapioneerblaze-code</b></sub>
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/IHIutch">
-                <img src="https://avatars.githubusercontent.com/u/20825047?v=4" width="100;" alt="IHIutch"/>
+            <a href="https://github.com/akuny">
+                <img src="https://avatars.githubusercontent.com/u/13356991?v=4" width="100;" alt="akuny"/>
                 <br />
-                <sub><b>Jonathan Hutchison</b></sub>
+                <sub><b>andy kuny</b></sub>
             </a>
         </td>
         <td align="center">
