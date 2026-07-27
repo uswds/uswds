@@ -4,8 +4,6 @@ const sass = require("sass-embedded");
 
 const SASS = path.join(__dirname, "tests.scss");
 
-sassTrue.runSass(
-  { describe, it, sass },
-  SASS,
-  { loadPaths: ["./packages", "."] },
-);
+sassTrue.runSass({ describe, it, sass }, SASS, {
+  loadPaths: ["./packages", "."],
+});
