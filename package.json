@@ -172,7 +172,7 @@
     "postcss-csso": "6.0.1",
     "postcss-discard-comments": "6.0.2",
     "prettier": "3.9.6",
-    "sass-embedded": "1.99.0",
+    "sass-embedded": "1.100.0",
     "sass-true": "10.1.0",
     "sinon": "12.0.1",
     "snyk": "1.1297.3",
