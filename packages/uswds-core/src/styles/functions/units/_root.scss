@@ -4,10 +4,10 @@
 // here, before the rest of the system
 // variables are set
 
-$root-font-size: if($theme-respect-user-font-size, 100%, $theme-root-font-size);
+$root-font-size: if(
+  sass($theme-respect-user-font-size): 100%; else: $theme-root-font-size
+);
 
 $root-font-size-equiv: if(
-  $theme-respect-user-font-size,
-  16px,
-  $theme-root-font-size
+  sass($theme-respect-user-font-size): 16px; else: $theme-root-font-size
 );
