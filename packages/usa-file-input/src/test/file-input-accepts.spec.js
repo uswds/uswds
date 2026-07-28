@@ -5,6 +5,13 @@ const jsdomFileList = require("jsdom/lib/jsdom/living/generated/FileList");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
+const FINE_POINTER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
+const matchFinePointer = () => ({
+  matches: true,
+  media: FINE_POINTER_MEDIA_QUERY,
+  addEventListener() {},
+  removeEventListener() {},
+});
 
 // allows us to create mock files
 function MockFile() {}
@@ -18,9 +25,8 @@ function MockFile() {}
 MockFile.prototype.create = (name, size, mimeType) => {
   function range(count) {
     let output = "";
-    // eslint-disable-next-line no-plusplus
+
     for (let i = 0; i < count; i++) {
-      // eslint-disable-line no-plusplus
       output += "a";
     }
     return output;
@@ -61,6 +67,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`File input initialized at ${name}`, () => {
     describe("file input component should respond to file type on change", () => {
       const { body } = document;
+      const originalMatchMedia = window.matchMedia;
       const INVALID_FILE_CLASS = "has-invalid-file";
       const size = 1024 * 1024 * 2;
       const mock = new MockFile();
@@ -84,6 +91,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       };
 
       beforeEach(() => {
+        window.matchMedia = matchFinePointer;
         body.innerHTML = TEMPLATE;
         fileInput.on(containerSelector());
         dropZone = body.querySelector(".usa-file-input__target");
@@ -96,6 +104,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       afterEach(() => {
         fileInput.off(containerSelector());
         body.innerHTML = "";
+        window.matchMedia = originalMatchMedia;
       });
 
       it("instructions are created", () => {

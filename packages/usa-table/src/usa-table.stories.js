@@ -6,21 +6,37 @@ import BorderlessContent from "./usa-table~borderless.json";
 import StripedContent from "./usa-table~striped.json";
 import StickyHeaderContent from "./usa-table~stickyheader.json";
 import TestMultipleStickyRowsComponent from "./test/test-patterns/test-usa-table--multiple-sticky-headers.twig";
+import table from "./index";
 
 export default {
   title: "Components/Table",
+  args: {
+    scrollable: false,
+    sticky_header: false,
+  },
   argTypes: {
     scrollable: {
       name: "Scrollable (Turning this on will disable sticky headers)",
       control: { type: "boolean" },
-      defaultValue: false,
     },
     sticky_header: {
       name: "Sticky header",
       control: { type: "boolean" },
-      defaultValue: false,
     },
   },
+  decorators: [
+    (Story) => {
+      table.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        table.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
@@ -51,10 +67,10 @@ Sortable.args = {
 export const TestStickyHeaderMultipleRows = TestMultipleStickyRowsTemplate.bind(
   {},
 );
+TestStickyHeaderMultipleRows.args = {
+  sticky_header: true,
+};
 TestStickyHeaderMultipleRows.argTypes = {
-  sticky_header: {
-    defaultValue: true,
-  },
   scrollable: {
     table: { disable: true },
   },

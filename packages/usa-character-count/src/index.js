@@ -37,7 +37,7 @@ const getCharacterCountElements = (inputEl) => {
   const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
 
   const inputID = inputEl.getAttribute("id");
-  const labelEl = document.querySelector(`label[for=${inputID}]`);
+  const labelEl = document.querySelector(`label[for="${inputID}"]`);
 
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
@@ -84,12 +84,19 @@ const createStatusMessages = (characterCountEl) => {
   );
 
   statusMessage.setAttribute("aria-hidden", true);
-  srStatusMessage.setAttribute("aria-live", "polite");
 
   statusMessage.textContent = defaultMessage;
   srStatusMessage.textContent = defaultMessage;
 
   characterCountEl.append(statusMessage, srStatusMessage);
+
+  // Defer aria-live to prevent iOS VoiceOver from announcing on page load.
+  // Browsers treat initial content of a newly-inserted aria-live region as
+  // a live update. Adding the attribute after the element is in the DOM
+  // and after a short delay avoids the false announcement.
+  setTimeout(() => {
+    srStatusMessage.setAttribute("aria-live", "polite");
+  }, 100);
 };
 
 /**
@@ -100,19 +107,15 @@ const createStatusMessages = (characterCountEl) => {
  * @returns {string} A string description of how many characters are left
  */
 const getCountMessage = (currentLength, maxLength) => {
-  let newMessage = "";
-
   if (currentLength === 0) {
-    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
-  } else {
-    const difference = Math.abs(maxLength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = currentLength > maxLength ? "over limit" : "left";
-
-    newMessage = `${difference} ${characters} ${guidance}`;
+    return `${maxLength} ${DEFAULT_STATUS_LABEL}`;
   }
 
-  return newMessage;
+  const difference = Math.abs(maxLength - currentLength);
+  const characters = `character${difference === 1 ? "" : "s"}`;
+  const guidance = currentLength > maxLength ? "over limit" : "left";
+
+  return `${difference} ${characters} ${guidance}`;
 };
 
 /**
@@ -179,9 +182,12 @@ const updateCountMessage = (inputEl) => {
  *
  * @description On init this function will create elements and update any
  * attributes so it can tell the user how many characters are left.
- * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
+ * @param  {HTMLInputElement|HTMLTextAreaElement} el the components input
  */
-const enhanceCharacterCount = (inputEl) => {
+const enhanceCharacterCount = (el) => {
+  const inputEl = el;
+  if (inputEl.dataset.enhanced) return;
+
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -190,6 +196,8 @@ const enhanceCharacterCount = (inputEl) => {
 
   setDataLength(inputEl);
   createStatusMessages(characterCountEl);
+
+  inputEl.dataset.enhanced = "true";
 };
 
 const characterCount = behavior(

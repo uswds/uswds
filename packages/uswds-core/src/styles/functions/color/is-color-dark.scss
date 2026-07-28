@@ -14,9 +14,9 @@
 
   // If returned color is white, then the background must be dark.
   @return if(
-    color.channel(color($token-from-bg), "lightness", $space: hsl) > 50%,
-    true,
-    false
+    sass(color.channel(color($token-from-bg), "lightness", $space: hsl) > 50%):
+      true;
+      else: false
   );
 }
 
