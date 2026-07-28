@@ -591,11 +591,10 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  */
 const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
-  let row = [];
 
   let i = 0;
   while (i < htmlArray.length) {
-    row = [];
+    const row = [];
 
     const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
@@ -1047,7 +1046,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
-    if (isSameDay(dateToRender, todaysDate)) {
+    const isToday = isSameDay(dateToRender, todaysDate);
+    if (isToday) {
       classes.push(CALENDAR_DATE_TODAY_CLASS);
     }
 
@@ -1096,6 +1096,9 @@ const renderCalendar = (el, _dateToDisplay) => {
       Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isToday) {
+      btn.setAttribute("aria-current", "date");
+    }
     if (isDisabled === true) {
       btn.disabled = true;
     }

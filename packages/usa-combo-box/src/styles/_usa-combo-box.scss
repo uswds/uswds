@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "uswds-core" as *;
 
 // Maps for High Contrast Mode
@@ -9,14 +11,14 @@ $icon-map: (
   height: units(2),
 );
 
-$chevron-open: map-merge(
+$chevron-open: map.merge(
   $icon-map,
   (
     "name": "expand_more",
   )
 );
 
-$close: map-merge(
+$close: map.merge(
   $icon-map,
   (
     "name": "close",

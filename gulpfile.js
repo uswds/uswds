@@ -8,7 +8,7 @@ const { series, parallel } = require("gulp");
 const { noCleanup, noTest } = require("./tasks/flags");
 const { buildSprite, buildSpriteStandalone } = require("./tasks/svg-sprite");
 const { compileJS, typeCheck } = require("./tasks/javascript");
-const { unitTests, sassTests } = require("./tasks/test");
+const { unitTests, sassTests, tasksTests } = require("./tasks/test");
 const { lintSass, typecheck } = require("./tasks/lint");
 const { build } = require("./tasks/build");
 const { release } = require("./tasks/release");
@@ -44,12 +44,8 @@ exports.lint = parallel(lintSass, typecheck);
 
 exports.sassTests = sassTests;
 exports.unitTests = unitTests;
-exports.test = series(
-  typeCheck,
-  lintSass,
-  sassTests,
-  unitTests,
-);
+exports.tasksTests = tasksTests;
+exports.test = series(typeCheck, lintSass, sassTests, unitTests, tasksTests);
 
 /**
  * *Build tasks*
