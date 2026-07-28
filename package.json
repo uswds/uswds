@@ -168,7 +168,7 @@
     "merge-stream": "2.0.0",
     "mocha": "10.8.2",
     "mq-polyfill": "1.1.8",
-    "postcss": "8.5.10",
+    "postcss": "8.5.18",
     "postcss-csso": "6.0.1",
     "postcss-discard-comments": "6.0.2",
     "prettier": "3.9.6",
