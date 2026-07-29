@@ -15,17 +15,10 @@ exports.runGulp = (task) =>
 
 exports.render = (data, includePaths) =>
   new Promise((resolve, reject) => {
-    sass.renderSync(
-      {
-        data,
-        includePaths,
-      },
-      (error) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve();
-        }
-      },
-    );
+    try {
+      sass.compileString(data, { loadPaths: includePaths });
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
   });
