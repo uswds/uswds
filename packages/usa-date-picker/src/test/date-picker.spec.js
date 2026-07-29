@@ -96,6 +96,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
+    it("should expose ARIA grid semantics on the date calendar table", () => {
+      EVENTS.click(button);
+
+      const table = getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__table",
+      );
+
+      assert.strictEqual(table.getAttribute("role"), "grid");
+      assert.ok(table.getAttribute("aria-label"));
+      assert.ok(table.querySelector('thead tr[role="row"]'));
+      assert.ok(table.querySelector('th[role="columnheader"]'));
+      assert.ok(table.querySelector('tbody tr[role="row"]'));
+      assert.ok(table.querySelector('td[role="gridcell"]'));
+    });
+
     it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {
       EVENTS.click(button);
       assert.strictEqual(
@@ -112,7 +127,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
-    it("should close the calendar when focus moves outside of an active calendar", () => {
+    it("should close the calendar when clicking outside of an active calendar", (done) => {
       EVENTS.click(button);
       assert.strictEqual(
         getCalendarEl().hidden,
@@ -120,15 +135,64 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "The calendar is shown",
       );
 
-      const outsideEl = document.createElement("button");
-      document.body.appendChild(outsideEl);
-      outsideEl.focus();
+      setTimeout(() => {
+        const outsideEl = document.createElement("div");
+        document.body.appendChild(outsideEl);
+        EVENTS.pointerdown(outsideEl);
 
+        assert.strictEqual(
+          getCalendarEl().hidden,
+          true,
+          "The calendar is hidden",
+        );
+        done();
+      }, 0);
+    });
+
+    it("should not close the calendar for spurious outside pointer events", (done) => {
+      EVENTS.click(button);
       assert.strictEqual(
         getCalendarEl().hidden,
-        true,
-        "The calendar is hidden",
+        false,
+        "The calendar is shown",
       );
+
+      setTimeout(() => {
+        const outsideEl = document.createElement("div");
+        document.body.appendChild(outsideEl);
+        EVENTS.pointerdown(outsideEl, { pointerType: "" });
+
+        assert.strictEqual(
+          getCalendarEl().hidden,
+          false,
+          "The calendar stays open",
+        );
+        done();
+      }, 0);
+    });
+
+    it("should not close the calendar for spurious outside pointer events after focus leaves the widget", (done) => {
+      EVENTS.click(button);
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar is shown",
+      );
+
+      document.body.focus();
+
+      setTimeout(() => {
+        const outsideEl = document.createElement("div");
+        document.body.appendChild(outsideEl);
+        EVENTS.pointerdown(outsideEl, { pointerType: "" });
+
+        assert.strictEqual(
+          getCalendarEl().hidden,
+          false,
+          "The calendar stays open",
+        );
+        done();
+      }, 0);
     });
 
     it("should not close the calendar when focusout has no relatedTarget", () => {
@@ -149,30 +213,6 @@ tests.forEach(({ name, selector: containerSelector }) => {
         false,
         "The calendar stays open",
       );
-    });
-
-    it("should close the calendar when clicking outside of an active calendar", (done) => {
-      EVENTS.click(button);
-      assert.strictEqual(
-        getCalendarEl().hidden,
-        false,
-        "The calendar is shown",
-      );
-
-      setTimeout(() => {
-        const outsideEl = document.createElement("div");
-        document.body.appendChild(outsideEl);
-        outsideEl.dispatchEvent(
-          new MouseEvent("pointerdown", { bubbles: true, cancelable: true }),
-        );
-
-        assert.strictEqual(
-          getCalendarEl().hidden,
-          true,
-          "The calendar is hidden",
-        );
-        done();
-      }, 0);
     });
 
     it("should close the calendar you press escape from the input", () => {
@@ -643,6 +683,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "2020",
         "shows correct year",
       );
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "The calendar stays open",
+      );
+    });
+
+    it("should keep the calendar open when arrow keys re-render the date grid", () => {
+      input.value = "1/10/2020";
+      EVENTS.click(button);
+
+      EVENTS.keydownArrowDown();
+      assert.strictEqual(getCalendarEl().hidden, false, "down arrow keeps calendar open");
+
+      EVENTS.keydownArrowUp();
+      assert.strictEqual(getCalendarEl().hidden, false, "up arrow keeps calendar open");
+
+      EVENTS.keydownArrowLeft();
+      assert.strictEqual(getCalendarEl().hidden, false, "left arrow keeps calendar open");
+
+      EVENTS.keydownArrowRight();
+      assert.strictEqual(getCalendarEl().hidden, false, "right arrow keeps calendar open");
     });
 
     it("should move focus to the previous day when left is pressed from the currently focused day", () => {

@@ -28,14 +28,42 @@ EVENTS.click = (el = document.activeElement) => {
 };
 
 /**
+ * send a pointerdown event
+ * @param {HTMLElement} el the element to sent the event to
+ * @param {{ pointerType?: string }} [options]
+ */
+EVENTS.pointerdown = (el = document.activeElement, { pointerType = "mouse" } = {}) => {
+  const evt = new MouseEvent("pointerdown", {
+    bubbles: true,
+    cancelable: true,
+  });
+
+  Object.defineProperty(evt, "pointerType", {
+    value: pointerType,
+    configurable: true,
+  });
+
+  el.dispatchEvent(evt);
+};
+
+/**
  * send a focusout event
  * @param {HTMLElement} el the element to sent the event to
+ * @param {HTMLElement|null} [relatedTarget]
  */
-EVENTS.focusout = (el = document.activeElement) => {
+EVENTS.focusout = (el = document.activeElement, relatedTarget) => {
   const evt = new Event("focusout", {
     bubbles: true,
     cancelable: true,
   });
+
+  if (relatedTarget !== undefined) {
+    Object.defineProperty(evt, "relatedTarget", {
+      value: relatedTarget,
+      configurable: true,
+    });
+  }
+
   el.dispatchEvent(evt);
 };
 

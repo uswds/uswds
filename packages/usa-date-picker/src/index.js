@@ -98,6 +98,42 @@ const OUTSIDE_POINTER_EVENT = "pointerdown";
 
 let outsideClickListener = null;
 
+/** @type {WeakSet<HTMLElement>} */
+const calendarRenderGuard = new WeakSet();
+
+/**
+ * Replace the calendar element while suppressing focusout-driven dismiss.
+ *
+ * @param {HTMLElement} datePickerEl
+ * @param {HTMLElement} calendarEl
+ * @param {HTMLElement} newCalendar
+ * @returns {HTMLElement} newCalendar
+ */
+const replaceCalendarElement = (datePickerEl, calendarEl, newCalendar) => {
+  calendarRenderGuard.add(datePickerEl);
+
+  try {
+    calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  } finally {
+    queueMicrotask(() => {
+      calendarRenderGuard.delete(datePickerEl);
+    });
+  }
+
+  return newCalendar;
+};
+
+/**
+ * Whether a pointer event represents a deliberate press outside the widget.
+ *
+ * @param {PointerEvent} event
+ * @returns {boolean}
+ */
+const isDeliberateOutsidePointer = (event) =>
+  event.pointerType === "mouse" ||
+  event.pointerType === "touch" ||
+  event.pointerType === "pen";
+
 const YEAR_CHUNK = 12;
 
 const DEFAULT_MIN_DATE = "0000-01-01";
@@ -591,9 +627,10 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  *
  * @param {string[]} htmlArray the array of html items
  * @param {number} rowSize the length of a row
+ * @param {{ useGridSemantics?: boolean }} [options]
  * @returns {string} the grid string
  */
-const listToGridHtml = (htmlArray, rowSize) => {
+const listToGridHtml = (htmlArray, rowSize, { useGridSemantics = false } = {}) => {
   const grid = [];
 
   let i = 0;
@@ -601,8 +638,14 @@ const listToGridHtml = (htmlArray, rowSize) => {
     const row = [];
 
     const tr = document.createElement("tr");
+    if (useGridSemantics) {
+      tr.setAttribute("role", "row");
+    }
     while (i < htmlArray.length && row.length < rowSize) {
       const td = document.createElement("td");
+      if (useGridSemantics) {
+        td.setAttribute("role", "gridcell");
+      }
       td.insertAdjacentElement("beforeend", htmlArray[i]);
       row.push(td);
       i += 1;
@@ -1008,9 +1051,21 @@ const addOutsideClickListener = () => {
 
   outsideClickListener = (event) => {
     select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).forEach((datePickerEl) => {
-      if (!datePickerEl.contains(event.target)) {
-        hideCalendar(datePickerEl);
+      if (calendarRenderGuard.has(datePickerEl)) {
+        return;
       }
+
+      if (datePickerEl.contains(event.target)) {
+        return;
+      }
+
+      // VoiceOver (especially Firefox) can dispatch spurious pointer events
+      // outside the widget while navigating the grid. Only real presses dismiss.
+      if (!isDeliberateOutsidePointer(event)) {
+        return;
+      }
+
+      hideCalendar(datePickerEl);
     });
   };
 
@@ -1072,7 +1127,6 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
-    const dayOfWeek = dateToRender.getDay();
 
     const formattedDate = formatDate(dateToRender);
 
@@ -1132,7 +1186,6 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
 
     const monthStr = monthLabels[month];
-    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1144,7 +1197,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-value", formattedDate);
     btn.setAttribute(
       "aria-label",
-      Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
+      Sanitizer.escapeHTML`${day} ${monthStr} ${year}`,
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isToday) {
@@ -1172,7 +1225,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
-  const datesGrid = listToGridHtml(days, 7);
+  const datesGrid = listToGridHtml(days, 7, { useGridSemantics: true });
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.dataset.value = currentFormattedDate;
@@ -1229,16 +1282,20 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.setAttribute("role", "grid");
+  table.setAttribute("aria-label", `${monthLabel} ${focusedYear}`);
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
   const tableHeadRow = document.createElement("tr");
+  tableHeadRow.setAttribute("role", "row");
   tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
   dayOfWeeklabels.forEach((dayOfWeek, i) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
+    th.setAttribute("role", "columnheader");
     th.setAttribute("aria-label", dayOfWeek);
     th.textContent = dayOfWeeksAbv[i];
     tableHeadRow.insertAdjacentElement("beforeend", th);
@@ -1253,7 +1310,7 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   datePickerCalendarContainer.insertAdjacentElement("beforeend", table);
 
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   datePickerEl.classList.add(DATE_PICKER_ACTIVE_CLASS);
 
@@ -1429,7 +1486,7 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
+  const { datePickerEl, calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
     getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
@@ -1488,7 +1545,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.insertAdjacentElement("beforeend", monthsHtml);
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   statusEl.textContent = "Select a month.";
 
@@ -1523,7 +1580,7 @@ const selectMonth = (monthEl) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayYearSelection = (el, yearToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+  const { datePickerEl, calendarEl, statusEl, calendarDate, minDate, maxDate } =
     getDatePickerContext(el);
 
   const selectedYear = calendarDate.getFullYear();
@@ -1678,8 +1735,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   // append the years calender to the new calendar
   newCalendar.insertAdjacentElement("beforeend", yearsCalendarWrapper);
 
-  // replace calendar
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   statusEl.textContent = Sanitizer.escapeHTML`Showing years ${yearToChunk} to ${
     yearToChunk + YEAR_CHUNK - 1
@@ -1792,16 +1848,25 @@ const handleEscapeFromCalendar = (event) => {
  * @param {function} adjustDateFn function that returns the adjusted date
  */
 const adjustCalendar = (adjustDateFn) => (event) => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target,
-  );
+  const { datePickerEl, calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(event.target);
 
   const date = adjustDateFn(calendarDate);
 
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+    calendarRenderGuard.add(datePickerEl);
+
+    try {
+      const newCalendar = renderCalendar(calendarEl, cappedDate);
+      newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+    } finally {
+      queueMicrotask(() => {
+        queueMicrotask(() => {
+          calendarRenderGuard.delete(datePickerEl);
+        });
+      });
+    }
   }
   event.preventDefault();
 };
@@ -2322,12 +2387,6 @@ const datePickerEvents = {
     [DATE_PICKER_EXTERNAL_INPUT]() {
       validateDateInput(this);
     },
-    [DATE_PICKER](event) {
-      const { relatedTarget } = event;
-      if (relatedTarget && !this.contains(relatedTarget)) {
-        hideCalendar(this);
-      }
-    },
   },
   input: {
     [DATE_PICKER_EXTERNAL_INPUT]() {
@@ -2363,5 +2422,7 @@ const datePicker = behavior(datePickerEvents, {
 });
 
 // #endregion Date Picker Event Delegation Registration / Component
+
+
 
 module.exports = datePicker;
