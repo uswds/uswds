@@ -695,16 +695,32 @@ tests.forEach(({ name, selector: containerSelector }) => {
       EVENTS.click(button);
 
       EVENTS.keydownArrowDown();
-      assert.strictEqual(getCalendarEl().hidden, false, "down arrow keeps calendar open");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "down arrow keeps calendar open",
+      );
 
       EVENTS.keydownArrowUp();
-      assert.strictEqual(getCalendarEl().hidden, false, "up arrow keeps calendar open");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "up arrow keeps calendar open",
+      );
 
       EVENTS.keydownArrowLeft();
-      assert.strictEqual(getCalendarEl().hidden, false, "left arrow keeps calendar open");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "left arrow keeps calendar open",
+      );
 
       EVENTS.keydownArrowRight();
-      assert.strictEqual(getCalendarEl().hidden, false, "right arrow keeps calendar open");
+      assert.strictEqual(
+        getCalendarEl().hidden,
+        false,
+        "right arrow keeps calendar open",
+      );
     });
 
     it("should move focus to the previous day when left is pressed from the currently focused day", () => {

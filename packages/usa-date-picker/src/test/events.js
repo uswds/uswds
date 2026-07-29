@@ -32,7 +32,10 @@ EVENTS.click = (el = document.activeElement) => {
  * @param {HTMLElement} el the element to sent the event to
  * @param {{ pointerType?: string }} [options]
  */
-EVENTS.pointerdown = (el = document.activeElement, { pointerType = "mouse" } = {}) => {
+EVENTS.pointerdown = (
+  el = document.activeElement,
+  { pointerType = "mouse" } = {},
+) => {
   const evt = new MouseEvent("pointerdown", {
     bubbles: true,
     cancelable: true,

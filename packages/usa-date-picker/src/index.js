@@ -630,7 +630,11 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  * @param {{ useGridSemantics?: boolean }} [options]
  * @returns {string} the grid string
  */
-const listToGridHtml = (htmlArray, rowSize, { useGridSemantics = false } = {}) => {
+const listToGridHtml = (
+  htmlArray,
+  rowSize,
+  { useGridSemantics = false } = {},
+) => {
   const grid = [];
 
   let i = 0;
@@ -1486,8 +1490,15 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const { datePickerEl, calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
-    getDatePickerContext(el);
+  const {
+    datePickerEl,
+    calendarEl,
+    statusEl,
+    calendarDate,
+    minDate,
+    maxDate,
+    monthLabels,
+  } = getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
   const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
@@ -2422,7 +2433,5 @@ const datePicker = behavior(datePickerEvents, {
 });
 
 // #endregion Date Picker Event Delegation Registration / Component
-
-
 
 module.exports = datePicker;
