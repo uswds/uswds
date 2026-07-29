@@ -53,6 +53,16 @@ describe("keymap", () => {
     assert(onTab.notCalled);
   });
 
+  it("does not throw when event has no key property", () => {
+    const onTab = sinon.stub();
+    const handler = keymap({ Tab: onTab });
+    document.body.addEventListener("keydown", handler);
+    // Datalist selections in Chrome can dispatch events without a key property
+    const event = new Event("keydown", { bubbles: true });
+    assert.doesNotThrow(() => document.body.dispatchEvent(event));
+    assert(onTab.notCalled);
+  });
+
   it("does not call event if keypress contains different modifier than handler", () => {
     const onTab = sinon.stub();
     const handler = keymap({ "Control+Tab": onTab });
