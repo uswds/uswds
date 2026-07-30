@@ -109,6 +109,16 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.ok(table.querySelector('th[role="columnheader"]'));
       assert.ok(table.querySelector('tbody tr[role="row"]'));
       assert.ok(table.querySelector('td[role="gridcell"]'));
+      assert.ok(table.querySelector('td[role="gridcell"][aria-selected]'));
+      assert.strictEqual(
+        table.querySelectorAll("button[aria-selected]").length,
+        0,
+      );
+      assert.ok(
+        table.querySelector(
+          'td[role="gridcell"] button.usa-date-picker__calendar__date--focused[tabindex="0"]',
+        ),
+      );
     });
 
     it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {

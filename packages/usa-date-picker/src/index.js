@@ -646,11 +646,16 @@ const listToGridHtml = (
       tr.setAttribute("role", "row");
     }
     while (i < htmlArray.length && row.length < rowSize) {
+      const item = htmlArray[i];
+      const content = item instanceof HTMLElement ? item : item.element;
       const td = document.createElement("td");
       if (useGridSemantics) {
         td.setAttribute("role", "gridcell");
+        if (!(item instanceof HTMLElement) && item.ariaSelected != null) {
+          td.setAttribute("aria-selected", item.ariaSelected);
+        }
       }
-      td.insertAdjacentElement("beforeend", htmlArray[i]);
+      td.insertAdjacentElement("beforeend", content);
       row.push(td);
       i += 1;
     }
@@ -1131,6 +1136,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
+    const dayOfWeek = dateToRender.getDay();
 
     const formattedDate = formatDate(dateToRender);
 
@@ -1190,6 +1196,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
 
     const monthStr = monthLabels[month];
+    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1201,9 +1208,8 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-value", formattedDate);
     btn.setAttribute(
       "aria-label",
-      Sanitizer.escapeHTML`${day} ${monthStr} ${year}`,
+      Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
     );
-    btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isToday) {
       btn.setAttribute("aria-current", "date");
     }
@@ -1212,7 +1218,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
     btn.textContent = day;
 
-    return btn;
+    return {
+      element: btn,
+      ariaSelected: isSelected ? "true" : "false",
+    };
   };
 
   // set date to first rendered day
