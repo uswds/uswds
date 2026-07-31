@@ -6,7 +6,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 - **Node**: v24 (`.nvmrc`). CI: `cimg/node:24.16.0-browsers`.
 - **Build**: Gulp 4 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite is only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify. Do not assume Vite builds the whole project.
-- **SCSS**: `sass`/`sass-embedded` (modern API). `@uswds/compile` is consumer-side.
+- **SCSS**: `sass-embedded` (modern API). `@uswds/compile` is consumer-side.
 
 ## Architecture
 
@@ -54,4 +54,3 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 - **Sass Exports**: `package.json` exports `./scss/*` -> `./packages/*/_index.scss`, `./functions/*` -> `packages/uswds-core/src/styles/functions/*`. New pkgs need `_index.scss`.
 - **Web Components**: `lit`-using pkgs bundled by `vite.config.banner.cdn.js`, additive to `uswds.min.js`.
 - **Snyk**: `snyk test` in `npm test` requires `SNYK_TOKEN`. Use `gulp test`/`npm run test:unit` offline/without token.
-- **`sass-embedded-linux-x64`**: Optional dep for Linux CI; skipped on macOS/Windows.
