@@ -11,14 +11,18 @@
 
 @mixin grid-gap-responsive {
   $gap-mobile: if(
-    map.has-key($system-column-gaps, $theme-column-gap-mobile),
-    map.get($system-column-gaps, $theme-column-gap-mobile),
-    "error"
+    sass(map.has-key($system-column-gaps, $theme-column-gap-mobile)): map.get(
+        $system-column-gaps,
+        $theme-column-gap-mobile
+      );
+      else: "error"
   );
   $gap-desktop: if(
-    map.has-key($system-column-gaps, $theme-column-gap-desktop),
-    map.get($system-column-gaps, $theme-column-gap-desktop),
-    "error"
+    sass(map.has-key($system-column-gaps, $theme-column-gap-desktop)): map.get(
+        $system-column-gaps,
+        $theme-column-gap-desktop
+      );
+      else: "error"
   );
 
   @if $gap-mobile == "error" {

@@ -1,10 +1,10 @@
 # Governance
 ## Purpose
-[The U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) is a toolkit of principles, guidance, and code that makes it easier to build accessible, mobile-friendly, legally compliant government websites.
+[The U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) is a toolkit of principles, guidance, and code — a library of public domain and open source user interface components and a visual style guide designed for U.S. federal government websites, but useful in many other applications.
 
-Teams can build a website or service in lots of different ways. USWDS has been designed to deliver [unique benefits](https://designsystem.digital.gov/about/key-benefits/) to government teams, such as [compliance from the start](https://designsystem.digital.gov/about/key-benefits/#compliance-from-the-start-2), [proven design solutions that users expect](https://designsystem.digital.gov/about/key-benefits/#proven-design-solutions-that-users-expect-2), [team alignment and common goals](https://designsystem.digital.gov/about/key-benefits/#team-alignment-and-common-goals-2), [mission focus](https://designsystem.digital.gov/about/key-benefits/#mission-focus-2), [a cross-functional design system community](https://designsystem.digital.gov/about/key-benefits/#a-cross-functional-design-system-community-2), and [effective stewardship of public resources](https://designsystem.digital.gov/about/key-benefits/#effective-stewardship-of-public-resources-2).
+Teams can build a website or service in lots of different ways. USWDS has been designed to deliver [particular benefits](https://designsystem.digital.gov/about/key-benefits/) to government teams, such as [compliance from the start](https://designsystem.digital.gov/about/key-benefits/#compliance-from-the-start-2), [proven design solutions that users expect](https://designsystem.digital.gov/about/key-benefits/#proven-design-solutions-that-users-expect-2), [team alignment and common goals](https://designsystem.digital.gov/about/key-benefits/#team-alignment-and-common-goals-2), [mission focus](https://designsystem.digital.gov/about/key-benefits/#mission-focus-2), [a cross-functional design system community](https://designsystem.digital.gov/about/key-benefits/#a-cross-functional-design-system-community-2), and [effective stewardship of public resources](https://designsystem.digital.gov/about/key-benefits/#effective-stewardship-of-public-resources-2).
 
-You can find a broader view on the [USWDS About page](https://designsystem.digital.gov/about/), which contains the USWDS mission, vision, polestar, and a brief history. You may also want to reference [USWDS key benefits](https://designsystem.digital.gov/about/key-benefits/), [product values](https://designsystem.digital.gov/about/product-values/), [design principles](https://designsystem.digital.gov/design-principles/), and [engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md).  
+You can find a broader view on the [USWDS About page](https://designsystem.digital.gov/about/), which contains USWDS's mission, vision, polestar, and a brief history. You may also want to reference [USWDS key benefits](https://designsystem.digital.gov/about/key-benefits/), [product values](https://designsystem.digital.gov/about/product-values/), [design principles](https://designsystem.digital.gov/design-principles/), and [engineering values](https://github.com/uswds/uswds-proposals/blob/main/docs/engineering-values.md).  
 
 USWDS governance supports and strengthens these core principles, code, and guidance. 
 
@@ -94,6 +94,20 @@ Consider the following questions when reviewing PRs:
 As with other [Tier3 Open Source Community Projects](https://github.com/DSACMS/repo-scaffolder/blob/main/tier3/README.md), USWDS uses a 'co-planning' approach of community-informed roadmapping.
 
 The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are approved and managed, and how to join the USWDS Open Source Community.
+
+Final approval responsibility (and accountability) for USWDS ultimately rest on government-funded staff — in this case, one full-time federal lead (hi 👋, it's me, [Anne](https://github.com/annepetersen) — I'm writing this at the moment) within Technology Transformation Services (TTS), inside of the General Services Administration (GSA). The USWDS Lead, always a federal employee, can be supported in these decisions most directly by other TTS staff and contractors. As of this writing (July 2026), this full team consists of:
+
+### USWDS Full-time Federal Staff (Admin)
+- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
+
+### USWDS Part-time Federal Staff (Maintainer)
+- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
+
+### USWDS Internal Team (Maintainers)
+
+- [@ethangardner](https://github.com/ethangardner)
+- [@jonathanbobel](https://github.com/jonathanbobel)
+- [@iamjolly](https://github.com/iamjolly)
 
 [CONTRIBUTING.md](./CONTRIBUTING.md) describes how to make meaningful changes to USWDS through reporting bugs and issues, proposing feature requests or enhancements, submitting other code contributions, and further details about joining the USWDS Open Source Community, along with some common terms, plus licenses and attribution.
 
