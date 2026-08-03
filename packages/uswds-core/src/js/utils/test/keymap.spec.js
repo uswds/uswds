@@ -45,7 +45,7 @@ describe("keymap", () => {
 
   it("does not call handler if keypress does not include all expected modifiers", () => {
     const onTab = sinon.stub();
-    const handler = keymap({ "Shift+Ctrl+Tab": onTab });
+    const handler = keymap({ "Shift+Control+Tab": onTab });
     document.body.addEventListener("keydown", handler);
     const event = new KeyboardEvent("keydown", { key: "Tab", shiftKey: true });
     document.body.dispatchEvent(event);
@@ -53,13 +53,33 @@ describe("keymap", () => {
     assert(onTab.notCalled);
   });
 
+  it("does not throw when event has no key property", () => {
+    const onTab = sinon.stub();
+    const handler = keymap({ Tab: onTab });
+    document.body.addEventListener("keydown", handler);
+    // Datalist selections in Chrome can dispatch events without a key property
+    const event = new Event("keydown", { bubbles: true });
+    assert.doesNotThrow(() => document.body.dispatchEvent(event));
+    assert(onTab.notCalled);
+  });
+
   it("does not call event if keypress contains different modifier than handler", () => {
     const onTab = sinon.stub();
-    const handler = keymap({ "Ctrl+Tab": onTab });
+    const handler = keymap({ "Control+Tab": onTab });
     document.body.addEventListener("keydown", handler);
     const event = new KeyboardEvent("keydown", { key: "Tab", shiftKey: true });
     document.body.dispatchEvent(event);
 
     assert(onTab.notCalled);
+  });
+
+  it("calls handler if Control modifier is pressed", () => {
+    const onTab = sinon.stub();
+    const handler = keymap({ "Control+Tab": onTab });
+    document.body.addEventListener("keydown", handler);
+    const event = new KeyboardEvent("keydown", { key: "Tab", ctrlKey: true });
+    document.body.dispatchEvent(event);
+
+    assert(onTab.calledOnceWithExactly(event));
   });
 });

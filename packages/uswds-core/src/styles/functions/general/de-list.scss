@@ -20,7 +20,9 @@ into that single element.
     @return $value;
   }
 
-  $output: if(list.length($value) == 1, list.nth($value, 1), $value);
+  $output: if(
+    sass(list.length($value) == 1): list.nth($value, 1); else: $value
+  );
 
   @return $output;
 }

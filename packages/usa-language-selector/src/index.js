@@ -15,11 +15,7 @@ const LANGUAGE_PRIMARY_ITEM = `.${PREFIX}-language__primary-item`;
 const LANGUAGE_CONTROL = `button.${PREFIX}-language__link`;
 const LANGUAGE_LINKS = `${LANGUAGE} a`;
 
-let languageSelector;
 let languageActive;
-
-const onLanguageClose = () =>
-  languageSelector.toggleLanguage.call(languageSelector, false);
 
 const hideActiveLanguageDropdown = () => {
   if (!languageActive) {
@@ -43,7 +39,7 @@ const handleEscape = (event) => {
   focusLanguageButton(event);
 };
 
-languageSelector = behavior(
+const languageSelector = behavior(
   {
     [CLICK]: {
       [LANGUAGE_CONTROL]() {
@@ -91,7 +87,7 @@ languageSelector = behavior(
 
       if (trapContainer) {
         languageSelector.focusTrap = FocusTrap(trapContainer, {
-          Escape: onLanguageClose,
+          Escape: () => hideActiveLanguageDropdown(),
         });
       }
     },
