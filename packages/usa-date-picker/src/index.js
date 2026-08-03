@@ -94,10 +94,6 @@ const CALENDAR_LABELS_BY_LANG = new Map();
 
 const ENTER_KEYCODE = 13;
 
-const OUTSIDE_POINTER_EVENT = "pointerdown";
-
-let outsideClickListener = null;
-
 const YEAR_CHUNK = 12;
 
 const DEFAULT_MIN_DATE = "0000-01-01";
@@ -974,53 +970,6 @@ const enhanceDatePicker = (el) => {
 // #region Calendar - Date Selection View
 
 /**
- * Remove the document listener that closes open calendars on outside click.
- */
-const removeOutsideClickListener = () => {
-  if (outsideClickListener) {
-    document.removeEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
-    outsideClickListener = null;
-  }
-};
-
-/**
- * Hide the calendar of a date picker component.
- *
- * @param {HTMLElement} el An element within the date picker component
- */
-const hideCalendar = (el) => {
-  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
-
-  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
-  calendarEl.hidden = true;
-  statusEl.textContent = "";
-
-  if (!select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).length) {
-    removeOutsideClickListener();
-  }
-};
-
-/**
- * Add a click listener to the document to hide the calendar when clicking outside the date picker component.
- */
-const addOutsideClickListener = () => {
-  removeOutsideClickListener();
-
-  outsideClickListener = (event) => {
-    select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).forEach((datePickerEl) => {
-      if (!datePickerEl.contains(event.target)) {
-        hideCalendar(datePickerEl);
-      }
-    });
-  };
-
-  // Defer so the same click that opened the calendar doesn't close it
-  setTimeout(() => {
-    document.addEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
-  }, 0);
-};
-
-/**
  * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
@@ -1277,10 +1226,6 @@ const renderCalendar = (el, _dateToDisplay) => {
   }
   statusEl.textContent = statuses.join(". ");
 
-  if (calendarWasHidden) {
-    addOutsideClickListener();
-  }
-
   return newCalendar;
 };
 
@@ -1362,6 +1307,19 @@ const displayNextYear = (_buttonEl) => {
     nextToFocus = newCalendar.querySelector(CALENDAR_DATE_PICKER);
   }
   nextToFocus.focus();
+};
+
+/**
+ * Hide the calendar of a date picker component.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const hideCalendar = (el) => {
+  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
+
+  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
+  calendarEl.hidden = true;
+  statusEl.textContent = "";
 };
 
 /**
@@ -2159,50 +2117,6 @@ const datePickerTabEventHandler = tabHandler(DATE_PICKER_FOCUSABLE);
 const monthPickerTabEventHandler = tabHandler(MONTH_PICKER_FOCUSABLE);
 const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
 
-const DATE_GRID_KEYMAP = {
-  Up: handleUpFromDate,
-  ArrowUp: handleUpFromDate,
-  Down: handleDownFromDate,
-  ArrowDown: handleDownFromDate,
-  Left: handleLeftFromDate,
-  ArrowLeft: handleLeftFromDate,
-  Right: handleRightFromDate,
-  ArrowRight: handleRightFromDate,
-  Home: handleHomeFromDate,
-  End: handleEndFromDate,
-  PageDown: handlePageDownFromDate,
-  PageUp: handlePageUpFromDate,
-  "Shift+PageDown": handleShiftPageDownFromDate,
-  "Shift+PageUp": handleShiftPageUpFromDate,
-};
-
-const CALENDAR_GRID_NAVIGATION_SELECTORS = [
-  CALENDAR_DATE,
-  CALENDAR_MONTH,
-  CALENDAR_YEAR,
-].join(",");
-
-const delegateToFocusedDate = (handler) => (event) => {
-  if (event.target.closest(CALENDAR_GRID_NAVIGATION_SELECTORS)) return;
-  const calendarEl = event.target.closest(DATE_PICKER_CALENDAR);
-  if (!calendarEl) return;
-  const focusedDate = calendarEl.querySelector(CALENDAR_DATE_FOCUSED);
-  if (!focusedDate) return;
-  handler({
-    target: focusedDate,
-    preventDefault: () => event.preventDefault(),
-  });
-};
-
-const handleCalendarChromeNavigation = keymap(
-  Object.fromEntries(
-    Object.entries(DATE_GRID_KEYMAP).map(([key, handler]) => [
-      key,
-      delegateToFocusedDate(handler),
-    ]),
-  ),
-);
-
 // #endregion Focus Handling Event Handling
 
 // #region Date Picker Event Delegation Registration / Component
@@ -2263,7 +2177,20 @@ const datePickerEvents = {
       }
     },
     [CALENDAR_DATE]: keymap({
-      ...DATE_GRID_KEYMAP,
+      Up: handleUpFromDate,
+      ArrowUp: handleUpFromDate,
+      Down: handleDownFromDate,
+      ArrowDown: handleDownFromDate,
+      Left: handleLeftFromDate,
+      ArrowLeft: handleLeftFromDate,
+      Right: handleRightFromDate,
+      ArrowRight: handleRightFromDate,
+      Home: handleHomeFromDate,
+      End: handleEndFromDate,
+      PageDown: handlePageDownFromDate,
+      PageUp: handlePageUpFromDate,
+      "Shift+PageDown": handleShiftPageDownFromDate,
+      "Shift+PageUp": handleShiftPageUpFromDate,
       Tab: datePickerTabEventHandler.tabAhead,
     }),
     [CALENDAR_DATE_PICKER]: keymap({
@@ -2308,7 +2235,6 @@ const datePickerEvents = {
     }),
     [DATE_PICKER_CALENDAR](event) {
       this.dataset.keydownKeyCode = event.keyCode;
-      handleCalendarChromeNavigation(event);
     },
     [DATE_PICKER](event) {
       const keyMap = keymap({
@@ -2323,8 +2249,7 @@ const datePickerEvents = {
       validateDateInput(this);
     },
     [DATE_PICKER](event) {
-      const { relatedTarget } = event;
-      if (relatedTarget && !this.contains(relatedTarget)) {
+      if (!this.contains(event.relatedTarget)) {
         hideCalendar(this);
       }
     },

@@ -71,33 +71,5 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "focuses correct item",
       );
     });
-
-    it("should move the focused date when an arrow is pressed from calendar header controls", () => {
-      root.querySelector(".usa-date-picker__external-input").value =
-        "1/10/2020";
-      EVENTS.click(button);
-      EVENTS.keydownTab();
-
-      assert.ok(
-        document.activeElement.classList.contains(
-          "usa-date-picker__calendar__previous-year",
-        ),
-        "focuses calendar header control",
-      );
-
-      EVENTS.keydownArrowUp();
-
-      assert.strictEqual(
-        root.querySelector(".usa-date-picker__calendar__date--focused")
-          .textContent,
-        "3",
-        "updates the focused date",
-      );
-      assert.strictEqual(
-        root.querySelector(".usa-date-picker__calendar").hidden,
-        false,
-        "keeps the calendar open",
-      );
-    });
   });
 });
