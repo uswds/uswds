@@ -50,14 +50,13 @@ function collectIcons() {
     .pipe(dest(`${svgPath}/usa-icons`))
 }
 
-function buildSprite(done) {
+function buildSprite() {
   return (
     src(`${svgPath}/usa-icons/*.svg`)
       .pipe(sortByBasename())
       .pipe(svgSprite())
       .on("error", logError)
       .pipe(dest(svgPath))
-      .on("end", () => done())
   );
 }
 
