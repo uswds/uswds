@@ -12,6 +12,10 @@ $accordion-button-background-active-color: next-token(
   "darker"
 );
 
+$accordion-icon-gap: units(2.5);
+
+$accordion-icon-padding: $accordion-icon-gap * 2 + units(2);
+
 // Maps for High Contrast Mode
 
 $accordion-icon-map-defaults: (
@@ -44,11 +48,27 @@ $accordion-button-open-hc-icon: map.merge(
   width: 100%;
 }
 
-@mixin accordion-hc-icon-styles {
+@mixin accordion-button-icon-side($side) {
+  @if $side == "left" {
+    background-position: left $accordion-icon-gap top calc(50% - 1px);
+    padding: units(2) $accordion-icon-gap units(2) $accordion-icon-padding;
+  } @else {
+    background-position: right $accordion-icon-gap top calc(50% - 1px);
+    padding: units(2) $accordion-icon-padding units(2) $accordion-icon-gap;
+  }
+}
+
+@mixin accordion-hc-icon-styles($side: "right") {
   height: 100%;
   position: absolute;
-  right: units(2.5);
   top: 0;
+  @if $side == "left" {
+    left: $accordion-icon-gap;
+    right: auto;
+  } @else {
+    right: $accordion-icon-gap;
+    left: auto;
+  }
 }
 
 // Opened styles
@@ -63,14 +83,13 @@ $accordion-button-open-hc-icon: map.merge(
     "usa-icons/remove",
     "usa-icons-bg/remove--white"
   );
-  background-position: right units(2.5) center;
   background-size: units(3);
   cursor: pointer;
   display: inline-block;
   font-weight: font-weight("bold");
   margin: 0;
-  padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   text-decoration: none;
+  @include accordion-button-icon-side($theme-accordion-icon-position);
   width: 100%;
 
   &:hover {
@@ -92,7 +111,7 @@ $accordion-button-open-hc-icon: map.merge(
 
     &::before {
       @include add-color-icon($accordion-button-open-hc-icon);
-      @include accordion-hc-icon-styles();
+      @include accordion-hc-icon-styles($theme-accordion-icon-position);
       content: "";
     }
   }
@@ -117,7 +136,7 @@ $accordion-button-open-hc-icon: map.merge(
   @media (forced-colors: active) {
     &::before {
       @include add-color-icon($accordion-button-unopen-hc-icon);
-      @include accordion-hc-icon-styles();
+      @include accordion-hc-icon-styles($theme-accordion-icon-position);
     }
   }
 }
@@ -195,4 +214,28 @@ $accordion-button-open-hc-icon: map.merge(
 
 .usa-accordion__button[aria-expanded="false"] {
   @include accordion-button-unopened-styles;
+}
+
+.usa-accordion--icon-left {
+  .usa-accordion__button {
+    @include accordion-button-icon-side("left");
+
+    @media (forced-colors: active) {
+      &::before {
+        @include accordion-hc-icon-styles("left");
+      }
+    }
+  }
+}
+
+.usa-accordion--icon-right {
+  .usa-accordion__button {
+    @include accordion-button-icon-side("right");
+
+    @media (forced-colors: active) {
+      &::before {
+        @include accordion-hc-icon-styles("right");
+      }
+    }
+  }
 }
