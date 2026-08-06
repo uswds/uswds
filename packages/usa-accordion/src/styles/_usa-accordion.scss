@@ -49,25 +49,38 @@ $accordion-button-open-hc-icon: map.merge(
 }
 
 @mixin accordion-button-icon-side($side) {
-  @if $side == "left" {
+  padding-block: units(2);
+
+  @if $side == "start" {
+    padding-inline-start: $accordion-icon-padding;
+    padding-inline-end: $accordion-icon-gap;
     background-position: left $accordion-icon-gap top calc(50% - 1px);
-    padding: units(2) $accordion-icon-gap units(2) $accordion-icon-padding;
+
+    [dir="rtl"] & {
+      background-position: right $accordion-icon-gap top calc(50% - 1px);
+    }
   } @else {
+    padding-inline-start: $accordion-icon-gap;
+    padding-inline-end: $accordion-icon-padding;
     background-position: right $accordion-icon-gap top calc(50% - 1px);
-    padding: units(2) $accordion-icon-padding units(2) $accordion-icon-gap;
+
+    [dir="rtl"] & {
+      background-position: left $accordion-icon-gap top calc(50% - 1px);
+    }
   }
 }
 
-@mixin accordion-hc-icon-styles($side: "right") {
+@mixin accordion-hc-icon-styles($side: "end") {
   height: 100%;
   position: absolute;
   top: 0;
-  @if $side == "left" {
-    left: $accordion-icon-gap;
-    right: auto;
+
+  @if $side == "start" {
+    inset-inline-start: $accordion-icon-gap;
+    inset-inline-end: auto;
   } @else {
-    right: $accordion-icon-gap;
-    left: auto;
+    inset-inline-end: $accordion-icon-gap;
+    inset-inline-start: auto;
   }
 }
 
@@ -88,6 +101,8 @@ $accordion-button-open-hc-icon: map.merge(
   display: inline-block;
   font-weight: font-weight("bold");
   margin: 0;
+  // Override button-unstyled's physical text-align: left for RTL
+  text-align: start;
   text-decoration: none;
   @include accordion-button-icon-side($theme-accordion-icon-position);
   width: 100%;
@@ -216,25 +231,25 @@ $accordion-button-open-hc-icon: map.merge(
   @include accordion-button-unopened-styles;
 }
 
-.usa-accordion--icon-left {
+.usa-accordion--icon-start {
   .usa-accordion__button {
-    @include accordion-button-icon-side("left");
+    @include accordion-button-icon-side("start");
 
     @media (forced-colors: active) {
       &::before {
-        @include accordion-hc-icon-styles("left");
+        @include accordion-hc-icon-styles("start");
       }
     }
   }
 }
 
-.usa-accordion--icon-right {
+.usa-accordion--icon-end {
   .usa-accordion__button {
-    @include accordion-button-icon-side("right");
+    @include accordion-button-icon-side("end");
 
     @media (forced-colors: active) {
       &::before {
-        @include accordion-hc-icon-styles("right");
+        @include accordion-hc-icon-styles("end");
       }
     }
   }
