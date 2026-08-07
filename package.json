@@ -180,7 +180,6 @@
     "storybook": "^9.1.20",
     "stylelint": "16.12.0",
     "svgo": "^3.3.2",
-    "through2": "5.0.11",
     "twig": "3.0.0",
     "typescript": "5.7.3",
     "vinyl-buffer": "1.0.1",
