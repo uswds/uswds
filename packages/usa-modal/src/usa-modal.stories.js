@@ -31,16 +31,20 @@ Default.args = DefaultContent;
 // is queried from the document rather than the story canvas. See #6787.
 Default.play = async ({ canvasElement, step }) => {
   const opener = canvasElement.querySelector("[data-open-modal]");
-  const wrapper = document.querySelector(".usa-modal-wrapper");
+  // The modal initializes a frame after render, portaling .usa-modal-wrapper
+  // to <body>. Re-query the document each time rather than capturing a stale
+  // (possibly null) reference before init has run.
+  const getWrapper = () => document.querySelector(".usa-modal-wrapper");
 
   await step("Open the modal", async () => {
+    await waitFor(() => expect(getWrapper()).not.toBeNull());
     await userEvent.click(opener);
-    await waitFor(() => expect(wrapper).toHaveClass("is-visible"));
+    await waitFor(() => expect(getWrapper()).toHaveClass("is-visible"));
   });
 
   await step("Close the modal", async () => {
-    await userEvent.click(wrapper.querySelector("[data-close-modal]"));
-    await waitFor(() => expect(wrapper).toHaveClass("is-hidden"));
+    await userEvent.click(getWrapper().querySelector("[data-close-modal]"));
+    await waitFor(() => expect(getWrapper()).toHaveClass("is-hidden"));
   });
 };
 
