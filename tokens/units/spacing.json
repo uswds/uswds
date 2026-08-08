@@ -1,0 +1,157 @@
+{
+  "spacing": {
+    "$type": "dimension",
+    "smaller": {
+      "1px": {
+        "$value": "1px"
+      },
+      "2px": {
+        "$value": "2px"
+      }
+    },
+    "small": {
+      "1": {
+        "$value": "0.5rem"
+      },
+      "2": {
+        "$value": "1rem"
+      },
+      "3": {
+        "$value": "1.5rem"
+      },
+      "105": {
+        "$value": "0.75rem"
+      },
+      "205": {
+        "$value": "1.25rem"
+      },
+      "05": {
+        "$value": "0.25rem"
+      }
+    },
+    "smaller-negative": {
+      "neg-1px": {
+        "$value": "-1px"
+      },
+      "neg-2px": {
+        "$value": "-2px"
+      }
+    },
+    "small-negative": {
+      "neg-05": {
+        "$value": "-0.25rem"
+      },
+      "neg-1": {
+        "$value": "-0.5rem"
+      },
+      "neg-105": {
+        "$value": "-0.75rem"
+      },
+      "neg-2": {
+        "$value": "-1rem"
+      },
+      "neg-205": {
+        "$value": "-1.25rem"
+      },
+      "neg-3": {
+        "$value": "-1.5rem"
+      }
+    },
+    "medium": {
+      "4": {
+        "$value": "2rem"
+      },
+      "5": {
+        "$value": "2.5rem"
+      },
+      "6": {
+        "$value": "3rem"
+      },
+      "7": {
+        "$value": "3.5rem"
+      },
+      "8": {
+        "$value": "4rem"
+      },
+      "9": {
+        "$value": "4.5rem"
+      },
+      "10": {
+        "$value": "5rem"
+      },
+      "15": {
+        "$value": "7.5rem"
+      }
+    },
+    "medium-negative": {
+      "neg-4": {
+        "$value": "-2rem"
+      },
+      "neg-5": {
+        "$value": "-2.5rem"
+      },
+      "neg-6": {
+        "$value": "-3rem"
+      },
+      "neg-7": {
+        "$value": "-3.5rem"
+      },
+      "neg-8": {
+        "$value": "-4rem"
+      },
+      "neg-9": {
+        "$value": "-4.5rem"
+      },
+      "neg-10": {
+        "$value": "-5rem"
+      },
+      "neg-15": {
+        "$value": "-7.5rem"
+      }
+    },
+    "large": {
+      "card": {
+        "$value": "10rem"
+      },
+      "card-lg": {
+        "$value": "15rem"
+      },
+      "mobile": {
+        "$value": "20rem"
+      }
+    },
+    "larger": {
+      "mobile-lg": {
+        "$value": "30rem"
+      },
+      "tablet": {
+        "$value": "40rem"
+      },
+      "tablet-lg": {
+        "$value": "55rem"
+      }
+    },
+    "largest": {
+      "desktop": {
+        "$value": "64rem"
+      },
+      "desktop-lg": {
+        "$value": "75rem"
+      },
+      "widescreen": {
+        "$value": "87.5rem"
+      }
+    },
+    "special": {
+      "0": {
+        "$value": "0rem"
+      },
+      "auto": {
+        "$value": "auto"
+      },
+      "none": {
+        "$value": "none"
+      }
+    }
+  }
+}

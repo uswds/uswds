@@ -1,0 +1,6 @@
+{
+  "grid-base": {
+    "$type": "dimension",
+    "$value": "8px"
+  }
+}

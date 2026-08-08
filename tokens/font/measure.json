@@ -1,0 +1,23 @@
+{
+  "measure": {
+    "$type": "dimension",
+    "smaller": {
+      "$value": "44ex"
+    },
+    "small": {
+      "$value": "60ex"
+    },
+    "base": {
+      "$value": "64ex"
+    },
+    "large": {
+      "$value": "68ex"
+    },
+    "larger": {
+      "$value": "72ex"
+    },
+    "largest": {
+      "$value": "88ex"
+    }
+  }
+}

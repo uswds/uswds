@@ -1,0 +1,45 @@
+{
+  "font-family": {
+    "$type": "fontFamily",
+    "system": {
+      "$value": [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol"
+      ]
+    },
+    "georgia": {
+      "$value": [
+        "Georgia",
+        "Cambria",
+        "Times New Roman",
+        "Times",
+        "serif"
+      ]
+    },
+    "helvetica": {
+      "$value": [
+        "Helvetica Neue",
+        "Helvetica",
+        "Roboto",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "monospace": {
+      "$value": [
+        "Bitstream Vera Sans Mono",
+        "Consolas",
+        "Courier",
+        "monospace"
+      ]
+    }
+  }
+}

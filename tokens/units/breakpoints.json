@@ -1,0 +1,32 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "card": {
+      "$value": "10rem"
+    },
+    "card-lg": {
+      "$value": "15rem"
+    },
+    "mobile": {
+      "$value": "20rem"
+    },
+    "mobile-lg": {
+      "$value": "30rem"
+    },
+    "tablet": {
+      "$value": "40rem"
+    },
+    "tablet-lg": {
+      "$value": "55rem"
+    },
+    "desktop": {
+      "$value": "64rem"
+    },
+    "desktop-lg": {
+      "$value": "75rem"
+    },
+    "widescreen": {
+      "$value": "87.5rem"
+    }
+  }
+}

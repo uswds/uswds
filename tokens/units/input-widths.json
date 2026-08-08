@@ -1,0 +1,32 @@
+{
+  "input-width": {
+    "$type": "dimension",
+    "2xs": {
+      "$value": "5ex"
+    },
+    "xs": {
+      "$value": "9ex"
+    },
+    "sm": {
+      "$value": "13ex"
+    },
+    "small": {
+      "$value": "13ex"
+    },
+    "md": {
+      "$value": "20ex"
+    },
+    "medium": {
+      "$value": "20ex"
+    },
+    "lg": {
+      "$value": "30ex"
+    },
+    "xl": {
+      "$value": "40ex"
+    },
+    "2xl": {
+      "$value": "50ex"
+    }
+  }
+}

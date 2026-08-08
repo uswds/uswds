@@ -1,0 +1,19 @@
+{
+  "spacing-em": {
+    "$type": "dimension",
+    "small": {
+      "05em": {
+        "$value": "0.5em"
+      },
+      "1em": {
+        "$value": "1em"
+      },
+      "105em": {
+        "$value": "1.5em"
+      },
+      "2em": {
+        "$value": "2em"
+      }
+    }
+  }
+}

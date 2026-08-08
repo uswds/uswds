@@ -1,0 +1,63 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "project-border-radius": {
+      "0": {
+        "$value": "0"
+      },
+      "sm": {
+        "$value": "2px"
+      },
+      "md": {
+        "$value": "0.25rem"
+      },
+      "lg": {
+        "$value": "0.5rem"
+      },
+      "pill": {
+        "$value": "99rem"
+      }
+    },
+    "all-border-radius": {
+      "0": {
+        "$value": "0"
+      },
+      "1": {
+        "$value": "0.5rem"
+      },
+      "2": {
+        "$value": "1rem"
+      },
+      "3": {
+        "$value": "1.5rem"
+      },
+      "105": {
+        "$value": "0.75rem"
+      },
+      "205": {
+        "$value": "1.25rem"
+      },
+      "sm": {
+        "$value": "2px"
+      },
+      "md": {
+        "$value": "0.25rem"
+      },
+      "lg": {
+        "$value": "0.5rem"
+      },
+      "pill": {
+        "$value": "99rem"
+      },
+      "1px": {
+        "$value": "1px"
+      },
+      "2px": {
+        "$value": "2px"
+      },
+      "05": {
+        "$value": "0.25rem"
+      }
+    }
+  }
+}
