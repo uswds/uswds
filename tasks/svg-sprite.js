@@ -2,7 +2,6 @@
 const { src, dest, series } = require("gulp");
 const svgSprite = require("gulp-svgstore");
 const rename = require("gulp-rename");
-const del = require("del");
 const { Transform } = require("stream");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
@@ -37,8 +36,9 @@ function sortByBasename() {
   });
 }
 
-function cleanIcons() {
-  return del(`${svgPath}/usa-icons`);
+async function cleanIcons() {
+  const { deleteAsync } = await import("del");
+  return deleteAsync(`${svgPath}/usa-icons`);
 }
 
 function collectIcons() {
@@ -67,8 +67,9 @@ function renameSprite() {
     .pipe(dest(`./`));
 }
 
-function cleanSprite() {
-  return del(`${svgPath}/usa-icons.svg`);
+async function cleanSprite() {
+  const { deleteAsync } = await import("del");
+  return deleteAsync(`${svgPath}/usa-icons.svg`);
 }
 
 exports.buildSpriteStandalone = series(
