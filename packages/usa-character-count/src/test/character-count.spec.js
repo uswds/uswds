@@ -28,6 +28,26 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
+/**
+ * Assert screen reader status message content and aria-live after a delay.
+ * @param {number} delay
+ * @param {HTMLElement} statusMessageSR
+ * @param {{ text: string, ariaLive: string }} expectations
+ * @param {Function} done
+ */
+const assertSrAfterDelay = (
+  delay,
+  statusMessageSR,
+  { text, ariaLive },
+  done,
+) => {
+  setTimeout(() => {
+    assert.strictEqual(statusMessageSR.textContent, text);
+    assert.strictEqual(statusMessageSR.getAttribute("aria-live"), ariaLive);
+    done();
+  }, delay);
+};
+
 const characterCountSelector = () =>
   document.querySelector(".usa-character-count");
 const tests = [
@@ -199,17 +219,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       EVENTS.input(input);
 
-      setTimeout(() => {
-        assert.strictEqual(
-          statusMessageSR.textContent,
-          `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
-        );
-        assert.strictEqual(
-          statusMessageSR.getAttribute("aria-live"),
-          "assertive",
-        );
-        done();
-      }, SR_STATUS_DEBOUNCE_MS + 50);
+      assertSrAfterDelay(
+        SR_STATUS_DEBOUNCE_MS + 50,
+        statusMessageSR,
+        {
+          text: `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
+          ariaLive: "assertive",
+        },
+        done,
+      );
     });
 
     it("waits for typing to pause before assertively announcing how far over the limit", (done) => {
@@ -222,17 +240,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "1234567890123456789012";
       EVENTS.input(input);
 
-      setTimeout(() => {
-        assert.strictEqual(
-          statusMessageSR.textContent,
-          `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
-        );
-        assert.strictEqual(
-          statusMessageSR.getAttribute("aria-live"),
-          "assertive",
-        );
-        done();
-      }, SR_STATUS_DEBOUNCE_MS + 50);
+      assertSrAfterDelay(
+        SR_STATUS_DEBOUNCE_MS + 50,
+        statusMessageSR,
+        {
+          text: `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
+          ariaLive: "assertive",
+        },
+        done,
+      );
     });
 
     it("uses polite announcements while typing under the limit", (done) => {
@@ -240,11 +256,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       EVENTS.input(input);
 
-      setTimeout(() => {
-        assert.strictEqual(statusMessageSR.textContent, "19 characters left");
-        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
-        done();
-      }, SR_STATUS_DEBOUNCE_MS + 50);
+      assertSrAfterDelay(
+        SR_STATUS_DEBOUNCE_MS + 50,
+        statusMessageSR,
+        {
+          text: "19 characters left",
+          ariaLive: "polite",
+        },
+        done,
+      );
     });
 
     it("announces recovery quickly when backspacing under the limit", (done) => {
@@ -255,17 +275,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
         input.value = "1234567890123456789";
         EVENTS.input(input);
 
-        setTimeout(
+        assertSrAfterDelay(
+          AT_DEFER_MS + AT_DEFER_MS + 50,
+          statusMessageSR,
+          {
+            text: "1 character left",
+            ariaLive: "polite",
+          },
           () => {
-            assert.strictEqual(statusMessageSR.textContent, "1 character left");
-            assert.strictEqual(
-              statusMessageSR.getAttribute("aria-live"),
-              "polite",
-            );
             assert.strictEqual(input.validationMessage, "");
             done();
           },
-          AT_DEFER_MS + AT_DEFER_MS + 50,
         );
       }, AT_DEFER_MS + 50);
     });
@@ -277,19 +297,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "";
       EVENTS.input(input);
 
-      setTimeout(
-        () => {
-          assert.strictEqual(
-            statusMessageSR.textContent,
-            "20 characters allowed",
-          );
-          assert.strictEqual(
-            statusMessageSR.getAttribute("aria-live"),
-            "polite",
-          );
-          done();
-        },
+      assertSrAfterDelay(
         SR_STATUS_DEBOUNCE_MS + AT_DEFER_MS + 50,
+        statusMessageSR,
+        {
+          text: "20 characters allowed",
+          ariaLive: "polite",
+        },
+        done,
       );
     });
   });
