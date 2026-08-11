@@ -28,6 +28,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 - [@mgifford](https://github.com/mgifford), CivicActions Open Standards and Practices Lead, Drupal Core Accessibility Maintainer, W3C Invited Expert
 - [@acolter](https://github.com/acolter), The Bridge Chief Operating Officer, Former Executive Director at 18F
 - [@jeana-adhoc](https://github.com/jeana-adhoc), Design Lead & Accessibility Specialist at Ad Hoc; Contractor on VA.gov Design System
+- [@opensource-joe](https://github.com/opensource-joe), Principal technologist building open-source AI; Former Code.gov Director (GSA / TTS)
 
 ### USWDS Alumni
 
