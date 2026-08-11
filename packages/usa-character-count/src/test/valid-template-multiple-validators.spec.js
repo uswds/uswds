@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
+const sinon = require("sinon");
 const CharacterCount = require("../index");
 
 const { VALIDATION_MESSAGE, AT_DEFER_MS } = CharacterCount;
@@ -30,10 +31,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`character count component with multiple validators initialized at ${name}`, () => {
     const { body } = document;
 
+    let clock;
     let root;
     let input;
 
     beforeEach(() => {
+      clock = sinon.useFakeTimers({ shouldClearNativeTimers: true });
       body.innerHTML = TEMPLATE;
       CharacterCount.on(containerSelector());
 
@@ -44,6 +47,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     afterEach(() => {
       CharacterCount.off(containerSelector());
       body.textContent = "";
+      clock.restore();
     });
 
     it("assert that input constraint validation adds a validation message", () => {
@@ -80,7 +84,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(input.validationMessage, "Constraints not satisfied");
     });
 
-    it("should clear the validation message when input is only invalid by character count validation", (done) => {
+    it("should clear the validation message when input is only invalid by character count validation", () => {
       input.value = "abcdef";
 
       EVENTS.input(input);
@@ -90,11 +94,9 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "abcde";
 
       EVENTS.input(input);
+      clock.tick(AT_DEFER_MS);
 
-      setTimeout(() => {
-        assert.strictEqual(input.validationMessage, "");
-        done();
-      }, AT_DEFER_MS + 50);
+      assert.strictEqual(input.validationMessage, "");
     });
   });
 });

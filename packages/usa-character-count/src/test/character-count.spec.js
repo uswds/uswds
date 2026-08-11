@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
+const sinon = require("sinon");
 const CharacterCount = require("../index");
 
 const {
@@ -29,23 +30,13 @@ EVENTS.input = (el) => {
 };
 
 /**
- * Assert screen reader status message content and aria-live after a delay.
- * @param {number} delay
+ * Assert screen reader status message content and aria-live.
  * @param {HTMLElement} statusMessageSR
  * @param {{ text: string, ariaLive: string }} expectations
- * @param {Function} done
  */
-const assertSrAfterDelay = (
-  delay,
-  statusMessageSR,
-  { text, ariaLive },
-  done,
-) => {
-  setTimeout(() => {
-    assert.strictEqual(statusMessageSR.textContent, text);
-    assert.strictEqual(statusMessageSR.getAttribute("aria-live"), ariaLive);
-    done();
-  }, delay);
+const assertSrStatus = (statusMessageSR, { text, ariaLive }) => {
+  assert.strictEqual(statusMessageSR.textContent, text);
+  assert.strictEqual(statusMessageSR.getAttribute("aria-live"), ariaLive);
 };
 
 const characterCountSelector = () =>
@@ -59,6 +50,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`character count component initialized at ${name}`, () => {
     const { body } = document;
 
+    let clock;
     let root;
     let formGroup;
     let label;
@@ -68,6 +60,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let statusMessageSR;
 
     beforeEach(() => {
+      clock = sinon.useFakeTimers({ shouldClearNativeTimers: true });
       body.innerHTML = TEMPLATE;
       CharacterCount.on(containerSelector());
 
@@ -83,6 +76,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     afterEach(() => {
       CharacterCount.off(containerSelector());
       body.textContent = "";
+      clock.restore();
     });
 
     it("hides the requirements hint for screen readers", () => {
@@ -125,11 +119,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
     });
 
-    it("sets aria-live on the sr status message after a delay", (done) => {
-      setTimeout(() => {
-        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
-        done();
-      }, AT_DEFER_MS + 50);
+    it("sets aria-live on the sr status message after a delay", () => {
+      clock.tick(AT_DEFER_MS);
+
+      assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
     });
 
     it("adds initial status message for the character count component", () => {
@@ -214,23 +207,19 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
-    it("announces assertively after debounce when over the limit", (done) => {
+    it("announces assertively after debounce when over the limit", () => {
       input.value = "123456789012345678901";
 
       EVENTS.input(input);
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
 
-      assertSrAfterDelay(
-        SR_STATUS_DEBOUNCE_MS + 50,
-        statusMessageSR,
-        {
-          text: `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
-          ariaLive: "assertive",
-        },
-        done,
-      );
+      assertSrStatus(statusMessageSR, {
+        text: `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
+        ariaLive: "assertive",
+      });
     });
 
-    it("waits for typing to pause before assertively announcing how far over the limit", (done) => {
+    it("waits for typing to pause before assertively announcing how far over the limit", () => {
       input.value = "1234567890123456789";
       EVENTS.input(input);
 
@@ -240,72 +229,55 @@ tests.forEach(({ name, selector: containerSelector }) => {
       input.value = "1234567890123456789012";
       EVENTS.input(input);
 
-      assertSrAfterDelay(
-        SR_STATUS_DEBOUNCE_MS + 50,
-        statusMessageSR,
-        {
-          text: `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
-          ariaLive: "assertive",
-        },
-        done,
-      );
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
+        ariaLive: "assertive",
+      });
     });
 
-    it("uses polite announcements while typing under the limit", (done) => {
+    it("uses polite announcements while typing under the limit", () => {
       input.value = "1";
 
       EVENTS.input(input);
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
 
-      assertSrAfterDelay(
-        SR_STATUS_DEBOUNCE_MS + 50,
-        statusMessageSR,
-        {
-          text: "19 characters left",
-          ariaLive: "polite",
-        },
-        done,
-      );
+      assertSrStatus(statusMessageSR, {
+        text: "19 characters left",
+        ariaLive: "polite",
+      });
     });
 
-    it("announces recovery quickly when backspacing under the limit", (done) => {
+    it("announces recovery quickly when backspacing under the limit", () => {
       input.value = "123456789012345678901";
       EVENTS.input(input);
 
-      setTimeout(() => {
-        input.value = "1234567890123456789";
-        EVENTS.input(input);
+      input.value = "1234567890123456789";
+      EVENTS.input(input);
 
-        assertSrAfterDelay(
-          AT_DEFER_MS + AT_DEFER_MS + 50,
-          statusMessageSR,
-          {
-            text: "1 character left",
-            ariaLive: "polite",
-          },
-          () => {
-            assert.strictEqual(input.validationMessage, "");
-            done();
-          },
-        );
-      }, AT_DEFER_MS + 50);
+      clock.tick(AT_DEFER_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: "1 character left",
+        ariaLive: "polite",
+      });
+      assert.strictEqual(input.validationMessage, "");
     });
 
-    it("does not replay a stale over-limit announcement after backspacing to empty", (done) => {
+    it("does not replay a stale over-limit announcement after backspacing to empty", () => {
       input.value = "123456789012345678901";
       EVENTS.input(input);
 
       input.value = "";
       EVENTS.input(input);
 
-      assertSrAfterDelay(
-        SR_STATUS_DEBOUNCE_MS + AT_DEFER_MS + 50,
-        statusMessageSR,
-        {
-          text: "20 characters allowed",
-          ariaLive: "polite",
-        },
-        done,
-      );
+      clock.tick(AT_DEFER_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: "20 characters allowed",
+        ariaLive: "polite",
+      });
     });
   });
 });
