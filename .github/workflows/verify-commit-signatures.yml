@@ -49,7 +49,7 @@ jobs:
 
       - name: Post reminder comment
         if: steps.check.outputs.all_verified == 'false'
-        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # pin v3.0.4
         with:
           header: verify-commits
           message: |
@@ -76,11 +76,11 @@ jobs:
 
       - name: Update comment when all commits are verified
         if: steps.check.outputs.all_verified == 'true'
-        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # pin v3.0.4
         with:
           header: verify-commits
           message: |
-            ✅ All commits on this PR now have a verified signature. Thanks for making that change!
+            ✅ All commits on this PR have a verified signature. Thanks!
 
       - name: Add label when commits are unverified
         if: steps.check.outputs.all_verified == 'false'

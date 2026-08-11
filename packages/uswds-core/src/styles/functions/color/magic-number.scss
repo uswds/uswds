@@ -17,14 +17,12 @@ return: 40
 
 @function magic-number($grade-1, $grade-2) {
   $grade-1: if(
-    meta.type-of($grade-1) == "number",
-    $grade-1,
-    calculate-grade($grade-1)
+    sass(meta.type-of($grade-1) == "number"): $grade-1;
+      else: calculate-grade($grade-1)
   );
   $grade-2: if(
-    meta.type-of($grade-2) == "number",
-    $grade-2,
-    calculate-grade($grade-2)
+    sass(meta.type-of($grade-2) == "number"): $grade-2;
+      else: calculate-grade($grade-2)
   );
   $magic-number: math.abs($grade-1 - $grade-2);
   @return $magic-number;
