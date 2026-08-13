@@ -60,6 +60,10 @@ $accordion-button-open-hc-icon: map.merge(
       background-position: right $accordion-icon-gap top calc(50% - 1px);
     }
   } @else {
+    @if $side != "end" {
+      @warn "`#{$side}` is not a valid USWDS accordion icon position. Valid values: start, end. Falling back to `end`.";
+    }
+
     padding-inline-start: $accordion-icon-gap;
     padding-inline-end: $accordion-icon-padding;
     background-position: right $accordion-icon-gap top calc(50% - 1px);
@@ -79,6 +83,10 @@ $accordion-button-open-hc-icon: map.merge(
     inset-inline-start: $accordion-icon-gap;
     inset-inline-end: auto;
   } @else {
+    @if $side != "end" {
+      @warn "`#{$side}` is not a valid USWDS accordion icon position. Valid values: start, end. Falling back to `end`.";
+    }
+
     inset-inline-end: $accordion-icon-gap;
     inset-inline-start: auto;
   }
@@ -231,8 +239,10 @@ $accordion-button-open-hc-icon: map.merge(
   @include accordion-button-unopened-styles;
 }
 
+// Banner and nav reuse .usa-accordion__button with their own icon treatment.
+// Exclude those buttons so a misplaced modifier cannot shift their layout.
 .usa-accordion--icon-start {
-  .usa-accordion__button {
+  .usa-accordion__button:not(.usa-banner__button):not(.usa-nav__link) {
     @include accordion-button-icon-side("start");
 
     @media (forced-colors: active) {
@@ -244,7 +254,7 @@ $accordion-button-open-hc-icon: map.merge(
 }
 
 .usa-accordion--icon-end {
-  .usa-accordion__button {
+  .usa-accordion__button:not(.usa-banner__button):not(.usa-nav__link) {
     @include accordion-button-icon-side("end");
 
     @media (forced-colors: active) {

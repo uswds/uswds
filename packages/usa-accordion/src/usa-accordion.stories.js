@@ -3,6 +3,7 @@ import {
   DefaultContent,
   BorderedContent,
   MultiContent,
+  IconStartContent,
   IconEndContent,
 } from "./content";
 
@@ -39,6 +40,9 @@ Bordered.args = BorderedContent;
 
 export const Multiselectable = Template.bind({});
 Multiselectable.args = MultiContent;
+
+export const IconStart = Template.bind({});
+IconStart.args = IconStartContent;
 
 export const IconEnd = Template.bind({});
 IconEnd.args = IconEndContent;
