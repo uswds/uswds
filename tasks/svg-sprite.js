@@ -2,7 +2,7 @@
 const { src, dest, series } = require("gulp");
 const svgSprite = require("gulp-svgstore");
 const rename = require("gulp-rename");
-const del = require("del");
+const through2 = require("through2").default;
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
 const { copyIcons } = require("./copy");
@@ -10,8 +10,34 @@ const iconConfig = require("../packages/usa-icon/src/usa-icons.config");
 
 const svgPath = "dist/img";
 
-function cleanIcons() {
-  return del(`${svgPath}/usa-icons`);
+// Gulp 5 removed ordered-glob guarantees; sort SVG files by basename
+// (code-unit order, matching the prior fs.readdir/glob@7 behavior on this
+// filesystem) so sprite.svg symbol order is deterministic regardless of
+// platform readdir order.
+function sortByBasename() {
+  const files = [];
+  return through2.obj(
+    function collect(file, _, cb) {
+      files.push(file);
+      cb();
+    },
+    function flush(cb) {
+      files.sort((a, b) => {
+        const nameA = a.basename;
+        const nameB = b.basename;
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+      });
+      files.forEach((f) => this.push(f));
+      cb();
+    }
+  );
+}
+
+async function cleanIcons() {
+  const { deleteAsync } = await import("del");
+  return deleteAsync(`${svgPath}/usa-icons`);
 }
 
 function collectIcons() {
@@ -24,13 +50,13 @@ function collectIcons() {
     .pipe(dest(`${svgPath}/usa-icons`))
 }
 
-function buildSprite(done) {
+function buildSprite() {
   return (
     src(`${svgPath}/usa-icons/*.svg`)
+      .pipe(sortByBasename())
       .pipe(svgSprite())
       .on("error", logError)
       .pipe(dest(svgPath))
-      .on("end", () => done())
   );
 }
 
@@ -40,8 +66,9 @@ function renameSprite() {
     .pipe(dest(`./`));
 }
 
-function cleanSprite() {
-  return del(`${svgPath}/usa-icons.svg`);
+async function cleanSprite() {
+  const { deleteAsync } = await import("del");
+  return deleteAsync(`${svgPath}/usa-icons.svg`);
 }
 
 exports.buildSpriteStandalone = series(

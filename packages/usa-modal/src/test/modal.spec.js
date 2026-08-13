@@ -176,6 +176,26 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(activeContent.length, 3);
         assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
       });
+
+      it("restores page content when the opener has left the document", () => {
+        // The view holding the opener re-renders while the modal is open, so
+        // the element `data-opener` points at is gone by the time we close.
+        // Another opener remains, so only the focus target is missing.
+        openButton2.remove();
+
+        closeButton.click();
+
+        const staysHidden = document.getElementById("stays-hidden");
+        assert.strictEqual(
+          document.querySelectorAll("[data-modal-hidden]").length,
+          0,
+        );
+        assert.strictEqual(
+          document.getElementById("other-content").hasAttribute("aria-hidden"),
+          false,
+        );
+        assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
+      });
     });
 
     describe("Open focus target", () => {
