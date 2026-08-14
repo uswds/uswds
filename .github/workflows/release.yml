@@ -1,3 +1,23 @@
+# Publish Package to npmjs
+# =============================================================================
+# Fires when a v*.*.* tag is pushed to the repo. This is the second half of the
+# two-part release process; run release-prep.yml first on the release branch.
+#
+# VULNERABILITY GATE
+#   Blocks on critical vulnerabilities only. Catches any critical CVEs
+#   disclosed between release-prep.yml running and this tag being pushed.
+#   The authoritative clean-room scan (prod deps, zero tolerance) already
+#   ran in release-prep.yml.
+#
+# HASH GATE
+#   Before publishing, the SHA-256 hash of the packed .tgz is recomputed
+#   and compared to the committed security/uswds-<version>-zip-hash.txt.
+#   A mismatch means the package changed after the hash was signed off —
+#   the publish is aborted.
+#
+# See release-prep.yml for the prep workflow.
+# =============================================================================
+
 name: Publish Package to npmjs
 
 on:
@@ -21,22 +41,61 @@ jobs:
       - name: Update npm version
         run: npm install -g npm@latest # OIDC requires npm v11.5.1 or later
       - run: npm ci
-      - name: Check for vulnerabilities
+
+      # Catches any critical CVEs disclosed between release-prep.yml running and
+      # this tag being pushed. The authoritative clean-room scan already ran in
+      # release-prep.yml; this is a last-minute safety net.
+      - name: Check for critical vulnerabilities
         run: |
-          # Capture audit result (ignore exit code with || true)
           AUDIT_RESULT=$(npm audit --json || true)
-          CRITICAL=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.critical // 0')
-          HIGH=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.high // 0')
-          TOTAL=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.total // 0')
-          
-          if [ "$CRITICAL" -gt 0 ] || [ "$HIGH" -gt 0 ]; then
-            echo "Found $CRITICAL critical and $HIGH high severity vulnerabilities"
-            echo "Please review and fix these vulnerabilities"
+          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
+
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "::error::Found $CRITICAL critical vulnerabilities."
+            echo "::error::Please review and fix before publishing."
+            echo "$AUDIT_RESULT" | jq '.vulnerabilities | to_entries[] | select(.value.severity == "critical")'
             exit 1
           fi
-          echo "No critical or high severity vulnerabilities found. Total vulnerabilities: $TOTAL"
+
+          echo "✓ No critical vulnerabilities found."
+
       - name: Pack package
         run: npm pack
+
+      # Recomputes the SHA-256 hash of the packed .tgz and compares it to the
+      # hash committed in security/uswds-<version>-zip-hash.txt. A mismatch
+      # means the package changed after the prep workflow signed off the hash.
+      - name: Verify tarball hash matches committed security file
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TGZ="uswds-${VERSION}.tgz"
+          HASH_FILE="security/uswds-${VERSION}-zip-hash.txt"
+
+          if [ ! -f "$TGZ" ]; then
+            echo "::error::Expected tarball $TGZ not found."
+            exit 1
+          fi
+
+          if [ ! -f "$HASH_FILE" ]; then
+            echo "::error::Expected hash file $HASH_FILE not found in security/."
+            echo "::error::Run release-prep.yml to generate the hash before tagging."
+            exit 1
+          fi
+
+          COMPUTED=$(sha256sum "$TGZ" | awk '{print $1}')
+          COMMITTED=$(cat "$HASH_FILE" | tr -d '[:space:]')
+
+          echo "Computed hash:  $COMPUTED"
+          echo "Committed hash: $COMMITTED"
+
+          if [ "$COMPUTED" != "$COMMITTED" ]; then
+            echo "::error::Hash mismatch! The tarball has changed since the security hash was committed."
+            echo "::error::Re-run release-prep.yml to regenerate the hash, commit it, and re-tag."
+            exit 1
+          fi
+
+          echo "✓ Tarball hash verified: $COMPUTED"
+
       - name: Upload pack artifact
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
