@@ -1,0 +1,114 @@
+@use "uswds-core" with (
+  $theme-show-notifications: false
+);
+@use "usa-accordion/src/styles/usa-accordion" as accordion;
+@import "node_modules/sass-true/sass/true";
+
+@include describe("[mixin] accordion-button-icon-side()") {
+  @include it("Places padding and background on the start side") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-button-icon-side("start");
+      }
+
+      @include expect {
+        padding-block: 1rem;
+        padding-inline-start: 3.5rem;
+        padding-inline-end: 1.25rem;
+        background-position: left 1.25rem top calc(50% - 1px);
+
+        [dir="rtl"] & {
+          background-position: right 1.25rem top calc(50% - 1px);
+        }
+      }
+    }
+  }
+
+  @include it("Places padding and background on the end side") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-button-icon-side("end");
+      }
+
+      @include expect {
+        padding-block: 1rem;
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 3.5rem;
+        background-position: right 1.25rem top calc(50% - 1px);
+
+        [dir="rtl"] & {
+          background-position: left 1.25rem top calc(50% - 1px);
+        }
+      }
+    }
+  }
+
+  @include it("Falls back to the end side for an invalid position") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-button-icon-side("left");
+      }
+
+      @include expect {
+        padding-block: 1rem;
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 3.5rem;
+        background-position: right 1.25rem top calc(50% - 1px);
+
+        [dir="rtl"] & {
+          background-position: left 1.25rem top calc(50% - 1px);
+        }
+      }
+    }
+  }
+}
+
+@include describe("[mixin] accordion-hc-icon-styles()") {
+  @include it("Places the high contrast icon on the start side") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-hc-icon-styles("start");
+      }
+
+      @include expect {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        inset-inline-start: 1.25rem;
+        inset-inline-end: auto;
+      }
+    }
+  }
+
+  @include it("Places the high contrast icon on the end side") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-hc-icon-styles("end");
+      }
+
+      @include expect {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        inset-inline-end: 1.25rem;
+        inset-inline-start: auto;
+      }
+    }
+  }
+
+  @include it("Falls back to the end side for an invalid position") {
+    @include assert {
+      @include output {
+        @include accordion.accordion-hc-icon-styles("right");
+      }
+
+      @include expect {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        inset-inline-end: 1.25rem;
+        inset-inline-start: auto;
+      }
+    }
+  }
+}
