@@ -86,14 +86,15 @@
   &::-webkit-slider-thumb {
     @include range-thumb;
     appearance: none;
-    // Webkit positions ::-webkit-slider-thumb relative to the track centerline
-    // using content-box geometry. The track renders at:
-    //   height (units(2) = 16px) + border-top + border-bottom = 20px total
-    // because ::-webkit-slider-runnable-track does not inherit box-sizing and
-    // defaults to content-box. Without correction the thumb sits 1px low.
-    // Formula: -(border-width) = -(2px) = -2px half-correction per side, rounded
-    // to the nearest rem. Update this value whenever the track border-width changes.
-    // Current track border: units(2px) — see range-track mixin above.
+    // Webkit aligns the thumb's top edge to the track's content-box top.
+    // A negative margin-top pulls the thumb upward to center it on the track.
+    //
+    // Formula: margin-top = -(track_border_width + 2px)
+    //   The constant 2px is a fixed geometric offset independent of border size.
+    //   Confirmed empirically: border=1px → -3px (v3.13.0), border=2px → -4px (current).
+    //
+    // Update this value whenever the track border-width (range-track mixin) changes.
+    // Current track border: units(2px) → margin-top = -(2 + 2) = -4px.
     margin-top: px-to-rem(-4px);
   }
 
