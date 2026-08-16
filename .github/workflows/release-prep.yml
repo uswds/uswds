@@ -71,7 +71,7 @@ jobs:
       - name: Bump version (remove Snyk preversion hook on runner only)
         run: |
           npm pkg delete scripts.preversion
-          npm version ${{ inputs.release-type }} --no-tag
+          npm version ${{ inputs.release-type }} --no-git-tag-version
           NEW_VERSION=$(node -p "require('./package.json').version")
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
           echo "Bumped to version: $NEW_VERSION"
@@ -81,7 +81,11 @@ jobs:
       # Recompute and assert the tarball and hash file agree.
       - name: Verify tarball hash matches generated security file
         run: |
-          TGZ="uswds-${NEW_VERSION}.tgz"
+          # npm pack names scoped-package tarballs by stripping the leading
+          # "@" and replacing "/" with "-" (e.g. @uswds/uswds -> uswds-uswds),
+          # so derive the prefix from package.json instead of hardcoding it.
+          PKG_PREFIX=$(node -p "require('./package.json').name.replace(/^@/, '').replace('/', '-')")
+          TGZ="${PKG_PREFIX}-${NEW_VERSION}.tgz"
           HASH_FILE="security/uswds-${NEW_VERSION}-zip-hash.txt"
 
           if [ ! -f "$TGZ" ]; then
@@ -232,6 +236,6 @@ jobs:
         with:
           name: uswds-${{ env.NEW_VERSION }}-release
           path: |
-            uswds-${{ env.NEW_VERSION }}.tgz
+            ${{ env.TGZ_NAME }}
             security/uswds-${{ env.NEW_VERSION }}-zip-hash.txt
           retention-days: 30
