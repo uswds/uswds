@@ -55,7 +55,7 @@ get-link-tokens-from-bg(
   $wcag-target: "AA",
   $context: false
 ) {
-  $context-text: if($context, "[#{$context}] ", "");
+  $context-text: if(sass($context): "[#{$context}] "; else: "");
   $is-default: false;
   $is-default-preferred: false;
   $is-default-fallback: false;
@@ -87,7 +87,7 @@ get-link-tokens-from-bg(
   $accessible-link-grade: calculate-grade($accessible-link-token);
   // Get the hover color token
   // If link is lighter than bg set $is-reverse to true
-  $is-reverse: if($accessible-link-grade < $bg-grade, true, false);
+  $is-reverse: if(sass($accessible-link-grade < $bg-grade): true; else: false);
   // If using defaults, set the default hover
   // $link-kind is used for error messaging
   $link-kind: false;
@@ -115,7 +115,7 @@ get-link-tokens-from-bg(
     }
   }
   @if not $accessible-hover-token {
-    $direction: if($is-reverse, "lighter", "darker");
+    $direction: if(sass($is-reverse): "lighter"; else: "darker");
     $hover-token: next-token($accessible-link-token, $direction);
     // Use the next token, if it is valid
     @if $hover-token {

@@ -24,9 +24,8 @@ color-token-variant(("red", 50, "vivid"))
 
 @function color-token-grade($color-token) {
   $split: if(
-    meta.type-of($color-token) == "list",
-    $color-token,
-    decompose-color-token($color-token)
+    sass(meta.type-of($color-token) == "list"): $color-token;
+      else: decompose-color-token($color-token)
   );
   $grade: list.nth($split, 2);
   @return $grade;

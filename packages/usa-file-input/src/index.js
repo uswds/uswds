@@ -29,10 +29,27 @@ const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const DEFAULT_ERROR_LABEL_TEXT = "Error: This is not a valid file type.";
+const FINE_POINTER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
 let DEFAULT_FILE_STATUS_TEXT = "";
+
+const instructionMediaQueryCleanups = new WeakMap();
+
+const getFinePointerMediaQueryList = () => {
+  if (typeof window.matchMedia !== "function") {
+    return null;
+  }
+
+  return window.matchMedia(FINE_POINTER_MEDIA_QUERY);
+};
+
+const shouldShowDragText = () => {
+  const finePointerMediaQuery = getFinePointerMediaQueryList();
+
+  return Boolean(finePointerMediaQuery && finePointerMediaQuery.matches);
+};
 
 /**
  * The properties and elements within the file input.
@@ -168,39 +185,78 @@ const createTargetArea = (fileInputEl) => {
 /**
  * Build the visible element with default interaction instructions.
  *
+ * @param {HTMLInputElement} fileInputEl - The input element
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions
+ */
+const updateVisibleInstructions = (fileInputEl, instructions) => {
+  const instructionsEl = instructions;
+  const itemsLabel = getItemsLabel(fileInputEl);
+  const dragText = `Drag ${itemsLabel} here or`;
+  const dragTextEl = document.createElement("span");
+  const chooseTextEl = document.createElement("span");
+  const dragTextIsVisible = shouldShowDragText();
+  const chooseText = dragTextIsVisible
+    ? "choose from folder"
+    : "Choose from folder";
+
+  // Create instructions text for aria-label
+  DEFAULT_ARIA_LABEL_TEXT = dragTextIsVisible
+    ? `${dragText} ${chooseText}`
+    : chooseText;
+
+  instructionsEl.textContent = "";
+  chooseTextEl.classList.add(CHOOSE_CLASS);
+  chooseTextEl.textContent = chooseText;
+
+  if (dragTextIsVisible) {
+    dragTextEl.classList.add(DRAG_TEXT_CLASS);
+    dragTextEl.textContent = dragText;
+    instructionsEl.appendChild(dragTextEl);
+    instructionsEl.appendChild(document.createTextNode(" "));
+  }
+
+  instructionsEl.appendChild(chooseTextEl);
+
+  if (!instructionsEl.hasAttribute("hidden")) {
+    fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
+  }
+};
+
+/**
+ * Build the visible element with default interaction instructions.
+ *
  * @param {HTMLInputElement} fileInputEl - The input element.
  * @returns {HTMLDivElement} The container for visible interaction instructions.
  */
 const createVisibleInstructions = (fileInputEl) => {
-  const fileInputParent = fileInputEl.closest(DROPZONE);
-  const itemsLabel = getItemsLabel(fileInputEl);
   const instructions = document.createElement("div");
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
-
-  // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
-
-  // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  updateVisibleInstructions(fileInputEl, instructions);
 
   // Add the instructions element to the DOM
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
 
-  // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
-  if (
-    /rv:11.0/i.test(navigator.userAgent) ||
-    /Edge\/\d./i.test(navigator.userAgent)
-  ) {
-    fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
+  return instructions;
+};
+
+const addInstructionMediaQueryListener = (fileInputEl, instructions) => {
+  const finePointerMediaQuery = getFinePointerMediaQueryList();
+  const handleMediaQueryChange = () => {
+    updateVisibleInstructions(fileInputEl, instructions);
+  };
+
+  if (!finePointerMediaQuery) {
+    return null;
   }
 
-  return instructions;
+  finePointerMediaQuery.addEventListener("change", handleMediaQueryChange);
+
+  return () => {
+    finePointerMediaQuery.removeEventListener("change", handleMediaQueryChange);
+  };
 };
 
 /**
@@ -246,6 +302,9 @@ const enhanceFileInput = (fileInputEl) => {
   } else {
     createSROnlyStatus(fileInputEl);
   }
+
+  // Mark the wrapper, not the initial div
+  dropZoneEl.dataset.enhanced = "true";
 
   return { instructions, dropTarget };
 };
@@ -516,7 +575,7 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
-      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      fileInputEl.value = "";
       errorMessage.textContent = errorMessageText;
       dropTarget.insertBefore(errorMessage, fileInputEl);
 
@@ -553,7 +612,18 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
+        if (fileInputEl.dataset.enhanced) return;
+
         const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
+        const removeInstructionMediaQueryListener =
+          addInstructionMediaQueryListener(fileInputEl, instructions);
+
+        if (removeInstructionMediaQueryListener) {
+          instructionMediaQueryCleanups.set(
+            fileInputEl,
+            removeInstructionMediaQueryListener,
+          );
+        }
 
         dropTarget.addEventListener(
           "dragover",
@@ -588,12 +658,20 @@ const fileInput = behavior(
     },
     teardown(root) {
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
+        const removeInstructionMediaQueryListener =
+          instructionMediaQueryCleanups.get(fileInputEl);
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
+
+        if (removeInstructionMediaQueryListener) {
+          removeInstructionMediaQueryListener();
+          instructionMediaQueryCleanups.delete(fileInputEl);
+        }
+
         fileInputTopElement.parentElement.replaceChild(
           fileInputEl,
           fileInputTopElement,
         );
-        // eslint-disable-next-line no-param-reassign
+
         fileInputEl.className = DROPZONE_CLASS;
       });
     },

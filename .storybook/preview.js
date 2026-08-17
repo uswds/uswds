@@ -1,9 +1,14 @@
+import "../packages/uswds/_index.scss";
 import "../packages/uswds-core/src/js/start";
 
-/** @type { import('@storybook/html').Preview } */
+/** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    a11y: {
+      // Disable automatic a11y checks in the addon panel — a11y testing is
+      // handled by the test-runner with axe-playwright instead.
+      test: { disable: true },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

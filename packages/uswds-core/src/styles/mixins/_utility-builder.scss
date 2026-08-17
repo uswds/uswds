@@ -15,7 +15,7 @@
 ----------------------------------------
 @render-pseudoclass
 ----------------------------------------
-Build a pseucoclass utiliy from values
+Build a pseudoclass utility from values
 calculated in the @render-utilities-in
 loop
 ----------------------------------------
@@ -29,7 +29,7 @@ loop
   $value,
   $media-prefix
 ) {
-  $important: if($utilities-use-important, " !important", null);
+  $important: if(sass($utilities-use-important): " !important");
   $this-mq: null;
 
   .#{$media-prefix}#{$pseudoclass}#{$separator}#{ns("utility")}#{$selector}:#{$pseudoclass} {
@@ -69,9 +69,9 @@ future version of Sass' warning.
   $val-props,
   $media-key
 ) {
-  $important: if($utilities-use-important, " !important", null);
+  $important: if(sass($utilities-use-important): " !important");
   $media-prefix: null;
-  $value-is-map: if(meta.type-of($val-props) == "map", true, false);
+  $value-is-map: if(sass(meta.type-of($val-props) == "map"): true; else: false);
 
   @if $media-key {
     $media-prefix: #{$media-key}#{$separator};
@@ -212,15 +212,19 @@ through all possible variants
               // If its a map, use val-value.content.
 
               $val-slug: if(
-                meta.type-of($val-value) == "map",
-                map.get($val-value, "slug"),
-                $val-key
+                sass(meta.type-of($val-value) == "map"): map.get(
+                    $val-value,
+                    "slug"
+                  );
+                  else: $val-key
               );
 
               $value: if(
-                meta.type-of($val-value) == "map",
-                map.get($val-value, "content"),
-                $val-value
+                sass(meta.type-of($val-value) == "map"): map.get(
+                    $val-value,
+                    "content"
+                  );
+                  else: $val-value
               );
 
               @if $val-slug == "" or smart-quote($val-slug) == "noValue" {
@@ -275,9 +279,8 @@ through all possible variants
 
               @each $mod-key, $mod-val in $our-modifiers {
                 $property: if(
-                  $mod-val == null or $mod-val == "",
-                  $property-default,
-                  multi-cat($property-default, $mod-val)
+                  sass($mod-val == null or $mod-val == ""): $property-default;
+                    else: multi-cat($property-default, $mod-val)
                 );
 
                 // Now we go through to set the $selector.
@@ -315,12 +318,12 @@ through all possible variants
                 // If there _is_ a modifier...
 
                 @else {
-                  $mv: if($no-value, $mod-key, $mod-key + "-" + $v);
+                  $mv: if(sass($no-value): $mod-key; else: $mod-key + "-" + $v);
 
                   // Once we have $mv, test for $b
                   // and build the selector as before.
 
-                  $selector: if($b == null, $mv, $b + "-" + $mv);
+                  $selector: if(sass($b == null): $mv; else: $b + "-" + $mv);
                 }
 
                 // finished setting modifier vars
