@@ -266,11 +266,11 @@ $uswds-notifications:
 + "\A   against XSS vulnerabilities through unsanitized `data-tag` values."
 + "\A   ✏️ Teams should review any footer `data-tag` values that aren't heading"
 + "\A     elements."
-+ "\A - Display, Settings: [usa-select] Set `box-sizing: border-box` on select"
++ "\A - Display, Settings: [usa-input, usa-textarea, usa-range, usa-combo-box,"
++ "\A   usa-input-prefix-suffix, usa-select] Set `box-sizing: border-box` on form inputs"
 + "\A   to prevent overflow in host environments that reset global box sizing."
-+ "\A   ✏️ Teams should verify that select elements display correctly in projects"
-+ "\A     with custom global `box-sizing` resets, such as content management"
-+ "\A     systems that provide extra theming."
++ "\A   ✏️ Teams should verify these elements display correctly in projects with custom global"
++ "\A     box-sizing resets (i.e. those using `$theme-global-border-box-sizing: false`)."
 + "\A ";
 
 /* prettier-ignore */
