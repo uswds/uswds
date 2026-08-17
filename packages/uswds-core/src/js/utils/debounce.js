@@ -13,7 +13,7 @@
 
 module.exports = function debounce(callback, delay = 500) {
   let timer = null;
-  const debounced = (...args) => {
+  const debounced = function debounced(...args) {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => {
       callback.apply(this, args);
