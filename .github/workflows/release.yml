@@ -106,35 +106,14 @@ jobs:
       # recorded — i.e. that the trusted, reviewed artifact survived
       # download intact, not that two independent builds happen to match.
       - name: Verify downloaded tarball hash matches release-prep's security file
-        run: |
-          PKG_PREFIX=$(node -p "require('./package.json').name.replace(/^@/, '').replace('/', '-')")
-          TGZ="release-artifact/${PKG_PREFIX}-${VERSION}.tgz"
-          HASH_FILE="security/uswds-${VERSION}-zip-hash.txt"
+        id: verify-hash
+        uses: ./.github/actions/verify-tarball-hash
+        with:
+          version: ${{ env.VERSION }}
+          tarball-dir: 'release-artifact'
 
-          if [ ! -f "$TGZ" ]; then
-            echo "::error::Expected tarball $TGZ not found inside downloaded artifact."
-            exit 1
-          fi
-
-          if [ ! -f "$HASH_FILE" ]; then
-            echo "::error::Expected committed hash file $HASH_FILE not found in checked-out repo."
-            exit 1
-          fi
-
-          COMPUTED=$(sha256sum "$TGZ" | awk '{print $1}')
-          COMMITTED=$(cat "$HASH_FILE" | tr -d '[:space:]')
-
-          echo "Computed hash:  $COMPUTED"
-          echo "Committed hash: $COMMITTED"
-
-          if [ "$COMPUTED" != "$COMMITTED" ]; then
-            echo "::error::Hash mismatch — downloaded artifact does not match release-prep's recorded hash."
-            echo "::error::Do not publish. Investigate before re-running."
-            exit 1
-          fi
-
-          echo "TGZ_PATH=$TGZ" >> "$GITHUB_ENV"
-          echo "✓ Downloaded artifact hash verified: $COMPUTED"
+      - name: Export tarball path to env
+        run: echo "TGZ_PATH=${{ steps.verify-hash.outputs.tarball-path }}" >> "$GITHUB_ENV"
 
       - name: Upload pack artifact
         if: ${{ !env.ACT }}
