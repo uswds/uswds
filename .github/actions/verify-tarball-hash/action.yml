@@ -1,0 +1,52 @@
+name: 'Verify Tarball Hash'
+description: 'Verify a packed .tgz SHA-256 matches the committed security/uswds-<version>-zip-hash.txt'
+inputs:
+  version:
+    description: 'Package version to verify (e.g. 3.14.0)'
+    required: true
+  tarball-dir:
+    description: 'Directory containing the .tgz file'
+    required: false
+    default: '.'
+outputs:
+  hash:
+    description: 'Verified SHA-256 hash of the tarball'
+    value: ${{ steps.verify.outputs.hash }}
+  tarball-path:
+    description: 'Resolved path to the verified .tgz file'
+    value: ${{ steps.verify.outputs.tarball-path }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Compute and verify tarball hash
+      id: verify
+      shell: bash
+      run: |
+        PKG_PREFIX=$(node -p "require('./package.json').name.replace(/^@/, '').replace('/', '-')")
+        TGZ="${{ inputs.tarball-dir }}/${PKG_PREFIX}-${{ inputs.version }}.tgz"
+        HASH_FILE="security/uswds-${{ inputs.version }}-zip-hash.txt"
+
+        if [ ! -f "$TGZ" ]; then
+          echo "::error::Expected tarball $TGZ not found."
+          exit 1
+        fi
+
+        if [ ! -f "$HASH_FILE" ]; then
+          echo "::error::Expected hash file $HASH_FILE not found."
+          exit 1
+        fi
+
+        COMPUTED=$(sha256sum "$TGZ" | awk '{print $1}')
+        COMMITTED=$(cat "$HASH_FILE" | tr -d '[:space:]')
+
+        echo "Computed:  $COMPUTED"
+        echo "Committed: $COMMITTED"
+
+        if [ "$COMPUTED" != "$COMMITTED" ]; then
+          echo "::error::Hash mismatch — tarball and security file disagree."
+          exit 1
+        fi
+
+        echo "hash=$COMPUTED" >> "$GITHUB_OUTPUT"
+        echo "tarball-path=$TGZ" >> "$GITHUB_OUTPUT"
+        echo "✓ Hash verified: $COMPUTED"

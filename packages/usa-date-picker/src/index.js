@@ -1,4 +1,4 @@
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const select = require("../../uswds-core/src/js/utils/select");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
@@ -593,11 +593,10 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  */
 const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
-  let row = [];
 
   let i = 0;
   while (i < htmlArray.length) {
-    row = [];
+    const row = [];
 
     const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
@@ -898,6 +897,8 @@ const setCalendarValue = (el, dateString) => {
  */
 const enhanceDatePicker = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
+  if (datePickerEl.dataset.enhanced) return;
+
   const { defaultValue } = datePickerEl.dataset;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
@@ -964,6 +965,8 @@ const enhanceDatePicker = (el) => {
     ariaDisable(datePickerEl);
     internalInputEl.removeAttribute("aria-disabled");
   }
+
+  datePickerEl.dataset.enhanced = "true";
 };
 
 // #region Calendar - Date Selection View
@@ -1045,7 +1048,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
-    if (isSameDay(dateToRender, todaysDate)) {
+    const isToday = isSameDay(dateToRender, todaysDate);
+    if (isToday) {
       classes.push(CALENDAR_DATE_TODAY_CLASS);
     }
 
@@ -1094,6 +1098,9 @@ const renderCalendar = (el, _dateToDisplay) => {
       Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isToday) {
+      btn.setAttribute("aria-current", "date");
+    }
     if (isDisabled === true) {
       btn.disabled = true;
     }
