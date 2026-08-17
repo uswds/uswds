@@ -270,7 +270,7 @@ $uswds-notifications:
 + "\A   usa-input-prefix-suffix, usa-select] Set `box-sizing: border-box` on form inputs"
 + "\A   to prevent overflow in host environments that reset global box sizing."
 + "\A   ✏️ Teams should verify these elements display correctly in projects with custom global"
-+ "\A     box-sizing resets (i.e. those using `$theme-global-border-box-sizing: false`)."
++ "\A     box-sizing resets (i.e. those who set `$theme-global-border-box-sizing: false`)."
 + "\A ";
 
 /* prettier-ignore */
