@@ -2,7 +2,7 @@
 const { src, dest, series } = require("gulp");
 const svgSprite = require("gulp-svgstore");
 const rename = require("gulp-rename");
-const through2 = require("through2").default;
+const { Transform } = require("stream");
 const dutil = require("./utils/doc-util");
 const { logError } = require('./utils/doc-util');
 const { copyIcons } = require("./copy");
@@ -16,12 +16,13 @@ const svgPath = "dist/img";
 // platform readdir order.
 function sortByBasename() {
   const files = [];
-  return through2.obj(
-    function collect(file, _, cb) {
+  return new Transform({
+    objectMode: true,
+    transform(file, _, cb) {
       files.push(file);
       cb();
     },
-    function flush(cb) {
+    flush(cb) {
       files.sort((a, b) => {
         const nameA = a.basename;
         const nameB = b.basename;
@@ -31,8 +32,8 @@ function sortByBasename() {
       });
       files.forEach((f) => this.push(f));
       cb();
-    }
-  );
+    },
+  });
 }
 
 async function cleanIcons() {
