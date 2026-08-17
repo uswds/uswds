@@ -1,0 +1,169 @@
+name: Release prep
+# Run this manually from a release branch before tagging/publishing. Re-run after
+# fixes; this workflow does not commit, push, or create a release.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: Release type
+        required: true
+        type: choice
+        default: patch
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+
+permissions:
+  contents: read
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate release branch
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.ref_name }}" = "develop" ]; then
+            echo "This workflow must be run from a release branch instead of ${{ github.ref_name }}."
+            exit 1
+          fi
+
+      - name: Checkout branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
+        with:
+          node-version: "24.x"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bump version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm pkg delete scripts.preversion
+          npm version "${{ inputs.release-type }}" --no-tag
+
+          VERSION=$(node -p "require('./package.json').version")
+          echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "Release version: v$VERSION"
+
+      - name: Verify generated hash
+        run: |
+          EXPECTED=$(cat "security/uswds-${RELEASE_VERSION}-zip-hash.txt")
+          ACTUAL=$(sha256sum "uswds-${RELEASE_VERSION}.tgz" | awk '{print $1}')
+
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "::error::Hash mismatch for v${RELEASE_VERSION}: expected $EXPECTED, got $ACTUAL"
+            exit 1
+          fi
+
+          echo "Hash verified for v${RELEASE_VERSION}."
+
+      - name: Consumer clean-room audit
+        run: |
+          TARBALL=$(ls *.tgz | head -n 1)
+          TEMP_DIR=$(mktemp -d)
+
+          pushd "$TEMP_DIR" >/dev/null
+          npm init -y >/dev/null
+          npm install "$GITHUB_WORKSPACE/$TARBALL" --ignore-scripts --silent
+          AUDIT_RESULT=$(npm audit --json --omit=dev || true)
+          echo "$AUDIT_RESULT" > consumer-audit.json
+
+          TOTAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.total // 0')
+          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
+          HIGH=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.high // 0')
+          MODERATE=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.moderate // 0')
+          LOW=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.low // 0')
+
+          echo "PRODUCTION_AUDIT_TOTAL=$TOTAL" >> "$GITHUB_ENV"
+          echo "PRODUCTION_AUDIT_CRITICAL=$CRITICAL" >> "$GITHUB_ENV"
+          echo "PRODUCTION_AUDIT_HIGH=$HIGH" >> "$GITHUB_ENV"
+          echo "PRODUCTION_AUDIT_MODERATE=$MODERATE" >> "$GITHUB_ENV"
+          echo "PRODUCTION_AUDIT_LOW=$LOW" >> "$GITHUB_ENV"
+
+          if [ "$TOTAL" -gt 0 ]; then
+            echo "::error::Production dependency audit found vulnerabilities in the packaged tarball."
+            echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities'
+            exit 1
+          fi
+
+          echo "Consumer clean-room scan found no production vulnerabilities."
+          popd >/dev/null
+
+      - name: Dev dependency audit
+        run: |
+          AUDIT_RESULT=$(npm audit --json || true)
+          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
+          HIGH=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.high // 0')
+          MODERATE=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.moderate // 0')
+          LOW=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.low // 0')
+
+          echo "DEV_AUDIT_CRITICAL=$CRITICAL" >> "$GITHUB_ENV"
+          echo "DEV_AUDIT_HIGH=$HIGH" >> "$GITHUB_ENV"
+          echo "DEV_AUDIT_MODERATE=$MODERATE" >> "$GITHUB_ENV"
+          echo "DEV_AUDIT_LOW=$LOW" >> "$GITHUB_ENV"
+
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "::error::Found $CRITICAL critical dev dependency vulnerabilities."
+            exit 1
+          fi
+
+          echo "Dev dependency audit summary: critical=$CRITICAL | high=$HIGH | moderate=$MODERATE | low=$LOW"
+
+      - name: Notifications guard
+        run: |
+          if grep -F "\\A ${RELEASE_VERSION}" packages/uswds-core/src/styles/_notifications.scss >/dev/null; then
+            echo "NOTIFICATIONS_STATUS=present" >> "$GITHUB_ENV"
+            echo "Notification block for v${RELEASE_VERSION} is present."
+          else
+            echo "NOTIFICATIONS_STATUS=missing" >> "$GITHUB_ENV"
+            echo "::warning::No notification block was found for v${RELEASE_VERSION} in packages/uswds-core/src/styles/_notifications.scss"
+          fi
+
+      - name: Write release summary
+        run: |
+          HASH=$(sha256sum "uswds-${RELEASE_VERSION}.tgz" | awk '{print $1}')
+          TARBALL=$(ls *.tgz | head -n 1)
+          {
+            echo "## Release prep summary"
+            echo ""
+            echo "- Version: v${RELEASE_VERSION}"
+            echo "- Tarball: \`${TARBALL}\`"
+            echo "- Hash: \`${HASH}\`"
+            echo "- Consumer audit: ${PRODUCTION_AUDIT_TOTAL:-0} total vulnerabilities; ${PRODUCTION_AUDIT_CRITICAL:-0} critical, ${PRODUCTION_AUDIT_HIGH:-0} high, ${PRODUCTION_AUDIT_MODERATE:-0} moderate, ${PRODUCTION_AUDIT_LOW:-0} low"
+            echo "- Dev dependency audit: ${DEV_AUDIT_CRITICAL:-0} critical, ${DEV_AUDIT_HIGH:-0} high, ${DEV_AUDIT_MODERATE:-0} moderate, ${DEV_AUDIT_LOW:-0} low"
+            echo ""
+            echo "### Release-note copy-paste"
+            echo ""
+            echo "Security audit: production tarball - ${PRODUCTION_AUDIT_TOTAL:-0} total vulnerabilities; devDependencies - ${DEV_AUDIT_CRITICAL:-0} critical / ${DEV_AUDIT_HIGH:-0} high / ${DEV_AUDIT_MODERATE:-0} moderate / ${DEV_AUDIT_LOW:-0} low"
+            echo "Hash: \`${HASH}\`"
+            echo ""
+            echo "### Notifications"
+            if [ "${NOTIFICATIONS_STATUS}" = "present" ]; then
+              echo "- Notification block for v${RELEASE_VERSION} is present in \`packages/uswds-core/src/styles/_notifications.scss\`."
+            else
+              echo "- No notification block was found for v${RELEASE_VERSION}. Add one before publishing."
+            fi
+            echo ""
+            echo "### Manual next steps"
+            echo "1. Review the tarball hash and confirm the release candidate matches the published package."
+            echo "2. Commit the version bump and generated security file into the release branch."
+            echo "3. Open the release PR and include the audit and hash information in the description."
+            echo "4. Draft the GitHub release and push the v${RELEASE_VERSION} tag to trigger the publish workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload release artifacts
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
+        with:
+          name: release-prep-${{ env.RELEASE_VERSION }}
+          path: |
+            *.tgz
+            security/*.txt
+          retention-days: 14

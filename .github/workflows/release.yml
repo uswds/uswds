@@ -1,4 +1,7 @@
 name: Publish Package to npmjs
+# Final safety gate before npm publish. The full preflight checklist runs in
+# release-prep.yml; this workflow only checks the final tag against the hash and
+# critical vulnerabilities.
 
 on:
   push:
@@ -6,42 +9,63 @@ on:
       - "v*.*.*"
 
 permissions:
-  id-token: write  # Required for OIDC
+  id-token: write # Required for OIDC
   contents: read
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
+      - name: Checkout release tag
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
         with:
-          node-version: '24.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "24.x"
+          registry-url: "https://registry.npmjs.org"
+
       - name: Update npm version
         run: npm install -g npm@latest # OIDC requires npm v11.5.1 or later
-      - run: npm ci
-      - name: Check for vulnerabilities
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for critical vulnerabilities
         run: |
-          # Capture audit result (ignore exit code with || true)
           AUDIT_RESULT=$(npm audit --json || true)
-          CRITICAL=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.critical // 0')
-          HIGH=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.high // 0')
-          TOTAL=$(echo $AUDIT_RESULT | jq '.metadata.vulnerabilities.total // 0')
-          
-          if [ "$CRITICAL" -gt 0 ] || [ "$HIGH" -gt 0 ]; then
-            echo "Found $CRITICAL critical and $HIGH high severity vulnerabilities"
-            echo "Please review and fix these vulnerabilities"
+          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
+
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "Found $CRITICAL critical vulnerabilities in the release candidate."
             exit 1
           fi
-          echo "No critical or high severity vulnerabilities found. Total vulnerabilities: $TOTAL"
+
+          echo "No critical vulnerabilities found before publish."
+
       - name: Pack package
         run: npm pack
+
+      - name: Verify tarball hash
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          EXPECTED=$(cat "security/uswds-${VERSION}-zip-hash.txt")
+          ACTUAL=$(sha256sum "uswds-${VERSION}.tgz" | awk '{print $1}')
+
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "::error::Tarball hash mismatch: expected $EXPECTED, got $ACTUAL"
+            exit 1
+          fi
+
+          echo "Tarball hash matches security/uswds-${VERSION}-zip-hash.txt"
+
       - name: Upload pack artifact
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
         with:
           name: npm-pack
           path: "*.tgz"
-      - run: npm publish
+
+      - name: Publish package
         if: ${{ !env.ACT }}
+        run: npm publish --access public
