@@ -20,7 +20,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 ## Common Commands
 
 - **Install**: `npm install` (CI also `npx playwright install` for a11y).
-- **Full Test (Local)**: `npm test` (Snyk, lint, `gulp typecheck`, `gulp test`). Snyk needs auth; skip with `gulp test`.
+- **Full Test (Local)**: `npm test` (lint, `gulp typecheck`, `gulp test`).
 - **CI Equivalent**: `npm run test:ci` (lint, gulp test, a11y, HTML build).
 - **Lint**: `npm run lint` (`lint:js` + `lint:sass`).
 - **Typecheck**: `gulp typecheck` (uses `./node_modules/.bin/tsc`). `tsconfig.json` only checks `packages/uswds-core/src/js/utils/select.js` (no repo-wide TS coverage).
@@ -53,4 +53,3 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 - **Sass Exports**: `package.json` exports `./scss/*` -> `./packages/*/_index.scss`, `./functions/*` -> `packages/uswds-core/src/styles/functions/*`. New pkgs need `_index.scss`.
 - **Web Components**: `lit`-using pkgs bundled by `vite.config.banner.cdn.js`, additive to `uswds.min.js`.
-- **Snyk**: `snyk test` in `npm test` requires `SNYK_TOKEN`. Use `gulp test`/`npm run test:unit` offline/without token.

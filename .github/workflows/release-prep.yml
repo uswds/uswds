@@ -62,15 +62,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ── Version bump (Snyk-safe) ──────────────────────────────────────────────
-      # The preversion hook runs `npm test` which calls `snyk test` — that
-      # requires a token not available in CI. We remove preversion from the
-      # runner's package.json (throwaway; nothing committed changes) so the
-      # bump proceeds. The version hook (gulp release) still fires, producing
-      # the .tgz and security hash file.
-      - name: Bump version (remove Snyk preversion hook on runner only)
+      # ── Version bump ──────────────────────────────────────────────────────────
+      - name: Bump version
         run: |
-          npm pkg delete scripts.preversion
           npm version ${{ inputs.release-type }} --no-git-tag-version
           NEW_VERSION=$(node -p "require('./package.json').version")
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
