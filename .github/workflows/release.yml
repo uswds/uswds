@@ -29,12 +29,6 @@ on:
   push:
     tags:
       - "v*.*.*"
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (e.g. 3.14.0, without leading v)'
-        required: true
-        type: string
 
 permissions:
   id-token: write  # Required for OIDC
@@ -79,11 +73,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            VERSION="${{ github.event.inputs.version }}"
-          else
-            VERSION="${GITHUB_REF_NAME#v}"
-          fi
+          VERSION="${GITHUB_REF_NAME#v}"
           ARTIFACT_NAME="uswds-${VERSION}-release"
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
