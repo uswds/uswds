@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":dependencyDashboard"],
+  "timezone": "UTC",
+  "schedule": ["before 9am every weekday"],
+  "labels": ["dependencies"],
+  "enabledManagers": ["npm", "github-actions"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 9am on monday"]
+  },
+  "packageRules": [
+    {
+      "description": "Group lower-risk npm updates so dependency maintenance stays reviewable.",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm minor and patch updates"
+    },
+    {
+      "description": "Group GitHub Actions updates separately from application dependencies.",
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions updates"
+    },
+    {
+      "description": "Require dashboard approval for major updates because this repo has frequent build-tool breakage after major dependency changes.",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
