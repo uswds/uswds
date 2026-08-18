@@ -48,5 +48,5 @@ runs:
         fi
 
         echo "hash=$COMPUTED" >> "$GITHUB_OUTPUT"
-        echo "tarball-path=$TGZ" >> "$GITHUB_OUTPUT"
+        echo "tarball-path=./$TGZ" >> "$GITHUB_OUTPUT"
         echo "✓ Hash verified: $COMPUTED"
