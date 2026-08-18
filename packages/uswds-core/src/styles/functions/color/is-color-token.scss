@@ -11,7 +11,9 @@ USWDS color token.
 @use "../../tokens/color/shortcodes-color-all" as *;
 
 @function is-color-token($token) {
-  $is-color-token: if(map.has-key($all-color-shortcodes, $token), true, false);
+  $is-color-token: if(
+    sass(map.has-key($all-color-shortcodes, $token)): true; else: false
+  );
   @return $is-color-token;
 }
 

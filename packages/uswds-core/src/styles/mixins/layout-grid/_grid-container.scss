@@ -7,7 +7,7 @@
 @use "../../mixins/helpers" as *;
 
 @mixin grid-container($props...) {
-  @if length($props) == 0 {
+  @if list.length($props) == 0 {
     @include u-margin-x(auto);
     @include u-maxw($theme-grid-container-max-width);
   } @else {

@@ -39,10 +39,16 @@ function toggleHtmlTag(isMobile) {
 
   const primaryLinks = bigFooter.querySelectorAll(BUTTON);
 
+  const ALLOWED_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const preservedHtmlTag =
-      currentElement.getAttribute("data-tag") || currentElement.tagName;
+    const rawPreservedTag = (
+      currentElement.getAttribute("data-tag") || currentElement.tagName
+    ).toLowerCase();
+    const preservedHtmlTag = ALLOWED_TAGS.includes(rawPreservedTag)
+      ? rawPreservedTag
+      : "h4";
 
     const newElementType = isMobile ? "button" : preservedHtmlTag;
 

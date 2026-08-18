@@ -15,8 +15,8 @@
   $context: false,
   $for: false
 ) {
-  $for-text: if($for, "#{$for} ", "");
-  $context-text: if($context, "[#{$context}] ", "");
+  $for-text: if(sass($for): "#{$for} "; else: "");
+  $context-text: if(sass($context): "[#{$context}] "; else: "");
   // Set defaults
   @if $bg-color == "default" {
     $bg-color: get-default("bg-color");

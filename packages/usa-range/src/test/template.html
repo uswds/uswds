@@ -1,4 +1,5 @@
 <form class="usa-form">
+  <span class="usa-hint" id="range-hint">Move the slider to change the value</span>
   <input
     id="usa-range"
     class="usa-range"
@@ -8,5 +9,6 @@
     step="10"
     value="20"
     data-text-unit="percent"
-  >
+    aria-describedby="range-hint"
+  />
 </form>

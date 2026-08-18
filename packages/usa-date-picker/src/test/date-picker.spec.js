@@ -65,6 +65,37 @@ tests.forEach(({ name, selector: containerSelector }) => {
       );
     });
 
+    it("should set aria-current='date' on today's date button", () => {
+      EVENTS.click(button);
+
+      const todayBtn = getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__date--today",
+      );
+
+      assert.ok(todayBtn, "today's date button exists");
+      assert.strictEqual(
+        todayBtn.getAttribute("aria-current"),
+        "date",
+        "today's date button has aria-current='date'",
+      );
+    });
+
+    it("should not set aria-current on non-today date buttons", () => {
+      EVENTS.click(button);
+
+      const otherBtns = getCalendarEl().querySelectorAll(
+        ".usa-date-picker__calendar__date:not(.usa-date-picker__calendar__date--today)",
+      );
+
+      otherBtns.forEach((btn) => {
+        assert.strictEqual(
+          btn.getAttribute("aria-current"),
+          null,
+          "non-today button should not have aria-current",
+        );
+      });
+    });
+
     it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {
       EVENTS.click(button);
       assert.strictEqual(

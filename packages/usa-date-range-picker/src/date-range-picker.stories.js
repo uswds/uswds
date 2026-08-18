@@ -1,4 +1,5 @@
 import Component from "./usa-date-range-picker.twig";
+import datePicker from "../../usa-date-picker/src/index";
 
 export default {
   title: "Components/Form Inputs/Date Range Picker",
@@ -25,6 +26,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      datePicker.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        datePicker.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
@@ -32,13 +46,11 @@ const Template = (args) => Component(args);
 export const Default = Template.bind({});
 
 export const DefaultDate = Template.bind({});
+DefaultDate.args = {
+  defaultDateStart: "1995-03-06",
+  defaultDateEnd: "1995-03-15",
+};
 DefaultDate.argTypes = {
-  defaultDateStart: {
-    defaultValue: "1995-03-06",
-  },
-  defaultDateEnd: {
-    defaultValue: "1995-03-15",
-  },
   restrictedDateStart: {
     table: { disable: true },
   },
@@ -48,13 +60,11 @@ DefaultDate.argTypes = {
 };
 
 export const RestrictedDate = Template.bind({});
+RestrictedDate.args = {
+  restrictedDateStart: "1995-03-06",
+  restrictedDateEnd: "1995-03-15",
+};
 RestrictedDate.argTypes = {
-  restrictedDateStart: {
-    defaultValue: "1995-03-06",
-  },
-  restrictedDateEnd: {
-    defaultValue: "1995-03-15",
-  },
   defaultDateStart: {
     table: { disable: true },
   },
@@ -64,10 +74,10 @@ RestrictedDate.argTypes = {
 };
 
 export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled_state: "disabled",
+};
 Disabled.argTypes = {
-  disabled_state: {
-    defaultValue: "disabled",
-  },
   defaultDateStart: {
     table: { disable: true },
   },
@@ -83,10 +93,10 @@ Disabled.argTypes = {
 };
 
 export const AriaDisabled = Template.bind({});
+AriaDisabled.args = {
+  disabled_state: "aria-disabled",
+};
 AriaDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "aria-disabled",
-  },
   defaultDateStart: {
     table: { disable: true },
   },

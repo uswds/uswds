@@ -1,0 +1,126 @@
+# Publish Package to npmjs
+# =============================================================================
+# Fires when a v*.*.* tag is pushed to the repo. This is the second half of the
+# two-part release process; run release-prep.yml first on the release branch.
+#
+# VULNERABILITY GATE
+#   Blocks on critical vulnerabilities only. Catches any critical CVEs
+#   disclosed between release-prep.yml running and this tag being pushed.
+#   The authoritative clean-room scan (prod deps, zero tolerance) already
+#   ran in release-prep.yml.
+#
+# HASH GATE
+#   This workflow does NOT rebuild the package. It downloads the exact
+#   tarball artifact that release-prep.yml already built, hashed, and
+#   uploaded, then verifies the downloaded tarball's SHA-256 still matches
+#   the committed security/uswds-<version>-zip-hash.txt before publishing
+#   that same file. Rebuilding a second time here was tried and abandoned:
+#   npm pack output isn't guaranteed byte-identical across separate CI runs
+#   once the toolchain drifts between the two workflows, which produced
+#   false-positive hash mismatches. Publishing the original artifact avoids
+#   depending on build reproducibility entirely.
+#
+# See release-prep.yml for the prep workflow.
+# =============================================================================
+
+name: Publish Package to npmjs
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  id-token: write  # Required for OIDC
+  actions: read    # Required to list/download release-prep's uploaded artifact
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
+        with:
+          node-version: '24.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Update npm version
+        run: npm install -g npm@latest # OIDC requires npm v11.5.1 or later
+      - run: npm ci
+
+      # Catches any critical CVEs disclosed between release-prep.yml running and
+      # this tag being pushed. The authoritative clean-room scan already ran in
+      # release-prep.yml; this is a last-minute safety net.
+      - name: Check for critical vulnerabilities
+        run: |
+          AUDIT_RESULT=$(npm audit --json || true)
+          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
+
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "::error::Found $CRITICAL critical vulnerabilities."
+            echo "::error::Please review and fix before publishing."
+            echo "$AUDIT_RESULT" | jq '.vulnerabilities | to_entries[] | select(.value.severity == "critical")'
+            exit 1
+          fi
+
+          echo "✓ No critical vulnerabilities found."
+
+      # Finds the artifact release-prep.yml uploaded for this version. Sorts
+      # by created_at and takes the most recent, in case release-prep was
+      # re-run for this version (its own instructions say to do so after a
+      # late change — see the NOTE at the top of release-prep.yml).
+      - name: Locate release-prep artifact for this version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          ARTIFACT_NAME="uswds-${VERSION}-release"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          ARTIFACTS=$(gh api \
+            "repos/$GITHUB_REPOSITORY/actions/artifacts?name=${ARTIFACT_NAME}&per_page=100" \
+            --paginate \
+            --jq '.artifacts[] | select(.expired == false)' \
+            | jq -s 'sort_by(.created_at)')
+
+          COUNT=$(echo "$ARTIFACTS" | jq 'length')
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::No non-expired artifact named '$ARTIFACT_NAME' found."
+            echo "::error::Run release-prep.yml on the release branch for v$VERSION before tagging."
+            exit 1
+          fi
+
+          ARTIFACT_ID=$(echo "$ARTIFACTS" | jq -r '.[-1].id')
+          ARTIFACT_CREATED=$(echo "$ARTIFACTS" | jq -r '.[-1].created_at')
+          echo "Found $COUNT matching artifact(s); using most recent: id=$ARTIFACT_ID created=$ARTIFACT_CREATED"
+          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_ENV"
+
+      - name: Download release-prep artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/${ARTIFACT_ID}/zip" > release-artifact.zip
+          unzip -o release-artifact.zip -d release-artifact
+
+      # Verifies the downloaded tarball still matches the hash release-prep
+      # recorded — i.e. that the trusted, reviewed artifact survived
+      # download intact, not that two independent builds happen to match.
+      - name: Verify downloaded tarball hash matches release-prep's security file
+        id: verify-hash
+        uses: ./.github/actions/verify-tarball-hash
+        with:
+          version: ${{ env.VERSION }}
+          tarball-dir: 'release-artifact'
+
+      - name: Export tarball path to env
+        run: echo "TGZ_PATH=${{ steps.verify-hash.outputs.tarball-path }}" >> "$GITHUB_ENV"
+
+      - name: Upload pack artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
+        with:
+          name: npm-pack
+          path: release-artifact/uswds-*.tgz
+      - name: Publish to npm
+        if: ${{ !env.ACT }}
+        run: npm publish "$TGZ_PATH"
