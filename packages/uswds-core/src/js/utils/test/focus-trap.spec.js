@@ -105,4 +105,47 @@ describe("focus trap", () => {
       assert.strictEqual(document.activeElement, lastButton);
     });
   });
+  describe("hidden inputs", () => {
+    beforeEach(() => {
+      document.body.innerHTML = `
+        <button type="button" id="outside">Outside</button>
+        <div id="trap">
+          <input type="hidden" id="csrf" name="csrf" value="token" />
+          <button type="button" id="first">First</button>
+          <button type="button" id="last">Last</button>
+        </div>
+      `;
+
+      container = document.getElementById("trap");
+      firstButton = document.getElementById("first");
+      lastButton = document.getElementById("last");
+    });
+
+    it("skips a leading hidden input when auto-focusing", () => {
+      trap = FocusTrap(container);
+      trap.update(true);
+
+      assert.strictEqual(document.activeElement, firstButton);
+    });
+
+    it("wraps Tab from the last tab stop past a leading hidden input", () => {
+      trap = FocusTrap(container);
+      trap.update(true);
+
+      lastButton.focus();
+      keydownTab();
+
+      assert.strictEqual(document.activeElement, firstButton);
+    });
+
+    it("wraps Shift+Tab from the first tab stop past a leading hidden input", () => {
+      trap = FocusTrap(container);
+      trap.update(true);
+
+      firstButton.focus();
+      keydownShiftTab();
+
+      assert.strictEqual(document.activeElement, lastButton);
+    });
+  });
 });

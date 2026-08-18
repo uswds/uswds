@@ -4,7 +4,7 @@ const select = require("./select");
 const activeElement = require("./active-element");
 
 const FOCUSABLE =
-  'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
 const tabHandler = (context) => {
   const focusableElements = select(FOCUSABLE, context);
