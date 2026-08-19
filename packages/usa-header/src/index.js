@@ -257,6 +257,14 @@ navigation = behavior(
     },
     teardown() {
       window.removeEventListener("resize", resize, false);
+
+      // The mobile nav hides the rest of the page from assistive technology
+      // while it is open. If the component is torn down before the nav closes,
+      // that content still has to be restored here, or the page is left hidden
+      // with no way to recover short of a reload. Visible state is left alone:
+      // off() removes event listeners, it does not close an open nav.
+      showNonNavItems();
+
       navActive = false;
     },
     focusTrap: null,

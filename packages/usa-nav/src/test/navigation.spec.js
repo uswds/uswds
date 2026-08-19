@@ -194,5 +194,37 @@ describe("navigation toggle", () => {
       assert.strictEqual(isVisible(nav), true);
       assert.strictEqual(isVisible(overlay), true);
     });
+
+    // A framework may unmount the component before the nav is closed, for
+    // example on a route change. The page must not be left hidden from
+    // assistive technology.
+    it("restores page content screen reader visibility", () => {
+      const otherContent = document.createElement("div");
+      otherContent.id = "other-content";
+      document.body.appendChild(otherContent);
+
+      menuButton.click();
+      assert.strictEqual(otherContent.getAttribute("aria-hidden"), "true");
+
+      navigation.off();
+
+      assert.strictEqual(otherContent.hasAttribute("aria-hidden"), false);
+      assert.strictEqual(
+        document.querySelectorAll("[data-nav-hidden]").length,
+        0,
+      );
+    });
+
+    it("leaves content that was already aria-hidden alone", () => {
+      const staysHidden = document.createElement("div");
+      staysHidden.id = "stays-hidden";
+      staysHidden.setAttribute("aria-hidden", "true");
+      document.body.appendChild(staysHidden);
+
+      menuButton.click();
+      navigation.off();
+
+      assert.strictEqual(staysHidden.getAttribute("aria-hidden"), "true");
+    });
   });
 });

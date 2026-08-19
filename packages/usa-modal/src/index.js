@@ -54,6 +54,19 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
+ * Restore page content that the modal hid from assistive technology.
+ *
+ * Only affects elements the modal marked itself, so it is safe to call at any
+ * time, including when no modal was ever opened.
+ */
+const restoreNonModalContent = () => {
+  document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
+    nonModal.removeAttribute("aria-hidden");
+    nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
+  });
+};
+
+/**
  *  Toggle the visibility of a modal window
  *
  * @param {KeyboardEvent} event the keydown event.
@@ -177,10 +190,7 @@ function toggleModal(event) {
     // Non-modals now accessible to screen reader.
     // This runs unconditionally: the opener may be gone from the document by
     // now, and page content must never be left hidden from assistive tech.
-    document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
-      nonModal.removeAttribute("aria-hidden");
-      nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
-    });
+    restoreNonModalContent();
 
     if (menuButton && returnFocus) {
       // Focus is returned to the opener
@@ -390,6 +400,12 @@ modal = behavior(
       });
     },
     teardown(root) {
+      // A modal hides the rest of the page from assistive technology while it
+      // is open. If the component is torn down before the modal closes, that
+      // content still has to be restored here, or the page is left hidden with
+      // no way to recover short of a reload.
+      restoreNonModalContent();
+
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
         cleanUpModal(modalWindow);
