@@ -21,16 +21,84 @@ import { spawn } from 'child_process';
 import { createInterface } from 'readline';
 
 // --- file classification ------------------------------------------------------
-const RULES = [
-  ['lock', /(^|\/)((package-lock|yarn\.lock|pnpm-lock\.yaml|Cargo\.lock|poetry\.lock|Gemfile\.lock|composer\.lock|go\.sum))$/],
-  ['manifest', /(^|\/)(package\.json|requirements[^/]*\.txt|pyproject\.toml|Cargo\.toml|go\.mod|Gemfile|composer\.json|build\.gradle[^/]*)$/],
-  ['test', /(^|\/)((tests?|specs?|__tests__|__mocks__|e2e|cypress)\/|[._-](spec|test)\.[a-z]+$|(^|\/)conftest\.py$|(^|\/)test_[^/]+\.py$)/],
-  ['story', /\.stories\.[a-z]+$|(^|\/)stories\/|\.mdx$/],
-  ['ci', /(^|\/)\.github\/|(^|\/)\.gitlab-ci\.yml$|(^|\/)Jenkinsfile$|(^|\/)\.circleci\/|(^|\/)azure-pipelines\.yml$/],
-  ['doc', /\.(md|markdown|rst|txt|adoc)$|(^|\/)docs?\/|(^|\/)(CHANGELOG|LICENSE|CODEOWNERS|AUTHORS|NOTICE)/],
-  ['asset', /\.(svg|png|jpe?g|gif|ico|webp|woff2?|ttf|eot|mp4|pdf|zip)$/],
-  ['config', /(^|\/)\.(eslintrc|prettierrc|editorconfig|gitignore|npmrc|nvmrc|babelrc)|\.(eslintrc|prettierrc)\.[a-z]+$/],
-];
+
+function getFilename(path) {
+  return path.split('/').pop();
+}
+
+function hasExtension(path, extensions) {
+  return extensions.some(ext => path.endsWith(ext));
+}
+
+function inDirectory(path, directories) {
+  return directories.some(dir =>
+    path.includes(`/${dir}/`) || path.startsWith(`${dir}/`)
+  );
+}
+
+function matchesPattern(path, pattern) {
+  if (typeof pattern === 'string') {
+    return path.includes(pattern);
+  }
+  return pattern.test(path);
+}
+
+const CLASSIFIERS = {
+  lock: (path) => hasExtension(path, [
+    'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml',
+    'Cargo.lock', 'poetry.lock', 'Gemfile.lock',
+    'composer.lock', 'go.sum'
+  ]),
+
+  manifest: (path) => {
+    const filename = getFilename(path);
+    if (['package.json', 'Cargo.toml', 'go.mod', 'Gemfile', 'composer.json', 'pyproject.toml'].includes(filename)) {
+      return true;
+    }
+    return /^requirements[^/]*\.txt$/.test(filename) || /^build\.gradle/.test(filename);
+  },
+
+  test: (path) => {
+    const filename = getFilename(path);
+    return inDirectory(path, ['test', 'tests', 'spec', 'specs', '__tests__', '__mocks__', 'e2e', 'cypress']) ||
+           /[._-](spec|test)\.[a-z]+$/.test(filename) ||
+           filename === 'conftest.py' ||
+           (/^test_/.test(filename) && filename.endsWith('.py'));
+  },
+
+  story: (path) => {
+    const filename = getFilename(path);
+    return /\.stories\.[a-z]+$/.test(filename) ||
+           inDirectory(path, ['stories']) ||
+           filename.endsWith('.mdx');
+  },
+
+  ci: (path) =>
+    inDirectory(path, ['.github', '.circleci']) ||
+    hasExtension(path, ['.gitlab-ci.yml', 'Jenkinsfile', 'azure-pipelines.yml']),
+
+  doc: (path) => {
+    const filename = getFilename(path);
+    const docFiles = ['CHANGELOG', 'LICENSE', 'CODEOWNERS', 'AUTHORS', 'NOTICE'];
+    return hasExtension(path, ['.md', '.markdown', '.rst', '.txt', '.adoc']) ||
+           inDirectory(path, ['doc', 'docs']) ||
+           docFiles.some(name => filename.startsWith(name));
+  },
+
+  asset: (path) => hasExtension(path, [
+    '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp',
+    '.woff', '.woff2', '.ttf', '.eot', '.mp4', '.pdf', '.zip'
+  ]),
+
+  config: (path) => {
+    const filename = getFilename(path);
+    const configNames = ['.eslintrc', '.prettierrc', '.editorconfig', '.gitignore', '.npmrc', '.nvmrc', '.babelrc'];
+    return configNames.some(name =>
+      filename === name || filename.startsWith(`${name}.`)
+    );
+  },
+};
+
 const NON_BUDGET = new Set(['lock', 'test', 'story', 'doc', 'asset', 'ci', 'manifest', 'config']);
 
 const DEP_LINE = /^[+-]\s*"([^"]+)"\s*:\s*"([^"]*)"/;
@@ -38,8 +106,8 @@ const DEP_SECTION = /"(dependencies|devDependencies|peerDependencies|optionalDep
 const PKG_MANAGER = /"(packageManager|workspaces|resolutions|overrides)"\s*:/;
 
 function classify(path) {
-  for (const [name, rx] of RULES) {
-    if (rx.test(path)) return name;
+  for (const [name, classifier] of Object.entries(CLASSIFIERS)) {
+    if (classifier(path)) return name;
   }
   return 'runtime';
 }
@@ -59,8 +127,6 @@ async function fetchPRDiff(url) {
   } catch (err) {
     // fall through to API
   }
-
-  // Fall back to GitHub API
   const headers = ['-H', 'Accept: application/vnd.github.v3.diff'];
   if (process.env.GITHUB_TOKEN) {
     headers.push('-H', `Authorization: Bearer ${process.env.GITHUB_TOKEN}`);
@@ -105,18 +171,18 @@ async function readStdin() {
 function parseDiff(text) {
   const files = {};
   const addedDeps = {}, removedDeps = {}, managerChanges = [];
-  let cur = null, inManifest = false;
+  let currentFile = null, inManifest = false;
 
   for (const line of text.split('\n')) {
     const diffMatch = line.match(/^diff --git a\/(.+?) b\/(.+)$/);
     if (diffMatch) {
-      cur = diffMatch[2];
-      files[cur] = { add: 0, del: 0, kind: classify(cur) };
-      inManifest = files[cur].kind === 'manifest';
+      currentFile = diffMatch[2];
+      files[currentFile] = { add: 0, del: 0, kind: classify(currentFile) };
+      inManifest = files[currentFile].kind === 'manifest';
       continue;
     }
 
-    if (cur === null) continue;
+    if (currentFile === null) continue;
     if (line.startsWith('+++') || line.startsWith('---') || line.startsWith('@@') ||
         line.startsWith('index ') || line.startsWith('similarity ') ||
         line.startsWith('rename ') || line.startsWith('new file') ||
@@ -126,9 +192,9 @@ function parseDiff(text) {
     }
 
     if (line.startsWith('+')) {
-      files[cur].add++;
+      files[currentFile].add++;
     } else if (line.startsWith('-')) {
-      files[cur].del++;
+      files[currentFile].del++;
     } else {
       continue;
     }
@@ -153,20 +219,20 @@ function parseDiff(text) {
 
 function buildReport(files, added, removed, managers, budget) {
   const buckets = {};
-  for (const [f, st] of Object.entries(files)) {
-    if (!buckets[st.kind]) buckets[st.kind] = { add: 0, del: 0, files: 0 };
-    buckets[st.kind].add += st.add;
-    buckets[st.kind].del += st.del;
-    buckets[st.kind].files += 1;
+  for (const [filePath, stats] of Object.entries(files)) {
+    if (!buckets[stats.kind]) buckets[stats.kind] = { add: 0, del: 0, files: 0 };
+    buckets[stats.kind].add += stats.add;
+    buckets[stats.kind].del += stats.del;
+    buckets[stats.kind].files += 1;
   }
 
   const runtime = buckets.runtime?.add || 0;
   const tests = buckets.test?.add || 0;
-  const newDeps = Object.fromEntries(Object.entries(added).filter(([k]) => !(k in removed)));
-  const dropped = Object.fromEntries(Object.entries(removed).filter(([k]) => !(k in added)));
+  const newDeps = Object.fromEntries(Object.entries(added).filter(([name]) => !(name in removed)));
+  const dropped = Object.fromEntries(Object.entries(removed).filter(([name]) => !(name in added)));
   const bumped = Object.fromEntries(
-    Object.keys(added).filter(k => k in removed && removed[k] !== added[k])
-      .map(k => [k, `${removed[k]} -> ${added[k]}`])
+    Object.keys(added).filter(name => name in removed && removed[name] !== added[name])
+      .map(name => [name, `${removed[name]} -> ${added[name]}`])
   );
 
   return {
@@ -183,84 +249,84 @@ function buildReport(files, added, removed, managers, budget) {
     bumped_dependencies: bumped,
     package_manager_changes: managers,
     files: Object.entries(files)
-      .map(([path, s]) => ({ path, kind: s.kind, add: s.add, del: s.del }))
+      .map(([path, stats]) => ({ path, kind: stats.kind, add: stats.add, del: stats.del }))
       .sort((a, b) => b.add - a.add),
   };
 }
 
-function render(r) {
-  const L = [];
-  L.push('PR METRICS');
-  L.push('='.repeat(62));
+function render(report) {
+  const lines = [];
+  lines.push('PR METRICS');
+  lines.push('='.repeat(62));
 
-  const { runtime_added: rt, budget, over_budget, budget_pct } = r;
+  const { runtime_added: runtime, budget, over_budget, budget_pct } = report;
   const flag = over_budget ? 'OVER BUDGET' : 'within budget';
-  L.push(`Runtime lines added : ${rt} / ${budget}  (${budget_pct}% — ${flag})`);
-  if (!over_budget && rt > budget * 0.5) {
-    L.push('                      note: inside budget but a large PR — consider a split');
+  lines.push(`Runtime lines added : ${runtime} / ${budget}  (${budget_pct}% — ${flag})`);
+  if (!over_budget && runtime > budget * 0.5) {
+    lines.push('                      note: inside budget but a large PR — consider a split');
   }
 
-  const { test_added, test_ratio: tr } = r;
-  L.push(`Test lines added    : ${test_added}` +
-    (tr !== null ? `  (ratio ${tr}:1 vs runtime)` : ''));
-  if (rt >= 5 && test_added === 0) {
-    L.push('                      *** no tests accompany changed runtime code ***');
-  } else if (tr !== null && rt >= 20 && tr < 0.5) {
-    L.push('                      note: low test ratio for the amount of new logic');
+  const { test_added, test_ratio: testRatio } = report;
+  lines.push(`Test lines added    : ${test_added}` +
+    (testRatio !== null ? `  (ratio ${testRatio}:1 vs runtime)` : ''));
+  if (runtime >= 5 && test_added === 0) {
+    lines.push('                      *** no tests accompany changed runtime code ***');
+  } else if (testRatio !== null && runtime >= 20 && testRatio < 0.5) {
+    lines.push('                      note: low test ratio for the amount of new logic');
   }
 
-  L.push(`Files changed       : ${r.total_files}`);
-  L.push('');
-  L.push('Breakdown by kind:');
-  for (const [kind, b] of Object.entries(r.buckets).sort((a, b) => b[1].add - a[1].add)) {
+  lines.push(`Files changed       : ${report.total_files}`);
+  lines.push('');
+  lines.push('Breakdown by kind:');
+  for (const [kind, bucket] of Object.entries(report.buckets).sort((a, b) => b[1].add - a[1].add)) {
     const mark = kind === 'runtime' ? '*' : ' ';
-    L.push(`  ${mark} ${kind.padEnd(10)} ${String(b.files).padStart(3)} files  +${String(b.add).padEnd(6)} -${b.del}`);
+    lines.push(`  ${mark} ${kind.padEnd(10)} ${String(bucket.files).padStart(3)} files  +${String(bucket.add).padEnd(6)} -${bucket.del}`);
   }
 
-  L.push('');
-  L.push('Dependencies:');
-  if (Object.keys(r.new_dependencies).length) {
-    L.push('  !! NEW (require explicit justification from the issue):');
-    for (const [k, v] of Object.entries(r.new_dependencies)) {
-      L.push(`       + ${k} @ ${v}`);
+  lines.push('');
+  lines.push('Dependencies:');
+  if (Object.keys(report.new_dependencies).length) {
+    lines.push('  !! NEW (require explicit justification from the issue):');
+    for (const [name, version] of Object.entries(report.new_dependencies)) {
+      lines.push(`       + ${name} @ ${version}`);
     }
   }
-  if (Object.keys(r.bumped_dependencies).length) {
-    L.push('  ~  version bumps:');
-    for (const [k, v] of Object.entries(r.bumped_dependencies)) {
-      L.push(`       ${k}: ${v}`);
+  if (Object.keys(report.bumped_dependencies).length) {
+    lines.push('  ~  version bumps:');
+    for (const [name, versions] of Object.entries(report.bumped_dependencies)) {
+      lines.push(`       ${name}: ${versions}`);
     }
   }
-  if (Object.keys(r.dropped_dependencies).length) {
-    L.push('  -  removed (verify nothing still imports these):');
-    for (const k of Object.keys(r.dropped_dependencies)) {
-      L.push(`       - ${k}`);
+  if (Object.keys(report.dropped_dependencies).length) {
+    lines.push('  -  removed (verify nothing still imports these):');
+    for (const name of Object.keys(report.dropped_dependencies)) {
+      lines.push(`       - ${name}`);
     }
   }
-  if (r.package_manager_changes.length) {
-    L.push('  !! PACKAGE MANAGER / WORKSPACE CHANGES — project-wide decision:');
-    for (const c of r.package_manager_changes) {
-      L.push(`       ${c}`);
+  if (report.package_manager_changes.length) {
+    lines.push('  !! PACKAGE MANAGER / WORKSPACE CHANGES — project-wide decision:');
+    for (const change of report.package_manager_changes) {
+      lines.push(`       ${change}`);
     }
   }
-  if (!Object.keys(r.new_dependencies).length &&
-      !Object.keys(r.bumped_dependencies).length &&
-      !Object.keys(r.dropped_dependencies).length &&
-      !r.package_manager_changes.length) {
-    L.push('  none');
+  if (!Object.keys(report.new_dependencies).length &&
+      !Object.keys(report.bumped_dependencies).length &&
+      !Object.keys(report.dropped_dependencies).length &&
+      !report.package_manager_changes.length) {
+    lines.push('  none');
   }
 
-  L.push('');
-  L.push('Largest files by lines added:');
-  for (const f of r.files.slice(0, 12)) {
-    L.push(`  +${String(f.add).padEnd(6)} -${String(f.del).padEnd(6)} [${f.kind.padEnd(8)}] ${f.path}`);
+  lines.push('');
+  lines.push('Largest files by lines added:');
+  for (const file of report.files.slice(0, 12)) {
+    lines.push(`  +${String(file.add).padEnd(6)} -${String(file.del).padEnd(6)} [${file.kind.padEnd(8)}] ${file.path}`);
   }
 
-  L.push('');
-  L.push('-'.repeat(62));
-  L.push('These are inputs to judgment, not a verdict. Size within budget does not');
-  L.push('mean the scope is right; tests present does not mean coverage is adequate.');
-  return L.join('\n');
+  lines.push('');
+  lines.push('-'.repeat(62));
+  lines.push('These are inputs to judgment, not a verdict. Size within budget does not');
+  lines.push('mean the scope is right; tests present does not mean coverage is adequate.');
+  return lines.join('\n');
 }
 
 async function main() {
