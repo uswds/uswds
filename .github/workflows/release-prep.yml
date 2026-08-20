@@ -1,0 +1,204 @@
+# USWDS Release Prep
+# =============================================================================
+# Automates release checklist steps 3.8–3.13. This workflow does NOT publish.
+# Publishing fires automatically via release.yml when a v*.*.* tag is pushed.
+#
+# HOW TO RUN
+#   1. Cut a release branch from `develop` (e.g. `release-3.14.0`).
+#      Ensure _notifications.scss has a block for the release version
+#      (see packages/uswds-core/src/styles/_notifications.scss).
+#   2. Actions tab → "USWDS Release Prep" → Run workflow → select the release
+#      branch and the release type (prerelease | patch | minor | major).
+#   3. When the run completes, review the job summary for next steps,
+#      the SHA-256 hash, vulnerability counts, and any warnings.
+#
+# NOTE: If anything changes in code or package.json after this workflow runs,
+# re-run it to regenerate the tarball and hash before tagging.
+# =============================================================================
+
+name: USWDS Release Prep
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Release type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+
+permissions:
+  contents: read
+
+jobs:
+  release-prep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refuse to run on main or develop
+        if: ${{ github.ref_name == 'main' || github.ref_name == 'develop' }}
+        run: |
+          echo "::error::This workflow must be run from a release branch, not '${{ github.ref_name }}'."
+          echo "::error::Cut a release branch from develop (e.g. release-3.14.0) and re-run."
+          exit 1
+
+      - name: Checkout release branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
+        with:
+          node-version: '24.x'
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bump version
+        run: |
+          npm version ${{ inputs.release-type }} --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
+          echo "Bumped to version: $NEW_VERSION"
+
+      # The version hook (gulp release) writes security/uswds-<version>-zip-hash.txt.
+      # Recompute and assert the tarball and hash file agree.
+      - name: Verify tarball hash matches generated security file
+        id: verify-hash
+        uses: ./.github/actions/verify-tarball-hash
+        with:
+          version: ${{ env.NEW_VERSION }}
+          tarball-dir: '.'
+
+      - name: Export hash verification outputs to env
+        run: |
+          PKG_PREFIX=$(node -p "require('./package.json').name.replace(/^@/, '').replace('/', '-')")
+          echo "TARBALL_HASH=${{ steps.verify-hash.outputs.hash }}" >> "$GITHUB_ENV"
+          echo "TGZ_NAME=${PKG_PREFIX}-${NEW_VERSION}.tgz" >> "$GITHUB_ENV"
+
+      # Installs the packed .tgz into a blank project to mirror exactly what a
+      # consumer gets. Any severity fails the run. This asserts the release-notes
+      # line: "0 vulnerabilities in regular dependencies".
+      - name: Clean-room production dependency scan (zero tolerance)
+        run: |
+          WORK_DIR=$(mktemp -d)
+          TGZ_ABS="$(pwd)/${TGZ_NAME}"
+
+          cd "$WORK_DIR"
+          npm init -y
+          npm install "$TGZ_ABS"
+
+          PROD_AUDIT=$(npm audit --omit=dev --json || true)
+          PROD_TOTAL=$(echo "$PROD_AUDIT" | jq '.metadata.vulnerabilities.total // 0')
+
+          echo "PROD_VULN_TOTAL=$PROD_TOTAL" >> "$GITHUB_ENV"
+
+          if [ "$PROD_TOTAL" -gt 0 ]; then
+            echo "::error::STOP — found $PROD_TOTAL vulnerabilities in production dependencies."
+            echo "::error::Consumers will encounter these when running 'npm install @uswds/uswds'."
+            echo "::error::All production dependency vulnerabilities must be resolved before release."
+            echo "$PROD_AUDIT" | jq '.vulnerabilities'
+            exit 1
+          fi
+
+          echo "✓ 0 vulnerabilities in production (regular) dependencies."
+
+      # Highs and moderates are disclosed in release notes but are not blocking.
+      # This asserts the release-notes line:
+      # "<N> vulnerabilities (<x> moderate, <y> high) in devDependencies".
+      - name: devDependency vulnerability scan (critical gate + release-notes counts)
+        run: |
+          DEV_AUDIT=$(npm audit --json || true)
+          CRITICAL=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.critical // 0')
+          HIGH=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.high // 0')
+          MODERATE=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.moderate // 0')
+          LOW=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.low // 0')
+          TOTAL=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.total // 0')
+
+          echo "DEV_VULN_CRITICAL=$CRITICAL" >> "$GITHUB_ENV"
+          echo "DEV_VULN_HIGH=$HIGH" >> "$GITHUB_ENV"
+          echo "DEV_VULN_MODERATE=$MODERATE" >> "$GITHUB_ENV"
+          echo "DEV_VULN_LOW=$LOW" >> "$GITHUB_ENV"
+          echo "DEV_VULN_TOTAL=$TOTAL" >> "$GITHUB_ENV"
+
+          echo "devDependency vulnerabilities — critical: $CRITICAL, high: $HIGH, moderate: $MODERATE, low: $LOW, total: $TOTAL"
+
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "::error::STOP — found $CRITICAL critical vulnerabilities in devDependencies."
+            echo "::error::Critical devDependency vulnerabilities must be resolved before release."
+            echo "$DEV_AUDIT" | jq '.vulnerabilities | to_entries[] | select(.value.severity == "critical")'
+            exit 1
+          fi
+
+          echo "✓ No critical devDependency vulnerabilities. $TOTAL total (high: $HIGH, moderate: $MODERATE, low: $LOW) — non-blocking."
+
+      # Checks that _notifications.scss has a block for the release version.
+      # A missing block means teams upgrading won't see the compile-time notice.
+      - name: Check _notifications.scss for release version block
+        id: notifications-check
+        run: |
+          NOTIF_FILE="packages/uswds-core/src/styles/_notifications.scss"
+          if grep -q "$NEW_VERSION" "$NOTIF_FILE"; then
+            echo "NOTIF_STATUS=✓ Found v${NEW_VERSION} block in _notifications.scss." >> "$GITHUB_ENV"
+          else
+            echo "NOTIF_STATUS=⚠️  No v${NEW_VERSION} block found in _notifications.scss. Teams upgrading will not see a compile-time notice. Consider opening a PR against this release branch before merging." >> "$GITHUB_ENV"
+            echo "::warning::No v${NEW_VERSION} block found in _notifications.scss."
+          fi
+
+      - name: Write job summary
+        run: |
+          {
+            echo "# USWDS ${NEW_VERSION} Release Prep"
+            echo ""
+            echo "## Version"
+            echo "\`${NEW_VERSION}\`  |  Tarball: \`${TGZ_NAME}\`"
+            echo ""
+            echo "## SHA-256 Hash"
+            echo "\`\`\`"
+            echo "$TARBALL_HASH"
+            echo "\`\`\`"
+            echo "> Copy this into the PR body and the GitHub draft release."
+            echo ""
+            echo "## Vulnerability Summary"
+            echo "> Copy these two lines verbatim into the release notes."
+            echo ""
+            echo "\`${PROD_VULN_TOTAL}\` vulnerabilities in regular dependencies (dependencies for USWDS projects installed with \`npm install @uswds/uswds\`)"
+            echo ""
+            if [ "$DEV_VULN_TOTAL" -gt 0 ]; then
+              echo "\`${DEV_VULN_TOTAL}\` vulnerabilities (\`${DEV_VULN_MODERATE}\` moderate, \`${DEV_VULN_HIGH}\` high) in devDependencies (development dependencies)"
+            else
+              echo "\`0\` vulnerabilities in devDependencies"
+            fi
+            echo ""
+            echo "## Notifications Guard"
+            echo "${NOTIF_STATUS}"
+            echo ""
+            echo "---"
+            echo "## Next Steps"
+            echo ""
+            echo "1. **Commit** the version bump (\`package.json\`) and \`security/uswds-${NEW_VERSION}-zip-hash.txt\`, then push the release branch."
+            echo "   > Nothing in this workflow auto-commits or auto-pushes."
+            echo "2. **Open a PR** titled \`USWDS ${NEW_VERSION}\`, base \`main\`. Use the audit results and hash above to populate the body. Request review from two teammates."
+            echo "3. **Create a DRAFT GitHub release**: tag \`v${NEW_VERSION}\`, target \`main\`, attach the .tgz artifact, include the SHA-256 hash. Share the draft URL with reviewers."
+            echo "4. **Reviewers confirm**: hash matches \`.txt\` + \`.tgz\`, contents present, notes accurate, accessibility/breaking/markup items identified, community contributors tagged."
+            echo "5. **Merge** the PR to \`main\`."
+            echo "6. **Push tag** \`v${NEW_VERSION}\` → \`release.yml\` fires → \`npm publish\`."
+            echo "   > Monitor: https://github.com/${{ github.repository }}/actions/workflows/release.yml"
+            echo "7. **Verify** the package at npmjs.com/package/@uswds/uswds."
+            echo "8. **Finalize** the GitHub release: mark as latest, create a discussion (category: General), publish."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload tarball artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
+        with:
+          name: uswds-${{ env.NEW_VERSION }}-release
+          path: |
+            ${{ env.TGZ_NAME }}
+            security/uswds-${{ env.NEW_VERSION }}-zip-hash.txt
+          retention-days: 30

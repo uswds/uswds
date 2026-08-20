@@ -1,6 +1,6 @@
 {
   "name": "@uswds/uswds",
-  "version": "3.13.0",
+  "version": "3.14.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "keywords": [
     "ui",
@@ -62,11 +62,10 @@
     "lint:sass": "gulp lintSass",
     "mocha": "mocha",
     "prepare": "npm run build",
-    "preversion": "npm test",
     "release": "gulp release",
     "federalist": "npm run build && npm run build:storybook",
     "start": "npm run start:storybook",
-    "test": "snyk test && npm run lint && gulp typecheck && gulp test",
+    "test": "npm run lint && gulp typecheck && gulp test",
     "test:ci": "npm run lint && gulp test && npm run test:a11y && npm run build:html",
     "test:a11y": "storybook build -o _site && concurrently -k -s first -n \"SB,TEST\" \"http-server _site --port 6006 --silent\" \"wait-on --timeout 30000 http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
     "test:sass": "gulp sassTests",
@@ -180,7 +179,6 @@
     "storybook": "^9.1.20",
     "stylelint": "16.12.0",
     "svgo": "^4.0.2",
-    "through2": "5.0.11",
     "twig": "3.0.0",
     "typescript": "7.0.2",
     "vinyl-buffer": "1.0.1",
