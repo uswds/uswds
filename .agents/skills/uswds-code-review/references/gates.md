@@ -11,6 +11,18 @@ This is the concrete enforcement layer. Each gate has a check, a disposition (bl
 **Why advisory:** Zero "please split this up" reviews exist in the corpus, even on +12k/-14k PRs. The one precedent is mejiaj on #5793: *"Smaller PR's. Breaking out the work helps us reliably and quickly test one thing at a time."* Sampling the 60 most recent merged PRs: substantive work lands at +28 to +351 lines; everything over 400 is generated churn.
 
 **Check:**
+
+Use the metrics script for a full breakdown:
+```bash
+# From a PR URL
+node .agents/skills/uswds-code-review/scripts/pr-metrics.mjs --pr https://github.com/uswds/uswds/pull/6767
+
+# From a local diff
+git diff develop...HEAD > changes.patch
+node .agents/skills/uswds-code-review/scripts/pr-metrics.mjs --diff changes.patch
+```
+
+Or manually count with:
 ```bash
 git diff -M --numstat develop...HEAD -- \
   'packages/**/src/**' 'src/**' 'tasks/**' \

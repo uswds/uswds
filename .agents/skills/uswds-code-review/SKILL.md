@@ -1,6 +1,6 @@
 ---
 name: uswds-code-review
-description: Review USWDS PRs or branches using the team's calibrated judgment. Enforces 16 specific gates, distinguishes personal preference from what all consumers inherit, and routes decisions to the right specialist. Use when reviewing USWDS code changes, either from a PR number or the current branch.
+description: Review USWDS PRs or branches using the core team's calibrated judgment. Enforces 16 specific gates (size, dependencies, DRY, sanitization, test regression, etc.), distinguishes personal preference from what all consumers inherit, and routes specialist decisions (a11y, breaking changes, new API surface). Use when the user says "review this", "code review", "review the PR", asks for feedback on changes, or explicitly invokes /uswds-code-review.
 args:
   pr_or_branch: (optional) PR number/URL, or omit for current branch vs develop
 ---
@@ -42,7 +42,8 @@ git diff develop...HEAD
 git diff -M --numstat develop...HEAD
 ```
 
-Also fetch the USWDS Elements ADR list once (used by gate 4):
+Also fetch the USWDS ADR list once (used by gate 4). Distinguish which repo they are intended to apply to. Some are for
+USWDS, and others are for the `uswds-elements` repo:
 ```bash
 gh api repos/uswds/uswds-proposals/git/trees/HEAD?recursive=1 --jq '.tree[] | select(.path | startswith("decisions/")) | .path'
 ```
