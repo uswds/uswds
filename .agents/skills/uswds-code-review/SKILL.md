@@ -42,8 +42,7 @@ git diff develop...HEAD
 git diff -M --numstat develop...HEAD
 ```
 
-Also fetch the USWDS ADR list once (used by gate 4). Distinguish which repo they are intended to apply to. Some are for
-USWDS, and others are for the `uswds-elements` repo:
+Also fetch the USWDS ADR list once (used by gate 4). Distinguish which repo they are intended to apply to. Some are for USWDS, and others are for the `uswds-elements` repo:
 ```bash
 gh api repos/uswds/uswds-proposals/git/trees/HEAD?recursive=1 --jq '.tree[] | select(.path | startswith("decisions/")) | .path'
 ```
