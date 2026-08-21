@@ -8,7 +8,7 @@ This is the concrete enforcement layer. Each gate has a check, a disposition (bl
 
 **Disposition:** Flag only (advisory, not blocking)
 
-**Why advisory:** Zero "please split this up" reviews exist in the corpus, even on +12k/-14k PRs. The one precedent is mejiaj on #5793: *"Smaller PR's. Breaking out the work helps us reliably and quickly test one thing at a time."* Sampling the 60 most recent merged PRs: substantive work lands at +28 to +351 lines; everything over 400 is generated churn.
+**Why advisory:** Zero "please split this up" reviews exist in the corpus, even on +12k/-14k PRs. The one precedent is a senior engineer on #5793: *"Smaller PR's. Breaking out the work helps us reliably and quickly test one thing at a time."* Sampling the 60 most recent merged PRs: substantive work lands at +28 to +351 lines; everything over 400 is generated churn.
 
 **Check:**
 
@@ -92,7 +92,7 @@ gh issue view <issue_number> --repo uswds/uswds --json title,body,labels
    Feature template supplies:
    - *Describe the solution you'd like*
 
-2. **Scope creep** — diff includes Y, which the issue never mentioned. This is a live blocking category (#6673: *"Would you mind rolling back the updates to package.json and package-lock.json that were included with this PR? They don't appear to be necessary for the a11y improvement. If they are necessary, could you indicate why in the PR description?"*)
+2. **Scope creep** — diff includes Y, which the issue never mentioned. This is a live blocking category (#6673: *"Would you mind rolling back the updates to package.json and package-lock.json that were included with this PR? They don't appear to be necessary for the accessibility improvement. If they are necessary, could you indicate why in the PR description?"*)
 
 **Carve-outs:**
 - Follow-up improvements explicitly marked as such in the PR body
@@ -179,7 +179,7 @@ If the change introduces a pattern not covered by any Core-scoped ADR (e.g., a n
 
 **Disposition:** Blocking for new features and bug fixes
 
-**The sharp test** (ethangardner #6713): *"I noticed this test passes even on the base branch before this fix, which means it doesn't capture potential regressions."*
+**The sharp test** (senior engineer #6713): *"I noticed this test passes even on the base branch before this fix, which means it doesn't capture potential regressions."*
 
 **Executable check:**
 ```bash
@@ -243,7 +243,7 @@ All three are near-identical synthetic-event kits. Precedent: #6767 *"I think we
 **Examples:**
 - #6767: Inline `debounce` when `uswds-core` already has one
 - #6736: Added `box-sizing` to `select` when it should go in the `%block-input-styles` placeholder (affects all inputs, not just select)
-- #6592: Duplicate fix for `datalist` scenario when #6567 already handled it — ethangardner kept the test, discarded the duplicate fix
+- #6592: Duplicate fix for `datalist` scenario when #6567 already handled it — an engineering lead kept the test, discarded the duplicate fix
 
 **Check:**
 1. Does this JS/Sass introduce a helper that smells like it might already exist?
@@ -422,7 +422,7 @@ From `package.json` `exports` and observed practice:
 - Specificity increases (#6691 — even with `:where()`, it's "arguably a breaking change")
 - Default value flips (#6789)
 
-**Thisisdano's design-vs-code split** — carry this, don't collapse it (#6037):
+**The product lead's design-vs-code split** — carry this, don't collapse it (#6037):
 > "This one is probably technically a breaking change because of the UX and design implications — but it might be worth noting that I don't believe teams will have to make any changes _to their code_ to make this work, so **change does not introduce a breaking change on the code side**"
 
 **Check:**
@@ -436,7 +436,7 @@ From `package.json` `exports` and observed practice:
 > This changes [specificity / CSS output order / default value of `$theme-*` / markup structure / JS API]. Consider:
 > - **Design impact:** Does this change what users see, even if code doesn't break?
 > - **Code impact:** Do consuming teams need to update their implementation?
-> - Per thisisdano's distinction, these can differ.
+> - Per the product lead's distinction, these can differ.
 >
 > If breaking:
 > - [ ] PR body must pick ":warning: This is a breaking change." (not "not breaking")
@@ -478,7 +478,7 @@ Gate 16 has two distinct sub-gates with different dispositions. Apply both when 
 
 ### 16a. A11y content: SR text quality (flag-only, non-blocking)
 
-**Disposition:** Flag / non-blocking. An a11y specialist reviewer can make this judgment without live AT testing.
+**Disposition:** Flag / non-blocking. An accessibility specialist reviewer can make this judgment without live AT testing.
 
 **What this covers:** Whether the *text* of screen reader hints, `aria-label`s, and status messages is actually useful — distinct from whether the AT *announces* them (which requires hands-on testing, see 16b).
 
@@ -503,12 +503,12 @@ Gate 16 has two distinct sub-gates with different dispositions. Apply both when 
 
 ### 16b. AT behavior verdict: route to a specialist, don't conclude
 
-**Disposition:** Manual follow-up — route to an a11y specialist for hands-on AT verification. Never render a verdict on AT behavior from code review alone.
+**Disposition:** Manual follow-up — route to an accessibility specialist for hands-on AT verification. Never render a verdict on AT behavior from code review alone.
 
-**The routing rule** (ethangardner, documented practice):
+**The routing rule** (engineering lead, documented practice):
 > "Code-wise this looks fine to me, but I'd like to defer to you on the screen reader behavior." (#6595)
 >
-> "It passes my review." (#6786, passing to the a11y specialist)
+> "It passes my review." (#6786, passing to role:accessibility-specialist)
 
 **What to flag:**
 - New interactive components or changes to focus behavior
@@ -517,7 +517,7 @@ Gate 16 has two distinct sub-gates with different dispositions. Apply both when 
 - Visual-only cues (color, icon-only without text alternative)
 - Form error messaging (must be programmatically associated)
 
-**The bar for a thorough a11y PR** (drawn from #6767, #6758, #6750): a well-scoped a11y change includes a named AT × browser matrix (e.g., VoiceOver + Safari/Chrome/Firefox, NVDA + Chrome), an explicit Limitations / not-in-scope section, a citation to ARIA Authoring Practices or ARIA spec where the pattern is non-obvious, and a statement of what was verified vs. what was pre-existing behavior ("not a regression from develop"). Flag if any of these are absent on a PR that makes substantive a11y claims.
+**The bar for a thorough accessibility PR** (drawn from #6767, #6758, #6750): a well-scoped accessibility change includes a named AT × browser matrix (e.g., VoiceOver + Safari/Chrome/Firefox, NVDA + Chrome), an explicit Limitations / not-in-scope section, a citation to ARIA Authoring Practices or ARIA spec where the pattern is non-obvious, and a statement of what was verified vs. what was pre-existing behavior ("not a regression from develop"). Flag if any of these are absent on a PR that makes substantive accessibility claims.
 
 **Voice:**
 > **Manual follow-up required: AT behavior verification**
@@ -531,13 +531,13 @@ Gate 16 has two distinct sub-gates with different dispositions. Apply both when 
 >
 > Code review: [note any code-level issues visible in the diff, e.g., missing `aria-describedby` wiring or an `aria-live` region that lacks a `role`. Explicitly state that the AT announcement behavior verdict is not within this review's scope.]
 
-**Mejiaj's testing pattern** (for reference, not always required):
+**Senior engineer's testing pattern** (for reference, not always required):
 > ### Tested
 > - [x] Dragging invalid file reads error message in VoiceOver (both Chrome & Safari)
 > - [x] Code quality
 >
 > MacOS Sonoma 14.6.1 / Chromium 131 / Safari 17.6 / VoiceOver
 
-**Engineering-values.md cite:** *"Make accessibility easier, not invisible."* The goal is to keep a11y testing visible and in the critical path, not to declare it handled at the code level.
+**Engineering-values.md cite:** *"Make accessibility easier, not invisible."* The goal is to keep accessibility testing visible and in the critical path, not to declare it handled at the code level.
 
 **Carve-out:** If the PR is docs-only, workflow-only, or dependency-only, skip this gate.

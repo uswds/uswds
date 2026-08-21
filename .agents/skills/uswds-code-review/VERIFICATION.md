@@ -7,7 +7,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 1. `/uswds-code-review 6767` — Character count: over-limit SR announcements
 
 **Size:** +308/-44, 5 files  
-**Reviewer:** ethangardner (CHANGES_REQUESTED ×2 → APPROVED)  
+**Reviewer:** senior engineer (CHANGES_REQUESTED ×2 → APPROVED)  
 **Expected findings (4 independent):**
 
 1. **Duplicated `debounce` from core** (blocking) — #6767: *"We have `packages/uswds-core/src/js/utils/debounce.js` in the repo already. It was removed in this PR. Would it be possible to refactor the existing debounce function so we don't inline it here and have to maintain multiple implementations?"*
@@ -25,7 +25,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 2. `/uswds-code-review 6659` — Range slider: improve border visibility
 
 **Size:** +3/-3, 1 file  
-**Reviewer:** ethangardner (CHANGES_REQUESTED → APPROVED)  
+**Reviewer:** engineering lead (CHANGES_REQUESTED → APPROVED)  
 **Expected findings (2 independent):**
 
 1. **De-themed token** (blocking) — #6659: *"**The before diff uses a [theme color token](link), `color("base")`. Since the intent is to go darker for more contrast, my suggestion is to keep the color themeable as it was before.** You might try `color("base-darker")` as a replacement."*
@@ -39,7 +39,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 3. `/uswds-code-review 6789` — Accordion: start/end icon alignment
 
 **Size:** +285/-8, 10 files  
-**Reviewers:** ethangardner (CHANGES_REQUESTED → COMMENTED → APPROVED)  
+**Reviewer:** senior engineer (CHANGES_REQUESTED → COMMENTED → APPROVED)  
 **Expected findings (4-5):**
 
 1. **Shared-selector blast radius** (blocking) — #6789: *"**The nav and the banner both use `.usa-accordion__button` as well. Let's add a safeguard to prevent a change in icon position if someone tried:**"* (with two concrete HTML repros showing the misuse, resolved via `:not()` selectors)
@@ -59,10 +59,10 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 4. `/uswds-code-review 6786` — Modal: restore page content when opener has left
 
 **Size:** +28/-6, 2 files  
-**Reviewer:** ethangardner (APPROVED with AT hand-off)  
-**Actual outcome:** *"This looks good to me. This touches modal code that was written previously. Passing off to the a11y specialist to see if it makes sense for AT. If it looks good, go ahead and approve and merge. It passes my review."*
+**Reviewer:** engineering lead (APPROVED with AT hand-off)  
+**Actual outcome:** *"This looks good to me. This touches modal code that was written previously. Passing off to role:accessibility-specialist to see if it makes sense for AT. If it looks good, go ahead and approve and merge. It passes my review."*
 
-**Expected findings:** No blocking issues. One manual-follow-up flag for a11y testing (16b — focus behavior when the opener is removed from the DOM). Gate 16a (SR text content) does not apply here — no hint text or aria-label copy changed.
+**Expected findings:** No blocking issues. One manual-follow-up flag for accessibility testing (16b — focus behavior when the opener is removed from the DOM). Gate 16a (SR text content) does not apply here — no hint text or aria-label copy changed.
 
 **Success criteria:** Guards against false positives. The skill should stay quiet on code correctness and flag only the AT verification (16b).
 
@@ -71,7 +71,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 4a. `/uswds-code-review 6673` — Range slider: add visual hint instruction
 
 **Size:** +17/-1, 3 files  
-**Reviewer:** a11y specialist (COMMENTED → approved after wording update)  
+**Reviewer:** accessibility specialist (COMMENTED → approved after wording update)  
 **Actual outcome:** The code change (adding `aria-describedby` wiring between the hint and the input) was technically sound. The reviewer flagged that the hint text read *"slider"* — which AT users already know from the element's role announcement — and suggested it instead explain interaction ("use arrow keys to increase or decrease the value"). A follow-up uswds-site guidance issue was noted as a separate non-blocking concern. Approval proceeded once the hint wording was updated.
 
 **Expected findings (gate 16a):**
@@ -84,7 +84,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 **Success criteria:** Proves gate 16a fires on SR-text-redundant-with-role without triggering a blocking verdict or a false 16b routing. The skill should distinguish the code-level fix (ARIA wiring, already correct) from the content-level flag (hint text quality).
 
 **Size:** lockfile-only (dependabot)  
-**Reviewer:** ethangardner (APPROVED with verification transcript)  
+**Reviewer:** engineering lead (APPROVED with verification transcript)  
 **Actual outcome:** Verified lockfile-only, `npm ci` clean, `npm run lint` ✅, `gulp test` ✅, `dist/` byte-identical. *"Safe to merge."*
 
 **Expected findings:** None blocking. The skill should stay near-silent, note it's lockfile-only, and take the byte-identical `dist/` verification route rather than reviewing the lockfile line-by-line.
@@ -96,7 +96,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 6. `/uswds-code-review 6715` — Storybook 9 + Webpack→Vite migration
 
 **Size:** +8239/-8433, 11 files  
-**Reviewer:** ethangardner (CHANGES_REQUESTED ×2 → COMMENTED → APPROVED)  
+**Reviewer:** engineering lead (CHANGES_REQUESTED ×2 → COMMENTED → APPROVED)  
 **Expected findings:**
 
 1. **Size flag** (advisory) — but with a stated carve-out rationale: *"⚠️ Exceeds 400-line guideline, but this is **a Storybook 9 migration** (framework upgrade touching config + story files). Authored logic changes: ~120 lines across 3 files. Not flagging as oversized."*
@@ -114,7 +114,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 ### 7. `/uswds-code-review 6597` — Replace postcss/autoprefixer with Lightning CSS
 
 **Size:** (not merged, closed)  
-**Reviewer:** ethangardner (COMMENTED, closed)  
+**Reviewer:** engineering lead (COMMENTED, closed)  
 **Actual outcome:** Declined on Core-specific grounds — *"adopting Lightning CSS introduces some significant changes to how CSS properties are ordered in the built output... Shipping this safely would require a thorough audit and a major version bump."*
 
 **Expected behavior:** The skill must reach the Core-specific objection (CSS property-order change → major bump) **without** citing `decisions/0009-use-lightning-css.md` as either authorization or precedent, since that ADR governs Elements, not Core.
@@ -149,7 +149,7 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 Success is **not** word-matching the original reviews. It's that:
 1. Every blocking finding the reviewers made appears at blocking severity
 2. Non-blocking suggestions are marked non-blocking
-3. Manual-follow-up items (a11y, breaking-change classification, API surface) are flagged for specialist review, not concluded
+3. Manual-follow-up items (accessibility, breaking-change classification, API surface) are flagged for specialist review, not concluded
 4. #6786 and #6783 (clean PRs) stay quiet — no spurious findings
 5. The skill's voice matches the team's — specific compliments, escape hatches on non-blocking items, evidence (code blocks / permalinks / repro steps) for every substantive finding
 

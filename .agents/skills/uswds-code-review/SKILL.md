@@ -1,13 +1,13 @@
 ---
 name: uswds-code-review
-description: Review USWDS PRs or branches using the core team's calibrated judgment. Enforces 16 specific gates (size, dependencies, DRY, sanitization, test regression, etc.), distinguishes personal preference from what all consumers inherit, and routes specialist decisions (a11y, breaking changes, new API surface). Use when the user says "review this", "code review", "review the PR", asks for feedback on changes, or explicitly invokes /uswds-code-review.
+description: Review USWDS PRs or branches using the core team's calibrated judgment. Enforces 16 specific gates (size, dependencies, DRY, sanitization, test regression, etc.), distinguishes personal preference from what all consumers inherit, and routes specialist decisions (accessibility, breaking changes, new API surface). Use when the user says "review this", "code review", "review the PR", asks for feedback on changes, or explicitly invokes /uswds-code-review.
 args:
   pr_or_branch: (optional) PR number/URL, or omit for current branch vs develop
 ---
 
 # USWDS Code Review
 
-Perform a judgment-based code review of USWDS changes, reproducing the calibration of the core review team (ethangardner, heymatthenry, mejiaj, thisisdano). This skill enforces 16 specific gates, distinguishes personal preference from what cascades to all downstream consumers, and explicitly routes calls that aren't a code reviewer's to make.
+Perform a judgment-based code review of USWDS changes, reproducing the calibration of the core review team (engineering leads and senior engineers who set technical direction, a product lead, and an accessibility specialist). This skill enforces 16 specific gates, distinguishes personal preference from what cascades to all downstream consumers, and explicitly routes calls that aren't a code reviewer's to make.
 
 ## Entry point
 
@@ -81,7 +81,7 @@ Each gate is documented in `references/gates.md` with runnable checks and carve-
 2. **Dependencies** — blocking unless called for; `lit` is the only runtime dep
 3. **Definition of done** — issue acceptance criteria vs actual diff, both directions
 4. **Existing pattern or ADR** — grep `uswds-core` utils; check uswds-proposals repo; distinguish Elements vs Core ADRs
-5. **Test coverage** — must fail on base branch (ethangardner's test)
+5. **Test coverage** — must fail on base branch (the senior-engineer regression test)
 6. **DRY tests / 3-location threshold** — cite the existing `events.js` triplicate
 7. **Duplication** — blocking if a core utility already exists
 8. **Simplification pass** — dispatch `code-simplification` skill subagent, filter to readability wins only
@@ -90,9 +90,9 @@ Each gate is documented in `references/gates.md` with runnable checks and carve-
 11. **Modular code** — cited from engineering-values.md "Support repairability"
 12. **Input validation** — at system boundaries, checked against the sanitizer precedents
 13. **New API surface** — manual follow-up; flag $theme-* settings, new data-* attrs, breaking markup
-14. **Breaking changes** — manual follow-up; carry thisisdano's design-vs-code split
+14. **Breaking changes** — manual follow-up; carry the product lead's design-vs-code split
 15. **New variants / default changes** — manual follow-up
-16. **Accessibility** — two sub-gates: 16a (SR text content, flag-only, an a11y specialist can judge without live AT); 16b (AT behavior verdict, manual follow-up — name the test matrix, don't conclude)
+16. **Accessibility** — two sub-gates: 16a (SR text content, flag-only, an accessibility specialist can judge without live AT); 16b (AT behavior verdict, manual follow-up — name the test matrix, don't conclude)
 
 For each finding, apply **the cascade test** before including it: *Does this change what every downstream consumer gets, or is it how I would have written it?* If the latter, downgrade to non-blocking or drop entirely.
 
@@ -120,15 +120,15 @@ State these with an explicit escape hatch: *"This is far from being a blocker, b
 
 **Manual follow-up** — route to a specialist, don't conclude:
 - Accessibility / AT behavior → name the test matrix, don't render a verdict (16b)
-- A11y SR text content → an a11y specialist can flag whether hint text is redundant with role or missing interaction guidance; non-blocking, does not need live AT testing (16a)
-- Breaking-change classification → flag it, cite the repo definition, note thisisdano's design-vs-code split
+- A11y SR text content → an accessibility specialist can flag whether hint text is redundant with role or missing interaction guidance; non-blocking, does not need live AT testing (16a)
+- Breaking-change classification → flag it, cite the repo definition, note the product lead's design-vs-code split
 - New API surface ($theme-* settings, `data-*` attrs, CSS class names)
 - New variants or default changes
 - Anything that affects visual design intent
 
 ### 5. Structure the report
 
-Use **mejiaj's Conventional Comments labels** (real repo practice):
+Use **the team's Conventional Comments labels** (real repo practice):
 - `**issue**` — blocking
 - `**polish**` — non-blocking improvement
 - `**question**` — genuine uncertainty
@@ -138,7 +138,7 @@ Use **mejiaj's Conventional Comments labels** (real repo practice):
 - `**praise**` — call out good work
 - `(non-blocking)` — append to downgrade severity
 
-**Summary structure** (ethangardner's three-move template):
+**Summary structure** (the engineering-lead three-move template):
 1. Specific, non-generic compliment
 2. Census of what's below ("a few suggestions and one question")
 3. What clearing them earns ("then we can get this merged")
@@ -187,7 +187,7 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 [If any. Name the specific test or specialist area, don't conclude.]
 
 **Accessibility:**
-- [ ] **16a — SR text content** (a11y specialist, no live AT needed): is hint/label text redundant with role? Does it explain interaction? Flag as `**polish (non-blocking)**` with suggested text; note any uswds-site guidance follow-up separately.
+- [ ] **16a — SR text content** (accessibility specialist, no live AT needed): is hint/label text redundant with role? Does it explain interaction? Flag as `**polish (non-blocking)**` with suggested text; note any uswds-site guidance follow-up separately.
 - [ ] **16b — AT behavior** (hands-on testing required): Test with NVDA + [specific scenario]
 - [ ] Test with VoiceOver + Safari [specific scenario]
 - [ ] Test with VoiceOver + Chrome [specific scenario, if behavior differs]
@@ -210,7 +210,7 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 - `dist/` contents — generated; verify byte-identical instead
 - Naming in isolation
 - Micro-performance
-- Screen-reader verdicts — routed to a11y specialist
+- Screen-reader verdicts — routed to accessibility specialist
 - [any other items from silence list]
 
 ---
@@ -223,7 +223,7 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 - ⏸️ **Hold** — pending [ADR / team decision / architectural discussion].
 - 🔄 **Request changes** — blocking issues above must be addressed.
 
-[Close with ethangardner's escape hatch:]
+[Close with the escape hatch:]
 Don't take any of this for absolute. It's all open for discussion if you disagree with any of it or have feedback.
 ```
 
