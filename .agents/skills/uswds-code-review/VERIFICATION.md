@@ -60,15 +60,28 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 
 **Size:** +28/-6, 2 files  
 **Reviewer:** ethangardner (APPROVED with AT hand-off)  
-**Actual outcome:** *"This looks good to me. @jonathanbobel — **this touches modal code that you wrote previously.** ... Passing off to you to see if it makes sense for AT. If it looks good, go ahead and approve and merge. **It passes my review.**"*
+**Actual outcome:** *"This looks good to me. This touches modal code that was written previously. Passing off to the a11y specialist to see if it makes sense for AT. If it looks good, go ahead and approve and merge. It passes my review."*
 
-**Expected findings:** No blocking issues. One manual-follow-up flag for a11y testing (focus behavior when the opener is removed from the DOM).
+**Expected findings:** No blocking issues. One manual-follow-up flag for a11y testing (16b — focus behavior when the opener is removed from the DOM). Gate 16a (SR text content) does not apply here — no hint text or aria-label copy changed.
 
-**Success criteria:** Guards against false positives. The skill should stay quiet on code correctness and flag only the AT verification.
+**Success criteria:** Guards against false positives. The skill should stay quiet on code correctness and flag only the AT verification (16b).
 
 ---
 
-### 5. `/uswds-code-review 6783` — Bump undici from 7.28.0 to 7.29.0
+### 4a. `/uswds-code-review 6673` — Range slider: add visual hint instruction
+
+**Size:** +17/-1, 3 files  
+**Reviewer:** a11y specialist (COMMENTED → approved after wording update)  
+**Actual outcome:** The code change (adding `aria-describedby` wiring between the hint and the input) was technically sound. The reviewer flagged that the hint text read *"slider"* — which AT users already know from the element's role announcement — and suggested it instead explain interaction ("use arrow keys to increase or decrease the value"). A follow-up uswds-site guidance issue was noted as a separate non-blocking concern. Approval proceeded once the hint wording was updated.
+
+**Expected findings (gate 16a):**
+1. **SR text content flag** (non-blocking `**polish**`) — the hint text is redundant with the element's role. Suggest interaction-guidance text instead. Note the uswds-site guidance angle as a separate issue, explicitly not a blocker.
+
+**Expected non-findings:**
+- No gate 16b (AT behavior) flag needed — the ARIA *wiring* is the fix; there's no AT behavior regression to route.
+- No blocking issues.
+
+**Success criteria:** Proves gate 16a fires on SR-text-redundant-with-role without triggering a blocking verdict or a false 16b routing. The skill should distinguish the code-level fix (ARIA wiring, already correct) from the content-level flag (hint text quality).
 
 **Size:** lockfile-only (dependabot)  
 **Reviewer:** ethangardner (APPROVED with verification transcript)  
@@ -156,6 +169,9 @@ cd /home/egardner/devspace/uswds
 
 # 4. False-positive guard (clean PR with AT hand-off)
 /uswds-code-review 6786
+
+# 4a. Gate 16a (SR text quality, non-blocking flag, no AT routing)
+/uswds-code-review 6673
 
 # 5. Noise guard (dependabot, stay silent)
 /uswds-code-review 6783

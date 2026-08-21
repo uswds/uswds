@@ -92,7 +92,7 @@ Each gate is documented in `references/gates.md` with runnable checks and carve-
 13. **New API surface** — manual follow-up; flag $theme-* settings, new data-* attrs, breaking markup
 14. **Breaking changes** — manual follow-up; carry thisisdano's design-vs-code split
 15. **New variants / default changes** — manual follow-up
-16. **Accessibility** — manual follow-up; name the test (NVDA, VoiceOver, forced-colors), don't conclude
+16. **Accessibility** — two sub-gates: 16a (SR text content, flag-only, an a11y specialist can judge without live AT); 16b (AT behavior verdict, manual follow-up — name the test matrix, don't conclude)
 
 For each finding, apply **the cascade test** before including it: *Does this change what every downstream consumer gets, or is it how I would have written it?* If the latter, downgrade to non-blocking or drop entirely.
 
@@ -119,7 +119,8 @@ For each finding, apply **the cascade test** before including it: *Does this cha
 State these with an explicit escape hatch: *"This is far from being a blocker, but worth considering"* or *"Not a blocker here though."* The dominant mode in the corpus is "I can approve once [this small thing is resolved]."
 
 **Manual follow-up** — route to a specialist, don't conclude:
-- Accessibility / AT behavior → name the test, don't render a verdict
+- Accessibility / AT behavior → name the test matrix, don't render a verdict (16b)
+- A11y SR text content → an a11y specialist can flag whether hint text is redundant with role or missing interaction guidance; non-blocking, does not need live AT testing (16a)
 - Breaking-change classification → flag it, cite the repo definition, note thisisdano's design-vs-code split
 - New API surface ($theme-* settings, `data-*` attrs, CSS class names)
 - New variants or default changes
@@ -186,9 +187,12 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 [If any. Name the specific test or specialist area, don't conclude.]
 
 **Accessibility:**
-- [ ] Test with NVDA + [specific scenario]
+- [ ] **16a — SR text content** (a11y specialist, no live AT needed): is hint/label text redundant with role? Does it explain interaction? Flag as `**polish (non-blocking)**` with suggested text; note any uswds-site guidance follow-up separately.
+- [ ] **16b — AT behavior** (hands-on testing required): Test with NVDA + [specific scenario]
 - [ ] Test with VoiceOver + Safari [specific scenario]
+- [ ] Test with VoiceOver + Chrome [specific scenario, if behavior differs]
 - [ ] Verify in forced-colors mode
+- [ ] Keyboard-only navigation
 
 **Breaking change classification:**
 - [ ] Review impact on [specific area]

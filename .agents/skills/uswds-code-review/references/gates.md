@@ -470,34 +470,66 @@ From `package.json` `exports` and observed practice:
 
 ---
 
-## 16. Accessibility: flag for specialist review, don't conclude
+## 16. Accessibility
 
-**Disposition:** Manual follow-up (never blocking on code-reviewer's judgment alone)
+Gate 16 has two distinct sub-gates with different dispositions. Apply both when a PR touches interactive behavior, ARIA, SR text, focus, or keyboard nav.
+
+---
+
+### 16a. A11y content: SR text quality (flag-only, non-blocking)
+
+**Disposition:** Flag / non-blocking. An a11y specialist reviewer can make this judgment without live AT testing.
+
+**What this covers:** Whether the *text* of screen reader hints, `aria-label`s, and status messages is actually useful — distinct from whether the AT *announces* them (which requires hands-on testing, see 16b).
+
+**Flag when:**
+- An `aria-label` or hint text restates the element's role, which AT users already receive from the semantic markup (e.g., a slider hint that says "slider")
+- A status message or error text does not explain purpose, expected values, or how to interact — just describes what users already know
+- Interaction guidance (how to operate the control: keys, gestures, value range) is missing from a non-obvious component
+- Content that should inform *developer guidance* on uswds-site is baked directly into a component string rather than left to the implementer
+
+**Precedent (#6673):** A range slider hint read "slider" — AT users already know the role. The reviewer flagged that a more useful hint would explain interaction ("use arrow keys to increase or decrease the value"), and noted that guidance on communicating `min`/`max`/`step` belongs in the uswds-site component docs — not as a code blocker but as a follow-up issue. The PR was approved once the immediate hint wording was improved.
+
+**Voice:**
+> **`**polish**` (non-blocking): SR text content**
+>
+> The current hint/label says `"[text]"`. AT users will already know [role / property] from the element's semantics. A more useful message would explain [purpose / interaction / range]. For example: `"[suggested text]"`.
+>
+> Separately, guidance on when developers should customize this (e.g., communicating `min`/`max`/`step` values for range inputs) may be worth a follow-up issue for the uswds-site component docs. That doesn't affect this approval.
+
+**Carve-out:** Do not flag SR text that is a correct ARIA pattern even if brief (e.g., `aria-label="Close"` on an `×` button is correct — the verb is the guidance). The failure mode is redundancy with role or absence of interaction guidance on a non-obvious control, not brevity.
+
+---
+
+### 16b. AT behavior verdict: route to a specialist, don't conclude
+
+**Disposition:** Manual follow-up — route to an a11y specialist for hands-on AT verification. Never render a verdict on AT behavior from code review alone.
 
 **The routing rule** (ethangardner, documented practice):
 > "Code-wise this looks fine to me, but I'd like to defer to you on the screen reader behavior." (#6595)
 >
-> "It passes my review." (#6786, handing off to @jonathanbobel)
+> "It passes my review." (#6786, passing to the a11y specialist)
 
 **What to flag:**
 - New interactive components or changes to focus behavior
 - Changes to ARIA attributes (`aria-label`, `aria-describedby`, `aria-live`, etc.)
-- SR-only text (`usa-sr-only` class, `aria-label` on icons)
 - Changes that affect keyboard navigation (tab order, focus trap, Escape handling)
 - Visual-only cues (color, icon-only without text alternative)
 - Form error messaging (must be programmatically associated)
 
+**The bar for a thorough a11y PR** (drawn from #6767, #6758, #6750): a well-scoped a11y change includes a named AT × browser matrix (e.g., VoiceOver + Safari/Chrome/Firefox, NVDA + Chrome), an explicit Limitations / not-in-scope section, a citation to ARIA Authoring Practices or ARIA spec where the pattern is non-obvious, and a statement of what was verified vs. what was pre-existing behavior ("not a regression from develop"). Flag if any of these are absent on a PR that makes substantive a11y claims.
+
 **Voice:**
-> **Manual follow-up required: accessibility verification**
+> **Manual follow-up required: AT behavior verification**
 >
-> This changes [focus behavior / ARIA wiring / SR announcements / keyboard nav]. Manual testing needed:
-> - [ ] Test with NVDA + [describe scenario, e.g. "drag-drop error message on invalid file"]
-> - [ ] Test with VoiceOver + Safari [describe scenario]
-> - [ ] Test with VoiceOver + Chrome [describe scenario, if behavior differs]
-> - [ ] Verify in forced-colors mode (Windows high-contrast)
+> This changes [focus behavior / ARIA wiring / SR announcements / keyboard nav]. Requires hands-on testing before merge:
+> - [ ] Test with NVDA + Chrome — [describe scenario]
+> - [ ] Test with VoiceOver + Safari — [describe scenario]
+> - [ ] Test with VoiceOver + Chrome — [describe scenario, if behavior may differ]
+> - [ ] Verify in forced-colors / Windows high-contrast mode
 > - [ ] Keyboard-only navigation (tab, shift-tab, arrow keys, escape, enter)
 >
-> Code review: [note any code-level issues, like missing `aria-describedby` wiring, but explicitly state that AT behavior verdict is not within this review's scope].
+> Code review: [note any code-level issues visible in the diff, e.g., missing `aria-describedby` wiring or an `aria-live` region that lacks a `role`. Explicitly state that the AT announcement behavior verdict is not within this review's scope.]
 
 **Mejiaj's testing pattern** (for reference, not always required):
 > ### Tested

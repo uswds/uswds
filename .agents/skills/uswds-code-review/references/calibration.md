@@ -2,7 +2,7 @@
 
 This file anchors severity decisions and voice so the skill's output matches the team's actual practice, not generic review templates. Sources: ethangardner (60 PRs, 43 inline comments), heymatthenry (28 PRs, 8 inline comments), mejiaj (~100 PRs, extensive inline + review-body evidence), thisisdano (~70 PRs, 30+ inline comments).
 
-**Note on recency:** mejiaj's last review here is #6418 (2025-02-18), thisisdano's is #6320 (2025-01-23). Current active reviewers: ethangardner, jonathanbobel. Patterns below represent the team's durable judgment, not individual voices.
+**Note on recency:** mejiaj's last review here is #6418 (2025-02-18), thisisdano's is #6320 (2025-01-23). The team includes an active a11y specialist who handles hands-on AT verification and a11y-content review. Patterns below represent the team's durable judgment, not individual voices.
 
 ---
 
@@ -324,7 +324,18 @@ These are **never** reviewed, backed by corpus facts:
 - #6595: *"@chandracarney — **Code-wise this looks fine to me, but I'd like to defer to you on the screen reader behavior.**"*
 - #6703: *"LGTM! @chandracarney do you want to take a look at this for final approval?"*
 - #6725: *"@chandracarney — you're up for a final a11y review."*
-- #6786: *"This looks good to me. @jonathanbobel — **this touches modal code that you wrote previously.** ... Passing off to you to see if it makes sense for AT. If it looks good, go ahead and approve and merge. **It passes my review.**"*
+- #6786: *"This looks good to me. **This touches modal code that was written previously.** ... Passing off to the a11y specialist to see if it makes sense for AT. If it looks good, go ahead and approve and merge. **It passes my review.**"*
+
+**A11y-content critique (code-reviewable, does not route):**
+
+An a11y specialist can judge whether the *text* of a screen reader hint is useful — distinct from judging AT *behavior*, which requires hands-on device testing. The distinction:
+
+- **AT behavior** (route, don't conclude): does the AT announce it, in what order, with what voice mode? Needs real devices and a named test matrix.
+- **SR text content** (reviewable by an a11y specialist): is the text redundant with the element's role? Does it explain purpose or interaction, or just restate what AT already derives from markup semantics?
+
+Example (#6673): a range slider hint read *"slider"* — which AT users already know from the element's role announcement. The reviewer flagged that a more useful hint would explain *how to interact* (e.g., "use arrow keys to increase or decrease the value"), and noted that guidance on communicating `min`/`max`/`step` context belongs in the uswds-site component guidance — not as a code blocker, but as a follow-up issue. The approval went through once the immediate hint wording was addressed.
+
+**Voice for a11y-content findings:** Non-blocking flag. State what the current text says, why it's redundant or insufficient, suggest more useful text, and explicitly separate guidance-site follow-up from the approval gate: *"That recommendation doesn't interfere with this approval."*
 
 **Unblocks stale review states:**
 - #6611: *"@annepetersen — You had a previous change request, so this will need an approval from you as well if it looks good to you."*
