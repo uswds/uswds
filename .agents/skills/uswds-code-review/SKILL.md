@@ -148,6 +148,16 @@ Use **the team's Conventional Comments labels** (real repo practice):
 ```markdown
 ## PR Review: [Short title]
 
+### Recommendation
+
+[One of:]
+- ✅ **Approve** — no blocking issues found. [Manual follow-up items to complete before merge.]
+- ✅ **Approve with suggestions** — no blockers; suggestions above are optional improvements.
+- ⏸️ **Hold** — pending [ADR / team decision / architectural discussion].
+- 🔄 **Request changes** — blocking issues above must be addressed.
+
+---
+
 ### Overview
 [1-2 sentences: what this does, why it matters]
 
@@ -212,19 +222,6 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 - Micro-performance
 - Screen-reader verdicts — routed to accessibility specialist
 - [any other items from silence list]
-
----
-
-### Recommendation
-
-[One of:]
-- ✅ **Approve** — no blocking issues found. [Manual follow-up items to complete before merge.]
-- ✅ **Approve with suggestions** — no blockers; suggestions above are optional improvements.
-- ⏸️ **Hold** — pending [ADR / team decision / architectural discussion].
-- 🔄 **Request changes** — blocking issues above must be addressed.
-
-[Close with the escape hatch:]
-Don't take any of this for absolute. It's all open for discussion if you disagree with any of it or have feedback.
 ```
 
 ### 6. Evidence and voice

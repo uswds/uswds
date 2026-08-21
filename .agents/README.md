@@ -38,9 +38,9 @@ ln -s /path/to/uswds/.agents/skills/uswds-code-review ~/.claude/skills/uswds-cod
 
 ## Background
 
-These tools are designed for use with [Claude Code](https://claude.ai/code) and other AI coding assistants that support the skill/agent pattern. They assume:
+These tools are designed for use with AI coding assistants that support the skill/agent pattern. They assume:
 
-- Node 24 (`.nvmrc`)
+- Node is installed. See `.nvmrc`
 - `gh` CLI authenticated to `uswds/uswds`
 - Working directory is the USWDS repo root
 
