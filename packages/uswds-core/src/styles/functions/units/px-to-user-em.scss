@@ -1,0 +1,24 @@
+@use "root";
+@use "./px-to-rem.scss" as *;
+@use "./rem-to-user-em.scss" as *;
+
+/*
+----------------------------------------
+px-to-user-em()
+----------------------------------------
+Converts a value in px to a value in em
+----------------------------------------
+*/
+
+@function px-to-user-em($pixels) {
+  @if unit($pixels) != "px" {
+    @error 'This value must be in pixels';
+  }
+  $px-to-user-em: px-to-rem($pixels);
+  $px-to-user-em: rem-to-user-em($px-to-user-em);
+
+  @return $px-to-user-em;
+}
+
+// @debug px-to-user-em(16px);
+// @return 1em

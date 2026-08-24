@@ -1,4 +1,3 @@
-const once = require("receptor/once");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
@@ -11,19 +10,16 @@ function setTabindex() {
   // href already begins with '#'
   const id = encodeURI(this.getAttribute("href"));
   const target = document.getElementById(
-    id === "#" ? MAINCONTENT : id.slice(1)
+    id === "#" ? MAINCONTENT : id.slice(1),
   );
 
   if (target) {
     target.style.outline = "0";
     target.setAttribute("tabindex", 0);
     target.focus();
-    target.addEventListener(
-      "blur",
-      once(() => {
-        target.setAttribute("tabindex", -1);
-      })
-    );
+    target.addEventListener("blur", () => target.setAttribute("tabindex", -1), {
+      once: true,
+    });
   } else {
     // throw an error?
   }

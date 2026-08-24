@@ -42,8 +42,7 @@ $tokens-color-system: map-collect(
 );
 
 $palettes-color: (
-  "palette-color":
-    map-collect(
+  "palette-color": map-collect(
       $tokens-color-theme,
       $tokens-color-grayscale,
       $tokens-color-global,

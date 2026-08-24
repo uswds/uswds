@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "uswds-core" as *;
 
 // Maps for High Contrast Mode
@@ -9,14 +11,14 @@ $icon-map: (
   height: units(2),
 );
 
-$chevron-open: map-merge(
+$chevron-open: map.merge(
   $icon-map,
   (
     "name": "expand_more",
   )
 );
 
-$close: map-merge(
+$close: map.merge(
   $icon-map,
   (
     "name": "close",
@@ -63,16 +65,15 @@ $close: map-merge(
     @include u-disabled-high-contrast-border;
 
     // Fix for Safari
-    -webkit-text-fill-color: color($theme-color-text-on-disabled);
+    -webkit-text-fill-color: color("disabled-dark");
 
-    // Placeholder overrides to ensure color contrast compliance accross browsers
+    // Placeholder overrides to ensure color contrast compliance across browsers
     &::placeholder {
       opacity: 1;
-      color: color($theme-color-text-on-disabled);
     }
 
     & ~ .usa-combo-box__input-button-separator {
-      background-color: color($theme-color-text-on-disabled);
+      background-color: color("disabled-dark");
       cursor: not-allowed;
     }
   }

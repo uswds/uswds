@@ -1,7 +1,6 @@
 const assert = require("assert");
 const fs = require("fs");
 const banner = require("../index");
-const accordion = require("../../../usa-accordion/src/index");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = "aria-expanded";
@@ -27,12 +26,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
       button = body.querySelector(".usa-banner__button");
       content = body.querySelector(".usa-banner__content");
       banner.on(containerSelector());
-      accordion.on(containerSelector());
     });
 
     afterEach(() => {
       banner.off(containerSelector());
-      accordion.off(containerSelector());
       body.innerHTML = "";
     });
 
@@ -56,5 +53,47 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(button.getAttribute(EXPANDED), "false");
       assert(content.hasAttribute(HIDDEN));
     });
+  });
+});
+
+describe("Banner initialized at shadow root", () => {
+  const { body } = document;
+
+  let host;
+  let root;
+  let header;
+  let button;
+  let content;
+
+  beforeEach(() => {
+    body.innerHTML = '<div id="banner-host"></div>';
+    host = body.querySelector("#banner-host");
+    root = host.attachShadow({ mode: "open" });
+    root.innerHTML = TEMPLATE;
+
+    header = root.querySelector(".usa-banner__header");
+    button = root.querySelector(".usa-banner__button");
+    content = root.querySelector(".usa-banner__content");
+    banner.on(root);
+  });
+
+  afterEach(() => {
+    banner.off(root);
+    body.innerHTML = "";
+  });
+
+  it("opens when you click the button", () => {
+    button.click();
+    assert.strictEqual(header.classList.contains(EXPANDED_CLASS), true);
+    assert.strictEqual(button.getAttribute(EXPANDED), "true");
+    assert(content.getAttribute(HIDDEN) !== true);
+  });
+
+  it("closes when you click the button again", () => {
+    button.click();
+    button.click();
+    assert.strictEqual(header.classList.contains(EXPANDED_CLASS), false);
+    assert.strictEqual(button.getAttribute(EXPANDED), "false");
+    assert(content.hasAttribute(HIDDEN));
   });
 });

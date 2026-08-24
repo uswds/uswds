@@ -1,4 +1,4 @@
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const select = require("../../uswds-core/src/js/utils/select");
 const toggle = require("../../uswds-core/src/js/utils/toggle");
@@ -34,6 +34,11 @@ let navActive;
 let nonNavElements;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+// Detect Safari
+// Note: Chrome also reports the Safari userAgent so this specifically excludes Chrome.
+const isSafari =
+  navigator.userAgent.includes("Safari") &&
+  !navigator.userAgent.includes("Chrome");
 const SCROLLBAR_WIDTH = ScrollBarWidth();
 const INITIAL_PADDING = window
   .getComputedStyle(document.body)
@@ -78,14 +83,39 @@ const toggleNonNavItems = (active) => {
   }
 };
 
+/**
+ * Detect Safari and add body class for a Safari-only CSS bug fix.
+ * More details in https://github.com/uswds/uswds/pull/5443
+ */
+const addSafariClass = () => {
+  if (isSafari) {
+    document.body.classList.add("is-safari");
+  }
+};
+
+/**
+ * Set the value for the --scrolltop CSS var when the mobile menu is open.
+ * This allows the CSS to lock the current scroll position in Safari
+ * when overflow-y is set to scroll.
+ * More details in https://github.com/uswds/uswds/pull/5443
+ */
+const setSafariScrollPosition = (body) => {
+  const currentScrollPosition = `-${window.scrollY}px`;
+  if (isSafari) {
+    body.style.setProperty("--scrolltop", currentScrollPosition);
+  }
+};
+
 const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === "boolean" ? active : !isActive();
 
+  setSafariScrollPosition(body);
+
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
   select(TOGGLES).forEach((el) =>
-    el.classList.toggle(VISIBLE_CLASS, safeActive)
+    el.classList.toggle(VISIBLE_CLASS, safeActive),
   );
 
   navigation.focusTrap.update(safeActive);
@@ -221,6 +251,7 @@ navigation = behavior(
         });
       }
 
+      addSafariClass();
       resize();
       window.addEventListener("resize", resize, false);
     },
@@ -230,7 +261,7 @@ navigation = behavior(
     },
     focusTrap: null,
     toggleNav,
-  }
+  },
 );
 
 module.exports = navigation;

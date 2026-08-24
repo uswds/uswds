@@ -43,8 +43,7 @@ $palettes-font-misc: (
     sans: get-font-stack("sans"),
     serif: get-font-stack("serif"),
   ),
-  "palette-font-weight":
-    map-collect(
+  "palette-font-weight": map-collect(
       $project-font-weights,
       (
         "100": 100,
@@ -709,8 +708,7 @@ $palettes-font-theme-serif: (
 );
 
 $palette-font-theme-types: (
-  "palette-font-theme-types":
-    map-collect(
+  "palette-font-theme-types": map-collect(
       $tokens-font-theme-cond,
       $tokens-font-theme-icon,
       $tokens-font-theme-lang,
@@ -1267,8 +1265,7 @@ $palettes-font-theme-alt: (
 );
 
 $palette-font-theme-roles: (
-  "palette-font-theme-roles":
-    map-collect(
+  "palette-font-theme-roles": map-collect(
       $tokens-font-theme-code,
       $tokens-font-theme-ui,
       $tokens-font-theme-heading,

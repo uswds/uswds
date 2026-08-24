@@ -26,8 +26,7 @@ $palettes-default: (
   "palette-bottom-default": get-standard-values(bottom),
   "palette-box-shadow-default": get-standard-values(box-shadow),
   "palette-circle-default": get-standard-values(circle),
-  "palette-color-default":
-    map-collect(
+  "palette-color-default": map-collect(
       $tokens-color-basic,
       $tokens-color-grayscale,
       $tokens-color-theme,
@@ -41,8 +40,9 @@ $palettes-default: (
   "palette-float-default": get-standard-values(float),
   "palette-font-default": $tokens-font-theme,
   "palette-font-family-default": get-standard-values(font-family),
-  "palette-font-feature-settings-default":
-    get-standard-values(font-feature-settings),
+  "palette-font-feature-settings-default": get-standard-values(
+      font-feature-settings
+    ),
   "palette-font-style-default": get-standard-values(font-style),
   "palette-font-weight-default": get-standard-values(font-weight),
   "palette-height-default": get-standard-values(height),
@@ -69,8 +69,9 @@ $palettes-default: (
   "palette-square-default": get-standard-values(square),
   "palette-text-align-default": get-standard-values(text-align),
   "palette-text-decoration-default": get-standard-values(text-decoration),
-  "palette-text-decoration-color-default":
-    get-standard-values(text-decoration-color),
+  "palette-text-decoration-color-default": get-standard-values(
+      text-decoration-color
+    ),
   "palette-text-indent-default": get-standard-values(text-indent),
   "palette-text-transform-default": get-standard-values(text-transform),
   "palette-top-default": get-standard-values(top),

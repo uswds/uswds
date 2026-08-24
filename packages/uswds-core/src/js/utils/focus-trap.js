@@ -1,5 +1,4 @@
-const assign = require("object-assign");
-const { keymap } = require("receptor");
+const keymap = require("./keymap");
 const behavior = require("./behavior");
 const select = require("./select");
 const activeElement = require("./active-element");
@@ -44,8 +43,9 @@ const tabHandler = (context) => {
 };
 
 module.exports = (context, additionalKeyBindings = {}) => {
+  const { autoFocus = true, ...keyBindings } = additionalKeyBindings;
   const tabEventHandler = tabHandler(context);
-  const bindings = additionalKeyBindings;
+  const bindings = keyBindings;
   const { Esc, Escape } = bindings;
 
   if (Escape && !Esc) bindings.Esc = Escape;
@@ -53,15 +53,11 @@ module.exports = (context, additionalKeyBindings = {}) => {
   //  TODO: In the future, loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
-  const keyMappings = keymap(
-    assign(
-      {
-        Tab: tabEventHandler.tabAhead,
-        "Shift+Tab": tabEventHandler.tabBack,
-      },
-      additionalKeyBindings
-    )
-  );
+  const keyMappings = keymap({
+    Tab: tabEventHandler.tabAhead,
+    "Shift+Tab": tabEventHandler.tabBack,
+    ...keyBindings,
+  });
 
   const focusTrap = behavior(
     {
@@ -69,9 +65,9 @@ module.exports = (context, additionalKeyBindings = {}) => {
     },
     {
       init() {
-        // TODO: is this desireable behavior? Should the trap always do this by default or should
+        // TODO: is this desirable behavior? Should the trap always do this by default or should
         // the component getting decorated handle this?
-        if (tabEventHandler.firstTabStop) {
+        if (autoFocus && tabEventHandler.firstTabStop) {
           tabEventHandler.firstTabStop.focus();
         }
       },
@@ -82,7 +78,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
           this.off();
         }
       },
-    }
+    },
   );
 
   return focusTrap;

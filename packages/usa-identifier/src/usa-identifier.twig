@@ -30,6 +30,11 @@
       <section class="usa-identifier__identity" aria-label="{{ masthead.description }}">
         <p class="usa-identifier__identity-domain">{{ domain }}</p>
         <p class="usa-identifier__identity-disclaimer">
+        {% if masthead.content_prefix %}
+            <span aria-hidden="true">
+              {{ masthead.content_prefix }}
+            </span>
+          {% endif %}
           {{ masthead.content }}
           <a href="{{ placeholder_link }}">{{ masthead.parent.name |e }}</a>
           {% if masthead.agency.url %}

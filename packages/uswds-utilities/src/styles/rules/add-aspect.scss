@@ -3,16 +3,18 @@
 ASPECT
 ----------------------------------------
 usage:
-  .aspect-[value]
+  .add-aspect-[key]
 ----------------------------------------
 output:
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  padding-bottom: 100%;
+  aspect-ratio: [value];
 ----------------------------------------
 example:
-  .aspect-16x9
+  .add-aspect-16x9 {
+    height: inherit;
+    padding: inherit;
+    aspect-ratio: 1.7777777778;
+    max-width: 100%;
+  }
 ----------------------------------------
 */
 @use "sass:map";

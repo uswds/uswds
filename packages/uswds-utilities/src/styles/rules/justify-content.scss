@@ -1,8 +1,6 @@
 /*
 ========================================
-.justify-content
-----------------------------------------
-property: justify-content
+justify-content
 ----------------------------------------
 usage:
   .flex-justify-[key]
@@ -12,7 +10,8 @@ output:
 ----------------------------------------
 example:
   .flex-justify-start {
-    justify-content: flex-start; }
+    justify-content: flex-start;
+  }
 ----------------------------------------
 */
 
@@ -24,8 +23,7 @@ $u-justify-content: (
   justify-content: (
     base: "flex",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($justify-content-palettes),
         $justify-content-manual-values
       ),

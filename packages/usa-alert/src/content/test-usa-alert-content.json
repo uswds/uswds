@@ -1,0 +1,86 @@
+{
+  "alerts": [
+    {
+      "header": "Info alert",
+      "title": "Info alert",
+      "modifier": "usa-alert--info"
+    },
+    {
+      "header": "Info alert - slim",
+      "title": "",
+      "modifier": "usa-alert--info usa-alert--slim"
+    },
+    {
+      "header": "Info alert - no icon",
+      "title": "Info alert - no icon",
+      "modifier": "usa-alert--info usa-alert--no-icon"
+    },
+    {
+      "header": "Info alert - slim, no icon",
+      "title": "",
+      "modifier": "usa-alert--info usa-alert--slim usa-alert--no-icon"
+    },
+    {
+      "header": "Emergency alert",
+      "title": "Emergency alert",
+      "modifier": "usa-alert--emergency"
+    },
+    {
+      "header": "Emergency alert - slim",
+      "title": "",
+      "modifier": "usa-alert--emergency usa-alert--slim"
+    },
+    {
+      "header": "Emergency alert - no icon",
+      "title": "Emergency alert - no icon",
+      "modifier": "usa-alert--emergency usa-alert--no-icon"
+    },
+    {
+      "header": "Emergency alert - slim, no icon",
+      "title": "",
+      "modifier": "usa-alert--emergency usa-alert--slim usa-alert--no-icon"
+    }
+  ],
+  "siteAlerts": [
+    {
+      "header": "Info site alert",
+      "title": "Info site alert",
+      "modifier": "usa-site-alert--info"
+    },
+    {
+      "header": "Info site alert - slim",
+      "title": "",
+      "modifier": "usa-site-alert--info usa-site-alert--slim"
+    },
+    {
+      "header": "Info site alert - no icon",
+      "title": "Info site alert - no icon",
+      "modifier": "usa-site-alert--info usa-site-alert--no-icon"
+    },
+    {
+      "header": "Info site alert - slim, no icon",
+      "title": "",
+      "modifier": "usa-site-alert--info usa-site-alert--slim usa-site-alert--no-icon"
+    },
+    {
+      "header": "Emergency site alert",
+      "title": "Emergency site alert",
+      "modifier": "usa-site-alert--emergency"
+    },
+    {
+      "header": "Emergency alert - slim",
+      "title": "",
+      "modifier": "usa-site-alert--emergency usa-site-alert--slim"
+    },
+    {
+      "header": "Emergency site alert - no icon",
+      "title": "Emergency site alert - no icon",
+      "modifier": "usa-site-alert--emergency usa-site-alert--no-icon"
+    },
+    {
+      "header": "Emergency site alert - slim, no icon",
+      "title": "",
+      "modifier": "usa-site-alert--emergency usa-site-alert--slim usa-site-alert--no-icon"
+    }
+  ]
+}

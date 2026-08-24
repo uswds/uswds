@@ -152,7 +152,7 @@ const updateLiveRegion = (table, sortedHeader) => {
     liveRegion.innerText = sortAnnouncement;
   } else {
     throw new Error(
-      `Table containing a sortable column header is not followed by an aria-live region.`
+      `Table containing a sortable column header is not followed by an aria-live region.`,
     );
   }
 };
@@ -167,16 +167,12 @@ const updateLiveRegion = (table, sortedHeader) => {
  */
 const toggleSort = (header, isAscending) => {
   const table = header.closest(TABLE);
-  let safeAscending = isAscending;
-  if (typeof safeAscending !== "boolean") {
-    safeAscending = header.getAttribute(SORTED) === ASCENDING;
-  }
 
   if (!table) {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
-  safeAscending = sortRows(header, isAscending);
+  const safeAscending = sortRows(header, isAscending);
 
   if (safeAscending) {
     getColumnHeaders(table).forEach((otherHeader) => {
@@ -223,7 +219,7 @@ const table = behavior(
         toggleSort(
           event.target.closest(SORTABLE_HEADER),
           event.target.closest(SORTABLE_HEADER).getAttribute(SORTED) ===
-            ASCENDING
+            ASCENDING,
         );
       },
     },
@@ -236,7 +232,7 @@ const table = behavior(
       const firstSorted = sortableHeaders.filter(
         (header) =>
           header.getAttribute(SORTED) === ASCENDING ||
-          header.getAttribute(SORTED) === DESCENDING
+          header.getAttribute(SORTED) === DESCENDING,
       )[0];
       if (typeof firstSorted === "undefined") {
         // no sortable headers found
@@ -252,7 +248,7 @@ const table = behavior(
     TABLE,
     SORTABLE_HEADER,
     SORT_BUTTON,
-  }
+  },
 );
 
 module.exports = table;

@@ -1,0 +1,17 @@
+@use "../../settings" as *;
+@use "../../mixins/typography/typeset" as *;
+@use "../../functions/utilities/etc" as *;
+@use "../../functions/units/units" as *;
+
+/// Applies consistent styles to form label and legend elements.
+@mixin add-label-styles() {
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
+  display: block;
+  font-weight: font-weight("normal");
+  margin-top: units(3);
+  max-width: units($theme-input-max-width);
+}

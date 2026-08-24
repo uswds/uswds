@@ -6,7 +6,8 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
-const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
+const BANNER_BUTTON = `.${PREFIX}-banner__button`;
+const BUTTON = `.${PREFIX}-accordion__button[aria-controls]:not(${BANNER_BUTTON})`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "data-allow-multiple";
 
@@ -33,13 +34,12 @@ const getAccordionButtons = (accordion) => {
  */
 const toggleButton = (button, expanded) => {
   const accordion = button.closest(ACCORDION);
-  let safeExpanded = expanded;
 
   if (!accordion) {
     throw new Error(`${BUTTON} is missing outer ${ACCORDION}`);
   }
 
-  safeExpanded = toggle(button, expanded);
+  const safeExpanded = toggle(button, expanded);
 
   // XXX multiselectable is opt-in, to preserve legacy behavior
   const multiselectable = accordion.hasAttribute(MULTISELECTABLE);
@@ -93,7 +93,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-  }
+  },
 );
 
 module.exports = accordion;

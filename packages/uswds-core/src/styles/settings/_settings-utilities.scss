@@ -16,6 +16,7 @@ https://designsystem.digital.gov/utilities
 */
 
 @use "sass:map";
+@use "../functions/general/map-collect" as *;
 
 $utilities-use-important: false !default;
 $output-these-utilities: default !default;
@@ -31,7 +32,8 @@ used by utilities or layout grid
 */
 
 $theme-utility-breakpoints: () !default;
-$theme-utility-breakpoints-complete: map.merge(
+$theme-utility-breakpoints-custom: () !default;
+$theme-utility-breakpoints-complete: map-collect(
   (
     // 160px:
     "card": false,
@@ -52,7 +54,8 @@ $theme-utility-breakpoints-complete: map.merge(
     // 1400px:
     "widescreen": false
   ),
-  $theme-utility-breakpoints
+  $theme-utility-breakpoints,
+  $theme-utility-breakpoints-custom
 ) !default;
 
 /*

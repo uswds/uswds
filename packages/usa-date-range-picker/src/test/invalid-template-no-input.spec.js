@@ -5,7 +5,7 @@ const DatePicker = require("../../../usa-date-picker/src/index");
 const DateRangePicker = require("../index");
 
 const INVALID_TEMPLATE_NO_INPUT = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-input.template.html")
+  path.join(__dirname, "/invalid-template-no-input.template.html"),
 );
 
 describe("Date range picker without inputs", () => {

@@ -1,0 +1,44 @@
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-20 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test if in-page nav excludes headers that are hidden with visibility:hidden or display:none</p>
+  <p>The in-page nav link list should show the following three headers:</p>
+  <ul>
+    <li>This heading is visible</li>
+    <li>This heading is visible</li>
+    <li>This heading is hidden with opacity:0</li>
+  </ul>
+</div>
+
+<div class="usa-in-page-nav-container">
+  <aside class="usa-in-page-nav"
+  data-minimum-heading-count="0">
+  </aside>
+
+  <main class="usa-prose">
+    <h2>This heading is visible</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+      ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+      lorem non turpis.
+    </p>
+    <h3>This heading is visible</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+      ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+      lorem non turpis.
+    </p>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Display: none;</pre>
+      <h2 style="display: none">This heading is hidden with display:none</h2>
+    </div>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Visibility: hidden;</pre>
+      <h2 style="visibility: hidden">
+        This heading is hidden with visibility:hidden
+      </h2>
+    </div>
+    <div class="outline-2px outline-magenta padding-1" style="outline-style: dashed">
+      <pre>Opacity: 0;</pre>
+      <h2 style="opacity: 0">This heading is hidden with opacity:0</h2>
+    </div>
+  </main>
+</div>

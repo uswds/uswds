@@ -6,7 +6,7 @@ const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 const STYLES = fs.readFileSync(
-  `${__dirname}/../../../../dist/css/uswds.min.css`
+  `${__dirname}/../../../../dist/css/uswds.min.css`,
 );
 
 const PRIMARY_CONTENT_SELECTOR =
@@ -29,7 +29,7 @@ const assertHidden = (el, hidden) => {
   assert.strictEqual(
     window.getComputedStyle(el).display === "none",
     hidden,
-    `not hidden: ${el.nodeName} (${el.className})`
+    `not hidden: ${el.nodeName} (${el.className})`,
   );
 };
 
@@ -131,6 +131,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
       resizeTo(1024);
       assert.strictEqual(buttons()[0].tagName, initialHtmlTag);
       assert.strictEqual(buttons()[0].getAttribute("data-tag"), null);
+    });
+
+    it("falls back to h4 when data-tag is not in the allow-list", () => {
+      resizeTo(400);
+      assert.strictEqual(buttons()[0].tagName, "BUTTON");
+
+      buttons()[0].setAttribute("data-tag", "script");
+      buttons()[1].setAttribute("data-tag", "<img src=x onerror=alert(1)>");
+      buttons()[2].setAttribute("data-tag", "h7");
+
+      resizeTo(1024);
+      assert.strictEqual(buttons()[0].tagName, "H4");
+      assert.strictEqual(buttons()[1].tagName, "H4");
+      assert.strictEqual(buttons()[2].tagName, "H4");
     });
   });
 });

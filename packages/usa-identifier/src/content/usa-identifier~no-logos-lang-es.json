@@ -5,6 +5,7 @@
   "masthead": {
     "aria_label": "Identificador de la agencia,,",
     "description": "Descripción de la agencia,,",
+    "content_prefix": null,
     "content": "Un sitio web oficial de",
     "parent": {
       "name": "<Parent agency>",
@@ -55,8 +56,8 @@
     "aria_label": "Información y servicios del Gobierno de EE. UU.,,",
     "description": "¿Necesita información y servicios del Gobierno?",
     "link": {
-      "label": "Visite USA.gov en Español",
-      "url": "https://www.usa.gov/espanol/"
+      "label": "Visite USAGov en Español",
+      "url": "https://www.usa.gov/es/"
     },
     "display": true
   }

@@ -112,5 +112,6 @@ Helper functions
       math.div($value, pow(10, $ten-exp)),
       1,
       100
-    ) + $ten-exp * $ln-ten;
+    ) +
+    $ten-exp * $ln-ten;
 }

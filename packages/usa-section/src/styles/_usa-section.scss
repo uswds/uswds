@@ -1,5 +1,7 @@
 @use "uswds-core" as *;
 
+$section-context: "Section";
+
 .usa-section {
   @include border-box-sizing;
   @include u-padding-y($theme-site-margins-width);
@@ -33,14 +35,10 @@
   }
 
   a {
-    color: color($theme-link-reverse-color);
-
-    &:hover {
-      color: color($theme-link-reverse-hover-color);
-    }
-
-    &:active {
-      color: color($theme-link-reverse-active-color);
-    }
+    @include set-link-from-bg(
+      "primary-darker",
+      $theme-link-reverse-color,
+      $context: $section-context
+    );
   }
 }

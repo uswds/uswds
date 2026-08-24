@@ -5,7 +5,7 @@ const EVENTS = require("./events");
 const DatePicker = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker-default-value.template.html")
+  path.join(__dirname, "/date-picker-default-value.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -23,7 +23,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let button;
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -44,7 +44,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         input.value,
         "05/22/2020",
-        "updates the calendar value"
+        "updates the calendar value",
       );
     });
 
@@ -54,13 +54,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(
         getCalendarEl().hidden,
         false,
-        "The calendar is shown"
+        "The calendar is shown",
       );
       assert.strictEqual(
         getCalendarEl(".usa-date-picker__calendar__date--focused").dataset
           .value,
         "2020-05-22",
-        "focuses correct date"
+        "focuses correct date",
       );
     });
   });

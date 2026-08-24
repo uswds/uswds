@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "sass:math";
 @use "sass:list";
 
@@ -21,7 +22,7 @@ $banner-icon-chevron: (
   "color-variant": "white",
   "color-hover": $banner-icon-hover,
 );
-$banner-icon-chevron-up: map-merge(
+$banner-icon-chevron-up: map.merge(
   $banner-icon-chevron,
   (
     "name": "expand_less",
@@ -230,7 +231,7 @@ $banner-icon-close: (
   @include button-unstyled;
   @include u-pin("left");
   @include u-pin("y");
-  @include u-text("primary", underline, baseline);
+  @include u-text("primary", underline);
   @include set-link-from-bg(
     $theme-banner-background-color,
     $theme-banner-link-color,

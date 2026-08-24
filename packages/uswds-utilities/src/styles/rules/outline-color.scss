@@ -3,14 +3,15 @@
 outline-color
 ----------------------------------------
 usage:
-  .outline-color-[key]
+  .outline-[key]
 ----------------------------------------
 output:
   outline-color: [value];
 ----------------------------------------
 example:
-  .outline-color-yellow-50 {
-    outline-color: #91721f; }
+  .outline-yellow {
+    outline-color: #fee685;
+  }
 ----------------------------------------
 */
 
@@ -22,8 +23,7 @@ $u-outline-color: (
   outline-color: (
     base: "outline",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($outline-color-palettes),
         get-palettes($global-color-palettes),
         $outline-color-manual-values

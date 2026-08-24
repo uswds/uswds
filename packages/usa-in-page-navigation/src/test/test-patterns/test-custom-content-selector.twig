@@ -1,0 +1,21 @@
+<div class="usa-in-page-nav-container">
+  <aside class="usa-in-page-nav"
+  data-minimum-heading-count="0"
+    {% if customContentSelector %}
+      data-main-content-selector=".main-content"
+    {% endif %}
+  ></aside>
+
+  <main class="usa-prose">
+    <div class="main-content usa-prose">
+        <h2>Heading inside of custom selector</h2>
+        <p>When <code>customContentSelector</code> is true, you should see only the single heading from this section in the in-page navigation.
+        This is because the component is looking for headers that live inside the designated custom content region.
+        </p>
+    </div>
+    <!-- This header exists outside of the class defined in data-main-content-selector -->
+    <h2>Heading outside of custom selector</h2>
+    <p>When <code>customContentSelector</code> is false, you should see <b>both</b> headings.
+    This is because the component is looking for headers inside the default <code>main</code> element.</p>
+  </main>
+</div>

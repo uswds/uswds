@@ -63,14 +63,28 @@ $breadcrumb-back-icon-aspect: (
   @include at-media($theme-breadcrumb-min-width) {
     @include u-padding-bottom($theme-breadcrumb-padding-bottom);
     @include u-padding-top($theme-breadcrumb-padding-top);
+
+    // Breadcrumbs wrap by default so no text is lost when users increase text
+    // size or zoom, or at narrow widths (see issue #6689). The taller line
+    // height gives wrapped rows room to breathe.
+    @include u-line-height($theme-breadcrumb-font-family, 4);
   }
 
-  &:not(.usa-breadcrumb--wrap) {
+  // Opt-in truncation. Restores the legacy single-line bar that clips the trail
+  // with an ellipsis. Truncation hides content from sighted users at high zoom,
+  // increased text size, and narrow widths, so use it with caution.
+  &.usa-breadcrumb--truncate {
     .usa-breadcrumb__list {
       @include at-media($theme-breadcrumb-min-width) {
         @include u-white-space("no-wrap");
         text-overflow: ellipsis;
         overflow: hidden;
+      }
+    }
+
+    .usa-breadcrumb__list-item {
+      @include at-media($theme-breadcrumb-min-width) {
+        @include u-display("inline");
       }
     }
   }
@@ -87,7 +101,6 @@ $breadcrumb-back-icon-aspect: (
 .usa-breadcrumb__list-item {
   @include sr-only;
   @include u-display("inline");
-  @include u-white-space("no-wrap");
 
   @include at-media-max($theme-breadcrumb-min-width) {
     @include u-white-space("wrap");
@@ -97,7 +110,6 @@ $breadcrumb-back-icon-aspect: (
       @include not-sr-only;
 
       .usa-breadcrumb__link {
-        @include button-unstyled;
         @include exdent-icon;
         @include place-icon(
           $icon-breadcrumb-back,
@@ -105,14 +117,6 @@ $breadcrumb-back-icon-aspect: (
           0,
           baseline,
           $theme-breadcrumb-background-color
-        );
-
-        // Override link colors from button-unstyled()
-
-        @include set-link-from-bg(
-          $theme-breadcrumb-background-color,
-          $theme-breadcrumb-link-color,
-          $context: $breadcrumb-context
         );
 
         @include u-display("inline-block");
@@ -146,6 +150,10 @@ $breadcrumb-back-icon-aspect: (
 
   @include at-media($theme-breadcrumb-min-width) {
     @include not-sr-only;
+
+    // Display each crumb as a unit so the trail wraps between crumbs (not
+    // mid-label) when it overflows the available width.
+    @include u-display("inline-block");
 
     // Breadcrumb separator ›
     &:not(:last-child) {
@@ -190,13 +198,8 @@ $breadcrumb-back-icon-aspect: (
 // Variations
 // ---------------------------------
 
-// Breadcrumb wrap
-.usa-breadcrumb--wrap {
-  @include at-media($theme-breadcrumb-min-width) {
-    @include u-line-height($theme-breadcrumb-font-family, 4);
-  }
-
-  .usa-breadcrumb__list-item {
-    @include u-display("inline-block");
-  }
-}
+// Breadcrumb wrap (deprecated)
+// Wrapping is now the default behavior, so `.usa-breadcrumb--wrap` is a no-op
+// kept for backward compatibility. Existing markup that uses it still wraps as
+// before; the class can be safely removed. For the legacy single-line,
+// truncated bar, use `.usa-breadcrumb--truncate` instead.

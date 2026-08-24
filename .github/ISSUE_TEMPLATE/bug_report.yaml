@@ -14,7 +14,7 @@ body:
     id: reproduce
     attributes:
       label: Steps to reproduce the bug
-      description: Describe how to reproduce this issue.
+      description: Describe how to reproduce this issue. If the issue is found only in your project, provide a link to a public repo or code preview that demonstrates this issue.
       placeholder: |
         1. Go to '...'
         2. Click on '....'

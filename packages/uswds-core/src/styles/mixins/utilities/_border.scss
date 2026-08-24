@@ -7,13 +7,11 @@
 @use "../../tokens/color" as *;
 
 $border-utilities: (
-  "width":
-    map-collect(
+  "width": map-collect(
       map-deep-get($system-properties, border-width, standard),
       map-deep-get($system-properties, border-width, extended)
     ),
-  "style":
-    map-collect(
+  "style": map-collect(
       map-deep-get($system-properties, border-style, standard),
       map-deep-get($system-properties, border-style, extended)
     ),
@@ -64,7 +62,7 @@ $border-utilities: (
           border-#{$side}-width: string.unquote("#{$final-value}#{$important}");
         }
       } @else {
-        @error '#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}';
+        @error '#{$this-value} is not a valid border width. Accepted values: #{map.keys($widths)}';
       }
     } @else if map.has-key($widths, smart-quote($this-value)) {
       $match: true;

@@ -114,7 +114,7 @@ describe("navigation toggle", () => {
     menuButton.click();
 
     const activeContent = document.querySelectorAll(
-      "body > :not([aria-hidden])"
+      "body > :not([aria-hidden])",
     );
 
     assert.strictEqual(activeContent.length, 1);

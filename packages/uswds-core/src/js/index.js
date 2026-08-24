@@ -13,6 +13,7 @@ const languageSelector = require("../../../usa-language-selector/src/index");
 const modal = require("../../../usa-modal/src/index");
 const navigation = require("../../../usa-header/src/index");
 const password = require("../../../_usa-password/src/index");
+const range = require("../../../usa-range/src/index");
 const search = require("../../../usa-search/src/index");
 const skipnav = require("../../../usa-skipnav/src/index");
 const table = require("../../../usa-table/src/index");
@@ -36,6 +37,7 @@ module.exports = {
   modal,
   navigation,
   password,
+  range,
   search,
   skipnav,
   table,

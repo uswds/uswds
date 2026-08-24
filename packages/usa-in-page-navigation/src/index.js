@@ -1,5 +1,4 @@
-const once = require("receptor/once");
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
@@ -7,19 +6,22 @@ const { CLICK } = require("../../uswds-core/src/js/events");
 const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
 
 const CURRENT_CLASS = `${PREFIX}-current`;
+const IN_PAGE_NAV_HEADINGS = "h2 h3";
+const IN_PAGE_NAV_VALID_HEADINGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 const IN_PAGE_NAV_TITLE_TEXT = "On this page";
 const IN_PAGE_NAV_TITLE_HEADING_LEVEL = "h4";
 const IN_PAGE_NAV_SCROLL_OFFSET = 0;
 const IN_PAGE_NAV_ROOT_MARGIN = "0px 0px 0px 0px";
 const IN_PAGE_NAV_THRESHOLD = "1";
+const IN_PAGE_NAV_MINIMUM_HEADING_COUNT = 2;
 const IN_PAGE_NAV_CLASS = `${PREFIX}-in-page-nav`;
 const IN_PAGE_NAV_ANCHOR_CLASS = `${PREFIX}-anchor`;
 const IN_PAGE_NAV_NAV_CLASS = `${IN_PAGE_NAV_CLASS}__nav`;
 const IN_PAGE_NAV_LIST_CLASS = `${IN_PAGE_NAV_CLASS}__list`;
 const IN_PAGE_NAV_ITEM_CLASS = `${IN_PAGE_NAV_CLASS}__item`;
+const IN_PAGE_NAV_PRIMARY_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--primary`;
 const IN_PAGE_NAV_LINK_CLASS = `${IN_PAGE_NAV_CLASS}__link`;
 const IN_PAGE_NAV_TITLE_CLASS = `${IN_PAGE_NAV_CLASS}__heading`;
-const SUB_ITEM_CLASS = `${IN_PAGE_NAV_ITEM_CLASS}--sub-item`;
 const MAIN_ELEMENT = "main";
 
 /**
@@ -42,15 +44,84 @@ const setActive = (el) => {
 };
 
 /**
- * Return a node list of section headings
+ * Return an array of the designated heading types found in the designated content region.
+ * Throw an error if an invalid header element is designated.
  *
- * @return {HTMLElement[]} - An array of DOM nodes
+ * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
+ * @param {String} selectedHeadingTypes The list of heading types that should be included in the nav list
+ *
+ * @return {Array} - An array of designated heading types from the designated content region
  */
-const getSectionHeadings = () => {
-  const sectionHeadings = document.querySelectorAll(
-    `${MAIN_ELEMENT} h2, ${MAIN_ELEMENT} h3`
+const createSectionHeadingsArray = (
+  selectedContentRegion,
+  selectedHeadingTypes,
+) => {
+  // Convert designated headings list to an array
+  const selectedHeadingTypesArray = selectedHeadingTypes.indexOf(" ")
+    ? selectedHeadingTypes.split(" ")
+    : selectedHeadingTypes;
+  const contentRegion = document.querySelector(selectedContentRegion);
+
+  selectedHeadingTypesArray.forEach((headingType) => {
+    if (!IN_PAGE_NAV_VALID_HEADINGS.includes(headingType)) {
+      throw new Error(
+        `In-page navigation: data-heading-elements attribute defined with an invalid heading type: "${headingType}".
+        Define the attribute with one or more of the following: "${IN_PAGE_NAV_VALID_HEADINGS}".
+        Do not use commas or other punctuation in the attribute definition.`,
+      );
+    }
+  });
+
+  const sectionHeadingsArray = Array.from(
+    contentRegion.querySelectorAll(selectedHeadingTypesArray),
   );
-  return sectionHeadings;
+
+  return sectionHeadingsArray;
+};
+
+/**
+ * Return an array of the visible headings from sectionHeadingsArray.
+ * This function removes headings that are hidden with display:none or visibility:none style rules.
+ * These items will be added to the component nav list.
+ *
+ * @param {HTMLElement} selectedContentRegion The content region the component should pull headers from
+ * @param {String} selectedHeadingTypes The list of heading types that should be included in the nav list
+ *
+ * @return {Array} - An array of visible headings from the designated content region
+ */
+const getVisibleSectionHeadings = (
+  selectedContentRegion,
+  selectedHeadingTypes,
+) => {
+  const sectionHeadings = createSectionHeadingsArray(
+    selectedContentRegion,
+    selectedHeadingTypes,
+  );
+
+  // Find all headings with hidden styling and remove them from the array
+  const visibleSectionHeadings = sectionHeadings.filter((heading) => {
+    const headingStyle = window.getComputedStyle(heading);
+    const visibleHeading =
+      headingStyle.getPropertyValue("display") !== "none" &&
+      headingStyle.getPropertyValue("visibility") !== "hidden";
+
+    return visibleHeading;
+  });
+
+  return visibleSectionHeadings;
+};
+
+/**
+ * Return the highest-level header tag included in the link list
+ *
+ * @param {HTMLElement} sectionHeadings The array of headings selected for inclusion in the link list
+ *
+ * @return {tagName} - The tag name for the highest level of header in the link list
+ */
+
+const getTopLevelHeading = (sectionHeadings) => {
+  const topHeading = sectionHeadings[0].tagName.toLowerCase();
+  return topHeading;
 };
 
 /**
@@ -60,7 +131,7 @@ const getSectionHeadings = () => {
  */
 const getSectionAnchors = () => {
   const sectionAnchors = document.querySelectorAll(
-    `.${IN_PAGE_NAV_ANCHOR_CLASS}`
+    `.${IN_PAGE_NAV_ANCHOR_CLASS}`,
   );
   return sectionAnchors;
 };
@@ -117,19 +188,38 @@ const getSectionId = (value) => {
 };
 
 /**
+ * Calculates the total offset of an element from the top of the page.
+ *
+ * @param {HTMLElement} el A heading element to calculate the offset for.
+ * @returns {number} The total element offset from the top of its parent.
+ */
+const getTotalElementOffset = (el) => {
+  const calculateOffset = (currentEl) => {
+    if (!currentEl.offsetParent) {
+      return currentEl.offsetTop;
+    }
+
+    return currentEl.offsetTop + calculateOffset(currentEl.offsetParent);
+  };
+
+  return calculateOffset(el);
+};
+
+/**
  * Scroll smoothly to a section based on the passed in element
  *
- * @param {HTMLElement} - Id value with the number sign removed
+ * @param {HTMLElement} el A heading element
  */
 const handleScrollToSection = (el) => {
   const inPageNavEl = document.querySelector(`.${IN_PAGE_NAV_CLASS}`);
   const inPageNavScrollOffset =
     inPageNavEl.dataset.scrollOffset || IN_PAGE_NAV_SCROLL_OFFSET;
 
+  const offsetTop = getTotalElementOffset(el);
+
   window.scroll({
     behavior: "smooth",
-    top: el.offsetTop - inPageNavScrollOffset,
-    block: "start",
+    top: offsetTop - inPageNavScrollOffset,
   });
 
   if (window.location.hash.slice(1) !== el.id) {
@@ -151,11 +241,35 @@ const scrollToCurrentSection = () => {
 };
 
 /**
+ * Check if the number of specified headings meets the minimum required count.
+ *
+ * @param {Array} sectionHeadings - Array of all visible section headings.
+ * @param {Number} minimumHeadingCount - The minimum number of specified headings required.
+ * @param {Array} acceptedHeadingLevels - Array of headings considered as valid for the count.
+ * @returns {Boolean} - Returns true if the count of specified headings meets the minimum, otherwise false.
+ */
+const shouldRenderInPageNav = (
+  sectionHeadings,
+  minimumHeadingCount,
+  acceptedHeadingLevels,
+) => {
+  // Filter headings that are included in the acceptedHeadingLevels
+  const validHeadings = sectionHeadings.filter((heading) =>
+    acceptedHeadingLevels.includes(heading.tagName.toLowerCase()),
+  );
+  return validHeadings.length >= minimumHeadingCount;
+};
+
+/**
  * Create the in-page navigation component
  *
- * @param {HTMLElement} inPageNavEl The in-page nav element
+ * @param {HTMLElement} el The in-page nav element
  */
-const createInPageNav = (inPageNavEl) => {
+const createInPageNav = (el) => {
+  const inPageNavEl = el;
+
+  if (inPageNavEl.dataset.enhanced) return;
+
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
@@ -168,6 +282,35 @@ const createInPageNav = (inPageNavEl) => {
   const inPageNavThreshold = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.threshold || IN_PAGE_NAV_THRESHOLD
   }`;
+  const inPageNavContentSelector = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.mainContentSelector || MAIN_ELEMENT
+  }`;
+  const inPageNavHeadingSelector = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.headingElements || IN_PAGE_NAV_HEADINGS
+  }`;
+
+  const inPageNavMinimumHeadingCount = Sanitizer.escapeHTML`${
+    inPageNavEl.dataset.minimumHeadingCount || IN_PAGE_NAV_MINIMUM_HEADING_COUNT
+  }`;
+
+  const acceptedHeadingLevels = inPageNavHeadingSelector
+    .split(" ")
+    .map((h) => h.toLowerCase());
+
+  const sectionHeadings = getVisibleSectionHeadings(
+    inPageNavContentSelector,
+    inPageNavHeadingSelector,
+  );
+
+  if (
+    !shouldRenderInPageNav(
+      sectionHeadings,
+      inPageNavMinimumHeadingCount,
+      acceptedHeadingLevels,
+    )
+  ) {
+    return;
+  }
 
   const options = {
     root: null,
@@ -175,7 +318,6 @@ const createInPageNav = (inPageNavEl) => {
     threshold: [inPageNavThreshold],
   };
 
-  const sectionHeadings = getSectionHeadings();
   const inPageNav = document.createElement("nav");
   inPageNav.setAttribute("aria-label", inPageNavTitleText);
   inPageNav.classList.add(IN_PAGE_NAV_NAV_CLASS);
@@ -190,19 +332,20 @@ const createInPageNav = (inPageNavEl) => {
   inPageNavList.classList.add(IN_PAGE_NAV_LIST_CLASS);
   inPageNav.appendChild(inPageNavList);
 
-  sectionHeadings.forEach((el) => {
+  sectionHeadings.forEach((sectionHeadingEl) => {
     const listItem = document.createElement("li");
     const navLinks = document.createElement("a");
     const anchorTag = document.createElement("a");
-    const textContentOfLink = el.textContent;
-    const tag = el.tagName.toLowerCase();
+    const textContentOfLink = sectionHeadingEl.textContent;
+    const tag = sectionHeadingEl.tagName.toLowerCase();
+    const topHeadingLevel = getTopLevelHeading(sectionHeadings);
+    const headingId = getHeadingId(sectionHeadingEl);
 
     listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
-    if (tag === "h3") {
-      listItem.classList.add(SUB_ITEM_CLASS);
-    }
 
-    const headingId = getHeadingId(el);
+    if (tag === topHeadingLevel) {
+      listItem.classList.add(IN_PAGE_NAV_PRIMARY_ITEM_CLASS);
+    }
 
     navLinks.setAttribute("href", `#${headingId}`);
     navLinks.setAttribute("class", IN_PAGE_NAV_LINK_CLASS);
@@ -210,7 +353,7 @@ const createInPageNav = (inPageNavEl) => {
 
     anchorTag.setAttribute("id", headingId);
     anchorTag.setAttribute("class", IN_PAGE_NAV_ANCHOR_CLASS);
-    el.insertAdjacentElement("afterbegin", anchorTag);
+    sectionHeadingEl.insertAdjacentElement("afterbegin", anchorTag);
 
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
@@ -224,6 +367,8 @@ const createInPageNav = (inPageNavEl) => {
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
   });
+
+  inPageNavEl.dataset.enhanced = "true";
 };
 
 /**
@@ -251,9 +396,10 @@ const handleEnterFromLink = (event) => {
     target.focus();
     target.addEventListener(
       "blur",
-      once(() => {
+      () => {
         target.setAttribute("tabindex", -1);
-      })
+      },
+      { once: true },
     );
   } else {
     // throw an error?
@@ -283,7 +429,7 @@ const inPageNavigation = behavior(
         scrollToCurrentSection();
       });
     },
-  }
+  },
 );
 
 module.exports = inPageNavigation;

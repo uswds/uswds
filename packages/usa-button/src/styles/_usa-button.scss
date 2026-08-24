@@ -11,11 +11,14 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   @include typeset($theme-button-font-family, null, 1);
   @include set-text-and-bg("primary", $context: $button-context);
   appearance: none;
+  align-items: center;
   border: 0;
   border-radius: radius($theme-button-border-radius);
   cursor: pointer;
-  display: inline-block;
+  column-gap: units($theme-button-icon-gap);
+  display: inline-flex;
   font-weight: font-weight("bold");
+  justify-content: center;
   margin-right: units(1);
   padding: units(1.5) units(2.5);
   text-align: center;
@@ -50,6 +53,10 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &:disabled,
   &[aria-disabled="true"] {
     @include button-disabled;
+  }
+
+  .usa-icon {
+    flex-shrink: 0; // Avoid shrinking on small screens.
   }
 
   @media (forced-colors: active) {
@@ -198,20 +205,27 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   padding: units(2) units(3);
 }
 
+// Cannot use disabled mixin due to transparent causing build errors with color grade check.
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"],
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse[aria-disabled="true"] {
-  @include u-disabled("transparent", $theme-color-disabled-text);
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    color: color("disabled");
+  }
 }
 
 .usa-button--outline:disabled,
 .usa-button--outline[aria-disabled="true"] {
-  box-shadow: $button-stroke color("disabled");
+  box-shadow: $button-stroke color("disabled-lighter");
 
   &.usa-button--inverse {
-    box-shadow: $button-stroke color($theme-color-disabled-text-reverse);
-    color: color($theme-color-disabled-text-reverse);
+    box-shadow: $button-stroke color("disabled-light");
+    color: color("disabled-light");
 
     @media (forced-colors: active) {
       color: color(GrayText);

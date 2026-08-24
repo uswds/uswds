@@ -8,7 +8,7 @@
   <div role="region" aria-atomic="true" class="font-sans-xl position-relative icon-example border-1px border-base-lighter hover:text-white hover:bg-primary-vivid hover:border-primary-darker " data-meta="{{ item.name }} {{ item.meta }}" aria-label="{{ item.name }} icon.">
     <button type="button" onclick="copyHTML(this)" class="bg-transparent cursor-pointer text-no-underline text-black display-flex width-card height-card flex-align-center flex-align-center border-0 flex-column flex-justify-center padding-2  hover:text-white" aria-label="Copy icon to clipboard" style="-webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text;">
       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-        <use xlink:href="{{ icons.img_path }}/sprite.svg#{{ item.name }}"></use>
+        <use href="{{ icons.img_path }}/sprite.svg#{{ item.name }}"></use>
       </svg>
       <span class="font-sans-3xs margin-top-2 display-block" aria-hidden="true">{{ item.name }}</span>
     </button>

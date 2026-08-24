@@ -66,6 +66,10 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(modalWrapper.getAttribute("role"), "dialog");
       });
 
+      it('sets aria-hidden="true" on the closed dialog wrapper', () => {
+        assert.strictEqual(modalWrapper.getAttribute("aria-hidden"), "true");
+      });
+
       it("moves aria-labelledby, aria-describedby, and id to the parent", () => {
         assert.strictEqual(modalWindow.hasAttribute("aria-describedby"), false);
         assert.strictEqual(modalWindow.hasAttribute("aria-labelledby"), false);
@@ -82,7 +86,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("moves the modal to the bottom of the DOM", () => {
         assert.strictEqual(
           body.lastElementChild.classList.contains("usa-modal-wrapper"),
-          true
+          true,
         );
       });
 
@@ -106,13 +110,24 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(isVisible(modalWrapper), true);
       });
 
-      it("focuses the modal window when opened", () => {
-        assert.strictEqual(document.activeElement, modalWindow);
+      it("focuses the first footer button when opened", () => {
+        assert.strictEqual(
+          document.activeElement,
+          body.querySelector(".usa-modal__footer button"),
+        );
+      });
+
+      it('sets aria-modal="true" on the dialog wrapper', () => {
+        assert.strictEqual(modalWrapper.getAttribute("aria-modal"), "true");
+      });
+
+      it("removes aria-hidden from the dialog wrapper", () => {
+        assert.strictEqual(modalWrapper.hasAttribute("aria-hidden"), false);
       });
 
       it("makes all other page content invisible to screen readers", () => {
         const activeContent = document.querySelectorAll(
-          "body > :not([aria-hidden])"
+          "body > :not([aria-hidden])",
         );
 
         assert.strictEqual(activeContent.length, 1);
@@ -146,14 +161,63 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(document.activeElement, openButton2);
       });
 
+      it('restores aria-hidden="true" on the dialog wrapper', () => {
+        closeButton.click();
+        assert.strictEqual(modalWrapper.getAttribute("aria-hidden"), "true");
+        assert.strictEqual(modalWrapper.hasAttribute("aria-modal"), false);
+      });
+
       it("restores other page content screen reader visibility", () => {
         closeButton.click();
         const activeContent = document.querySelectorAll(
-          "body > :not([aria-hidden])"
+          "body > :not([aria-hidden])",
         );
         const staysHidden = document.getElementById("stays-hidden");
-        assert.strictEqual(activeContent.length, 4);
+        assert.strictEqual(activeContent.length, 3);
         assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
+      });
+
+      it("restores page content when the opener has left the document", () => {
+        // The view holding the opener re-renders while the modal is open, so
+        // the element `data-opener` points at is gone by the time we close.
+        // Another opener remains, so only the focus target is missing.
+        openButton2.remove();
+
+        closeButton.click();
+
+        const staysHidden = document.getElementById("stays-hidden");
+        assert.strictEqual(
+          document.querySelectorAll("[data-modal-hidden]").length,
+          0,
+        );
+        assert.strictEqual(
+          document.getElementById("other-content").hasAttribute("aria-hidden"),
+          false,
+        );
+        assert.strictEqual(staysHidden.hasAttribute("aria-hidden"), true);
+      });
+    });
+
+    describe("Open focus target", () => {
+      it("focuses a [data-focus] element over the footer button", () => {
+        const customFocus = document.createElement("button");
+        customFocus.type = "button";
+        customFocus.setAttribute("data-focus", "");
+        customFocus.textContent = "Custom focus";
+
+        modalWrapper.querySelector(".usa-modal__main").prepend(customFocus);
+        openButton1.click();
+
+        assert.strictEqual(document.activeElement, customFocus);
+      });
+
+      it("focuses any button when the footer has no buttons", () => {
+        modalWrapper.querySelector(".usa-modal__footer").remove();
+        modalWrapper.querySelector(".usa-combo-box").remove();
+
+        openButton1.click();
+
+        assert.strictEqual(document.activeElement, closeButton);
       });
     });
   });

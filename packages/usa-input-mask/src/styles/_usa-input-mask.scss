@@ -16,13 +16,22 @@
 
   i {
     visibility: hidden;
+
+    @media (forced-colors: active) {
+      color: color(ButtonText);
+      font-style: normal;
+      visibility: visible;
+    }
+  }
+
+  @media (forced-colors: active) {
+    border: none;
   }
 }
 
 .usa-masked,
 .usa-input-mask--content {
   @include border-box-sizing;
-  @include u-disabled;
   background-color: transparent;
   padding: units(1);
 }

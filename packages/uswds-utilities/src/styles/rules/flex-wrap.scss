@@ -3,14 +3,19 @@
 flex-wrap
 ----------------------------------------
 usage:
-  .flex-wrap-[key]
+  .flex-[key]
 ----------------------------------------
 output:
   flex-wrap: [value];
 ----------------------------------------
 example:
   .flex-wrap {
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+  }
+
+  .flex-no-wrap {
+    flex-wrap: nowrap;
+  }
 ----------------------------------------
 */
 
@@ -22,8 +27,10 @@ $u-flex-wrap: (
   flex-wrap: (
     base: "flex",
     modifiers: null,
-    values:
-      map-collect(get-palettes($flex-wrap-palettes), $flex-wrap-manual-values),
+    values: map-collect(
+        get-palettes($flex-wrap-palettes),
+        $flex-wrap-manual-values
+      ),
     settings: $flex-wrap-settings-complete,
     property: "flex-wrap",
     type: "utility",

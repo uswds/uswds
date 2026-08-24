@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "uswds-core" as *;
 
 // Map for high contrast mode icons
@@ -8,14 +10,14 @@ $-chevron-icon-defaults: (
   "height": units(2.5),
 );
 
-$-chevron-next: map-merge(
+$-chevron-next: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "navigate_next",
   )
 );
 
-$-chevron-expand-more: map-merge(
+$-chevron-expand-more: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_more",
@@ -26,13 +28,11 @@ $-chevron-expand-more: map-merge(
 .usa-footer {
   @include border-box-sizing;
   @include typeset($theme-footer-font-family);
-  overflow: hidden;
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
   }
 }
-
 .usa-footer__return-to-top {
   @include u-padding-y(2.5);
   line-height: line-height($theme-footer-font-family, 1);
@@ -67,6 +67,7 @@ $-chevron-expand-more: map-merge(
 
 .usa-footer__primary-container {
   @include grid-container($theme-footer-max-width);
+  @include u-padding-x(0);
 
   @include at-media("desktop") {
     @include u-padding-x(4);
@@ -77,34 +78,24 @@ $-chevron-expand-more: map-merge(
   line-height: line-height($theme-footer-font-family, 2);
 }
 
-.usa-footer__primary-link a,
-.usa-footer__secondary-link a {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .usa-footer__primary-link {
   @include u-padding-x($theme-site-margins-mobile-width);
   @include u-padding-y(2);
-  @include u-text("ink", "no-underline", "bold");
+  @include u-text("ink", "bold");
+  // Border reset for button variants of footer primary links.
+  border: 0;
+  border-top: 1px solid color("base-light");
   display: block;
 
   @include at-media("mobile-lg") {
     @include u-padding-x(0);
-  }
-
-  &:hover {
-    text-decoration: underline;
+    border: none;
   }
 
   // Disclosure button functionality happens at mobile widths
   &--button {
     @include place-icon($-chevron-expand-more, "before", 0.5);
     width: 100%;
-    border: 0;
     cursor: pointer;
 
     &:not([disabled]):focus {
@@ -166,24 +157,12 @@ $-chevron-expand-more: map-merge(
   line-height: line-height($theme-footer-font-family, 2);
 
   a {
-    @include u-text("ink", "no-underline");
-
-    &:hover {
-      text-decoration: underline;
-    }
+    @include u-text("ink");
   }
 
   @include at-media("mobile-lg") {
     @include u-flex("justify-end");
     margin-top: units(1);
-  }
-}
-
-.usa-footer__primary-content {
-  border-top: 1px solid color("base-light");
-
-  @include at-media("mobile-lg") {
-    border: none;
   }
 }
 
@@ -208,6 +187,10 @@ $-chevron-expand-more: map-merge(
 
   > .grid-container {
     @include grid-container($theme-footer-max-width);
+
+    > .grid-row {
+      justify-content: space-between;
+    }
   }
 
   a {

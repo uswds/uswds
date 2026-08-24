@@ -5,7 +5,13 @@ const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
 
 const CHARACTER_COUNT_CLASS = `${PREFIX}-character-count`;
 const CHARACTER_COUNT = `.${CHARACTER_COUNT_CLASS}`;
+const FORM_GROUP_CLASS = `${PREFIX}-form-group`;
+const FORM_GROUP_ERROR_CLASS = `${FORM_GROUP_CLASS}--error`;
+const FORM_GROUP = `.${FORM_GROUP_CLASS}`;
+const LABEL_CLASS = `${PREFIX}-label`;
+const LABEL_ERROR_CLASS = `${LABEL_CLASS}--error`;
 const INPUT = `.${PREFIX}-character-count__field`;
+const INPUT_ERROR_CLASS = `${PREFIX}-input--error`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__status--invalid`;
@@ -14,12 +20,15 @@ const STATUS_MESSAGE_SR_ONLY_CLASS = `${CHARACTER_COUNT_CLASS}__sr-status`;
 const STATUS_MESSAGE = `.${STATUS_MESSAGE_CLASS}`;
 const STATUS_MESSAGE_SR_ONLY = `.${STATUS_MESSAGE_SR_ONLY_CLASS}`;
 const DEFAULT_STATUS_LABEL = `characters allowed`;
+const LIMIT_EXCEEDED_MESSAGE = "Character limit exceeded.";
+const SR_STATUS_DEBOUNCE_MS = 1200;
+const AT_DEFER_MS = 100;
 
 /**
- * Returns the root and message element for an character count input
+ * Returns the root, form group, label, and message elements for an character count input
  *
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
- * @returns {CharacterCountElements} elements The root and message element.
+ * @returns {CharacterCountElements} elements The root form group, label, and message element.
  */
 const getCharacterCountElements = (inputEl) => {
   const characterCountEl = inputEl.closest(CHARACTER_COUNT);
@@ -28,14 +37,27 @@ const getCharacterCountElements = (inputEl) => {
     throw new Error(`${INPUT} is missing outer ${CHARACTER_COUNT}`);
   }
 
+  const formGroupEl = characterCountEl.querySelector(FORM_GROUP);
+  const labelEl = document.querySelector(
+    `label[for="${inputEl.getAttribute("id")}"]`,
+  );
   const messageEl = characterCountEl.querySelector(MESSAGE);
 
   if (!messageEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
 
-  return { characterCountEl, messageEl };
+  return { characterCountEl, formGroupEl, labelEl, messageEl };
 };
+
+/**
+ * Returns the configured maximum character length for a character count root.
+ *
+ * @param {HTMLElement} characterCountEl - Div with `.usa-character-count` class
+ * @returns {number} The maximum character length, or NaN when not configured
+ */
+const getMaxLength = (characterCountEl) =>
+  parseInt(characterCountEl.getAttribute("data-maxlength"), 10);
 
 /**
  * Move maxlength attribute to a data attribute on usa-character-count
@@ -61,24 +83,32 @@ const setDataLength = (inputEl) => {
  * one visual status and another for screen readers
  */
 const createStatusMessages = (characterCountEl) => {
+  if (characterCountEl.querySelector(STATUS_MESSAGE_SR_ONLY)) {
+    return;
+  }
+
   const statusMessage = document.createElement("div");
   const srStatusMessage = document.createElement("div");
-  const maxLength = characterCountEl.dataset.maxlength;
+  const maxLength = getMaxLength(characterCountEl);
   const defaultMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
 
-  statusMessage.classList.add(`${STATUS_MESSAGE_CLASS}`, "usa-hint");
-  srStatusMessage.classList.add(
-    `${STATUS_MESSAGE_SR_ONLY_CLASS}`,
-    "usa-sr-only"
-  );
+  statusMessage.classList.add(STATUS_MESSAGE_CLASS, "usa-hint");
+  srStatusMessage.classList.add(STATUS_MESSAGE_SR_ONLY_CLASS, "usa-sr-only");
 
   statusMessage.setAttribute("aria-hidden", true);
-  srStatusMessage.setAttribute("aria-live", "polite");
 
   statusMessage.textContent = defaultMessage;
   srStatusMessage.textContent = defaultMessage;
 
   characterCountEl.append(statusMessage, srStatusMessage);
+
+  // Defer aria-live to prevent iOS VoiceOver from announcing on page load.
+  // Browsers treat initial content of a newly-inserted aria-live region as
+  // a live update. Adding the attribute after the element is in the DOM
+  // and after a short delay avoids the false announcement.
+  setTimeout(() => {
+    srStatusMessage.setAttribute("aria-live", "polite");
+  }, AT_DEFER_MS);
 };
 
 /**
@@ -89,31 +119,68 @@ const createStatusMessages = (characterCountEl) => {
  * @returns {string} A string description of how many characters are left
  */
 const getCountMessage = (currentLength, maxLength) => {
-  let newMessage = "";
-
   if (currentLength === 0) {
-    newMessage = `${maxLength} ${DEFAULT_STATUS_LABEL}`;
-  } else {
-    const difference = Math.abs(maxLength - currentLength);
-    const characters = `character${difference === 1 ? "" : "s"}`;
-    const guidance = currentLength > maxLength ? "over limit" : "left";
-
-    newMessage = `${difference} ${characters} ${guidance}`;
+    return `${maxLength} ${DEFAULT_STATUS_LABEL}`;
   }
 
-  return newMessage;
+  const difference = Math.abs(maxLength - currentLength);
+  const characters = `character${difference === 1 ? "" : "s"}`;
+  const guidance = currentLength > maxLength ? "over limit" : "left";
+
+  return `${difference} ${characters} ${guidance}`;
 };
 
 /**
- * Updates the character count status for screen readers after a 1000ms delay.
+ * Updates the screen reader status message and aria-live politeness.
  *
  * @param {HTMLElement} msgEl - The screen reader status message element
  * @param {string} statusMessage - A string of the current character status
+ * @param {boolean} assertive - Whether to announce assertively
  */
-const srUpdateStatus = debounce((msgEl, statusMessage) => {
-  const srStatusMessage = msgEl;
-  srStatusMessage.textContent = statusMessage;
-}, 1000);
+const updateSrStatus = (msgEl, statusMessage, assertive = false) => {
+  msgEl.setAttribute("aria-live", assertive ? "assertive" : "polite");
+  msgEl.textContent = statusMessage;
+};
+
+/**
+ * Updates the character count status for screen readers after typing pauses.
+ *
+ * @param {HTMLElement} msgEl - The screen reader status message element
+ * @param {string} statusMessage - A string of the current character status
+ * @param {boolean} assertive - Whether to announce assertively when over the limit
+ */
+const srUpdateStatus = debounce(updateSrStatus, SR_STATUS_DEBOUNCE_MS);
+
+const srUpdateStatusRecovery = debounce(updateSrStatus, AT_DEFER_MS);
+
+const validitySyncTimers = new WeakMap();
+
+/**
+ * Defer constraint validation updates so Safari VoiceOver can finish character
+ * echo before the field's invalid state changes (which re-reads the control).
+ *
+ * @param {HTMLInputElement|HTMLTextAreaElement} inputEl
+ * @param {boolean} isOverLimit
+ */
+const scheduleValiditySync = (inputEl, isOverLimit) => {
+  window.clearTimeout(validitySyncTimers.get(inputEl));
+
+  if (isOverLimit && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+    return;
+  }
+
+  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    validitySyncTimers.set(
+      inputEl,
+      window.setTimeout(() => {
+        if (inputEl.validationMessage === VALIDATION_MESSAGE) {
+          inputEl.setCustomValidity("");
+        }
+      }, AT_DEFER_MS),
+    );
+  }
+};
 
 /**
  * Update the character count component
@@ -123,33 +190,52 @@ const srUpdateStatus = debounce((msgEl, statusMessage) => {
  * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
 const updateCountMessage = (inputEl) => {
-  const { characterCountEl } = getCharacterCountElements(inputEl);
+  const { characterCountEl, labelEl, formGroupEl } =
+    getCharacterCountElements(inputEl);
   const currentLength = inputEl.value.length;
-  const maxLength = parseInt(
-    characterCountEl.getAttribute("data-maxlength"),
-    10
-  );
+  const maxLength = getMaxLength(characterCountEl);
   const statusMessage = characterCountEl.querySelector(STATUS_MESSAGE);
   const srStatusMessage = characterCountEl.querySelector(
-    STATUS_MESSAGE_SR_ONLY
+    STATUS_MESSAGE_SR_ONLY,
   );
   const currentStatusMessage = getCountMessage(currentLength, maxLength);
 
   if (!maxLength) return;
 
-  const isOverLimit = currentLength && currentLength > maxLength;
+  const isOverLimit = currentLength > maxLength;
+  const wasOverLimit = inputEl.dataset.characterCountOverLimit === "true";
+  const crossedUnderLimit = wasOverLimit && !isOverLimit;
 
   statusMessage.textContent = currentStatusMessage;
-  srUpdateStatus(srStatusMessage, currentStatusMessage);
 
-  if (isOverLimit && !inputEl.validationMessage) {
-    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+  if (crossedUnderLimit) {
+    srUpdateStatus.cancel();
+    srUpdateStatusRecovery(srStatusMessage, currentStatusMessage);
+  } else if (isOverLimit) {
+    srUpdateStatusRecovery.cancel();
+    srUpdateStatus(
+      srStatusMessage,
+      `${LIMIT_EXCEEDED_MESSAGE} ${currentStatusMessage}`,
+      true,
+    );
+  } else {
+    srUpdateStatusRecovery.cancel();
+    srUpdateStatus(srStatusMessage, currentStatusMessage);
   }
 
-  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
-    inputEl.setCustomValidity("");
+  inputEl.dataset.characterCountOverLimit = isOverLimit ? "true" : "false";
+
+  scheduleValiditySync(inputEl, isOverLimit);
+
+  if (formGroupEl) {
+    formGroupEl.classList.toggle(FORM_GROUP_ERROR_CLASS, isOverLimit);
   }
 
+  if (labelEl) {
+    labelEl.classList.toggle(LABEL_ERROR_CLASS, isOverLimit);
+  }
+
+  inputEl.classList.toggle(INPUT_ERROR_CLASS, isOverLimit);
   statusMessage.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
 };
 
@@ -161,6 +247,8 @@ const updateCountMessage = (inputEl) => {
  * @param  {HTMLInputElement|HTMLTextAreaElement} inputEl the components input
  */
 const enhanceCharacterCount = (inputEl) => {
+  if (inputEl.dataset.enhanced) return;
+
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
   // Hide hint and remove aria-live for backwards compatibility
@@ -169,6 +257,14 @@ const enhanceCharacterCount = (inputEl) => {
 
   setDataLength(inputEl);
   createStatusMessages(characterCountEl);
+
+  const maxLength = getMaxLength(characterCountEl);
+  if (maxLength) {
+    inputEl.dataset.characterCountOverLimit =
+      inputEl.value.length > maxLength ? "true" : "false";
+  }
+
+  inputEl.dataset.enhanced = "true";
 };
 
 const characterCount = behavior(
@@ -183,15 +279,21 @@ const characterCount = behavior(
     init(root) {
       select(INPUT, root).forEach((input) => enhanceCharacterCount(input));
     },
+    FORM_GROUP_ERROR_CLASS,
+    LABEL_ERROR_CLASS,
+    INPUT_ERROR_CLASS,
     MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE,
     STATUS_MESSAGE_CLASS,
     STATUS_MESSAGE_SR_ONLY_CLASS,
     DEFAULT_STATUS_LABEL,
+    LIMIT_EXCEEDED_MESSAGE,
+    SR_STATUS_DEBOUNCE_MS,
+    AT_DEFER_MS,
     createStatusMessages,
     getCountMessage,
     updateCountMessage,
-  }
+  },
 );
 
 module.exports = characterCount;

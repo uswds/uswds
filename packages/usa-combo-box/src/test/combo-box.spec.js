@@ -5,7 +5,7 @@ const ComboBox = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box.template.html")
+  path.join(__dirname, "/combo-box.template.html"),
 );
 
 const tests = [
@@ -48,62 +48,62 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.ok(input, "adds an input element");
         assert.ok(
           select.classList.contains("usa-sr-only"),
-          "hides the select element from view"
+          "hides the select element from view",
         );
         assert.ok(list, "adds an list element");
         assert.ok(list.hidden, "the list is hidden");
         assert.strictEqual(
           select.getAttribute("id"),
           "",
-          "transfers id attribute to combo box"
+          "transfers id attribute to combo box",
         );
         assert.strictEqual(
           input.getAttribute("id"),
           "fruit",
-          "transfers id attribute to combo box"
+          "transfers id attribute to combo box",
         );
         assert.strictEqual(
           select.getAttribute("required"),
           null,
-          "transfers required attribute to combo box"
+          "transfers required attribute to combo box",
         );
         assert.strictEqual(
           input.getAttribute("required"),
           "",
-          "transfers required attribute to combo box"
+          "transfers required attribute to combo box",
         );
         assert.strictEqual(
           select.getAttribute("name"),
           "fruit",
-          "should not transfer name attribute to combo box"
+          "should not transfer name attribute to combo box",
         );
         assert.strictEqual(
           input.getAttribute("name"),
           null,
-          "should not transfer name attribute to combo box"
+          "should not transfer name attribute to combo box",
         );
         assert.strictEqual(
           list.getAttribute("role"),
           "listbox",
-          "the list should have a role of `listbox`"
+          "the list should have a role of `listbox`",
         );
         assert.ok(
           select.getAttribute("aria-hidden"),
-          "the select should be hidden from screen readers"
+          "the select should be hidden from screen readers",
         );
         assert.strictEqual(
           select.getAttribute("tabindex"),
           "-1",
-          "the select should be hidden from keyboard navigation"
+          "the select should be hidden from keyboard navigation",
         );
         assert.ok(
           select.classList.contains("usa-combo-box__select"),
-          "add the class for the select element"
+          "add the class for the select element",
         );
         assert.strictEqual(
           select.value,
           "",
-          "the select value should be empty"
+          "the select value should be empty",
         );
         assert.strictEqual(input.value, "", "the input should be empty");
       });
@@ -115,7 +115,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           select.options.length - 1,
-          "should have all of the initial select items in the list except placeholder empty items"
+          "should have all of the initial select items in the list except placeholder empty items",
         );
       });
 
@@ -149,34 +149,34 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children[i].getAttribute("aria-selected"),
           "false",
-          `item ${i} should not be shown as selected`
+          `item ${i} should not be shown as selected`,
         );
         assert.strictEqual(
           list.children[i].getAttribute("tabindex"),
           "0",
-          `item ${i} should be available with tab from keyboard navigation`
+          `item ${i} should be available with tab from keyboard navigation`,
         );
         assert.strictEqual(
           list.children[i].getAttribute("role"),
           "option",
-          `item ${i} should have a role of 'option'`
+          `item ${i} should have a role of 'option'`,
         );
 
         for (i = 1; i < len; i += 1) {
           assert.strictEqual(
             list.children[i].getAttribute("aria-selected"),
             "false",
-            `item ${i} should not be shown as selected`
+            `item ${i} should not be shown as selected`,
           );
           assert.strictEqual(
             list.children[i].getAttribute("tabindex"),
             "-1",
-            `item ${i} should be hidden from keyboard navigation`
+            `item ${i} should be hidden from keyboard navigation`,
           );
           assert.strictEqual(
             list.children[i].getAttribute("role"),
             "option",
-            `item ${i} should have a role of 'option'`
+            `item ${i} should have a role of 'option'`,
           );
         }
       });
@@ -197,12 +197,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "apple",
-          "should set that item to the select option"
+          "should set that item to the select option",
         );
         assert.strictEqual(
           input.value,
           "Apple",
-          "should set that item to the input value"
+          "should set that item to the input value",
         );
         assert.ok(list.hidden, "should hide the option list");
       });
@@ -216,7 +216,29 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           44,
-          "should filter the item by the string being present in the option"
+          "should filter the item by the string being present in the option",
+        );
+      });
+
+      it("should sort matches by options that start with the query, then options that contain the query", () => {
+        input.value = "tan";
+
+        EVENTS.input(input);
+
+        assert.strictEqual(
+          list.children.length,
+          3,
+          "should display a filtered list based on input",
+        );
+        assert.strictEqual(
+          list.firstChild.dataset.value,
+          "tangelo",
+          "should sort filtered items and put items that start with the query first",
+        );
+        assert.strictEqual(
+          list.lastChild.dataset.value,
+          "rambutan",
+          "should sort filtered items and put items that contain the query last",
         );
       });
 
@@ -246,11 +268,11 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.value,
           "Cantaloupe",
-          "should reset the value on the input"
+          "should reset the value on the input",
         );
         assert.ok(
           preventDefaultSpy.called,
-          "should not have allowed enter to perform default action"
+          "should not have allowed enter to perform default action",
         );
       });
 
@@ -260,7 +282,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
         assert.ok(
           preventDefaultSpy.called,
-          "should not allow event to perform default action"
+          "should not allow event to perform default action",
         );
       });
 
@@ -276,12 +298,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "cherry",
-          "should not change the value of the select"
+          "should not change the value of the select",
         );
         assert.strictEqual(
           input.value,
           "Cherry",
-          "should reset the value in the input"
+          "should reset the value in the input",
         );
       });
 
@@ -310,12 +332,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "grape",
-          "should set that item to the select option"
+          "should set that item to the select option",
         );
         assert.strictEqual(
           input.value,
           "Grape",
-          "should set that item to the input value"
+          "should set that item to the input value",
         );
       });
 
@@ -328,12 +350,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           1,
-          "should show no results list item"
+          "should show no results list item",
         );
         assert.strictEqual(
           list.children[0].textContent,
           "No results found",
-          "should show the no results list item"
+          "should show the no results list item",
         );
       });
 
@@ -364,21 +386,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           2,
-          "should filter the item by the string being present in the option"
+          "should filter the item by the string being present in the option",
         );
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
 
         assert.ok(
           focusedOption.classList.contains(
-            "usa-combo-box__list-option--focused"
+            "usa-combo-box__list-option--focused",
           ),
-          "should style the focused item in the list"
+          "should style the focused item in the list",
         );
         assert.strictEqual(
           focusedOption.textContent,
           "Grape",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
       });
 
@@ -391,7 +413,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           focusedOption.textContent,
           "Blackberry",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
 
         EVENTS.keydownEnter(focusedOption);
@@ -399,12 +421,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "blackberry",
-          "select the first item in the list"
+          "select the first item in the list",
         );
         assert.strictEqual(
           input.value,
           "Blackberry",
-          "should set the value in the input"
+          "should set the value in the input",
         );
       });
 
@@ -417,7 +439,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           focusedOption.textContent,
           "Blackberry",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
 
         EVENTS.keydownSpace(focusedOption);
@@ -425,12 +447,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "blackberry",
-          "select the first item in the list"
+          "select the first item in the list",
         );
         assert.strictEqual(
           input.value,
           "Blackberry",
-          "should set the value in the input"
+          "should set the value in the input",
         );
       });
 
@@ -442,7 +464,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           focusedOption.textContent,
           "Blackberry",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
 
         EVENTS.focusout(focusedOption);
@@ -451,7 +473,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.value,
           "",
-          "should reset the value in the input"
+          "should reset the value in the input",
         );
       });
 
@@ -463,7 +485,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           2,
-          "should filter the item by the string being present in the option"
+          "should filter the item by the string being present in the option",
         );
         EVENTS.keydownArrowDown(input);
         EVENTS.keydownArrowDown(document.activeElement);
@@ -472,14 +494,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
         assert.ok(
           focusedOption.classList.contains(
-            "usa-combo-box__list-option--focused"
+            "usa-combo-box__list-option--focused",
           ),
-          "should style the focused item in the list"
+          "should style the focused item in the list",
         );
         assert.strictEqual(
           focusedOption.textContent,
           "Plantain",
-          "should focus the last item in the list"
+          "should focus the last item in the list",
         );
       });
 
@@ -490,14 +512,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
         EVENTS.input(input);
         assert.ok(
           !list.hidden && list.children.length,
-          "should display the option list with options"
+          "should display the option list with options",
         );
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
         assert.strictEqual(
           focusedOption.textContent,
           "Blackberry",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
         EVENTS.keydownEscape(focusedOption);
 
@@ -505,12 +527,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "pineapple",
-          "should not change the value of the select"
+          "should not change the value of the select",
         );
         assert.strictEqual(
           input.value,
           "Pineapple",
-          "should reset the value in the input"
+          "should reset the value in the input",
         );
       });
 
@@ -522,14 +544,14 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           2,
-          "should filter the item by the string being present in the option"
+          "should filter the item by the string being present in the option",
         );
         EVENTS.keydownArrowDown(input);
         const focusedOption = document.activeElement;
         assert.strictEqual(
           focusedOption.textContent,
           "Blackberry",
-          "should focus the first item in the list"
+          "should focus the first item in the list",
         );
         EVENTS.keydownArrowUp(focusedOption);
 
@@ -537,7 +559,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           document.activeElement,
           input,
-          "should focus the input"
+          "should focus the input",
         );
       });
 
