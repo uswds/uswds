@@ -2,7 +2,7 @@
 
 This file anchors severity decisions and voice so the skill's output matches the team's actual practice, not generic review templates. Sources: 200+ merged PRs and their inline review comments across the project's review history.
 
-The team includes at least one engineering lead / senior engineer who sets technical direction and oversees code contributions, a product lead who owns design-system guidance decisions, and an accessibility specialist who handles accessibility-content review and hands-on AT verification. Patterns below represent durable team judgment, not individual voices.
+The team includes at least an engineering lead who sets technical direction and oversees code contributions, a senior engineer who contributes to design system development, a product lead who owns design system guidance decisions, and an accessibility specialist who handles accessibility-content review and hands-on AT verification. Patterns below represent durable team judgment, not individual voices.
 
 ---
 
@@ -14,7 +14,7 @@ The team includes at least one engineering lead / senior engineer who sets techn
 - One-line, single-token fixes using the right token (#6669: `+1/-1`, file input error border → error token): *"LGTM! Thanks for the contribution."*
 - A fix where the mechanism is obviously right (#6713): *"The runtime code change itself looks good. Replacing that stale callback with the existing dropdown close path makes sense."*
 - Security hardening (#6674): *"Nice catch. Thanks for this improvement and contribution!"*
-- Docs/meta/typos — essentially always waved through: #6762, #6720, #6580
+- Docs/meta/typo fixes — essentially always waved through: #6762, #6720, #6580
 - **Verifies by running it.** #6811: *"I tested this in Storybook and compared it to how we handle other components."* #6673: *"I tested it with NVDA, and the readout I got made more sense with the id and aria than it did without it."*
 
 **Senior engineer:**
@@ -28,7 +28,7 @@ The team includes at least one engineering lead / senior engineer who sets techn
 
 **Product lead:**
 - Bare approvals are the norm, with a one-line human note. Verbatim: "Thank you!" (#6165, #5885, #6013), "Nice work." (#5713), "Very nice. Both features work together as expected" (#5919), "A lot of work here! It will be nice to move this gnarly little issue off your plate!" (#5636), "🎉" (#5624)
-- Asks another engineer for a second opinion rather than deciding alone (#5908): "LGTM. Passing it over to another engineer for a take."
+- Asks an engineer for a second opinion rather than deciding alone (#5908): "LGTM. Passing it over to an engineer for a take."
 
 ### Approve-with-nits: the "I can approve once..." contract
 
@@ -39,12 +39,14 @@ The team includes at least one engineering lead / senior engineer who sets techn
 
 **Engineering lead** (approve now, name the follow-up explicitly):
 - #6725: *"This looks good. ... If you wanted to do a follow-up enhancement PR, you might want to consider... **That's not a blocker here though.**"*
-- #6715: *"Looking at the cjs plugin you wrote, I'm going to suggest a follow up PR once and issue so we can remove the UMD-related checks... **I'll create the issue for it and hold off on doing it so you're not dealing with conflicts** or things changing while this work is in progress."*
+- #6715: *"Looking at the cjs plugin you wrote, I'm going to suggest a follow-up PR once and issue so we can remove the UMD-related checks... **I'll create the issue for it and hold off on doing it so you're not dealing with conflicts** or things changing while this work is in progress."*
 - #6703: *"This keeps the defensive focus handling more concise and readable in my opinion. **This is far from being a blocker**, but it's worth considering if you're touching this code again."*
 
-**Engineering lead** (accepts debt on purpose):
+**Engineering lead** (weighs the impact of accepting technical debt on purpose if it moves the project forward):
 - #6173: *"**Approving as-is so help move the other related PRs (#6174, #6175) along** rather than chasing down anywhere else `ignore` may have been used historically."*
 - #6308: *"for something we're trying to get in ASAP **I'd prefer to leave the current behavior for now**. This feature also doesn't have adequate test coverage. So what I'd prefer to do is to make an issue for your suggested improvements and write some tests such that next time something comes up here we can make changes more confidently."*
+
+**There should be relevant ADRs** with an escape hatch to indicate when the technical debt can be paid down. This most likely requires explicit documentation and insight into the thought process, alternatives considered, and context of the decision.
 
 ### Approval escalation (effort-proportional sign-offs)
 
@@ -162,7 +164,7 @@ Also: apologies for latency (#6385: *"Sorry for the looooooong delay"*) and for 
 
 ### 11. Dead legacy code / browser support policy
 
-- #6660: *"Would you mind dropping this legacy check? **It applies to IE11 and the original versions of Edge before they were based on Chromium, and both of those fall outside of our [browser support policy](link)**"*
+- #6660: *"Would you mind dropping this legacy check? **It applies to IE11 and the original versions of Edge before they were based on Chromium, and both of those fall outside our [browser support policy](link)**"*
 
 **Voice:** Blocking. Cite the browser support policy doc.
 
@@ -223,13 +225,13 @@ Verbatim:
 
 **No `nit:` / `blocking:` prefixes.** Severity is carried by modal verbs:
 
-| Register | Phrasing |
-|---|---|
+| Register                 | Phrasing                                                                                                                                      |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | Blocking, non-negotiable | *"Would you mind rolling back..."*, *"Let's add a safeguard..."*, *"I think we should fix it now"*, *"I'd like to see a small, focused test"* |
-| Blocking but negotiable | *"I think it would be good to..."* (10+ uses), *"my suggestion is to..."*, *"Could you update the test so..."* |
-| Explicitly non-blocking | *"This is far from being a blocker"*, *"That's not a blocker here though."*, *"I have a personal preference for the latter."* |
-| Genuine question | *"Question about this."*, *"Should this property be updated to...?"*, *"Just doublechecking that..."* |
-| Invitation to push back | *"**Don't take any of this for absolute. It's all open for discussion if you disagree with any of it or have feedback.**"* (#6703) |
+| Blocking but negotiable  | *"I think it would be good to..."* (10+ uses), *"my suggestion is to..."*, *"Could you update the test so..."*                                |
+| Explicitly non-blocking  | *"This is far from being a blocker"*, *"That's not a blocker here though."*, *"I have a personal preference for the latter."*                 |
+| Genuine question         | *"Question about this."*, *"Should this property be updated to...?"*, *"Just doublechecking that..."*                                         |
+| Invitation to push back  | *"**Don't take any of this for absolute. It's all open for discussion if you disagree with any of it or have feedback.**"* (#6703)            |
 
 **Approval sign-offs scale with effort** — see approval escalation section above.
 
@@ -283,7 +285,7 @@ Examples:
 - "WDYT?" (#6736) — asks another engineer for a second opinion rather than deciding alone
 - "Ship it!" / "Woohoo!" / "Thank you 🫡"
 
-**Distinguishes "good practice" from "design-system guidance":** *"everyone should always set the `lang` attribute if for no other reason than it's important for performance and accessibility—**i just don't necessarily want to bak assumptions about best practices into a component without making adoption of those practices an explicit part of the design system.**"* (#6460)
+**Distinguishes "good practice" from "design system guidance":** *"everyone should always set the `lang` attribute if for no other reason than it's important for performance and accessibility—**I just don't necessarily want to bake assumptions about best practices into a component without making adoption of those practices an explicit part of the design system.**"* (#6460)
 
 ---
 
@@ -314,7 +316,7 @@ These are **never** reviewed, backed by corpus facts:
 **Duplicate-issue enforcement:** Cross-link PRs, close the newer/duplicate with credit. #6591 → *"There was a PR that was just merged #6659 that covers this change, so I am closing this as a duplicate."*
 
 **Follow-up work converted to tracked issues by the reviewer:**
-- #6715: *"I'm going to suggest a follow up PR once and issue so we can remove the UMD-related checks. **I'll create the issue for it**."*
+- #6715: *"I'm going to suggest a follow-up PR once and issue so we can remove the UMD-related checks. **I'll create the issue for it**."*
 - #6700: *"it would probably be helpful to add a description to populate the comment body. **I'll create an issue for it.**"*
 - #6308: *"what I'd prefer to do is to make an issue for your suggested improvements and write some tests."*
 
@@ -343,7 +345,7 @@ Example (#6673): a range slider hint read *"slider"* — which AT users already 
 
 ## Dependabot / version-bump handling
 
-Almost always bare APPROVED. Hygiene: `@dependabot rebase` / `@dependabot recreate`.
+A passing build is *REQUIRED*. Almost always bare APPROVED for dev-only dependencies with a patch or minor version update.
 
 **The one exception — the reusable artifact** (#6783, engineering lead):
 > **AI-assisted review — OpenCode Agent**
@@ -367,4 +369,3 @@ Almost always bare APPROVED. Hygiene: `@dependabot rebase` / `@dependabot recrea
 - **The engineering-lead three-move structure** is the canonical shape for a CHANGES_REQUESTED summary.
 - **The team's Conventional Comments labels** are the right taxonomy for inline findings, because they're already in use.
 - **The "I can approve once..." precondition** is the dominant mode for non-blocking findings — use it.
-- **Always close with the escape hatch:** *"Don't take any of this for absolute. It's all open for discussion."*

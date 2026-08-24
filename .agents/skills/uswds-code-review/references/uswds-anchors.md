@@ -10,23 +10,23 @@ This file is the concrete data layer: inventories, conventions, and verifiable f
 
 All are CommonJS `module.exports`. Before accepting any new helper, grep this list.
 
-| File | What it does |
-|---|---|
-| `select.js` | `select(selector, context)` → real Array of matches; returns `[]` for non-string. **The only file under repo-wide typecheck** (`tsconfig.json` `include`). |
-| `select-or-matches.js` | Same as `select` but also includes `context` itself if it matches. |
-| `behavior.js` | The component lifecycle/event-delegation factory. Returns `{ on, add, off, remove, ...props }` with `init`/`teardown` hooks. Custom implementation that replaced `receptor`. |
-| `focus-trap.js` | Tab/Shift-Tab wrapping inside a container; owns the `FOCUSABLE` selector constant. Built on `keymap` + `behavior` + `select` + `active-element`. |
-| `keymap.js` | Maps key-combo strings → handlers, returns one keydown handler; guards non-`KeyboardEvent` input. |
-| `active-element.js` | One-liner `(htmlDocument = document) => htmlDocument.activeElement` (indirection for testability). |
-| `debounce.js` | `debounce(cb, delay = 500)`; returned fn has `.cancel()`. |
-| `toggle.js` | Flips `aria-expanded` on a button and `hidden` on its `aria-controls` target; shadow-DOM aware via `getRootNode()`; throws if target missing. |
-| `toggle-form-input.js` | "Show/Hide" password-style toggling; `aria-pressed`, `data-show-text`/`data-hide-text`, `resolveIdRefs`. |
-| `toggle-field-mask.js` | Swaps input `type` password↔text plus `autocapitalize`/`autocorrect` off. |
-| `validate-input.js` | Data-attribute-driven validation (`data-validation-element`, `data-validate*`, `data-validation-status`) against a `usa-checklist`. |
-| `is-in-viewport.js` | `getBoundingClientRect` viewport containment test. |
-| `is-ios-device.js` | UA/`maxTouchPoints` iOS detection. |
-| `scrollbar-width.js` | Measures scrollbar width by transient offscreen divs. |
-| `sanitizer.js` | **The HTML-escaping helper.** `Sanitizer.escapeHTML` is a *tagged template* that escapes only interpolated values (`& < > " ' /` → entities), leaving static parts intact; `null`/`undefined` → `""`. Derived from Mozilla Gaia's SafeInnerHTML. |
+| File                   | What it does                                                                                                                                                                                                                                     |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `select.js`            | `select(selector, context)` → real Array of matches; returns `[]` for non-string. **The only file under repo-wide typecheck** (`tsconfig.json` `include`).                                                                                       |
+| `select-or-matches.js` | Same as `select` but also includes `context` itself if it matches.                                                                                                                                                                               |
+| `behavior.js`          | The component lifecycle/event-delegation factory. Returns `{ on, add, off, remove, ...props }` with `init`/`teardown` hooks. Custom implementation that replaced `receptor`.                                                                     |
+| `focus-trap.js`        | Tab/Shift-Tab wrapping inside a container; owns the `FOCUSABLE` selector constant. Built on `keymap` + `behavior` + `select` + `active-element`.                                                                                                 |
+| `keymap.js`            | Maps key-combo strings → handlers, returns one keydown handler; guards non-`KeyboardEvent` input.                                                                                                                                                |
+| `active-element.js`    | One-liner `(htmlDocument = document) => htmlDocument.activeElement` (indirection for testability).                                                                                                                                               |
+| `debounce.js`          | `debounce(cb, delay = 500)`; returned fn has `.cancel()`.                                                                                                                                                                                        |
+| `toggle.js`            | Flips `aria-expanded` on a button and `hidden` on its `aria-controls` target; shadow-DOM aware via `getRootNode()`; throws if target missing.                                                                                                    |
+| `toggle-form-input.js` | "Show/Hide" password-style toggling; `aria-pressed`, `data-show-text`/`data-hide-text`, `resolveIdRefs`.                                                                                                                                         |
+| `toggle-field-mask.js` | Swaps input `type` password↔text plus `autocapitalize`/`autocorrect` off.                                                                                                                                                                        |
+| `validate-input.js`    | Data-attribute-driven validation (`data-validation-element`, `data-validate*`, `data-validation-status`) against a `usa-checklist`.                                                                                                              |
+| `is-in-viewport.js`    | `getBoundingClientRect` viewport containment test.                                                                                                                                                                                               |
+| `is-ios-device.js`     | UA/`maxTouchPoints` iOS detection.                                                                                                                                                                                                               |
+| `scrollbar-width.js`   | Measures scrollbar width by transient offscreen divs.                                                                                                                                                                                            |
+| `sanitizer.js`         | **The HTML-escaping helper.** `Sanitizer.escapeHTML` is a *tagged template* that escapes only interpolated values (`& < > " ' /` → entities), leaving static parts intact; `null`/`undefined` → `""`. Derived from Mozilla Gaia's SafeInnerHTML. |
 
 **Also core:**
 - `packages/uswds-core/src/js/events.js` — Exports `{ CLICK: "click" }`. Components import `CLICK` from here, never hardcode.
@@ -40,15 +40,15 @@ All are CommonJS `module.exports`. Before accepting any new helper, grep this li
 
 All in `packages/uswds-core/src/styles/functions/` (barrel: `_index.scss`):
 
-| Function | What it does | Location |
-|---|---|---|
-| `units()` | Spacing token → rem; returns `error-not-token()` for invalid input. | `functions/units/units.scss` |
-| `color()` | Color token → hex; the main themeable-color interface. | `functions/utilities/color.scss` |
-| `next-token()` | Move within a color scale (e.g., `"darker"`, `"lighter"`). | `functions/color/` |
-| `font()` | Font-family token → stack. | `functions/font/` |
-| `get-font-stack()` | Lower-level font helper. | `functions/font/` |
-| `get-typeface-token()` | Validates typeface tokens. | `functions/font/` |
-| Plus ~20 more | `cap-height`, `normalize-type-scale`, `is-color-token`, `magic-number`, `wcag-magic-number`, `set-theme-color`, `get-link-tokens-from-bg`, `calculate-grade`, `px-to-rem`, `rem-to-px`, `spacing-multiple` | `functions/` subdirs |
+| Function               | What it does                                                                                                                                                                                               | Location                         |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| `units()`              | Spacing token → rem; returns `error-not-token()` for invalid input.                                                                                                                                        | `functions/units/units.scss`     |
+| `color()`              | Color token → hex; the main themeable-color interface.                                                                                                                                                     | `functions/utilities/color.scss` |
+| `next-token()`         | Move within a color scale (e.g., `"darker"`, `"lighter"`).                                                                                                                                                 | `functions/color/`               |
+| `font()`               | Font-family token → stack.                                                                                                                                                                                 | `functions/font/`                |
+| `get-font-stack()`     | Lower-level font helper.                                                                                                                                                                                   | `functions/font/`                |
+| `get-typeface-token()` | Validates typeface tokens.                                                                                                                                                                                 | `functions/font/`                |
+| Plus ~20 more          | `cap-height`, `normalize-type-scale`, `is-color-token`, `magic-number`, `wcag-magic-number`, `set-theme-color`, `get-link-tokens-from-bg`, `calculate-grade`, `px-to-rem`, `rem-to-px`, `spacing-multiple` | `functions/` subdirs             |
 
 **Error convention:** Invalid tokens go through `functions/general/error-not-token.scss` / `error.scss`, which return an error *string* under `$error-output-override` so Sass-True can assert them.
 
@@ -56,14 +56,14 @@ All in `packages/uswds-core/src/styles/functions/` (barrel: `_index.scss`):
 
 **Location:** `packages/uswds-core/src/styles/settings/` (barrel: `_index.scss`)
 
-| File | Lines | Covers |
-|---|---|---|
-| `_settings-general.scss` | 120 | Project-wide (`$theme-show-compile-warnings`, `$theme-namespace`, `$theme-image-path`) |
-| `_settings-typography.scss` | 433 | Fonts, type scale, measure, leading (`$theme-font-*`, `$theme-typeface-tokens`, `$theme-type-scale-*`) |
-| `_settings-color.scss` | 149 | Theme colors, state colors, grade assignments (`$theme-color-*`, `$theme-link-*`) |
-| `_settings-components.scss` | 226 | **All `$theme-<component>-*` settings, alphabetical by component.** This is where new component settings go. |
-| `_settings-spacing.scss` | 90 | Vertical rhythm, grid gaps (`$theme-column-gap`, `$theme-grid-container-max-width`, `$theme-site-margins-width`) |
-| `_settings-utilities.scss` | 1102 | Utility-class generation control (`$*-settings`, `$*-palettes`) |
+| File                        | Lines | Covers                                                                                                           |
+|-----------------------------|-------|------------------------------------------------------------------------------------------------------------------|
+| `_settings-general.scss`    | 120   | Project-wide (`$theme-show-compile-warnings`, `$theme-namespace`, `$theme-image-path`)                           |
+| `_settings-typography.scss` | 433   | Fonts, type scale, measure, leading (`$theme-font-*`, `$theme-typeface-tokens`, `$theme-type-scale-*`)           |
+| `_settings-color.scss`      | 149   | Theme colors, state colors, grade assignments (`$theme-color-*`, `$theme-link-*`)                                |
+| `_settings-components.scss` | 226   | **All `$theme-<component>-*` settings, alphabetical by component.** This is where new component settings go.     |
+| `_settings-spacing.scss`    | 90    | Vertical rhythm, grid gaps (`$theme-column-gap`, `$theme-grid-container-max-width`, `$theme-site-margins-width`) |
+| `_settings-utilities.scss`  | 1102  | Utility-class generation control (`$*-settings`, `$*-palettes`)                                                  |
 
 **Naming:** All settings are `$theme-*` or `$output-*`, declared with `!default`. Values are **token strings or spacing numbers**, not CSS values: `"base-lightest"`, `"body"`, `0.5`, `"start"`, or the literal `default`.
 

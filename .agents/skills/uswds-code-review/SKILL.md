@@ -128,7 +128,7 @@ State these with an explicit escape hatch: *"This is far from being a blocker, b
 
 ### 5. Structure the report
 
-Use **the team's Conventional Comments labels** (real repo practice):
+Use **the Conventional Comments labels**:
 - `**issue**` — blocking
 - `**polish**` — non-blocking improvement
 - `**question**` — genuine uncertainty
@@ -244,7 +244,7 @@ Never "this is wrong" without showing the fix or the mechanism.
 - "My opinion: I'd prefer X, but I can also see a case for Y."
 
 **When uncertain, admit it:**
-- "Just doublechecking that..."
+- "Just double-checking that..."
 - "Question about this."
 - "I'm not sure..."
 
@@ -274,11 +274,11 @@ The following are **never** reviewed, per observed team practice:
 1. **Formatting, indentation, quote style, line length** — Prettier/ESLint/`.editorconfig` own these. Not one style nit exists in the 200+ PR corpus.
 2. **Naming in isolation** — flagged only when genuinely confusing or inconsistent with repo convention (e.g. `data-errorMessage` vs. other `data-*` naming).
 3. **Micro-performance** — performance comes up only as build-time or semver concerns, never as runtime micro-optimization.
-4. **JSDoc/type coverage as a blanket ask** — SASSDoc is required for new Sass mixins/functions; JSDoc is not broadly enforced.
-5. **Diff size as a blocker** — zero "please split this up" reviews exist. The +12k/-14k Storybook migration was approved without comment on size.
+4. **JSDoc/type coverage as a blanket ask** — SASSDoc is required for new Sass mixins/functions; JSDoc is not broadly enforced for historical code but should be for new additions.
+5. **Diff size as a blocker** — "please split this up" reviews exist but should use deterministic measurements and judgment.
 6. **`dist/` contents as source** — it's generated. The review path is byte-identical verification, not line-by-line diff.
 7. **Any AT/screen-reader verdict** — routed explicitly: *"Code-wise this looks fine to me, but I'd like to defer to you on the screen reader behavior."* (#6595)
-8. **Dependabot lockfile diffs** — bare APPROVED; hygiene is `@dependabot rebase`.
+8. **Dependabot lockfile diffs** — bare APPROVED if the build and tests are passing.
 9. **Variable/function naming disputes** — accepted after one round of discussion.
 10. **Hypothetical future requirements** — not in scope.
 11. **Refactoring opportunities unrelated to the change** — unless they block understanding, convert to an issue instead.

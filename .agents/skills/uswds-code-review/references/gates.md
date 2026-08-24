@@ -139,11 +139,11 @@ gh api repos/uswds/uswds-proposals/git/trees/HEAD?recursive=1 \
 
 **Current mapping** (as of August 2026, 11 ADRs):
 
-| Scope | ADRs |
-|---|---|
-| **uswds-elements** / web components | 0001 (use web components), 0002 (use lit), 0003 (don't use a monorepo), 0004 (link as HTML web component), 0006 (use TypeScript), 0007 (author styles in CSS), 0009 (use Lightning CSS) |
-| **USWDS Core** (this repo) | 0005 (continue Core, move toward semver) |
-| **Ambiguous** — confirm, don't assume | 0008 (JSON design tokens — no scope signal), 0010 (use Playwright), 0011 (custom Vite plugins) |
+| Scope                                 | ADRs                                                                                                                                                                                    |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **uswds-elements** / web components   | 0001 (use web components), 0002 (use lit), 0003 (don't use a monorepo), 0004 (link as HTML web component), 0006 (use TypeScript), 0007 (author styles in CSS), 0009 (use Lightning CSS) |
+| **USWDS Core** (this repo)            | 0005 (continue Core, move toward semver)                                                                                                                                                |
+| **Ambiguous** — confirm, don't assume | 0008 (JSON design tokens — no scope signal), 0010 (use Playwright), 0011 (custom Vite plugins)                                                                                          |
 
 **The Lightning CSS cautionary case:** `decisions/0009-use-lightning-css.md` is Approved *for Elements*; it never governed this repo. PR #6597 proposing Lightning CSS here was declined on Core-specific grounds: *"adopting Lightning CSS introduces some significant changes to how CSS properties are ordered in the built output... Shipping this safely would require a thorough audit and a major version bump."*
 
@@ -457,7 +457,7 @@ From `package.json` `exports` and observed practice:
 - A new `$theme-*` setting that changes component behavior by default
 - A flip in what the unstyled / no-class state does
 
-**Why manual follow-up:** These are design-system decisions, not just code correctness. They need review for: naming consistency with other components, whether it fits the design-system's principles, whether the default serves the common case.
+**Why manual follow-up:** These are design system decisions, not just code correctness. They need review for: naming consistency with other components, whether it fits the design system's principles, whether the default serves the common case.
 
 **Voice:**
 > **Manual follow-up required: new variant / default change**
