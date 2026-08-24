@@ -83,6 +83,10 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 
 **Success criteria:** Proves gate 16a fires on SR-text-redundant-with-role without triggering a blocking verdict or a false 16b routing. The skill should distinguish the code-level fix (ARIA wiring, already correct) from the content-level flag (hint text quality).
 
+---
+
+### 5. `/uswds-code-review 6783` — Bump undici (dependabot)
+
 **Size:** lockfile-only (dependabot)  
 **Reviewer:** engineering lead (APPROVED with verification transcript)  
 **Actual outcome:** Verified lockfile-only, `npm ci` clean, `npm run lint` ✅, `gulp test` ✅, `dist/` byte-identical. *"Safe to merge."*
@@ -156,7 +160,8 @@ Success is **not** word-matching the original reviews. It's that:
 ## Running the suite
 
 ```bash
-cd /home/egardner/devspace/uswds
+# Run from the repo root
+cd /path/to/uswds
 
 # 1. Richest test (4 independent findings)
 /uswds-code-review 6767

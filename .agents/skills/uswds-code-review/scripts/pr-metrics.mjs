@@ -67,6 +67,8 @@ const CLASSIFIERS = {
     );
   },
 
+  agents: (path) => inDirectory(path, [".agents"]),
+
   ci: (path) => inDirectory(path, [".github", ".circleci"]),
 
   doc: (path) => {
