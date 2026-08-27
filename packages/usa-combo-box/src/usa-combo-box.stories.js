@@ -1,6 +1,7 @@
 import Component from "./usa-combo-box.twig";
 import TestComponent from "./test/test-patterns/test-usa-combo-box.twig";
 import Content from "./usa-combo-box.json";
+import comboBox from "./index";
 
 export default {
   title: "Components/Form Inputs/Combo Box",
@@ -13,6 +14,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      comboBox.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        comboBox.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);

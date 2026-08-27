@@ -95,7 +95,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     afterEach(() => {
       sinon.resetHistory();
-      behavior.off(containerSelector(body));
+      behavior.off(containerSelector());
       body.innerHTML = "";
       window.location.hash = "";
     });

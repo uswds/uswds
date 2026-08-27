@@ -1,4 +1,3 @@
-const resolveIdRefs = require("resolve-id-refs");
 const toggleFieldMask = require("./toggle-field-mask");
 
 const CONTROLS = "aria-controls";
@@ -13,6 +12,19 @@ const HIDE_ATTR = "data-hide-text";
  */
 const getHideText = (showText) =>
   showText.replace(/\bShow\b/i, (show) => `${show[0] === "S" ? "H" : "h"}ide`);
+
+const resolveIdRefs = (id) => {
+  const ids = id.trim().split(/\s+/);
+
+  return ids.map((i) => {
+    const el = document.getElementById(i);
+    if (!el) {
+      const err = `no element with id: ${i}`;
+      throw new Error(err);
+    }
+    return el;
+  });
+};
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -40,7 +52,7 @@ module.exports = (el) => {
   const showText = el.getAttribute(SHOW_ATTR);
   const hideText = el.getAttribute(HIDE_ATTR) || getHideText(showText);
 
-  el.textContent = pressed ? showText : hideText; // eslint-disable-line no-param-reassign
+  el.textContent = pressed ? showText : hideText;
   el.setAttribute(PRESSED, pressed);
   return pressed;
 };

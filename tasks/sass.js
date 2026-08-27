@@ -20,14 +20,12 @@ module.exports = {
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
-          includePaths: [
-            "./packages",
-          ],
-          outputStyle: "expanded",
+          loadPaths: ["./packages"],
+          style: "expanded",
         }).on("error", function handleError(error) {
           dutil.logError(error);
           this.emit("end");
-        })
+        }),
       )
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
@@ -36,7 +34,7 @@ module.exports = {
       .pipe(
         rename({
           suffix: ".min",
-        })
+        }),
       )
       .pipe(sourcemaps.write("."))
       .pipe(dest("dist/css"));
