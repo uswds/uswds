@@ -3,12 +3,11 @@
  */
 
 // Include Our Plugins
-const del = require('del');
 const cFlags = require("./utils/cflags");
 const dutil = require("./utils/doc-util");
 
 // Clean generated Dist directory.
-exports.cleanDist = done => {
+exports.cleanDist = async (done) => {
   if (!cFlags.cleanup) {
     dutil.logMessage(
       "clean-dist",
@@ -18,5 +17,6 @@ exports.cleanDist = done => {
   }
   dutil.logMessage("clean-dist", "Removing distribution directories.");
 
-  return del("dist");
+  const { deleteAsync } = await import("del");
+  return deleteAsync("dist");
 };
