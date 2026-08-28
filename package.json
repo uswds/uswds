@@ -51,9 +51,6 @@
   "jsnext:main": "./packages/uswds-core/src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "./src/stylesheets/uswds.scss",
-  "mocha": {
-    "config": "src/utils/test/.mocharc.json"
-  },
   "scripts": {
     "build": "gulp && npm run build:web-components",
     "build:web-components": "vite build --config='./vite.config.banner.cdn.js'",
