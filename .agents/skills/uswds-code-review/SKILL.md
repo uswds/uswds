@@ -12,7 +12,7 @@ Perform a judgment-based code review of USWDS changes, reproducing the calibrati
 ## Entry point
 
 **Auto-detected:**
-- **Given a PR number or URL** → fetch via `gh pr view --json body,title,additions,deletions,files,baseRefName` + `gh pr diff`. All gates apply, including PR-body hygiene and definition-of-done checks.
+- **Given a PR number or URL** → fetch via `gh pr view --json body,title,additions,deletions,files,baseRefName,headRefOid` + `gh pr diff`. All gates apply, including PR-body hygiene and definition-of-done checks.
 - **No argument (local branch)** → `git diff develop...HEAD`. PR-body and DoD gates are *skipped* and reported as such, not silently passed.
 
 Example invocations:
@@ -20,15 +20,47 @@ Example invocations:
 - `/uswds-code-review https://github.com/uswds/uswds/pull/6789`
 - `/uswds-code-review` (reviews current branch)
 
+## Review Cache
+
+PR reviews are cached in an unversioned `.review-cache/` directory at the project root to prevent re-reviewing unchanged commits:
+
+- **`.review-cache/cache.json`**: Index tracking reviewed PRs, commit hashes, recommendations, summaries, and each PR's `status` (`open` or `merged`).
+- **`.review-cache/<commit-sha>.md`**: Full markdown review findings saved per commit ID.
+- **Retention**: Nothing is deleted. When a PR merges, its entry is marked `status: "merged"` and both the metadata and the findings markdown are kept — the review of a merged PR is the record you want when a regression surfaces later.
+- **Local branches are not cached.** A local branch's HEAD moves with every amend and there's no remote state to compare against, so `check` and `save` both require `--pr`. Reviewing the current branch always runs the full pass.
+
+```bash
+# Check if PR is already cached at current commit
+node .agents/skills/uswds-code-review/scripts/review-cache.mjs check --pr <N>
+
+# List all cached reviews
+node .agents/skills/uswds-code-review/scripts/review-cache.mjs list
+
+# Refresh open/merged status for every cached review
+node .agents/skills/uswds-code-review/scripts/review-cache.mjs sync
+```
+
 ## Process
 
-### 1. Gather context
+### 1. Check cache and gather context
 
-Run these in parallel:
+**Step 1a: Check cache**
+Before pulling full diffs and re-evaluating gates on a PR, check if the PR has already been reviewed at its current commit:
+```bash
+node .agents/skills/uswds-code-review/scripts/review-cache.mjs check --pr <N> --json
+```
+- If status is `CACHED` (exit 0): Output the cached recommendation, summary, and the findings from `reportContent`. Skip redundant review work unless the user passes `--force`. If `reportExists` is `false`, the findings are gone — treat it as a `MISS` and re-review.
+- If status is `MERGED` (exit 2): The PR is already merged. Report that, along with the retained prior review if `cached` is `true`. Don't review a merged PR unless the user explicitly asks.
+- If status is `MISS` (exit 1): Proceed with review.
+- If status is `ERROR` (exit 3): Report the failure. Don't silently proceed as if the cache were empty.
+
+Skip this step entirely when reviewing a local branch — only PR reviews are cached.
+
+**Step 1b: Gather context (in parallel):**
 
 **If reviewing a PR:**
 ```bash
-gh pr view <N> --repo uswds/uswds --json number,title,body,additions,deletions,changedFiles,files,baseRefName,url
+gh pr view <N> --repo uswds/uswds --json number,title,body,additions,deletions,changedFiles,files,baseRefName,headRefOid,url
 gh pr diff <N> --repo uswds/uswds
 gh api repos/uswds/uswds/pulls/<N>/files --paginate --jq '.[] | {filename, additions, deletions, status, patch}'
 ```
@@ -224,7 +256,28 @@ Legend: ✅ pass, ⚠️ flag (non-blocking), ❌ fail (blocking), ⏭️ skippe
 - [any other items from silence list]
 ```
 
-### 6. Evidence and voice
+### 6. Save review to cache
+
+After generating the review findings, save the review to the cache. Write the report to a file and pass `--report-file`; `--recommendation` must lead with one of the four enum values, since downstream tooling buckets on that prefix:
+```bash
+node .agents/skills/uswds-code-review/scripts/review-cache.mjs save \
+  --pr <N> \
+  --sha <commitSha> \
+  --recommendation "<Approve|Approve with suggestions|Request changes|Hold>" \
+  --summary "<1-2 sentence census of findings>" \
+  --report-file /tmp/review-<N>.md
+```
+
+`--report-file -` reads the markdown from stdin. Use `--report-text "<markdown>"` only for a short inline report — a nonexistent `--report-file` path is an error rather than being silently stored as the report body.
+
+This ensures:
+1. The full review findings markdown is saved to `.review-cache/<commit-sha>.md`.
+2. `.review-cache/cache.json` is updated with PR number, commit SHA, recommendation, summary, and `status: "open"`.
+3. Subsequent runs with no new commits will immediately return the cached result.
+
+Skip this step for local-branch reviews; only PR reviews are cached.
+
+### 7. Evidence and voice
 
 **Every substantive finding must include:**
 - A code block showing the issue, OR
