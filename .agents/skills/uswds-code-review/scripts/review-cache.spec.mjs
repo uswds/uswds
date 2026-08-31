@@ -38,8 +38,12 @@ import {
   parsePRNumber,
   assertValidSha,
   execCmd,
+  parseCliArgs,
+  main,
   STATUS_OPEN,
   STATUS_MERGED,
+  CHECK_STATUS,
+  CHECK_EXIT_CODES,
 } from "./review-cache.mjs";
 
 /** Any merge timestamp; only tests that assert on it need to know the value. */
@@ -499,6 +503,83 @@ describe("review-cache", () => {
       const cache = readCache();
       assert.ok(cache.reviews["103"], "entry must survive a failed lookup");
       assert.strictEqual(cache.reviews["103"].status, STATUS_OPEN);
+    });
+
+    it("handles multiple concurrent lookups accurately", async () => {
+      for (let i = 201; i <= 210; i += 1) {
+        save({ pr: i, sha: `a000${i}` });
+      }
+
+      const byPR = {};
+      for (let i = 201; i <= 210; i += 1) {
+        byPR[i] = {
+          number: i,
+          state: i % 2 === 0 ? "MERGED" : "OPEN",
+          mergedAt: i % 2 === 0 ? MERGED_AT : undefined,
+        };
+      }
+
+      const res = await sync({
+        fetchPRInfoFn: stubLookupByPR(byPR),
+        concurrency: 3,
+      });
+
+      assert.strictEqual(res.totalCount, 10);
+      assert.strictEqual(res.mergedCount, 5);
+      assert.strictEqual(res.openCount, 5);
+    });
+  });
+
+  describe("parseCliArgs and main CLI dispatcher", () => {
+    it("parses check options and aliases", () => {
+      const { command, options } = parseCliArgs([
+        "check",
+        "--pr",
+        "6767",
+        "--sha",
+        "abc1234",
+        "--offline",
+        "--json",
+      ]);
+      assert.strictEqual(command, "check");
+      assert.strictEqual(options.pr, "6767");
+      assert.strictEqual(options.sha, "abc1234");
+      assert.strictEqual(options.offline, true);
+      assert.strictEqual(options.json, true);
+    });
+
+    it("parses save options including alias --rec", () => {
+      const { command, options } = parseCliArgs([
+        "save",
+        "--pr",
+        "6767",
+        "--sha",
+        "abc1234",
+        "--rec",
+        "Request changes",
+        "--summary",
+        "some notes",
+      ]);
+      assert.strictEqual(command, "save");
+      assert.strictEqual(options.recommendation, "Request changes");
+      assert.strictEqual(options.summary, "some notes");
+    });
+
+    it("throws a clear error on ambiguous --report argument", () => {
+      assert.throws(
+        () => parseCliArgs(["save", "--report", "findings.md"]),
+        /--report is ambiguous/,
+      );
+    });
+
+    it("returns exit code 0 on --help", async () => {
+      const code = await main(["--help"]);
+      assert.strictEqual(code, 0);
+    });
+
+    it("returns exit code 1 on unknown command", async () => {
+      const code = await main(["unknown-command"]);
+      assert.strictEqual(code, 1);
     });
   });
 });

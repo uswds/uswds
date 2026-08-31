@@ -24,10 +24,16 @@
  *   node review-cache.mjs list
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { resolve, join, dirname } from "path";
-import { spawn } from "child_process";
-import { fileURLToPath } from "url";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, renameSync } from "node:fs";
+import { resolve, join, dirname } from "node:path";
+import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
+import { randomBytes } from "node:crypto";
+import { parseArgs } from "node:util";
+
+// ============================================================================
+// 1. Constants & Enums
+// ============================================================================
 
 /** Lifecycle state of the PR a cached review belongs to. */
 export const STATUS_OPEN = "open";
@@ -36,9 +42,27 @@ export const STATUS_MERGED = "merged";
 /** Conventional cache directory name, relative to the repo root. */
 export const CACHE_DIR_NAME = ".review-cache";
 
+export const CHECK_STATUS = {
+  CACHED: "CACHED",
+  MISS: "MISS",
+  MERGED: "MERGED",
+  ERROR: "ERROR",
+};
+
+export const CHECK_EXIT_CODES = {
+  [CHECK_STATUS.CACHED]: 0,
+  [CHECK_STATUS.MISS]: 1,
+  [CHECK_STATUS.MERGED]: 2,
+  [CHECK_STATUS.ERROR]: 3,
+};
+
 function emptyCache() {
   return { version: 1, reviews: {} };
 }
+
+// ============================================================================
+// 2. Path & Environment Resolution
+// ============================================================================
 
 export function findRepoRoot(startDir = process.cwd()) {
   let cur = resolve(startDir);
@@ -58,6 +82,15 @@ export function getDefaultCacheDir(startDir = process.cwd()) {
 function cacheFilePath(cacheDir) {
   return join(cacheDir, "cache.json");
 }
+
+/** Findings for a commit always live at <cacheDir>/<sha>.md. */
+export function reportFilePath(cacheDir, sha) {
+  return join(cacheDir, `${sha}.md`);
+}
+
+// ============================================================================
+// 3. Storage & Persistence
+// ============================================================================
 
 export function loadCache(cacheDir = getDefaultCacheDir()) {
   const cacheFile = cacheFilePath(cacheDir);
@@ -79,6 +112,10 @@ export function loadCache(cacheDir = getDefaultCacheDir()) {
   }
 }
 
+/**
+ * Write cache atomically to prevent corrupted cache.json files if the process
+ * is interrupted or terminated midway through writing.
+ */
 export function writeCache(cacheData, cacheDir = getDefaultCacheDir()) {
   mkdirSync(cacheDir, { recursive: true });
   const payload = {
@@ -86,12 +123,32 @@ export function writeCache(cacheData, cacheDir = getDefaultCacheDir()) {
     updatedAt: new Date().toISOString(),
     reviews: cacheData.reviews || {},
   };
-  writeFileSync(
-    cacheFilePath(cacheDir),
-    JSON.stringify(payload, null, 2),
-    "utf-8",
-  );
+  const targetPath = cacheFilePath(cacheDir);
+  const tempPath = `${targetPath}.${randomBytes(6).toString("hex")}.tmp`;
+
+  writeFileSync(tempPath, JSON.stringify(payload, null, 2), "utf-8");
+  renameSync(tempPath, targetPath);
 }
+
+function readReport(cacheDir, entry) {
+  const absolutePath = reportFilePath(cacheDir, entry.headSha);
+  if (!existsSync(absolutePath)) {
+    return { reportExists: false, reportContent: null };
+  }
+  try {
+    return {
+      reportExists: true,
+      reportContent: readFileSync(absolutePath, "utf-8"),
+    };
+  } catch {
+    // Unreadable report degrades to metadata-only; not fatal.
+    return { reportExists: true, reportContent: null };
+  }
+}
+
+// ============================================================================
+// 4. Child Process & GitHub CLI Integration
+// ============================================================================
 
 export async function execCmd(cmd, args, opts = {}) {
   return new Promise((resolvePromise, rejectPromise) => {
@@ -100,22 +157,21 @@ export async function execCmd(cmd, args, opts = {}) {
       killSignal: opts.killSignal || "SIGKILL",
       ...opts,
     });
+
+    proc.stdout?.setEncoding("utf-8");
+    proc.stderr?.setEncoding("utf-8");
+
     let stdout = "";
     let stderr = "";
+
     proc.stdout?.on("data", (d) => {
       stdout += d;
     });
     proc.stderr?.on("data", (d) => {
       stderr += d;
     });
+
     proc.on("error", rejectPromise);
-    proc.on("exit", (code, signal) => {
-      if (signal) {
-        rejectPromise(
-          new Error(`${cmd} terminated by signal ${signal}: ${stderr.trim()}`),
-        );
-      }
-    });
     proc.on("close", (code, signal) => {
       if (signal) {
         rejectPromise(
@@ -163,27 +219,6 @@ export async function fetchPRInfo(
   }
 }
 
-/** Findings for a commit always live at <cacheDir>/<sha>.md. */
-export function reportFilePath(cacheDir, sha) {
-  return join(cacheDir, `${sha}.md`);
-}
-
-function readReport(cacheDir, entry) {
-  const absolutePath = reportFilePath(cacheDir, entry.headSha);
-  if (!existsSync(absolutePath)) {
-    return { reportExists: false, reportContent: null };
-  }
-  try {
-    return {
-      reportExists: true,
-      reportContent: readFileSync(absolutePath, "utf-8"),
-    };
-  } catch {
-    // Unreadable report degrades to metadata-only; not fatal.
-    return { reportExists: true, reportContent: null };
-  }
-}
-
 /**
  * `state` is authoritative, but a PR fetched right after a merge can still
  * report OPEN while carrying a mergedAt timestamp, so trust either signal.
@@ -225,6 +260,10 @@ async function resolvePRHead({
   }
 }
 
+// ============================================================================
+// 5. Core Domain Operations
+// ============================================================================
+
 export async function checkReview({
   pr,
   sha = null,
@@ -238,7 +277,7 @@ export async function checkReview({
 
   if (!prNum) {
     return {
-      status: "ERROR",
+      status: CHECK_STATUS.ERROR,
       pr: null,
       message:
         "A PR number is required. Local-branch reviews are not cached; run the review directly.",
@@ -257,12 +296,12 @@ export async function checkReview({
   });
 
   if (error) {
-    return { status: "ERROR", pr: prNum, message: error };
+    return { status: CHECK_STATUS.ERROR, pr: prNum, message: error };
   }
 
   if (!currentSha) {
     return {
-      status: "ERROR",
+      status: CHECK_STATUS.ERROR,
       pr: prNum,
       message:
         "--offline requires --sha, since the head commit cannot be read.",
@@ -273,7 +312,7 @@ export async function checkReview({
 
   if (isMerged && !cachedEntry) {
     return {
-      status: "MERGED",
+      status: CHECK_STATUS.MERGED,
       pr: prNum,
       headSha: currentSha,
       cached: false,
@@ -291,7 +330,7 @@ export async function checkReview({
       writeCache(cache, cacheDir);
     }
     return {
-      status: "MERGED",
+      status: CHECK_STATUS.MERGED,
       pr: prNum,
       headSha: currentSha,
       cached: true,
@@ -308,7 +347,7 @@ export async function checkReview({
 
   if (cachedEntry?.headSha === currentSha) {
     return {
-      status: "CACHED",
+      status: CHECK_STATUS.CACHED,
       pr: prNum,
       headSha: currentSha,
       recommendation: cachedEntry.recommendation,
@@ -321,7 +360,7 @@ export async function checkReview({
   }
 
   return {
-    status: "MISS",
+    status: CHECK_STATUS.MISS,
     pr: prNum,
     headSha: currentSha,
     title: prInfo?.title || null,
@@ -401,6 +440,23 @@ export function saveReview({
   };
 }
 
+/** Helper for bounded concurrency mapping */
+async function mapConcurrent(items, limit, fn) {
+  const results = [];
+  const executing = new Set();
+  for (const item of items) {
+    const p = Promise.resolve().then(() => fn(item));
+    results.push(p);
+    executing.add(p);
+    const clean = () => executing.delete(p);
+    p.then(clean, clean);
+    if (executing.size >= limit) {
+      await Promise.race(executing);
+    }
+  }
+  return Promise.all(results);
+}
+
 /**
  * Refresh the merge status of every cached entry against the remote.
  *
@@ -413,17 +469,19 @@ export async function syncCache({
   cacheDir = getDefaultCacheDir(),
   fetchPRInfoFn = fetchPRInfo,
   execFn = execCmd,
+  concurrency = 5,
 }) {
   const cache = loadCache(cacheDir);
+  const entries = Object.values(cache.reviews || {});
   const merged = [];
   const open = [];
   const unreachable = [];
 
-  for (const entry of Object.values(cache.reviews || {})) {
+  await mapConcurrent(entries, concurrency, async (entry) => {
     const prNum = parsePRNumber(entry.pr);
     if (!prNum) {
       unreachable.push({ pr: entry.pr, headSha: entry.headSha });
-      continue;
+      return;
     }
 
     try {
@@ -450,7 +508,7 @@ export async function syncCache({
       // Network/auth failure must not rewrite state we can't verify.
       unreachable.push({ pr: prNum, headSha: entry.headSha });
     }
-  }
+  });
 
   writeCache(cache, cacheDir);
 
@@ -470,9 +528,11 @@ export async function syncCache({
   };
 }
 
-// CLI Execution
+// ============================================================================
+// 6. CLI Formatting & Utilities
+// ============================================================================
 
-const HELP_TEXT = `USWDS Code Review Cache Tool
+export const HELP_TEXT = `USWDS Code Review Cache Tool
 
 Usage:
   node review-cache.mjs check --pr <number|url> [--sha <hash>] [--offline] [--repo <owner/repo>] [--json]
@@ -498,60 +558,13 @@ Options:
 Note: only PR reviews are cached; --pr is required for check and save.
 `;
 
-/** Flags that consume the following argument, keyed to their option name. */
-const VALUE_FLAGS = {
-  "--pr": "pr",
-  "--sha": "sha",
-  "--repo": "repo",
-  "--recommendation": "recommendation",
-  "--rec": "recommendation",
-  "--summary": "summary",
-  "--title": "title",
-  "--report-file": "reportFile",
-  "--report-text": "reportText",
-  "--cache-dir": "cacheDir",
+const useColor = Boolean(process.stdout.isTTY && !process.env.NO_COLOR);
+const color = {
+  green: (s) => (useColor ? `\x1b[32m${s}\x1b[0m` : s),
+  yellow: (s) => (useColor ? `\x1b[33m${s}\x1b[0m` : s),
+  red: (s) => (useColor ? `\x1b[31m${s}\x1b[0m` : s),
+  cyan: (s) => (useColor ? `\x1b[36m${s}\x1b[0m` : s),
 };
-
-/** Flags that are their own value. */
-const BOOLEAN_FLAGS = {
-  "--json": "json",
-  "--force": "force",
-  "--offline": "offline",
-};
-
-const CHECK_EXIT_CODES = { CACHED: 0, MISS: 1, MERGED: 2, ERROR: 3 };
-
-function fail(message) {
-  console.error(message);
-  process.exit(1);
-}
-
-function parseOptions(args) {
-  const options = {
-    cacheDir: getDefaultCacheDir(),
-    repo: "uswds/uswds",
-    json: false,
-    force: false,
-    offline: false,
-  };
-
-  for (let i = 0; i < args.length; i += 1) {
-    const arg = args[i];
-    if (arg === "--report") {
-      fail(
-        "Error: --report is ambiguous. Use --report-file <path> (or '-' for stdin), or --report-text <markdown>.",
-      );
-    } else if (VALUE_FLAGS[arg]) {
-      i += 1;
-      options[VALUE_FLAGS[arg]] = args[i];
-    } else if (BOOLEAN_FLAGS[arg]) {
-      options[BOOLEAN_FLAGS[arg]] = true;
-    }
-  }
-
-  options.cacheDir = resolve(options.cacheDir);
-  return options;
-}
 
 /** Print `label: value`, skipping fields the saved review never filled in. */
 function printField(label, value) {
@@ -567,117 +580,18 @@ function printCachedReview(result, reportLabel) {
 }
 
 function printCheckResult(result) {
-  if (result.status === "CACHED") {
-    console.log(`\x1b[32m[CACHE HIT]\x1b[0m ${result.message}`);
+  if (result.status === CHECK_STATUS.CACHED) {
+    console.log(`${color.green("[CACHE HIT]")} ${result.message}`);
     printCachedReview(result, "Full report");
-  } else if (result.status === "MERGED") {
-    console.log(`\x1b[33m[MERGED]\x1b[0m ${result.message}`);
+  } else if (result.status === CHECK_STATUS.MERGED) {
+    console.log(`${color.yellow("[MERGED]")} ${result.message}`);
     if (result.cached) {
       printCachedReview(result, "Retained report");
     }
-  } else if (result.status === "ERROR") {
-    console.error(`\x1b[31m[ERROR]\x1b[0m ${result.message}`);
+  } else if (result.status === CHECK_STATUS.ERROR) {
+    console.error(`${color.red("[ERROR]")} ${result.message}`);
   } else {
-    console.log(`\x1b[36m[CACHE MISS]\x1b[0m ${result.message}`);
-  }
-}
-
-async function runCheck(options) {
-  if (!options.pr) {
-    fail(
-      "Error: --pr is required for check. Local-branch reviews are not cached.",
-    );
-  }
-
-  if (options.force) {
-    if (options.json) {
-      console.log(
-        JSON.stringify({
-          status: "FORCED_MISS",
-          pr: options.pr,
-          message: "Forced review bypass",
-        }),
-      );
-    } else {
-      console.log(`Forced cache bypass for PR #${options.pr}.`);
-    }
-    process.exit(CHECK_EXIT_CODES.MISS);
-  }
-
-  const result = await checkReview({
-    pr: options.pr,
-    sha: options.sha,
-    repo: options.repo,
-    offline: options.offline,
-    cacheDir: options.cacheDir,
-  });
-
-  if (options.json) {
-    console.log(JSON.stringify(result, null, 2));
-  } else {
-    printCheckResult(result);
-  }
-
-  process.exit(CHECK_EXIT_CODES[result.status] ?? 3);
-}
-
-/** Resolve the findings markdown a `save` should persist. */
-function readReportContent({ reportFile, reportText }) {
-  if (reportFile && reportText !== undefined) {
-    fail("Error: pass only one of --report-file or --report-text.");
-  }
-  if (!reportFile) {
-    return reportText ?? "";
-  }
-  if (reportFile === "-") {
-    return readFileSync(0, "utf-8");
-  }
-  if (!existsSync(reportFile)) {
-    // Never silently fall back to treating the path as content: a typo would
-    // otherwise be cached as a valid review whose body is the filename.
-    fail(
-      `Error: report file not found: ${reportFile}. Use --report-text for inline markdown.`,
-    );
-  }
-  return readFileSync(reportFile, "utf-8");
-}
-
-function runSave(options) {
-  const result = saveReview({
-    pr: options.pr,
-    sha: options.sha,
-    title: options.title,
-    recommendation: options.recommendation,
-    summary: options.summary,
-    reportContent: readReportContent(options),
-    cacheDir: options.cacheDir,
-  });
-
-  if (options.json) {
-    console.log(JSON.stringify(result, null, 2));
-  } else {
-    console.log(
-      `Saved review for PR #${result.pr} (${result.headSha.slice(0, 7)}) to ${result.reportPath}`,
-    );
-  }
-}
-
-async function runSync(options) {
-  const result = await syncCache({
-    repo: options.repo,
-    cacheDir: options.cacheDir,
-  });
-
-  if (options.json) {
-    console.log(JSON.stringify(result, null, 2));
-    return;
-  }
-
-  console.log(
-    `Synced ${result.totalCount} cached reviews: ${result.openCount} open, ${result.mergedCount} merged, ${result.unreachableCount} unreachable.`,
-  );
-  for (const item of result.merged.filter((entry) => entry.changed)) {
-    console.log(`  - #${item.pr} now merged: ${item.title || item.headSha}`);
+    console.log(`${color.cyan("[CACHE MISS]")} ${result.message}`);
   }
 }
 
@@ -695,11 +609,168 @@ function formatDateOnly(isoString) {
   }
 }
 
-function runList(options) {
+// ============================================================================
+// 7. CLI Option Parsing & Dispatcher
+// ============================================================================
+
+export function parseCliArgs(rawArgs) {
+  // Check for ambiguous --report before standard parsing
+  if (rawArgs.includes("--report")) {
+    throw new Error(
+      "Error: --report is ambiguous. Use --report-file <path> (or '-' for stdin), or --report-text <markdown>.",
+    );
+  }
+
+  const { values, positionals } = parseArgs({
+    args: rawArgs,
+    allowPositionals: true,
+    strict: false,
+    options: {
+      pr: { type: "string" },
+      sha: { type: "string" },
+      repo: { type: "string", default: "uswds/uswds" },
+      recommendation: { type: "string" },
+      rec: { type: "string" },
+      summary: { type: "string" },
+      title: { type: "string" },
+      "report-file": { type: "string" },
+      "report-text": { type: "string" },
+      "cache-dir": { type: "string" },
+      json: { type: "boolean", default: false },
+      force: { type: "boolean", default: false },
+      offline: { type: "boolean", default: false },
+      help: { type: "boolean", short: "h", default: false },
+    },
+  });
+
+  return {
+    command: positionals[0],
+    options: {
+      pr: values.pr,
+      sha: values.sha,
+      repo: values.repo,
+      recommendation: values.recommendation || values.rec,
+      summary: values.summary,
+      title: values.title,
+      reportFile: values["report-file"],
+      reportText: values["report-text"],
+      cacheDir: resolve(values["cache-dir"] || getDefaultCacheDir()),
+      json: values.json,
+      force: values.force,
+      offline: values.offline,
+      help: values.help,
+    },
+  };
+}
+
+/** Resolve the findings markdown a `save` should persist. */
+function readReportContent({ reportFile, reportText }) {
+  if (reportFile && reportText !== undefined) {
+    throw new Error("Error: pass only one of --report-file or --report-text.");
+  }
+  if (!reportFile) {
+    return reportText ?? "";
+  }
+  if (reportFile === "-") {
+    return readFileSync(0, "utf-8");
+  }
+  if (!existsSync(reportFile)) {
+    // Never silently fall back to treating the path as content: a typo would
+    // otherwise be cached as a valid review whose body is the filename.
+    throw new Error(
+      `Error: report file not found: ${reportFile}. Use --report-text for inline markdown.`,
+    );
+  }
+  return readFileSync(reportFile, "utf-8");
+}
+
+export async function runCheck(options) {
+  if (!options.pr) {
+    throw new Error(
+      "Error: --pr is required for check. Local-branch reviews are not cached.",
+    );
+  }
+
+  if (options.force) {
+    if (options.json) {
+      console.log(
+        JSON.stringify({
+          status: "FORCED_MISS",
+          pr: options.pr,
+          message: "Forced review bypass",
+        }),
+      );
+    } else {
+      console.log(`Forced cache bypass for PR #${options.pr}.`);
+    }
+    return { exitCode: CHECK_EXIT_CODES[CHECK_STATUS.MISS] };
+  }
+
+  const result = await checkReview({
+    pr: options.pr,
+    sha: options.sha,
+    repo: options.repo,
+    offline: options.offline,
+    cacheDir: options.cacheDir,
+  });
+
+  if (options.json) {
+    console.log(JSON.stringify(result, null, 2));
+  } else {
+    printCheckResult(result);
+  }
+
+  return { exitCode: CHECK_EXIT_CODES[result.status] ?? 3, result };
+}
+
+export function runSave(options) {
+  const result = saveReview({
+    pr: options.pr,
+    sha: options.sha,
+    title: options.title,
+    recommendation: options.recommendation,
+    summary: options.summary,
+    reportContent: readReportContent(options),
+    cacheDir: options.cacheDir,
+  });
+
+  if (options.json) {
+    console.log(JSON.stringify(result, null, 2));
+  } else {
+    console.log(
+      `Saved review for PR #${result.pr} (${result.headSha.slice(0, 7)}) to ${result.reportPath}`,
+    );
+  }
+
+  return { exitCode: 0, result };
+}
+
+export async function runSync(options) {
+  const result = await syncCache({
+    repo: options.repo,
+    cacheDir: options.cacheDir,
+  });
+
+  if (options.json) {
+    console.log(JSON.stringify(result, null, 2));
+    return { exitCode: 0, result };
+  }
+
+  console.log(
+    `Synced ${result.totalCount} cached reviews: ${result.openCount} open, ${result.mergedCount} merged, ${result.unreachableCount} unreachable.`,
+  );
+  for (const item of result.merged.filter((entry) => entry.changed)) {
+    console.log(`  - #${item.pr} now merged: ${item.title || item.headSha}`);
+  }
+
+  return { exitCode: 0, result };
+}
+
+export function runList(options) {
   const cache = loadCache(options.cacheDir);
   if (options.json) {
     console.log(JSON.stringify(cache, null, 2));
-    return;
+    return { exitCode: 0, result: cache };
   }
 
   const entries = Object.values(cache.reviews || {});
@@ -715,37 +786,55 @@ function runList(options) {
       console.log(`      ${item.summary}`);
     }
   }
+
+  return { exitCode: 0, result: cache };
 }
 
-const COMMANDS = {
+export const COMMANDS = {
   check: runCheck,
   save: runSave,
   sync: runSync,
   list: runList,
 };
 
-async function main() {
-  const args = process.argv.slice(2);
-  const command = args[0];
+export async function main(rawArgs = process.argv.slice(2)) {
+  let parsed;
+  try {
+    parsed = parseCliArgs(rawArgs);
+  } catch (err) {
+    console.error(err.message);
+    return 1;
+  }
 
-  if (!command || args.includes("--help") || args.includes("-h")) {
+  const { command, options } = parsed;
+
+  if (!command || options.help || rawArgs.includes("--help") || rawArgs.includes("-h")) {
     console.log(HELP_TEXT);
-    process.exit(0);
+    return 0;
   }
 
   const run = COMMANDS[command];
   if (!run) {
-    fail(`Unknown command: ${command}`);
+    console.error(`Unknown command: ${command}`);
+    return 1;
   }
 
-  await run(parseOptions(args.slice(1)));
+  try {
+    const { exitCode = 0 } = await run(options);
+    return exitCode;
+  } catch (err) {
+    console.error(err.message);
+    return 1;
+  }
 }
 
 if (
   process.argv[1] &&
   fileURLToPath(import.meta.url) === resolve(process.argv[1])
 ) {
-  main().catch((err) => {
+  main().then((code) => {
+    process.exit(code);
+  }).catch((err) => {
     console.error("Fatal error in review-cache:", err.message);
     process.exit(1);
   });
