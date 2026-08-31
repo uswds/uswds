@@ -25,12 +25,12 @@ Guidance for coding agents working **on the USWDS repository** (builders), not f
 
 From USWDS accessibility principles. Do not regress these:
 
-1. Keyboard focus follows a logical, predictable order.
-2. Meaning is never conveyed by visual style alone (color, shape, position).
-3. Page and component state changes are announced to assistive technology when users need them.
+1. Keyboard focus follows a logical, predictable order, and the focus indicator stays visible (WCAG 2.4.7; don't obscure it, 2.4.11).
+2. Meaning is never conveyed by visual style alone (color, shape, position), and text/UI-component contrast meets WCAG minimums (4.5:1 normal text, 3:1 large text and UI components/graphics — 1.4.3, 1.4.11).
+3. Page and component state changes are announced to assistive technology when users need them (status messages, WCAG 4.1.3).
 4. Non-text content has an appropriate text equivalent.
 5. Critical information does not depend on hover alone.
-6. Touch and keyboard-only interaction are both fully supported.
+6. Touch and keyboard-only interaction are both fully supported, including a minimum 24×24 CSS px touch target where feasible (WCAG 2.2 SC 2.5.8).
 
 ## Scope firewall
 
@@ -47,6 +47,7 @@ Use for changes that touch:
 - `aria-*`, roles, names, descriptions, live regions
 - Show/hide patterns (`hidden`, `aria-hidden`, `data-modal-hidden`, disclosure)
 - Screen-reader-only text (`.usa-sr-only` and similar)
+- Color contrast, focus visibility, or touch target sizing
 - a11y tests, Storybook a11y stories, or manual AT notes in a PR
 
 If the change is unrelated (tokens, pure Sass color, docs typo with no SR impact), say so and stop. Do not force an a11y review.
@@ -63,6 +64,11 @@ Require extra care. Prefer reading the existing component JS and tests before ed
 | Accordion | `aria-expanded`, button/heading pattern, multi-select vs single |
 | Header / nav / language selector | Menus, focus trap reuse, mobile toggle |
 | File input, character count, validation | Live regions, error association (`aria-describedby`), status text |
+| Table (sortable) | Column header button semantics (`aria-sort`), announced sort state, keyboard operability of sort controls |
+| Tooltip | Hover **and** focus/dismiss support, never the only source of critical info, no keyboard trap |
+| Banner | Disclosure semantics for the "how you know this is official" expand/collapse |
+| Pagination | Current-page indication (`aria-current="page"`), accessible name per link |
+| Radio / checkbox groups, fieldsets | `fieldset`/`legend` grouping, group-level error association |
 
 Shared utilities often involved: `focus-trap`, `keymap`, `behavior`, `active-element`, `toggle` (under `packages/uswds-core/src/js/utils/`).
 
@@ -88,12 +94,15 @@ Do not declare an accessibility fix done until the relevant steps below are done
 
 ### 4. Manual AT (required for interactive behavior)
 
-Automated scans alone are not sign-off when focus, keyboard, or announcements change.
+Automated scans alone are not sign-off when focus, keyboard, contrast, or announcements change.
 
 Minimum manual matrix for substantive interactive fixes:
 
 - Keyboard only (Tab, Shift+Tab, Enter/Space, Escape, arrows where applicable)
 - One screen reader combo: VoiceOver + Safari, or NVDA + Firefox (or Chrome)
+- Zoom/reflow check at 400% zoom / 320px viewport width — confirm no loss of content or functionality (WCAG 1.4.10, 1.4.4)
+- If the change adds or alters icon-only controls or CSS-generated (`::before`/`::after`) content, spot-check in forced-colors / Windows High Contrast Mode
+- If the change affects touch or gesture behavior, add a mobile screen reader pass (VoiceOver + iOS Safari, or TalkBack + Chrome) alongside the desktop combo above
 
 In the PR, state:
 
@@ -112,7 +121,11 @@ Do not:
 - Leave the page `aria-hidden` after a modal/dialog closes (especially if the opener node was removed)
 - Replace a native `<button>` / `<a>` / `<input>` with a `div` click handler
 - Rely on `title` alone for critical accessible names
-- Announce every keystroke with polite live regions when a single status change is enough
+- Announce every keystroke with polite live regions when a single status change is enough (keep to WCAG 4.1.3 status-message intent)
+- Set a positive `tabindex` (`tabindex > 0`) to force a custom order instead of fixing DOM/source order
+- Suppress the default focus outline without a compliant custom indicator (WCAG 2.4.7 / 2.4.11)
+- Rely on hover-only tooltips or menus with no focus-triggered equivalent
+- Ship a new icon-only control or CSS-generated-content indicator without checking forced-colors / Windows High Contrast Mode
 - Assert product-wide 508 compliance from component usage or Axe alone
 
 ## Output expectations
@@ -121,7 +134,7 @@ When applying this skill, be explicit:
 
 1. **Risk:** which non-negotiable or high-risk component area is involved
 2. **Change:** what markup/behavior/test changed
-3. **Evidence:** tests run, AT matrix, or why deferred
+3. **Evidence:** tests run, AT matrix (including zoom/reflow, forced-colors, or mobile AT where applicable), or why deferred
 4. **Routing:** if live AT is still needed, say `Needs accessibility specialist AT verification` and list the matrix. Do not soft-claim "LGTM for AT" from code alone.
 
 ## Related
