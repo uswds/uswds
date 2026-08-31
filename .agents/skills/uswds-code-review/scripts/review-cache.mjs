@@ -95,7 +95,11 @@ export function writeCache(cacheData, cacheDir = getDefaultCacheDir()) {
 
 export async function execCmd(cmd, args, opts = {}) {
   return new Promise((resolvePromise, rejectPromise) => {
-    const proc = spawn(cmd, args, { timeout: opts.timeout || 60000 });
+    const proc = spawn(cmd, args, {
+      timeout: opts.timeout || 60000,
+      killSignal: opts.killSignal || "SIGKILL",
+      ...opts,
+    });
     let stdout = "";
     let stderr = "";
     proc.stdout?.on("data", (d) => {
@@ -105,9 +109,14 @@ export async function execCmd(cmd, args, opts = {}) {
       stderr += d;
     });
     proc.on("error", rejectPromise);
+    proc.on("exit", (code, signal) => {
+      if (signal) {
+        rejectPromise(
+          new Error(`${cmd} terminated by signal ${signal}: ${stderr.trim()}`),
+        );
+      }
+    });
     proc.on("close", (code, signal) => {
-      // A timed-out child is SIGKILLed and reports code === null. Treating that
-      // as success would resolve with whatever partial stdout had arrived.
       if (signal) {
         rejectPromise(
           new Error(`${cmd} terminated by signal ${signal}: ${stderr.trim()}`),
@@ -126,12 +135,8 @@ export async function execCmd(cmd, args, opts = {}) {
 export function parsePRNumber(prInput) {
   if (!prInput) return null;
   if (typeof prInput === "number") return prInput;
-  const str = String(prInput).trim();
-  const match = str.match(/(?:pull\/|#|^)(\d+)(?:\/|\b|$)/);
-  if (match) {
-    return parseInt(match[1], 10);
-  }
-  return null;
+  const match = String(prInput).match(/(?:pull\/|#|^)(\d+)(?:\/|\b|$)/);
+  return match ? parseInt(match[1], 10) : null;
 }
 
 export async function fetchPRInfo(
@@ -449,11 +454,15 @@ export async function syncCache({
 
   writeCache(cache, cacheDir);
 
+  const changedCount =
+    merged.filter((e) => e.changed).length +
+    open.filter((e) => e.changed).length;
+
   return {
     mergedCount: merged.length,
     openCount: open.length,
     unreachableCount: unreachable.length,
-    changedCount: [...merged, ...open].filter((e) => e.changed).length,
+    changedCount,
     merged,
     open,
     unreachable,
