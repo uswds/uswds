@@ -40,8 +40,13 @@ import {
   execCmd,
   parseCliArgs,
   main,
+  getDefaultCacheDir,
+  assertSafeCacheDir,
+  findRepoRoot,
+  CACHE_DIR_NAME,
   STATUS_OPEN,
   STATUS_MERGED,
+  STATUS_CLOSED,
   CHECK_STATUS,
   CHECK_EXIT_CODES,
 } from "./review-cache.mjs";
@@ -468,30 +473,68 @@ describe("review-cache", () => {
       assert.strictEqual(res.cached, false);
       assert.deepStrictEqual(readCache().reviews, {});
     });
+
+    it("marks a closed (unmerged) PR without deleting its review or report", async () => {
+      const sha = nextSha();
+      save({
+        pr: 6652,
+        sha,
+        recommendation: "Approve",
+        reportContent: "# Closed PR findings\n\nNo blockers.",
+      });
+
+      const res = await check({
+        pr: 6652,
+        fetchPRInfoFn: stubLookup({
+          number: 6652,
+          state: "CLOSED",
+          headRefOid: sha,
+          closedAt: MERGED_AT,
+        }),
+      });
+
+      assert.strictEqual(res.status, "CLOSED");
+      assert.strictEqual(res.cached, true);
+      assert.strictEqual(res.recommendation, "Approve");
+
+      const updatedCache = readCache();
+      assert.ok(updatedCache.reviews["6652"], "entry must be retained");
+      assert.strictEqual(updatedCache.reviews["6652"].status, STATUS_CLOSED);
+      assert.strictEqual(updatedCache.reviews["6652"].closedAt, MERGED_AT);
+      assert.ok(
+        existsSync(reportFile(sha)),
+        "findings markdown must be retained",
+      );
+    });
   });
 
   describe("syncCache", () => {
-    it("marks merged entries and leaves open ones alone, deleting nothing", async () => {
+    it("marks merged and closed entries and leaves open ones alone, deleting nothing", async () => {
       // Fixed SHAs: the report filenames are asserted on below.
       save({ pr: 101, sha: "a101101" });
       save({ pr: 102, sha: "b102102", recommendation: "Request changes" });
+      save({ pr: 103, sha: "c103103", recommendation: "Approve" });
 
       const res = await sync({
         fetchPRInfoFn: stubLookupByPR({
           101: { number: 101, state: "MERGED", mergedAt: MERGED_AT },
           102: { number: 102, headRefOid: "b102102" },
+          103: { number: 103, state: "CLOSED", closedAt: MERGED_AT },
         }),
       });
 
       assert.strictEqual(res.mergedCount, 1);
+      assert.strictEqual(res.closedCount, 1);
       assert.strictEqual(res.openCount, 1);
-      assert.strictEqual(res.totalCount, 2);
+      assert.strictEqual(res.totalCount, 3);
 
       const cache = readCache();
       assert.strictEqual(cache.reviews["101"].status, STATUS_MERGED);
       assert.strictEqual(cache.reviews["102"].status, STATUS_OPEN);
+      assert.strictEqual(cache.reviews["103"].status, STATUS_CLOSED);
       assert.ok(existsSync(reportFile("a101101")));
       assert.ok(existsSync(reportFile("b102102")));
+      assert.ok(existsSync(reportFile("c103103")));
     });
 
     it("leaves status untouched when the lookup fails", async () => {

@@ -33,9 +33,6 @@ PR reviews are cached in an unversioned `.review-cache/` directory at the projec
 # Check if PR is already cached at current commit
 node .agents/skills/uswds-code-review/scripts/review-cache.mjs check --pr <N>
 
-# List all cached reviews
-node .agents/skills/uswds-code-review/scripts/review-cache.mjs list
-
 # Refresh open/merged status for every cached review
 node .agents/skills/uswds-code-review/scripts/review-cache.mjs sync
 ```

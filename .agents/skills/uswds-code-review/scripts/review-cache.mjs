@@ -21,10 +21,15 @@
  *   node review-cache.mjs check --pr 6767
  *   node review-cache.mjs save --pr 6767 --sha abc1234 --recommendation "Request changes" --summary "..." --report-file report.md
  *   node review-cache.mjs sync
- *   node review-cache.mjs list
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync, renameSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+  renameSync,
+} from "node:fs";
 import { resolve, join, dirname } from "node:path";
 import { execFile } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -35,6 +40,7 @@ const execFileAsync = promisify(execFile);
 
 export const STATUS_OPEN = "open";
 export const STATUS_MERGED = "merged";
+export const STATUS_CLOSED = "closed";
 
 /** Conventional cache directory name, relative to the repo root. */
 export const CACHE_DIR_NAME = ".review-cache";
@@ -43,6 +49,7 @@ export const CHECK_STATUS = {
   CACHED: "CACHED",
   MISS: "MISS",
   MERGED: "MERGED",
+  CLOSED: "CLOSED",
   ERROR: "ERROR",
 };
 
@@ -50,6 +57,7 @@ export const CHECK_EXIT_CODES = {
   [CHECK_STATUS.CACHED]: 0,
   [CHECK_STATUS.MISS]: 1,
   [CHECK_STATUS.MERGED]: 2,
+  [CHECK_STATUS.CLOSED]: 2,
   [CHECK_STATUS.ERROR]: 3,
 };
 
@@ -68,7 +76,30 @@ export function findRepoRoot(startDir = process.cwd()) {
 }
 
 export function getDefaultCacheDir(startDir = process.cwd()) {
+  if (process.env.USWDS_REVIEW_CACHE_DIR) {
+    return resolve(process.env.USWDS_REVIEW_CACHE_DIR);
+  }
   return join(findRepoRoot(startDir), CACHE_DIR_NAME);
+}
+
+export function isTestEnv() {
+  return (
+    process.env.NODE_ENV === "test" ||
+    Boolean(process.env.MOCHA_COLORS) ||
+    Boolean(process.env.npm_lifecycle_event?.includes("test"))
+  );
+}
+
+export function assertSafeCacheDir(cacheDir) {
+  if (isTestEnv() && !process.env.USWDS_ALLOW_PROD_CACHE_IN_TEST) {
+    const realProdCache = resolve(join(findRepoRoot(), CACHE_DIR_NAME));
+    if (resolve(cacheDir) === realProdCache) {
+      throw new Error(
+        `Refusing to modify production review cache (${realProdCache}) during tests. ` +
+          `Set USWDS_REVIEW_CACHE_DIR to a temporary directory or pass --cache-dir.`,
+      );
+    }
+  }
 }
 
 /** Findings for a commit always live at <cacheDir>/<sha>.md. */
@@ -101,6 +132,7 @@ export function loadCache(cacheDir = getDefaultCacheDir()) {
  * is interrupted or terminated midway through writing.
  */
 export function writeCache(cacheData, cacheDir = getDefaultCacheDir()) {
+  assertSafeCacheDir(cacheDir);
   mkdirSync(cacheDir, { recursive: true });
   const payload = {
     version: cacheData.version || 1,
@@ -181,7 +213,7 @@ export async function fetchPRInfo(
       "--repo",
       repo,
       "--json",
-      "number,title,state,mergedAt,headRefOid,url,baseRefName",
+      "number,title,state,mergedAt,closedAt,headRefOid,url,baseRefName",
     ]);
     return JSON.parse(jsonStr);
   } catch (err) {
@@ -197,7 +229,11 @@ export async function fetchPRInfo(
  * report OPEN while carrying a mergedAt timestamp, so trust either signal.
  */
 function isMergedPR(prInfo) {
-  return prInfo.state === "MERGED" || Boolean(prInfo.mergedAt);
+  return prInfo?.state === "MERGED" || Boolean(prInfo?.mergedAt);
+}
+
+function isClosedPR(prInfo) {
+  return prInfo?.state === "CLOSED" && !isMergedPR(prInfo);
 }
 
 /**
@@ -222,6 +258,7 @@ async function resolvePRHead({
         prInfo,
         currentSha: prInfo.headRefOid,
         isMerged: isMergedPR(prInfo),
+        isClosed: isClosedPR(prInfo),
       };
     } catch (err) {
       if (!sha) {
@@ -229,7 +266,7 @@ async function resolvePRHead({
       }
     }
   }
-  return { prInfo: null, currentSha: sha, isMerged: false };
+  return { prInfo: null, currentSha: sha, isMerged: false, isClosed: false };
 }
 
 export async function checkReview({
@@ -254,14 +291,16 @@ export async function checkReview({
 
   const cache = loadCache(cacheDir);
 
-  const { prInfo, currentSha, isMerged, error } = await resolvePRHead({
-    prNum,
-    sha,
-    repo,
-    offline,
-    fetchPRInfoFn,
-    execFn,
-  });
+  const { prInfo, currentSha, isMerged, isClosed, error } = await resolvePRHead(
+    {
+      prNum,
+      sha,
+      repo,
+      offline,
+      fetchPRInfoFn,
+      execFn,
+    },
+  );
 
   if (error) {
     return { status: CHECK_STATUS.ERROR, pr: prNum, message: error };
@@ -294,6 +333,7 @@ export async function checkReview({
     if (cachedEntry.status !== STATUS_MERGED) {
       cachedEntry.status = STATUS_MERGED;
       cachedEntry.mergedAt = prInfo?.mergedAt || new Date().toISOString();
+      delete cachedEntry.closedAt;
       writeCache(cache, cacheDir);
     }
     return {
@@ -305,6 +345,37 @@ export async function checkReview({
       mergedAt: cachedEntry.mergedAt,
       ...getCachedReviewDetails(cacheDir, cachedEntry),
       message: `PR #${prNum} is merged. Its review of ${shortSha(cachedEntry.headSha)} is retained in the cache.`,
+    };
+  }
+
+  if (isClosed && !cachedEntry) {
+    return {
+      status: CHECK_STATUS.CLOSED,
+      pr: prNum,
+      headSha: currentSha,
+      cached: false,
+      message: `PR #${prNum} is closed and was never reviewed through this cache.`,
+    };
+  }
+
+  // A closed PR keeps its entry and its findings markdown; only the status
+  // changes.
+  if (isClosed) {
+    if (cachedEntry.status !== STATUS_CLOSED) {
+      cachedEntry.status = STATUS_CLOSED;
+      cachedEntry.closedAt = prInfo?.closedAt || new Date().toISOString();
+      delete cachedEntry.mergedAt;
+      writeCache(cache, cacheDir);
+    }
+    return {
+      status: CHECK_STATUS.CLOSED,
+      pr: prNum,
+      headSha: currentSha,
+      cached: true,
+      reviewedSha: cachedEntry.headSha,
+      closedAt: cachedEntry.closedAt,
+      ...getCachedReviewDetails(cacheDir, cachedEntry),
+      message: `PR #${prNum} is closed. Its review of ${shortSha(cachedEntry.headSha)} is retained in the cache.`,
     };
   }
 
@@ -357,6 +428,7 @@ export function saveReview({
   status = STATUS_OPEN,
   cacheDir = getDefaultCacheDir(),
 }) {
+  assertSafeCacheDir(cacheDir);
   assertValidSha(sha);
 
   const prNum = parsePRNumber(pr);
@@ -416,6 +488,7 @@ export async function syncCache({
   const cache = loadCache(cacheDir);
   const entries = Object.values(cache.reviews || {});
   const merged = [];
+  const closed = [];
   const open = [];
   const unreachable = [];
 
@@ -432,14 +505,28 @@ export async function syncCache({
         try {
           const prInfo = await fetchPRInfoFn(prNum, repo, execFn);
           const isMerged = isMergedPR(prInfo);
-          const nextStatus = isMerged ? STATUS_MERGED : STATUS_OPEN;
+          const isClosed = isClosedPR(prInfo);
+          let nextStatus = STATUS_OPEN;
+          if (isMerged) nextStatus = STATUS_MERGED;
+          else if (isClosed) nextStatus = STATUS_CLOSED;
+
           const changed = entry.status !== nextStatus;
 
           entry.status = nextStatus;
           entry.title = entry.title || prInfo.title || "";
           if (isMerged) {
             entry.mergedAt = prInfo.mergedAt || entry.mergedAt || null;
+            delete entry.closedAt;
             merged.push({
+              pr: prNum,
+              headSha: entry.headSha,
+              title: entry.title,
+              changed,
+            });
+          } else if (isClosed) {
+            entry.closedAt = prInfo.closedAt || entry.closedAt || null;
+            delete entry.mergedAt;
+            closed.push({
               pr: prNum,
               headSha: entry.headSha,
               title: entry.title,
@@ -447,6 +534,7 @@ export async function syncCache({
             });
           } else {
             delete entry.mergedAt;
+            delete entry.closedAt;
             open.push({ pr: prNum, headSha: entry.headSha, changed });
           }
         } catch {
@@ -459,14 +547,18 @@ export async function syncCache({
 
   writeCache(cache, cacheDir);
 
-  const changedCount = [...merged, ...open].filter((e) => e.changed).length;
+  const changedCount = [...merged, ...closed, ...open].filter(
+    (e) => e.changed,
+  ).length;
 
   return {
     mergedCount: merged.length,
+    closedCount: closed.length,
     openCount: open.length,
     unreachableCount: unreachable.length,
     changedCount,
     merged,
+    closed,
     open,
     unreachable,
     totalCount: Object.keys(cache.reviews || {}).length,
@@ -479,12 +571,12 @@ Usage:
   node review-cache.mjs check --pr <number|url> [--sha <hash>] [--offline] [--repo <owner/repo>] [--json]
   node review-cache.mjs save --pr <number> --sha <hash> --recommendation <text> --summary <text> [--report-file <file> | --report-text <md>] [--title <text>]
   node review-cache.mjs sync [--repo <owner/repo>] [--json]
-  node review-cache.mjs list [--json]
 
 Exit codes for check:
   0  CACHED  — already reviewed at this commit
   1  MISS    — review needed
   2  MERGED  — PR is merged; prior review (if any) is retained
+  2  CLOSED  — PR is closed; prior review (if any) is retained
   3  ERROR   — could not determine state
 
 Options:
@@ -510,6 +602,7 @@ const color = {
 const CHECK_BADGES = {
   [CHECK_STATUS.CACHED]: () => color.green("[CACHE HIT]"),
   [CHECK_STATUS.MERGED]: () => color.yellow("[MERGED]"),
+  [CHECK_STATUS.CLOSED]: () => color.red("[CLOSED]"),
   [CHECK_STATUS.ERROR]: () => color.red("[ERROR]"),
   [CHECK_STATUS.MISS]: () => color.cyan("[CACHE MISS]"),
 };
@@ -528,28 +621,20 @@ function printCachedReview(result, reportLabel) {
 }
 
 function printCheckResult(result) {
-  const badgeFn = CHECK_BADGES[result.status] || CHECK_BADGES[CHECK_STATUS.MISS];
-  const out = result.status === CHECK_STATUS.ERROR ? console.error : console.log;
+  const badgeFn =
+    CHECK_BADGES[result.status] || CHECK_BADGES[CHECK_STATUS.MISS];
+  const out =
+    result.status === CHECK_STATUS.ERROR ? console.error : console.log;
   out(`${badgeFn()} ${result.message}`);
 
   if (result.status === CHECK_STATUS.CACHED) {
     printCachedReview(result, "Full report");
-  } else if (result.status === CHECK_STATUS.MERGED && result.cached) {
+  } else if (
+    (result.status === CHECK_STATUS.MERGED ||
+      result.status === CHECK_STATUS.CLOSED) &&
+    result.cached
+  ) {
     printCachedReview(result, "Retained report");
-  }
-}
-
-/** Pluralize `count` of `singular`, e.g. `pluralize(1, "item")` -> "item". */
-function pluralize(count, singular, plural = `${singular}s`) {
-  return count === 1 ? singular : plural;
-}
-
-function formatDateOnly(isoString) {
-  if (!isoString) return "-";
-  try {
-    return new Date(isoString).toISOString().split("T")[0];
-  } catch {
-    return isoString;
   }
 }
 
@@ -672,29 +757,13 @@ export async function runSync(options) {
 
   return outputResult(options, result, () => {
     console.log(
-      `Synced ${result.totalCount} cached reviews: ${result.openCount} open, ${result.mergedCount} merged, ${result.unreachableCount} unreachable.`,
+      `Synced ${result.totalCount} cached reviews: ${result.openCount} open, ${result.mergedCount} merged, ${result.closedCount} closed, ${result.unreachableCount} unreachable.`,
     );
     for (const item of result.merged.filter((entry) => entry.changed)) {
       console.log(`  - #${item.pr} now merged: ${item.title || item.headSha}`);
     }
-  });
-}
-
-export function runList(options) {
-  const cache = loadCache(options.cacheDir);
-
-  return outputResult(options, cache, () => {
-    const entries = Object.values(cache.reviews || {});
-    console.log(
-      `Cached reviews (${entries.length} ${pluralize(entries.length, "item")}):`,
-    );
-    for (const item of entries) {
-      console.log(
-        `  PR #${item.pr || "?"} [${shortSha(item.headSha)}] (${item.status || STATUS_OPEN}) - ${item.recommendation || "Reviewed"} (${formatDateOnly(item.reviewedAt)})`,
-      );
-      if (item.summary) {
-        console.log(`      ${item.summary}`);
-      }
+    for (const item of result.closed.filter((entry) => entry.changed)) {
+      console.log(`  - #${item.pr} now closed: ${item.title || item.headSha}`);
     }
   });
 }
@@ -703,7 +772,6 @@ export const COMMANDS = {
   check: runCheck,
   save: runSave,
   sync: runSync,
-  list: runList,
 };
 
 export async function main(rawArgs = process.argv.slice(2)) {
@@ -741,10 +809,12 @@ if (
   process.argv[1] &&
   fileURLToPath(import.meta.url) === resolve(process.argv[1])
 ) {
-  main().then((code) => {
-    process.exit(code);
-  }).catch((err) => {
-    console.error("Fatal error in review-cache:", err.message);
-    process.exit(1);
-  });
+  main()
+    .then((code) => {
+      process.exit(code);
+    })
+    .catch((err) => {
+      console.error("Fatal error in review-cache:", err.message);
+      process.exit(1);
+    });
 }
