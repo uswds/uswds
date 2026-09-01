@@ -591,14 +591,14 @@ describe("review-cache", () => {
       assert.strictEqual(options.json, true);
     });
 
-    it("parses save options including alias --rec", () => {
+    it("parses save options", () => {
       const { command, options } = parseCliArgs([
         "save",
         "--pr",
         "6767",
         "--sha",
         "abc1234",
-        "--rec",
+        "--recommendation",
         "Request changes",
         "--summary",
         "some notes",

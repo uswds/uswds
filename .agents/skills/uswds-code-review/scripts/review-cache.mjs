@@ -317,65 +317,39 @@ export async function checkReview({
 
   const cachedEntry = cache.reviews?.[String(prNum)] || null;
 
-  if (isMerged && !cachedEntry) {
-    return {
-      status: CHECK_STATUS.MERGED,
-      pr: prNum,
-      headSha: currentSha,
-      cached: false,
-      message: `PR #${prNum} is merged and was never reviewed through this cache.`,
-    };
-  }
+  if (isMerged || isClosed) {
+    const status = isMerged ? STATUS_MERGED : STATUS_CLOSED;
+    const checkStatus = isMerged ? CHECK_STATUS.MERGED : CHECK_STATUS.CLOSED;
+    const stateLabel = isMerged ? "merged" : "closed";
+    const timeKey = isMerged ? "mergedAt" : "closedAt";
+    const otherTimeKey = isMerged ? "closedAt" : "mergedAt";
 
-  // A merged PR keeps its entry and its findings markdown; only the status
-  // changes. The review is still the best record of what was examined.
-  if (isMerged) {
-    if (cachedEntry.status !== STATUS_MERGED) {
-      cachedEntry.status = STATUS_MERGED;
-      cachedEntry.mergedAt = prInfo?.mergedAt || new Date().toISOString();
-      delete cachedEntry.closedAt;
+    if (!cachedEntry) {
+      return {
+        status: checkStatus,
+        pr: prNum,
+        headSha: currentSha,
+        cached: false,
+        message: `PR #${prNum} is ${stateLabel} and was never reviewed through this cache.`,
+      };
+    }
+
+    // A merged/closed PR keeps its entry and findings markdown; only status updates.
+    if (cachedEntry.status !== status) {
+      cachedEntry.status = status;
+      cachedEntry[timeKey] = prInfo?.[timeKey] || new Date().toISOString();
+      delete cachedEntry[otherTimeKey];
       writeCache(cache, cacheDir);
     }
     return {
-      status: CHECK_STATUS.MERGED,
+      status: checkStatus,
       pr: prNum,
       headSha: currentSha,
       cached: true,
       reviewedSha: cachedEntry.headSha,
-      mergedAt: cachedEntry.mergedAt,
+      [timeKey]: cachedEntry[timeKey],
       ...getCachedReviewDetails(cacheDir, cachedEntry),
-      message: `PR #${prNum} is merged. Its review of ${shortSha(cachedEntry.headSha)} is retained in the cache.`,
-    };
-  }
-
-  if (isClosed && !cachedEntry) {
-    return {
-      status: CHECK_STATUS.CLOSED,
-      pr: prNum,
-      headSha: currentSha,
-      cached: false,
-      message: `PR #${prNum} is closed and was never reviewed through this cache.`,
-    };
-  }
-
-  // A closed PR keeps its entry and its findings markdown; only the status
-  // changes.
-  if (isClosed) {
-    if (cachedEntry.status !== STATUS_CLOSED) {
-      cachedEntry.status = STATUS_CLOSED;
-      cachedEntry.closedAt = prInfo?.closedAt || new Date().toISOString();
-      delete cachedEntry.mergedAt;
-      writeCache(cache, cacheDir);
-    }
-    return {
-      status: CHECK_STATUS.CLOSED,
-      pr: prNum,
-      headSha: currentSha,
-      cached: true,
-      reviewedSha: cachedEntry.headSha,
-      closedAt: cachedEntry.closedAt,
-      ...getCachedReviewDetails(cacheDir, cachedEntry),
-      message: `PR #${prNum} is closed. Its review of ${shortSha(cachedEntry.headSha)} is retained in the cache.`,
+      message: `PR #${prNum} is ${stateLabel}. Its review of ${shortSha(cachedEntry.headSha)} is retained in the cache.`,
     };
   }
 
@@ -506,9 +480,11 @@ export async function syncCache({
           const prInfo = await fetchPRInfoFn(prNum, repo, execFn);
           const isMerged = isMergedPR(prInfo);
           const isClosed = isClosedPR(prInfo);
-          let nextStatus = STATUS_OPEN;
-          if (isMerged) nextStatus = STATUS_MERGED;
-          else if (isClosed) nextStatus = STATUS_CLOSED;
+          const nextStatus = isMerged
+            ? STATUS_MERGED
+            : isClosed
+              ? STATUS_CLOSED
+              : STATUS_OPEN;
 
           const changed = entry.status !== nextStatus;
 
@@ -586,7 +562,6 @@ Options:
   --offline           Skip the gh lookup and trust --sha (requires --sha)
   --json              Output raw JSON
   --force             Ignore cache on check
-  --rec <text>        Alias for --recommendation
 
 Note: only PR reviews are cached; --pr is required for check and save.
 `;
@@ -600,11 +575,11 @@ const color = {
 };
 
 const CHECK_BADGES = {
-  [CHECK_STATUS.CACHED]: () => color.green("[CACHE HIT]"),
-  [CHECK_STATUS.MERGED]: () => color.yellow("[MERGED]"),
-  [CHECK_STATUS.CLOSED]: () => color.red("[CLOSED]"),
-  [CHECK_STATUS.ERROR]: () => color.red("[ERROR]"),
-  [CHECK_STATUS.MISS]: () => color.cyan("[CACHE MISS]"),
+  [CHECK_STATUS.CACHED]: color.green("[CACHE HIT]"),
+  [CHECK_STATUS.MERGED]: color.yellow("[MERGED]"),
+  [CHECK_STATUS.CLOSED]: color.red("[CLOSED]"),
+  [CHECK_STATUS.ERROR]: color.red("[ERROR]"),
+  [CHECK_STATUS.MISS]: color.cyan("[CACHE MISS]"),
 };
 
 /** Print `label: value`, skipping fields the saved review never filled in. */
@@ -621,11 +596,10 @@ function printCachedReview(result, reportLabel) {
 }
 
 function printCheckResult(result) {
-  const badgeFn =
-    CHECK_BADGES[result.status] || CHECK_BADGES[CHECK_STATUS.MISS];
+  const badge = CHECK_BADGES[result.status] || CHECK_BADGES[CHECK_STATUS.MISS];
   const out =
     result.status === CHECK_STATUS.ERROR ? console.error : console.log;
-  out(`${badgeFn()} ${result.message}`);
+  out(`${badge} ${result.message}`);
 
   if (result.status === CHECK_STATUS.CACHED) {
     printCachedReview(result, "Full report");
@@ -655,7 +629,6 @@ export function parseCliArgs(rawArgs) {
       sha: { type: "string" },
       repo: { type: "string", default: "uswds/uswds" },
       recommendation: { type: "string" },
-      rec: { type: "string" },
       summary: { type: "string" },
       title: { type: "string" },
       "report-file": { type: "string" },
@@ -672,7 +645,6 @@ export function parseCliArgs(rawArgs) {
     command: positionals[0],
     options: {
       ...values,
-      recommendation: values.recommendation || values.rec,
       reportFile: values["report-file"],
       reportText: values["report-text"],
       cacheDir: resolve(values["cache-dir"] || getDefaultCacheDir()),
