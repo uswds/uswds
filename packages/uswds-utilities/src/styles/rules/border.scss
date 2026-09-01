@@ -12,11 +12,13 @@ output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
-  .border-t-1px {
-    border-top: 1px solid; }
+  .border-top-1px {
+    border-top: 1px solid;
+  }
 
   .border-0 {
-    border: none; }
+    border: 0 solid;
+  }
 ----------------------------------------
 */
 

@@ -14,6 +14,16 @@ $alert-icons: (
 .usa-alert {
   @include alert-styles;
 
+  .usa-alert__body {
+    @include u-padding-x($theme-alert-padding-x);
+
+    &::before {
+      left: calc(
+        units($theme-alert-padding-x) + $alert-icon-optical-adjust-left
+      );
+    }
+  }
+
   * + & {
     margin-top: units(2);
   }
@@ -31,6 +41,12 @@ $alert-icons: (
 
 .usa-alert--slim {
   @include alert-styles-slim;
+
+  .usa-alert__body::before {
+    left: calc(
+      units($theme-alert-padding-x) + $alert-slim-icon-optical-adjust-left
+    );
+  }
 }
 
 .usa-alert--no-icon {

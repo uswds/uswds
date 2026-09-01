@@ -5,7 +5,7 @@ const sinon = require("sinon");
 const behavior = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/in-page-navigation-custom-content.template.html")
+  path.join(__dirname, "/in-page-navigation-custom-content.template.html"),
 );
 const THE_NAV = ".usa-in-page-nav";
 const PRIMARY_CONTENT_SELECTOR =
@@ -58,20 +58,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("pulls the headers from the designated custom content region into the nav list", () => {
       assert.equal(
         customContentHeaderList.length === navListLinks.length,
-        true
+        true,
       );
     });
 
     it("creates a link in the nav list for the header that is inside the custom content region", () => {
       const customRegionLink = navListLinks.filter((link) =>
-        link.href.includes("#header-in-content-region")
+        link.href.includes("#header-in-content-region"),
       );
       assert.equal(customRegionLink.length === 1, true);
     });
 
     it("does not create a link in the nav list for the header that is outside the custom content region", () => {
       const mainRegionLink = navListLinks.filter((link) =>
-        link.href.includes("#header-not-in-content-region")
+        link.href.includes("#header-not-in-content-region"),
       );
       assert.equal(mainRegionLink.length === 0, true);
     });

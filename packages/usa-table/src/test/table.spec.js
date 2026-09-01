@@ -3,7 +3,7 @@ const fs = require("fs");
 const Table = require("../index");
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const STYLES = fs.readFileSync(
-  `${__dirname}/../../../../dist/css/uswds.min.css`
+  `${__dirname}/../../../../dist/css/uswds.min.css`,
 );
 
 const ASCENDING = "ascending";
@@ -33,7 +33,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     function getCellValuesByColumn(index) {
       return Array.from(tbody.querySelectorAll("tr")).map(
-        (row) => row.children[index].innerHTML
+        (row) => row.children[index].innerHTML,
       );
     }
 
@@ -49,7 +49,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       numericSortButton = sortableHeaders[1].querySelector(sortButtonEl);
       dataSortValueSortButton = sortableHeaders[2].querySelector(sortButtonEl);
       ariaLive = body.querySelector(
-        ".usa-table__announcement-region[aria-live='polite']"
+        ".usa-table__announcement-region[aria-live='polite']",
       );
     });
 
@@ -93,13 +93,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.deepEqual(getCellValuesByColumn(0), ["A", "X", "Y", "Z"]);
       assert.strictEqual(
         sortableHeaders[0].getAttribute("aria-sort"),
-        ASCENDING
+        ASCENDING,
       );
       alphabeticalSortButton.click();
       assert.deepEqual(getCellValuesByColumn(0), ["Z", "Y", "X", "A"]);
       assert.strictEqual(
         sortableHeaders[0].getAttribute("aria-sort"),
-        DESCENDING
+        DESCENDING,
       );
     });
 
@@ -115,7 +115,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         const currentAriaLabel = sortableHeaders[0].getAttribute("aria-label");
         assert.strictEqual(
           currentAriaLabel.includes(currentSortDirection),
-          true
+          true,
         );
       });
 
@@ -128,11 +128,11 @@ tests.forEach(({ name, selector: containerSelector }) => {
           sortableHeaders[0].querySelector(sortButtonEl);
         assert.strictEqual(
           firstHeaderButton.classList.contains("usa-table__header__button"),
-          true
+          true,
         );
         assert.strictEqual(
           firstHeaderButton.getAttribute("title").includes(futureSortDirection),
-          true
+          true,
         );
       });
 
@@ -142,22 +142,22 @@ tests.forEach(({ name, selector: containerSelector }) => {
         const futureSortDirection =
           currentSortDirection === DESCENDING ? ASCENDING : DESCENDING;
         const activeSVGNode = sortableHeaders[0].querySelector(
-          `.usa-icon > .${currentSortDirection}`
+          `.usa-icon > .${currentSortDirection}`,
         );
         const inactiveSVGNode = sortableHeaders[0].querySelector(
-          `.usa-icon > .${futureSortDirection}`
+          `.usa-icon > .${futureSortDirection}`,
         );
         const unsortedSVGNode = sortableHeaders[0].querySelector(
-          ".usa-icon > .unsorted"
+          ".usa-icon > .unsorted",
         );
         assert.notEqual(getComputedStyle(activeSVGNode).fill, "transparent");
         assert.strictEqual(
           getComputedStyle(inactiveSVGNode).fill,
-          "transparent"
+          "transparent",
         );
         assert.strictEqual(
           getComputedStyle(unsortedSVGNode).fill,
-          "transparent"
+          "transparent",
         );
       });
     });

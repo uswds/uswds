@@ -6,11 +6,12 @@ usage:
   .text-[key]
 ----------------------------------------
 output:
-  text-decoration: [value]
+  text-decoration: [value];
 ----------------------------------------
 example:
   .text-no-underline {
-    text-decoration: none; }
+    text-decoration: none;
+  }
 ----------------------------------------
 */
 
@@ -22,8 +23,7 @@ $u-text-decoration: (
   text-decoration: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($text-decoration-palettes),
         $text-decoration-manual-values
       ),

@@ -3,17 +3,19 @@
 border-radius
 ----------------------------------------
 usage:
-  .border-radius-[key]
+  .radius-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .border-radius-0 {
-    border-radius: 0; }
+  .radius-0 {
+    border-radius: 0;
+  }
 
-  .border-radius-pill {
-    border-radius: 10em; }
+  .radius-pill {
+    border-radius: 99rem;
+  }
 ----------------------------------------
 */
 
@@ -44,8 +46,7 @@ $u-border-radius: (
       ),
     ),
     property: "",
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($border-radius-palettes),
         $border-radius-manual-values
       ),

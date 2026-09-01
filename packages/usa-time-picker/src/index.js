@@ -54,6 +54,9 @@ const parseTimeString = (timeStr) => {
 const transformTimePicker = (el) => {
   const timePickerEl = el.closest(TIME_PICKER);
 
+  // Set during enhanceComboBox(timePickerEl)
+  if (timePickerEl.dataset.enhanced) return;
+
   const initialInputEl = timePickerEl.querySelector(`input`);
 
   if (!initialInputEl) {
@@ -96,14 +99,14 @@ const transformTimePicker = (el) => {
 
   const minTime = Math.max(
     MIN_TIME,
-    parseTimeString(timePickerEl.dataset.minTime) || MIN_TIME
+    parseTimeString(timePickerEl.dataset.minTime) || MIN_TIME,
   );
   const maxTime = Math.min(
     MAX_TIME,
-    parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME
+    parseTimeString(timePickerEl.dataset.maxTime) || MAX_TIME,
   );
   const step = Math.floor(
-    Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP)
+    Math.max(MIN_STEP, timePickerEl.dataset.step || DEFAULT_STEP),
   );
 
   let defaultValue;
@@ -142,7 +145,7 @@ const timePicker = behavior(
       });
     },
     FILTER_DATASET,
-  }
+  },
 );
 
 module.exports = timePicker;

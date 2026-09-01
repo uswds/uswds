@@ -39,10 +39,16 @@ function toggleHtmlTag(isMobile) {
 
   const primaryLinks = bigFooter.querySelectorAll(BUTTON);
 
+  const ALLOWED_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const preservedHtmlTag =
-      currentElement.getAttribute("data-tag") || currentElement.tagName;
+    const rawPreservedTag = (
+      currentElement.getAttribute("data-tag") || currentElement.tagName
+    ).toLowerCase();
+    const preservedHtmlTag = ALLOWED_TAGS.includes(rawPreservedTag)
+      ? rawPreservedTag
+      : "h4";
 
     const newElementType = isMobile ? "button" : preservedHtmlTag;
 
@@ -51,14 +57,14 @@ function toggleHtmlTag(isMobile) {
     newElement.setAttribute("class", currentElementClasses);
     newElement.classList.toggle(
       `${PREFIX}-footer__primary-link--button`,
-      isMobile
+      isMobile,
     );
     newElement.textContent = currentElement.textContent;
 
     if (isMobile) {
       newElement.setAttribute("data-tag", currentElement.tagName);
       const menuId = `${PREFIX}-footer-menu-list-${Math.floor(
-        Math.random() * 100000
+        Math.random() * 100000,
       )}`;
 
       newElement.setAttribute("aria-controls", menuId);
@@ -90,13 +96,13 @@ module.exports = behavior(
     init() {
       toggleHtmlTag(window.innerWidth < HIDE_MAX_WIDTH);
       this.mediaQueryList = window.matchMedia(
-        `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`
+        `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`,
       );
-      this.mediaQueryList.addListener(resize);
+      this.mediaQueryList.addEventListener("change", resize);
     },
 
     teardown() {
-      this.mediaQueryList.removeListener(resize);
+      this.mediaQueryList.removeEventListener("change", resize);
     },
-  }
+  },
 );

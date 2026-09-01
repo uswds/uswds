@@ -1,4 +1,4 @@
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const toggle = require("../../uswds-core/src/js/utils/toggle");
 const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
@@ -15,11 +15,7 @@ const LANGUAGE_PRIMARY_ITEM = `.${PREFIX}-language__primary-item`;
 const LANGUAGE_CONTROL = `button.${PREFIX}-language__link`;
 const LANGUAGE_LINKS = `${LANGUAGE} a`;
 
-let languageSelector;
 let languageActive;
-
-const onLanguageClose = () =>
-  languageSelector.toggleLanguage.call(languageSelector, false);
 
 const hideActiveLanguageDropdown = () => {
   if (!languageActive) {
@@ -43,7 +39,7 @@ const handleEscape = (event) => {
   focusLanguageButton(event);
 };
 
-languageSelector = behavior(
+const languageSelector = behavior(
   {
     [CLICK]: {
       [LANGUAGE_CONTROL]() {
@@ -91,7 +87,7 @@ languageSelector = behavior(
 
       if (trapContainer) {
         languageSelector.focusTrap = FocusTrap(trapContainer, {
-          Escape: onLanguageClose,
+          Escape: () => hideActiveLanguageDropdown(),
         });
       }
     },
@@ -99,7 +95,7 @@ languageSelector = behavior(
       languageActive = false;
     },
     focusTrap: null,
-  }
+  },
 );
 
 module.exports = languageSelector;

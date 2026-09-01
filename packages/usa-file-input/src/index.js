@@ -28,10 +28,28 @@ const EXCEL_PREVIEW_CLASS = `${GENERIC_PREVIEW_CLASS_NAME}--excel`;
 const SR_ONLY_CLASS = `${PREFIX}-sr-only`;
 const SPACER_GIF =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const DEFAULT_ERROR_LABEL_TEXT = "Error: This is not a valid file type.";
+const FINE_POINTER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
 
 let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
 let DEFAULT_FILE_STATUS_TEXT = "";
+
+const instructionMediaQueryCleanups = new WeakMap();
+
+const getFinePointerMediaQueryList = () => {
+  if (typeof window.matchMedia !== "function") {
+    return null;
+  }
+
+  return window.matchMedia(FINE_POINTER_MEDIA_QUERY);
+};
+
+const shouldShowDragText = () => {
+  const finePointerMediaQuery = getFinePointerMediaQueryList();
+
+  return Boolean(finePointerMediaQuery && finePointerMediaQuery.matches);
+};
 
 /**
  * The properties and elements within the file input.
@@ -167,39 +185,78 @@ const createTargetArea = (fileInputEl) => {
 /**
  * Build the visible element with default interaction instructions.
  *
+ * @param {HTMLInputElement} fileInputEl - The input element
+ * @param {HTMLDivElement} instructions - The container for visible interaction instructions
+ */
+const updateVisibleInstructions = (fileInputEl, instructions) => {
+  const instructionsEl = instructions;
+  const itemsLabel = getItemsLabel(fileInputEl);
+  const dragText = `Drag ${itemsLabel} here or`;
+  const dragTextEl = document.createElement("span");
+  const chooseTextEl = document.createElement("span");
+  const dragTextIsVisible = shouldShowDragText();
+  const chooseText = dragTextIsVisible
+    ? "choose from folder"
+    : "Choose from folder";
+
+  // Create instructions text for aria-label
+  DEFAULT_ARIA_LABEL_TEXT = dragTextIsVisible
+    ? `${dragText} ${chooseText}`
+    : chooseText;
+
+  instructionsEl.textContent = "";
+  chooseTextEl.classList.add(CHOOSE_CLASS);
+  chooseTextEl.textContent = chooseText;
+
+  if (dragTextIsVisible) {
+    dragTextEl.classList.add(DRAG_TEXT_CLASS);
+    dragTextEl.textContent = dragText;
+    instructionsEl.appendChild(dragTextEl);
+    instructionsEl.appendChild(document.createTextNode(" "));
+  }
+
+  instructionsEl.appendChild(chooseTextEl);
+
+  if (!instructionsEl.hasAttribute("hidden")) {
+    fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
+  }
+};
+
+/**
+ * Build the visible element with default interaction instructions.
+ *
  * @param {HTMLInputElement} fileInputEl - The input element.
  * @returns {HTMLDivElement} The container for visible interaction instructions.
  */
 const createVisibleInstructions = (fileInputEl) => {
-  const fileInputParent = fileInputEl.closest(DROPZONE);
-  const itemsLabel = getItemsLabel(fileInputEl);
   const instructions = document.createElement("div");
-  const dragText = `Drag ${itemsLabel} here or`;
-  const chooseText = "choose from folder";
-
-  // Create instructions text for aria-label
-  DEFAULT_ARIA_LABEL_TEXT = `${dragText} ${chooseText}`;
 
   // Adds class names and other attributes
   instructions.classList.add(INSTRUCTIONS_CLASS);
   instructions.setAttribute("aria-hidden", "true");
-
-  // Add initial instructions for input usage
-  fileInputEl.setAttribute("aria-label", DEFAULT_ARIA_LABEL_TEXT);
-  instructions.innerHTML = Sanitizer.escapeHTML`<span class="${DRAG_TEXT_CLASS}">${dragText}</span> <span class="${CHOOSE_CLASS}">${chooseText}</span>`;
+  updateVisibleInstructions(fileInputEl, instructions);
 
   // Add the instructions element to the DOM
   fileInputEl.parentNode.insertBefore(instructions, fileInputEl);
 
-  // IE11 and Edge do not support drop files on file inputs, so we've removed text that indicates that
-  if (
-    /rv:11.0/i.test(navigator.userAgent) ||
-    /Edge\/\d./i.test(navigator.userAgent)
-  ) {
-    fileInputParent.querySelector(`.${DRAG_TEXT_CLASS}`).outerHTML = "";
+  return instructions;
+};
+
+const addInstructionMediaQueryListener = (fileInputEl, instructions) => {
+  const finePointerMediaQuery = getFinePointerMediaQueryList();
+  const handleMediaQueryChange = () => {
+    updateVisibleInstructions(fileInputEl, instructions);
+  };
+
+  if (!finePointerMediaQuery) {
+    return null;
   }
 
-  return instructions;
+  finePointerMediaQuery.addEventListener("change", handleMediaQueryChange);
+
+  return () => {
+    finePointerMediaQuery.removeEventListener("change", handleMediaQueryChange);
+  };
 };
 
 /**
@@ -246,6 +303,9 @@ const enhanceFileInput = (fileInputEl) => {
     createSROnlyStatus(fileInputEl);
   }
 
+  // Mark the wrapper, not the initial div
+  dropZoneEl.dataset.enhanced = "true";
+
   return { instructions, dropTarget };
 };
 
@@ -259,10 +319,10 @@ const enhanceFileInput = (fileInputEl) => {
 const removeOldPreviews = (dropTarget, instructions) => {
   const filePreviews = dropTarget.querySelectorAll(`.${PREVIEW_CLASS}`);
   const currentPreviewHeading = dropTarget.querySelector(
-    `.${PREVIEW_HEADING_CLASS}`
+    `.${PREVIEW_HEADING_CLASS}`,
   );
   const currentErrorMessage = dropTarget.querySelector(
-    `.${ACCEPTED_FILE_MESSAGE_CLASS}`
+    `.${ACCEPTED_FILE_MESSAGE_CLASS}`,
   );
 
   /**
@@ -350,6 +410,22 @@ const addPreviewHeading = (fileInputEl, fileNames) => {
   fileInputEl.setAttribute("aria-label", changeItemText);
 };
 
+/** Add an error listener to the image preview to set a fallback image
+ * @param {HTMLImageElement} previewImage - The image element
+ * @param {String} fallbackClass - The CSS class of the fallback image
+ */
+const setPreviewFallback = (previewImage, fallbackClass) => {
+  previewImage.addEventListener(
+    "error",
+    () => {
+      const localPreviewImage = previewImage; // to avoid no-param-reassign from ESLint
+      localPreviewImage.src = SPACER_GIF;
+      localPreviewImage.classList.add(fallbackClass);
+    },
+    { once: true },
+  );
+};
+
 /**
  * When new files are applied to file input, this function generates previews
  * and removes old ones.
@@ -386,44 +462,32 @@ const handleChange = (e, fileInputEl, instructions, dropTarget) => {
         "afterend",
         Sanitizer.escapeHTML`<div class="${PREVIEW_CLASS}" aria-hidden="true">
           <img id="${imageId}" src="${SPACER_GIF}" alt="" class="${GENERIC_PREVIEW_CLASS_NAME} ${LOADING_CLASS}"/>${fileName}
-        <div>`
+        <div>`,
       );
     };
 
     // Not all files will be able to generate previews. In case this happens, we provide several types "generic previews" based on the file extension.
     reader.onloadend = function createFilePreview() {
       const previewImage = document.getElementById(imageId);
-      if (fileName.indexOf(".pdf") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${PDF_PREVIEW_CLASS}")`
-        );
+      const fileExtension = fileName.split(".").pop();
+      if (fileExtension === "pdf") {
+        setPreviewFallback(previewImage, PDF_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".doc") > 0 ||
-        fileName.indexOf(".pages") > 0
+        fileExtension === "doc" ||
+        fileExtension === "docx" ||
+        fileExtension === "pages"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${WORD_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, WORD_PREVIEW_CLASS);
       } else if (
-        fileName.indexOf(".xls") > 0 ||
-        fileName.indexOf(".numbers") > 0
+        fileExtension === "xls" ||
+        fileExtension === "xlsx" ||
+        fileExtension === "numbers"
       ) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${EXCEL_PREVIEW_CLASS}")`
-        );
-      } else if (fileName.indexOf(".mov") > 0 || fileName.indexOf(".mp4") > 0) {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${VIDEO_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, EXCEL_PREVIEW_CLASS);
+      } else if (fileExtension === "mov" || fileExtension === "mp4") {
+        setPreviewFallback(previewImage, VIDEO_PREVIEW_CLASS);
       } else {
-        previewImage.setAttribute(
-          "onerror",
-          `this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`
-        );
+        setPreviewFallback(previewImage, GENERIC_PREVIEW_CLASS);
       }
 
       // Removes loader and displays preview
@@ -484,6 +548,10 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
   if (acceptedFilesAttr) {
     const acceptedFiles = acceptedFilesAttr.split(",");
     const errorMessage = document.createElement("div");
+    const userErrorText = fileInputEl.dataset.errormessage;
+    const errorMessageText = userErrorText || DEFAULT_ERROR_LABEL_TEXT;
+
+    errorMessage.setAttribute("aria-hidden", true);
 
     // If multiple files are dragged, this iterates through them and look for any files that are not accepted.
     let allFilesAllowed = true;
@@ -507,10 +575,13 @@ const preventInvalidFiles = (e, fileInputEl, instructions, dropTarget) => {
     // If dragged files are not accepted, this removes them from the value of the input and creates and error state
     if (!allFilesAllowed) {
       removeOldPreviews(dropTarget, instructions);
-      fileInputEl.value = ""; // eslint-disable-line no-param-reassign
+      fileInputEl.value = "";
+      errorMessage.textContent = errorMessageText;
       dropTarget.insertBefore(errorMessage, fileInputEl);
-      errorMessage.textContent =
-        fileInputEl.dataset.errormessage || `This is not a valid file type.`;
+
+      const ariaLabelText = `${errorMessageText} ${DEFAULT_ARIA_LABEL_TEXT}`;
+
+      fileInputEl.setAttribute("aria-label", ariaLabelText);
       errorMessage.classList.add(ACCEPTED_FILE_MESSAGE_CLASS);
       dropTarget.classList.add(INVALID_FILE_CLASS);
       TYPE_IS_VALID = false;
@@ -541,14 +612,25 @@ const fileInput = behavior(
   {
     init(root) {
       selectOrMatches(DROPZONE, root).forEach((fileInputEl) => {
+        if (fileInputEl.dataset.enhanced) return;
+
         const { instructions, dropTarget } = enhanceFileInput(fileInputEl);
+        const removeInstructionMediaQueryListener =
+          addInstructionMediaQueryListener(fileInputEl, instructions);
+
+        if (removeInstructionMediaQueryListener) {
+          instructionMediaQueryCleanups.set(
+            fileInputEl,
+            removeInstructionMediaQueryListener,
+          );
+        }
 
         dropTarget.addEventListener(
           "dragover",
           function handleDragOver() {
             this.classList.add(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -556,7 +638,7 @@ const fileInput = behavior(
           function handleDragLeave() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         dropTarget.addEventListener(
@@ -564,24 +646,32 @@ const fileInput = behavior(
           function handleDrop() {
             this.classList.remove(DRAG_CLASS);
           },
-          false
+          false,
         );
 
         fileInputEl.addEventListener(
           "change",
           (e) => handleUpload(e, fileInputEl, instructions, dropTarget),
-          false
+          false,
         );
       });
     },
     teardown(root) {
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
+        const removeInstructionMediaQueryListener =
+          instructionMediaQueryCleanups.get(fileInputEl);
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
+
+        if (removeInstructionMediaQueryListener) {
+          removeInstructionMediaQueryListener();
+          instructionMediaQueryCleanups.delete(fileInputEl);
+        }
+
         fileInputTopElement.parentElement.replaceChild(
           fileInputEl,
-          fileInputTopElement
+          fileInputTopElement,
         );
-        // eslint-disable-next-line no-param-reassign
+
         fileInputEl.className = DROPZONE_CLASS;
       });
     },
@@ -589,7 +679,7 @@ const fileInput = behavior(
     disable,
     ariaDisable,
     enable,
-  }
+  },
 );
 
 module.exports = fileInput;

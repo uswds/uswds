@@ -25,6 +25,7 @@
         type="checkbox"
         name="historical-figures-2"
         value="frederick-douglass"
+        {% if indeterminate_state %}data-indeterminate{% endif %}
         {% if disabled_state == "disabled" %}disabled{% endif %} 
         {% if disabled_state == "aria-disabled" %}aria-disabled="true"{% endif %}
       >

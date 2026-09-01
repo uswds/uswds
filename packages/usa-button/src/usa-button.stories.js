@@ -12,25 +12,44 @@ import {
   UnstyledContent,
 } from "./content";
 
+import { icons } from "../../usa-icon/src/usa-icon.json";
+
+const iconItems = icons.items;
+const iconNames = iconItems.map((item) => item.name);
+
 export default {
   title: "Components/Button",
+  args: {
+    is_demo: true,
+    type: "button",
+    add_icon: false,
+    icon_name: "add_circle_outline",
+  },
   argTypes: {
     modifier: {
       name: "Variant",
     },
     text: {
-      name: "Text string",
+      name: "Text",
     },
     is_demo: {
-      name: "Show all button states",
-      defaultValue: true,
+      name: "View all states",
       type: "boolean",
     },
     type: {
-      defaultValue: "button",
       name: "Type attribute",
       options: ["button", "reset", "submit"],
       control: { type: "radio" },
+    },
+    add_icon: {
+      name: "Add icon",
+      type: "boolean",
+    },
+    icon_name: {
+      name: "Icon name",
+      options: iconNames,
+      control: { type: "select" },
+      if: { arg: "add_icon" },
     },
   },
 };
@@ -52,6 +71,14 @@ Base.args = BaseContent;
 
 export const Big = Template.bind({});
 Big.args = BigContent;
+
+export const Icon = Template.bind({});
+Icon.args = {
+  ...DefaultContent,
+  add_icon: true,
+  // Specifying name to preselect value in StorybookJS control.
+  icon_name: "add_circle_outline",
+};
 
 export const Outline = Template.bind({});
 Outline.args = OutlineContent;

@@ -34,13 +34,12 @@ const getAccordionButtons = (accordion) => {
  */
 const toggleButton = (button, expanded) => {
   const accordion = button.closest(ACCORDION);
-  let safeExpanded = expanded;
 
   if (!accordion) {
     throw new Error(`${BUTTON} is missing outer ${ACCORDION}`);
   }
 
-  safeExpanded = toggle(button, expanded);
+  const safeExpanded = toggle(button, expanded);
 
   // XXX multiselectable is opt-in, to preserve legacy behavior
   const multiselectable = accordion.hasAttribute(MULTISELECTABLE);
@@ -94,7 +93,7 @@ const accordion = behavior(
     hide: hideButton,
     toggle: toggleButton,
     getButtons: getAccordionButtons,
-  }
+  },
 );
 
 module.exports = accordion;

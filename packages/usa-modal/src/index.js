@@ -13,7 +13,7 @@ const CLOSER_ATTRIBUTE = "data-close-modal";
 const FORCE_ACTION_ATTRIBUTE = "data-force-action";
 const NON_MODAL_HIDDEN_ATTRIBUTE = `data-modal-hidden`;
 const MODAL = `.${MODAL_CLASSNAME}`;
-const INITIAL_FOCUS = `.${WRAPPER_CLASSNAME} *[data-focus]`;
+const INITIAL_FOCUS = `[data-focus]`;
 const CLOSE_BUTTON = `${WRAPPER_CLASSNAME} *[${CLOSER_ATTRIBUTE}]`;
 const OPENERS = `*[${OPENER_ATTRIBUTE}][aria-controls]`;
 const CLOSERS = `${CLOSE_BUTTON}, .${OVERLAY_CLASSNAME}:not([${FORCE_ACTION_ATTRIBUTE}])`;
@@ -66,21 +66,19 @@ function toggleModal(event) {
   const safeActive = !isActive();
   const modalId = clickedElement
     ? clickedElement.getAttribute("aria-controls")
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
   const targetModal = safeActive
     ? document.getElementById(modalId)
-    : document.querySelector(".usa-modal-wrapper.is-visible");
+    : document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`);
 
   // if there is no modal we return early
   if (!targetModal) {
     return false;
   }
 
-  const openFocusEl = targetModal.querySelector(INITIAL_FOCUS)
-    ? targetModal.querySelector(INITIAL_FOCUS)
-    : targetModal.querySelector(".usa-modal");
+  const customFocusEl = targetModal.querySelector(INITIAL_FOCUS);
   const returnFocus = document.getElementById(
-    targetModal.getAttribute("data-opener")
+    targetModal.getAttribute("data-opener"),
   );
   const menuButton = body.querySelector(OPENERS);
   const forceUserAction = targetModal.getAttribute(FORCE_ACTION_ATTRIBUTE);
@@ -141,39 +139,57 @@ function toggleModal(event) {
   }
 
   // Handle the focus actions
-  if (safeActive && openFocusEl) {
-    // The modal window is opened. Focus is set to close button.
+  if (safeActive) {
+    const openFocusEl =
+      customFocusEl ||
+      targetModal.querySelector(".usa-modal__footer button:not([disabled])") ||
+      targetModal.querySelector("button:not([disabled])");
+
+    targetModal.removeAttribute("aria-hidden");
+    targetModal.setAttribute("aria-modal", "true");
 
     // Binds escape key if we're not forcing
     // the user to take an action
     if (forceUserAction) {
-      modal.focusTrap = FocusTrap(targetModal);
+      modal.focusTrap = FocusTrap(targetModal, { autoFocus: false });
     } else {
       modal.focusTrap = FocusTrap(targetModal, {
+        autoFocus: false,
         Escape: onMenuClose,
       });
     }
 
     // Handles focus setting and interactions
     modal.focusTrap.update(safeActive);
-    openFocusEl.focus();
+
+    openFocusEl?.focus();
 
     // Hides everything that is not the modal from screen readers
     document.querySelectorAll(NON_MODALS).forEach((nonModal) => {
       nonModal.setAttribute("aria-hidden", "true");
       nonModal.setAttribute(NON_MODAL_HIDDEN_ATTRIBUTE, "");
     });
-  } else if (!safeActive && menuButton && returnFocus) {
+  } else if (!safeActive) {
+    targetModal.setAttribute("aria-hidden", "true");
+    targetModal.removeAttribute("aria-modal");
+
     // The modal window is closed.
-    // Non-modals now accesible to screen reader
+    // Non-modals now accessible to screen reader.
+    // This runs unconditionally: the opener may be gone from the document by
+    // now, and page content must never be left hidden from assistive tech.
     document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
       nonModal.removeAttribute("aria-hidden");
       nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
     });
 
-    // Focus is returned to the opener
-    returnFocus.focus();
-    modal.focusTrap.update(safeActive);
+    if (menuButton && returnFocus) {
+      // Focus is returned to the opener
+      returnFocus.focus();
+    }
+
+    if (modal.focusTrap) {
+      modal.focusTrap.update(safeActive);
+    }
   }
 
   return safeActive;
@@ -200,7 +216,7 @@ const createPlaceHolder = (baseComponent) => {
   modalAttributes.forEach((attribute) => {
     originalLocationPlaceHolder.setAttribute(
       `data-original-${attribute.name}`,
-      attribute.value
+      attribute.value,
     );
   });
 
@@ -224,10 +240,11 @@ const setModalAttributes = (baseComponent, modalContentWrapper) => {
     throw new Error(`${modalID} is missing aria-labelledby attribute`);
 
   if (!ariaDescribedBy)
-    throw new Error(`${modalID} is missing aria-desribedby attribute`);
+    throw new Error(`${modalID} is missing aria-describedby attribute`);
 
   // Set attributes
   modalContentWrapper.setAttribute("role", "dialog");
+  modalContentWrapper.setAttribute("aria-hidden", "true");
   modalContentWrapper.setAttribute("id", modalID);
   modalContentWrapper.setAttribute("aria-labelledby", ariaLabelledBy);
   modalContentWrapper.setAttribute("aria-describedby", ariaDescribedBy);
@@ -319,7 +336,7 @@ const cleanUpModal = (baseComponent) => {
   }
 
   const originalLocationPlaceHolder = document.querySelector(
-    `[data-placeholder-for="${modalID}"]`
+    `[data-placeholder-for="${modalID}"]`,
   );
 
   if (originalLocationPlaceHolder) {
@@ -333,7 +350,7 @@ const cleanUpModal = (baseComponent) => {
 
     originalLocationPlaceHolder.after(modalContent);
     originalLocationPlaceHolder.parentElement.removeChild(
-      originalLocationPlaceHolder
+      originalLocationPlaceHolder,
     );
   }
 
@@ -368,7 +385,7 @@ modal = behavior(
             // modalTrigger.setAttribute("aria-haspopup", "dialog");
 
             modalTrigger.addEventListener("click", toggleModal);
-          }
+          },
         );
       });
     },
@@ -379,13 +396,13 @@ modal = behavior(
 
         selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
           (modalTrigger) =>
-            modalTrigger.removeEventListener("click", toggleModal)
+            modalTrigger.removeEventListener("click", toggleModal),
         );
       });
     },
     focusTrap: null,
     toggleModal,
-  }
+  },
 );
 
 module.exports = modal;

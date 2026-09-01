@@ -1,0 +1,37 @@
+<div class="usa-prose measure-5 padding-2 border-1px border-gray-10 margin-bottom-4">
+  <p class="font-body-lg text-bold margin-top-0">Test if the data-heading-elements attribute pulls the correct headers into the component</p>
+  <p>Use the story controls to select which headers should be pulled into the component. For example:
+  <ul>
+    <li>Selecting "Default" should pull h2 and h3 headers into the in-page navigation.</li>
+    <li>Selecting "All" should pull all headers (h1-h6) into the in-page navigation.</li>
+    <li>Selecting "h4" should pull only h4 headers into the in-page navigation.</li>
+    <li>
+      Selecting "Error - Invalid heading type" should prevent the in-page navigation component from building
+      and return an error message in the console.
+    </li>
+  </ul>
+</div>
+
+{% set all_headers = "h1 h2 h3 h4 h5 h6" %}
+{% if headingType != "Default" %}
+  {% if headingType == "All" %}
+    {% set headerValue = all_headers %}
+  {% elseif headingType == "Error - Invalid heading type" %}
+    {% set headerValue = "j1" %}
+  {% else %}
+    {% set headerValue = headingType %}
+  {% endif %}
+{% endif %}
+
+<div class="usa-in-page-nav-container">
+  <aside class="usa-in-page-nav" data-minimum-heading-count="0" data-heading-elements="{{ headerValue | default("") }}">
+  </aside>
+  <main class="usa-prose">
+    <h1>H1 heading</h1>
+    <h2>H2 heading</h2>
+    <h3>H3 heading</h3>
+    <h4>H4 heading</h4>
+    <h5>H5 heading</h5>
+    <h6>H6 heading</h6>
+  </main>
+</div>

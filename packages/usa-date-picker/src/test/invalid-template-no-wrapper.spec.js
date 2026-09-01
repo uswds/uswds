@@ -5,7 +5,7 @@ const DatePicker = require("../index");
 const EVENTS = require("./events");
 
 const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(
-  path.join(__dirname, "/invalid-template-no-wrapper.template.html")
+  path.join(__dirname, "/invalid-template-no-wrapper.template.html"),
 );
 
 describe("Date picker button without wrapping element", () => {

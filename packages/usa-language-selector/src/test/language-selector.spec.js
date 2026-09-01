@@ -74,6 +74,36 @@ describe("language selector component", () => {
     assert.strictEqual(languageButton.getAttribute("aria-expanded"), "false");
   });
 
+  it("collapses dropdown via the FocusTrap Escape callback", () => {
+    languageButton.click();
+    // Activate the FocusTrap so its keydown/Escape binding is attached and
+    // fires when Escape is dispatched from within the submenu.
+    LanguageSelector.focusTrap.update(true);
+
+    // jsdom swallows errors thrown inside event listeners; use `window.onerror`
+    // to surface them so a broken Escape callback fails this test.
+    let listenerError = null;
+    const prevOnError = window.onerror;
+    window.onerror = (_msg, _src, _line, _col, err) => {
+      listenerError = err;
+      return true;
+    };
+
+    try {
+      EVENTS.escape(languageLink);
+    } finally {
+      window.onerror = prevOnError;
+      LanguageSelector.focusTrap.update(false);
+    }
+
+    assert.strictEqual(
+      listenerError,
+      null,
+      `FocusTrap Escape callback threw an error: ${listenerError}`,
+    );
+    assert.strictEqual(languageButton.getAttribute("aria-expanded"), "false");
+  });
+
   it("contains a role of button", () => {
     assert.strictEqual(languageButton.getAttribute("role"), "button");
   });
@@ -81,7 +111,7 @@ describe("language selector component", () => {
   it("contains aria-controls of language-options", () => {
     assert.strictEqual(
       languageButton.getAttribute("aria-controls"),
-      "language-options"
+      "language-options",
     );
   });
 

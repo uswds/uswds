@@ -21,49 +21,49 @@ $place-icon-defaults: (
   "svg-width": 24,
 );
 
-$-chevron-icon-defaults: map-merge(
+$-chevron-icon-defaults: map.merge(
   $place-icon-defaults,
   (
     "height": units($nav-link-arrow-icon-size),
   )
 );
 
-$-mobile-icon-defaults: map-merge(
+$-mobile-icon-defaults: map.merge(
   $place-icon-defaults,
   (
     "height": units($nav-link-accordion-icon-size),
   )
 );
 
-$-add-icon: map-merge(
+$-add-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "add",
   )
 );
 
-$-remove-icon: map-merge(
+$-remove-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "remove",
   )
 );
 
-$close-icon: map-merge(
+$close-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "close",
   )
 );
 
-$expand-more-icon: map-merge(
+$expand-more-icon: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_more",
   )
 );
 
-$expand-less-icon: map-merge(
+$expand-less-icon: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_less",
@@ -102,6 +102,10 @@ $expand-less-icon: map-merge(
     &.is-visible {
       animation: slidein-left 0.3s ease-in-out;
       display: flex;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
     }
   }
 
@@ -111,8 +115,11 @@ $expand-less-icon: map-merge(
   }
 
   .usa-search {
+    margin-top: units(2);
+
     @include at-media($theme-header-min-width) {
       margin-left: units(2);
+      margin-top: 0;
     }
   }
 
@@ -129,8 +136,6 @@ $expand-less-icon: map-merge(
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-header-min-width) {
     @include nav-list("nav");
-    margin-top: units(3);
-    order: 2;
 
     a {
       @include u-padding-y(1.5);
@@ -198,6 +203,7 @@ $expand-less-icon: map-merge(
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
     text-decoration: none;
+    width: 100%;
 
     @include at-media($theme-header-min-width) {
       @include primary-nav-link;
@@ -341,7 +347,6 @@ $expand-less-icon: map-merge(
   }
 
   .usa-search {
-    margin-top: units(2);
     width: 100%;
 
     @include at-media($theme-header-min-width) {
@@ -500,7 +505,7 @@ $expand-less-icon: map-merge(
 
 $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
 
-@if map-has-key($our-breakpoints, $theme-header-min-width) {
+@if map.has-key($our-breakpoints, $theme-header-min-width) {
   $safari-header-bug-min-width: calc(
     units($theme-header-min-width) - px-to-rem(15px)
   );

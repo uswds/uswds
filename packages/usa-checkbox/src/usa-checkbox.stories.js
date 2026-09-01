@@ -4,11 +4,19 @@ import TestComponent from "./test/test-patterns/test-usa-checkbox.twig";
 
 export default {
   title: "Components/Form Inputs/Checkbox",
+  args: {
+    disabled_state: "none",
+    indeterminate_state: false,
+  },
   argTypes: {
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
+    },
+    indeterminate_state: {
+      name: "Toggle indeterminate state",
+      control: { type: "boolean" },
     },
   },
 };
@@ -44,6 +52,29 @@ AriaDisabledTile.args = {
 export const Test = TestTemplate.bind({});
 Test.argTypes = {
   disabled_state: {
+    table: { disable: true },
+  },
+  indeterminate_state: {
+    table: { disable: true },
+  },
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+  indeterminate_state: true,
+};
+Indeterminate.argTypes = {
+  indeterminate_state: {
+    table: { disable: true },
+  },
+};
+
+export const IndeterminateTile = TileTemplate.bind({});
+IndeterminateTile.args = {
+  indeterminate_state: true,
+};
+IndeterminateTile.argTypes = {
+  indeterminate_state: {
     table: { disable: true },
   },
 };

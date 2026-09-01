@@ -1,0 +1,98 @@
+title: "Component proposal: [Component name]"
+labels: ["Type: New component proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new component for the U.S. Web Design System (USWDS).
+        
+        To get the discussion started, you just need to fill out the three fields marked with an asterisk (*). Then collaborate with the community to add supporting evidence and research, and get feedback. The work you do now can help the USWDS team create a formal component proposal.
+        
+        [Learn more about the component proposal process](https://github.com/uswds/uswds/discussions/5764).
+        
+        ## The basics
+  - type: textarea
+    id: name
+    attributes:
+      label: Component name
+      description: |
+        Share the common name (or names) for this component.
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 'Component description'
+      description: |
+        Briefly tell us the purpose of this component.
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: 'Why USWDS needs this component'
+      description: |
+        Include key interactions, current gaps in USWDS, and the problems this component solves. Explain how the component supports federal laws, guidance, or policies.
+      value:
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Component details
+  - type: textarea
+    id: design
+    attributes:
+      label: 'How the component works'
+      description: |
+        Describe how the component works. Include any interactive states and variants. Diagrams, images, wireframes, and prototypes can help you make your case.
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: implementation
+    attributes:
+      label: 'Real-world examples'
+      description: |
+        Link to examples of other sites — preferably government sites — that use this kind of component.
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: when_to_use
+    attributes:
+      label: When to use this component and when to consider something else
+      description: |
+        What kind of content works best with this component, and what kind of content would work poorly with it? What are common misuses of this type of component?
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: usability
+    attributes:
+      label: Usability considerations
+      description: |
+        Include conditions that would make this component more usable or less usable. Also include common pitfalls or implementation mistakes associated with this component.
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility considerations
+      description: |
+        Include how this component interacts with assistive technologies such as keyboard navigation, screen readers, zoom magnification, and voice command. Are there audiences that might struggle with this component? How might the component become inaccessible?
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: involved
+    attributes:
+      label: Who’s involved
+      description: |
+        Please tag volunteers who may be willing to help design, develop or test this component. Note agencies that can offer significant support for the component, and tag any stakeholders. Be sure to share a list of those who helped research and prepare this proposal. Include your name and/or GitHub username if you’d like credit as a contributor.
+      value:
+    validations:
+      required: false

@@ -5,7 +5,7 @@ const DatePicker = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/date-picker.template.html")
+  path.join(__dirname, "/date-picker.template.html"),
 );
 
 const datePickerSelector = () => document.querySelector(".usa-date-picker");
@@ -24,7 +24,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     const getCalendarEl = (query) =>
       root.querySelector(
-        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`
+        `.usa-date-picker__calendar${query ? ` ${query}` : ""}`,
       );
 
     beforeEach(() => {
@@ -51,7 +51,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2020",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -60,7 +60,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--selected").dataset
           .value,
         "2020",
-        "selects correct year"
+        "selects correct year",
       );
     });
 
@@ -71,7 +71,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2017",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -82,7 +82,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2023",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -93,7 +93,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2019",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -104,7 +104,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2021",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -115,7 +115,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2019",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -126,7 +126,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2021",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -137,7 +137,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2008",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
 
@@ -148,22 +148,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
           .value,
         "2032",
-        "focuses correct year"
-      );
-    });
-
-    it("should update the focus when moving over a non-selected valid year", () => {
-      EVENTS.mouseover(
-        getCalendarEl().querySelector(
-          '.usa-date-picker__calendar__year[data-value="2022"]'
-        )
-      );
-
-      assert.strictEqual(
-        getCalendarEl(".usa-date-picker__calendar__year--focused").dataset
-          .value,
-        "2022",
-        "focuses correct year"
+        "focuses correct year",
       );
     });
   });

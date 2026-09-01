@@ -5,7 +5,7 @@ const ComboBox = require("../index");
 const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, "/combo-box-subsequent-selection.template.html")
+  path.join(__dirname, "/combo-box-subsequent-selection.template.html"),
 );
 
 const comboBoxSelector = () => document.querySelector(".usa-combo-box");
@@ -44,7 +44,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       it("should display the full list and focus the selected item when the input is pristine (after fresh selection)", () => {
         assert.ok(
           comboBox.classList.contains("usa-combo-box--pristine"),
-          "pristine class added after selection"
+          "pristine class added after selection",
         );
         EVENTS.click(input);
 
@@ -52,21 +52,21 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           select.options.length - 1,
-          "should have all of the initial select items in the list except placeholder empty items"
+          "should have all of the initial select items in the list except placeholder empty items",
         );
         const highlightedOption = list.querySelector(
-          ".usa-combo-box__list-option--focused"
+          ".usa-combo-box__list-option--focused",
         );
         assert.ok(
           highlightedOption.classList.contains(
-            "usa-combo-box__list-option--focused"
+            "usa-combo-box__list-option--focused",
           ),
-          "should style the focused item in the list"
+          "should style the focused item in the list",
         );
         assert.strictEqual(
           highlightedOption.textContent,
           "Blackberry",
-          "should be the previously selected item"
+          "should be the previously selected item",
         );
       });
 
@@ -75,7 +75,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           select.options.length - 1,
-          "should have all of the initial select items in the list except placeholder empty items"
+          "should have all of the initial select items in the list except placeholder empty items",
         );
 
         input.value = "COBOL";
@@ -83,23 +83,23 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
         assert.ok(
           !comboBox.classList.contains("usa-combo-box--pristine"),
-          "pristine class is removed after input"
+          "pristine class is removed after input",
         );
         assert.strictEqual(
           list.children.length,
           1,
-          "should only show the filtered items"
+          "should only show the filtered items",
         );
       });
 
       it("should show a clear button when the input has a selected value present", () => {
         assert.ok(
           comboBox.classList.contains("usa-combo-box--pristine"),
-          "pristine class added after selection"
+          "pristine class added after selection",
         );
         assert.ok(
           comboBox.querySelector(".usa-combo-box__clear-input"),
-          "clear input button is present"
+          "clear input button is present",
         );
       });
 
@@ -112,17 +112,17 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           select.value,
           "",
-          "should clear the value on the select"
+          "should clear the value on the select",
         );
         assert.strictEqual(
           input.value,
           "",
-          "should clear the value on the input"
+          "should clear the value on the input",
         );
         assert.strictEqual(
           document.activeElement,
           input,
-          "should focus the input"
+          "should focus the input",
         );
       });
 
@@ -133,13 +133,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           input.value,
           "Blackberry",
-          "should set that item to the input value"
+          "should set that item to the input value",
         );
         EVENTS.click(input);
         assert.strictEqual(
           list.children.length,
           select.options.length - 1,
-          "should have all of the initial select items in the list except placeholder empty items"
+          "should have all of the initial select items in the list except placeholder empty items",
         );
 
         input.value = "Fig";
@@ -148,7 +148,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(
           list.children.length,
           1,
-          "should only show the filtered items"
+          "should only show the filtered items",
         );
       });
     });

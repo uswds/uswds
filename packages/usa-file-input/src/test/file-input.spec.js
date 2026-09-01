@@ -3,8 +3,15 @@ const fs = require("fs");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(
-  `${__dirname}/file-input-multiple.template.html`
+  `${__dirname}/file-input-multiple.template.html`,
 );
+const FINE_POINTER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
+const matchFinePointer = () => ({
+  matches: true,
+  media: FINE_POINTER_MEDIA_QUERY,
+  addEventListener() {},
+  removeEventListener() {},
+});
 
 const tests = [
   { name: "document.body", selector: () => document.body },
@@ -18,6 +25,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`File input initialized at ${name}`, () => {
     describe("file input component builds successfully", () => {
       const { body } = document;
+      const originalMatchMedia = window.matchMedia;
 
       let dropZone;
       let instructions;
@@ -27,6 +35,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       let statusMessage;
 
       beforeEach(() => {
+        window.matchMedia = matchFinePointer;
         body.innerHTML = TEMPLATE;
         fileInput.on(containerSelector());
         dropZone = body.querySelector(".usa-file-input__target");
@@ -40,26 +49,27 @@ tests.forEach(({ name, selector: containerSelector }) => {
       afterEach(() => {
         fileInput.off(containerSelector());
         body.innerHTML = "";
+        window.matchMedia = originalMatchMedia;
       });
 
       it("instructions are created", () => {
         assert.strictEqual(
           instructions.getAttribute("class"),
-          "usa-file-input__instructions"
+          "usa-file-input__instructions",
         );
       });
 
       it("target ui is created", () => {
         assert.strictEqual(
           dropZone.getAttribute("class"),
-          "usa-file-input__target"
+          "usa-file-input__target",
         );
       });
 
       it("input gets new class", () => {
         assert.strictEqual(
           inputEl.getAttribute("class"),
-          "usa-file-input__input"
+          "usa-file-input__input",
         );
       });
 

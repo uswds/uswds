@@ -23,15 +23,15 @@ module.exports = function validate(el) {
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       const validatorParent = el.parentNode;
       const statusSummaryContainer = validatorParent.querySelector(
-        `[data-validation-status]`
+        `[data-validation-status]`,
       );
-
-      const checked = validatorPattern.test(el.value);
-      validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
 
       if (!validatorCheckbox) {
         throw new Error(`No validator checkbox found for: "${validatorName}"`);
       }
+
+      const checked = validatorPattern.test(el.value);
+      validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
 
       // Create status reports for checklist items
       const statusComplete = el.dataset.validationComplete || "status complete";

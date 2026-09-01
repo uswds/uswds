@@ -39,6 +39,10 @@
   }
 }
 
+.usa-table--sticky-header {
+  @include usa-table--sticky-header;
+}
+
 .usa-table-container--scrollable {
   @include usa-table-container--scrollable;
 }
