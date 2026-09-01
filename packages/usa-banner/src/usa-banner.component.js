@@ -131,7 +131,6 @@ export default class UsaBanner extends LitElement {
       <img
         class="usa-banner__icon usa-media-block__img"
         src="${iconDotGov}"
-        role="img"
         alt=""
         aria-hidden="true"
       />
@@ -167,7 +166,6 @@ export default class UsaBanner extends LitElement {
       <img
         class="usa-banner__icon usa-media-block__img"
         src="${iconHttps}"
-        role="img"
         alt=""
         aria-hidden="true"
       />
