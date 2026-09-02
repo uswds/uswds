@@ -14,6 +14,29 @@ const PRIMARY_CONTENT_SELECTOR =
 const BUTTON_SELECTOR = ".usa-footer__primary-link";
 
 /**
+ * mq-polyfill implements the legacy listener methods internally.
+ * This adapter exposes only the standard EventTarget API to the footer behavior.
+ */
+const withEventListeners = (mediaQueryList) => ({
+  get matches() {
+    return mediaQueryList.matches;
+  },
+  get media() {
+    return mediaQueryList.media;
+  },
+  addEventListener(type, listener) {
+    if (type === "change") {
+      mediaQueryList.addListener(listener);
+    }
+  },
+  removeEventListener(type, listener) {
+    if (type === "change") {
+      mediaQueryList.removeListener(listener);
+    }
+  },
+});
+
+/**
  * Resize the window's width, then dispatch a 'resize' event
  *
  * @param {number} width
@@ -41,6 +64,7 @@ const tests = [
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`big footer accordion initialized at ${name}`, () => {
     const { body } = document;
+    const originalMatchMedia = window.matchMedia;
 
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
@@ -49,6 +73,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     before(() => {
       matchMediaPolyfill(window);
+      const matchMedia = window.matchMedia;
+
+      window.matchMedia = (query) => withEventListeners(matchMedia(query));
+    });
+
+    after(() => {
+      window.matchMedia = originalMatchMedia;
     });
 
     beforeEach(() => {
