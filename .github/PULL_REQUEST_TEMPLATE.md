@@ -139,3 +139,30 @@ Before opening this PR, make sure you’ve done whichever of these applies to yo
 - [ ] Run `npm test` and confirm that all tests pass.
 - [ ] Run your code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and make sure it’s error free.
 -->
+
+## AI Usage
+
+- [ ] Generative AI was used in this contribution
+
+If checked, please provide an explanation on how AI was used in the development of this pull request:
+
+
+- Description: <!-- Include a high level description of Gen AI utilization -->
+- Type of assistance:
+  - [ ] Code generation
+  - [ ] Documentation
+  - [ ] Debugging
+  - [ ] Testing
+  - [ ] Refactoring
+  - [ ] Other:
+- Scope of usage: <!-- Which files, functions, or sections were AI-assisted -->
+- AI System used:
+  - [ ] ChatGPT
+  - [ ] Claude
+  - [ ] Gemini
+  - [ ] GitHub Copilot
+- Level of modification: 
+  - [ ] As-is
+  - [ ] Modified
+  - [ ] Used as inspiration
+- Prompts used: <!-- Please list or explain prompts that were used to develop this contribution -->
