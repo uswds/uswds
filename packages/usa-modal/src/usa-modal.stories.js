@@ -1,3 +1,4 @@
+import { expect, userEvent, waitFor } from "storybook/test";
 import Component from "./usa-modal.twig";
 import NestedFormsTest from "./test/test-patterns/test-usa-modal--nested-forms.twig";
 import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
@@ -25,6 +26,27 @@ const NestedFormsTemplate = (args) => NestedFormsTest(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
+// Exercise the modal's open and close behavior so the a11y test suite scans it
+// in an interactive state. The modal wrapper is moved to <body> on init, so it
+// is queried from the document rather than the story canvas. See #6787.
+Default.play = async ({ canvasElement, step }) => {
+  const opener = canvasElement.querySelector("[data-open-modal]");
+  // The modal initializes a frame after render, portaling .usa-modal-wrapper
+  // to <body>. Re-query the document each time rather than capturing a stale
+  // (possibly null) reference before init has run.
+  const getWrapper = () => document.querySelector(".usa-modal-wrapper");
+
+  await step("Open the modal", async () => {
+    await waitFor(() => expect(getWrapper()).not.toBeNull());
+    await userEvent.click(opener);
+    await waitFor(() => expect(getWrapper()).toHaveClass("is-visible"));
+  });
+
+  await step("Close the modal", async () => {
+    await userEvent.click(getWrapper().querySelector("[data-close-modal]"));
+    await waitFor(() => expect(getWrapper()).toHaveClass("is-hidden"));
+  });
+};
 
 export const Large = Template.bind({});
 Large.args = LargeContent;
