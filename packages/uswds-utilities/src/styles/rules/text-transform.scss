@@ -23,8 +23,7 @@ $u-text-transform: (
   text-transform: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($text-transform-palettes),
         $text-transform-manual-values
       ),

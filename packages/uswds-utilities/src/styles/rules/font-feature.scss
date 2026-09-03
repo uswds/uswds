@@ -24,8 +24,7 @@ $u-font-feature: (
   font-feature: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($font-feature-palettes),
         $font-feature-manual-values
       ),

@@ -23,8 +23,10 @@ $u-align-self: (
   align-self: (
     base: "flex",
     modifiers: null,
-    values:
-      map-collect(get-palettes($align-self-palettes), $align-self-manual-values),
+    values: map-collect(
+        get-palettes($align-self-palettes),
+        $align-self-manual-values
+      ),
     settings: $align-self-settings-complete,
     property: "align-self",
     type: "utility",

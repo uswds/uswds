@@ -90,8 +90,7 @@ $system-properties: (
     extended: $extended-colors,
   ),
   border: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($partial-values, "zero-zero"),
@@ -107,8 +106,7 @@ $system-properties: (
   ),
   border-radius: (
     standard: $project-border-radius,
-    extended:
-      map-collect(
+    extended: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small")
       ),
@@ -122,8 +120,7 @@ $system-properties: (
     extended: (),
   ),
   border-width: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($partial-values, "zero-zero")
@@ -131,8 +128,7 @@ $system-properties: (
     extended: (),
   ),
   bottom: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -155,8 +151,7 @@ $system-properties: (
     extended: (),
   ),
   breakpoints: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "large"),
         map.get($system-spacing, "larger"),
         map.get($system-spacing, "largest")
@@ -164,8 +159,7 @@ $system-properties: (
     extended: $theme-utility-breakpoints-custom,
   ),
   circle: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
@@ -284,8 +278,7 @@ $system-properties: (
     ),
   ),
   gap: (
-    standard:
-      map-collect(
+    standard: map-collect(
         $system-column-gaps,
         (
           "sm": $theme-column-gap-sm,
@@ -296,8 +289,7 @@ $system-properties: (
     extended: (),
   ),
   height: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
@@ -319,8 +311,7 @@ $system-properties: (
     extended: (),
   ),
   left: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -419,8 +410,7 @@ $system-properties: (
     ),
   ),
   margin: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller-negative"),
         map.get($system-spacing, "small-negative"),
         map.get($system-spacing, "smaller"),
@@ -433,8 +423,7 @@ $system-properties: (
     extended: (),
   ),
   margin-horizontal: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -449,8 +438,7 @@ $system-properties: (
     extended: (),
   ),
   margin-vertical: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -464,8 +452,7 @@ $system-properties: (
     extended: (),
   ),
   max-height: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
         map.get($system-spacing, "large"),
@@ -476,8 +463,7 @@ $system-properties: (
     extended: (),
   ),
   max-width: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
         map.get($system-spacing, "large"),
@@ -501,8 +487,7 @@ $system-properties: (
     extended: (),
   ),
   min-height: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
@@ -515,8 +500,7 @@ $system-properties: (
     extended: (),
   ),
   min-width: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
         map.get($partial-values, "zero-zero")
@@ -560,8 +544,7 @@ $system-properties: (
     extended: (),
   ),
   outline: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($partial-values, "zero-zero"),
         (
@@ -584,8 +567,7 @@ $system-properties: (
     extended: (),
   ),
   padding: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
@@ -604,8 +586,7 @@ $system-properties: (
     extended: (),
   ),
   right: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -617,8 +598,7 @@ $system-properties: (
     extended: (),
   ),
   square: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),
@@ -649,8 +629,7 @@ $system-properties: (
     extended: $extended-colors,
   ),
   text-indent: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($partial-values, "zero-zero"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "small-negative"),
@@ -669,8 +648,7 @@ $system-properties: (
     extended: (),
   ),
   top: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "smaller-negative"),
@@ -705,8 +683,7 @@ $system-properties: (
     extended: (),
   ),
   width: (
-    standard:
-      map-collect(
+    standard: map-collect(
         map.get($system-spacing, "smaller"),
         map.get($system-spacing, "small"),
         map.get($system-spacing, "medium"),

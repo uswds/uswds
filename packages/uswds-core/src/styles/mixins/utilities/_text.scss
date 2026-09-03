@@ -7,48 +7,39 @@
 // Outputs properties based on contents of text()
 
 $text-utililies: (
-  font-feature-settings:
-    map-collect(
+  font-feature-settings: map-collect(
       map-deep-get($system-properties, font-feature-settings, standard),
       map-deep-get($system-properties, font-feature-settings, extended)
     ),
-  font-style:
-    map-collect(
+  font-style: map-collect(
       map-deep-get($system-properties, "font-style", standard),
       map-deep-get($system-properties, "font-style", extended)
     ),
-  font-weight:
-    map-collect(
+  font-weight: map-collect(
       map-deep-get($system-properties, "font-weight", standard),
       map-deep-get($system-properties, "font-weight", extended)
     ),
-  letter-spacing:
-    map-collect(
+  letter-spacing: map-collect(
       map-deep-get($system-properties, "letter-spacing", standard),
       map-deep-get($system-properties, "letter-spacing", extended)
     ),
-  text-align:
-    map-collect(
+  text-align: map-collect(
       map-deep-get($system-properties, "text-align", standard),
       map-deep-get($system-properties, "text-align", extended)
     ),
-  text-decoration:
-    map-collect(
+  text-decoration: map-collect(
       map-deep-get($system-properties, "text-decoration", standard),
       map-deep-get($system-properties, "text-decoration", extended)
     ),
-  text-transform:
-    map-collect(
+  text-transform: map-collect(
       map-deep-get($system-properties, "text-transform", standard),
       map-deep-get($system-properties, "text-transform", extended)
     ),
-  vertical-align:
-    map-collect(
+  vertical-align: map-collect(
       map-deep-get($system-properties, "vertical-align", standard),
       map-deep-get($system-properties, "vertical-align", extended)
     ),
-  white-space:
-    map-collect(
+  white-space: map-collect(
       map-deep-get($system-properties, "white-space", standard),
       map-deep-get($system-properties, "white-space", extended)
     ),

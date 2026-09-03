@@ -53,9 +53,8 @@ next-token("black", "lighter")
     }
     // black and white tokens use the gray family for next
     $current-family: if(
-      $token == "white" or $token == "black",
-      "gray",
-      color-token-family($token-split)
+      sass($token == "white" or $token == "black"): "gray";
+        else: color-token-family($token-split)
     );
     // black- and white-transparent tokens don't have a next
     @if string.index($current-family, "-transparent") {
@@ -77,9 +76,11 @@ next-token("black", "lighter")
     $current-grade-index: list.index($system-grade-list, $current-grade);
     // Note: System grades go from darkest (100) to lightest (0)
     $next-grade: if(
-      $direction == "darker",
-      list.nth($system-grade-list, ($current-grade-index - 1)),
-      list.nth($system-grade-list, ($current-grade-index + 1))
+      sass($direction == "darker"): list.nth(
+          $system-grade-list,
+          ($current-grade-index - 1)
+        );
+        else: list.nth($system-grade-list, ($current-grade-index + 1))
     );
     $output-grade: $next-grade;
     // Keep the same vivid variant as the parent
@@ -100,7 +101,9 @@ next-token("black", "lighter")
   } @else {
     $current-grade: color-token-grade($token-split);
     // Vivid theme token should be considered root for ordering
-    $current-grade: if($current-grade == "vivid", "root", $current-grade);
+    $current-grade: if(
+      sass($current-grade == "vivid"): "root"; else: $current-grade
+    );
     $current-family: color-token-family($token-split);
     // Ink should be considered base-darkest
     // TODO: Should it?
@@ -120,9 +123,11 @@ next-token("black", "lighter")
     $current-grade-index: list.index($theme-grade-list, $current-grade);
     // Note: Theme grades go from `lightest` to `darkest`
     $next-grade: if(
-      $direction == "darker",
-      list.nth($theme-grade-list, ($current-grade-index + 1)),
-      list.nth($theme-grade-list, ($current-grade-index - 1))
+      sass($direction == "darker"): list.nth(
+          $theme-grade-list,
+          ($current-grade-index + 1)
+        );
+        else: list.nth($theme-grade-list, ($current-grade-index - 1))
     );
     // Exclude `root` from token output
     @if $next-grade == "root" {

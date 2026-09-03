@@ -29,8 +29,7 @@ $u-font-family: (
   font-family: (
     base: "font-family",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($font-family-palettes),
         $font-family-manual-values
       ),

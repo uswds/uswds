@@ -25,8 +25,10 @@ $project-colors: (
     "darkest": set-theme-color(settings.$theme-color-primary-darkest, no-warn),
   ),
   "secondary": (
-    "lightest":
-      set-theme-color(settings.$theme-color-secondary-lightest, no-warn),
+    "lightest": set-theme-color(
+        settings.$theme-color-secondary-lightest,
+        no-warn
+      ),
     "lighter": set-theme-color(settings.$theme-color-secondary-lighter, no-warn),
     "light": set-theme-color(settings.$theme-color-secondary-light, no-warn),
     "default": set-theme-color(settings.$theme-color-secondary, no-warn),
@@ -36,28 +38,40 @@ $project-colors: (
     "darkest": set-theme-color(settings.$theme-color-secondary-darkest, no-warn),
   ),
   "accent-warm": (
-    "lightest":
-      set-theme-color(settings.$theme-color-accent-warm-lightest, no-warn),
-    "lighter":
-      set-theme-color(settings.$theme-color-accent-warm-lighter, no-warn),
+    "lightest": set-theme-color(
+        settings.$theme-color-accent-warm-lightest,
+        no-warn
+      ),
+    "lighter": set-theme-color(
+        settings.$theme-color-accent-warm-lighter,
+        no-warn
+      ),
     "light": set-theme-color(settings.$theme-color-accent-warm-light, no-warn),
     "default": set-theme-color(settings.$theme-color-accent-warm, no-warn),
     "dark": set-theme-color(settings.$theme-color-accent-warm-dark, no-warn),
     "darker": set-theme-color(settings.$theme-color-accent-warm-darker, no-warn),
-    "darkest":
-      set-theme-color(settings.$theme-color-accent-warm-darkest, no-warn),
+    "darkest": set-theme-color(
+        settings.$theme-color-accent-warm-darkest,
+        no-warn
+      ),
   ),
   "accent-cool": (
-    "lightest":
-      set-theme-color(settings.$theme-color-accent-cool-lightest, no-warn),
-    "lighter":
-      set-theme-color(settings.$theme-color-accent-cool-lighter, no-warn),
+    "lightest": set-theme-color(
+        settings.$theme-color-accent-cool-lightest,
+        no-warn
+      ),
+    "lighter": set-theme-color(
+        settings.$theme-color-accent-cool-lighter,
+        no-warn
+      ),
     "light": set-theme-color(settings.$theme-color-accent-cool-light, no-warn),
     "default": set-theme-color(settings.$theme-color-accent-cool, no-warn),
     "dark": set-theme-color(settings.$theme-color-accent-cool-dark, no-warn),
     "darker": set-theme-color(settings.$theme-color-accent-cool-darker, no-warn),
-    "darkest":
-      set-theme-color(settings.$theme-color-accent-cool-darkest, no-warn),
+    "darkest": set-theme-color(
+        settings.$theme-color-accent-cool-darkest,
+        no-warn
+      ),
   ),
 );
 

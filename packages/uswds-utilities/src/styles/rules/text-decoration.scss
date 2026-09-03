@@ -23,8 +23,7 @@ $u-text-decoration: (
   text-decoration: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($text-decoration-palettes),
         $text-decoration-manual-values
       ),

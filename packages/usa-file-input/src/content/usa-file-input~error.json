@@ -3,7 +3,7 @@
   "label": "Input has an error",
   "hint": "Select any valid file",
   "error": true,
-  "error_message": "Display a helpful error message",
+  "error_hint_text": "Display a helpful error message",
   "accept": "",
   "multiple": ""
 }

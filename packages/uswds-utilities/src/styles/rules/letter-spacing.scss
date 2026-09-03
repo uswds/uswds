@@ -23,8 +23,7 @@ $u-letter-spacing: (
   letter-spacing: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($letter-spacing-palettes),
         $letter-spacing-manual-values
       ),

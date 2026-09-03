@@ -5,6 +5,13 @@ const jsdomFileList = require("jsdom/lib/jsdom/living/generated/FileList");
 const fileInput = require("../index");
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
+const FINE_POINTER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
+const matchFinePointer = () => ({
+  matches: true,
+  media: FINE_POINTER_MEDIA_QUERY,
+  addEventListener() {},
+  removeEventListener() {},
+});
 
 // allows us to create mock files
 function MockFile() {}
@@ -18,9 +25,8 @@ function MockFile() {}
 MockFile.prototype.create = (name, size, mimeType) => {
   function range(count) {
     let output = "";
-    // eslint-disable-next-line no-plusplus
+
     for (let i = 0; i < count; i++) {
-      // eslint-disable-line no-plusplus
       output += "a";
     }
     return output;
@@ -34,7 +40,7 @@ MockFile.prototype.create = (name, size, mimeType) => {
 };
 
 /**
- * Leverages JSdom library to instatiate a FileList
+ * Leverages JSdom library to instantiate a FileList
  * @param  {...any} files
  * @returns {Object} of FileList Type
  */
@@ -61,19 +67,31 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`File input initialized at ${name}`, () => {
     describe("file input component should respond to file type on change", () => {
       const { body } = document;
+      const originalMatchMedia = window.matchMedia;
       const INVALID_FILE_CLASS = "has-invalid-file";
       const size = 1024 * 1024 * 2;
       const mock = new MockFile();
       const file = mock.create("pic.jpg", size, "image/jpeg");
       const fileList = makeFileList(file);
+      const defaultErrorMessage = "Error: This is not a valid file type.";
+      const customErrorMessage = "Please upload a valid file";
 
       let dropZone;
       let instructions;
       let inputEl;
       let dragText;
       let box;
+      let visibleErrorMessage;
+      let ariaLabel;
+
+      const addFiles = () => {
+        inputEl.files = fileList;
+        const e = new Event("change");
+        inputEl.dispatchEvent(e);
+      };
 
       beforeEach(() => {
+        window.matchMedia = matchFinePointer;
         body.innerHTML = TEMPLATE;
         fileInput.on(containerSelector());
         dropZone = body.querySelector(".usa-file-input__target");
@@ -86,6 +104,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       afterEach(() => {
         fileInput.off(containerSelector());
         body.innerHTML = "";
+        window.matchMedia = originalMatchMedia;
       });
 
       it("instructions are created", () => {
@@ -126,13 +145,42 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       it("mock file should not be allowed", () => {
         // add to our elements FileList
-        inputEl.files = fileList;
-        const e = new Event("change");
-        inputEl.dispatchEvent(e);
+        addFiles();
         assert.strictEqual(
           dropZone.classList.contains(INVALID_FILE_CLASS),
           true,
         );
+      });
+
+      it("should provide a default error message for invalid file type", () => {
+        // add to our elements FileList
+        addFiles();
+
+        // Error message appended to DOM after change event.
+        visibleErrorMessage = body.querySelector(
+          ".usa-file-input__accepted-files-message",
+        );
+        ariaLabel = inputEl.getAttribute("aria-label");
+
+        assert.strictEqual(
+          visibleErrorMessage.textContent,
+          defaultErrorMessage,
+        );
+        assert.strictEqual(ariaLabel.startsWith(defaultErrorMessage), true);
+      });
+
+      it("should allow a custom error message for invalid file type", () => {
+        inputEl.dataset.errormessage = customErrorMessage;
+        addFiles();
+
+        // Error message appended to DOM after change event.
+        visibleErrorMessage = body.querySelector(
+          ".usa-file-input__accepted-files-message",
+        );
+        ariaLabel = inputEl.getAttribute("aria-label");
+
+        assert.strictEqual(visibleErrorMessage.textContent, customErrorMessage);
+        assert.strictEqual(ariaLabel.startsWith(customErrorMessage), true);
       });
     });
   });

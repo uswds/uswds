@@ -205,7 +205,7 @@
     <div class="usa-input-group {% if error_state == true %}usa-input--error{% endif %}">
       <div class="usa-input-prefix" aria-hidden="true">
         <svg aria-hidden="true" role="img" focusable="false" class="usa-icon">
-          <use xlink:href="./img/sprite.svg#credit_card"></use>
+          <use href="./img/sprite.svg#credit_card"></use>
         </svg>
       </div>
       <input
@@ -238,44 +238,58 @@
   {% if error_state == true %}</div>{% endif %}
 </form>
 
+{% set memorable_date_id = "date-of-birth" %}
+{% set group_hint_id = memorable_date_id ~ "-hint" %}
+{% set month_id = memorable_date_id ~ "-month" %}
+{% set day_id = memorable_date_id ~ "-day" %}
+{% set year_id = memorable_date_id ~ "-year" %}
+{% set month_hint_id = month_id ~ "-hint" %}
+{% set day_hint_id = day_id ~ "-hint" %}
+{% set year_hint_id = year_id ~ "-hint" %}
+{% set memorable_date_error_id = memorable_date_id ~ "-error" %}
+
 <div class="usa-form-group {% if error_state == true %}usa-form-group--error{% endif %}">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend {% if error_state == true %}usa-label--error{% endif %}">Memorable date</legend>
-    <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
-    {% if error_state == true %}<span class="usa-error-message" role="alert">Helpful error message</span>{% endif %}
+    <span class="usa-hint" aria-hidden="true" id="{{ group_hint_id }}">
+      Select a month. Enter 1 or 2 digits for the day and 4 digits for the year.
+    </span>
+    {% if error_state == true %}<span class="usa-error-message" id="{{ memorable_date_error_id }}" role="alert">Helpful error message</span>{% endif %}
     <div class="usa-memorable-date">
       <div class="usa-form-group usa-form-group--month usa-form-group--select">
-        <label class="usa-label" for="date_of_birth_month">Month</label>
+        <label class="usa-label" for="{{ month_id }}">Month</label>
+        <span class="usa-hint usa-sr-only" id="{{ month_hint_id }}">Select a month from the dropdown.</span>
         <select
           class="usa-select {% if error_state == true %}usa-input--error{% endif %}"
-          id="date_of_birth_month"
-          name="date_of_birth_month"
-          aria-describedby="mdHint"
+          id="{{ month_id }}"
+          name="{{ month_id }}"
+          aria-describedby="{{ month_hint_id }}{% if error_state == true %} {{ memorable_date_error_id }}{% endif %}"
           {% if disabled_state == 'disabled' %} disabled
           {% elseif disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
         >
           <option value>- Select -</option>
-          <option value="1">01 - January</option>
-          <option value="2">02 - February</option>
-          <option value="3">03 - March</option>
-          <option value="4">04 - April</option>
-          <option value="5">05 - May</option>
-          <option value="6">06 - June</option>
-          <option value="7">07 - July</option>
-          <option value="8">08 - August</option>
-          <option value="9">09 - September</option>
-          <option value="10">10 - October</option>
-          <option value="11">11 - November</option>
-          <option value="12">12 - December</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
         </select>
       </div>
       <div class="usa-form-group usa-form-group--day">
-        <label class="usa-label" for="date_of_birth_day">Day</label>
+        <label class="usa-label" for="{{ day_id }}">Day</label>
+        <span class="usa-hint usa-sr-only" id="{{ day_hint_id }}">Enter 1 or 2 digits for the day.</span>
         <input
           class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
-          aria-describedby="mdHint"
-          id="date_of_birth_day"
-          name="date_of_birth_day"
+          aria-describedby="{{ day_hint_id }}{% if error_state == true %} {{ memorable_date_error_id }}{% endif %}"
+          id="{{ day_id }}"
+          name="{{ day_id }}"
           maxlength="2"
           pattern="[0-9]*"
           inputmode="numeric"
@@ -285,12 +299,13 @@
         />
       </div>
       <div class="usa-form-group usa-form-group--year">
-        <label class="usa-label" for="date_of_birth_year">Year</label>
+        <label class="usa-label" for="{{ year_id }}">Year</label>
+        <span class="usa-hint usa-sr-only" id="{{ year_hint_id }}">Enter 4 digits for the year.</span>
         <input
           class="usa-input {% if error_state == true %}usa-input--error{% endif %}"
-          aria-describedby="mdHint"
-          id="date_of_birth_year"
-          name="date_of_birth_year"
+          aria-describedby="{{ year_hint_id }}{% if error_state == true %} {{ memorable_date_error_id }}{% endif %}"
+          id="{{ year_id }}"
+          name="{{ year_id }}"
           minlength="4"
           maxlength="4"
           pattern="[0-9]*"

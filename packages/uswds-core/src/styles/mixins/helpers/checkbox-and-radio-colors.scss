@@ -51,9 +51,7 @@
     "gray-50"
   );
   $input-bg-color: if(
-    $bg-color == "default",
-    $theme-body-background-color,
-    $bg-color
+    sass($bg-color == "default"): $theme-body-background-color; else: $bg-color
   );
   $input-active-color: list.nth(
     get-link-tokens-from-bg($bg-color, $preferred-link-token: $selected-color),
@@ -65,15 +63,14 @@
   $tile-box-shadow--disabled: 0 0 0 units($theme-input-select-border-width)
     color($input-text-color-disabled);
   $input-darkmode: if(
-    color.lightness(color($input-bg-color)) < 50%,
-    true,
-    false
+    sass(color.channel(color($input-bg-color), "lightness", $space: hsl) < 50%):
+      true;
+      else: false
   );
-  $input-checkmark: if($input-darkmode, "correct8-alt", "correct8");
+  $input-checkmark: if(sass($input-darkmode): "correct8-alt"; else: "correct8");
   $input-indeterminate: if(
-    $input-darkmode,
-    "checkbox-indeterminate-alt",
-    "checkbox-indeterminate"
+    sass($input-darkmode): "checkbox-indeterminate-alt";
+      else: "checkbox-indeterminate"
   );
 
   .usa-#{$input-type} {

@@ -1,4 +1,3 @@
-const ignore = require("receptor/ignore");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const select = require("../../uswds-core/src/js/utils/select");
 
@@ -23,10 +22,8 @@ const toggleSearch = (button, active) => {
     throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  /* eslint-disable no-param-reassign */
   button.hidden = active;
   form.hidden = !active;
-  /* eslint-enable */
 
   if (!active) {
     return;
@@ -39,13 +36,17 @@ const toggleSearch = (button, active) => {
   }
   // when the user clicks _outside_ of the form w/ignore(): hide the
   // search, then remove the listener
-  const listener = ignore(form, () => {
+  const listener = (event) => {
+    if (form.contains(event.target)) {
+      return;
+    }
+
     if (lastButton) {
-      hideSearch.call(lastButton); // eslint-disable-line no-use-before-define
+      hideSearch.call(lastButton);
     }
 
     document.body.removeEventListener(CLICK, listener);
-  });
+  };
 
   // Normally we would just run this code without a timeout, but
   // IE11 and Edge will actually call the listener *immediately* because

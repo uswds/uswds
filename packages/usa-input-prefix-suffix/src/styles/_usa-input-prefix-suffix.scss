@@ -58,6 +58,14 @@ $icon-offset: $icon-width + ($input-padding * 2);
   }
 }
 
+// Create input group max width utility classes
+@each $name, $width in $system-input-widths {
+  .usa-input-group--#{$name},
+  .usa-form .usa-input-group--#{$name} {
+    max-width: #{$width};
+  }
+}
+
 .usa-input-prefix:has(+ input:disabled),
 .usa-input-prefix:has(+ input[aria-disabled="true"]) {
   @include u-disabled;

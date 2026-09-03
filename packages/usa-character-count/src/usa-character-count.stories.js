@@ -1,6 +1,7 @@
 import Component from "./usa-character-count.twig";
 import TestNoLabelComponent from "./test/test-patterns/test-usa-character-count--no-label.twig";
 import TestNoFormGroupComponent from "./test/test-patterns/test-usa-character-count--no-form-group.twig";
+import characterCount from "./index";
 
 export default {
   title: "Components/Form Inputs/Character Count",
@@ -11,6 +12,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      characterCount.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        characterCount.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);

@@ -1,0 +1,196 @@
+name: Update Contributors Information
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 22 * * *"
+
+# Allow only one contributors-update run at a time.
+# If a second push to develop arrives while a run is in flight, the older
+# run is cancelled so we always work from the most recent develop SHA.
+concurrency:
+  group: contributors-update
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-contributors:
+    # Only run on the canonical repo; skip forks entirely.
+    if: github.repository == 'uswds/uswds'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Build contributors block
+        id: build
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # pin v7.0.1
+        with:
+          script: |
+            const fs = require('fs');
+
+            const COLUMNS = 6;
+            const IMAGE_SIZE = 100;
+            const START_MARKER = '<!-- readme: contributors -start -->';
+            const END_MARKER   = '<!-- readme: contributors -end -->';
+            const COUNT_START  = '<!--CONTRIBUTOR COUNT START-->';
+            const COUNT_END    = '<!--CONTRIBUTOR COUNT END-->';
+            const README_PATH  = 'COMMUNITY.md';
+
+            // ── 1. Fetch all non-bot contributors ────────────────────────────
+            const botPatterns = [/\[bot\]$/, /-bot$/i];
+            const isBot = (user) =>
+              user.type === 'Bot' || botPatterns.some((p) => p.test(user.login));
+
+            const allContributors = await github.paginate(
+              github.rest.repos.listContributors,
+              { owner: context.repo.owner, repo: context.repo.repo, per_page: 100 }
+            );
+            const contributors = allContributors.filter((u) => !isBot(u));
+
+            core.info(`Non-bot contributors: ${contributors.length}`);
+
+            // ── 2. Sanitisation helpers ──────────────────────────────────────
+            // Inlined from escape-html (MIT) https://github.com/component/escape-html
+            const matchHtmlRegExp = /["'&<>]/;
+            const escapeHtml = (string) => {
+              const str = '' + string;
+              const match = matchHtmlRegExp.exec(str);
+              if (!match) return str;
+              let escape, html = '', index = 0, lastIndex = 0;
+              for (index = match.index; index < str.length; index++) {
+                switch (str.charCodeAt(index)) {
+                  case 34: escape = '&quot;'; break; // "
+                  case 38: escape = '&amp;';  break; // &
+                  case 39: escape = '&#39;';  break; // '
+                  case 60: escape = '&lt;';   break; // <
+                  case 62: escape = '&gt;';   break; // >
+                  default: continue;
+                }
+                if (lastIndex !== index) html += str.substring(lastIndex, index);
+                lastIndex = index + 1;
+                html += escape;
+              }
+              return lastIndex !== index ? html + str.substring(lastIndex, index) : html;
+            };
+
+            // avatar_url is always an https:// GitHub CDN URL, but sanitise it
+            // anyway so a malformed value can't inject an attribute or break src.
+            const safeUrl = (url) => {
+              try {
+                const parsed = new URL(url);
+                if (parsed.protocol !== 'https:') return '';
+                return escapeHtml(parsed.href);
+              } catch {
+                return '';
+              }
+            };
+
+            // ── 3. Resolve display names and render table cells ─────────────
+            const cells = [];
+            for (const contributor of contributors) {
+              let name = contributor.login, avatar = contributor.avatar_url;
+              try {
+                const { data } = await github.rest.users.getByUsername({ username: contributor.login });
+                name   = data.name || contributor.login;
+                avatar = data.avatar_url;
+              } catch { /* fall back to list values */ }
+
+              const safeLogin  = escapeHtml(contributor.login);
+              const safeName   = escapeHtml(name);
+              const safeAvatar = safeUrl(avatar);
+              cells.push(`
+                    <td align="center">
+                        <a href="https://github.com/${safeLogin}">
+                            <img src="${safeAvatar}" width="${IMAGE_SIZE};" alt="${safeLogin}"/>
+                            <br />
+                            <sub><b>${safeName}</b></sub>
+                        </a>
+                    </td>`);
+            }
+
+            // ── 4. Build the table ───────────────────────────────────────────
+            let tableRows = '';
+            for (let i = 0; i < cells.length; i += COLUMNS) {
+              tableRows += `\t\t<tr>${cells.slice(i, i + COLUMNS).join('')}\n\t\t</tr>\n`;
+            }
+
+            const block =
+              `${START_MARKER}\n` +
+              `<table role="presentation">\n\t<tbody>\n` +
+              tableRows +
+              `\t</tbody>\n</table>\n` +
+              `${END_MARKER}`;
+
+            // ── 5. Splice into COMMUNITY.md ──────────────────────────────────
+            const original = fs.readFileSync(README_PATH, 'utf8');
+
+            const startIdx = original.indexOf(START_MARKER);
+            const endIdx   = original.indexOf(END_MARKER);
+            if (startIdx === -1 || endIdx === -1) {
+              core.setFailed('Could not find contributor markers in COMMUNITY.md');
+              return;
+            }
+            let content =
+              original.slice(0, startIdx) +
+              block +
+              original.slice(endIdx + END_MARKER.length);
+
+            // ── 6. Update contributor count ──────────────────────────────────
+            const count = contributors.length;
+            content = content.replace(
+              new RegExp(`${COUNT_START}[\\s\\S]*?${COUNT_END}`),
+              `${COUNT_START} ${count} ${COUNT_END}`
+            );
+
+            // ── 7. Check for a real diff before writing ───────────────────────
+            if (content === original) {
+              core.info('No changes to contributors list. Skipping.');
+              core.setOutput('changed', 'false');
+              core.setOutput('count', String(count));
+              return;
+            }
+
+            fs.writeFileSync(README_PATH, content, 'utf8');
+            core.info(`Wrote updated COMMUNITY.md (${count} contributors).`);
+            core.setOutput('changed', 'true');
+            core.setOutput('count', String(count));
+
+      - name: Create or update pull request
+        if: steps.build.outputs.changed == 'true'
+        id: cpr
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # pin v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          sign-commits: true
+          branch: automated/contributors-update
+          delete-branch: true
+          base: develop
+          add-paths: COMMUNITY.md
+          commit-message: "docs: update contributors list and add role=presentation to table"
+          title: "docs: update contributors information"
+          body: |
+            This PR was opened automatically by the **Update Contributors Information** workflow after a push to `develop`.
+
+            **What changed**
+            - Refreshed the contributors table in `COMMUNITY.md` from the GitHub `/contributors` API endpoint (bots excluded).
+            - Contributor count updated to **${{ steps.build.outputs.count }}**.
+            - The generated `<table>` carries `role="presentation"` so screen readers do not announce it as a data table.
+
+            All commits on this PR are cryptographically signed by `github-actions[bot]` via the GitHub git-data API.
+          labels: |
+            documentation
+
+      - name: Log pull request URL
+        if: steps.cpr.outputs.pull-request-url != ''
+        run: |
+          echo "PR: ${{ steps.cpr.outputs.pull-request-url }}"
+          echo "Operation: ${{ steps.cpr.outputs.pull-request-operation }}"
+          echo "Commits verified: ${{ steps.cpr.outputs.pull-request-commits-verified }}"

@@ -21,49 +21,49 @@ $place-icon-defaults: (
   "svg-width": 24,
 );
 
-$-chevron-icon-defaults: map-merge(
+$-chevron-icon-defaults: map.merge(
   $place-icon-defaults,
   (
     "height": units($nav-link-arrow-icon-size),
   )
 );
 
-$-mobile-icon-defaults: map-merge(
+$-mobile-icon-defaults: map.merge(
   $place-icon-defaults,
   (
     "height": units($nav-link-accordion-icon-size),
   )
 );
 
-$-add-icon: map-merge(
+$-add-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "add",
   )
 );
 
-$-remove-icon: map-merge(
+$-remove-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "remove",
   )
 );
 
-$close-icon: map-merge(
+$close-icon: map.merge(
   $-mobile-icon-defaults,
   (
     "name": "close",
   )
 );
 
-$expand-more-icon: map-merge(
+$expand-more-icon: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_more",
   )
 );
 
-$expand-less-icon: map-merge(
+$expand-less-icon: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_less",
@@ -102,6 +102,10 @@ $expand-less-icon: map-merge(
     &.is-visible {
       animation: slidein-left 0.3s ease-in-out;
       display: flex;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
     }
   }
 
@@ -501,7 +505,7 @@ $expand-less-icon: map-merge(
 
 $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
 
-@if map-has-key($our-breakpoints, $theme-header-min-width) {
+@if map.has-key($our-breakpoints, $theme-header-min-width) {
   $safari-header-bug-min-width: calc(
     units($theme-header-min-width) - px-to-rem(15px)
   );

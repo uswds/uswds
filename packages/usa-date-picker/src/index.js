@@ -1,4 +1,4 @@
-const keymap = require("receptor/keymap");
+const keymap = require("../../uswds-core/src/js/utils/keymap");
 const behavior = require("../../uswds-core/src/js/utils/behavior");
 const select = require("../../uswds-core/src/js/utils/select");
 const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
@@ -80,30 +80,17 @@ const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
-const MONTH_LABELS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+// An array of Dates that represent each month in the year
+const MONTH_DATE_SEED = Array.from({ length: 12 }).map(
+  (_, i) => new Date(0, i),
+);
 
-const DAY_OF_WEEK_LABELS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+// An array of Dates that represent each day of the week
+const DAY_OF_WEEK_DATE_SEED = Array.from({ length: 7 }).map(
+  (_, i) => new Date(0, 0, i),
+);
+
+const CALENDAR_LABELS_BY_LANG = new Map();
 
 const ENTER_KEYCODE = 13;
 
@@ -604,11 +591,10 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  */
 const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
-  let row = [];
 
   let i = 0;
   while (i < htmlArray.length) {
-    row = [];
+    const row = [];
 
     const tr = document.createElement("tr");
     while (i < htmlArray.length && row.length < rowSize) {
@@ -714,6 +700,30 @@ const getDatePickerContext = (el) => {
     throw new Error("Minimum date cannot be after maximum date");
   }
 
+  const lang = document.documentElement.lang || "en";
+
+  // if the language is not found generate the list
+  if (!CALENDAR_LABELS_BY_LANG.has(lang)) {
+    CALENDAR_LABELS_BY_LANG.set(lang, {
+      monthLabels: MONTH_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, { month: "long" }),
+      ),
+      dayOfWeeklabels: DAY_OF_WEEK_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, {
+          weekday: "long",
+        }),
+      ),
+      dayOfWeeksAbv: DAY_OF_WEEK_DATE_SEED.map((date) =>
+        date.toLocaleString(lang, {
+          weekday: "narrow",
+        }),
+      ),
+    });
+  }
+
+  const { monthLabels, dayOfWeeklabels, dayOfWeeksAbv } =
+    CALENDAR_LABELS_BY_LANG.get(lang);
+
   return {
     calendarDate,
     minDate,
@@ -729,6 +739,9 @@ const getDatePickerContext = (el) => {
     rangeDate,
     defaultDate,
     statusEl,
+    monthLabels,
+    dayOfWeeklabels,
+    dayOfWeeksAbv,
   };
 };
 
@@ -882,6 +895,8 @@ const setCalendarValue = (el, dateString) => {
  */
 const enhanceDatePicker = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
+  if (datePickerEl.dataset.enhanced) return;
+
   const { defaultValue } = datePickerEl.dataset;
 
   const internalInputEl = datePickerEl.querySelector(`input`);
@@ -948,6 +963,8 @@ const enhanceDatePicker = (el) => {
     ariaDisable(datePickerEl);
     internalInputEl.removeAttribute("aria-disabled");
   }
+
+  datePickerEl.dataset.enhanced = "true";
 };
 
 // #region Calendar - Date Selection View
@@ -968,6 +985,9 @@ const renderCalendar = (el, _dateToDisplay) => {
     maxDate,
     minDate,
     rangeDate,
+    monthLabels,
+    dayOfWeeklabels,
+    dayOfWeeksAbv,
   } = getDatePickerContext(el);
   const todaysDate = today();
   let dateToDisplay = _dateToDisplay || todaysDate;
@@ -994,7 +1014,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     withinRangeEndDate,
   } = setRangeDates(selectedDate || dateToDisplay, rangeDate);
 
-  const monthLabel = MONTH_LABELS[focusedMonth];
+  const monthLabel = monthLabels[focusedMonth];
 
   const generateDateHtml = (dateToRender) => {
     const classes = [CALENDAR_DATE_CLASS];
@@ -1026,7 +1046,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
-    if (isSameDay(dateToRender, todaysDate)) {
+    const isToday = isSameDay(dateToRender, todaysDate);
+    if (isToday) {
       classes.push(CALENDAR_DATE_TODAY_CLASS);
     }
 
@@ -1059,8 +1080,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
 
-    const monthStr = MONTH_LABELS[month];
-    const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
+    const monthStr = monthLabels[month];
+    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1075,6 +1096,9 @@ const renderCalendar = (el, _dateToDisplay) => {
       Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    if (isToday) {
+      btn.setAttribute("aria-current", "date");
+    }
     if (isDisabled === true) {
       btn.disabled = true;
     }
@@ -1160,22 +1184,12 @@ const renderCalendar = (el, _dateToDisplay) => {
   const tableHeadRow = document.createElement("tr");
   tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
-  const daysOfWeek = {
-    Sunday: "S",
-    Monday: "M",
-    Tuesday: "T",
-    Wednesday: "W",
-    Thursday: "Th",
-    Friday: "Fr",
-    Saturday: "S",
-  };
-
-  Object.keys(daysOfWeek).forEach((key) => {
+  dayOfWeeklabels.forEach((dayOfWeek, i) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
-    th.setAttribute("aria-label", key);
-    th.textContent = daysOfWeek[key];
+    th.setAttribute("aria-label", dayOfWeek);
+    th.textContent = dayOfWeeksAbv[i];
     tableHeadRow.insertAdjacentElement("beforeend", th);
   });
 
@@ -1373,13 +1387,13 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+  const { calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
     getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
   const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
 
-  const months = MONTH_LABELS.map((month, index) => {
+  const months = monthLabels.map((month, index) => {
     const monthToCheck = setMonth(calendarDate, index);
 
     const isDisabled = isDatesMonthOutsideMinOrMax(

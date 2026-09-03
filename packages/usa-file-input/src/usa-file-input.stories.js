@@ -7,16 +7,42 @@ import {
   SpecificContent,
   WildcardContent,
 } from "./content";
+import fileInput from "./index";
 
 export default {
   title: "Components/Form Inputs/File Input",
+  args: {
+    error_hint_text: "",
+    invalid_file_text: "",
+  },
   argTypes: {
     disabled_state: {
       name: "Disabled state",
       control: { type: "radio" },
       options: ["none", "disabled", "aria-disabled"],
     },
+    error_hint_text: {
+      name: "Error message - hint",
+      control: { type: "text" },
+    },
+    invalid_file_text: {
+      name: "Error text - Invalid file type (data-errorMessage)",
+      control: { type: "text" },
+    },
   },
+  decorators: [
+    (Story) => {
+      fileInput.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        fileInput.init();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);

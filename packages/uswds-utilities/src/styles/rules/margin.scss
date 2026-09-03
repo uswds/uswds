@@ -45,8 +45,7 @@ $u-margin: (
       "top": "-top",
       "bottom": "-bottom",
     ),
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($margin-vertical-palettes),
         $margin-manual-values
       ),
@@ -64,8 +63,7 @@ $u-margin: (
       "right": "-right",
       "left": "-left",
     ),
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($margin-horizontal-palettes),
         $margin-manual-values
       ),

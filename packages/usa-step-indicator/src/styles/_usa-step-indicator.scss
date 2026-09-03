@@ -92,9 +92,8 @@ $step-indicator-counter-size-sm: 3;
     );
     // Add margin based on segment size
     margin-top: calc(
-      #{units($theme-step-indicator-segment-height)} + #{units(
-          $step-indicator-label-margin-top
-        )}
+      #{units($theme-step-indicator-segment-height)} +
+        #{units($step-indicator-label-margin-top)}
     );
     padding-right: units(4);
     text-align: left;
@@ -115,6 +114,10 @@ $step-indicator-counter-size-sm: 3;
   );
   font-weight: font-weight("bold");
   margin: units($step-indicator-header-margin-top-sm) 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: units(1.5);
 
   @include at-media($theme-step-indicator-min-width) {
     font-size: size(
@@ -123,6 +126,10 @@ $step-indicator-counter-size-sm: 3;
     );
     margin-top: units($step-indicator-header-margin-top);
   }
+}
+
+.usa-step-indicator__heading-counter {
+  flex-shrink: 0;
 }
 
 .usa-step-indicator__current-step {
@@ -142,7 +149,6 @@ $step-indicator-counter-size-sm: 3;
 .usa-step-indicator__total-steps {
   @include u-text("normal", "tabular");
   color: color($theme-step-indicator-segment-color-current);
-  margin-right: units(1);
 }
 
 .usa-step-indicator--counters,
@@ -203,10 +209,10 @@ $step-indicator-counter-size-sm: 3;
         text-align: center;
         top: calc(
           (
-              #{units($step-indicator-counter-size)} - #{units(
-                  $theme-step-indicator-segment-height
-                )}
-            ) / -2
+              #{units($step-indicator-counter-size)} -
+                #{units($theme-step-indicator-segment-height)}
+            ) /
+            -2
         );
         z-index: z(100);
       }
@@ -244,11 +250,12 @@ $step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($step-indicator-counter-size)} + #{units(
-                    $theme-step-indicator-segment-height
-                  )}
-              ) / 2
-          ) + #{units($step-indicator-label-margin-top)}
+                #{units($step-indicator-counter-size)} +
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          ) +
+          #{units($step-indicator-label-margin-top)}
       );
     }
   }
@@ -313,10 +320,10 @@ $step-indicator-counter-size-sm: 3;
         padding: calc(#{units(0.5)} + 1px);
         top: calc(
           (
-              #{units($step-indicator-counter-size-sm)} - #{units(
-                  $theme-step-indicator-segment-height
-                )}
-            ) / -2
+              #{units($step-indicator-counter-size-sm)} -
+                #{units($theme-step-indicator-segment-height)}
+            ) /
+            -2
         );
       }
 
@@ -335,11 +342,12 @@ $step-indicator-counter-size-sm: 3;
       margin-top: calc(
         (
             (
-                #{units($step-indicator-counter-size-sm)} + #{units(
-                    $theme-step-indicator-segment-height
-                  )}
-              ) / 2
-          ) + #{units($step-indicator-label-margin-top)}
+                #{units($step-indicator-counter-size-sm)} +
+                  #{units($theme-step-indicator-segment-height)}
+              ) /
+              2
+          ) +
+          #{units($step-indicator-label-margin-top)}
       );
     }
   }

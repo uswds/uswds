@@ -23,8 +23,7 @@ $u-justify-content: (
   justify-content: (
     base: "flex",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         get-palettes($justify-content-palettes),
         $justify-content-manual-values
       ),

@@ -25,8 +25,7 @@ $u-border-color: (
     property: "border-color",
     base: "border",
     modifiers: null,
-    values:
-      map-collect(
+    values: map-collect(
         $tokens-color-global,
         get-palettes($border-color-palettes),
         get-palettes($global-color-palettes),

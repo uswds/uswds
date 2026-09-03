@@ -27,8 +27,10 @@ $u-overflow: (
       "y": "-y",
       "x": "-x",
     ),
-    values:
-      map-collect(get-palettes($overflow-palettes), $overflow-manual-values),
+    values: map-collect(
+        get-palettes($overflow-palettes),
+        $overflow-manual-values
+      ),
     settings: $overflow-settings-complete,
     property: "overflow",
     type: "utility",

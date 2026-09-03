@@ -23,8 +23,10 @@ $u-whitespace: (
   whitespace: (
     base: "text",
     modifiers: null,
-    values:
-      map-collect(get-palettes($whitespace-palettes), $whitespace-manual-values),
+    values: map-collect(
+        get-palettes($whitespace-palettes),
+        $whitespace-manual-values
+      ),
     settings: $whitespace-settings-complete,
     property: "white-space",
     type: "utility",

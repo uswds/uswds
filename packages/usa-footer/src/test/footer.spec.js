@@ -14,6 +14,29 @@ const PRIMARY_CONTENT_SELECTOR =
 const BUTTON_SELECTOR = ".usa-footer__primary-link";
 
 /**
+ * mq-polyfill implements the legacy listener methods internally.
+ * This adapter exposes only the standard EventTarget API to the footer behavior.
+ */
+const withEventListeners = (mediaQueryList) => ({
+  get matches() {
+    return mediaQueryList.matches;
+  },
+  get media() {
+    return mediaQueryList.media;
+  },
+  addEventListener(type, listener) {
+    if (type === "change") {
+      mediaQueryList.addListener(listener);
+    }
+  },
+  removeEventListener(type, listener) {
+    if (type === "change") {
+      mediaQueryList.removeListener(listener);
+    }
+  },
+});
+
+/**
  * Resize the window's width, then dispatch a 'resize' event
  *
  * @param {number} width
@@ -41,6 +64,7 @@ const tests = [
 tests.forEach(({ name, selector: containerSelector }) => {
   describe(`big footer accordion initialized at ${name}`, () => {
     const { body } = document;
+    const originalMatchMedia = window.matchMedia;
 
     document.head.insertAdjacentHTML("beforeend", `<style>${STYLES}</style>`);
 
@@ -49,6 +73,13 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
     before(() => {
       matchMediaPolyfill(window);
+      const matchMedia = window.matchMedia;
+
+      window.matchMedia = (query) => withEventListeners(matchMedia(query));
+    });
+
+    after(() => {
+      window.matchMedia = originalMatchMedia;
     });
 
     beforeEach(() => {
@@ -131,6 +162,20 @@ tests.forEach(({ name, selector: containerSelector }) => {
       resizeTo(1024);
       assert.strictEqual(buttons()[0].tagName, initialHtmlTag);
       assert.strictEqual(buttons()[0].getAttribute("data-tag"), null);
+    });
+
+    it("falls back to h4 when data-tag is not in the allow-list", () => {
+      resizeTo(400);
+      assert.strictEqual(buttons()[0].tagName, "BUTTON");
+
+      buttons()[0].setAttribute("data-tag", "script");
+      buttons()[1].setAttribute("data-tag", "<img src=x onerror=alert(1)>");
+      buttons()[2].setAttribute("data-tag", "h7");
+
+      resizeTo(1024);
+      assert.strictEqual(buttons()[0].tagName, "H4");
+      assert.strictEqual(buttons()[1].tagName, "H4");
+      assert.strictEqual(buttons()[2].tagName, "H4");
     });
   });
 });
