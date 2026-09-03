@@ -967,6 +967,46 @@ const enhanceDatePicker = (el) => {
   datePickerEl.dataset.enhanced = "true";
 };
 
+const CALENDAR_OPEN_KEYBOARD_HINTS = [
+  "You can navigate by day using left and right arrows",
+  "Weeks by using up and down arrows",
+  "Months by using page up and page down keys",
+  "Years by using shift plus page up and shift plus page down",
+  "Home and end keys navigate to the beginning and end of a week",
+];
+
+const CALENDAR_OPEN_TOUCH_HINTS = [
+  "Swipe right or left to move between dates",
+  "Double-tap to select a date",
+  "Use previous month and next month to change months",
+  "Use the month and year buttons to choose a different month or year",
+];
+
+/**
+ * Whether the primary input is touch (mobile/tablet), not keyboard-first desktop.
+ *
+ * @returns {boolean}
+ */
+const isTouchPrimaryDevice = () => {
+  if (isIosDevice()) return true;
+
+  if (typeof window !== "undefined" && window.matchMedia) {
+    return window.matchMedia("(pointer: coarse)").matches;
+  }
+
+  return false;
+};
+
+/**
+ * Screen reader hints announced when the calendar first opens.
+ *
+ * @returns {string[]}
+ */
+const getCalendarOpenStatusHints = () =>
+  isTouchPrimaryDevice()
+    ? CALENDAR_OPEN_TOUCH_HINTS
+    : CALENDAR_OPEN_KEYBOARD_HINTS;
+
 // #region Calendar - Date Selection View
 
 /**
@@ -1021,7 +1061,6 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
-    const dayOfWeek = dateToRender.getDay();
 
     const formattedDate = formatDate(dateToRender);
 
@@ -1081,7 +1120,6 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
 
     const monthStr = monthLabels[month];
-    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1093,7 +1131,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-value", formattedDate);
     btn.setAttribute(
       "aria-label",
-      Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
+      Sanitizer.escapeHTML`${day} ${monthStr} ${year}`,
     );
     btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isToday) {
@@ -1188,8 +1226,17 @@ const renderCalendar = (el, _dateToDisplay) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
-    th.setAttribute("aria-label", dayOfWeek);
-    th.textContent = dayOfWeeksAbv[i];
+
+    const visibleAbbr = document.createElement("span");
+    visibleAbbr.setAttribute("aria-hidden", "true");
+    visibleAbbr.textContent = dayOfWeeksAbv[i];
+
+    const screenReaderName = document.createElement("span");
+    screenReaderName.classList.add("usa-sr-only");
+    screenReaderName.textContent = dayOfWeek;
+
+    th.appendChild(visibleAbbr);
+    th.appendChild(screenReaderName);
     tableHeadRow.insertAdjacentElement("beforeend", th);
   });
 
@@ -1213,13 +1260,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   }
 
   if (calendarWasHidden) {
-    statuses.push(
-      "You can navigate by day using left and right arrows",
-      "Weeks by using up and down arrows",
-      "Months by using page up and page down keys",
-      "Years by using shift plus page up and shift plus page down",
-      "Home and end keys navigate to the beginning and end of a week",
-    );
+    statuses.push(...getCalendarOpenStatusHints());
     statusEl.textContent = "";
   } else {
     statuses.push(`${monthLabel} ${focusedYear}`);
