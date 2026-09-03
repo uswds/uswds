@@ -80,6 +80,8 @@ const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
+let preventFocusOut = false;
+
 // An array of Dates that represent each month in the year
 const MONTH_DATE_SEED = Array.from({ length: 12 }).map(
   (_, i) => new Date(0, i),
@@ -2122,8 +2124,14 @@ const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
 // #region Date Picker Event Delegation Registration / Component
 
 const datePickerEvents = {
+  mousedown: {
+    [DATE_PICKER_BUTTON]() {
+      preventFocusOut = true;
+    },
+  },
   [CLICK]: {
     [DATE_PICKER_BUTTON]() {
+      preventFocusOut = false;
       toggleCalendar(this);
     },
     [CALENDAR_DATE]() {
@@ -2249,6 +2257,10 @@ const datePickerEvents = {
       validateDateInput(this);
     },
     [DATE_PICKER](event) {
+      if (preventFocusOut) {
+        return;
+      }
+
       if (!this.contains(event.relatedTarget)) {
         hideCalendar(this);
       }
