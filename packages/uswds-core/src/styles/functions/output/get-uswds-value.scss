@@ -4,7 +4,6 @@
 @use "sass:math";
 @use "../../functions/output/number-to-token" as *;
 @use "../../functions/general/smart-quote" as *;
-@use "../../functions/general/map-deep-get" as *;
 @use "../../properties" as *;
 @use "../../settings" as *;
 
@@ -31,8 +30,8 @@ functions and mixins.
     sass($converted): smart-quote($converted);
       else: smart-quote(list.nth($value, 1))
   );
-  $our-standard-values: map-deep-get($system-properties, $property, standard);
-  $our-extended-values: map-deep-get($system-properties, $property, extended);
+  $our-standard-values: map.get($system-properties, $property, standard);
+  $our-extended-values: map.get($system-properties, $property, extended);
 
   @if map.has-key($our-standard-values, $quoted-value) {
     $output: map.get($our-standard-values, $quoted-value);
