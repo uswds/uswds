@@ -93,7 +93,7 @@ Derive a color from a color triplet:
       $all-project-colors
     );
   }
-  @return general.map-deep-get(
+  @return map.get(
     $all-project-colors,
     $color-family,
     $color-grade

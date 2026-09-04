@@ -52,12 +52,12 @@ even non-token colors
     $grade-count: list.length($our-grades);
     @for $i from 1 through $grade-count {
       $this-grade: list.nth($our-grades, $i);
-      $this-grade-min: general.map-deep-get(
+      $this-grade-min: map.get(
         $system-color-grades,
         $this-grade,
         "min"
       );
-      $this-grade-max: general.map-deep-get(
+      $this-grade-max: map.get(
         $system-color-grades,
         $this-grade,
         "max"
@@ -66,7 +66,7 @@ even non-token colors
         sass($i < $grade-count): list.nth($our-grades, $i + 1); else: false
       );
       $next-grade-min: if(
-        sass($next-grade): general.map-deep-get(
+        sass($next-grade): map.get(
             $system-color-grades,
             $next-grade,
             "min"
