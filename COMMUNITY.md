@@ -17,7 +17,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 - [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
 - [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
 - [@ethangardner](https://github.com/ethangardner), USWDS Engineering Lead
-- [@jonathanbobel](https://github.com/jonathanbobel)
+- [@jonathanbobel](https://github.com/jonathanbobel), USWDS Accessibility Engineering Lead
 - [@iamjolly](https://github.com/iamjolly)
 - [@heymatthenry](https://github.com/heymatthenry), [former USWDS Engineering Lead](https://github.com/uswds/uswds/issues/6578#issuecomment-4042112679)
 
