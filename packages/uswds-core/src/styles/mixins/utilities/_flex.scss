@@ -7,28 +7,28 @@
 
 $flex-utililies: (
   "align-items": map-collect(
-      map-deep-get($system-properties, "align-items", standard),
-      map-deep-get($system-properties, "align-items", extended)
+      map.get($system-properties, "align-items", standard),
+      map.get($system-properties, "align-items", extended)
     ),
   "align-self": map-collect(
-      map-deep-get($system-properties, "align-self", standard),
-      map-deep-get($system-properties, "align-self", extended)
+      map.get($system-properties, "align-self", standard),
+      map.get($system-properties, "align-self", extended)
     ),
   "flex": map-collect(
-      map-deep-get($system-properties, "flex", standard),
-      map-deep-get($system-properties, "flex", extended)
+      map.get($system-properties, "flex", standard),
+      map.get($system-properties, "flex", extended)
     ),
   "flex-direction": map-collect(
-      map-deep-get($system-properties, "flex-direction", standard),
-      map-deep-get($system-properties, "flex-direction", extended)
+      map.get($system-properties, "flex-direction", standard),
+      map.get($system-properties, "flex-direction", extended)
     ),
   "flex-wrap": map-collect(
-      map-deep-get($system-properties, "flex-wrap", standard),
-      map-deep-get($system-properties, "flex-wrap", extended)
+      map.get($system-properties, "flex-wrap", standard),
+      map.get($system-properties, "flex-wrap", extended)
     ),
   "justify-content": map-collect(
-      map-deep-get($system-properties, "justify-content", standard),
-      map-deep-get($system-properties, "justify-content", extended)
+      map.get($system-properties, "justify-content", standard),
+      map.get($system-properties, "justify-content", extended)
     ),
 );
 

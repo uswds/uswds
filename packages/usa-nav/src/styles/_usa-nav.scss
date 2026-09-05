@@ -503,7 +503,7 @@ $expand-less-icon: map.merge(
 //   because the header visually breaks with other values.
 //   This bypass prevents compilation errors with values like "none" or 1px.
 
-$our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+$our-breakpoints: map.get($system-properties, breakpoints, standard);
 
 @if map.has-key($our-breakpoints, $theme-header-min-width) {
   $safari-header-bug-min-width: calc(

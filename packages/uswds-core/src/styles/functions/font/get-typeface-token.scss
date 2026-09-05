@@ -17,7 +17,7 @@ font-role token.
   @if map.has-key($project-font-role-tokens, $font-token) {
     $this-token: map.get($project-font-role-tokens, $font-token);
   }
-  @return general.map-deep-get(
+  @return map.get(
     $project-font-type-tokens,
     $this-token,
     "typeface-token"

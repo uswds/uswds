@@ -10,6 +10,7 @@ variable that is, itself, a list
 
 @use "sass:meta";
 @use "sass:list";
+@use "sass:map";
 
 @use "../../functions/general";
 @use "../../tokens/color/system-colors" as color;
@@ -58,7 +59,7 @@ variable that is, itself, a list
   }
 
   @if $color-variant {
-    $output: general.map-deep-get(
+    $output: map.get(
       color.$system-colors,
       $color-family,
       $color-variant,
@@ -68,7 +69,7 @@ variable that is, itself, a list
     @return $output;
   }
 
-  $output: general.map-deep-get(
+  $output: map.get(
     color.$system-colors,
     $color-family,
     $color-grade
