@@ -1,20 +1,28 @@
 const { src } = require("gulp");
 const { default: mocha } = require("gulp-mocha");
-const glob = require("glob");
+const fs = require("fs");
+const path = require("path");
 
 const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
 };
 
-const SPEC_GLOBS = [
-  "packages/usa-*/**/*.spec.{js,mjs,cjs}",
-  "packages/uswds-*/**/*.spec.{js,mjs,cjs}",
-];
-
-// The minimum number of spec files that must match the glob.
-// Fail the build if this count drops — a silently-shrinking glob
-// is the most likely way a future migration hides a regression.
 const SPEC_FLOOR = 74;
+
+// Recursively find spec files matching .spec.{js,mjs,cjs} under a directory.
+function findSpecFiles(dir) {
+  const results = [];
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...findSpecFiles(fullPath));
+    } else if (/\.spec\.(js|mjs|cjs)$/.test(entry.name)) {
+      results.push(fullPath);
+    }
+  }
+  return results;
+}
 
 // Export our tasks.
 module.exports = {
@@ -48,17 +56,20 @@ module.exports = {
   // Fail the build if the number of spec files drops below the floor.
   // This catches a silently-shrinking test glob before it hides regressions.
   checkSpecCount(done) {
-    const specFiles = glob.sync("{" + SPEC_GLOBS.join(",") + "}");
-    if (specFiles.length < SPEC_FLOOR) {
+    const usaSpecs = findSpecFiles(path.resolve("packages")).filter(
+      (f) =>
+        /packages[/\\]usa-/.test(f) || /packages[/\\]uswds-/.test(f)
+    );
+    if (usaSpecs.length < SPEC_FLOOR) {
       done(
         new Error(
-          `Spec count (${specFiles.length}) dropped below the floor of ${SPEC_FLOOR}. ` +
+          `Spec count (${usaSpecs.length}) dropped below the floor of ${SPEC_FLOOR}. ` +
             `If specs were intentionally removed, update SPEC_FLOOR in tasks/test.js.`
         )
       );
       return;
     }
-    console.log(`Spec count: ${specFiles.length} (floor: ${SPEC_FLOOR}) ✓`);
+    console.log(`Spec count: ${usaSpecs.length} (floor: ${SPEC_FLOOR}) ✓`);
     done();
   },
 };

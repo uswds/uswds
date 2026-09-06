@@ -51,13 +51,13 @@ const RESOLVED_TWIG_RUNTIME_ID = "\0" + TWIG_RUNTIME_ID;
  */
 const stubNodeBuiltins = {
   name: "stub-node-builtins",
-  setup(build) {
+  setup(bundler) {
     const filter = /^(fs|path|module)$/;
-    build.onResolve({ filter }, (args) => ({
+    bundler.onResolve({ filter }, (args) => ({
       path: args.path,
       namespace: "stub-builtin",
     }));
-    build.onLoad({ filter: /.*/, namespace: "stub-builtin" }, () => ({
+    bundler.onLoad({ filter: /.*/, namespace: "stub-builtin" }, () => ({
       contents: "export default undefined;",
       loader: "js",
     }));
@@ -136,7 +136,7 @@ export default function twigPlugin(options = {}) {
      * Resolve `@components/...` and `@templates/...` paths for .twig imports.
      * Also resolves the virtual twig runtime module.
      */
-    resolveId(source, importer) {
+    resolveId(source, _importer) {
       // Virtual twig runtime module (esbuild-bundled ESM twig)
       if (source === TWIG_RUNTIME_ID) {
         return RESOLVED_TWIG_RUNTIME_ID;

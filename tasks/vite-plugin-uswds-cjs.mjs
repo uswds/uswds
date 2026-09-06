@@ -98,7 +98,7 @@ export default function uswdsCjsPlugin(options = {}) {
         if (!suffix) continue;
 
         const stmtEnd = braceClose + 1 + suffix[0].replace(/\r?\n$/, "").length;
-        const varName = `_mod${modCounter++}`;
+        const varName = `_mod${modCounter += 1}`;
         const collapsed = code
           .slice(braceOpen - 1, braceClose + 1)
           .replace(/\s*\n\s*/g, " ");
