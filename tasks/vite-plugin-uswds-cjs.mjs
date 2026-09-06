@@ -98,7 +98,8 @@ export default function uswdsCjsPlugin(options = {}) {
         if (!suffix) continue;
 
         const stmtEnd = braceClose + 1 + suffix[0].replace(/\r?\n$/, "").length;
-        const varName = `_mod${modCounter += 1}`;
+        // eslint-disable-next-line no-plusplus -- post-increment needed for correct zero-based counter assignment
+        const varName = `_mod${modCounter++}`;
         const collapsed = code
           .slice(braceOpen - 1, braceClose + 1)
           .replace(/\s*\n\s*/g, " ");
