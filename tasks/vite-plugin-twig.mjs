@@ -136,6 +136,7 @@ export default function twigPlugin(options = {}) {
      * Resolve `@components/...` and `@templates/...` paths for .twig imports.
      * Also resolves the virtual twig runtime module.
      */
+    // eslint-disable-next-line no-unused-vars -- importer is part of the Vite plugin API signature but unused here
     resolveId(source, _importer) {
       // Virtual twig runtime module (esbuild-bundled ESM twig)
       if (source === TWIG_RUNTIME_ID) {
