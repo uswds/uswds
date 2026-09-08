@@ -1,6 +1,6 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the GSA/TTS-based USWDS Internal Team, as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
+The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the [GSA/TTS-based USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making), as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
 
 These don't account for all the inputs to the system since there's also an even _broader_ community of teams and individuals that have adopted or use USWDS but might not have access to GitHub, or might not choose to join the USWDS Open Source Community officially or otherwise participate here. 
 
@@ -12,23 +12,13 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 <!-- See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository. -->
 
-### USWDS Full-time Federal Staff (Admin)
-- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
-
-### USWDS Part-time Federal Staff (Maintainer)
-- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
-
-### USWDS Internal Team (Maintainers)
-
-- [@annepetersen](https://github.com/annepetersen)
-- [@chandracarney](https://github.com/chandracarney)
-- [@ethangardner](https://github.com/ethangardner)
-- [@iamjolly](https://github.com/iamjolly)
-- [@sknep](https://github.com/sknep)
-- [@afeijoo](https://github.com/afeijoo)
-
 ### USWDS Community Maintainers
 
+- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
+- [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
+- [@ethangardner](https://github.com/ethangardner), USWDS Engineering Lead
+- [@jonathanbobel](https://github.com/jonathanbobel), USWDS Accessibility Engineering Lead
+- [@iamjolly](https://github.com/iamjolly)
 - [@heymatthenry](https://github.com/heymatthenry), [former USWDS Engineering Lead](https://github.com/uswds/uswds/issues/6578#issuecomment-4042112679)
 
 ### USWDS Community Contributors
@@ -38,6 +28,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 - [@mgifford](https://github.com/mgifford), CivicActions Open Standards and Practices Lead, Drupal Core Accessibility Maintainer, W3C Invited Expert
 - [@acolter](https://github.com/acolter), The Bridge Chief Operating Officer, Former Executive Director at 18F
 - [@jeana-adhoc](https://github.com/jeana-adhoc), Design Lead & Accessibility Specialist at Ad Hoc; Contractor on VA.gov Design System
+- [@opensource-joe](https://github.com/opensource-joe), Principal technologist building open-source AI; Former Code.gov Director (GSA / TTS)
 
 ### USWDS Alumni
 
@@ -74,7 +65,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (June 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (July 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
@@ -102,12 +93,12 @@ Below are the current defined roles and responsibilities of the USWDS Open Sourc
 - Test releases and submit PR reviews
 - Run or help run USWDS events
 - Help maintain the repository and community infrastructure
-- Consult with and provide feedback to the USWDS Internal Team
+- Consult with and provide feedback to the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - Work on a USWDS-based design system
 
 #### Privileges: 
 - Invitations to USWDS Open Source Community events
-- Direct communication with the USWDS Internal Team
+- Direct communication with the [USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making)
 - A voice (but not a vote, that comes with Maintainer status) in USWDS directional decisions
 - Access to USWDS Open Source Community communications and conversations
 - Opportunity to advance in the repository's CONTRIBUTOR_LADDER.md
@@ -150,14 +141,6 @@ A Maintainer must meet the responsibilities and requirements of a Contributor, p
 #### Process of becoming a USWDS Maintainer
 1. Any current Contributor may become a new Maintainer by meeting the requirements and opening a PR, following the instructions in the [contributor ladder issue template](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md), including supporting information about how they meet the requirements
 2. The USWDS Product Owner / Lead must then approve the PR, including their reasoning for that decision
-
-## USWDS Product Owner / Lead
-
-Serves as the main point of contact for strategy, roadmapping, decision-making, community, communication, coordination of teams and areas, and development activity and decisions. 
-
-## USWDS Internal Team
-
-Members of the USWDS Internal Team are federal employees or contractors who contribute to USWDS repositories, products, or the program itself as part of their formal work duties. They have the same privileges and responsibilities as Maintainers.
 
 ## USWDS Alumni
 
@@ -233,7 +216,7 @@ If anyone involved with USWDS in the past would like to be reflected on this pag
 
 None of us can do this alone. We never have. We never will. We [learn from each other](https://designsystem.digital.gov/design-principles/#listen), and [share with each other](https://designsystem.digital.gov/about/product-values/#share-what-we-do), and continuing _that_ will continue to make things better over time. Thanks for being here.
 
-Total number of contributors to this particular repository: <!--CONTRIBUTOR COUNT START--> 185 <!--CONTRIBUTOR COUNT END--> (!)
+Total number of contributors to this particular repository: <!--CONTRIBUTOR COUNT START--> 190 <!--CONTRIBUTOR COUNT END--> (!)
 
 <!-- readme: contributors -start -->
 <table role="presentation">
@@ -284,6 +267,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
 		</tr>
 		<tr>
         <td align="center">
+            <a href="https://github.com/ethangardner">
+                <img src="https://avatars.githubusercontent.com/u/51552?v=4" width="100;" alt="ethangardner"/>
+                <br />
+                <sub><b>Ethan Gardner</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/jaredcunha">
                 <img src="https://avatars.githubusercontent.com/u/1094951?v=4" width="100;" alt="jaredcunha"/>
                 <br />
@@ -305,12 +295,21 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/annepetersen">
+                <img src="https://avatars.githubusercontent.com/u/5359122?v=4" width="100;" alt="annepetersen"/>
+                <br />
+                <sub><b>Anne Petersen</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/mitchmoccia">
                 <img src="https://avatars.githubusercontent.com/u/19338309?v=4" width="100;" alt="mitchmoccia"/>
                 <br />
                 <sub><b>Mitch Moccia</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/toolness">
                 <img src="https://avatars.githubusercontent.com/u/124687?v=4" width="100;" alt="toolness"/>
@@ -325,15 +324,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Cathlene Baptista</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
-        <td align="center">
-            <a href="https://github.com/annepetersen">
-                <img src="https://avatars.githubusercontent.com/u/5359122?v=4" width="100;" alt="annepetersen"/>
-                <br />
-                <sub><b>Anne Petersen</b></sub>
-            </a>
-        </td>
         <td align="center">
             <a href="https://github.com/aduth">
                 <img src="https://avatars.githubusercontent.com/u/1779930?v=4" width="100;" alt="aduth"/>
@@ -342,10 +332,10 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/ethangardner">
-                <img src="https://avatars.githubusercontent.com/u/51552?v=4" width="100;" alt="ethangardner"/>
+            <a href="https://github.com/jonathanbobel">
+                <img src="https://avatars.githubusercontent.com/u/1233986?v=4" width="100;" alt="jonathanbobel"/>
                 <br />
-                <sub><b>Ethan Gardner</b></sub>
+                <sub><b>Jonathan Bobel</b></sub>
             </a>
         </td>
         <td align="center">
@@ -362,6 +352,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Matt Henry</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/el-mapache">
                 <img src="https://avatars.githubusercontent.com/u/1421848?v=4" width="100;" alt="el-mapache"/>
@@ -369,8 +361,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Adam B</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/yozlet">
                 <img src="https://avatars.githubusercontent.com/u/173848?v=4" width="100;" alt="yozlet"/>
@@ -404,13 +394,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/1178494?v=4" width="100;" alt="hursey013"/>
                 <br />
                 <sub><b>Brian Hurst</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/jonathanbobel">
-                <img src="https://avatars.githubusercontent.com/u/1233986?v=4" width="100;" alt="jonathanbobel"/>
-                <br />
-                <sub><b>Jonathan Bobel</b></sub>
             </a>
         </td>
 		</tr>
@@ -481,6 +464,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/ericsorenson">
+                <img src="https://avatars.githubusercontent.com/u/248694?v=4" width="100;" alt="ericsorenson"/>
+                <br />
+                <sub><b>Eric Sorenson</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/Swimburger">
                 <img src="https://avatars.githubusercontent.com/u/3382717?v=4" width="100;" alt="Swimburger"/>
                 <br />
@@ -494,6 +484,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Natalia Luzuriaga</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/brunerae">
                 <img src="https://avatars.githubusercontent.com/u/90786981?v=4" width="100;" alt="brunerae"/>
@@ -501,13 +493,18 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Ashley</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/mherchel">
                 <img src="https://avatars.githubusercontent.com/u/1605905?v=4" width="100;" alt="mherchel"/>
                 <br />
                 <sub><b>Michael Herchel</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/manichandra">
+                <img src="https://avatars.githubusercontent.com/u/2058515?v=4" width="100;" alt="manichandra"/>
+                <br />
+                <sub><b>Manichandra</b></sub>
             </a>
         </td>
         <td align="center">
@@ -525,24 +522,10 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/ericsorenson">
-                <img src="https://avatars.githubusercontent.com/u/248694?v=4" width="100;" alt="ericsorenson"/>
-                <br />
-                <sub><b>Eric Sorenson</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/anselmbradford">
                 <img src="https://avatars.githubusercontent.com/u/704760?v=4" width="100;" alt="anselmbradford"/>
                 <br />
                 <sub><b>Ans</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/DinneK">
-                <img src="https://avatars.githubusercontent.com/u/63877492?v=4" width="100;" alt="DinneK"/>
-                <br />
-                <sub><b>Dinne Kopelevich</b></sub>
             </a>
         </td>
 		</tr>
@@ -569,17 +552,17 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/carlosvalle">
-                <img src="https://avatars.githubusercontent.com/u/7017869?v=4" width="100;" alt="carlosvalle"/>
-                <br />
-                <sub><b>Carlos Valle</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/IHIutch">
                 <img src="https://avatars.githubusercontent.com/u/20825047?v=4" width="100;" alt="IHIutch"/>
                 <br />
                 <sub><b>Jonathan Hutchison</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/carlosvalle">
+                <img src="https://avatars.githubusercontent.com/u/7017869?v=4" width="100;" alt="carlosvalle"/>
+                <br />
+                <sub><b>Carlos Valle</b></sub>
             </a>
         </td>
         <td align="center">
@@ -606,13 +589,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/manichandra">
-                <img src="https://avatars.githubusercontent.com/u/2058515?v=4" width="100;" alt="manichandra"/>
-                <br />
-                <sub><b>Manichandra</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/ravitejapioneerblaze-code">
                 <img src="https://avatars.githubusercontent.com/u/287091548?v=4" width="100;" alt="ravitejapioneerblaze-code"/>
                 <br />
@@ -631,6 +607,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/813192?v=4" width="100;" alt="jkjustjoshing"/>
                 <br />
                 <sub><b>Josh Kramer</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/daresTheDevil">
+                <img src="https://avatars.githubusercontent.com/u/16613132?v=4" width="100;" alt="daresTheDevil"/>
+                <br />
+                <sub><b>David Kay</b></sub>
             </a>
         </td>
 		</tr>
@@ -694,13 +677,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/daresTheDevil">
-                <img src="https://avatars.githubusercontent.com/u/16613132?v=4" width="100;" alt="daresTheDevil"/>
-                <br />
-                <sub><b>David Kay</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/chazchumley">
                 <img src="https://avatars.githubusercontent.com/u/1307376?v=4" width="100;" alt="chazchumley"/>
                 <br />
@@ -719,6 +695,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/601515?v=4" width="100;" alt="jessieay"/>
                 <br />
                 <sub><b>Jessie A. Young</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/chandracarney">
+                <img src="https://avatars.githubusercontent.com/u/8561841?v=4" width="100;" alt="chandracarney"/>
+                <br />
+                <sub><b>Chandra</b></sub>
             </a>
         </td>
 		</tr>
@@ -768,6 +751,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
 		</tr>
 		<tr>
         <td align="center">
+            <a href="https://github.com/opensource-joe">
+                <img src="https://avatars.githubusercontent.com/u/110146500?v=4" width="100;" alt="opensource-joe"/>
+                <br />
+                <sub><b>Joe Castle</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/jpyuda">
                 <img src="https://avatars.githubusercontent.com/u/552095?v=4" width="100;" alt="jpyuda"/>
                 <br />
@@ -796,13 +786,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/AndreaSigz">
-                <img src="https://avatars.githubusercontent.com/u/7216264?v=4" width="100;" alt="AndreaSigz"/>
-                <br />
-                <sub><b>Andrea Sigritz</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/chinaowl">
                 <img src="https://avatars.githubusercontent.com/u/2628718?v=4" width="100;" alt="chinaowl"/>
                 <br />
@@ -811,6 +794,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
         </td>
 		</tr>
 		<tr>
+        <td align="center">
+            <a href="https://github.com/AndreaSigz">
+                <img src="https://avatars.githubusercontent.com/u/7216264?v=4" width="100;" alt="AndreaSigz"/>
+                <br />
+                <sub><b>Andrea Sigritz</b></sub>
+            </a>
+        </td>
         <td align="center">
             <a href="https://github.com/afeld">
                 <img src="https://avatars.githubusercontent.com/u/86842?v=4" width="100;" alt="afeld"/>
@@ -846,6 +836,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Taylor Solomon</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/mbland">
                 <img src="https://avatars.githubusercontent.com/u/301547?v=4" width="100;" alt="mbland"/>
@@ -853,8 +845,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Mike Bland</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/ismamz">
                 <img src="https://avatars.githubusercontent.com/u/3452011?v=4" width="100;" alt="ismamz"/>
@@ -863,17 +853,17 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/chandracarney">
-                <img src="https://avatars.githubusercontent.com/u/8561841?v=4" width="100;" alt="chandracarney"/>
-                <br />
-                <sub><b>Chandra</b></sub>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/bradnunnally">
                 <img src="https://avatars.githubusercontent.com/u/12515096?v=4" width="100;" alt="bradnunnally"/>
                 <br />
                 <sub><b>Brad Nunnally</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/arpitjain099">
+                <img src="https://avatars.githubusercontent.com/u/3242828?v=4" width="100;" alt="arpitjain099"/>
+                <br />
+                <sub><b>Arpit Jain</b></sub>
             </a>
         </td>
         <td align="center">
@@ -890,6 +880,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>AF</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/alexsobledotgov">
                 <img src="https://avatars.githubusercontent.com/u/96746002?v=4" width="100;" alt="alexsobledotgov"/>
@@ -897,8 +889,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Alex Soble</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/PeterDaveHello">
                 <img src="https://avatars.githubusercontent.com/u/3691490?v=4" width="100;" alt="PeterDaveHello"/>
@@ -934,6 +924,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Steven Huang</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/vijaygovindaraja">
                 <img src="https://avatars.githubusercontent.com/u/270982244?v=4" width="100;" alt="vijaygovindaraja"/>
@@ -941,8 +933,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>V Govindarajan</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/jonadecker">
                 <img src="https://avatars.githubusercontent.com/u/1735772?v=4" width="100;" alt="jonadecker"/>
@@ -978,6 +968,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Dave Cole</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/jeremiak">
                 <img src="https://avatars.githubusercontent.com/u/780941?v=4" width="100;" alt="jeremiak"/>
@@ -985,8 +977,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Jeremia Kimelman</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/kmonahan">
                 <img src="https://avatars.githubusercontent.com/u/6145435?v=4" width="100;" alt="kmonahan"/>
@@ -1022,6 +1012,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Bonnie Cameron</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/bruffridge">
                 <img src="https://avatars.githubusercontent.com/u/1322063?v=4" width="100;" alt="bruffridge"/>
@@ -1029,8 +1021,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Brandon Ruffridge</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/cfarm">
                 <img src="https://avatars.githubusercontent.com/u/702526?v=4" width="100;" alt="cfarm"/>
@@ -1066,20 +1056,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Lou Huang</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/konklone">
                 <img src="https://avatars.githubusercontent.com/u/4592?v=4" width="100;" alt="konklone"/>
                 <br />
                 <sub><b>Eric Mill</b></sub>
-            </a>
-        </td>
-		</tr>
-		<tr>
-        <td align="center">
-            <a href="https://github.com/fsierra">
-                <img src="https://avatars.githubusercontent.com/u/903042?v=4" width="100;" alt="fsierra"/>
-                <br />
-                <sub><b>Fabian Sierra</b></sub>
             </a>
         </td>
         <td align="center">
@@ -1090,10 +1073,17 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/sublimemarch">
-                <img src="https://avatars.githubusercontent.com/u/9502152?v=4" width="100;" alt="sublimemarch"/>
+            <a href="https://github.com/fsierra">
+                <img src="https://avatars.githubusercontent.com/u/903042?v=4" width="100;" alt="fsierra"/>
                 <br />
-                <sub><b>Fen Slattery</b></sub>
+                <sub><b>Fabian Sierra</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/skonzem">
+                <img src="https://avatars.githubusercontent.com/u/11252754?v=4" width="100;" alt="skonzem"/>
+                <br />
+                <sub><b>Scott Konzem</b></sub>
             </a>
         </td>
         <td align="center">
@@ -1110,6 +1100,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Robert Jolly</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/RSD-3">
                 <img src="https://avatars.githubusercontent.com/u/55765201?v=4" width="100;" alt="RSD-3"/>
@@ -1117,8 +1109,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Randall</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/PrajwalBorkar">
                 <img src="https://avatars.githubusercontent.com/u/48290911?v=4" width="100;" alt="PrajwalBorkar"/>
@@ -1154,6 +1144,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Meghan Denny</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/rajkowski">
                 <img src="https://avatars.githubusercontent.com/u/10373492?v=4" width="100;" alt="rajkowski"/>
@@ -1161,8 +1153,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Matt Rajkowski</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/lboonebah">
                 <img src="https://avatars.githubusercontent.com/u/13366987?v=4" width="100;" alt="lboonebah"/>
@@ -1198,6 +1188,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Josh Steiner</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/JJediny">
                 <img src="https://avatars.githubusercontent.com/u/6350035?v=4" width="100;" alt="JJediny"/>
@@ -1205,13 +1197,25 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>John Jediny</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/bonez0607">
                 <img src="https://avatars.githubusercontent.com/u/16158318?v=4" width="100;" alt="bonez0607"/>
                 <br />
                 <sub><b>Joe B.</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/vssinghh">
+                <img src="https://avatars.githubusercontent.com/u/11586143?v=4" width="100;" alt="vssinghh"/>
+                <br />
+                <sub><b>vssingh</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/sublimemarch">
+                <img src="https://avatars.githubusercontent.com/u/9502152?v=4" width="100;" alt="sublimemarch"/>
+                <br />
+                <sub><b>Fen Slattery</b></sub>
             </a>
         </td>
         <td align="center">
@@ -1228,6 +1232,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Johnny Bouder</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/chenxsan">
                 <img src="https://avatars.githubusercontent.com/u/1091472?v=4" width="100;" alt="chenxsan"/>
@@ -1249,8 +1255,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Danny Blue</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
+        <td align="center">
+            <a href="https://github.com/chykB">
+                <img src="https://avatars.githubusercontent.com/u/104171978?v=4" width="100;" alt="chykB"/>
+                <br />
+                <sub><b>Blessing Malik</b></sub>
+            </a>
+        </td>
         <td align="center">
             <a href="https://github.com/astiefvater">
                 <img src="https://avatars.githubusercontent.com/u/4297158?v=4" width="100;" alt="astiefvater"/>
@@ -1265,6 +1276,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Aslan French</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/andrewliebchen">
                 <img src="https://avatars.githubusercontent.com/u/1839748?v=4" width="100;" alt="andrewliebchen"/>
@@ -1293,8 +1306,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>SahAssar</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/stvnrlly">
                 <img src="https://avatars.githubusercontent.com/u/4156602?v=4" width="100;" alt="stvnrlly"/>
@@ -1309,6 +1320,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Stephen Mustgrave</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/skyf0l">
                 <img src="https://avatars.githubusercontent.com/u/59019720?v=4" width="100;" alt="skyf0l"/>
@@ -1323,22 +1336,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Sean P. Clark</b></sub>
             </a>
         </td>
-        <td align="center">
-            <a href="https://github.com/skonzem">
-                <img src="https://avatars.githubusercontent.com/u/11252754?v=4" width="100;" alt="skonzem"/>
-                <br />
-                <sub><b>Scott Konzem</b></sub>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/David-Way">
-                <img src="https://avatars.githubusercontent.com/u/6078452?v=4" width="100;" alt="David-Way"/>
-                <br />
-                <sub><b>David Way</b></sub>
-            </a>
-        </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/dsturley">
                 <img src="https://avatars.githubusercontent.com/u/421380?v=4" width="100;" alt="dsturley"/>
@@ -1367,6 +1364,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>connoryounglund-bah</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/chriscct7">
                 <img src="https://avatars.githubusercontent.com/u/1324637?v=4" width="100;" alt="chriscct7"/>
@@ -1381,8 +1380,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Chris Carlevato</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/cew821">
                 <img src="https://avatars.githubusercontent.com/u/1237498?v=4" width="100;" alt="cew821"/>
@@ -1398,12 +1395,21 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/GovLandScout">
+                <img src="https://avatars.githubusercontent.com/u/304258949?v=4" width="100;" alt="GovLandScout"/>
+                <br />
+                <sub><b>GovLandScout</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/BalajiJBcs">
                 <img src="https://avatars.githubusercontent.com/u/31539453?v=4" width="100;" alt="BalajiJBcs"/>
                 <br />
                 <sub><b>BALAJI.J.B</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/epicfaace">
                 <img src="https://avatars.githubusercontent.com/u/1689183?v=4" width="100;" alt="epicfaace"/>
@@ -1425,8 +1431,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Angela Colter</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/ajware-uscis">
                 <img src="https://avatars.githubusercontent.com/u/74669343?v=4" width="100;" alt="ajware-uscis"/>
@@ -1448,6 +1452,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Andrew Dunkman (he/him)</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/alex">
                 <img src="https://avatars.githubusercontent.com/u/772?v=4" width="100;" alt="alex"/>
@@ -1463,14 +1469,19 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
             </a>
         </td>
         <td align="center">
+            <a href="https://github.com/AKnassa">
+                <img src="https://avatars.githubusercontent.com/u/144495202?v=4" width="100;" alt="AKnassa"/>
+                <br />
+                <sub><b>AK</b></sub>
+            </a>
+        </td>
+        <td align="center">
             <a href="https://github.com/jeana-adhoc">
                 <img src="https://avatars.githubusercontent.com/u/117098918?v=4" width="100;" alt="jeana-adhoc"/>
                 <br />
                 <sub><b>Jeana Clark</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/jgarber623">
                 <img src="https://avatars.githubusercontent.com/u/73866?v=4" width="100;" alt="jgarber623"/>
@@ -1485,6 +1496,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Jared Deckard</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/JamesVanWaza">
                 <img src="https://avatars.githubusercontent.com/u/4000076?v=4" width="100;" alt="JamesVanWaza"/>
@@ -1513,8 +1526,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Ian Lee</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/dhvidding-accenture">
                 <img src="https://avatars.githubusercontent.com/u/107148866?v=4" width="100;" alt="dhvidding-accenture"/>
@@ -1529,6 +1540,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Helen V. Holmes</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/garrypolley">
                 <img src="https://avatars.githubusercontent.com/u/992175?v=4" width="100;" alt="garrypolley"/>
@@ -1557,8 +1570,6 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Erik Schwartz</b></sub>
             </a>
         </td>
-		</tr>
-		<tr>
         <td align="center">
             <a href="https://github.com/ErieMeyer">
                 <img src="https://avatars.githubusercontent.com/u/1626026?v=4" width="100;" alt="ErieMeyer"/>
@@ -1573,6 +1584,8 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <sub><b>Eddie Welker</b></sub>
             </a>
         </td>
+		</tr>
+		<tr>
         <td align="center">
             <a href="https://github.com/ealexhaywood">
                 <img src="https://avatars.githubusercontent.com/u/5815400?v=4" width="100;" alt="ealexhaywood"/>
@@ -1592,6 +1605,13 @@ Total number of contributors to this particular repository: <!--CONTRIBUTOR COUN
                 <img src="https://avatars.githubusercontent.com/u/13041082?v=4" width="100;" alt="Pharmasolin"/>
                 <br />
                 <sub><b>Denys Lysenko</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/David-Way">
+                <img src="https://avatars.githubusercontent.com/u/6078452?v=4" width="100;" alt="David-Way"/>
+                <br />
+                <sub><b>David Way</b></sub>
             </a>
         </td>
 		</tr>

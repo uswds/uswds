@@ -12,9 +12,9 @@ Returns: "system" | "theme"
 @use "is-theme-color-token" as *;
 
 @function color-token-type($token) {
-  $type: if(is-system-color-token($token), "system", false);
+  $type: if(sass(is-system-color-token($token)): "system"; else: false);
   @if not $type {
-    $type: if(is-theme-color-token($token), "theme", false);
+    $type: if(sass(is-theme-color-token($token)): "theme"; else: false);
   }
   @if not $type {
     @return error-not-token($token, "color");

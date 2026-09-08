@@ -69,7 +69,7 @@ $alert-slim-icon-optical-adjust-left: calc(
 
 // Set status styles for alert wrapper/background
 @mixin alert-status-wrapper-styles($name) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $bgcolor: if(sass($name != "emergency"): "#{$name}-lighter"; else: $name);
 
   background-color: color($bgcolor);
   border-left-color: color($name);
@@ -78,7 +78,7 @@ $alert-slim-icon-optical-adjust-left: calc(
 // Set status styles for alert content
 // added to __body element
 @mixin alert-status-body-styles($name, $icon) {
-  $bgcolor: if($name != "emergency", "#{$name}-lighter", $name);
+  $bgcolor: if(sass($name != "emergency"): "#{$name}-lighter"; else: $name);
   $banner-text-color-token: get-color-token-from-bg(
     $bgcolor,
     $theme-alert-text-reverse-color,

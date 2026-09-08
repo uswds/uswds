@@ -29,14 +29,13 @@ returns 'null'
     "white": 0,
   );
 
-  $token: if($token == "ink", "base-darkest", $token);
+  $token: if(sass($token == "ink"): "base-darkest"; else: $token);
   // If there's no separator, set family and grade
   @if not string.index($token, $separator) {
     $family: $token;
     $grade: if(
-      map.has-key($exceptions, $family),
-      map.get($exceptions, $family),
-      "root"
+      sass(map.has-key($exceptions, $family)): map.get($exceptions, $family);
+        else: "root"
     );
   } @else {
     $split: str-split($token, $separator);
@@ -61,7 +60,9 @@ returns 'null'
         $grade: $last;
       }
       // Make sure the grade is a number
-      $grade: if(meta.type-of($grade) == "string", to-number($grade), $grade);
+      $grade: if(
+        sass(meta.type-of($grade) == "string"): to-number($grade); else: $grade
+      );
     }
     // Collect compound-word families
     $is-compound-family: false;
