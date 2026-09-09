@@ -5,9 +5,23 @@ import TestHiddenHeaderComponent from "./test/test-patterns/test-hidden-headers.
 import TestMinimumHeaderComponent from "./test/test-patterns/test-minimum-header.twig";
 import TestNestedHeaderComponent from "./test/test-patterns/test-nested-headers.twig";
 import Content from "./usa-in-page-navigation.json";
+import inPageNavigation from "./index";
 
 export default {
   title: "Components/In-Page Navigation",
+  decorators: [
+    (Story) => {
+      inPageNavigation.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        inPageNavigation.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
@@ -26,9 +40,11 @@ TestCustomContentSelector.args = {
 };
 
 export const TestCustomHeaderSelector = TestCustomHeaderTemplate.bind();
+TestCustomHeaderSelector.args = {
+  headingType: "All",
+};
 TestCustomHeaderSelector.argTypes = {
   headingType: {
-    defaultValue: "All",
     name: "Include these headers in link list",
     options: [
       "Default",
@@ -48,15 +64,17 @@ TestCustomHeaderSelector.argTypes = {
 export const TestHiddenHeaders = TestHiddenHeaderTemplate.bind();
 
 export const TestMinimumHeaders = TestMinimumHeaderTemplate.bind();
+TestMinimumHeaders.args = {
+  headerLevels: 1,
+  minimumHeaderCount: 1,
+};
 TestMinimumHeaders.argTypes = {
   headerLevels: {
-    defaultValue: 1,
     name: "Number of headers on page",
     options: [1, 2, 3, 4],
     control: { type: "select" },
   },
   minimumHeaderCount: {
-    defaultValue: 1,
     name: "Minimum number of headers required to show navigation",
     options: [1, 2, 3, 4],
     control: { type: "select" },

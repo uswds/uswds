@@ -18,6 +18,8 @@ const VALUE_WRAPPER = `${RANGE_CLASSNAME}__value`;
  */
 const createEnhancedRangeSlider = (el) => {
   const rangeSliderEl = el;
+  if (rangeSliderEl.dataset.enhanced) return;
+
   const rangeSliderVal = document.createElement("span");
   rangeSliderVal.setAttribute("aria-hidden", "true");
   rangeSliderVal.className = VALUE_WRAPPER;
@@ -30,6 +32,8 @@ const createEnhancedRangeSlider = (el) => {
 
   rangeWrapper.appendChild(rangeSliderEl);
   rangeWrapper.appendChild(rangeSliderVal);
+
+  rangeSliderEl.dataset.enhanced = "true";
 };
 /**
  * Update range callout for screen readers using the optional data attributes.

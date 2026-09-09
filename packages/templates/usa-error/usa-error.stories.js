@@ -4,6 +4,9 @@ import EsContent from "./usa-error~lang-es.json";
 
 export default {
   title: "Pages/Error",
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export const PageNotFound = () =>

@@ -27,7 +27,7 @@
     $important: "!important";
   }
 
-  @if map-has-key($project-aspect-ratios, $ratio) {
+  @if map.has-key($project-aspect-ratios, $ratio) {
     box-sizing: border-box #{$important};
     height: 0 #{$important};
     overflow: hidden #{$important};

@@ -39,10 +39,16 @@ function toggleHtmlTag(isMobile) {
 
   const primaryLinks = bigFooter.querySelectorAll(BUTTON);
 
+  const ALLOWED_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
   primaryLinks.forEach((currentElement) => {
     const currentElementClasses = currentElement.getAttribute("class");
-    const preservedHtmlTag =
-      currentElement.getAttribute("data-tag") || currentElement.tagName;
+    const rawPreservedTag = (
+      currentElement.getAttribute("data-tag") || currentElement.tagName
+    ).toLowerCase();
+    const preservedHtmlTag = ALLOWED_TAGS.includes(rawPreservedTag)
+      ? rawPreservedTag
+      : "h4";
 
     const newElementType = isMobile ? "button" : preservedHtmlTag;
 
@@ -92,11 +98,11 @@ module.exports = behavior(
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`,
       );
-      this.mediaQueryList.addListener(resize);
+      this.mediaQueryList.addEventListener("change", resize);
     },
 
     teardown() {
-      this.mediaQueryList.removeListener(resize);
+      this.mediaQueryList.removeEventListener("change", resize);
     },
   },
 );

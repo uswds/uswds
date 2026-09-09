@@ -16,9 +16,8 @@ the desired final units (currently rem)
 
 @function units($value) {
   $converted: if(
-    meta.type-of($value) == "string",
-    string.quote($value),
-    number-to-token($value)
+    sass(meta.type-of($value) == "string"): string.quote($value);
+      else: number-to-token($value)
   );
 
   @if not(map.has-key(vars.$project-spacing-standard, $converted)) {

@@ -11,7 +11,7 @@
   $context: false,
   $important: null
 ) {
-  $important: if($important, " !important", null);
+  $important: if(sass($important): " !important");
 
   @include set-text-from-bg(
     $bg-color,
@@ -21,6 +21,8 @@
     $context,
     $important: $important
   );
-  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
+  $bg-color: if(
+    sass($bg-color == "default"): get-default("bg-color"); else: $bg-color
+  );
   background-color: color($bg-color) #{$important};
 }

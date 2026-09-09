@@ -5,6 +5,9 @@ import EsContent from "./usa-create-account~lang-es.json";
 
 export default {
   title: "Pages/Create Account",
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export const CreateAccountPage = () =>

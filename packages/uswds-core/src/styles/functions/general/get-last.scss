@@ -11,7 +11,7 @@ Return null if the value is null
 
 @function get-last($props) {
   $length: list.length($props);
-  $last: if($length == 0, null, list.nth($props, -1));
+  $last: if(not sass($length == 0): list.nth($props, -1));
 
   @return $last;
 }

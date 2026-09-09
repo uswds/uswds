@@ -20,8 +20,8 @@ results than expected.
 */
 
 @function test-colors($map) {
-  $exceptions: "black", "white", "transparent", "black-transparent",
-    "white-transparent";
+  $exceptions:
+    "black", "white", "transparent", "black-transparent", "white-transparent";
 
   @each $token, $value in $map {
     $family: list.nth(decompose-color-token($token), 1);
