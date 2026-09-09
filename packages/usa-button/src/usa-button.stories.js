@@ -19,6 +19,12 @@ const iconNames = iconItems.map((item) => item.name);
 
 export default {
   title: "Components/Button",
+  args: {
+    is_demo: true,
+    type: "button",
+    add_icon: false,
+    icon_name: "add_circle_outline",
+  },
   argTypes: {
     modifier: {
       name: "Variant",
@@ -28,27 +34,21 @@ export default {
     },
     is_demo: {
       name: "View all states",
-      defaultValue: true,
       type: "boolean",
     },
     type: {
-      defaultValue: "button",
       name: "Type attribute",
       options: ["button", "reset", "submit"],
       control: { type: "radio" },
     },
     add_icon: {
       name: "Add icon",
-      defaultValue: false,
       type: "boolean",
     },
     icon_name: {
       name: "Icon name",
-      control: {
-        type: "select",
-        options: iconNames,
-        defaultValue: "add_circle_outline",
-      },
+      options: iconNames,
+      control: { type: "select" },
       if: { arg: "add_icon" },
     },
   },

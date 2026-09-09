@@ -28,9 +28,8 @@ functions and mixins.
   $value: list.nth($value, 1);
   $converted: number-to-token($value);
   $quoted-value: if(
-    $converted,
-    smart-quote($converted),
-    smart-quote(list.nth($value, 1))
+    sass($converted): smart-quote($converted);
+      else: smart-quote(list.nth($value, 1))
   );
   $our-standard-values: map-deep-get($system-properties, $property, standard);
   $our-extended-values: map-deep-get($system-properties, $property, extended);

@@ -167,16 +167,12 @@ const updateLiveRegion = (table, sortedHeader) => {
  */
 const toggleSort = (header, isAscending) => {
   const table = header.closest(TABLE);
-  let safeAscending = isAscending;
-  if (typeof safeAscending !== "boolean") {
-    safeAscending = header.getAttribute(SORTED) === ASCENDING;
-  }
 
   if (!table) {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
-  safeAscending = sortRows(header, isAscending);
+  const safeAscending = sortRows(header, isAscending);
 
   if (safeAscending) {
     getColumnHeaders(table).forEach((otherHeader) => {

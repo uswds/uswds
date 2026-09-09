@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "uswds-core" as *;
 
 // Map for high contrast mode icons
@@ -8,14 +10,14 @@ $-chevron-icon-defaults: (
   "height": units(2.5),
 );
 
-$-chevron-next: map-merge(
+$-chevron-next: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "navigate_next",
   )
 );
 
-$-chevron-expand-more: map-merge(
+$-chevron-expand-more: map.merge(
   $-chevron-icon-defaults,
   (
     "name": "expand_more",

@@ -235,8 +235,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
         pos(element);
 
         if (!isElementInViewport(element)) {
-          // eslint-disable-next-line no-param-reassign
-          tryPositions((i += 1));
+          tryPositions(i + 1);
         } else {
           hasVisiblePosition = true;
         }
@@ -248,8 +247,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     if (!hasVisiblePosition) {
       element.classList.add(ADJUST_WIDTH_CLASS);
       if (attempt <= maxAttempts) {
-        // eslint-disable-next-line no-param-reassign
-        findBestPosition(element, (attempt += 1));
+        findBestPosition(element, attempt + 1);
       }
     }
   }

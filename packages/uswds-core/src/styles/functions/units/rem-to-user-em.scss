@@ -11,7 +11,7 @@ queries
 @use "sass:math";
 
 @function rem-to-user-em($grid-in-rem) {
-  @if unit($grid-in-rem) != "rem" {
+  @if math.unit($grid-in-rem) != "rem" {
     @error 'This value must be in rem';
   }
   $rem-to-user-em: (math.div($grid-in-rem, 1rem)) * 1em;

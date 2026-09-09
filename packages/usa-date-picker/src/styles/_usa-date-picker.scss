@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "uswds-core" as *;
 
 $date-picker-max-width: "mobile";
@@ -12,35 +14,35 @@ $calendar-icon-defaults: (
   "container-width": 6,
 );
 
-$calendar: map-merge(
+$calendar: map.merge(
   $calendar-icon-defaults,
   (
     "name": "calendar_today",
   )
 );
 
-$navigate_before: map-merge(
+$navigate_before: map.merge(
   $calendar-icon-defaults,
   (
     "name": "navigate_before",
   )
 );
 
-$navigate_far_before: map-merge(
+$navigate_far_before: map.merge(
   $calendar-icon-defaults,
   (
     "name": "navigate_far_before",
   )
 );
 
-$navigate_next: map-merge(
+$navigate_next: map.merge(
   $calendar-icon-defaults,
   (
     "name": "navigate_next",
   )
 );
 
-$navigate_far_next: map-merge(
+$navigate_far_next: map.merge(
   $calendar-icon-defaults,
   (
     "name": "navigate_far_next",

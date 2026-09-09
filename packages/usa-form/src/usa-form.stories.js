@@ -9,6 +9,12 @@ import DefaultContent from "../../templates/usa-sign-in/usa-sign-in.json";
 import EsContent from "../../templates/usa-sign-in/usa-sign-in~lang-es.json";
 import MultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple.json";
 import EsMultipleContent from "../../templates/usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple~lang-es.json";
+import characterCount from "../../usa-character-count/src/index";
+import comboBox from "../../usa-combo-box/src/index";
+import datePicker from "../../usa-date-picker/src/index";
+import fileInput from "../../usa-file-input/src/index";
+import range from "../../usa-range/src/index";
+import timePicker from "../../usa-time-picker/src/index";
 
 export default {
   title: "Patterns/Forms",
@@ -25,6 +31,29 @@ export default {
       table: { disable: true },
     },
   },
+  decorators: [
+    (Story) => {
+      characterCount.off?.();
+      comboBox.off?.();
+      datePicker.off?.();
+      fileInput.off?.();
+      range.off?.();
+      timePicker.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        characterCount.on();
+        comboBox.on();
+        datePicker.on();
+        fileInput.on();
+        range.on();
+        timePicker.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const CollectionTemplate = (args) => FormCollected(args);
@@ -53,17 +82,21 @@ export const SignInMultipleSpanish = SignInMultipleTemplate.bind({});
 SignInMultipleSpanish.args = EsMultipleContent;
 
 export const DisabledFormElements = CollectionTemplate.bind({});
+DisabledFormElements.args = {
+  disabled_state: "disabled",
+};
 DisabledFormElements.argTypes = {
   disabled_state: {
-    defaultValue: "disabled",
     table: { disable: false },
   },
 };
 
 export const TestErrorFormElements = CollectionTemplate.bind({});
+TestErrorFormElements.args = {
+  error_state: true,
+};
 TestErrorFormElements.argTypes = {
   error_state: {
-    defaultValue: true,
     table: { disable: false },
   },
 };

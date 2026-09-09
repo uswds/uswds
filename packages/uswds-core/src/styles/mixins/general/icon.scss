@@ -86,61 +86,64 @@
   $svg-width: map.get($icon-object, "svg-width");
   $aspect: math.div($svg-width, $svg-height);
   $height: if(
-    math.is-unitless(map.get($icon-object, "height")),
-    units(map.get($icon-object, "height")),
-    map.get($icon-object, "height")
+    sass(math.is-unitless(map.get($icon-object, "height"))): units(
+        map.get($icon-object, "height")
+      );
+      else: map.get($icon-object, "height")
   );
   $width: $height * $aspect;
   $container-height: if(
-    map.has-key($icon-object, "container-height"),
-    units(map.get($icon-object, "container-height")),
-    null
+    sass(map.has-key($icon-object, "container-height")): units(
+        map.get($icon-object, "container-height")
+      )
   );
   $container-width: if(
-    map.has-key($icon-object, "container-width"),
-    units(map.get($icon-object, "container-width")),
-    null
+    sass(map.has-key($icon-object, "container-width")): units(
+        map.get($icon-object, "container-width")
+      )
   );
   $color: if(
-    map.has-key($icon-object, "color"),
-    map.get($icon-object, "color"),
-    "ink"
+    sass(map.has-key($icon-object, "color")): map.get($icon-object, "color");
+      else: "ink"
   );
   $color-variant: if(
-    map.has-key($icon-object, "color-variant"),
-    map.get($icon-object, "color-variant"),
-    "white"
+    sass(map.has-key($icon-object, "color-variant")): map.get(
+        $icon-object,
+        "color-variant"
+      );
+      else: "white"
   );
   $color-hover: if(
-    map.has-key($icon-object, "color-hover"),
-    map.get($icon-object, "color-hover"),
-    null
+    sass(map.has-key($icon-object, "color-hover")): map.get(
+        $icon-object,
+        "color-hover"
+      )
   );
   $rotate: if(
-    map.has-key($icon-object, "rotate"),
-    map.get($icon-object, "rotate"),
-    null
+    sass(map.has-key($icon-object, "rotate")): map.get($icon-object, "rotate")
   );
   $path: if(
-    map.has-key($icon-object, "path"),
-    map.get($icon-object, "path"),
-    $theme-image-path
+    sass(map.has-key($icon-object, "path")): map.get($icon-object, "path");
+      else: $theme-image-path
   );
   $position-y: if(
-    map.has-key($icon-object, "position-y"),
-    map.get($icon-object, "position-y"),
-    center
+    sass(map.has-key($icon-object, "position-y")): map.get(
+        $icon-object,
+        "position-y"
+      );
+      else: center
   );
   $position-x: if(
-    map.has-key($icon-object, "position-x"),
-    map.get($icon-object, "position-x"),
-    center
+    sass(map.has-key($icon-object, "position-x")): map.get(
+        $icon-object,
+        "position-x"
+      );
+      else: center
   );
   $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
   $filename-ie11: if(
-    $ie11-variant == "white",
-    "usa-icons-bg/#{$filename-base}--white.svg",
-    "usa-icons/#{$filename-base}.svg"
+    sass($ie11-variant == "white"): "usa-icons-bg/#{$filename-base}--white.svg";
+      else: "usa-icons/#{$filename-base}.svg"
   );
 
   background-image: url("#{$path}/#{$filename-ie11}");
@@ -148,8 +151,8 @@
   background-position: $position-x $position-y;
   background-size: $width $height;
   display: inline-block;
-  height: if($container-height, $container-height, $height);
-  width: if($container-width, $container-width, $width);
+  height: if(sass($container-height): $container-height; else: $height);
+  width: if(sass($container-width): $container-width; else: $width);
   @if $rotate {
     transform: rotate($rotate);
   }
@@ -157,8 +160,11 @@
   // Mask supported styles
   @supports (mask: url("")) {
     background: none;
-    background-color: if($color == currentColor, $color, color($color));
-    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
+    background-color: if(
+      sass($color == currentColor): $color; else: color($color)
+    );
+    mask-image:
+      url("#{$path}/usa-icons/#{$filename-base}.svg"),
       linear-gradient(transparent, transparent);
     mask-position: $position-x $position-y;
     mask-repeat: no-repeat;
@@ -182,9 +188,10 @@
   $contrast-bg: "default"
 ) {
   $color-hover: if(
-    map.has-key($icon-object, "color-hover"),
-    map.get($icon-object, "color-hover"),
-    null
+    sass(map.has-key($icon-object, "color-hover")): map.get(
+        $icon-object,
+        "color-hover"
+      )
   );
   &::#{$direction} {
     @include add-color-icon($icon-object, $contrast-bg);

@@ -8,7 +8,7 @@
 @mixin range-track {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: units(1px) solid color("base");
+  border: units(2px) solid color("base-darker");
   cursor: pointer;
   height: units(2);
   width: 100%;
@@ -18,7 +18,7 @@
   @include u-circle($theme-input-select-size);
   background: color("base-lightest");
   border: none;
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
+  box-shadow: 0 0 0 units(2px) color("base-darker");
   cursor: pointer;
 
   @media (forced-colors: active) {
@@ -29,7 +29,7 @@
 @mixin range-ms-fill {
   background-color: color("base-lightest");
   border-radius: radius("pill");
-  border: units(1px) solid color("base");
+  border: units(2px) solid color("base-darker");
 }
 
 .usa-range__wrapper {
@@ -86,7 +86,16 @@
   &::-webkit-slider-thumb {
     @include range-thumb;
     appearance: none;
-    margin-top: px-to-rem(-3px); // magic number
+    // Webkit aligns the thumb's top edge to the track's content-box top.
+    // A negative margin-top pulls the thumb upward to center it on the track.
+    //
+    // Formula: margin-top = -(track_border_width + 2px)
+    //   The constant 2px is a fixed geometric offset independent of border size.
+    //   Confirmed empirically: border=1px → -3px (v3.13.0), border=2px → -4px (current).
+    //
+    // Update this value whenever the track border-width (range-track mixin) changes.
+    // Current track border: units(2px) → margin-top = -(2 + 2) = -4px.
+    margin-top: px-to-rem(-4px);
   }
 
   &::-moz-range-thumb {

@@ -8,12 +8,12 @@
   $offset-x: 0,
   $offset-y: 0
 ) {
-  $weight: if($weight == null, 1, $weight);
-  $color: if($color == null, "ink", $color);
-  $side: if($side == null, "left", $side);
-  $radius: if($radius == null, 0, $radius);
-  $offset-x: if($offset-x == null, 0, $offset-x);
-  $offset-y: if($offset-y == null, 0, $offset-y);
+  $weight: if(sass($weight == null): 1; else: $weight);
+  $color: if(sass($color == null): "ink"; else: $color);
+  $side: if(sass($side == null): "left"; else: $side);
+  $radius: if(sass($radius == null): 0; else: $radius);
+  $offset-x: if(sass($offset-x == null): 0; else: $offset-x);
+  $offset-y: if(sass($offset-y == null): 0; else: $offset-y);
 
   position: relative;
 
@@ -28,12 +28,12 @@
       bottom: units($offset-y);
       top: units($offset-y);
       width: units($weight);
-      #{unquote($side)}: units($offset-x);
+      #{$side}: units($offset-x);
     } @else {
       height: units($weight);
       left: units($offset-x);
       right: units($offset-x);
-      #{unquote($side)}: units($offset-y);
+      #{$side}: units($offset-y);
 
       @media (forced-colors: active) {
         background-color: ButtonText;

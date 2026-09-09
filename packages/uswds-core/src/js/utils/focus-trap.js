@@ -43,8 +43,9 @@ const tabHandler = (context) => {
 };
 
 module.exports = (context, additionalKeyBindings = {}) => {
+  const { autoFocus = true, ...keyBindings } = additionalKeyBindings;
   const tabEventHandler = tabHandler(context);
-  const bindings = additionalKeyBindings;
+  const bindings = keyBindings;
   const { Esc, Escape } = bindings;
 
   if (Escape && !Esc) bindings.Esc = Escape;
@@ -55,7 +56,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
   const keyMappings = keymap({
     Tab: tabEventHandler.tabAhead,
     "Shift+Tab": tabEventHandler.tabBack,
-    ...additionalKeyBindings,
+    ...keyBindings,
   });
 
   const focusTrap = behavior(
@@ -66,7 +67,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
       init() {
         // TODO: is this desirable behavior? Should the trap always do this by default or should
         // the component getting decorated handle this?
-        if (tabEventHandler.firstTabStop) {
+        if (autoFocus && tabEventHandler.firstTabStop) {
           tabEventHandler.firstTabStop.focus();
         }
       },

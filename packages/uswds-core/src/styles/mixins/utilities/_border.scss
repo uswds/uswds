@@ -62,7 +62,7 @@ $border-utilities: (
           border-#{$side}-width: string.unquote("#{$final-value}#{$important}");
         }
       } @else {
-        @error '#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}';
+        @error '#{$this-value} is not a valid border width. Accepted values: #{map.keys($widths)}';
       }
     } @else if map.has-key($widths, smart-quote($this-value)) {
       $match: true;

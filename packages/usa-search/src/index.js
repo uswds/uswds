@@ -22,10 +22,8 @@ const toggleSearch = (button, active) => {
     throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  /* eslint-disable no-param-reassign */
   button.hidden = active;
   form.hidden = !active;
-  /* eslint-enable */
 
   if (!active) {
     return;
@@ -44,7 +42,7 @@ const toggleSearch = (button, active) => {
     }
 
     if (lastButton) {
-      hideSearch.call(lastButton); // eslint-disable-line no-use-before-define
+      hideSearch.call(lastButton);
     }
 
     document.body.removeEventListener(CLICK, listener);

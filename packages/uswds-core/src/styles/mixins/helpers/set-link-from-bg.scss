@@ -14,7 +14,7 @@
   $important: null,
   $context: false
 ) {
-  $important: if($important, " !important", null);
+  $important: if(sass($important): " !important");
   $link-tokens: get-link-tokens-from-bg(
     $bg-color,
     $preferred-link-color,
@@ -23,18 +23,21 @@
     $context
   );
 
-  $bg-color: if($bg-color == "default", get-default("bg-color"), $bg-color);
+  $bg-color: if(
+    sass($bg-color == "default"): get-default("bg-color"); else: $bg-color
+  );
   $link-token: list.nth($link-tokens, 1);
   $hover-token: list.nth($link-tokens, 2);
 
   $visited-token: if(
-    is-accessible-magic-number(
-      $theme-link-visited-color,
-      $bg-color,
-      $wcag-target
-    ),
-    $theme-link-visited-color,
-    $link-token
+    sass(
+        is-accessible-magic-number(
+          $theme-link-visited-color,
+          $bg-color,
+          $wcag-target
+        )
+      ): $theme-link-visited-color;
+      else: $link-token
   );
   color: color($link-token) #{$important};
   &:visited {

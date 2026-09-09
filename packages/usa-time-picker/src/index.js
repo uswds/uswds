@@ -54,6 +54,9 @@ const parseTimeString = (timeStr) => {
 const transformTimePicker = (el) => {
   const timePickerEl = el.closest(TIME_PICKER);
 
+  // Set during enhanceComboBox(timePickerEl)
+  if (timePickerEl.dataset.enhanced) return;
+
   const initialInputEl = timePickerEl.querySelector(`input`);
 
   if (!initialInputEl) {

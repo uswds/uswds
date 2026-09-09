@@ -39,9 +39,10 @@ Derive a color from a color triplet:
 ) {
   // Convert any arglists into lists
   $color-family: if(
-    meta.type-of($color-family) == "arglist",
-    general.unpack($color-family),
-    $color-family
+    sass(meta.type-of($color-family) == "arglist"): general.unpack(
+        $color-family
+      );
+      else: $color-family
   );
 
   // If $color-family is a list, color() had a variable

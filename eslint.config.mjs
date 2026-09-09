@@ -1,65 +1,94 @@
 import eslint from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
 import prettier from "eslint-config-prettier";
-import importPlugin from "eslint-plugin-import";
+import importPlugin from "eslint-plugin-import-x";
 import noUnsanitized from "eslint-plugin-no-unsanitized";
-import path from "path";
-import { fileURLToPath } from "url";
 import { configs as litConfigs } from "eslint-plugin-lit";
 import globals from "globals";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const airbnbConfig = compat.config({
-  extends: ["airbnb-base"],
-});
-
-const customConfig = {
-  plugins: {
-    import: importPlugin,
-    "no-unsanitized": noUnsanitized,
-  },
-  rules: {
-    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
-    "no-unsanitized/method": "error",
-    "no-unsanitized/property": "error",
-    "no-underscore-dangle": "warn", // Allow _ in variable names, but discourage it
-    "import/no-unresolved": [2, { ignore: ["\\.(s?)css\\?inline$"] }],
-  },
+const baseConfig = {
   languageOptions: {
-    parserOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module",
-    },
+    ecmaVersion: 2022,
+    sourceType: "module",
     globals: {
       ...globals.node,
-      ...globals.es6,
+      ...globals.es2021,
       ...globals.mocha,
 
-      // Use globals from eslint where possible, but globals.browser breaks stuff for some reason
-      window: true,
-      document: true,
-      navigator: true,
-      console: true,
-      module: true,
-      setTimeout: true,
-      clearTimeout: true,
-      setInterval: true,
-      clearInterval: true,
+      // Browser globals — intentionally limited subset.
+      // Using globals.browser pulls in hundreds of globals and breaks things.
+      window: "readonly",
+      document: "readonly",
+      navigator: "readonly",
+      setTimeout: "readonly",
+      clearTimeout: "readonly",
+      setInterval: "readonly",
+      clearInterval: "readonly",
       FileReader: "readonly",
-      getComputedStyle: true,
-      customElements: true,
+      FileList: "readonly",
+      getComputedStyle: "readonly",
+      customElements: "readonly",
+      KeyboardEvent: "readonly",
+      MouseEvent: "readonly",
+      HTMLElement: "readonly",
+      Node: "readonly",
     },
   },
 };
 
+const pluginsConfig = {
+  plugins: {
+    // Registered as "import" to preserve backward compat with existing
+    // eslint-disable comments referencing import/* rules.
+    // The underlying package is eslint-plugin-import-x.
+    import: importPlugin,
+    "no-unsanitized": noUnsanitized,
+  },
+  rules: {
+    // --- Preventing bugs ---
+    "no-param-reassign": ["error", { props: false }],
+    "no-shadow": "error",
+    "no-use-before-define": [
+      "error",
+      { functions: false, classes: true, variables: true },
+    ],
+    eqeqeq: ["error", "always", { null: "ignore" }],
+    "no-return-assign": ["error", "always"],
+    "no-loop-func": "error",
+    "no-self-compare": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unused-expressions": [
+      "error",
+      { allowShortCircuit: true, allowTernary: true },
+    ],
+
+    // --- Security (beyond no-unsanitized plugin) ---
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-extend-native": "error",
+    "no-new-wrappers": "error",
+
+    // --- Code style consistency ---
+    "no-var": "error",
+    "prefer-const": [
+      "error",
+      { destructuring: "all", ignoreReadBeforeAssign: true },
+    ],
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    curly: ["error", "multi-line"],
+    "no-underscore-dangle": "warn",
+
+    // --- Import rules ---
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "import/no-unresolved": ["error", { ignore: ["\\.(s?)css\\?inline$"] }],
+
+    // --- Security (plugin) ---
+    "no-unsanitized/method": "error",
+    "no-unsanitized/property": "error",
+  },
+};
+
 const testConfig = {
-  files: ["**/*.spec.js"],
+  files: ["**/*.spec.js", "**/*.spec.mjs"],
   rules: {
     "no-unsanitized/method": "off",
     "no-unsanitized/property": "off",
@@ -69,8 +98,8 @@ const testConfig = {
 export default [
   litConfigs["flat/recommended"],
   eslint.configs.recommended,
-  ...airbnbConfig,
-  customConfig,
+  baseConfig,
+  pluginsConfig,
   testConfig,
-  prettier,
+  prettier, // Must be last to disable formatting rules
 ];

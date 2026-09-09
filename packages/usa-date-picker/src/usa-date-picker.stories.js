@@ -1,4 +1,5 @@
 import Component from "./usa-date-picker.twig";
+import datePicker from "./index";
 
 export default {
   title: "Components/Form Inputs/Date Picker",
@@ -25,6 +26,19 @@ export default {
       options: ["none", "disabled", "aria-disabled"],
     },
   },
+  decorators: [
+    (Story) => {
+      datePicker.off?.();
+
+      const story = Story();
+
+      window.requestAnimationFrame(() => {
+        datePicker.on();
+      });
+
+      return story;
+    },
+  ],
 };
 
 const Template = (args) => Component(args);
@@ -32,10 +46,10 @@ const Template = (args) => Component(args);
 export const Default = Template.bind({});
 
 export const DefaultDate = Template.bind({});
+DefaultDate.args = {
+  defaultDate: "1995-03-06",
+};
 DefaultDate.argTypes = {
-  defaultDate: {
-    defaultValue: "1995-03-06",
-  },
   rangeDate: {
     table: { disable: true },
   },
@@ -48,10 +62,10 @@ DefaultDate.argTypes = {
 };
 
 export const RangeDate = Template.bind({});
+RangeDate.args = {
+  rangeDate: "2022-01-07",
+};
 RangeDate.argTypes = {
-  rangeDate: {
-    defaultValue: "2022-01-07",
-  },
   defaultDate: {
     table: { disable: true },
   },
@@ -64,13 +78,11 @@ RangeDate.argTypes = {
 };
 
 export const RestrictedDate = Template.bind({});
+RestrictedDate.args = {
+  restrictedDateStart: "1995-03-06",
+  restrictedDateEnd: "1995-03-15",
+};
 RestrictedDate.argTypes = {
-  restrictedDateStart: {
-    defaultValue: "1995-03-06",
-  },
-  restrictedDateEnd: {
-    defaultValue: "1995-03-15",
-  },
   defaultDate: {
     table: { disable: true },
   },
@@ -80,10 +92,10 @@ RestrictedDate.argTypes = {
 };
 
 export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled_state: "disabled",
+};
 Disabled.argTypes = {
-  disabled_state: {
-    defaultValue: "disabled",
-  },
   defaultDate: {
     table: { disable: true },
   },
@@ -99,10 +111,10 @@ Disabled.argTypes = {
 };
 
 export const AriaDisabled = Template.bind({});
+AriaDisabled.args = {
+  disabled_state: "aria-disabled",
+};
 AriaDisabled.argTypes = {
-  disabled_state: {
-    defaultValue: "aria-disabled",
-  },
   defaultDate: {
     table: { disable: true },
   },

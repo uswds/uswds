@@ -7,6 +7,9 @@ import EsMultipleContent from "./usa-sign-in--multiple/usa-sign-in--multiple~lan
 
 export default {
   title: "Pages/Sign-In",
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export const SignInPage = () =>

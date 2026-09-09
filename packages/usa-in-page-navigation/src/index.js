@@ -263,9 +263,13 @@ const shouldRenderInPageNav = (
 /**
  * Create the in-page navigation component
  *
- * @param {HTMLElement} inPageNavEl The in-page nav element
+ * @param {HTMLElement} el The in-page nav element
  */
-const createInPageNav = (inPageNavEl) => {
+const createInPageNav = (el) => {
+  const inPageNavEl = el;
+
+  if (inPageNavEl.dataset.enhanced) return;
+
   const inPageNavTitleText = Sanitizer.escapeHTML`${
     inPageNavEl.dataset.titleText || IN_PAGE_NAV_TITLE_TEXT
   }`;
@@ -328,14 +332,14 @@ const createInPageNav = (inPageNavEl) => {
   inPageNavList.classList.add(IN_PAGE_NAV_LIST_CLASS);
   inPageNav.appendChild(inPageNavList);
 
-  sectionHeadings.forEach((el) => {
+  sectionHeadings.forEach((sectionHeadingEl) => {
     const listItem = document.createElement("li");
     const navLinks = document.createElement("a");
     const anchorTag = document.createElement("a");
-    const textContentOfLink = el.textContent;
-    const tag = el.tagName.toLowerCase();
+    const textContentOfLink = sectionHeadingEl.textContent;
+    const tag = sectionHeadingEl.tagName.toLowerCase();
     const topHeadingLevel = getTopLevelHeading(sectionHeadings);
-    const headingId = getHeadingId(el);
+    const headingId = getHeadingId(sectionHeadingEl);
 
     listItem.classList.add(IN_PAGE_NAV_ITEM_CLASS);
 
@@ -349,7 +353,7 @@ const createInPageNav = (inPageNavEl) => {
 
     anchorTag.setAttribute("id", headingId);
     anchorTag.setAttribute("class", IN_PAGE_NAV_ANCHOR_CLASS);
-    el.insertAdjacentElement("afterbegin", anchorTag);
+    sectionHeadingEl.insertAdjacentElement("afterbegin", anchorTag);
 
     inPageNavList.appendChild(listItem);
     listItem.appendChild(navLinks);
@@ -363,6 +367,8 @@ const createInPageNav = (inPageNavEl) => {
   anchorTags.forEach((tag) => {
     observeSections.observe(tag);
   });
+
+  inPageNavEl.dataset.enhanced = "true";
 };
 
 /**

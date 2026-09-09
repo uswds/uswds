@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { unsafeHTML } from "lit/directives/unsafe-html.js"; // eslint-disable-line import/extensions
-import { classMap } from "lit/directives/class-map.js"; // eslint-disable-line import/extensions
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { classMap } from "lit/directives/class-map.js";
 
 import bannerStyles from "../_index.scss?inline";
 import bannerComponentStyles from "./styles/_usa-banner.component.css?inline";
@@ -30,7 +30,7 @@ import iconHttps from "./img/icon-https.svg";
  * @slot https-heading - Heading for HTTPs section.
  * @slot https-text - Body text for HTTPs section.
  *
- * @tagname usa-banner
+ * @element usa-banner
  */
 
 export default class UsaBanner extends LitElement {
@@ -131,7 +131,6 @@ export default class UsaBanner extends LitElement {
       <img
         class="usa-banner__icon usa-media-block__img"
         src="${iconDotGov}"
-        role="img"
         alt=""
         aria-hidden="true"
       />
@@ -167,7 +166,6 @@ export default class UsaBanner extends LitElement {
       <img
         class="usa-banner__icon usa-media-block__img"
         src="${iconHttps}"
-        role="img"
         alt=""
         aria-hidden="true"
       />

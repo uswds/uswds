@@ -20,9 +20,8 @@ color-token-variant(("red", 50, "vivid"))
 
 @function color-token-family($color-token) {
   $split: if(
-    meta.type-of($color-token) == "list",
-    $color-token,
-    decompose-color-token($color-token)
+    sass(meta.type-of($color-token) == "list"): $color-token;
+      else: decompose-color-token($color-token)
   );
   $family: list.nth($split, 1);
   @return $family;
