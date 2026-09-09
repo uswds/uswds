@@ -95,16 +95,22 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
 }
 
 // Pagination items may be authored as <a> or <button>. Normalize the native
-// button user-agent styles (background, font, appearance, cursor) so a
-// <button> renders identically to a link. See #6212.
+// button user-agent styles so a <button> renders identically to a link.
+// `.usa-pagination__button` restates its own border and padding below; the
+// arrows carry `.usa-pagination__link`, which sets neither, so without the
+// resets here a <button> arrow keeps the user-agent border and padding and
+// comes out wider than its link equivalent. See #6212.
 .usa-pagination__link,
 .usa-pagination__button {
   appearance: none;
   background-color: transparent;
+  border: 0;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  padding: 0;
+  text-decoration: underline;
 }
 
 .usa-pagination__link {
