@@ -1,6 +1,6 @@
 <!---
 Welcome! Thank you for contributing to the U.S. Web Design System.
-Your contributions are vital to our success and we are glad you're here.
+Your contributions are vital to our success, and we are glad you're here.
 
 Please keep in mind:
 - This pull request (PR) template exists to help speed up integration.
