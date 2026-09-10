@@ -138,7 +138,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
       });
     });
 
-    it("should expose full day names to screen readers in day-of-week headers", () => {
+    it("should keep day-of-week headers visual-only and include weekday on date button labels", () => {
       EVENTS.click(button);
 
       const dayOfWeekHeaders = Array.from(
@@ -149,22 +149,15 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       assert.deepEqual(
         dayOfWeekHeaders.map(
-          (th) => th.querySelector(".usa-sr-only")?.textContent,
+          (th) => th.querySelector("[aria-hidden='true']")?.textContent,
         ),
-        [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
+        ["S", "M", "T", "W", "T", "F", "S"],
       );
       dayOfWeekHeaders.forEach((th) => {
-        assert.ok(
-          th.querySelector("[aria-hidden='true']"),
-          "day-of-week header hides visible abbreviation from assistive tech",
+        assert.strictEqual(
+          th.querySelector(".usa-sr-only"),
+          null,
+          "day-of-week header should not include screen reader-only weekday text",
         );
         assert.strictEqual(
           th.getAttribute("abbr"),
@@ -177,6 +170,24 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "day-of-week header should not use aria-label",
         );
       });
+
+      const focusedDateButton = getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__date--focused",
+      );
+      const day = Number(focusedDateButton.getAttribute("data-day"));
+      const month = Number(focusedDateButton.getAttribute("data-month"));
+      const year = Number(focusedDateButton.getAttribute("data-year"));
+      const focusedDate = new Date(year, month - 1, day);
+      const expectedWeekday = focusedDate.toLocaleString("en", {
+        weekday: "long",
+      });
+      const expectedMonth = focusedDate.toLocaleString("en", { month: "long" });
+
+      assert.strictEqual(
+        focusedDateButton.getAttribute("aria-label"),
+        `${expectedWeekday}, ${expectedMonth} ${day}, ${year}`,
+        "date button aria-label should lead with the weekday",
+      );
     });
 
     it("should expose ARIA grid semantics on the date calendar table", () => {

@@ -159,24 +159,28 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.deepEqual(daysOfTheWeek, ["D", "L", "M", "X", "J", "V", "S"]);
     });
 
-    it("should display the screen reader day name in the document language", () => {
+    it("should include the weekday in date button aria-label in the document language", () => {
       changeLanguage("es");
 
       EVENTS.click(button);
 
-      const daysOfTheWeek = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((th) => th.querySelector(".usa-sr-only")?.textContent);
+      const focusedDateButton = root.querySelector(
+        ".usa-date-picker__calendar__date--focused",
+      );
+      const day = Number(focusedDateButton.getAttribute("data-day"));
+      const month = Number(focusedDateButton.getAttribute("data-month"));
+      const year = Number(focusedDateButton.getAttribute("data-year"));
+      const focusedDate = new Date(year, month - 1, day);
+      const expectedWeekday = focusedDate.toLocaleString("es", {
+        weekday: "long",
+      });
+      const expectedMonth = focusedDate.toLocaleString("es", { month: "long" });
 
-      assert.deepEqual(daysOfTheWeek, [
-        "domingo",
-        "lunes",
-        "martes",
-        "miércoles",
-        "jueves",
-        "viernes",
-        "sábado",
-      ]);
+      assert.strictEqual(
+        focusedDateButton.getAttribute("aria-label"),
+        `${expectedWeekday}, ${expectedMonth} ${day}, ${year}`,
+        "date button aria-label should lead with the weekday in the document language",
+      );
     });
   });
 });

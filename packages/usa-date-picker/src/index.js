@@ -1176,6 +1176,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
+    const dayOfWeek = dateToRender.getDay();
 
     const formattedDate = formatDate(dateToRender);
 
@@ -1235,6 +1236,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
 
     const monthStr = monthLabels[month];
+    const dayStr = dayOfWeeklabels[dayOfWeek];
 
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -1246,7 +1248,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     btn.setAttribute("data-value", formattedDate);
     btn.setAttribute(
       "aria-label",
-      Sanitizer.escapeHTML`${day} ${monthStr} ${year}`,
+      Sanitizer.escapeHTML`${dayStr}, ${monthStr} ${day}, ${year}`,
     );
     if (isToday) {
       btn.setAttribute("aria-current", "date");
@@ -1342,7 +1344,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   tableHeadRow.setAttribute("role", "row");
   tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
-  dayOfWeeklabels.forEach((dayOfWeek, i) => {
+  dayOfWeeklabels.forEach((_dayOfWeek, i) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
@@ -1352,12 +1354,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     visibleAbbr.setAttribute("aria-hidden", "true");
     visibleAbbr.textContent = dayOfWeeksAbv[i];
 
-    const screenReaderName = document.createElement("span");
-    screenReaderName.classList.add("usa-sr-only");
-    screenReaderName.textContent = dayOfWeek;
-
     th.appendChild(visibleAbbr);
-    th.appendChild(screenReaderName);
     tableHeadRow.insertAdjacentElement("beforeend", th);
   });
 
