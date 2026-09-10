@@ -108,6 +108,25 @@ It can be helpful if we understand:
 
 _For complex PRs, create a list of the significant updates made._
 
+## AI disclosure
+
+What AI tools did you use to create this MR?
+
+- [ ] No AI
+- [ ] Chat
+- [ ] Completions (e.g. Copilot)
+- [ ] Coding Agent
+
+## Author's checklist
+
+- [ ] Removed redundant AI comments (if applicable)
+- [ ] The changes on this PR are strictly limited to the ticket requirements (i.e., no scope creep)
+- [ ] I personally witnessed this code working in a local environment
+- [ ] Automated tests are passing
+- [ ] I have manually tested accessibility using physical devices and relevant assistive technology
+  - [ ] [List the physical devices and assistive technology here]
+- [ ] I understand all the code and could debug it without AI 6 months from now
+
 ## Testing and review
 
 _Share recommended methods for reviewing this change._
