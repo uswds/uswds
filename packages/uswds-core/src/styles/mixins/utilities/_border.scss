@@ -8,12 +8,12 @@
 
 $border-utilities: (
   "width": map-collect(
-      map-deep-get($system-properties, border-width, standard),
-      map-deep-get($system-properties, border-width, extended)
+      map.get($system-properties, border-width, standard),
+      map.get($system-properties, border-width, extended)
     ),
   "style": map-collect(
-      map-deep-get($system-properties, border-style, standard),
-      map-deep-get($system-properties, border-style, extended)
+      map.get($system-properties, border-style, standard),
+      map.get($system-properties, border-style, extended)
     ),
 );
 

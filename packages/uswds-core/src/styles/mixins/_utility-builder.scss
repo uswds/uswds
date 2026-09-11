@@ -97,7 +97,7 @@ future version of Sass' warning.
 
   // Add the pseudoclass variants, if applicable
 
-  @if map-deep-get($utility, settings, hover) {
+  @if map.get($utility, settings, hover) {
     @include render-pseudoclass(
       $utility,
       hover,
@@ -108,7 +108,7 @@ future version of Sass' warning.
     );
   }
 
-  @if map-deep-get($utility, settings, active) {
+  @if map.get($utility, settings, active) {
     @include render-pseudoclass(
       $utility,
       active,
@@ -119,7 +119,7 @@ future version of Sass' warning.
     );
   }
 
-  @if map-deep-get($utility, settings, visited) {
+  @if map.get($utility, settings, visited) {
     @include render-pseudoclass(
       $utility,
       visited,
@@ -130,7 +130,7 @@ future version of Sass' warning.
     );
   }
 
-  @if map-deep-get($utility, settings, focus) {
+  @if map.get($utility, settings, focus) {
     @include render-pseudoclass(
       $utility,
       focus,
@@ -162,9 +162,9 @@ through all possible variants
     {
       // Only do this if the the utility is meant to output
       @if not($media-key) or
-        ($media-key and map-deep-get($utility, settings, responsive))
+        ($media-key and map.get($utility, settings, responsive))
       {
-        @if map-deep-get($utility, settings, output) {
+        @if map.get($utility, settings, output) {
           // set initial variants
           // $property-default is a single value for all these utilities
 
@@ -356,8 +356,8 @@ through all possible variants
 @mixin render-utilities-in($utilities) {
   @include these-utilities($utilities);
 
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
-  $custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
+  $our-breakpoints: map.get($system-properties, breakpoints, standard);
+  $custom-breakpoints: map.get($system-properties, breakpoints, extended);
   $all-breakpoints: map-collect($our-breakpoints, $custom-breakpoints);
   @each $media-key, $media-value in $all-breakpoints {
     @if (map.get($theme-utility-breakpoints-complete, $media-key)) {
