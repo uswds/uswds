@@ -105,4 +105,37 @@ describe("focus trap", () => {
       assert.strictEqual(document.activeElement, lastButton);
     });
   });
+
+  describe("hidden inputs", () => {
+    // Hidden inputs are not focusable, so the focus trap must not treat them
+    // as tab stops. Otherwise a leading hidden input becomes the first tab
+    // stop, and tabbing forward from the last element has nowhere to go —
+    // focus stays stuck on the last element. See #6056.
+    beforeEach(() => {
+      document.body.innerHTML = `
+        <div id="trap">
+          <input type="hidden" id="hidden" />
+          <button type="button" id="first">First</button>
+          <button type="button" id="last">Last</button>
+        </div>
+      `;
+      container = document.getElementById("trap");
+      firstButton = document.getElementById("first");
+      lastButton = document.getElementById("last");
+
+      trap = FocusTrap(container);
+      trap.update(true);
+    });
+
+    it("does not treat a leading hidden input as the first tab stop", () => {
+      assert.strictEqual(document.activeElement, firstButton);
+    });
+
+    it("wraps Tab from the last tab stop past the hidden input to the first", () => {
+      lastButton.focus();
+      keydownTab();
+
+      assert.strictEqual(document.activeElement, firstButton);
+    });
+  });
 });
