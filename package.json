@@ -55,7 +55,7 @@
     "build": "gulp && npm run build:web-components",
     "build:web-components": "vite build --config='./vite.config.banner.cdn.js'",
     "lint": "npm run lint:js && npm run lint:sass",
-    "lint:js": "eslint packages/",
+    "lint:js": "eslint .",
     "lint:sass": "gulp lintSass",
     "mocha": "mocha",
     "prepare": "npm run build",

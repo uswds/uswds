@@ -96,6 +96,16 @@ const testConfig = {
 };
 
 export default [
+  {
+    ignores: [
+      "dist/",
+      "_site/",
+      "node_modules/",
+      "packages/*/dist/",
+      "**/*.min.js",
+      ".agents/",
+    ],
+  },
   litConfigs["flat/recommended"],
   eslint.configs.recommended,
   baseConfig,

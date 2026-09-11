@@ -4,6 +4,7 @@ const stylelint = require("stylelint");
 const IGNORE_STRING = "This file is ignored";
 const PROJECT_SASS_SRC = "./packages";
 
+// eslint-disable-next-line no-unused-vars -- retained for future stylelint ignore filtering
 function ignoreStylelintIgnoreWarnings(lintResults) {
   return formatters.string(
     lintResults.reduce((memo, result) => {
