@@ -6,6 +6,17 @@ This directory contains AI agent tools and skills for working with the USWDS rep
 
 Skills are task-specific workflows that can be invoked by AI coding assistants. They encode USWDS-specific knowledge, conventions, and judgment.
 
+### `skills/uswds-accessibility/`
+
+Accessibility standards and verification for agents changing USWDS components (ARIA, focus, keyboard, AT announcements, a11y tests). Complements `uswds-code-review` gate 16: review routes AT behavior here instead of concluding it from the diff.
+
+**Usage:**
+```bash
+/uswds-accessibility
+```
+
+See `skills/uswds-accessibility/SKILL.md`.
+
 ### `skills/uswds-code-review/`
 
 A judgment-based code review skill that reproduces the calibration of the USWDS core review team. It:
