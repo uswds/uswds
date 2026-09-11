@@ -1,5 +1,6 @@
 <form class="usa-form">
   <label class="usa-label" for="usa-range">Range slider</label>
+  <span class="usa-hint" id="range-hint">Move the slider to change the value</span>
   <input
     id="usa-range"
     class="usa-range"
@@ -14,5 +15,4 @@
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
     aria-describedby="range-hint"
   >
-  <span class="usa-hint" id="range-hint">Move the slider to change the value</span>
 </form>
