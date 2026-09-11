@@ -1,0 +1,38 @@
+name: Verify agent docs
+
+# Agent guidance goes stale silently: a script is renamed or a directory moves,
+# and AGENTS.md keeps telling every agent to run a command that no longer exists.
+# This runs on every PR rather than only on doc changes, because the drift is
+# usually caused by a change somewhere else in the repo.
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-agent-docs:
+    name: Verify agent docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: "24.x" # pin this to a version since .nvmrc might differ between branches
+          cache: npm
+
+      # --ignore-scripts skips the root `prepare` hook, which runs a full gulp
+      # build. These checks only need mocha and the working tree.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Check agent docs match the repo
+        run: npm run agents:check
+
+      - name: Run agent tooling tests
+        run: npm run test:agents

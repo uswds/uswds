@@ -6,6 +6,9 @@
 .vscode/
 .cursor/
 
+# ignore per-developer agent settings (.claude/settings.json is shared)
+.claude/settings.local.json
+
 # ignore Node-specific files and directories
 node_modules/
 npm-debug.log*
