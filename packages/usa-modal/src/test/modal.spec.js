@@ -220,5 +220,35 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(document.activeElement, closeButton);
       });
     });
+
+    describe("Teardown while the modal is open", () => {
+      // A framework may unmount the component before the modal is closed, for
+      // example on a route change. The page must not be left hidden from
+      // assistive technology.
+      it("restores page content screen reader visibility", () => {
+        const otherContent = document.getElementById("other-content");
+
+        openButton1.click();
+        assert.strictEqual(otherContent.getAttribute("aria-hidden"), "true");
+
+        modal.off(containerSelector());
+
+        assert.strictEqual(otherContent.hasAttribute("aria-hidden"), false);
+        assert.strictEqual(
+          document.querySelectorAll("[data-modal-hidden]").length,
+          0,
+        );
+      });
+
+      it("leaves content that was already aria-hidden alone", () => {
+        openButton1.click();
+        modal.off(containerSelector());
+
+        assert.strictEqual(
+          document.getElementById("stays-hidden").getAttribute("aria-hidden"),
+          "true",
+        );
+      });
+    });
   });
 });
