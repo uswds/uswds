@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run lint:js)",
+      "Bash(npm run lint:sass)",
+      "Bash(npm run prettier:check)",
+      "Bash(npm test)",
+      "Bash(npm run test:unit)",
+      "Bash(npm run test:sass)",
+      "Bash(npm run test:tasks)",
+      "Bash(npm run test:agents)",
+      "Bash(npm run agents:check)",
+      "Bash(npx gulp typecheck)",
+      "Bash(npx gulp test)",
+      "Bash(npx mocha:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)"
+    ],
+    "deny": ["Bash(npm publish:*)"]
+  }
+}
