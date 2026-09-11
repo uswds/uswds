@@ -33,4 +33,9 @@ module.exports = {
   tasksTests() {
     return src("tasks/**/*.spec.mjs").pipe(mocha());
   },
+  distTests() {
+    return src([
+      "packages/uswds-core/src/test/dist-bundle.spec.js",
+    ]).pipe(mocha({ timeout: 30000 }));
+  },
 };
