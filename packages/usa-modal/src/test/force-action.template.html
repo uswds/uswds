@@ -1,0 +1,27 @@
+<button id="force-open-button" type="button" class="usa-button" aria-controls="force-modal" data-open-modal>
+  Open modal with forced action
+</button>
+<div class="usa-modal" id="force-modal" aria-labelledby="force-modal-heading" aria-describedby="force-modal-description" data-force-action>
+  <div class="usa-modal__content">
+    <div class="usa-modal__main">
+      <h2 class="usa-modal__heading" id="force-modal-heading">
+        Your session will end soon.
+      </h2>
+      <div id="force-modal-description" class="usa-prose">
+        <p>
+          You’ve been inactive for too long. Please choose to stay signed in or
+          sign out. Otherwise, you’ll be signed out automatically in 5 minutes.
+        </p>
+      </div>
+      <div class="usa-modal__footer">
+        <ul class="usa-button-group">
+          <li class="usa-button-group__item">
+            <button id="force-stay-button" type="button" class="usa-button" data-close-modal>
+              Yes, stay signed in
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

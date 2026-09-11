@@ -104,6 +104,16 @@ function toggleModal(event) {
       targetModal.setAttribute("data-opener", originalOpener);
     }
 
+    // Modals that force an action can't be dismissed by clicking the
+    // overlay. The overlay used to ignore pointer events to prevent this,
+    // but that also stopped iOS from scrolling a long modal.
+    if (
+      forceUserAction &&
+      clickedElement.classList.contains(OVERLAY_CLASSNAME)
+    ) {
+      return false;
+    }
+
     // This basically stops the propagation if the element
     // is inside the modal and not a close button or
     // element inside a close button
