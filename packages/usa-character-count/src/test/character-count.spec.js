@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
+const sinon = require("sinon");
 const CharacterCount = require("../index");
 
 const {
@@ -9,6 +10,9 @@ const {
   INPUT_ERROR_CLASS,
   VALIDATION_MESSAGE,
   MESSAGE_INVALID_CLASS,
+  LIMIT_EXCEEDED_MESSAGE,
+  SR_STATUS_DEBOUNCE_MS,
+  AT_DEFER_MS,
 } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
@@ -25,6 +29,16 @@ EVENTS.input = (el) => {
   el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
+/**
+ * Assert screen reader status message content and aria-live.
+ * @param {HTMLElement} statusMessageSR
+ * @param {{ text: string, ariaLive: string }} expectations
+ */
+const assertSrStatus = (statusMessageSR, { text, ariaLive }) => {
+  assert.strictEqual(statusMessageSR.textContent, text);
+  assert.strictEqual(statusMessageSR.getAttribute("aria-live"), ariaLive);
+};
+
 const characterCountSelector = () =>
   document.querySelector(".usa-character-count");
 const tests = [
@@ -36,6 +50,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`character count component initialized at ${name}`, () => {
     const { body } = document;
 
+    let clock;
     let root;
     let formGroup;
     let label;
@@ -45,6 +60,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     let statusMessageSR;
 
     beforeEach(() => {
+      clock = sinon.useFakeTimers({ shouldClearNativeTimers: true });
       body.innerHTML = TEMPLATE;
       CharacterCount.on(containerSelector());
 
@@ -60,6 +76,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     afterEach(() => {
       CharacterCount.off(containerSelector());
       body.textContent = "";
+      clock.restore();
     });
 
     it("hides the requirements hint for screen readers", () => {
@@ -85,15 +102,27 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(srStatus.length, 1);
     });
 
+    it("does not create duplicate status messages when initialized twice", () => {
+      CharacterCount.on(containerSelector());
+
+      assert.strictEqual(
+        document.querySelectorAll(".usa-character-count__status").length,
+        1,
+      );
+      assert.strictEqual(
+        document.querySelectorAll(".usa-character-count__sr-status").length,
+        1,
+      );
+    });
+
     it("does not set aria-live on the sr status message synchronously", () => {
       assert.strictEqual(statusMessageSR.getAttribute("aria-live"), null);
     });
 
-    it("sets aria-live on the sr status message after a delay", (done) => {
-      setTimeout(() => {
-        assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
-        done();
-      }, 150);
+    it("sets aria-live on the sr status message after a delay", () => {
+      clock.tick(AT_DEFER_MS);
+
+      assert.strictEqual(statusMessageSR.getAttribute("aria-live"), "polite");
     });
 
     it("adds initial status message for the character count component", () => {
@@ -175,6 +204,79 @@ tests.forEach(({ name, selector: containerSelector }) => {
     it("should not allow for innerHTML of child elements ", () => {
       Array.from(statusMessageVisual.childNodes).forEach((childNode) => {
         assert.strictEqual(childNode.nodeType, Node.TEXT_NODE);
+      });
+    });
+
+    it("announces assertively after debounce when over the limit", () => {
+      input.value = "123456789012345678901";
+
+      EVENTS.input(input);
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: `${LIMIT_EXCEEDED_MESSAGE} 1 character over limit`,
+        ariaLive: "assertive",
+      });
+    });
+
+    it("waits for typing to pause before assertively announcing how far over the limit", () => {
+      input.value = "1234567890123456789";
+      EVENTS.input(input);
+
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      input.value = "1234567890123456789012";
+      EVENTS.input(input);
+
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: `${LIMIT_EXCEEDED_MESSAGE} 2 characters over limit`,
+        ariaLive: "assertive",
+      });
+    });
+
+    it("uses polite announcements while typing under the limit", () => {
+      input.value = "1";
+
+      EVENTS.input(input);
+      clock.tick(SR_STATUS_DEBOUNCE_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: "19 characters left",
+        ariaLive: "polite",
+      });
+    });
+
+    it("announces recovery quickly when backspacing under the limit", () => {
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      input.value = "1234567890123456789";
+      EVENTS.input(input);
+
+      clock.tick(AT_DEFER_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: "1 character left",
+        ariaLive: "polite",
+      });
+      assert.strictEqual(input.validationMessage, "");
+    });
+
+    it("does not replay a stale over-limit announcement after backspacing to empty", () => {
+      input.value = "123456789012345678901";
+      EVENTS.input(input);
+
+      input.value = "";
+      EVENTS.input(input);
+
+      clock.tick(AT_DEFER_MS);
+
+      assertSrStatus(statusMessageSR, {
+        text: "20 characters allowed",
+        ariaLive: "polite",
       });
     });
   });

@@ -1,7 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
+const sinon = require("sinon");
 const CharacterCount = require("../index");
+
+const { VALIDATION_MESSAGE, AT_DEFER_MS } = CharacterCount;
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/valid-template-multiple-validators.template.html"),
@@ -28,10 +31,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
   describe(`character count component with multiple validators initialized at ${name}`, () => {
     const { body } = document;
 
+    let clock;
     let root;
     let input;
 
     beforeEach(() => {
+      clock = sinon.useFakeTimers({ shouldClearNativeTimers: true });
       body.innerHTML = TEMPLATE;
       CharacterCount.on(containerSelector());
 
@@ -42,6 +47,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
     afterEach(() => {
       CharacterCount.off(containerSelector());
       body.textContent = "";
+      clock.restore();
     });
 
     it("assert that input constraint validation adds a validation message", () => {
@@ -83,14 +89,12 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       EVENTS.input(input);
 
-      assert.strictEqual(
-        input.validationMessage,
-        CharacterCount.VALIDATION_MESSAGE,
-      );
+      assert.strictEqual(input.validationMessage, VALIDATION_MESSAGE);
 
       input.value = "abcde";
 
       EVENTS.input(input);
+      clock.tick(AT_DEFER_MS);
 
       assert.strictEqual(input.validationMessage, "");
     });

@@ -242,7 +242,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   caption {
-    @include u-font("body", "xs");
+    // Match the table/body text size rather than rendering smaller. See #6253.
+    @include u-font("body", $theme-body-font-size);
     font-weight: fw("bold");
     margin-bottom: units(1.5);
     text-align: left;

@@ -12,7 +12,12 @@ module.exports = (button, expanded) => {
   button.setAttribute(EXPANDED, safeExpanded);
 
   const id = button.getAttribute(CONTROLS);
-  const controls = document.getElementById(id);
+  const root =
+    typeof button.getRootNode === "function" ? button.getRootNode() : document;
+  const controls =
+    typeof root.getElementById === "function"
+      ? root.getElementById(id)
+      : document.getElementById(id);
   if (!controls) {
     throw new Error(`No toggle target found with id: "${id}"`);
   }

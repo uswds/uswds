@@ -94,6 +94,46 @@ const CALENDAR_LABELS_BY_LANG = new Map();
 
 const ENTER_KEYCODE = 13;
 
+const OUTSIDE_POINTER_EVENT = "pointerdown";
+
+let outsideClickListener = null;
+
+/** @type {WeakSet<HTMLElement>} */
+const calendarRenderGuard = new WeakSet();
+
+/**
+ * Replace the calendar element while suppressing focusout-driven dismiss.
+ *
+ * @param {HTMLElement} datePickerEl
+ * @param {HTMLElement} calendarEl
+ * @param {HTMLElement} newCalendar
+ * @returns {HTMLElement} newCalendar
+ */
+const replaceCalendarElement = (datePickerEl, calendarEl, newCalendar) => {
+  calendarRenderGuard.add(datePickerEl);
+
+  try {
+    calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  } finally {
+    queueMicrotask(() => {
+      calendarRenderGuard.delete(datePickerEl);
+    });
+  }
+
+  return newCalendar;
+};
+
+/**
+ * Whether a pointer event represents a deliberate press outside the widget.
+ *
+ * @param {PointerEvent} event
+ * @returns {boolean}
+ */
+const isDeliberateOutsidePointer = (event) =>
+  event.pointerType === "mouse" ||
+  event.pointerType === "touch" ||
+  event.pointerType === "pen";
+
 const YEAR_CHUNK = 12;
 
 const DEFAULT_MIN_DATE = "0000-01-01";
@@ -587,9 +627,14 @@ const formatDate = (date, dateFormat = INTERNAL_DATE_FORMAT) => {
  *
  * @param {string[]} htmlArray the array of html items
  * @param {number} rowSize the length of a row
+ * @param {{ useGridSemantics?: boolean }} [options]
  * @returns {string} the grid string
  */
-const listToGridHtml = (htmlArray, rowSize) => {
+const listToGridHtml = (
+  htmlArray,
+  rowSize,
+  { useGridSemantics = false } = {},
+) => {
   const grid = [];
 
   let i = 0;
@@ -597,9 +642,20 @@ const listToGridHtml = (htmlArray, rowSize) => {
     const row = [];
 
     const tr = document.createElement("tr");
+    if (useGridSemantics) {
+      tr.setAttribute("role", "row");
+    }
     while (i < htmlArray.length && row.length < rowSize) {
+      const item = htmlArray[i];
+      const content = item instanceof HTMLElement ? item : item.element;
       const td = document.createElement("td");
-      td.insertAdjacentElement("beforeend", htmlArray[i]);
+      if (useGridSemantics) {
+        td.setAttribute("role", "gridcell");
+        if (!(item instanceof HTMLElement) && item.ariaSelected != null) {
+          td.setAttribute("aria-selected", item.ariaSelected);
+        }
+      }
+      td.insertAdjacentElement("beforeend", content);
       row.push(td);
       i += 1;
     }
@@ -970,6 +1026,65 @@ const enhanceDatePicker = (el) => {
 // #region Calendar - Date Selection View
 
 /**
+ * Remove the document listener that closes open calendars on outside click.
+ */
+const removeOutsideClickListener = () => {
+  if (outsideClickListener) {
+    document.removeEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
+    outsideClickListener = null;
+  }
+};
+
+/**
+ * Hide the calendar of a date picker component.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const hideCalendar = (el) => {
+  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
+
+  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
+  calendarEl.hidden = true;
+  statusEl.textContent = "";
+
+  if (!select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).length) {
+    removeOutsideClickListener();
+  }
+};
+
+/**
+ * Add a click listener to the document to hide the calendar when clicking outside the date picker component.
+ */
+const addOutsideClickListener = () => {
+  removeOutsideClickListener();
+
+  outsideClickListener = (event) => {
+    select(`.${DATE_PICKER_ACTIVE_CLASS}`, document).forEach((datePickerEl) => {
+      if (calendarRenderGuard.has(datePickerEl)) {
+        return;
+      }
+
+      if (datePickerEl.contains(event.target)) {
+        return;
+      }
+
+      // VoiceOver (especially Firefox) can dispatch spurious pointer events
+      // outside the widget while navigating the grid. Only real presses dismiss.
+      if (!isDeliberateOutsidePointer(event)) {
+        return;
+      }
+
+      hideCalendar(datePickerEl);
+    });
+  };
+
+  // Defer so the same click that opened the calendar doesn't close it
+  setTimeout(() => {
+    document.addEventListener(OUTSIDE_POINTER_EVENT, outsideClickListener);
+  }, 0);
+};
+
+/**
  * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
@@ -1095,7 +1210,6 @@ const renderCalendar = (el, _dateToDisplay) => {
       "aria-label",
       Sanitizer.escapeHTML`${day} ${monthStr} ${year} ${dayStr}`,
     );
-    btn.setAttribute("aria-selected", isSelected ? "true" : "false");
     if (isToday) {
       btn.setAttribute("aria-current", "date");
     }
@@ -1104,7 +1218,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
     btn.textContent = day;
 
-    return btn;
+    return {
+      element: btn,
+      ariaSelected: isSelected ? "true" : "false",
+    };
   };
 
   // set date to first rendered day
@@ -1121,7 +1238,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay = addDays(dateToDisplay, 1);
   }
 
-  const datesGrid = listToGridHtml(days, 7);
+  const datesGrid = listToGridHtml(days, 7, { useGridSemantics: true });
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.dataset.value = currentFormattedDate;
@@ -1178,16 +1295,20 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const table = document.createElement("table");
   table.setAttribute("class", CALENDAR_TABLE_CLASS);
+  table.setAttribute("role", "grid");
+  table.setAttribute("aria-label", `${monthLabel} ${focusedYear}`);
 
   const tableHead = document.createElement("thead");
   table.insertAdjacentElement("beforeend", tableHead);
   const tableHeadRow = document.createElement("tr");
+  tableHeadRow.setAttribute("role", "row");
   tableHead.insertAdjacentElement("beforeend", tableHeadRow);
 
   dayOfWeeklabels.forEach((dayOfWeek, i) => {
     const th = document.createElement("th");
     th.setAttribute("class", CALENDAR_DAY_OF_WEEK_CLASS);
     th.setAttribute("scope", "col");
+    th.setAttribute("role", "columnheader");
     th.setAttribute("aria-label", dayOfWeek);
     th.textContent = dayOfWeeksAbv[i];
     tableHeadRow.insertAdjacentElement("beforeend", th);
@@ -1202,7 +1323,7 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   datePickerCalendarContainer.insertAdjacentElement("beforeend", table);
 
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   datePickerEl.classList.add(DATE_PICKER_ACTIVE_CLASS);
 
@@ -1225,6 +1346,10 @@ const renderCalendar = (el, _dateToDisplay) => {
     statuses.push(`${monthLabel} ${focusedYear}`);
   }
   statusEl.textContent = statuses.join(". ");
+
+  if (calendarWasHidden) {
+    addOutsideClickListener();
+  }
 
   return newCalendar;
 };
@@ -1310,19 +1435,6 @@ const displayNextYear = (_buttonEl) => {
 };
 
 /**
- * Hide the calendar of a date picker component.
- *
- * @param {HTMLElement} el An element within the date picker component
- */
-const hideCalendar = (el) => {
-  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
-
-  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
-  calendarEl.hidden = true;
-  statusEl.textContent = "";
-};
-
-/**
  * Select a date within the date picker component.
  *
  * @param {HTMLButtonElement} calendarDateEl A date element within the date picker component
@@ -1387,8 +1499,15 @@ const updateCalendarIfVisible = (el) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayMonthSelection = (el, monthToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate, monthLabels } =
-    getDatePickerContext(el);
+  const {
+    datePickerEl,
+    calendarEl,
+    statusEl,
+    calendarDate,
+    minDate,
+    maxDate,
+    monthLabels,
+  } = getDatePickerContext(el);
 
   const selectedMonth = calendarDate.getMonth();
   const focusedMonth = monthToDisplay == null ? selectedMonth : monthToDisplay;
@@ -1446,7 +1565,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.insertAdjacentElement("beforeend", monthsHtml);
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   statusEl.textContent = "Select a month.";
 
@@ -1481,7 +1600,7 @@ const selectMonth = (monthEl) => {
  * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayYearSelection = (el, yearToDisplay) => {
-  const { calendarEl, statusEl, calendarDate, minDate, maxDate } =
+  const { datePickerEl, calendarEl, statusEl, calendarDate, minDate, maxDate } =
     getDatePickerContext(el);
 
   const selectedYear = calendarDate.getFullYear();
@@ -1636,8 +1755,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   // append the years calender to the new calendar
   newCalendar.insertAdjacentElement("beforeend", yearsCalendarWrapper);
 
-  // replace calendar
-  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+  replaceCalendarElement(datePickerEl, calendarEl, newCalendar);
 
   statusEl.textContent = Sanitizer.escapeHTML`Showing years ${yearToChunk} to ${
     yearToChunk + YEAR_CHUNK - 1
@@ -1750,16 +1868,25 @@ const handleEscapeFromCalendar = (event) => {
  * @param {function} adjustDateFn function that returns the adjusted date
  */
 const adjustCalendar = (adjustDateFn) => (event) => {
-  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
-    event.target,
-  );
+  const { datePickerEl, calendarEl, calendarDate, minDate, maxDate } =
+    getDatePickerContext(event.target);
 
   const date = adjustDateFn(calendarDate);
 
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    const newCalendar = renderCalendar(calendarEl, cappedDate);
-    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+    calendarRenderGuard.add(datePickerEl);
+
+    try {
+      const newCalendar = renderCalendar(calendarEl, cappedDate);
+      newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
+    } finally {
+      queueMicrotask(() => {
+        queueMicrotask(() => {
+          calendarRenderGuard.delete(datePickerEl);
+        });
+      });
+    }
   }
   event.preventDefault();
 };
@@ -2117,6 +2244,50 @@ const datePickerTabEventHandler = tabHandler(DATE_PICKER_FOCUSABLE);
 const monthPickerTabEventHandler = tabHandler(MONTH_PICKER_FOCUSABLE);
 const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
 
+const DATE_GRID_KEYMAP = {
+  Up: handleUpFromDate,
+  ArrowUp: handleUpFromDate,
+  Down: handleDownFromDate,
+  ArrowDown: handleDownFromDate,
+  Left: handleLeftFromDate,
+  ArrowLeft: handleLeftFromDate,
+  Right: handleRightFromDate,
+  ArrowRight: handleRightFromDate,
+  Home: handleHomeFromDate,
+  End: handleEndFromDate,
+  PageDown: handlePageDownFromDate,
+  PageUp: handlePageUpFromDate,
+  "Shift+PageDown": handleShiftPageDownFromDate,
+  "Shift+PageUp": handleShiftPageUpFromDate,
+};
+
+const CALENDAR_GRID_NAVIGATION_SELECTORS = [
+  CALENDAR_DATE,
+  CALENDAR_MONTH,
+  CALENDAR_YEAR,
+].join(",");
+
+const delegateToFocusedDate = (handler) => (event) => {
+  if (event.target.closest(CALENDAR_GRID_NAVIGATION_SELECTORS)) return;
+  const calendarEl = event.target.closest(DATE_PICKER_CALENDAR);
+  if (!calendarEl) return;
+  const focusedDate = calendarEl.querySelector(CALENDAR_DATE_FOCUSED);
+  if (!focusedDate) return;
+  handler({
+    target: focusedDate,
+    preventDefault: () => event.preventDefault(),
+  });
+};
+
+const handleCalendarChromeNavigation = keymap(
+  Object.fromEntries(
+    Object.entries(DATE_GRID_KEYMAP).map(([key, handler]) => [
+      key,
+      delegateToFocusedDate(handler),
+    ]),
+  ),
+);
+
 // #endregion Focus Handling Event Handling
 
 // #region Date Picker Event Delegation Registration / Component
@@ -2177,20 +2348,7 @@ const datePickerEvents = {
       }
     },
     [CALENDAR_DATE]: keymap({
-      Up: handleUpFromDate,
-      ArrowUp: handleUpFromDate,
-      Down: handleDownFromDate,
-      ArrowDown: handleDownFromDate,
-      Left: handleLeftFromDate,
-      ArrowLeft: handleLeftFromDate,
-      Right: handleRightFromDate,
-      ArrowRight: handleRightFromDate,
-      Home: handleHomeFromDate,
-      End: handleEndFromDate,
-      PageDown: handlePageDownFromDate,
-      PageUp: handlePageUpFromDate,
-      "Shift+PageDown": handleShiftPageDownFromDate,
-      "Shift+PageUp": handleShiftPageUpFromDate,
+      ...DATE_GRID_KEYMAP,
       Tab: datePickerTabEventHandler.tabAhead,
     }),
     [CALENDAR_DATE_PICKER]: keymap({
@@ -2235,6 +2393,7 @@ const datePickerEvents = {
     }),
     [DATE_PICKER_CALENDAR](event) {
       this.dataset.keydownKeyCode = event.keyCode;
+      handleCalendarChromeNavigation(event);
     },
     [DATE_PICKER](event) {
       const keyMap = keymap({
@@ -2247,11 +2406,6 @@ const datePickerEvents = {
   focusout: {
     [DATE_PICKER_EXTERNAL_INPUT]() {
       validateDateInput(this);
-    },
-    [DATE_PICKER](event) {
-      if (!this.contains(event.relatedTarget)) {
-        hideCalendar(this);
-      }
     },
   },
   input: {
