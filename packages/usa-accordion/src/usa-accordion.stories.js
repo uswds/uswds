@@ -1,5 +1,11 @@
 import Component from "./usa-accordion.twig";
-import { DefaultContent, BorderedContent, MultiContent } from "./content";
+import {
+  DefaultContent,
+  BorderedContent,
+  MultiContent,
+  IconStartContent,
+  IconEndContent,
+} from "./content";
 
 import IconTest from "./test/test-patterns/test-accordion-icon.twig";
 import HeaderContent from "../../usa-header/src/usa-header.json";
@@ -34,6 +40,12 @@ Bordered.args = BorderedContent;
 
 export const Multiselectable = Template.bind({});
 Multiselectable.args = MultiContent;
+
+export const IconStart = Template.bind({});
+IconStart.args = IconStartContent;
+
+export const IconEnd = Template.bind({});
+IconEnd.args = IconEndContent;
 
 export const TestIcons = TestTemplate.bind({});
 TestIcons.args = {

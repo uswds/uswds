@@ -174,13 +174,15 @@ function toggleModal(event) {
     targetModal.removeAttribute("aria-modal");
 
     // The modal window is closed.
-    // Non-modals now accessible to screen reader
-    if (menuButton && returnFocus) {
-      document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
-        nonModal.removeAttribute("aria-hidden");
-        nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
-      });
+    // Non-modals now accessible to screen reader.
+    // This runs unconditionally: the opener may be gone from the document by
+    // now, and page content must never be left hidden from assistive tech.
+    document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
+      nonModal.removeAttribute("aria-hidden");
+      nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
+    });
 
+    if (menuButton && returnFocus) {
       // Focus is returned to the opener
       returnFocus.focus();
     }
@@ -238,7 +240,7 @@ const setModalAttributes = (baseComponent, modalContentWrapper) => {
     throw new Error(`${modalID} is missing aria-labelledby attribute`);
 
   if (!ariaDescribedBy)
-    throw new Error(`${modalID} is missing aria-desribedby attribute`);
+    throw new Error(`${modalID} is missing aria-describedby attribute`);
 
   // Set attributes
   modalContentWrapper.setAttribute("role", "dialog");
