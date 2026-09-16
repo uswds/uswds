@@ -16,7 +16,7 @@ $theme-process-list-counter-line-x-position: calc(
     @include typeset($theme-process-list-font-family);
     @include unstyled-list;
     counter-reset: usa-numbered-list;
-    padding: 20px 0 0 $theme-process-list-counter-line-x-position;
+    padding: units(2.5) 0 0 $theme-process-list-counter-line-x-position;
     position: relative;
 
     // Use increased specificity to override unstyled-list()

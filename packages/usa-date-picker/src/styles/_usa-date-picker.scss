@@ -225,7 +225,7 @@ $navigate_far_next: map.merge(
   background-position: center;
   background-size: auto units(3);
   height: units(3);
-  padding: 20px 10px;
+  padding: units(2.5) units(1.5);
 
   @media (forced-colors: active) {
     mask-size: units(3) !important;
@@ -274,7 +274,7 @@ $navigate_far_next: map.merge(
 
 .usa-date-picker__calendar__date {
   @extend %usa-date-picker__button;
-  padding: 10px 0px;
+  padding: units(1.5) 0;
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
@@ -388,22 +388,22 @@ $navigate_far_next: map.merge(
   @extend %usa-date-picker__button;
   display: inline-block;
   height: 100%;
-  padding: 8px 4px;
+  padding: units(1) units(0.5);
   width: auto;
 
   @include at-media-max("mobile") {
     padding-bottom: 0;
-    padding-top: 12px;
+    padding-top: units(1.5);
   }
 }
 
 // Date Picker - Month Selection View
 .usa-date-picker__calendar__month-picker {
-  padding: 20px 5px;
+  padding: units(2.5) units(0.5);
 
   @include at-media-max("mobile") {
-    padding-bottom: 12px;
-    padding-top: 12px;
+    padding-bottom: units(1.5);
+    padding-top: units(1.5);
 
     tr {
       display: flex;
@@ -414,7 +414,7 @@ $navigate_far_next: map.merge(
 
 .usa-date-picker__calendar__month {
   @extend %usa-date-picker__button;
-  padding: 10px 0;
+  padding: units(1.5) 0;
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
@@ -449,7 +449,7 @@ $navigate_far_next: map.merge(
 
 // Date Picker - Year Selection View
 .usa-date-picker__calendar__year-picker {
-  padding: 20px 5px;
+  padding: units(2.5) units(0.5);
 }
 
 .usa-date-picker__calendar__previous-year-chunk,
@@ -458,7 +458,7 @@ $navigate_far_next: map.merge(
   background-position: center;
   background-size: auto units(4);
   margin: auto;
-  padding: 40px 0;
+  padding: units(5) 0;
 
   @media (forced-colors: active) {
     mask-size: units(3) !important;
@@ -495,7 +495,7 @@ $navigate_far_next: map.merge(
 
 .usa-date-picker__calendar__year {
   @extend %usa-date-picker__button;
-  padding: 10px 0;
+  padding: units(1.5) 0;
 
   &--focused {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
