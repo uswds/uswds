@@ -1,0 +1,419 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+#
+# CodeRabbit configuration for uswds/uswds.
+#
+# This file is the source of truth. Repository YAML outranks both the repository
+# and the organization settings in the CodeRabbit web UI, so review behavior
+# changes belong in a PR here — not in the dashboard.
+#
+# The full review calibration lives in .agents/skills/uswds-code-review/. This
+# file carries the subset a bot can apply to a diff. Gates that need judgment, a
+# running test suite, or hands-on assistive technology stay with that skill and
+# with the human reviewer.
+
+language: en-US
+
+# Reviews are read by contributors outside the team. Keep it plain and specific.
+tone_instructions: >-
+  Review as a USWDS core engineer: plain language, specific, evidence first.
+  Hedge non-blocking asks ("I think it would be good to..."). Never comment on
+  formatting or naming style. Never render a screen reader verdict.
+
+early_access: false
+
+reviews:
+  # quiet = only the most important feedback. The team's review corpus contains
+  # zero style nits across 200+ PRs; chill or assertive would contradict that.
+  profile: quiet
+
+  # Never let the bot gate a merge. develop already requires circle-uswds plus a
+  # CODEOWNERS approval, and a bot approval cannot satisfy the code owner rule.
+  request_changes_workflow: false
+
+  poem: false
+  in_progress_fortune: false
+  sequence_diagrams: false
+  suggested_reviewers: false
+  auto_apply_labels: false
+
+  # Keep the generated summary in CodeRabbit's own comment. The PR template's
+  # Summary section is the author's, and it feeds the release notes.
+  high_level_summary: true
+  high_level_summary_in_walkthrough: true
+
+  assess_linked_issues: true
+  estimate_code_review_effort: true
+
+  # Nothing generated is committed to this repo — dist/, _site/ and
+  # html-templates/ are all gitignored — so there is little to exclude.
+  # COMMUNITY.md is written by .github/workflows/contributors.yml.
+  path_filters:
+    - "!COMMUNITY.md"
+
+  path_instructions:
+    - path: "**/*"
+      instructions: >-
+        Apply the cascade test to every finding before posting it: does this
+        change what every downstream consumer inherits, or is it how you would
+        have written it? If the latter, drop it.
+
+        Never comment on: formatting, indentation, quote style or line length
+        (Prettier, ESLint and .editorconfig own these); naming in isolation,
+        unless it contradicts a convention already used in the repo; runtime
+        micro-performance; missing JSDoc on pre-existing code; diff size;
+        refactoring opportunities unrelated to the change; hypothetical future
+        requirements.
+
+        Never render a verdict on screen reader or assistive technology
+        behavior. Name the test matrix that a specialist should run instead.
+
+        Base branch is develop. main and library--main publish to npm.
+
+    - path: "packages/**/*.js"
+      instructions: >-
+        Component and core JavaScript. Mocha with jsdom-global, not Jest or
+        Vitest; sinon is available.
+
+        Blocking findings:
+
+        1. innerHTML or insertAdjacentHTML that interpolates any value without
+        the Sanitizer.escapeHTML tagged template from
+        packages/uswds-core/src/js/utils/sanitizer.js. ESLint's
+        no-unsanitized rules are errors but are disabled in *.spec.js, so lint
+        is not the safety net here — read the production file. Precedents:
+        usa-file-input, usa-combo-box, usa-table, usa-date-picker.
+
+        2. Reimplementing an existing uswds-core utility. The inventory is
+        select, select-or-matches, behavior, focus-trap, keymap, active-element,
+        debounce, toggle, toggle-form-input, toggle-field-mask, validate-input,
+        is-in-viewport, is-ios-device, scrollbar-width, sanitizer, plus
+        events.js (CLICK) and config.js (prefix). Point at the file path.
+
+        3. Teardown asymmetry. Every addEventListener, matchMedia listener and
+        observer added during init or the component lifecycle must be removed in
+        teardown.
+
+        4. Unguarded input at a boundary: event handlers that assume an event
+        type without an instanceof check, data-* attributes trusted without
+        validation, a platform API used without a fallback when it is
+        unavailable. The established validation pattern is
+        packages/uswds-core/src/js/utils/validate-input.js.
+
+        5. A changed early-return or falsy guard that now lets code run in a
+        state it previously skipped.
+
+        In *.spec.js files: verify the test would fail on develop, not just that
+        a test exists. Do not ask for DRY extraction until the same setup
+        appears in three or more files — the events.js triplicate in
+        usa-combo-box, usa-date-picker and usa-date-range-picker is the
+        threshold example. The tests.forEach([document.body, componentRoot])
+        pattern is the intended idiom, not duplication.
+
+        In *.stories.js files: review the story only for whether it demonstrates
+        a new variant. Story metadata is not the component's test coverage.
+
+    - path: "packages/**/*.scss"
+      instructions: >-
+        Sass. Blocking findings:
+
+        1. A literal replacing a token function — color(), units(), family(),
+        font-size(), spacing(), radius(), measure(). Consumers who override
+        $theme-* settings lose the ability to theme any de-themed value. Name
+        the token to use instead; if the intent was more contrast, suggest a
+        darker or lighter token rather than a hex value.
+
+        2. A new or changed $theme-* setting without SASSDoc, without a @warn in
+        the @else fallback for unrecognized values, and without an entry in
+        packages/uswds-core/src/styles/_notifications.scss. New settings are
+        public API and need a uswds-site companion PR.
+
+        3. New @if/@else branching on a setting with no sass-true coverage.
+
+        4. A setting value that breaks compilation when overridden — a setting
+        must degrade, not throw.
+
+        5. A rule that raises selector specificity or changes the source order
+        of the built CSS. Flag it as a semver question for the maintainers, even
+        when :where() keeps specificity nominally flat.
+
+        Prefer fixes in the shared placeholder or mixin over a per-component
+        patch when the same problem affects other components.
+
+    - path: "packages/**/*.twig"
+      instructions: >-
+        Shipped templates. Any change to markup structure, element order, or
+        text content is potentially a breaking change under this repo's
+        definition. Flag it for maintainer classification and state that the
+        design-versus-code split is theirs to make; do not conclude it yourself.
+        Twig variable names are consumed by webpack and are public API.
+
+    - path: "packages/**/src/test/**/*.html"
+      instructions: >-
+        jsdom test fixtures. Review only for whether the fixture matches the
+        component's real markup. Do not lint the HTML.
+
+    - path: "package.json"
+      instructions: >-
+        dependencies holds exactly one runtime package, lit. Any addition there
+        is blocking unless the PR body explains why it must ship to consumers.
+        devDependencies additions are routine, but a new import must not rely on
+        a transitive dependency — it needs its own entry.
+
+    - path: "package-lock.json"
+      instructions: >-
+        Do not review the lockfile line by line. Note only whether it is in sync
+        with package.json, since CI runs npm ci.
+
+    - path: ".github/workflows/**"
+      instructions: >-
+        Blocking: an unpinned third-party action (this repo pins to commit
+        SHAs), a permissions block wider than the job needs, and any
+        pull_request_target job that checks out or executes PR code. The
+        existing pull_request_target usage in verify-commit-signatures.yml is
+        deliberate and documented — it never checks out the fork.
+
+    - path: ".agents/**"
+      instructions: >-
+        Repo-local agent tooling. Review the .mjs scripts as code, with tests
+        under scripts/*.spec.mjs. For SKILL.md and reference documents, flag
+        only claims that contradict the code they describe. Do not edit or
+        second-guess the review calibration itself.
+
+    - path: "**/*.md"
+      instructions: >-
+        Check documentation against the code changed in the same PR. Do not
+        comment on wording, heading style or line length.
+
+  # Suggestions only; auto_apply_labels is off. The allowlist is exhaustive when
+  # set, so the ~40 "Package: *" labels are deliberately left to maintainers
+  # rather than listing every component here.
+  labeling_instructions:
+    - label: "Is: Breaking 🔴"
+      instructions: >-
+        Apply when the diff changes a JavaScript API, changes markup or content
+        in a component, significantly changes a component's display, flips a
+        $theme-* default, or changes built CSS order or specificity.
+    - label: "Affects: Accessibility 🟡"
+      instructions: >-
+        Apply when the diff changes ARIA attributes, focus management, keyboard
+        handling, screen reader text, or form error association.
+    - label: "Affects: Markup 🟡"
+      instructions: Apply when a *.twig template's markup changes.
+    - label: "Affects: Settings"
+      instructions: Apply when a $theme-* setting is added, renamed, or changes default.
+    - label: "Context: Sass"
+      instructions: Apply when the change is primarily in *.scss files.
+    - label: "Context: JavaScript"
+      instructions: Apply when the change is primarily in *.js files.
+    - label: "Affects: Testing"
+      instructions: Apply when the change is limited to test files or test tooling.
+    - label: "Affects: Compiling"
+      instructions: >-
+        Apply when the change touches gulpfile.js, tasks/, vite.config.*,
+        webpack.twig.config.js, or the build pipeline.
+    - label: "Affects: Documentation"
+      instructions: Apply when the change is limited to documentation files.
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    # Team practice is near-silence on dependency bumps and generated commits.
+    # Any of these can still be reviewed on demand with "@coderabbitai review".
+    ignore_usernames:
+      - "dependabot[bot]"
+      - "dependabot"
+      - "github-actions[bot]"
+      - "github-actions"
+    # base_branches is intentionally empty: only PRs into the default branch
+    # (develop) are reviewed. Release PRs target main and are mechanical.
+
+  # Every finishing touch commits code. develop enforces verified signatures and
+  # verify-commit-signatures.yml checks every commit on a PR, labelling the
+  # author when one is unsigned. Keep these off until a throwaway PR proves that
+  # CodeRabbit's commits arrive signed.
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+    simplify:
+      enabled: false
+    autofix:
+      enabled: false
+    fix_ci:
+      enabled: false
+    resolve_merge_conflict:
+      enabled: false
+
+  # All checks are advisory: they post to the walkthrough and, with
+  # request_changes_workflow off, cannot block a merge.
+  pre_merge_checks:
+    # JSDoc is not broadly enforced in this repo.
+    docstrings:
+      mode: "off"
+    title:
+      mode: "warning"
+      requirements: >-
+        Title must follow "USWDS - <Package or Area>: <Brief statement>", for
+        example "USWDS - Button: Increase font size", per
+        .github/PULL_REQUEST_TEMPLATE.md.
+    description:
+      mode: "warning"
+    issue_assessment:
+      mode: "warning"
+    custom_checks:
+      - name: "Breaking change declared"
+        mode: "warning"
+        instructions: >-
+          Pass when the description contains exactly one of the three template
+          statements: "This is not a breaking change.", ":warning: This is
+          potentially a breaking change.", or ":warning: This is a breaking
+          change."
+
+          Fail when none is present, when more than one is present, or when the
+          description claims the change is not breaking while the diff does any
+          of: changes an exported JavaScript API or a data-* attribute name in
+          packages/*/src/index.js; changes markup or text content in a *.twig
+          template; renames or removes a .usa-* class; flips the default of a
+          $theme-* setting; raises selector specificity or changes the source
+          order of built CSS.
+
+          When failing on the second condition, name the file and line that
+          triggered it. Do not classify design impact — say that the
+          design-versus-code classification is the maintainers' call.
+
+          Pass for documentation-only changes.
+      - name: "No new runtime dependency"
+        mode: "warning"
+        instructions: >-
+          Pass when the "dependencies" field of package.json is unchanged.
+
+          Fail when the PR adds an entry under "dependencies" without the PR
+          description filling in the Dependency updates table and stating why
+          the package must ship to consumers. Name the package.
+
+          Also fail when a new import in packages/**/src/*.js resolves to a
+          package absent from package.json, which means it relies on a
+          transitive dependency.
+
+          Ignore lockfile-only changes and devDependencies.
+      - name: "Regression test targets the change"
+        mode: "warning"
+        instructions: >-
+          Applies when the PR fixes a bug or changes behavior in
+          packages/**/src/*.js or packages/**/*.scss.
+
+          Pass when the diff adds or modifies a Mocha *.spec.js or a sass-true
+          test that exercises the specific code path this PR changes, and whose
+          assertions would not hold on develop.
+
+          Fail when there is no test, when the added test asserts only behavior
+          that already existed on develop, or when new @if/@else branching on a
+          $theme-* setting has no sass-true coverage. Name the untested path.
+
+          Pass for documentation-only, workflow-only, dependency-only, and
+          Storybook-story-only changes.
+      - name: "New API surface follow-ups"
+        mode: "warning"
+        instructions: >-
+          Applies when the diff adds a $theme-* setting, a public Sass mixin or
+          function forwarded through uswds-core, a data-* attribute constant, or
+          a .usa-* class or modifier.
+
+          Pass when all of the following are present: SASSDoc on new mixins and
+          functions; a @warn fallback for unrecognized setting values; an entry
+          in packages/uswds-core/src/styles/_notifications.scss; and a Related
+          pull requests section naming a uswds-site companion PR or stating that
+          one is still needed.
+
+          Fail listing only the missing items, and say this is a release
+          checklist rather than a code defect.
+      - name: "Accessibility verification declared"
+        mode: "warning"
+        instructions: >-
+          Applies when the diff changes ARIA attributes, focus management,
+          keyboard handling, screen reader text, or form error association.
+
+          Pass when the description names the assistive technology and browser
+          combinations that were tested and what was verified, per the author's
+          checklist in the PR template.
+
+          Fail when that matrix is missing, and list the scenarios that need
+          coverage. Never state whether the announcement behavior is correct —
+          that verdict requires hands-on AT and belongs to an accessibility
+          specialist.
+      - name: "Theme token discipline"
+        mode: "warning"
+        instructions: >-
+          Applies to *.scss under packages/.
+
+          Fail when a literal replaces a call to color(), units(), family(),
+          font-size(), spacing(), radius() or measure(), or when a new
+          declaration hardcodes a hex color, a px or rem length, or a font
+          family where the same file uses a token function for that property.
+          Name the token that should be used instead.
+
+          Pass when every new value comes from a token function.
+
+  tools:
+    eslint:
+      enabled: true
+      config_file: eslint.config.mjs
+    stylelint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    actionlint:
+      enabled: true
+    zizmor:
+      enabled: true
+    circleci:
+      enabled: true
+    # CodeQL (.github/workflows/codeql-analysis.yml) owns SAST for this repo.
+    semgrep:
+      enabled: false
+    opengrep:
+      enabled: false
+    # ESLint and Prettier own JavaScript style; these would contradict them.
+    biome:
+      enabled: false
+    oxc:
+      enabled: false
+    # No markdown style linter is configured here, and default rules would bury
+    # documentation PRs. Link checking already runs in CI.
+    markdownlint:
+      enabled: false
+    languagetool:
+      enabled: false
+    # Workflow YAML is covered by actionlint; default yamllint rules are noisy.
+    yamllint:
+      enabled: false
+    # The only tracked .html files are jsdom test fixtures.
+    htmlhint:
+      enabled: false
+
+chat:
+  # Reply only when tagged. Maintainers hold long threads on these PRs.
+  auto_reply: false
+  art: false
+  # Contributors outside the org can ask the bot about its own findings.
+  allow_non_org_members: true
+
+knowledge_base:
+  learnings:
+    scope: local
+  issues:
+    scope: local
+  pull_requests:
+    scope: local
+  code_guidelines:
+    enabled: true
+    # AGENTS.md at the repo root is detected automatically. These two are not:
+    # guideline files are scoped to their own directory, so without an explicit
+    # applyTo they would only govern files inside .agents/.
+    filePatterns:
+      - files: ".agents/skills/uswds-code-review/references/uswds-anchors.md"
+        applyTo: "packages/**,src/**,tasks/**"
+      - files: ".agents/skills/uswds-accessibility/SKILL.md"
+        applyTo: "packages/**/*.js,packages/**/*.twig,packages/**/*.scss"

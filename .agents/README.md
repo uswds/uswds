@@ -47,6 +47,21 @@ The skill is automatically available if you have this repo cloned and your AI as
 ln -s /path/to/uswds/.agents/skills/uswds-code-review ~/.claude/skills/uswds-code-review
 ```
 
+## Automated review (CodeRabbit)
+
+CodeRabbit reviews every PR into `develop`. It is configured in `.coderabbit.yaml` at the repo root, and the two systems divide the work:
+
+| | CodeRabbit | `skills/uswds-code-review` |
+|---|---|---|
+| Runs | On every PR, automatically | When a maintainer invokes it |
+| Sees | The diff, the linked issue, the linters | The whole repo, `gh`, the test suite, the ADRs |
+| Good at | Gates 2, 3, 9–13, 16a, and flagging 14 — the sanitization, token, and PR-hygiene rules | Gates 1, 4, 6–8, 15, 16b, classifying 14 — and verifying a test actually fails on `develop` (gate 5) |
+| Output | PR comments and a walkthrough | A local markdown report, cached in `.review-cache/` |
+
+`references/gates.md` stays canonical. `.coderabbit.yaml` carries only the subset a bot can apply to a diff — when a gate changes there, check whether the YAML's `path_instructions` or `pre_merge_checks` need the same edit.
+
+CodeRabbit also reads `AGENTS.md` (auto-detected), `references/uswds-anchors.md`, and `skills/uswds-accessibility/SKILL.md` as review criteria, so keeping those accurate improves its reviews directly.
+
 ## Background
 
 These tools are designed for use with AI coding assistants that support the skill/agent pattern. They assume:

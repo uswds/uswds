@@ -126,6 +126,20 @@ If your pull request is accepted, a USWDS Administrator or Maintainer will merge
 Tip: If you want to find other feature requests open for voting, check out our [feature requests sorted by votes](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Status%3A+Voting+Open+%F0%9F%91%8D%22+sort%3Areactions-%2B1-desc).
 1. If your proposed fix _isn't_ in the [open issues backlog](https://github.com/uswds/uswds/issues), [create an issue](https://github.com/uswds/uswds/issues/new?assignees=&labels=Type%3A+Feature+Request%2CStatus%3A+Triage&template=feature_request.yaml&title=USWDS+-+Feature%3A+%5BYOUR+TITLE%5D) describing your proposal. This doesn’t mean a pull request wouldn't be welcome. Having the conversation in the open first is helpful to others — people might have supporting thoughts to add to your proposal. If you’ve already got a pull request done, no worries. Go ahead and attach it to the issue.
 
+### Automated code review
+
+When you open a pull request against `develop`, CodeRabbit posts an automated review. It summarizes the change for reviewers and flags things like unsanitized markup, missing test coverage, and hardcoded values that should use a design token.
+
+A few things to know:
+
+* **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit's comments never block a merge.
+* **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and say so. Mention `@coderabbitai` to reply directly.
+* **You can ask for another pass.** Comment `@coderabbitai review` after you push a fix, or `@coderabbitai full review` to start over.
+* **It doesn't review screen reader behavior.** It may list the assistive technology and browsers your change needs to be tested with, but a person has to do that testing.
+* **It won't push commits to your branch.** Every commit to this repo needs a [verified signature](#setting-up-verified-commits), so CodeRabbit is set up to comment only.
+
+Its behavior is configured in [`.coderabbit.yaml`](https://github.com/uswds/uswds/blob/develop/.coderabbit.yaml).
+
 ### Proposing something else?
 
 If you’d like to contribute something else that doesn’t fall into any of the above, that's still helpful. Just create an issue or a discussion, and we can talk about it.
