@@ -218,6 +218,16 @@ reviews:
     enabled: true
     drafts: false
     auto_incremental_review: true
+    # Explicit at the default. Every push to an open PR is a review event, and
+    # the open source tier's review limit is scoped per repository, so a
+    # contributor pushing one commit at a time can exhaust it. Pausing after
+    # five reviewed commits caps the spend on long-running PRs; a maintainer or
+    # the author resumes with "@coderabbitai review".
+    auto_pause_after_reviewed_commits: 5
+    # If a PR should never be auto-reviewed, the lever is a negative label match
+    # here, for example labels: ["!Status: Blocked 🔴"]. Left unset so that
+    # every PR into develop gets a review.
+    #
     # Team practice is near-silence on dependency bumps and generated commits.
     # Any of these can still be reviewed on demand with "@coderabbitai review".
     ignore_usernames:

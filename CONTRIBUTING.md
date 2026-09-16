@@ -134,7 +134,7 @@ A few things to know:
 
 * **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit's comments never block a merge.
 * **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and say so. Mention `@coderabbitai` to reply directly.
-* **You can ask for another pass.** Comment `@coderabbitai review` after you push a fix, or `@coderabbitai full review` to start over.
+* **You can ask for another pass.** CodeRabbit reviews each push, then pauses on long-running pull requests to avoid repeating itself. Comment `@coderabbitai review` to pick it back up, or `@coderabbitai full review` to start over.
 * **It doesn't review screen reader behavior.** It may list the assistive technology and browsers your change needs to be tested with, but a person has to do that testing.
 * **It won't push commits to your branch.** Every commit to this repo needs a [verified signature](#setting-up-verified-commits), so CodeRabbit is set up to comment only.
 
