@@ -303,16 +303,19 @@ reviews:
           description filling in the Dependency updates table and stating why
           the package must ship to consumers. Name the package.
 
-          Also fail when a new import in packages/**/src/*.js resolves to a
-          package absent from package.json, which means it relies on a
-          transitive dependency.
+          Also fail when a new import in production JavaScript under
+          packages/**/src/**/*.js resolves to a package absent from package.json,
+          which means it relies on a transitive dependency. Exclude files under
+          **/test/**, *.spec.js, and *.stories.js.
 
           Ignore lockfile-only changes and devDependencies.
       - name: "Regression test targets the change"
         mode: "warning"
         instructions: >-
-          Applies when the PR fixes a bug or changes behavior in
-          packages/**/src/*.js or packages/**/*.scss.
+          Applies when the PR fixes a bug or changes behavior in production
+          JavaScript under packages/**/src/**/*.js or in packages/**/*.scss.
+          Exclude files under **/test/**, *.spec.js, and *.stories.js from the
+          production JavaScript scope.
 
           Pass when the diff adds or modifies a Mocha *.spec.js or a sass-true
           test that exercises the specific code path this PR changes, and whose
