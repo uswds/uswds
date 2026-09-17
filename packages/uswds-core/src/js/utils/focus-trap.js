@@ -6,14 +6,39 @@ const activeElement = require("./active-element");
 const FOCUSABLE =
   'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const tabHandler = (context) => {
-  const focusableElements = select(FOCUSABLE, context);
-  const firstTabStop = focusableElements[0];
-  const lastTabStop = focusableElements[focusableElements.length - 1];
+const isTabStop = (element) => {
+  if (
+    element.matches('input[type="hidden"], :disabled') ||
+    element.closest("[hidden], [inert]") ||
+    (element.hasAttribute("tabindex") && element.tabIndex < 0) ||
+    window.getComputedStyle(element).visibility === "hidden"
+  ) {
+    return false;
+  }
 
-  // Special rules for when the user is tabbing forward from the last focusable element,
-  // or when tabbing backwards from the first focusable element
+  // display is not inherited, so a control can be hidden by an ancestor even
+  // when its own computed display value is visible.
+  for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+    if (window.getComputedStyle(ancestor).display === "none") {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const getFocusableElements = (context) =>
+  select(FOCUSABLE, context).filter(isTabStop);
+
+const tabHandler = (context) => {
+  // Recheck the DOM for each keypress: controls may be added, removed, or hidden
+  // while the trap is active.
   function tabAhead(event) {
+    const focusableElements = getFocusableElements(context);
+    const firstTabStop = focusableElements[0];
+    const lastTabStop = focusableElements[focusableElements.length - 1];
+    if (!firstTabStop) return;
+
     if (activeElement() === lastTabStop) {
       event.preventDefault();
       firstTabStop.focus();
@@ -21,25 +46,23 @@ const tabHandler = (context) => {
   }
 
   function tabBack(event) {
+    const focusableElements = getFocusableElements(context);
+    const firstTabStop = focusableElements[0];
+    const lastTabStop = focusableElements[focusableElements.length - 1];
+    if (!firstTabStop) return;
+
     if (activeElement() === firstTabStop) {
       event.preventDefault();
       lastTabStop.focus();
     }
-    // This checks if you want to set the initial focus to a container
-    // instead of an element within, and the user tabs back.
-    // Then we set the focus to the first
+    // The initial focus may be on the container rather than a control inside it.
     else if (!focusableElements.includes(activeElement())) {
       event.preventDefault();
       firstTabStop.focus();
     }
   }
 
-  return {
-    firstTabStop,
-    lastTabStop,
-    tabAhead,
-    tabBack,
-  };
+  return { tabAhead, tabBack };
 };
 
 module.exports = (context, additionalKeyBindings = {}) => {
@@ -65,10 +88,10 @@ module.exports = (context, additionalKeyBindings = {}) => {
     },
     {
       init() {
-        // TODO: is this desirable behavior? Should the trap always do this by default or should
-        // the component getting decorated handle this?
-        if (autoFocus && tabEventHandler.firstTabStop) {
-          tabEventHandler.firstTabStop.focus();
+        // Evaluate visibility on activation, after the caller opens its modal
+        // or navigation. The trap may have been created while it was hidden.
+        if (autoFocus) {
+          getFocusableElements(context)[0]?.focus();
         }
       },
       update(isActive) {
