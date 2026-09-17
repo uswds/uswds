@@ -1,6 +1,8 @@
 # COMMUNITY.md
 
-The U.S. Web Design System (USWDS) is run by one full-time federal staff member (hi 👋, it's me, [Anne](https://github.com/annepetersen)) with support and occasional contributions from the [GSA/TTS-based USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making), as well as USWDS Community Maintainers and Contributors (together also referred to as the USWDS Open Source Community). 
+The U.S. Web Design System (USWDS) is supported by the [GSA/TTS-based USWDS Internal Team](https://github.com/uswds/uswds/blob/develop/GOVERNANCE.md#decision-making), USWDS Community Maintainers, and Contributors (together also referred to as the USWDS Open Source Community).
+
+Join [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions) to ask questions, share ideas, and help other people using the design system.
 
 These don't account for all the inputs to the system since there's also an even _broader_ community of teams and individuals that have adopted or use USWDS but might not have access to GitHub, or might not choose to join the USWDS Open Source Community officially or otherwise participate here. 
 
@@ -14,7 +16,6 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 ### USWDS Community Maintainers
 
-- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
 - [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
 - [@ethangardner](https://github.com/ethangardner), USWDS Engineering Lead
 - [@jonathanbobel](https://github.com/jonathanbobel), USWDS Accessibility Engineering Lead
@@ -35,6 +36,7 @@ Members of the USWDS Open Source Community are responsible for guiding its devel
 
 <!-- TODO: Who are the past maintainers or contributors who previously played significant roles in this repository who are no longer actively involved? Consider including their roles and dates for context. -->
  (not a complete list)
+- [@annepetersen](https://github.com/annepetersen), former USWDS Lead and Product Owner
 - [@thisisdano](https://github.com/thisisdano), [former USWDS Product Owner and Maintainer](https://github.com/uswds/uswds/issues/6599)
 - (many more TBA)
 
@@ -66,7 +68,7 @@ Agency digital teams / team members from:
 
 ## Roles & responsibilities
 
-Below are the current defined roles and responsibilities of the USWDS Open Source Community. Expanding these teams is a current (July 2026) focus. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
+Below are the current defined roles and responsibilities of the USWDS Open Source Community. If you care about USWDS and want to get involved, [please consider joining](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE/contributor_ladder.md) to help shape and support these roles.
 
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Access privileges                                                |
@@ -90,7 +92,7 @@ Below are the current defined roles and responsibilities of the USWDS Open Sourc
 - Support creation or revision of USWDS documentation or official communications
 - Participate in community discussions
 - Propose or participate in a team proposing new USWDS components, patterns, or features
-- Answer questions from other community members (in any venue, such as the [USWDS public Slack channel](https://designsystem.digital.gov/about/community/#join-the-community-2), [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions), or [live meetings](https://designsystem.digital.gov/about/monthly-calls/))
+- Answer questions from other community members in [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions)
 - Test releases and submit PR reviews
 - Run or help run USWDS events
 - Help maintain the repository and community infrastructure
