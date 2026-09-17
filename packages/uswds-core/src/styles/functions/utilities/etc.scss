@@ -200,6 +200,19 @@ system letter-spacing
 
 /*
 ----------------------------------------
+shadow()
+----------------------------------------
+Get a box-shadow value from the
+system shadow tokens
+----------------------------------------
+*/
+
+@function shadow($value) {
+  @return get-uswds-value(box-shadow, $value);
+}
+
+/*
+----------------------------------------
 font-size()
 ----------------------------------------
 Get type scale value from a [family] and
