@@ -8,6 +8,11 @@ export default {
   title: "Components/Modal",
   decorators: [
     (Story) => {
+      // Finish the previous open-state story through the public close action.
+      // Current teardown alone does not restore the surrounding page state.
+      document
+        .querySelector(".usa-modal-wrapper.is-visible [data-close-modal]")
+        ?.click();
       modal.off?.();
 
       const story = Story();
@@ -26,27 +31,35 @@ const NestedFormsTemplate = (args) => NestedFormsTest(args);
 
 export const Default = Template.bind({});
 Default.args = DefaultContent;
-// Exercise the modal's open and close behavior so the a11y test suite scans it
-// in an interactive state. The modal wrapper is moved to <body> on init, so it
-// is queried from the document rather than the story canvas. See #6787.
-Default.play = async ({ canvasElement, step }) => {
+// Open state gets its own story: postVisit runs axe after play completes.
+// Keep the existing default story's open/close interaction coverage as well.
+const openModal = async ({ canvasElement, step }) => {
   const opener = canvasElement.querySelector("[data-open-modal]");
-  // The modal initializes a frame after render, portaling .usa-modal-wrapper
-  // to <body>. Re-query the document each time rather than capturing a stale
-  // (possibly null) reference before init has run.
-  const getWrapper = () => document.querySelector(".usa-modal-wrapper");
-
   await step("Open the modal", async () => {
-    await waitFor(() => expect(getWrapper()).not.toBeNull());
+    await waitFor(() =>
+      expect(document.querySelector(".usa-modal-wrapper")).not.toBeNull(),
+    );
     await userEvent.click(opener);
-    await waitFor(() => expect(getWrapper()).toHaveClass("is-visible"));
-  });
-
-  await step("Close the modal", async () => {
-    await userEvent.click(getWrapper().querySelector("[data-close-modal]"));
-    await waitFor(() => expect(getWrapper()).toHaveClass("is-hidden"));
+    await waitFor(() =>
+      expect(document.querySelector(".usa-modal-wrapper")).toHaveClass(
+        "is-visible",
+      ),
+    );
   });
 };
+
+Default.play = async (context) => {
+  await openModal(context);
+  await context.step("Close the modal", async () => {
+    const wrapper = document.querySelector(".usa-modal-wrapper");
+    await userEvent.click(wrapper.querySelector("[data-close-modal]"));
+    await waitFor(() => expect(wrapper).toHaveClass("is-hidden"));
+  });
+};
+
+export const Open = Template.bind({});
+Open.args = DefaultContent;
+Open.play = openModal;
 
 export const Large = Template.bind({});
 Large.args = LargeContent;
