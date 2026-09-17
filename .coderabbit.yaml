@@ -264,9 +264,15 @@ reviews:
     title:
       mode: "warning"
       requirements: >-
-        Title must follow "USWDS - <Package or Area>: <Brief statement>", for
-        example "USWDS - Button: Increase font size", per
-        .github/PULL_REQUEST_TEMPLATE.md.
+        Follow CONTRIBUTING.md#pull-request-titles: use a lowercase type from
+        feat, fix, docs, test, ci, build, chore, refactor, perf, style, or revert;
+        an optional lowercase component or area scope; optional ! for breaking
+        changes; then a colon, one space, and a nonempty single-line description
+        without leading or trailing whitespace. For example,
+        "fix(button): correct focus styling". Do not use the "USWDS -" prefix.
+        The PR title becomes the squash commit title. Working commits need not
+        follow this convention. Check that the title describes the actual diff;
+        the PR title workflow validates syntax. Types do not establish merge safety.
     description:
       mode: "warning"
     issue_assessment:
