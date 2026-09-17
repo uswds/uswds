@@ -171,13 +171,40 @@ A few things to know:
 
 Its behavior is configured in [`.coderabbit.yaml`](https://github.com/uswds/uswds/blob/develop/.coderabbit.yaml).
 
+### Pull request titles
+
+Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for PR titles and the resulting squash commits:
+
+```text
+type(scope): describe the change
+```
+
+Choose a lowercase type from `feat`, `fix`, `docs`, `test`, `ci`, `build`, `chore`, `refactor`, `perf`, `style`, or `revert`. Use `feat` for new functionality, `fix` for bug fixes, `docs` for documentation, and `test` for tests. Use `ci` for automation, `build` for build tooling or dependencies, and `chore` for other maintenance. `style` means code formatting, not a visual change to a component; use `fix` or `feat` for those changes as appropriate.
+
+The scope is optional. When useful, name the component or area, such as `modal`, `accordion`, or `contributing`. Scopes start with a lowercase letter or digit and contain only lowercase letters, digits, dots, underscores, slashes, or hyphens. Follow the colon with one space and a nonempty, single-line description, with no leading or trailing whitespace. Do not add the `USWDS -` prefix.
+
+Examples:
+
+- `docs(contributing): clarify the merge procedure`
+- `test(modal): cover keyboard dismissal`
+- `fix(accordion): preserve expanded state`
+- `ci: validate pull request titles`
+
+For a breaking change, add `!` immediately before the colon, for example `feat(modal)!: remove the deprecated option`. Also explain the break and migration steps in the PR's breaking-change section and retain a concise explanation in the squash commit body. A type describes intent; it does not establish that a change is safe to merge.
+
+The `PR title` workflow validates this syntax on PR creation, reopening, pushes, title edits, and readiness for review. It runs the policy from the trusted base commit, so a PR cannot change its own enforcement. A separate `Title validator tests` workflow tests proposed validator changes with read-only permissions. Rename an invalid title in GitHub; no commit rewrite is needed. Working commits do not need conventional messages, but all commits must still satisfy the signature requirements. Maintainers must recheck the current title before squash merging.
+
+Apply this convention to new PRs and open PRs as they are prepared for merge. Do not rename historical merged PRs or rewrite published commits. Issue titles keep their existing conventions. Version selection and release publishing remain separate from title validation; this change does not introduce automatic semantic releases.
+
+For rollout, merge the workflow first, then enable the `PR title` check as a required status check on `develop` after confirming a successful run. This trusted-base workflow becomes available after merge. Trigger a fresh run on existing PRs, for example by editing their titles; normal base-refresh requirements still apply. Preserve the other required checks and review protections.
+
 ### Merging pull requests
 
 Use **Squash and merge** for pull requests in this repository. Each PR should contain one focused change and produce one commit on the target branch. Repository settings disable merge commits and rebase merges; `develop` also requires linear history. Contributors do not need to squash their working commits before review, but all commits must meet the signature requirements.
 
 Maintainers follow this procedure:
 
-1. **Confirm scope and target.** Review the complete diff against the current target branch, normally `develop`. Keep unrelated fixes separate. Use the existing title format: `USWDS - [Package or Area]: [what this solves]`.
+1. **Confirm scope and target.** Review the complete diff against the current target branch, normally `develop`. Keep unrelated fixes separate. Use the [conventional PR title format](#pull-request-titles).
 2. **Finish validation.** Resolve conflicts and run checks appropriate to the final changes. Required CI must pass against the current base. After new commits or a base refresh, reassess the diff and wait for the relevant checks again.
 3. **Read CodeRabbit's completed review.** Inspect inline comments and findings inside the review body, including collapsed sections. Fix valid findings; explain findings that are incorrect or deliberately deferred. After pushing fixes, inspect the follow-up review before merging. If review is pending, paused, rate-limited, or unavailable, report that state and wait; a missing review is not a clean review.
 4. **Obtain final approval.** Meet the code-owner and independent-review requirements on the final changes, including approval by someone other than the last pusher. CodeRabbit does not replace that approval. When the requester reserves final review, present the final diff and wait for their explicit approval before merging.
@@ -231,7 +258,7 @@ follow the instructions below:
    `[@your-username](https://github.com/YOUR-USERNAME)`
 4. Scroll down and Commit the change
 5. Navigate to: `https://github.com/uswds/uswds/compare/develop...YOUR-USERNAME:uswds:develop` and click **Create pull request**
-6. Title your PR: `USWDS - Community: Add [Your Username] as Contributor`
+6. Title your PR: `docs(community): add [your username] as contributor`
 7. In the **Related issue** field, paste the link to your issue from Step 1
 8. Click **Create pull request** and copy the URL of your new resulting pull request
 
