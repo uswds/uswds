@@ -192,11 +192,11 @@ Examples:
 
 For a breaking change, add `!` immediately before the colon, for example `feat(modal)!: remove the deprecated option`. Also explain the break and migration steps in the PR's breaking-change section and retain a concise explanation in the squash commit body. A type describes intent; it does not establish that a change is safe to merge.
 
-The `PR title` workflow validates this syntax on PR creation, reopening, pushes, title edits, and readiness for review. Rename an invalid title in GitHub; no commit rewrite is needed. Working commits do not need conventional messages, but all commits must still satisfy the signature requirements. Maintainers must recheck the current title before squash merging.
+The `PR title` workflow validates this syntax on PR creation, reopening, pushes, title edits, and readiness for review. It runs the policy from the trusted base commit, so a PR cannot change its own enforcement. A separate `Title validator tests` workflow tests proposed validator changes with read-only permissions. Rename an invalid title in GitHub; no commit rewrite is needed. Working commits do not need conventional messages, but all commits must still satisfy the signature requirements. Maintainers must recheck the current title before squash merging.
 
 Apply this convention to new PRs and open PRs as they are prepared for merge. Do not rename historical merged PRs or rewrite published commits. Issue titles keep their existing conventions. Version selection and release publishing remain separate from title validation; this change does not introduce automatic semantic releases.
 
-For rollout, merge the workflow first, then enable the `PR title` check as a required status check on `develop` after confirming a successful run. Existing PRs must refresh from `develop` to receive the workflow. Preserve the other required checks and review protections.
+For rollout, merge the workflow first, then enable the `PR title` check as a required status check on `develop` after confirming a successful run. This trusted-base workflow becomes available after merge. Trigger a fresh run on existing PRs, for example by editing their titles; normal base-refresh requirements still apply. Preserve the other required checks and review protections.
 
 ### Merging pull requests
 
