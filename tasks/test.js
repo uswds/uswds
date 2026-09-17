@@ -1,49 +1,52 @@
 const { src } = require("gulp");
 const { default: mocha } = require("gulp-mocha");
-const fs = require("fs");
-const path = require("path");
-
 const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
 };
 
 const SPEC_FLOOR = 74;
+const SASS_SPECS = [
+  "packages/uswds-core/src/test/sass.spec.js",
+  "packages/usa-accordion/src/test/accordion-icon.spec.js",
+];
+const UNIT_SPECS = [
+  "packages/usa-*/**/*.spec.{js,mjs,cjs}",
+  "packages/uswds-*/**/*.spec.{js,mjs,cjs}",
+  ...SASS_SPECS.map((file) => `!${file}`),
+];
 
-// Recursively find spec files matching .spec.{js,mjs,cjs} under a directory.
-function findSpecFiles(dir) {
-  const results = [];
-  if (!fs.existsSync(dir)) return results;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...findSpecFiles(fullPath));
-    } else if (/\.spec\.(js|mjs|cjs)$/.test(entry.name)) {
-      results.push(fullPath);
-    }
+// Count exactly the files selected by the runners, including exclusions.
+async function verifySpecCount(runnerGlobs, floor = SPEC_FLOOR, options = {}) {
+  const files = new Set();
+  await Promise.all(
+    runnerGlobs.map(
+      (globs) =>
+        new Promise((resolve, reject) => {
+          src(globs, { ...options, read: false, allowEmpty: true })
+            .on("data", (file) => files.add(file.path))
+            .on("error", reject)
+            .on("end", resolve);
+        }),
+    ),
+  );
+  if (files.size < floor) {
+    throw new Error(
+      `Spec count (${files.size}) dropped below the floor of ${floor}. ` +
+        "If specs were intentionally removed, update SPEC_FLOOR in tasks/test.js.",
+    );
   }
-  return results;
+  return files.size;
 }
 
 // Export our tasks.
 module.exports = {
   // run unit test.
   unitTests() {
-    return src([
-      // Component tests.
-      "packages/usa-*/**/*.spec.{js,mjs,cjs}",
-      // Core utils tests.
-      "packages/uswds-*/**/*.spec.{js,mjs,cjs}",
-      // SASS unit tests, run separately.
-      "!packages/uswds-core/src/test/sass.spec.js",
-      "!packages/usa-accordion/src/test/accordion-icon.spec.js",
-    ]).pipe(mocha(mochaConfig));
+    return src(UNIT_SPECS).pipe(mocha(mochaConfig));
   },
 
   sassTests() {
-    return src([
-      "packages/uswds-core/src/test/sass.spec.js",
-      "packages/usa-accordion/src/test/accordion-icon.spec.js",
-    ]).pipe(mocha());
+    return src(SASS_SPECS).pipe(mocha());
   },
 
   // Build-tooling tests (e.g. the Vite plugins under tasks/). These are ESM
@@ -53,23 +56,10 @@ module.exports = {
     return src("tasks/**/*.spec.mjs").pipe(mocha());
   },
 
-  // Fail the build if the number of spec files drops below the floor.
-  // This catches a silently-shrinking test glob before it hides regressions.
-  checkSpecCount(done) {
-    const usaSpecs = findSpecFiles(path.resolve("packages")).filter(
-      (f) =>
-        /packages[/\\]usa-/.test(f) || /packages[/\\]uswds-/.test(f)
-    );
-    if (usaSpecs.length < SPEC_FLOOR) {
-      done(
-        new Error(
-          `Spec count (${usaSpecs.length}) dropped below the floor of ${SPEC_FLOOR}. ` +
-            `If specs were intentionally removed, update SPEC_FLOOR in tasks/test.js.`
-        )
-      );
-      return;
-    }
-    console.log(`Spec count: ${usaSpecs.length} (floor: ${SPEC_FLOOR}) ✓`);
-    done();
+  verifySpecCount,
+  async checkSpecCount() {
+    // Each runner has its own exclusions; count their selected-file union.
+    const count = await verifySpecCount([UNIT_SPECS, SASS_SPECS]);
+    console.log(`Spec count: ${count} (floor: ${SPEC_FLOOR})`);
   },
 };

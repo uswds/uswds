@@ -9,6 +9,7 @@
 {% set pager_button_opts = {
   'current': pagination.current,
   'total': pagination.items,
+  'element': pagination.element | default('a'),
   'aria_labels': {
     'page_label': pagination.page_label | default('Page'),
     'previous': pagination.previous.label | default('Previous'),
