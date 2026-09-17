@@ -21,7 +21,7 @@ export default {
     ...TitleContent,
   },
   decorators: [
-    (Story) => {
+    (Story, context) => {
       accordion.off?.();
       navigation.off?.();
 
@@ -30,6 +30,22 @@ export default {
       window.requestAnimationFrame(() => {
         accordion.on();
         navigation.on();
+        if (context.parameters.uswdsTest) {
+          if (context.parameters.uswdsTest.scenario === "scoped") {
+            navigation.off();
+            navigation.on(document.querySelector(".usa-header"));
+            navigation.on(document.getElementById("test-background"));
+          }
+          window.uswdsTest = {
+            ready: true,
+            teardown: (otherRoot = false) =>
+              navigation.off(
+                otherRoot
+                  ? document.getElementById("test-background")
+                  : document.body,
+              ),
+          };
+        }
       });
 
       return story;
@@ -65,3 +81,26 @@ ExtendedMegamenu.args = {
     search: true,
   },
 };
+
+const TeardownTemplate = (args) => `${Component(args)}
+  <main id="test-background"><h1>Background content</h1>
+    <span aria-hidden="true" id="test-authored-hidden">Authored hidden content</span>
+    <button id="test-before">Previous page action</button>
+    <button id="test-after">Continue on page</button>
+  </main>`;
+
+export const TestTeardown = TeardownTemplate.bind({});
+TestTeardown.args = DefaultContent;
+TestTeardown.parameters = {
+  uswdsTest: { suite: "teardown", scenario: "header" },
+};
+
+export const TestScopedTeardown = TeardownTemplate.bind({});
+TestScopedTeardown.args = DefaultContent;
+TestScopedTeardown.parameters = {
+  uswdsTest: { suite: "teardown", scenario: "scoped" },
+};
+
+TestTeardown.tags = ["a11y-regression"];
+
+TestScopedTeardown.tags = ["a11y-regression"];

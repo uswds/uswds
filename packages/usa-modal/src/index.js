@@ -54,6 +54,19 @@ const setTemporaryBodyPadding = () => {
 };
 
 /**
+ * Restore page content that the modal hid from assistive technology.
+ *
+ * Only affects elements the modal marked itself. Call after closing or removing
+ * the active modal so an unrelated teardown does not expose its background.
+ */
+const restoreNonModalContent = () => {
+  document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
+    nonModal.removeAttribute("aria-hidden");
+    nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
+  });
+};
+
+/**
  *  Toggle the visibility of a modal window
  *
  * @param {KeyboardEvent} event the keydown event.
@@ -177,10 +190,7 @@ function toggleModal(event) {
     // Non-modals now accessible to screen reader.
     // This runs unconditionally: the opener may be gone from the document by
     // now, and page content must never be left hidden from assistive tech.
-    document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
-      nonModal.removeAttribute("aria-hidden");
-      nonModal.removeAttribute(NON_MODAL_HIDDEN_ATTRIBUTE);
-    });
+    restoreNonModalContent();
 
     if (menuButton && returnFocus) {
       // Focus is returned to the opener
@@ -399,6 +409,18 @@ modal = behavior(
             modalTrigger.removeEventListener("click", toggleModal),
         );
       });
+
+      // Restore the background after teardown, unless an open modal outside
+      // this root still needs it hidden from assistive technology.
+      if (!document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`)) {
+        restoreNonModalContent();
+        modal.focusTrap?.update(false);
+        modal.focusTrap = null;
+        document.body.classList.remove(ACTIVE_CLASS, PREVENT_CLICK_CLASS);
+        if (document.body.style.paddingRight === TEMPORARY_BODY_PADDING) {
+          document.body.style.paddingRight = INITIAL_BODY_PADDING;
+        }
+      }
     },
     focusTrap: null,
     toggleModal,
