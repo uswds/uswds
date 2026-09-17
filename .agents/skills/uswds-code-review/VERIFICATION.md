@@ -141,10 +141,74 @@ The corpus doubles as a regression suite — these PRs have known outcomes, so t
 
 **Check:** After running any of the above, confirm:
 - No `gh pr review` or `gh pr comment` calls were made
-- No writes outside `/tmp` or the review report itself
+- No writes outside `/tmp`, `.review-cache/`, or the review report itself
 - The skill produced a local markdown report only
 
 **Success criteria:** The skill never touches GitHub without explicit user action. All output is local.
+
+---
+
+### 10. Review cache verification
+
+Runs entirely offline against a scratch cache directory, so it doesn't depend on
+the live state of any PR. (An earlier version of this section used real PR #6786
+and could never pass: #6786 merged on 2026-08-10, so `check` reports `MERGED`
+rather than a cache hit.)
+
+**Setup & Execution:**
+1. Save a review into a scratch cache:
+   ```bash
+   CACHE=$(mktemp -d)
+   node .agents/skills/uswds-code-review/scripts/review-cache.mjs save \
+     --pr 6786 \
+     --sha "e4f1a23b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f" \
+     --recommendation "Approve" \
+     --summary "Clean review with AT specialist routing" \
+     --report-text "# PR Review: Modal" \
+     --cache-dir "$CACHE"
+   ```
+2. Verify the cache hit, skipping the `gh` lookup so the check is deterministic:
+   ```bash
+   node .agents/skills/uswds-code-review/scripts/review-cache.mjs check \
+     --pr 6786 \
+     --sha "e4f1a23b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f" \
+     --offline --cache-dir "$CACHE"
+   echo "exit: $?"
+   ```
+   Must report `[CACHE HIT]`, print the report path *without* `(MISSING ON DISK)`, and exit `0`.
+3. Verify a mistyped `--report-file` fails loudly instead of storing the filename as the report:
+   ```bash
+   node .agents/skills/uswds-code-review/scripts/review-cache.mjs save \
+     --pr 6787 --sha "abc1234" --report-file ./no-such-report.md --cache-dir "$CACHE"
+   echo "exit: $?"   # must be 1, with no 6787 entry created
+   ```
+4. Clean up: `rm -rf "$CACHE"`.
+
+**Success criteria:**
+- Cache hit prevents re-running gates when commit SHA is unchanged, and returns the findings markdown (not just metadata).
+- Markdown file exists at `<cache-dir>/<sha>.md`, and resolves correctly under a non-default `--cache-dir`.
+- `.review-cache/` is unversioned and ignored by git.
+- Merged PRs keep their cache entry and findings file; only `status` changes.
+
+**Unit coverage:** the cache tooling has its own spec, run via npm
+(it is deliberately *not* wired into `gulp test` — this is skill tooling, not
+library code, so it stays out of the main test config):
+
+```bash
+npm run test:agents
+
+# Narrow to one group while iterating:
+npm run test:agents -- --grep syncCache
+```
+
+No mocha config or flags are needed — `.mjs` is treated as ESM, and these are
+pure-function tests with no jsdom dependency. Exits `0` on pass, `1` on failure.
+
+Covers merge-status tracking, report resolution under a custom cache dir, SHA
+validation, and `execCmd` signal handling.
+
+**If you change `review-cache.mjs`, run this by hand.** Nothing runs it
+automatically.
 
 ---
 

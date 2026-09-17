@@ -98,11 +98,11 @@ module.exports = behavior(
       this.mediaQueryList = window.matchMedia(
         `(max-width: ${HIDE_MAX_WIDTH - 0.1}px)`,
       );
-      this.mediaQueryList.addListener(resize);
+      this.mediaQueryList.addEventListener("change", resize);
     },
 
     teardown() {
-      this.mediaQueryList.removeListener(resize);
+      this.mediaQueryList.removeEventListener("change", resize);
     },
   },
 );
