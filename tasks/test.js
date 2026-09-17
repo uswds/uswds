@@ -17,6 +17,8 @@ module.exports = {
       // SASS unit tests, run separately.
       "!packages/uswds-core/src/test/sass.spec.js",
       "!packages/usa-accordion/src/test/accordion-icon.spec.js",
+      // Built-bundle tests compile their own artifacts in testDist.
+      "!packages/uswds-core/src/test/dist-bundle.spec.js",
     ]).pipe(mocha(mochaConfig));
   },
 
@@ -34,8 +36,8 @@ module.exports = {
     return src("tasks/**/*.spec.mjs").pipe(mocha());
   },
   distTests() {
-    return src([
-      "packages/uswds-core/src/test/dist-bundle.spec.js",
-    ]).pipe(mocha({ timeout: 30000 }));
+    return src(["packages/uswds-core/src/test/dist-bundle.spec.js"]).pipe(
+      mocha({ timeout: 30000 }),
+    );
   },
 };

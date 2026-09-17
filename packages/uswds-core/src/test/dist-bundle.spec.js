@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const { createRequire } = require("module");
-const { JSDOM } = require("jsdom");
+const { JSDOM, VirtualConsole } = require("jsdom");
 
 // Paths to the built artifacts under test.
 const DIST = path.resolve(__dirname, "../../../../dist/js");
@@ -89,53 +89,70 @@ function stubMatchMedia(win) {
         matches: false,
         addListener: function () {},
         removeListener: function () {},
+        addEventListener: function () {},
+        removeEventListener: function () {},
       };
     };
 }
 
-// Build a vm context wired to the given jsdom window with all browser
-// globals the USWDS bundle expects.
-function buildContext(win) {
-  return vm.createContext({
-    window: win,
-    document: win.document,
-    navigator: win.navigator,
-    location: win.location,
-    Element: win.Element,
-    HTMLElement: win.HTMLElement,
-    MutationObserver: win.MutationObserver,
-    NodeList: win.NodeList,
-    Event: win.Event,
-    CustomEvent: win.CustomEvent,
-    MouseEvent: win.MouseEvent,
-    console,
-  });
-}
-
-// Load the built JS bundle into a fresh jsdom window context and return
-// the window object. Uses Node's vm module so the bundle runs as a plain
-// browser script (no module system), matching how a real browser loads it.
-function loadBundleIntoDOM() {
-  const bundleCode = fs.readFileSync(BUNDLE_PATH, "utf-8");
-  const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>", {
-    runScripts: "outside-only",
-    resources: "usable",
-  });
+// Use jsdom's actual browser global so globals and event errors are observable.
+const browsers = [];
+async function loadBundleIntoDOM(
+  html = "<!DOCTYPE html><html><body></body></html>",
+) {
+  const errors = [];
+  const virtualConsole = new VirtualConsole();
+  virtualConsole.on("jsdomError", (error) => errors.push(error));
+  const dom = new JSDOM(html, { runScripts: "outside-only", virtualConsole });
   const { window: win } = dom;
   stubMatchMedia(win);
-  const context = buildContext(win);
-  vm.runInContext(bundleCode, context);
-  return win;
+  const globalsBefore = new Set(Reflect.ownKeys(win));
+  const browser = { dom, win, errors, globalsBefore };
+  browsers.push(browser);
+
+  vm.runInContext(
+    fs.readFileSync(BUNDLE_PATH, "utf-8"),
+    dom.getInternalVMContext(),
+  );
+  if (win.document.readyState === "loading") {
+    await new Promise((resolve) => {
+      win.document.addEventListener("DOMContentLoaded", resolve, {
+        once: true,
+      });
+    });
+  }
+  assert.deepStrictEqual(
+    errors,
+    [],
+    "bundle initialization must not emit browser errors",
+  );
+  return browser;
 }
 
 describe("dist-bundle behavioral characterization", function () {
   // Loading the full 785K bundle takes longer than the default 2s timeout.
   this.timeout(30000);
 
+  let browser;
   let win;
 
-  before(function () {
-    win = loadBundleIntoDOM();
+  before(async function () {
+    browser = await loadBundleIntoDOM();
+    ({ win } = browser);
+  });
+
+  afterEach(function () {
+    browsers.forEach(({ errors }) => {
+      assert.deepStrictEqual(
+        errors,
+        [],
+        "bundle events must not emit browser errors",
+      );
+    });
+  });
+
+  after(function () {
+    browsers.forEach(({ dom }) => dom.window.close());
   });
 
   // ── window.uswdsPresent ─────────────────────────────────────────────────────
@@ -153,9 +170,13 @@ describe("dist-bundle behavioral characterization", function () {
   });
 
   // ── Component barrel ────────────────────────────────────────────────────────
-  describe("component barrel", function () {
+  describe("source component barrel", function () {
     it("exposes exactly 22 keys", function () {
-      assert.strictEqual(BARREL_KEYS.length, 22);
+      const barrel = requireFromRoot("@uswds/uswds/js");
+      assert.deepStrictEqual(
+        Object.keys(barrel).sort(),
+        [...BARREL_KEYS].sort(),
+      );
     });
   });
 
@@ -194,6 +215,13 @@ describe("dist-bundle behavioral characterization", function () {
   // README documents that USWDS components are NOT accessible in the global
   // browser scope by default. Assert this stays true.
   describe("no global leaks", function () {
+    it("adds only the documented presence flag to window", function () {
+      const added = Reflect.ownKeys(win).filter(
+        (key) => !browser.globalsBefore.has(key),
+      );
+      assert.deepStrictEqual(added, ["uswdsPresent"]);
+    });
+
     const FORBIDDEN_GLOBALS = [
       "uswds",
       "USWDS",
@@ -218,8 +246,8 @@ describe("dist-bundle behavioral characterization", function () {
   // Exercises the full behavior-wiring chain through actual minification,
   // not just "the file parses."
   describe("accordion end-to-end interaction", function () {
-    it("toggles aria-expanded and hidden on button click", function () {
-      const dom = new JSDOM(
+    it("toggles aria-expanded and hidden on button click", async function () {
+      const { win: testWin } = await loadBundleIntoDOM(
         `<!DOCTYPE html><html><body>
           <ul class="usa-accordion">
             <li>
@@ -239,20 +267,6 @@ describe("dist-bundle behavioral characterization", function () {
             </li>
           </ul>
         </body></html>`,
-        { runScripts: "outside-only" },
-      );
-
-      const { window: testWin } = dom;
-      stubMatchMedia(testWin);
-
-      const bundleCode = fs.readFileSync(BUNDLE_PATH, "utf-8");
-      const context = buildContext(testWin);
-      vm.runInContext(bundleCode, context);
-
-      // DOMContentLoaded has already fired in jsdom before the bundle runs
-      // in a vm context. Re-dispatch it so USWDS wires up component behaviors.
-      testWin.document.dispatchEvent(
-        new testWin.Event("DOMContentLoaded", { bubbles: true }),
       );
 
       const button = testWin.document.querySelector(".usa-accordion__button");
