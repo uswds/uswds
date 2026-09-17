@@ -45,8 +45,7 @@ See `skills/uswds-code-review/SKILL.md` for full documentation and `VERIFICATION
 
 ## Discovery
 
-No agent tool auto-loads `.agents/`, so each skill also has a pointer file that the
-tool *does* auto-load. Claude Code reads `.claude/skills/<name>/SKILL.md`; those files
+Discovery paths differ between agent tools. Claude Code reads `.claude/skills/<name>/SKILL.md`; those files
 carry the skill's frontmatter and a one-line instruction to read the real skill here.
 Nothing is duplicated, and no symlink is required, so the checkout works on Windows.
 
@@ -59,8 +58,8 @@ Adding a skill therefore means two files:
 
 `npm run agents:check` fails if step 2 is missing, so a skill cannot land invisible.
 
-Agents that read `AGENTS.md` instead of loading skills (Codex, Cursor, Copilot) get the
-skill list from the Skills section of the root `AGENTS.md`.
+The Skills section of the root `AGENTS.md` also lists the available workflows
+for tools that read repository instructions.
 
 ## Doc drift checks
 
@@ -75,6 +74,21 @@ npm run test:agents    # unit tests for the scripts in this directory
 ```
 
 CI runs both on every pull request via `.github/workflows/verify-agent-docs.yml`.
+
+## Automated review (CodeRabbit)
+
+CodeRabbit reviews every PR into `develop`. It is configured in `.coderabbit.yaml` at the repo root, and the two systems divide the work:
+
+| | CodeRabbit | `skills/uswds-code-review` |
+|---|---|---|
+| Runs | On every PR, automatically | When a maintainer invokes it |
+| Sees | The diff, the linked issue, the linters | The whole repo, `gh`, the test suite, the ADRs |
+| Good at | Gates 2, 3, 9–13, 16a, and flagging 14 — the sanitization, token, and PR-hygiene rules | Gates 1, 4, 6–8, 15, 16b, classifying 14 — and verifying a test actually fails on `develop` (gate 5) |
+| Output | PR comments and a walkthrough | A local markdown report, cached in `.review-cache/` |
+
+`references/gates.md` stays canonical. `.coderabbit.yaml` carries only the subset a bot can apply to a diff — when a gate changes there, check whether the YAML's `path_instructions` or `pre_merge_checks` need the same edit.
+
+CodeRabbit also reads `AGENTS.md` (auto-detected), `references/uswds-anchors.md`, and `skills/uswds-accessibility/SKILL.md` as review criteria, so keeping those accurate improves its reviews directly.
 
 ## Background
 

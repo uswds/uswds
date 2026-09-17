@@ -38,7 +38,7 @@ Task-specific workflows live in `.agents/skills/`, with Claude Code pointers in
 - **Install**: `npm install` also runs a full `gulp` build, because `prepare` is wired
   to `npm run build`. Expect minutes and a populated `dist/` on a fresh clone. Use
   `npm install --ignore-scripts` when you only need `node_modules` to run tests or lint.
-- **Build**: Gulp 4 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite is only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify. Do not assume Vite builds the whole project.
+- **Build**: Gulp 5 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite is only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify. Do not assume Vite builds the whole project.
 - **SCSS**: `sass-embedded` (modern API). `@uswds/compile` is consumer-side.
 
 ## Architecture
@@ -109,7 +109,6 @@ Common tasks and the files they touch:
 
 - **JS Unit Tests**: Mocha with `jsdom-global/register` (browser-ish env); not Jest/Vitest. `sinon` available.
 - **Test Discovery**: `gulp unitTests` globs `packages/usa-*/**/*.spec.js` and `packages/uswds-*/**/*.spec.js`, excluding two specs that `gulp sassTests` owns instead: `packages/uswds-core/src/test/sass.spec.js` and `packages/usa-accordion/src/test/accordion-icon.spec.js`. A `*.spec.scss` sibling means the spec is a Sass test and belongs in that exclusion list.
-- **Sass tests run under a different mocharc**: `gulp sassTests` runs without `jsdom-global`, so a Sass spec must not touch `document`.
 - **`npm test` is redundant**: it is `npm run lint && gulp typecheck && gulp test`, and `gulp test` is `series(typeCheck, lintSass, sassTests, unitTests, tasksTests)`. Typecheck and Sass lint therefore run twice. `npx gulp test` alone covers everything except `lint:js`.
 - **Component Tests**: Load sibling `template.html` into jsdom. Follow `packages/usa-accordion/src/test/` pattern.
 - **a11y Tests**: `npm run test:a11y` requires built Storybook (`_site/`) on `:6006`, Playwright + Axe. `test:ci` handles E2E; local is slow, needs `npx playwright install`.
@@ -124,12 +123,13 @@ Common tasks and the files they touch:
 
 ## Git / PR Workflow
 
-- **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
+- **Default Branch**: `develop` (not `main`); PRs target `develop`. Publishing is triggered by `v*.*.*` tag pushes through `.github/workflows/release.yml`; do not push release tags without authorization.
 - **Branch Names**: `<type>/<issue-no>-<short-slug>`, e.g. `bug/6212-pagination-button-reset`, `feature/6749-add-accessibility-skill`, `task/pr-template`.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); unsigned rejected by `verify-commit-signatures.yml`. Verify signing is configured *before* committing — `git config --get commit.gpgsign` must be `true` and `user.signingkey` must be set, or the whole branch needs rewriting. Confirm after committing with `git log --show-signature -1`.
 - **PR Title**: `USWDS - [Package]: [what this solves]`, e.g. `USWDS - Button: Increase font size`.
-- **PR Body**: fill in `.github/PULL_REQUEST_TEMPLATE.md`, including the AI disclosure checkboxes. Every PR should reference an open issue.
+- **PR Body**: fill in `.github/PULL_REQUEST_TEMPLATE.md`, following the repository template. Every PR should reference an open issue.
 - **`COMMUNITY.md`**: Do not edit unless requested.
+- **Automated review**: CodeRabbit reviews non-draft PRs into `develop`, including Dependabot updates, lockfiles, and SVG sources. It reviews new pushes without a commit-count pause, subject to provider rate limits. Behavior is version-controlled in `.coderabbit.yaml`, so change it in a PR. Repository YAML outranks ordinary repository and organization dashboard settings; organization or workspace Global Overrides still take precedence. Advisory only — never a required check, and it does not push commits. Drafts and GitHub Actions PRs are reviewed on demand with `@coderabbitai review`.
 
 ## Gotchas
 

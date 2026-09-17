@@ -24,6 +24,27 @@ describe("check-agent-docs", () => {
     });
   });
 
+  describe("fenced examples", () => {
+    [
+      ["tilde fence", "~~~md\n`npm run not-real`\n~~~"],
+      ["indented fence", "   ```md\n`npm run not-real`\n   ```"],
+      ["longer closing fence", "~~~~md\n`npm run not-real`\n~~~~~"],
+      ["shorter embedded fence", "````md\n```\n`npm run not-real`\n````"],
+      ["different embedded delimiter", "~~~md\n```\n`npm run not-real`\n~~~"],
+      ["unclosed fence", "~~~md\n`npm run not-real`"],
+    ].forEach(([name, example]) => {
+      it(`ignores commands inside a ${name}`, () => {
+        const spans = inlineCodeSpans(`Run \`npm test\`\n${example}`);
+        assert.deepEqual(referencedNpmScripts(spans), ["test"]);
+      });
+    });
+
+    it("resumes checking prose after a closing fence", () => {
+      const spans = inlineCodeSpans("~~~\n`npm run not-real`\n~~~\n`npm test`");
+      assert.deepEqual(referencedNpmScripts(spans), ["test"]);
+    });
+  });
+
   describe("inlineCodeSpans", () => {
     it("collects single-backtick spans", () => {
       assert.deepEqual(inlineCodeSpans("run `npm test` then `gulp test`"), [

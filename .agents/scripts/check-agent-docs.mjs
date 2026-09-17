@@ -39,7 +39,30 @@ const GENERATED_PREFIXES = [
 
 /** Remove fenced code blocks, which hold illustrative examples, not claims. */
 export function stripFencedBlocks(markdown) {
-  return markdown.replace(/^```[\s\S]*?^```/gm, "");
+  let fence;
+  return markdown
+    .split(/\r?\n/)
+    .map((line) => {
+      if (fence) {
+        const closing = line.match(/^ {0,3}(`+|~+)[ \t]*$/);
+        if (
+          closing &&
+          closing[1][0] === fence[0] &&
+          closing[1].length >= fence.length
+        ) {
+          fence = undefined;
+        }
+        return "";
+      }
+
+      const opening = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+      if (opening && !(opening[1][0] === "`" && opening[2].includes("`"))) {
+        fence = opening[1];
+        return "";
+      }
+      return line;
+    })
+    .join("\n");
 }
 
 /** Collect the contents of every single-backtick inline code span. */
