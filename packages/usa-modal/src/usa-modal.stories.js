@@ -13,6 +13,10 @@ export default {
 
       const story = Story();
 
+      if (context.parameters.uswdsTest) {
+        window.uswdsTest = { ready: false };
+      }
+
       window.requestAnimationFrame(() => {
         modal.on();
         if (context.parameters.uswdsTest) {

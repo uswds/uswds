@@ -258,6 +258,21 @@ describe("focus trap", () => {
     assert.strictEqual(document.activeElement, firstButton);
   });
 
+  it("finds controls added between construction and activation", () => {
+    firstButton.remove();
+    lastButton.remove();
+    trap = FocusTrap(container);
+    container.append(firstButton, lastButton);
+    trap.update(true);
+    assert.strictEqual(document.activeElement, firstButton);
+
+    lastButton.focus();
+    keydownTab();
+    assert.strictEqual(document.activeElement, firstButton);
+    keydownShiftTab();
+    assert.strictEqual(document.activeElement, lastButton);
+  });
+
   it("cycles past internal controls in an enhanced date picker and combo box", () => {
     container.insertAdjacentHTML(
       "afterbegin",

@@ -49,6 +49,8 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     afterEach(() => {
+      // An open fixture owns a body-level focus trap beyond modal.off().
+      modal.focusTrap?.update(false);
       modal.off(containerSelector());
       comboBox.off(containerSelector());
       body.innerHTML = "";
