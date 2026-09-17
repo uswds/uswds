@@ -12,6 +12,12 @@ module.exports = {
   async postVisit(page, context) {
     const storyContext = await getStoryContext(page, context);
 
+    await runInteractionTests(
+      page,
+      context,
+      storyContext.parameters?.uswdsTest,
+    );
+
     // Skip stories that opt out of a11y testing
     if (
       storyContext.parameters?.a11y?.disable ||
@@ -20,12 +26,6 @@ module.exports = {
     ) {
       return;
     }
-
-    await runInteractionTests(
-      page,
-      context,
-      storyContext.parameters?.uswdsTest,
-    );
 
     // Wait for any animations/transitions to settle
     await page.waitForTimeout(200);
