@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Combo box clear-button focus</title>
+    <link rel="stylesheet" href="css/before.css">
+    <style>
+      body { font-family: Arial, sans-serif; padding: 32px; color: #1b1b1b; }
+      main { max-width: 720px; }
+      h1 { font-size: 28px; margin: 0 0 12px; }
+      h2 { font-size: 19px; margin: 0 0 8px; }
+      p { font-size: 16px; line-height: 1.5; }
+      section { margin: 24px 0; }
+      .usa-label { margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Combo box clear-button focus</h1>
+      <p>Tab from the fruit input to its clear button. The focus outline should retain the theme focus color.</p>
+      <section>
+        <h2>Keyboard focus</h2>
+        <label class="usa-label" for="fruit-focus">Fruit</label>
+        <div class="usa-combo-box" data-default-value="apple">
+          <select id="fruit-focus" name="fruit-focus" class="usa-select">
+            <option value="">Select a fruit</option>
+            <option value="apple">Apple</option>
+            <option value="apricot">Apricot</option>
+            <option value="banana">Banana</option>
+          </select>
+        </div>
+      </section>
+      <section>
+        <h2>Unfocused control</h2>
+        <label class="usa-label" for="fruit-rest">Alternate fruit</label>
+        <div class="usa-combo-box" data-default-value="banana">
+          <select id="fruit-rest" name="fruit-rest" class="usa-select">
+            <option value="">Select a fruit</option>
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+          </select>
+        </div>
+      </section>
+      <section>
+        <h2>Shared time-picker control</h2>
+        <label class="usa-label" for="meeting-time">Meeting time</label>
+        <div class="usa-time-picker" >
+          <input class="usa-input" id="meeting-time" name="meeting-time" type="text" value="1:00pm">
+        </div>
+      </section>
+      <section>
+        <label class="usa-label" for="disabled-fruit">Disabled fruit</label>
+        <div class="usa-combo-box" data-default-value="apple">
+          <select id="disabled-fruit" name="disabled-fruit" class="usa-select" disabled>
+            <option value="apple">Apple</option>
+          </select>
+        </div>
+      </section>
+    </main>
+    <script src="dist/js/uswds.min.js"></script>
+  </body>
+</html>

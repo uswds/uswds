@@ -1,0 +1,15 @@
+{
+  "clearedCombo": {
+    "activeId": "fruit-focus",
+    "clearDisplay": "none",
+    "selectValue": "",
+    "value": ""
+  },
+  "timeFocusStyle": {
+    "activeClass": "usa-combo-box__clear-input",
+    "comboId": "meeting-time",
+    "opacity": "1",
+    "outlineColor": "rgb(36, 145, 255)",
+    "outlineWidth": "4px"
+  }
+}

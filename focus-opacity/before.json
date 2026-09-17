@@ -1,0 +1,186 @@
+[
+  {
+    "background": "rgb(255, 255, 255)",
+    "buttons": [
+      {
+        "class": "usa-combo-box__clear-input",
+        "disabled": false,
+        "focused": true,
+        "opacity": "0.6",
+        "outlineColor": "rgb(36, 145, 255)",
+        "outlineOffset": "-4px",
+        "outlineStyle": "solid",
+        "outlineWidth": "4px",
+        "rect": {
+          "bottom": 227.0625,
+          "height": 38,
+          "left": 426.546875,
+          "right": 469,
+          "top": 189.0625,
+          "width": 42.453125,
+          "x": 426.546875,
+          "y": 189.0625
+        }
+      },
+      {
+        "class": "usa-combo-box__toggle-list",
+        "disabled": false,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 227.0625,
+          "height": 38,
+          "left": 468.546875,
+          "right": 511,
+          "top": 189.0625,
+          "width": 42.453125,
+          "x": 468.546875,
+          "y": 189.0625
+        }
+      }
+    ],
+    "id": "fruit-focus"
+  },
+  {
+    "background": "rgb(255, 255, 255)",
+    "buttons": [
+      {
+        "class": "usa-combo-box__clear-input",
+        "disabled": false,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 350.9375,
+          "height": 38,
+          "left": 426.546875,
+          "right": 469,
+          "top": 312.9375,
+          "width": 42.453125,
+          "x": 426.546875,
+          "y": 312.9375
+        }
+      },
+      {
+        "class": "usa-combo-box__toggle-list",
+        "disabled": false,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 350.9375,
+          "height": 38,
+          "left": 468.546875,
+          "right": 511,
+          "top": 312.9375,
+          "width": 42.453125,
+          "x": 468.546875,
+          "y": 312.9375
+        }
+      }
+    ],
+    "id": "fruit-rest"
+  },
+  {
+    "background": "rgb(255, 255, 255)",
+    "buttons": [
+      {
+        "class": "usa-combo-box__clear-input",
+        "disabled": false,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 474.8125,
+          "height": 38,
+          "left": 106.546875,
+          "right": 149,
+          "top": 436.8125,
+          "width": 42.453125,
+          "x": 106.546875,
+          "y": 436.8125
+        }
+      },
+      {
+        "class": "usa-combo-box__toggle-list",
+        "disabled": false,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 474.8125,
+          "height": 38,
+          "left": 148.546875,
+          "right": 191,
+          "top": 436.8125,
+          "width": 42.453125,
+          "x": 148.546875,
+          "y": 436.8125
+        }
+      }
+    ],
+    "id": "meeting-time"
+  },
+  {
+    "background": "rgb(201, 201, 201)",
+    "buttons": [
+      {
+        "class": "usa-combo-box__clear-input",
+        "disabled": true,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgba(16, 16, 16, 0.3)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 568.84375,
+          "height": 38,
+          "left": 426.546875,
+          "right": 469,
+          "top": 530.84375,
+          "width": 42.453125,
+          "x": 426.546875,
+          "y": 530.84375
+        }
+      },
+      {
+        "class": "usa-combo-box__toggle-list",
+        "disabled": true,
+        "focused": false,
+        "opacity": "0.6",
+        "outlineColor": "rgba(16, 16, 16, 0.3)",
+        "outlineOffset": "0px",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "bottom": 568.84375,
+          "height": 38,
+          "left": 468.546875,
+          "right": 511,
+          "top": 530.84375,
+          "width": 42.453125,
+          "x": 468.546875,
+          "y": 530.84375
+        }
+      }
+    ],
+    "id": "disabled-fruit"
+  }
+]
