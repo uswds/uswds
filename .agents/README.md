@@ -2,6 +2,10 @@
 
 This directory contains AI agent tools and skills for working with the USWDS repository.
 
+`.agents/` is the harness-neutral home for this content, so every agent tool shares one
+copy rather than each vendoring its own. Harness-specific directories hold thin pointers
+back here — see Discovery below.
+
 ## Skills
 
 Skills are task-specific workflows that can be invoked by AI coding assistants. They encode USWDS-specific knowledge, conventions, and judgment.
@@ -39,13 +43,37 @@ A judgment-based code review skill that reproduces the calibration of the USWDS 
 
 See `skills/uswds-code-review/SKILL.md` for full documentation and `VERIFICATION.md` for test cases.
 
-**Installation:**
+## Discovery
 
-The skill is automatically available if you have this repo cloned and your AI assistant is configured to use repo-local skills. For manual installation:
+Discovery paths differ between agent tools. Claude Code reads `.claude/skills/<name>/SKILL.md`; those files
+carry the skill's frontmatter and a one-line instruction to read the real skill here.
+Nothing is duplicated, and no symlink is required, so the checkout works on Windows.
+
+Adding a skill therefore means two files:
+
+1. `.agents/skills/<name>/SKILL.md` — the skill itself, with `name: <name>` in its
+   frontmatter.
+2. `.claude/skills/<name>/SKILL.md` — same `name` and `description`, with a body that
+   points at the file above.
+
+`npm run agents:check` fails if step 2 is missing, so a skill cannot land invisible.
+
+The Skills section of the root `AGENTS.md` also lists the available workflows
+for tools that read repository instructions.
+
+## Doc drift checks
+
+`.agents/scripts/check-agent-docs.mjs` verifies that the agent docs still describe the
+repo. It checks that every `npm run <script>` and `gulp <task>` the docs mention really
+exists, that every repo path they mention is on disk, that the Node version in
+`AGENTS.md` matches `.nvmrc`, and that every skill has its discovery pointer.
 
 ```bash
-ln -s /path/to/uswds/.agents/skills/uswds-code-review ~/.claude/skills/uswds-code-review
+npm run agents:check   # verify the docs
+npm run test:agents    # unit tests for the scripts in this directory
 ```
+
+CI runs both on every pull request via `.github/workflows/verify-agent-docs.yml`.
 
 ## Automated review (CodeRabbit)
 
