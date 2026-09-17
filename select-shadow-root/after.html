@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Accordion shadow root initialization</title>
+<style>body{font:18px/1.5 Arial,sans-serif;margin:64px auto;width:900px;color:#1b1b1b}h1{font-size:30px;margin-bottom:8px}p{margin-top:0;color:#565c65}code{font-size:16px}#evidence{margin-top:32px;padding:16px;background:#f0f0f0}</style>
+<h1>Accordion initialized inside a shadow root</h1><p>First panel authored expanded. Second panel authored collapsed.</p><main id="accordion-host"></main><pre id="evidence"></pre>
+<script src="after.js"></script><script>
+const root=document.getElementById('accordion-host').attachShadow({mode:'open'});
+root.innerHTML=`<link rel="stylesheet" href="accordion.css"><div class="usa-accordion">
+<h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="true" aria-controls="first">First amendment</button></h2>
+<div class="usa-accordion__content" id="first"><p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof.</p></div>
+<h2 class="usa-accordion__heading"><button class="usa-accordion__button" aria-expanded="false" aria-controls="second">Second amendment</button></h2>
+<div class="usa-accordion__content" id="second"><p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p></div></div>`;
+accordion.on(root);
+const panel=root.getElementById('second');
+document.getElementById('evidence').textContent='accordion.on(shadowRoot)\nSecond panel: aria-expanded="false", hidden='+panel.hidden;
+</script></html>
