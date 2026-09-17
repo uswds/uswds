@@ -9,6 +9,10 @@ args:
 
 Perform a judgment-based code review of USWDS changes, reproducing the calibration of the core review team (engineering leads and senior engineers who set technical direction, a product lead, and an accessibility specialist). This skill enforces 16 specific gates, distinguishes personal preference from what cascades to all downstream consumers, and explicitly routes calls that aren't a code reviewer's to make.
 
+## Merge handoff
+
+Use the [merge procedure in CONTRIBUTING.md](../../../CONTRIBUTING.md#merging-pull-requests) when reporting merge readiness. State the reviewed head, CI and CodeRabbit status, unresolved findings, and remaining approval requirements. A positive code review is not authorization to merge or bypass protections. This skill remains read-only.
+
 ## Entry point
 
 **Auto-detected:**
