@@ -13,6 +13,19 @@ Perform a judgment-based code review of USWDS changes, reproducing the calibrati
 
 Use the [merge procedure in CONTRIBUTING.md](../../../CONTRIBUTING.md#merging-pull-requests) when reporting merge readiness. State the reviewed head, CI and CodeRabbit status, unresolved findings, and remaining approval requirements. A positive code review is not authorization to merge or bypass protections. This skill remains read-only.
 
+Before reporting merge readiness for a PR, fetch fresh status even when its code review is cached. Use the actual PR number and its `baseRefName` in these read-only commands:
+
+```bash
+gh pr view <N> --repo uswds/uswds --json headRefOid,baseRefName,isDraft,statusCheckRollup,reviewDecision,mergeStateStatus
+gh api repos/uswds/uswds/pulls/<N>/reviews --paginate
+gh api repos/uswds/uswds/pulls/<N>/comments --paginate
+gh api repos/uswds/uswds/issues/<N>/comments --paginate
+gh api repos/uswds/uswds/branches/<base-branch>/protection
+gh api repos/uswds/uswds/rules/branches/<base-branch>
+```
+
+Read the complete CodeRabbit review bodies and inline findings, plus its latest summary/status comment; findings may be inside collapsed sections. Compare the reviewed commit with the current head and account for later pushes. Use current checks, approval state, branch protection, and applicable rules to identify remaining requirements. If permissions prevent reading requirements, report them as unknown rather than satisfied. A cached code verdict does not establish current CI, CodeRabbit completion, or approval. For a local-branch review without a PR, report these GitHub merge requirements as not checked.
+
 ## Entry point
 
 **Auto-detected:**
