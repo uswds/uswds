@@ -1,0 +1,22 @@
+[
+  {
+    "browser": "chromium",
+    "version": "147.0.7727.15",
+    "assertions": 8,
+    "status": "passed",
+    "computedShadows": {
+      "before": {
+        "surface function-two": "none",
+        "surface mixin-two": "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+        "surface function-five": "none",
+        "surface mixin-five": "rgba(0, 0, 0, 0.1) 0px 16px 32px 0px"
+      },
+      "after": {
+        "surface function-two": "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+        "surface mixin-two": "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+        "surface function-five": "rgba(0, 0, 0, 0.1) 0px 16px 32px 0px",
+        "surface mixin-five": "rgba(0, 0, 0, 0.1) 0px 16px 32px 0px"
+      }
+    }
+  }
+]
