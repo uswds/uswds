@@ -177,6 +177,19 @@ describe("check-agent-docs", () => {
       assert.equal(frontmatterName("---\nname: a-skill\n---\n# Hi"), "a-skill");
     });
 
+    it("reads CRLF frontmatter with a closing delimiter at EOF or before content", () => {
+      ["", "\r\n# Hi"].forEach((suffix) => {
+        assert.equal(
+          frontmatterName(`---\r\nname: a-skill\r\n---${suffix}`),
+          "a-skill",
+        );
+      });
+    });
+
+    it("does not accept a partial closing delimiter", () => {
+      assert.equal(frontmatterName("---\nname: a-skill\n---invalid"), null);
+    });
+
     it("returns null when there is no frontmatter", () => {
       assert.equal(frontmatterName("# Hi"), null);
     });

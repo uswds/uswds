@@ -141,7 +141,7 @@ export function pathExists(root, path, packageNames) {
 
 /** Read the `name:` field out of a SKILL.md frontmatter block. */
 export function frontmatterName(markdown) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---/);
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
   if (!match) return null;
   const nameLine = match[1].match(/^name:\s*(.+)$/m);
   return nameLine ? nameLine[1].trim() : null;
