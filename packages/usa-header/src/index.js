@@ -32,6 +32,8 @@ const VISIBLE_CLASS = "is-visible";
 let navigation;
 let navActive;
 let nonNavElements;
+let navigationRoot;
+let navigationContainer;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 // Detect Safari
@@ -246,6 +248,8 @@ navigation = behavior(
       const trapContainer = root.matches(NAV) ? root : root.querySelector(NAV);
 
       if (trapContainer) {
+        navigationRoot = root;
+        navigationContainer = trapContainer;
         navigation.focusTrap = FocusTrap(trapContainer, {
           Escape: onMenuClose,
         });
@@ -255,7 +259,17 @@ navigation = behavior(
       resize();
       window.addEventListener("resize", resize, false);
     },
-    teardown() {
+    teardown(root) {
+      // Route cleanup must not release a persistent header's focus trap. Keep
+      // its initialization root so cleanup still works after the nav is removed.
+      if (
+        root !== document.body &&
+        root !== navigationRoot &&
+        !root.contains(navigationContainer)
+      ) {
+        return;
+      }
+
       window.removeEventListener("resize", resize, false);
 
       // The mobile nav hides the rest of the page from assistive technology
@@ -265,6 +279,8 @@ navigation = behavior(
       // off() removes event listeners, it does not close an open nav.
       showNonNavItems();
       navigation.focusTrap?.update(false);
+      navigationRoot = null;
+      navigationContainer = null;
 
       navActive = false;
     },

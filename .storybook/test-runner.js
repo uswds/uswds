@@ -1,5 +1,6 @@
 const { getStoryContext } = require("@storybook/test-runner");
 const { injectAxe, checkA11y } = require("axe-playwright");
+const runInteractionTests = require("./interaction-tests");
 
 /**
  * @type {import('@storybook/test-runner').TestRunnerConfig}
@@ -19,6 +20,12 @@ module.exports = {
     ) {
       return;
     }
+
+    await runInteractionTests(
+      page,
+      context,
+      storyContext.parameters?.uswdsTest,
+    );
 
     // Wait for any animations/transitions to settle
     await page.waitForTimeout(200);
