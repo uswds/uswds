@@ -48,7 +48,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 - **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); unsigned rejected by `verify-commit-signatures.yml`. Sign before commit.
 - **`COMMUNITY.md`**: Do not edit unless requested.
-- **Automated review**: CodeRabbit reviews PRs into `develop`. Behavior is version-controlled in `.coderabbit.yaml` (repo YAML outranks the CodeRabbit dashboard, so change it in a PR). Advisory only — never a required check, and it does not push commits. Bot-authored PRs (Dependabot, Actions) are skipped; trigger one with `@coderabbitai review`.
+- **Automated review**: CodeRabbit reviews non-draft PRs into `develop`, including Dependabot updates, lockfiles, and SVG sources. It reviews new pushes without a commit-count pause, subject to provider rate limits. Behavior is version-controlled in `.coderabbit.yaml` (repo YAML outranks the CodeRabbit dashboard, so change it in a PR). Advisory only — never a required check, and it does not push commits. Drafts and GitHub Actions PRs are reviewed on demand with `@coderabbitai review`.
 
 ## Gotchas
 
