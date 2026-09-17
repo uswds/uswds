@@ -49,6 +49,18 @@ See [support options](.github/SUPPORT.md) and the [maintainer triage guide](.git
 > - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
 > - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
 
+### Keeping discussions useful
+
+Maintainers should review unanswered questions and proposal decisions regularly. Age prompts a review; it does not by itself make a question resolved or a proposal obsolete.
+
+- Before closing an answered question, read follow-up replies and linked issues. Explain what was resolved and preserve the accepted answer.
+- Link overlapping proposals and identify the decision or evidence still needed. Keep valid needs open; use status labels with a specific next step rather than implying a delivery commitment.
+- Close duplicates only after linking the canonical conversation and preserving useful context. An expired survey or recruitment invitation can be closed as outdated with an explanation.
+- Keep historical release posts in [Announcements](https://github.com/uswds/uswds/discussions/categories/announcements) and call recaps in [Past community calls](https://github.com/uswds/uswds/discussions/categories/past-community-calls). Preserve their original dates, authors, and content.
+- Publish release details in [GitHub Releases](https://github.com/uswds/uswds/releases) and the [website updates](https://designsystem.digital.gov/whats-new/). Use discussion announcements when community conversation would be useful.
+
+For community destinations and current guidance, see the pinned [Start here discussion](https://github.com/uswds/uswds/discussions/6937).
+
 ### Reporting bugs and issues
 
 If USWDS is not behaving as expected, report the observed and expected behavior with steps to reproduce it. For help using or configuring USWDS, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
