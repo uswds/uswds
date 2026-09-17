@@ -142,7 +142,7 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       const daysOfTheWeek = Array.from(
         root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.innerHTML);
+      ).map((th) => th.querySelector("[aria-hidden='true']")?.textContent);
 
       assert.deepEqual(daysOfTheWeek, ["S", "M", "T", "W", "T", "F", "S"]);
     });
@@ -154,29 +154,33 @@ tests.forEach(({ name, selector: containerSelector }) => {
 
       const daysOfTheWeek = Array.from(
         root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.innerHTML);
+      ).map((th) => th.querySelector("[aria-hidden='true']")?.textContent);
 
       assert.deepEqual(daysOfTheWeek, ["D", "L", "M", "X", "J", "V", "S"]);
     });
 
-    it("should display the aria-label in the document language", () => {
+    it("should include the weekday in date button aria-label in the document language", () => {
       changeLanguage("es");
 
       EVENTS.click(button);
 
-      const daysOfTheWeek = Array.from(
-        root.querySelectorAll(".usa-date-picker__calendar__day-of-week"),
-      ).map((btn) => btn.getAttribute("aria-label"));
+      const focusedDateButton = root.querySelector(
+        ".usa-date-picker__calendar__date--focused",
+      );
+      const day = Number(focusedDateButton.getAttribute("data-day"));
+      const month = Number(focusedDateButton.getAttribute("data-month"));
+      const year = Number(focusedDateButton.getAttribute("data-year"));
+      const focusedDate = new Date(year, month - 1, day);
+      const expectedWeekday = focusedDate.toLocaleString("es", {
+        weekday: "long",
+      });
+      const expectedMonth = focusedDate.toLocaleString("es", { month: "long" });
 
-      assert.deepEqual(daysOfTheWeek, [
-        "domingo",
-        "lunes",
-        "martes",
-        "miércoles",
-        "jueves",
-        "viernes",
-        "sábado",
-      ]);
+      assert.strictEqual(
+        focusedDateButton.getAttribute("aria-label"),
+        `${expectedWeekday}, ${expectedMonth} ${day}, ${year}`,
+        "date button aria-label should lead with the weekday in the document language",
+      );
     });
   });
 });
