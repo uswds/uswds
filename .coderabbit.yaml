@@ -49,6 +49,10 @@ reviews:
   # COMMUNITY.md is written by .github/workflows/contributors.yml.
   path_filters:
     - "!COMMUNITY.md"
+    # Override the exact built-in exclusions so dependency and icon-only PRs
+    # receive reviews without restricting coverage of other source files.
+    - "**/package-lock.json"
+    - "**/*.svg"
 
   path_instructions:
     - path: "**/*"
@@ -218,21 +222,16 @@ reviews:
     enabled: true
     drafts: false
     auto_incremental_review: true
-    # Explicit at the default. Every push to an open PR is a review event, and
-    # the open source tier's review limit is scoped per repository, so a
-    # contributor pushing one commit at a time can exhaust it. Pausing after
-    # five reviewed commits caps the spend on long-running PRs; a maintainer or
-    # the author resumes with "@coderabbitai review".
-    auto_pause_after_reviewed_commits: 5
+    # Keep reviewing new changes throughout a PR's lifetime. Provider rate
+    # limits still apply; this only disables the commit-count pause.
+    auto_pause_after_reviewed_commits: 0
     # If a PR should never be auto-reviewed, the lever is a negative label match
     # here, for example labels: ["!Status: Blocked 🔴"]. Left unset so that
     # every PR into develop gets a review.
     #
-    # Team practice is near-silence on dependency bumps and generated commits.
-    # Any of these can still be reviewed on demand with "@coderabbitai review".
+    # Review Dependabot updates automatically, including their lockfiles.
+    # Generated Actions PRs remain on demand with "@coderabbitai review".
     ignore_usernames:
-      - "dependabot[bot]"
-      - "dependabot"
       - "github-actions[bot]"
       - "github-actions"
     # base_branches is intentionally empty: only PRs into the default branch

@@ -128,13 +128,13 @@ Tip: If you want to find other feature requests open for voting, check out our [
 
 ### Automated code review
 
-When you open a pull request against `develop`, CodeRabbit posts an automated review. It summarizes the change for reviewers and flags things like unsanitized markup, missing test coverage, and hardcoded values that should use a design token.
+When you open a non-draft pull request against `develop`, CodeRabbit posts an automated review, including for Dependabot updates. It summarizes the change for reviewers and flags things like unsanitized markup, missing test coverage, and hardcoded values that should use a design token. Lockfiles and SVG source files are included. Drafts and GitHub Actions pull requests are reviewed on demand with `@coderabbitai review`.
 
 A few things to know:
 
 * **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit's comments never block a merge.
-* **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and say so. Mention `@coderabbitai` to reply directly.
-* **You can ask for another pass.** CodeRabbit reviews each push, then pauses on long-running pull requests to avoid repeating itself. Comment `@coderabbitai review` to pick it back up, or `@coderabbitai full review` to start over.
+* **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and explain why. Mention `@coderabbitai` to reply directly. It can save this feedback as a learning; recurring project standards belong in the repository's review instructions.
+* **You can ask for another pass.** CodeRabbit reviews each push without a commit-count pause, subject to provider rate limits. Comment `@coderabbitai review` for an incremental review, or `@coderabbitai full review` to start over. Use `@coderabbitai pause` and `@coderabbitai resume` to control automatic reviews on an individual pull request.
 * **It doesn't review screen reader behavior.** It may list the assistive technology and browsers your change needs to be tested with, but a person has to do that testing.
 * **It won't push commits to your branch.** Every commit to this repo needs a [verified signature](#setting-up-verified-commits), so CodeRabbit is set up to comment only.
 
