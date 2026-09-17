@@ -21,10 +21,10 @@ gh api repos/uswds/uswds/pulls/<N>/reviews --paginate
 gh api repos/uswds/uswds/pulls/<N>/comments --paginate
 gh api repos/uswds/uswds/issues/<N>/comments --paginate
 gh api repos/uswds/uswds/branches/<base-branch>/protection
-gh api repos/uswds/uswds/rules/branches/<base-branch>
+gh api repos/uswds/uswds/rules/branches/<base-branch> --paginate --slurp
 ```
 
-Read the complete CodeRabbit review bodies and inline findings, plus its latest summary/status comment; findings may be inside collapsed sections. Compare the reviewed commit with the current head and account for later pushes. Use current checks, approval state, branch protection, and applicable rules to identify remaining requirements. If permissions prevent reading requirements, report them as unknown rather than satisfied. A cached code verdict does not establish current CI, CodeRabbit completion, or approval. For a local-branch review without a PR, report these GitHub merge requirements as not checked.
+Read the complete CodeRabbit review bodies and inline findings, plus its latest summary/status comment; findings may be inside collapsed sections. Compare the reviewed commit with the current head and account for later pushes. Use current checks, approval state, branch protection, and applicable rules to identify remaining requirements. If permissions prevent reading requirements, report them as unknown rather than satisfied. A cached code verdict does not establish current CI, CodeRabbit completion, or approval. Assess every page in the aggregated branch-rules response. Do not establish independent approval by counting reviews alone: report GitHub's current `reviewDecision` separately. The commands above do not identify the last pusher. If the rules require approval from someone other than the last pusher, obtain reliable push-event evidence for the current head and compare that actor with eligible approving reviewers; otherwise report that identity comparison as unknown. Never substitute the commit author or committer for the pusher. For a local-branch review without a PR, report these GitHub merge requirements as not checked.
 
 ## Entry point
 
