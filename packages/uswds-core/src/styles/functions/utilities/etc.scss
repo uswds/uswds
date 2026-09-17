@@ -198,15 +198,13 @@ system letter-spacing
 // @debug #{radius(lg)};
 // @return 0.5rem;
 
-/*
-----------------------------------------
-shadow()
-----------------------------------------
-Get a box-shadow value from the
-system shadow tokens
-----------------------------------------
-*/
-
+/// Get a box-shadow value from the system shadow tokens.
+///
+/// @param {number | string} $value - A shadow token: none or 1 through 5.
+/// @return {list | string} The box-shadow value, or none.
+/// @throw When the value is not a valid box-shadow token.
+/// @example scss
+///   .example { box-shadow: shadow(2); }
 @function shadow($value) {
   @return get-uswds-value(box-shadow, $value);
 }
