@@ -43,6 +43,12 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 - **Prettier**: `{}` (defaults), `.prettierignore`. 2 spaces indent, LF endings (`.editorconfig`).
 - **ESLint**: Bans `var`, requires `===`, forbids `new Function`, enforces `no-unsanitized/*` (relaxed in `*.spec.js`). Prefer `const`.
 
+## Issue and discussion routing
+
+- Follow [CONTRIBUTING.md](CONTRIBUTING.md#choose-the-right-place) and [.github/ISSUE_TRIAGE.md](.github/ISSUE_TRIAGE.md) when triaging.
+- Route support and implementation questions to Discussions Q&A. Keep reproducible bugs, concrete enhancements, documentation fixes, and tracked maintenance in Issues. New components and patterns start in Proposals; exploratory ideas start in Ideas.
+- Read the full conversation and linked work before converting. Preserve the original conversation with GitHub's conversion action. Do not bulk-convert by title, label, age, or missing reproduction alone.
+
 ## Git / PR Workflow
 
 - **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
