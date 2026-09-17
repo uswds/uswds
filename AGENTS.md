@@ -51,6 +51,8 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 ## Git / PR Workflow
 
+Follow the [merge procedure in CONTRIBUTING.md](CONTRIBUTING.md#merging-pull-requests) for all PR merges, including squash-only merging, CodeRabbit follow-up, final requester review, and explicit authorization for any protection bypass.
+
 - **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); unsigned rejected by `verify-commit-signatures.yml`. Sign before commit.
 - **`COMMUNITY.md`**: Do not edit unless requested.
