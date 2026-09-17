@@ -49,6 +49,18 @@ See [support options](.github/SUPPORT.md) and the [maintainer triage guide](.git
 > - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
 > - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
 
+### Keeping discussions useful
+
+Maintainers should review unanswered questions and proposal decisions regularly. Age prompts a review; it does not by itself make a question resolved or a proposal obsolete.
+
+- Before closing an answered question, read follow-up replies and linked issues. Explain what was resolved and preserve the accepted answer.
+- Link overlapping proposals and identify the decision or evidence still needed. Keep valid needs open; use status labels with a specific next step rather than implying a delivery commitment.
+- Close duplicates only after linking the canonical conversation and preserving useful context. An expired survey or recruitment invitation can be closed as outdated with an explanation.
+- Keep historical release posts in [Announcements](https://github.com/uswds/uswds/discussions/categories/announcements) and call recaps in [Past community calls](https://github.com/uswds/uswds/discussions/categories/past-community-calls). Preserve their original dates, authors, and content.
+- Publish release details in [GitHub Releases](https://github.com/uswds/uswds/releases) and the [website updates](https://designsystem.digital.gov/whats-new/). Use discussion announcements when community conversation would be useful.
+
+For community destinations and current guidance, see the pinned [Start here discussion](https://github.com/uswds/uswds/discussions/6937).
+
 ### Reporting bugs and issues
 
 If USWDS is not behaving as expected, report the observed and expected behavior with steps to reproduce it. For help using or configuring USWDS, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
@@ -151,13 +163,30 @@ When you open a non-draft pull request against `develop`, CodeRabbit posts an au
 
 A few things to know:
 
-* **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit's comments never block a merge.
+* **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit is advisory, not a required status check. Maintainers must still read and address its feedback before merging, as described in the [merge procedure](#merging-pull-requests).
 * **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and explain why. Mention `@coderabbitai` to reply directly. It can save this feedback as a learning; recurring project standards belong in the repository's review instructions.
 * **You can ask for another pass.** CodeRabbit reviews each push without a commit-count pause, subject to provider rate limits. Comment `@coderabbitai review` for an incremental review, or `@coderabbitai full review` to start over. Use `@coderabbitai pause` and `@coderabbitai resume` to control automatic reviews on an individual pull request.
 * **It doesn't review screen reader behavior.** It may list the assistive technology and browsers your change needs to be tested with, but a person has to do that testing.
 * **It won't push commits to your branch.** Every commit to this repo needs a [verified signature](#setting-up-verified-commits), so CodeRabbit is set up to comment only.
 
 Its behavior is configured in [`.coderabbit.yaml`](https://github.com/uswds/uswds/blob/develop/.coderabbit.yaml).
+
+### Merging pull requests
+
+Use **Squash and merge** for pull requests in this repository. Each PR should contain one focused change and produce one commit on the target branch. Repository settings disable merge commits and rebase merges; `develop` also requires linear history. Contributors do not need to squash their working commits before review, but all commits must meet the signature requirements.
+
+Maintainers follow this procedure:
+
+1. **Confirm scope and target.** Review the complete diff against the current target branch, normally `develop`. Keep unrelated fixes separate. Use the existing title format: `USWDS - [Package or Area]: [what this solves]`.
+2. **Finish validation.** Resolve conflicts and run checks appropriate to the final changes. Required CI must pass against the current base. After new commits or a base refresh, reassess the diff and wait for the relevant checks again.
+3. **Read CodeRabbit's completed review.** Inspect inline comments and findings inside the review body, including collapsed sections. Fix valid findings; explain findings that are incorrect or deliberately deferred. After pushing fixes, inspect the follow-up review before merging. If review is pending, paused, rate-limited, or unavailable, report that state and wait; a missing review is not a clean review.
+4. **Obtain final approval.** Meet the code-owner and independent-review requirements on the final changes, including approval by someone other than the last pusher. CodeRabbit does not replace that approval. When the requester reserves final review, present the final diff and wait for their explicit approval before merging.
+5. **Squash the reviewed head.** Recheck the head commit and merge state immediately before merging. Use the PR title for the squash commit title. The default body is blank; add a concise explanation when needed, rather than copying every working commit or the entire PR template. With the GitHub CLI, use `gh pr merge <number> --squash --match-head-commit <reviewed-head-sha>`.
+6. **Verify the result.** Confirm the PR is merged and record the resulting commit. Delete the completed topic branch when appropriate; start subsequent work from the updated target branch.
+
+Do not use admin bypass as a routine merge path. A request to merge does not by itself authorize bypassing protections. If a protection blocks the merge, report the exact blocker. An exception requires explicit authorization from an authorized repository administrator identifying the PR and protection to bypass; record the reason in the PR. Do not disable repository protections to clear an individual PR.
+
+Automatic topic-branch deletion remains enabled. Merge queue adoption is separate work: required CircleCI and GitHub Actions checks must first be configured and verified for queue builds. Until then, refresh and validate PRs as they reach the front of the merge sequence.
 
 ### Proposing something else?
 
