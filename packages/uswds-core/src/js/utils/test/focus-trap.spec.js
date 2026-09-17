@@ -146,6 +146,10 @@ describe("focus trap", () => {
     ["hidden ancestors", "<div hidden><button>Hidden</button></div>"],
     ["inert ancestors", "<div inert><button>Inert</button></div>"],
     ["invisible controls", '<button style="visibility:hidden">Hidden</button>'],
+    [
+      "collapsed controls",
+      '<button style="visibility:collapse">Collapsed</button>',
+    ],
     ["negative tab stops", '<button tabindex="-1">Programmatic</button>'],
     ["hidden inputs with tabindex", '<input type="hidden" tabindex="0">'],
     [
@@ -180,6 +184,28 @@ describe("focus trap", () => {
         keydownShiftTab();
         assert.strictEqual(document.activeElement, lastButton);
       });
+    });
+  });
+
+  [
+    '<button hidden style="display:block">Revealed</button>',
+    '<div hidden style="display:block"><button>Revealed</button></div>',
+  ].forEach((markup) => {
+    it(`includes a CSS-revealed hidden element: ${markup}`, () => {
+      container.insertAdjacentHTML("afterbegin", markup);
+      container.insertAdjacentHTML("beforeend", markup);
+      const buttons = container.querySelectorAll("button");
+      const firstRevealed = buttons[0];
+      const lastRevealed = buttons[buttons.length - 1];
+      trap = FocusTrap(container);
+      trap.update(true);
+      assert.strictEqual(document.activeElement, firstRevealed);
+
+      lastRevealed.focus();
+      keydownTab();
+      assert.strictEqual(document.activeElement, firstRevealed);
+      keydownShiftTab();
+      assert.strictEqual(document.activeElement, lastRevealed);
     });
   });
 

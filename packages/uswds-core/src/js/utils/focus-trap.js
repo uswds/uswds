@@ -9,15 +9,15 @@ const FOCUSABLE =
 const isTabStop = (element) => {
   if (
     element.matches('input[type="hidden"], :disabled') ||
-    element.closest("[hidden], [inert]") ||
+    element.closest("[inert]") ||
     (element.hasAttribute("tabindex") && element.tabIndex < 0) ||
-    window.getComputedStyle(element).visibility === "hidden"
+    ["hidden", "collapse"].includes(window.getComputedStyle(element).visibility)
   ) {
     return false;
   }
 
-  // display is not inherited, so a control can be hidden by an ancestor even
-  // when its own computed display value is visible.
+  // Use computed display: CSS may reveal an element carrying `hidden`. Display
+  // is not inherited, so check ancestors as well as the control itself.
   for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
     if (window.getComputedStyle(ancestor).display === "none") {
       return false;
