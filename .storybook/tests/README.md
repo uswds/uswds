@@ -2,7 +2,7 @@
 
 Dedicated Storybook stories opt in with `parameters.uswdsTest` and the `a11y-regression` tag. The normal `test:a11y` command runs these through the existing Playwright test runner. No additional runtime dependency is required.
 
-With a built Storybook already served locally, run only these scenarios:
+Build component assets first (`npm run build`), then Storybook (`npm run build:storybook`), so fonts, icons, and the sprite are present. With that Storybook served locally, run only these scenarios:
 
 ```sh
 npx test-storybook --url http://127.0.0.1:6006 --includeTags a11y-regression --maxWorkers=1
