@@ -531,7 +531,9 @@ USWDS version 2.x is no longer maintained.
 
 ## Need installation help?
 
-Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues)
+For installation, configuration, customization, or usage questions, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a). Include what you tried and your USWDS version when relevant. If you are unsure whether something is a bug, start in Q&A.
+
+Use [Issues](https://github.com/uswds/uswds/issues/new/choose) for reproducible bugs and concrete enhancements to existing functionality. Explore early ideas in [Ideas](https://github.com/uswds/uswds/discussions/categories/ideas), and new components or patterns in [Proposals](https://github.com/uswds/uswds/discussions/categories/proposals). See [where to contribute](CONTRIBUTING.md#choose-the-right-place) for all options.
 
 You can also email directly: [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
@@ -541,7 +543,7 @@ For complete instructions on how to contribute code, please read [CONTRIBUTING.m
 
 To learn more about our workflow and process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswds@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [asking in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) or [emailing our team](mailto:uswds@gsa.gov).
 
 Joining the [USWDS Open Source Community](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) can provide you with a more direct connection to the development of USWDS, if you're interested.
 

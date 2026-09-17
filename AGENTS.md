@@ -121,13 +121,21 @@ Common tasks and the files they touch:
 - **Prettier**: `{}` (defaults), `.prettierignore`. 2 spaces indent, LF endings (`.editorconfig`).
 - **ESLint**: Bans `var`, requires `===`, forbids `new Function`, enforces `no-unsanitized/*` (relaxed in `*.spec.js`). Prefer `const`.
 
+## Issue and discussion routing
+
+- Follow [CONTRIBUTING.md](CONTRIBUTING.md#choose-the-right-place) and [.github/ISSUE_TRIAGE.md](.github/ISSUE_TRIAGE.md) when triaging.
+- Route support and implementation questions to Discussions Q&A. Keep reproducible bugs, concrete enhancements, documentation fixes, and tracked maintenance in Issues. New components and patterns start in Proposals; exploratory ideas start in Ideas.
+- Read the full conversation and linked work before converting. Preserve the original conversation with GitHub's conversion action. Do not bulk-convert by title, label, age, or missing reproduction alone.
+
 ## Git / PR Workflow
+
+Follow the [merge procedure in CONTRIBUTING.md](CONTRIBUTING.md#merging-pull-requests) for all PR merges, including squash-only merging, CodeRabbit follow-up, final requester review, and explicit authorization for any protection bypass.
 
 - **Default Branch**: `develop` (not `main`); PRs target `develop`. Publishing is triggered by `v*.*.*` tag pushes through `.github/workflows/release.yml`; do not push release tags without authorization.
 - **Branch Names**: `<type>/<issue-no>-<short-slug>`, e.g. `bug/6212-pagination-button-reset`, `feature/6749-add-accessibility-skill`, `task/pr-template`.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); `verify-commit-signatures.yml` flags unverified commits with a sticky reminder comment and the `Needs: Author Response 🔴` label. Verify signing is configured *before* committing — `git config --get commit.gpgsign` must be `true` and `user.signingkey` must be set, or the whole branch needs rewriting. Confirm after committing with `git log --show-signature -1`.
-- **PR Title**: `USWDS - [Package]: [what this solves]`, e.g. `USWDS - Button: Increase font size`.
 - **PR Body**: fill in `.github/PULL_REQUEST_TEMPLATE.md`, following the repository template. Every PR should reference an open issue.
+- **PR titles**: Follow [Conventional Commits for PR titles](CONTRIBUTING.md#pull-request-titles); the title becomes the squash commit title. Do not add `USWDS -`. Working commit messages need not follow this format. Run `node --test .github/scripts/check-pr-title.test.mjs` when changing title validation.
 - **`COMMUNITY.md`**: Do not edit unless requested.
 - **Automated review**: CodeRabbit reviews non-draft PRs into `develop`, including Dependabot updates, lockfiles, and SVG sources. It reviews new pushes without a commit-count pause, subject to provider rate limits. Behavior is version-controlled in `.coderabbit.yaml`, so change it in a PR. Repository YAML outranks ordinary repository and organization dashboard settings; organization or workspace Global Overrides still take precedence. Advisory only — never a required check, and it does not push commits. Drafts and GitHub Actions PRs are reviewed on demand with `@coderabbitai review`. Before merging, wait for CodeRabbit to finish reviewing the latest changes, inspect inline findings and comments in the review body, fix valid issues, and record reasons for any findings not adopted. After pushing fixes, check the follow-up review before merging.
 
