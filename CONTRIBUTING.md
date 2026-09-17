@@ -18,11 +18,30 @@ We encourage you to read USWDS’s Contribution Guide (you're here; great start!
 
 Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new component, we welcome your ideas on how to improve the Design System.
 
-First time contributor? That's totally okay — great, even. Someone reviews every single contribution before merging it into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway, to get the conversation started.
+First time contributor? That's totally okay — great, even. Someone reviews every single contribution before merging it into USWDS. If you’re unsure where to start, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
-Before submitting a contribution, you’ll need to create a GitHub account or sign in to your existing account. You'll also need to set up [signature verification on your commits](#setting-up-verified-commits).
+To participate on GitHub, create an account or sign in to your existing account. Code contributors also need to set up [signature verification on their commits](#setting-up-verified-commits); asking a question does not require a local development setup.
 
 If you want to see some contributions before submitting your own, you can look at [past pull requests](https://github.com/uswds/uswds/pulls?q=is%3Apr+is%3Aclosed) [or issues contributed by other community members](https://github.com/uswds/uswds/issues?q=is%3Aissue%20state%3Aclosed). If you want ideas on where to start, check out the category of [good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22). Again, if you have any questions, don’t hesitate to [reach out](mailto:uswds@gsa.gov).
+
+### Choose the right place
+
+| What you want to do | Where to go |
+| --- | --- |
+| Ask how to install, configure, customize, or use USWDS | [Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) |
+| Ask for accessibility guidance | [Accessibility discussions](https://github.com/uswds/uswds/discussions/new?category=accessibility) |
+| Report a reproducible bug, including an accessibility defect | [Bug report](https://github.com/uswds/uswds/issues/new?template=bug_report.yaml) |
+| Request a concrete enhancement to existing functionality | [Feature request](https://github.com/uswds/uswds/issues/new?template=feature_request.yaml) |
+| Explore an early idea or tradeoff | [Ideas](https://github.com/uswds/uswds/discussions/new?category=ideas) |
+| Propose a new component or pattern | [Proposals](https://github.com/uswds/uswds/discussions/new?category=proposals) |
+| Report incorrect documentation or a problem with designsystem.digital.gov | [uswds-site issues](https://github.com/uswds/uswds-site/issues/new/choose) |
+| Request a contributor role change | [Role change issue](https://github.com/uswds/uswds/issues/new?template=contributor_ladder.md) |
+
+Issues track actionable work, including bugs, enhancements, documentation fixes, and maintenance. Discussions are for help and exploration. You do not need to know a bug's root cause or have a fix to report it. If you are unsure whether you found a bug or need implementation help, start in Q&A.
+
+Search existing issues and discussions before starting a new conversation. For questions, describe your goal, what you tried, and your USWDS version when relevant. If a question was filed as an issue, a maintainer can convert it to a discussion with the conversation preserved; you do not need to re-file it. If a discussion identifies work to implement, we can create a linked issue.
+
+See [support options](.github/SUPPORT.md) and the [maintainer triage guide](.github/ISSUE_TRIAGE.md). For potential vulnerabilities, follow the [security policy](https://github.com/uswds/uswds/security/policy).
 
 ### Setting up verified commits
 > [!important]
@@ -32,7 +51,7 @@ If you want to see some contributions before submitting your own, you can look a
 
 ### Reporting bugs and issues
 
-If something isn’t working the way it's supposed to, here’s how you can let someone know:
+If USWDS is not behaving as expected, report the observed and expected behavior with steps to reproduce it. For help using or configuring USWDS, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
 #### 1. Check the issues backlog to see if your bug has already been reported
 
@@ -52,7 +71,7 @@ If you have a code fix for the issue, go ahead and submit a [pull request](https
 
 ### Proposing feature requests or enhancements
 
-If you’ve got a new idea or a suggestion for how something could work better, that's helpful to hear about. Follow these steps:
+For a concrete enhancement to existing functionality, describe the problem and the behavior you want to change using the steps below. Start exploratory ideas in [Ideas](https://github.com/uswds/uswds/discussions/new?category=ideas), and new components or patterns in [Proposals](https://github.com/uswds/uswds/discussions/new?category=proposals). Usage and implementation questions belong in [Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
 #### 1. Check the backlog of current feature requests
 
@@ -142,7 +161,7 @@ Its behavior is configured in [`.coderabbit.yaml`](https://github.com/uswds/uswd
 
 ### Proposing something else?
 
-If you’d like to contribute something else that doesn’t fall into any of the above, that's still helpful. Just create an issue or a discussion, and we can talk about it.
+If your contribution does not fit the options above, start in [General discussions](https://github.com/uswds/uswds/discussions/new?category=general). We can help identify the next step and create a linked issue if there is work to track.
 
 ## How we prioritize
 
@@ -193,7 +212,7 @@ Navigate to your issue at `https://github.com/uswds/uswds/issues/YOUR-ISSUE-NUMB
 
 The USWDS internal team will review both and follow up with next steps.
 
-Please don't hesitate to open an issue or email [uswds@gsa.gov](mailto:uswds@gsa.gov) if you have questions or run into issues.
+For questions about the contribution process, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) or email [uswds@gsa.gov](mailto:uswds@gsa.gov). Use the role change issue above to track an actual role change.
 
 ## Common terms
 
