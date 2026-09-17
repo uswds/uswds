@@ -15,6 +15,7 @@ module.exports = async (page, context, test) => {
       undefined,
       { timeout: 5000 },
     );
+    await page.evaluate(() => document.fonts.ready);
     await run(page, test.scenario);
   } catch (error) {
     const directory = path.resolve(
