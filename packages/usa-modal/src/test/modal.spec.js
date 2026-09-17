@@ -222,6 +222,36 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
 
     describe("Teardown while the modal is open", () => {
+      it("releases keyboard trapping and body state when the modal is removed", () => {
+        openButton1.click();
+        modal.off(containerSelector());
+
+        const tab = new KeyboardEvent("keydown", {
+          bubbles: true,
+          cancelable: true,
+          key: "Tab",
+          shiftKey: true,
+        });
+        document.body.dispatchEvent(tab);
+
+        assert.strictEqual(tab.defaultPrevented, false);
+        assert.strictEqual(
+          body.classList.contains("usa-js-modal--active"),
+          false,
+        );
+      });
+
+      it("keeps page content hidden when another root is torn down", () => {
+        const otherContent = document.getElementById("other-content");
+
+        openButton1.click();
+        modal.off(document.createElement("div"));
+
+        assert.strictEqual(otherContent.getAttribute("aria-hidden"), "true");
+        assert.strictEqual(modalWrapper.getAttribute("aria-modal"), "true");
+        assert.strictEqual(isVisible(modalWrapper), true);
+      });
+
       // A framework may unmount the component before the modal is closed, for
       // example on a route change. The page must not be left hidden from
       // assistive technology.

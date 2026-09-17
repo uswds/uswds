@@ -56,8 +56,8 @@ const setTemporaryBodyPadding = () => {
 /**
  * Restore page content that the modal hid from assistive technology.
  *
- * Only affects elements the modal marked itself, so it is safe to call at any
- * time, including when no modal was ever opened.
+ * Only affects elements the modal marked itself. Call after closing or removing
+ * the active modal so an unrelated teardown does not expose its background.
  */
 const restoreNonModalContent = () => {
   document.querySelectorAll(NON_MODALS_HIDDEN).forEach((nonModal) => {
@@ -400,12 +400,6 @@ modal = behavior(
       });
     },
     teardown(root) {
-      // A modal hides the rest of the page from assistive technology while it
-      // is open. If the component is torn down before the modal closes, that
-      // content still has to be restored here, or the page is left hidden with
-      // no way to recover short of a reload.
-      restoreNonModalContent();
-
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
         cleanUpModal(modalWindow);
@@ -415,6 +409,18 @@ modal = behavior(
             modalTrigger.removeEventListener("click", toggleModal),
         );
       });
+
+      // Restore the background after teardown, unless an open modal outside
+      // this root still needs it hidden from assistive technology.
+      if (!document.querySelector(`.${WRAPPER_CLASSNAME}.${VISIBLE_CLASS}`)) {
+        restoreNonModalContent();
+        modal.focusTrap?.update(false);
+        modal.focusTrap = null;
+        document.body.classList.remove(ACTIVE_CLASS, PREVENT_CLICK_CLASS);
+        if (document.body.style.paddingRight === TEMPORARY_BODY_PADDING) {
+          document.body.style.paddingRight = INITIAL_BODY_PADDING;
+        }
+      }
     },
     focusTrap: null,
     toggleModal,

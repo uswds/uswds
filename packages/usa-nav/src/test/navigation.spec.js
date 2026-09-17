@@ -213,6 +213,18 @@ describe("navigation toggle", () => {
         document.querySelectorAll("[data-nav-hidden]").length,
         0,
       );
+
+      document.body.tabIndex = -1;
+      document.body.focus();
+      const tab = new KeyboardEvent("keydown", {
+        bubbles: true,
+        cancelable: true,
+        key: "Tab",
+        shiftKey: true,
+      });
+      document.body.dispatchEvent(tab);
+      document.body.removeAttribute("tabindex");
+      assert.strictEqual(tab.defaultPrevented, false);
     });
 
     it("leaves content that was already aria-hidden alone", () => {

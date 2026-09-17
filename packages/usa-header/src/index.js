@@ -264,6 +264,7 @@ navigation = behavior(
       // with no way to recover short of a reload. Visible state is left alone:
       // off() removes event listeners, it does not close an open nav.
       showNonNavItems();
+      navigation.focusTrap?.update(false);
 
       navActive = false;
     },
