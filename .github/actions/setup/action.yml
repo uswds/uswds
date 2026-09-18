@@ -1,0 +1,13 @@
+name: Set up USWDS
+description: Install the pinned runtime and locked dependencies without building twice
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      with:
+        node-version-file: .nvmrc
+        cache: npm
+    - shell: bash
+      run: npm install --global npm@11.18.0 --no-audit --fund=false
+    - shell: bash
+      run: npm ci --ignore-scripts --no-audit --fund=false

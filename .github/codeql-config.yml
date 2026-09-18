@@ -1,0 +1,6 @@
+name: USWDS authored source
+paths-ignore:
+  - dist
+  - _site
+  - html-templates
+  - node_modules

@@ -1,0 +1,84 @@
+name: Verify package
+on:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: ""
+      full:
+        type: boolean
+        default: true
+    outputs:
+      artifact-id:
+        value: ${{ jobs.package.outputs.artifact-id }}
+permissions:
+  contents: read
+jobs:
+  quality:
+    name: Code and unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: npm run build
+      - run: npm run test:quality
+  package:
+    name: Package, browser, and accessibility tests
+    if: ${{ inputs.full }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    outputs:
+      artifact-id: ${{ steps.upload.outputs.artifact-id }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm run build
+      - run: npx --no-install gulp distTests
+      - run: npm run test:a11y
+      - run: npm run build:html
+      - run: npm run ci:pack
+      - run: npm run test:package -- release-artifacts/package.tgz
+      - id: upload
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: verified-package-${{ github.run_id }}-${{ github.run_attempt }}
+          path: release-artifacts/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Preserve browser failure evidence
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: browser-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            test-results/
+            playwright-report/
+            _site/index.json
+          retention-days: 14
+  result:
+    name: Verification result
+    if: ${{ always() }}
+    needs: [quality, package]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Reject failures and unexpected skips
+        env:
+          QUALITY: ${{ needs.quality.result }}
+          PACKAGE: ${{ needs.package.result }}
+          FULL: ${{ inputs.full }}
+        run: |
+          test "$QUALITY" = success
+          if [ "$FULL" = true ]; then
+            test "$PACKAGE" = success
+          else
+            test "$PACKAGE" = skipped
+          fi

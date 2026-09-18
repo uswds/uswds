@@ -31,3 +31,9 @@ sassdoc/
 
 # ignore review cache
 .review-cache/
+
+# CI verification and review outputs
+release-artifacts/
+visual-review/
+test-results/
+playwright-report/

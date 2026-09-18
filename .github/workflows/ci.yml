@@ -1,0 +1,41 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [develop, main, "release-*", "release/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      full: ${{ steps.scope.outputs.full }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - id: scope
+        run: node .github/scripts/ci-scope.mjs
+  verify:
+    needs: changes
+    uses: ./.github/workflows/verify.yml
+    with:
+      full: ${{ needs.changes.outputs.full == 'true' }}
+  required:
+    name: CI required
+    if: ${{ always() }}
+    needs: [changes, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require completed verification
+        env:
+          CHANGES: ${{ needs.changes.result }}
+          VERIFY: ${{ needs.verify.result }}
+        run: test "$CHANGES" = success && test "$VERIFY" = success
