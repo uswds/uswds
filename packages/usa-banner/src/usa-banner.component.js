@@ -78,9 +78,8 @@ export default class UsaBanner extends LitElement {
         https: {
           heading1: "Secure",
           heading2: "websites use HTTPS",
-          text1: "A <strong>lock</strong>",
-          text2:
-            "or <strong>https://</strong> means you’ve safely connected to the",
+          text1: "<strong>https://</strong>",
+          text2: "means you’ve safely connected to the",
           text3:
             "website. Share sensitive information only on official, secure websites.",
         },
@@ -100,9 +99,9 @@ export default class UsaBanner extends LitElement {
         https: {
           heading1: "Los sitios web seguros",
           heading2: "usan HTTPS",
-          text1: "Un <strong>candado</strong>",
+          text1: "<strong>https://</strong>",
           text2:
-            "o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web",
+            "significa que usted se conectó de forma segura a un sitio web",
           text3:
             "Comparta información sensible sólo en sitios web oficiales y seguros.",
         },
@@ -155,6 +154,7 @@ export default class UsaBanner extends LitElement {
         role="img"
         aria-label="Locked padlock icon"
         part="lock-icon"
+        aria-hidden="true"
       ></span>
     `;
   }
@@ -177,7 +177,7 @@ export default class UsaBanner extends LitElement {
             </slot> </strong
           ><br />
           <slot name="https-text">
-            ${unsafeHTML(https.text1)} (${UsaBanner.lockIcon()})
+            ${UsaBanner.lockIcon()} ${unsafeHTML(https.text1)}
             ${unsafeHTML(https.text2)} .${tld} ${https.text3}
           </slot>
         </p>

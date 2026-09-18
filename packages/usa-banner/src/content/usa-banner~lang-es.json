@@ -11,7 +11,7 @@
   },
   "https": {
     "heading": "Los sitios web seguros .gov usan HTTPS",
-    "pretext": "Un <strong>candado</strong>",
-    "posttext": "o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web .gov.  Comparta información sensible sólo en sitios web oficiales y seguros."
+    "pretext": "<strong>https://</strong>",
+    "posttext": "significa que usted se conectó de forma segura a un sitio web .gov.  Comparta información sensible sólo en sitios web oficiales y seguros."
   }
 }
