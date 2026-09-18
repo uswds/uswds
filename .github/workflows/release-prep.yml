@@ -142,23 +142,18 @@ jobs:
         run: |
           WORK_DIR=$(mktemp -d)
           TGZ_ABS="$(pwd)/${TGZ_NAME}"
+          AUDIT_VERIFIER="$(pwd)/scripts/verify-npm-audit.mjs"
 
           cd "$WORK_DIR"
           npm init -y
           npm install "$TGZ_ABS"
 
-          PROD_AUDIT=$(npm audit --omit=dev --json || true)
-          PROD_TOTAL=$(echo "$PROD_AUDIT" | jq '.metadata.vulnerabilities.total // 0')
+          AUDIT_STATUS=0
+          npm audit --omit=dev --json --audit-level=info > audit.json || AUDIT_STATUS=$?
+          PROD_COUNTS=$(node "$AUDIT_VERIFIER" audit.json "$AUDIT_STATUS" production)
+          PROD_TOTAL=$(echo "$PROD_COUNTS" | jq '.total')
 
           echo "PROD_VULN_TOTAL=$PROD_TOTAL" >> "$GITHUB_ENV"
-
-          if [ "$PROD_TOTAL" -gt 0 ]; then
-            echo "::error::STOP — found $PROD_TOTAL vulnerabilities in production dependencies."
-            echo "::error::Consumers will encounter these when running 'npm install @uswds/uswds'."
-            echo "::error::All production dependency vulnerabilities must be resolved before release."
-            echo "$PROD_AUDIT" | jq '.vulnerabilities'
-            exit 1
-          fi
 
           echo "✓ 0 vulnerabilities in production (regular) dependencies."
 
@@ -167,12 +162,15 @@ jobs:
       # "<N> vulnerabilities (<x> moderate, <y> high) in devDependencies".
       - name: devDependency vulnerability scan (critical gate + release-notes counts)
         run: |
-          DEV_AUDIT=$(npm audit --json || true)
-          CRITICAL=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.critical // 0')
-          HIGH=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.high // 0')
-          MODERATE=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.moderate // 0')
-          LOW=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.low // 0')
-          TOTAL=$(echo "$DEV_AUDIT" | jq '.metadata.vulnerabilities.total // 0')
+          AUDIT_FILE=$(mktemp)
+          AUDIT_STATUS=0
+          npm audit --json --audit-level=info > "$AUDIT_FILE" || AUDIT_STATUS=$?
+          DEV_COUNTS=$(node scripts/verify-npm-audit.mjs "$AUDIT_FILE" "$AUDIT_STATUS" development)
+          CRITICAL=$(echo "$DEV_COUNTS" | jq '.critical')
+          HIGH=$(echo "$DEV_COUNTS" | jq '.high')
+          MODERATE=$(echo "$DEV_COUNTS" | jq '.moderate')
+          LOW=$(echo "$DEV_COUNTS" | jq '.low')
+          TOTAL=$(echo "$DEV_COUNTS" | jq '.total')
 
           echo "DEV_VULN_CRITICAL=$CRITICAL" >> "$GITHUB_ENV"
           echo "DEV_VULN_HIGH=$HIGH" >> "$GITHUB_ENV"
@@ -182,11 +180,8 @@ jobs:
 
           echo "devDependency vulnerabilities — critical: $CRITICAL, high: $HIGH, moderate: $MODERATE, low: $LOW, total: $TOTAL"
 
-          if [ "$CRITICAL" -gt 0 ]; then
-            echo "::error::STOP — found $CRITICAL critical vulnerabilities in devDependencies."
-            echo "::error::Critical devDependency vulnerabilities must be resolved before release."
-            echo "$DEV_AUDIT" | jq '.vulnerabilities | to_entries[] | select(.value.severity == "critical")'
-            exit 1
+          if [ "$HIGH" -gt 0 ]; then
+            echo "::warning::Found $HIGH high vulnerabilities in development dependencies. Review and disclose these in the release notes."
           fi
 
           echo "✓ No critical devDependency vulnerabilities. $TOTAL total (high: $HIGH, moderate: $MODERATE, low: $LOW) — non-blocking."
