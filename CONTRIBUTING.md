@@ -8,7 +8,9 @@ USWDS is for everyone, as an open source product that accepts contributions from
 
 USWDS is committed to building a safe, welcoming, harassment-free culture for everyone. 
 
-By voluntarily participating in a USWDS community, you're agreeing to abide by the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/) and the [TTS Code of Conduct](https://handbook.tts.gsa.gov/code-of-conduct/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
+By contributing to this repository, you agree to adhere to the [GSA Social Media Policy](https://www.gsa.gov/directives-library/gsa-social-media-policy-2) (Section 10 Engagement). We expect all contributors, both internal and external, to engage respectfully and professionally in all project-related public communications.
+
+Community participants also follow the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
 
 We encourage you to read USWDS’s Contribution Guide (you're here; great start!), about the USWDS [COMMUNITY](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) which includes how to be recognized here for your contributions, the USWDS [README](https://github.com/uswds/uswds/blob/develop/README.md), and the USWDS [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md). You can also read more about the open source policy USWDS uses at the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy), and if you have questions, you can send USWDS an [email](mailto:uswds@gsa.gov).
 
