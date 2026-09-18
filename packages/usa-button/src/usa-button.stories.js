@@ -1,5 +1,6 @@
 import Component from "./usa-button.twig";
 import LinkButton from "./usa-button--links/usa-button--links.twig";
+import TestWithinFormComponent from "./test/test-patterns/test-usa-button--within-form.twig";
 import {
   DefaultContent,
   AccentCoolContent,
@@ -104,3 +105,5 @@ LinksStyledAsButtons.argTypes = {
     },
   },
 };
+
+export const TestWithinForm = TestWithinFormComponent.bind({});
