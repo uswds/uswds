@@ -1,0 +1,21 @@
+const fs = require("node:fs");
+const path = require("node:path");
+const crypto = require("node:crypto");
+const [repo, output] = process.argv.slice(2);
+const sass = require(path.join(repo, "node_modules/sass-embedded"));
+const options = { loadPaths: [path.join(repo, "packages")], logger: sass.Logger.silent, style: "compressed" };
+const compile = source => sass.compileString(source, options).css;
+const source = '@use "uswds-core" as *;\n.example { color: color($theme-table-header-text-color); }';
+let error;
+try { compile(source); } catch (caught) { error = caught.message; }
+if (!error) throw new Error("The default sentinel must remain an invalid color token.");
+const validSource = '@use "uswds-core" as *;\n.valid-control { color: color("primary"); }';
+const validCss = compile(validSource);
+const tableCss = compile('@use "uswds-core" with ($theme-show-notifications: false); @use "usa-table";');
+const result = { source, error, validSource, validCss, tableCssSha256: crypto.createHash("sha256").update(tableCss).digest("hex"), tableCssBytes: Buffer.byteLength(tableCss) };
+const escape = str => str.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+fs.mkdirSync(path.dirname(output), { recursive: true });
+fs.writeFileSync(output.replace(/\.html$/, ".json"), JSON.stringify(result, null, 2));
+fs.writeFileSync(output.replace(/\.html$/, "-table.css"), tableCss);
+fs.writeFileSync(output, `<!doctype html><html lang="en"><meta charset="utf-8"><title>Color token compiler diagnostic</title><style>${tableCss}${validCss}body{margin:0;padding:28px;background:#f0f0f0;font:16px/1.45 system-ui;color:#1b1b1b}h1{font-size:27px;margin:0 0 5px}h2{font-size:19px;margin:0 0 12px}p{margin:0 0 16px}section{background:white;padding:20px;margin-top:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid section{min-width:0}pre{margin:0;padding:16px;background:#1b1b1b;color:#f0f0f0;font:13px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.source{background:#e7eef4;color:#1b1b1b;margin-bottom:14px}.valid-control{font-weight:700;font-size:19px}.usa-table{margin:0;width:100%}small{display:block;margin-top:10px;color:#565c65}.result{min-height:245px}</style><h1>Color token compiler diagnostic</h1><p>Actual Sass compiler output for the reported table-header setting. The default sentinel remains invalid as a color token.</p><section><h2>Reported compilation</h2><pre class="source">${escape(source)}</pre><pre class="result">${escape(error)}</pre></section><div class="grid"><section><h2>Valid color control</h2><pre class="source">${escape(validSource)}</pre><pre>${escape(validCss)}</pre><p class="valid-control">Primary color still resolves correctly.</p></section><section><h2>Default table control</h2><table class="usa-table"><caption>Rendered using unchanged default table CSS</caption><thead><tr><th scope="col">Item</th><th scope="col">Status</th></tr></thead><tbody><tr><th scope="row">Color token</th><td>Valid</td></tr><tr><th scope="row">Table header</th><td>Automatic contrast</td></tr></tbody></table><small>Compiled table CSS: ${result.tableCssBytes} bytes.<br>SHA-256: ${result.tableCssSha256.slice(0, 24)}...</small></section></div></html>`);
+console.log(JSON.stringify(result));

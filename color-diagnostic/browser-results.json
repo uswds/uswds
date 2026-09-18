@@ -1,0 +1,25 @@
+{
+  "browser": "147.0.7727.15",
+  "results": {
+    "before": {
+      "error": "Error: Undefined variable.\n   ╷\n59 │     @if map.has-key($project-color-shortcodes, $value) {\n   │                     ^^^^^^^^^^^^^^^^^^^^^^^^^\n   ╵\n  ../../../../../uswds-color-5913/packages/uswds-core/src/styles/functions/utilities/color.scss 59:21  color()\n  - 2:19                                                                                               root stylesheet",
+      "validColor": "rgb(0, 94, 162)",
+      "tableHeader": {
+        "color": "rgb(27, 27, 27)",
+        "backgroundColor": "rgb(223, 225, 226)",
+        "borderColor": "rgb(27, 27, 27)"
+      },
+      "documentHeight": 1080
+    },
+    "after": {
+      "error": "Error: \"'default' is not a valid USWDS color token. \"\n   ╷\n17 │     @return uswds-error(\n   │ ┌───────────^\n18 │ │     \"'#{$token}' is not a valid USWDS #{$type} token. #{$valid-token-message}\"\n19 │ │   );\n   │ └───^\n   ╵\n  ../../../../../uswds-color-5913/packages/uswds-core/src/styles/functions/general/error-not-token.scss 17:11  error-not-token()\n  ../../../../../uswds-color-5913/packages/uswds-core/src/styles/functions/utilities/color.scss 57:11          color()\n  - 2:19                                                                                                       root stylesheet",
+      "validColor": "rgb(0, 94, 162)",
+      "tableHeader": {
+        "color": "rgb(27, 27, 27)",
+        "backgroundColor": "rgb(223, 225, 226)",
+        "borderColor": "rgb(27, 27, 27)"
+      },
+      "documentHeight": 1080
+    }
+  }
+}
