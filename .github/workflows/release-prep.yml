@@ -1,20 +1,6 @@
 # USWDS Release Prep
-# =============================================================================
-# Automates release checklist steps 3.8–3.13. This workflow does NOT publish.
-# Publishing fires automatically via release.yml when a v*.*.* tag is pushed.
-#
-# HOW TO RUN
-#   1. Cut a release branch from `develop` (e.g. `release-3.14.0`).
-#      Ensure _notifications.scss has a block for the release version
-#      (see packages/uswds-core/src/styles/_notifications.scss).
-#   2. Actions tab → "USWDS Release Prep" → Run workflow → select the release
-#      branch and the release type (prerelease | patch | minor | major).
-#   3. When the run completes, review the job summary for next steps,
-#      the SHA-256 hash, vulnerability counts, and any warnings.
-#
-# NOTE: If anything changes in code or package.json after this workflow runs,
-# re-run it to regenerate the tarball and hash before tagging.
-# =============================================================================
+# Operator handoffs and recovery:
+# https://github.com/uswds/uswds/wiki/Release-operations
 
 name: USWDS Release Prep
 

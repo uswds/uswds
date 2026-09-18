@@ -1,27 +1,6 @@
 # Publish Package to npmjs
-# =============================================================================
-# Fires when a v*.*.* tag is pushed to the repo. This is the second half of the
-# two-part release process; run release-prep.yml first on the release branch.
-#
-# VULNERABILITY GATE
-#   Blocks on critical vulnerabilities only. Catches any critical CVEs
-#   disclosed between release-prep.yml running and this tag being pushed.
-#   The authoritative clean-room scan (prod deps, zero tolerance) already
-#   ran in release-prep.yml.
-#
-# HASH GATE
-#   This workflow does NOT rebuild the package. It downloads the exact
-#   tarball artifact that release-prep.yml already built, hashed, and
-#   uploaded, then verifies the downloaded tarball's SHA-256 still matches
-#   the committed security/uswds-<version>-zip-hash.txt before publishing
-#   that same file. Rebuilding a second time here was tried and abandoned:
-#   npm pack output isn't guaranteed byte-identical across separate CI runs
-#   once the toolchain drifts between the two workflows, which produced
-#   false-positive hash mismatches. Publishing the original artifact avoids
-#   depending on build reproducibility entirely.
-#
-# See release-prep.yml for the prep workflow.
-# =============================================================================
+# Operator handoffs and recovery:
+# https://github.com/uswds/uswds/wiki/Release-operations
 
 name: Publish Package to npmjs
 
