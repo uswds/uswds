@@ -1,0 +1,260 @@
+{
+  "baseline": "eaef39533a0a0f78976d6888edf8ae56fe9334d6",
+  "changedPages": [
+    {
+      "file": "test-alert-comparison.html",
+      "before": [
+        "Footer navigation"
+      ],
+      "after": [
+        "Footer"
+      ]
+    },
+    {
+      "file": "test-alert-in-template.html",
+      "before": [
+        "Secondary navigation",
+        "Footer navigation"
+      ],
+      "after": [
+        "Secondary",
+        "Footer"
+      ]
+    },
+    {
+      "file": "test-sidenav-button.html",
+      "before": [
+        "Secondary navigation"
+      ],
+      "after": [
+        "Secondary"
+      ]
+    },
+    {
+      "file": "usa-create-account.html",
+      "before": [
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-create-account~lang-es.html",
+      "before": [
+        "Footer navigation",
+        "Enlaces importantes"
+      ],
+      "after": [
+        "Footer",
+        "Enlaces importantes"
+      ]
+    },
+    {
+      "file": "usa-docs.html",
+      "before": [
+        "Primary navigation,",
+        "Secondary navigation",
+        "Secondary navigation",
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Primary",
+        "Secondary",
+        "Secondary",
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-error.html",
+      "before": [
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-error~lang-es.html",
+      "before": [
+        "Footer navigation",
+        "Enlaces importantes"
+      ],
+      "after": [
+        "Footer",
+        "Enlaces importantes"
+      ]
+    },
+    {
+      "file": "usa-footer--big.html",
+      "before": [
+        "Footer navigation,,"
+      ],
+      "after": [
+        "Footer"
+      ]
+    },
+    {
+      "file": "usa-footer--slim.html",
+      "before": [
+        "Footer navigation,"
+      ],
+      "after": [
+        "Footer"
+      ]
+    },
+    {
+      "file": "usa-footer.html",
+      "before": [
+        "Footer navigation"
+      ],
+      "after": [
+        "Footer"
+      ]
+    },
+    {
+      "file": "usa-header--extended-megamenu.html",
+      "before": [
+        "Primary navigation"
+      ],
+      "after": [
+        "Primary"
+      ]
+    },
+    {
+      "file": "usa-header--extended.html",
+      "before": [
+        "Primary navigation"
+      ],
+      "after": [
+        "Primary"
+      ]
+    },
+    {
+      "file": "usa-header.html",
+      "before": [
+        "Primary navigation"
+      ],
+      "after": [
+        "Primary"
+      ]
+    },
+    {
+      "file": "usa-header~megamenu.html",
+      "before": [
+        "Primary navigation"
+      ],
+      "after": [
+        "Primary"
+      ]
+    },
+    {
+      "file": "usa-landing.html",
+      "before": [
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-language-selector--header.html",
+      "before": [
+        "Primary navigation"
+      ],
+      "after": [
+        "Primary"
+      ]
+    },
+    {
+      "file": "usa-sidenav.html",
+      "before": [
+        "Side navigation"
+      ],
+      "after": [
+        "Side"
+      ]
+    },
+    {
+      "file": "usa-sidenav~one-level.html",
+      "before": [
+        "Side navigation,"
+      ],
+      "after": [
+        "Side"
+      ]
+    },
+    {
+      "file": "usa-sidenav~three-levels.html",
+      "before": [
+        "Side navigation,,,"
+      ],
+      "after": [
+        "Side"
+      ]
+    },
+    {
+      "file": "usa-sidenav~two-levels.html",
+      "before": [
+        "Side navigation,,"
+      ],
+      "after": [
+        "Side"
+      ]
+    },
+    {
+      "file": "usa-sign-in--multiple.html",
+      "before": [
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-sign-in--multiple~lang-es.html",
+      "before": [
+        "Footer navigation",
+        "Enlaces importantes"
+      ],
+      "after": [
+        "Footer",
+        "Enlaces importantes"
+      ]
+    },
+    {
+      "file": "usa-sign-in.html",
+      "before": [
+        "Footer navigation",
+        "Important links"
+      ],
+      "after": [
+        "Footer",
+        "Important links"
+      ]
+    },
+    {
+      "file": "usa-sign-in~lang-es.html",
+      "before": [
+        "Footer navigation",
+        "Enlaces importantes"
+      ],
+      "after": [
+        "Footer",
+        "Enlaces importantes"
+      ]
+    }
+  ],
+  "totalPages": 217,
+  "result": "All output differences are intended aria-label changes."
+}

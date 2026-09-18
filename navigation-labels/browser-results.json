@@ -1,0 +1,175 @@
+{
+  "before": {
+    "landmarks": [
+      {
+        "label": "Primary navigation",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Simple link>"
+          }
+        ],
+        "tag": "NAV"
+      },
+      {
+        "label": "Side navigation",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "Current page"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "Parent link"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "Parent link"
+          }
+        ],
+        "tag": "NAV"
+      },
+      {
+        "label": "Footer navigation",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          }
+        ],
+        "tag": "NAV"
+      }
+    ],
+    "viewport": {
+      "height": 1529,
+      "width": 1717
+    }
+  },
+  "after": {
+    "landmarks": [
+      {
+        "label": "Primary",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Navigation link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Simple link>"
+          }
+        ],
+        "tag": "NAV"
+      },
+      {
+        "label": "Side",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "Current page"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "Parent link"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "Parent link"
+          }
+        ],
+        "tag": "NAV"
+      },
+      {
+        "label": "Footer",
+        "links": [
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          },
+          {
+            "href": "javascript:void(0);",
+            "text": "<Primary link>"
+          }
+        ],
+        "tag": "NAV"
+      }
+    ],
+    "viewport": {
+      "height": 1529,
+      "width": 1717
+    }
+  },
+  "result": "Passed"
+}

@@ -1,0 +1,52 @@
+- heading "Navigation landmark labels" [level=1]
+- paragraph: Names measured from rendered component markup. Native nav elements expose the navigation role.
+- table:
+  - rowgroup:
+    - row "Component Accessible name Role":
+      - columnheader "Component"
+      - columnheader "Accessible name"
+      - columnheader "Role"
+  - rowgroup:
+    - row "Header Primary navigation":
+      - cell "Header"
+      - cell "Primary"
+      - cell "navigation"
+    - row "Side navigation Side navigation":
+      - cell "Side navigation"
+      - cell "Side"
+      - cell "navigation"
+    - row "Footer Footer navigation":
+      - cell "Footer"
+      - cell "Footer"
+      - cell "navigation"
+- heading "Header" [level=2]
+- navigation "Primary":
+  - list:
+    - button "<Current section>":
+      - generic: <Current section>
+    - button "<Section>":
+      - generic: <Section>
+    - link "<Simple link>":
+      - /url: javascript:void(0);
+      - generic: <Simple link>
+  - region "Search component"
+- heading "Side navigation" [level=2]
+- navigation "Side":
+  - list:
+    - link "Current page":
+      - /url: javascript:void(0);
+    - link "Parent link":
+      - /url: javascript:void(0);
+    - link "Parent link":
+      - /url: javascript:void(0);
+- heading "Footer" [level=2]
+- navigation "Footer":
+  - list:
+    - link "<Primary link>":
+      - /url: javascript:void(0);
+    - link "<Primary link>":
+      - /url: javascript:void(0);
+    - link "<Primary link>":
+      - /url: javascript:void(0);
+    - link "<Primary link>":
+      - /url: javascript:void(0);

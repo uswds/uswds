@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Navigation landmark labels</title><link rel="stylesheet" href="assets/css/uswds.css"><style>body{font:18px Arial;margin:32px}.samples{display:grid;grid-template-columns:1.1fr 1fr 1.3fr;gap:28px}h1{margin-bottom:8px}table{border-collapse:collapse;margin:24px 0 36px;width:100%}th,td{border:1px solid #ddd;padding:12px;text-align:left}code{font-size:17px}.usa-nav{position:static;display:block;padding:0;float:none;width:auto}.usa-nav__primary{display:block}.usa-footer__nav .grid-row{display:block}.sample{border-top:3px solid #005ea2} .usa-nav__close,.usa-nav .usa-search,.usa-nav__submenu{display:none!important}.usa-nav__primary>.usa-nav__primary-item{display:block}.usa-nav__primary button{width:100%;text-align:left}.usa-nav__primary{width:100%}</style></head><body><h1>Navigation landmark labels</h1><p>Names measured from rendered component markup. Native nav elements expose the navigation role.</p><table><thead><tr><th>Component</th><th>Accessible name</th><th>Role</th></tr></thead><tbody id="names"></tbody></table><div class="samples"><section class="sample"><h2>Header</h2><nav aria-label="Primary navigation" class="usa-nav">
+      <button type="button" class="usa-nav__close">
+        <img src="./img/usa-icons/close.svg" role="img" alt="Close" />
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <button
+            type="button"
+            class="usa-accordion__button usa-nav__link usa-current"
+            aria-expanded="false"
+            aria-controls="basic-nav-section-one"
+          >
+            <span>&lt;Current section&gt;</span>
+          </button>
+          <ul id="basic-nav-section-one" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button
+            type="button"
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="basic-nav-section-two"
+          >
+            <span>&lt;Section&gt;</span>
+          </button>
+          <ul id="basic-nav-section-two" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="javascript:void(0);"
+                ><span>&lt;Navigation link&gt;</span></a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="javascript:void(0);" class="usa-nav-link"
+            ><span>&lt;Simple link&gt;</span></a
+          >
+        </li>
+      </ul>
+      <section aria-label="Search component">
+        <form class="usa-search usa-search--small" role="search">
+          <label class="usa-sr-only" for="search-field">Search</label>
+          <input
+            class="usa-input"
+            id="search-field"
+            type="search"
+            name="search"
+          />
+          <button class="usa-button" type="submit">
+            <img
+              src="./img/usa-icons-bg/search--white.svg"
+              class="usa-search__submit-icon"
+              alt="Search"
+            />
+          </button>
+        </form>
+      </section>
+    </nav></section>
+<section class="sample"><h2>Side navigation</h2><nav aria-label="Side navigation">
+  <ul class="usa-sidenav">
+    <li class="usa-sidenav__item">
+      <a href="javascript:void(0);" class="usa-current">Current page</a>
+    </li>
+    <li class="usa-sidenav__item">
+      <a href="javascript:void(0);">Parent link</a>
+    </li>
+    <li class="usa-sidenav__item">
+      <a href="javascript:void(0);">Parent link</a>
+    </li>
+  </ul>
+</nav></section>
+<section class="sample"><h2>Footer</h2><nav class="usa-footer__nav" aria-label="Footer navigation">
+      <ul class="grid-row grid-gap">
+        <li
+          class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+        >
+          <a class="usa-footer__primary-link" href="javascript:void(0);"
+            >&lt;Primary link&gt;</a
+          >
+        </li>
+        <li
+          class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+        >
+          <a class="usa-footer__primary-link" href="javascript:void(0);"
+            >&lt;Primary link&gt;</a
+          >
+        </li>
+        <li
+          class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+        >
+          <a class="usa-footer__primary-link" href="javascript:void(0);"
+            >&lt;Primary link&gt;</a
+          >
+        </li>
+        <li
+          class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+        >
+          <a class="usa-footer__primary-link" href="javascript:void(0);"
+            >&lt;Primary link&gt;</a
+          >
+        </li>
+      </ul>
+    </nav></section></div><script>document.querySelectorAll('.sample').forEach(section=>{const row=document.createElement('tr');[section.querySelector('h2').textContent,section.querySelector('nav').getAttribute('aria-label'),'navigation'].forEach(text=>{const cell=document.createElement('td');cell.textContent=text;row.append(cell)});document.querySelector('#names').append(row)});</script></body></html>
