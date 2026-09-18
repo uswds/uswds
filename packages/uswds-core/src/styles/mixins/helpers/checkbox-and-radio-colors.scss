@@ -142,6 +142,19 @@
 
   @if $input-type == "checkbox" {
     .usa-checkbox__input {
+      // Indeterminate styles below obscure the checked state, including when disabled.
+      &:checked {
+        @include format-input {
+          @include add-background-svg($input-checkmark);
+        }
+
+        @media (forced-colors: active) {
+          @include format-input {
+            @include add-background-svg("correct8-alt");
+          }
+        }
+      }
+
       // Adding indeterminate styles here avoids style conflicts from setting in .usa-#{$input-type}__input due to
       // radio buttons receiving :indeterminate state when none are selected.
       &:indeterminate,
@@ -174,19 +187,6 @@
         &[data-indeterminate] {
           @include format-label {
             @include active-tile-colors($input-active-color);
-          }
-        }
-      }
-      &:checked,
-      &:checked:disabled,
-      &:checked[aria-disabled="true"] {
-        @include format-input {
-          @include add-background-svg($input-checkmark);
-        }
-
-        @media (forced-colors: active) {
-          @include format-input {
-            @include add-background-svg("correct8-alt");
           }
         }
       }
