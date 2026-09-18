@@ -1,6 +1,8 @@
 <form class="usa-form">
-  <fieldset class="usa-fieldset">
+  {% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+<fieldset class="usa-fieldset"{% if error_state %} aria-describedby="historical-figures-error" aria-invalid="true"{% endif %}>
     <legend class="usa-legend">Select one historical figure</legend>
+  {% if error_state %}<span class="usa-error-message" id="historical-figures-error">Select a historical figure.</span>{% endif %}
     <div class="usa-radio">
       <input 
         class="usa-radio__input usa-radio__input--tile" 
@@ -50,3 +52,5 @@
     </div>
   </fieldset>
 </form>
+
+{% if error_state %}</div>{% endif %}

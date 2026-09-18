@@ -1,13 +1,16 @@
-<label class="usa-label" for="{{ name }}">{{ label }}</label>
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+<label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="{{ name }}">{{ label }}</label>
+{% if error_state %}<span class="usa-error-message" id="{{ id }}-error">Select a fruit.</span>{% endif %}
 <div
   class="usa-combo-box {{ modifier }}"
   {% if default_value %}data-default-value="{{ default_value }}"{% endif %}
   {% if placeholder %}data-placeholder="{{ placeholder }}"{% endif %}
 >
   <select
-    class="usa-select"
+    class="usa-select{% if error_state %} usa-input--error{% endif %}"
     name="{{ name }}"
     id="{{ id }}"
+    {% if error_state %}aria-describedby="{{ id }}-error" aria-invalid="true"{% endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
     {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
     {% if required %}required{% endif %}
@@ -79,3 +82,5 @@
     <option value="yuzu">Yuzu</option>
   </select>
 </div>
+
+{% if error_state %}</div>{% endif %}

@@ -56,3 +56,19 @@ export const IndeterminateTile = TileTemplate.bind({});
 IndeterminateTile.args = {
   indeterminate_state: true,
 };
+
+export const Error = Template.bind({});
+Error.args = {
+  error_state: true,
+  indeterminate_state: true,
+};
+Error.decorators = [(Story) => `<div class="padding-x-205">${Story()}</div>`];
+
+export const TileError = TileTemplate.bind({});
+TileError.args = {
+  error_state: true,
+  indeterminate_state: true,
+};
+TileError.decorators = [
+  (Story) => `<div class="padding-x-205">${Story()}</div>`,
+];

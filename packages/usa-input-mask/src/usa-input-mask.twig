@@ -1,17 +1,21 @@
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
 <form class="usa-form">
-  <label class="usa-label" for="{{ id }}">{{ label }}</label>
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="{{ id }}">{{ label }}</label>
   <div class="usa-hint" id="{{ id }}Hint">{{ hint }}</div>
-  <input 
-      id="{{ id }}" 
-      type="{{ type }}" 
-      inputmode="{{ inputmode }}" 
-      name="{{ id }}" 
-      placeholder="{{ placeholder }}" 
-      pattern="{{ pattern }}" 
-      class="usa-input usa-masked" 
-      aria-describedby="{{ id }}Hint"
+  {% if error_state %}<span class="usa-error-message" id="{{ id }}Error">Enter a value in the required format.</span>{% endif %}
+  <input
+      id="{{ id }}"
+      type="{{ type }}"
+      inputmode="{{ inputmode }}"
+      name="{{ id }}"
+      placeholder="{{ placeholder }}"
+      pattern="{{ pattern }}"
+      class="usa-input usa-masked{% if error_state %} usa-input--error{% endif %}"
+      aria-describedby="{{ id }}Hint{% if error_state %} {{ id }}Error{% endif %}" {% if error_state %}aria-invalid="true"{% endif %}
       {% if datacharset %}data-charset="{{ datacharset }}"{% endif %}
       {% if disabled_state == 'disabled' %} disabled {%- endif %}
       {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
   >
 </form>
+
+{% if error_state %}</div>{% endif %}

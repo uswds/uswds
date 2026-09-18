@@ -1,14 +1,15 @@
 <form class="usa-form">
   <div class="usa-character-count">
-    <div class="usa-form-group">
-      <label class="usa-label" for="with-hint-input">Text input</label>
+    <div class="usa-form-group{% if error_state %} usa-form-group--error{% endif %}">
+      <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="with-hint-input">Text input</label>
       <span id="with-hint-input-hint" class="usa-hint">This is an input with a character counter.</span>
+      {% if error_state %}<span class="usa-error-message" id="with-hint-input-error">Enter a response.</span>{% endif %}
       <input
-        class="usa-input usa-character-count__field"
+        class="usa-input usa-character-count__field{% if error_state %} usa-input--error{% endif %}"
         id="with-hint-input"
         maxlength="25"
         name="with-hint-input"
-        aria-describedby="with-hint-input-info with-hint-input-hint"
+        aria-describedby="with-hint-input-info with-hint-input-hint{% if error_state %} with-hint-input-error{% endif %}" {% if error_state %}aria-invalid="true"{% endif %}
         {% if disabled_state == 'disabled' %} disabled {%- endif %}
         {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
       >
@@ -19,16 +20,17 @@
 
 <form class="usa-form">
   <div class="usa-character-count">
-    <div class="usa-form-group">
-      <label class="usa-label" for="with-hint-textarea">Textarea</label>
+    <div class="usa-form-group{% if error_state %} usa-form-group--error{% endif %}">
+      <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="with-hint-textarea">Textarea</label>
       <span id="with-hint-textarea-hint" class="usa-hint">This is a textarea with a character counter.</span>
+      {% if error_state %}<span class="usa-error-message" id="with-hint-textarea-error">Enter a response.</span>{% endif %}
       <textarea
-        class="usa-textarea usa-character-count__field"
+        class="usa-textarea usa-character-count__field{% if error_state %} usa-input--error{% endif %}"
         id="with-hint-textarea"
         maxlength="50"
         name="with-hint-textarea"
         rows="5"
-        aria-describedby="with-hint-textarea-info with-hint-textarea-hint"
+        aria-describedby="with-hint-textarea-info with-hint-textarea-hint{% if error_state %} with-hint-textarea-error{% endif %}" {% if error_state %}aria-invalid="true"{% endif %}
         {% if disabled_state == 'disabled' %} disabled {%- endif %}
         {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
         ></textarea>

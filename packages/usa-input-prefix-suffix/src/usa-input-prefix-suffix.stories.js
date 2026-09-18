@@ -42,3 +42,19 @@ export const SuffixAriaDisabled = SuffixTemplate.bind({});
 SuffixAriaDisabled.args = {
   disabled_state: "aria-disabled",
 };
+
+export const PrefixError = PrefixTemplate.bind({});
+PrefixError.args = {
+  error_state: true,
+};
+PrefixError.decorators = [
+  (Story) => `<div class="padding-x-205">${Story()}</div>`,
+];
+
+export const SuffixError = SuffixTemplate.bind({});
+SuffixError.args = {
+  error_state: true,
+};
+SuffixError.decorators = [
+  (Story) => `<div class="padding-x-205">${Story()}</div>`,
+];

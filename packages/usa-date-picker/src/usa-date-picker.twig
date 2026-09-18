@@ -1,6 +1,7 @@
-<div class="usa-form-group">
-  <label class="usa-label" id="appointment-date-label" for="appointment-date">Appointment date</label>
+<div class="usa-form-group{% if error_state %} usa-form-group--error{% endif %}">
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" id="appointment-date-label" for="appointment-date">Appointment date</label>
   <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+    {% if error_state %}<span class="usa-error-message" id="appointment-date-error">Enter a valid appointment date.</span>{% endif %}
   <div class="usa-date-picker"
     {% if defaultDate %} data-default-value="{{ defaultDate }}"{% endif %}
     {% if rangeDate %} data-range-date="{{ rangeDate }}"{% endif %}
@@ -8,12 +9,12 @@
     {% if restrictedDateEnd %} data-max-date="{{ restrictedDateEnd }}"{% endif %}
   >
     <input
-      class="usa-input"
+      class="usa-input{% if error_state %} usa-input--error{% endif %}"
       id="appointment-date"
       name="appointment-date"
       type="text"
       aria-labelledby="appointment-date-label"
-      aria-describedby="appointment-date-hint"
+      aria-describedby="appointment-date-hint{% if error_state %} appointment-date-error{% endif %}" {% if error_state %}aria-invalid="true"{% endif %}
       {% if disabled_state == 'disabled' %} disabled {%- endif %}
       {% if disabled_state == 'aria-disabled' %} aria-disabled="true" {%- endif %}
     >

@@ -1,5 +1,7 @@
-<fieldset class="usa-fieldset">
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
+<fieldset class="usa-fieldset"{% if error_state %} aria-describedby="historical-figures-error" aria-invalid="true"{% endif %}>
   <legend class="usa-legend usa-legend">Select one historical figure</legend>
+  {% if error_state %}<span class="usa-error-message" id="historical-figures-error">Select a historical figure.</span>{% endif %}
   <div class="usa-radio">
     <input 
       class="usa-radio__input" 
@@ -49,3 +51,5 @@
     <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
   </div>
 </fieldset>
+
+{% if error_state %}</div>{% endif %}
