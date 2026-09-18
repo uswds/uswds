@@ -1,6 +1,6 @@
 {
   "label": "Alphanumeric",
-  "hint": "For example, A1B 2C3",
+  "hint": "Enter a letter, a number, a letter, a number, a letter, and a number. For example, A1B 2C3.",
   "id": "alphanumeric",
   "type": "text",
   "inputmode": "text",

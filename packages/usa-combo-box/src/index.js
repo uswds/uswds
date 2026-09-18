@@ -228,6 +228,13 @@ const enhanceComboBox = (_comboBoxEl) => {
   input.setAttribute("autocapitalize", "off");
   input.setAttribute("autocomplete", "off");
   input.setAttribute("class", INPUT_CLASS);
+  // Preserve validation styling without copying select-specific classes.
+  ["error", "success"].forEach((state) => {
+    const stateClass = `${PREFIX}-input--${state}`;
+    if (selectEl.classList.contains(stateClass)) {
+      input.classList.add(stateClass);
+    }
+  });
   input.setAttribute("type", "text");
   input.setAttribute("role", "combobox");
   additionalAttributes.forEach((attr) =>
