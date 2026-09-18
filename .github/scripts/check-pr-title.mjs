@@ -7,6 +7,7 @@ const titlePattern =
 export function isValidTitle(title) {
   return (
     typeof title === "string" &&
+    // eslint-disable-next-line no-control-regex -- reject control characters in commit titles
     !/[\u0000-\u001f\u007f\u2028\u2029]/u.test(title) &&
     titlePattern.test(title)
   );
