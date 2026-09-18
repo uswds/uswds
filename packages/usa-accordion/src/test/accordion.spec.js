@@ -111,3 +111,47 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
   });
 });
+
+describe("Accordion behavior in a shadow root", () => {
+  let shadowRoot;
+  let buttons;
+  let panels;
+
+  beforeEach(() => {
+    document.body.innerHTML = TEMPLATE;
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    shadowRoot = host.attachShadow({ mode: "open" });
+    shadowRoot.innerHTML = TEMPLATE;
+    buttons = shadowRoot.querySelectorAll(".usa-accordion__button");
+    panels = shadowRoot.querySelectorAll(".usa-accordion__content");
+    buttons[0].setAttribute(EXPANDED, "true");
+    buttons[1].setAttribute(EXPANDED, "false");
+    Accordion.on(shadowRoot);
+  });
+
+  afterEach(() => {
+    Accordion.off(shadowRoot);
+    document.body.innerHTML = "";
+  });
+
+  it("initializes panels to their authored expanded state", () => {
+    assert.strictEqual(panels[0].hidden, false);
+    assert.strictEqual(panels[1].hidden, true);
+  });
+
+  it("does not initialize matching accordions outside the shadow root", () => {
+    document.querySelectorAll(".usa-accordion__button").forEach((button) => {
+      assert.strictEqual(button.hasAttribute(EXPANDED), false);
+    });
+  });
+
+  it("toggles panels within the shadow root when clicked", () => {
+    buttons[1].click();
+    assert.strictEqual(panels[0].hidden, true);
+    assert.strictEqual(panels[1].hidden, false);
+    assert.strictEqual(buttons[0].getAttribute(EXPANDED), "false");
+    assert.strictEqual(buttons[1].getAttribute(EXPANDED), "true");
+    assert.strictEqual(document.getElementById(panels[0].id).hidden, false);
+  });
+});
