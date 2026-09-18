@@ -1,0 +1,1220 @@
+{
+  "browserName": "chromium",
+  "browser": "147.0.7727.15",
+  "results": [
+    {
+      "forcedColors": "none",
+      "rows": [
+        {
+          "id": "light-default-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-default-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-default-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(0, 94, 162)",
+          "shadow": "rgb(0, 94, 162) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(223, 225, 226)",
+          "shadow": "rgb(223, 225, 226) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(117, 117, 117)",
+          "shadow": "rgb(117, 117, 117) 0px 0px 0px 2px",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "forcedColors": "active",
+      "rows": [
+        {
+          "id": "light-default-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-default-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-default-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "light-tile-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-default-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-enabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(179, 215, 255)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-false",
+          "checked": false,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-true",
+          "checked": true,
+          "indeterminate": true,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-false",
+          "checked": false,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/checkbox-indeterminate-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-true",
+          "checked": true,
+          "indeterminate": false,
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "background": "rgb(96, 0, 0)",
+          "shadow": "none",
+          "expected": "checkbox-indeterminate",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "restoration": [
+        {
+          "id": "light-default-enabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-enabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-default-aria-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-enabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "light-tile-aria-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-enabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-default-aria-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-enabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-native-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-false",
+          "image": "none",
+          "pass": true
+        },
+        {
+          "id": "dark-tile-aria-disabled-data-true",
+          "image": "url(\"fixture:/img/correct8-alt.svg\"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

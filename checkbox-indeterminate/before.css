@@ -1,0 +1,2212 @@
+@charset "UTF-8";
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+GENERAL SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://designsystem.digital.gov/design-tokens
+----------------------------------------
+*/
+/*
+----------------------------------------
+Image path
+----------------------------------------
+Relative image file path
+----------------------------------------
+*/
+/*
+----------------------------------------
+Show compile warnings
+----------------------------------------
+Show Sass warnings when functions and
+mixins use non-standard tokens.
+AND
+Show updates and notifications.
+----------------------------------------
+*/
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
+/*
+----------------------------------------
+Prefix separator
+----------------------------------------
+Set the character the separates
+responsive and state prefixes from the
+main class name.
+The default (":") needs to be preceded
+by two backslashes to be properly
+escaped.
+----------------------------------------
+*/
+/*
+----------------------------------------
+Layout grid
+----------------------------------------
+Should the layout grid classes output
+with !important
+----------------------------------------
+*/
+/*
+----------------------------------------
+Border box sizing
+----------------------------------------
+When set to true, sets the box-sizing
+property of all site elements to
+`border-box`.
+----------------------------------------
+*/
+/*
+----------------------------------------
+Focus styles
+----------------------------------------
+*/
+/*
+----------------------------------------
+Icons
+----------------------------------------
+*/
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+TYPOGRAPHY SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS typography tokens in the documentation:
+https://designsystem.digital.gov/design-tokens/typesetting/overview/
+----------------------------------------
+*/
+/*
+----------------------------------------
+Root font size
+----------------------------------------
+Setting $theme-respect-user-font-size to
+true sets the root font size to 100% and
+uses ems for media queries
+----------------------------------------
+$theme-root-font-size only applies when
+$theme-respect-user-font-size is set to
+false.
+
+This will set the root font size
+as a specific px value and use px values
+for media queries.
+
+Accepts true or false
+----------------------------------------
+*/
+/*
+----------------------------------------
+Global styles
+----------------------------------------
+Adds basic styling for the following
+unclassed elements:
+
+- paragraph: paragraph text
+- link: links
+- content: paragraph text, links,
+  headings, lists, and tables
+----------------------------------------
+*/
+/*
+----------------------------------------
+Browser compatibility mode
+----------------------------------------
+When true, outputs woff and ttf font 
+formats in addition to woff2
+----------------------------------------
+*/
+/*
+----------------------------------------
+Font path
+----------------------------------------
+Relative font file path
+----------------------------------------
+*/
+/*
+----------------------------------------
+Custom typeface tokens
+----------------------------------------
+Add a new custom typeface token if
+your project uses a typeface not already
+defined by USWDS.
+----------------------------------------
+USWDS defines the following tokens
+by default:
+----------------------------------------
+'georgia'
+'helvetica'
+'merriweather'
+'open-sans'
+'public-sans'
+'roboto-mono'
+'source-sans-pro'
+'system'
+'tahoma'
+'verdana'
+----------------------------------------
+Add as many new tokens as you have
+custom typefaces. Reference your new
+token(s) in the type-based font settings
+using the quoted name of the token.
+
+For example:
+
+$theme-font-type-cond: 'example-font-token';
+
+display-name:
+The display name of your font
+
+cap-height:
+The height of a 500px `N` in Sketch
+----------------------------------------
+You should change `example-[style]-token`
+names to something more descriptive.
+----------------------------------------
+*/
+/*
+----------------------------------------
+Type-based font settings
+----------------------------------------
+Set the type-based tokens for your
+project from the following tokens,
+or from any new font tokens you added in
+$theme-typeface-tokens.
+----------------------------------------
+'georgia'
+'helvetica'
+'merriweather'
+'open-sans'
+'public-sans'
+'roboto-mono'
+'source-sans-pro'
+'system'
+'tahoma'
+'verdana'
+----------------------------------------
+*/
+/*
+----------------------------------------
+Custom font stacks
+----------------------------------------
+Add custom font stacks to any of the
+type-based fonts. Any USWDS typeface
+token already has a default stack.
+
+Custom stacks don't need to include the
+font's display name. It will
+automatically appear at the start of
+the stack.
+----------------------------------------
+Example:
+$theme-font-type-sans: 'source-sans-pro';
+$theme-font-sans-custom-stack: "Helvetica Neue", Helvetica, Arial, sans;
+
+Output:
+font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans;
+----------------------------------------
+*/
+/*
+----------------------------------------
+Add any custom font source files
+----------------------------------------
+If you want USWDS to generate additional
+@font-face declarations, add your font
+data below, following the example that
+follows.
+----------------------------------------
+USWDS automatically generates @font-face
+declarations for the following
+
+'merriweather'
+'public-sans'
+'roboto-mono'
+'source-sans-pro'
+
+These typefaces not require custom
+source files.
+----------------------------------------
+EXAMPLE
+
+- dir:
+  Directory relative to $theme-font-path
+- This directory should include fonts saved as
+  .woff2
+  ExampleSerif-Normal.woff2
+
+$theme-font-serif-custom-src: (
+  dir: 'custom/example-serif',
+  roman: (
+    100: false,
+    200: false,
+    300: 'ExampleSerif-Light',
+    400: 'ExampleSerif-Normal',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-Bold',
+    800: false,
+    900: false,
+  ),
+  italic: (
+    100: false,
+    200: false,
+    300: 'ExampleSerif-LightItalic',
+    400: 'ExampleSerif-Italic',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-BoldItalic',
+    800: false,
+    900: false,
+  ),
+);
+----------------------------------------
+*/
+/*
+----------------------------------------
+Role-based font settings
+----------------------------------------
+Set the role-based tokens for your
+project from the following font-type
+tokens.
+----------------------------------------
+'cond'
+'icon'
+'lang'
+'mono'
+'sans'
+'serif'
+----------------------------------------
+*/
+/*
+----------------------------------------
+Type scale
+----------------------------------------
+Define your project's type scale using
+values from the USWDS system type scale
+
+1-20
+----------------------------------------
+*/
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+Assign weights 100-900
+Or use `false` for unneeded weights.
+----------------------------------------
+*/
+/*
+----------------------------------------
+General typography settings
+----------------------------------------
+Type scale tokens
+----------------------------------------
+micro:      10px
+1:          12px
+2:          13px
+3:          14px
+4:          15px
+5:          16px
+6:          17px
+7:          18px
+8:          20px
+9:          22px
+10:         24px
+11:         28px
+12:         32px
+13:         36px
+14:         40px
+15:         48px
+16:         56px
+17:         64px
+18:         80px
+19:         120px
+20:         140px
+----------------------------------------
+Line height tokens
+----------------------------------------
+1:    1
+2:    1.15
+3:    1.35
+4:    1.5
+5:    1.62
+6:    1.75
+----------------------------------------
+Font role tokens
+----------------------------------------
+'ui'
+'heading'
+'body'
+'code'
+'alt'
+----------------------------------------
+Measure (max-width) tokens
+----------------------------------------
+1:       44ex
+2:       60ex
+3:       64ex
+4:       68ex
+5:       74ex
+6:       88ex
+none:    none
+----------------------------------------
+*/
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+COLOR SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS color tokens in the documentation:
+https://designsystem.digital.gov/design-tokens/color
+----------------------------------------
+*/
+/*
+----------------------------------------
+Theme palette colors
+----------------------------------------
+*/
+/*
+----------------------------------------
+State palette colors
+----------------------------------------
+*/
+/*
+----------------------------------------
+General colors
+----------------------------------------
+*/
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+COMPONENT SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://designsystem.digital.gov/design-tokens
+----------------------------------------
+*/
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+SPACING SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS spacing units tokens in the
+documentation:
+https://designsystem.digital.gov/design-tokens/spacing-units
+----------------------------------------
+*/
+/*
+----------------------------------------
+Border radius
+----------------------------------------
+2px           2px
+0.5           4px
+1             8px
+1.5           12px
+2             16px
+2.5           20px
+3             24px
+4             32px
+5             40px
+6             48px
+7             56px
+8             64px
+9             72px
+----------------------------------------
+*/
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+2px         2px
+0.5         4px
+1           8px
+2           16px
+3           24px
+4           32px
+5           40px
+6           48px
+----------------------------------------
+*/
+/*
+----------------------------------------
+Grid container max-width
+----------------------------------------
+mobile
+mobile-lg
+tablet
+tablet-lg
+desktop
+desktop-lg
+widescreen
+----------------------------------------
+*/
+/*
+----------------------------------------
+Site
+----------------------------------------
+*/
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+UTILITIES SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS utilities in the documentation:
+https://designsystem.digital.gov/utilities
+----------------------------------------
+*/
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
+/*
+----------------------------------------
+Utility breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+/*
+----------------------------------------
+Global colors
+----------------------------------------
+The following palettes will be added to
+- background-color
+- border-color
+- color
+- text-decoration-color
+----------------------------------------
+*/
+/*
+----------------------------------------
+Settings
+----------------------------------------
+*/
+/*
+----------------------------------------
+Values
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+append-important()
+----------------------------------------
+Append `!important` to a list
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-last()
+----------------------------------------
+Return the last item of a list,
+Return null if the value is null
+----------------------------------------
+*/
+/*
+----------------------------------------
+de-list()
+----------------------------------------
+Transform a one-element list or arglist
+into that single element.
+----------------------------------------
+(1) => 1
+((1)) => (1)
+----------------------------------------
+*/
+/*
+----------------------------------------
+error-not-token()
+----------------------------------------
+Returns a common not-a-token error.
+----------------------------------------
+*/
+/*
+----------------------------------------
+uswds-error()
+----------------------------------------
+Allow the system to pass an error as text
+to test error states in unit testing
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-default()
+----------------------------------------
+Returns the default value from a map
+of project defaults
+get-default("bg-color")
+> $theme-body-background-color
+----------------------------------------
+*/
+/*
+----------------------------------------
+has-important()
+----------------------------------------
+Check to see if `!important` is
+being passed in a mixin's props
+----------------------------------------
+*/
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
+/*
+----------------------------------------
+multi-cat()
+----------------------------------------
+Concatenate two lists
+----------------------------------------
+*/
+/*
+----------------------------------------
+remove()
+----------------------------------------
+Remove a value from a list
+----------------------------------------
+*/
+/*
+----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects `px`, `xs`, and `xl` numbers
+Leaves bools as is
+----------------------------------------
+*/
+/*
+----------------------------------------
+str-replace()
+----------------------------------------
+Replace any substring with another
+string
+----------------------------------------
+*/
+/*
+----------------------------------------
+str-split()
+----------------------------------------
+Split a string at a given separator
+and convert into a list of substrings
+----------------------------------------
+*/
+/*
+----------------------------------------
+strip-unit()
+----------------------------------------
+Remove the unit of a length
+@author Hugo Giraudel
+@param {Number} $number - Number to remove unit from
+@return {Number} - Unitless number
+----------------------------------------
+*/
+/*
+----------------------------------------
+base-to-map()
+@TODO: Deprecate and delete
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+/*
+----------------------------------------
+to-number()
+----------------------------------------
+Casts a string into a number
+----------------------------------------
+@param {String | Number} $value - Value to be parsed
+@return {Number}
+----------------------------------------
+*/
+/*
+----------------------------------------
+unpack()
+----------------------------------------
+Create lists of single items from lists
+of lists.
+----------------------------------------
+(1, (2.1, 2.2), 3) -->
+(1, 2.1, 2.2, 3)
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-system-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid or a passed
+variable that is, itself, a list
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+/*
+----------------------------------------
+set-theme-color()
+----------------------------------------
+Derive a color from a system color token
+or a hex value
+----------------------------------------
+*/
+/*
+----------------------------------------
+px-to-rem()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
+/*
+----------------------------------------
+rem-to-user-em()
+----------------------------------------
+Converts a value in rem to a value in
+[user-settings] em for use in media
+queries
+----------------------------------------
+*/
+/*
+----------------------------------------
+px-to-user-em()
+----------------------------------------
+Converts a value in px to a value in em
+----------------------------------------
+*/
+/*
+----------------------------------------
+rem-to-px()
+----------------------------------------
+Converts a value in rem to a value in px
+----------------------------------------
+*/
+/*
+----------------------------------------
+spacing-multiple()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+/*
+----------------------------------------
+units()
+----------------------------------------
+Converts a spacing unit into
+the desired final units (currently rem)
+----------------------------------------
+*/
+/*
+----------------------------------------
+number-to-token()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+/*
+----------------------------------------
+Project fonts
+----------------------------------------
+Collects font settings in a map for
+looping.
+----------------------------------------
+*/
+/*
+----------------------------------------
+Luminance ranges
+----------------------------------------
+*/
+/*
+----------------------------------------
+ns()
+----------------------------------------
+Add a namespace of $type if that
+namespace is set to output
+----------------------------------------
+*/
+/*
+----------------------------------------
+Line height
+----------------------------------------
+*/
+/*
+----------------------------------------
+Measure
+----------------------------------------
+*/
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a valid typeface
+----------------------------------------
+*/
+/*
+----------------------------------------
+validate-typeface-token()
+----------------------------------------
+Check to see if a typeface-token exists.
+Throw an error if a passed token does
+not exist in the typeface-token map.
+----------------------------------------
+*/
+/*
+----------------------------------------
+convert-to-font-type()
+----------------------------------------
+Converts a font-role token into a
+font-type token. Leaves font-type tokens
+unchanged.
+----------------------------------------
+*/
+/*
+----------------------------------------
+font-sources()
+----------------------------------------
+Outputs a list of font sources used in
+a @font-face declaration.
+
+$theme-font-browser-compatibility: true - output woff2, woff, ttf
+$theme-font-browser-compatibility: false - output woff2
+
+@param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
+@output: string
+
+filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-font-stack()
+----------------------------------------
+Get a font stack from a style- or
+role-based font token.
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-typeface-token()
+----------------------------------------
+Get a typeface token from a font-type or
+font-role token.
+----------------------------------------
+*/
+/*
+----------------------------------------
+normalize-type-scale()
+----------------------------------------
+Normalizes a specific face's optical size
+to a set target
+----------------------------------------
+*/
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+/*
+----------------------------------------
+Easing
+----------------------------------------
+*/
+/*  deprecated.scss
+    ---
+    Occasionally the design system will deprecate
+    old variables or functionality. If we replace
+    the old functionality with something new, this is a
+    place to connect the old functionality to the
+    new functionality, in the service of better
+    continuity and backwards compatibility within a
+    major release cycle.
+
+    Note the USWDS version where we deprecated the
+    old functionality in a comment.
+
+    Be sure to update notifications.scss.
+
+    This file should started fresh at each
+    major version.
+*/
+/*
+----------------------------------------
+advanced-color()
+----------------------------------------
+Derive a color from a color triplet:
+[family], [grade], [variant]
+----------------------------------------
+*/
+/*
+----------------------------------------
+calculate-grade()
+----------------------------------------
+Derive the grade equivalent any color,
+even non-token colors
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-assignment()
+----------------------------------------
+Get the system token equivalent of any
+theme color token
+----------------------------------------
+*/
+/*
+----------------------------------------
+is-system-color-token()
+----------------------------------------
+Return whether a token is a system
+color token
+----------------------------------------
+*/
+/*
+----------------------------------------
+is-theme-color-token()
+----------------------------------------
+Return whether a token is a theme
+color token
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-family()
+----------------------------------------
+Returns the family of a color token.
+Returns: color-family
+color-token-family("accent-warm-vivid")
+> "accent-warm"
+color-token-family("red-50v")
+> "red"
+color-token-variant(("red", 50, "vivid"))
+> "red"
+----------------------------------------
+*/
+/*
+----------------------------------------
+decompose()
+----------------------------------------
+Convert a color token into into a list
+of form [family], [grade], [variant]
+Vivid variants return "vivid" as the
+variant.
+If neither grade nor variant exists,
+returns 'null'
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-family()
+----------------------------------------
+Returns the family of a color token.
+Returns: color-family
+color-token-family("accent-warm-vivid")
+> "accent-warm"
+color-token-family("red-50v")
+> "red"
+color-token-variant(("red", 50, "vivid"))
+> "red"
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-grade()
+----------------------------------------
+Returns the grade of a USWDS color token.
+Returns: color-grade
+color-token-grade("accent-warm")
+> "root"
+color-token-grade("accent-warm-vivid")
+> "root"
+color-token-grade("accent-warm-darker")
+> "darker"
+color-token-grade("red-50v")
+> 50
+color-token-variant(("red", 50, "vivid"))
+> 50
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-family()
+----------------------------------------
+Returns the family of a color token.
+Returns: color-family
+color-token-family("accent-warm-vivid")
+> "accent-warm"
+color-token-family("red-50v")
+> "red"
+color-token-variant(("red", 50, "vivid"))
+> "red"
+----------------------------------------
+*/
+/*
+----------------------------------------
+is-color-token()
+----------------------------------------
+Returns whether a given string is a
+USWDS color token.
+----------------------------------------
+*/
+/*
+----------------------------------------
+pow()
+----------------------------------------
+Raises a unitless number to the power
+of another unitless number
+Includes helper functions
+----------------------------------------
+*/
+/*
+----------------------------------------
+Helper functions
+----------------------------------------
+*/
+/* factorial()
+----------------------------------------
+*/
+/* summation()
+----------------------------------------
+*/
+/* exp-maclaurin()
+----------------------------------------
+*/
+/* ln()
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-type()
+----------------------------------------
+Returns the type of a color token.
+Returns: "system" | "theme"
+----------------------------------------
+*/
+/*
+----------------------------------------
+color-token-variant()
+----------------------------------------
+Returns the variant of color token.
+Returns: "vivid" | false
+color-token-variant("accent-warm")
+> false
+color-token-variant("accent-warm-vivid")
+> "vivid"
+color-token-variant("red-50v")
+> "vivid"
+color-token-variant(("red", 50, "vivid"))
+> "vivid"
+----------------------------------------
+*/
+/*
+----------------------------------------
+magic-number()
+----------------------------------------
+Returns the magic number of two color
+grades. Takes numbers or color tokens.
+magic-number(50, 10)
+return: 40
+magic-number("red-50", "red-10")
+return: 40
+----------------------------------------
+*/
+/*
+----------------------------------------
+is-accessible-magic-number()
+----------------------------------------
+Returns whether two grades achieve
+specified target color contrast
+Returns: true | false
+is-accessible-magic-number(10, 50, "AA")
+> false
+is-accessible-magic-number(10, 60, "AA")
+> true
+----------------------------------------
+*/
+/*
+----------------------------------------
+wcag-magic-number()
+----------------------------------------
+Returns the magic number of a specific
+wcag grade:
+"AA"
+"AA-Large"
+"AAA"
+wcag-magic-number("AA")
+> 50
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-link-tokens-from-bg()
+----------------------------------------
+Get accessible link colors for a given
+background color
+returns: link-token, hover-token
+get-link-tokens-from-bg(
+  "black",
+  "red-60",
+  "red-10",
+  "AA")
+> "red-10", "red-5"
+get-link-tokens-from-bg(
+  "black",
+  "red-60v",
+  "red-10v",
+  "AA-large")
+> "red-60v", "red-50v"
+get-link-tokens-from-bg(
+  "black",
+  "red-5v",
+  "red-60v",
+  "AA")
+> "red-5v", "white"
+get-link-tokens-from-bg(
+  "black",
+  "white",
+  "red-60v",
+  "AA")
+> "white", "white"
+----------------------------------------
+*/
+/*
+----------------------------------------
+next-token()
+----------------------------------------
+Returns next "darker" or "lighter" color
+token of the same token type and variant.
+Returns: color-token | false
+next-token("accent-warm", "lighter")
+> "accent-warm-light"
+next-token("gray-10", "lighter")
+> "gray-5"
+next-token("gray-5", "lighter")
+> "white"
+next-token("white", "lighter")
+> false
+next-token("red-50v", "darker")
+> "red-60v"
+next-token("red-50", "darker")
+> "red-60"
+next-token("red-80v", "darker")
+> "red-90"
+next-token("red-90", "darker")
+> "black"
+next-token("white", "darker")
+> "gray-5"
+next-token("black", "lighter")
+> "gray-90"
+----------------------------------------
+*/
+/*
+----------------------------------------
+test-colors()
+----------------------------------------
+Check to see if all system colors
+fall between the proper relative
+luminance range for their grade.
+Has a couple quirks, as the luminance()
+function returns slightly different
+results than expected.
+----------------------------------------
+*/
+/*
+----------------------------------------
+columns()
+----------------------------------------
+outputs a grid-col number based on
+the number of desired columns in the
+12-column grid
+
+Ex: columns(2) --> 6
+    grid-col(columns(2))
+----------------------------------------
+*/
+/*
+----------------------------------------
+USWDS Properties
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-uswds-value()
+----------------------------------------
+Finds and outputs a value from the
+USWDS standard values.
+
+Used to build other standard utility
+functions and mixins.
+----------------------------------------
+*/
+/*
+----------------------------------------
+get-standard-values()
+----------------------------------------
+Gets a map of USWDS standard values
+for a property
+----------------------------------------
+*/
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+/*
+----------------------------------------
+font-weight()
+fw()
+----------------------------------------
+Get a font-weight value from the
+system font-weight
+----------------------------------------
+*/
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+/*
+----------------------------------------
+font-family()
+family()
+----------------------------------------
+Get a font-family stack from a
+role-based or type-based font family
+----------------------------------------
+*/
+/*
+----------------------------------------
+letter-spacing()
+ls()
+----------------------------------------
+Get a letter-spacing value from the
+system letter-spacing
+----------------------------------------
+*/
+/*
+----------------------------------------
+measure()
+----------------------------------------
+Gets a valid USWDS reading line length
+----------------------------------------
+*/
+/*
+----------------------------------------
+opacity()
+----------------------------------------
+Get an opacity from the system
+opacities
+----------------------------------------
+*/
+/*
+----------------------------------------
+order()
+----------------------------------------
+Get an order value from the
+system orders
+----------------------------------------
+*/
+/*
+----------------------------------------
+radius()
+----------------------------------------
+Get a border-radius value from the
+system letter-spacing
+----------------------------------------
+*/
+/*
+----------------------------------------
+font-size()
+----------------------------------------
+Get type scale value from a [family] and
+[scale]
+----------------------------------------
+*/
+/*
+----------------------------------------
+z-index()
+z()
+----------------------------------------
+Get a z-index value from the
+system z-index
+----------------------------------------
+*/
+/*
+----------------------------------------
+utility-font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+Not the public-facing function.
+Used for building the utilities and
+withholds certain errors.
+----------------------------------------
+*/
+/*
+----------------------------------------
+family()
+----------------------------------------
+Get a font-family stack
+----------------------------------------
+*/
+/*
+----------------------------------------
+size()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+*/
+/*
+----------------------------------------
+font()
+----------------------------------------
+Get a font-family stack
+AND
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+*/
+/*
+----------------------------------------
+typeset()
+----------------------------------------
+Sets:
+- family
+- size
+- line-height
+----------------------------------------
+*/
+/* stylelint-disable max-nesting-depth */
+/*
+----------------------------------------
+@render-pseudoclass
+----------------------------------------
+Build a pseudoclass utility from values
+calculated in the @render-utilities-in
+loop
+----------------------------------------
+*/
+/*
+----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a 'interpolation near
+operators will be simplified in a
+future version of Sass' warning.
+----------------------------------------
+*/
+/*
+----------------------------------------
+@render-utilities-in
+----------------------------------------
+The master loop that sets the building
+blocks of utilities from the values
+in individual rule settings and loops
+through all possible variants
+----------------------------------------
+*/
+/* stylelint-enable */
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+/* prettier-ignore */
+/* prettier-ignore */
+.usa-radio__label, .usa-checkbox__label, .usa-fieldset, .usa-input {
+  font-family: Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.3;
+}
+
+.usa-input {
+  border-width: 1px;
+  border-color: #565c65;
+  border-style: solid;
+  appearance: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  color: #1b1b1b;
+  display: block;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  max-width: 30rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* stylelint-disable */
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: italic;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-light-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-Light.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-Bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: italic;
+  font-weight: 300;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-LightItalic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-Italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Merriweather Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/merriweather/Latin-Merriweather-BoldItalic.woff2) format("woff2");
+}
+/* stylelint-enable */
+.usa-input:disabled, .usa-input[aria-disabled=true] {
+  color: #454545;
+  background-color: #c9c9c9;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.usa-input:disabled:hover, .usa-input:disabled:active, .usa-input:disabled:focus, .usa-input:disabled.usa-focus, .usa-input[aria-disabled=true]:hover, .usa-input[aria-disabled=true]:active, .usa-input[aria-disabled=true]:focus, .usa-input[aria-disabled=true].usa-focus {
+  color: #454545;
+  background-color: #c9c9c9;
+}
+@media (forced-colors: active) {
+  .usa-input:disabled, .usa-input[aria-disabled=true] {
+    border: 0;
+    color: GrayText;
+  }
+  .usa-input:disabled:hover, .usa-input:disabled:active, .usa-input:disabled:focus, .usa-input:disabled.usa-focus, .usa-input[aria-disabled=true]:hover, .usa-input[aria-disabled=true]:active, .usa-input[aria-disabled=true]:focus, .usa-input[aria-disabled=true].usa-focus {
+    color: GrayText;
+  }
+}
+@media (forced-colors: active) {
+  .usa-input:disabled, .usa-input[aria-disabled=true] {
+    border: 2px solid GrayText;
+  }
+}
+.usa-input:disabled, .usa-input[aria-disabled=true] {
+  -webkit-text-fill-color: #454545;
+}
+
+.usa-input--2xs,
+.usa-form .usa-input--2xs {
+  max-width: 5ex;
+}
+
+.usa-input--xs,
+.usa-form .usa-input--xs {
+  max-width: 9ex;
+}
+
+.usa-input--sm,
+.usa-form .usa-input--sm {
+  max-width: 13ex;
+}
+
+.usa-input--small,
+.usa-form .usa-input--small {
+  max-width: 13ex;
+}
+
+.usa-input--md,
+.usa-form .usa-input--md {
+  max-width: 20ex;
+}
+
+.usa-input--medium,
+.usa-form .usa-input--medium {
+  max-width: 20ex;
+}
+
+.usa-input--lg,
+.usa-form .usa-input--lg {
+  max-width: 30ex;
+}
+
+.usa-input--xl,
+.usa-form .usa-input--xl {
+  max-width: 40ex;
+}
+
+.usa-input--2xl,
+.usa-form .usa-input--2xl {
+  max-width: 50ex;
+}
+
+.usa-input--error {
+  border-width: 0.25rem;
+  border-color: #b50909;
+  border-style: solid;
+  padding-top: calc(0.5rem - 0.25rem);
+  padding-bottom: calc(0.5rem - 0.25rem);
+}
+
+.usa-input--success {
+  border-width: 0.25rem;
+  border-color: #00a91c;
+  border-style: solid;
+  padding-top: calc(0.5rem - 0.25rem);
+  padding-bottom: calc(0.5rem - 0.25rem);
+}
+
+.usa-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.usa-legend {
+  font-family: Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.3;
+  display: block;
+  font-weight: normal;
+  margin-top: 1.5rem;
+  max-width: 30rem;
+}
+
+.usa-legend--large {
+  font-size: 2.13rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.usa-input-list {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+.usa-input-list li {
+  line-height: 1.3;
+}
+
+.usa-prose .usa-input-list {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+.usa-prose .usa-input-list li {
+  line-height: 1.3;
+}
+
+.usa-checkbox {
+  background: white;
+}
+
+.usa-checkbox__label {
+  color: #1b1b1b;
+}
+.usa-checkbox__label::before {
+  background: white;
+  box-shadow: 0 0 0 2px #1b1b1b;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__label::before {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+.usa-checkbox__input:checked + [class*=__label]::before {
+  background-color: #005ea2;
+  box-shadow: 0 0 0 2px #005ea2;
+}
+.usa-checkbox__input:disabled + [class*=__label], .usa-checkbox__input[aria-disabled=true] + [class*=__label] {
+  color: #757575;
+  cursor: not-allowed;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input:disabled + [class*=__label], .usa-checkbox__input[aria-disabled=true] + [class*=__label] {
+    color: GrayText;
+  }
+}
+.usa-checkbox__input:disabled + [class*=__label]::before, .usa-checkbox__input[aria-disabled=true] + [class*=__label]::before {
+  background-color: white;
+  box-shadow: 0 0 0 2px #757575;
+}
+.usa-checkbox__input--tile + [class*=__label] {
+  background-color: white;
+  border: 2px solid #c9c9c9;
+  color: #1b1b1b;
+}
+.usa-checkbox__input--tile:checked + [class*=__label] {
+  background-color: rgba(0, 94, 162, 0.1);
+  border-color: #005ea2;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input--tile:checked + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.usa-checkbox__input--tile:disabled + [class*=__label], .usa-checkbox__input--tile[aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.usa-checkbox__input--tile:disabled:checked + [class*=__label], .usa-checkbox__input--tile:disabled:indeterminate + [class*=__label], .usa-checkbox__input--tile:disabled[data-indeterminate] + [class*=__label], .usa-checkbox__input--tile[aria-disabled=true]:checked + [class*=__label], .usa-checkbox__input--tile[aria-disabled=true]:indeterminate + [class*=__label], .usa-checkbox__input--tile[aria-disabled=true][data-indeterminate] + [class*=__label] {
+  background-color: white;
+}
+
+.usa-checkbox__input:indeterminate + [class*=__label]::before, .usa-checkbox__input[data-indeterminate] + [class*=__label]::before {
+  background-image: url("./img/checkbox-indeterminate.svg"), linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+  background-color: #005ea2;
+  box-shadow: 0 0 0 2px #005ea2;
+  background-position: center center;
+  background-size: 0.75rem auto;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input:indeterminate + [class*=__label]::before, .usa-checkbox__input[data-indeterminate] + [class*=__label]::before {
+    background-image: url("./img/checkbox-indeterminate-alt.svg"), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-color: SelectedItem;
+  }
+}
+.usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+  box-shadow: 0 0 0 2px #757575;
+}
+.usa-checkbox__input:indeterminate:disabled + [class*=__label], .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label], .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label], .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.usa-checkbox__input--tile:indeterminate + [class*=__label], .usa-checkbox__input--tile[data-indeterminate] + [class*=__label] {
+  background-color: rgba(0, 94, 162, 0.1);
+  border-color: #005ea2;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input--tile:indeterminate + [class*=__label], .usa-checkbox__input--tile[data-indeterminate] + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.usa-checkbox__input:checked + [class*=__label]::before, .usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before {
+  background-image: url("./img/correct8.svg"), linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input:checked + [class*=__label]::before, .usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before {
+    background-image: url("./img/correct8-alt.svg"), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+  }
+}
+.usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before, .usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+  background-color: #757575;
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before, .usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+    background-color: GrayText;
+  }
+}
+
+.usa-checkbox__input {
+  position: absolute;
+  left: -999em;
+  right: auto;
+}
+.usa-checkbox__input:focus + [class*=__label]::before {
+  outline: 0.25rem solid #2491ff;
+  outline-offset: 0.25rem;
+}
+.usa-checkbox__input--tile + [class*=__label] {
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  display: inherit;
+}
+.usa-checkbox__input--tile + [class*=__label]::before {
+  left: 0.5rem;
+}
+
+.usa-checkbox__input:checked + [class*=__label]::before {
+  background-position: center center;
+  background-size: 0.75rem auto;
+}
+@media print {
+  .usa-checkbox__input:checked + [class*=__label]::before {
+    background-image: none;
+    background-color: white;
+    content: "✔";
+    text-align: center;
+  }
+}
+@media (forced-colors: active) {
+  .usa-checkbox__input:checked + [class*=__label]::before {
+    background-color: SelectedItem;
+  }
+}
+
+.usa-checkbox__label {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  margin-top: 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.usa-checkbox__label::before {
+  content: " ";
+  display: block;
+  left: 0;
+  margin-left: 2px;
+  margin-top: 0.064rem;
+  position: absolute;
+}
+
+.usa-checkbox__label::before {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 2px;
+}
+
+.usa-checkbox__label-description {
+  display: block;
+  font-size: 0.93rem;
+  margin-top: 0.5rem;
+}
+
+/*
+.checkbox-tests {
+  @include set-text-and-bg("green-80");
+  @include checkbox-colors("green-80", "green-warm-10v");
+  padding: units(2);
+  border-radius: radius("md");
+}
+*/
+.usa-radio {
+  background: white;
+}
+
+.usa-radio__label {
+  color: #1b1b1b;
+}
+.usa-radio__label::before {
+  background: white;
+  box-shadow: 0 0 0 2px #1b1b1b;
+}
+@media (forced-colors: active) {
+  .usa-radio__label::before {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+.usa-radio__input:checked + [class*=__label]::before {
+  background-color: #005ea2;
+  box-shadow: 0 0 0 2px #005ea2;
+}
+.usa-radio__input:disabled + [class*=__label], .usa-radio__input[aria-disabled=true] + [class*=__label] {
+  color: #757575;
+  cursor: not-allowed;
+}
+@media (forced-colors: active) {
+  .usa-radio__input:disabled + [class*=__label], .usa-radio__input[aria-disabled=true] + [class*=__label] {
+    color: GrayText;
+  }
+}
+.usa-radio__input:disabled + [class*=__label]::before, .usa-radio__input[aria-disabled=true] + [class*=__label]::before {
+  background-color: white;
+  box-shadow: 0 0 0 2px #757575;
+}
+.usa-radio__input--tile + [class*=__label] {
+  background-color: white;
+  border: 2px solid #c9c9c9;
+  color: #1b1b1b;
+}
+.usa-radio__input--tile:checked + [class*=__label] {
+  background-color: rgba(0, 94, 162, 0.1);
+  border-color: #005ea2;
+}
+@media (forced-colors: active) {
+  .usa-radio__input--tile:checked + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.usa-radio__input--tile:disabled + [class*=__label], .usa-radio__input--tile[aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.usa-radio__input--tile:disabled:checked + [class*=__label], .usa-radio__input--tile:disabled:indeterminate + [class*=__label], .usa-radio__input--tile:disabled[data-indeterminate] + [class*=__label], .usa-radio__input--tile[aria-disabled=true]:checked + [class*=__label], .usa-radio__input--tile[aria-disabled=true]:indeterminate + [class*=__label], .usa-radio__input--tile[aria-disabled=true][data-indeterminate] + [class*=__label] {
+  background-color: white;
+}
+
+.usa-radio__input:checked + [class*=__label]::before {
+  box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px white;
+}
+@media (forced-colors: active) {
+  .usa-radio__input:checked + [class*=__label]::before {
+    background-color: ButtonText;
+  }
+}
+.usa-radio__input:checked:disabled + [class*=__label]::before, .usa-radio__input:checked[aria-disabled=true] + [class*=__label]::before {
+  background-color: #757575;
+  box-shadow: 0 0 0 2px #757575, inset 0 0 0 2px white;
+}
+@media (forced-colors: active) {
+  .usa-radio__input:checked:disabled + [class*=__label]::before, .usa-radio__input:checked[aria-disabled=true] + [class*=__label]::before {
+    background-color: GrayText;
+  }
+}
+
+.usa-radio__input {
+  position: absolute;
+  left: -999em;
+  right: auto;
+}
+.usa-radio__input:focus + [class*=__label]::before {
+  outline: 0.25rem solid #2491ff;
+  outline-offset: 0.25rem;
+}
+.usa-radio__input--tile + [class*=__label] {
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  display: inherit;
+}
+.usa-radio__input--tile + [class*=__label]::before {
+  left: 0.5rem;
+}
+
+@media print {
+  .usa-radio__input:checked + [class*=__label]::before {
+    box-shadow: inset 0 0 0 2px white, inset 0 0 0 1rem #005ea2, 0 0 0 2px #005ea2;
+  }
+}
+
+.usa-radio__label {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  margin-top: 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.usa-radio__label::before {
+  content: " ";
+  display: block;
+  left: 0;
+  margin-left: 2px;
+  margin-top: 0.064rem;
+  position: absolute;
+}
+
+.usa-radio__label::before {
+  height: 1.25rem;
+  border-radius: 99rem;
+  width: 1.25rem;
+}
+
+.usa-radio__label-description {
+  display: block;
+  font-size: 0.93rem;
+  margin-top: 0.5rem;
+}
+
+/*
+.radio-tests {
+  @include set-text-and-bg("green-80");
+  @include radio-colors("green-80", "green-warm-10v");
+  padding: units(2);
+  border-radius: radius("md");
+}
+*/
+.dark .usa-checkbox {
+  background: #1b1b1b;
+}
+.dark .usa-checkbox__label {
+  color: white;
+}
+.dark .usa-checkbox__label::before {
+  background: #1b1b1b;
+  box-shadow: 0 0 0 2px white;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__label::before {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+.dark .usa-checkbox__input:checked + [class*=__label]::before {
+  background-color: #dfe1e2;
+  box-shadow: 0 0 0 2px #dfe1e2;
+}
+.dark .usa-checkbox__input:disabled + [class*=__label], .dark .usa-checkbox__input[aria-disabled=true] + [class*=__label] {
+  color: #757575;
+  cursor: not-allowed;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input:disabled + [class*=__label], .dark .usa-checkbox__input[aria-disabled=true] + [class*=__label] {
+    color: GrayText;
+  }
+}
+.dark .usa-checkbox__input:disabled + [class*=__label]::before, .dark .usa-checkbox__input[aria-disabled=true] + [class*=__label]::before {
+  background-color: #1b1b1b;
+  box-shadow: 0 0 0 2px #757575;
+}
+.dark .usa-checkbox__input--tile + [class*=__label] {
+  background-color: #1b1b1b;
+  border: 2px solid #c9c9c9;
+  color: white;
+}
+.dark .usa-checkbox__input--tile:checked + [class*=__label] {
+  background-color: rgba(223, 225, 226, 0.1);
+  border-color: #dfe1e2;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input--tile:checked + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.dark .usa-checkbox__input--tile:disabled + [class*=__label], .dark .usa-checkbox__input--tile[aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.dark .usa-checkbox__input--tile:disabled:checked + [class*=__label], .dark .usa-checkbox__input--tile:disabled:indeterminate + [class*=__label], .dark .usa-checkbox__input--tile:disabled[data-indeterminate] + [class*=__label], .dark .usa-checkbox__input--tile[aria-disabled=true]:checked + [class*=__label], .dark .usa-checkbox__input--tile[aria-disabled=true]:indeterminate + [class*=__label], .dark .usa-checkbox__input--tile[aria-disabled=true][data-indeterminate] + [class*=__label] {
+  background-color: #1b1b1b;
+}
+.dark .usa-checkbox__input:indeterminate + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate] + [class*=__label]::before {
+  background-image: url("./img/checkbox-indeterminate-alt.svg"), linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+  background-color: #dfe1e2;
+  box-shadow: 0 0 0 2px #dfe1e2;
+  background-position: center center;
+  background-size: 0.75rem auto;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input:indeterminate + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate] + [class*=__label]::before {
+    background-image: url("./img/checkbox-indeterminate-alt.svg"), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-color: SelectedItem;
+  }
+}
+.dark .usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .dark .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+  box-shadow: 0 0 0 2px #757575;
+}
+.dark .usa-checkbox__input:indeterminate:disabled + [class*=__label], .dark .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label], .dark .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label], .dark .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.dark .usa-checkbox__input--tile:indeterminate + [class*=__label], .dark .usa-checkbox__input--tile[data-indeterminate] + [class*=__label] {
+  background-color: rgba(223, 225, 226, 0.1);
+  border-color: #dfe1e2;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input--tile:indeterminate + [class*=__label], .dark .usa-checkbox__input--tile[data-indeterminate] + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.dark .usa-checkbox__input:checked + [class*=__label]::before, .dark .usa-checkbox__input:checked:disabled + [class*=__label]::before, .dark .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before {
+  background-image: url("./img/correct8-alt.svg"), linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input:checked + [class*=__label]::before, .dark .usa-checkbox__input:checked:disabled + [class*=__label]::before, .dark .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before {
+    background-image: url("./img/correct8-alt.svg"), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+  }
+}
+.dark .usa-checkbox__input:checked:disabled + [class*=__label]::before, .dark .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before, .dark .usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .dark .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+  background-color: #757575;
+}
+@media (forced-colors: active) {
+  .dark .usa-checkbox__input:checked:disabled + [class*=__label]::before, .dark .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before, .dark .usa-checkbox__input:indeterminate:disabled + [class*=__label]::before, .dark .usa-checkbox__input:indeterminate[aria-disabled=true] + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate]:disabled + [class*=__label]::before, .dark .usa-checkbox__input[data-indeterminate][aria-disabled=true] + [class*=__label]::before {
+    background-color: GrayText;
+  }
+}
+.dark .usa-radio {
+  background: #1b1b1b;
+}
+.dark .usa-radio__label {
+  color: white;
+}
+.dark .usa-radio__label::before {
+  background: #1b1b1b;
+  box-shadow: 0 0 0 2px white;
+}
+@media (forced-colors: active) {
+  .dark .usa-radio__label::before {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+.dark .usa-radio__input:checked + [class*=__label]::before {
+  background-color: #dfe1e2;
+  box-shadow: 0 0 0 2px #dfe1e2;
+}
+.dark .usa-radio__input:disabled + [class*=__label], .dark .usa-radio__input[aria-disabled=true] + [class*=__label] {
+  color: #757575;
+  cursor: not-allowed;
+}
+@media (forced-colors: active) {
+  .dark .usa-radio__input:disabled + [class*=__label], .dark .usa-radio__input[aria-disabled=true] + [class*=__label] {
+    color: GrayText;
+  }
+}
+.dark .usa-radio__input:disabled + [class*=__label]::before, .dark .usa-radio__input[aria-disabled=true] + [class*=__label]::before {
+  background-color: #1b1b1b;
+  box-shadow: 0 0 0 2px #757575;
+}
+.dark .usa-radio__input--tile + [class*=__label] {
+  background-color: #1b1b1b;
+  border: 2px solid #c9c9c9;
+  color: white;
+}
+.dark .usa-radio__input--tile:checked + [class*=__label] {
+  background-color: rgba(223, 225, 226, 0.1);
+  border-color: #dfe1e2;
+}
+@media (forced-colors: active) {
+  .dark .usa-radio__input--tile:checked + [class*=__label] {
+    border: ButtonText solid 0.25rem;
+  }
+}
+.dark .usa-radio__input--tile:disabled + [class*=__label], .dark .usa-radio__input--tile[aria-disabled=true] + [class*=__label] {
+  border-color: #e6e6e6;
+}
+.dark .usa-radio__input--tile:disabled:checked + [class*=__label], .dark .usa-radio__input--tile:disabled:indeterminate + [class*=__label], .dark .usa-radio__input--tile:disabled[data-indeterminate] + [class*=__label], .dark .usa-radio__input--tile[aria-disabled=true]:checked + [class*=__label], .dark .usa-radio__input--tile[aria-disabled=true]:indeterminate + [class*=__label], .dark .usa-radio__input--tile[aria-disabled=true][data-indeterminate] + [class*=__label] {
+  background-color: #1b1b1b;
+}
+.dark .usa-radio__input:checked + [class*=__label]::before {
+  box-shadow: 0 0 0 2px #dfe1e2, inset 0 0 0 2px #1b1b1b;
+}
+@media (forced-colors: active) {
+  .dark .usa-radio__input:checked + [class*=__label]::before {
+    background-color: ButtonText;
+  }
+}
+.dark .usa-radio__input:checked:disabled + [class*=__label]::before, .dark .usa-radio__input:checked[aria-disabled=true] + [class*=__label]::before {
+  background-color: #757575;
+  box-shadow: 0 0 0 2px #757575, inset 0 0 0 2px #1b1b1b;
+}
+@media (forced-colors: active) {
+  .dark .usa-radio__input:checked:disabled + [class*=__label]::before, .dark .usa-radio__input:checked[aria-disabled=true] + [class*=__label]::before {
+    background-color: GrayText;
+  }
+}
