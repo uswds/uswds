@@ -11,7 +11,7 @@
   },
   "https": {
     "heading": "Secure .gov websites use HTTPS",
-    "pretext": "A <strong>lock</strong>",
-    "posttext": "or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites."
+    "pretext": "<strong>https://</strong>",
+    "posttext": "means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites."
   }
 }
