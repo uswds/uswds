@@ -8,14 +8,16 @@ The `Visual review` workflow provides base/candidate screenshots of representati
 
 ## Review and cutover
 
-1. Review and merge the automation PRs manually in their documented order. Until cutover, CircleCI remains the required provider and runs alongside Actions.
+1. Review and merge the verification and release automation PRs manually in their documented order. Keep the provider-cleanup PR unmerged until step 4. Until cutover, CircleCI remains the required provider and runs alongside Actions.
 2. Compare both providers on code, styles, lockfile, and documentation PRs. Confirm failure and skip handling, accessibility failures, and packed-package failures are visible.
-3. In every applicable branch protection/ruleset, add `CI required` before removing `circle-uswds`. Preserve the four allowed mergers, Ryan/Sam-only review exceptions, signatures, and protected history. Do not enable auto-merge or grant a bot merge access.
-4. Disable the CircleCI integration after the new required check is enforced. Remove `.circleci/config.yml` in a follow-up reviewed change. The old provider's Snyk orb retires with it.
+3. In every applicable branch protection/ruleset, add `CI required` from GitHub Actions before removing `circle-uswds`. Keep `PR title` required. Preserve strict branch freshness, the four allowed mergers, Ryan/Sam-only review exceptions, signatures, and protected history. Do not enable auto-merge or grant a bot merge access. Read back every affected rule to confirm the change.
+4. After the new required check is enforced, review and merge the provider-cleanup PR, then disconnect CircleCI. That PR removes `.circleci/config.yml`, its Snyk orb, and the unused local `snyk` dependency, and switches the README badge to Actions. The provider-cleanup PR may lack a CircleCI result because it removes that provider's configuration; this is why the required-check switch comes first.
 5. Review unique actionable findings from the external Snyk integrations, then disconnect duplicates. Keep CodeQL, Dependabot, secret scanning, and push protection. These external settings are not changed by this PR.
 6. Change the repository's default workflow-token permission to read-only after confirming explicit write permissions on remaining maintenance workflows. No workflow should approve or merge PRs. Version PR creation uses GitHub's combined create-and-approve setting, as described in [release setup](releasing.md#one-time-activation-after-review); enabling that setting does not grant protected-branch merge or review-bypass access. Code here requests only the permissions each workflow needs.
 
 The custom signature workflow stays until maintainers decide whether requiring every PR commit to be verified is still intended. Native signed-merge enforcement alone is a different policy.
+
+The provider-cleanup PR does not disconnect the external Snyk Code or Open Source GitHub integrations. Review their unique findings before changing those services. Removing the local CLI does not dismiss existing alerts.
 
 ## Dependency and maintenance policy
 

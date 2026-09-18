@@ -4,7 +4,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 ## Runtime
 
-- **Node**: v24 (`.nvmrc`). CI: `cimg/node:24.16.0-browsers`.
+- **Node**: v24 (`.nvmrc`). CI: GitHub Actions with npm 11.18.0.
 - **Build**: Gulp 4 (`gulpfile.js`, `tasks/*.js`). Not direct npm scripts. Vite is only for web-components CDN banner (`vite.config.banner.cdn.js`); main lib uses Gulp/Browserify/Uglify. Do not assume Vite builds the whole project.
 - **SCSS**: `sass-embedded` (modern API). `@uswds/compile` is consumer-side.
 
@@ -53,7 +53,7 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 
 Follow the [merge procedure in CONTRIBUTING.md](CONTRIBUTING.md#merging-pull-requests) for all PR merges, including squash-only merging, CodeRabbit follow-up, final requester review, and explicit authorization for any protection bypass.
 
-- **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
+- **Default Branch**: `develop` (not `main`); PRs target `develop`. Publication requires an authorized manual run of `release.yml` from develop. See `docs/releasing.md`.
 - **PR titles**: Follow [Conventional Commits for PR titles](CONTRIBUTING.md#pull-request-titles); the title becomes the squash commit title. Do not add `USWDS -`. Working commit messages need not follow this format. Run `node --test .github/scripts/check-pr-title.test.mjs` when changing title validation.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); unsigned rejected by `verify-commit-signatures.yml`. Sign before commit.
 - **`COMMUNITY.md`**: Do not edit unless requested.
