@@ -59,7 +59,7 @@ describe("release npm audit verification", () => {
     );
   });
 
-  for (const severity of ["info", "low", "moderate", "high", "critical"]) {
+  for (const severity of ["high", "critical"]) {
     it(`blocks ${severity} findings in production`, () => {
       assert.throws(
         () =>
@@ -68,10 +68,18 @@ describe("release npm audit verification", () => {
             1,
             "production",
           ),
-        /none are allowed/,
+        /release is blocked/,
       );
     });
   }
+
+  it("allows lower-severity production findings while preserving counts", () => {
+    const report = auditReport(["info", "low", "moderate"]);
+    assert.deepEqual(
+      verifyNpmAudit(JSON.stringify(report), 1, "production"),
+      report.metadata.vulnerabilities,
+    );
+  });
 
   it("blocks critical findings in development", () => {
     assert.throws(

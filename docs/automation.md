@@ -13,7 +13,7 @@ The `Visual review` workflow provides base/candidate screenshots of representati
 3. In every applicable branch protection/ruleset, add `CI required` before removing `circle-uswds`. Preserve the four allowed mergers, Ryan/Sam-only review exceptions, signatures, and protected history. Do not enable auto-merge or grant a bot merge access.
 4. Disable the CircleCI integration after the new required check is enforced. Remove `.circleci/config.yml` in a follow-up reviewed change. The old provider's Snyk orb retires with it.
 5. Review unique actionable findings from the external Snyk integrations, then disconnect duplicates. Keep CodeQL, Dependabot, secret scanning, and push protection. These external settings are not changed by this PR.
-6. Change the repository's default workflow-token permission to read-only after confirming explicit write permissions on remaining maintenance workflows. Disable workflow approval of PRs. Code here requests only the permissions each workflow needs.
+6. Change the repository's default workflow-token permission to read-only after confirming explicit write permissions on remaining maintenance workflows. No workflow should approve or merge PRs. Version PR creation uses GitHub's combined create-and-approve setting, as described in [release setup](releasing.md#one-time-activation-after-review); enabling that setting does not grant protected-branch merge or review-bypass access. Code here requests only the permissions each workflow needs.
 
 The custom signature workflow stays until maintainers decide whether requiring every PR commit to be verified is still intended. Native signed-merge enforcement alone is a different policy.
 

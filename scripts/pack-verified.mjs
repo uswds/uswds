@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
   mkdirSync,
+  existsSync,
   readFileSync,
   renameSync,
   rmSync,
@@ -46,3 +47,24 @@ writeFileSync(
   `${manifest.sha256}  package.tgz\n`,
 );
 console.log(JSON.stringify(manifest, null, 2));
+
+const changelog = existsSync("CHANGELOG.md")
+  ? readFileSync("CHANGELOG.md", "utf8")
+  : "";
+const heading = `## ${manifest.version}`;
+const section = changelog
+  .split("\n")
+  .findIndex((line) => line.trim() === heading);
+const lines = changelog.split("\n");
+let notes = [];
+if (section >= 0) {
+  for (const line of lines.slice(section + 1)) {
+    if (line.startsWith("## ")) break;
+    notes.push(line);
+  }
+}
+writeFileSync(
+  join(directory, "notes.md"),
+  (notes.join("\n").trim() || `USWDS ${manifest.version}`) +
+    `\n\nSource commit: ${manifest.source}\n`,
+);

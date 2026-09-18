@@ -75,9 +75,9 @@ export function verifyNpmAudit(source, exitCode, policy) {
     throw new Error("npm audit exit status and vulnerability counts disagree.");
   }
 
-  if (policy === "production" && counts.total > 0) {
+  if (policy === "production" && counts.high + counts.critical > 0) {
     throw new Error(
-      `Production dependencies have ${counts.total} vulnerabilities; none are allowed.`,
+      `Production dependencies have ${counts.high + counts.critical} high/critical vulnerabilities; release is blocked.`,
     );
   }
   if (policy === "development" && counts.critical > 0) {

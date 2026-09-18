@@ -3,12 +3,19 @@ name: PR title
 on:
   pull_request_target:
     types: [opened, edited, reopened, synchronize, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: Generated version PR number
+        required: true
+        type: string
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
-  group: pr-title-${{ github.event.pull_request.number }}
+  group: pr-title-${{ github.event.pull_request.number || inputs.pull_request_number }}
   cancel-in-progress: true
 
 jobs:
@@ -20,12 +27,37 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # Enforce the existing policy, never code proposed by this PR.
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.event.pull_request.base.sha || 'develop' }}
           persist-credentials: false
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "24"
       - name: Test title validation
         run: node --test .github/scripts/check-pr-title.test.mjs
+      - name: Load generated PR metadata
+        if: github.event_name == 'workflow_dispatch'
+        id: event
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        env:
+          PR_NUMBER: ${{ inputs.pull_request_number }}
+        with:
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            if (!/^[1-9]\d*$/.test(process.env.PR_NUMBER)) throw new Error('Invalid PR number');
+            const { data: pr } = await github.rest.pulls.get({
+              ...context.repo, pull_number: Number(process.env.PR_NUMBER)
+            });
+            if (pr.state !== 'open' || pr.head.sha !== context.sha ||
+                pr.head.repo.full_name !== 'uswds/uswds' ||
+                pr.head.ref !== 'automation/version-packages' ||
+                pr.base.ref !== 'develop') {
+              throw new Error('Dispatch must match the open generated version PR and its current head');
+            }
+            const eventPath = path.join(process.env.RUNNER_TEMP, 'version-pr-event.json');
+            fs.writeFileSync(eventPath, JSON.stringify({pull_request: pr}));
+            core.setOutput('path', eventPath);
       - name: Validate PR title
+        env:
+          GITHUB_EVENT_PATH: ${{ steps.event.outputs.path || github.event_path }}
         run: node .github/scripts/check-pr-title.mjs
