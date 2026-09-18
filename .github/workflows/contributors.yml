@@ -3,11 +3,10 @@ name: Update Contributors Information
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "0 22 1 * *"
 
 # Allow only one contributors-update run at a time.
-# If a second push to develop arrives while a run is in flight, the older
-# run is cancelled so we always work from the most recent develop SHA.
+# Superseded scheduled/manual runs are canceled.
 concurrency:
   group: contributors-update
   cancel-in-progress: true
@@ -177,7 +176,7 @@ jobs:
           commit-message: "docs: update contributors list and add role=presentation to table"
           title: "docs: update contributors information"
           body: |
-            This PR was opened automatically by the **Update Contributors Information** workflow after a push to `develop`.
+            This PR was opened automatically by the **Update Contributors Information** workflow on its monthly schedule or by manual request.
 
             **What changed**
             - Refreshed the contributors table in `COMMUNITY.md` from the GitHub `/contributors` API endpoint (bots excluded).

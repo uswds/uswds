@@ -1,9 +1,23 @@
 {
-    "replacementPatterns": [
-        {
-            "pattern": "^/",
-            "replacement": "{{BASEURL}}/"
-        }
+  "replacementPatterns": [
+    {
+      "pattern": "^/",
+      "replacement": "https://designsystem.digital.gov/"
+    }
   ],
+  "ignorePatterns": [
+    {
+      "pattern": "^link$"
+    },
+    {
+      "pattern": "^https?://(?:localhost|127\\.0\\.0\\.1)(?::|/|$)"
+    },
+    {
+      "pattern": "^https?://(?:www\\.)?example\\.(?:com|org)(?:/|$)"
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 3,
+  "timeout": "20s",
   "aliveStatusCodes": [200, 206, 403]
 }

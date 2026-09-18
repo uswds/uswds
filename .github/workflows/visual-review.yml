@@ -1,0 +1,52 @@
+name: Visual review
+on:
+  pull_request:
+    paths:
+      - "packages/**"
+      - "src/**"
+      - ".storybook/**"
+      - "package*.json"
+      - "tasks/**"
+      - "vite*.js"
+      - "scripts/visual-review.mjs"
+      - ".github/workflows/visual-review.yml"
+permissions:
+  contents: read
+concurrency:
+  group: visual-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      HEAD_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Build candidate preview
+        run: npm run build && npm run build:storybook
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: visual-baseline
+          persist-credentials: false
+      - name: Build base preview
+        working-directory: visual-baseline
+        run: |
+          npm ci --ignore-scripts --no-audit --fund=false
+          npm run build
+          npm run build:storybook
+      - name: Capture comparison
+        run: node scripts/visual-review.mjs visual-baseline/_site _site
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: visual-review-${{ github.event.pull_request.number }}
+          path: visual-review/
+          if-no-files-found: error
+          retention-days: 14
+      - run: echo 'Download the visual-review artifact and open index.html. Capture success does not approve visual changes.' >> "$GITHUB_STEP_SUMMARY"

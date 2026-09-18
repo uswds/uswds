@@ -74,13 +74,16 @@
     "watch": "gulp watch",
     "fix:icons": "npx svgo --folder ./packages/usa-icon/src/img/uswds-icons -q && npx svgo --folder ./packages/usa-icon/src/img/usa-icons-bg -q",
     "prettier": "npm run prettier:html && npm run prettier:js && npm run prettier:sass",
-    "prettier:check": "npx prettier -c ./packages/**/*.{scss,js}",
+    "prettier:check": "prettier --check \"packages/**/*.{scss,js}\"",
     "prettier:html": "npx prettier --write './html-templates/**/**/*.html' --ignore-path=.prettierignore",
     "prettier:js": "npx prettier --write './packages/**/**/*.js' --ignore-path=.prettierignore",
     "prettier:sass": "npx prettier --write './packages/**/**/*.scss' --ignore-path=.prettierignore",
     "start:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build  -o _site",
-    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
+    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html",
+    "test:quality": "npm run lint:js && gulp test && npm run prettier:check && node --test .github/scripts/*.test.mjs",
+    "ci:pack": "node scripts/pack-verified.mjs",
+    "test:package": "node scripts/package-smoke.mjs"
   },
   "repository": {
     "type": "git",
@@ -106,7 +109,7 @@
     "Geoffrey Queen <geoffrey.queen@gsa.gov>",
     "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
     "Marco Segreto <marco.segreto@gsa.gov>",
-    "Julia Solórzano <julia.solorzano@gsa.gov>",
+    "Julia Sol\u00f3rzano <julia.solorzano@gsa.gov>",
     "Atul Varma <atul.varma@gsa.gov>",
     "Dan O. Williams <daniel.williams@gsa.gov>"
   ],
@@ -167,6 +170,7 @@
     "magic-string": "^0.30.21",
     "mocha": "11.8.0",
     "mq-polyfill": "1.1.8",
+    "playwright": "1.61.0",
     "postcss": "8.5.25",
     "postcss-csso": "6.0.1",
     "postcss-discard-comments": "8.0.2",
