@@ -510,6 +510,14 @@ We’ve designed the design system to support older and newer browsers through [
 
 As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and removed the remaining polyfills in [USWDS 3.10.0](https://github.com/uswds/uswds/releases/tag/v3.10.0).
 
+### Build targets and project testing
+
+The repository's [Browserslist configuration](.browserslistrc) supplies browser targets to compatible build tools. Its `> 2%` query uses the worldwide usage data bundled with `caniuse-lite`; it does not read analytics.usa.gov or your site's analytics. The `last 2 versions` query also adds targets, and `not dead` excludes browsers that Browserslist considers unsupported. See the [Browserslist query documentation](https://github.com/browserslist/browserslist#queries) for how these queries combine. Build targets can change when the underlying browser data is updated and are not a record of manual browser or assistive technology testing.
+
+Plan testing for the people who use your service. Review your own visitor analytics, including browser versions, operating systems, and desktop and mobile usage, alongside USWDS guidance. Record the observation period and the browser and assistive technology combinations you test. Do not assume that a combined browser-family percentage describes every device used to access your service.
+
+If your service needs a browser or device that has problems with USWDS, [open an issue](https://github.com/uswds/uswds/issues/new/choose) with the USWDS version, browser and operating system versions, a reproducible example, and a summary of the affected audience. The support-policy questions about observation periods and mobile versus desktop metrics are tracked in [#5888](https://github.com/uswds/uswds/issues/5888); this build configuration does not define those policy choices.
+
 ## Accessibility
 
 The design system meets [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We work toward meeting the requirements of [WCAG 2.1](https://www.w3.org/TR/WCAG21/).
