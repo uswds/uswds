@@ -314,8 +314,8 @@
       "https://github.com/uswds/uswds/pull/6954",
       "https://github.com/uswds/uswds-site/pull/3312"
     ],
-    "addressed": "Removed obsolete inline padlock instructions from four core Twig variants, web-component fallback, and the site banner. The explanation retains HTTPS and existing official-site safety wording.",
-    "remaining": "Needs normal review, merge, and release. Site component previews follow their pinned library dependency. Fallback lock-icon part is no longer rendered; static lockIcon helper is retained.",
+    "addressed": "Removed obsolete inline padlock instructions from four core Twig variants, ten complete page-template variants using the English and Spanish base caller, web-component fallback, and the site banner. The explanation retains HTTPS and existing official-site safety wording.",
+    "remaining": "Needs normal review, merge, and release classification. Removing the fallback lock-icon part is potentially breaking for consumers that style it; the static lockIcon helper is retained. Site component previews follow their pinned library dependency. Physical assistive-technology testing was not performed.",
     "title": "USWDS - Future Bug: Banner references deprecated lock icon on Chromium browsers",
     "url": "https://github.com/uswds/uswds/issues/5270"
   },

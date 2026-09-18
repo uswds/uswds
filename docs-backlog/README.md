@@ -32,17 +32,17 @@ CI status below is a point-in-time snapshot recorded on September 17, 2026 (Amer
 | [uswds/uswds#6950](https://github.com/uswds/uswds/pull/6950) | `8fff5dbc` | All reported checks passed |
 | [uswds/uswds-site#3311](https://github.com/uswds/uswds-site/pull/3311) | `670443eb` | All reported checks passed |
 | [uswds/uswds#6953](https://github.com/uswds/uswds/pull/6953) | `7a8e7d4a` | All reported checks passed |
-| [uswds/uswds#6954](https://github.com/uswds/uswds/pull/6954) | `e0853204` | Analyze w/compiled uswds: IN_PROGRESS; circle-uswds: IN_PROGRESS |
+| [uswds/uswds#6954](https://github.com/uswds/uswds/pull/6954) | `e0853204` | circle-uswds: IN_PROGRESS |
 | [uswds/uswds#6955](https://github.com/uswds/uswds/pull/6955) | `56eba0c0` | All reported checks passed |
 | [uswds/uswds-site#3312](https://github.com/uswds/uswds-site/pull/3312) | `bf606a8d` | All reported checks passed |
 | [uswds/uswds-site#3313](https://github.com/uswds/uswds-site/pull/3313) | `3c067e24` | All reported checks passed |
 | [uswds/uswds-site#3314](https://github.com/uswds/uswds-site/pull/3314) | `b582dad2` | All reported checks passed |
 | [uswds/uswds-site#3315](https://github.com/uswds/uswds-site/pull/3315) | `67d11f93` | All reported checks passed |
 | [uswds/uswds#6956](https://github.com/uswds/uswds/pull/6956) | `8f4f561c` | All reported checks passed |
-| [uswds/uswds#6951](https://github.com/uswds/uswds/pull/6951) | `daac60ec` | circle-uswds: IN_PROGRESS; CodeRabbit: PENDING |
+| [uswds/uswds#6951](https://github.com/uswds/uswds/pull/6951) | `7b41c596` | Analyze w/compiled uswds: IN_PROGRESS; circle-uswds: IN_PROGRESS |
 | [uswds/uswds#6952](https://github.com/uswds/uswds/pull/6952) | `8305fb92` | All reported checks passed |
-| [uswds/uswds#6957](https://github.com/uswds/uswds/pull/6957) | `4280213f` | circle-uswds: IN_PROGRESS |
-| [uswds/uswds-site#3316](https://github.com/uswds/uswds-site/pull/3316) | `53026fba` | circle-uswds-site: IN_PROGRESS; ci/circleci: build: PENDING |
+| [uswds/uswds#6957](https://github.com/uswds/uswds/pull/6957) | `4280213f` | All reported checks passed |
+| [uswds/uswds-site#3316](https://github.com/uswds/uswds-site/pull/3316) | `53026fba` | All reported checks passed |
 
 ## Focused validation
 
@@ -53,6 +53,8 @@ CI status below is a point-in-time snapshot recorded on September 17, 2026 (Amer
 - Reviewed the wiki runbook against current workflows. Workflow executable content is unchanged, and no release workflow was dispatched.
 - Independently reviewed the changes and checked automated review bodies, including collapsed findings. Corrected valid findings. Physical screen-reader testing was not performed.
 
+Review details: [resolved findings and retained limitations](review-resolutions.md).
+
 Evidence: [component hints and banners](https://github.com/uswds/uswds/tree/1114e96e1b5e684f60fcae8e9346fc9b92f69235/docs-component-guidance), [core error examples](https://github.com/uswds/uswds/tree/200cf83ab98c617a23596a48b1afe0c5f55c3001/docs-form-examples), [site form previews](https://github.com/uswds/uswds/tree/d4ac8fd914f502485b83c17f68fdd2b309c2ac11/docs-site-form-examples).
 
 ## Decisions and external work
@@ -62,6 +64,7 @@ Evidence: [component hints and banners](https://github.com/uswds/uswds/tree/1114
 - **Conduct policy (#6779):** seven active-repository PRs use the exact wording supplied in the issue. Two archived repositories still need a maintenance decision. [Prepared patches](archived-conduct-patches/) leave their archive state unchanged.
 - **Proposed governance and architecture:** the editorial workflow (#6336) and intrinsic-layout ADR (#6516) are complete proposals, not adopted policy. Browser support commitments (#5888), date-hint research acceptance (#6241), and proposal-response expectations (#6178) still need maintainers.
 - **External publishing:** the common accessibility criteria CSV (#6247) needs review and import into the private workbook. The proposal guidance (#6178) includes copy-ready pinned discussion text; it has not been applied to the live discussion.
+- **Banner compatibility (#5270):** the fallback lock-icon styling part is removed. This may affect consumers, so the PR explicitly flags potentially breaking compatibility and leaves release classification for review. The static helper is retained.
 - **Mixed runtime scope:** input-mask feedback, combo-box hint association, form enhancement, checkbox work, and disabled-state regression evidence remain tracked rather than being declared solved by prose.
 - **Pending upstream change (#6445):** released reduced-motion work is documented. Still-open PR #5826 is not described as shipped.
 
@@ -97,7 +100,7 @@ Evidence: [component hints and banners](https://github.com/uswds/uswds/tree/1114
 | [#5709: Disabled States: Phase 2](https://github.com/uswds/uswds/issues/5709) | Partial implementation with explicit remaining work | All six phase-2 target pages distinguish native disabled, aria-disabled, readonly and appropriate submission guidance. Date-picker procedures and differing native/ARIA submission behavior documented. | No new physical keyboard/assistive-technology matrix claimed. Phase-3 component guidance remains in uswds-site#2248. | [uswds-site#3316](https://github.com/uswds/uswds-site/pull/3316) |
 | [#5484: Refactor Input Mask: Add JSDocs comments](https://github.com/uswds/uswds/issues/5484) | Partial implementation with explicit remaining work | Current input-mask functions and behavior methods document arguments, return values and side effects. Existing rewrite PR #5227 preserved. | Private Google Doc acceptance checklist could not be reviewed. Rewrite-specific functions remain within PR #5227. | [uswds#6951](https://github.com/uswds/uswds/pull/6951) |
 | [#5473: Review technical information on maturity model page](https://github.com/uswds/uswds/issues/5473) | Documentation scope implemented in PRs | Current contribution links; Descriptive headings with legacy anchors; Current installation and customization links; Implementation and assessment checks; Updated resource section and HTML worksheet. | Technical and editorial review; Private historical Google Docs draft not reconciled or modified. | [uswds-site#3313](https://github.com/uswds/uswds-site/pull/3313) |
-| [#5270: USWDS - Future Bug: Banner references deprecated lock icon on Chromium browsers](https://github.com/uswds/uswds/issues/5270) | Documentation scope implemented in PRs | Removed obsolete inline padlock instructions from four core Twig variants, web-component fallback, and the site banner. The explanation retains HTTPS and existing official-site safety wording. | Needs normal review, merge, and release. Site component previews follow their pinned library dependency. Fallback lock-icon part is no longer rendered; static lockIcon helper is retained. | [uswds#6954](https://github.com/uswds/uswds/pull/6954), [uswds-site#3312](https://github.com/uswds/uswds-site/pull/3312) |
+| [#5270: USWDS - Future Bug: Banner references deprecated lock icon on Chromium browsers](https://github.com/uswds/uswds/issues/5270) | Documentation scope implemented in PRs | Removed obsolete inline padlock instructions from four core Twig variants, ten complete page-template variants using the English and Spanish base caller, web-component fallback, and the site banner. The explanation retains HTTPS and existing official-site safety wording. | Needs normal review, merge, and release classification. Removing the fallback lock-icon part is potentially breaking for consumers that style it; the static lockIcon helper is retained. Site component previews follow their pinned library dependency. Physical assistive-technology testing was not performed. | [uswds#6954](https://github.com/uswds/uswds/pull/6954), [uswds-site#3312](https://github.com/uswds/uswds-site/pull/3312) |
 | [#5244: USWDS - Input mask: Evaluate hint text](https://github.com/uswds/uswds/issues/5244) | Documentation scope implemented in PRs | Replaced example-only hints for all four input masks with accepted digit counts or letter/number order; added reusable hint guidance. | The input-mask V2 documentation PRs #2073/#1979 remain separate, pending their associated code refactor. | [uswds#6953](https://github.com/uswds/uswds/pull/6953), [uswds-site#3312](https://github.com/uswds/uswds-site/pull/3312) |
 | [#5217: USWDS - Core: Update comment style for SASS functions](https://github.com/uswds/uswds/issues/5217) | Documentation scope implemented in PRs | All ordinary loud comments under core Sass functions now silent. Four parameter-documented functions and nine color functions use SassDoc directly above functions. Corrected radius token description. Contributor guidance explains conventions. | Complete SassDoc metadata generation across all functions was not introduced; no requirement for generated documentation was inferred. | [uswds#6951](https://github.com/uswds/uswds/pull/6951) |
 | [#4504: Add example markup for range limit labels](https://github.com/uswds/uswds/issues/4504) | Documentation scope implemented in PRs | Added complete range endpoint markup with min/max/step, associated hint and decorative endpoint labels; explained generated wrapper, value display and aria-valuetext; refreshed technical references. | Custom scales and screen-reader combinations still need implementation testing. Chrome ArrowRight check verified 50 to 60 and matching aria-valuetext only. | [uswds-site#3312](https://github.com/uswds/uswds-site/pull/3312) |
