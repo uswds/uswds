@@ -4,6 +4,12 @@
   pointer-events: none;
   user-select: none;
 
+  // The overlay scrolls the modal, so it has to keep its pointer events.
+  // Without them iOS can't scroll a modal taller than the viewport.
+  .usa-modal-overlay {
+    pointer-events: auto;
+  }
+
   .usa-modal,
   .usa-modal * {
     pointer-events: auto;
@@ -57,14 +63,6 @@
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-  }
-
-  &[data-force-action="true"] {
-    pointer-events: none;
-
-    * {
-      pointer-events: auto;
-    }
   }
 }
 
