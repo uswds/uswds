@@ -53,17 +53,13 @@ jobs:
       # release-prep.yml; this is a last-minute safety net.
       - name: Check for critical vulnerabilities
         run: |
-          AUDIT_RESULT=$(npm audit --json || true)
-          CRITICAL=$(echo "$AUDIT_RESULT" | jq '.metadata.vulnerabilities.critical // 0')
-
-          if [ "$CRITICAL" -gt 0 ]; then
-            echo "::error::Found $CRITICAL critical vulnerabilities."
-            echo "::error::Please review and fix before publishing."
-            echo "$AUDIT_RESULT" | jq '.vulnerabilities | to_entries[] | select(.value.severity == "critical")'
-            exit 1
-          fi
+          AUDIT_FILE=$(mktemp)
+          AUDIT_STATUS=0
+          npm audit --json --audit-level=info > "$AUDIT_FILE" || AUDIT_STATUS=$?
+          AUDIT_COUNTS=$(node scripts/verify-npm-audit.mjs "$AUDIT_FILE" "$AUDIT_STATUS" development)
 
           echo "✓ No critical vulnerabilities found."
+          echo "$AUDIT_COUNTS" | jq .
 
       # Finds the artifact release-prep.yml uploaded for this version. Sorts
       # by created_at and takes the most recent, in case release-prep was
