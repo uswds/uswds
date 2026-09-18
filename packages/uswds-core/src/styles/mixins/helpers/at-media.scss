@@ -5,8 +5,8 @@
 
 // Mobile-first media query helper
 
-$our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
-$custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
+$our-breakpoints: map.get($system-properties, breakpoints, standard);
+$custom-breakpoints: map.get($system-properties, breakpoints, extended);
 
 @mixin at-media($bp) {
   $quoted-bp: smart-quote($bp);

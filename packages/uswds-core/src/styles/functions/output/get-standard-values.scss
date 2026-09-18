@@ -1,4 +1,5 @@
-@use "../../functions/general/map-deep-get" as *;
+@use "sass:map";
+
 @use "../../properties" as *;
 
 /*
@@ -11,7 +12,7 @@ for a property
 */
 
 @function get-standard-values($property) {
-  @return map-deep-get($system-properties, $property, standard);
+  @return map.get($system-properties, $property, standard);
 }
 
 // @debug get-standard-values("measure");

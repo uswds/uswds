@@ -9,7 +9,7 @@
 @mixin u-outline($value...) {
   $value: unpack($value);
   $important: null;
-  $widths: map-deep-get($system-properties, "outline", standard);
+  $widths: map.get($system-properties, "outline", standard);
   @if has-important($value) {
     $value: remove($value, "!important");
     @if list.length($value) == 1 {
