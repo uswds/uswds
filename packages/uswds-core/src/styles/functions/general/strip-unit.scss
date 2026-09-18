@@ -1,17 +1,14 @@
-/*
-----------------------------------------
-strip-unit()
-----------------------------------------
-Remove the unit of a length
-@author Hugo Giraudel
-@param {Number} $number - Number to remove unit from
-@return {Number} - Unitless number
-----------------------------------------
-*/
+// ----------------------------------------
+// strip-unit()
+// ----------------------------------------
 
 @use "sass:meta";
 @use "sass:math";
 
+/// Remove the unit of a length
+/// @author Hugo Giraudel
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
 @function strip-unit($number) {
   @if meta.type-of($number) == "number" and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));

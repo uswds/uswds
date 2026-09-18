@@ -1,13 +1,11 @@
 @use "sass:string";
 
-/*
-----------------------------------------
-str-replace()
-----------------------------------------
-Replace any substring with another
-string
-----------------------------------------
-*/
+// ----------------------------------------
+// str-replace()
+// ----------------------------------------
+// Replace any substring with another
+// string
+// ----------------------------------------
 
 @function str-replace($string, $search, $replace: "") {
   $index: string.index($string, $search);

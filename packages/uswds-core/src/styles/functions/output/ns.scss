@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-ns()
-----------------------------------------
-Add a namespace of $type if that
-namespace is set to output
-----------------------------------------
-*/
+// ----------------------------------------
+// ns()
+// ----------------------------------------
+// Add a namespace of $type if that
+// namespace is set to output
+// ----------------------------------------
 
 @use "../../settings";
 @use "../../functions/general/map-deep-get" as *;

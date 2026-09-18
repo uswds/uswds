@@ -1,14 +1,12 @@
 @use "../../functions/general/map-deep-get" as *;
 @use "../../properties" as *;
 
-/*
-----------------------------------------
-get-standard-values()
-----------------------------------------
-Gets a map of USWDS standard values
-for a property
-----------------------------------------
-*/
+// ----------------------------------------
+// get-standard-values()
+// ----------------------------------------
+// Gets a map of USWDS standard values
+// for a property
+// ----------------------------------------
 
 @function get-standard-values($property) {
   @return map-deep-get($system-properties, $property, standard);

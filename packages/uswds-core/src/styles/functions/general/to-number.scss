@@ -1,13 +1,6 @@
-/*
-----------------------------------------
-to-number()
-----------------------------------------
-Casts a string into a number
-----------------------------------------
-@param {String | Number} $value - Value to be parsed
-@return {Number}
-----------------------------------------
-*/
+// ----------------------------------------
+// to-number()
+// ----------------------------------------
 
 @use "sass:meta";
 @use "sass:map";
@@ -15,6 +8,9 @@ Casts a string into a number
 @use "sass:string";
 @use "sass:list";
 
+/// Casts a string into a number
+/// @param {String | Number} $value - Value to be parsed
+/// @return {Number}
 @function to-number($value) {
   @if meta.type-of($value) == "number" {
     @return $value;

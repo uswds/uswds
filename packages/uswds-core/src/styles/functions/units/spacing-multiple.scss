@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-spacing-multiple()
-----------------------------------------
-Converts a spacing unit multiple into
-the desired final units (currently rem)
-----------------------------------------
-*/
+// ----------------------------------------
+// spacing-multiple()
+// ----------------------------------------
+// Converts a spacing unit multiple into
+// the desired final units (currently rem)
+// ----------------------------------------
 
 @use "sass:math";
 @use "../../tokens/units/grid-base";

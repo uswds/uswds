@@ -2,18 +2,16 @@
 @use "sass:list";
 @use "../../functions/general";
 
-/*
-----------------------------------------
-columns()
-----------------------------------------
-outputs a grid-col number based on
-the number of desired columns in the
-12-column grid
-
-Ex: columns(2) --> 6
-    grid-col(columns(2))
-----------------------------------------
-*/
+// ----------------------------------------
+// columns()
+// ----------------------------------------
+// outputs a grid-col number based on
+// the number of desired columns in the
+// 12-column grid
+//
+// Ex: columns(2) --> 6
+//     grid-col(columns(2))
+// ----------------------------------------
 
 @function columns($number) {
   $options: "auto", "fill";

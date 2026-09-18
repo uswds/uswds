@@ -1,16 +1,14 @@
-/*
-----------------------------------------
-wcag-magic-number()
-----------------------------------------
-Returns the magic number of a specific
-wcag grade:
-"AA"
-"AA-Large"
-"AAA"
-wcag-magic-number("AA")
-> 50
-----------------------------------------
-*/
+// ----------------------------------------
+// wcag-magic-number()
+// ----------------------------------------
+// Returns the magic number of a specific
+// wcag grade:
+// "AA"
+// "AA-Large"
+// "AAA"
+// wcag-magic-number("AA")
+// > 50
+// ----------------------------------------
 
 @use "sass:map";
 @use "../../variables/wcag-magic-numbers" as *;

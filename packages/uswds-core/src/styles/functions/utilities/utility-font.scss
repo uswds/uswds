@@ -6,19 +6,17 @@
 @use "../../variables/project-cap-heights" as *;
 @use "../../variables/type-scale" as *;
 
-/*
-----------------------------------------
-utility-font()
-----------------------------------------
-Get a normalized font-size in rem from
-a family and a type size in either
-system scale or project scale
-----------------------------------------
-Not the public-facing function.
-Used for building the utilities and
-withholds certain errors.
-----------------------------------------
-*/
+// ----------------------------------------
+// utility-font()
+// ----------------------------------------
+// Get a normalized font-size in rem from
+// a family and a type size in either
+// system scale or project scale
+// ----------------------------------------
+// Not the public-facing function.
+// Used for building the utilities and
+// withholds certain errors.
+// ----------------------------------------
 
 @function utility-font($family, $scale) {
   @if not(map.has-key($project-cap-heights, $family)) {

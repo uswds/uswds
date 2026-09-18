@@ -1,12 +1,10 @@
-/*
-----------------------------------------
-rem-to-user-em()
-----------------------------------------
-Converts a value in rem to a value in
-[user-settings] em for use in media
-queries
-----------------------------------------
-*/
+// ----------------------------------------
+// rem-to-user-em()
+// ----------------------------------------
+// Converts a value in rem to a value in
+// [user-settings] em for use in media
+// queries
+// ----------------------------------------
 
 @use "sass:math";
 

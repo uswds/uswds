@@ -1,15 +1,13 @@
-/*
-----------------------------------------
-decompose()
-----------------------------------------
-Convert a color token into into a list
-of form [family], [grade], [variant]
-Vivid variants return "vivid" as the
-variant.
-If neither grade nor variant exists,
-returns 'null'
-----------------------------------------
-*/
+// ----------------------------------------
+// decompose()
+// ----------------------------------------
+// Convert a color token into into a list
+// of form [family], [grade], [variant]
+// Vivid variants return "vivid" as the
+// variant.
+// If neither grade nor variant exists,
+// returns 'null'
+// ----------------------------------------
 
 @use "sass:list";
 @use "sass:map";

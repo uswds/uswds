@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-has-important()
-----------------------------------------
-Check to see if `!important` is
-being passed in a mixin's props
-----------------------------------------
-*/
+// ----------------------------------------
+// has-important()
+// ----------------------------------------
+// Check to see if `!important` is
+// being passed in a mixin's props
+// ----------------------------------------
 @use "de-list" as *;
 @use "get-last" as *;
 

@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-color-token-type()
-----------------------------------------
-Returns the type of a color token.
-Returns: "system" | "theme"
-----------------------------------------
-*/
+// ----------------------------------------
+// color-token-type()
+// ----------------------------------------
+// Returns the type of a color token.
+// Returns: "system" | "theme"
+// ----------------------------------------
 
 @use "../general/error-not-token" as *;
 @use "is-system-color-token" as *;

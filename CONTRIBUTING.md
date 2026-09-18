@@ -119,6 +119,19 @@ Here are a few other utility commands you might find useful:
 - `npm run prettier`: Runs `prettier` against HTML, JavaScript, and Sass files
 - `npm test`: Runs all tests and linters
 
+#### Documenting functions
+
+Document JavaScript functions with JSDoc comments that describe their inputs,
+return values, and relevant side effects. Keep the comments aligned with the
+current implementation.
+
+Use silent `//` comments for Sass implementation notes and section headings so
+they are not copied into compiled CSS. Use `///` documentation comments directly
+above Sass functions and mixins, including `@param` and `@return` annotations
+where applicable. See the [Sass documentation comment syntax](https://sass-lang.com/documentation/syntax/comments/#documentation-comments).
+Keep intentional CSS notices and license comments separate from implementation
+documentation.
+
 ### Creating a pull request (PR)
 The original issue creator is responsible for ushering the issue through its lifecycle. Every pull request (PR) must meet the following criteria:
 

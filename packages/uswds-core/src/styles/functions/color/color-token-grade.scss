@@ -1,21 +1,19 @@
-/*
-----------------------------------------
-color-token-grade()
-----------------------------------------
-Returns the grade of a USWDS color token.
-Returns: color-grade
-color-token-grade("accent-warm")
-> "root"
-color-token-grade("accent-warm-vivid")
-> "root"
-color-token-grade("accent-warm-darker")
-> "darker"
-color-token-grade("red-50v")
-> 50
-color-token-variant(("red", 50, "vivid"))
-> 50
-----------------------------------------
-*/
+// ----------------------------------------
+// color-token-grade()
+// ----------------------------------------
+// Returns the grade of a USWDS color token.
+// Returns: color-grade
+// color-token-grade("accent-warm")
+// > "root"
+// color-token-grade("accent-warm-vivid")
+// > "root"
+// color-token-grade("accent-warm-darker")
+// > "darker"
+// color-token-grade("red-50v")
+// > 50
+// color-token-variant(("red", 50, "vivid"))
+// > 50
+// ----------------------------------------
 
 @use "sass:meta";
 @use "sass:list";

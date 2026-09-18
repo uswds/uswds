@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-uswds-error()
-----------------------------------------
-Allow the system to pass an error as text
-to test error states in unit testing
-----------------------------------------
-*/
+// ----------------------------------------
+// uswds-error()
+// ----------------------------------------
+// Allow the system to pass an error as text
+// to test error states in unit testing
+// ----------------------------------------
 
 $error-output-override: false !default;
 @function uswds-error($message, $override: $error-output-override) {

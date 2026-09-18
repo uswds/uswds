@@ -1,13 +1,11 @@
-/*
-----------------------------------------
-get-default()
-----------------------------------------
-Returns the default value from a map
-of project defaults
-get-default("bg-color")
-> $theme-body-background-color
-----------------------------------------
-*/
+// ----------------------------------------
+// get-default()
+// ----------------------------------------
+// Returns the default value from a map
+// of project defaults
+// get-default("bg-color")
+// > $theme-body-background-color
+// ----------------------------------------
 
 @use "sass:map";
 

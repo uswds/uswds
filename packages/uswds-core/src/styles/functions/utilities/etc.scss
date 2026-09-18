@@ -9,14 +9,12 @@
 @use "../../variables/type-scale" as *;
 @use "../../properties" as *;
 
-/*
-----------------------------------------
-border-radius()
-----------------------------------------
-Get a border-radius from the system
-border-radii
-----------------------------------------
-*/
+// ----------------------------------------
+// border-radius()
+// ----------------------------------------
+// Get a border-radius from the system
+// border-radii
+// ----------------------------------------
 
 @function border-radius($value) {
   @if map.has-key($all-border-radius, $value) {
@@ -29,15 +27,13 @@ border-radii
 // @debug #{border-radius(2)};
 // @return 1rem;
 
-/*
-----------------------------------------
-font-weight()
-fw()
-----------------------------------------
-Get a font-weight value from the
-system font-weight
-----------------------------------------
-*/
+// ----------------------------------------
+// font-weight()
+// fw()
+// ----------------------------------------
+// Get a font-weight value from the
+// system font-weight
+// ----------------------------------------
 
 @function font-weight($value) {
   @return get-uswds-value(font-weight, $value);
@@ -50,13 +46,11 @@ system font-weight
 // @debug #{font-weight("light")};
 // @return 300;
 
-/*
-----------------------------------------
-feature()
-----------------------------------------
-Gets a valid USWDS font feature setting
-----------------------------------------
-*/
+// ----------------------------------------
+// feature()
+// ----------------------------------------
+// Gets a valid USWDS font feature setting
+// ----------------------------------------
 
 @function feature($value) {
   @return get-uswds-value(font-feature-settings, $value);
@@ -65,13 +59,11 @@ Gets a valid USWDS font feature setting
 // @debug #{feature("tabular")};
 // @return "tnum" 1, "kern" 1;
 
-/*
-----------------------------------------
-flex()
-----------------------------------------
-Gets a valid USWDS flex value
-----------------------------------------
-*/
+// ----------------------------------------
+// flex()
+// ----------------------------------------
+// Gets a valid USWDS flex value
+// ----------------------------------------
 
 @function flex($value) {
   @return get-uswds-value(flex, $value);
@@ -80,15 +72,13 @@ Gets a valid USWDS flex value
 // @debug #{flex(11)};
 // @return 11 1 0%;
 
-/*
-----------------------------------------
-font-family()
-family()
-----------------------------------------
-Get a font-family stack from a
-role-based or type-based font family
-----------------------------------------
-*/
+// ----------------------------------------
+// font-family()
+// family()
+// ----------------------------------------
+// Get a font-family stack from a
+// role-based or type-based font family
+// ----------------------------------------
 
 @function font-family($value) {
   @return get-uswds-value(font-family, $value);
@@ -105,15 +95,13 @@ role-based or type-based font family
 // @debug #{font-family("sans")};
 // @return Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif
 
-/*
-----------------------------------------
-letter-spacing()
-ls()
-----------------------------------------
-Get a letter-spacing value from the
-system letter-spacing
-----------------------------------------
-*/
+// ----------------------------------------
+// letter-spacing()
+// ls()
+// ----------------------------------------
+// Get a letter-spacing value from the
+// system letter-spacing
+// ----------------------------------------
 
 @function letter-spacing($value) {
   $lh-map: map.get($system-properties, "letter-spacing");
@@ -135,13 +123,11 @@ system letter-spacing
 // @debug #{letter-spacing("ls-3")};
 // @return 0.15em;
 
-/*
-----------------------------------------
-measure()
-----------------------------------------
-Gets a valid USWDS reading line length
-----------------------------------------
-*/
+// ----------------------------------------
+// measure()
+// ----------------------------------------
+// Gets a valid USWDS reading line length
+// ----------------------------------------
 
 @function measure($value) {
   @return get-uswds-value(measure, $value);
@@ -150,14 +136,12 @@ Gets a valid USWDS reading line length
 // @debug #{measure(2)};
 // @return 60ex;
 
-/*
-----------------------------------------
-opacity()
-----------------------------------------
-Get an opacity from the system
-opacities
-----------------------------------------
-*/
+// ----------------------------------------
+// opacity()
+// ----------------------------------------
+// Get an opacity from the system
+// opacities
+// ----------------------------------------
 
 @function opacity($value) {
   @return get-uswds-value(opacity, $value);
@@ -166,14 +150,12 @@ opacities
 // @debug #{opacity(30)};
 // @return 0.3;
 
-/*
-----------------------------------------
-order()
-----------------------------------------
-Get an order value from the
-system orders
-----------------------------------------
-*/
+// ----------------------------------------
+// order()
+// ----------------------------------------
+// Get an order value from the
+// system orders
+// ----------------------------------------
 
 @function order($value) {
   @return get-uswds-value(order, $value);
@@ -182,14 +164,12 @@ system orders
 // @debug #{order(last)};
 // @return 999;
 
-/*
-----------------------------------------
-radius()
-----------------------------------------
-Get a border-radius value from the
-system letter-spacing
-----------------------------------------
-*/
+// ----------------------------------------
+// radius()
+// ----------------------------------------
+// Get a border-radius value from the
+// system letter-spacing
+// ----------------------------------------
 
 @function radius($value) {
   @return get-uswds-value(border-radius, $value);
@@ -198,14 +178,12 @@ system letter-spacing
 // @debug #{radius(lg)};
 // @return 0.5rem;
 
-/*
-----------------------------------------
-font-size()
-----------------------------------------
-Get type scale value from a [family] and
-[scale]
-----------------------------------------
-*/
+// ----------------------------------------
+// font-size()
+// ----------------------------------------
+// Get type scale value from a [family] and
+// [scale]
+// ----------------------------------------
 
 @function font-size($family, $scale, $force: false) {
   $our-family: smart-quote($family);
@@ -246,15 +224,13 @@ Get type scale value from a [family] and
 // @debug #{font-size("serif", "4xs")};
 // @return 4xs is not a valid USWDS font scale token
 
-/*
-----------------------------------------
-z-index()
-z()
-----------------------------------------
-Get a z-index value from the
-system z-index
-----------------------------------------
-*/
+// ----------------------------------------
+// z-index()
+// z()
+// ----------------------------------------
+// Get a z-index value from the
+// system z-index
+// ----------------------------------------
 
 @function z-index($value) {
   @return get-uswds-value(z-index, $value);

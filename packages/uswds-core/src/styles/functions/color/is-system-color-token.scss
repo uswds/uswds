@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-is-system-color-token()
-----------------------------------------
-Return whether a token is a system
-color token
-----------------------------------------
-*/
+// ----------------------------------------
+// is-system-color-token()
+// ----------------------------------------
+// Return whether a token is a system
+// color token
+// ----------------------------------------
 
 @use "sass:map";
 @use "../../tokens/color/shortcodes-color-system" as *;

@@ -1,12 +1,10 @@
-/*
-----------------------------------------
-get-system-color()
-----------------------------------------
-Derive a system color from its
-family, value, and vivid or a passed
-variable that is, itself, a list
-----------------------------------------
-*/
+// ----------------------------------------
+// get-system-color()
+// ----------------------------------------
+// Derive a system color from its
+// family, value, and vivid or a passed
+// variable that is, itself, a list
+// ----------------------------------------
 
 @use "sass:meta";
 @use "sass:list";

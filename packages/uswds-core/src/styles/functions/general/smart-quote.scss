@@ -1,12 +1,10 @@
-/*
-----------------------------------------
-smart-quote()
-----------------------------------------
-Quotes strings
-Inspects `px`, `xs`, and `xl` numbers
-Leaves bools as is
-----------------------------------------
-*/
+// ----------------------------------------
+// smart-quote()
+// ----------------------------------------
+// Quotes strings
+// Inspects `px`, `xs`, and `xl` numbers
+// Leaves bools as is
+// ----------------------------------------
 
 @use "sass:list";
 @use "sass:meta";

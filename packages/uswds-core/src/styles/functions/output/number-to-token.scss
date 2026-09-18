@@ -1,14 +1,12 @@
-/*
-----------------------------------------
-number-to-token()
-----------------------------------------
-Converts an integer or numeric value
-into a system value
-
-Ex: 0.5   --> '05'
-    -1px  --> 'neg-1px'
-----------------------------------------
-*/
+// ----------------------------------------
+// number-to-token()
+// ----------------------------------------
+// Converts an integer or numeric value
+// into a system value
+//
+// Ex: 0.5   --> '05'
+//     -1px  --> 'neg-1px'
+// ----------------------------------------
 
 @use "sass:map";
 @use "sass:meta";

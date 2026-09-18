@@ -2,13 +2,11 @@
 @use "./px-to-rem.scss" as *;
 @use "./rem-to-user-em.scss" as *;
 
-/*
-----------------------------------------
-px-to-user-em()
-----------------------------------------
-Converts a value in px to a value in em
-----------------------------------------
-*/
+// ----------------------------------------
+// px-to-user-em()
+// ----------------------------------------
+// Converts a value in px to a value in em
+// ----------------------------------------
 
 @function px-to-user-em($pixels) {
   @if unit($pixels) != "px" {

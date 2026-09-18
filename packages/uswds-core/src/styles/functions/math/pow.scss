@@ -4,15 +4,13 @@
 @use "sass:math";
 @use "sass:meta";
 
-/*
-----------------------------------------
-pow()
-----------------------------------------
-Raises a unitless number to the power
-of another unitless number
-Includes helper functions
-----------------------------------------
-*/
+// ----------------------------------------
+// pow()
+// ----------------------------------------
+// Raises a unitless number to the power
+// of another unitless number
+// Includes helper functions
+// ----------------------------------------
 
 @function pow($number, $exponent) {
   @if (math.round($exponent) != $exponent) {
@@ -34,15 +32,12 @@ Includes helper functions
   @return $value;
 }
 
-/*
-----------------------------------------
-Helper functions
-----------------------------------------
-*/
+// ----------------------------------------
+// Helper functions
+// ----------------------------------------
 
-/* factorial()
-----------------------------------------
-*/
+//  factorial()
+// ----------------------------------------
 
 @function factorial($value) {
   $result: 1;
@@ -58,9 +53,8 @@ Helper functions
   @return $result;
 }
 
-/* summation()
-----------------------------------------
-*/
+//  summation()
+// ----------------------------------------
 @function summation($iteratee, $input, $initial: 0, $limit: 100) {
   $sum: 0;
 
@@ -71,9 +65,8 @@ Helper functions
   @return $sum;
 }
 
-/* exp-maclaurin()
-----------------------------------------
-*/
+//  exp-maclaurin()
+// ----------------------------------------
 @function exp-maclaurin($x, $n) {
   @return math.div(pow($x, $n), factorial($n));
 }
@@ -96,9 +89,8 @@ Helper functions
   @return $sum;
 }
 
-/* ln()
-----------------------------------------
-*/
+//  ln()
+// ----------------------------------------
 @function ln($value) {
   $ten-exp: 1;
   $ln-ten: 2.30258509;

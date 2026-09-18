@@ -1,32 +1,30 @@
-/*
-----------------------------------------
-next-token()
-----------------------------------------
-Returns next "darker" or "lighter" color
-token of the same token type and variant.
-Returns: color-token | false
-next-token("accent-warm", "lighter")
-> "accent-warm-light"
-next-token("gray-10", "lighter")
-> "gray-5"
-next-token("gray-5", "lighter")
-> "white"
-next-token("white", "lighter")
-> false
-next-token("red-50v", "darker")
-> "red-60v"
-next-token("red-50", "darker")
-> "red-60"
-next-token("red-80v", "darker")
-> "red-90"
-next-token("red-90", "darker")
-> "black"
-next-token("white", "darker")
-> "gray-5"
-next-token("black", "lighter")
-> "gray-90"
-----------------------------------------
-*/
+// ----------------------------------------
+// next-token()
+// ----------------------------------------
+// Returns next "darker" or "lighter" color
+// token of the same token type and variant.
+// Returns: color-token | false
+// next-token("accent-warm", "lighter")
+// > "accent-warm-light"
+// next-token("gray-10", "lighter")
+// > "gray-5"
+// next-token("gray-5", "lighter")
+// > "white"
+// next-token("white", "lighter")
+// > false
+// next-token("red-50v", "darker")
+// > "red-60v"
+// next-token("red-50", "darker")
+// > "red-60"
+// next-token("red-80v", "darker")
+// > "red-90"
+// next-token("red-90", "darker")
+// > "black"
+// next-token("white", "darker")
+// > "gray-5"
+// next-token("black", "lighter")
+// > "gray-90"
+// ----------------------------------------
 
 @use "sass:string";
 @use "sass:map";

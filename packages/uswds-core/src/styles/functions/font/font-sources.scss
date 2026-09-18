@@ -4,23 +4,16 @@
 
 @use "../../settings" as *;
 
-/*
-----------------------------------------
-font-sources()
-----------------------------------------
-Outputs a list of font sources used in
-a @font-face declaration.
-
-$theme-font-browser-compatibility: true - output woff2, woff, ttf
-$theme-font-browser-compatibility: false - output woff2
-
-@param stem: string - [font path]/[custom-src.dir]/[custom-src.[style].[weight]]
-@output: string
-
-filetypes must be one of the filetypes set in variables/$project-font-face-filetypes (woff, woff2, ttf)
-----------------------------------------
-*/
-
+// ----------------------------------------
+// font-sources()
+// ----------------------------------------
+/// Return the font sources for a font-face declaration.
+///
+/// Includes WOFF and TTF fallbacks when $theme-font-browser-compatibility is true.
+/// Otherwise, returns only the WOFF2 source.
+///
+/// @param {String} $stem - Font path and filename without an extension.
+/// @return {List} Sources and format descriptors for the src property.
 @function font-sources($stem) {
   @if $theme-font-browser-compatibility {
     @return url(#{$stem}.woff2) format("woff2"),

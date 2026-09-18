@@ -1,11 +1,9 @@
-/*
-----------------------------------------
-is-color-token()
-----------------------------------------
-Returns whether a given string is a
-USWDS color token.
-----------------------------------------
-*/
+// ----------------------------------------
+// is-color-token()
+// ----------------------------------------
+// Returns whether a given string is a
+// USWDS color token.
+// ----------------------------------------
 
 @use "sass:map";
 @use "../../tokens/color/shortcodes-color-all" as *;

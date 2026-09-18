@@ -1,14 +1,12 @@
 @use "sass:list";
 @use "sass:string";
 
-/*
-----------------------------------------
-str-split()
-----------------------------------------
-Split a string at a given separator
-and convert into a list of substrings
-----------------------------------------
-*/
+// ----------------------------------------
+// str-split()
+// ----------------------------------------
+// Split a string at a given separator
+// and convert into a list of substrings
+// ----------------------------------------
 
 @function str-split($string, $separator) {
   $split-arr: ();

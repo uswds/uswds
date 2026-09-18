@@ -8,17 +8,15 @@
 @use "../../properties" as *;
 @use "../../settings" as *;
 
-/*
-----------------------------------------
-get-uswds-value()
-----------------------------------------
-Finds and outputs a value from the
-USWDS standard values.
-
-Used to build other standard utility
-functions and mixins.
-----------------------------------------
-*/
+// ----------------------------------------
+// get-uswds-value()
+// ----------------------------------------
+// Finds and outputs a value from the
+// USWDS standard values.
+//
+// Used to build other standard utility
+// functions and mixins.
+// ----------------------------------------
 
 @function get-uswds-value($property, $value...) {
   @if meta.type-of($value) == "arglist" and list.nth($value, 1) == override {
