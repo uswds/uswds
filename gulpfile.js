@@ -12,6 +12,7 @@ const {
   unitTests,
   sassTests,
   tasksTests,
+  distTests,
   checkSpecCount,
 } = require("./tasks/test");
 const { lintSass } = require("./tasks/lint");
@@ -58,6 +59,8 @@ exports.test = series(
   unitTests,
   tasksTests,
 );
+exports.distTests = distTests;
+exports.testDist = series(compileJS, distTests);
 
 /**
  * *Build tasks*

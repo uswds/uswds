@@ -4,15 +4,17 @@ const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
 };
 
-const SPEC_FLOOR = 74;
+const SPEC_FLOOR = 77;
 const SASS_SPECS = [
   "packages/uswds-core/src/test/sass.spec.js",
   "packages/usa-accordion/src/test/accordion-icon.spec.js",
 ];
+const DIST_SPECS = ["packages/uswds-core/src/test/dist-bundle.spec.js"];
 const UNIT_SPECS = [
   "packages/usa-*/**/*.spec.{js,mjs,cjs}",
   "packages/uswds-*/**/*.spec.{js,mjs,cjs}",
-  ...SASS_SPECS.map((file) => `!${file}`),
+  // Sass and built-bundle tests run separately with their own Mocha setup.
+  ...[...SASS_SPECS, ...DIST_SPECS].map((file) => `!${file}`),
 ];
 
 // Count exactly the files selected by the runners, including exclusions.
@@ -56,9 +58,14 @@ module.exports = {
     return src("tasks/**/*.spec.mjs").pipe(mocha());
   },
 
+  distTests() {
+    return src(DIST_SPECS).pipe(mocha({ timeout: 30000 }));
+  },
+
   verifySpecCount,
   async checkSpecCount() {
-    // Each runner has its own exclusions; count their selected-file union.
+    // Guard package unit and Sass specs. Tooling and separately built bundle
+    // specs must not mask a missing file in these runners.
     const count = await verifySpecCount([UNIT_SPECS, SASS_SPECS]);
     console.log(`Spec count: ${count} (floor: ${SPEC_FLOOR})`);
   },

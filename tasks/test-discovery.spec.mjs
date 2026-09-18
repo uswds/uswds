@@ -13,7 +13,7 @@ describe("test discovery guard", () => {
   beforeEach(() => {
     cwd = mkdtempSync(join(tmpdir(), "uswds-spec-discovery-"));
     mkdirSync(join(cwd, "specs"));
-    ["one.spec.js", "two.spec.mjs"].forEach((file) => {
+    ["one.spec.js", "two.spec.mjs", "three.spec.cjs"].forEach((file) => {
       writeFileSync(join(cwd, "specs", file), "");
     });
   });
@@ -21,8 +21,8 @@ describe("test discovery guard", () => {
 
   it("counts all supported extensions selected by the runner", async () => {
     assert.equal(
-      await verifySpecCount([["specs/*.spec.{js,mjs,cjs}"]], 2, { cwd }),
-      2,
+      await verifySpecCount([["specs/*.spec.{js,mjs,cjs}"]], 3, { cwd }),
+      3,
     );
   });
 
@@ -30,12 +30,12 @@ describe("test discovery guard", () => {
     await assert.rejects(
       verifySpecCount(
         [["specs/*.spec.{js,mjs,cjs}", "!specs/two.spec.mjs"]],
-        2,
+        3,
         {
           cwd,
         },
       ),
-      /Spec count \(1\) dropped below the floor of 2/,
+      /Spec count \(2\) dropped below the floor of 3/,
     );
   });
 
@@ -53,10 +53,10 @@ describe("test discovery guard", () => {
           ["specs/*.spec.{js,mjs,cjs}", "!specs/two.spec.mjs"],
           ["specs/two.spec.mjs"],
         ],
-        2,
+        3,
         { cwd },
       ),
-      2,
+      3,
     );
   });
 

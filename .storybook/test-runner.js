@@ -23,7 +23,10 @@ module.exports = {
     // Wait for any animations/transitions to settle
     await page.waitForTimeout(200);
 
-    await checkA11y(page, "#storybook-root", {
+    // Scan the whole document body, not just #storybook-root: some components
+    // (e.g. the modal) move their markup out to <body>, so a root-scoped scan
+    // never covers them. See #6787.
+    await checkA11y(page, "body", {
       detailedReport: true,
       detailedReportOptions: {
         html: true,

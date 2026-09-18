@@ -8,7 +8,9 @@ USWDS is for everyone, as an open source product that accepts contributions from
 
 USWDS is committed to building a safe, welcoming, harassment-free culture for everyone. 
 
-By voluntarily participating in a USWDS community, you're agreeing to abide by the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/) and the [TTS Code of Conduct](https://handbook.tts.gsa.gov/code-of-conduct/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
+By contributing to this repository, you agree to adhere to the [GSA Social Media Policy](https://www.gsa.gov/directives-library/gsa-social-media-policy-2) (Section 10 Engagement). We expect all contributors, both internal and external, to engage respectfully and professionally in all project-related public communications.
+
+Community participants also follow the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
 
 We encourage you to read USWDS’s Contribution Guide (you're here; great start!), about the USWDS [COMMUNITY](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) which includes how to be recognized here for your contributions, the USWDS [README](https://github.com/uswds/uswds/blob/develop/README.md), and the USWDS [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md). You can also read more about the open source policy USWDS uses at the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy), and if you have questions, you can send USWDS an [email](mailto:uswds@gsa.gov).
 
@@ -18,11 +20,30 @@ We encourage you to read USWDS’s Contribution Guide (you're here; great start!
 
 Anyone can contribute to USWDS. Whether it's submitting a bug or proposing a new component, we welcome your ideas on how to improve the Design System.
 
-First time contributor? That's totally okay — great, even. Someone reviews every single contribution before merging it into USWDS. If you’re unsure about anything, just [ask](mailto:uswds@gsa.gov) — or submit your issue or pull request anyway, to get the conversation started.
+First time contributor? That's totally okay — great, even. Someone reviews every single contribution before merging it into USWDS. If you’re unsure where to start, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
-Before submitting a contribution, you’ll need to create a GitHub account or sign in to your existing account. You'll also need to set up [signature verification on your commits](#setting-up-verified-commits).
+To participate on GitHub, create an account or sign in to your existing account. Code contributors also need to set up [signature verification on their commits](#setting-up-verified-commits); asking a question does not require a local development setup.
 
 If you want to see some contributions before submitting your own, you can look at [past pull requests](https://github.com/uswds/uswds/pulls?q=is%3Apr+is%3Aclosed) [or issues contributed by other community members](https://github.com/uswds/uswds/issues?q=is%3Aissue%20state%3Aclosed). If you want ideas on where to start, check out the category of [good first issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+First+Issue%22). Again, if you have any questions, don’t hesitate to [reach out](mailto:uswds@gsa.gov).
+
+### Choose the right place
+
+| What you want to do | Where to go |
+| --- | --- |
+| Ask how to install, configure, customize, or use USWDS | [Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) |
+| Ask for accessibility guidance | [Accessibility discussions](https://github.com/uswds/uswds/discussions/new?category=accessibility) |
+| Report a reproducible bug, including an accessibility defect | [Bug report](https://github.com/uswds/uswds/issues/new?template=bug_report.yaml) |
+| Request a concrete enhancement to existing functionality | [Feature request](https://github.com/uswds/uswds/issues/new?template=feature_request.yaml) |
+| Explore an early idea or tradeoff | [Ideas](https://github.com/uswds/uswds/discussions/new?category=ideas) |
+| Propose a new component or pattern | [Proposals](https://github.com/uswds/uswds/discussions/new?category=proposals) |
+| Report incorrect documentation or a problem with designsystem.digital.gov | [uswds-site issues](https://github.com/uswds/uswds-site/issues/new/choose) |
+| Request a contributor role change | [Role change issue](https://github.com/uswds/uswds/issues/new?template=contributor_ladder.md) |
+
+Issues track actionable work, including bugs, enhancements, documentation fixes, and maintenance. Discussions are for help and exploration. You do not need to know a bug's root cause or have a fix to report it. If you are unsure whether you found a bug or need implementation help, start in Q&A.
+
+Search existing issues and discussions before starting a new conversation. For questions, describe your goal, what you tried, and your USWDS version when relevant. If a question was filed as an issue, a maintainer can convert it to a discussion with the conversation preserved; you do not need to re-file it. If a discussion identifies work to implement, we can create a linked issue.
+
+See [support options](.github/SUPPORT.md) and the [maintainer triage guide](.github/ISSUE_TRIAGE.md). For potential vulnerabilities, follow the [security policy](https://github.com/uswds/uswds/security/policy).
 
 ### Setting up verified commits
 > [!important]
@@ -30,9 +51,21 @@ If you want to see some contributions before submitting your own, you can look a
 > - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
 > - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
 
+### Keeping discussions useful
+
+Maintainers should review unanswered questions and proposal decisions regularly. Age prompts a review; it does not by itself make a question resolved or a proposal obsolete.
+
+- Before closing an answered question, read follow-up replies and linked issues. Explain what was resolved and preserve the accepted answer.
+- Link overlapping proposals and identify the decision or evidence still needed. Keep valid needs open; use status labels with a specific next step rather than implying a delivery commitment.
+- Close duplicates only after linking the canonical conversation and preserving useful context. An expired survey or recruitment invitation can be closed as outdated with an explanation.
+- Keep historical release posts in [Announcements](https://github.com/uswds/uswds/discussions/categories/announcements) and call recaps in [Past community calls](https://github.com/uswds/uswds/discussions/categories/past-community-calls). Preserve their original dates, authors, and content.
+- Publish release details in [GitHub Releases](https://github.com/uswds/uswds/releases) and the [website updates](https://designsystem.digital.gov/whats-new/). Use discussion announcements when community conversation would be useful.
+
+For community destinations and current guidance, see the pinned [Start here discussion](https://github.com/uswds/uswds/discussions/6937).
+
 ### Reporting bugs and issues
 
-If something isn’t working the way it's supposed to, here’s how you can let someone know:
+If USWDS is not behaving as expected, report the observed and expected behavior with steps to reproduce it. For help using or configuring USWDS, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
 #### 1. Check the issues backlog to see if your bug has already been reported
 
@@ -52,7 +85,7 @@ If you have a code fix for the issue, go ahead and submit a [pull request](https
 
 ### Proposing feature requests or enhancements
 
-If you’ve got a new idea or a suggestion for how something could work better, that's helpful to hear about. Follow these steps:
+For a concrete enhancement to existing functionality, describe the problem and the behavior you want to change using the steps below. Start exploratory ideas in [Ideas](https://github.com/uswds/uswds/discussions/new?category=ideas), and new components or patterns in [Proposals](https://github.com/uswds/uswds/discussions/new?category=proposals). Usage and implementation questions belong in [Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a).
 
 #### 1. Check the backlog of current feature requests
 
@@ -132,7 +165,7 @@ When you open a non-draft pull request against `develop`, CodeRabbit posts an au
 
 A few things to know:
 
-* **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit's comments never block a merge.
+* **It isn't the Core team's review.** A USWDS Core team member still reviews and approves every PR before it merges. CodeRabbit is advisory, not a required status check. Maintainers must still read and address its feedback before merging, as described in the [merge procedure](#merging-pull-requests).
 * **You don't have to agree with it.** If a comment is wrong or doesn't apply, reply and explain why. Mention `@coderabbitai` to reply directly. It can save this feedback as a learning; recurring project standards belong in the repository's review instructions.
 * **You can ask for another pass.** CodeRabbit reviews each push without a commit-count pause, subject to provider rate limits. Comment `@coderabbitai review` for an incremental review, or `@coderabbitai full review` to start over. Use `@coderabbitai pause` and `@coderabbitai resume` to control automatic reviews on an individual pull request.
 * **It doesn't review screen reader behavior.** It may list the assistive technology and browsers your change needs to be tested with, but a person has to do that testing.
@@ -140,9 +173,53 @@ A few things to know:
 
 Its behavior is configured in [`.coderabbit.yaml`](https://github.com/uswds/uswds/blob/develop/.coderabbit.yaml).
 
+### Pull request titles
+
+Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for PR titles and the resulting squash commits:
+
+```text
+type(scope): describe the change
+```
+
+Choose a lowercase type from `feat`, `fix`, `docs`, `test`, `ci`, `build`, `chore`, `refactor`, `perf`, `style`, or `revert`. Use `feat` for new functionality, `fix` for bug fixes, `docs` for documentation, and `test` for tests. Use `ci` for automation, `build` for build tooling or dependencies, and `chore` for other maintenance. `style` means code formatting, not a visual change to a component; use `fix` or `feat` for those changes as appropriate.
+
+The scope is optional. When useful, name the component or area, such as `modal`, `accordion`, or `contributing`. Scopes start with a lowercase letter or digit and contain only lowercase letters, digits, dots, underscores, slashes, or hyphens. Follow the colon with one space and a nonempty, single-line description, with no leading or trailing whitespace. Do not add the `USWDS -` prefix.
+
+Examples:
+
+- `docs(contributing): clarify the merge procedure`
+- `test(modal): cover keyboard dismissal`
+- `fix(accordion): preserve expanded state`
+- `ci: validate pull request titles`
+
+For a breaking change, add `!` immediately before the colon, for example `feat(modal)!: remove the deprecated option`. Also explain the break and migration steps in the PR's breaking-change section and retain a concise explanation in the squash commit body. A type describes intent; it does not establish that a change is safe to merge.
+
+The `PR title` workflow validates this syntax on PR creation, reopening, pushes, title edits, and readiness for review. It runs the policy from the trusted base commit, so a PR cannot change its own enforcement. A separate `Title validator tests` workflow tests proposed validator changes with read-only permissions. Rename an invalid title in GitHub; no commit rewrite is needed. Working commits do not need conventional messages, but all commits must still satisfy the signature requirements. Maintainers must recheck the current title before squash merging.
+
+Apply this convention to new PRs and open PRs as they are prepared for merge. Do not rename historical merged PRs or rewrite published commits. Issue titles keep their existing conventions. Version selection and release publishing remain separate from title validation; this change does not introduce automatic semantic releases.
+
+For rollout, merge the workflow first, then enable the `PR title` check as a required status check on `develop` after confirming a successful run. This trusted-base workflow becomes available after merge. Trigger a fresh run on existing PRs, for example by editing their titles; normal base-refresh requirements still apply. Preserve the other required checks and review protections.
+
+### Merging pull requests
+
+Use **Squash and merge** for pull requests in this repository. Each PR should contain one focused change and produce one commit on the target branch. Repository settings disable merge commits and rebase merges; `develop` also requires linear history. Contributors do not need to squash their working commits before review, but all commits must meet the signature requirements.
+
+Maintainers follow this procedure:
+
+1. **Confirm scope and target.** Review the complete diff against the current target branch, normally `develop`. Keep unrelated fixes separate. Use the [conventional PR title format](#pull-request-titles).
+2. **Finish validation.** Resolve conflicts and run checks appropriate to the final changes. Required CI must pass against the current base. After new commits or a base refresh, reassess the diff and wait for the relevant checks again.
+3. **Read CodeRabbit's completed review.** Inspect inline comments and findings inside the review body, including collapsed sections. Fix valid findings; explain findings that are incorrect or deliberately deferred. After pushing fixes, inspect the follow-up review before merging. If review is pending, paused, rate-limited, or unavailable, report that state and wait; a missing review is not a clean review.
+4. **Obtain final approval.** Meet the code-owner and independent-review requirements on the final changes, including approval by someone other than the last pusher. CodeRabbit does not replace that approval. When the requester reserves final review, present the final diff and wait for their explicit approval before merging.
+5. **Squash the reviewed head.** Recheck the head commit and merge state immediately before merging. Use the PR title for the squash commit title. The default body is blank; add a concise explanation when needed, rather than copying every working commit or the entire PR template. With the GitHub CLI, use `gh pr merge <number> --squash --match-head-commit <reviewed-head-sha>`.
+6. **Verify the result.** Confirm the PR is merged and record the resulting commit. Delete the completed topic branch when appropriate; start subsequent work from the updated target branch.
+
+Do not use admin bypass as a routine merge path. A request to merge does not by itself authorize bypassing protections. If a protection blocks the merge, report the exact blocker. An exception requires explicit authorization from an authorized repository administrator identifying the PR and protection to bypass; record the reason in the PR. Do not disable repository protections to clear an individual PR.
+
+Automatic topic-branch deletion remains enabled. Merge queue adoption is separate work: required CircleCI and GitHub Actions checks must first be configured and verified for queue builds. Until then, refresh and validate PRs as they reach the front of the merge sequence.
+
 ### Proposing something else?
 
-If you’d like to contribute something else that doesn’t fall into any of the above, that's still helpful. Just create an issue or a discussion, and we can talk about it.
+If your contribution does not fit the options above, start in [General discussions](https://github.com/uswds/uswds/discussions/new?category=general). We can help identify the next step and create a linked issue if there is work to track.
 
 ## How we prioritize
 
@@ -183,7 +260,7 @@ follow the instructions below:
    `[@your-username](https://github.com/YOUR-USERNAME)`
 4. Scroll down and Commit the change
 5. Navigate to: `https://github.com/uswds/uswds/compare/develop...YOUR-USERNAME:uswds:develop` and click **Create pull request**
-6. Title your PR: `USWDS - Community: Add [Your Username] as Contributor`
+6. Title your PR: `docs(community): add [your username] as contributor`
 7. In the **Related issue** field, paste the link to your issue from Step 1
 8. Click **Create pull request** and copy the URL of your new resulting pull request
 
@@ -193,7 +270,7 @@ Navigate to your issue at `https://github.com/uswds/uswds/issues/YOUR-ISSUE-NUMB
 
 The USWDS internal team will review both and follow up with next steps.
 
-Please don't hesitate to open an issue or email [uswds@gsa.gov](mailto:uswds@gsa.gov) if you have questions or run into issues.
+For questions about the contribution process, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) or email [uswds@gsa.gov](mailto:uswds@gsa.gov). Use the role change issue above to track an actual role change.
 
 ## Common terms
 

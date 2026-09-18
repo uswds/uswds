@@ -88,7 +88,7 @@ const pluginsConfig = {
 };
 
 const testConfig = {
-  files: ["**/*.spec.js", "**/*.spec.mjs"],
+  files: ["**/*.spec.js", "**/*.spec.mjs", "**/*.spec.cjs"],
   rules: {
     "no-unsanitized/method": "off",
     "no-unsanitized/property": "off",
