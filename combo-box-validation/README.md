@@ -8,9 +8,9 @@ Fix: `e862ac2e16043951210f1e0ab69d99fb0df56af5`
 
 ## Screenshots
 
-- `before.png`: baseline bundle, 1280 by 720 Chromium viewport.
-- `after.png`: fixed bundle, same fixture and viewport.
-- `after-320.png`: fixed bundle at 320 by 720 after keyboard selection and clearing. The error input has focus. No horizontal overflow occurred.
+- `before.jpg`: baseline bundle, 1280 by 720 Chromium viewport.
+- `after.jpg`: fixed bundle, same fixture and viewport.
+- `after-320.jpg`: fixed bundle at 320 by 720 after keyboard selection and clearing. The error input has focus. No horizontal overflow occurred.
 
 The error and success selects carry `usa-input--error` and `usa-input--success`. Baseline enhancement drops both classes. The fixed bundle preserves them on the visible inputs. The default input remains unchanged.
 

@@ -1,0 +1,56 @@
+{
+  "browser": "Google Chrome 153.0.8010.52",
+  "baseline": "eaef39533a0a0f78976d6888edf8ae56fe9334d6",
+  "fixed": "4ebc116b0064079c8fc22a14d0d9b92db07697d0",
+  "capture": "Matched fixture and viewport. Expanded captures retain button focus. JPEG bytes are preserved exactly from the browser screenshot.",
+  "images": [
+    {
+      "path": "after-1280-collapsed.jpg",
+      "width": 1280,
+      "height": 700,
+      "sha256": "bde80fb43903e90abff7ed9f1bd72eaa648cbbd37726e95b0ee14d438ca9f9ee"
+    },
+    {
+      "path": "after-320-collapsed.jpg",
+      "width": 320,
+      "height": 700,
+      "sha256": "d9f82b7df23238229decfb0301cbb1d228e7f0ff28c55245b25299008482f520"
+    },
+    {
+      "path": "before-1280-collapsed.jpg",
+      "width": 1280,
+      "height": 700,
+      "sha256": "bf3afe5f1f23bd1e5eefa4b729d4525365ed8428ed2dffb1af6b40974c230033"
+    },
+    {
+      "path": "before-320-collapsed.jpg",
+      "width": 320,
+      "height": 700,
+      "sha256": "6326930cbf598d3507edb1590e2ef8502b4051881d87f96fe07e42f4e983a1b4"
+    },
+    {
+      "path": "after-1280-expanded.jpg",
+      "width": 1280,
+      "height": 700,
+      "sha256": "dbfe0e42d588c57d349f5a06a57aca067313e3016ec977a392ecd34e008b1871"
+    },
+    {
+      "path": "after-320-expanded.jpg",
+      "width": 320,
+      "height": 700,
+      "sha256": "a5d76296b5f246f7fb36413975477d044cf730c89126b7af023744889b38fe87"
+    },
+    {
+      "path": "before-1280-expanded.jpg",
+      "width": 1280,
+      "height": 700,
+      "sha256": "44bf4368948b36956410da744048d97a69d36b7da3b4e55c2a756b6cbff81980"
+    },
+    {
+      "path": "before-320-expanded.jpg",
+      "width": 320,
+      "height": 700,
+      "sha256": "27fafc1179223a73883eced5c67bcd227c686d1c462b36c4373895db31fed120"
+    }
+  ]
+}

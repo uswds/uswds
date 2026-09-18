@@ -8,7 +8,7 @@ The existing button opacity also reduces the opacity of its focus outline. On th
 
 ## Visual evidence
 
-`before.png` and `after.png` capture the same synthetic fixture at 1280x720 in the Chromium browser on macOS. Both screenshots follow a keyboard Tab from the fruit input to its clear button. The unfocused alternate-fruit, time-picker and disabled-fruit controls are present for comparison.
+`before.jpg` and `after.jpg` capture the same synthetic fixture at 1280x720 in the Chromium browser on macOS. Both screenshots follow a keyboard Tab from the fruit input to its clear button. The unfocused alternate-fruit, time-picker and disabled-fruit controls are present for comparison.
 
 The matching HTML files differ only in their stylesheet URL. `css/before.css` was copied from the baseline build before the source edit. `css/after.css` was copied after the change. Their only CSS difference is the added `opacity: 1` declaration in the existing focused combo-box button rule. Both use the same JavaScript. The `dist`, `fonts` and `img` symlinks point to the local worktree build and are local preview dependencies, not PR contents.
 
