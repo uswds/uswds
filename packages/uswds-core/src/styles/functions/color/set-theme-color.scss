@@ -10,7 +10,7 @@
 @use "../../tokens/color/shortcodes-color-system" as tokens;
 
 /// Derive a color from a system color token
-/// or a hex value
+/// or a Sass color value
 @function set-theme-color($value, $flag: null) {
   $value: general.unpack($value);
 

@@ -15,8 +15,8 @@
 @use "decompose-color-token" as *;
 @use "color-token-variant" as *;
 
-/// Returns next "darker" or "lighter" color
-/// token of the same token type and variant.
+/// Returns the next "darker" or "lighter" color token.
+/// Preserves a system token's vivid variant only when the target grade supports it.
 /// Returns: color-token | false
 /// next-token("accent-warm", "lighter")
 /// > "accent-warm-light"
