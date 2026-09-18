@@ -137,8 +137,9 @@ jobs:
     needs: [authorize, verify, registry-smoke]
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment: npm-release
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -148,9 +149,24 @@ jobs:
           artifact-ids: ${{ needs.verify.outputs.artifact-id }}
           path: release-artifacts
           merge-multiple: true
+      - name: Authorize release recording
+        env:
+          SOURCE_SHA: ${{ needs.authorize.outputs.source }}
+          RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
+          RELEASE_CHANNEL: ${{ inputs.channel }}
+          CONFIRM_VERSION: ${{ inputs.confirm_version }}
+          RELEASE_AUTOMATION_ENABLED: ${{ vars.RELEASE_AUTOMATION_ENABLED }}
+        run: node --input-type=module -e 'import { authorizePublication } from "./scripts/release-policy.mjs"; authorizePublication();'
+      - name: Create a repository-scoped release token
+        id: release-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
       - name: Record tag, notes, and assets
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.release-token.outputs.token }}
           SOURCE_SHA: ${{ needs.authorize.outputs.source }}
           RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
           RELEASE_CHANNEL: ${{ inputs.channel }}
