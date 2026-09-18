@@ -1,7 +1,10 @@
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
 <form class="usa-form">
-  <label class="usa-label" for="example-input-suffix">Weight, in pounds</label>
-  <div class="usa-input-group {{ utilities | default('usa-input-group--sm') }}">
-    <input type="text" id="example-input-suffix" class="usa-input" pattern="[0-9]*" inputmode="numeric"
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="example-input-suffix">Weight, in pounds</label>
+  {% if error_state %}<span class="usa-error-message" id="example-input-suffix-message">Enter a weight in pounds.</span>{% endif %}
+  <div class="usa-input-group{% if error_state %} usa-input-group--error{% endif %} {{ utilities | default('usa-input-group--sm') }}">
+    <input type="text" id="example-input-suffix"
+      {% if error_state %}aria-describedby="example-input-suffix-message" aria-invalid="true"{% endif %} class="usa-input" pattern="[0-9]*" inputmode="numeric"
     {% if disabled_state == "disabled"%} disabled{%- endif %}
     {% if disabled_state == "aria-disabled"%} aria-disabled="true"{%- endif %}
     >
@@ -10,3 +13,5 @@
     </div>
   </div>
 </form>
+
+{% if error_state %}</div>{% endif %}

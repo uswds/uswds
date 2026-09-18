@@ -1,6 +1,8 @@
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
 <form class="usa-form">
-  <label class="usa-label" for="example-input-prefix">Credit card number</label>
-  <div class="usa-input-group{% if utilities %} {{ utilities }}{% endif %}">
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="example-input-prefix">Credit card number</label>
+  {% if error_state %}<span class="usa-error-message" id="example-input-prefix-message">Enter a valid credit card number.</span>{% endif %}
+  <div class="usa-input-group{% if error_state %} usa-input-group--error{% endif %}{% if utilities %} {{ utilities }}{% endif %}">
     <div class="usa-input-prefix" aria-hidden="true">
       <svg aria-hidden="true" role="img" class="usa-icon">
         <use href="./img/sprite.svg#credit_card"></use>
@@ -9,6 +11,7 @@
     <input
       type="text"
       id="example-input-prefix"
+      {% if error_state %}aria-describedby="example-input-prefix-message" aria-invalid="true"{% endif %}
       class="usa-input"
       pattern="[0-9]*"
       inputmode="numeric"
@@ -17,8 +20,8 @@
   </div>
 
   {# Error state #}
-  {% if not (disabled_state == "disabled" or disabled_state == "aria-disabled") %}
-  <label class="usa-label" for="example-input-prefix-error">Credit card number (Error)</label>
+  {% if not error_state and not (disabled_state == "disabled" or disabled_state == "aria-disabled") %}
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="example-input-prefix-error">Credit card number (Error)</label>
   <div class="usa-input-group usa-input-group--error{% if utilities %} {{ utilities }}{% endif %}">
     <div class="usa-input-prefix" aria-hidden="true">
       <svg aria-hidden="true" role="img" class="usa-icon">
@@ -35,3 +38,5 @@
   </div>
   {% endif %}
 </form>
+
+{% if error_state %}</div>{% endif %}

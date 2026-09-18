@@ -1,8 +1,11 @@
+{% if error_state %}<div class="usa-form-group usa-form-group--error">{% endif %}
 <form class="usa-form">
-  <label class="usa-label" for="options">Dropdown label</label>
-  <select class="usa-select"
+  <label class="usa-label{% if error_state %} usa-label--error{% endif %}" for="options">Dropdown label</label>
+  {% if error_state %}<span class="usa-error-message" id="options-error">Select an option.</span>{% endif %}
+  <select class="usa-select{% if error_state %} usa-input--error{% endif %}"
     name="options"
     id="options"
+    {% if error_state %}aria-describedby="options-error" aria-invalid="true"{% endif %}
     {% if multiple %}multiple{% endif %}
     {% if size %}size="{{ size }}"{% endif %}
     {% if disabled_state == 'disabled' %} disabled {%- endif %}
@@ -14,3 +17,5 @@
     <option value="value3">Option C</option>
   </select>
 </form>
+
+{% if error_state %}</div>{% endif %}

@@ -128,3 +128,9 @@ AriaDisabled.argTypes = {
     table: { disable: true },
   },
 };
+
+export const Error = Template.bind({});
+Error.args = {
+  error_state: true,
+};
+Error.decorators = [(Story) => `<div class="padding-x-205">${Story()}</div>`];
