@@ -82,6 +82,7 @@ $close: map.merge(
 button.usa-combo-box__toggle-list,
 button.usa-combo-box__clear-input {
   &:focus {
+    opacity: 1;
     outline-offset: -4px;
   }
 
