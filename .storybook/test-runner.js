@@ -1,5 +1,6 @@
 const { getStoryContext } = require("@storybook/test-runner");
 const { injectAxe, checkA11y } = require("axe-playwright");
+const runInteractionTests = require("./interaction-tests");
 
 /**
  * @type {import('@storybook/test-runner').TestRunnerConfig}
@@ -10,6 +11,12 @@ module.exports = {
   },
   async postVisit(page, context) {
     const storyContext = await getStoryContext(page, context);
+
+    await runInteractionTests(
+      page,
+      context,
+      storyContext.parameters?.uswdsTest,
+    );
 
     // Skip stories that opt out of a11y testing
     if (
