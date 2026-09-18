@@ -506,17 +506,11 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 ## Browser support
 
-We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
+We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). USWDS 3.x follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). This guidance covers the newest versions of Chrome, Firefox, and Safari.
+
+Browser build targets are separate from this support guidance. The [Browserslist configuration](.browserslistrc) uses worldwide `caniuse-lite` usage data for `> 2%`, adds `last 2 versions`, and uses `not dead` to remove browsers classified as dead. It does not read analytics.usa.gov or record browser and assistive technology testing. See [Browserslist query composition](https://github.com/browserslist/browserslist#query-composition). Questions about the support observation period and mobile versus desktop metrics remain tracked in [#5888](https://github.com/uswds/uswds/issues/5888).
 
 As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and removed the remaining polyfills in [USWDS 3.10.0](https://github.com/uswds/uswds/releases/tag/v3.10.0).
-
-### Build targets and project testing
-
-The repository's [Browserslist configuration](.browserslistrc) supplies browser targets to compatible build tools. Its `> 2%` query uses the worldwide usage data bundled with `caniuse-lite`; it does not read analytics.usa.gov or your site's analytics. The `last 2 versions` query also adds targets, and `not dead` excludes browsers that Browserslist considers unsupported. See the [Browserslist query documentation](https://github.com/browserslist/browserslist#queries) for how these queries combine. Build targets can change when the underlying browser data is updated and are not a record of manual browser or assistive technology testing.
-
-Plan testing for the people who use your service. Review your own visitor analytics, including browser versions, operating systems, and desktop and mobile usage, alongside USWDS guidance. Record the observation period and the browser and assistive technology combinations you test. Do not assume that a combined browser-family percentage describes every device used to access your service.
-
-If your service needs a browser or device that has problems with USWDS, [open an issue](https://github.com/uswds/uswds/issues/new/choose) with the USWDS version, browser and operating system versions, a reproducible example, and a summary of the affected audience. The support-policy questions about observation periods and mobile versus desktop metrics are tracked in [#5888](https://github.com/uswds/uswds/issues/5888); this build configuration does not define those policy choices.
 
 ## Accessibility
 
