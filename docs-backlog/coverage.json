@@ -1,0 +1,356 @@
+[
+  {
+    "number": 6835,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Added a USWDS-maintained implementation-context scenario covering modal naming, focus entry/trapping/return, background isolation, and a repeatable regression check.",
+    "remaining": "No component failure or outside-resource endorsement is asserted.",
+    "title": "USWDS - Feature: Consider an implementation-context example for modal accessibility testing",
+    "url": "https://github.com/uswds/uswds/issues/6835"
+  },
+  {
+    "number": 6812,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6950"
+    ],
+    "addressed": "Published the canonical release-operations wiki, linked the wiki index and historical release page, and replaced both workflow runbook headers with the canonical link.",
+    "remaining": "Merge the workflow-header PR. Wiki publication is complete; executable workflow content was unchanged.",
+    "title": "Migrate release-prep runbook from workflow header comment to wiki",
+    "url": "https://github.com/uswds/uswds/issues/6812"
+  },
+  {
+    "number": 6779,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6949",
+      "https://github.com/uswds/uswds-site/pull/3309",
+      "https://github.com/uswds/uswds-team/pull/497",
+      "https://github.com/uswds/uswds-for-designers/pull/102",
+      "https://github.com/uswds/uswds-compile/pull/196",
+      "https://github.com/uswds/uswds-cdn-poc/pull/4",
+      "https://github.com/uswds/uswds-elements/pull/329"
+    ],
+    "addressed": "Prepared the exact requested conduct-policy replacement in seven active repositories. Audited all 14 active public organization repositories for retired wording.",
+    "remaining": "Review and merge seven PRs. Two archived repositories, uswds-gulp and luminance-tool, retain the wording; patches are prepared, archive states unchanged. The CodeRabbit policy-scope concern is documented; wording matches the leadership request verbatim.",
+    "title": "META: TTS Code of Conduct link update [draft]",
+    "url": "https://github.com/uswds/uswds/issues/6779"
+  },
+  {
+    "number": 6548,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3313"
+    ],
+    "addressed": "Web component source and destination path settings; copyWebComponents and copyAssets behavior; Custom destination example and module URL update requirement.",
+    "remaining": "Review and merge the PR.",
+    "title": "Phase 2: Path settings page does not include components variable in documentation",
+    "url": "https://github.com/uswds/uswds/issues/6548"
+  },
+  {
+    "number": 6530,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6957",
+      "https://github.com/uswds/uswds-site/pull/3316"
+    ],
+    "addressed": "13 component stories and 11 site error examples on nine pages, retaining hints where present and resolving all new description references.",
+    "remaining": "Checkbox PR #6801 remains pending. Combo/time site error examples deferred for enhancement gaps. Additional hint-only, success, disabled and other cross-component state combinations remain. Do not close broad issue from these PRs.",
+    "title": "USWDS - Feature: Documentation site - show all states and options for form controls",
+    "url": "https://github.com/uswds/uswds/issues/6530"
+  },
+  {
+    "number": 6516,
+    "result": "proposed_decision",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6956"
+    ],
+    "addressed": "Complete ADR covering decision, container ownership, compatibility, review evidence, alternatives and consequences; Explicit Proposed status and pending acceptance record.",
+    "remaining": "Maintainers accept, revise, or reject the preference; Record acceptance date and PR only after approval.",
+    "title": "USWDS - ADR: Prefer intrinsic layouts and container queries to page level media queries for responsive design",
+    "url": "https://github.com/uswds/uswds/issues/6516"
+  },
+  {
+    "number": 6451,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Added conditional keyboard and screen-reader pagination checks plus dynamic-update focus guidance.",
+    "remaining": "Each application must perform the checks. No tested version or screen-reader pass was invented.",
+    "title": "USWDS - Feature: Pagination accessibility tests",
+    "url": "https://github.com/uswds/uswds/issues/6451"
+  },
+  {
+    "number": 6445,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3310"
+    ],
+    "addressed": "Added header, modal, and tooltip changelogs for the reduced-motion changes from merged core PR #6268, verified in release 3.13.0 dated 2025-05-23.",
+    "remaining": "Merge the changelogs. Core PR #5826 remains open, so its proposed behavior is not documented as shipped.",
+    "title": "Add changelog items for recent updates",
+    "url": "https://github.com/uswds/uswds/issues/6445"
+  },
+  {
+    "number": 6428,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6953",
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Specified the alternating letter/number sequence in the core example; expanded accepted-format, hint association, and validation guidance; corrected the reversed documentation example.",
+    "remaining": "Immediate accessible feedback for rejected characters remains with the input-mask behavior/refactor work. No runtime feedback change was made.",
+    "title": "USWDS - Bug: Input mask hint text needs clarity",
+    "url": "https://github.com/uswds/uswds/issues/6428"
+  },
+  {
+    "number": 6401,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3313"
+    ],
+    "addressed": "HTML maturity worksheet replacing the recommended draft PDF; Current assessment activities and current component guidance links; Historical PDF URLs preserved.",
+    "remaining": "Editorial approval of the replacement; Historical PDFs remain unremediated and are no longer the recommended resource.",
+    "title": "Review/Rework section of Maturity Model page content with PDF",
+    "url": "https://github.com/uswds/uswds/issues/6401"
+  },
+  {
+    "number": 6396,
+    "result": "needs_source",
+    "prs": [],
+    "addressed": "Reviewed the issue and linked new-page information architecture task. Neither names the new products or provides approved page scope.",
+    "remaining": "Identify products and target pages before authoring accurate new-page copy.",
+    "title": "Draft language for new pages",
+    "url": "https://github.com/uswds/uswds/issues/6396"
+  },
+  {
+    "number": 6395,
+    "result": "needs_source",
+    "prs": [],
+    "addressed": "Reviewed the issue and linked priority-page planning. The linked planning source could not be retrieved.",
+    "remaining": "Identify the products, approved descriptions, and priority pages before authoring copy.",
+    "title": "Create language on new products for priority pages",
+    "url": "https://github.com/uswds/uswds/issues/6395"
+  },
+  {
+    "number": 6336,
+    "result": "proposed_decision",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3314"
+    ],
+    "addressed": "Complete editorial workflow; Peer review before designated federal review; Length, headings, front matter and publication guidance; Publication and correction checklists.",
+    "remaining": "Maintainer acceptance of the proposed workflow.",
+    "title": "Create \"What\u2019s New\u201d site governance",
+    "url": "https://github.com/uswds/uswds/issues/6336"
+  },
+  {
+    "number": 6327,
+    "result": "needs_source",
+    "prs": [],
+    "addressed": "Reviewed the January 2025 publication checklist. The draft could not be retrieved, and federal approval remains unchecked.",
+    "remaining": "Provide the approved Q&A draft, or explicitly retire this historical publication task. No content was invented or published.",
+    "title": "Add Jan '25 Q&A to discussions",
+    "url": "https://github.com/uswds/uswds/issues/6327"
+  },
+  {
+    "number": 6277,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6952"
+    ],
+    "addressed": "Five template data files supply the missing placeholder_link, eliminating eight empty main-content hrefs across rendered examples.",
+    "remaining": "Actual application destinations remain integrator supplied. Pre-existing empty identifier links are separate.",
+    "title": "USWDS - Define empty placeholder link references",
+    "url": "https://github.com/uswds/uswds/issues/6277"
+  },
+  {
+    "number": 6275,
+    "result": "needs_source",
+    "prs": [],
+    "addressed": "Reviewed the December 2024 publication checklist. The draft could not be retrieved, and federal approval remains unchecked.",
+    "remaining": "Provide the approved Q&A draft, or explicitly retire this historical publication task. No content was invented or published.",
+    "title": "Create and add December MC Q&A to discussions",
+    "url": "https://github.com/uswds/uswds/issues/6275"
+  },
+  {
+    "number": 6247,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3314"
+    ],
+    "addressed": "11-row CSV with stable IDs, WCAG criterion references and levels, test types, and Given/When/Then wording; Common wording maintenance and result-recording guide; Gherkin examples.",
+    "remaining": "Accessibility maintainer review; Import approved CSV into the private workbook by someone with access.",
+    "title": "Creating common criteria sheet in CC checklist",
+    "url": "https://github.com/uswds/uswds/issues/6247"
+  },
+  {
+    "number": 6241,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Replaced abbreviation-only guidance with directions to describe date format and both manual entry and calendar selection, associated with the field.",
+    "remaining": "Acceptance of the specific proposed default hint still depends on research findings. Closed prototype #176 and research plan #437 are not evidence of successful user testing.",
+    "title": "USWDS - Date picker: Improve hint text",
+    "url": "https://github.com/uswds/uswds/issues/6241"
+  },
+  {
+    "number": 6240,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6957"
+    ],
+    "addressed": "Added 13 standalone error stories for 11 components. Existing text-input and file-input error stories retained.",
+    "remaining": "Checkbox stories remain in contributor PR #6801. Combo/time stories expose enhancement class and ARIA loss. PR #6942 covers only combo-box select class propagation. Time-picker class propagation and both components\u2019 ARIA propagation remain separate gaps.",
+    "title": "USWDS - Form inputs: Add error stories to all relevant form components",
+    "url": "https://github.com/uswds/uswds/issues/6240"
+  },
+  {
+    "number": 6178,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3314"
+    ],
+    "addressed": "Community and core-team responsibilities on lifecycle page; Clarified formal proposal transition in phase data; Complete copy-ready pinned discussion guidance.",
+    "remaining": "Review proposed clarification; Apply reviewed replacement text to pinned discussion #5764.",
+    "title": "USWDS - Component lifecycle: Be explicit about role of community in proposal discussion process",
+    "url": "https://github.com/uswds/uswds/issues/6178"
+  },
+  {
+    "number": 6089,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3315"
+    ],
+    "addressed": "Actual migration to Patterns with old URL redirect; Navigation, overview card, table guidance link and lifecycle inventory updates; Preserved chart SVGs, tables, anchors and changelog history.",
+    "remaining": "Review and merge the migration.",
+    "title": "Transition data visualization into a pattern",
+    "url": "https://github.com/uswds/uswds/issues/6089"
+  },
+  {
+    "number": 6065,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Explained intentional Back link and Continue button semantics, appropriate HTML by action, and keyboard behavior.",
+    "remaining": "No role change is necessary for a navigational link. The example is explained rather than recoded as an incorrect button.",
+    "title": "USWDS - Bug: Button group back button reading as a link to screen reader",
+    "url": "https://github.com/uswds/uswds/issues/6065"
+  },
+  {
+    "number": 6055,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Added suggested visible copy explaining that users may type to narrow options or select from the complete list; documented the need to check the generated input association.",
+    "remaining": "The core preview and its hint association need the existing PR #6411. No competing JavaScript fix or unverified screen-reader announcement claim was added.",
+    "title": "USWDS - Enhancement: Add clarity to combo box instructions",
+    "url": "https://github.com/uswds/uswds/issues/6055"
+  },
+  {
+    "number": 5931,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3311"
+    ],
+    "addressed": "Added authenticated GitHub data requests, explicit build failure for missing required data or malformed cache, and cache recovery documentation. The regression test fails on the old malformed-cache behavior and passes after the fix.",
+    "remaining": "Review and merge the separately tested Ruby plugin fix. This reproduces the silent-data-failure path identified in the discussion, not a newly observed production outage.",
+    "title": "USWDS - Bug: documentation site missing content and busted",
+    "url": "https://github.com/uswds/uswds/issues/5931"
+  },
+  {
+    "number": 5888,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6955"
+    ],
+    "addressed": "Explained worldwide Browserslist data, query combination, difference from analytics.usa.gov and testing evidence, site-specific audience evaluation, and browser reporting.",
+    "remaining": "The official observation period, mobile/desktop metric policy, and support commitments remain a maintainer decision. Existing support policy and config are unchanged.",
+    "title": "USWDS - Feature: clarify browser support",
+    "url": "https://github.com/uswds/uswds/issues/5888"
+  },
+  {
+    "number": 5709,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3316"
+    ],
+    "addressed": "All six phase-2 target pages distinguish native disabled, aria-disabled, readonly and appropriate submission guidance. Date-picker procedures and differing native/ARIA submission behavior documented.",
+    "remaining": "No new physical keyboard/assistive-technology matrix claimed. Phase-3 component guidance remains in uswds-site#2248.",
+    "title": "Disabled States: Phase 2",
+    "url": "https://github.com/uswds/uswds/issues/5709"
+  },
+  {
+    "number": 5484,
+    "result": "partially_implemented",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6951"
+    ],
+    "addressed": "Current input-mask functions and behavior methods document arguments, return values and side effects. Existing rewrite PR #5227 preserved.",
+    "remaining": "Private Google Doc acceptance checklist could not be reviewed. Rewrite-specific functions remain within PR #5227.",
+    "title": "Refactor Input Mask: Add JSDocs comments",
+    "url": "https://github.com/uswds/uswds/issues/5484"
+  },
+  {
+    "number": 5473,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3313"
+    ],
+    "addressed": "Current contribution links; Descriptive headings with legacy anchors; Current installation and customization links; Implementation and assessment checks; Updated resource section and HTML worksheet.",
+    "remaining": "Technical and editorial review; Private historical Google Docs draft not reconciled or modified.",
+    "title": "Review technical information on maturity model page",
+    "url": "https://github.com/uswds/uswds/issues/5473"
+  },
+  {
+    "number": 5270,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6954",
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Removed obsolete inline padlock instructions from four core Twig variants, web-component fallback, and the site banner. The explanation retains HTTPS and existing official-site safety wording.",
+    "remaining": "Needs normal review, merge, and release. Site component previews follow their pinned library dependency. Fallback lock-icon part is no longer rendered; static lockIcon helper is retained.",
+    "title": "USWDS - Future Bug: Banner references deprecated lock icon on Chromium browsers",
+    "url": "https://github.com/uswds/uswds/issues/5270"
+  },
+  {
+    "number": 5244,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6953",
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Replaced example-only hints for all four input masks with accepted digit counts or letter/number order; added reusable hint guidance.",
+    "remaining": "The input-mask V2 documentation PRs #2073/#1979 remain separate, pending their associated code refactor.",
+    "title": "USWDS - Input mask: Evaluate hint text",
+    "url": "https://github.com/uswds/uswds/issues/5244"
+  },
+  {
+    "number": 5217,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds/pull/6951"
+    ],
+    "addressed": "All ordinary loud comments under core Sass functions now silent. Four parameter-documented functions and nine color functions use SassDoc directly above functions. Corrected radius token description. Contributor guidance explains conventions.",
+    "remaining": "Complete SassDoc metadata generation across all functions was not introduced; no requirement for generated documentation was inferred.",
+    "title": "USWDS - Core: Update comment style for SASS functions",
+    "url": "https://github.com/uswds/uswds/issues/5217"
+  },
+  {
+    "number": 4504,
+    "result": "implemented_in_pr",
+    "prs": [
+      "https://github.com/uswds/uswds-site/pull/3312"
+    ],
+    "addressed": "Added complete range endpoint markup with min/max/step, associated hint and decorative endpoint labels; explained generated wrapper, value display and aria-valuetext; refreshed technical references.",
+    "remaining": "Custom scales and screen-reader combinations still need implementation testing. Chrome ArrowRight check verified 50 to 60 and matching aria-valuetext only.",
+    "title": "Add example markup for range limit labels",
+    "url": "https://github.com/uswds/uswds/issues/4504"
+  }
+]

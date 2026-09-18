@@ -1,0 +1,1068 @@
+[
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6949",
+    "title": "docs: replace retired conduct policy references",
+    "head": "0ca335ff8b2a12c1c2a2ddd4d43e8c5f3ac26b95",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:33.031924+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3309",
+    "title": "docs: replace retired conduct policy references",
+    "head": "c66148b96df0f12f1d00f67c84a567e9e16a3d8d",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:32.536719+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-team",
+    "url": "https://github.com/uswds/uswds-team/pull/497",
+    "title": "docs: replace retired conduct policy references",
+    "head": "21c874ab4aef3ce1de3149b66c34ddbb81734c61",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:32.545809+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (actions)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-for-designers",
+    "url": "https://github.com/uswds/uswds-for-designers/pull/102",
+    "title": "docs: replace retired conduct policy references",
+    "head": "de7ded2b88ef9cdb74c97a96aac66b5bed604437",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:32.755307+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": []
+  },
+  {
+    "repo": "uswds/uswds-compile",
+    "url": "https://github.com/uswds/uswds-compile/pull/196",
+    "title": "docs: replace retired conduct policy references",
+    "head": "7ed3f21b0e313cb96a6be543fbec1da01359b508",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:34.251759+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-cdn-poc",
+    "url": "https://github.com/uswds/uswds-cdn-poc/pull/4",
+    "title": "docs: replace retired conduct policy references",
+    "head": "9eebab74e507210febcec5a9c5e2806aaed06315",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:34.174677+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": []
+  },
+  {
+    "repo": "uswds/uswds-elements",
+    "url": "https://github.com/uswds/uswds-elements/pull/329",
+    "title": "docs: replace retired conduct policy references",
+    "head": "22777037c37ba92598087c3638f095a110e3dd08",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:34.518750+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "test",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (actions)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3310",
+    "title": "docs: record reduced-motion improvements in changelogs",
+    "head": "57a846eea6f1c151347dcebbd0cd1148c7dec271",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:34.742639+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6950",
+    "title": "docs: link release workflows to the recovery runbook",
+    "head": "8fff5dbcb1190ce50dd3e8dc9dd28c534061f50d",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:35.895331+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3311",
+    "title": "fix(site): stop builds when required GitHub data is missing",
+    "head": "670443eb22d4c7cf6d71a81db0e8c3a812aa4c16",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:35.672299+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6953",
+    "title": "docs(input-mask): explain accepted formats in example hints",
+    "head": "7a8e7d4a9b6b81b6ecff1e1246327e90fdb467e9",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:44.199662+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6954",
+    "title": "docs(banner): explain HTTPS without a browser padlock reference",
+    "head": "e08532045ce9b829465edf39bede7b0363b95b0b",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:44.157233+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "IN_PROGRESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "IN_PROGRESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6955",
+    "title": "docs: distinguish browser build targets from support policy",
+    "head": "56eba0c0e2ff7751bccd39b409339ab0f94d3066",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:44.359250+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3312",
+    "title": "USWDS-Site - Components: Clarify instructions and integration checks",
+    "head": "bf606a8ddc7cf673483095e2e9989feb421d28a3",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:44.149491+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3313",
+    "title": "docs: refresh USWDS adoption and maturity guidance",
+    "head": "3c067e2422feac2ff5188a401b742862a7268f0f",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:37.507324+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3314",
+    "title": "docs: define content and contribution review workflows",
+    "head": "b582dad24252cd7682e5198f9b00c1285e239e50",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:37.876904+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3315",
+    "title": "docs(patterns): move data visualization guidance into patterns",
+    "head": "67d11f93980152d9ca6bf4d4d1aed5067427050c",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:39.009486+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_desktop",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_a11y_mobile",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: test_build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6956",
+    "title": "docs(architecture): propose intrinsic component layouts",
+    "head": "8f4f561c573e5d8eb6618b278678cc8abe78baea",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:39.016140+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6951",
+    "title": "docs: clarify internal function documentation",
+    "head": "daac60eccd4fb47d5fa0110ee07c6d028ce06a2e",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:39.258566+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "IN_PROGRESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "PENDING"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6952",
+    "title": "docs: define template placeholder links",
+    "head": "8305fb92b7726dd49557174c6709be4de85c6b69",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:39.380811+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds",
+    "url": "https://github.com/uswds/uswds/pull/6957",
+    "title": "docs: add dedicated form error examples",
+    "head": "4280213f243ff4dc96490a8f17be3baa0d9c140f",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:40.549611+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "PR title",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Title validator tests",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "check-signatures",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds",
+        "result": "IN_PROGRESS"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "CodeRabbit",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "result": "SUCCESS"
+      }
+    ]
+  },
+  {
+    "repo": "uswds/uswds-site",
+    "url": "https://github.com/uswds/uswds-site/pull/3316",
+    "title": "docs: expand form error and disabled guidance",
+    "head": "53026fba413ac20f0ad3b23c8250967a113e1e22",
+    "verified": true,
+    "auditedAt": "2026-09-18T01:22:40.428988+00:00",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "checks": [
+      {
+        "name": "Analyze (javascript-typescript)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "Analyze (ruby)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "circle-uswds-site",
+        "result": "IN_PROGRESS"
+      },
+      {
+        "name": "ci/circleci: build",
+        "result": "PENDING"
+      },
+      {
+        "name": "CodeQL",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_node_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "ci/circleci: install_ruby_deps",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "pages/build",
+        "result": "SUCCESS"
+      },
+      {
+        "name": "security/snyk (USWDS)",
+        "result": "SUCCESS"
+      }
+    ]
+  }
+]
