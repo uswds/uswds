@@ -154,6 +154,7 @@ export default class UsaBanner extends LitElement {
         role="img"
         aria-label="Locked padlock icon"
         part="lock-icon"
+        aria-hidden="true"
       ></span>
     `;
   }
@@ -176,8 +177,8 @@ export default class UsaBanner extends LitElement {
             </slot> </strong
           ><br />
           <slot name="https-text">
-            ${unsafeHTML(https.text1)} ${unsafeHTML(https.text2)} .${tld}
-            ${https.text3}
+            ${UsaBanner.lockIcon()} ${unsafeHTML(https.text1)}
+            ${unsafeHTML(https.text2)} .${tld} ${https.text3}
           </slot>
         </p>
       </div>
