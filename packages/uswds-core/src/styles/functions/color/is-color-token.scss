@@ -1,13 +1,12 @@
 // ----------------------------------------
 // is-color-token()
 // ----------------------------------------
-// Returns whether a given string is a
-// USWDS color token.
-// ----------------------------------------
 
 @use "sass:map";
 @use "../../tokens/color/shortcodes-color-all" as *;
 
+/// Returns whether a given string is a
+/// USWDS color token.
 @function is-color-token($token) {
   $is-color-token: if(
     sass(map.has-key($all-color-shortcodes, $token)): true; else: false

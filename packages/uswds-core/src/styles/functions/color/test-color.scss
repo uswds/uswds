@@ -9,14 +9,13 @@
 // ----------------------------------------
 // test-colors()
 // ----------------------------------------
-// Check to see if all system colors
-// fall between the proper relative
-// luminance range for their grade.
-// Has a couple quirks, as the luminance()
-// function returns slightly different
-// results than expected.
-// ----------------------------------------
 
+/// Check to see if all system colors
+/// fall between the proper relative
+/// luminance range for their grade.
+/// Has a couple quirks, as the luminance()
+/// function returns slightly different
+/// results than expected.
 @function test-colors($map) {
   $exceptions:
     "black", "white", "transparent", "black-transparent", "white-transparent";

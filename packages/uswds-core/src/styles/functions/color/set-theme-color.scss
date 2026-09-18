@@ -1,9 +1,6 @@
 // ----------------------------------------
 // set-theme-color()
 // ----------------------------------------
-// Derive a color from a system color token
-// or a hex value
-// ----------------------------------------
 
 @use "sass:map";
 @use "sass:meta";
@@ -12,6 +9,8 @@
 @use "../../settings";
 @use "../../tokens/color/shortcodes-color-system" as tokens;
 
+/// Derive a color from a system color token
+/// or a hex value
 @function set-theme-color($value, $flag: null) {
   $value: general.unpack($value);
 

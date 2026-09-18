@@ -1,13 +1,12 @@
 // ----------------------------------------
 // is-system-color-token()
 // ----------------------------------------
-// Return whether a token is a system
-// color token
-// ----------------------------------------
 
 @use "sass:map";
 @use "../../tokens/color/shortcodes-color-system" as *;
 
+/// Return whether a token is a system
+/// color token
 @function is-system-color-token($token) {
   @if map.has-key($system-color-shortcodes, $token) {
     @return true;
