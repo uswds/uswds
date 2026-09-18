@@ -253,7 +253,7 @@ $expand-less-icon: map.merge(
       span {
         @include place-icon($-add-icon, "after");
 
-        &:hover::after {
+        &:where(:hover)::after {
           background-color: buttonText;
         }
       }
