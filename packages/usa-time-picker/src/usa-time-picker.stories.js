@@ -55,7 +55,7 @@ Error.parameters = {
   docs: {
     description: {
       story:
-        "This example includes error markup before enhancement. Current JavaScript enhancement does not preserve the error input class or error description on the generated input. The class issue is tracked in PR #6942; description propagation remains a separate behavior gap. Do not use the enhanced output as a complete validation pattern.",
+        "This story exposes a current enhancement gap. Time picker does not preserve the original input’s error class, aria-invalid, or error description when creating its select and generated input. These require a separate time-picker propagation fix. PR #6942 tracks related combo-box select class propagation. This is regression evidence, not a recommended accessible validation example.",
     },
   },
 };

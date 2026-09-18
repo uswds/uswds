@@ -61,7 +61,7 @@ Error.parameters = {
   docs: {
     description: {
       story:
-        "This example includes error markup before enhancement. Current JavaScript enhancement does not preserve the error input class or error description on the generated input. The class issue is tracked in PR #6942; description propagation remains a separate behavior gap. Do not use the enhanced output as a complete validation pattern.",
+        "This example includes error markup before enhancement. Current JavaScript enhancement does not preserve the error input class, aria-invalid, or error description on the generated input. The class issue is tracked in PR #6942; description propagation remains a separate behavior gap. Do not use the enhanced output as a complete validation pattern.",
     },
   },
 };
