@@ -83,7 +83,9 @@
     "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html",
     "test:quality": "npm run lint:js && gulp test && npm run prettier:check && node --test .github/scripts/*.test.mjs",
     "ci:pack": "node scripts/pack-verified.mjs",
-    "test:package": "node scripts/package-smoke.mjs"
+    "test:package": "node scripts/package-smoke.mjs",
+    "changeset": "changeset",
+    "release:version": "changeset version && npm install --package-lock-only --ignore-scripts --no-audit --fund=false"
   },
   "repository": {
     "type": "git",
@@ -109,7 +111,7 @@
     "Geoffrey Queen <geoffrey.queen@gsa.gov>",
     "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
     "Marco Segreto <marco.segreto@gsa.gov>",
-    "Julia Sol\u00f3rzano <julia.solorzano@gsa.gov>",
+    "Julia Solórzano <julia.solorzano@gsa.gov>",
     "Atul Varma <atul.varma@gsa.gov>",
     "Dan O. Williams <daniel.williams@gsa.gov>"
   ],
@@ -128,6 +130,7 @@
     "@18f/identity-stylelint-config": "4.1.0",
     "@babel/core": "7.29.7",
     "@babel/preset-env": "7.29.7",
+    "@changesets/cli": "2.31.1",
     "@eslint/js": "^10.0.1",
     "@material-design-icons/svg": "0.14.15",
     "@rollup/plugin-commonjs": "^29.0.3",

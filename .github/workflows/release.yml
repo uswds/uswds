@@ -1,122 +1,175 @@
-# Publish Package to npmjs
-# =============================================================================
-# Fires when a v*.*.* tag is pushed to the repo. This is the second half of the
-# two-part release process; run release-prep.yml first on the release branch.
-#
-# VULNERABILITY GATE
-#   Blocks on critical vulnerabilities only. Catches any critical CVEs
-#   disclosed between release-prep.yml running and this tag being pushed.
-#   The authoritative clean-room scan (prod deps, zero tolerance) already
-#   ran in release-prep.yml.
-#
-# HASH GATE
-#   This workflow does NOT rebuild the package. It downloads the exact
-#   tarball artifact that release-prep.yml already built, hashed, and
-#   uploaded, then verifies the downloaded tarball's SHA-256 still matches
-#   the committed security/uswds-<version>-zip-hash.txt before publishing
-#   that same file. Rebuilding a second time here was tried and abandoned:
-#   npm pack output isn't guaranteed byte-identical across separate CI runs
-#   once the toolchain drifts between the two workflows, which produced
-#   false-positive hash mismatches. Publishing the original artifact avoids
-#   depending on build reproducibility entirely.
-#
-# See release-prep.yml for the prep workflow.
-# =============================================================================
-
 name: Publish Package to npmjs
-
 on:
-  push:
-    tags:
-      - "v*.*.*"
-
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Full SHA of the reviewed version commit merged into develop
+        required: true
+        type: string
+      channel:
+        description: npm distribution channel
+        required: true
+        default: latest
+        type: choice
+        options: [latest, next]
+      publish:
+        description: Publish after full verification (false performs a dry run)
+        type: boolean
+        default: false
+      confirm_version:
+        description: Exact package version, required when publishing
+        type: string
+        default: ""
 permissions:
-  id-token: write  # Required for OIDC
-  actions: read    # Required to list/download release-prep's uploaded artifact
   contents: read
-
+concurrency:
+  group: uswds-release
+  cancel-in-progress: false
 jobs:
-  build:
+  authorize:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      source: ${{ steps.policy.outputs.source }}
+      version: ${{ steps.policy.outputs.version }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin v6.0.2
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # pin v6.3.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          node-version: '24.x'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Update npm version
-        run: npm install -g npm@latest # OIDC requires npm v11.5.1 or later
-      - run: npm ci
-
-      # Catches any critical CVEs disclosed between release-prep.yml running and
-      # this tag being pushed. The authoritative clean-room scan already ran in
-      # release-prep.yml; this is a last-minute safety net.
-      - name: Check for critical vulnerabilities
-        run: |
-          AUDIT_FILE=$(mktemp)
-          AUDIT_STATUS=0
-          npm audit --json --audit-level=info > "$AUDIT_FILE" || AUDIT_STATUS=$?
-          AUDIT_COUNTS=$(node scripts/verify-npm-audit.mjs "$AUDIT_FILE" "$AUDIT_STATUS" development)
-
-          echo "✓ No critical vulnerabilities found."
-          echo "$AUDIT_COUNTS" | jq .
-
-      # Finds the artifact release-prep.yml uploaded for this version. Sorts
-      # by created_at and takes the most recent, in case release-prep was
-      # re-run for this version (its own instructions say to do so after a
-      # late change — see the NOTE at the top of release-prep.yml).
-      - name: Locate release-prep artifact for this version
+          fetch-depth: 0
+          persist-credentials: false
+      - id: policy
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          ARTIFACT_NAME="uswds-${VERSION}-release"
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-
-          ARTIFACTS=$(gh api \
-            "repos/$GITHUB_REPOSITORY/actions/artifacts?name=${ARTIFACT_NAME}&per_page=100" \
-            --paginate \
-            --jq '.artifacts[] | select(.expired == false)' \
-            | jq -s 'sort_by(.created_at)')
-
-          COUNT=$(echo "$ARTIFACTS" | jq 'length')
-          if [ "$COUNT" -eq 0 ]; then
-            echo "::error::No non-expired artifact named '$ARTIFACT_NAME' found."
-            echo "::error::Run release-prep.yml on the release branch for v$VERSION before tagging."
-            exit 1
-          fi
-
-          ARTIFACT_ID=$(echo "$ARTIFACTS" | jq -r '.[-1].id')
-          ARTIFACT_CREATED=$(echo "$ARTIFACTS" | jq -r '.[-1].created_at')
-          echo "Found $COUNT matching artifact(s); using most recent: id=$ARTIFACT_ID created=$ARTIFACT_CREATED"
-          echo "ARTIFACT_ID=$ARTIFACT_ID" >> "$GITHUB_ENV"
-
-      - name: Download release-prep artifact
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          RELEASE_CHANNEL: ${{ inputs.channel }}
+          PUBLISH: ${{ inputs.publish }}
+          CONFIRM_VERSION: ${{ inputs.confirm_version }}
+          RELEASE_AUTOMATION_ENABLED: ${{ vars.RELEASE_AUTOMATION_ENABLED }}
+        run: node scripts/authorize-release.mjs
+  verify:
+    needs: authorize
+    uses: ./.github/workflows/verify.yml
+    with:
+      ref: ${{ needs.authorize.outputs.source }}
+      full: true
+  audit:
+    needs: [authorize, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      - run: npm install --global npm@11.18.0 --ignore-scripts --no-audit --fund=false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          artifact-ids: ${{ needs.verify.outputs.artifact-id }}
+          path: release-artifacts
+          merge-multiple: true
+      - name: Check shipped dependency vulnerabilities
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_SHA: ${{ needs.authorize.outputs.source }}
+          RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
+        run: node scripts/release-audit.mjs
+      - name: Retain audit evidence
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: release-dependency-audit
+          path: release-artifacts/audit.json
+          retention-days: 14
+      - name: Summarize verified candidate
+        env:
+          VERSION: ${{ needs.authorize.outputs.version }}
+          SOURCE: ${{ needs.authorize.outputs.source }}
         run: |
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/${ARTIFACT_ID}/zip" > release-artifact.zip
-          unzip -o release-artifact.zip -d release-artifact
-
-      # Verifies the downloaded tarball still matches the hash release-prep
-      # recorded — i.e. that the trusted, reviewed artifact survived
-      # download intact, not that two independent builds happen to match.
-      - name: Verify downloaded tarball hash matches release-prep's security file
-        id: verify-hash
-        uses: ./.github/actions/verify-tarball-hash
+          echo "Verified USWDS $VERSION at $SOURCE. The verified-package artifact contains the tested tarball and checksums." >> "$GITHUB_STEP_SUMMARY"
+  publish:
+    if: ${{ inputs.publish }}
+    needs: [authorize, verify, audit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: npm-release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          version: ${{ env.VERSION }}
-          tarball-dir: 'release-artifact'
-
-      - name: Export tarball path to env
-        run: echo "TGZ_PATH=${{ steps.verify-hash.outputs.tarball-path }}" >> "$GITHUB_ENV"
-
-      - name: Upload pack artifact
-        if: ${{ !env.ACT }}
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # pin v7.0.0
+          persist-credentials: false
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          name: npm-pack
-          path: release-artifact/uswds-*.tgz
-      - name: Publish to npm
-        if: ${{ !env.ACT }}
-        run: npm publish "$TGZ_PATH"
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@11.18.0 --ignore-scripts --no-audit --fund=false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          artifact-ids: ${{ needs.verify.outputs.artifact-id }}
+          path: release-artifacts
+          merge-multiple: true
+      - name: Publish the verified bytes
+        env:
+          SOURCE_SHA: ${{ needs.authorize.outputs.source }}
+          RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
+          RELEASE_CHANNEL: ${{ inputs.channel }}
+          CONFIRM_VERSION: ${{ inputs.confirm_version }}
+          RELEASE_AUTOMATION_ENABLED: ${{ vars.RELEASE_AUTOMATION_ENABLED }}
+        run: node scripts/publish-verified.mjs
+  registry-smoke:
+    needs: [authorize, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Verify registry installation
+        env:
+          VERSION: ${{ needs.authorize.outputs.version }}
+        run: npm run test:package -- "@uswds/uswds@$VERSION"
+  record:
+    needs: [authorize, verify, registry-smoke]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: npm-release
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          artifact-ids: ${{ needs.verify.outputs.artifact-id }}
+          path: release-artifacts
+          merge-multiple: true
+      - name: Authorize release recording
+        env:
+          SOURCE_SHA: ${{ needs.authorize.outputs.source }}
+          RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
+          RELEASE_CHANNEL: ${{ inputs.channel }}
+          CONFIRM_VERSION: ${{ inputs.confirm_version }}
+          RELEASE_AUTOMATION_ENABLED: ${{ vars.RELEASE_AUTOMATION_ENABLED }}
+        run: node --input-type=module -e 'import { authorizePublication } from "./scripts/release-policy.mjs"; authorizePublication();'
+      - name: Create a repository-scoped release token
+        id: release-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+      - name: Record tag, notes, and assets
+        env:
+          GH_TOKEN: ${{ steps.release-token.outputs.token }}
+          SOURCE_SHA: ${{ needs.authorize.outputs.source }}
+          RELEASE_VERSION: ${{ needs.authorize.outputs.version }}
+          RELEASE_CHANNEL: ${{ inputs.channel }}
+          CONFIRM_VERSION: ${{ inputs.confirm_version }}
+          RELEASE_AUTOMATION_ENABLED: ${{ vars.RELEASE_AUTOMATION_ENABLED }}
+        run: node scripts/record-release.mjs

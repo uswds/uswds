@@ -8,7 +8,10 @@ import { extname, join, resolve, sep } from "node:path";
 import { chromium } from "playwright";
 import { compileString } from "sass-embedded";
 
-const tarball = resolve(process.argv[2] || "release-artifacts/package.tgz");
+const requested = process.argv[2] || "release-artifacts/package.tgz";
+const tarball = requested.startsWith("@uswds/uswds@")
+  ? requested
+  : resolve(requested);
 const directory = mkdtempSync(join(tmpdir(), "uswds-consumer-"));
 let server;
 let browser;
