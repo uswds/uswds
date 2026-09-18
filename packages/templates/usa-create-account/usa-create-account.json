@@ -30,5 +30,6 @@
     "label": "Already have an account?",
     "cta": "Sign in"
   },
-  "img_path": "./img"
+  "img_path": "./img",
+  "placeholder_link": "#"
 }

@@ -38,5 +38,6 @@
       "label": "Create your account now"
     }
   },
-  "img_path": "./img"
+  "img_path": "./img",
+  "placeholder_link": "#"
 }
