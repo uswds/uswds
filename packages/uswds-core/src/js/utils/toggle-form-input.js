@@ -43,7 +43,10 @@ const toggleFormInput = (el) => {
   const pressed =
     el.hasAttribute(PRESSED) && el.getAttribute(PRESSED) !== "true";
 
-  const fields = resolveIdRefs(el.getAttribute(CONTROLS));
+  const fields = resolveIdRefs(el.getAttribute(CONTROLS) || "");
+  if (fields.length === 0) {
+    return el.getAttribute(PRESSED) === "true";
+  }
   fields.forEach((field) => toggleFieldMask(field, pressed));
 
   if (!el.hasAttribute(SHOW_ATTR)) {

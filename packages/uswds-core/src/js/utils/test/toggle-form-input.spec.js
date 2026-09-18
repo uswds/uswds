@@ -29,16 +29,25 @@ describe("resolveIdRefs", () => {
     document.body.appendChild(bElement);
   });
 
+  afterEach(() => {
+    aElement.remove();
+    bElement.remove();
+  });
+
   it("returns matched elements ignoring excess whitespace", () => {
     const elements = resolveIdRefs(" a  b ");
 
-    assert.deepStrictEqual(elements, [aElement, bElement]);
+    assert.strictEqual(elements.length, 2);
+    assert.strictEqual(elements[0], aElement);
+    assert.strictEqual(elements[1], bElement);
   });
 
   it("silently ignores ids without corresponding element", () => {
     const elements = resolveIdRefs("a c b");
 
-    assert.deepStrictEqual(elements, [aElement, bElement]);
+    assert.strictEqual(elements.length, 2);
+    assert.strictEqual(elements[0], aElement);
+    assert.strictEqual(elements[1], bElement);
   });
 });
 
@@ -77,5 +86,46 @@ describe("toggleFormInput", () => {
 
     toggleFormInput(maskControl);
     assert.strictEqual(maskControl.textContent, SHOW_TEXT);
+  });
+
+  it("toggles existing fields around a missing reference", () => {
+    maskControl.setAttribute(
+      "aria-controls",
+      "password missing confirmPassword",
+    );
+
+    toggleFormInput(maskControl);
+    assert.strictEqual(password.type, "text");
+    assert.strictEqual(confirmPassword.type, "text");
+
+    toggleFormInput(maskControl);
+    assert.strictEqual(password.type, "password");
+    assert.strictEqual(confirmPassword.type, "password");
+  });
+
+  ["missing", "", "   ", null].forEach((references) => {
+    it(`preserves the control when no fields resolve from ${JSON.stringify(references)}`, () => {
+      if (references === null) {
+        maskControl.removeAttribute("aria-controls");
+      } else {
+        maskControl.setAttribute("aria-controls", references);
+      }
+      const before = maskControl.outerHTML;
+
+      assert.strictEqual(toggleFormInput(maskControl), false);
+      assert.strictEqual(toggleFormInput(maskControl), false);
+      assert.strictEqual(maskControl.outerHTML, before);
+      assert.strictEqual(password.type, "password");
+      assert.strictEqual(confirmPassword.type, "password");
+    });
+  });
+
+  it("preserves an existing pressed state when no fields resolve", () => {
+    maskControl.setAttribute("aria-controls", "missing");
+    maskControl.setAttribute("aria-pressed", "true");
+    const before = maskControl.outerHTML;
+
+    assert.strictEqual(toggleFormInput(maskControl), true);
+    assert.strictEqual(maskControl.outerHTML, before);
   });
 });
