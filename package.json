@@ -116,7 +116,7 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.6.0"
   },
   "dependencies": {
     "lit": "3.3.3"
