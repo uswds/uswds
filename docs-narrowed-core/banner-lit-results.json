@@ -1,0 +1,46 @@
+[
+  {
+    "contentHidden": false,
+    "decorative": "true",
+    "display": "inline-block",
+    "expanded": "true",
+    "lang": "en",
+    "lockCount": 1,
+    "text": "https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "tld": "gov",
+    "width": 10.2578125
+  },
+  {
+    "contentHidden": false,
+    "decorative": "true",
+    "display": "inline-block",
+    "expanded": "true",
+    "lang": "es",
+    "lockCount": 1,
+    "text": "https:// significa que usted se conectó de forma segura a un sitio web .gov Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "tld": "gov",
+    "width": 10.2578125
+  },
+  {
+    "contentHidden": false,
+    "decorative": "true",
+    "display": "inline-block",
+    "expanded": "true",
+    "lang": "en",
+    "lockCount": 1,
+    "text": "https:// means you’ve safely connected to the .mil website. Share sensitive information only on official, secure websites.",
+    "tld": "mil",
+    "width": 10.2578125
+  },
+  {
+    "contentHidden": false,
+    "decorative": "true",
+    "display": "inline-block",
+    "expanded": "true",
+    "lang": "es",
+    "lockCount": 1,
+    "text": "https:// significa que usted se conectó de forma segura a un sitio web .mil Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "tld": "mil",
+    "width": 10.2578125
+  }
+]

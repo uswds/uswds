@@ -1,0 +1,227 @@
+[
+  {
+    "type": "banner",
+    "state": "before",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPSA lock ( Lock Locked padlock icon ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": false
+  },
+  {
+    "type": "banner",
+    "state": "before",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPSUn candado ( Lock Locked padlock icon ) o https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": false
+  },
+  {
+    "type": "banner",
+    "state": "before",
+    "variant": "~mil",
+    "text": "Secure .mil websites use HTTPSA lock ( Lock Locked padlock icon ) or https:// means you’ve safely connected to the .mil website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": false
+  },
+  {
+    "type": "banner",
+    "state": "before",
+    "variant": "~mil-lang-es",
+    "text": "Los sitios web seguros .mil usan HTTPSUn candado ( Lock Locked padlock icon ) o https:// significa que usted se conectó de forma segura a un sitio web .mil. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": false
+  },
+  {
+    "type": "banner",
+    "state": "after",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner",
+    "state": "after",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner",
+    "state": "after",
+    "variant": "~mil",
+    "text": "Secure .mil websites use HTTPS https:// means you’ve safely connected to the .mil website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner",
+    "state": "after",
+    "variant": "~mil-lang-es",
+    "text": "Los sitios web seguros .mil usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .mil. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-documentation/usa-docs",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-create-account/usa-create-account",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-create-account/usa-create-account",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-sign-in/usa-sign-in--multiple/usa-sign-in--multiple",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-sign-in/usa-sign-in",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-sign-in/usa-sign-in",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-landing/usa-landing",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-error/usa-error",
+    "variant": "",
+    "text": "Secure .gov websites use HTTPS https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "banner-page",
+    "name": "usa-error/usa-error",
+    "variant": "~lang-es",
+    "text": "Los sitios web seguros .gov usan HTTPS https:// significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.",
+    "lockPresent": true,
+    "decorative": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-character-count",
+    "errorCount": 2,
+    "invalidCount": 2,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-date-picker",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-date-range-picker",
+    "errorCount": 2,
+    "invalidCount": 2,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-input-mask",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-input-prefix",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-input-suffix",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-memorable-date",
+    "errorCount": 1,
+    "invalidCount": 3,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-range",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  },
+  {
+    "type": "form-error",
+    "name": "usa-select",
+    "errorCount": 1,
+    "invalidCount": 1,
+    "uniqueIds": true,
+    "descriptionsResolved": true,
+    "defaultMarkupUnchanged": true
+  }
+]

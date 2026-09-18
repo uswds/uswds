@@ -1,0 +1,138 @@
+[
+  {
+    "name": "usa-character-count",
+    "duplicates": [],
+    "errors": 2,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "with-hint-input-info with-hint-input-hint with-hint-input-error",
+        "id": "with-hint-input"
+      },
+      {
+        "description": "with-hint-textarea-info with-hint-textarea-hint with-hint-textarea-error",
+        "id": "with-hint-textarea"
+      }
+    ]
+  },
+  {
+    "name": "usa-date-picker",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "appointment-date-hint appointment-date-error",
+        "id": ""
+      },
+      {
+        "description": "appointment-date-hint appointment-date-error",
+        "id": "appointment-date"
+      }
+    ]
+  },
+  {
+    "name": "usa-date-range-picker",
+    "duplicates": [],
+    "errors": 2,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "event-date-start-hint event-date-start-error",
+        "id": ""
+      },
+      {
+        "description": "event-date-start-hint event-date-start-error",
+        "id": "event-date-start"
+      },
+      {
+        "description": "event-date-end-hint event-date-end-error",
+        "id": ""
+      },
+      {
+        "description": "event-date-end-hint event-date-end-error",
+        "id": "event-date-end"
+      }
+    ]
+  },
+  {
+    "name": "usa-input-mask",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "alphanumericHint alphanumericError",
+        "id": "alphanumeric"
+      }
+    ]
+  },
+  {
+    "name": "usa-input-prefix",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "example-input-prefix-message",
+        "id": "example-input-prefix"
+      }
+    ]
+  },
+  {
+    "name": "usa-input-suffix",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "example-input-suffix-message",
+        "id": "example-input-suffix"
+      }
+    ]
+  },
+  {
+    "name": "usa-memorable-date",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "memorable-date-month-hint memorable-date-error",
+        "id": "memorable-date-month"
+      },
+      {
+        "description": "memorable-date-day-hint memorable-date-error",
+        "id": "memorable-date-day"
+      },
+      {
+        "description": "memorable-date-year-hint memorable-date-error",
+        "id": "memorable-date-year"
+      }
+    ]
+  },
+  {
+    "name": "usa-range",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "range-hint range-error",
+        "id": "usa-range"
+      }
+    ]
+  },
+  {
+    "name": "usa-select",
+    "duplicates": [],
+    "errors": 1,
+    "missingDescriptions": [],
+    "invalidControls": [
+      {
+        "description": "options-error",
+        "id": "options"
+      }
+    ]
+  }
+]
