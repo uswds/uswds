@@ -23,7 +23,8 @@
 }
 
 .usa-banner__header,
-.usa-banner__content {
+.usa-banner__content,
+.usa-banner__content.usa-accordion__content {
   color: var(--theme-banner-text-color);
 }
 
@@ -36,23 +37,27 @@
   font-family: inherit;
 }
 
-.usa-banner__button {
+.usa-banner__button,
+.usa-banner__button.usa-accordion__button {
   color: var(--theme-banner-link-color);
   cursor: pointer;
   font-family: inherit;
 }
 
-.usa-banner__button:hover {
+.usa-banner__button:hover,
+.usa-banner__button.usa-accordion__button:hover {
   color: var(--theme-banner-link-hover-color);
 }
 
 /* In USWDS close icon is set via max-width media query, flipped it here. */
 .usa-banner__button::after,
+.usa-banner__button.usa-accordion__button::after,
 .usa-banner__header-action::after {
   mask-image: var(--icon-chevron-down);
 }
 
-.usa-banner__button[aria-expanded="true"]::after {
+.usa-banner__button[aria-expanded="true"]::after,
+.usa-banner__button.usa-accordion__button[aria-expanded="true"]::after {
   mask-image: var(--icon-close);
 }
 
@@ -84,17 +89,21 @@
   }
 
   .usa-banner__button,
-  .usa-banner__button[aria-expanded="true"] {
+  .usa-banner__button[aria-expanded="true"],
+  .usa-banner__button.usa-accordion__button,
+  .usa-banner__button.usa-accordion__button[aria-expanded="true"] {
     padding-inline-end: var(--chevron-width);
   }
 
-  .usa-banner__button::after {
+  .usa-banner__button::after,
+  .usa-banner__button.usa-accordion__button::after {
     background-color: var(--theme-banner-chevron-color);
     top: 0;
     right: 0;
   }
 
-  .usa-banner__button[aria-expanded="true"]::after {
+  .usa-banner__button[aria-expanded="true"]::after,
+  .usa-banner__button.usa-accordion__button[aria-expanded="true"]::after {
     mask-image: var(--icon-chevron-up);
   }
 }
