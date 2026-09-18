@@ -1,3 +1,5 @@
+For setup, customization, or usage questions, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a). Use issues for bugs and concrete enhancements. See [where to contribute](../CONTRIBUTING.md#choose-the-right-place).
+
 <!-- Please feel free to remove whatever sections/lines in this aren’t relevant.
 
 Use the title line as the title of your pull request, then delete these lines.
