@@ -4,7 +4,7 @@ const mochaConfig = {
   config: "packages/uswds-core/src/js/utils/test/.mocharc.json",
 };
 
-const SPEC_FLOOR = 77;
+const SPEC_FLOOR = 78;
 const SASS_SPECS = [
   "packages/uswds-core/src/test/sass.spec.js",
   "packages/usa-accordion/src/test/accordion-icon.spec.js",
