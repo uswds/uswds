@@ -1,0 +1,515 @@
+[
+  {
+    "number": 6941,
+    "url": "https://github.com/uswds/uswds/pull/6941",
+    "title": "fix(core): initialize components within shadow roots",
+    "head": "84fd82921dde4cb157fe4dededfc70ea8df8aa60",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:43.660609+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287485653/job/105422935988"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287485655/job/105422936580"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287816473/job/105423953700"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287485515/job/105422935647"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287485888/job/105422937579"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105423560256"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/1911b7f5-3625-45e9-968c-ec64e0668670?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/3eda294a-b990-4679-9e02-38ed22d60815"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/select-shadow-root/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/01696c5d-c9a2-471b-a629-1cb670a4017c"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6942,
+    "url": "https://github.com/uswds/uswds/pull/6942",
+    "title": "fix(combo-box): preserve initial validation styling",
+    "head": "e862ac2e16043951210f1e0ab69d99fb0df56af5",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:42.949046+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287851707/job/105424055584"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287851853/job/105424056655"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290425656/job/105431851138"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287851715/job/105424055513"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35287851829/job/105424056541"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105424752191"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/2ca7cf7a-de01-455c-8831-15615d12cfab?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/a64071e6-a8d1-4aa1-901f-4260f4cb2116"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/combo-box-error-state/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/d285d904-fe7e-459d-a20d-e7f2c919772e"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6943,
+    "url": "https://github.com/uswds/uswds/pull/6943",
+    "title": "fix(sass): restore the documented shadow function",
+    "head": "b0eaf212b2963db0f501907331a79b6847074958",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:44.081383+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35288560986/job/105426203025"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35288559306/job/105426198894"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35288560952/job/105426203289"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35288559315/job/105426199199"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105426798033"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/379090a1-cfa5-4aba-bcaa-d3af31a38dde?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/163cf0c3-a768-45f8-9ceb-1aeb42676f1a"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/shadow-function-5755/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/cd78d9cf-793e-4e7a-8185-0e56a329a5db"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6944,
+    "url": "https://github.com/uswds/uswds/pull/6944",
+    "title": "fix(combo-box): preserve button focus contrast",
+    "head": "a26e8305ba3018c999481a7ef844c979935b274a",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:45.686708+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289028157/job/105427623265"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289028350/job/105427625092"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289987163/job/105430525574"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290426714/job/105431859828"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289028111/job/105427623870"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289028375/job/105427624894"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105428168264"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/07ef3d28-2e36-41d1-b968-9386190acd2f?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/ca060951-22c1-421f-949d-50e6a9ade87d"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/combo-box-focus-opacity/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/22895f80-4a6a-4260-bf62-fd4190838798"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6945,
+    "url": "https://github.com/uswds/uswds/pull/6945",
+    "title": "fix(checkbox): preserve indeterminate indicators when checked",
+    "head": "33cd8c3147dc873cc966b7aefc2d2defe95ce57f",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:43.568204+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289593810/job/105429338410"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289593926/job/105429339552"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289593820/job/105429344053"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289593916/job/105429339616"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105429894565"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/08ed1460-4275-46c5-ae07-8f21c877de7d?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/465ab3c1-3405-4ae3-b454-1bae45410557"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/checkbox-indeterminate-6381/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/16b38035-4ad0-49b2-9f82-f40373b1838d"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6946,
+    "url": "https://github.com/uswds/uswds/pull/6946",
+    "title": "fix: avoid redundant navigation landmark names",
+    "head": "39dfba0d7f01a50f025ba7e22eb9269966d51602",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:43.320996+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289701114/job/105429651446"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289701339/job/105429653226"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290429068/job/105431861038"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289701276/job/105429652192"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35289701245/job/105429652706"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105430131045"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/53813c4c-afb4-48b1-938e-9a5a966f5a4d?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/8a16deb4-99dd-4122-8571-096f1e2b08be"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/navigation-labels/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/f624eb26-cc5e-413e-8357-bb403eb6c429"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6947,
+    "url": "https://github.com/uswds/uswds/pull/6947",
+    "title": "fix(banner): preserve styles across CSS load orders",
+    "head": "4ebc116b0064079c8fc22a14d0d9b92db07697d0",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:30:43.340677+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290411032/job/105431806278"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290411024/job/105431806784"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290411105/job/105431806551"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35290411038/job/105431807372"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105432382204"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/362a6ba4-0d92-4d06-af7c-5e9bffd922a1?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/fda283ba-614e-4c8d-a6ff-3caa4d7ea3cd"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/banner-css-order/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/82cc7258-4ece-44cc-b3ab-c3af37b4c6c2"
+      }
+    ],
+    "inlineCommentCount": 0
+  },
+  {
+    "number": 6948,
+    "url": "https://github.com/uswds/uswds/pull/6948",
+    "title": "fix(sass): restore invalid color token diagnostics",
+    "head": "968bacb743ae8b6feb4e972e08246f01856c5ee8",
+    "signatureVerified": true,
+    "auditedAt": "2026-09-18T00:37:28.568537+00:00",
+    "checks": [
+      {
+        "name": "Analyze w/compiled uswds",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35291355052/job/105434674531"
+      },
+      {
+        "name": "PR title",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35291355312/job/105434677648"
+      },
+      {
+        "name": "Title validator tests",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35291355040/job/105434674628"
+      },
+      {
+        "name": "check-signatures",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/actions/runs/35291355124/job/105434675975"
+      },
+      {
+        "name": "CodeQL",
+        "status": "SUCCESS",
+        "url": "https://github.com/uswds/uswds/runs/105435313113"
+      },
+      {
+        "name": "CodeRabbit",
+        "status": "SUCCESS",
+        "url": ""
+      },
+      {
+        "name": "circle-uswds",
+        "status": "SUCCESS",
+        "url": "https://app.circleci.com/workflow/6fe3712a-7d24-413f-a785-a3b5f1ee98d5?utm_campaign=vcs-integration-link&utm_medium=referral&utm_content=bottom&utm_source=github-checks-link"
+      },
+      {
+        "name": "code/snyk (USWDS)",
+        "status": "SUCCESS",
+        "url": "https://app.snykgov.io/org/uswds/project/46240e1d-edda-4389-b32b-866903473bdd/pr-check/d332080d-c8f0-44a9-a52b-59da7c82d97f"
+      },
+      {
+        "name": "pages/build",
+        "status": "SUCCESS",
+        "url": "https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/fix/color-token-diagnostic-5913/"
+      },
+      {
+        "name": "security/snyk (sarah.rudder)",
+        "status": "SUCCESS",
+        "url": "https://app.snyk.io/org/sarah.rudder-3y4rVfgV4RKzqZHMnkEWvp/pr-checks/21aba946-6fcb-43da-b268-8890a71d58d6"
+      }
+    ],
+    "inlineCommentCount": 0
+  }
+]

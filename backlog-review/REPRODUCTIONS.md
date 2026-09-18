@@ -6,7 +6,7 @@ All 63 bug-bucket issues have an attempt or explicitly scoped environment limita
 | --- | --- | --- |
 | [#6830](https://github.com/uswds/uswds/issues/6830) | Reproduced; fix remains open | Validate and merge existing PR #6831 after required accessibility verification. |
 | [#6815](https://github.com/uswds/uswds/issues/6815) | Named platform or environment needed | Test the official no-label variant with current Safari and VoiceOver; assess the progress heading and list together before changing aria-hidden. |
-| [#6808](https://github.com/uswds/uswds/issues/6808) | Fix proposed: [#6941](https://github.com/uswds/uswds/pull/6941) | Review PR6941; merge only after required maintainer review. |
+| [#6808](https://github.com/uswds/uswds/issues/6808) | Fix proposed: [#6941](https://github.com/uswds/uswds/pull/6941) | Review PR #6941, including the expanded context contract. Verify other components separately before claiming general shadow DOM support. |
 | [#6794](https://github.com/uswds/uswds/issues/6794) | Narrow claim not reproduced | Keep the accessibility/design request actionable. Evaluate the proposed consistent Error prefix with accessibility review; do not close as invalid based on this narrow check. |
 | [#6717](https://github.com/uswds/uswds/issues/6717) | Named platform or environment needed | Verify #6781 on actual iOS Safari before merging, including background scrolling, forced-action nondismissal, explicit close, and focus restoration. Avoid a duplicate implementation. |
 | [#6694](https://github.com/uswds/uswds/issues/6694) | Reproduced; fix remains open | Validate existing PR #6695 and its dependency order. |
@@ -20,16 +20,16 @@ All 63 bug-bucket issues have an attempt or explicitly scoped environment limita
 | [#6459](https://github.com/uswds/uswds/issues/6459) | Named platform or environment needed | Retest actual assistive technology with visible native-input prototype; keep distinct regression scenarios. |
 | [#6449](https://github.com/uswds/uswds/issues/6449) | Named platform or environment needed | Retest the second toggle click in current Safari and on physical iOS. Reassess PR #6450 against current baseline instead of opening competing work. |
 | [#6426](https://github.com/uswds/uswds/issues/6426) | Reproduced; fix remains open | Validate existing PR #6431, including repeated updates and teardown. |
-| [#6424](https://github.com/uswds/uswds/issues/6424) | Fix proposed: [#6944](https://github.com/uswds/uswds/pull/6944) | Remove the opacity reduction while the button has focus, preserve the unfocused icon appearance, and verify keyboard focus and before/after contrast. |
+| [#6424](https://github.com/uswds/uswds/issues/6424) | Fix proposed: [#6944](https://github.com/uswds/uswds/pull/6944) | Review PR #6944. Custom themes should verify their chosen focus and background colors. |
 | [#6414](https://github.com/uswds/uswds/issues/6414) | Reproduced; fix remains open | Refresh #6418 against current Gulp/Sass tooling, retain effective failing-path regression coverage, and document the output-path migration before release. |
 | [#6412](https://github.com/uswds/uswds/issues/6412) | Reproduced; fix remains open | Review and finish existing PR #6610. Preserve its documented compatibility warning for consumers compensating for the current order. |
 | [#6386](https://github.com/uswds/uswds/issues/6386) | Partial reproduction | Update the issue with partial mitigation and validate existing teardown PR #6387 against current guards. |
-| [#6381](https://github.com/uswds/uswds/issues/6381) | Fix proposed: [#6945](https://github.com/uswds/uswds/pull/6945) | Add a focused precedence regression test, agree on the intended checked-plus-indeterminate contract, and validate the eventual fix in actual Safari and Firefox as well as Chromium. |
+| [#6381](https://github.com/uswds/uswds/issues/6381) | Fix proposed: [#6945](https://github.com/uswds/uswds/pull/6945) | Review PR #6945 with its cross-browser state matrix and documented print/forced-color limits. |
 | [#6372](https://github.com/uswds/uswds/issues/6372) | Reproduced; fix remains open | Coordinate with existing tooltip label work #6035 and #5274 before opening a new implementation PR. Add radio selection and keyboard focus regressions. |
 | [#6329](https://github.com/uswds/uswds/issues/6329) | Reproduced; fix remains open | Consolidate the documented root cause with #6110 and #5691 only after preserving their distinct acceptance criteria. Define an initialization-safe date update/reset API or synchronization contract. |
 | [#6315](https://github.com/uswds/uswds/issues/6315) | Reproduced; fix remains open | Validate existing PR #6411, which updates both time picker and combo box. |
 | [#6314](https://github.com/uswds/uswds/issues/6314) | Partial reproduction | Verify native menu paste on supported browsers; handle input/paste consistently with keyboard formatting. |
-| [#6301](https://github.com/uswds/uswds/issues/6301) | Fix proposed: [#6946](https://github.com/uswds/uswds/pull/6946) | Review navigation-label fix. |
+| [#6301](https://github.com/uswds/uswds/issues/6301) | Fix proposed: [#6946](https://github.com/uswds/uswds/pull/6946) | Review PR #6946. Separate site-template work remains in uswds/uswds-site#3059. |
 | [#6294](https://github.com/uswds/uswds/issues/6294) | Reproduced; fix remains open | Keep parent and remaining children open. Coordinate PR #6901 discovery cleanup with consumer coverage in #6418. |
 | [#6260](https://github.com/uswds/uswds/issues/6260) | Reproduced in simulation | Refresh #6306 and verify both hidden wrapping and visible focused behavior at large text sizes. Confirm the original iOS Chrome workflow before claiming device coverage. |
 | [#6258](https://github.com/uswds/uswds/issues/6258) | Reproduced; fix remains open | Review and finish PR #6290 with link/native-button contrast and state coverage. |
@@ -46,10 +46,10 @@ All 63 bug-bucket issues have an attempt or explicitly scoped environment limita
 | [#6056](https://github.com/uswds/uswds/issues/6056) | Reproduced; fix remains open | Validate and merge existing combined focus PR #6796 after required accessibility verification. |
 | [#5981](https://github.com/uswds/uswds/issues/5981) | Reproduced; fix remains open | Fix layout while preserving target sizes and verify true browser zoom. |
 | [#5976](https://github.com/uswds/uswds/issues/5976) | Named platform or environment needed | Test current Safari on macOS with keyboard navigation through identifier links at the reported widths, capturing element positions before and after focus. |
-| [#5936](https://github.com/uswds/uswds/issues/5936) | Fix proposed: [#6942](https://github.com/uswds/uswds/pull/6942) (partial scope) | Review signed commit e862ac2e16043951210f1e0ab69d99fb0df56af5 and its PR. Preserve the remaining custom-class request. |
+| [#5936](https://github.com/uswds/uswds/issues/5936) | Fix proposed: [#6942](https://github.com/uswds/uswds/pull/6942) (partial scope) | Review PR #6942 for initial error and success styling. Decide broader custom-class propagation before closing #5936. |
 | [#5934](https://github.com/uswds/uswds/issues/5934) | Reproduced; fix remains open | Finish PR #5699 with utility-output coverage for default, empty, included, and excluded settings. |
 | [#5931](https://github.com/uswds/uswds/issues/5931) | Failure path reproduced by injection | Use current GitHub header authentication and make release-data failure visible or use a validated cache; test recovery and missing-cache cases in the site repository. |
-| [#5913](https://github.com/uswds/uswds/issues/5913) | Reproduced; fix remains open | Root agent owns follow-up. Clarify the default false setting contract and improve the applicable helper behavior or documentation. |
+| [#5913](https://github.com/uswds/uswds/issues/5913) | Fix proposed: [#6948](https://github.com/uswds/uswds/pull/6948) (partial scope) | Review PR #6948 for the compiler diagnostic. The broader table-token usage question remains; default is not a standalone color token. |
 | [#5905](https://github.com/uswds/uswds/issues/5905) | Partial reproduction | Retain the remaining #6151/#6528 work and assess #6389 with the requested usability review. Do not close the whole report based only on the already removed verbose hint. |
 | [#5883](https://github.com/uswds/uswds/issues/5883) | Reproduced; fix remains open | Review #6691 using mixed grouped/standalone and narrow-width controls. Its patch applies cleanly; avoid duplicating the submitted fix. |
 | [#5873](https://github.com/uswds/uswds/issues/5873) | Partial reproduction | Keep visible instruction requirement open; merged PR #6767 improves announcements but does not satisfy that requirement. |
@@ -58,9 +58,9 @@ All 63 bug-bucket issues have an attempt or explicitly scoped environment limita
 | [#5830](https://github.com/uswds/uswds/issues/5830) | Reproduced; fix remains open | Continue consolidated PR #6796, which preserves contributor work from 6262. Keep both linked issues open until the combined change passes its remaining review and merges. |
 | [#5828](https://github.com/uswds/uswds/issues/5828) | Named platform or environment needed | Retest current JAWS with scrollable tables, compare native scrolling and upstream FreedomScientific/standards-support#607, and preserve the issue until that evidence is recorded. |
 | [#5827](https://github.com/uswds/uswds/issues/5827) | Reproduced; fix remains open | Preserve logical caret/selection during formatting, with delete/replace and punctuation tests. |
-| [#5816](https://github.com/uswds/uswds/issues/5816) | Closed: fixed | Close as completed with #6798 plus the current-baseline typography evidence. No new code change is needed. |
+| [#5816](https://github.com/uswds/uswds/issues/5816) | Closed: fixed | Closed as completed using merged PR #6798 and current-baseline typography evidence. Verify release inclusion through the normal release process. |
 | [#5787](https://github.com/uswds/uswds/issues/5787) | Named platform or environment needed | Verify selection and software keyboard behavior on current real iOS and Android devices, including screen-reader use, before changing focus policy. |
-| [#5755](https://github.com/uswds/uswds/issues/5755) | Fix proposed: [#6943](https://github.com/uswds/uswds/pull/6943) | Review PR6943. |
+| [#5755](https://github.com/uswds/uswds/issues/5755) | Fix proposed: [#6943](https://github.com/uswds/uswds/pull/6943) | Review PR #6943 and include the restored documented helper in release notes. |
 | [#5748](https://github.com/uswds/uswds/issues/5748) | Related failure reproduced | Address or document the missing-id contract and obtain a minimal Angular initialization example to reproduce the original stack trace. |
 | [#5691](https://github.com/uswds/uswds/issues/5691) | Reproduced; fix remains open | Define a supported clear/reset method or synchronize when reopening. Preserve both selected-date and range-highlight acceptance criteria when linking #6329 and #6110. |
 | [#5646](https://github.com/uswds/uswds/issues/5646) | Reproduced; fix remains open | Align focus and visual order while reviewing mobile navigation consequences. |
@@ -69,7 +69,7 @@ All 63 bug-bucket issues have an attempt or explicitly scoped environment limita
 | [#5375](https://github.com/uswds/uswds/issues/5375) | Reproduced; fix remains open | Add event ownership or idempotent delegation without breaking supported document-level and per-table initialization; preserve the control cases in regression tests. |
 | [#5294](https://github.com/uswds/uswds/issues/5294) | Named platform or environment needed | Perform named screen-reader/browser verification on PR #5345 for list semantics and heading/step reading order before merge. |
 | [#5291](https://github.com/uswds/uswds/issues/5291) | Named platform or environment needed | Retest on Windows with current JAWS and Chrome, recording browser UI focus and exact key sequence over multiple trials. Do not dismiss as not a bug without this environment. |
-| [#5194](https://github.com/uswds/uswds/issues/5194) | Fix proposed: [#6947](https://github.com/uswds/uswds/pull/6947) | Prepare a scoped banner precedence fix with tests for both source import orders, separately emitted CSS order, expanded/collapsed states, and narrow/wide viewports. |
+| [#5194](https://github.com/uswds/uswds/issues/5194) | Fix proposed: [#6947](https://github.com/uswds/uswds/pull/6947) | Review PR #6947, including the specificity impact on downstream custom CSS. |
 
 ## Issue 6830
 
@@ -117,7 +117,7 @@ Observed: Original selector ignored supplied root; corrected query boundary init
 
 Limit: No claim that every USWDS component supports shadow DOM. Real screen-reader matrix not run.
 
-Next: Review PR6941; merge only after required maintainer review.
+Next: Review PR #6941, including the expanded context contract. Verify other components separately before claiming general shadow DOM support.
 
 ## Issue 6794
 
@@ -453,7 +453,7 @@ Observed: The focused button has opacity 0.6 and a 4px outline specified as rgb(
 
 Limit: The default theme and a white background were tested. Other theme focus colors remain the theme author responsibility.
 
-Next: Remove the opacity reduction while the button has focus, preserve the unfocused icon appearance, and verify keyboard focus and before/after contrast.
+Next: Review PR #6944. Custom themes should verify their chosen focus and background colors.
 
 ## Issue 6414
 
@@ -517,7 +517,7 @@ Observed: The checked data-attribute variant uses correct8.svg, while the checke
 
 Limit: This confirms the Chrome branch only. Actual Safari and Firefox precedence claims remain untested. The data attribute alone does not set the native mixed accessibility state.
 
-Next: Add a focused precedence regression test, agree on the intended checked-plus-indeterminate contract, and validate the eventual fix in actual Safari and Firefox as well as Chromium.
+Next: Review PR #6945 with its cross-browser state matrix and documented print/forced-color limits.
 
 ## Issue 6372
 
@@ -610,7 +610,7 @@ Observed: Default names repeat navigation role;25 rendered pages change only int
 
 Limit: No fresh screen-reader speech test. Separate site3059 remains open.
 
-Next: Review navigation-label fix.
+Next: Review PR #6946. Separate site-template work remains in uswds/uswds-site#3059.
 
 ## Issue 6294
 
@@ -1055,7 +1055,7 @@ Observed: Four new assertions fail on baseline because the generated input drops
 
 Limit: This change handles initial validation classes only. The broader request to transfer arbitrary caller classes remains open.
 
-Next: Review signed commit e862ac2e16043951210f1e0ab69d99fb0df56af5 and its PR. Preserve the remaining custom-class request.
+Next: Review PR #6942 for initial error and success styling. Decide broader custom-class propagation before closing #5936.
 
 ## Issue 5934
 
@@ -1102,7 +1102,7 @@ Next: Use current GitHub header authentication and make release-data failure vis
 
 [Original issue](https://github.com/uswds/uswds/issues/5913)
 
-Result: Reproduced; fix remains open.
+Result: Fix proposed: [#6948](https://github.com/uswds/uswds/pull/6948) (partial scope).
 
 Attempt: Root agent independently compiled the reported table-header text-token expression with both import and use syntax, plus explicit-token and normal-table controls.
 
@@ -1112,7 +1112,7 @@ Observed: Both reported expressions fail with Undefined variable at $project-col
 
 Limit: This row incorporates the independent root-agent evidence rather than rerunning its test. The default false token and helper error path need separate assessment.
 
-Next: Root agent owns follow-up. Clarify the default false setting contract and improve the applicable helper behavior or documentation.
+Next: Review PR #6948 for the compiler diagnostic. The broader table-token usage question remains; default is not a standalone color token.
 
 ## Issue 5905
 
@@ -1283,7 +1283,7 @@ Observed: Caption, table, and data cell all use 16.96px font size and 25.44px li
 
 Limit: This verifies the default theme path, not every custom typography setting. Prior linked-work review confirmed merged PR #6798 added caption normalization.
 
-Next: Close as completed with #6798 plus the current-baseline typography evidence. No new code change is needed.
+Next: Closed as completed using merged PR #6798 and current-baseline typography evidence. Verify release inclusion through the normal release process.
 
 ## Issue 5787
 
@@ -1315,7 +1315,7 @@ Observed: Helper absent before fix;14 baseline-failing cases pass after addition
 
 Limit: Public API restoration does not change generated default styles.
 
-Next: Review PR6943.
+Next: Review PR #6943 and include the restored documented helper in release notes.
 
 ## Issue 5748
 
@@ -1668,4 +1668,4 @@ Observed: Banner-first produces a 992px-wide button with add.svg, 16px 20px 16px
 
 Limit: This tests the two supported Sass entrypoints in a single compile, matching the minimal issue reproduction. Separately compiled CSS chunks may need additional coverage for a fix.
 
-Next: Prepare a scoped banner precedence fix with tests for both source import orders, separately emitted CSS order, expanded/collapsed states, and narrow/wide viewports.
+Next: Review PR #6947, including the specificity impact on downstream custom CSS.

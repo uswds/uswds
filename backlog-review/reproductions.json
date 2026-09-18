@@ -5,6 +5,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The red border and message appear. Visible text says \"23 characters over limit\", which conveys the condition without color. The requested explicit \"Error\" prefix and icon are absent.",
     "result": "not_reproduced",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "This tests the character-count example, not every form error or the file-input branch. It does not establish whether users recognize the error clearly enough. The report explicitly asks for a clearer error cue even when message text appears.",
     "next_step": "Keep the accessibility/design request actionable. Evaluate the proposed consistent Error prefix with accessibility review; do not close as invalid based on this narrow check."
   },
@@ -14,6 +19,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Chromium exposes \"Frederick Douglass This is optional text that can be used to describe the label in more detail.\" as one radio name. Hint text remains inside the label.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-browser-actions.json",
+      "review-workspace/reproduction-shard-0/visual.html",
+      "review-workspace/reproduction-shard-0/environment.json"
+    ],
     "limitation": "The long accessible name is confirmed. JAWS/NVDA announcement order requires Windows screen readers, unavailable on this macOS host. Browser accessibility output is not a spoken screen-reader test.",
     "next_step": "Retain the issue. Test label versus description announcement with current JAWS and NVDA before choosing and validating a markup change."
   },
@@ -23,6 +33,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The button is inside a named region \"Official website of the United States government\". Scoped axe reports zero violations, 13 passes, 75 inapplicable rules.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-browser-actions.json",
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "The actual reported site markup and SiteImprove scan are unavailable. Passing axe cannot verify a SiteImprove-specific result.",
     "next_step": "Request the affected site HTML and exact SiteImprove rule, then compare against the current named section template. Keep open until the reported environment is understood."
   },
@@ -32,6 +47,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The clickable button is 113.125 by 14.0625 CSS pixels with zero padding, below both the reported 44-pixel height and the 24-pixel minimum size in isolation.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "SiteImprove was not run. Target size alone does not evaluate WCAG exceptions, spacing, or overall conformance. Mobile target behavior was not inferred from the desktop measurement.",
     "next_step": "Assess desktop hit-area expansion and relevant spacing exceptions with accessibility review. Preserve the compact banner appearance while increasing the interactive box where needed."
   },
@@ -40,9 +60,14 @@
     "attempt": "Render checked checkboxes with data-indeterminate=\"true\" and with element.indeterminate=true. Inspect pseudo-element image and screenshot.",
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The checked data-attribute variant uses correct8.svg, while the checked JavaScript variant uses checkbox-indeterminate.svg. The visible check and dash differ for the two representations.",
-    "result": "reproducible",
+    "result": "reproduced_and_fix_proposed",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "This confirms the Chrome branch only. Actual Safari and Firefox precedence claims remain untested. The data attribute alone does not set the native mixed accessibility state.",
-    "next_step": "Add a focused precedence regression test, agree on the intended checked-plus-indeterminate contract, and validate the eventual fix in actual Safari and Firefox as well as Chromium."
+    "next_step": "Review PR #6945 with its cross-browser state matrix and documented print/forced-color limits."
   },
   {
     "number": 6372,
@@ -50,6 +75,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Both input.checked values become true in independent control groups. The tooltip radio remains visually empty: its pseudo-element stays white with a dark border, while the control gets the blue selected style. Tooltip initialization inserts a span between the input and its label.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "The synthetic fixture uses independent groups so both selected appearances can be compared. This does not validate all tooltip or checkbox label combinations.",
     "next_step": "Coordinate with existing tooltip label work #6035 and #5274 before opening a new implementation PR. Add radio selection and keyboard focus regressions."
   },
@@ -59,6 +89,13 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The listeners run on retained original input elements, now hidden internal inputs without IDs. Both internal user-date values are cleared, but the visible external inputs still display 09/01/2026 and 09/15/2026.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/date-linked-results.json",
+      "review-workspace/reproduction-shard-0/date-linked.png",
+      "review-workspace/reproduction-shard-0/dates.html",
+      "review-workspace/reproduction-shard-0/entry.js",
+      "review-workspace/reproduction-shard-0/interaction-browser-actions.json"
+    ],
     "limitation": "This reproduces the before-initialization reference path. It does not prove every framework lifecycle has the same sequence. Current code retains original inputs rather than removing their listeners.",
     "next_step": "Consolidate the documented root cause with #6110 and #5691 only after preserving their distinct acceptance criteria. Define an initialization-safe date update/reset API or synchronization contract."
   },
@@ -68,6 +105,12 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The visible tooltip uses absolute positioning within the clipped ancestor. Its top is 938.17 versus parent top 955.17, and its left is 38.33 versus parent left 114, so part of the content is clipped.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/tooltip-overflow.json",
+      "review-workspace/reproduction-shard-0/tooltip-overflow.png",
+      "review-workspace/reproduction-shard-0/visual.html",
+      "review-workspace/reproduction-shard-0/visual-browser-actions.json"
+    ],
     "limitation": "This is an explicit overflow:hidden reproduction. The original Angular application and its ancestor styles were not supplied. No claim is made that every tooltip clips.",
     "next_step": "Keep as an enhancement with a concrete fixture. Evaluate a supported top-layer or portal strategy with focus, positioning, and browser compatibility coverage."
   },
@@ -77,6 +120,11 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The clickable button measures 112.65625 by 15.25 CSS pixels with zero padding, confirming the reported approximately 15-pixel height.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "The issue asks for a target-size assessment. This box measurement does not evaluate surrounding target spacing or inline exceptions and does not independently establish conformance failure.",
     "next_step": "Retain the component/design task. Specify standalone versus inline behavior and test hit-area expansion plus layout compatibility."
   },
@@ -86,6 +134,9 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Safari 26.6.2 is installed. The isolated tested browser automation route provides Chromium; no supported live Safari automation session was available for this sweep.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/environment.json"
+    ],
     "limitation": "No actual Safari focus/reflow test was performed. Chromium results would not answer a Safari-only report, and system remote automation settings were not changed.",
     "next_step": "Test current Safari on macOS with keyboard navigation through identifier links at the reported widths, capturing element positions before and after focus."
   },
@@ -95,6 +146,9 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The report now points to JAWS-specific behavior after maintainers found NVDA working. JAWS and NVDA are unavailable on the macOS host.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/environment.json"
+    ],
     "limitation": "No Windows screen-reader keyboard navigation test was possible. Standard browser scrolling cannot reproduce JAWS virtual-cursor behavior.",
     "next_step": "Retest current JAWS with scrollable tables, compare native scrolling and upstream FreedomScientific/standards-support#607, and preserve the issue until that evidence is recorded."
   },
@@ -104,8 +158,13 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Caption, table, and data cell all use 16.96px font size and 25.44px line height. The historical smaller-caption mismatch is absent.",
     "result": "not_reproduced",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/visual-computed.json",
+      "review-workspace/reproduction-shard-0/visual-baseline.png",
+      "review-workspace/reproduction-shard-0/visual.html"
+    ],
     "limitation": "This verifies the default theme path, not every custom typography setting. Prior linked-work review confirmed merged PR #6798 added caption normalization.",
-    "next_step": "Close as completed with #6798 plus the current-baseline typography evidence. No new code change is needed."
+    "next_step": "Closed as completed using merged PR #6798 and current-baseline typography evidence. Verify release inclusion through the normal release process."
   },
   {
     "number": 5691,
@@ -113,6 +172,15 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Visible inputs become empty while internal values retain 2026-09-01, 2026-09-15, and 2026-09-10. The standalone calendar still selects September 10. The range calendar still selects September 1 and highlights September 2 through 14, ending on September 15.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/date-reset-single-results.json",
+      "review-workspace/reproduction-shard-0/date-reset-range-results.json",
+      "review-workspace/reproduction-shard-0/date-reset-single.png",
+      "review-workspace/reproduction-shard-0/date-reset-range.png",
+      "review-workspace/reproduction-shard-0/dates.html",
+      "review-workspace/reproduction-shard-0/entry.js",
+      "review-workspace/reproduction-shard-0/interaction-browser-actions.json"
+    ],
     "limitation": "Direct .value assignment matches jQuery .val(\"\") without an event. This finding does not imply that browser input events fire for programmatic assignments. API expectations still need a documented decision.",
     "next_step": "Define a supported clear/reset method or synchronize when reopening. Preserve both selected-date and range-highlight acceptance criteria when linking #6329 and #6110."
   },
@@ -122,6 +190,12 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Home and Federal Contracting receive focus with x=-16943.03 pixels, outside the viewport. The next parent breadcrumb and following button are visible. The focused hidden links retain an outline that is offscreen.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/breadcrumb-tab-results.json",
+      "review-workspace/reproduction-shard-0/breadcrumb-first-tab.png",
+      "review-workspace/reproduction-shard-0/breadcrumbs.html",
+      "review-workspace/reproduction-shard-0/interaction-browser-actions.json"
+    ],
     "limitation": "This directly confirms the 320-pixel branch. Desktop browser zoom and screen-reader behavior were not tested. Existing wrapping changes for #6689 do not remove this narrow-viewport focus problem.",
     "next_step": "Implement and review a narrow-viewport focus treatment with keyboard regression coverage and accessibility review of whether hidden ancestry should remain available to screen readers."
   },
@@ -131,6 +205,9 @@
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "The required Windows JAWS plus Chrome browser-chrome interaction is unavailable on this macOS Chromium automation host.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/environment.json"
+    ],
     "limitation": "Headless Chromium cannot validate focus moving to the desktop Chrome Update menu or JAWS interception of Alt+Arrow keys.",
     "next_step": "Retest on Windows with current JAWS and Chrome, recording browser UI focus and exact key sequence over multiple trials. Do not dismiss as not a bug without this environment."
   },
@@ -139,9 +216,20 @@
     "attempt": "Compile two source stylesheets differing only in @use order of usa-banner and usa-accordion. Compare collapsed and expanded banners at 1280 by 900.",
     "environment": "Isolated export of origin/develop at eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2 arm64; Headless Chromium 147.0.0.0 through isolated agent-browser session uswds-shard0-repro; source-built Sass and JavaScript; bundled Source Sans Pro fonts loaded.",
     "observed": "Banner-first produces a 992px-wide button with add.svg, 16px 20px 16px 56px padding, and 46.0625px height. Accordion-first produces the expected 113.125px-wide button with no background image, no padding, and 14.0625px height. Expanded content padding also differs.",
-    "result": "reproducible",
+    "result": "reproduced_and_fix_proposed",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/banner-order-results.json",
+      "review-workspace/reproduction-shard-0/banner-first.png",
+      "review-workspace/reproduction-shard-0/accordion-first.png",
+      "review-workspace/reproduction-shard-0/banner-first-expanded.png",
+      "review-workspace/reproduction-shard-0/accordion-first-expanded.png",
+      "review-workspace/reproduction-shard-0/banner-first.html",
+      "review-workspace/reproduction-shard-0/accordion-first.html",
+      "review-workspace/reproduction-shard-0/build-fixtures.cjs",
+      "review-workspace/reproduction-shard-0/interaction-browser-actions.json"
+    ],
     "limitation": "This tests the two supported Sass entrypoints in a single compile, matching the minimal issue reproduction. Separately compiled CSS chunks may need additional coverage for a fix.",
-    "next_step": "Prepare a scoped banner precedence fix with tests for both source import orders, separately emitted CSS order, expanded/collapsed states, and narrow/wide viewports."
+    "next_step": "Review PR #6947, including the specificity impact on downstream custom CSS."
   },
   {
     "number": 5981,
@@ -197,6 +285,7 @@
       "finding": "Pagination list extends from -8px to 328px in a 320px viewport. The screenshot confirms the first and last numbered buttons lose their outer edges. Previous/Next arrow items are intentionally hidden at this width."
     },
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/5981.json",
     "limitation": "320px CSS viewport verified; actual browser 400% zoom was not performed.",
     "next_step": "Fix layout while preserving target sizes and verify true browser zoom."
   },
@@ -223,6 +312,7 @@
       }
     },
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/5827.json",
     "limitation": "Chromium SSN variant only; other masks and browsers still need coverage.",
     "next_step": "Preserve logical caret/selection during formatting, with delete/replace and punctuation tests."
   },
@@ -247,6 +337,7 @@
       }
     },
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/6314.json",
     "limitation": "Automatic approval review rejected clipboard permission because it could expose sensitive clipboard contents. Native right-click paste was not run. Synthetic input does not prove a physical clipboard interaction; error-feedback PR #6203 is still unmerged.",
     "next_step": "Verify native menu paste on supported browsers; handle input/paste consistently with keyboard formatting."
   },
@@ -273,6 +364,7 @@
       ]
     },
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/6110.json",
     "limitation": "Confirmed underlying native DOM event behavior; Angular reactive-form runtime was not installed or executed.",
     "next_step": "Add focused Angular reproduction and agree event contract before modifying input replacement."
   },
@@ -389,6 +481,7 @@
       }
     ],
     "result": "blocked_environment",
+    "evidence_path": "review-workspace/reproduction-shard-1/6459.json",
     "limitation": "The reported NVDA forms-navigation focus defect requires Windows/NVDA or ChromeOS/ChromeVox; this host is macOS with headless Chromium. DOM placement alone is not the screen-reader result.",
     "next_step": "Retest actual assistive technology with visible native-input prototype; keep distinct regression scenarios."
   },
@@ -505,6 +598,7 @@
       }
     ],
     "result": "blocked_environment",
+    "evidence_path": "review-workspace/reproduction-shard-1/6068.json",
     "limitation": "Dragon on Windows and physical Voice Control command input are unavailable in this headless browser environment. DOM placement alone does not prove speech interaction failure.",
     "next_step": "Retest actual assistive technology with visible native-input prototype; keep distinct regression scenarios."
   },
@@ -523,6 +617,7 @@
       "accessibilitySnapshot": "- heading \"Step 3 of 5 Supporting documents\" [level=4]"
     },
     "result": "blocked_environment",
+    "evidence_path": "review-workspace/reproduction-shard-1/6523.json",
     "limitation": "The report concerns actual VoiceOver speech/virtual-cursor segmentation. An automated Chromium accessibility snapshot does not reproduce VoiceOver announcements, and no VoiceOver speech session was run.",
     "next_step": "Perform VoiceOver comparisons in Safari, Firefox, and Chrome; test proposed single-string alternative."
   },
@@ -541,6 +636,7 @@
       "accessibilitySnapshot": "- button \"Espa\u00f1ol\""
     },
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/6075.json",
     "limitation": "Accessible name is measurable; confusion after a real language change requires a working multilingual site and screen-reader/user testing.",
     "next_step": "Test action wording with a real language transition and compare concise visible and accessible labels."
   },
@@ -564,6 +660,7 @@
       "afterEscape": ""
     },
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/5834.json",
     "limitation": "Only Chromium was exercised; Firefox absence and other native-browser behavior remain unverified. Equivalent clearing exists; this does not independently establish a WCAG violation.",
     "next_step": "Review with #5277 and test Chromium, Firefox, Safari before choosing a browser workaround."
   },
@@ -784,6 +881,7 @@
       }
     },
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/5646.json",
     "limitation": "Desktop keyboard order verified; mobile order and whether an alternate semantic reading sequence is appropriate still need review.",
     "next_step": "Align focus and visual order while reviewing mobile navigation consequences."
   },
@@ -802,6 +900,7 @@
       "log": "jekyll_get: error fetching https://api.github.com/repos/uswds/uswds/releases: 403 rate limit exceeded (injected fixture)\n"
     },
     "result": "reproduced_with_fault_injection",
+    "evidence_path": "review-workspace/reproduction-shard-1/5931.json",
     "limitation": "The missing-data error path is reproduced with an injected 403. An intermittent failure in a live Pages build was not triggered; current production health alone is not proof of resolution.",
     "next_step": "Use current GitHub header authentication and make release-data failure visible or use a validated cache; test recovery and missing-cache cases in the site repository."
   },
@@ -811,6 +910,10 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The list receives aria-hidden=true in the current template. The accessible snapshot omits its steps and retains the separate Step 2 of 3 heading.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/dom-css.html",
+      "review-workspace/reproduction-shard-2/6505-6815-dom.json"
+    ],
     "limitation": "The reported Safari and VoiceOver combination was not exercised. Chromium DOM inspection cannot establish the spoken output or whether the equivalent heading meets the intended interaction model.",
     "next_step": "Test the official no-label variant with current Safari and VoiceOver; assess the progress heading and list together before changing aria-hidden."
   },
@@ -820,6 +923,10 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The normal and hidden-text custom checkboxes are 20x20 px. Hiding the whole label moves its custom checkbox offscreen. The original report does not include enough table markup to determine which pattern produced the claimed 13px target.",
     "result": "needs_author_fixture",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/dom-css.html",
+      "review-workspace/reproduction-shard-2/6505-6815-dom.json"
+    ],
     "limitation": "The reported table and exact usa-sr-only placement were not supplied. A pseudo-element dimension alone does not establish the complete clickable target.",
     "next_step": "Obtain the smallest table example and browser, then measure the actual label hit area and assess target spacing as well as dimensions."
   },
@@ -829,6 +936,10 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "Initialization removes title and supplies aria-describedby, but no accessible name. The browser snapshot presents an unnamed button and axe reports a button-name violation.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/dom-css.html",
+      "review-workspace/reproduction-shard-2/6485-axe.json"
+    ],
     "limitation": "This validates the icon-only trigger case, not every tooltip relationship. The source of a fallback name is a component contract decision.",
     "next_step": "Keep as an accessibility bug. Define naming behavior for icon-only triggers while preserving existing names and descriptions, then add targeted regression coverage."
   },
@@ -837,9 +948,14 @@
     "attempt": "Selected Apple, reached the clear button with Tab, and inspected the rendered outline and element opacity.",
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The focused button has opacity 0.6 and a 4px outline specified as rgb(36,145,255). Element opacity composites the ring over white to approximately rgb(124,189,255), reducing its contrast.",
-    "result": "reproduced",
+    "result": "reproduced_and_fix_proposed",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/dom-css.html",
+      "review-workspace/reproduction-shard-2/6424-computed-style.json",
+      "review-workspace/reproduction-shard-2/6424-focus.png"
+    ],
     "limitation": "The default theme and a white background were tested. Other theme focus colors remain the theme author responsibility.",
-    "next_step": "Remove the opacity reduction while the button has focus, preserve the unfocused icon appearance, and verify keyboard focus and before/after contrast."
+    "next_step": "Review PR #6944. Custom themes should verify their chosen focus and background colors."
   },
   {
     "number": 6080,
@@ -847,6 +963,11 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The browser blocks submission, fires invalid events, and focuses a native radio positioned at x=-16943px. validationMessage contains Please select one of these options. No visible native validation message appears in the captured form.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/radio.html",
+      "review-workspace/reproduction-shard-2/6080-result.json",
+      "review-workspace/reproduction-shard-2/6080-radio.png"
+    ],
     "limitation": "A screenshot alone may omit browser-native UI, but the focused invalid control is independently measured offscreen. Cross-browser validation behavior still needs checking.",
     "next_step": "Coordinate with #6068 and design one solution for custom radio and checkbox invalid targets. Do not close as a duplicate before scope is agreed."
   },
@@ -856,6 +977,11 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The desktop browser scrolls the selected day into view. The popup fits inside the viewport and normal header buttons compute to black. This control does not reproduce the two reported iOS symptoms.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/mobile-controls.html",
+      "review-workspace/reproduction-shard-2/6072-desktop-control.json",
+      "review-workspace/reproduction-shard-2/6072-desktop-control.png"
+    ],
     "limitation": "A real iOS Safari device, mobile browser chrome and software keyboard were not available in this harness. Desktop behavior is not evidence that the iOS report is fixed.",
     "next_step": "Test popup positioning and default button colors separately on current real iOS Safari near both viewport edges."
   },
@@ -864,18 +990,30 @@
     "attempt": "Added regression cases for error and success classes at document-level and component-level initialization, ran them on unchanged baseline, then tested the focused fix.",
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "Four new assertions fail on baseline because the generated input drops the validation-state classes. The focused change preserves usa-input--error and usa-input--success. Six new tests pass after the fix; custom/select classes remain unchanged.",
-    "result": "reproduced_fix_proposed_for_initial_validation_classes",
+    "result": "reproduced_and_fix_proposed",
+    "evidence_path": [
+      "review-workspace/combo-box-baseline-tests.txt",
+      "review-workspace/combo-box-unit-tests.txt",
+      "review-workspace/combo-box-full-tests.txt",
+      "review-workspace/combo-box-dist-tests.txt",
+      "review-workspace/combo-box-evidence/README.md",
+      "review-workspace/combo-box-evidence/before.png",
+      "review-workspace/combo-box-evidence/after.png"
+    ],
     "limitation": "This change handles initial validation classes only. The broader request to transfer arbitrary caller classes remains open.",
-    "next_step": "Review signed commit e862ac2e16043951210f1e0ab69d99fb0df56af5 and its PR. Preserve the remaining custom-class request."
+    "next_step": "Review PR #6942 for initial error and success styling. Decide broader custom-class propagation before closing #5936."
   },
   {
     "number": 5913,
     "attempt": "Root agent independently compiled the reported table-header text-token expression with both import and use syntax, plus explicit-token and normal-table controls.",
     "environment": "Current baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; root-agent Sass compilation in backlog-select-shadow-root worktree.",
     "observed": "Both reported expressions fail with Undefined variable at $project-color-shortcodes in color(). An explicit ink token and normal table component compile successfully.",
-    "result": "reproduced",
+    "result": "reproduced_and_fix_proposed",
+    "evidence_path": [
+      "review-workspace/reproduction-root/5913.json"
+    ],
     "limitation": "This row incorporates the independent root-agent evidence rather than rerunning its test. The default false token and helper error path need separate assessment.",
-    "next_step": "Root agent owns follow-up. Clarify the default false setting contract and improve the applicable helper behavior or documentation."
+    "next_step": "Review PR #6948 for the compiler diagnostic. The broader table-token usage question remains; default is not a standalone color token."
   },
   {
     "number": 5858,
@@ -883,6 +1021,11 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The field is invalid and the browser emits invalid without submit. Nevertheless the modal closes, aria-hidden becomes true, and focus returns to the opener.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/modal-form.html",
+      "review-workspace/reproduction-shard-2/5858-result.json",
+      "review-workspace/reproduction-shard-2/5858-modal-closed-invalid.png"
+    ],
     "limitation": "The fixture uses valid modal labels and current generated markup. This does not assess every application form integration.",
     "next_step": "Check the existing modal refactor PR #6299, then prevent invalid form submission from closing the modal or establish a supported integration contract."
   },
@@ -892,6 +1035,11 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "Both controls return focus to their generated text input after selection, consistent with a mechanism that could keep a mobile keyboard open. Desktop values update correctly.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/mobile-controls.html",
+      "review-workspace/reproduction-shard-2/5787-fruit-focus.json",
+      "review-workspace/reproduction-shard-2/5787-time-focus.json"
+    ],
     "limitation": "The reported real mobile software keyboard was not exercised. Desktop focus alone does not reproduce keyboard persistence or establish the correct mobile accessibility behavior.",
     "next_step": "Verify selection and software keyboard behavior on current real iOS and Android devices, including screen-reader use, before changing focus policy."
   },
@@ -901,6 +1049,12 @@
     "environment": "Current develop baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled USWDS CSS and JavaScript; Codex in-app Chromium on macOS; 1280x720 viewport.",
     "observed": "The no-id case throws Cannot set properties of null (setting textContent). The generated mask identifier and subsequent lookup disagree when getAttribute(id) returns null. The same control with an id does not throw.",
     "result": "reproduced_related_failure",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/input-mask.html",
+      "review-workspace/reproduction-shard-2/input-mask-with-id.html",
+      "review-workspace/reproduction-shard-2/5748-result.json",
+      "review-workspace/reproduction-shard-2/5748-control-with-id.json"
+    ],
     "limitation": "The current error differs from the original undefined-placeholder Angular stack trace. This confirms a defect in the supplied minimal markup but does not prove the original Angular initialization path.",
     "next_step": "Address or document the missing-id contract and obtain a minimal Angular initialization example to reproduce the original stack trace."
   },
@@ -910,6 +1064,10 @@
     "environment": "Node 24 with jsdom; table module at baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6, loaded from fix-combo-box-error-state worktree (only unrelated combo-box code differs).",
     "observed": "Per-table initialization invokes sorting twice per click, causing two aria-sort mutations and leaving descending order after both clicks. Document-level initialization changes direction once per click as expected.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/5375-reproduce.cjs",
+      "review-workspace/reproduction-shard-2/5375-result.json"
+    ],
     "limitation": "This is an automated DOM/event reproduction in jsdom rather than a visual browser test. The table module is unchanged from baseline.",
     "next_step": "Add event ownership or idempotent delegation without breaking supported document-level and per-table initialization; preserve the control cases in regression tests."
   },
@@ -919,6 +1077,11 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "The synthetic focusout no longer closes the calendar on this baseline; the subsequent toggle click closes it. Current code dismisses on deliberate outside pointerdown, and no longer uses the historical date-picker focusout dismissal handler.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/6449-synthetic.json",
+      "review-workspace/reproduction-shard-0/supplemental/check-date.cjs",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6450.json"
+    ],
     "limitation": "Actual Safari/macOS and physical iOS were not tested. The historical implementation has changed, so an actual target-platform retest is required before closing the report or treating PR #6450 as obsolete.",
     "next_step": "Retest the second toggle click in current Safari and on physical iOS. Reassess PR #6450 against current baseline instead of opening competing work.",
     "existing_prs": [
@@ -931,6 +1094,14 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "The 768px custom rule is emitted after the larger desktop rule. A 1200px grid child remains1200px wide instead of 400px at desktop.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/6412.css",
+      "review-workspace/reproduction-shard-0/supplemental/6412.html",
+      "review-workspace/reproduction-shard-0/supplemental/6412.json",
+      "review-workspace/reproduction-shard-0/supplemental/6412.png",
+      "review-workspace/reproduction-shard-0/supplemental/source-results.json",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6610.json"
+    ],
     "limitation": "Uses standard USWDS class names rather than the reporter custom VA prefix; both exercise the same breakpoint ordering.",
     "next_step": "Review and finish existing PR #6610. Preserve its documented compatibility warning for consumers compensating for the current order.",
     "existing_prs": [
@@ -943,6 +1114,12 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "Both backgrounds are rgb(0,189,227). The anchor text becomes rgb(223,225,226), while the native button text remains rgb(27,27,27).",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/6258.html",
+      "review-workspace/reproduction-shard-0/supplemental/6258.json",
+      "review-workspace/reproduction-shard-0/supplemental/6258.png",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6290.json"
+    ],
     "limitation": "Confirms the default accent-cool branch; all custom variants, hover, visited, and focus combinations need review on the existing PR.",
     "next_step": "Review and finish PR #6290 with link/native-button contrast and state coverage.",
     "existing_prs": [
@@ -955,6 +1132,11 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "Nav link color remains hard-coded to base-dark. Compiling with theme-navigation-link-color fails because the setting is not declared as configurable.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/source-results.json",
+      "review-workspace/reproduction-shard-0/supplemental/check-source.cjs",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6662.json"
+    ],
     "limitation": "This is a confirmed missing configuration capability, not a claim that the default navigation color is inaccessible.",
     "next_step": "Finish PR #6662 and its documentation follow-up; verify default and hover theme values without opening a duplicate.",
     "existing_prs": [
@@ -967,6 +1149,13 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "Twenty aspect-ratio rule selectors are still generated even though no utilities were requested.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/5934.css",
+      "review-workspace/reproduction-shard-0/supplemental/5934-selectors.json",
+      "review-workspace/reproduction-shard-0/supplemental/source-results.json",
+      "review-workspace/reproduction-shard-0/supplemental/check-source.cjs",
+      "review-workspace/reproduction-shard-0/supplemental/pr-5699.json"
+    ],
     "limitation": "The total CSS byte count includes comments, so the reproduction uses actual parsed selectors as its evidence.",
     "next_step": "Finish PR #5699 with utility-output coverage for default, empty, included, and excluded settings.",
     "existing_prs": [
@@ -979,6 +1168,16 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "Focus stays on Add button and skips Added button 1. A separate jsdom event check confirms Tab is prevented using the cached original tab stop.",
     "result": "reproducible",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/5830-browser.json",
+      "review-workspace/reproduction-shard-0/supplemental/5830.png",
+      "review-workspace/reproduction-shard-0/supplemental/5830.json",
+      "review-workspace/reproduction-shard-0/supplemental/5830.html",
+      "review-workspace/reproduction-shard-0/supplemental/5830.js",
+      "review-workspace/reproduction-shard-0/supplemental/build-focus.cjs",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6796.json",
+      "review-workspace/reproduction-shard-0/supplemental/pr-6262.json"
+    ],
     "limitation": "The browser fixture isolates the shared focus-trap utility; existing PR #6796 already has broader modal/Storybook cases and requires its named assistive technology verification.",
     "next_step": "Continue consolidated PR #6796, which preserves contributor work from 6262. Keep both linked issues open until the combined change passes its remaining review and merges.",
     "existing_prs": [
@@ -992,6 +1191,9 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS 26.6.2; source Sass compilation with sass-embedded; browser cases run in desktop Chrome through the Browser plugin at 1280x700.",
     "observed": "The baseline ordered list omits an explicit list role and styles use list-style:none. PR #5345 adds explicit roles and associates the progress heading for reading order.",
     "result": "blocked_environment",
+    "reproduction_evidence_path": [
+      "review-workspace/reproduction-shard-0/supplemental/pr-5345.json"
+    ],
     "limitation": "No live VoiceOver+Safari or JAWS speech test was performed. DOM source alone cannot establish the actual announcement failure or validate the fix.",
     "next_step": "Perform named screen-reader/browser verification on PR #5345 for list semantics and heading/step reading order before merge.",
     "existing_prs": [
@@ -1004,6 +1206,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. jsdom 22.1.0.",
     "observed": "Normal header close clears aria-hidden. Header and modal off while open retain aria-hidden=true; modal also retains data-modal-hidden.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6830-observed.json",
     "limitation": "No physical screen reader was exercised.",
     "next_step": "Validate and merge existing PR #6831 after required accessibility verification.",
     "linked_validation": [
@@ -1020,6 +1223,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. Chromium 147.0.7727.15.",
     "observed": "Banner and navigation panels have aria-expanded=false but remain display:block without hidden attributes. The restricted March 6 through 15 range allows March 1 and February dates.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6694-observed.json",
     "limitation": "Only the two issue examples were rerun; other page, footer, mask and validation stories in PR #6695 were not exhaustively retested.",
     "next_step": "Validate existing PR #6695 and its dependency order.",
     "linked_validation": [
@@ -1036,6 +1240,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. jsdom 22.1.0.",
     "observed": "Tooltip nodes grow from 1 to 2 to 3. The original description remains referenced; extra nodes have empty text in this lifecycle.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6426-observed.json",
     "limitation": "Fresh DOM reproduction confirms node lifecycle. This run does not replace physical screen reader testing or every hover sequence.",
     "next_step": "Validate existing PR #6431, including repeated updates and teardown.",
     "linked_validation": [
@@ -1052,6 +1257,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. jsdom 22.1.0.",
     "observed": "off leaves both generated status elements and data-enhanced=true. Reinitialization retains one pair, so current idempotency guards prevent the historical duplication symptom.",
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6386-observed.json",
     "limitation": "React StrictMode runtime was not exercised. The teardown leak is reproduced; duplicate creation is already mitigated by merged PR #6767.",
     "next_step": "Update the issue with partial mitigation and validate existing teardown PR #6387 against current guards.",
     "linked_validation": [
@@ -1073,6 +1279,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. jsdom 22.1.0.",
     "observed": "The authored hint association is lost during time-picker enhancement. Generated combobox input has no aria-describedby and no element retains the hint association.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6315-observed.json",
     "limitation": "DOM association was tested, not physical screen reader speech.",
     "next_step": "Validate existing PR #6411, which updates both time picker and combo box.",
     "linked_validation": [
@@ -1089,6 +1296,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. sass-embedded 1.100.0.",
     "observed": "Distributed Sass compilation throws Cannot find stylesheet for ../../packages/uswds. Root build/include specs exist but tasks/test.js excludes their directory.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6294-observed.json",
     "limitation": "This reproduces the consumer Sass failure and verifies discovery configuration; it is not a full validation of every proposed replacement test.",
     "next_step": "Keep parent and remaining children open. Coordinate PR #6901 discovery cleanup with consumer coverage in #6418.",
     "linked_validation": [
@@ -1110,6 +1318,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. Chromium 147.0.7727.15.",
     "observed": "Control wraps from Close to feedback. Both hidden-input variants remain stuck on Close.",
     "result": "reproduced",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/6056-observed.json",
     "limitation": "Physical screen reader testing and the broader dynamic-control matrix were not repeated here.",
     "next_step": "Validate and merge existing combined focus PR #6796 after required accessibility verification.",
     "linked_validation": [
@@ -1126,6 +1335,7 @@
     "environment": "develop eaef39533a0a0f78976d6888edf8ae56fe9334d6; macOS; Node v24.19.0. Tested source files are unchanged from baseline. Unrelated checkbox styles and story tests are present in the isolated worktree. Chromium 147.0.7727.15.",
     "observed": "Visible maximum becomes 22 characters left, then 1 character over limit. Original 25-character instruction remains offscreen and aria-describedby still references it. The new live region says Character limit exceeded plus the overage, not the maximum.",
     "result": "partial_reproduction",
+    "evidence_path": "review-workspace/reproduction-shard-1/supplemental/5873-observed.json",
     "limitation": "Persistent visible-limit requirement reproduced. No physical screen reader announcement or WCAG conformance conclusion is claimed.",
     "next_step": "Keep visible instruction requirement open; merged PR #6767 improves announcements but does not satisfy that requirement.",
     "linked_validation": [
@@ -1145,6 +1355,13 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "The visible overlay has scrollHeight 2136 versus clientHeight 720 but inherits pointer-events:none from body. The modal content itself has pointer-events:auto, and a background coordinate hits HTML instead of the overlay. data-force-action is on the wrapper, not the overlay.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/force-modal.html",
+      "review-workspace/reproduction-shard-2/supplemental/6717-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6781.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6781.diff",
+      "https://github.com/uswds/uswds/pull/6781"
+    ],
     "limitation": "The current desktop test confirms the mechanism, not the reported inability to scroll on physical iOS. PR #6781 also explicitly lacks real-iOS confirmation.",
     "next_step": "Verify #6781 on actual iOS Safari before merging, including background scrolling, forced-action nondismissal, explicit close, and focus restoration. Avoid a duplicate implementation.",
     "pr_evidence_reviewed": true
@@ -1158,6 +1375,14 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "Focus moves to main-content with tabindex=0, but the component writes inline outline:0px. Computed outline-style is none and width is 0px.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/skipnav.html",
+      "review-workspace/reproduction-shard-2/supplemental/6474-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/6474.png",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6475.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6475.diff",
+      "https://github.com/uswds/uswds/pull/6475"
+    ],
     "limitation": "Chromium verified; a second browser and persistent-focus control remain useful before merging the existing PR.",
     "next_step": "Prioritize review of #6475 and verify the focused target keeps a visible indicator. Its patch applies cleanly to the tested baseline.",
     "pr_evidence_reviewed": true
@@ -1171,6 +1396,14 @@
     "environment": "Node 24 and sass-embedded; current build from baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6, with an unrelated one-line combo focus CSS change in the worktree.",
     "observed": "Distributed Sass fails with Cannot find stylesheet to import at @forward \"../../packages/uswds\". The equivalent source entry compiles successfully to 749450 CSS characters.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/6414-reproduce.cjs",
+      "review-workspace/reproduction-shard-2/supplemental/6414-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6418.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6418.diff",
+      "review-workspace/reproduction-shard-2/supplemental/patch-applicability.json",
+      "https://github.com/uswds/uswds/pull/6418"
+    ],
     "limitation": "The local build reproduces the distributed directory layout; a downloaded release archive was not separately fetched. The existing PR no longer applies cleanly to current tooling files.",
     "next_step": "Refresh #6418 against current Gulp/Sass tooling, retain effective failing-path regression coverage, and document the output-path migration before release.",
     "pr_evidence_reviewed": true
@@ -1184,6 +1417,16 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified. The same-origin iframe has a measured 320px layout width.",
     "observed": "The unfocused link is 160px tall, starts at -60.8px, and extends 99.2px into the visible viewport. It visibly overlays the header. The existing PR patch currently conflicts with the stylesheet transition rule.",
     "result": "reproduced_simulation",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/skipnav-large.html",
+      "review-workspace/reproduction-shard-2/supplemental/narrow-controls.html",
+      "review-workspace/reproduction-shard-2/supplemental/6260-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/6260-6238.png",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6306.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6306.diff",
+      "review-workspace/reproduction-shard-2/supplemental/patch-applicability.json",
+      "https://github.com/uswds/uswds/pull/6306"
+    ],
     "limitation": "This is a desktop constrained-layout/text-size reproduction of the wrapping mechanism, not Chrome iOS Zoom text or a physical mobile test.",
     "next_step": "Refresh #6306 and verify both hidden wrapping and visible focused behavior at large text sizes. Confirm the original iOS Chrome workflow before claiming device coverage.",
     "pr_evidence_reviewed": true
@@ -1197,6 +1440,15 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "Chromium computes the collapsed button background as rgb(239,239,239), while its section uses rgb(240,240,240). This demonstrates dependence on the browser button background; the dark Safari appearance was not reproduced in Chromium.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/footer.html",
+      "review-workspace/reproduction-shard-2/supplemental/narrow-controls.html",
+      "review-workspace/reproduction-shard-2/supplemental/6238-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/6260-6238.png",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6289.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6289.diff",
+      "https://github.com/uswds/uswds/pull/6289"
+    ],
     "limitation": "Safari was not exercised. A Chromium iframe is a control, not confirmation of the reported Safari color. The iframe is 375px wide externally and 360px internally after its scrollbar.",
     "next_step": "Validate #6289 in current Safari below 480px and compare expanded/collapsed states with Chromium and Firefox. The existing patch applies cleanly.",
     "pr_evidence_reviewed": true
@@ -1210,6 +1462,14 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "The calendar is only 164px wide despite the 1280px viewport. The year button wraps below the month and extends to y=335.27, overlapping the weekday row beginning at y=306.48. The screenshot also shows the malformed header.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/date-grid.html",
+      "review-workspace/reproduction-shard-2/supplemental/6069-5503-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/6069.png",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6388.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6388.diff",
+      "https://github.com/uswds/uswds/pull/6388"
+    ],
     "limitation": "One representative narrow parent was tested, not the complete container-width matrix. The existing proposed fix was reviewed but not applied.",
     "next_step": "Continue #6388 review. Resolve the repeatedly added resize listener and the existing CSS-container-query question before merging; do not start competing work.",
     "pr_evidence_reviewed": true
@@ -1224,6 +1484,15 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "The old When autocomplete results are available hint is absent. The time picker still uses the clear-button label Clear the select contents. Thus the original broad report is partially resolved but the wording part persists.",
     "result": "partially_reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/5905-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/../mobile-controls.html",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6022.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6389.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6389.diff",
+      "https://github.com/uswds/uswds/pull/6022",
+      "https://github.com/uswds/uswds/pull/6389"
+    ],
     "limitation": "Current live JAWS/NVDA speech and usability testing were not performed. The merged PR includes historical screen-reader review evidence, which is distinct from this current DOM check.",
     "next_step": "Retain the remaining #6151/#6528 work and assess #6389 with the requested usability review. Do not close the whole report based only on the already removed verbose hint.",
     "pr_evidence_reviewed": true
@@ -1237,6 +1506,14 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "Inside usa-form both buttons are 63.25px tall with 24px top margin; the outside-form control is 39.25px tall with zero top margin. Text line-height and vertical padding are identical, confirming stretching from the form/group combination.",
     "result": "reproduced",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/form-buttons.html",
+      "review-workspace/reproduction-shard-2/supplemental/5883-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/5883.png",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6691.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6691.diff",
+      "https://github.com/uswds/uswds/pull/6691"
+    ],
     "limitation": "Desktop width tested. The existing PR needs review of mixed forms containing both grouped and standalone buttons, because its :not(:has(.usa-button-group)) condition is at form level.",
     "next_step": "Review #6691 using mixed grouped/standalone and narrow-width controls. Its patch applies cleanly; avoid duplicating the submitted fix.",
     "pr_evidence_reviewed": true
@@ -1250,6 +1527,13 @@
     "environment": "Baseline eaef39533a0a0f78976d6888edf8ae56fe9334d6; compiled baseline JavaScript and CSS; Codex in-app Chromium on macOS at 1280x720 unless otherwise specified.",
     "observed": "The open status still contains keyboard arrow/Page Up/Page Down instructions. Headers visibly show one-letter weekdays with full aria-labels, and date button labels repeat the weekday. These are the current DOM inputs to the reported VoiceOver behavior.",
     "result": "blocked_environment",
+    "evidence_path": [
+      "review-workspace/reproduction-shard-2/supplemental/date-grid.html",
+      "review-workspace/reproduction-shard-2/supplemental/6069-5503-result.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6758.json",
+      "review-workspace/reproduction-shard-2/supplemental/pr-6758.diff",
+      "https://github.com/uswds/uswds/pull/6758"
+    ],
     "limitation": "Actual iOS Safari VoiceOver swipe, rotor, speech and keypad behavior were not exercised. Markup observations cannot prove the specific spoken output. Existing PR checklist still contains device checks, although a review thanks its author for VoiceOver testing.",
     "next_step": "Test #6758 on real iOS VoiceOver. Track remaining header navigation, rotor expectations and keypad requests separately from its touch-hint and weekday-readout scope.",
     "pr_evidence_reviewed": true
@@ -1261,7 +1545,7 @@
     "observed": "Original selector ignored supplied root; corrected query boundary initializes expected accordion.",
     "environment": "Baseline05cc4e65, Chromium and jsdom.",
     "limitation": "No claim that every USWDS component supports shadow DOM. Real screen-reader matrix not run.",
-    "next_step": "Review PR6941; merge only after required maintainer review.",
+    "next_step": "Review PR #6941, including the expanded context contract. Verify other components separately before claiming general shadow DOM support.",
     "pr": "https://github.com/uswds/uswds/pull/6941"
   },
   {
@@ -1271,7 +1555,7 @@
     "observed": "Helper absent before fix;14 baseline-failing cases pass after addition; generated USWDS CSS byte-identical.",
     "environment": "Baselineeaef3953, Node24 and sass-embedded.",
     "limitation": "Public API restoration does not change generated default styles.",
-    "next_step": "Review PR6943.",
+    "next_step": "Review PR #6943 and include the restored documented helper in release notes.",
     "pr": "https://github.com/uswds/uswds/pull/6943"
   },
   {
@@ -1281,6 +1565,6 @@
     "observed": "Default names repeat navigation role;25 rendered pages change only intended aria-label values.36 component tests pass.",
     "environment": "Baselineeaef3953, Chromium on macOS.",
     "limitation": "No fresh screen-reader speech test. Separate site3059 remains open.",
-    "next_step": "Review navigation-label fix."
+    "next_step": "Review PR #6946. Separate site-template work remains in uswds/uswds-site#3059."
   }
 ]
