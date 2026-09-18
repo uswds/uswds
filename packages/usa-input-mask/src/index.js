@@ -95,10 +95,46 @@ const handleCurrentValue = (el) => {
   return newValue;
 };
 
+// maps the caret to the same position among accepted characters in the new
+// value. A caret that sat after a separator stays after the separator.
+const getCaretPosition = (el, newValue) => {
+  const isCharsetPresent = el.dataset.charset;
+  const isAccepted = (char) => strippedValue(isCharsetPresent, char) !== "";
+  const before = el.value.slice(0, el.selectionStart);
+  const count = strippedValue(isCharsetPresent, before).length;
+  const afterSeparator = before !== "" && !isAccepted(before.slice(-1));
+  let position = 0;
+  let seen = 0;
+
+  while (seen < count && position < newValue.length) {
+    if (isAccepted(newValue[position])) {
+      seen += 1;
+    }
+    position += 1;
+  }
+
+  if (afterSeparator) {
+    while (position < newValue.length && !isAccepted(newValue[position])) {
+      position += 1;
+    }
+  }
+
+  return position;
+};
+
 const handleValueChange = (el) => {
   const inputEl = el;
   const id = inputEl.getAttribute("id");
-  inputEl.value = handleCurrentValue(inputEl);
+  const newValue = handleCurrentValue(inputEl);
+
+  if (newValue !== inputEl.value) {
+    const hasSelection = inputEl.selectionStart !== null;
+    const position = hasSelection ? getCaretPosition(inputEl, newValue) : 0;
+    inputEl.value = newValue;
+    if (hasSelection && document.activeElement === inputEl) {
+      inputEl.setSelectionRange(position, position);
+    }
+  }
 
   const maskVal = setValueOfMask(el);
   const maskEl = document.getElementById(`${id}Mask`);
