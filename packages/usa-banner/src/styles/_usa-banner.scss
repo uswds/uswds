@@ -73,14 +73,17 @@ $banner-icon-close: (
 }
 
 .usa-banner__header,
-.usa-banner__content {
+.usa-banner__content,
+.usa-banner__content.usa-accordion__content {
   @include set-text-from-bg(
     $theme-banner-background-color,
     $context: $banner-context
   );
 }
 
-.usa-banner__content {
+// Banner overrides must win even when accordion styles are loaded afterward.
+.usa-banner__content,
+.usa-banner__content.usa-accordion__content {
   @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
   background-color: color("transparent");
@@ -227,7 +230,8 @@ $banner-icon-close: (
   }
 }
 
-.usa-banner__button {
+.usa-banner__button,
+.usa-banner__button.usa-accordion__button {
   @include button-unstyled;
   @include u-pin("left");
   @include u-pin("y");
