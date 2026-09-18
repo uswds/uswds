@@ -29,7 +29,14 @@ if (
 ) {
   try {
     // Read metadata as JSON, never interpolate the contributor's title into shell code.
-    checkEvent(JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, "utf8")));
+    checkEvent(
+      JSON.parse(
+        readFileSync(
+          process.env.PR_TITLE_EVENT_PATH || process.env.GITHUB_EVENT_PATH,
+          "utf8",
+        ),
+      ),
+    );
     console.log("PR title follows the conventional title format.");
   } catch {
     // Keep untrusted title and event contents out of workflow-command output.
