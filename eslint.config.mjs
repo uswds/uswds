@@ -13,9 +13,7 @@ const baseConfig = {
       ...globals.node,
       ...globals.es2021,
       ...globals.mocha,
-
       // Browser globals — intentionally limited subset.
-      // Using globals.browser pulls in hundreds of globals and breaks things.
       window: "readonly",
       document: "readonly",
       navigator: "readonly",
@@ -39,7 +37,6 @@ const pluginsConfig = {
   plugins: {
     // Registered as "import" to preserve backward compat with existing
     // eslint-disable comments referencing import/* rules.
-    // The underlying package is eslint-plugin-import-x.
     import: importPlugin,
     "no-unsanitized": noUnsanitized,
   },
@@ -60,14 +57,12 @@ const pluginsConfig = {
       "error",
       { allowShortCircuit: true, allowTernary: true },
     ],
-
-    // --- Security (beyond no-unsanitized plugin) ---
+    // --- Security ---
     "no-implied-eval": "error",
     "no-new-func": "error",
     "no-extend-native": "error",
     "no-new-wrappers": "error",
-
-    // --- Code style consistency ---
+    // --- Code style ---
     "no-var": "error",
     "prefer-const": [
       "error",
@@ -76,11 +71,9 @@ const pluginsConfig = {
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     curly: ["error", "multi-line"],
     "no-underscore-dangle": "warn",
-
     // --- Import rules ---
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "import/no-unresolved": ["error", { ignore: ["\\.(s?)css\\?inline$"] }],
-
     // --- Security (plugin) ---
     "no-unsanitized/method": "error",
     "no-unsanitized/property": "error",
@@ -92,6 +85,50 @@ const testConfig = {
   rules: {
     "no-unsanitized/method": "off",
     "no-unsanitized/property": "off",
+  },
+};
+
+// ESM source block — browser-facing component source in packages/.
+// Excludes packages/usa-icon/src/usa-icons.config.js (Node-side build config).
+const esmSourceConfig = {
+  files: ["packages/**/*.js", "packages/**/*.mjs"],
+  ignores: ["packages/usa-icon/src/usa-icons.config.js"],
+  rules: {
+    "import/named": "error",
+    "import/no-cycle": "error",
+    // Warn on extensionless specifiers as a migration progress signal.
+    // Flipped to "error" in final cleanup (#6869).
+    "import/extensions": [
+      "warn",
+      "ignorePackages",
+      { js: "always", mjs: "always" },
+    ],
+  },
+};
+
+// Node-tooling block — files meant to stay CommonJS permanently.
+// .storybook/preview.js uses ESM and is intentionally excluded.
+const nodeToolingConfig = {
+  files: [
+    "gulpfile.js",
+    "tasks/**/*.js",
+    ".storybook/main.js",
+    ".storybook/test-runner.js",
+    "svgo.config.js",
+    "webpack.twig.config.js",
+    "packages/usa-icon/src/usa-icons.config.js",
+  ],
+  languageOptions: {
+    sourceType: "commonjs",
+    globals: {
+      ...globals.node,
+    },
+  },
+  rules: {
+    "import/no-commonjs": "off",
+    "import/named": "off",
+    "import/no-cycle": "off",
+    "import/extensions": "off",
   },
 };
 
@@ -111,5 +148,7 @@ export default [
   baseConfig,
   pluginsConfig,
   testConfig,
+  esmSourceConfig,
+  nodeToolingConfig,
   prettier, // Must be last to disable formatting rules
 ];
