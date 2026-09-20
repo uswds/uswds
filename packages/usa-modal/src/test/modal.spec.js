@@ -233,10 +233,16 @@ describe("Modal window with a forced action", () => {
     body.className = "";
   });
 
-  it("stays open when the overlay is clicked", () => {
+  it("stays open when the overlay is clicked, and still closes after", () => {
     overlay.click();
 
     assert.strictEqual(isVisible(modalWrapper), true);
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), true);
+
+    stayButton.click();
+
+    assert.strictEqual(isVisible(modalWrapper), false);
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), false);
   });
 
   it("closes when a close button is clicked", () => {
