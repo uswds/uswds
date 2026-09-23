@@ -1,12 +1,14 @@
 name: Feature Request 💡
-description:
-  Suggest a new idea for the design system.
-title: 'USWDS - Feature: [YOUR TITLE]'
-labels: ['Type: Feature Request']
+description: Request a concrete enhancement to existing USWDS functionality.
+title: "USWDS - Feature: [YOUR TITLE]"
+labels: ["Type: Feature Request"]
 body:
   - type: markdown
     attributes:
-      value: '## Feature Request 💡'
+      value: |
+        Use this form for a concrete enhancement to existing USWDS functionality. Describe the problem and the behavior you want to change.
+
+        For usage questions, [ask in Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a). Explore early suggestions in [Ideas](https://github.com/uswds/uswds/discussions/new?category=ideas), and suggest new components or patterns in [Proposals](https://github.com/uswds/uswds/discussions/new?category=proposals).
   - type: textarea
     id: problem
     attributes:
@@ -41,12 +43,10 @@ body:
       label: Code of Conduct
       description: Please confirm the following
       options:
-        - label:
-            I agree to follow this project's [Code of
+        - label: I agree to follow this project's [Code of
             Conduct](https://designsystem.digital.gov/about/community/#community-conduct).
           required: true
-        - label:
-            I checked the [current
+        - label: I checked the [current
             issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Feature+Request%22) for
             duplicate feature requests.
           required: true

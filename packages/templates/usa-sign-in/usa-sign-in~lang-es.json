@@ -38,5 +38,6 @@
       "label": "Cree su cuenta ahora"
     }
   },
-  "img_path": "./img"
+  "img_path": "./img",
+  "placeholder_link": "#"
 }

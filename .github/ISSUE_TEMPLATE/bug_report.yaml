@@ -1,8 +1,14 @@
 name: Bug Report 🐞
 description: Report a bug and help USWDS improve.
 title: "USWDS - Bug: [YOUR TITLE]"
-labels: ['Type: Bug','Needs: Confirmation']
+labels: ["Type: Bug", "Needs: Confirmation"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a reproducible problem in USWDS, including accessibility defects. You do not need to know the cause or have a fix.
+
+        For setup, customization, or usage help, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a). If you are unsure whether something is a bug, start there. Report documentation website problems in [uswds-site](https://github.com/uswds/uswds-site/issues/new/choose).
   - type: textarea
     id: problem
     attributes:
@@ -68,12 +74,10 @@ body:
       label: Code of Conduct
       description: Please confirm the following
       options:
-        - label:
-            I agree to follow this project's [Code of
-              Conduct](https://designsystem.digital.gov/about/community/#community-conduct).
+        - label: I agree to follow this project's [Code of
+            Conduct](https://designsystem.digital.gov/about/community/#community-conduct).
           required: true
-        - label:
-            I checked the [current
-              issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22) for
-              duplicate bug reports.
+        - label: I checked the [current
+            issues](https://github.com/uswds/uswds/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22) for
+            duplicate bug reports.
           required: true

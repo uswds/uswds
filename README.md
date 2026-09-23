@@ -506,7 +506,9 @@ The values of `$theme-font-path` and `$theme-image-path` will be appended to USW
 
 ## Browser support
 
-We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (3.0.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 3.0.0 supports the newest versions of Chrome, Firefox, and Safari.
+We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). USWDS 3.x follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). This guidance covers the newest versions of Chrome, Firefox, and Safari.
+
+Browser build targets are separate from this support guidance. The [Browserslist configuration](https://github.com/uswds/uswds/blob/develop/.browserslistrc) uses worldwide `caniuse-lite` usage data for `> 2%`, adds `last 2 versions`, and uses `not dead` to remove browsers classified as dead. It does not read analytics.usa.gov or record browser and assistive technology testing. See [Browserslist query composition](https://github.com/browserslist/browserslist#query-composition). Questions about the support observation period and mobile versus desktop metrics remain tracked in [#5888](https://github.com/uswds/uswds/issues/5888).
 
 As of USWDS 3.0.0, we no longer officially support Internet Explorer 11 (IE11). We continued to include IE11 polyfills and prefixing for the first few releases in USWDS 3.x. We started to remove IE11-related polyfills in [USWDS 3.8.2](https://github.com/uswds/uswds/releases/tag/v3.8.2), and removed the remaining polyfills in [USWDS 3.10.0](https://github.com/uswds/uswds/releases/tag/v3.10.0).
 
@@ -531,7 +533,9 @@ USWDS version 2.x is no longer maintained.
 
 ## Need installation help?
 
-Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues)
+For installation, configuration, customization, or usage questions, [ask in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a). Include what you tried and your USWDS version when relevant. If you are unsure whether something is a bug, start in Q&A.
+
+Use [Issues](https://github.com/uswds/uswds/issues/new/choose) for reproducible bugs and concrete enhancements to existing functionality. Explore early ideas in [Ideas](https://github.com/uswds/uswds/discussions/categories/ideas), and new components or patterns in [Proposals](https://github.com/uswds/uswds/discussions/categories/proposals). See [where to contribute](CONTRIBUTING.md#choose-the-right-place) for all options.
 
 You can also email directly: [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
@@ -541,7 +545,7 @@ For complete instructions on how to contribute code, please read [CONTRIBUTING.m
 
 To learn more about our workflow and process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswds@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [asking in Discussions Q&A](https://github.com/uswds/uswds/discussions/new?category=q-a) or [emailing our team](mailto:uswds@gsa.gov).
 
 Joining the [USWDS Open Source Community](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) can provide you with a more direct connection to the development of USWDS, if you're interested.
 

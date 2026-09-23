@@ -3,7 +3,7 @@ name: Contributor ladder role change request
 about: Submit a request for a status change within the contributor ladder
 title: '[ROLE CHANGE]: Change to [Target role] - [Username]'
 labels: ['contributor-ladder']
-assignees: '@annepetersen'
+assignees: ''
 ---
 
 ## Role change request

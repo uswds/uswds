@@ -17,8 +17,18 @@
  */
 
 import { readFileSync } from "fs";
-import { spawn } from "child_process";
 import { createInterface } from "readline";
+import { resolve } from "path";
+import { fileURLToPath } from "url";
+
+import { execCmd } from "./review-cache.mjs";
+
+/**
+ * A diff is read into memory whole, so the child's stdout cap has to clear the
+ * largest PR still worth scoring. `execCmd` is backed by `execFile`, whose 1 MB
+ * default would reject exactly the large diffs this tool most needs to measure.
+ */
+const DIFF_MAX_BUFFER = 64 * 1024 * 1024;
 
 function getFilename(path) {
   return path.split("/").pop();
@@ -134,7 +144,7 @@ function classify(path) {
   return "runtime";
 }
 
-async function fetchPRDiff(url) {
+export async function fetchPRDiff(url, execFn = execCmd) {
   const match = url.match(/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/);
   if (!match) {
     console.error(`Could not parse a GitHub PR URL from: ${url}`);
@@ -144,10 +154,10 @@ async function fetchPRDiff(url) {
 
   // Try gh CLI first
   try {
-    const diff = await exec(
+    const diff = await execFn(
       "gh",
       ["pr", "diff", num, "--repo", `${owner}/${repo}`],
-      { timeout: 90000 },
+      { timeout: 90000, maxBuffer: DIFF_MAX_BUFFER },
     );
     if (diff.trim()) return diff;
   } catch {
@@ -158,7 +168,7 @@ async function fetchPRDiff(url) {
     headers.push("-H", `Authorization: Bearer ${process.env.GITHUB_TOKEN}`);
   }
   try {
-    const diff = await exec(
+    const diff = await execFn(
       "curl",
       [
         "-sL",
@@ -167,7 +177,7 @@ async function fetchPRDiff(url) {
         ...headers,
         `https://api.github.com/repos/${owner}/${repo}/pulls/${num}`,
       ],
-      { timeout: 95000 },
+      { timeout: 95000, maxBuffer: DIFF_MAX_BUFFER },
     );
     if (!diff.trim() || diff.trimStart().startsWith("{")) {
       console.error(
@@ -180,26 +190,6 @@ async function fetchPRDiff(url) {
     console.error("Failed to fetch diff:", err.message);
     process.exit(1);
   }
-}
-
-async function exec(cmd, args, opts = {}) {
-  return new Promise((resolve, reject) => {
-    const proc = spawn(cmd, args, { timeout: opts.timeout });
-    let stdout = "",
-      stderr = "";
-    proc.stdout?.on("data", (d) => {
-      stdout += d;
-    });
-    proc.stderr?.on("data", (d) => {
-      stderr += d;
-    });
-    proc.on("error", reject);
-    proc.on("close", (code) => {
-      if (code !== 0 && code !== null)
-        reject(new Error(`${cmd} exited ${code}: ${stderr}`));
-      else resolve(stdout);
-    });
-  });
 }
 
 async function readStdin() {
@@ -495,7 +485,12 @@ Options:
   console.log(jsonOutput ? JSON.stringify(report, null, 2) : render(report));
 }
 
-main().catch((err) => {
-  console.error("Fatal error:", err.message);
-  process.exit(1);
-});
+if (
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === resolve(process.argv[1])
+) {
+  main().catch((err) => {
+    console.error("Fatal error:", err.message);
+    process.exit(1);
+  });
+}

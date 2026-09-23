@@ -1,6 +1,6 @@
 {
   "label": "Social Security Number",
-  "hint": "For example, 123 45 6789",
+  "hint": "Enter 9 digits. For example, 123 45 6789.",
   "id": "ssn",
   "type": "text",
   "inputmode": "numeric",
