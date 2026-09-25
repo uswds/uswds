@@ -6,6 +6,9 @@
 
 const VITE_INLINE = /\?inline$/;
 const VITE_ASSET = /\.(png|jpe?g|gif|svg|webp)$/;
+// Components are ESM `.js` files in a package with no `"type"` field. Name the
+// format so Node does not need syntax detection (unflagged only in 20.19/22.7).
+const COMPONENT = /\.component\.js$/;
 
 function stubModule(value) {
   const source = `export default ${JSON.stringify(value)};`;
@@ -25,5 +28,10 @@ export async function resolve(specifier, context, nextResolve) {
     };
   }
 
-  return nextResolve(specifier, context);
+  const resolved = await nextResolve(specifier, context);
+  if (COMPONENT.test(resolved.url)) {
+    return { ...resolved, format: "module" };
+  }
+
+  return resolved;
 }
