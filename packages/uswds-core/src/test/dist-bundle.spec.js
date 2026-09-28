@@ -12,6 +12,7 @@ const DIST = path.resolve(__dirname, "../../../../dist/js");
 const BUNDLE_PATH = path.join(DIST, "uswds.min.js");
 const BUNDLE_MAP_PATH = path.join(DIST, "uswds.min.js.map");
 const INIT_PATH = path.join(DIST, "uswds-init.js");
+const INIT_MIN_PATH = path.join(DIST, "uswds-init.min.js");
 
 // The 22 component barrel keys exposed by the bundle.
 // Two do not match their package directory name 1:1:
@@ -314,36 +315,45 @@ describe("dist-bundle behavioral characterization", function () {
     });
   });
 
-  // ── uswds-init.js ES5 compliance ────────────────────────────────────────────
-  // uswds-init.js runs in <head> before any feature detection. It must be
+  // ── uswds-init ES5 compliance ───────────────────────────────────────────────
+  // uswds-init runs in <head> before any feature detection. It must be
   // plain ES5 — no arrow functions, no const/let, no template literals —
-  // so it works in the oldest browsers USWDS supports.
-  describe("uswds-init.js ES5 compliance", function () {
-    let initCode;
+  // so it works in the oldest browsers USWDS supports. Both artifacts are
+  // checked: minification is its own chance to reintroduce modern syntax.
+  [
+    ["uswds-init.js", INIT_PATH],
+    ["uswds-init.min.js", INIT_MIN_PATH],
+  ].forEach(function (artifact) {
+    const name = artifact[0];
+    const artifactPath = artifact[1];
 
-    before(function () {
-      initCode = fs.readFileSync(INIT_PATH, "utf-8");
-    });
+    describe(name + " ES5 compliance", function () {
+      let initCode;
 
-    it("contains no arrow functions", function () {
-      assert.ok(
-        !/=>/.test(initCode),
-        "uswds-init.js must not contain arrow functions (=>)",
-      );
-    });
+      before(function () {
+        initCode = fs.readFileSync(artifactPath, "utf-8");
+      });
 
-    it("contains no const or let declarations", function () {
-      assert.ok(
-        !/\b(const|let)\b/.test(initCode),
-        "uswds-init.js must not use const or let",
-      );
-    });
+      it("contains no arrow functions", function () {
+        assert.ok(
+          !/=>/.test(initCode),
+          name + " must not contain arrow functions (=>)",
+        );
+      });
 
-    it("contains no template literals", function () {
-      assert.ok(
-        !/`/.test(initCode),
-        "uswds-init.js must not contain template literals",
-      );
+      it("contains no const or let declarations", function () {
+        assert.ok(
+          !/\b(const|let)\b/.test(initCode),
+          name + " must not use const or let",
+        );
+      });
+
+      it("contains no template literals", function () {
+        assert.ok(
+          !/`/.test(initCode),
+          name + " must not contain template literals",
+        );
+      });
     });
   });
 });
