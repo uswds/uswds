@@ -12,6 +12,8 @@ By contributing to this repository, you agree to adhere to the [GSA Social Media
 
 Community participants also follow the [Digital.gov Community Guidelines](https://digital.gov/communities/community-guidelines/). Respect your peers, use plain language, be patient, practice constructive criticism, and stay organized.
 
+Any posts or comments that the admin determine are not productive will be removed, and users who make multiple such posts or comments will be banned.
+
 We encourage you to read USWDS’s Contribution Guide (you're here; great start!), about the USWDS [COMMUNITY](https://github.com/uswds/uswds/blob/develop/COMMUNITY.md) which includes how to be recognized here for your contributions, the USWDS [README](https://github.com/uswds/uswds/blob/develop/README.md), and the USWDS [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md). You can also read more about the open source policy USWDS uses at the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy), and if you have questions, you can send USWDS an [email](mailto:uswds@gsa.gov).
 
 ## How you can contribute
