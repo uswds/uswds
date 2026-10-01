@@ -6,6 +6,9 @@ const modal = require("../index");
 const comboBox = require("../../../usa-combo-box/src/index");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "template.html"));
+const FORCE_ACTION_TEMPLATE = fs.readFileSync(
+  path.join(__dirname, "force-action.template.html"),
+);
 const modalWindowSelector = () => document.querySelector(".usa-modal");
 const bodySelector = () => document.body;
 const openButton1Selector = () => document.querySelector("#open-button1");
@@ -220,5 +223,59 @@ tests.forEach(({ name, selector: containerSelector }) => {
         assert.strictEqual(document.activeElement, closeButton);
       });
     });
+  });
+});
+
+describe("Modal window with a forced action", () => {
+  const { body } = document;
+
+  let modalWrapper;
+  let openButton;
+  let overlay;
+  let stayButton;
+
+  const isVisible = (el) => el.classList.contains("is-visible");
+
+  beforeEach(() => {
+    body.innerHTML = FORCE_ACTION_TEMPLATE;
+    modal.on(body);
+    modalWrapper = body.querySelector(".usa-modal-wrapper");
+    overlay = body.querySelector(".usa-modal-overlay");
+    openButton = body.querySelector("#force-open-button");
+    stayButton = body.querySelector("#force-stay-button");
+
+    openButton.click();
+  });
+
+  afterEach(() => {
+    modal.off(body);
+    body.innerHTML = "";
+    body.className = "";
+  });
+
+  it("stays open when the overlay is clicked, and still closes after", () => {
+    overlay.click();
+
+    assert.strictEqual(isVisible(modalWrapper), true);
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), true);
+
+    stayButton.click();
+
+    assert.strictEqual(isVisible(modalWrapper), false);
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), false);
+  });
+
+  it("closes when a close button is clicked", () => {
+    stayButton.click();
+
+    assert.strictEqual(isVisible(modalWrapper), false);
+  });
+
+  it("prevents clicks outside the modal while it is open", () => {
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), true);
+
+    stayButton.click();
+
+    assert.strictEqual(body.classList.contains("usa-js-no-click"), false);
   });
 });

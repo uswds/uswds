@@ -11,6 +11,14 @@
   }
 }
 
+// The overlay scrolls the modal, so it has to keep its pointer events.
+// Without them iOS can't scroll a modal taller than the viewport.
+// Used :where() so the rule has no specificity and an unlayered
+// `.usa-modal-overlay` rule in project CSS still wins.
+:where(.usa-js-no-click .usa-modal-overlay) {
+  pointer-events: auto;
+}
+
 // Prevents propagation issue in Safari an opener
 // has a child element, and when clicked, prevents
 // intended action
@@ -57,14 +65,6 @@
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-  }
-
-  &[data-force-action="true"] {
-    pointer-events: none;
-
-    * {
-      pointer-events: auto;
-    }
   }
 }
 
