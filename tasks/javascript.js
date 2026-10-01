@@ -21,10 +21,6 @@ function jsPipeline(stream, basename) {
     .pipe(rename({ basename }))
     .pipe(dest("dist/js"))
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .on("error", function handleError(error) {
-      dutil.logError(error);
-      this.emit("end");
-    })
     .pipe(uglify())
     .pipe(
       rename({
