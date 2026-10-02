@@ -31,3 +31,6 @@ sassdoc/
 
 # ignore review cache
 .review-cache/
+
+# ignore generated shared-component reports
+reports/
