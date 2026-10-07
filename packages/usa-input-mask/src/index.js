@@ -30,7 +30,9 @@ const createMaskedInputShell = (input) => {
   const content = document.createElement("span");
   content.classList.add(MASK_CONTENT);
   content.setAttribute("aria-hidden", "true");
-  content.id = `${input.id}Mask`;
+  if (input.id) {
+    content.id = `${input.id}Mask`;
+  }
   content.textContent = placeholder;
 
   shell.appendChild(content);
@@ -95,13 +97,26 @@ const handleCurrentValue = (el) => {
   return newValue;
 };
 
+// finds the mask content inside the shell, so the input does not need an id.
+const getMaskContent = (input) => {
+  const shell = input.closest(`.${MASK}`);
+  const content = shell && shell.querySelector(`.${MASK_CONTENT}`);
+  if (content) {
+    return content;
+  }
+  return input.id ? document.getElementById(`${input.id}Mask`) : null;
+};
+
 const handleValueChange = (el) => {
   const inputEl = el;
-  const id = inputEl.getAttribute("id");
   inputEl.value = handleCurrentValue(inputEl);
 
-  const maskVal = setValueOfMask(el);
-  const maskEl = document.getElementById(`${id}Mask`);
+  const maskEl = getMaskContent(inputEl);
+  if (!maskEl) {
+    return;
+  }
+
+  const maskVal = setValueOfMask(inputEl);
   maskEl.textContent = "";
   maskEl.replaceChildren(maskVal[0], maskVal[1]);
 };
