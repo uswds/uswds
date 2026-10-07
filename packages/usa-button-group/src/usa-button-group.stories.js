@@ -1,6 +1,7 @@
 import Component from "./usa-button-group.twig";
 import TestTextWrappingComponent from "./test/test-patterns/test-usa-button-group--text-wrapping.twig";
 import TestNestedGroupsComponent from "./test/test-patterns/test-usa-button-group--nested.twig";
+import TestWithinFormComponent from "./test/test-patterns/test-usa-button-group--within-form.twig";
 import { DefaultContent, SegmentedContent } from "./content";
 
 export default {
@@ -42,6 +43,13 @@ TestTextWrapping.argTypes = {
 
 export const TestNestedButtonGroups = TestNestedGroupsTemplate.bind({});
 TestNestedButtonGroups.argTypes = {
+  disabled_state: {
+    table: { disable: true },
+  },
+};
+
+export const TestWithinForm = TestWithinFormComponent.bind({});
+TestWithinForm.argTypes = {
   disabled_state: {
     table: { disable: true },
   },
