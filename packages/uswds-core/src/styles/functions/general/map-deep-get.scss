@@ -12,11 +12,8 @@ map-deep-get()
 @use "sass:map";
 
 @function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-    $map: map.get($map, $key);
-  }
-
-  @return $map;
+  @warn "map-deep-get() is deprecated. Use sass:map.get() instead.";
+  @return map.get($map, $keys...);
 }
 
 // @debug map-deep-get(

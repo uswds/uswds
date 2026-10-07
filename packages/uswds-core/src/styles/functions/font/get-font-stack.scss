@@ -43,7 +43,7 @@ role-based font token.
     }
     // Otherwise, just get the token's default stack
     @else {
-      $this-stack: general.map-deep-get(
+      $this-stack: map.get(
         typefaces.$all-typeface-tokens,
         $this-font-token,
         "stack"
