@@ -34,6 +34,9 @@ jobs:
       - run:
           name: Run test
           command: npm run test:ci
+      - store_artifacts:
+          path: _site/interaction-failures
+          destination: accessibility-interactions
       - run:
           name: Check formatting
           command: npm run prettier:check
@@ -43,4 +46,3 @@ workflows:
   circle-uswds:
     jobs:
       - build
-
