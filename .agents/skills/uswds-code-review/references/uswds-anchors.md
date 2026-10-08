@@ -249,7 +249,7 @@ describe("Accordion icon mixin", () => {
 ```
 npm install
 → npx playwright install
-→ Snyk scan (snyk/snyk@1.1.2 orb, org `uswds`)
+→ Snyk scan (snyk/snyk@2.3.0 orb, org `uswds`)
 → npm run test:ci
 → npm run prettier:check
 ```
