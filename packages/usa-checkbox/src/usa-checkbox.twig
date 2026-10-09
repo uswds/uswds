@@ -1,5 +1,16 @@
-<fieldset class="usa-fieldset">
-  <legend class="usa-legend">Select any historical figure</legend>
+{% set describedby = [] %}
+{% if hint %}{% set describedby = describedby|merge(['checkbox-group-hint']) %}{% endif %}
+{% if state == "error" %}{% set describedby = describedby|merge(['checkbox-group-error-message']) %}{% endif %}
+
+<fieldset class="usa-fieldset"
+  {% if describedby|length %} aria-describedby="{{ describedby|join(' ') }}"{% endif %}>
+  <legend class="usa-legend{% if state == 'error' %} usa-legend--error{% endif %}">Select any historical figure</legend>
+  {% if hint %}
+    <span class="usa-hint" id="checkbox-group-hint">{{ hint }}</span>
+  {%- endif %}
+  {% if state == "error" %}
+    <span class="usa-error-message" id="checkbox-group-error-message" role="alert">{{ error_message|default("Helpful error message") }}</span>
+  {%- endif %}
   <div class="usa-checkbox">
     <input
       class="usa-checkbox__input"
