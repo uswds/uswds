@@ -43,4 +43,22 @@ describe("skip nav link", () => {
     topLink.click();
     assert.strictEqual(main.getAttribute("tabindex"), "0");
   });
+
+  [
+    ["skipnav", () => skipLink],
+    ["return to top", () => topLink],
+  ].forEach(([name, getLink]) => {
+    it(`${name} preserves an authored outline through focus and blur`, () => {
+      main.style.outline = "5px dotted rgb(0, 95, 115)";
+      const authoredOutline = main.style.outline;
+
+      getLink().click();
+      assert.strictEqual(document.activeElement, main);
+      assert.strictEqual(main.style.outline, authoredOutline);
+
+      main.blur();
+      assert.strictEqual(main.style.outline, authoredOutline);
+      assert.strictEqual(main.getAttribute("tabindex"), "-1");
+    });
+  });
 });
