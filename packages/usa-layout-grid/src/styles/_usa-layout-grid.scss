@@ -6,7 +6,7 @@
 
 $namespace-grid: ns("grid");
 
-$custom-breakpoints: map-deep-get($system-properties, breakpoints, extended);
+$custom-breakpoints: map.get($system-properties, breakpoints, extended);
 $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
 
 // basic container
@@ -51,7 +51,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
   &.#{$namespace-grid}gap {
     @include grid-gap-responsive;
   }
-  @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard) {
+  @each $gap-key, $gap-val in map.get($system-properties, gap, standard) {
     &.#{$namespace-grid}gap-#{$gap-key} {
       $props: append-important($grid-global, $gap-key);
       @include grid-gap($props);
@@ -63,7 +63,7 @@ $all-breakpoints: map-collect($system-breakpoints, $custom-breakpoints);
     @if map.get($theme-utility-breakpoints-complete, $mq-key) {
       @include at-media($mq-key) {
         @each $gap-key,
-          $gap-val in map-deep-get($system-properties, gap, standard)
+          $gap-val in map.get($system-properties, gap, standard)
         {
           &.#{$mq-key}#{$separator}#{$namespace-grid}gap-#{$gap-key} {
             $props: append-important($grid-global, $gap-key);
