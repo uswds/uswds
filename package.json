@@ -80,7 +80,8 @@
     "prettier:sass": "npx prettier --write './packages/**/**/*.scss' --ignore-path=.prettierignore",
     "start:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build  -o _site",
-    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html"
+    "build:html": "webpack build --config ./webpack.twig.config.js && npm run prettier:html",
+    "shared:components": "node tasks/shared-components.js"
   },
   "repository": {
     "type": "git",
