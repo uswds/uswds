@@ -14,9 +14,10 @@ const dutil = require("./utils/doc-util");
  * Shared JS processing pipeline.
  * @param {Stream} stream - The input stream.
  * @param {string} basename - The base name for the output file.
+ * @param {Object} [uglifyOptions] - Extra options passed to uglify.
  * @returns {Stream} The processed stream.
  */
-function jsPipeline(stream, basename) {
+function jsPipeline(stream, basename, uglifyOptions = {}) {
   return stream
     .pipe(rename({ basename }))
     .pipe(dest("dist/js"))
@@ -25,7 +26,7 @@ function jsPipeline(stream, basename) {
       dutil.logError(error);
       this.emit("end");
     })
-    .pipe(uglify())
+    .pipe(uglify(uglifyOptions))
     .pipe(
       rename({
         suffix: ".min",
@@ -53,10 +54,15 @@ function bundleMain() {
   );
 }
 
+// uswds-init runs in <head> before feature detection, so it must stay ES5.
+// Uglify's `arrows` pass would rewrite its IIFE wrapper as `(()=>{...})()`.
+const INIT_UGLIFY_OPTIONS = { compress: { arrows: false } };
+
 function copyInit() {
   return jsPipeline(
     src("packages/uswds-core/src/js/uswds-init.js"),
-    "uswds-init"
+    "uswds-init",
+    INIT_UGLIFY_OPTIONS
   );
 }
 
