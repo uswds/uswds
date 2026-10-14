@@ -57,6 +57,8 @@ describe("navigation toggle", () => {
   });
 
   afterEach(() => {
+    // Stop the active trap before removing its fixture and replacing its handle.
+    navigation.focusTrap?.update(false);
     body.innerHTML = "";
     body.className = "";
     navigation.off();
