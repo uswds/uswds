@@ -1,6 +1,7 @@
 import assert from "node:assert";
 import UsaBanner from "../usa-banner.component.js";
 
+const CONTROLS = "aria-controls";
 const EXPANDED = "aria-expanded";
 const EXPANDED_CLASS = "usa-banner__header--expanded";
 const HIDDEN = "hidden";
@@ -23,6 +24,20 @@ function guidanceHeadings(shadow) {
   )
     .map((node) => node.textContent.replace(/\s+/g, " ").trim())
     .join(" | ");
+}
+
+// Resolve an IDREF the way assistive technology does: within the control's own
+// tree, so an id in a shadow root is only visible to controls in that root.
+function controlledBy(control) {
+  return control.getRootNode().getElementById(control.getAttribute(CONTROLS));
+}
+
+function assertExpandedMatchesContent(shadow) {
+  assert.strictEqual(
+    shadow.querySelector(".usa-banner__button").getAttribute(EXPANDED) ===
+      "true",
+    !shadow.querySelector(".usa-banner__content").hasAttribute(HIDDEN),
+  );
 }
 
 describe("usa-banner web component", () => {
@@ -246,6 +261,63 @@ describe("usa-banner web component", () => {
         shadow.querySelector(".usa-banner__button").getAttribute("type"),
         "button",
       );
+    });
+
+    it("points aria-controls at the content in the same shadow root", async () => {
+      const { shadow } = await render();
+
+      assert.strictEqual(
+        controlledBy(shadow.querySelector(".usa-banner__button")),
+        shadow.querySelector(".usa-banner__content"),
+      );
+    });
+
+    it("keeps each banner's aria-controls scoped to its own content", async () => {
+      body.innerHTML = "<usa-banner></usa-banner><usa-banner></usa-banner>";
+      const [first, second] = Array.from(body.querySelectorAll("usa-banner"));
+      await Promise.all([first.updateComplete, second.updateComplete]);
+
+      first.shadowRoot.querySelector(".usa-banner__button").click();
+      await first.updateComplete;
+
+      [first, second].forEach((element) => {
+        const shadow = element.shadowRoot;
+        assert.strictEqual(
+          controlledBy(shadow.querySelector(".usa-banner__button")),
+          shadow.querySelector(".usa-banner__content"),
+        );
+      });
+      assertExpandedMatchesContent(first.shadowRoot);
+      assertExpandedMatchesContent(second.shadowRoot);
+      assert.strictEqual(
+        second.shadowRoot
+          .querySelector(".usa-banner__button")
+          .getAttribute(EXPANDED),
+        "false",
+      );
+    });
+
+    it("shows the content when isOpen is set as a property", async () => {
+      const { element, shadow } = await render();
+
+      element.isOpen = true;
+      await element.updateComplete;
+
+      assert.strictEqual(
+        shadow.querySelector(".usa-banner__button").getAttribute(EXPANDED),
+        "true",
+      );
+      assertExpandedMatchesContent(shadow);
+    });
+
+    it("shows the content when rendered with the isopen attribute", async () => {
+      const { shadow } = await render("<usa-banner isopen></usa-banner>");
+
+      assert.strictEqual(
+        shadow.querySelector(".usa-banner__button").getAttribute(EXPANDED),
+        "true",
+      );
+      assertExpandedMatchesContent(shadow);
     });
   });
 });
