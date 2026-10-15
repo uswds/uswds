@@ -51,9 +51,6 @@ export default class UsaBanner extends LitElement {
 
   toggle() {
     this.isOpen = !this.isOpen;
-    this.shadowRoot
-      .querySelector(".usa-banner__content")
-      .toggleAttribute("hidden");
   }
 
   constructor() {
@@ -231,7 +228,11 @@ export default class UsaBanner extends LitElement {
               </button>
             </div>
           </header>
-          <div class="usa-banner__content usa-accordion__content" hidden>
+          <div
+            class="usa-banner__content usa-accordion__content"
+            id="gov-banner-default"
+            ?hidden=${!this.isOpen}
+          >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
                 ${this.domainTemplate(tld)}
