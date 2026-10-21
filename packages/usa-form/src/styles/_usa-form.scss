@@ -24,11 +24,21 @@
     max-width: none;
   }
 
-  .usa-button {
+  // Intended space between the form content and the button(s) is 1 unit.
+  // _usa-button-group.scss already sets .5 units of margin, so only
+  // .5 units are added here to total 1 unit.
+  &:not(:has(.usa-button-group)) .usa-button {
     margin-top: units(1);
 
     @include at-media("mobile-lg") {
       margin-top: units(3);
+    }
+  }
+  .usa-button-group {
+    margin-top: units(0.5);
+
+    @include at-media("mobile-lg") {
+      margin-top: units(2.5);
     }
   }
 
