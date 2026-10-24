@@ -9,6 +9,9 @@ $pagination-margin-x: 0.5 !default;
 $pagination-margin-y: 2 !default;
 $pagination-margin-padding: 1 !default;
 $pagination-target-size: 5 !default;
+// Narrower spacing below the pagination breakpoint, so seven items fit in a
+// 320px viewport (WCAG 1.4.10 Reflow) without shrinking the page targets.
+$pagination-margin-x-mobile: "2px";
 
 $pagination-current-color: get-color-token-from-bg(
   $theme-pagination-background-color
@@ -64,12 +67,14 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   height: units($pagination-target-size);
   justify-content: center;
   line-height: 1;
-  margin-left: units($pagination-margin-x);
-  margin-right: units($pagination-margin-x);
+  margin-left: units($pagination-margin-x-mobile);
+  margin-right: units($pagination-margin-x-mobile);
   min-width: units($pagination-target-size);
 
   @include at-media($theme-pagination-breakpoint) {
     flex: 1 0 auto; // flex: 1 won't work in IE11
+    margin-left: units($pagination-margin-x);
+    margin-right: units($pagination-margin-x);
   }
 }
 
@@ -185,12 +190,20 @@ $pagination-hover-token: list.nth($pagination-link-tokens, 2);
   }
 }
 
+// The ellipsis is not a control, so it doesn't need a full-size target.
+// Below the breakpoint it only takes the width of the character.
 .usa-pagination__overflow {
   align-items: center;
   align-self: stretch;
   display: inherit;
   user-select: none;
-  padding: units($pagination-margin-padding);
+  min-width: units(2);
+  padding: units($pagination-margin-padding) 0;
+
+  @include at-media($theme-pagination-breakpoint) {
+    min-width: units($pagination-target-size);
+    padding: units($pagination-margin-padding);
+  }
 }
 
 // ---------------------------------
