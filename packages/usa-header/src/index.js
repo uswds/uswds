@@ -257,6 +257,24 @@ navigation = behavior(
 
       addSafariClass();
       resize();
+      if (
+        trapContainer &&
+        isActive() &&
+        trapContainer.classList.contains(VISIBLE_CLASS)
+      ) {
+        const currentFocus = document.activeElement;
+        const focusInsideNav = trapContainer.contains(currentFocus);
+        hideNonNavItems();
+        navigation.focusTrap.update(true);
+        if (focusInsideNav && currentFocus instanceof HTMLElement) {
+          currentFocus.focus();
+        } else {
+          const closeButton = trapContainer.querySelector(CLOSE_BUTTON);
+          if (closeButton) {
+            closeButton.focus();
+          }
+        }
+      }
       window.addEventListener("resize", resize, false);
     },
     teardown(root = document.body) {

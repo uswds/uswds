@@ -28,6 +28,7 @@ const HIDDEN_CLASS = "is-hidden";
 let modal;
 let INITIAL_BODY_PADDING;
 let TEMPORARY_BODY_PADDING;
+const modalOwners = new Map();
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 const SCROLLBAR_WIDTH = ScrollBarWidth();
@@ -309,8 +310,9 @@ const rebuildModal = (baseComponent) => {
  *  Builds modal window from base HTML and appends to the end of the DOM.
  *
  * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
+ * @param {Element} [root] - The root element passed to modal initialization.
  */
-const setUpModal = (baseComponent) => {
+const setUpModal = (baseComponent, root = document.body) => {
   const modalID = baseComponent.getAttribute("id");
 
   if (!modalID) {
@@ -324,6 +326,13 @@ const setUpModal = (baseComponent) => {
   // Build modal component
   const modalComponent = rebuildModal(baseComponent);
 
+  modalOwners.set(baseComponent, {
+    modalId: modalID,
+    placeholder: originalLocationPlaceHolder,
+    root,
+    wrapper: modalComponent,
+  });
+
   // Move all modals to the end of the DOM. Doing this allows us to
   // more easily find the elements to hide from screen readers
   // when the modal is open.
@@ -334,10 +343,15 @@ const setUpModal = (baseComponent) => {
  * Removes dynamically created Modal and Wrapper elements and restores original Modal HTML.
  *
  * @param {HTMLDivElement} baseComponent - The modal div element in the DOM.
+ * @param {{ placeholder?: HTMLDivElement, wrapper?: HTMLDivElement }} [owner] - Stored setup references.
  */
-const cleanUpModal = (baseComponent) => {
+const cleanUpModal = (baseComponent, owner) => {
   const modalContent = baseComponent;
-  const modalContentWrapper = modalContent.parentElement.parentElement;
+  const modalContentWrapper =
+    owner?.wrapper || modalContent.parentElement?.parentElement;
+  if (!modalContentWrapper) {
+    return;
+  }
   const modalID = modalContentWrapper.getAttribute("id");
 
   // if there is no modalID, return early
@@ -345,9 +359,9 @@ const cleanUpModal = (baseComponent) => {
     return;
   }
 
-  const originalLocationPlaceHolder = document.querySelector(
-    `[data-placeholder-for="${modalID}"]`,
-  );
+  const originalLocationPlaceHolder =
+    owner?.placeholder ||
+    document.querySelector(`[data-placeholder-for="${modalID}"]`);
 
   if (originalLocationPlaceHolder) {
     const modalAttributes = Array.from(originalLocationPlaceHolder.attributes);
@@ -358,13 +372,13 @@ const cleanUpModal = (baseComponent) => {
       }
     });
 
-    originalLocationPlaceHolder.after(modalContent);
-    originalLocationPlaceHolder.parentElement.removeChild(
-      originalLocationPlaceHolder,
-    );
+    if (originalLocationPlaceHolder.parentElement) {
+      originalLocationPlaceHolder.after(modalContent);
+      originalLocationPlaceHolder.remove();
+    }
   }
 
-  modalContentWrapper.parentElement.removeChild(modalContentWrapper);
+  modalContentWrapper.remove();
 };
 
 modal = behavior(
@@ -374,7 +388,7 @@ modal = behavior(
       selectOrMatches(MODAL, root).forEach((modalWindow) => {
         const modalId = modalWindow.id;
 
-        setUpModal(modalWindow);
+        setUpModal(modalWindow, root);
 
         // Query all openers and closers including the overlay
         selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
@@ -399,15 +413,44 @@ modal = behavior(
         );
       });
     },
-    teardown(root) {
-      selectOrMatches(MODAL, root).forEach((modalWindow) => {
-        const modalId = modalWindow.id;
-        cleanUpModal(modalWindow);
+    teardown(root = document.body) {
+      if (!root) {
+        return;
+      }
 
-        selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
-          (modalTrigger) =>
-            modalTrigger.removeEventListener("click", toggleModal),
-        );
+      const modalsToCleanUp = new Set(selectOrMatches(MODAL, root));
+
+      modalOwners.forEach((owner, modalWindow) => {
+        if (!owner.wrapper.isConnected) {
+          modalOwners.delete(modalWindow);
+          return;
+        }
+        if (
+          owner.root === root ||
+          owner.placeholder === root ||
+          root.contains(owner.placeholder) ||
+          root.contains(owner.root)
+        ) {
+          modalsToCleanUp.add(modalWindow);
+        }
+      });
+
+      modalsToCleanUp.forEach((modalWindow) => {
+        const owner = modalOwners.get(modalWindow);
+        const modalId =
+          owner?.modalId ||
+          modalWindow.parentElement?.parentElement?.getAttribute("id") ||
+          modalWindow.id;
+
+        cleanUpModal(modalWindow, owner);
+        modalOwners.delete(modalWindow);
+
+        if (modalId) {
+          selectOrMatches(`[aria-controls="${modalId}"]`, document).forEach(
+            (modalTrigger) =>
+              modalTrigger.removeEventListener("click", toggleModal),
+          );
+        }
       });
 
       // Restore the background after teardown, unless an open modal outside

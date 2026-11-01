@@ -279,6 +279,102 @@ tests.forEach(({ name, selector: containerSelector }) => {
           "true",
         );
       });
+
+      it("restores page content and focus trap when an enclosing root is torn down", () => {
+        modal.off(containerSelector());
+        const enclosingRoot = document.createElement("div");
+        const restoredModal = document.getElementById("modal");
+        restoredModal.before(enclosingRoot);
+        enclosingRoot.appendChild(restoredModal);
+
+        modal.on(enclosingRoot);
+        openButton1.click();
+        assert.strictEqual(
+          document.getElementById("other-content").getAttribute("aria-hidden"),
+          "true",
+        );
+
+        modal.off(enclosingRoot);
+        assert.strictEqual(
+          document.getElementById("other-content").hasAttribute("aria-hidden"),
+          false,
+        );
+        assert.strictEqual(
+          body.classList.contains("usa-js-modal--active"),
+          false,
+        );
+        assert.strictEqual(restoredModal.isConnected, true);
+        assert.strictEqual(
+          restoredModal.classList.contains("is-hidden"),
+          false,
+        );
+
+        modal.on(enclosingRoot);
+        openButton1.click();
+        enclosingRoot.remove();
+        modal.off(enclosingRoot);
+
+        const tab = new KeyboardEvent("keydown", {
+          bubbles: true,
+          cancelable: true,
+          key: "Tab",
+          shiftKey: true,
+        });
+        document.body.dispatchEvent(tab);
+
+        assert.strictEqual(tab.defaultPrevented, false);
+        assert.strictEqual(
+          document.getElementById("other-content").hasAttribute("aria-hidden"),
+          false,
+        );
+        assert.strictEqual(
+          document.querySelectorAll("[data-modal-hidden]").length,
+          0,
+        );
+        assert.strictEqual(
+          body.classList.contains("usa-js-modal--active"),
+          false,
+        );
+        assert.strictEqual(
+          enclosingRoot.querySelector("#modal"),
+          restoredModal,
+        );
+        body.appendChild(enclosingRoot);
+      });
+
+      it("preserves an unrelated open modal when tearing down another enclosing root", () => {
+        const secondRoot = document.createElement("div");
+        secondRoot.innerHTML = `
+          <div class="usa-modal" id="second-modal" aria-labelledby="second-heading" aria-describedby="second-desc">
+            <div class="usa-modal__content">
+              <div class="usa-modal__main">
+                <h2 id="second-heading">Second</h2>
+                <p id="second-desc">Description</p>
+              </div>
+            </div>
+          </div>
+        `;
+        body.appendChild(secondRoot);
+        modal.on(secondRoot);
+
+        openButton1.click();
+        modal.off(secondRoot);
+
+        assert.strictEqual(
+          document.getElementById("other-content").getAttribute("aria-hidden"),
+          "true",
+        );
+        assert.strictEqual(
+          body.classList.contains("usa-js-modal--active"),
+          true,
+        );
+        assert.strictEqual(modalWrapper.getAttribute("aria-modal"), "true");
+        assert.strictEqual(isVisible(modalWrapper), true);
+        assert.strictEqual(
+          document.querySelector(".usa-modal-wrapper#second-modal"),
+          null,
+        );
+      });
     });
   });
 });
