@@ -25,8 +25,11 @@ Please keep in mind:
 
 <!---
 Step 1 - Title this PR with the following format:
-USWDS - [Package]: [Brief statement describing what this pull request solves]
-eg: "USWDS - Button: Increase font size"
+type(scope): describe the change
+Examples: "fix(button): correct focus styling" or "docs: clarify installation".
+Scope is optional. Use ! before the colon for a breaking change.
+See CONTRIBUTING.md#pull-request-titles for allowed types and examples.
+The PR title becomes the squash commit title; working commits need not follow this format.
  -->
 
 # Summary

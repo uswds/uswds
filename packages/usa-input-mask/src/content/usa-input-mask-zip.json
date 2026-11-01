@@ -1,6 +1,6 @@
 {
   "label": "ZIP Code",
-  "hint": "For example, 12345-6789",
+  "hint": "Enter a 5-digit ZIP Code, optionally followed by a 4-digit extension. For example, 12345-6789.",
   "id": "zip",
   "type": "text",
   "inputmode": "numeric",

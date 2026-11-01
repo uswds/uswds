@@ -1,0 +1,28 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask about installing, customizing, or using USWDS here. You do not need to know whether the answer involves your implementation or USWDS itself.
+
+        Search [existing Q&A](https://github.com/uswds/uswds/discussions/categories/q-a) first. If the conversation identifies a bug or a concrete enhancement, a maintainer can help create a linked issue.
+  - type: textarea
+    id: question
+    attributes:
+      label: What would you like help with?
+      description: Describe what you are trying to accomplish and where you need help.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What have you tried?
+      description: Include relevant documentation, code, or a public example if available. Share only information you can make public.
+    validations:
+      required: false
+  - type: textarea
+    id: environment
+    attributes:
+      label: USWDS version and setup
+      description: If relevant, include your USWDS version, framework or CMS, browser, and assistive technology.
+    validations:
+      required: false

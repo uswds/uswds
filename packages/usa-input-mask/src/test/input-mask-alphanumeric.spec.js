@@ -53,3 +53,31 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
   });
 });
+
+describe("alphanumeric input mask caret position", () => {
+  const { body } = document;
+
+  let input;
+
+  beforeEach(() => {
+    body.innerHTML = TEMPLATE;
+    InputMask.on(document.body);
+    input = document.querySelector(".usa-masked");
+  });
+
+  afterEach(() => {
+    InputMask.off(document.body);
+    body.textContent = "";
+  });
+
+  it("keeps the caret after a character typed over a selection", () => {
+    // "A1B [2]C3" then "5"
+    input.focus();
+    input.value = "A1B 5C3";
+    input.setSelectionRange(5, 5);
+    EVENTS.input(input);
+
+    assert.strictEqual(input.value, "A1B 5C3");
+    assert.strictEqual(input.selectionStart, 5);
+  });
+});

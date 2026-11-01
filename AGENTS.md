@@ -43,12 +43,21 @@ Guidance for USWDS repo agents. See `README.md` and `CONTRIBUTING.md` for user d
 - **Prettier**: `{}` (defaults), `.prettierignore`. 2 spaces indent, LF endings (`.editorconfig`).
 - **ESLint**: Bans `var`, requires `===`, forbids `new Function`, enforces `no-unsanitized/*` (relaxed in `*.spec.js`). Prefer `const`.
 
+## Issue and discussion routing
+
+- Follow [CONTRIBUTING.md](CONTRIBUTING.md#choose-the-right-place) and [.github/ISSUE_TRIAGE.md](.github/ISSUE_TRIAGE.md) when triaging.
+- Route support and implementation questions to Discussions Q&A. Keep reproducible bugs, concrete enhancements, documentation fixes, and tracked maintenance in Issues. New components and patterns start in Proposals; exploratory ideas start in Ideas.
+- Read the full conversation and linked work before converting. Preserve the original conversation with GitHub's conversion action. Do not bulk-convert by title, label, age, or missing reproduction alone.
+
 ## Git / PR Workflow
 
+Follow the [merge procedure in CONTRIBUTING.md](CONTRIBUTING.md#merging-pull-requests) for all PR merges, including squash-only merging, CodeRabbit follow-up, final requester review, and explicit authorization for any protection bypass.
+
 - **Default Branch**: `develop` (not `main`); PRs target `develop`. `main`/`library--main` trigger npm publish; do not push.
+- **PR titles**: Follow [Conventional Commits for PR titles](CONTRIBUTING.md#pull-request-titles); the title becomes the squash commit title. Do not add `USWDS -`. Working commit messages need not follow this format. Run `node --test .github/scripts/check-pr-title.test.mjs` when changing title validation.
 - **Commit Signatures**: All commits *must* be verified (GPG/SSH); unsigned rejected by `verify-commit-signatures.yml`. Sign before commit.
 - **`COMMUNITY.md`**: Do not edit unless requested.
-- **Automated review**: CodeRabbit reviews PRs into `develop`. Behavior is version-controlled in `.coderabbit.yaml` (repo YAML outranks the CodeRabbit dashboard, so change it in a PR). Advisory only — never a required check, and it does not push commits. Bot-authored PRs (Dependabot, Actions) are skipped; trigger one with `@coderabbitai review`.
+- **Automated review**: CodeRabbit reviews non-draft PRs into `develop`, including Dependabot updates, lockfiles, and SVG sources. It reviews new pushes without a commit-count pause, subject to provider rate limits. Behavior is version-controlled in `.coderabbit.yaml`, so change it in a PR. Repository YAML outranks ordinary repository and organization dashboard settings; organization or workspace Global Overrides still take precedence. Advisory only — never a required check, and it does not push commits. Drafts and GitHub Actions PRs are reviewed on demand with `@coderabbitai review`.
 
 ## Gotchas
 

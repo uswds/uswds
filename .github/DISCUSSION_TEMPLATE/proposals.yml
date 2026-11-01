@@ -5,6 +5,8 @@ body:
     attributes:
       value: |
         Thank you for suggesting a new component for the U.S. Web Design System (USWDS).
+
+        Before starting, search [existing proposals](https://github.com/uswds/uswds/discussions?discussions_q=category%3AProposals) and [feature requests](https://github.com/uswds/uswds/issues?q=is%3Aissue+label%3A%22Type%3A+Feature+Request%22), including closed ones. If a proposal already covers your need, add your examples and research there so the conversation stays together.
         
         To get the discussion started, you just need to fill out the three fields marked with an asterisk (*). Then collaborate with the community to add supporting evidence and research, and get feedback. The work you do now can help the USWDS team create a formal component proposal.
         

@@ -19,7 +19,7 @@ function checkFileExistsSync(filepath) {
   let flag = true;
   try {
     fs.accessSync(filepath, fs.constants.F_OK);
-  } catch (e) {
+  } catch {
     flag = false;
   }
   return flag && filepath;
