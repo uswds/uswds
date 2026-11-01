@@ -12,4 +12,4 @@ The scenarios exercise real keyboard input, focus containment, accessibility-tre
 
 `window.uswdsTest` is exposed only by the dedicated stories to simulate application lifecycle cleanup. It is not a shipped component API. Viewport settings are restored after each scenario.
 
-These checks do not run a screen reader or establish actual 400% browser zoom behavior. Keep the named manual assistive-technology matrix in the PR until that evidence is available.
+These checks do not run a screen reader or verify 400% browser zoom. Keep the manual VoiceOver/Safari, NVDA/Firefox, and 400% browser zoom checks listed in the PR until that testing is recorded.

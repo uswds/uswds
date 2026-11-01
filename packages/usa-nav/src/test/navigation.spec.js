@@ -219,6 +219,18 @@ describe("navigation toggle", () => {
       assert.strictEqual(tab.defaultPrevented, false);
     });
 
+    it("removes the resize listener when a root has no navigation container", () => {
+      navigation.off();
+      const removeListenerSpy = sandbox.spy(window, "removeEventListener");
+      const route = document.createElement("main");
+      body.appendChild(route);
+
+      navigation.on(route);
+      navigation.off(route);
+
+      assert.strictEqual(removeListenerSpy.calledWith("resize"), true);
+    });
+
     it("removes event listeners", () => {
       assert.strictEqual(isVisible(nav), false);
       assert.strictEqual(isVisible(overlay), false);

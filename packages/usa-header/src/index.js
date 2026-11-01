@@ -259,11 +259,12 @@ navigation = behavior(
       resize();
       window.addEventListener("resize", resize, false);
     },
-    teardown(root) {
+    teardown(root = document.body) {
       // Route cleanup must not release a persistent header's focus trap. Keep
       // its initialization root so cleanup still works after the nav is removed.
       if (
         root !== document.body &&
+        navigationContainer &&
         root !== navigationRoot &&
         !root.contains(navigationContainer)
       ) {
