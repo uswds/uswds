@@ -32,6 +32,8 @@ const VISIBLE_CLASS = "is-visible";
 let navigation;
 let navActive;
 let nonNavElements;
+let navigationRoot;
+let navigationContainer;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 // Detect Safari
@@ -246,6 +248,8 @@ navigation = behavior(
       const trapContainer = root.matches(NAV) ? root : root.querySelector(NAV);
 
       if (trapContainer) {
+        navigationRoot = root;
+        navigationContainer = trapContainer;
         navigation.focusTrap = FocusTrap(trapContainer, {
           Escape: onMenuClose,
         });
@@ -253,10 +257,50 @@ navigation = behavior(
 
       addSafariClass();
       resize();
+      if (
+        trapContainer &&
+        isActive() &&
+        trapContainer.classList.contains(VISIBLE_CLASS)
+      ) {
+        const currentFocus = document.activeElement;
+        const focusInsideNav = trapContainer.contains(currentFocus);
+        hideNonNavItems();
+        navigation.focusTrap.update(true);
+        if (focusInsideNav && currentFocus instanceof HTMLElement) {
+          currentFocus.focus();
+        } else {
+          const closeButton = trapContainer.querySelector(CLOSE_BUTTON);
+          if (closeButton) {
+            closeButton.focus();
+          }
+        }
+      }
       window.addEventListener("resize", resize, false);
     },
-    teardown() {
+    teardown(root = document.body) {
+      // Route cleanup must not release a persistent header's focus trap. Keep
+      // its initialization root so cleanup still works after the nav is removed.
+      if (
+        root !== document.body &&
+        navigationContainer &&
+        root !== navigationRoot &&
+        !root.contains(navigationContainer)
+      ) {
+        return;
+      }
+
       window.removeEventListener("resize", resize, false);
+
+      // The mobile nav hides the rest of the page from assistive technology
+      // while it is open. If the component is torn down before the nav closes,
+      // that content still has to be restored here, or the page is left hidden
+      // with no way to recover short of a reload. Visible state is left alone:
+      // off() removes event listeners, it does not close an open nav.
+      showNonNavItems();
+      navigation.focusTrap?.update(false);
+      navigationRoot = null;
+      navigationContainer = null;
+
       navActive = false;
     },
     focusTrap: null,

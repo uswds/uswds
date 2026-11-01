@@ -169,6 +169,68 @@ describe("navigation toggle", () => {
   });
 
   describe("off()", () => {
+    it("preserves an open header when an unrelated root is torn down", () => {
+      navigation.off();
+      const route = document.createElement("main");
+      body.appendChild(route);
+      navigation.on(header);
+      navigation.on(route);
+      menuButton.click();
+
+      navigation.off(route);
+
+      assert.strictEqual(route.getAttribute("aria-hidden"), "true");
+      assert.strictEqual(isVisible(nav), true);
+      closeButton.focus();
+      const tab = new KeyboardEvent("keydown", {
+        key: "Tab",
+        shiftKey: true,
+        bubbles: true,
+        cancelable: true,
+      });
+      closeButton.dispatchEvent(tab);
+      assert.strictEqual(tab.defaultPrevented, true);
+
+      // The active header still owns resize handling too.
+      sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 0 });
+      window.dispatchEvent(new CustomEvent("resize"));
+      assert.strictEqual(isVisible(nav), false);
+      navigation.off(header);
+    });
+
+    it("cleans its initialization root after the navigation is removed", () => {
+      navigation.off();
+      const route = document.createElement("main");
+      body.appendChild(route);
+      navigation.on(header);
+      menuButton.click();
+      nav.remove();
+
+      navigation.off(header);
+
+      assert.strictEqual(route.hasAttribute("aria-hidden"), false);
+      const tab = new KeyboardEvent("keydown", {
+        key: "Tab",
+        shiftKey: true,
+        bubbles: true,
+        cancelable: true,
+      });
+      body.dispatchEvent(tab);
+      assert.strictEqual(tab.defaultPrevented, false);
+    });
+
+    it("removes the resize listener when a root has no navigation container", () => {
+      navigation.off();
+      const removeListenerSpy = sandbox.spy(window, "removeEventListener");
+      const route = document.createElement("main");
+      body.appendChild(route);
+
+      navigation.on(route);
+      navigation.off(route);
+
+      assert.strictEqual(removeListenerSpy.calledWith("resize"), true);
+    });
+
     it("removes event listeners", () => {
       assert.strictEqual(isVisible(nav), false);
       assert.strictEqual(isVisible(overlay), false);
@@ -193,6 +255,89 @@ describe("navigation toggle", () => {
       closeButton.click();
       assert.strictEqual(isVisible(nav), true);
       assert.strictEqual(isVisible(overlay), true);
+    });
+
+    // A framework may unmount the component before the nav is closed, for
+    // example on a route change. The page must not be left hidden from
+    // assistive technology.
+    it("restores page content screen reader visibility", () => {
+      const otherContent = document.createElement("div");
+      otherContent.id = "other-content";
+      document.body.appendChild(otherContent);
+
+      menuButton.click();
+      assert.strictEqual(otherContent.getAttribute("aria-hidden"), "true");
+
+      navigation.off();
+
+      assert.strictEqual(otherContent.hasAttribute("aria-hidden"), false);
+      assert.strictEqual(
+        document.querySelectorAll("[data-nav-hidden]").length,
+        0,
+      );
+
+      document.body.tabIndex = -1;
+      document.body.focus();
+      const tab = new KeyboardEvent("keydown", {
+        bubbles: true,
+        cancelable: true,
+        key: "Tab",
+        shiftKey: true,
+      });
+      document.body.dispatchEvent(tab);
+      document.body.removeAttribute("tabindex");
+      assert.strictEqual(tab.defaultPrevented, false);
+    });
+
+    it("leaves content that was already aria-hidden alone", () => {
+      const staysHidden = document.createElement("div");
+      staysHidden.id = "stays-hidden";
+      staysHidden.setAttribute("aria-hidden", "true");
+      document.body.appendChild(staysHidden);
+
+      menuButton.click();
+      navigation.off();
+
+      assert.strictEqual(staysHidden.getAttribute("aria-hidden"), "true");
+    });
+
+    it("restores open navigation isolation and focus containment on reinitialization", () => {
+      const otherContent = document.createElement("div");
+      const outsideButton = document.createElement("button");
+      outsideButton.type = "button";
+      otherContent.appendChild(outsideButton);
+      document.body.appendChild(otherContent);
+      sandbox.stub(closeButton, "getBoundingClientRect").returns({ width: 44 });
+
+      menuButton.click();
+      navLink.focus();
+      navigation.off();
+      assert.strictEqual(otherContent.hasAttribute("aria-hidden"), false);
+
+      navigation.on();
+      assert.strictEqual(otherContent.getAttribute("aria-hidden"), "true");
+      assert.strictEqual(otherContent.hasAttribute("data-nav-hidden"), true);
+      assert.strictEqual(document.activeElement, navLink);
+
+      closeButton.focus();
+      const trappedTab = new KeyboardEvent("keydown", {
+        bubbles: true,
+        cancelable: true,
+        key: "Tab",
+        shiftKey: true,
+      });
+      closeButton.dispatchEvent(trappedTab);
+      assert.strictEqual(trappedTab.defaultPrevented, true);
+
+      navigation.off();
+      outsideButton.focus();
+      navigation.on();
+      assert.strictEqual(nav.contains(document.activeElement), true);
+
+      closeButton.click();
+      outsideButton.focus();
+      menuButton.click();
+      assert.strictEqual(document.activeElement, closeButton);
     });
   });
 });
