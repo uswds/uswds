@@ -119,6 +119,30 @@ tests.forEach(({ name, selector: containerSelector }) => {
         );
       });
 
+      it("preserves the selection when disabled while the list is open", () => {
+        EVENTS.click(input);
+        EVENTS.click(list.children[0]);
+        const selected = select.value;
+        let changes = 0;
+        select.addEventListener("change", () => {
+          changes += 1;
+        });
+        EVENTS.click(input);
+        const nextOption = list.children[1];
+        nextOption.focus();
+
+        ComboBox.disable(input);
+
+        assert.ok(list.hidden, "hides the list when the combo box is disabled");
+        assert.strictEqual(input.getAttribute("aria-expanded"), "false");
+
+        EVENTS.click(nextOption);
+        EVENTS.keydownEnter(nextOption);
+
+        assert.strictEqual(select.value, selected);
+        assert.strictEqual(changes, 0);
+      });
+
       it("should show the list by clicking the toggle button", () => {
         EVENTS.click(toggle);
 
