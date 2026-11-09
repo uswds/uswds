@@ -111,6 +111,27 @@ const getComboBoxContext = (el) => {
 };
 
 /**
+ * Hide the option list of a combo box component.
+ *
+ * @param {HTMLElement} el An element within the combo box component
+ */
+const hideList = (el) => {
+  const { inputEl, listEl, statusEl, focusedOptionEl } = getComboBoxContext(el);
+
+  statusEl.innerHTML = "";
+
+  inputEl.setAttribute("aria-expanded", "false");
+  inputEl.setAttribute("aria-activedescendant", "");
+
+  if (focusedOptionEl) {
+    focusedOptionEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+  }
+
+  listEl.scrollTop = 0;
+  listEl.hidden = true;
+};
+
+/**
  * Disable the combo-box component
  *
  * @param {HTMLInputElement} el An element within the combo box component
@@ -122,6 +143,7 @@ const disable = (el) => {
   clearInputBtnEl.disabled = true;
   toggleListBtnEl.disabled = true;
   inputEl.disabled = true;
+  hideList(el);
 };
 
 /**
@@ -555,33 +577,14 @@ const displayList = (el) => {
 };
 
 /**
- * Hide the option list of a combo box component.
- *
- * @param {HTMLElement} el An element within the combo box component
- */
-const hideList = (el) => {
-  const { inputEl, listEl, statusEl, focusedOptionEl } = getComboBoxContext(el);
-
-  statusEl.innerHTML = "";
-
-  inputEl.setAttribute("aria-expanded", "false");
-  inputEl.setAttribute("aria-activedescendant", "");
-
-  if (focusedOptionEl) {
-    focusedOptionEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
-  }
-
-  listEl.scrollTop = 0;
-  listEl.hidden = true;
-};
-
-/**
  * Select an option list of the combo box component.
  *
  * @param {HTMLElement} listOptionEl The list option being selected
  */
 const selectItem = (listOptionEl) => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(listOptionEl);
+
+  if (inputEl.disabled) return;
 
   changeElementValue(selectEl, listOptionEl.dataset.value);
   changeElementValue(inputEl, listOptionEl.textContent);
