@@ -6,7 +6,7 @@
 
 $banner-context: "Banner";
 $banner-guidance-measure: 3;
-$banner-target-size: 3; // 24px, the WCAG 2.5.8 minimum target size
+$banner-target-size: 3; 
 $banner-icon-colors: get-link-tokens-from-bg(
   $theme-banner-background-color,
   $theme-banner-link-color,
@@ -354,12 +354,6 @@ $banner-icon-close: (
   @include at-media("tablet") {
     @include add-no-sr-only;
     display: inline;
-
-    // Enlarge the pointer target to at least 24x24 CSS px (WCAG 2.5.8)
-    // without changing layout. The button is position: relative at this
-    // breakpoint, so this invisible layer is centered on it and extends
-    // past the chevron icon. The button's own ::before and ::after are
-    // used by the icon and accordion styles, so the layer lives here.
     &::after {
       content: "";
       left: 0;
