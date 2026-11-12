@@ -58,5 +58,23 @@ tests.forEach(({ name, selector: containerSelector }) => {
         "the calendar is shown",
       );
     });
+
+    ["disable", "ariaDisable"].forEach((method) => {
+      it(`closes the calendar when ${method} is called while open`, () => {
+        DatePicker.enable(root);
+        DatePicker.setCalendarValue(root, "2026-11-10");
+        EVENTS.click(button);
+
+        const day = getCalendarEl('button[data-value="2026-11-13"]');
+        const { externalInputEl } = DatePicker.getDatePickerContext(root);
+        const initialValue = externalInputEl.value;
+
+        DatePicker[method](root);
+
+        assert.strictEqual(getCalendarEl().hidden, true);
+        EVENTS.click(day);
+        assert.strictEqual(externalInputEl.value, initialValue);
+      });
+    });
   });
 });

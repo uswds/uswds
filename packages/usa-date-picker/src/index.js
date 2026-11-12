@@ -807,10 +807,12 @@ const getDatePickerContext = (el) => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const disable = (el) => {
-  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
+  const { externalInputEl, toggleBtnEl, calendarEl } = getDatePickerContext(el);
 
   toggleBtnEl.disabled = true;
   externalInputEl.disabled = true;
+
+  if (!calendarEl.hidden) hideCalendar(el);
 };
 
 /**
@@ -819,11 +821,13 @@ const disable = (el) => {
  * @param {HTMLElement} el - The date picker element
  */
 const ariaDisable = (el) => {
-  const { externalInputEl, toggleBtnEl } = getDatePickerContext(el);
+  const { externalInputEl, toggleBtnEl, calendarEl } = getDatePickerContext(el);
 
   toggleBtnEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("aria-disabled", true);
   externalInputEl.setAttribute("readonly", "");
+
+  if (!calendarEl.hidden) hideCalendar(el);
 };
 
 /**
@@ -1444,6 +1448,12 @@ const selectDate = (calendarDateEl) => {
 
   const { datePickerEl, externalInputEl } =
     getDatePickerContext(calendarDateEl);
+  if (
+    externalInputEl.matches(":disabled") ||
+    externalInputEl.hasAttribute("aria-disabled")
+  ) {
+    return;
+  }
 
   setCalendarValue(calendarDateEl, calendarDateEl.dataset.value);
   hideCalendar(datePickerEl);
