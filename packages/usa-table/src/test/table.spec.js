@@ -108,6 +108,29 @@ tests.forEach(({ name, selector: containerSelector }) => {
       assert.strictEqual(ariaLive.innerText.length > 0, true);
     });
 
+    it("throws a clear error when a sortable table is missing its caption", () => {
+      const errors = [];
+      const captureError = (event) => {
+        errors.push(event.error);
+        event.preventDefault();
+      };
+
+      root.querySelector("caption").remove();
+      window.addEventListener("error", captureError);
+
+      try {
+        alphabeticalSortButton.click();
+      } finally {
+        window.removeEventListener("error", captureError);
+      }
+
+      assert.strictEqual(errors.length, 1);
+      assert.strictEqual(
+        errors[0].message,
+        "Table containing a sortable column header is missing a caption element.",
+      );
+    });
+
     describe("Sortable column header", () => {
       it("has an aria-label that describes the current sort direction", () => {
         const currentSortDirection =

@@ -141,7 +141,15 @@ const sortRows = (header, isAscending) => {
  */
 
 const updateLiveRegion = (table, sortedHeader) => {
-  const caption = table.querySelector("caption").innerText;
+  const captionElement = table.querySelector("caption");
+
+  if (!captionElement) {
+    throw new Error(
+      `Table containing a sortable column header is missing a caption element.`,
+    );
+  }
+
+  const caption = captionElement.innerText;
   const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
   const headerLabel = sortedHeader.innerText;
   const liveRegion = table.nextElementSibling;
