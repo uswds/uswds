@@ -35,7 +35,8 @@ let TYPE_IS_VALID = Boolean(true); // logic gate for change listener
 let DEFAULT_ARIA_LABEL_TEXT = "";
 let DEFAULT_FILE_STATUS_TEXT = "";
 
-const instructionMediaQueryCleanups = new WeakMap();
+const fileInputCleanups = new WeakMap();
+let nextDescriptionId = 0;
 
 const getFinePointerMediaQueryList = () => {
   if (typeof window.matchMedia !== "function") {
@@ -282,6 +283,96 @@ const createSROnlyStatus = (fileInputEl) => {
 
   // Add the status element to the DOM
   fileInputParent.insertBefore(statusEl, fileInputTarget);
+};
+
+/**
+ * Describe the selected filenames when focus returns to a multiple-file input.
+ * Some browsers expose only the file count when two or more files are selected.
+ *
+ * @param {HTMLInputElement} fileInputEl - The file input that accepts multiple files.
+ * @returns {() => void} A function that removes the description and its event listeners.
+ */
+const addFileNameDescription = (fileInputEl) => {
+  const ariaDescribedKey = "aria-describedby";
+  const namesEl = document.createElement("span");
+  namesEl.hidden = true;
+
+  const root = fileInputEl.getRootNode();
+
+  do {
+    nextDescriptionId += 1;
+    namesEl.id = `${DROPZONE_CLASS}-names-${nextDescriptionId}`;
+  } while (root.querySelector(`#${namesEl.id}`));
+
+  fileInputEl.after(namesEl);
+
+  const getDescriptionIds = () =>
+    (fileInputEl.getAttribute(ariaDescribedKey) || "")
+      .split(/\s+/)
+      .filter(Boolean);
+
+  const clearNames = () => {
+    namesEl.textContent = "";
+
+    const ids = getDescriptionIds();
+
+    if (!ids.includes(namesEl.id)) return;
+
+    const remaining = ids.filter((id) => id !== namesEl.id);
+
+    if (remaining.length) {
+      fileInputEl.setAttribute(ariaDescribedKey, remaining.join(" "));
+    } else {
+      fileInputEl.removeAttribute(ariaDescribedKey);
+    }
+  };
+
+  const describeNames = () => {
+    if (fileInputEl.files.length < 2) {
+      clearNames();
+      return;
+    }
+
+    namesEl.textContent = Array.from(
+      fileInputEl.files,
+      (file) => file.name,
+    ).join(", ");
+
+    const ids = getDescriptionIds();
+
+    if (!ids.includes(namesEl.id)) {
+      fileInputEl.setAttribute(
+        ariaDescribedKey,
+        [...ids, namesEl.id].join(" "),
+      );
+    }
+  };
+
+  const form = fileInputEl.form;
+  const onReset = (event) => {
+    // It's needed to check the selection in a later macrotask because a microtask can run before the browser clears the FileList on reset.
+    setTimeout(() => {
+      if (!event.defaultPrevented && !fileInputEl.files.length) clearNames();
+    }, 0);
+  };
+
+  fileInputEl.addEventListener("focus", describeNames);
+  fileInputEl.addEventListener("change", clearNames);
+
+  form?.addEventListener("reset", onReset);
+
+  if (root.activeElement === fileInputEl) describeNames();
+
+  return () => {
+    fileInputEl.removeEventListener("focus", describeNames);
+    fileInputEl.removeEventListener("change", clearNames);
+
+    form?.removeEventListener("reset", onReset);
+
+    clearNames();
+
+    namesEl.remove();
+  };
 };
 
 /**
@@ -618,12 +709,13 @@ const fileInput = behavior(
         const removeInstructionMediaQueryListener =
           addInstructionMediaQueryListener(fileInputEl, instructions);
 
-        if (removeInstructionMediaQueryListener) {
-          instructionMediaQueryCleanups.set(
-            fileInputEl,
-            removeInstructionMediaQueryListener,
-          );
-        }
+        const removeFileNameDescription = fileInputEl.multiple
+          ? addFileNameDescription(fileInputEl)
+          : null;
+        fileInputCleanups.set(fileInputEl, () => {
+          removeInstructionMediaQueryListener?.();
+          removeFileNameDescription?.();
+        });
 
         dropTarget.addEventListener(
           "dragover",
@@ -658,14 +750,10 @@ const fileInput = behavior(
     },
     teardown(root) {
       selectOrMatches(INPUT, root).forEach((fileInputEl) => {
-        const removeInstructionMediaQueryListener =
-          instructionMediaQueryCleanups.get(fileInputEl);
         const fileInputTopElement = fileInputEl.parentElement.parentElement;
 
-        if (removeInstructionMediaQueryListener) {
-          removeInstructionMediaQueryListener();
-          instructionMediaQueryCleanups.delete(fileInputEl);
-        }
+        fileInputCleanups.get(fileInputEl)?.();
+        fileInputCleanups.delete(fileInputEl);
 
         fileInputTopElement.parentElement.replaceChild(
           fileInputEl,

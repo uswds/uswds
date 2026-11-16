@@ -91,3 +91,82 @@ tests.forEach(({ name, selector: containerSelector }) => {
     });
   });
 });
+
+describe("Returning to a multiple-file input", () => {
+  let input;
+  let selection;
+  const description = () =>
+    (input.getAttribute("aria-describedby") || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((id) => document.getElementById(id).textContent);
+
+  beforeEach(() => {
+    document.body.innerHTML = `<form><span id="hint">Choose documents</span>
+      <span id="error">Check the dates</span>
+      <input class="usa-file-input" type="file" multiple aria-describedby="hint error">
+      <button type="button">Continue</button></form>`;
+    input = document.querySelector("input");
+    selection = [];
+    Object.defineProperty(input, "files", { get: () => selection });
+    fileInput.on(document.body);
+  });
+
+  afterEach(() => {
+    fileInput.off(document.body);
+    document.body.innerHTML = "";
+  });
+
+  const revisit = (...names) => {
+    document.querySelector("button").focus();
+    selection = names.map((name) => new window.File([], name));
+    input.focus();
+  };
+
+  it("describes the current filenames alongside the hint and error", () => {
+    revisit("june.txt", "july.txt");
+    assert.deepStrictEqual(description(), [
+      "Choose documents",
+      "Check the dates",
+      "june.txt, july.txt",
+    ]);
+    revisit("july.txt", "Q3 & <notes>.txt");
+    assert.deepStrictEqual(description(), [
+      "Choose documents",
+      "Check the dates",
+      "july.txt, Q3 & <notes>.txt",
+    ]);
+    revisit("july.txt");
+    assert.deepStrictEqual(description(), [
+      "Choose documents",
+      "Check the dates",
+    ]);
+    revisit();
+    assert.deepStrictEqual(description(), [
+      "Choose documents",
+      "Check the dates",
+    ]);
+  });
+
+  it("keeps descriptions added by the application when the component is removed", () => {
+    revisit("june.txt", "july.txt");
+    const ids = input.getAttribute("aria-describedby");
+    const addedId = ids.split(" ").at(-1);
+    assert.strictEqual(
+      document.getElementById(addedId).textContent,
+      "june.txt, july.txt",
+    );
+    input.setAttribute("aria-describedby", `${ids} extra`);
+    fileInput.off(document.body);
+    assert.strictEqual(
+      input.getAttribute("aria-describedby"),
+      "hint error extra",
+    );
+    assert.strictEqual(document.getElementById(addedId), null);
+    revisit("one.txt", "two.txt");
+    assert.strictEqual(
+      input.getAttribute("aria-describedby"),
+      "hint error extra",
+    );
+  });
+});
