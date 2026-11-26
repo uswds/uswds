@@ -16,6 +16,8 @@ const VISIBLE_CLASS = "is-visible";
 const TRIANGLE_SIZE = 5;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
+const mouseleaveHandlers = new WeakMap();
+
 /**
  *
  * @param {DOMElement} trigger - The tooltip trigger
@@ -311,8 +313,30 @@ const hideToolTip = (tooltipBody) => {
  * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
  */
 const setUpAttributes = (tooltipTrigger) => {
-  const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
   const tooltipContent = tooltipTrigger.getAttribute("title");
+  const existingWrapper = tooltipTrigger.parentNode;
+
+  // Update an existing tooltip instead of building a second one
+  if (
+    tooltipTrigger.classList.contains(TOOLTIP_TRIGGER_CLASS) &&
+    existingWrapper.classList.contains(TOOLTIP_CLASS)
+  ) {
+    const { body: existingBody } = getTooltipElements(tooltipTrigger);
+
+    if (existingBody) {
+      existingBody.textContent = tooltipContent;
+      tooltipTrigger.removeAttribute("title");
+
+      return {
+        tooltipBody: existingBody,
+        position: tooltipTrigger.getAttribute("data-position"),
+        tooltipContent,
+        wrapper: existingWrapper,
+      };
+    }
+  }
+
+  const tooltipID = `tooltip-${Math.floor(Math.random() * 900000) + 100000}`;
   const wrapper = document.createElement("span");
   const tooltipBody = document.createElement("span");
   const additionalClasses = tooltipTrigger.getAttribute("data-classes");
@@ -353,6 +377,10 @@ const setUpAttributes = (tooltipTrigger) => {
 
   // place the text in the tooltip
   tooltipBody.textContent = tooltipContent;
+
+  const handleMouseleave = () => hideToolTip(tooltipBody);
+  wrapper.addEventListener("mouseleave", handleMouseleave);
+  mouseleaveHandlers.set(wrapper, handleMouseleave);
 
   return { tooltipBody, position, tooltipContent, wrapper };
 };
@@ -404,14 +432,16 @@ const tooltip = behavior(
     init(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipTrigger) => {
         setUpAttributes(tooltipTrigger);
-
-        const { body, wrapper } = getTooltipElements(tooltipTrigger);
-        wrapper.addEventListener("mouseleave", () => hideToolTip(body));
       });
     },
     teardown(root) {
       selectOrMatches(TOOLTIP, root).forEach((tooltipWrapper) => {
-        tooltipWrapper.removeEventListener("mouseleave", hideToolTip);
+        const handleMouseleave = mouseleaveHandlers.get(tooltipWrapper);
+
+        if (handleMouseleave) {
+          tooltipWrapper.removeEventListener("mouseleave", handleMouseleave);
+          mouseleaveHandlers.delete(tooltipWrapper);
+        }
       });
     },
     setup: setUpAttributes,
