@@ -98,6 +98,7 @@ export default function uswdsCjsPlugin(options = {}) {
         if (!suffix) continue;
 
         const stmtEnd = braceClose + 1 + suffix[0].replace(/\r?\n$/, "").length;
+        // eslint-disable-next-line no-plusplus -- post-increment needed for correct zero-based counter assignment
         const varName = `_mod${modCounter++}`;
         const collapsed = code
           .slice(braceOpen - 1, braceClose + 1)

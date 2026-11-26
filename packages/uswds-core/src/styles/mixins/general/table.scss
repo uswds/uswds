@@ -292,7 +292,9 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   /* stylelint-enable selector-class-pattern */
 
   thead {
-    th[aria-sort] {
+    th[aria-sort="ascending"],
+    th[aria-sort="descending"],
+    th[aria-sort="other"] {
       background-color: color($theme-table-sorted-header-background-color);
       color: $table-sorted-header-text-color;
     }
@@ -316,7 +318,9 @@ $table-unsorted-icon-color: get-color-token-from-bg(
     border-top: 0;
     color: color($table-text-color);
 
-    &[aria-sort] {
+    &[aria-sort="ascending"],
+    &[aria-sort="descending"],
+    &[aria-sort="other"] {
       color: $table-sorted-header-text-color;
     }
   }
@@ -326,7 +330,8 @@ $table-unsorted-icon-color: get-color-token-from-bg(
   }
 
   /* stylelint-disable selector-class-pattern */
-  th[data-sortable]:not([aria-sort]) {
+  th[data-sortable]:not([aria-sort]),
+  th[data-sortable][aria-sort="none"] {
     .usa-table__header__button .usa-icon > g.unsorted {
       fill: color($table-text-color);
     }

@@ -1,0 +1,72 @@
+{#
+  Side-by-side comparison for issue #6212: the same pagination authored with
+  links and with buttons. The two should be visually identical. Rendering them
+  one above the other is what makes a difference visible, since the original
+  bug was only obvious when the two were compared.
+#}
+<section class="usa-section grid-container">
+  <h1>Link and button elements</h1>
+
+  <h2>Links (<code>&lt;a&gt;</code>)</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination rendered with links',
+      'pagination': {
+        'items': 24,
+        'current': 10,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page,'
+        }
+      }
+    }
+  %}
+
+  <h2>Buttons (<code>&lt;button&gt;</code>)</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'pagination rendered with buttons',
+      'pagination': {
+        'element': 'button',
+        'items': 24,
+        'current': 10,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        },
+        'last_item': {
+          'label': 'Last page,'
+        }
+      }
+    }
+  %}
+
+  <h2>Unbounded, buttons</h2>
+  {% include "@components/usa-pagination/src/usa-pagination.twig" with
+    {
+      'aria_label': 'unbounded pagination rendered with buttons',
+      'pagination': {
+        'element': 'button',
+        'unbounded': true,
+        'items': 9,
+        'current': 5,
+        'page_label': 'Page',
+        'previous': {
+          'label': 'Previous'
+        },
+        'next': {
+          'label': 'Next'
+        }
+      }
+    }
+  %}
+</section>

@@ -337,7 +337,9 @@ From `eslint.config.mjs`:
 **Required sections:**
 
 ### Title format
-`USWDS - [Package]: [Brief statement]`
+`type(scope): description`, with optional scope and `!` before the colon for breaking changes.
+
+Use the allowed types and syntax in [CONTRIBUTING.md](../../../../CONTRIBUTING.md#pull-request-titles). The `PR title` check validates syntax; reviewers assess whether the type, scope, and description match the actual diff. Working commits need not use this format.
 
 ### Body sections
 

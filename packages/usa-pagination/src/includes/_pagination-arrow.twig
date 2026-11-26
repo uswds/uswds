@@ -8,9 +8,13 @@
     'aria_label': pagination[direction]['label'] ~ ' ' ~ pagination.page_label | lower
   } %}
 
+  {# Matches the page numbers: the tag varies, the classes and ARIA do not. #}
+  {% set is_button = pagination.element is same as("button") %}
+  {% set tag = is_button ? "button" : "a" %}
+
   <li class="usa-pagination__item usa-pagination__arrow">
-    <a
-      href="{{ placeholder_link | default("javascript:void(0);") }}"
+    <{{ tag }}
+      {% if is_button %}type="button"{% else %}href="{{ placeholder_link | default("javascript:void(0);") }}"{% endif %}
       class="{{ link_attrs.class }}"
       aria-label="{{ link_attrs.aria_label }}"
     >
@@ -29,6 +33,6 @@
           <use href="./img/sprite.svg#navigate_next"></use>
         </svg>
       {% endif %}
-    </a>
+    </{{ tag }}>
   </li>
 {% endmacro %}

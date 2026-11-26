@@ -23,7 +23,7 @@ jobs:
       - restore_cache:
           keys:
             - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run: npm ci
       - run: npx playwright install
       - save_cache:
           paths:

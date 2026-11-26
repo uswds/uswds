@@ -162,7 +162,7 @@ If the change introduces a pattern not covered by any Core-scoped ADR (e.g., a n
 > ⏸️ **Hold** — pending core team architectural decision
 >
 > This introduces [describe the pattern: what it is, why it's new, what precedent it breaks or extends]. The proposals repo has no Core-scoped ADR covering this approach yet. Per team practice (#6738 i18n, #6681 range-slider layout), a decision of this scope requires:
-> 1. Core team discussion (likely in a dev sync or Slack thread)
+> 1. Core team discussion in [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions)
 > 2. A new `decisions/0012-*.md` ADR in uswds/uswds-proposals, scoped to **USWDS Core**
 > 3. Reopen this PR once the ADR moves to Approved status
 >

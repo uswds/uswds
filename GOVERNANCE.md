@@ -95,10 +95,7 @@ As with other [Tier3 Open Source Community Projects](https://github.com/DSACMS/r
 
 The [COMMUNITY.md](./COMMUNITY.md) file outlines how USWDS Contributor (committer) and USWDS Maintainer privileges are approved and managed, and how to join the USWDS Open Source Community.
 
-Final approval responsibility (and accountability) for USWDS ultimately rest on government-funded staff — in this case, one full-time federal lead (hi 👋, it's me, [Anne](https://github.com/annepetersen) — I'm writing this at the moment) within Technology Transformation Services (TTS), inside of the General Services Administration (GSA). The USWDS Lead, always a federal employee, can be supported in these decisions most directly by other TTS staff and contractors. As of this writing (July 2026), this full team consists of:
-
-### USWDS Full-time Federal Staff (Admin)
-- [@annepetersen](https://github.com/annepetersen), USWDS Lead and Product Owner (GSA / TTS / USWDS)
+Final approval responsibility and accountability for USWDS rest with government-funded staff within Technology Transformation Services (TTS), part of the General Services Administration (GSA). The federal USWDS lead can be supported in these decisions by other TTS staff and contractors. See [USWDS Community Maintainers](./COMMUNITY.md#uswds-community-maintainers) for community contacts.
 
 ### USWDS Part-time Federal Staff (Maintainer)
 - [@chandracarney](https://github.com/chandracarney), TTS Accessibility Lead (GSA / TTS)
@@ -134,7 +131,7 @@ Feature requests should be made through GitHub Issues using the [feature request
 
 ### Accepting general feedback
 
-You can provide feedback through uswds@gsa.gov or [GitHub Issues](https://github.com/uswds/uswds/issues).
+Ask questions and share general feedback in [USWDS GitHub Discussions](https://github.com/uswds/uswds/discussions). Report bugs and request changes through [GitHub Issues](https://github.com/uswds/uswds/issues), or email [uswds@gsa.gov](mailto:uswds@gsa.gov).
 
 ### Communicating roadmap
 

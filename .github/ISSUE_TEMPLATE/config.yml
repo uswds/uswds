@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or get help
+    url: https://github.com/uswds/uswds/discussions/new?category=q-a
+    about: Get help with setup, customization, and using USWDS. Start here if you are unsure whether you found a bug.
+  - name: Propose a new component or pattern
+    url: https://github.com/uswds/uswds/discussions/new?category=proposals
+    about: Develop a new component or pattern proposal with the community.
+  - name: Explore an idea
+    url: https://github.com/uswds/uswds/discussions/new?category=ideas
+    about: Discuss early ideas and tradeoffs before defining implementation work.
+  - name: Report a documentation website problem
+    url: https://github.com/uswds/uswds-site/issues/new/choose
+    about: Report incorrect documentation, broken links, or problems with designsystem.digital.gov.

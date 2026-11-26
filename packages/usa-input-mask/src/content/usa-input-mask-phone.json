@@ -1,6 +1,6 @@
 {
   "label": "US Telephone Number",
-  "hint": "For example, 123-456-7890",
+  "hint": "Enter 10 digits, including the area code. Do not include a country code. For example, 123-456-7890.",
   "id": "tel",
   "type": "tel",
   "inputmode": "numeric",

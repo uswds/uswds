@@ -88,7 +88,7 @@ const pluginsConfig = {
 };
 
 const testConfig = {
-  files: ["**/*.spec.js", "**/*.spec.mjs"],
+  files: ["**/*.spec.js", "**/*.spec.mjs", "**/*.spec.cjs"],
   rules: {
     "no-unsanitized/method": "off",
     "no-unsanitized/property": "off",
@@ -96,6 +96,16 @@ const testConfig = {
 };
 
 export default [
+  {
+    ignores: [
+      "dist/",
+      "_site/",
+      "node_modules/",
+      "packages/*/dist/",
+      "**/*.min.js",
+      ".agents/",
+    ],
+  },
   litConfigs["flat/recommended"],
   eslint.configs.recommended,
   baseConfig,

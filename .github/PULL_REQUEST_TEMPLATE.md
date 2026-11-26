@@ -1,6 +1,6 @@
 <!---
 Welcome! Thank you for contributing to the U.S. Web Design System.
-Your contributions are vital to our success and we are glad you're here.
+Your contributions are vital to our success, and we are glad you're here.
 
 Please keep in mind:
 - This pull request (PR) template exists to help speed up integration.
@@ -25,8 +25,11 @@ Please keep in mind:
 
 <!---
 Step 1 - Title this PR with the following format:
-USWDS - [Package]: [Brief statement describing what this pull request solves]
-eg: "USWDS - Button: Increase font size"
+type(scope): describe the change
+Examples: "fix(button): correct focus styling" or "docs: clarify installation".
+Scope is optional. Use ! before the colon for a breaking change.
+See CONTRIBUTING.md#pull-request-titles for allowed types and examples.
+The PR title becomes the squash commit title; working commits need not follow this format.
  -->
 
 # Summary
@@ -108,6 +111,25 @@ It can be helpful if we understand:
 
 _For complex PRs, create a list of the significant updates made._
 
+## AI disclosure
+
+What AI tools did you use to create this MR?
+
+- [ ] No AI
+- [ ] Chat
+- [ ] Completions (e.g. Copilot)
+- [ ] Coding Agent
+
+## Author's checklist
+
+- [ ] Removed redundant AI comments (if applicable)
+- [ ] The changes on this PR are strictly limited to the ticket requirements (i.e., no scope creep)
+- [ ] I personally witnessed this code working in a local environment
+- [ ] Automated tests are passing
+- [ ] I have manually tested accessibility using physical devices and relevant assistive technology
+  - [ ] [List the physical devices and assistive technology here]
+- [ ] I understand all the code and could debug it without AI 6 months from now
+
 ## Testing and review
 
 _Share recommended methods for reviewing this change._
@@ -133,9 +155,7 @@ include a list of the changed dependencies and version numbers.
 
 <!--
 Before opening this PR, make sure you’ve done whichever of these applies to you:
-- [ ] Confirm that this code follows the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/) and [Accessibility Guide](https://pages.18f.gov/accessibility/checklist/).
 - [ ] Run `git pull origin [base branch]` to pull in the most recent updates from your base and check for merge conflicts. (Often, the base branch is `develop`).
 - [ ] Run `npm run prettier:sass` to format any Sass updates.
 - [ ] Run `npm test` and confirm that all tests pass.
-- [ ] Run your code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and make sure it’s error free.
 -->
